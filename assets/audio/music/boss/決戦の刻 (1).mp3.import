@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cmwfb1j82hlrd"
+path="res://.godot/imported/決戦の刻 (1).mp3-bcb2e7c598286670ff489e69368ca04d.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/boss/決戦の刻 (1).mp3"
+dest_files=["res://.godot/imported/決戦の刻 (1).mp3-bcb2e7c598286670ff489e69368ca04d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

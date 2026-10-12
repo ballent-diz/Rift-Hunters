@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bdtrupksjltxp"
+path="res://.godot/imported/Final Stand.mp3-ef63f8137f7cbe8e87404e5e58e1ffc2.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/boss/Final Stand.mp3"
+dest_files=["res://.godot/imported/Final Stand.mp3-ef63f8137f7cbe8e87404e5e58e1ffc2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
