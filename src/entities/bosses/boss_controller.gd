@@ -3,6 +3,13 @@ extends RefCounted
 ## Pilote un Dévoreur : phases, choix d'attaques pondéré, mécaniques (absorption, cœur exposé, cristaux).
 ## Chaque attaque est une méthode _pattern_<kind> paramétrée par BossPatternData.
 
+## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
+const PATTERN_ANIMATIONS := {
+	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
+	&"void_beam": &"phase2_attack", &"crystals": &"phase2_attack", &"rock_rain": &"attack",
+	&"charge": &"attack", &"quake": &"attack",
+}
+
 var ctx: RunContext
 var boss: Enemy
 var data: BossData
@@ -87,6 +94,7 @@ func step(delta: float) -> void:
 			_ready_at[pattern.kind] = ctx.time + pattern.cooldown
 			Audio.play_sfx(&"boss_telegraph")
 			call("_pattern_" + String(pattern.kind), pattern)
+			boss.visual.play_action(PATTERN_ANIMATIONS.get(pattern.kind, &"attack"))
 			ctx.stats.add(&"boss_patterns")
 		_next_pattern_time = ctx.time + phase().pattern_interval * (0.7 if enraged else 1.0)
 
@@ -120,6 +128,7 @@ func _check_phase() -> void:
 	ctx.hazards.add_ring(boss.position, 520.0, 700.0, 30.0, 10.0 * ctx.difficulty.enemy_damage_mult, true, data.id,
 		[ctx.rng.randf() * TAU], 0.5, [], p.transition_time * 0.5)
 	ctx.fx.burst(boss.position, boss.radius * 2.0, Color(0.8, 0.3, 1.0, 0.5))
+	boss.visual.play_action(&"transform")
 	ctx.events.boss_phase_changed.emit(phase_index)
 
 

@@ -64,6 +64,10 @@ func _refresh_visual() -> void:
 	var visual_data: VisualData = data.visual
 	if evolution and evolution.visual:
 		visual_data = evolution.visual
+		# Évolution sans feuille de sprites mais forme de base dessinée : sprite de base teinté.
+		if not Assets.has_sheet(evolution.visual.visual_id) and Assets.has_sheet(data.visual.visual_id):
+			visual.setup(data.visual, evolution.visual.primary)
+			return
 	var palette: Array = ctx.setup.palettes.get(data.id, [])
 	if palette.size() == 2 and evolution == null:
 		visual.setup(visual_data, palette[0], palette[1])

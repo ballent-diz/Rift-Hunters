@@ -54,6 +54,10 @@ func has_sheet() -> bool:
 	return _anim != null
 
 
+func has_animation(anim: StringName) -> bool:
+	return _anim != null and _anim.sprite_frames.has_animation(anim)
+
+
 func play(anim: StringName) -> void:
 	if _anim and _anim.sprite_frames.has_animation(anim) and _anim.animation != anim:
 		_anim.play(anim)

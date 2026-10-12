@@ -446,8 +446,9 @@ func _remove_dead() -> void:
 		if enemy.alive:
 			kept.append(enemy)
 		elif enemy.is_boss:
-			# Le boss reste en mémoire (ctx.boss) mais quitte la simulation.
-			enemy.visible = false
+			# Le boss reste en mémoire (ctx.boss) mais quitte la simulation ; son animation de mort reste visible.
+			enemy.visible = enemy.visual.has_animation(&"death")
+			enemy.visual.play_action(&"death")
 		else:
 			if enemy.is_obstacle:
 				obstacles.erase(enemy)

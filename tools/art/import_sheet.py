@@ -11,7 +11,8 @@ job.json :
   "target_height": 46,                      hauteur de la créature (pixels d'art) dans l'animation de référence
   "keep_size": false,                       true : garde la taille d'origine (images déjà en pixel art à la bonne échelle)
   "status": "final",                        "final" (protégé de la génération procédurale) ou "wip"
-  "background": "auto",                     "auto" (couleur des bords), "#00ff00", ou "alpha" (déjà transparent)
+  "background": "auto",                     "auto" (couleur des bords), "#00ff00", "alpha" (déjà transparent),
+                                            ou "smooth" (fond en dégradé : suit le fond tant qu'il varie doucement)
   "tolerance": 60,                          tolérance du détourage (0-255)
   "holes": 0,                               > 0 : retire aussi le fond enfermé (ex. dans un arc de sabre), tolérance stricte
   "colors": 32,                             couleurs max de la palette commune (0 = pas de réduction)
@@ -19,7 +20,7 @@ job.json :
   "flip": false,                            true si les images regardent vers la gauche
   "hover": 0,                               créatures volantes : pixels entre le bas du corps et l'ancre (ombre au sol)
   "animations": [
-    {"name": "idle", "source": "idle.png", "frames": 6, "fps": 8, "loop": true,
+    {"name": "idle", "source": "idle.png", "frames": 6 (0 = détection automatique), "fps": 8, "loop": true,
      "layout": "auto" | "row" | "grid", "grid": [6, 1]}
   ],
   "aliases": {"technique": "attack"}       animations manquantes réutilisant une autre ligne (optionnel)
@@ -44,6 +45,8 @@ def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 
     if mode == "alpha":
         arr[arr[:, :, 3] < 128, 3] = 0
         return Image.fromarray(arr, "RGBA")
+    if mode == "smooth":
+        return _remove_smooth(arr, tolerance)
     if mode == "auto":
         border = np.concatenate([arr[0, :, :3], arr[-1, :, :3], arr[:, 0, :3], arr[:, -1, :3]])
         colors, counts = np.unique(border.reshape(-1, 3) // 8, axis=0, return_counts=True)
@@ -99,6 +102,34 @@ def _label(mask):
     return labels, count
 
 
+def _remove_smooth(arr, step):
+    """Fond en dégradé (halos lumineux) : remplissage depuis les bords, de proche en proche, tant que l'écart
+    entre deux pixels voisins reste sous `step`. Le contour sombre des personnages arrête le remplissage."""
+    rgb = arr[:, :, :3].astype(int)
+    h, w = rgb.shape[:2]
+    background = np.zeros((h, w), dtype=bool)
+    stack = [(y, x) for x in range(w) for y in (0, h - 1)] + [(y, x) for y in range(h) for x in (0, w - 1)]
+    for y, x in stack:
+        background[y, x] = True
+    while stack:
+        y, x = stack.pop()
+        for ny, nx in ((y - 1, x), (y + 1, x), (y, x - 1), (y, x + 1)):
+            if 0 <= ny < h and 0 <= nx < w and not background[ny, nx]:
+                if np.abs(rgb[ny, nx] - rgb[y, x]).max() <= step:
+                    background[ny, nx] = True
+                    stack.append((ny, nx))
+    arr[background, 3] = 0
+    # Liseré : pixels encore proches de leur voisin de fond (dégradé du halo) retirés une fois.
+    edge = _touches(background) & ~background
+    soft = np.zeros((h, w), dtype=bool)
+    for dy, dx in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+        shifted_bg = np.roll(background, (dy, dx), axis=(0, 1))
+        shifted_rgb = np.roll(rgb, (dy, dx), axis=(0, 1))
+        soft |= edge & shifted_bg & (np.abs(rgb - shifted_rgb).max(axis=2) <= step * 2)
+    arr[soft, 3] = 0
+    return Image.fromarray(arr, "RGBA")
+
+
 def _touches(mask):
     out = np.zeros_like(mask)
     out[1:, :] |= mask[:-1, :]
@@ -130,6 +161,9 @@ def split_frames(img: Image.Image, count: int, layout: str, grid=None) -> list:
             if x - start > 2:
                 segments.append((start, x))
             start = None
+    if count <= 0:
+        # Nombre d'images inconnu : chaque groupe assez large est une image, les petits morceaux sont rattachés.
+        count = max(1, sum(1 for a, b in segments if b - a >= 14))
     # Petits morceaux détachés (étincelles, traînée de sabre) : rattachés au voisin le plus proche.
     while len(segments) > count:
         k = min(range(len(segments)), key=lambda i: segments[i][1] - segments[i][0])
@@ -142,6 +176,25 @@ def split_frames(img: Image.Image, count: int, layout: str, grid=None) -> list:
         # Repli : grille régulière d'une ligne.
         return split_frames(img, count, "grid", (count, 1))
     return [img.crop((a, 0, b, img.height)) for a, b in segments]
+
+
+def isolate_frame(frame: Image.Image) -> Image.Image:
+    """Retire les morceaux d'images voisines (découpage en grille) : on garde la plus grande zone et les zones
+    qui ne touchent pas les bords gauche/droit."""
+    arr = np.array(frame)
+    labels, count = _label(arr[:, :, 3] > 0)
+    if count <= 1:
+        return frame
+    sizes = [(labels == i).sum() for i in range(1, count + 1)]
+    main = 1 + int(np.argmax(sizes))
+    w = arr.shape[1]
+    for i in range(1, count + 1):
+        if i == main:
+            continue
+        xs = np.nonzero((labels == i).any(axis=0))[0]
+        if xs.min() == 0 or xs.max() == w - 1:
+            arr[labels == i, 3] = 0
+    return Image.fromarray(arr, "RGBA")
 
 
 def crop_alpha(frame: Image.Image) -> Image.Image:
@@ -198,7 +251,10 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
         img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)), int(job.get("holes", 0)))
         if job.get("flip"):
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
-        frames = [crop_alpha(fr) for fr in split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"))]
+        frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"))
+        if anim.get("isolate", job.get("isolate", False)):
+            frames = [isolate_frame(fr) for fr in frames]
+        frames = [crop_alpha(fr) for fr in frames]
         sources.append((anim, frames))
     # Échelle commune : la hauteur médiane de l'animation de référence devient target_height.
     reference = sources[0][1]

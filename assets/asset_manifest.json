@@ -96,84 +96,98 @@
 			"icon": "res://assets/ui/icons/monsters/ashblade.png"
 		},
 		"monster.mossback": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/pyrolith/job.json",
 			"sheet": "res://assets/sprites/monsters/mossback/mossback_sheet.png",
 			"cell": [
-				64,
-				64
+				96,
+				88
 			],
 			"anchor": [
-				32,
-				54
+				48,
+				82
 			],
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
+					"frames": 4,
 					"fps": 6,
 					"loop": true
 				},
 				"move": {
 					"row": 1,
-					"frames": 8,
-					"fps": 10,
+					"frames": 4,
+					"fps": 8,
 					"loop": true
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
-					"fps": 12,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
 					"loop": false
 				},
 				"technique": {
-					"row": 3,
-					"frames": 8,
-					"fps": 12,
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/mossback.png",
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/monsters/mossback.png"
 		},
 		"monster.glimmerwing": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/aqualis/job.json",
 			"sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_sheet.png",
 			"cell": [
-				64,
-				64
+				96,
+				88
 			],
 			"anchor": [
-				32,
-				58
+				48,
+				82
 			],
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
-					"fps": 10,
+					"frames": 4,
+					"fps": 6,
 					"loop": true
 				},
 				"move": {
 					"row": 1,
-					"frames": 6,
-					"fps": 12,
+					"frames": 4,
+					"fps": 8,
 					"loop": true
 				},
 				"attack": {
 					"row": 2,
-					"frames": 5,
-					"fps": 14,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
 					"loop": false
 				},
 				"technique": {
-					"row": 3,
-					"frames": 8,
-					"fps": 14,
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/glimmerwing.png",
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/monsters/glimmerwing.png"
 		},
 		"enemy.skitterling": {
 			"status": "planned",
@@ -323,188 +337,210 @@
 			"scale": 0.5
 		},
 		"boss.nebulorax": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.nebulorax/job.json",
 			"sheet": "res://assets/sprites/bosses/nebulorax/nebulorax_sheet.png",
 			"cell": [
-				320,
-				320
+				128,
+				104
 			],
 			"anchor": [
-				160,
-				160
+				64,
+				56
 			],
+			"scale": 2.2,
 			"animations": {
 				"idle": {
 					"row": 0,
 					"frames": 6,
-					"fps": 8,
+					"fps": 7,
 					"loop": true
 				},
 				"move": {
 					"row": 1,
-					"frames": 8,
-					"fps": 10,
+					"frames": 7,
+					"fps": 9,
 					"loop": true
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
-					"fps": 12,
+					"frames": 8,
+					"fps": 10,
 					"loop": false
 				},
 				"shadow_wave": {
 					"row": 3,
 					"frames": 8,
-					"fps": 12,
+					"fps": 10,
 					"loop": false
 				},
 				"summon": {
 					"row": 4,
-					"frames": 8,
-					"fps": 10,
+					"frames": 7,
+					"fps": 9,
 					"loop": false
 				},
 				"transform": {
 					"row": 5,
-					"frames": 12,
-					"fps": 10,
+					"frames": 10,
+					"fps": 9,
 					"loop": false
 				},
 				"phase2_attack": {
 					"row": 6,
-					"frames": 8,
-					"fps": 12,
+					"frames": 5,
+					"fps": 10,
 					"loop": false
 				},
 				"death": {
 					"row": 7,
-					"frames": 8,
+					"frames": 6,
+					"fps": 7,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/nebulorax.png"
+		},
+		"monster.thornweave": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/sylvran/job.json",
+			"sheet": "res://assets/sprites/monsters/thornweave/thornweave_sheet.png",
+			"cell": [
+				96,
+				88
+			],
+			"anchor": [
+				48,
+				82
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
 					"fps": 10,
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/bosses/nebulorax.png",
-			"scale": 0.5
-		},
-		"monster.thornweave": {
-			"status": "planned",
-			"sheet": "res://assets/sprites/monsters/thornweave/thornweave_sheet.png",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				54
-			],
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 8,
-					"loop": true
-				},
-				"move": {
-					"row": 1,
-					"frames": 8,
-					"fps": 12,
-					"loop": true
-				},
-				"attack": {
-					"row": 2,
-					"frames": 6,
-					"fps": 14,
-					"loop": false
-				},
-				"technique": {
-					"row": 3,
-					"frames": 8,
-					"fps": 14,
-					"loop": false
-				}
-			},
-			"icon": "res://assets/ui/icons/monsters/thornweave.png",
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/monsters/thornweave.png"
 		},
 		"monster.voltwisp": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/zerak/job.json",
 			"sheet": "res://assets/sprites/monsters/voltwisp/voltwisp_sheet.png",
 			"cell": [
-				64,
-				64
+				96,
+				88
 			],
 			"anchor": [
-				32,
-				58
+				48,
+				82
 			],
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
-					"fps": 8,
+					"frames": 4,
+					"fps": 6,
 					"loop": true
 				},
 				"move": {
 					"row": 1,
-					"frames": 8,
-					"fps": 12,
+					"frames": 4,
+					"fps": 8,
 					"loop": true
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
-					"fps": 14,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
 					"loop": false
 				},
 				"technique": {
-					"row": 3,
-					"frames": 8,
-					"fps": 14,
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/voltwisp.png",
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/monsters/voltwisp.png"
 		},
 		"monster.gloommaw": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/nyxar/job.json",
 			"sheet": "res://assets/sprites/monsters/gloommaw/gloommaw_sheet.png",
 			"cell": [
-				64,
-				64
+				96,
+				88
 			],
 			"anchor": [
-				32,
-				54
+				48,
+				82
 			],
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
-					"fps": 8,
+					"frames": 4,
+					"fps": 6,
 					"loop": true
 				},
 				"move": {
 					"row": 1,
-					"frames": 8,
-					"fps": 12,
+					"frames": 4,
+					"fps": 8,
 					"loop": true
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
-					"fps": 14,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
 					"loop": false
 				},
 				"technique": {
-					"row": 3,
-					"frames": 8,
-					"fps": 14,
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/gloommaw.png",
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/monsters/gloommaw.png"
 		},
 		"monster.mirrorling": {
 			"status": "planned",

@@ -1,0 +1,54 @@
+{
+	"visual_id": "monster.thornweave",
+	"cell": [
+		96,
+		88
+	],
+	"anchor": [
+		48,
+		82
+	],
+	"scale": 0.5,
+	"keep_size": true,
+	"status": "final",
+	"background": "smooth",
+	"tolerance": 7,
+	"holes": 0,
+	"colors": 48,
+	"outline": true,
+	"flip": false,
+	"hover": 0,
+	"animations": [
+		{
+			"name": "idle",
+			"source": "idle.png",
+			"frames": 4,
+			"fps": 6,
+			"loop": true
+		},
+		{
+			"name": "move",
+			"source": "move.png",
+			"frames": 4,
+			"fps": 8,
+			"loop": true
+		},
+		{
+			"name": "attack",
+			"source": "attack.png",
+			"frames": 4,
+			"fps": 10,
+			"loop": false
+		},
+		{
+			"name": "death",
+			"source": "death.png",
+			"frames": 4,
+			"fps": 6,
+			"loop": false
+		}
+	],
+	"aliases": {
+		"technique": "attack"
+	}
+}
