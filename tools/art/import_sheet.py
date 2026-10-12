@@ -9,9 +9,11 @@ job.json :
   "cell": [64, 64], "anchor": [32, 54],     cellule et point des pieds (voir docs/ART_BIBLE.md)
   "scale": 0.5,                             unités du monde par pixel d'art
   "target_height": 46,                      hauteur de la créature (pixels d'art) dans l'animation de référence
+  "keep_size": false,                       true : garde la taille d'origine (images déjà en pixel art à la bonne échelle)
   "status": "final",                        "final" (protégé de la génération procédurale) ou "wip"
   "background": "auto",                     "auto" (couleur des bords), "#00ff00", ou "alpha" (déjà transparent)
   "tolerance": 60,                          tolérance du détourage (0-255)
+  "holes": 0,                               > 0 : retire aussi le fond enfermé (ex. dans un arc de sabre), tolérance stricte
   "colors": 32,                             couleurs max de la palette commune (0 = pas de réduction)
   "outline": true,                          ajoute un contour sombre d'1 pixel
   "flip": false,                            true si les images regardent vers la gauche
@@ -36,7 +38,7 @@ from pixelforge.sheet import EntitySpec, make_icon, make_preview, _save  # noqa:
 from pixelforge.palette import OUTLINE, hexrgb  # noqa: E402
 
 
-def remove_background(img: Image.Image, mode: str, tolerance: int) -> Image.Image:
+def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 0) -> Image.Image:
     rgba = img.convert("RGBA")
     arr = np.array(rgba)
     if mode == "alpha":
@@ -65,7 +67,36 @@ def remove_background(img: Image.Image, mode: str, tolerance: int) -> Image.Imag
     near = (dist <= tolerance * 1.6) & ~background
     halo = near & _touches(background)
     arr[halo, 3] = 0
+    if holes > 0:
+        # Fond enfermé dans le dessin (non relié aux bords) : seulement les zones assez grandes et très proches
+        # de la couleur du fond, pour ne pas trouer les parties sombres du personnage.
+        strict = (dist <= holes) & ~background
+        labels, count = _label(strict)
+        for i in range(1, count + 1):
+            zone = labels == i
+            if zone.sum() >= 8:
+                arr[zone, 3] = 0
     return Image.fromarray(arr, "RGBA")
+
+
+def _label(mask):
+    """Zones connexes (4 voisins) d'un masque booléen. Retourne (étiquettes, nombre)."""
+    h, w = mask.shape
+    labels = np.zeros((h, w), dtype=int)
+    count = 0
+    for y, x in zip(*np.nonzero(mask)):
+        if labels[y, x]:
+            continue
+        count += 1
+        labels[y, x] = count
+        stack = [(y, x)]
+        while stack:
+            cy, cx = stack.pop()
+            for ny, nx in ((cy - 1, cx), (cy + 1, cx), (cy, cx - 1), (cy, cx + 1)):
+                if 0 <= ny < h and 0 <= nx < w and mask[ny, nx] and not labels[ny, nx]:
+                    labels[ny, nx] = count
+                    stack.append((ny, nx))
+    return labels, count
 
 
 def _touches(mask):
@@ -99,6 +130,14 @@ def split_frames(img: Image.Image, count: int, layout: str, grid=None) -> list:
             if x - start > 2:
                 segments.append((start, x))
             start = None
+    # Petits morceaux détachés (étincelles, traînée de sabre) : rattachés au voisin le plus proche.
+    while len(segments) > count:
+        k = min(range(len(segments)), key=lambda i: segments[i][1] - segments[i][0])
+        gap_left = segments[k][0] - segments[k - 1][1] if k > 0 else 10 ** 9
+        gap_right = segments[k + 1][0] - segments[k][1] if k + 1 < len(segments) else 10 ** 9
+        j = k - 1 if gap_left <= gap_right else k + 1
+        a, b = sorted((k, j))
+        segments[a:b + 1] = [(segments[a][0], segments[b][1])]
     if len(segments) != count:
         # Repli : grille régulière d'une ligne.
         return split_frames(img, count, "grid", (count, 1))
@@ -156,7 +195,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     sources = []
     for anim in animations:
         img = Image.open(os.path.join(job_dir, anim["source"]))
-        img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)))
+        img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)), int(job.get("holes", 0)))
         if job.get("flip"):
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
         frames = [crop_alpha(fr) for fr in split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"))]
@@ -164,11 +203,14 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     # Échelle commune : la hauteur médiane de l'animation de référence devient target_height.
     reference = sources[0][1]
     heights = sorted(fr.height for fr in reference)
-    factor = float(job.get("target_height", ch * 0.75)) / heights[len(heights) // 2]
+    factor = 1.0 if job.get("keep_size") else float(job.get("target_height", ch * 0.75)) / heights[len(heights) // 2]
     scaled = []
     for anim, frames in sources:
         out = []
         for fr in frames:
+            if factor == 1.0:
+                out.append(fr)
+                continue
             size = (max(1, round(fr.width * factor)), max(1, round(fr.height * factor)))
             out.append(fr.resize(size, Image.BOX))
         scaled.append((anim, out))

@@ -2,50 +2,57 @@
 	"version": 1,
 	"entries": {
 		"player.hunter": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/player.hunter/job.json",
 			"sheet": "res://assets/sprites/players/hunter/hunter_sheet.png",
 			"cell": [
-				64,
-				64
+				96,
+				80
 			],
 			"anchor": [
-				32,
-				54
+				48,
+				74
 			],
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
 					"frames": 6,
-					"fps": 8,
+					"fps": 7,
 					"loop": true
 				},
 				"move": {
 					"row": 1,
-					"frames": 8,
-					"fps": 12,
+					"frames": 6,
+					"fps": 10,
 					"loop": true
 				},
-				"dash": {
+				"attack": {
 					"row": 2,
-					"frames": 4,
-					"fps": 20,
+					"frames": 7,
+					"fps": 18,
 					"loop": false
 				},
 				"hurt": {
 					"row": 3,
-					"frames": 3,
-					"fps": 12,
+					"frames": 7,
+					"fps": 16,
 					"loop": false
 				},
 				"death": {
 					"row": 4,
-					"frames": 8,
-					"fps": 10,
+					"frames": 6,
+					"fps": 8,
+					"loop": false
+				},
+				"dash": {
+					"row": 2,
+					"frames": 7,
+					"fps": 18,
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/players/hunter.png",
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/players/hunter.png"
 		},
 		"monster.ashblade": {
 			"status": "wip",

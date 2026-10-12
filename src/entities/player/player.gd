@@ -119,6 +119,7 @@ func _start_dash(move: Vector2) -> void:
 	dash_cooldown_left = maxf(stats.get_value(StatKeys.DASH_COOLDOWN), 0.4)
 	ctx.stats.add(&"dashes")
 	ctx.fx.ring(global_position, 18.0, Color(0.6, 0.95, 1.0, 0.6), 0.2)
+	visual.play_action(&"dash")
 
 
 func _constrain() -> void:
@@ -170,6 +171,7 @@ func receive_damage(amount: float) -> void:
 	_iframes = ctx.balance.hurt_iframes
 	hurt_flash = 1.0
 	visual.flash()
+	visual.play_action(&"hurt")
 	if hp <= 0.0:
 		if last_breaths_used < stats.get_int(StatKeys.LAST_BREATH):
 			last_breaths_used += 1
@@ -180,6 +182,7 @@ func receive_damage(amount: float) -> void:
 		else:
 			hp = 0.0
 			alive = false
+			visual.play_action(&"death")
 
 
 func heal(amount: float, show: bool = true) -> void:
@@ -213,7 +216,7 @@ func xp_ratio() -> float:
 
 
 func _draw() -> void:
-	# Repère de lisibilité sous le Chasseur (toujours visible dans la foule).
-	draw_arc(Vector2(0, 4), radius + 7.0, 0.0, TAU, 32, Color(0.55, 0.95, 1.0, 0.8), 2.0)
+	# Pas d'anneau sous le Chasseur (demande du propriétaire) : seul le bouclier est dessiné, centré sur le corps.
+	var body := Vector2(0, -14) if visual != null and visual.has_sheet() else Vector2.ZERO
 	if shield > 0.0:
-		draw_arc(Vector2.ZERO, radius + 12.0, 0.0, TAU, 32, Color(1.0, 0.95, 0.6, 0.8), 2.5)
+		draw_arc(body, radius + 12.0, 0.0, TAU, 32, Color(1.0, 0.95, 0.6, 0.8), 2.5)

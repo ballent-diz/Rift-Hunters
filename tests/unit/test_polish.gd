@@ -109,3 +109,18 @@ func test_measured_tempo_is_applied() -> void:
 			with_bpm += 1
 			check(bpm >= 100.0 and bpm <= 220.0, "tempo plausible pour %s : %.1f" % [id, bpm])
 	check(with_bpm > 0, "tempo mesuré appliqué aux musiques de partie")
+
+
+func test_player_sprite_and_death_animation() -> void:
+	var run: RunController = RunFixture.create(host, &"ashblade")
+	var player: Player = run.ctx.player
+	check(player.visual.has_sheet(), "le joueur utilise sa feuille de sprites (samouraï)")
+	player.receive_damage(99999.0)
+	check(not player.alive, "joueur vaincu")
+	for i: int in 30:
+		run._physics_process(1.0 / 60.0)
+	check(not run.ctx.finished, "l'écran de défaite attend la fin de l'animation de chute")
+	for i: int in 90:
+		run._physics_process(1.0 / 60.0)
+	check(run.ctx.finished, "écran de défaite après le délai (%.1f s)" % RunController.DEFEAT_DELAY)
+	RunFixture.dispose(run)

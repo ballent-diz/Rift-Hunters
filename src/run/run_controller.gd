@@ -4,6 +4,9 @@ extends Node
 
 signal finished(result: Dictionary)
 
+## Défaite : temps laissé à l'animation de chute du personnage avant l'écran de résultats (présentation).
+const DEFEAT_DELAY := 1.4
+
 var ctx: RunContext
 var spawner: SpawnDirector
 var event_director: EventDirector
@@ -20,6 +23,7 @@ var rewards: Dictionary = {}
 var skip_profile: bool = false
 var _pending_chests: int = 0
 var _victory_timer: float = -1.0
+var _defeat_timer: float = -1.0
 var _shake: float = 0.0
 var _modal_open: bool = false
 var _hitstop: float = 0.0
@@ -235,7 +239,11 @@ func _physics_process(delta: float) -> void:
 			_finish(true)
 		return
 	if not ctx.player.alive:
-		_finish(false)
+		if _defeat_timer < 0.0:
+			_defeat_timer = DEFEAT_DELAY if ctx.player.visual.has_sheet() else 0.0
+		_defeat_timer -= delta
+		if _defeat_timer <= 0.0:
+			_finish(false)
 		return
 	_open_modals()
 

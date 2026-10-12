@@ -68,6 +68,8 @@ func play_action(anim: StringName) -> void:
 
 
 func _on_action_finished() -> void:
+	if _action == &"death":
+		return  # reste sur la dernière image (corps au sol)
 	_action = &""
 	play(&"move" if _moving else &"idle")
 
