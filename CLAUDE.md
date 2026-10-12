@@ -19,14 +19,19 @@ Aucun lien avec une licence existante : noms, créatures, visuels et mécaniques
 ## Commandes
 
 ```bash
-tools/run_tests.sh            # import + scripts + tests unitaires + persistance + assets + partie bot + lint
-tools/run_tests.sh unit       # tests unitaires seulement (aussi : scripts, persistence, assets, smoke, lint)
+tools/run_tests.sh            # import + scripts + tests unitaires + persistance + assets + outils art + partie bot + lint
+tools/run_tests.sh unit       # tests unitaires seulement (aussi : scripts, persistence, assets, art, smoke, lint)
 tools/balance_sim.sh "mossback ashblade" "fractured_plain" "tension_0" 2   # campagne d'équilibrage (META=veteran)
 godot --headless --import --path .     # (ré)importer : OBLIGATOIRE après ajout d'un class_name ou d'une traduction
 godot --path .                         # lancer le jeu (nécessite un affichage)
 godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter=ashblade --arena=crystal_abyss
 gdlint src tests tools                 # lint GDScript (config : gdlintrc, lignes ≤ 130)
+python3 tools/art/build.py monster.ashblade              # sprites pixel art procéduraux (statut wip)
+python3 tools/art/import_sheet.py <dossier>/job.json     # importer des images générées (statut final)
 ```
+
+Graphismes : pixel art, règles dans `docs/ART_BIBLE.md` (cellules 64 px, `scale` 0,5, lumière
+haut-gauche, liseré violet bas-droite). Mode d'emploi de l'import : `assets/concepts/incoming/README.md`.
 
 Captures d'écran dans le cloud :
 `xvfb-run -a -s "-screen 0 1600x900x24" godot --path . --fixed-fps 60 --resolution 1600x900 res://tools/screenshot.tscn -- --out=<dossier> --times=20,60`
@@ -49,6 +54,7 @@ donne un tableau non typé.
 - `src/progression/` : sauvegarde versionnée, arbre, maîtrise, objectifs, recherche.
 - `src/ui/` : HUD, panneaux, refuge. L'UI lit les services, ne contient aucune règle de jeu.
 - `src/assets/` : registre d'assets + placeholders générés (le jeu démarre sans sprites finaux).
+- `tools/art/` : pixelforge (rendu pixel art procédural), recettes `creatures/`, import d'images, prompts.
 - Équilibrage centralisé : `data/balance/balance_config.tres`, `data/arenas/*.tres`,
   `data/difficulties/*.tres`. Pas de valeur d'équilibrage en dur dans le code de combat.
 

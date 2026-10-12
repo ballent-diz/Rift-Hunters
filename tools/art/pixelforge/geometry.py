@@ -102,3 +102,24 @@ class Poly(Shape):
         xs = [p[0] for p in self.points]
         ys = [p[1] for p in self.points]
         return max(1.0, min(max(xs) - min(xs), max(ys) - min(ys)) / 2.0)
+
+
+class Arc(Shape):
+    """Arc de cercle épais (entailles, ondes) : centre, rayon, épaisseur, angles de début et de fin (radians)."""
+
+    def __init__(self, cx, cy, r, width, a0, a1):
+        self.cx, self.cy, self.r, self.width, self.a0, self.a1 = cx, cy, r, width, a0, a1
+
+    def sdf(self, x, y):
+        px, py = x - self.cx, y - self.cy
+        ring = np.abs(np.hypot(px, py) - self.r) - self.width / 2.0
+        angle = np.arctan2(py, px)
+        mid = (self.a0 + self.a1) / 2.0
+        half = abs(self.a1 - self.a0) / 2.0
+        diff = np.abs((angle - mid + np.pi) % (2 * np.pi) - np.pi)
+        # Effilement : l'épaisseur diminue vers les extrémités de l'arc.
+        taper = np.clip(1.0 - diff / max(half, 1e-6), 0.0, 1.0)
+        return np.where(diff <= half, ring + (1.0 - taper) * self.width * 0.5, 1e3)
+
+    def thickness(self):
+        return self.width / 2.0

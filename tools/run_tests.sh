@@ -1,5 +1,5 @@
 #!/bin/bash
-# Lance les vérifications du projet. Usage : tools/run_tests.sh [all|unit|scripts|persistence|assets|smoke|lint]
+# Lance les vérifications du projet. Usage : tools/run_tests.sh [all|unit|scripts|persistence|assets|art|smoke|lint]
 # Les sorties sont écrites dans des fichiers puis affichées (évite les blocages de tampon).
 set -uo pipefail
 cd "$(dirname "$0")/.."
@@ -39,6 +39,12 @@ if [[ "$MODE" == "all" || "$MODE" == "persistence" ]]; then
 fi
 if [[ "$MODE" == "all" || "$MODE" == "assets" ]]; then
 	run_step assets "$GODOT" --headless --path . res://tools/validate_assets.tscn
+fi
+if [[ "$MODE" == "all" || "$MODE" == "art" ]]; then
+	# Outils pixel art (Python : numpy + Pillow). Ignoré si ces modules manquent.
+	if python3 -c "import numpy, PIL" > /dev/null 2>&1; then
+		run_step art python3 tools/art/test_import.py
+	fi
 fi
 if [[ "$MODE" == "all" || "$MODE" == "smoke" ]]; then
 	run_step smoke "$GODOT" --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter=ashblade --seed=1

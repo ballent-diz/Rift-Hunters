@@ -5,7 +5,7 @@ Chaque animation pose ce squelette image par image ; le moteur rastérise sans a
 chaque pièce avec une rampe de la palette (lumière en haut à gauche), puis pose un contour sélectif.
 """
 from .palette import PALETTE, OUTLINE, ramp, hexrgb
-from .geometry import Ellipse, Circle, Capsule, Poly, Box
+from .geometry import Ellipse, Circle, Capsule, Poly, Box, Arc
 from .rig import Part, Pose, Creature, Anim
 from .render import render_frame
 from .sheet import EntitySpec, build_entity

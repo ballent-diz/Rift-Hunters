@@ -30,7 +30,7 @@ src/
   assets/      AssetRegistry, PlaceholderFactory, EntityVisual
 scenes/        scènes racines (main, refuge, run)
 tests/         runner + tests unitaires + smoke test autoplay
-tools/         run_tests.sh, validate_assets, validate_data
+tools/         run_tests.sh, validate_assets, check_scripts, screenshot, art/ (pixel art : génération, import, prompts)
 docs/          GDD, architecture, pipeline d'assets, fiches concept
 ```
 
@@ -97,7 +97,7 @@ Router.start_run(RunSetup) → scenes/run.tscn (RunController)
 | 2 | Identifiants de contenu | Ne **jamais** renommer un id publié (sauvegardes). Renommage = alias dans les migrations. |
 | 3 | Format de sauvegarde | Versionné dès v1, migrations testées. |
 | 4 | Localisation | Clés dès le jour 1 ; test bloquant si FR ou EN manque. |
-| 5 | **Style graphique** | **À décider avant la production d'assets** : pixel art (filtrage nearest, tailles de cellule fixes) ou 2D dessinée HD. La planche Nébulorax tend vers un pixel art détaillé. Les tailles de cellule proposées sont dans le pipeline d'assets. |
+| 5 | Style graphique | **Décidé : pixel art détaillé** (filtrage nearest, `scale` 0,5 : 1 pixel d'art ≈ 1 pixel d'écran en 1080p). Règles : `docs/ART_BIBLE.md`. Outils : `tools/art/` (génération procédurale et import d'images). |
 | 6 | Version de Godot | Figée sur 4.3-stable. Mise à jour = tâche dédiée avec tests. |
 | 7 | Steam | Objectifs conçus pour être reliés plus tard aux succès Steam (GodotSteam). Aucune dépendance en jeu. |
 | 8 | Alliés invulnérables | Choix du prototype (lisibilité, pas de micro-gestion de soins). À réévaluer en phase 4. |

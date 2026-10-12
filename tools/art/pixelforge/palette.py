@@ -1,27 +1,37 @@
-"""Palette maîtresse (voir docs/ART_BIBLE.md). Chaque matériau est une rampe du plus sombre au plus clair."""
+"""Palette maîtresse (voir docs/ART_BIBLE.md).
 
-OUTLINE = "#120d1c"
+Chaque matériau est une rampe de 7 tons générée à partir d'une couleur médiane, avec glissement de teinte :
+les ombres glissent vers le bleu-violet (teinte de la Faille), les lumières vers l'ambre chaud.
+Ce glissement donne la richesse du pixel art « peint » plutôt qu'un simple assombrissement.
+"""
+import colorsys
 
-PALETTE = {
-    # Vide / Corrompus / danger (palette de la fiche Nébulorax)
-    "void": ["#1b1e33", "#2c1a4d", "#3a1670", "#6a1fd0", "#c040f0", "#ebd6fa"],
-    "corrupt": ["#24142e", "#3b1d4a", "#5a2a68", "#7f3d86", "#a95ba8"],
-    "flesh": ["#3b1830", "#5e2648", "#8a3a63", "#c0628a", "#ec9ab6"],
-    # Échos et Chasseur
-    "obsidian": ["#1a1422", "#2b2238", "#43365a", "#64557f", "#9585b0"],
-    "ember": ["#7a2412", "#c2451c", "#f07a2a", "#ffc15e", "#fff1b8"],
-    "stone": ["#25272e", "#3b3e47", "#575b66", "#7d828e", "#aab0bb"],
-    "moss": ["#1d3b25", "#2f6236", "#4f9446", "#86c95a", "#c8f08a"],
-    "glass": ["#163a52", "#2a6f8f", "#4fb3c9", "#9ee8f0", "#e8fdff"],
-    "cloth": ["#1f2a44", "#34507a", "#5b86b5", "#a9cfe8", "#eef6ff"],
-    "gold": ["#5a3a12", "#9a6a1c", "#d9a531", "#f5d76e", "#fff6c4"],
-    "storm": ["#4a3c12", "#8f7a1c", "#d9bb2e", "#f7e46a", "#fffbd0"],
-    "bark": ["#2e1f14", "#4a3220", "#6e4c2e", "#977045", "#c49c68"],
-    "leaf": ["#173323", "#24543a", "#3f8a4f", "#6fc06a", "#b4ec98"],
-    "silver": ["#2a2d3a", "#4a5066", "#7a83a0", "#b2bcd6", "#eef2fb"],
-    "danger": ["#4a0f1e", "#8f1d35", "#d43a5c", "#ff7f9a", "#ffd0dc"],
-    "char": ["#1f0d0e", "#3a1514", "#5e2219", "#8a3a22", "#b85a33"],
-    "shade": ["#140d22", "#24183a", "#3a2760", "#5a3f8e", "#8a6cc2"],
+OUTLINE = "#0e0a17"
+SHADOW_HUE = 262.0  # degrés : violet-bleu des ombres
+LIGHT_HUE = 48.0    # degrés : ambre des lumières
+TONES = 7
+
+# Matériau : (couleur médiane, intensité du glissement de teinte, luminosité min, luminosité max)
+MATERIALS = {
+    "void": ("#6a1fd0", 0.35, 0.07, 0.90),
+    "corrupt": ("#6a3378", 0.45, 0.07, 0.72),
+    "flesh": ("#a24a72", 0.40, 0.08, 0.82),
+    "obsidian": ("#2f2a3c", 0.45, 0.05, 0.58),
+    "ember": ("#f07a2a", 0.25, 0.18, 0.95),
+    "stone": ("#5d616d", 0.45, 0.08, 0.80),
+    "moss": ("#4f9446", 0.40, 0.07, 0.86),
+    "glass": ("#3fa6c4", 0.30, 0.10, 0.95),
+    "cloth": ("#4a77a8", 0.40, 0.08, 0.92),
+    "gold": ("#d9a531", 0.30, 0.12, 0.93),
+    "storm": ("#e0c232", 0.25, 0.12, 0.95),
+    "bark": ("#6e4c2e", 0.45, 0.07, 0.75),
+    "leaf": ("#3f8a4f", 0.40, 0.07, 0.85),
+    "silver": ("#7c86a3", 0.35, 0.10, 0.96),
+    "danger": ("#d43a5c", 0.35, 0.10, 0.90),
+    "shade": ("#36265a", 0.40, 0.05, 0.66),
+    "char": ("#4a1f18", 0.40, 0.05, 0.60),
+    "bone": ("#c9bba0", 0.35, 0.12, 0.96),
+    "skin": ("#c08a6a", 0.35, 0.10, 0.92),
 }
 
 
@@ -30,12 +40,51 @@ def hexrgb(value: str) -> tuple:
     return tuple(int(value[i:i + 2], 16) for i in (0, 2, 4))
 
 
+def _hex(rgb) -> str:
+    return "#%02x%02x%02x" % tuple(max(0, min(255, int(round(c)))) for c in rgb)
+
+
+def _shift_hue(h: float, target: float, amount: float) -> float:
+    diff = ((target - h + 180.0) % 360.0) - 180.0
+    return (h + diff * amount) % 360.0
+
+
+def make_ramp(mid_hex: str, shift: float, l_min: float, l_max: float, n: int = TONES) -> list:
+    r, g, b = (c / 255.0 for c in hexrgb(mid_hex))
+    h, l_mid, s = colorsys.rgb_to_hls(r, g, b)
+    h *= 360.0
+    l_min, l_max = l_min + 0.035, l_max - 0.07
+    ramp = []
+    mid = (n - 1) / 2.0
+    for i in range(n):
+        t = (i - mid) / mid  # -1 (ombre) … +1 (lumière)
+        if t < 0:
+            hue = _shift_hue(h, SHADOW_HUE, shift * -t)
+            light = l_mid + (l_min - l_mid) * (-t) ** 0.9
+            sat = s * (1.0 - 0.25 * -t)
+        else:
+            hue = _shift_hue(h, LIGHT_HUE, shift * t * 0.8)
+            light = l_mid + (l_max - l_mid) * t ** 1.1
+            sat = min(1.0, s * (1.05 - 0.22 * t * t))
+        rgb = colorsys.hls_to_rgb(hue / 360.0, max(0.0, min(1.0, light)), max(0.0, min(1.0, sat)))
+        ramp.append(_hex([c * 255.0 for c in rgb]))
+    return ramp
+
+
+PALETTE = {name: make_ramp(*spec) for name, spec in MATERIALS.items()}
+
+
 def ramp(name: str) -> list:
     return [hexrgb(c) for c in PALETTE[name]]
 
 
 def outline_for(material: str) -> tuple:
-    """Contour sélectif : le ton le plus sombre du matériau, assombri vers le contour global."""
+    """Contour du côté ombré : ton le plus sombre du matériau fondu dans le contour global."""
     dark = hexrgb(PALETTE[material][0])
     base = hexrgb(OUTLINE)
-    return tuple(int(base[i] * 0.6 + dark[i] * 0.4) for i in range(3))
+    return tuple(int(base[i] * 0.55 + dark[i] * 0.45) for i in range(3))
+
+
+def lit_outline_for(material: str) -> tuple:
+    """Contour du côté éclairé (haut-gauche) : plus coloré, il donne du relief à la silhouette."""
+    return hexrgb(PALETTE[material][1])

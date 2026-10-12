@@ -59,5 +59,5 @@ l'entoure et se nourrit des âmes et des souvenirs des créatures qu'il croise.
 - La planche est un **concept** : les frames présentées n'ont pas une taille de cellule
   constante, et le fond n'est pas transparent. Elles ne doivent pas être découpées telles quelles.
 - Produire une spritesheet par animation (ou une feuille unique, une ligne par animation),
-  cellule constante (proposition : 256×256), ancre au centre du cœur, fond transparent.
+  cellule constante de 320×320 (`docs/ART_BIBLE.md`), ancre au centre du cœur (160, 160), fond transparent.
 - Garder la silhouette, les proportions et la palette identiques entre les frames.

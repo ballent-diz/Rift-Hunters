@@ -19,22 +19,36 @@ découpées pour devenir des frames.
 
 ## Étape 2 — Sprites et animations
 
-| Catégorie | Cellule proposée | Ancre (pieds/centre) |
+Style, tailles, lumière, palette et animations : **`docs/ART_BIBLE.md`** (pixel art, 1 pixel d'art
+≈ 1 pixel d'écran en 1080p grâce à `"scale": 0.5`). Résumé des cellules :
+
+| Catégorie | Cellule | Ancre |
 |---|---|---|
-| Chasseur | 64×64 | (32, 56) |
-| Échos | 64×64 | (32, 56) |
-| Corrompus | 48×48 (petits), 96×96 (élites/grands) | bas-centre |
-| Dévoreurs | 256×256 | centre du cœur |
+| Chasseur, Échos | 64×64 | (32, 54) — volants (32, 58) |
+| Corrompus | 48×48 (Grouillard) ou 64×64 | (24, 42) / (32, 54) |
+| Dévoreurs | 320×320 | centre du corps |
 | Projectiles / effets | 32×32 ou 64×64 | centre |
 
 Règles :
 - PNG avec **fond transparent**, cellule **constante** dans toute la feuille.
-- Une ligne par animation (ou un fichier par animation). Les frames vont de gauche à droite.
-- Vue de dessus : une seule orientation, retournée horizontalement par le moteur.
+- Une ligne par animation. Les frames vont de gauche à droite.
+- Vue de côté tournée vers la droite (légère plongée), retournée horizontalement par le moteur.
   Si une créature a besoin de 4 directions, le déclarer dans le manifeste
   (`"directions": 4`, une ligne par direction).
 - Aucune variation de silhouette, de proportions ou de palette entre les frames.
-- Pixel art : palette limitée et résolution identique pour toutes les entités d'une même catégorie.
+- Filtrage `nearest` automatique pour les feuilles (les placeholders restent lissés).
+
+### Deux façons de produire une feuille
+
+| Source | Commande | Statut |
+|---|---|---|
+| Procédural (sprites de travail) : `tools/art/pixelforge/` + une recette par créature dans `tools/art/creatures/` | `python3 tools/art/build.py monster.ashblade` | `wip` |
+| Images d'un générateur ou dessinées : prompts dans `docs/art_prompts.md`, dépôt dans `assets/concepts/incoming/<id>/` | `python3 tools/art/import_sheet.py <job.json>` | `final` |
+
+Les deux écrivent la feuille, l'icône, un aperçu agrandi (`assets/concepts/previews/`) et
+l'entrée du manifeste. Une entrée `final` n'est jamais écrasée par `build.py`.
+Mode d'emploi de l'import : `assets/concepts/incoming/README.md`.
+Les prompts se régénèrent depuis `tools/art/prompts.py` (descriptions des visuels).
 
 Animations minimales par catégorie (vérifiées par l'outil de validation) :
 
@@ -64,22 +78,25 @@ Chaque entité de données référence un **identifiant d'asset** (`visual_id`, 
   "status": "planned",
   "sheet": "res://assets/sprites/monsters/ashblade/ashblade_sheet.png",
   "cell": [64, 64],
-  "anchor": [32, 56],
+  "anchor": [32, 54],
+  "scale": 0.5,
   "animations": {
-    "idle":   {"row": 0, "frames": 6, "fps": 8,  "loop": true},
+    "idle":   {"row": 0, "frames": 8, "fps": 8,  "loop": true},
     "move":   {"row": 1, "frames": 8, "fps": 12, "loop": true},
-    "attack": {"row": 2, "frames": 6, "fps": 14, "loop": false}
+    "attack": {"row": 2, "frames": 7, "fps": 16, "loop": false}
   },
   "icon": "res://assets/ui/icons/monsters/ashblade.png"
 }
 ```
 
-`status` : `planned` (rien produit), `wip`, `final`. Tant que la feuille n'existe pas, le
+`scale` : unités du monde par pixel d'art (0,5 pour tout le pixel art).
+`status` : `planned` (rien produit), `wip` (sprite de travail), `final` (validé, protégé). Tant que la feuille n'existe pas, le
 jeu utilise le **placeholder** décrit dans la donnée (`VisualData` : forme, couleurs,
 taille), généré au lancement par `PlaceholderFactory`. Le résultat est cohérent et lisible,
 et chaque entité garde sa silhouette propre.
 
 ### Remplacer un placeholder par un sprite final
+Le plus simple : l'outil d'import (ci-dessus) fait les étapes 1 à 3. À la main :
 1. Déposer la feuille au chemin indiqué par `sheet`.
 2. Vérifier `cell`, `anchor` et les lignes/frames de chaque animation dans le manifeste.
 3. Passer `status` à `wip` ou `final`.

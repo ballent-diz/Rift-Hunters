@@ -12,10 +12,11 @@ class Part:
     glow : contour clair au lieu de sombre (yeux, braises, cristaux).
     separate : trace une ligne sombre là où la pièce recouvre une pièce plus lointaine.
     texture : intensité du grain (0 = lisse), fixe sur la pièce (suit l'animation).
+    pattern / shine / rim : motif de matière, reflets spéculaires, contre-jour (voir render.py).
     """
 
     def __init__(self, name, shape, material, z=0, parent=None, pivot=(0.0, 0.0), mode="round", shade=0,
-                 level=None, glow=False, separate=True, texture=0.0, visible=True):
+                 level=None, glow=False, separate=True, texture=0.0, visible=True, pattern=None, shine=False, rim=True):
         self.name = name
         self.shape = shape
         self.material = material
@@ -29,6 +30,9 @@ class Part:
         self.separate = separate
         self.texture = texture
         self.visible = visible
+        self.pattern = pattern  # ex. ("plates", 6.0, 1.6), ("scales", 3.0) — voir patterns.py
+        self.shine = shine      # étincelles spéculaires (métal, verre)
+        self.rim = rim          # contre-jour violet de la Faille
 
 
 class Pose:

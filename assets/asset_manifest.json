@@ -10,7 +10,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				54
 			],
 			"animations": {
 				"idle": {
@@ -44,25 +44,26 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/players/hunter.png"
+			"icon": "res://assets/ui/icons/players/hunter.png",
+			"scale": 0.5
 		},
 		"monster.ashblade": {
 			"status": "wip",
 			"generated_by": "tools/art/build.py",
 			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_sheet.png",
 			"cell": [
-				32,
-				32
+				64,
+				64
 			],
 			"anchor": [
-				16,
-				28
+				32,
+				54
 			],
-			"scale": 1.0,
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
+					"frames": 8,
 					"fps": 8,
 					"loop": true
 				},
@@ -74,7 +75,7 @@
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
+					"frames": 7,
 					"fps": 16,
 					"loop": false
 				},
@@ -96,7 +97,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				54
 			],
 			"animations": {
 				"idle": {
@@ -124,7 +125,8 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/mossback.png"
+			"icon": "res://assets/ui/icons/monsters/mossback.png",
+			"scale": 0.5
 		},
 		"monster.glimmerwing": {
 			"status": "planned",
@@ -135,7 +137,7 @@
 			],
 			"anchor": [
 				32,
-				40
+				58
 			],
 			"animations": {
 				"idle": {
@@ -163,7 +165,8 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/glimmerwing.png"
+			"icon": "res://assets/ui/icons/monsters/glimmerwing.png",
+			"scale": 0.5
 		},
 		"enemy.skitterling": {
 			"status": "planned",
@@ -174,7 +177,7 @@
 			],
 			"anchor": [
 				24,
-				40
+				42
 			],
 			"animations": {
 				"move": {
@@ -189,18 +192,19 @@
 					"fps": 14,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"enemy.husk": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/husk/husk_sheet.png",
 			"cell": [
-				48,
-				48
+				64,
+				64
 			],
 			"anchor": [
-				24,
-				40
+				32,
+				54
 			],
 			"animations": {
 				"move": {
@@ -215,18 +219,19 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"enemy.spitter": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/spitter/spitter_sheet.png",
 			"cell": [
-				48,
-				48
+				64,
+				64
 			],
 			"anchor": [
-				24,
-				40
+				32,
+				54
 			],
 			"animations": {
 				"move": {
@@ -247,18 +252,19 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"enemy.lunger": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/lunger/lunger_sheet.png",
 			"cell": [
-				48,
-				48
+				64,
+				64
 			],
 			"anchor": [
-				24,
-				40
+				32,
+				54
 			],
 			"animations": {
 				"move": {
@@ -279,7 +285,8 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"enemy.rift_crystal": {
 			"status": "planned",
@@ -290,7 +297,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				54
 			],
 			"animations": {
 				"move": {
@@ -305,18 +312,19 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"boss.nebulorax": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/bosses/nebulorax/nebulorax_sheet.png",
 			"cell": [
-				256,
-				256
+				320,
+				320
 			],
 			"anchor": [
-				128,
-				128
+				160,
+				160
 			],
 			"animations": {
 				"idle": {
@@ -368,7 +376,8 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/bosses/nebulorax.png"
+			"icon": "res://assets/ui/icons/bosses/nebulorax.png",
+			"scale": 0.5
 		},
 		"monster.thornweave": {
 			"status": "planned",
@@ -379,7 +388,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				54
 			],
 			"animations": {
 				"idle": {
@@ -407,7 +416,8 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/thornweave.png"
+			"icon": "res://assets/ui/icons/monsters/thornweave.png",
+			"scale": 0.5
 		},
 		"monster.voltwisp": {
 			"status": "planned",
@@ -418,7 +428,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				58
 			],
 			"animations": {
 				"idle": {
@@ -446,7 +456,8 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/voltwisp.png"
+			"icon": "res://assets/ui/icons/monsters/voltwisp.png",
+			"scale": 0.5
 		},
 		"monster.gloommaw": {
 			"status": "planned",
@@ -457,7 +468,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				54
 			],
 			"animations": {
 				"idle": {
@@ -485,7 +496,8 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/gloommaw.png"
+			"icon": "res://assets/ui/icons/monsters/gloommaw.png",
+			"scale": 0.5
 		},
 		"monster.mirrorling": {
 			"status": "planned",
@@ -496,7 +508,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				58
 			],
 			"animations": {
 				"idle": {
@@ -524,7 +536,8 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/mirrorling.png"
+			"icon": "res://assets/ui/icons/monsters/mirrorling.png",
+			"scale": 0.5
 		},
 		"enemy.broodmother": {
 			"status": "planned",
@@ -535,7 +548,7 @@
 			],
 			"anchor": [
 				32,
-				56
+				54
 			],
 			"animations": {
 				"move": {
@@ -556,18 +569,19 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"enemy.shade_stalker": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/shade_stalker/shade_stalker_sheet.png",
 			"cell": [
-				48,
-				48
+				64,
+				64
 			],
 			"anchor": [
-				24,
-				40
+				32,
+				54
 			],
 			"animations": {
 				"move": {
@@ -588,18 +602,19 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"enemy.crystal_warden": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/crystal_warden/crystal_warden_sheet.png",
 			"cell": [
-				48,
-				48
+				64,
+				64
 			],
 			"anchor": [
-				24,
-				40
+				32,
+				54
 			],
 			"animations": {
 				"move": {
@@ -620,18 +635,19 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"scale": 0.5
 		},
 		"boss.vorgranite": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/bosses/vorgranite/vorgranite_sheet.png",
 			"cell": [
-				256,
-				256
+				320,
+				320
 			],
 			"anchor": [
-				128,
-				150
+				160,
+				188
 			],
 			"animations": {
 				"idle": {
@@ -677,25 +693,26 @@
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/bosses/vorgranite.png"
+			"icon": "res://assets/ui/icons/bosses/vorgranite.png",
+			"scale": 0.5
 		},
 		"monster.ashblade.eclipse_blade": {
 			"status": "wip",
 			"generated_by": "tools/art/build.py",
 			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_eclipse_blade_sheet.png",
 			"cell": [
-				32,
-				32
+				64,
+				64
 			],
 			"anchor": [
-				16,
-				28
+				32,
+				54
 			],
-			"scale": 1.0,
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
+					"frames": 8,
 					"fps": 8,
 					"loop": true
 				},
@@ -707,7 +724,7 @@
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
+					"frames": 7,
 					"fps": 16,
 					"loop": false
 				},
@@ -725,18 +742,18 @@
 			"generated_by": "tools/art/build.py",
 			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_pyrefang_sheet.png",
 			"cell": [
-				32,
-				32
+				64,
+				64
 			],
 			"anchor": [
-				16,
-				28
+				32,
+				54
 			],
-			"scale": 1.0,
+			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
+					"frames": 8,
 					"fps": 8,
 					"loop": true
 				},
@@ -748,7 +765,7 @@
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
+					"frames": 7,
 					"fps": 16,
 					"loop": false
 				},
