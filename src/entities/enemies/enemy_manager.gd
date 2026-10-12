@@ -68,7 +68,7 @@ func _nearest_within(pos: Vector2, max_range: float, exclude: Dictionary) -> Ene
 func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] = []) -> Enemy:
 	var enemy := Enemy.new()
 	enemy.data = data
-	enemy.position = pos
+	enemy.position = ctx.obstacles.push_out(pos, data.radius)
 	enemy.spawn_time = ctx.time
 	var minutes: float = ctx.minutes()
 	var hp_mult: float = (1.0 + ctx.balance.enemy_hp_growth_per_min * minutes) * ctx.difficulty.enemy_hp_mult
@@ -170,6 +170,8 @@ func step(delta: float) -> void:
 			pos += enemy.push_velocity * delta
 			enemy.push_velocity *= maxf(1.0 - 8.0 * delta, 0.0)
 		var r: float = enemy.radius
+		if not enemy.is_boss:
+			pos = ctx.obstacles.push_out(pos, r)
 		pos = pos.clamp(arena.position + Vector2(r, r), arena.end - Vector2(r, r))
 		enemy.position = pos
 		if player_alive and enemy.touch_cooldown <= 0.0 and enemy.contact_damage > 0.0:

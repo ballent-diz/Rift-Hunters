@@ -94,3 +94,27 @@ def tile_fill(img, size_tiles, plain, variants, variant_chance, rng, tile=TILE):
             t = choices[int(rng.integers(len(choices)))] if choices and rng.random() < variant_chance else base
             out[j * tile:(j + 1) * tile, i * tile:(i + 1) * tile] = t
     return out
+
+
+def recolor(img, mapping):
+    """Remplace des couleurs exactes (RGB) : ex. herbe d'un autre ton pour coller au sol de l'arène."""
+    out = img.copy()
+    for src, dst in mapping.items():
+        sel = np.all(out[:, :, :3] == np.array(src, dtype=np.uint8), axis=2)
+        out[sel, :3] = dst
+    return out
+
+
+def fill_circles(w, h, inset=6.0):
+    """Cercles de collision couvrant un rectangle arrondi (w x h pixels, centré sur l'origine) :
+    une rangée de cercles le long du grand axe. Retourne [[dx, dy, r], ...]."""
+    iw, ih = w - 2 * inset, h - 2 * inset
+    r = min(iw, ih) / 2.0
+    long_axis = iw >= ih
+    length = max(iw, ih) - 2 * r
+    count = max(1, int(np.ceil(length / max(r, 1.0))) + 1)
+    out = []
+    for k in range(count):
+        t = -length / 2 + (length * k / (count - 1) if count > 1 else length / 2)
+        out.append([round(t, 1), 0.0, round(r, 1)] if long_axis else [0.0, round(t, 1), round(r, 1)])
+    return out

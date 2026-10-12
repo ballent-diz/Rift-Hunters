@@ -124,7 +124,7 @@ func _start_dash(move: Vector2) -> void:
 
 func _constrain() -> void:
 	var rect: Rect2 = ctx.arena_rect().grow(-radius)
-	position = position.clamp(rect.position, rect.end)
+	position = ctx.obstacles.push_out(position, radius).clamp(rect.position, rect.end)
 	for obstacle: Enemy in ctx.enemies.obstacles:
 		var offset: Vector2 = position - obstacle.position
 		var min_dist: float = radius + obstacle.radius

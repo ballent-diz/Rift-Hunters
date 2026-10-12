@@ -2,6 +2,9 @@ class_name Ally
 extends Node2D
 ## Écho allié (invulnérable dans le prototype). Données : MonsterData. Comportement : AllyBehavior.
 
+## Rayon du corps pour contourner les obstacles du décor.
+const BODY_RADIUS := 10.0
+
 var ctx: RunContext
 var data: MonsterData
 var rank: int = 1
@@ -113,4 +116,4 @@ func move_toward_point(target: Vector2, speed: float, delta: float) -> void:
 		velocity = Vector2.ZERO
 		return
 	velocity = offset.normalized() * minf(speed, offset.length() / maxf(delta, 0.001))
-	global_position += velocity * delta
+	global_position = ctx.obstacles.push_out(global_position + velocity * delta, BODY_RADIUS)

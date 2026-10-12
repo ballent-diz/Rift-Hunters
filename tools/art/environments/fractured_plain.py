@@ -36,19 +36,30 @@ PROPS = [
     ("bush_a", "TilesetNature", (0, 10, 1, 1), 3), ("bush_b", "TilesetNature", (1, 10, 1, 1), 3),
     ("bush_c", "TilesetNature", (2, 10, 1, 1), 2), ("bush_d", "TilesetNature", (3, 10, 1, 1), 2),
     ("boulder_a", "TilesetNature", (15, 14, 2, 2), 2), ("boulder_b", "TilesetNature", (15, 16, 2, 2), 2),
-    ("boulder_big", "TilesetNature", (17, 14, 4, 3), 0.8), ("boulder_tall", "TilesetNature", (21, 14, 2, 3), 0.8),
     ("rock_round", "TilesetNature", (16, 8, 2, 2), 1.5), ("rock_small", "TilesetNature", (18, 9, 1, 1), 2),
     ("stump", "TilesetNature", (0, 8, 2, 2), 1.5), ("stump_small", "TilesetNature", (4, 8, 1, 1), 1.5),
     ("log", "TilesetNature", (5, 8, 1, 1), 1), ("dead_bush", "TilesetNature", (4, 9, 1, 1), 1.5),
-    ("dead_tree", "TilesetNature", (4, 0, 2, 2), 1.2), ("tree_round", "TilesetNature", (0, 0, 2, 2), 0.6),
-    ("pine", "TilesetNature", (2, 0, 2, 2), 0.6), ("small_tree", "TilesetNature", (6, 8, 2, 2), 0.6),
     ("crystal_violet", "TilesetNature", (2, 14, 1, 1), 1.2), ("crystal_teal", "TilesetNature", (1, 14, 1, 1), 0.6),
     ("gem_boulder", "TilesetNature", (7, 14, 2, 2), 0.5), ("gem_boulder_dark", "TilesetNature", (7, 16, 2, 2), 0.5),
-    ("mossy_rock", "TilesetVillageAbandoned", (7, 5, 2, 2), 1), ("pillar", "TilesetVillageAbandoned", (2, 3, 1, 3), 0.5),
-    ("broken_pillar", "TilesetVillageAbandoned", (3, 3, 1, 3), 0.5),
-    ("mossy_statue", "TilesetVillageAbandoned", (0, 3, 2, 3), 0.3),
-    ("ruined_wall", "TilesetVillageAbandoned", (8, 0, 3, 3), 0.25), ("ruined_house", "TilesetVillageAbandoned", (0, 0, 4, 3), 0.15),
 ]
+
+# Obstacles infranchissables : (nom, tileset, rectangle, poids, rayon de collision en fraction de la largeur).
+# Le cercle de collision est posé au pied (bas du sprite) : tronc d'arbre, base d'un rocher.
+OBSTACLES = [
+    ("boulder_big", "TilesetNature", (17, 14, 4, 3), 1.5, 0.4), ("boulder_tall", "TilesetNature", (21, 14, 2, 3), 1.2, 0.42),
+    ("mossy_rock", "TilesetVillageAbandoned", (7, 5, 2, 2), 1.5, 0.42), ("rock_pile_small", "TilesetNature", (16, 5, 4, 3), 1.0, 0.4),
+    ("dead_tree", "TilesetNature", (4, 0, 2, 2), 1.5, 0.22), ("tree_round", "TilesetNature", (0, 0, 2, 2), 1.5, 0.2),
+    ("pine", "TilesetNature", (2, 0, 2, 2), 1.5, 0.2), ("small_tree", "TilesetNature", (6, 8, 2, 2), 1.0, 0.18),
+    ("big_tree_a", "TilesetVillageAbandoned", (4, 6, 2, 2), 0.8, 0.22), ("big_tree_b", "TilesetVillageAbandoned", (4, 9, 2, 2), 0.8, 0.22),
+    ("pillar", "TilesetVillageAbandoned", (2, 3, 1, 3), 0.6, 0.45), ("broken_pillar", "TilesetVillageAbandoned", (3, 3, 1, 3), 0.6, 0.45),
+    ("mossy_statue", "TilesetVillageAbandoned", (0, 3, 2, 3), 0.4, 0.38),
+    ("ruined_wall", "TilesetVillageAbandoned", (8, 0, 3, 3), 0.4, 0.42), ("ruined_house", "TilesetVillageAbandoned", (0, 0, 4, 3), 0.3, 0.42),
+]
+
+# Plans d'eau (tuiles en largeur x hauteur) : mares et bras de rivière, bloc herbe/eau du tileset Water.
+WATER_SIZES = [(3, 3), (4, 3), (5, 4), (4, 5), (8, 3), (12, 3), (3, 9), (3, 12), (6, 5)]
+# L'herbe des mares (vert clair) prend les teintes de notre sol (vert foncé).
+GRASS_RECOLOR = {(173, 188, 58): (116, 163, 52), (168, 161, 41): (86, 134, 76)}
 
 BORDER = [
     ("forest_pine", "TilesetNature", (0, 2, 4, 3), 3), ("forest_green", "TilesetNature", (4, 2, 4, 3), 3),
@@ -74,7 +85,19 @@ def build(rng):
     for group, layer in ((DETAILS, "detail"), (PROPS, "prop"), (BORDER, "border")):
         for name, sheet, rect, weight in group:
             items.append((name, layer, weight, P.isolate(P.tiles(sheets[sheet], *rect))))
-    return {"ground": ground, "items": items}
+    collisions = {}
+    for name, sheet, rect, weight, radius in OBSTACLES:
+        img = P.isolate(P.tiles(sheets[sheet], *rect))
+        items.append((name, "obstacle", weight, img))
+        r = img.shape[1] * radius
+        collisions[name] = [[0.0, -r * 0.55, r]]
+    water = _src("TilesetWater")
+    for i, (w, h) in enumerate(WATER_SIZES):
+        img = P.recolor(P.nine_slice(water, (0, 6), w, h, rng), GRASS_RECOLOR)
+        name = f"water_{i}"
+        items.append((name, "water", 1.5 if w * h <= 20 else 1.0, img))
+        collisions[name] = P.fill_circles(w * 16, h * 16, inset=7)
+    return {"ground": ground, "items": items, "collisions": collisions}
 
 
 SPEC = {
@@ -84,7 +107,7 @@ SPEC = {
     "scale": 1.0,
     "build": build,
     # Nombre d'éléments par carré de 1000 x 1000 unités du monde (multiplié par decor_density de l'arène).
-    "density": {"patch": 7.0, "detail": 130.0, "prop": 22.0},
+    "density": {"patch": 7.0, "detail": 130.0, "prop": 18.0, "obstacle": 6.0, "water": 1.0},
     # Forêt qui borde l'arène : largeur de la bande (unités du monde) et espacement des arbres.
     "border": {"width": 300.0, "spacing": 30.0},
     "clear_radius": 150.0,

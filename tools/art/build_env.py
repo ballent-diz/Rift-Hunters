@@ -174,9 +174,13 @@ def build_pack(spec):
     decal_list = []
     for name, layer, weight, img in items:
         h, w = img.shape[:2]
-        grounded = layer in ("prop", "border")
-        decal_list.append({"name": name, "layer": layer, "weight": weight, "rect": rects[name],
-                           "anchor": [w // 2, h - 2 if grounded else h // 2]})
+        grounded = layer in ("prop", "border", "obstacle")
+        entry_decal = {"name": name, "layer": layer, "weight": weight, "rect": rects[name],
+                       "anchor": [w // 2, h - 2 if grounded else h // 2]}
+        if name in built.get("collisions", {}):
+            # Cercles de collision [dx, dy, r] en pixels du pack, relatifs au point d'appui.
+            entry_decal["collision"] = built["collisions"][name]
+        decal_list.append(entry_decal)
     entry = {
         "status": "wip",
         "generated_by": "tools/art/build_env.py",
@@ -209,7 +213,9 @@ def preview_pack(env_id, built, spec, rng):
     placements = []
     area = W * (H - edge_y) / 1e6
     cluster = T.fbm(H, W, (3, 5), 3, rng, wrap_y=False, wrap_x=False)
-    for layer in ("patch", "detail", "prop"):
+    for layer in ("patch", "water", "detail", "prop", "obstacle"):
+        if layer not in by_layer:
+            continue
         weights = np.array([w for w, _ in by_layer[layer]])
         for _ in range(int(spec["density"][layer] * area)):
             for _try in range(20):
@@ -217,7 +223,7 @@ def preview_pack(env_id, built, spec, rng):
                 if layer == "patch" or rng.random() < 0.2 + 0.8 * cluster[y, x] ** 2:
                     break
             img = by_layer[layer][rng.choice(len(weights), p=weights / weights.sum())][1]
-            order = {"patch": 0, "detail": 1, "prop": 2}[layer]
+            order = {"patch": 0, "water": 0, "detail": 1, "prop": 2, "obstacle": 2}[layer]
             placements.append((order, y, x, img, layer))
     weights = np.array([w for w, _ in by_layer["border"]])
     x = -20.0
@@ -229,7 +235,7 @@ def preview_pack(env_id, built, spec, rng):
     placements.sort(key=lambda p: (p[0], p[1]))
     for order, y, x, img, layer in placements:
         tile = Image.fromarray(img, "RGBA")
-        if layer in ("prop", "border"):
+        if layer in ("prop", "border", "obstacle"):
             pos = (x - tile.width // 2, y - tile.height + 2)
         else:
             pos = (x - tile.width // 2, y - tile.height // 2)

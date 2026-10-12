@@ -7,9 +7,14 @@ const FLAT := 0
 const STANDING := 1
 ## Espacement minimal entre deux objets (grille de rejet, unités du monde).
 const PROP_SPACING := 28.0
+## Passage minimal laissé entre deux obstacles (on ne s'enferme jamais).
+const PATH_GAP := 140.0
+## Zone de départ sans obstacle (en plus de clear_radius).
+const START_MARGIN := 140.0
 
 
-## Retourne [{decal: int, position: Vector2 (point d'appui), pass: FLAT|STANDING, outside: bool}],
+## Retourne [{decal: int, position: Vector2 (point d'appui), pass: FLAT|STANDING, outside: bool,
+## colliders: Array[Vector3] (cercles en coordonnées du monde, obstacles et eau)}],
 ## trié dans l'ordre d'affichage (à plat d'abord, puis debout du haut vers le bas de l'écran).
 static func generate(env: EnvironmentSet, arena: Rect2, seed_value: int, density_mult: float = 1.0) -> Array[Dictionary]:
 	var rng := RandomNumberGenerator.new()
@@ -21,6 +26,9 @@ static func generate(env: EnvironmentSet, arena: Rect2, seed_value: int, density
 	var inner: Rect2 = arena.grow(-12.0)
 	var area: float = inner.get_area() / 1000000.0
 	var occupied: Dictionary = {}
+	var blockers: Array[Vector3] = []
+	for layer: StringName in [&"water", &"obstacle"]:
+		_place_obstacles(env, layer, arena.grow(-60.0), rng, density_mult, area, blockers, out)
 	for layer: StringName in [&"patch", &"detail", &"prop"]:
 		var pool: Array[int] = env.decals_in(layer)
 		if pool.is_empty():
@@ -28,6 +36,8 @@ static func generate(env: EnvironmentSet, arena: Rect2, seed_value: int, density
 		var count: int = roundi(float(env.density.get(String(layer), 0.0)) * area * maxf(density_mult, 0.0))
 		for i: int in count:
 			var pos: Vector2 = _pick_position(rng, noise, inner, layer != &"patch")
+			if _near_blocker(pos, blockers, 14.0):
+				continue
 			if layer == &"prop":
 				if pos.length() < env.clear_radius:
 					continue
@@ -36,10 +46,51 @@ static func generate(env: EnvironmentSet, arena: Rect2, seed_value: int, density
 					continue
 				occupied[cell] = true
 			out.append({"decal": _pick(rng, env, pool), "position": pos.round(),
-				"pass": STANDING if layer == &"prop" else FLAT, "outside": false})
+				"pass": STANDING if layer == &"prop" else FLAT, "outside": false, "colliders": _none()})
 	_border(env, arena, rng, out)
 	out.sort_custom(_before)
 	return out
+
+
+## Obstacles et eau : espacés d'au moins PATH_GAP (toujours un passage), hors de la zone de départ.
+static func _place_obstacles(env: EnvironmentSet, layer: StringName, rect: Rect2, rng: RandomNumberGenerator,
+		density_mult: float, area: float, blockers: Array[Vector3], out: Array[Dictionary]) -> void:
+	var pool: Array[int] = env.decals_in(layer)
+	if pool.is_empty():
+		return
+	var count: int = roundi(float(env.density.get(String(layer), 0.0)) * area * maxf(density_mult, 0.0))
+	for i: int in count:
+		for attempt: int in 10:
+			var index: int = _pick(rng, env, pool)
+			var decal: Dictionary = env.decals[index]
+			var pos := Vector2(rng.randf_range(rect.position.x, rect.end.x), rng.randf_range(rect.position.y, rect.end.y)).round()
+			var circles: Array[Vector3] = []
+			var ok: bool = true
+			for c: Vector3 in decal["collision"]:
+				var world := Vector3(pos.x + c.x, pos.y + c.y, c.z)
+				var center := Vector2(world.x, world.y)
+				if center.length() < env.clear_radius + START_MARGIN + world.z or not rect.has_point(center) \
+						or _near_blocker(center, blockers, world.z + PATH_GAP):
+					ok = false
+					break
+				circles.append(world)
+			if not ok:
+				continue
+			blockers.append_array(circles)
+			out.append({"decal": index, "position": pos, "pass": FLAT if layer == &"water" else STANDING,
+				"outside": false, "colliders": circles})
+			break
+
+
+static func _none() -> Array[Vector3]:
+	return []
+
+
+static func _near_blocker(pos: Vector2, blockers: Array[Vector3], margin: float) -> bool:
+	for c: Vector3 in blockers:
+		if Vector2(pos.x - c.x, pos.y - c.y).length() < c.z + margin:
+			return true
+	return false
 
 
 static func _before(a: Dictionary, b: Dictionary) -> bool:
@@ -103,5 +154,6 @@ static func _border(env: EnvironmentSet, arena: Rect2, rng: RandomNumberGenerato
 						pos = Vector2(arena.position.x - depth - size.x * 0.5, along)
 					_:  # est
 						pos = Vector2(arena.end.x + depth + size.x * 0.5, along)
-				out.append({"decal": index, "position": pos.round(), "pass": STANDING, "outside": true})
+				out.append({"decal": index, "position": pos.round(), "pass": STANDING, "outside": true,
+					"colliders": _none()})
 			t += env.border_spacing * rng.randf_range(0.8, 1.25)

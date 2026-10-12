@@ -138,6 +138,7 @@ func _build_world() -> void:
 	var ground := ArenaGround.new()
 	ground.setup(ctx.arena, ctx.rng.seed)
 	ctx.world.add_child(ground)
+	ctx.obstacles = ground.obstacle_field()
 	ctx.hazards = HazardManager.new()
 	ctx.hazards.setup(ctx)
 	ctx.world.add_child(ctx.hazards)

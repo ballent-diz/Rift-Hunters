@@ -112,3 +112,53 @@ func _interior(items: Array[Dictionary]) -> int:
 		if not item["outside"]:
 			count += 1
 	return count
+
+
+func test_obstacle_field_pushes_out_and_slides() -> void:
+	var field := ObstacleField.new()
+	field.add(Vector2(100, 0), 30.0)
+	var out: Vector2 = field.push_out(Vector2(80, 0), 10.0)
+	check(out.distance_to(Vector2(100, 0)) >= 39.9, "repoussé hors de l'obstacle")
+	check(absf(out.y) > 1.0, "glisse sur le côté (contournement)")
+	check_eq(field.push_out(Vector2(-200, 0), 10.0), Vector2(-200, 0), "loin d'un obstacle : inchangé")
+	check(field.blocks(Vector2(95, 5), 4.0), "blocage détecté")
+	check(not field.blocks(Vector2(0, 0), 4.0), "pas de blocage au loin")
+
+
+func test_obstacles_leave_paths_and_clear_start() -> void:
+	var env: EnvironmentSet = _plain()
+	if env == null:
+		check(false, "décor absent")
+		return
+	var rect := Rect2(-1600, -1600, 3200, 3200)
+	var circles: Array[Vector3] = []
+	for item: Dictionary in DecorLayout.generate(env, rect, 11):
+		circles.append_array(item["colliders"])
+	check(circles.size() > 20, "obstacles placés (%d cercles)" % circles.size())
+	for i: int in circles.size():
+		var a: Vector3 = circles[i]
+		check(Vector2(a.x, a.y).length() > env.clear_radius + a.z, "zone de départ libre")
+	var groups: Array = []
+	for item: Dictionary in DecorLayout.generate(env, rect, 11):
+		if not (item["colliders"] as Array).is_empty():
+			groups.append(item["colliders"])
+	var squeezed: int = 0
+	for i: int in groups.size():
+		for j: int in range(i + 1, groups.size()):
+			for a: Vector3 in groups[i]:
+				for b: Vector3 in groups[j]:
+					if Vector2(a.x - b.x, a.y - b.y).length() - a.z - b.z < DecorLayout.PATH_GAP - 1.0:
+						squeezed += 1
+	check_eq(squeezed, 0, "toujours un passage entre deux obstacles")
+
+
+func test_player_cannot_enter_obstacles() -> void:
+	var run: RunController = RunFixture.create(host, &"ashblade")
+	check(not run.ctx.obstacles.is_empty(), "obstacles actifs en partie")
+	var c: Vector3 = run.ctx.obstacles.circles[0]
+	run.ctx.player.global_position = Vector2(c.x, c.y)
+	run.ctx.player._constrain()
+	check(not run.ctx.obstacles.blocks(run.ctx.player.global_position, run.ctx.player.radius - 0.5),
+		"le joueur est repoussé hors de l'obstacle")
+	RunFixture.dispose(run)
+

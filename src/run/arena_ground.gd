@@ -31,6 +31,15 @@ func setup(p_arena: ArenaData, p_seed: int) -> void:
 	queue_redraw()
 
 
+## Champ d'obstacles infranchissables du décor (vide sans décor).
+func obstacle_field() -> ObstacleField:
+	var field := ObstacleField.new()
+	for item: Dictionary in placements:
+		for c: Vector3 in item.get("colliders", []):
+			field.add(Vector2(c.x, c.y), c.z)
+	return field
+
+
 func uses_placeholder() -> bool:
 	return environment == null
 

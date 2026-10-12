@@ -3,13 +3,14 @@ extends RefCounted
 ## Décor d'une arène lu dans le manifeste d'assets (entrée « environment.<id> ») :
 ## sol périodique, atlas d'éléments (plaques, détails, objets, bordure), densités et ambiance.
 
-const LAYERS: Array[StringName] = [&"patch", &"detail", &"prop", &"border"]
+const LAYERS: Array[StringName] = [&"patch", &"water", &"detail", &"prop", &"obstacle", &"border"]
 
 var id: StringName = &""
 var pixel_scale: float = 1.0
 var ground: Texture2D
 var atlas: Texture2D
-## Éléments : {name, layer, weight, region (Rect2 dans l'atlas), anchor (point d'appui en pixels)}.
+## Éléments : {name, layer, weight, region (Rect2 dans l'atlas), anchor (point d'appui en pixels),
+## collision (Array[Vector3] : cercles x, y, rayon en unités du monde, relatifs au point d'appui)}.
 var decals: Array[Dictionary] = []
 ## Nombre d'éléments par couche pour 1000 x 1000 unités du monde.
 var density: Dictionary = {}
@@ -37,7 +38,12 @@ static func from_entry(p_id: StringName, e: Dictionary) -> EnvironmentSet:
 		var d: Dictionary = raw
 		var rect: Array = d.get("rect", [0, 0, 0, 0])
 		var anchor: Array = d.get("anchor", [int(rect[2]) / 2, int(rect[3]) / 2])
+		var collision: Array[Vector3] = []
+		for c: Variant in d.get("collision", []):
+			var circle: Array = c
+			collision.append(Vector3(float(circle[0]), float(circle[1]), float(circle[2])) * env.pixel_scale)
 		env.decals.append({
+			"collision": collision,
 			"name": StringName(str(d.get("name", ""))),
 			"layer": StringName(str(d.get("layer", "detail"))),
 			"weight": float(d.get("weight", 1.0)),

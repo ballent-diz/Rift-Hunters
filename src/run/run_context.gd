@@ -26,6 +26,8 @@ var projectiles: ProjectileManager
 var pickups: PickupManager
 var hazards: HazardManager
 var fx: FxRenderer
+## Obstacles infranchissables du décor (rochers, arbres, eau).
+var obstacles := ObstacleField.new()
 var boss: Enemy
 var spawner: SpawnDirector
 
