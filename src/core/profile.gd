@@ -110,6 +110,8 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	if not unlocked.has(setup.starter_id) and not unlocked.is_empty():
 		setup.starter_id = unlocked[0]
 	setup.arena_id = previous.arena_id if previous else StringName(profile.preference("arena", "fractured_plain"))
+	if previous:
+		setup.modifier_ids = previous.modifier_ids.duplicate()
 	setup.difficulty_id = previous.difficulty_id if previous else StringName(profile.preference("difficulty", "tension_0"))
 	var arena: ArenaData = GameDB.arena(setup.arena_id)
 	if arena == null or not profile.is_arena_unlocked(arena):
@@ -118,6 +120,12 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	if difficulty == null or not profile.is_difficulty_unlocked(difficulty):
 		setup.difficulty_id = &"tension_0"
 	setup.unlocked_monsters = unlocked
+	var level: int = GameDB.difficulty(setup.difficulty_id).level
+	if previous == null:
+		for raw: String in profile.preference("modifiers", "").split(",", false):
+			var modifier: RunModifierData = GameDB.modifier(StringName(raw))
+			if modifier and level >= modifier.min_difficulty:
+				setup.modifier_ids.append(modifier.id)
 	for id: StringName in GameDB.sorted_ids(GameDB.relics):
 		if profile.is_relic_unlocked(GameDB.relics[id]):
 			setup.unlocked_relics.append(id)

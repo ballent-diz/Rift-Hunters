@@ -24,6 +24,12 @@ static func apply_run_result(profile: ProfileData, result: Dictionary) -> Dictio
 		var monster: MonsterData = GameDB.monster(StringName(monster_id))
 		if monster:
 			lines.append_array(Mastery.apply_run(profile, monster, counters, victory, synergy_members.has(monster_id)))
+	for id: String in result.get("captures", []):
+		var captured: MonsterData = GameDB.monster(StringName(id))
+		if captured and not profile.is_monster_unlocked(captured):
+			profile.unlock("monster:" + id)
+			lines.append(TranslationServer.translate("REPORT_CAPTURE_UNLOCK") % TranslationServer.translate(captured.name_key))
+		profile.discover("monsters", id)
 	lines.append_array(Objectives.evaluate(profile, result))
 	if victory:
 		lines.append_array(_unlock_next_tension(profile, int(result.get("difficulty_level", 0))))

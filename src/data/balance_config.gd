@@ -49,6 +49,14 @@ extends Resource
 @export var chest_break_shards: int = 25
 @export var chest_break_heal_ratio: float = 0.3
 @export var relic_choices: int = 3
+@export_group("Capture (Rite de lien)")
+## Chance qu'une élite laisse un Écho errant.
+@export var capture_chance: float = 0.3
+## Poids relatif des Échos encore verrouillés (les capturer les débloque).
+@export var capture_locked_weight: float = 0.6
+@export var capture_time: float = 2.5
+@export var capture_radius: float = 46.0
+@export var capture_lifetime: float = 25.0
 @export_group("Lisibilité")
 ## Zoom de la caméra (> 1 = plus proche).
 @export var camera_zoom: float = 1.3

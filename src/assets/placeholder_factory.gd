@@ -223,6 +223,65 @@ static func shape_layers(shape: VisualData.Shape, pri: Color, sec: Color, acc: C
 				_layer([_p([0, -1, 0.65, 0, 0, 1, -0.65, 0])], pri),
 				_layer([_p([0, -1, 0.65, 0, 0, -0.1])], Color(acc, 0.7), false, false),
 			]
+	return _extra_layers(shape, pri, sec, acc)
+
+
+static func _extra_layers(shape: VisualData.Shape, pri: Color, sec: Color, acc: Color) -> Array:
+	match shape:
+		VisualData.Shape.VINE:
+			return [
+				_layer([_s(-0.8, 0.6, -0.2, -0.1, 0.12), _s(-0.2, -0.1, 0.5, 0.3, 0.12), _s(0.5, 0.3, 0.8, -0.5, 0.1)], sec),
+				_layer([_c(0.0, -0.05, 0.42)], pri),
+				_layer([_p([-0.75, -0.3, -0.45, -0.7, -0.35, -0.2]), _p([0.45, -0.75, 0.8, -0.45, 0.35, -0.35])], sec),
+				_layer([_c(0.18, -0.12, 0.09), _c(0.18, 0.12, 0.09)], acc, false, false),
+			]
+		VisualData.Shape.WISP:
+			return [
+				_layer([_p([-1.0, 0.0, -0.3, -0.35, -0.45, 0.0, -0.3, 0.35])], Color(sec, 0.8), false),
+				_layer([_c(0.1, 0, 0.5)], pri),
+				_layer([_p([0.1, -0.5, 0.35, -0.05, 0.05, 0.1, 0.3, 0.55, -0.05, 0.05, 0.2, -0.1])], acc, false, false),
+			]
+		VisualData.Shape.MAW:
+			return [
+				_layer([_c(-0.1, 0, 0.75)], pri),
+				_layer([_p([0.05, -0.45, 0.95, 0.0, 0.05, 0.45])], Color(0.05, 0.02, 0.06), false, false),
+				_layer([_p([0.2, -0.35, 0.3, -0.12, 0.4, -0.3]), _p([0.2, 0.35, 0.3, 0.12, 0.4, 0.3]),
+					_p([0.55, -0.22, 0.62, -0.05, 0.7, -0.17]), _p([0.55, 0.22, 0.62, 0.05, 0.7, 0.17])], acc, false, false),
+				_layer([_c(-0.35, -0.35, 0.1)], sec, false, false),
+			]
+		VisualData.Shape.MIRROR:
+			return [
+				_layer([_p([0, -0.95, 0.6, -0.3, 0.6, 0.3, 0, 0.95, -0.6, 0.3, -0.6, -0.3])], pri),
+				_layer([_p([0, -0.6, 0.35, -0.2, 0.0, 0.1, -0.35, -0.2])], Color(acc, 0.85), false, false),
+				_layer([_s(-0.3, 0.35, 0.3, 0.35, 0.05)], sec, false, false),
+			]
+		VisualData.Shape.BROOD:
+			return [
+				_layer([_e(-0.1, 0, 0.75, 0.6)], pri),
+				_layer([_c(-0.35, -0.25, 0.18), _c(-0.4, 0.25, 0.16), _c(0.0, 0.35, 0.14), _c(0.05, -0.38, 0.15)], sec, false),
+				_layer([_c(0.55, 0, 0.22)], pri.darkened(0.2)),
+				_layer([_c(0.65, -0.08, 0.06), _c(0.65, 0.08, 0.06)], acc, false, false),
+			]
+		VisualData.Shape.SHADE:
+			return [
+				_layer([_p([0.9, 0.0, 0.1, -0.7, -0.9, -0.2, -0.5, 0.0, -0.9, 0.2, 0.1, 0.7])], Color(pri, 0.85)),
+				_layer([_c(0.35, -0.12, 0.08), _c(0.35, 0.12, 0.08)], acc, false, false),
+			]
+		VisualData.Shape.WARDEN:
+			return [
+				_layer([_c(0, 0, 0.62)], pri),
+				_layer([_p([0, -1.0, 0.25, -0.55, -0.25, -0.55]), _p([0, 1.0, 0.25, 0.55, -0.25, 0.55]),
+					_p([-1.0, 0, -0.55, -0.25, -0.55, 0.25]), _p([1.0, 0, 0.55, -0.25, 0.55, 0.25])], sec),
+				_layer([_c(0, 0, 0.25)], acc, false, false),
+			]
+		VisualData.Shape.COLOSSUS:
+			return [
+				_layer([_p([-0.85, -0.6, -0.3, -0.95, 0.4, -0.85, 0.9, -0.3, 0.85, 0.45, 0.3, 0.9, -0.5, 0.85, -0.95, 0.25])], pri),
+				_layer([_p([-0.5, -0.45, -0.1, -0.6, 0.0, -0.2, -0.4, -0.1]), _p([0.2, 0.15, 0.6, 0.05, 0.55, 0.5, 0.15, 0.55])],
+					sec, false),
+				_layer([_s(-0.2, 0.05, 0.35, -0.15, 0.08)], acc, false, false),
+				_layer([_c(0.45, -0.4, 0.09), _c(0.6, -0.15, 0.09)], acc, false, false),
+			]
 	return [
 		_layer([_c(0, 0, 0.8)], pri),
 		_layer([_c(0.3, -0.15, 0.1), _c(0.3, 0.15, 0.1)], acc, false, false),

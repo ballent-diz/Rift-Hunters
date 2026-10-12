@@ -21,7 +21,7 @@ chance = 1.0
 
 [sub_resource type="Resource" id="attack_data_1"]
 script = ExtResource("2")
-damage = 7.0
+damage = 9.0
 cooldown = 0.85
 statuses = [SubResource("status_application_2")]
 name_key = "ATTACK_GLIMMERWING"
@@ -42,8 +42,8 @@ id = &"prism_flare"
 technique_kind = &"prism_flare"
 name_key = "TECHNIQUE_PRISM_FLARE_NAME"
 desc_key = "TECHNIQUE_PRISM_FLARE_DESC"
-cooldown = 10.0
-damage = 9.0
+cooldown = 9.0
+damage = 11.0
 
 [sub_resource type="Resource" id="status_application_7"]
 script = ExtResource("3")

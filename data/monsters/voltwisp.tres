@@ -1,0 +1,261 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=39 format=3]
+
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="3"]
+[ext_resource type="Script" path="res://src/combat/effects/damage_bonus_effect.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="10"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="11"]
+
+[sub_resource type="Resource" id="status_application_2"]
+script = ExtResource("3")
+status_id = &"static"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("2")
+damage = 11.0
+cooldown = 1.1
+chain = 3
+statuses = [SubResource("status_application_2")]
+name_key = "ATTACK_VOLTWISP"
+attack_range = 400.0
+projectile_speed = 950.0
+
+[sub_resource type="Resource" id="damage_bonus_effect_3"]
+script = ExtResource("4")
+source_filter = &"any"
+target_status = &"static"
+bonus_pct = 0.1
+
+[sub_resource type="Resource" id="status_application_5"]
+script = ExtResource("3")
+status_id = &"static"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="technique_data_4"]
+script = ExtResource("5")
+id = &"ion_storm"
+technique_kind = &"ion_storm"
+name_key = "TECHNIQUE_ION_STORM_NAME"
+desc_key = "TECHNIQUE_ION_STORM_DESC"
+cooldown = 11.0
+damage = 28.0
+radius = 55.0
+count = 8
+statuses = [SubResource("status_application_5")]
+
+[sub_resource type="Resource" id="status_application_8"]
+script = ExtResource("3")
+status_id = &"static"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_7"]
+script = ExtResource("2")
+damage = 8.0
+cooldown = 1.2
+chain = 6
+statuses = [SubResource("status_application_8")]
+name_key = "ATTACK_VOLTWISP"
+attack_range = 400.0
+projectile_speed = 950.0
+
+[sub_resource type="Resource" id="visual_data_9"]
+script = ExtResource("7")
+visual_id = &"monster.voltwisp.stormarc"
+shape = 15
+size = 34.0
+primary = Color(0.6, 0.85, 1.0, 1.0)
+secondary = Color(0.3, 0.5, 1.0, 1.0)
+accent = Color(1.0, 1.0, 0.8, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_6"]
+script = ExtResource("6")
+id = &"stormarc"
+name_key = "EVOLUTION_STORMARC_NAME"
+desc_key = "EVOLUTION_STORMARC_DESC"
+required_rank = 3
+attack = SubResource("attack_data_7")
+visual = SubResource("visual_data_9")
+
+[sub_resource type="Resource" id="status_application_12"]
+script = ExtResource("3")
+status_id = &"static"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_11"]
+script = ExtResource("2")
+damage = 14.0
+cooldown = 1.4
+chain = 1
+split = 3
+statuses = [SubResource("status_application_12")]
+name_key = "ATTACK_VOLTWISP"
+attack_range = 400.0
+projectile_speed = 950.0
+
+[sub_resource type="Resource" id="visual_data_13"]
+script = ExtResource("7")
+visual_id = &"monster.voltwisp.thunderhead"
+shape = 15
+size = 36.0
+primary = Color(0.55, 0.5, 0.75, 1.0)
+secondary = Color(0.95, 0.85, 0.3, 1.0)
+accent = Color(1.0, 1.0, 1.0, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_10"]
+script = ExtResource("6")
+id = &"thunderhead"
+name_key = "EVOLUTION_THUNDERHEAD_NAME"
+desc_key = "EVOLUTION_THUNDERHEAD_DESC"
+required_rank = 3
+attack = SubResource("attack_data_11")
+visual = SubResource("visual_data_13")
+
+[sub_resource type="Resource" id="status_application_16"]
+script = ExtResource("3")
+status_id = &"static"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_15"]
+script = ExtResource("2")
+damage = 6.0
+cooldown = 0.8
+chain = 2
+statuses = [SubResource("status_application_16")]
+name_key = "ATTACK_VOLTWISP"
+attack_range = 400.0
+projectile_speed = 950.0
+
+[sub_resource type="Resource" id="evolution_data_14"]
+script = ExtResource("6")
+id = &"spark"
+name_key = "VARIANT_SPARK_NAME"
+desc_key = "VARIANT_SPARK_DESC"
+required_rank = 1
+attack = SubResource("attack_data_15")
+
+[sub_resource type="Resource" id="mastery_challenge_data_18"]
+script = ExtResource("9")
+id = &"voltwisp_conductor"
+desc_key = "MASTERY_VOLTWISP_CONDUCTOR"
+stat_key = &"voltwisp_applied_static"
+threshold = 1500.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="mastery_challenge_data_19"]
+script = ExtResource("9")
+id = &"voltwisp_storm"
+desc_key = "MASTERY_VOLTWISP_STORM"
+stat_key = &"voltwisp_techniques"
+threshold = 10.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="mastery_challenge_data_20"]
+script = ExtResource("9")
+id = &"voltwisp_evolved_victory"
+desc_key = "MASTERY_VOLTWISP_EVOLVED_VICTORY"
+stat_key = &"voltwisp_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_modifier_effect_22"]
+script = ExtResource("11")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="mastery_reward_data_21"]
+script = ExtResource("10")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_modifier_effect_22")]
+
+[sub_resource type="Resource" id="mastery_reward_data_23"]
+script = ExtResource("10")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(1.0, 0.55, 0.85, 1.0)
+palette_secondary = Color(0.75, 0.4, 1.0, 1.0)
+
+[sub_resource type="Resource" id="mastery_reward_data_24"]
+script = ExtResource("10")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="mastery_reward_data_25"]
+script = ExtResource("10")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="mastery_reward_data_26"]
+script = ExtResource("10")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_data_17"]
+script = ExtResource("8")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("mastery_challenge_data_18"), SubResource("mastery_challenge_data_19"), SubResource("mastery_challenge_data_20")]
+rewards = [SubResource("mastery_reward_data_21"), SubResource("mastery_reward_data_23"), SubResource("mastery_reward_data_24"), SubResource("mastery_reward_data_25"), SubResource("mastery_reward_data_26")]
+
+[sub_resource type="Resource" id="visual_data_27"]
+script = ExtResource("7")
+visual_id = &"monster.voltwisp"
+shape = 15
+size = 28.0
+primary = Color(1.0, 0.95, 0.55, 1.0)
+secondary = Color(0.55, 0.75, 1.0, 1.0)
+accent = Color(1.0, 1.0, 1.0, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"voltwisp"
+name_key = "MONSTER_VOLTWISP_NAME"
+desc_key = "MONSTER_VOLTWISP_DESC"
+lore_key = "MONSTER_VOLTWISP_LORE"
+role = 5
+affinities = [&"storm", &"arcane"]
+rarity = 2
+max_hp = 60.0
+defense = 0.0
+move_speed = 240.0
+behavior_id = &"orb"
+attack = SubResource("attack_data_1")
+passive_name_key = "PASSIVE_VOLTWISP_NAME"
+passive_desc_key = "PASSIVE_VOLTWISP_DESC"
+passive_effects = [SubResource("damage_bonus_effect_3")]
+technique = SubResource("technique_data_4")
+evolutions = [SubResource("evolution_data_6"), SubResource("evolution_data_10")]
+variant = SubResource("evolution_data_14")
+mastery = SubResource("mastery_data_17")
+unlocked_by_default = false
+visual = SubResource("visual_data_27")

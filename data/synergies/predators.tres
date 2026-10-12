@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/damage_bonus_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="damage_bonus_effect_1"]
+script = ExtResource("2")
+source_filter = &"allies"
+target_hp_below = 0.5
+bonus_pct = 0.2
+
+[resource]
+script = ExtResource("1")
+id = &"predators"
+name_key = "SYNERGY_PREDATORS_NAME"
+desc_key = "SYNERGY_PREDATORS_DESC"
+required_monsters = []
+required_affinities = {
+"predator": 2
+}
+color = Color(0.95, 0.5, 0.6, 1.0)
+effects = [SubResource("damage_bonus_effect_1")]

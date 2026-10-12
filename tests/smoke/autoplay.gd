@@ -14,6 +14,14 @@ func _ready() -> void:
 	var setup: RunSetup = Profile.make_run_setup(&"mossback")
 	setup.autopilot = true
 	setup.run_seed = 1
+	# Simulation d'équilibrage : tout le contenu est disponible, indépendamment du profil local.
+	setup.unlocked_monsters = GameDB.sorted_ids(GameDB.monsters)
+	setup.unlocked_relics = GameDB.sorted_ids(GameDB.relics)
+	setup.unlocked_upgrades = GameDB.sorted_ids(GameDB.upgrades)
+	setup.meta_effects = []
+	setup.modifier_ids = []
+	setup.arena_id = &"fractured_plain"
+	setup.difficulty_id = &"tension_0"
 	var god: bool = false
 	var boss_at: float = -1.0
 	for arg: String in OS.get_cmdline_user_args():
@@ -31,6 +39,11 @@ func _ready() -> void:
 				_max_frames = int(float(parts[1]) * 3600.0)
 			"boss-at":
 				boss_at = float(parts[1])
+			"arena":
+				setup.arena_id = StringName(parts[1])
+			"modifiers":
+				for id: String in parts[1].split(",", false):
+					setup.modifier_ids.append(StringName(id))
 	_run = load("res://scenes/run.tscn").instantiate()
 	_run.skip_profile = true
 	_run.start(setup)
@@ -63,5 +76,10 @@ func _on_finished(result: Dictionary) -> void:
 		int(counters.get("elites_killed", 0)), int(counters.get("chests_opened", 0)), result["evolutions"],
 		result["relics"], result["synergies"]])
 	print("Dégâts par source : ", result["stats"]["damage_by_source"])
+	var boss_ratio: float = (_run.ctx.boss.hp / _run.ctx.boss.max_hp) if _run.ctx.boss else 1.0
+	var boss_time: float = float(result["time"]) - _run.ctx.arena.boss_time if _run.ctx.boss else 0.0
+	print("RESULT|%s|%s|%s|%d|%d|%d|%d|%d|%.2f|%d" % [_run.ctx.setup.starter_id, _run.ctx.arena.id, _run.ctx.setup.difficulty_id,
+		1 if result["victory"] else 0, int(result["time"]), result["level"], result["kills"], int(boss_time), boss_ratio,
+		int(counters.get("damage_taken", 0))])
 	print("Récompenses : ", _run.rewards)
 	get_tree().quit(0)

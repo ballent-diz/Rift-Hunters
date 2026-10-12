@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RelicData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/relic_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="stat_modifier_effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"damage_taken"
+flat = 0.0
+pct = -0.12
+
+[sub_resource type="Resource" id="stat_modifier_effect_2"]
+script = ExtResource("2")
+target = 0
+stat = &"move_speed"
+flat = 0.0
+pct = -0.05
+
+[resource]
+script = ExtResource("1")
+id = &"cracked_mirror"
+name_key = "RELIC_CRACKED_MIRROR_NAME"
+desc_key = "RELIC_CRACKED_MIRROR_DESC"
+rarity = 1
+requires_any_monster = [&"mirrorling"]
+unlocked_by_default = true
+effects = [SubResource("stat_modifier_effect_1"), SubResource("stat_modifier_effect_2")]
+color = Color(0.8, 0.9, 1.0, 1.0)

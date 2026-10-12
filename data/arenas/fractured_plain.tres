@@ -35,8 +35,8 @@ max_alive = 140
 script = ExtResource("2")
 start_time = 240.0
 end_time = 330.0
-enemies = [&"skitterling", &"lunger", &"husk", &"spitter"]
-weights = [3.0, 1.0, 1.0, 1.0]
+enemies = [&"skitterling", &"lunger", &"husk", &"spitter", &"shade_stalker"]
+weights = [3.0, 1.0, 1.0, 1.0, 0.4]
 spawn_rate = 3.2
 max_alive = 190
 
@@ -44,8 +44,8 @@ max_alive = 190
 script = ExtResource("2")
 start_time = 330.0
 end_time = 9999.0
-enemies = [&"skitterling", &"lunger", &"husk", &"spitter"]
-weights = [3.0, 1.2, 1.4, 1.2]
+enemies = [&"skitterling", &"lunger", &"husk", &"spitter", &"shade_stalker", &"broodmother"]
+weights = [3.0, 1.2, 1.4, 1.2, 0.6, 0.4]
 spawn_rate = 4.0
 max_alive = 240
 

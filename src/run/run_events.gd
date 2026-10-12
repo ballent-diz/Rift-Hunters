@@ -23,4 +23,5 @@ signal boss_spawned(boss: Enemy)
 signal boss_phase_changed(phase: int)
 signal boss_defeated(boss: Enemy)
 signal chest_collected
+signal capture_completed(monster_id: StringName)
 signal run_finished(victory: bool)

@@ -5,6 +5,7 @@ extends Resource
 enum Shape {
 	HUNTER, BLADE_BEAST, MONOLITH, MOTH, SKITTER, SHELL, SPITTER, LUNGER,
 	DEVOURER, ORB, CRYSTAL, CHEST, GEM, BLOB,
+	VINE, WISP, MAW, MIRROR, BROOD, SHADE, WARDEN, COLOSSUS,
 }
 
 ## Clé dans assets/asset_manifest.json (ex. &"monster.ashblade").

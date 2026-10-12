@@ -1,0 +1,308 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=44 format=3]
+
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="3"]
+[ext_resource type="Script" path="res://src/combat/effects/damage_bonus_effect.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="10"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="11"]
+
+[sub_resource type="Resource" id="status_application_2"]
+script = ExtResource("3")
+status_id = &"root"
+stacks = 1
+chance = 0.25
+
+[sub_resource type="Resource" id="status_application_3"]
+script = ExtResource("3")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("2")
+damage = 5.0
+cooldown = 3.0
+radius = 60.0
+statuses = [SubResource("status_application_2"), SubResource("status_application_3")]
+params = {
+"duration": 4.0,
+"count": 1
+}
+name_key = "ATTACK_THORNWEAVE"
+attack_range = 320.0
+
+[sub_resource type="Resource" id="damage_bonus_effect_4"]
+script = ExtResource("4")
+source_filter = &"any"
+target_status = &"root"
+bonus_pct = 0.2
+
+[sub_resource type="Resource" id="status_application_6"]
+script = ExtResource("3")
+status_id = &"root"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_application_7"]
+script = ExtResource("3")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="technique_data_5"]
+script = ExtResource("5")
+id = &"briar_wall"
+technique_kind = &"briar_wall"
+name_key = "TECHNIQUE_BRIAR_WALL_NAME"
+desc_key = "TECHNIQUE_BRIAR_WALL_DESC"
+cooldown = 13.0
+damage = 6.0
+radius = 40.0
+duration = 5.0
+count = 5
+statuses = [SubResource("status_application_6"), SubResource("status_application_7")]
+params = {
+"distance": 140.0
+}
+
+[sub_resource type="Resource" id="status_application_10"]
+script = ExtResource("3")
+status_id = &"root"
+stacks = 1
+chance = 0.35
+
+[sub_resource type="Resource" id="status_application_11"]
+script = ExtResource("3")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_9"]
+script = ExtResource("2")
+damage = 5.0
+cooldown = 3.0
+radius = 70.0
+statuses = [SubResource("status_application_10"), SubResource("status_application_11")]
+params = {
+"duration": 4.0,
+"count": 3,
+"spread": 85.0
+}
+name_key = "ATTACK_THORNWEAVE"
+attack_range = 320.0
+
+[sub_resource type="Resource" id="visual_data_12"]
+script = ExtResource("7")
+visual_id = &"monster.thornweave.briar_queen"
+shape = 14
+size = 40.0
+primary = Color(0.25, 0.5, 0.25, 1.0)
+secondary = Color(0.55, 0.9, 0.4, 1.0)
+accent = Color(1.0, 0.6, 0.8, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_8"]
+script = ExtResource("6")
+id = &"briar_queen"
+name_key = "EVOLUTION_BRIAR_QUEEN_NAME"
+desc_key = "EVOLUTION_BRIAR_QUEEN_DESC"
+required_rank = 3
+attack = SubResource("attack_data_9")
+visual = SubResource("visual_data_12")
+
+[sub_resource type="Resource" id="status_application_15"]
+script = ExtResource("3")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_application_16"]
+script = ExtResource("3")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_14"]
+script = ExtResource("2")
+damage = 7.0
+cooldown = 2.6
+radius = 65.0
+statuses = [SubResource("status_application_15"), SubResource("status_application_16")]
+params = {
+"duration": 5.0,
+"count": 1
+}
+name_key = "ATTACK_THORNWEAVE"
+attack_range = 320.0
+
+[sub_resource type="Resource" id="visual_data_17"]
+script = ExtResource("7")
+visual_id = &"monster.thornweave.blightbloom"
+shape = 14
+size = 40.0
+primary = Color(0.35, 0.3, 0.15, 1.0)
+secondary = Color(0.85, 0.55, 0.2, 1.0)
+accent = Color(1.0, 0.9, 0.3, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_13"]
+script = ExtResource("6")
+id = &"blightbloom"
+name_key = "EVOLUTION_BLIGHTBLOOM_NAME"
+desc_key = "EVOLUTION_BLIGHTBLOOM_DESC"
+required_rank = 3
+attack = SubResource("attack_data_14")
+visual = SubResource("visual_data_17")
+added_affinities = [&"blaze"]
+
+[sub_resource type="Resource" id="status_application_20"]
+script = ExtResource("3")
+status_id = &"root"
+stacks = 1
+chance = 0.3
+
+[sub_resource type="Resource" id="status_application_21"]
+script = ExtResource("3")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_19"]
+script = ExtResource("2")
+damage = 5.0
+cooldown = 3.6
+radius = 60.0
+statuses = [SubResource("status_application_20"), SubResource("status_application_21")]
+params = {
+"duration": 6.5,
+"count": 1
+}
+name_key = "ATTACK_THORNWEAVE"
+attack_range = 320.0
+
+[sub_resource type="Resource" id="evolution_data_18"]
+script = ExtResource("6")
+id = &"deep_root"
+name_key = "VARIANT_DEEP_ROOT_NAME"
+desc_key = "VARIANT_DEEP_ROOT_DESC"
+required_rank = 1
+attack = SubResource("attack_data_19")
+
+[sub_resource type="Resource" id="mastery_challenge_data_23"]
+script = ExtResource("9")
+id = &"thornweave_rooter"
+desc_key = "MASTERY_THORNWEAVE_ROOTER"
+stat_key = &"thornweave_applied_root"
+threshold = 400.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="mastery_challenge_data_24"]
+script = ExtResource("9")
+id = &"thornweave_wall"
+desc_key = "MASTERY_THORNWEAVE_WALL"
+stat_key = &"thornweave_techniques"
+threshold = 8.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="mastery_challenge_data_25"]
+script = ExtResource("9")
+id = &"thornweave_evolved_victory"
+desc_key = "MASTERY_THORNWEAVE_EVOLVED_VICTORY"
+stat_key = &"thornweave_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_modifier_effect_27"]
+script = ExtResource("11")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="mastery_reward_data_26"]
+script = ExtResource("10")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_modifier_effect_27")]
+
+[sub_resource type="Resource" id="mastery_reward_data_28"]
+script = ExtResource("10")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(0.6, 0.35, 0.5, 1.0)
+palette_secondary = Color(0.95, 0.6, 0.85, 1.0)
+
+[sub_resource type="Resource" id="mastery_reward_data_29"]
+script = ExtResource("10")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="mastery_reward_data_30"]
+script = ExtResource("10")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="mastery_reward_data_31"]
+script = ExtResource("10")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_data_22"]
+script = ExtResource("8")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("mastery_challenge_data_23"), SubResource("mastery_challenge_data_24"), SubResource("mastery_challenge_data_25")]
+rewards = [SubResource("mastery_reward_data_26"), SubResource("mastery_reward_data_28"), SubResource("mastery_reward_data_29"), SubResource("mastery_reward_data_30"), SubResource("mastery_reward_data_31")]
+
+[sub_resource type="Resource" id="visual_data_32"]
+script = ExtResource("7")
+visual_id = &"monster.thornweave"
+shape = 14
+size = 32.0
+primary = Color(0.25, 0.42, 0.28, 1.0)
+secondary = Color(0.45, 0.8, 0.35, 1.0)
+accent = Color(0.95, 0.85, 0.4, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"thornweave"
+name_key = "MONSTER_THORNWEAVE_NAME"
+desc_key = "MONSTER_THORNWEAVE_DESC"
+lore_key = "MONSTER_THORNWEAVE_LORE"
+role = 3
+affinities = [&"nature", &"controller"]
+rarity = 1
+max_hp = 110.0
+defense = 15.0
+move_speed = 170.0
+behavior_id = &"zone"
+attack = SubResource("attack_data_1")
+passive_name_key = "PASSIVE_THORNWEAVE_NAME"
+passive_desc_key = "PASSIVE_THORNWEAVE_DESC"
+passive_effects = [SubResource("damage_bonus_effect_4")]
+technique = SubResource("technique_data_5")
+evolutions = [SubResource("evolution_data_8"), SubResource("evolution_data_13")]
+variant = SubResource("evolution_data_18")
+mastery = SubResource("mastery_data_22")
+unlocked_by_default = false
+visual = SubResource("visual_data_32")

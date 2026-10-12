@@ -3,13 +3,14 @@ extends Node2D
 ## Zones télégraphiées et effets au sol : cercles, anneaux, rayons, puits de gravité.
 ## Les zones hostiles se télégraphient TOUJOURS avant de frapper (lisibilité).
 
-enum Kind { CIRCLE, RING, BEAM, WELL }
+enum Kind { CIRCLE, RING, BEAM, WELL, ZONE }
 
 const DANGER := Color(1.0, 0.25, 0.6)
 const FRIENDLY := Color(0.5, 0.9, 1.0)
 
 var ctx: RunContext
 var hazards: Array[Dictionary] = []
+var _clear_hostile_pending: bool = false
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -50,6 +51,13 @@ func add_well(pos: Vector2, radius: float, duration: float, pull: float, implode
 	return well
 
 
+## Zone alliée persistante : dégâts et statuts toutes les 0,5 s (ronces, champs).
+func add_zone(pos: Vector2, radius: float, duration: float, damage: float, source_id: StringName,
+		statuses: Array[StatusApplication] = [], color: Color = Color(0.45, 0.85, 0.35)) -> void:
+	hazards.append({"kind": Kind.ZONE, "pos": pos, "radius": radius, "duration": duration, "total": duration,
+		"damage": damage, "source": source_id, "statuses": statuses, "tick": 0.0, "color": color, "life": duration})
+
+
 ## Vecteur d'évitement des zones hostiles (utilisé par le bot de test).
 func danger_vector(pos: Vector2) -> Vector2:
 	var result := Vector2.ZERO
@@ -72,9 +80,10 @@ func danger_vector(pos: Vector2) -> Vector2:
 
 
 func step(delta: float) -> void:
-	var i: int = hazards.size() - 1
-	while i >= 0:
-		var h: Dictionary = hazards[i]
+	# Itère sur une copie : un coup peut ajouter des zones (explosions) ou en retirer (mort du boss).
+	var current: Array[Dictionary] = hazards.duplicate()
+	var kept: Array[Dictionary] = []
+	for h: Dictionary in current:
 		h["life"] = float(h["life"]) - delta
 		var keep: bool = true
 		match h["kind"]:
@@ -86,10 +95,18 @@ func step(delta: float) -> void:
 				keep = _step_beam(h, delta)
 			Kind.WELL:
 				keep = _step_well(h, delta)
-		if not keep:
-			hazards[i] = hazards[hazards.size() - 1]
-			hazards.pop_back()
-		i -= 1
+			Kind.ZONE:
+				keep = _step_zone(h, delta)
+		if keep:
+			kept.append(h)
+	for h: Dictionary in hazards:
+		if not current.has(h):
+			kept.append(h)
+	hazards = kept
+	if _clear_hostile_pending:
+		_clear_hostile_pending = false
+		hazards.assign(hazards.filter(func(h: Dictionary) -> bool: return h["kind"] in [Kind.WELL,
+				Kind.ZONE] or not h.get("hostile", true)))
 	queue_redraw()
 
 
@@ -179,6 +196,16 @@ func _step_well(h: Dictionary, delta: float) -> bool:
 	return true
 
 
+func _step_zone(h: Dictionary, delta: float) -> bool:
+	h["tick"] = float(h["tick"]) - delta
+	if float(h["tick"]) <= 0.0:
+		h["tick"] = 0.5
+		for enemy: Enemy in ctx.enemies.query_radius(h["pos"], float(h["radius"])):
+			_hit_enemy(enemy, h)
+	h["duration"] = float(h["duration"]) - delta
+	return float(h["duration"]) > 0.0
+
+
 func _strike_area(h: Dictionary, center: Vector2, radius: float) -> void:
 	if h["hostile"]:
 		var player: Player = ctx.player
@@ -200,8 +227,9 @@ func _hit_enemy(enemy: Enemy, h: Dictionary) -> void:
 	ctx.combat.deal_damage(enemy, info)
 
 
+## Retire les zones hostiles (appliqué à la fin du prochain pas, jamais pendant une itération).
 func clear_hostile() -> void:
-	hazards.assign(hazards.filter(func(h: Dictionary) -> bool: return h["kind"] == Kind.WELL or not h.get("hostile", true)))
+	_clear_hostile_pending = true
 
 
 func _draw() -> void:
@@ -224,6 +252,11 @@ func _draw() -> void:
 				else:
 					draw_line(h["pos"], end, Color(0.55, 0.1, 0.9, 0.85), float(h["width"]))
 					draw_line(h["pos"], end, Color(1.0, 0.8, 1.0), float(h["width"]) * 0.35)
+			Kind.ZONE:
+				var fade: float = clampf(float(h["duration"]) / 0.5, 0.0, 1.0)
+				var zone_color: Color = h["color"]
+				draw_circle(h["pos"], float(h["radius"]), Color(zone_color, 0.16 * fade))
+				draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 40, Color(zone_color, 0.6 * fade), 2.0)
 			Kind.WELL:
 				var t: float = float(h["duration"]) / maxf(float(h["total"]), 0.01)
 				draw_circle(h["pos"], float(h["radius"]), Color(0.3, 0.8, 0.5, 0.12))

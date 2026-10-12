@@ -59,6 +59,7 @@ func refresh() -> void:
 	var difficulty_data: DifficultyData = GameDB.difficulty(StringName(current_difficulty))
 	if difficulty_data:
 		box.add_child(UiKit.wrapped(tr(difficulty_data.desc_key), 15))
+	_add_modifiers(box, difficulty_data)
 	box.add_child(UiKit.label(tr("EXPEDITION_ARENA"), 22, UiKit.TEXT))
 	var arena_row := HBoxContainer.new()
 	box.add_child(arena_row)
@@ -72,6 +73,40 @@ func refresh() -> void:
 	go.custom_minimum_size.y = 60
 	go.add_theme_font_size_override("font_size", 24)
 	box.add_child(go)
+
+
+## Pactes de risque : modificateurs cumulables, disponibles à partir d'une certaine Tension.
+func _add_modifiers(box: VBoxContainer, difficulty: DifficultyData) -> void:
+	if GameDB.modifiers.is_empty():
+		return
+	box.add_child(UiKit.label(tr("EXPEDITION_MODIFIERS"), 22, UiKit.TEXT))
+	var chosen: PackedStringArray = profile().preference("modifiers", "").split(",", false)
+	var flow := HFlowContainer.new()
+	flow.add_theme_constant_override("h_separation", 10)
+	flow.add_theme_constant_override("v_separation", 8)
+	box.add_child(flow)
+	var bonus: float = 0.0
+	for id: StringName in GameDB.sorted_ids(GameDB.modifiers):
+		var modifier: RunModifierData = GameDB.modifier(id)
+		var allowed: bool = difficulty != null and difficulty.level >= modifier.min_difficulty
+		var on: bool = chosen.has(String(id)) and allowed
+		if on:
+			bonus += modifier.reward_bonus
+		var text: String = "%s%s (+%d %%)" % [tr(modifier.name_key), " ✔" if on else "", int(round(modifier.reward_bonus * 100.0))]
+		var button: Button = UiKit.button(text, _toggle_modifier.bind(String(id)), 230)
+		button.tooltip_text = tr(modifier.desc_key) + "\n" + tr("EXPEDITION_MODIFIER_MIN") % modifier.min_difficulty
+		button.disabled = not allowed
+		flow.add_child(button)
+	box.add_child(UiKit.label(tr("EXPEDITION_MODIFIERS_BONUS") % int(round(bonus * 100.0)), 15, UiKit.GOLD))
+
+
+func _toggle_modifier(id: String) -> void:
+	var chosen: PackedStringArray = profile().preference("modifiers", "").split(",", false)
+	if chosen.has(id):
+		chosen.remove_at(chosen.find(id))
+	else:
+		chosen.append(id)
+	_set_pref("modifiers", ",".join(chosen))
 
 
 func _unlock_hint(entry: String) -> String:

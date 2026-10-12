@@ -4,124 +4,678 @@
 		"player.hunter": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/players/hunter/hunter_sheet.png",
-			"cell": [64, 64],
-			"anchor": [32, 56],
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
 			"animations": {
-				"idle": {"row": 0, "frames": 6, "fps": 8, "loop": true},
-				"move": {"row": 1, "frames": 8, "fps": 12, "loop": true},
-				"dash": {"row": 2, "frames": 4, "fps": 20, "loop": false},
-				"hurt": {"row": 3, "frames": 3, "fps": 12, "loop": false},
-				"death": {"row": 4, "frames": 8, "fps": 10, "loop": false}
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"dash": {
+					"row": 2,
+					"frames": 4,
+					"fps": 20,
+					"loop": false
+				},
+				"hurt": {
+					"row": 3,
+					"frames": 3,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
 			},
 			"icon": "res://assets/ui/icons/players/hunter.png"
 		},
 		"monster.ashblade": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_sheet.png",
-			"cell": [64, 64],
-			"anchor": [32, 56],
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
 			"animations": {
-				"idle": {"row": 0, "frames": 6, "fps": 8, "loop": true},
-				"move": {"row": 1, "frames": 8, "fps": 12, "loop": true},
-				"attack": {"row": 2, "frames": 6, "fps": 16, "loop": false},
-				"technique": {"row": 3, "frames": 8, "fps": 16, "loop": false}
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				}
 			},
 			"icon": "res://assets/ui/icons/monsters/ashblade.png"
 		},
 		"monster.mossback": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/monsters/mossback/mossback_sheet.png",
-			"cell": [64, 64],
-			"anchor": [32, 56],
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
 			"animations": {
-				"idle": {"row": 0, "frames": 6, "fps": 6, "loop": true},
-				"move": {"row": 1, "frames": 8, "fps": 10, "loop": true},
-				"attack": {"row": 2, "frames": 6, "fps": 12, "loop": false},
-				"technique": {"row": 3, "frames": 8, "fps": 12, "loop": false}
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				}
 			},
 			"icon": "res://assets/ui/icons/monsters/mossback.png"
 		},
 		"monster.glimmerwing": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_sheet.png",
-			"cell": [64, 64],
-			"anchor": [32, 40],
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				40
+			],
 			"animations": {
-				"idle": {"row": 0, "frames": 6, "fps": 10, "loop": true},
-				"move": {"row": 1, "frames": 6, "fps": 12, "loop": true},
-				"attack": {"row": 2, "frames": 5, "fps": 14, "loop": false},
-				"technique": {"row": 3, "frames": 8, "fps": 14, "loop": false}
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 5,
+					"fps": 14,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				}
 			},
 			"icon": "res://assets/ui/icons/monsters/glimmerwing.png"
 		},
 		"enemy.skitterling": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/skitterling/skitterling_sheet.png",
-			"cell": [48, 48],
-			"anchor": [24, 40],
+			"cell": [
+				48,
+				48
+			],
+			"anchor": [
+				24,
+				40
+			],
 			"animations": {
-				"move": {"row": 0, "frames": 6, "fps": 14, "loop": true},
-				"death": {"row": 1, "frames": 6, "fps": 14, "loop": false}
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 14,
+					"loop": true
+				},
+				"death": {
+					"row": 1,
+					"frames": 6,
+					"fps": 14,
+					"loop": false
+				}
 			}
 		},
 		"enemy.husk": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/husk/husk_sheet.png",
-			"cell": [48, 48],
-			"anchor": [24, 40],
+			"cell": [
+				48,
+				48
+			],
+			"anchor": [
+				24,
+				40
+			],
 			"animations": {
-				"move": {"row": 0, "frames": 6, "fps": 8, "loop": true},
-				"death": {"row": 1, "frames": 6, "fps": 12, "loop": false}
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"death": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
 			}
 		},
 		"enemy.spitter": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/spitter/spitter_sheet.png",
-			"cell": [48, 48],
-			"anchor": [24, 40],
+			"cell": [
+				48,
+				48
+			],
+			"anchor": [
+				24,
+				40
+			],
 			"animations": {
-				"move": {"row": 0, "frames": 6, "fps": 10, "loop": true},
-				"attack": {"row": 1, "frames": 4, "fps": 12, "loop": false},
-				"death": {"row": 2, "frames": 6, "fps": 12, "loop": false}
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 4,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
 			}
 		},
 		"enemy.lunger": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/lunger/lunger_sheet.png",
-			"cell": [48, 48],
-			"anchor": [24, 40],
+			"cell": [
+				48,
+				48
+			],
+			"anchor": [
+				24,
+				40
+			],
 			"animations": {
-				"move": {"row": 0, "frames": 6, "fps": 10, "loop": true},
-				"attack": {"row": 1, "frames": 4, "fps": 12, "loop": false},
-				"death": {"row": 2, "frames": 6, "fps": 12, "loop": false}
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 4,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
 			}
 		},
 		"enemy.rift_crystal": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/enemies/rift_crystal/rift_crystal_sheet.png",
-			"cell": [64, 64],
-			"anchor": [32, 56],
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
 			"animations": {
-				"move": {"row": 0, "frames": 6, "fps": 6, "loop": true},
-				"death": {"row": 1, "frames": 6, "fps": 12, "loop": false}
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				},
+				"death": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
 			}
 		},
 		"boss.nebulorax": {
 			"status": "planned",
 			"sheet": "res://assets/sprites/bosses/nebulorax/nebulorax_sheet.png",
-			"cell": [256, 256],
-			"anchor": [128, 128],
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				128
+			],
 			"animations": {
-				"idle": {"row": 0, "frames": 6, "fps": 8, "loop": true},
-				"move": {"row": 1, "frames": 8, "fps": 10, "loop": true},
-				"attack": {"row": 2, "frames": 6, "fps": 12, "loop": false},
-				"shadow_wave": {"row": 3, "frames": 8, "fps": 12, "loop": false},
-				"summon": {"row": 4, "frames": 8, "fps": 10, "loop": false},
-				"transform": {"row": 5, "frames": 12, "fps": 10, "loop": false},
-				"phase2_attack": {"row": 6, "frames": 8, "fps": 12, "loop": false},
-				"death": {"row": 7, "frames": 8, "fps": 10, "loop": false}
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"shadow_wave": {
+					"row": 3,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				},
+				"summon": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 5,
+					"frames": 12,
+					"fps": 10,
+					"loop": false
+				},
+				"phase2_attack": {
+					"row": 6,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 7,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
 			},
 			"icon": "res://assets/ui/icons/bosses/nebulorax.png"
+		},
+		"monster.thornweave": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/monsters/thornweave/thornweave_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 14,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/thornweave.png"
+		},
+		"monster.voltwisp": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/monsters/voltwisp/voltwisp_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 14,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/voltwisp.png"
+		},
+		"monster.gloommaw": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/monsters/gloommaw/gloommaw_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 14,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/gloommaw.png"
+		},
+		"monster.mirrorling": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/monsters/mirrorling/mirrorling_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 14,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/mirrorling.png"
+		},
+		"enemy.broodmother": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/enemies/broodmother/broodmother_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				56
+			],
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 4,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.shade_stalker": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/enemies/shade_stalker/shade_stalker_sheet.png",
+			"cell": [
+				48,
+				48
+			],
+			"anchor": [
+				24,
+				40
+			],
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 4,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.crystal_warden": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/enemies/crystal_warden/crystal_warden_sheet.png",
+			"cell": [
+				48,
+				48
+			],
+			"anchor": [
+				24,
+				40
+			],
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 4,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"boss.vorgranite": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/bosses/vorgranite/vorgranite_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				150
+			],
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"charge": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"rock_rain": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 5,
+					"frames": 10,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 6,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/vorgranite.png"
 		}
 	}
 }

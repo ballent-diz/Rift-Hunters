@@ -177,6 +177,27 @@ func _step_hostile(p: Projectile, delta: float, rect: Rect2) -> bool:
 	return true
 
 
+## Transforme les projectiles ennemis proches en projectiles alliés renvoyés vers les ennemis.
+func reflect_hostiles(center: Vector2, radius: float, template: DamageInfo, color: Color) -> int:
+	var count: int = 0
+	var i: int = hostile.size() - 1
+	while i >= 0:
+		var p: Projectile = hostile[i]
+		if p.position.distance_to(center) <= radius:
+			hostile[i] = hostile[hostile.size() - 1]
+			hostile.pop_back()
+			var info: DamageInfo = template.duplicate_info()
+			info.amount += p.hostile_damage
+			var target: Enemy = ctx.enemies.find_nearest(p.position, 500.0)
+			var dir: Vector2 = (target.position - p.position) if target else -p.velocity
+			spawn_friendly(p.position, dir, maxf(p.velocity.length() * 2.0, 380.0), info,
+				{"pierce": 1, "radius": p.radius, "life": 1.6, "color": color, "target": target})
+			_pool.append(p)
+			count += 1
+		i -= 1
+	return count
+
+
 func clear_hostile() -> void:
 	for p: Projectile in hostile:
 		_pool.append(p)

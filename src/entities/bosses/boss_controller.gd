@@ -15,6 +15,9 @@ var _next_pattern_time: float = 0.0
 var _ready_at: Dictionary = {}
 var _scheduled: Array[Dictionary] = []
 var _crystal_pulse: float = 4.0
+var _charge_time: float = 0.0
+var _charge_dir := Vector2.ZERO
+var _charge_speed: float = 0.0
 
 
 func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
@@ -52,7 +55,13 @@ func step(delta: float) -> void:
 	_check_phase()
 	busy_time = maxf(busy_time - delta, 0.0)
 	var to_player: Vector2 = ctx.player.global_position - boss.position
-	if busy_time <= 0.0 and boss.invulnerable_time <= 0.0 and absorb_time <= 0.0:
+	if _charge_time > 0.0:
+		_charge_time -= delta
+		boss.velocity = _charge_dir * _charge_speed
+		boss.position += boss.velocity * delta
+		var rect: Rect2 = ctx.arena_rect().grow(-boss.radius)
+		boss.position = boss.position.clamp(rect.position, rect.end)
+	elif busy_time <= 0.0 and boss.invulnerable_time <= 0.0 and absorb_time <= 0.0:
 		if to_player.length() > boss.radius + 40.0:
 			boss.velocity = to_player.normalized() * boss.move_speed * phase().move_speed_mult * boss.statuses.speed_mult()
 			boss.position += boss.velocity * delta
@@ -91,6 +100,8 @@ func _check_phase() -> void:
 		return
 	phase_index = next
 	var p: BossPhaseData = phase()
+	if p.defense_override >= 0.0:
+		boss.base_defense = p.defense_override
 	boss.invulnerable_time = p.transition_time
 	absorb_time = 0.0
 	boss.absorb_radius = 0.0
@@ -230,3 +241,44 @@ func _pulse_crystals(delta: float) -> void:
 	var damage: float = float(_ready_at.get(&"crystal_damage", 12.0)) * ctx.difficulty.enemy_damage_mult
 	for crystal: Enemy in crystals:
 		ctx.hazards.add_circle(crystal.position, 95.0, 1.1, damage, true, &"rift_crystal")
+
+
+## Pluie de roches : impacts télégraphiés en salves autour du Chasseur.
+func _pattern_rock_rain(pattern: BossPatternData) -> void:
+	var waves: int = int(pattern.params.get("waves", 3))
+	var per_wave: int = int(pattern.params.get("count", 6))
+	var radius: float = float(pattern.params.get("radius", 70.0))
+	for w: int in waves:
+		schedule(w * float(pattern.params.get("wave_gap", 0.6)), func() -> void:
+			var center: Vector2 = ctx.player.global_position
+			for i: int in per_wave:
+				var offset := Vector2.RIGHT.rotated(ctx.rng.randf() * TAU) * ctx.rng.randf_range(0.0, 260.0)
+				if i == 0:
+					offset = Vector2.ZERO
+				ctx.hazards.add_circle(center + offset, radius, pattern.telegraph, _damage(pattern), true, data.id)
+		)
+	busy_time = 0.6
+
+
+## Charge : ligne télégraphiée puis ruée à travers l'arène.
+func _pattern_charge(pattern: BossPatternData) -> void:
+	var dir: Vector2 = (ctx.player.global_position - boss.position).normalized()
+	var speed: float = float(pattern.params.get("speed", 620.0))
+	var duration: float = float(pattern.params.get("duration", 0.9))
+	ctx.fx.danger_line(boss.position, boss.position + dir * speed * duration, boss.radius * 1.6, pattern.telegraph)
+	busy_time = pattern.telegraph + duration
+	schedule(pattern.telegraph, func() -> void:
+		_charge_dir = dir
+		_charge_speed = speed
+		_charge_time = duration
+	)
+
+
+## Séisme : anneaux sans brèche, à franchir avec la Ruée (invulnérabilité).
+func _pattern_quake(pattern: BossPatternData) -> void:
+	for w: int in int(pattern.params.get("waves", 1)):
+		schedule(w * float(pattern.params.get("wave_gap", 0.8)), func() -> void:
+			ctx.hazards.add_ring(boss.position, float(pattern.params.get("speed", 200.0)), 900.0,
+				float(pattern.params.get("thickness", 18.0)), _damage(pattern), true, data.id, [], 0.0, [], pattern.telegraph)
+		)
+	busy_time = pattern.telegraph + 0.3

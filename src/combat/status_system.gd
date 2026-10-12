@@ -38,6 +38,8 @@ func apply(target: Combatant, status_id: StringName, stacks: int, source_id: Str
 	if data == null:
 		push_warning("Statut inconnu : %s" % status_id)
 		return 0
+	if data.bosses_immune and target is Enemy and (target as Enemy).is_boss:
+		return 0
 	if status_id == &"fracture":
 		target.statuses.fracture_amp_bonus = ctx.player.stats.get_value(StatKeys.FRACTURE_AMP)
 	var added: int = target.statuses.apply(data, stacks, duration_for(status_id), max_stacks_for(status_id), source_id)

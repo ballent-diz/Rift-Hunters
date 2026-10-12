@@ -434,3 +434,146 @@ RESEARCH_CRACKED_PRISM_NAME,Relique : Prisme fêlé,Relic: Cracked Prism
 RESEARCH_CRACKED_PRISM_DESC,Ajoute le Prisme fêlé aux coffres. Il paraît que la lumière s'y comporte étrangement…,Adds the Cracked Prism to chests. Light is said to behave strangely inside it…
 RESEARCH_ELITE_DOSSIER_NAME,Dossier des élites,Elite Dossier
 RESEARCH_ELITE_DOSSIER_DESC,Affiche le nom des affixes au-dessus des élites.,Shows affix names above elites.
+STATUS_ROOT_NAME,Racines,Roots
+STATUS_ROOT_DESC,Immobilisé (sans effet sur les Dévoreurs).,Immobilized (no effect on Devourers).
+STATUS_STATIC_NAME,Électrisé,Charged
+STATUS_STATIC_DESC,Dégâts subis +20 %.,Damage taken +20%.
+STATUS_WARDED_NAME,Égide,Aegis
+STATUS_WARDED_DESC,"Défense +50, accordée par un Gardien de cristal.","Defense +50, granted by a Crystal Warden."
+MONSTER_THORNWEAVE_NAME,Ronceline,Thornweave
+MONSTER_THORNWEAVE_DESC,Contrôleuse. Plante des ronces qui enracinent ; les ennemis enracinés subissent +20 % de dégâts.,Controller. Plants thorns that root; rooted enemies take +20% damage.
+MONSTER_THORNWEAVE_LORE,Une liane qui a poussé à travers une Faille et refuse de la laisser se refermer sans elle.,A vine that grew through a Rift and refuses to let it close without her.
+MONSTER_VOLTWISP_NAME,Fulgurine,Voltwisp
+MONSTER_VOLTWISP_DESC,Tireuse. Foudre en chaîne qui Électrise (+20 % de dégâts subis).,Marksman. Chain lightning that Charges (+20% damage taken).
+MONSTER_VOLTWISP_LORE,"Une étincelle restée coincée entre deux mondes, qui saute d'ennemi en ennemi pour ne jamais s'éteindre.","A spark stuck between two worlds, leaping from foe to foe so it never goes out."
+MONSTER_GLOOMMAW_NAME,Gueule-d'ombre,Gloommaw
+MONSTER_GLOOMMAW_DESC,Combattant. Dévore les ennemis affaiblis : soigne et gagne des dégâts pour toute la partie.,Bruiser. Devours weakened enemies: heals and gains damage for the whole run.
+MONSTER_GLOOMMAW_LORE,"Ce qui reste quand le vide a faim. Il se souvient de chaque proie, et grandit avec elles.","What remains when the void is hungry. It remembers every prey, and grows with them."
+MONSTER_MIRRORLING_NAME,Mirelle,Mirrorling
+MONSTER_MIRRORLING_DESC,"Soutien. Renvoie les projectiles ennemis proches du Chasseur, deux fois plus forts.","Support. Reflects enemy projectiles near the Hunter, twice as strong."
+MONSTER_MIRRORLING_LORE,"Un éclat de miroir tombé de la première Faille. Il renvoie tout, même la peur.","A mirror shard fallen from the first Rift. It reflects everything, even fear."
+ATTACK_THORNWEAVE,Ronces,Thorns
+ATTACK_VOLTWISP,Arc électrique,Electric Arc
+ATTACK_GLOOMMAW,Morsure,Bite
+ATTACK_MIRRORLING,Éclat de miroir,Mirror Shard
+PASSIVE_THORNWEAVE_NAME,Sève piégeuse,Trapping Sap
+PASSIVE_THORNWEAVE_DESC,Les ennemis enracinés subissent +20 % de dégâts de toutes les sources.,Rooted enemies take +20% damage from all sources.
+PASSIVE_VOLTWISP_NAME,Surtension,Overcharge
+PASSIVE_VOLTWISP_DESC,Toute l'équipe inflige +10 % de dégâts aux ennemis Électrisés.,The whole team deals +10% damage to Charged enemies.
+PASSIVE_GLOOMMAW_NAME,Appétit,Appetite
+PASSIVE_GLOOMMAW_DESC,+15 % de dégâts contre les ennemis sous 50 % de PV.,+15% damage against enemies below 50% HP.
+PASSIVE_MIRRORLING_NAME,Reflet protecteur,Guarding Reflection
+PASSIVE_MIRRORLING_DESC,Le Chasseur subit 5 % de dégâts en moins.,The Hunter takes 5% less damage.
+TECHNIQUE_BRIAR_WALL_NAME,Mur de ronces,Briar Wall
+TECHNIQUE_BRIAR_WALL_DESC,Fait pousser un mur de ronces vers le curseur : tout ce qui le traverse est enraciné.,Grows a wall of thorns toward the cursor: anything crossing it is rooted.
+TECHNIQUE_ION_STORM_NAME,Tempête ionique,Ion Storm
+TECHNIQUE_ION_STORM_DESC,La foudre frappe 8 ennemis proches (élites en priorité) et les Électrise.,Lightning strikes 8 nearby enemies (elites first) and Charges them.
+TECHNIQUE_FEAST_NAME,Festin,Feast
+TECHNIQUE_FEAST_DESC,Dévore tous les ennemis sous 50 % de PV autour de Gueule-d'ombre ; les élites sont mordues.,Devours every enemy below 50% HP around Gloommaw; elites get bitten.
+TECHNIQUE_REFLECTION_NAME,Reflet,Reflection
+TECHNIQUE_REFLECTION_DESC,"Pendant 4 s, tous les projectiles ennemis proches du Chasseur sont renvoyés.","For 4 s, every enemy projectile near the Hunter is reflected."
+EVOLUTION_BRIAR_QUEEN_NAME,Reine-ronce,Briar Queen
+EVOLUTION_BRIAR_QUEEN_DESC,Plante trois zones à la fois ; enracine plus souvent.,Plants three zones at once; roots more often.
+EVOLUTION_BLIGHTBLOOM_NAME,Floraison funeste,Blightbloom
+EVOLUTION_BLIGHTBLOOM_DESC,Ses ronces brûlent au lieu d'enraciner. Rôle : dégâts sur la durée.,Its thorns burn instead of rooting. Role: damage over time.
+EVOLUTION_STORMARC_NAME,Arc-tempête,Stormarc
+EVOLUTION_STORMARC_DESC,La foudre rebondit sur 6 cibles.,Lightning chains to 6 targets.
+EVOLUTION_THUNDERHEAD_NAME,Tonnerrine,Thunderhead
+EVOLUTION_THUNDERHEAD_DESC,Éclairs lourds qui éclatent en 3 arcs à l'impact.,Heavy bolts that burst into 3 arcs on impact.
+EVOLUTION_ABYSSMAW_NAME,Gouffre-gueule,Abyssmaw
+EVOLUTION_ABYSSMAW_DESC,Dévore sous 50 % de PV ; ses morsures touchent en zone.,Devours below 50% HP; its bites hit an area.
+EVOLUTION_GORGESHADE_NAME,Gloutombre,Gorgeshade
+EVOLUTION_GORGESHADE_DESC,Chaque dévoration soigne 3 PV ; croissance jusqu'à 40 cumuls.,Each devour heals 3 HP; grows up to 40 stacks.
+EVOLUTION_PRISMWARD_NAME,Prisme-garde,Prismward
+EVOLUTION_PRISMWARD_DESC,"Renvoie les projectiles dans un rayon bien plus large, trois fois plus forts.","Reflects projectiles in a much wider radius, three times as strong."
+EVOLUTION_KALEIDOS_NAME,Kaléidos,Kaleidos
+EVOLUTION_KALEIDOS_DESC,Éclats rapides qui traversent 6 ennemis et posent des Marques.,Fast shards that pierce 6 enemies and apply Marks.
+VARIANT_DEEP_ROOT_NAME,Variante : Racine profonde,Variant: Deep Root
+VARIANT_DEEP_ROOT_DESC,"Ronces plus durables (6,5 s), plantées moins souvent.","Longer-lasting thorns (6.5 s), planted less often."
+VARIANT_SPARK_NAME,Variante : Étincelle,Variant: Spark
+VARIANT_SPARK_DESC,"Arcs plus rapides mais plus faibles, 2 rebonds.","Faster but weaker arcs, 2 chains."
+VARIANT_SCAVENGER_NAME,Variante : Charognard,Variant: Scavenger
+VARIANT_SCAVENGER_DESC,"Dévore sous 45 % de PV, mais mord moins fort.","Devours below 45% HP, but bites weaker."
+VARIANT_SILVER_TAIN_NAME,Variante : Tain d'argent,Variant: Silver Tain
+VARIANT_SILVER_TAIN_DESC,"Renvoie dans un rayon plus large, mais moins souvent.","Reflects in a wider radius, but less often."
+MASTERY_THORNWEAVE_ROOTER,Enracinez 400 ennemis avec Ronceline (cumul).,Root 400 enemies with Thornweave (total).
+MASTERY_THORNWEAVE_WALL,Utilisez 8 Murs de ronces en une expédition.,Use 8 Briar Walls in one expedition.
+MASTERY_THORNWEAVE_EVOLVED_VICTORY,Refermez une Faille avec Ronceline évoluée.,Seal a Rift with an evolved Thornweave.
+MASTERY_VOLTWISP_CONDUCTOR,Électrisez 1500 ennemis avec Fulgurine (cumul).,Charge 1500 enemies with Voltwisp (total).
+MASTERY_VOLTWISP_STORM,Déclenchez 10 Tempêtes ioniques en une expédition.,Unleash 10 Ion Storms in one expedition.
+MASTERY_VOLTWISP_EVOLVED_VICTORY,Refermez une Faille avec Fulgurine évoluée.,Seal a Rift with an evolved Voltwisp.
+MASTERY_GLOOMMAW_GLUTTON,Dévorez 500 ennemis avec Gueule-d'ombre (cumul).,Devour 500 enemies with Gloommaw (total).
+MASTERY_GLOOMMAW_FEAST,Dévorez 15 ennemis en un seul Festin.,Devour 15 enemies in a single Feast.
+MASTERY_GLOOMMAW_EVOLVED_VICTORY,Refermez une Faille avec Gueule-d'ombre évoluée.,Seal a Rift with an evolved Gloommaw.
+MASTERY_MIRRORLING_REFLECTOR,Renvoyez 300 projectiles avec Mirelle (cumul).,Reflect 300 projectiles with Mirrorling (total).
+MASTERY_MIRRORLING_SHIELD,Utilisez 6 Reflets en une expédition.,Use 6 Reflections in one expedition.
+MASTERY_MIRRORLING_EVOLVED_VICTORY,Refermez une Faille avec Mirelle évoluée.,Seal a Rift with an evolved Mirrorling.
+ENEMY_BROODMOTHER_NAME,Nuée-mère,Broodmother
+ENEMY_BROODMOTHER_DESC,Reste en retrait et fait éclore des Grouillards. À éliminer en priorité.,Stays back and hatches Skitterlings. Kill it first.
+ENEMY_SHADE_STALKER_NAME,Rôdeur d'ombre,Shade Stalker
+ENEMY_SHADE_STALKER_DESC,"Se fige, marque un point derrière vous puis s'y téléporte.","Freezes, marks a spot behind you, then teleports there."
+ENEMY_CRYSTAL_WARDEN_NAME,Gardien de cristal,Crystal Warden
+ENEMY_CRYSTAL_WARDEN_DESC,Protège les Corrompus proches avec l'Égide (+50 défense).,Shields nearby Hollowed with Aegis (+50 defense).
+BOSS_VORGRANITE_NAME,Vorgranite,Vorgranite
+BOSS_VORGRANITE_TITLE,la Montagne affamée,the Hungry Mountain
+BOSS_VORGRANITE_PHASE1,Phase 1 : la Carapace,Phase 1: the Shell
+BOSS_VORGRANITE_PHASE2,Phase 2 : le Cœur à nu (défense nulle),Phase 2: the Bare Heart (no defense)
+BOSS_PATTERN_ROCK_RAIN,Pluie de roches,Rock Rain
+BOSS_PATTERN_CHARGE,Ruée tellurique,Earthen Charge
+BOSS_PATTERN_QUAKE,Séisme,Quake
+BESTIARY_BOSS_LORE_VORGRANITE,"Une montagne qui a avalé une Faille entière. Sa carapace dévie les coups faibles (défense 60) ; quand elle se brise, son cœur reste sans défense. Ses séismes ne laissent aucune brèche : franchissez-les avec la Ruée.","A mountain that swallowed an entire Rift. Its shell deflects weak blows (defense 60); once it breaks, its heart is defenseless. Its quakes leave no gap: dash through them."
+ARENA_CRYSTAL_ABYSS_NAME,Abysse cristallin,Crystal Abyss
+ARENA_CRYSTAL_ABYSS_DESC,"Une arène plus étroite, hérissée de cristaux. Vorgranite y attend.",A narrower arena bristling with crystals. Vorgranite waits there.
+ARENA_CRYSTAL_ABYSS_RULE,"Règle : Échos amplifiés (+15 % de dégâts des Échos, +10 % de dégâts subis).","Rule: Amplified Echoes (+15% Echo damage, +10% damage taken)."
+RELIC_BRIAR_SEED_NAME,Graine de ronce,Briar Seed
+RELIC_BRIAR_SEED_DESC,12 % de chances que les Traits enracinent.,12% chance for Bolts to root.
+RELIC_UNSTABLE_COIL_NAME,Bobine instable,Unstable Coil
+RELIC_UNSTABLE_COIL_DESC,Un ennemi Électrisé qui meurt Électrise ses voisins.,A Charged enemy that dies Charges its neighbors.
+RELIC_HUNGRY_FANG_NAME,Croc vorace,Hungry Fang
+RELIC_HUNGRY_FANG_DESC,+30 % de dégâts contre les ennemis sous 30 % de PV.,+30% damage against enemies below 30% HP.
+RELIC_CRACKED_MIRROR_NAME,Miroir fêlé,Cracked Mirror
+RELIC_CRACKED_MIRROR_DESC,"Dégâts subis −12 %, vitesse −5 %.","Damage taken −12%, speed −5%."
+UPGRADE_FRENZY_NAME,Frénésie,Frenzy
+UPGRADE_FRENZY_DESC,Vitesse d'attaque du Chasseur et des Échos +8 %.,Hunter and Echo attack speed +8%.
+UPGRADE_STATIC_BOLT_NAME,Mutation : Trait électrique,Mutation: Static Bolt
+UPGRADE_STATIC_BOLT_DESC,Les Traits Électrisent. Exclusive.,Bolts Charge enemies. Exclusive.
+SYNERGY_DEEP_ROOTS_NAME,Racines brisantes,Breaking Roots
+SYNERGY_DEEP_ROOTS_DESC,Les ennemis enracinés sont aussi Fracturés.,Rooted enemies are also Fractured.
+SYNERGY_PRISMATIC_ARC_NAME,Arc prismatique,Prismatic Arc
+SYNERGY_PRISMATIC_ARC_DESC,La foudre de Fulgurine pose des Marques.,Voltwisp's lightning applies Marks.
+SYNERGY_PREDATORS_NAME,Prédateurs,Predators
+SYNERGY_PREDATORS_DESC,Deux Échos prédateurs : +20 % de dégâts des Échos contre les ennemis sous 50 % de PV.,Two predator Echoes: +20% Echo damage against enemies below 50% HP.
+SYNERGY_LIGHTNING_MIRROR_NAME,Miroir de foudre,Lightning Mirror
+SYNERGY_LIGHTNING_MIRROR_DESC,Les renvois et éclats de Mirelle Électrisent.,Mirrorling's reflections and shards Charge enemies.
+MODIFIER_HORDE_NAME,Horde,Horde
+MODIFIER_HORDE_DESC,Les vagues apparaissent 35 % plus vite.,Waves spawn 35% faster.
+MODIFIER_GLASS_HUNTER_NAME,Chasseur de verre,Glass Hunter
+MODIFIER_GLASS_HUNTER_DESC,PV maximum −30 %.,Maximum HP −30%.
+MODIFIER_ENRAGED_ELITES_NAME,Élites enragées,Enraged Elites
+MODIFIER_ENRAGED_ELITES_DESC,"Élites plus fréquentes, avec un affixe de plus.","More frequent elites, with one extra affix."
+MODIFIER_NO_RESPITE_NAME,Sans répit,No Respite
+MODIFIER_NO_RESPITE_DESC,Tous les soins sont réduits de 60 %.,All healing reduced by 60%.
+MODIFIER_HEAVY_RIFT_NAME,Faille pesante,Heavy Rift
+MODIFIER_HEAVY_RIFT_DESC,"Ennemis : PV +30 %, dégâts +15 %.","Enemies: HP +30%, damage +15%."
+DIFFICULTY_TENSION_4_NAME,Tension IV,Tension IV
+DIFFICULTY_TENSION_4_DESC,"Trois affixes par élite, ennemis bien plus rapides. Récompenses ×2,6.","Three affixes per elite, much faster enemies. Rewards ×2.6."
+DIFFICULTY_TENSION_5_NAME,Tension V,Tension V
+DIFFICULTY_TENSION_5_DESC,"La Faille à son paroxysme. Récompenses ×3,3.",The Rift at its peak. Rewards ×3.3.
+OBJ_DEVOURERS_CALL_NAME,L'appel du vide,Call of the Void
+OBJ_DEVOURERS_CALL_DESC,Éliminez 1500 Corrompus (cumul).,Defeat 1500 Hollowed (total).
+OBJ_MOUNTAIN_FELLED_NAME,Briseur de montagne,Mountain Breaker
+OBJ_MOUNTAIN_FELLED_DESC,Vainquez Vorgranite.,Defeat Vorgranite.
+OBJ_CAPTOR_NAME,Lieur,Binder
+OBJ_CAPTOR_DESC,Capturez 5 Échos errants (cumul).,Capture 5 wandering Echoes (total).
+OBJ_RISK_TAKER_NAME,Goût du risque,Risk Taker
+OBJ_RISK_TAKER_DESC,Refermez une Faille avec au moins 2 Pactes de risque.,Seal a Rift with at least 2 Risk Pacts.
+RESEARCH_RIFT_CONDUCTORS_NAME,Conducteurs de faille,Rift Conductors
+RESEARCH_RIFT_CONDUCTORS_DESC,Permet de lier Fulgurine.,Lets you bind Voltwisp.
+UNLOCK_TITLE_MOUNTAIN_BREAKER,Titre : Briseur de montagne,Title: Mountain Breaker
+CAPTURE_APPEARS,Un Écho errant ! Restez à son contact.,A wandering Echo! Stay close to it.
+CAPTURE_JOINED,%s rejoint votre équipe !,%s joins your team!
+CAPTURE_SENT_TO_REFUGE,%s est lié et vous attend au Refuge.,%s is bound and awaits you at the Refuge.
+REPORT_CAPTURE_UNLOCK,Écho capturé et débloqué : %s,Echo captured and unlocked: %s
+EXPEDITION_MODIFIERS,Pactes de risque,Risk Pacts
+EXPEDITION_MODIFIER_MIN,Disponible à partir de la Tension %d.,Available from Tension %d.
+EXPEDITION_MODIFIERS_BONUS,Bonus de récompenses : +%d %%,Reward bonus: +%d%%

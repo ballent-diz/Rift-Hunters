@@ -10,3 +10,5 @@ extends Resource
 ## Durée de la transformation à l'entrée de la phase (invulnérable).
 @export var transition_time: float = 0.0
 @export var patterns: Array[BossPatternData] = []
+## Défense imposée pendant la phase (−1 = défense du boss). Ex. armure brisée.
+@export var defense_override: float = -1.0

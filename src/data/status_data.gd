@@ -17,4 +17,6 @@ extends Resource
 @export var dps_per_stack: float = 0.0
 ## Peut être détoné (Marques).
 @export var detonatable: bool = false
+## Les Dévoreurs (boss) y sont insensibles (ex. Racines).
+@export var bosses_immune: bool = false
 @export var color: Color = Color.WHITE

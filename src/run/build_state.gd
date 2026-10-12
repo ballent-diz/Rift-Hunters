@@ -10,6 +10,8 @@ var rerolls_used: int = 0
 var banishes_used: int = 0
 var evolutions: Dictionary = {}  # monster_id -> evolution_id
 var active_synergies: Array[StringName] = []
+## Échos capturés pendant la partie (débloqués définitivement en fin de partie).
+var captures: Array[StringName] = []
 
 
 func stacks_of(id: StringName) -> int:

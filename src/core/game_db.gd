@@ -19,6 +19,7 @@ var skill_branches: Dictionary = {}
 var skill_nodes: Dictionary = {}
 var objectives: Dictionary = {}
 var research: Dictionary = {}
+var modifiers: Dictionary = {}
 var load_errors: PackedStringArray = []
 
 
@@ -46,6 +47,7 @@ func load_all() -> void:
 	skill_nodes = _load_dir("progression/skill_tree")
 	objectives = _load_dir("progression/objectives")
 	research = _load_dir("progression/research")
+	modifiers = _load_dir("modifiers")
 	for error: String in load_errors:
 		push_error("GameDB : " + error)
 
@@ -88,6 +90,10 @@ func difficulty(id: StringName) -> DifficultyData:
 
 func skill_node(id: StringName) -> SkillNodeData:
 	return skill_nodes.get(id) as SkillNodeData
+
+
+func modifier(id: StringName) -> RunModifierData:
+	return modifiers.get(id) as RunModifierData
 
 
 func objective(id: StringName) -> ObjectiveData:

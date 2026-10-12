@@ -103,6 +103,7 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 		enemy.visual.set_tint(tint)
 	add_child(enemy)
 	list.append(enemy)
+	grid.insert(enemy, enemy.position)
 	if data.brain == EnemyData.Brain.STATIC:
 		enemy.is_obstacle = true
 		obstacles.append(enemy)
@@ -128,15 +129,12 @@ func spawn_boss(data: BossData, pos: Vector2) -> Enemy:
 	enemy.visual.bob_amount = 0.03
 	add_child(enemy)
 	list.append(enemy)
+	grid.insert(enemy, enemy.position)
 	return enemy
 
 
 func step(delta: float) -> void:
 	_frame += 1
-	grid.clear()
-	for enemy: Enemy in list:
-		if enemy.alive:
-			grid.insert(enemy, enemy.position)
 	var player: Player = ctx.player
 	var player_pos: Vector2 = player.global_position
 	var player_alive: bool = player.alive
@@ -146,7 +144,8 @@ func step(delta: float) -> void:
 	var arena: Rect2 = ctx.arena_rect()
 	var contact_interval: float = ctx.balance.contact_damage_interval
 	var parity: int = _frame % 2
-	for i: int in list.size():
+	var count: int = list.size()
+	for i: int in count:
 		var enemy: Enemy = list[i]
 		if not enemy.alive:
 			continue
@@ -183,8 +182,17 @@ func step(delta: float) -> void:
 			enemy.visual.tick(delta, enemy.velocity.length_squared() > 4.0)
 	if _dirty_removal:
 		_remove_dead()
+	rebuild_grid()
 	queue_redraw()
 	_overlay.queue_redraw()
+
+
+## Reconstruit la grille après les déplacements et les retraits : elle ne référence jamais un ennemi libéré.
+func rebuild_grid() -> void:
+	grid.clear()
+	for enemy: Enemy in list:
+		if enemy.alive:
+			grid.insert(enemy, enemy.position)
 
 
 func _apply_dot(enemy: Enemy, dot: Array) -> void:
@@ -211,6 +219,12 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 			_tick_ranged(enemy, delta, dir, dist, speed)
 		EnemyData.Brain.CHARGER:
 			_tick_charger(enemy, delta, dir, dist, speed)
+		EnemyData.Brain.SUMMONER:
+			_tick_summoner(enemy, delta, dir, dist, speed)
+		EnemyData.Brain.BLINKER:
+			_tick_blinker(enemy, delta, dir, dist, speed, target_pos)
+		EnemyData.Brain.WARDEN:
+			_tick_warden(enemy, delta, dir, dist, speed)
 	enemy.position += enemy.velocity * delta
 
 
@@ -272,6 +286,66 @@ func _tick_charger(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed:
 				enemy.attack_timer = attack.cooldown
 
 
+## Invocatrice : garde ses distances et fait éclore des Corrompus (plafonné).
+func _tick_summoner(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float) -> void:
+	var attack: AttackData = enemy.data.attack
+	var keep: float = float(attack.params.get("keep_distance", 240.0))
+	enemy.velocity = dir * speed if dist > keep else -dir * speed * 0.5
+	enemy.attack_timer -= delta
+	if enemy.attack_timer > 0.0:
+		return
+	enemy.attack_timer = attack.cooldown
+	var spawned: EnemyData = GameDB.enemy(StringName(attack.params.get("enemy", "skitterling")))
+	if spawned == null or list.size() >= ctx.balance.max_enemies_hard_cap - 10:
+		return
+	for i: int in int(attack.params.get("count", 3)):
+		spawn(spawned, enemy.position + Vector2.RIGHT.rotated(TAU * i / 3.0 + ctx.rng.randf()) * (enemy.radius + 14.0))
+	ctx.fx.ring(enemy.position, enemy.radius * 1.6, Color(0.8, 0.4, 0.9, 0.6), 0.3)
+
+
+## Rôdeur : se fige, télégraphie un point derrière le Chasseur puis s'y téléporte.
+func _tick_blinker(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float, target_pos: Vector2) -> void:
+	var attack: AttackData = enemy.data.attack
+	match enemy.state:
+		Enemy.State.MOVE:
+			enemy.velocity = dir * speed
+			enemy.attack_timer -= delta
+			if enemy.attack_timer <= 0.0 and dist < attack.attack_range and dist > 90.0:
+				enemy.state = Enemy.State.WINDUP
+				enemy.state_timer = float(attack.params.get("windup", 0.6))
+				enemy.aim_dir = target_pos + dir * float(attack.params.get("behind", 70.0))
+				ctx.fx.ring(enemy.aim_dir, enemy.radius + 8.0, Color(1.0, 0.25, 0.6, 0.9), enemy.state_timer)
+				enemy.visual.modulate.a = 0.45
+		Enemy.State.WINDUP:
+			enemy.velocity = Vector2.ZERO
+			enemy.state_timer -= delta
+			if enemy.state_timer <= 0.0:
+				enemy.position = enemy.aim_dir
+				enemy.state = Enemy.State.RECOVER
+				enemy.state_timer = 0.4
+				enemy.visual.modulate.a = 1.0
+				ctx.fx.burst(enemy.position, enemy.radius * 1.5, Color(0.6, 0.2, 0.8, 0.5))
+		_:
+			enemy.velocity = Vector2.ZERO
+			enemy.state_timer -= delta
+			if enemy.state_timer <= 0.0:
+				enemy.state = Enemy.State.MOVE
+				enemy.attack_timer = attack.cooldown
+
+
+## Gardien : avance derrière les autres et protège ses alliés proches (statut « Égide »).
+func _tick_warden(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float) -> void:
+	var attack: AttackData = enemy.data.attack
+	enemy.velocity = dir * speed if dist > float(attack.params.get("keep_distance", 160.0)) else Vector2.ZERO
+	enemy.attack_timer -= delta
+	if enemy.attack_timer > 0.0:
+		return
+	enemy.attack_timer = attack.cooldown
+	for other: Enemy in query_radius(enemy.position, attack.radius):
+		if other != enemy and not other.is_boss:
+			ctx.status_system.apply(other, &"warded", 1, enemy.data.id)
+
+
 func _separate(enemy: Enemy) -> void:
 	var pos: Vector2 = enemy.position
 	var radius: float = enemy.radius
@@ -301,6 +375,7 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 	ctx.fx.burst(pos, enemy.radius * 1.4, Color(0.75, 0.45, 1.0, 0.35))
 	if enemy.is_boss:
 		ctx.stats.add(&"bosses_killed")
+		ctx.stats.add(StringName("boss_%s_killed" % enemy.boss_data.id))
 		ctx.events.boss_defeated.emit(enemy)
 		return
 	if enemy.is_obstacle:
@@ -316,6 +391,7 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 		ctx.stats.add(&"shards_earned_raw", ctx.balance.shards_per_elite)
 		ctx.stats.add(&"essence_earned_raw", ctx.balance.essence_per_elite + ctx.player.stats.get_value(StatKeys.ESSENCE_GAIN))
 		ctx.pickups.spawn_chest(pos)
+		_maybe_spawn_capture(pos)
 		for affix: EliteAffixData in enemy.affixes:
 			_on_affix_death(enemy, affix, info)
 
@@ -331,6 +407,30 @@ func _on_affix_death(enemy: Enemy, affix: EliteAffixData, _info: DamageInfo) -> 
 			if child:
 				for i: int in int(affix.params.get("count", 3)):
 					spawn(child, enemy.position + Vector2.RIGHT.rotated(TAU * i / 3.0) * 20.0)
+
+
+## Rite de lien : un Écho errant peut apparaître à la mort d'une élite (capture en restant à son contact).
+func _maybe_spawn_capture(pos: Vector2) -> void:
+	if ctx.rng.randf() > ctx.balance.capture_chance:
+		return
+	var candidates: Array[StringName] = []
+	var weights: Array[float] = []
+	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
+		if ctx.has_monster(id) or ctx.build.captures.has(id):
+			continue
+		candidates.append(id)
+		weights.append(1.0 if ctx.setup.unlocked_monsters.has(id) else ctx.balance.capture_locked_weight)
+	if candidates.is_empty():
+		return
+	var total: float = 0.0
+	for w: float in weights:
+		total += w
+	var roll: float = ctx.rng.randf() * total
+	for i: int in candidates.size():
+		roll -= weights[i]
+		if roll <= 0.0:
+			ctx.pickups.spawn_capture(pos + Vector2(30, 0), candidates[i])
+			return
 
 
 func _remove_dead() -> void:
@@ -353,7 +453,7 @@ func clear_all() -> void:
 	for enemy: Enemy in list:
 		if not enemy.is_boss:
 			enemy.alive = false
-	_remove_dead()
+	_dirty_removal = true
 
 
 func _view_rect() -> Rect2:
@@ -368,6 +468,8 @@ func _draw() -> void:
 		if enemy.alive and (enemy.is_elite or enemy.is_boss):
 			var color := Color(1.0, 0.35, 0.8, 0.55) if enemy.is_boss else Color(1.0, 0.75, 0.25, 0.6)
 			draw_arc(enemy.position + Vector2(0, enemy.radius * 0.3), enemy.radius + 6.0, 0.0, TAU, 40, color, 3.0)
+		if enemy.alive and enemy.data and enemy.data.brain == EnemyData.Brain.WARDEN:
+			draw_arc(enemy.position, enemy.data.attack.radius, 0.0, TAU, 48, Color(0.55, 0.75, 1.0, 0.35), 2.0)
 		if enemy.alive and enemy.absorb_radius > 0.0:
 			draw_circle(enemy.position, enemy.absorb_radius, Color(0.35, 0.1, 0.6, 0.25))
 			draw_arc(enemy.position, enemy.absorb_radius, 0.0, TAU, 64, Color(0.85, 0.5, 1.0, 0.8), 3.0)
@@ -405,3 +507,12 @@ func _draw_overlay() -> void:
 			x += 7.0
 		if enemy.statuses.has(&"slow"):
 			_overlay.draw_circle(top + Vector2(x, 0), 3.0, Color(0.6, 0.7, 1.0))
+			x += 7.0
+		if enemy.statuses.has(&"root"):
+			_overlay.draw_rect(Rect2(top + Vector2(x - 3, -3), Vector2(6, 6)), Color(0.45, 0.85, 0.35))
+			x += 8.0
+		if enemy.statuses.has(&"static"):
+			_overlay.draw_line(top + Vector2(x - 3, -3), top + Vector2(x + 3, 3), Color(1.0, 0.95, 0.4), 2.0)
+			x += 8.0
+		if enemy.statuses.has(&"warded"):
+			_overlay.draw_arc(top + Vector2(x, 0), 4.0, 0.0, TAU, 12, Color(0.55, 0.75, 1.0), 2.0)

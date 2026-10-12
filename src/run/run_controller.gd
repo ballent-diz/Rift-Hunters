@@ -35,7 +35,7 @@ func start(setup: RunSetup) -> void:
 	ctx.setup = setup
 	ctx.balance = GameDB.balance
 	ctx.arena = GameDB.arena(setup.arena_id)
-	ctx.difficulty = GameDB.difficulty(setup.difficulty_id)
+	ctx.difficulty = RunController.combine_difficulty(GameDB.difficulty(setup.difficulty_id), setup.modifier_ids)
 	ctx.rng.seed = setup.run_seed if setup.run_seed != 0 else randi()
 	ctx.root = self
 	ctx.events = RunEvents.new()
@@ -48,6 +48,15 @@ func start(setup: RunSetup) -> void:
 	_build_ui()
 	for effect: GameplayEffect in setup.meta_effects:
 		effect.install(ctx, &"")
+	for effect: GameplayEffect in ctx.arena.rule_effects:
+		effect.install(ctx, &"")
+	for modifier_id: StringName in setup.modifier_ids:
+		var modifier: RunModifierData = GameDB.modifier(modifier_id)
+		if modifier:
+			for effect: GameplayEffect in modifier.player_effects:
+				effect.install(ctx, &"")
+	_spawn_start_obstacles()
+	ctx.stats.set_value(&"modifiers_count", float(setup.modifier_ids.size()))
 	if setup.starter_id != &"":
 		ctx.allies.add_monster(setup.starter_id, setup.starter_rank, setup.starter_variant)
 	spawner = SpawnDirector.new(ctx)
@@ -68,6 +77,7 @@ func start(setup: RunSetup) -> void:
 	ctx.events.technique_cast.connect(func(_id: StringName, _kind: StringName) -> void: Audio.play_sfx(&"technique"))
 	ctx.events.detonation.connect(func(_e: Enemy, _s: int, _id: StringName) -> void: Audio.play_sfx(&"detonation"))
 	ctx.events.player_dashed.connect(func(_a: Vector2, _b: Vector2) -> void: Audio.play_sfx(&"dash"))
+	ctx.events.capture_completed.connect(func(_id: StringName) -> void: Audio.play_sfx(&"evolution"))
 	if not setup.autopilot:
 		Profile.profile.set_preference("starter", String(setup.starter_id))
 	Audio.play_context("run")
@@ -80,6 +90,38 @@ func start(setup: RunSetup) -> void:
 		Audio.play_sfx(&"player_hurt"))
 	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0:
 		chest_panel.open.call_deferred(true)
+
+
+## Copie de la Tension combinée aux modificateurs de partie (multiplicateurs et bonus de récompense).
+static func combine_difficulty(base: DifficultyData, modifier_ids: Array[StringName]) -> DifficultyData:
+	var combined: DifficultyData = base.duplicate()
+	var bonus: float = 0.0
+	for id: StringName in modifier_ids:
+		var modifier: RunModifierData = GameDB.modifier(id)
+		if modifier == null:
+			continue
+		combined.enemy_hp_mult *= modifier.enemy_hp_mult
+		combined.enemy_damage_mult *= modifier.enemy_damage_mult
+		combined.enemy_speed_mult *= modifier.enemy_speed_mult
+		combined.spawn_rate_mult *= modifier.spawn_rate_mult
+		combined.elite_interval_mult *= modifier.elite_interval_mult
+		combined.elite_affix_count += modifier.extra_elite_affixes
+		bonus += modifier.reward_bonus
+	combined.reward_mult *= 1.0 + bonus
+	return combined
+
+
+func _spawn_start_obstacles() -> void:
+	var rect: Rect2 = ctx.arena_rect().grow(-120.0)
+	for enemy_id: Variant in ctx.arena.start_obstacles:
+		var data: EnemyData = GameDB.enemy(StringName(enemy_id))
+		if data == null:
+			continue
+		for i: int in int(ctx.arena.start_obstacles[enemy_id]):
+			var pos := Vector2(ctx.rng.randf_range(rect.position.x, rect.end.x), ctx.rng.randf_range(rect.position.y, rect.end.y))
+			if pos.length() < 260.0:
+				pos = pos.normalized() * 260.0 if pos.length() > 1.0 else Vector2(260, 0)
+			ctx.enemies.spawn(data, pos)
 
 
 func _build_world() -> void:
@@ -250,6 +292,12 @@ func build_result() -> Dictionary:
 	var synergies: Array[String] = []
 	for id: StringName in ctx.build.active_synergies:
 		synergies.append(String(id))
+	var captures: Array[String] = []
+	for id: StringName in ctx.build.captures:
+		captures.append(String(id))
+	var modifiers: Array[String] = []
+	for id: StringName in ctx.setup.modifier_ids:
+		modifiers.append(String(id))
 	return {
 		"victory": ctx.victory,
 		"time": ctx.time,
@@ -267,5 +315,7 @@ func build_result() -> Dictionary:
 		"evolutions": evolutions,
 		"relics": relics,
 		"synergies": synergies,
+		"captures": captures,
+		"modifiers": modifiers,
 		"stats": ctx.stats.to_dict(),
 	}

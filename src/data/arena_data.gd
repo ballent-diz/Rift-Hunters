@@ -16,3 +16,8 @@ extends Resource
 @export var ground_color: Color = Color(0.11, 0.12, 0.18)
 @export var ground_detail_color: Color = Color(0.16, 0.17, 0.25)
 @export var unlocked_by_default: bool = true
+## Obstacles présents dès le début : {identifiant d'ennemi STATIC: nombre}.
+@export var start_obstacles: Dictionary = {}
+## Règles propres à l'arène (effets installés au début de la partie).
+@export var rule_effects: Array[GameplayEffect] = []
+@export var rule_key: String = ""

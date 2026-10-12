@@ -44,7 +44,7 @@ func setup(p_ctx: RunContext, p_brain: PlayerBrain) -> void:
 		StatKeys.XP_GAIN: 1.0, StatKeys.SHARD_GAIN: 1.0, StatKeys.ESSENCE_GAIN: 0.0,
 		StatKeys.REROLLS: 0.0, StatKeys.BANISHES: 0.0, StatKeys.UPGRADE_CHOICES: float(b.upgrade_choices),
 		StatKeys.RELIC_CHOICES: float(b.relic_choices), StatKeys.MUTATION_WEIGHT: 1.0,
-		StatKeys.STARTING_RELIC_CHOICE: 0.0,
+		StatKeys.STARTING_RELIC_CHOICE: 0.0, StatKeys.HEALING: 1.0,
 	}
 	for key: StringName in defaults:
 		stats.set_base(key, float(defaults[key]))
@@ -182,7 +182,7 @@ func heal(amount: float, show: bool = true) -> void:
 	if not alive or amount <= 0.0:
 		return
 	var before: float = hp
-	hp = minf(max_hp, hp + amount)
+	hp = minf(max_hp, hp + amount * maxf(stats.get_value(StatKeys.HEALING), 0.0))
 	ctx.stats.add(&"healed", hp - before)
 	if show and hp - before >= 1.0:
 		ctx.fx.text(global_position + Vector2(0, -24), "+%d" % int(hp - before), Color(0.5, 1.0, 0.6))

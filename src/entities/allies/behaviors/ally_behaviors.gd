@@ -10,5 +10,11 @@ static func create(behavior_id: StringName) -> AllyBehavior:
 			return SlamBehavior.new()
 		&"orb":
 			return OrbBehavior.new()
+		&"zone":
+			return ZoneBehavior.new()
+		&"devour":
+			return DevourBehavior.new()
+		&"mirror":
+			return MirrorBehavior.new()
 	push_error("Comportement d'Écho inconnu : %s" % behavior_id)
 	return AllyBehavior.new()

@@ -17,4 +17,4 @@ max_team_size = -1
 hidden = false
 reward_shards = 0
 reward_essence = 15
-reward_unlocks = []
+reward_unlocks = ["monster:mirrorling"]

@@ -2,7 +2,7 @@ class_name EnemyData
 extends Resource
 ## Définition d'un Corrompu.
 
-enum Brain { CHASER, RANGED, CHARGER, STATIC }
+enum Brain { CHASER, RANGED, CHARGER, STATIC, SUMMONER, BLINKER, WARDEN }
 
 @export var id: StringName = &""
 @export var name_key: String = ""

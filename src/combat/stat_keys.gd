@@ -18,6 +18,7 @@ const DASH_IFRAMES := &"dash_iframes"
 const DAMAGE_TAKEN := &"damage_taken"
 const ELITE_DAMAGE := &"elite_damage"
 const LAST_BREATH := &"last_breath"
+const HEALING := &"healing"
 # Équipe
 const ALLY_DAMAGE := &"ally_damage"
 const ALLY_ATTACK_SPEED := &"ally_attack_speed"
