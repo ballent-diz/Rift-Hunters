@@ -11,10 +11,12 @@ var heart_time: float = 0.0
 var absorb_time: float = 0.0
 var busy_time: float = 0.0
 var crystals: Array[Enemy] = []
+var enraged: bool = false
 var _next_pattern_time: float = 0.0
 var _ready_at: Dictionary = {}
 var _scheduled: Array[Dictionary] = []
 var _crystal_pulse: float = 4.0
+var _fight_time: float = 0.0
 var _charge_time: float = 0.0
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
@@ -46,6 +48,13 @@ func step(delta: float) -> void:
 	if not boss.alive:
 		return
 	_run_scheduled()
+	_fight_time += delta
+	if not enraged and _fight_time >= ctx.balance.boss_enrage_time:
+		enraged = true
+		boss.contact_damage *= ctx.balance.boss_enrage_damage_mult
+		boss.move_speed *= ctx.balance.boss_enrage_speed_mult
+		boss.visual.set_tint(Color(1.0, 0.55, 0.55))
+		ctx.events.event_started.emit("BOSS_ENRAGED")
 	heart_time = maxf(heart_time - delta, 0.0)
 	boss.extra_damage_taken = 2.0 if heart_time > 0.0 else 1.0
 	if absorb_time > 0.0:
@@ -78,7 +87,7 @@ func step(delta: float) -> void:
 			_ready_at[pattern.kind] = ctx.time + pattern.cooldown
 			call("_pattern_" + String(pattern.kind), pattern)
 			ctx.stats.add(&"boss_patterns")
-		_next_pattern_time = ctx.time + phase().pattern_interval
+		_next_pattern_time = ctx.time + phase().pattern_interval * (0.7 if enraged else 1.0)
 
 
 func _run_scheduled() -> void:
@@ -134,7 +143,7 @@ func _choose_pattern(distance: float) -> BossPatternData:
 
 
 func _damage(pattern: BossPatternData) -> float:
-	return pattern.damage * ctx.difficulty.enemy_damage_mult
+	return pattern.damage * ctx.difficulty.enemy_damage_mult * (ctx.balance.boss_enrage_damage_mult if enraged else 1.0)
 
 
 ## Griffe du vide : frappe télégraphiée devant le boss.
@@ -163,7 +172,9 @@ func _pattern_shadow_wave(pattern: BossPatternData) -> void:
 ## Invocation : portails télégraphiés puis apparition de Corrompus.
 func _pattern_summon(pattern: BossPatternData) -> void:
 	var enemy_ids: Array = pattern.params.get("enemies", ["skitterling"])
-	var count: int = int(pattern.params.get("count", 6))
+	var count: int = mini(int(pattern.params.get("count", 6)), ctx.spawner.current_cap() - ctx.enemies.count())
+	if count <= 0:
+		return
 	for i: int in count:
 		var pos: Vector2 = boss.position + Vector2.RIGHT.rotated(TAU * i / count + ctx.rng.randf()) * (boss.radius + 70.0)
 		ctx.fx.ring(pos, 22.0, Color(0.8, 0.3, 1.0, 0.8), pattern.telegraph)

@@ -29,6 +29,11 @@ func _compute_move() -> Vector2:
 		var weight: float = (3.0 if enemy.is_boss or enemy.is_elite else 1.0) / (dist * dist)
 		flee += offset.normalized() * weight * 4000.0
 	flee += ctx.hazards.danger_vector(pos) * 3.0
+	for obstacle: Enemy in ctx.enemies.obstacles:
+		var away: Vector2 = pos - obstacle.position
+		var gap: float = away.length() - obstacle.radius
+		if gap < 90.0:
+			flee += away.normalized() * (90.0 - gap) / 30.0
 	var threat: Vector2 = _projectile_threat(pos) + _charge_threat(pos)
 	flee += threat * 3.0
 	var gem: Vector2 = ctx.pickups.nearest_position(pos, 400.0)

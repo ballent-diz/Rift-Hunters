@@ -524,7 +524,7 @@ BOSS_PATTERN_QUAKE,Séisme,Quake
 BESTIARY_BOSS_LORE_VORGRANITE,"Une montagne qui a avalé une Faille entière. Sa carapace dévie les coups faibles (défense 60) ; quand elle se brise, son cœur reste sans défense. Ses séismes ne laissent aucune brèche : franchissez-les avec la Ruée.","A mountain that swallowed an entire Rift. Its shell deflects weak blows (defense 60); once it breaks, its heart is defenseless. Its quakes leave no gap: dash through them."
 ARENA_CRYSTAL_ABYSS_NAME,Abysse cristallin,Crystal Abyss
 ARENA_CRYSTAL_ABYSS_DESC,"Une arène plus étroite, hérissée de cristaux. Vorgranite y attend.",A narrower arena bristling with crystals. Vorgranite waits there.
-ARENA_CRYSTAL_ABYSS_RULE,"Règle : Échos amplifiés (+15 % de dégâts des Échos, +10 % de dégâts subis).","Rule: Amplified Echoes (+15% Echo damage, +10% damage taken)."
+ARENA_CRYSTAL_ABYSS_RULE,"Règle : Échos amplifiés (+15 % de dégâts des Échos, vitesse du Chasseur −5 %).","Rule: Amplified Echoes (+15% Echo damage, Hunter speed −5%)."
 RELIC_BRIAR_SEED_NAME,Graine de ronce,Briar Seed
 RELIC_BRIAR_SEED_DESC,12 % de chances que les Traits enracinent.,12% chance for Bolts to root.
 RELIC_UNSTABLE_COIL_NAME,Bobine instable,Unstable Coil
@@ -577,3 +577,4 @@ REPORT_CAPTURE_UNLOCK,Écho capturé et débloqué : %s,Echo captured and unlock
 EXPEDITION_MODIFIERS,Pactes de risque,Risk Pacts
 EXPEDITION_MODIFIER_MIN,Disponible à partir de la Tension %d.,Available from Tension %d.
 EXPEDITION_MODIFIERS_BONUS,Bonus de récompenses : +%d %%,Reward bonus: +%d%%
+BOSS_ENRAGED,Le Dévoreur entre en rage !,The Devourer is enraged!

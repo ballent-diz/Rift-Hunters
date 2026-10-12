@@ -296,7 +296,7 @@ func _tick_summoner(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed
 		return
 	enemy.attack_timer = attack.cooldown
 	var spawned: EnemyData = GameDB.enemy(StringName(attack.params.get("enemy", "skitterling")))
-	if spawned == null or list.size() >= ctx.balance.max_enemies_hard_cap - 10:
+	if spawned == null or list.size() >= ctx.spawner.current_cap():
 		return
 	for i: int in int(attack.params.get("count", 3)):
 		spawn(spawned, enemy.position + Vector2.RIGHT.rotated(TAU * i / 3.0 + ctx.rng.randf()) * (enemy.radius + 14.0))

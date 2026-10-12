@@ -26,9 +26,7 @@ func step(delta: float) -> void:
 	if wave == null:
 		return
 	var rate: float = wave.spawn_rate * ctx.difficulty.spawn_rate_mult * (0.35 if boss_spawned else 1.0)
-	var cap: int = mini(wave.max_alive, ctx.balance.max_enemies_hard_cap)
-	if boss_spawned:
-		cap = mini(cap, 70)
+	var cap: int = current_cap()
 	_budget = minf(_budget + rate * delta, 6.0)
 	var alive: int = ctx.enemies.count()
 	while _budget >= 1.0 and alive < cap:
@@ -42,6 +40,13 @@ func step(delta: float) -> void:
 		spawn_elite()
 	if not boss_spawned and ctx.time >= ctx.arena.boss_time:
 		spawn_boss()
+
+
+## Densité maximale autorisée en ce moment (vague en cours, réduite pendant le boss).
+func current_cap() -> int:
+	var wave: WavePhaseData = current_wave()
+	var cap: int = mini(wave.max_alive if wave else 80, ctx.balance.max_enemies_hard_cap)
+	return mini(cap, ctx.balance.boss_fight_enemy_cap) if boss_spawned else cap
 
 
 func pick_enemy(wave: WavePhaseData) -> EnemyData:

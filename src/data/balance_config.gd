@@ -41,6 +41,13 @@ extends Resource
 @export var spawn_distance_max: float = 700.0
 @export var max_enemies_hard_cap: int = 450
 @export var contact_damage_interval: float = 0.4
+@export_group("Dévoreurs")
+## Nombre maximal d'ennemis pendant un combat de boss (vagues, invocations et Nuées-mères comprises).
+@export var boss_fight_enemy_cap: int = 90
+## Après ce délai de combat, le Dévoreur s'enrage (garantit une issue).
+@export var boss_enrage_time: float = 180.0
+@export var boss_enrage_damage_mult: float = 1.6
+@export var boss_enrage_speed_mult: float = 1.4
 @export_group("Récompenses")
 @export var shards_per_minute: float = 12.0
 @export var shards_per_elite: float = 8.0

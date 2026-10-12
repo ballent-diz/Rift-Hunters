@@ -156,8 +156,24 @@ Cartes dynamiques : *Pacte* (recruter un Écho si un emplacement est libre), *É
   chaque niveau ajoute des règles (élites plus fréquentes, double affixe, phase 2 plus tôt),
   pas seulement des PV.
 
-## 9. Rejouabilité (feuille de route)
+## 9. Contenu après la phase 4
 
-Prototype : 1 arène, 3 Échos, 4 ennemis, 4 affixes, 1 Dévoreur, 4 niveaux de Tension.
-Ensuite : capture d'Échos en partie (rite de lien sur un élite vaincu), nouvelles arènes à
-règles propres, modificateurs de partie à risque, boss secrets, dizaines d'Échos.
+| Échos (7) | Rôle | Mécanique propre |
+|---|---|---|
+| Cendrelame | Assassin | Exécute les Fracturés, frappes en chaîne |
+| Mousseroc | Gardien | Fracture, Puits de gravité, provocation |
+| Lucivelle | Soutien | Marques + détonation |
+| Ronceline | Contrôleuse | Zones de ronces, Racines (immobilisation) |
+| Fulgurine | Tireuse | Foudre en chaîne, Électrisé (+20 % dégâts subis) |
+| Gueule-d'ombre | Combattant | Dévore les affaiblis : soin + dégâts croissants |
+| Mirelle | Soutien | Renvoie les projectiles ennemis |
+
+- Synergies : 7 (dont « Prédateurs », activée par deux Échos d'affinité prédateur).
+- Corrompus : Grouillard, Carapace, Cracheur, Bondisseur, Nuée-mère, Rôdeur d'ombre, Gardien de cristal.
+- Dévoreurs : Nébulorax (Plaine fracturée), Vorgranite (Abysse cristallin, carapace brisée en phase 2).
+- **Rite de lien** : une élite peut laisser un Écho errant ; rester à son contact le capture
+  (il rejoint l'équipe et, s'il était verrouillé, il est débloqué définitivement).
+- **Pactes de risque** : 5 modificateurs cumulables qui augmentent les récompenses.
+- Tension 0 à V, objectifs (18), recherches (6), arbre (27 nœuds).
+
+Équilibrage et méthode de simulation : `docs/BALANCE.md`.

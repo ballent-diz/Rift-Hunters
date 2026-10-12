@@ -41,6 +41,8 @@ func _ready() -> void:
 				boss_at = float(parts[1])
 			"arena":
 				setup.arena_id = StringName(parts[1])
+			"meta":
+				setup.meta_effects = _meta_profile(parts[1])
 			"modifiers":
 				for id: String in parts[1].split(",", false):
 					setup.modifier_ids.append(StringName(id))
@@ -54,6 +56,22 @@ func _ready() -> void:
 	_run.ctx.player.god_mode = god
 	_run.finished.connect(_on_finished)
 	print("Smoke test : départ ", setup.starter_id, " / ", setup.difficulty_id, " / graine ", setup.run_seed)
+
+
+## Profils de progression typiques pour l'équilibrage : « veteran » ≈ 10 parties, « expert » ≈ 30 parties.
+func _meta_profile(kind: String) -> Array[GameplayEffect]:
+	var ranks := {
+		"combat_training": 3, "combat_phantom_step": 1, "echoes_bonds": 3, "echoes_veteran": 1, "echoes_third_seal": 1,
+		"explore_prospector": 2, "explore_magnet": 1, "research_rift_study": 1, "spec_deep_breach": 1,
+	}
+	if kind == "expert":
+		ranks.merge({"combat_shattering_dash": 1, "combat_last_breath": 1, "echoes_sharpened": 2, "research_unstable": 1,
+			"research_banish": 1, "research_fourth_option": 1, "spec_prismatic_resonance": 1, "explore_sealed_chests": 1,
+			"research_rift_study": 2})
+	var profile := ProfileData.new()
+	for id: String in ranks:
+		profile.set_tree_rank(StringName(id), int(ranks[id]))
+	return SkillTree.effects_for(profile)
 
 
 func _physics_process(_delta: float) -> void:
