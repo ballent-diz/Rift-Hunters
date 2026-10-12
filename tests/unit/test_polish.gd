@@ -86,3 +86,26 @@ func test_music_folders_are_scanned() -> void:
 		var track: Dictionary = found[id]
 		check(ResourceLoader.exists(track["path"]) or FileAccess.file_exists(track["path"]), "piste détectée : %s" % id)
 	check(DirAccess.dir_exists_absolute(dir), "dossier des musiques de partie présent")
+
+
+func test_music_playlist_and_fallbacks() -> void:
+	var run_ids: Array[String] = Audio.tracks_for("run")
+	check(run_ids.size() >= 2, "plusieurs musiques de partie (%d)" % run_ids.size())
+	check(not Audio.tracks_for("boss").is_empty(), "musiques de boss présentes")
+	check(not Audio.tracks_for("victory").is_empty(), "jingle de victoire présent")
+	if Audio.tracks_for("menu").is_empty():
+		check_eq(Audio.resolve_context("menu"), "run", "menu sans musique : repli sur les musiques de partie")
+	check_eq(Audio.resolve_context("boss_phase2"), "boss_phase2", "la phase 2 utilise le dossier des boss")
+	if run_ids.size() >= 2:
+		for i: int in 20:
+			check(Audio.next_track_id("run", run_ids[0]) != run_ids[0], "le morceau suivant change")
+
+
+func test_measured_tempo_is_applied() -> void:
+	var with_bpm: int = 0
+	for id: String in Audio.tracks_for("run"):
+		var bpm: float = float(Audio.music_tracks[id].get("bpm", 0.0))
+		if bpm > 0.0:
+			with_bpm += 1
+			check(bpm >= 100.0 and bpm <= 220.0, "tempo plausible pour %s : %.1f" % [id, bpm])
+	check(with_bpm > 0, "tempo mesuré appliqué aux musiques de partie")

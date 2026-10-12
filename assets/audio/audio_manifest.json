@@ -1,31 +1,298 @@
 {
 	"version": 1,
 	"music": {
-		"menu_theme": {"path": "res://assets/audio/music/menu_theme.mp3", "bpm": 140, "contexts": ["menu", "refuge"], "loop": true},
-		"run_theme_a": {"path": "res://assets/audio/music/run_theme_a.mp3", "bpm": 160, "contexts": ["run"], "loop": true},
-		"run_theme_b": {"path": "res://assets/audio/music/run_theme_b.mp3", "bpm": 170, "contexts": ["run"], "loop": true},
-		"boss_theme": {"path": "res://assets/audio/music/boss_theme.mp3", "bpm": 175, "contexts": ["boss"], "loop": true},
-		"boss_phase2_theme": {"path": "res://assets/audio/music/boss_phase2_theme.mp3", "bpm": 180, "contexts": ["boss_phase2"], "loop": true},
-		"victory_jingle": {"path": "res://assets/audio/music/victory.mp3", "bpm": 0, "contexts": ["victory"], "loop": false},
-		"defeat_jingle": {"path": "res://assets/audio/music/defeat.mp3", "bpm": 0, "contexts": ["defeat"], "loop": false}
+		"menu_theme": {
+			"path": "res://assets/audio/music/menu_theme.mp3",
+			"bpm": 140,
+			"contexts": [
+				"menu",
+				"refuge"
+			],
+			"loop": true
+		},
+		"run_theme_a": {
+			"path": "res://assets/audio/music/run_theme_a.mp3",
+			"bpm": 160,
+			"contexts": [
+				"run"
+			],
+			"loop": true
+		},
+		"run_theme_b": {
+			"path": "res://assets/audio/music/run_theme_b.mp3",
+			"bpm": 170,
+			"contexts": [
+				"run"
+			],
+			"loop": true
+		},
+		"boss_theme": {
+			"path": "res://assets/audio/music/boss_theme.mp3",
+			"bpm": 175,
+			"contexts": [
+				"boss"
+			],
+			"loop": true
+		},
+		"boss_phase2_theme": {
+			"path": "res://assets/audio/music/boss_phase2_theme.mp3",
+			"bpm": 180,
+			"contexts": [
+				"boss_phase2"
+			],
+			"loop": true
+		},
+		"victory_jingle": {
+			"path": "res://assets/audio/music/victory.mp3",
+			"bpm": 0,
+			"contexts": [
+				"victory"
+			],
+			"loop": false
+		},
+		"defeat_jingle": {
+			"path": "res://assets/audio/music/defeat.mp3",
+			"bpm": 0,
+			"contexts": [
+				"defeat"
+			],
+			"loop": false
+		}
 	},
 	"sfx": {
-		"ui_click": {"files": ["res://assets/audio/sfx/ui_click.mp3"], "volume_db": -6, "pitch_variance": 0.03},
-		"bolt_fire": {"files": ["res://assets/audio/sfx/bolt_fire.mp3"], "volume_db": -14, "min_interval": 0.06},
-		"enemy_hit": {"files": ["res://assets/audio/sfx/enemy_hit.mp3"], "volume_db": -16, "min_interval": 0.04},
-		"enemy_death": {"files": ["res://assets/audio/sfx/enemy_death.mp3"], "volume_db": -12, "min_interval": 0.05},
-		"player_hurt": {"files": ["res://assets/audio/sfx/player_hurt.mp3"], "volume_db": -4, "min_interval": 0.2},
-		"dash": {"files": ["res://assets/audio/sfx/dash.mp3"], "volume_db": -8},
-		"xp_pickup": {"files": ["res://assets/audio/sfx/xp_pickup.mp3"], "volume_db": -18, "min_interval": 0.05, "pitch_variance": 0.15},
-		"level_up": {"files": ["res://assets/audio/sfx/level_up.mp3"], "volume_db": -4},
-		"chest_open": {"files": ["res://assets/audio/sfx/chest_open.mp3"], "volume_db": -4},
-		"technique": {"files": ["res://assets/audio/sfx/technique.mp3"], "volume_db": -6},
-		"detonation": {"files": ["res://assets/audio/sfx/detonation.mp3"], "volume_db": -8, "min_interval": 0.08},
-		"explosion": {"files": ["res://assets/audio/sfx/explosion.mp3"], "volume_db": -8, "min_interval": 0.08},
-		"evolution": {"files": ["res://assets/audio/sfx/evolution.mp3"], "volume_db": -2},
-		"elite_spawn": {"files": ["res://assets/audio/sfx/elite_spawn.mp3"], "volume_db": -6},
-		"boss_roar": {"files": ["res://assets/audio/sfx/boss_roar.mp3"], "volume_db": 0},
-		"boss_telegraph": {"files": ["res://assets/audio/sfx/boss_telegraph.mp3"], "volume_db": -6, "min_interval": 0.3},
-		"heart_exposed": {"files": ["res://assets/audio/sfx/heart_exposed.mp3"], "volume_db": -3}
+		"ui_click": {
+			"files": [
+				"res://assets/audio/sfx/ui_click.mp3"
+			],
+			"volume_db": -6,
+			"pitch_variance": 0.03
+		},
+		"bolt_fire": {
+			"files": [
+				"res://assets/audio/sfx/bolt_fire.mp3"
+			],
+			"volume_db": -14,
+			"min_interval": 0.06
+		},
+		"enemy_hit": {
+			"files": [
+				"res://assets/audio/sfx/enemy_hit.mp3"
+			],
+			"volume_db": -16,
+			"min_interval": 0.04
+		},
+		"enemy_death": {
+			"files": [
+				"res://assets/audio/sfx/enemy_death.mp3"
+			],
+			"volume_db": -12,
+			"min_interval": 0.05
+		},
+		"player_hurt": {
+			"files": [
+				"res://assets/audio/sfx/player_hurt.mp3"
+			],
+			"volume_db": -4,
+			"min_interval": 0.2
+		},
+		"dash": {
+			"files": [
+				"res://assets/audio/sfx/dash.mp3"
+			],
+			"volume_db": -8
+		},
+		"xp_pickup": {
+			"files": [
+				"res://assets/audio/sfx/xp_pickup.mp3"
+			],
+			"volume_db": -18,
+			"min_interval": 0.05,
+			"pitch_variance": 0.15
+		},
+		"level_up": {
+			"files": [
+				"res://assets/audio/sfx/level_up.mp3"
+			],
+			"volume_db": -4
+		},
+		"chest_open": {
+			"files": [
+				"res://assets/audio/sfx/chest_open.mp3"
+			],
+			"volume_db": -4
+		},
+		"technique": {
+			"files": [
+				"res://assets/audio/sfx/technique.mp3"
+			],
+			"volume_db": -6
+		},
+		"detonation": {
+			"files": [
+				"res://assets/audio/sfx/detonation.mp3"
+			],
+			"volume_db": -8,
+			"min_interval": 0.08
+		},
+		"explosion": {
+			"files": [
+				"res://assets/audio/sfx/explosion.mp3"
+			],
+			"volume_db": -8,
+			"min_interval": 0.08
+		},
+		"evolution": {
+			"files": [
+				"res://assets/audio/sfx/evolution.mp3"
+			],
+			"volume_db": -2
+		},
+		"elite_spawn": {
+			"files": [
+				"res://assets/audio/sfx/elite_spawn.mp3"
+			],
+			"volume_db": -6
+		},
+		"boss_roar": {
+			"files": [
+				"res://assets/audio/sfx/boss_roar.mp3"
+			],
+			"volume_db": 0
+		},
+		"boss_telegraph": {
+			"files": [
+				"res://assets/audio/sfx/boss_telegraph.mp3"
+			],
+			"volume_db": -6,
+			"min_interval": 0.3
+		},
+		"heart_exposed": {
+			"files": [
+				"res://assets/audio/sfx/heart_exposed.mp3"
+			],
+			"volume_db": -3
+		}
+	},
+	"bpm": {
+		"res://assets/audio/music/boss/Final Stand (1).mp3": {
+			"bpm": 170.0,
+			"offset": 0.059
+		},
+		"res://assets/audio/music/boss/Final Stand.mp3": {
+			"bpm": 165.0,
+			"offset": 0.035
+		},
+		"res://assets/audio/music/boss/Music Box in the Machine (1).mp3": {
+			"bpm": 137.0,
+			"offset": 0.353
+		},
+		"res://assets/audio/music/boss/Music Box in the Machine.mp3": {
+			"bpm": 137.0,
+			"offset": 0.17
+		},
+		"res://assets/audio/music/boss/最后的守关者 (1).mp3": {
+			"bpm": 149.75,
+			"offset": 0.181
+		},
+		"res://assets/audio/music/boss/最后的守关者.mp3": {
+			"bpm": 149.75,
+			"offset": 0.222
+		},
+		"res://assets/audio/music/boss/末日战鼓 (1).mp3": {
+			"bpm": 169.5,
+			"offset": 0.229
+		},
+		"res://assets/audio/music/boss/末日战鼓.mp3": {
+			"bpm": 173.75,
+			"offset": 0.015
+		},
+		"res://assets/audio/music/boss/決戦 (1).mp3": {
+			"bpm": 164.0,
+			"offset": 0.148
+		},
+		"res://assets/audio/music/boss/決戦.mp3": {
+			"bpm": 166.0,
+			"offset": 0.13
+		},
+		"res://assets/audio/music/boss/決戦の刻 (1).mp3": {
+			"bpm": 149.75,
+			"offset": 0.222
+		},
+		"res://assets/audio/music/boss/決戦の刻.mp3": {
+			"bpm": 149.75,
+			"offset": 0.378
+		},
+		"res://assets/audio/music/run/16_BIT HEARTBEAT (1).mp3": {
+			"bpm": 159.0,
+			"offset": 0.332
+		},
+		"res://assets/audio/music/run/16_BIT HEARTBEAT.mp3": {
+			"bpm": 166.0,
+			"offset": 0.288
+		},
+		"res://assets/audio/music/run/Arena Overdrive (1).mp3": {
+			"bpm": 160.25,
+			"offset": 0.105
+		},
+		"res://assets/audio/music/run/Arena Overdrive.mp3": {
+			"bpm": 160.25,
+			"offset": 0.041
+		},
+		"res://assets/audio/music/run/Bell Toll Apocalypse (1).mp3": {
+			"bpm": 154.25,
+			"offset": 0.097
+		},
+		"res://assets/audio/music/run/Bell Toll Apocalypse.mp3": {
+			"bpm": 154.25,
+			"offset": 0.172
+		},
+		"res://assets/audio/music/run/Bellbreaker (1).mp3": {
+			"bpm": 159.75,
+			"offset": 0.235
+		},
+		"res://assets/audio/music/run/Bellbreaker.mp3": {
+			"bpm": 155.0,
+			"offset": 0.29
+		},
+		"res://assets/audio/music/run/Neon Circuit (1).mp3": {
+			"bpm": 144.25,
+			"offset": 0.238
+		},
+		"res://assets/audio/music/run/Neon Circuit.mp3": {
+			"bpm": 144.0,
+			"offset": 0.372
+		},
+		"res://assets/audio/music/run/Neon Overdrive (1).mp3": {
+			"bpm": 153.0,
+			"offset": 0.142
+		},
+		"res://assets/audio/music/run/Neon Overdrive.mp3": {
+			"bpm": 153.0,
+			"offset": 0.243
+		},
+		"res://assets/audio/music/run/REDLINE PANIC (1).mp3": {
+			"bpm": 174.25,
+			"offset": 0.09
+		},
+		"res://assets/audio/music/run/REDLINE PANIC.mp3": {
+			"bpm": 174.25,
+			"offset": 0.09
+		},
+		"res://assets/audio/music/run/موت الملك (1).mp3": {
+			"bpm": 149.75,
+			"offset": 0.158
+		},
+		"res://assets/audio/music/run/موت الملك.mp3": {
+			"bpm": 149.75,
+			"offset": 0.332
+		},
+		"res://assets/audio/music/run/霓虹暗流 (1).mp3": {
+			"bpm": 144.75,
+			"offset": 0.397
+		},
+		"res://assets/audio/music/run/霓虹暗流.mp3": {
+			"bpm": 144.0,
+			"offset": 0.258
+		}
 	}
 }

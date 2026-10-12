@@ -18,6 +18,10 @@ const MUSIC_FOLDERS := {
 	"res://assets/audio/music/defeat": ["defeat"],
 }
 const AUDIO_EXTENSIONS: Array[String] = ["mp3", "ogg", "wav"]
+## Contexte de repli quand un contexte n'a aucun morceau (ex. pas de musique de menu : on joue celles des parties).
+const FALLBACK_CONTEXTS := {"menu": "run", "refuge": "menu", "boss_phase2": "boss"}
+## Contextes joués une seule fois (jingles). Les autres enchaînent leurs morceaux au hasard (liste de lecture).
+const ONE_SHOT_CONTEXTS: Array[String] = ["victory", "defeat"]
 const FADE_TIME := 1.2
 const SFX_VOICES := 16
 
@@ -26,6 +30,7 @@ var sfx_events: Dictionary = {}
 var current_context: String = ""
 var current_track_id: String = ""
 var current_bpm: float = 0.0
+var current_beat_offset: float = 0.0
 var _players: Array[AudioStreamPlayer] = []
 var _active: int = 0
 var _fade: float = 0.0
@@ -36,6 +41,8 @@ var _stream_cache: Dictionary = {}
 var _last_beat: int = -1
 var _rng := RandomNumberGenerator.new()
 var _available_sfx: Dictionary = {}
+## Contexte dont les morceaux sont réellement joués (après repli éventuel).
+var _playlist_context: String = ""
 
 
 func _ready() -> void:
@@ -46,6 +53,7 @@ func _ready() -> void:
 		var player := AudioStreamPlayer.new()
 		player.bus = "Music"
 		player.volume_db = -80.0
+		player.finished.connect(_on_track_finished.bind(player))
 		add_child(player)
 		_players.append(player)
 	for i: int in SFX_VOICES:
@@ -60,10 +68,20 @@ func _ready() -> void:
 func load_manifest() -> void:
 	var res: Resource = load(MANIFEST_PATH) if ResourceLoader.exists(MANIFEST_PATH) else null
 	var data: Variant = (res as JSON).data if res is JSON else {}
+	var bpm_by_path: Dictionary = {}
 	if data is Dictionary:
 		music_tracks = data.get("music", {})
 		sfx_events = data.get("sfx", {})
+		bpm_by_path = data.get("bpm", {})
 	music_tracks.merge(scan_music_folders(), false)
+	# Tempo mesuré par tools/audio/detect_bpm.py (section « bpm » du manifeste, par chemin de fichier) :
+	# {"bpm": 160.25, "offset": 0.12} où offset est l'instant du premier temps (secondes).
+	for id: String in music_tracks:
+		var track: Dictionary = music_tracks[id]
+		var measured: Variant = bpm_by_path.get(str(track.get("path", "")))
+		if float(track.get("bpm", 0.0)) == 0.0 and measured is Dictionary:
+			track["bpm"] = float((measured as Dictionary).get("bpm", 0.0))
+			track["beat_offset"] = float((measured as Dictionary).get("offset", 0.0))
 	_available_sfx.clear()
 	for event_id: String in sfx_events:
 		var files: Array = (sfx_events[event_id] as Dictionary).get("files", [])
@@ -126,7 +144,8 @@ func play_context(context: String) -> void:
 	if context == current_context:
 		return
 	current_context = context
-	var ids: Array[String] = tracks_for(context)
+	_playlist_context = resolve_context(context)
+	var ids: Array[String] = tracks_for(_playlist_context)
 	if ids.is_empty():
 		_fade_out_all()
 		return
@@ -136,13 +155,44 @@ func play_context(context: String) -> void:
 	_play_track(id)
 
 
+## Contexte réellement joué : le contexte demandé, ou son repli s'il n'a aucun morceau.
+func resolve_context(context: String) -> String:
+	var resolved: String = context
+	var guard: int = 0
+	while tracks_for(resolved).is_empty() and FALLBACK_CONTEXTS.has(resolved) and guard < 4:
+		resolved = FALLBACK_CONTEXTS[resolved]
+		guard += 1
+	return resolved
+
+
+## Prochain morceau de la liste de lecture : au hasard, différent du précédent quand c'est possible.
+func next_track_id(context: String, previous: String) -> String:
+	var ids: Array[String] = tracks_for(context)
+	if ids.is_empty():
+		return ""
+	if ids.size() > 1:
+		ids.erase(previous)
+	return ids[_rng.randi() % ids.size()]
+
+
+func _on_track_finished(player: AudioStreamPlayer) -> void:
+	if player != _players[_active] or ONE_SHOT_CONTEXTS.has(current_context) or _playlist_context == "":
+		return
+	var id: String = next_track_id(_playlist_context, current_track_id)
+	if id != "":
+		_play_track(id)
+
+
 func _play_track(id: String) -> void:
 	var track: Dictionary = music_tracks[id]
-	var stream: AudioStream = _load_stream(str(track["path"]), bool(track.get("loop", true)))
+	# Un morceau seul dans son contexte boucle ; sinon la liste de lecture enchaîne (signal finished).
+	var loop: bool = bool(track.get("loop", true)) and tracks_for(_playlist_context).size() <= 1
+	var stream: AudioStream = _load_stream(str(track["path"]), loop)
 	if stream == null:
 		return
 	current_track_id = id
 	current_bpm = float(track.get("bpm", 0.0))
+	current_beat_offset = float(track.get("beat_offset", 0.0))
 	_last_beat = -1
 	_active = 1 - _active
 	var player: AudioStreamPlayer = _players[_active]
@@ -161,11 +211,11 @@ func _fade_out_all() -> void:
 
 
 func _load_stream(path: String, loop: bool) -> AudioStream:
-	if _stream_cache.has(path):
-		return _stream_cache[path]
-	if not ResourceLoader.exists(path):
-		return null
-	var stream: AudioStream = load(path)
+	var stream: AudioStream = _stream_cache.get(path)
+	if stream == null:
+		if not ResourceLoader.exists(path):
+			return null
+		stream = load(path)
 	if stream is AudioStreamMP3:
 		(stream as AudioStreamMP3).loop = loop
 	elif stream is AudioStreamOggVorbis:
@@ -208,8 +258,8 @@ func _process(delta: float) -> void:
 			other.stop()
 	var player: AudioStreamPlayer = _players[_active]
 	if current_bpm > 0.0 and player.playing:
-		var position: float = player.get_playback_position() + AudioServer.get_time_since_last_mix()
-		var index: int = int(position * current_bpm / 60.0)
+		var position: float = player.get_playback_position() + AudioServer.get_time_since_last_mix() - current_beat_offset
+		var index: int = floori(position * current_bpm / 60.0)
 		if index != _last_beat:
 			_last_beat = index
 			beat.emit(index)

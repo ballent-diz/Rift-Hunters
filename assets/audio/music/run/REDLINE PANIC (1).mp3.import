@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cx85g64opqjof"
+path="res://.godot/imported/REDLINE PANIC (1).mp3-592ac00c3f2fe8bed0219ca50ac1df47.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/run/REDLINE PANIC (1).mp3"
+dest_files=["res://.godot/imported/REDLINE PANIC (1).mp3-592ac00c3f2fe8bed0219ca50ac1df47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
