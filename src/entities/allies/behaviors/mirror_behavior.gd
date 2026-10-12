@@ -21,6 +21,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 		return
 	var info: DamageInfo = ally.make_info(ally.attack.damage, [DamageInfo.TAG_ATTACK])
 	info.statuses = ally.attack.statuses
+	ally.visual.play_action(&"attack")
 	ctx.projectiles.spawn_friendly(ally.global_position, target.global_position - ally.global_position,
 		ally.attack.projectile_speed, info, {"pierce": int(ally.attack.params.get("shard_pierce", 3)), "radius": 6.0,
 		"life": 1.6, "color": ally.data.visual.accent})

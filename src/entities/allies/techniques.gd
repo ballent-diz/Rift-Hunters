@@ -25,6 +25,7 @@ static func cast(ally: Ally, ctx: RunContext, aim: Vector2) -> bool:
 		_:
 			push_error("Technique inconnue : %s" % tech.technique_kind)
 	if ok:
+		ally.visual.play_action(&"technique")
 		ally.technique_cd = ally.technique_cooldown()
 		ctx.stats.add(StringName(String(ally.data.id) + "_techniques"))
 		ctx.stats.add(&"techniques_cast")

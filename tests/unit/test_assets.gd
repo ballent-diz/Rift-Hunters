@@ -51,8 +51,24 @@ func test_placeholder_generation() -> void:
 
 
 func test_missing_sheet_falls_back_to_placeholder() -> void:
-	check(Assets.get_sprite_frames(&"monster.ashblade") == null, "feuille absente → pas de SpriteFrames")
+	var data: VisualData = GameDB.monster(&"ashblade").visual.duplicate()
+	data.visual_id = &"test.sans_feuille"
+	check(Assets.get_sprite_frames(data.visual_id) == null, "feuille absente → pas de SpriteFrames")
+	var visual := EntityVisual.new()
+	visual.setup(data)
+	var sprites: int = 0
+	for child: Node in visual.get_children():
+		if child is Sprite2D:
+			sprites += 1
+	check(sprites == 1 and not visual.has_sheet(), "EntityVisual utilise le placeholder")
+	visual.free()
+
+
+func test_generated_sheet_is_used() -> void:
 	var visual := EntityVisual.new()
 	visual.setup(GameDB.monster(&"ashblade").visual)
-	check(visual.get_child_count() == 1 and visual.get_child(0) is Sprite2D, "EntityVisual utilise le placeholder")
+	check(visual.has_sheet(), "la feuille pixel art de Cendrelame est utilisée")
+	var frames: SpriteFrames = Assets.get_sprite_frames(&"monster.ashblade")
+	for anim: StringName in [&"idle", &"move", &"attack", &"technique"]:
+		check(frames.has_animation(anim), "animation %s présente" % anim)
 	visual.free()

@@ -38,6 +38,7 @@ func _leap(ally: Ally, target: Enemy) -> void:
 	m["to"] = target.global_position
 	m["target"] = target
 	ally.visual.set_facing_left(target.global_position.x < ally.global_position.x)
+	ally.visual.play_action(&"attack")
 
 
 func _strike(ally: Ally, ctx: RunContext) -> void:

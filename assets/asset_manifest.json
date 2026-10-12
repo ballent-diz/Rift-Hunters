@@ -47,16 +47,18 @@
 			"icon": "res://assets/ui/icons/players/hunter.png"
 		},
 		"monster.ashblade": {
-			"status": "planned",
+			"status": "wip",
+			"generated_by": "tools/art/build.py",
 			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_sheet.png",
 			"cell": [
-				64,
-				64
+				32,
+				32
 			],
 			"anchor": [
-				32,
-				56
+				16,
+				28
 			],
+			"scale": 1.0,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -676,6 +678,88 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/bosses/vorgranite.png"
+		},
+		"monster.ashblade.eclipse_blade": {
+			"status": "wip",
+			"generated_by": "tools/art/build.py",
+			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_eclipse_blade_sheet.png",
+			"cell": [
+				32,
+				32
+			],
+			"anchor": [
+				16,
+				28
+			],
+			"scale": 1.0,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/ashblade_eclipse_blade.png"
+		},
+		"monster.ashblade.pyrefang": {
+			"status": "wip",
+			"generated_by": "tools/art/build.py",
+			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_pyrefang_sheet.png",
+			"cell": [
+				32,
+				32
+			],
+			"anchor": [
+				16,
+				28
+			],
+			"scale": 1.0,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/ashblade_pyrefang.png"
 		}
 	}
 }

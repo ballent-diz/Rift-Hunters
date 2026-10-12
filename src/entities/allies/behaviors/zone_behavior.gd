@@ -14,6 +14,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	if target == null:
 		return
 	ally.attack_cd = ally.attack.cooldown
+	ally.visual.play_action(&"attack")
 	var params: Dictionary = ally.attack.params
 	var count: int = int(params.get("count", 1))
 	var spread: float = float(params.get("spread", 60.0))

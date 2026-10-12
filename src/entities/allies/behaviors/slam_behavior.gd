@@ -23,7 +23,9 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	ally.visual.tick(delta, ally.velocity.length() > 5.0)
 	if ally.attack_cd <= 0.0 and not ctx.enemies.query_radius(ally.global_position, ally.attack.radius * 0.8).is_empty():
 		m["windup"] = float(params.get("windup", 0.25))
-		ally.visual.flash()
+		ally.visual.play_action(&"attack")
+		if not ally.visual.has_sheet():
+			ally.visual.flash()
 
 
 func _slam(ally: Ally, ctx: RunContext) -> void:

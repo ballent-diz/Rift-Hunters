@@ -14,6 +14,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 		return
 	ally.attack_cd = ally.attack.cooldown
 	ally.visual.set_facing_left(target.global_position.x < ally.global_position.x)
+	ally.visual.play_action(&"attack")
 	var tags: Array[StringName] = [DamageInfo.TAG_ATTACK]
 	var count: int = maxi(ally.attack.projectile_count, 1)
 	for i: int in count:

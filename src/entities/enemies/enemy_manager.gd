@@ -251,6 +251,7 @@ func _tick_ranged(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: 
 		enemy.state = Enemy.State.WINDUP
 		enemy.state_timer = float(attack.params.get("windup", 0.35))
 		enemy.aim_dir = dir
+		enemy.visual.play_action(&"attack")
 		enemy.visual.flash()
 
 

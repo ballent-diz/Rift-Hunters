@@ -78,6 +78,11 @@ func anchor(visual_id: StringName) -> Vector2:
 	return Vector2(float(cell[0]), float(cell[1])) * 0.5
 
 
+## Unités du monde par pixel d'art (1 par défaut ; voir docs/ART_BIBLE.md).
+func pixel_scale(visual_id: StringName) -> float:
+	return float(entry(visual_id).get("scale", 1.0))
+
+
 ## Retourne [Texture2D, échelle].
 func placeholder(visual: VisualData, primary: Color = Color(0, 0, 0, 0), secondary: Color = Color(0, 0, 0, 0)) -> Array:
 	var pri: Color = visual.primary if primary.a == 0.0 else primary
