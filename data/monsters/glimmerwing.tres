@@ -1,0 +1,312 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=46 format=3]
+
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="3"]
+[ext_resource type="Script" path="res://src/combat/effects/heal_on_status_count_effect.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/combat/effects/detonation_effect.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="10"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="11"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="12"]
+
+[sub_resource type="Resource" id="status_application_2"]
+script = ExtResource("3")
+status_id = &"mark"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("2")
+damage = 7.0
+cooldown = 0.85
+statuses = [SubResource("status_application_2")]
+name_key = "ATTACK_GLIMMERWING"
+attack_range = 380.0
+projectile_speed = 360.0
+homing = 5.0
+
+[sub_resource type="Resource" id="heal_on_status_count_effect_3"]
+script = ExtResource("4")
+source_filter = &"owner"
+status_id = &"mark"
+count = 25
+heal = 3.0
+
+[sub_resource type="Resource" id="technique_data_4"]
+script = ExtResource("5")
+id = &"prism_flare"
+technique_kind = &"prism_flare"
+name_key = "TECHNIQUE_PRISM_FLARE_NAME"
+desc_key = "TECHNIQUE_PRISM_FLARE_DESC"
+cooldown = 10.0
+damage = 9.0
+
+[sub_resource type="Resource" id="status_application_7"]
+script = ExtResource("3")
+status_id = &"mark"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_6"]
+script = ExtResource("2")
+damage = 7.0
+cooldown = 0.8
+split = 2
+statuses = [SubResource("status_application_7")]
+name_key = "ATTACK_GLIMMERWING"
+attack_range = 380.0
+projectile_speed = 360.0
+homing = 5.0
+
+[sub_resource type="Resource" id="visual_data_8"]
+script = ExtResource("7")
+visual_id = &"monster.glimmerwing.prismara"
+shape = 3
+size = 36.0
+primary = Color(0.75, 0.95, 1.0, 1.0)
+secondary = Color(0.9, 0.6, 1.0, 1.0)
+accent = Color(1.0, 1.0, 1.0, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_5"]
+script = ExtResource("6")
+id = &"prismara"
+name_key = "EVOLUTION_PRISMARA_NAME"
+desc_key = "EVOLUTION_PRISMARA_DESC"
+required_rank = 3
+attack = SubResource("attack_data_6")
+visual = SubResource("visual_data_8")
+
+[sub_resource type="Resource" id="status_application_11"]
+script = ExtResource("3")
+status_id = &"mark"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_application_12"]
+script = ExtResource("3")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_10"]
+script = ExtResource("2")
+damage = 7.0
+cooldown = 0.85
+statuses = [SubResource("status_application_11"), SubResource("status_application_12")]
+name_key = "ATTACK_GLIMMERWING"
+attack_range = 380.0
+projectile_speed = 360.0
+homing = 5.0
+
+[sub_resource type="Resource" id="detonation_effect_13"]
+script = ExtResource("8")
+heal_per_stack = 0.6
+shield_per_stack = 1.0
+max_shield = 40.0
+
+[sub_resource type="Resource" id="visual_data_14"]
+script = ExtResource("7")
+visual_id = &"monster.glimmerwing.dawnward"
+shape = 3
+size = 36.0
+primary = Color(1.0, 0.92, 0.65, 1.0)
+secondary = Color(1.0, 0.75, 0.4, 1.0)
+accent = Color(1.0, 1.0, 0.9, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_9"]
+script = ExtResource("6")
+id = &"dawnward"
+name_key = "EVOLUTION_DAWNWARD_NAME"
+desc_key = "EVOLUTION_DAWNWARD_DESC"
+required_rank = 3
+attack = SubResource("attack_data_10")
+effects = [SubResource("detonation_effect_13")]
+visual = SubResource("visual_data_14")
+
+[sub_resource type="Resource" id="status_application_17"]
+script = ExtResource("3")
+status_id = &"mark"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_16"]
+script = ExtResource("2")
+damage = 9.0
+cooldown = 0.75
+chain = 1
+statuses = [SubResource("status_application_17")]
+name_key = "ATTACK_GLIMMERWING"
+attack_range = 420.0
+projectile_speed = 400.0
+homing = 6.0
+
+[sub_resource type="Resource" id="detonation_effect_18"]
+script = ExtResource("8")
+auto_detonate_at_max = true
+auto_detonate_damage_per_stack = 11.0
+
+[sub_resource type="Resource" id="visual_data_19"]
+script = ExtResource("7")
+visual_id = &"monster.glimmerwing.prismatic_eclipse"
+shape = 3
+size = 38.0
+primary = Color(0.25, 0.1, 0.4, 1.0)
+secondary = Color(0.7, 0.9, 1.0, 1.0)
+accent = Color(1.0, 1.0, 1.0, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_15"]
+script = ExtResource("6")
+id = &"prismatic_eclipse"
+name_key = "EVOLUTION_PRISMATIC_ECLIPSE_NAME"
+desc_key = "EVOLUTION_PRISMATIC_ECLIPSE_DESC"
+hint_key = "EVOLUTION_PRISMATIC_ECLIPSE_HINT"
+required_rank = 3
+secret = true
+requires_monsters = [&"ashblade", &"mossback"]
+requires_relics = [&"cracked_prism"]
+attack = SubResource("attack_data_16")
+effects = [SubResource("detonation_effect_18")]
+visual = SubResource("visual_data_19")
+
+[sub_resource type="Resource" id="status_application_22"]
+script = ExtResource("3")
+status_id = &"mark"
+stacks = 2
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_21"]
+script = ExtResource("2")
+name_key = "ATTACK_GLIMMERWING"
+damage = 6.0
+cooldown = 1.0
+attack_range = 380.0
+projectile_speed = 300.0
+homing = 4.0
+statuses = [SubResource("status_application_22")]
+
+[sub_resource type="Resource" id="evolution_data_20"]
+script = ExtResource("6")
+id = &"vesper"
+name_key = "VARIANT_VESPER_NAME"
+desc_key = "VARIANT_VESPER_DESC"
+required_rank = 1
+attack = SubResource("attack_data_21")
+
+[sub_resource type="Resource" id="mastery_challenge_data_24"]
+script = ExtResource("10")
+id = &"glimmerwing_marker"
+desc_key = "MASTERY_GLIMMERWING_MARKER"
+stat_key = &"glimmerwing_applied_mark"
+threshold = 2000.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="mastery_challenge_data_25"]
+script = ExtResource("10")
+id = &"glimmerwing_supernova"
+desc_key = "MASTERY_GLIMMERWING_SUPERNOVA"
+stat_key = &"glimmerwing_max_detonated"
+threshold = 40.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="mastery_challenge_data_26"]
+script = ExtResource("10")
+id = &"glimmerwing_evolved_victory"
+desc_key = "MASTERY_GLIMMERWING_EVOLVED_VICTORY"
+stat_key = &"glimmerwing_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_modifier_effect_28"]
+script = ExtResource("12")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="mastery_reward_data_27"]
+script = ExtResource("11")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_modifier_effect_28")]
+
+[sub_resource type="Resource" id="mastery_reward_data_29"]
+script = ExtResource("11")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(1.0, 0.75, 0.9, 1.0)
+palette_secondary = Color(0.75, 0.55, 1.0, 1.0)
+
+[sub_resource type="Resource" id="mastery_reward_data_30"]
+script = ExtResource("11")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="mastery_reward_data_31"]
+script = ExtResource("11")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="mastery_reward_data_32"]
+script = ExtResource("11")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_data_23"]
+script = ExtResource("9")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("mastery_challenge_data_24"), SubResource("mastery_challenge_data_25"), SubResource("mastery_challenge_data_26")]
+rewards = [SubResource("mastery_reward_data_27"), SubResource("mastery_reward_data_29"), SubResource("mastery_reward_data_30"), SubResource("mastery_reward_data_31"), SubResource("mastery_reward_data_32")]
+
+[sub_resource type="Resource" id="visual_data_33"]
+script = ExtResource("7")
+visual_id = &"monster.glimmerwing"
+shape = 3
+size = 30.0
+primary = Color(0.8, 0.95, 1.0, 1.0)
+secondary = Color(0.55, 0.75, 1.0, 1.0)
+accent = Color(1.0, 1.0, 0.8, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"glimmerwing"
+name_key = "MONSTER_GLIMMERWING_NAME"
+desc_key = "MONSTER_GLIMMERWING_DESC"
+lore_key = "MONSTER_GLIMMERWING_LORE"
+role = 2
+affinities = [&"light", &"arcane"]
+rarity = 2
+max_hp = 70.0
+defense = 5.0
+move_speed = 220.0
+behavior_id = &"orb"
+attack = SubResource("attack_data_1")
+passive_name_key = "PASSIVE_GLIMMERWING_NAME"
+passive_desc_key = "PASSIVE_GLIMMERWING_DESC"
+passive_effects = [SubResource("heal_on_status_count_effect_3")]
+technique = SubResource("technique_data_4")
+evolutions = [SubResource("evolution_data_5"), SubResource("evolution_data_9"), SubResource("evolution_data_15")]
+variant = SubResource("evolution_data_20")
+mastery = SubResource("mastery_data_23")
+unlocked_by_default = false
+visual = SubResource("visual_data_33")

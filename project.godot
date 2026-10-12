@@ -1,0 +1,39 @@
+; Rift Hunters — configuration du projet Godot 4.3
+
+config_version=5
+
+[application]
+
+config/name="Rift Hunters"
+config/description="Survivor-like 2D original : Échos, builds et Failles."
+config/version="0.1.0"
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[autoload]
+
+GameDB="*res://src/core/game_db.gd"
+Settings="*res://src/core/settings.gd"
+Profile="*res://src/core/profile.gd"
+Assets="*res://src/assets/asset_registry.gd"
+Router="*res://src/core/router.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/size/window_width_override=1600
+window/size/window_height_override=900
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://i18n/strings.en.translation", "res://i18n/strings.fr.translation")
+locale/fallback="en"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.06, 0.07, 0.12, 1)

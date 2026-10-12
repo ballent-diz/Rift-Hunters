@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RelicData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/relic_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="stat_modifier_effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"mark_max_stacks"
+flat = 3.0
+pct = 0.0
+
+[sub_resource type="Resource" id="stat_modifier_effect_2"]
+script = ExtResource("2")
+target = 0
+stat = &"mark_duration"
+flat = 2.0
+pct = 0.0
+
+[resource]
+script = ExtResource("1")
+id = &"cracked_prism"
+name_key = "RELIC_CRACKED_PRISM_NAME"
+desc_key = "RELIC_CRACKED_PRISM_DESC"
+rarity = 2
+requires_any_monster = [&"glimmerwing"]
+unlocked_by_default = false
+effects = [SubResource("stat_modifier_effect_1"), SubResource("stat_modifier_effect_2")]
+color = Color(0.6, 1.0, 1.0, 1.0)

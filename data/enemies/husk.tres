@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.husk"
+shape = 5
+size = 38.0
+primary = Color(0.3, 0.28, 0.38, 1.0)
+secondary = Color(0.5, 0.35, 0.6, 1.0)
+accent = Color(1.0, 0.5, 0.8, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"husk"
+name_key = "ENEMY_HUSK_NAME"
+desc_key = "ENEMY_HUSK_DESC"
+brain = 0
+max_hp = 55.0
+damage = 12.0
+defense = 80.0
+move_speed = 46.0
+radius = 18.0
+xp_value = 4
+visual = SubResource("visual_data_1")
+knockback_resist = 0.7

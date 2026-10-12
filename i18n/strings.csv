@@ -1,0 +1,236 @@
+keys,fr,en
+LANGUAGE_NAME,Français,English
+MENU_TAGLINE,Scellez des pactes. Refermez les Failles.,Seal pacts. Close the Rifts.
+MENU_CHOOSE_STARTER,Choisissez l'Écho qui vous accompagne,Choose the Echo that joins you
+MENU_QUIT,Quitter,Quit
+ROLE_0,Assassin,Assassin
+ROLE_1,Gardien,Guardian
+ROLE_2,Soutien,Support
+ROLE_3,Contrôleur,Controller
+ROLE_4,Combattant,Bruiser
+ROLE_5,Tireur,Marksman
+OPTIONS_LANGUAGE,Langue : %s,Language: %s
+OPTIONS_ON,activé,on
+OPTIONS_OFF,désactivé,off
+OPTIONS_DAMAGE_NUMBERS,Chiffres de dégâts : %s,Damage numbers: %s
+OPTIONS_SCREEN_SHAKE,Secousses de l'écran : %s,Screen shake: %s
+PAUSE_TITLE,Pause,Paused
+PAUSE_RESUME,Reprendre,Resume
+PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
+PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click
+HUD_LEVEL,Niv. %d,Lv. %d
+HUD_DASH_READY,Ruée prête [Espace],Dash ready [Space]
+HUD_DASH_CD,Ruée : %.1fs,Dash: %.1fs
+HUD_BOSS_IN,Le Dévoreur arrive dans %d:%02d,The Devourer arrives in %d:%02d
+HUD_KILLS,Éliminations : %d,Kills: %d
+HUD_RELICS,Reliques : %d,Relics: %d
+HUD_RANK,Rang %d,Rank %d
+HUD_FREE_SLOT,Emplacements de pacte libres : %d,Free pact slots: %d
+HUD_SYNERGY_ACTIVATED,Synergie : %s,Synergy: %s
+HUD_BOSS_ARRIVES,%s émerge de la Faille !,%s emerges from the Rift!
+HUD_BOSS_PHASE2,Le Dévoreur se transforme !,The Devourer transforms!
+HUD_EVOLUTION,Évolution : %s,Evolution: %s
+BOSS_HEART_EXPOSED,CŒUR EXPOSÉ ×2,HEART EXPOSED ×2
+BOSS_INVULNERABLE,Invulnérable,Invulnerable
+LEVELUP_TITLE,Niveau %d !,Level %d!
+LEVELUP_BANISH_TITLE,Choisissez une carte à bannir,Choose a card to banish
+LEVELUP_REROLL,Relancer (%d),Reroll (%d)
+LEVELUP_BANISH,Bannir (%d),Banish (%d)
+LEVELUP_BANISH_CANCEL,Annuler le bannissement,Cancel banish
+OFFER_RECRUIT_TITLE,Pacte : %s,Pact: %s
+OFFER_EMPOWER_TITLE,Éveil : %s,Awaken: %s
+OFFER_EMPOWER_DESC,"Rang +1 : dégâts accrus. Au rang 3, l'Écho peut évoluer.","Rank +1: more damage. At rank 3, the Echo can evolve."
+OFFER_HEAL_TITLE,Souffle de répit,Breathing Room
+OFFER_HEAL_DESC,Rend 30 % des PV maximum.,Restores 30% of maximum HP.
+OFFER_SHARDS_TITLE,Éclats épars,Scattered Shards
+OFFER_SHARDS_DESC,+15 Éclats de faille à la fin de la partie.,+15 Rift Shards at the end of the run.
+OFFER_TAG_UPGRADE,Amélioration,Upgrade
+OFFER_TAG_MUTATION,Mutation,Mutation
+OFFER_TAG_PACT,Pacte,Pact
+OFFER_TAG_EMPOWER,Éveil,Awakening
+OFFER_TAG_EVOLUTION,Évolution,Evolution
+OFFER_TAG_SECRET_EVOLUTION,Évolution secrète,Secret evolution
+CHEST_TITLE,Coffre de faille,Rift Chest
+CHEST_START_TITLE,Relique de départ,Starting Relic
+CHEST_SUBTITLE,Prenez une relique… ou brisez le coffre.,Take a relic… or break the chest.
+CHEST_BREAK,Briser le coffre : +%d Éclats et soin,Break the chest: +%d Shards and heal
+RELIC_RARITY_0,Relique commune,Common relic
+RELIC_RARITY_1,Relique rare,Rare relic
+RELIC_RARITY_2,Relique épique,Epic relic
+RELIC_RARITY_3,Relique légendaire,Legendary relic
+RESULT_VICTORY,Faille refermée !,Rift sealed!
+RESULT_DEFEAT,Expédition perdue,Expedition lost
+RESULT_SUMMARY,Temps %d:%02d · Niveau %d · %d éliminations,Time %d:%02d · Level %d · %d kills
+RESULT_DAMAGE_TITLE,Dégâts infligés,Damage dealt
+RESULT_ELITES,Élites vaincues : %d,Elites defeated: %d
+RESULT_DAMAGE_TAKEN,Dégâts subis : %d,Damage taken: %d
+RESULT_REWARDS_TITLE,Récompenses,Rewards
+RESULT_SHARDS,Éclats de faille : +%d,Rift Shards: +%d
+RESULT_ESSENCE,Essence : +%d,Essence: +%d
+RESULT_REFUGE,Retour au Refuge,Back to the Refuge
+RESULT_REPLAY,Nouvelle expédition,New expedition
+SOURCE_PLAYER,Chasseur,Hunter
+WEAPON_RIFT_BOLT,Trait de Faille,Rift Bolt
+STATUS_FRACTURE_NAME,Fracture,Fracture
+STATUS_FRACTURE_DESC,"Défense −60, dégâts subis +15 %.","Defense −60, damage taken +15%."
+STATUS_MARK_NAME,Marque prismatique,Prism Mark
+STATUS_MARK_DESC,Se cumule. Peut être détonée.,Stacks. Can be detonated.
+STATUS_BURN_NAME,Brûlure,Burn
+STATUS_BURN_DESC,"Dégâts sur la durée, se cumule 3 fois.","Damage over time, stacks 3 times."
+STATUS_SLOW_NAME,Entrave,Hinder
+STATUS_SLOW_DESC,Vitesse −40 %.,Speed −40%.
+MONSTER_ASHBLADE_NAME,Cendrelame,Ashblade
+MONSTER_ASHBLADE_DESC,Assassin. Bondit sur ses proies et exécute les ennemis Fracturés (+60 % de dégâts).,Assassin. Leaps on prey and executes Fractured enemies (+60% damage).
+MONSTER_ASHBLADE_LORE,"Né d'une coulée d'obsidienne qui refusait de refroidir, il chasse en silence ce qui saigne déjà.","Born from an obsidian flow that refused to cool, it silently hunts whatever already bleeds."
+MONSTER_MOSSBACK_NAME,Mousseroc,Mossback
+MONSTER_MOSSBACK_DESC,Gardien. Frappe le sol pour Fracturer les ennemis. Technique : Puits de gravité.,Guardian. Pounds the ground to Fracture enemies. Technique: Gravity Well.
+MONSTER_MOSSBACK_LORE,Un monolithe qui marche depuis mille ans. Le lichen qui le couvre se souvient de chaque Faille.,A monolith that has walked for a thousand years. The lichen covering it remembers every Rift.
+MONSTER_GLIMMERWING_NAME,Lucivelle,Glimmerwing
+MONSTER_GLIMMERWING_DESC,Soutien. Ses orbes Marquent les ennemis ; sa Technique fait détoner toutes les Marques.,Support. Its orbs Mark enemies; its Technique detonates every Mark.
+MONSTER_GLIMMERWING_LORE,Une phalène de verre qui boit la lumière des Failles et la rend en éclats prismatiques.,A glass moth that drinks the light of the Rifts and returns it as prismatic shards.
+ATTACK_ASHBLADE,Taille,Slash
+ATTACK_MOSSBACK,Fracas,Crash
+ATTACK_GLIMMERWING,Éclat prismatique,Prism Shard
+PASSIVE_ASHBLADE_NAME,Exécuteur,Executioner
+PASSIVE_ASHBLADE_DESC,+60 % de dégâts contre les ennemis Fracturés.,+60% damage against Fractured enemies.
+PASSIVE_MOSSBACK_NAME,Rempart,Bulwark
+PASSIVE_MOSSBACK_DESC,Le Chasseur subit 10 % de dégâts en moins près de Mousseroc.,The Hunter takes 10% less damage near Mossback.
+PASSIVE_GLIMMERWING_NAME,Lumière apaisante,Soothing Light
+PASSIVE_GLIMMERWING_DESC,"Toutes les 25 Marques posées, soigne le Chasseur de 3 PV.","Every 25 Marks applied, heals the Hunter for 3 HP."
+TECHNIQUE_ASH_DANCE_NAME,Danse des cendres,Ash Dance
+TECHNIQUE_ASH_DANCE_DESC,Enchaîne 6 frappes sur les ennemis autour du curseur.,Chains 6 strikes on enemies around the cursor.
+TECHNIQUE_GRAVITY_WELL_NAME,Puits de gravité,Gravity Well
+TECHNIQUE_GRAVITY_WELL_DESC,Aspire les ennemis vers le curseur pendant 3 s puis implose (Fracture).,"Pulls enemies toward the cursor for 3 s, then implodes (Fracture)."
+TECHNIQUE_PRISM_FLARE_NAME,Embrasement,Prismatic Flare
+TECHNIQUE_PRISM_FLARE_DESC,Fait détoner toutes les Marques : dégâts selon les cumuls.,Detonates every Mark: damage scales with stacks.
+EVOLUTION_ECLIPSE_BLADE_NAME,Lame-Éclipse,Eclipse Blade
+EVOLUTION_ECLIPSE_BLADE_DESC,La Taille rebondit sur 2 cibles de plus. Bonus contre la Fracture doublé.,Slash chains to 2 more targets. Bonus against Fracture doubled.
+EVOLUTION_PYREFANG_NAME,Brasier-Croc,Pyrefang
+EVOLUTION_PYREFANG_DESC,La Taille devient un coup de zone qui inflige Brûlure. Rôle : combattant.,Slash becomes an area strike that inflicts Burn. Role: bruiser.
+EVOLUTION_MONOLITH_NAME,Monolithe,Monolith
+EVOLUTION_MONOLITH_DESC,Provoque les ennemis proches (ils le ciblent). Fracas élargi.,Taunts nearby enemies (they target it). Wider Crash.
+EVOLUTION_QUAKEBACK_NAME,Tremblecroc,Quakeback
+EVOLUTION_QUAKEBACK_DESC,Le Fracas libère un anneau de choc qui Fracture loin. Rôle : contrôleur.,Crash releases a shockwave ring that Fractures far away. Role: controller.
+EVOLUTION_PRISMARA_NAME,Prismara,Prismara
+EVOLUTION_PRISMARA_DESC,Les orbes se divisent au contact : marquage de masse.,Orbs split on impact: mass marking.
+EVOLUTION_DAWNWARD_NAME,Aube-Garde,Dawnward
+EVOLUTION_DAWNWARD_DESC,Les détonations soignent et donnent un bouclier. Les orbes Entravent.,Detonations heal and grant a shield. Orbs Hinder.
+EVOLUTION_PRISMATIC_ECLIPSE_NAME,Éclipse prismatique,Prismatic Eclipse
+EVOLUTION_PRISMATIC_ECLIPSE_DESC,Les Marques détonent seules au cumul maximal. Les orbes rebondissent.,Marks detonate on their own at max stacks. Orbs bounce.
+EVOLUTION_PRISMATIC_ECLIPSE_HINT,Une lumière qui dévore la nuit… quand le trio est réuni autour d'un prisme fêlé.,A light that devours the night… when the trio gathers around a cracked prism.
+VARIANT_TWILIGHT_BLADE_NAME,Variante : Lame du crépuscule,Variant: Twilight Blade
+VARIANT_TWILIGHT_BLADE_DESC,"Portée de bond +50 %, attaques 15 % plus lentes.","Leap range +50%, attacks 15% slower."
+VARIANT_ANCIENT_ROCK_NAME,Variante : Roc ancien,Variant: Ancient Rock
+VARIANT_ANCIENT_ROCK_DESC,Frappe 35 % plus fort mais 20 % plus lentement.,Hits 35% harder but 20% slower.
+VARIANT_VESPER_NAME,Variante : Vesper,Variant: Vesper
+VARIANT_VESPER_DESC,Orbes plus lents qui posent 2 Marques.,Slower orbs that apply 2 Marks.
+ENEMY_SKITTERLING_NAME,Grouillard,Skitterling
+ENEMY_SKITTERLING_DESC,"Rapide et fragile, il arrive toujours en nombre.","Fast and frail, it always comes in numbers."
+ENEMY_HUSK_NAME,Carapace,Husk
+ENEMY_HUSK_DESC,Très résistant. Fracturez-le avant de frapper.,Very tough. Fracture it before striking.
+ENEMY_SPITTER_NAME,Cracheur,Spitter
+ENEMY_SPITTER_DESC,Garde ses distances et crache des projectiles lents.,Keeps its distance and spits slow projectiles.
+ENEMY_LUNGER_NAME,Bondisseur,Lunger
+ENEMY_LUNGER_DESC,"Se fige, puis charge en ligne droite.","Freezes, then charges in a straight line."
+ENEMY_RIFT_CRYSTAL_NAME,Cristal de faille,Rift Crystal
+ENEMY_RIFT_CRYSTAL_DESC,Obstacle qui pulse. Détruisez-le pour libérer le terrain.,A pulsing obstacle. Destroy it to free the ground.
+AFFIX_HASTED_NAME,Hâtif,Hasted
+AFFIX_HASTED_DESC,Se déplace 45 % plus vite.,Moves 45% faster.
+AFFIX_ARMORED_NAME,Blindé,Armored
+AFFIX_ARMORED_DESC,Défense +60.,Defense +60.
+AFFIX_VOLATILE_NAME,Volatil,Volatile
+AFFIX_VOLATILE_DESC,Explose à sa mort après un court délai.,Explodes on death after a short delay.
+AFFIX_SPLITTING_NAME,Scissipare,Splitting
+AFFIX_SPLITTING_DESC,Se divise en Grouillards à sa mort.,Splits into Skitterlings on death.
+BOSS_NEBULORAX_NAME,Nébulorax,Nebulorax
+BOSS_NEBULORAX_TITLE,le Dévoreur de dimensions,the Devourer of Dimensions
+BOSS_NEBULORAX_PHASE1,Phase 1 : la Spirale,Phase 1: the Spiral
+BOSS_NEBULORAX_PHASE2,Phase 2 : le Vortex,Phase 2: the Vortex
+BOSS_PATTERN_CLAW,Griffe du vide,Void Claw
+BOSS_PATTERN_SHADOW_WAVE,Vague d'ombres,Shadow Wave
+BOSS_PATTERN_SUMMON,Invocation,Summoning
+BOSS_PATTERN_ABSORB,Absorption,Absorption
+BOSS_PATTERN_VOID_BEAM,Rayon du vide,Void Beam
+BOSS_PATTERN_CRYSTALS,Cristaux de faille,Rift Crystals
+UPGRADE_MIGHT_NAME,Puissance,Might
+UPGRADE_MIGHT_DESC,Dégâts du Chasseur +15 %.,Hunter damage +15%.
+UPGRADE_CADENCE_NAME,Cadence,Cadence
+UPGRADE_CADENCE_DESC,Vitesse d'attaque du Chasseur +12 %.,Hunter attack speed +12%.
+UPGRADE_MULTISHOT_NAME,Multitrait,Multishot
+UPGRADE_MULTISHOT_DESC,+1 Trait de Faille par salve.,+1 Rift Bolt per volley.
+UPGRADE_PIERCING_NAME,Perforation,Piercing
+UPGRADE_PIERCING_DESC,Les Traits traversent 1 ennemi de plus.,Bolts pierce 1 more enemy.
+UPGRADE_VITALITY_NAME,Vitalité,Vitality
+UPGRADE_VITALITY_DESC,PV maximum +20.,Maximum HP +20.
+UPGRADE_SWIFTNESS_NAME,Célérité,Swiftness
+UPGRADE_SWIFTNESS_DESC,Vitesse de déplacement +8 %.,Movement speed +8%.
+UPGRADE_MAGNETISM_NAME,Magnétisme,Magnetism
+UPGRADE_MAGNETISM_DESC,Rayon de ramassage +35 %.,Pickup radius +35%.
+UPGRADE_REFLEXES_NAME,Réflexes,Reflexes
+UPGRADE_REFLEXES_DESC,Recharge de la Ruée −15 %.,Dash cooldown −15%.
+UPGRADE_REGENERATION_NAME,Régénération,Regeneration
+UPGRADE_REGENERATION_DESC,"+0,4 PV par seconde.",+0.4 HP per second.
+UPGRADE_STRONG_BOND_NAME,Lien renforcé,Strong Bond
+UPGRADE_STRONG_BOND_DESC,Dégâts des Échos +15 %.,Echo damage +15%.
+UPGRADE_FOCUS_MIND_NAME,Concentration,Focus
+UPGRADE_FOCUS_MIND_DESC,Recharge des Techniques −12 %.,Technique cooldown −12%.
+UPGRADE_SHATTERBOLT_NAME,Mutation : Éclatement,Mutation: Shatterbolt
+UPGRADE_SHATTERBOLT_DESC,Les Traits éclatent en 2 éclats à l'impact. Exclusive.,Bolts burst into 2 shards on impact. Exclusive.
+UPGRADE_MARKING_BOLT_NAME,Mutation : Trait marqueur,Mutation: Marking Bolt
+UPGRADE_MARKING_BOLT_DESC,Les Traits posent une Marque prismatique. Exclusive.,Bolts apply a Prism Mark. Exclusive.
+UPGRADE_BREAKING_BOLT_NAME,Mutation : Trait brisant,Mutation: Breaking Bolt
+UPGRADE_BREAKING_BOLT_DESC,Un Trait sur 4 inflige Fracture. Exclusive.,One Bolt in 4 inflicts Fracture. Exclusive.
+RELIC_EMBER_HEART_NAME,Cœur de cendre,Ember Heart
+RELIC_EMBER_HEART_DESC,Un Trait sur 5 inflige Brûlure. Les ennemis qui meurent en brûlant explosent.,One Bolt in 5 inflicts Burn. Enemies that die while burning explode.
+RELIC_CRACKED_HOURGLASS_NAME,Sablier fêlé,Cracked Hourglass
+RELIC_CRACKED_HOURGLASS_DESC,"Recharge de la Ruée −40 %, mais PV maximum −15 %.","Dash cooldown −40%, but maximum HP −15%."
+RELIC_HUNTERS_EYE_NAME,Œil du chasseur,Hunter's Eye
+RELIC_HUNTERS_EYE_DESC,+30 % de dégâts contre les élites et les Dévoreurs.,+30% damage against elites and Devourers.
+RELIC_BINDING_TALISMAN_NAME,Talisman de lien,Binding Talisman
+RELIC_BINDING_TALISMAN_DESC,"Dégâts des Échos +25 %, dégâts du Chasseur −10 %.","Echo damage +25%, Hunter damage −10%."
+RELIC_CRACKED_PRISM_NAME,Prisme fêlé,Cracked Prism
+RELIC_CRACKED_PRISM_DESC,"Marques : cumul maximal +3, durée +2 s.","Marks: max stacks +3, duration +2 s."
+RELIC_GRAVITY_STONE_NAME,Pierre de gravité,Gravity Stone
+RELIC_GRAVITY_STONE_DESC,"Puits de gravité : rayon +40 %, durée +1 s.","Gravity Well: radius +40%, duration +1 s."
+RELIC_HUNTER_LANTERN_NAME,Lanterne du chasseur,Hunter's Lantern
+RELIC_HUNTER_LANTERN_DESC,"Rayon de ramassage +50 %, XP +10 %.","Pickup radius +50%, XP +10%."
+RELIC_BROKEN_CROWN_NAME,Couronne brisée,Broken Crown
+RELIC_BROKEN_CROWN_DESC,"Dégâts +25 %, mais dégâts subis +20 %.","Damage +25%, but damage taken +20%."
+SYNERGY_BREACH_AND_BLADE_NAME,Brèche & Lame,Breach & Blade
+SYNERGY_BREACH_AND_BLADE_DESC,"Quand Cendrelame touche un ennemi Fracturé, il frappe une seconde fois (50 %).","When Ashblade hits a Fractured enemy, it strikes again (50%)."
+SYNERGY_GRAVITY_PRISM_NAME,Prisme gravitationnel,Gravity Prism
+SYNERGY_GRAVITY_PRISM_DESC,Les ennemis pris dans le Puits de gravité reçoivent 2 Marques par seconde.,Enemies caught in the Gravity Well gain 2 Marks per second.
+SYNERGY_PRISM_EMBER_NAME,Braise prismatique,Prism Ember
+SYNERGY_PRISM_EMBER_DESC,Un ennemi Marqué tué par Cendrelame propage ses Marques autour de lui.,A Marked enemy killed by Ashblade spreads its Marks around.
+ARENA_FRACTURED_PLAIN_NAME,Plaine fracturée,Fractured Plain
+ARENA_FRACTURED_PLAIN_DESC,Une plaine morte zébrée de failles. Nébulorax y rôde.,A dead plain streaked with rifts. Nebulorax lurks here.
+EVENT_SWARM_RING,Une nuée vous encercle !,A swarm surrounds you!
+EVENT_UNSTABLE_RIFT,La Faille devient instable !,The Rift grows unstable!
+EVENT_ELITE_HUNT,Des élites traquent votre piste !,Elites are tracking you!
+DIFFICULTY_TENSION_0_NAME,Tension 0,Tension 0
+DIFFICULTY_TENSION_0_DESC,La Faille telle quelle.,The Rift as it is.
+DIFFICULTY_TENSION_1_NAME,Tension I,Tension I
+DIFFICULTY_TENSION_1_DESC,"Ennemis plus robustes, élites plus fréquentes. Récompenses ×1,3.","Tougher enemies, more frequent elites. Rewards ×1.3."
+DIFFICULTY_TENSION_2_NAME,Tension II,Tension II
+DIFFICULTY_TENSION_2_DESC,"Les élites portent deux affixes, les vagues sont plus denses. Récompenses ×1,6.","Elites carry two affixes, waves are denser. Rewards ×1.6."
+DIFFICULTY_TENSION_3_NAME,Tension III,Tension III
+DIFFICULTY_TENSION_3_DESC,"Ennemis plus rapides, le Dévoreur se transforme à 65 % de PV. Récompenses ×2.","Faster enemies, the Devourer transforms at 65% HP. Rewards ×2."
+MASTERY_REWARD_BONUS_NAME,Affinité,Affinity
+MASTERY_REWARD_BONUS_DESC,+10 % de dégâts pour cet Écho.,+10% damage for this Echo.
+MASTERY_REWARD_PALETTE_NAME,Teinte rare,Rare Hue
+MASTERY_REWARD_PALETTE_DESC,Débloque une palette de couleurs alternative.,Unlocks an alternative color palette.
+MASTERY_REWARD_VARIANT_NAME,Variante,Variant
+MASTERY_REWARD_VARIANT_DESC,Débloque une variante de gameplay au départ.,Unlocks a gameplay variant at the start.
+MASTERY_REWARD_START_RANK_NAME,Vétéran,Veteran
+MASTERY_REWARD_START_RANK_DESC,Commence au rang 2 quand il est choisi au départ.,Starts at rank 2 when chosen as starter.
+MASTERY_REWARD_TITLE_NAME,Maître,Master
+MASTERY_REWARD_TITLE_DESC,Titre de Maître et aura dorée dans le Bestiaire.,Master title and golden aura in the Bestiary.
+MASTERY_ASHBLADE_EXECUTIONER,Frappez 300 ennemis Fracturés avec Cendrelame (cumul).,Hit 300 Fractured enemies with Ashblade (total).
+MASTERY_ASHBLADE_ELITE_DANCER,Achevez une élite avec la Danse des cendres.,Finish an elite with Ash Dance.
+MASTERY_ASHBLADE_EVOLVED_VICTORY,Refermez une Faille avec Cendrelame évolué.,Seal a Rift with an evolved Ashblade.
+MASTERY_MOSSBACK_FRACTURER,Infligez 500 Fractures avec Mousseroc (cumul).,Inflict 500 Fractures with Mossback (total).
+MASTERY_MOSSBACK_SINGULARITY,Attirez 25 ennemis dans un seul Puits de gravité.,Pull 25 enemies into a single Gravity Well.
+MASTERY_MOSSBACK_EVOLVED_VICTORY,Refermez une Faille avec Mousseroc évolué.,Seal a Rift with an evolved Mossback.
+MASTERY_GLIMMERWING_MARKER,Posez 2000 Marques avec Lucivelle (cumul).,Apply 2000 Marks with Glimmerwing (total).
+MASTERY_GLIMMERWING_SUPERNOVA,Faites détoner 40 Marques en un seul Embrasement.,Detonate 40 Marks with a single Prismatic Flare.
+MASTERY_GLIMMERWING_EVOLVED_VICTORY,Refermez une Faille avec Lucivelle évoluée.,Seal a Rift with an evolved Glimmerwing.

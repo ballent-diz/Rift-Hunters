@@ -1,0 +1,256 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=37 format=3]
+
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="3"]
+[ext_resource type="Script" path="res://src/combat/effects/guard_aura_effect.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="10"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="11"]
+
+[sub_resource type="Resource" id="status_application_2"]
+script = ExtResource("3")
+status_id = &"fracture"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("2")
+name_key = "ATTACK_MOSSBACK"
+damage = 12.0
+cooldown = 2.2
+radius = 95.0
+knockback = 140.0
+statuses = [SubResource("status_application_2")]
+params = {
+"windup": 0.25
+}
+
+[sub_resource type="Resource" id="guard_aura_effect_3"]
+script = ExtResource("4")
+radius = 160.0
+reduction = 0.1
+
+[sub_resource type="Resource" id="status_application_5"]
+script = ExtResource("3")
+status_id = &"fracture"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="technique_data_4"]
+script = ExtResource("5")
+id = &"gravity_well"
+technique_kind = &"gravity_well"
+name_key = "TECHNIQUE_GRAVITY_WELL_NAME"
+desc_key = "TECHNIQUE_GRAVITY_WELL_DESC"
+cooldown = 14.0
+damage = 25.0
+radius = 160.0
+duration = 3.0
+statuses = [SubResource("status_application_5")]
+params = {
+"pull": 230.0
+}
+
+[sub_resource type="Resource" id="status_application_8"]
+script = ExtResource("3")
+status_id = &"fracture"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_7"]
+script = ExtResource("2")
+name_key = "ATTACK_MOSSBACK"
+damage = 16.0
+cooldown = 2.0
+radius = 130.0
+knockback = 160.0
+statuses = [SubResource("status_application_8")]
+params = {
+"windup": 0.3,
+"taunt_radius": 200.0,
+"taunt_duration": 2.5
+}
+
+[sub_resource type="Resource" id="visual_data_9"]
+script = ExtResource("7")
+visual_id = &"monster.mossback.monolith"
+shape = 2
+size = 46.0
+primary = Color(0.5, 0.52, 0.58, 1.0)
+secondary = Color(0.4, 0.9, 0.5, 1.0)
+accent = Color(0.9, 1.0, 0.7, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_6"]
+script = ExtResource("6")
+id = &"monolith"
+name_key = "EVOLUTION_MONOLITH_NAME"
+desc_key = "EVOLUTION_MONOLITH_DESC"
+required_rank = 3
+attack = SubResource("attack_data_7")
+visual = SubResource("visual_data_9")
+
+[sub_resource type="Resource" id="status_application_12"]
+script = ExtResource("3")
+status_id = &"fracture"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_data_11"]
+script = ExtResource("2")
+name_key = "ATTACK_MOSSBACK"
+damage = 12.0
+cooldown = 2.2
+radius = 95.0
+knockback = 120.0
+statuses = [SubResource("status_application_12")]
+params = {
+"windup": 0.25,
+"shockwave_radius": 300.0
+}
+
+[sub_resource type="Resource" id="visual_data_13"]
+script = ExtResource("7")
+visual_id = &"monster.mossback.quakeback"
+shape = 2
+size = 42.0
+primary = Color(0.4, 0.32, 0.25, 1.0)
+secondary = Color(0.95, 0.65, 0.3, 1.0)
+accent = Color(1.0, 0.85, 0.5, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_10"]
+script = ExtResource("6")
+id = &"quakeback"
+name_key = "EVOLUTION_QUAKEBACK_NAME"
+desc_key = "EVOLUTION_QUAKEBACK_DESC"
+required_rank = 3
+attack = SubResource("attack_data_11")
+visual = SubResource("visual_data_13")
+
+[sub_resource type="Resource" id="evolution_data_14"]
+script = ExtResource("6")
+id = &"ancient_rock"
+name_key = "VARIANT_ANCIENT_ROCK_NAME"
+desc_key = "VARIANT_ANCIENT_ROCK_DESC"
+required_rank = 1
+damage_mult = 1.35
+attack_speed_mult = 0.8
+
+[sub_resource type="Resource" id="mastery_challenge_data_16"]
+script = ExtResource("9")
+id = &"mossback_fracturer"
+desc_key = "MASTERY_MOSSBACK_FRACTURER"
+stat_key = &"mossback_applied_fracture"
+threshold = 500.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="mastery_challenge_data_17"]
+script = ExtResource("9")
+id = &"mossback_singularity"
+desc_key = "MASTERY_MOSSBACK_SINGULARITY"
+stat_key = &"mossback_max_pulled"
+threshold = 25.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="mastery_challenge_data_18"]
+script = ExtResource("9")
+id = &"mossback_evolved_victory"
+desc_key = "MASTERY_MOSSBACK_EVOLVED_VICTORY"
+stat_key = &"mossback_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_modifier_effect_20"]
+script = ExtResource("11")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="mastery_reward_data_19"]
+script = ExtResource("10")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_modifier_effect_20")]
+
+[sub_resource type="Resource" id="mastery_reward_data_21"]
+script = ExtResource("10")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(0.55, 0.5, 0.42, 1.0)
+palette_secondary = Color(0.95, 0.75, 0.35, 1.0)
+
+[sub_resource type="Resource" id="mastery_reward_data_22"]
+script = ExtResource("10")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="mastery_reward_data_23"]
+script = ExtResource("10")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="mastery_reward_data_24"]
+script = ExtResource("10")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_data_15"]
+script = ExtResource("8")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("mastery_challenge_data_16"), SubResource("mastery_challenge_data_17"), SubResource("mastery_challenge_data_18")]
+rewards = [SubResource("mastery_reward_data_19"), SubResource("mastery_reward_data_21"), SubResource("mastery_reward_data_22"), SubResource("mastery_reward_data_23"), SubResource("mastery_reward_data_24")]
+
+[sub_resource type="Resource" id="visual_data_25"]
+script = ExtResource("7")
+visual_id = &"monster.mossback"
+shape = 2
+size = 38.0
+primary = Color(0.42, 0.45, 0.5, 1.0)
+secondary = Color(0.35, 0.75, 0.4, 1.0)
+accent = Color(0.6, 1.0, 0.7, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"mossback"
+name_key = "MONSTER_MOSSBACK_NAME"
+desc_key = "MONSTER_MOSSBACK_DESC"
+lore_key = "MONSTER_MOSSBACK_LORE"
+role = 1
+affinities = [&"stone", &"guardian"]
+rarity = 1
+max_hp = 220.0
+defense = 40.0
+move_speed = 150.0
+behavior_id = &"slam"
+attack = SubResource("attack_data_1")
+passive_name_key = "PASSIVE_MOSSBACK_NAME"
+passive_desc_key = "PASSIVE_MOSSBACK_DESC"
+passive_effects = [SubResource("guard_aura_effect_3")]
+technique = SubResource("technique_data_4")
+evolutions = [SubResource("evolution_data_6"), SubResource("evolution_data_10")]
+variant = SubResource("evolution_data_14")
+mastery = SubResource("mastery_data_15")
+unlocked_by_default = true
+visual = SubResource("visual_data_25")

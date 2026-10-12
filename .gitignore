@@ -1,0 +1,9 @@
+# Godot
+.godot/
+*.translation
+/build/
+export_presets.cfg.local
+# Outils
+__pycache__/
+*.tmp
+tests/tmp/

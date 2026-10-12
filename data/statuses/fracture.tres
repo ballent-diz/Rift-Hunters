@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="StatusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"fracture"
+name_key = "STATUS_FRACTURE_NAME"
+desc_key = "STATUS_FRACTURE_DESC"
+duration = 4.0
+max_stacks = 1
+defense_add = -60.0
+damage_taken_mult = 1.15
+color = Color(1.0, 0.55, 0.15, 1.0)

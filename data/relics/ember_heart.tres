@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="RelicData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/relic_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/explode_on_kill_effect.gd" id="2"]
+[ext_resource type="Script" path="res://src/combat/effects/status_on_hit_effect.gd" id="3"]
+
+[sub_resource type="Resource" id="explode_on_kill_effect_1"]
+script = ExtResource("2")
+required_status = &"burn"
+radius = 70.0
+damage = 20.0
+
+[sub_resource type="Resource" id="status_on_hit_effect_2"]
+script = ExtResource("3")
+source_filter = &"player"
+required_tag = &"bolt"
+status_id = &"burn"
+every_n = 5
+
+[resource]
+script = ExtResource("1")
+id = &"ember_heart"
+name_key = "RELIC_EMBER_HEART_NAME"
+desc_key = "RELIC_EMBER_HEART_DESC"
+rarity = 2
+requires_any_monster = []
+unlocked_by_default = false
+effects = [SubResource("explode_on_kill_effect_1"), SubResource("status_on_hit_effect_2")]
+color = Color(1.0, 0.5, 0.2, 1.0)
