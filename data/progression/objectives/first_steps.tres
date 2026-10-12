@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ObjectiveData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/objective_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"first_steps"
+category = 0
+name_key = "OBJ_FIRST_STEPS_NAME"
+desc_key = "OBJ_FIRST_STEPS_DESC"
+stat_key = &"time_survived"
+threshold = 180.0
+scope = 0
+requires_victory = false
+min_difficulty = 0
+max_team_size = -1
+hidden = false
+reward_shards = 0
+reward_essence = 3
+reward_unlocks = ["monster:glimmerwing"]

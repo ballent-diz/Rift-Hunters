@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/research_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"ember_heart"
+name_key = "RESEARCH_EMBER_HEART_NAME"
+desc_key = "RESEARCH_EMBER_HEART_DESC"
+order = 2
+cost_essence = 8
+prerequisites = []
+unlocks = ["relic:ember_heart"]

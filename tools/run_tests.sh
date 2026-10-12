@@ -1,5 +1,5 @@
 #!/bin/bash
-# Lance les vérifications du projet. Usage : tools/run_tests.sh [all|unit|scripts|assets|smoke|lint]
+# Lance les vérifications du projet. Usage : tools/run_tests.sh [all|unit|scripts|persistence|assets|smoke|lint]
 # Les sorties sont écrites dans des fichiers puis affichées (évite les blocages de tampon).
 set -uo pipefail
 cd "$(dirname "$0")/.."
@@ -31,6 +31,11 @@ if [[ "$MODE" == "all" || "$MODE" == "scripts" ]]; then
 fi
 if [[ "$MODE" == "all" || "$MODE" == "unit" ]]; then
 	run_step unit "$GODOT" --headless --path . res://tests/run_tests.tscn
+fi
+if [[ "$MODE" == "all" || "$MODE" == "persistence" ]]; then
+	# Deux processus distincts : écriture, fermeture, puis relecture au redémarrage.
+	run_step persistence_write "$GODOT" --headless --path . res://tests/smoke/persistence.tscn -- --phase=write
+	run_step persistence_read "$GODOT" --headless --path . res://tests/smoke/persistence.tscn -- --phase=read
 fi
 if [[ "$MODE" == "all" || "$MODE" == "assets" ]]; then
 	run_step assets "$GODOT" --headless --path . res://tools/validate_assets.tscn

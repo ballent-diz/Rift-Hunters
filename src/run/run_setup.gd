@@ -21,3 +21,5 @@ var palettes: Dictionary = {}
 var unlocked_monsters: Array[StringName] = []
 var unlocked_relics: Array[StringName] = []
 var unlocked_upgrades: Array[StringName] = []
+## Informations débloquées au Laboratoire (ex. « affixes » : noms des affixes visibles).
+var info_unlocks: Array[String] = []

@@ -78,6 +78,7 @@ func evolve(id: StringName, evolution: EvolutionData) -> void:
 	ctx.build.evolutions[id] = evolution.id
 	ctx.stats.add(&"evolutions")
 	ctx.stats.set_value(StringName(String(id) + "_evolved"), 1.0)
+	ctx.stats.add(StringName("evolution_" + String(evolution.id)))
 	ctx.events.evolution_taken.emit(id, evolution.id)
 	ctx.fx.burst(ally.global_position, 70.0, Color(1.0, 0.95, 0.6, 0.5))
 	refresh_synergies()

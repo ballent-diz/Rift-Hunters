@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ObjectiveData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/objective_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"mutant"
+category = 2
+name_key = "OBJ_MUTANT_NAME"
+desc_key = "OBJ_MUTANT_DESC"
+stat_key = &"mutations_taken"
+threshold = 1.0
+scope = 0
+requires_victory = true
+min_difficulty = 0
+max_team_size = -1
+hidden = false
+reward_shards = 0
+reward_essence = 6
+reward_unlocks = []

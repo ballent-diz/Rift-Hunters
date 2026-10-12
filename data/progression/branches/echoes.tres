@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillBranchData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_branch_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"echoes"
+name_key = "BRANCH_ECHOES_NAME"
+desc_key = "BRANCH_ECHOES_DESC"
+order = 1
+color = Color(1.0, 0.85, 0.45, 1.0)

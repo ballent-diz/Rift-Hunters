@@ -55,10 +55,29 @@ func start(setup: RunSetup) -> void:
 	event_director = EventDirector.new(ctx)
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
 		boss_controller = BossController.new(ctx, boss)
+		Audio.play_context("boss")
+		Audio.play_sfx(&"boss_roar")
 		_shake = 0.6)
+	ctx.events.boss_phase_changed.connect(func(_phase: int) -> void:
+		Audio.play_context("boss_phase2")
+		Audio.play_sfx(&"boss_roar"))
+	ctx.events.synergy_proc.connect(func(_id: StringName) -> void: ctx.stats.add(&"synergy_procs"))
+	ctx.events.level_up.connect(func(_level: int) -> void: Audio.play_sfx(&"level_up"))
+	ctx.events.evolution_taken.connect(func(_id: StringName, _evo: StringName) -> void: Audio.play_sfx(&"evolution"))
+	ctx.events.elite_spawned.connect(func(_enemy: Enemy) -> void: Audio.play_sfx(&"elite_spawn"))
+	ctx.events.technique_cast.connect(func(_id: StringName, _kind: StringName) -> void: Audio.play_sfx(&"technique"))
+	ctx.events.detonation.connect(func(_e: Enemy, _s: int, _id: StringName) -> void: Audio.play_sfx(&"detonation"))
+	ctx.events.player_dashed.connect(func(_a: Vector2, _b: Vector2) -> void: Audio.play_sfx(&"dash"))
+	if not setup.autopilot:
+		Profile.profile.set_preference("starter", String(setup.starter_id))
+	Audio.play_context("run")
 	ctx.events.boss_defeated.connect(_on_boss_defeated)
-	ctx.events.chest_collected.connect(func() -> void: _pending_chests += 1)
-	ctx.events.player_hurt.connect(func(_amount: float) -> void: _shake = maxf(_shake, 0.25))
+	ctx.events.chest_collected.connect(func() -> void:
+		_pending_chests += 1
+		Audio.play_sfx(&"chest_open"))
+	ctx.events.player_hurt.connect(func(_amount: float) -> void:
+		_shake = maxf(_shake, 0.25)
+		Audio.play_sfx(&"player_hurt"))
 	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0:
 		chest_panel.open.call_deferred(true)
 
@@ -201,12 +220,15 @@ func _finish(victory: bool) -> void:
 	ctx.finished = true
 	ctx.victory = victory
 	ctx.stats.set_value(&"time_survived", ctx.time)
+	if victory:
+		ctx.stats.set_value(&"victories", 1.0)
 	result = build_result()
 	if not skip_profile:
 		rewards = Profile.apply_run_result(result)
 	else:
 		rewards = RunRewards.compute(result, ctx.balance)
 	ctx.events.run_finished.emit(victory)
+	Audio.play_context("victory" if victory else "defeat")
 	pause_panel.blocked = true
 	level_up_panel.visible = false
 	chest_panel.visible = false

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ObjectiveData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/objective_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"prismatic_eclipse"
+category = 4
+name_key = "OBJ_PRISMATIC_ECLIPSE_NAME"
+desc_key = "OBJ_PRISMATIC_ECLIPSE_DESC"
+stat_key = &"evolution_prismatic_eclipse"
+threshold = 1.0
+scope = 1
+requires_victory = false
+min_difficulty = 0
+max_team_size = -1
+hidden = true
+reward_shards = 0
+reward_essence = 20
+reward_unlocks = ["title:eclipse_seer"]

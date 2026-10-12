@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/dash_status_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="dash_status_effect_1"]
+script = ExtResource("2")
+status_id = &"fracture"
+stacks = 1
+radius = 90.0
+
+[resource]
+script = ExtResource("1")
+id = &"combat_shattering_dash"
+branch = &"combat"
+tier = 2
+name_key = "NODE_COMBAT_SHATTERING_DASH_NAME"
+desc_key = "NODE_COMBAT_SHATTERING_DASH_DESC"
+costs = [220]
+prerequisites = [&"combat_phantom_step"]
+prerequisites_any = false
+exclusive_group = &""
+effects = [SubResource("dash_status_effect_1")]

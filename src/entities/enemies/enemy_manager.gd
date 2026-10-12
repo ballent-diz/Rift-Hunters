@@ -376,6 +376,16 @@ func _draw() -> void:
 func _draw_overlay() -> void:
 	# Marqueurs de statuts au-dessus des ennemis visibles (Fracture, Marques, Brûlure, Entrave).
 	var view: Rect2 = _view_rect()
+	if ctx.setup.info_unlocks.has("affixes"):
+		var font: Font = ThemeDB.fallback_font
+		for enemy: Enemy in list:
+			if enemy.alive and enemy.is_elite and view.has_point(enemy.position):
+				var names: PackedStringArray = []
+				for affix: EliteAffixData in enemy.affixes:
+					names.append(tr(affix.name_key))
+				var top: Vector2 = enemy.position + Vector2(-60, -enemy.radius - 18.0)
+				_overlay.draw_string_outline(font, top, " · ".join(names), HORIZONTAL_ALIGNMENT_CENTER, 120, 12, 3, Color.BLACK)
+				_overlay.draw_string(font, top, " · ".join(names), HORIZONTAL_ALIGNMENT_CENTER, 120, 12, Color(1.0, 0.8, 0.4))
 	for enemy: Enemy in list:
 		if not enemy.alive or enemy.statuses.is_empty() or not view.has_point(enemy.position):
 			continue

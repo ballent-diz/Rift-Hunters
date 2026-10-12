@@ -9,6 +9,8 @@ const SUPPORTED_LOCALES: Array[String] = ["fr", "en"]
 var path: String = "user://settings.json"
 var locale: String = ""
 var master_volume: float = 0.8
+var music_volume: float = 0.7
+var sfx_volume: float = 0.8
 var fullscreen: bool = false
 var screen_shake: bool = true
 var damage_numbers: bool = true
@@ -27,6 +29,8 @@ func load_settings() -> void:
 	load_status = store.last_status
 	locale = str(data.get("locale", ""))
 	master_volume = clampf(float(data.get("master_volume", master_volume)), 0.0, 1.0)
+	music_volume = clampf(float(data.get("music_volume", music_volume)), 0.0, 1.0)
+	sfx_volume = clampf(float(data.get("sfx_volume", sfx_volume)), 0.0, 1.0)
 	fullscreen = bool(data.get("fullscreen", fullscreen))
 	screen_shake = bool(data.get("screen_shake", screen_shake))
 	damage_numbers = bool(data.get("damage_numbers", damage_numbers))
@@ -41,6 +45,8 @@ func save_settings() -> Error:
 		"format_version": FORMAT_VERSION,
 		"locale": locale,
 		"master_volume": master_volume,
+		"music_volume": music_volume,
+		"sfx_volume": sfx_volume,
 		"fullscreen": fullscreen,
 		"screen_shake": screen_shake,
 		"damage_numbers": damage_numbers,
@@ -52,6 +58,10 @@ func apply() -> void:
 	TranslationServer.set_locale(locale)
 	var bus: int = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(master_volume, 0.0001)))
+	for pair: Array in [["Music", music_volume], ["SFX", sfx_volume]]:
+		var index: int = AudioServer.get_bus_index(pair[0])
+		if index >= 0:
+			AudioServer.set_bus_volume_db(index, linear_to_db(maxf(float(pair[1]), 0.0001)))
 	if DisplayServer.get_name() != "headless":
 		var mode := DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED
 		if DisplayServer.window_get_mode() != mode:

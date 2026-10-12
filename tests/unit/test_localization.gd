@@ -29,7 +29,7 @@ func test_all_rows_have_both_languages() -> void:
 
 
 func test_placeholders_match_between_languages() -> void:
-	var regex := RegEx.create_from_string("%[0-9.]*[sd f]")
+	var regex := RegEx.create_from_string("%(\\.\\d+f|0?\\d*d|s)")
 	for key: String in _table:
 		var row: Dictionary = _table[key]
 		check_eq(regex.search_all(row["fr"]).size(), regex.search_all(row["en"]).size(), "%s : nombre de %%" % key)
@@ -54,6 +54,18 @@ func test_code_keys_are_translated() -> void:
 			if not _table.has(key) and not missing.has(key):
 				missing.append(key)
 	check(missing.is_empty(), "clés du code sans traduction : %s" % ", ".join(missing))
+
+
+func test_ui_literal_keys_are_translated() -> void:
+	# Clés passées indirectement à tr() (ex. title_key() des onglets).
+	var regex := RegEx.create_from_string("\"([A-Z][A-Z0-9]+(?:_[A-Z0-9]+)+)\"")
+	var missing: PackedStringArray = []
+	for path: String in _scripts("res://src/ui") + _scripts("res://src/progression") + _scripts("res://src/core"):
+		for result: RegExMatch in regex.search_all(FileAccess.get_file_as_string(path)):
+			var key: String = result.get_string(1)
+			if not _table.has(key) and not missing.has(key):
+				missing.append(key)
+	check(missing.is_empty(), "clés d'interface sans traduction : %s" % ", ".join(missing))
 
 
 func test_translation_server_has_both_locales() -> void:

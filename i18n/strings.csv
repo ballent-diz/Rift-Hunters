@@ -234,3 +234,203 @@ MASTERY_MOSSBACK_EVOLVED_VICTORY,Refermez une Faille avec Mousseroc évolué.,Se
 MASTERY_GLIMMERWING_MARKER,Posez 2000 Marques avec Lucivelle (cumul).,Apply 2000 Marks with Glimmerwing (total).
 MASTERY_GLIMMERWING_SUPERNOVA,Faites détoner 40 Marques en un seul Embrasement.,Detonate 40 Marks with a single Prismatic Flare.
 MASTERY_GLIMMERWING_EVOLVED_VICTORY,Refermez une Faille avec Lucivelle évoluée.,Seal a Rift with an evolved Glimmerwing.
+MENU_PLAY,Entrer au Refuge,Enter the Refuge
+REFUGE_TITLE,Refuge,Refuge
+REFUGE_MAIN_MENU,Écran titre,Title screen
+REFUGE_CURRENCIES,Éclats de faille : %d   ·   Essence : %d,Rift Shards: %d   ·   Essence: %d
+TAB_EXPEDITION,Expédition,Expedition
+TAB_TREE,Arbre du Chasseur,Hunter's Tree
+TAB_BESTIARY,Bestiaire,Bestiary
+TAB_LAB,Laboratoire,Laboratory
+TAB_OBJECTIVES,Objectifs,Objectives
+TAB_STATS,Statistiques,Statistics
+TAB_OPTIONS,Options,Options
+SAVE_RESTORED_BACKUP,Votre sauvegarde était endommagée : la copie de secours a été restaurée.,Your save was damaged: the backup copy has been restored.
+SAVE_CORRUPTED,Votre sauvegarde est illisible et aucune copie de secours n'existe. Le fichier a été conservé à part ; un nouveau profil a été créé.,Your save is unreadable and no backup exists. The file was kept aside; a new profile was created.
+SAVE_NEWER_VERSION,Cette sauvegarde provient d'une version plus récente du jeu : elle ne sera pas modifiée.,This save comes from a newer version of the game: it will not be modified.
+EXPEDITION_STARTER,Écho de départ,Starting Echo
+EXPEDITION_MASTERY,Maîtrise : niveau %d,Mastery: level %d
+EXPEDITION_LOCKED,Verrouillé,Locked
+EXPEDITION_UNLOCK_BY,Pour le débloquer : %s,To unlock: %s
+EXPEDITION_PALETTE,Teinte rare,Rare hue
+EXPEDITION_TENSION,Tension (difficulté),Tension (difficulty)
+EXPEDITION_ARENA,Arène,Arena
+EXPEDITION_DEPART,Partir en expédition,Start the expedition
+TREE_INTRO,Dépensez vos Éclats de faille. Les nœuds à bord gauche épais sont exclusifs : un seul par groupe.,Spend your Rift Shards. Nodes with a thick left border are exclusive: only one per group.
+TREE_RESPEC,Réinitialiser (coût : %d Essence),Reset (cost: %d Essence)
+TREE_MAXED,Maximum,Maxed
+TREE_COST,%d Éclats,%d Shards
+TREE_SELECT_HINT,Sélectionnez un nœud pour voir ses détails.,Select a node to see its details.
+TREE_RANK,Rang %d/%d,Rank %d/%d
+TREE_OR, ou , or 
+TREE_REQUIRES,Requiert : %s,Requires: %s
+TREE_EXCLUSIVE,Exclusif,Exclusive
+TREE_EXCLUDED_BY,Bloqué par : %s,Blocked by: %s
+TREE_BUY,Acquérir (%d Éclats),Acquire (%d Shards)
+BESTIARY_ECHOES,Échos,Echoes
+BESTIARY_ENEMIES,Corrompus et Dévoreurs,Hollowed and Devourers
+BESTIARY_RELICS,Reliques,Relics
+BESTIARY_SYNERGIES,Synergies,Synergies
+BESTIARY_UNKNOWN,Pas encore découvert.,Not discovered yet.
+BESTIARY_SYNERGY_HINT,Réunissez ces Échos dans la même équipe pour découvrir leur synergie.,Bring these Echoes into the same team to discover their synergy.
+BESTIARY_STATS,PV %d · Dégâts %d · Défense %d · Vitesse %d · Portée %d,HP %d · Damage %d · Defense %d · Speed %d · Range %d
+BESTIARY_EVOLUTIONS,Évolutions,Evolutions
+BESTIARY_NOT_SEEN,jamais obtenue,never obtained
+BESTIARY_MASTERY,Maîtrise,Mastery
+BESTIARY_MASTERY_LEVEL,niveau %d — %d XP (prochain palier : %s),level %d — %d XP (next tier: %s)
+BESTIARY_LEVEL,Niveau,Level
+BESTIARY_KILLS,Éliminés : %d,Defeated: %d
+BESTIARY_ENEMY_STATS,PV %d · Dégâts %d · Défense %d · Vitesse %d,HP %d · Damage %d · Defense %d · Speed %d
+BESTIARY_RESEARCH_HINT,Recherchez « Étude des Corrompus » au Laboratoire pour voir leurs statistiques.,"Research ""Hollowed Study"" in the Laboratory to see their statistics."
+BESTIARY_BOSS_LORE_NEBULORAX,Une entité colossale née des failles entre les mondes. Nébulorax absorbe l'énergie de tout ce qui l'entoure et se nourrit des âmes et des souvenirs des créatures qu'il croise. Son cœur s'expose après chaque Absorption.,A colossal entity born from the rifts between worlds. Nebulorax absorbs the energy of everything around it and feeds on the souls and memories of the creatures it meets. Its heart is exposed after each Absorption.
+LAB_INTRO,"Les recherches coûtent de l'Essence (élites, Dévoreurs, objectifs) et débloquent du contenu pour toutes les expéditions.","Research costs Essence (elites, Devourers, objectives) and unlocks content for every expedition."
+LAB_DONE,Recherche terminée,Research complete
+LAB_RESEARCH,Rechercher (%d Essence),Research (%d Essence)
+OBJECTIVES_PROGRESS,Objectifs accomplis : %d / %d,Objectives completed: %d / %d
+OBJECTIVE_CATEGORY_0,Missions,Missions
+OBJECTIVE_CATEGORY_1,Succès,Achievements
+OBJECTIVE_CATEGORY_2,Défis de build,Build challenges
+OBJECTIVE_CATEGORY_3,Collection,Collection
+OBJECTIVE_CATEGORY_4,Secrets,Secrets
+OBJECTIVE_SECRET,Objectif secret,Secret objective
+OBJECTIVE_PROGRESS,Progression : %s / %s,Progress: %s / %s
+REWARD_SHARDS,+%d Éclats,+%d Shards
+REWARD_ESSENCE,+%d Essence,+%d Essence
+REPORT_MASTERY_CHALLENGE,Défi de maîtrise (%s) : %s,Mastery challenge (%s): %s
+REPORT_MASTERY_LEVEL,%s atteint le niveau de maîtrise %d !,%s reached mastery level %d!
+REPORT_OBJECTIVE,Objectif accompli : %s,Objective completed: %s
+REPORT_UNLOCK,Débloqué : %s,Unlocked: %s
+REPORT_NEW_EVOLUTION,Nouvelle évolution découverte : %s,New evolution discovered: %s
+REPORT_NEW_SYNERGY,Nouvelle synergie découverte : %s,New synergy discovered: %s
+UNLOCK_TITLE_RIFT_WARDEN,Titre : Gardien des Failles,Title: Rift Warden
+UNLOCK_TITLE_LONE_WOLF,Titre : Loup solitaire,Title: Lone Wolf
+UNLOCK_TITLE_ECLIPSE_SEER,Titre : Voyant de l'Éclipse,Title: Eclipse Seer
+UNLOCK_INFO_ENEMIES,Statistiques des Corrompus (Bestiaire),Hollowed statistics (Bestiary)
+UNLOCK_INFO_AFFIXES,Dossier des élites (affixes visibles),Elite dossier (affixes shown)
+STATS_RECORDS,Records,Records
+STATS_BEST_TIME,Meilleur temps : %d:%02d,Best time: %d:%02d
+STATS_BEST_LEVEL,Meilleur niveau : %d,Best level: %d
+STATS_BEST_KILLS,Éliminations en une partie : %d,Kills in one run: %d
+STATS_BEST_TENSION,Tension la plus haute vaincue : %s,Highest Tension defeated: %s
+STATS_LIFETIME,Depuis le début,All time
+STATS_TITLES,Titres,Titles
+STAT_RUNS,Expéditions,Expeditions
+STAT_VICTORIES,Failles refermées,Rifts sealed
+STAT_KILLS,Corrompus éliminés,Hollowed defeated
+STAT_ELITES_KILLED,Élites vaincues,Elites defeated
+STAT_BOSSES_KILLED,Dévoreurs vaincus,Devourers defeated
+STAT_TIME_SURVIVED,Temps en expédition,Time on expeditions
+STAT_TECHNIQUES_CAST,Techniques lancées,Techniques cast
+STAT_EVOLUTIONS,Évolutions obtenues,Evolutions obtained
+STAT_RELICS_TAKEN,Reliques prises,Relics taken
+STAT_SYNERGY_PROCS,Synergies déclenchées,Synergies triggered
+STAT_MARKS_DETONATED,Marques détonées,Marks detonated
+STAT_DASHES,Ruées,Dashes
+STAT_DAMAGE_TAKEN,Dégâts subis,Damage taken
+OPTIONS_MASTER_VOLUME,Volume général,Master volume
+OPTIONS_MUSIC_VOLUME,Musique,Music
+OPTIONS_SFX_VOLUME,Effets sonores,Sound effects
+OPTIONS_FULLSCREEN,Plein écran,Fullscreen
+OPTIONS_SAVE_INFO,"Sauvegarde : %s (format v%d, écriture atomique + copie de secours)","Save: %s (format v%d, atomic write + backup)"
+BRANCH_COMBAT_NAME,Maîtrise du combat,Combat Mastery
+BRANCH_COMBAT_DESC,"Ruée, arme et survie.","Dash, weapon and survival."
+BRANCH_ECHOES_NAME,Expertise des Échos,Echo Expertise
+BRANCH_ECHOES_DESC,"Pactes, rangs et taille d'équipe.","Pacts, ranks and team size."
+BRANCH_RESEARCH_NAME,Recherche et mutations,Research & Mutations
+BRANCH_RESEARCH_DESC,"Contrôle des choix : relances, bannissements, mutations.","Control your choices: rerolls, banishes, mutations."
+BRANCH_EXPLORATION_NAME,Exploration et récompenses,Exploration & Rewards
+BRANCH_EXPLORATION_DESC,"Éclats, Essence, coffres et reliques.","Shards, Essence, chests and relics."
+BRANCH_SPECIALIZATION_NAME,Spécialisation,Specialization
+BRANCH_SPECIALIZATION_DESC,"Renforce un style : Marques, Fracture, Brûlure ou gravité.","Strengthen a style: Marks, Fracture, Burn or gravity."
+NODE_COMBAT_TRAINING_NAME,Entraînement,Training
+NODE_COMBAT_TRAINING_DESC,Dégâts du Chasseur +5 % par rang.,Hunter damage +5% per rank.
+NODE_COMBAT_PHANTOM_STEP_NAME,Pas fantôme,Phantom Step
+NODE_COMBAT_PHANTOM_STEP_DESC,"Invulnérabilité de la Ruée +0,15 s, recharge −10 %.","Dash invulnerability +0.15 s, cooldown −10%."
+NODE_COMBAT_SHATTERING_DASH_NAME,Ruée fracturante,Shattering Dash
+NODE_COMBAT_SHATTERING_DASH_DESC,La Ruée inflige Fracture aux ennemis autour du point d'arrivée.,Dashing inflicts Fracture on enemies around the landing point.
+NODE_COMBAT_MARKSMAN_NAME,Tireur des Failles,Rift Marksman
+NODE_COMBAT_MARKSMAN_DESC,Les Traits traversent 1 ennemi de plus et portent 20 % plus loin. Exclusif avec Cogneur.,Bolts pierce 1 more enemy and reach 20% further. Exclusive with Brawler.
+NODE_COMBAT_RIFT_BRAWLER_NAME,Cogneur de faille,Rift Brawler
+NODE_COMBAT_RIFT_BRAWLER_DESC,Subir un coup libère une onde de choc (toutes les 5 s). Exclusif avec Tireur.,Taking a hit releases a shockwave (every 5 s). Exclusive with Marksman.
+NODE_COMBAT_LAST_BREATH_NAME,Dernier souffle,Last Breath
+NODE_COMBAT_LAST_BREATH_DESC,"Une fois par expédition, survivez à un coup fatal avec 1 PV.","Once per expedition, survive a lethal hit with 1 HP."
+NODE_ECHOES_BONDS_NAME,Liens solides,Strong Bonds
+NODE_ECHOES_BONDS_DESC,Dégâts des Échos +6 % par rang.,Echo damage +6% per rank.
+NODE_ECHOES_SHARPENED_NAME,Techniques affûtées,Sharpened Techniques
+NODE_ECHOES_SHARPENED_DESC,Recharge des Techniques −8 % par rang.,Technique cooldown −8% per rank.
+NODE_ECHOES_VETERAN_NAME,Recrues aguerries,Veteran Recruits
+NODE_ECHOES_VETERAN_DESC,Les Échos recrutés en expédition arrivent au rang 2.,Echoes recruited during expeditions join at rank 2.
+NODE_ECHOES_THIRD_SEAL_NAME,Troisième sceau,Third Seal
+NODE_ECHOES_THIRD_SEAL_DESC,+1 emplacement d'équipe (3 Échos).,+1 team slot (3 Echoes).
+NODE_ECHOES_PACK_LEADER_NAME,Chef de meute,Pack Leader
+NODE_ECHOES_PACK_LEADER_DESC,"Dégâts des Échos +8 % par Écho, dégâts du Chasseur −15 %. Exclusif.","Echo damage +8% per Echo, Hunter damage −15%. Exclusive."
+NODE_ECHOES_LONE_HUNTER_NAME,Chasseur solitaire,Lone Hunter
+NODE_ECHOES_LONE_HUNTER_DESC,Avec au plus 1 Écho : dégâts +40 % et +30 PV max. Exclusif.,With at most 1 Echo: damage +40% and +30 max HP. Exclusive.
+NODE_RESEARCH_RIFT_STUDY_NAME,Étude des Failles,Rift Study
+NODE_RESEARCH_RIFT_STUDY_DESC,+1 relance des choix de niveau par rang.,+1 level-up reroll per rank.
+NODE_RESEARCH_UNSTABLE_NAME,Mutations instables,Unstable Mutations
+NODE_RESEARCH_UNSTABLE_DESC,Les mutations apparaissent deux fois plus souvent.,Mutations appear twice as often.
+NODE_RESEARCH_BANISH_NAME,Bannissement,Banishment
+NODE_RESEARCH_BANISH_DESC,+2 bannissements : retirez une carte pour toute la partie.,+2 banishes: remove a card for the whole run.
+NODE_RESEARCH_FOURTH_OPTION_NAME,Quatrième choix,Fourth Option
+NODE_RESEARCH_FOURTH_OPTION_DESC,Les passages de niveau proposent 4 cartes.,Level-ups offer 4 cards.
+NODE_RESEARCH_EARLY_EVOLUTION_NAME,Évolution précoce,Early Evolution
+NODE_RESEARCH_EARLY_EVOLUTION_DESC,Les Échos peuvent évoluer dès le rang 2.,Echoes can evolve from rank 2.
+NODE_EXPLORE_PROSPECTOR_NAME,Prospecteur,Prospector
+NODE_EXPLORE_PROSPECTOR_DESC,Éclats gagnés +10 % par rang.,Shards earned +10% per rank.
+NODE_EXPLORE_MAGNET_NAME,Aimant naturel,Natural Magnet
+NODE_EXPLORE_MAGNET_DESC,Rayon de ramassage +25 %.,Pickup radius +25%.
+NODE_EXPLORE_SEALED_CHESTS_NAME,Coffres scellés,Sealed Chests
+NODE_EXPLORE_SEALED_CHESTS_DESC,Les coffres proposent 4 reliques.,Chests offer 4 relics.
+NODE_EXPLORE_ESSENCE_SENSE_NAME,Flair de l'Essence,Essence Sense
+NODE_EXPLORE_ESSENCE_SENSE_DESC,+1 Essence par élite vaincue.,+1 Essence per elite defeated.
+NODE_EXPLORE_STARTING_RELIC_NAME,Relique de départ,Starting Relic
+NODE_EXPLORE_STARTING_RELIC_DESC,Commencez chaque expédition en choisissant une relique.,Start each expedition by choosing a relic.
+NODE_SPEC_PRISMATIC_RESONANCE_NAME,Résonance prismatique,Prismatic Resonance
+NODE_SPEC_PRISMATIC_RESONANCE_DESC,"Marques : cumul maximal +1, durée +2 s.","Marks: max stacks +1, duration +2 s."
+NODE_SPEC_DEEP_BREACH_NAME,Brèche profonde,Deep Breach
+NODE_SPEC_DEEP_BREACH_DESC,"Fracture : durée +1,5 s et dégâts subis +10 % supplémentaires.",Fracture: duration +1.5 s and +10% extra damage taken.
+NODE_SPEC_PYROMANCER_NAME,Pyromancien,Pyromancer
+NODE_SPEC_PYROMANCER_DESC,Brûlure +50 % ; un Trait sur 6 inflige Brûlure. Exclusif avec Gravitationniste.,Burn +50%; one Bolt in 6 inflicts Burn. Exclusive with Gravitationist.
+NODE_SPEC_GRAVITATIONIST_NAME,Gravitationniste,Gravitationist
+NODE_SPEC_GRAVITATIONIST_DESC,"Puits de gravité : rayon +25 %, attraction +30 %, durée +0,5 s. Exclusif.","Gravity Well: radius +25%, pull +30%, duration +0.5 s. Exclusive."
+NODE_SPEC_CHAIN_DETONATION_NAME,Détonation en chaîne,Chain Detonation
+NODE_SPEC_CHAIN_DETONATION_DESC,Un ennemi tué par une détonation pose 2 Marques autour de lui.,An enemy killed by a detonation applies 2 Marks around it.
+OBJ_FIRST_STEPS_NAME,Premiers pas,First Steps
+OBJ_FIRST_STEPS_DESC,Survivez 3 minutes dans une expédition.,Survive 3 minutes in an expedition.
+OBJ_LEVEL_FIFTEEN_NAME,Chasseur confirmé,Seasoned Hunter
+OBJ_LEVEL_FIFTEEN_DESC,Atteignez le niveau 15 en une expédition.,Reach level 15 in one expedition.
+OBJ_DEVOURER_SLAIN_NAME,Dévoreur dévoré,Devourer Devoured
+OBJ_DEVOURER_SLAIN_DESC,Vainquez un Dévoreur.,Defeat a Devourer.
+OBJ_TENSION_ONE_NAME,Sous tension,Under Tension
+OBJ_TENSION_ONE_DESC,Refermez une Faille en Tension I ou plus.,Seal a Rift at Tension I or higher.
+OBJ_TENSION_TWO_NAME,Haute tension,High Tension
+OBJ_TENSION_TWO_DESC,Refermez une Faille en Tension II ou plus.,Seal a Rift at Tension II or higher.
+OBJ_TENSION_THREE_NAME,Gardien des Failles,Rift Warden
+OBJ_TENSION_THREE_DESC,Refermez une Faille en Tension III.,Seal a Rift at Tension III.
+OBJ_ELITE_HUNTER_NAME,Chasseur d'élites,Elite Hunter
+OBJ_ELITE_HUNTER_DESC,Vainquez 10 élites (cumul).,Defeat 10 elites (total).
+OBJ_SLAYER_NAME,Fléau des Corrompus,Bane of the Hollowed
+OBJ_SLAYER_DESC,Éliminez 5000 Corrompus (cumul).,Defeat 5000 Hollowed (total).
+OBJ_SYNERGIST_NAME,Synergiste,Synergist
+OBJ_SYNERGIST_DESC,Activez 3 synergies dans la même expédition.,Activate 3 synergies in the same expedition.
+OBJ_LONE_WOLF_NAME,Loup solitaire,Lone Wolf
+OBJ_LONE_WOLF_DESC,Refermez une Faille sans jamais recruter de second Écho.,Seal a Rift without ever recruiting a second Echo.
+OBJ_MUTANT_NAME,Mutant,Mutant
+OBJ_MUTANT_DESC,Refermez une Faille après avoir pris une mutation.,Seal a Rift after taking a mutation.
+OBJ_EVOLVER_NAME,Évolutionniste,Evolutionist
+OBJ_EVOLVER_DESC,Faites évoluer 3 Échos (cumul).,Evolve 3 Echoes (total).
+OBJ_COLLECTOR_NAME,Collectionneur,Collector
+OBJ_COLLECTOR_DESC,Prenez 15 reliques (cumul).,Take 15 relics (total).
+OBJ_PRISMATIC_ECLIPSE_NAME,Voyant de l'Éclipse,Eclipse Seer
+OBJ_PRISMATIC_ECLIPSE_DESC,Obtenez l'évolution secrète de Lucivelle.,Obtain Glimmerwing's secret evolution.
+RESEARCH_CORRUPTED_STUDY_NAME,Étude des Corrompus,Hollowed Study
+RESEARCH_CORRUPTED_STUDY_DESC,Affiche les statistiques des Corrompus dans le Bestiaire.,Shows Hollowed statistics in the Bestiary.
+RESEARCH_BREAKING_BOLT_NAME,Mutation : Trait brisant,Mutation: Breaking Bolt
+RESEARCH_BREAKING_BOLT_DESC,Ajoute la mutation Trait brisant aux cartes possibles.,Adds the Breaking Bolt mutation to the card pool.
+RESEARCH_EMBER_HEART_NAME,Relique : Cœur de cendre,Relic: Ember Heart
+RESEARCH_EMBER_HEART_DESC,Ajoute le Cœur de cendre aux coffres.,Adds the Ember Heart to chests.
+RESEARCH_CRACKED_PRISM_NAME,Relique : Prisme fêlé,Relic: Cracked Prism
+RESEARCH_CRACKED_PRISM_DESC,Ajoute le Prisme fêlé aux coffres. Il paraît que la lumière s'y comporte étrangement…,Adds the Cracked Prism to chests. Light is said to behave strangely inside it…
+RESEARCH_ELITE_DOSSIER_NAME,Dossier des élites,Elite Dossier
+RESEARCH_ELITE_DOSSIER_DESC,Affiche le nom des affixes au-dessus des élites.,Shows affix names above elites.

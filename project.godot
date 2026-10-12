@@ -13,6 +13,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 GameDB="*res://src/core/game_db.gd"
+Audio="*res://src/core/audio_director.gd"
 Settings="*res://src/core/settings.gd"
 Profile="*res://src/core/profile.gd"
 Assets="*res://src/assets/asset_registry.gd"

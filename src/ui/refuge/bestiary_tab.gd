@@ -1,0 +1,131 @@
+extends RefugeTab
+## Bestiaire / collection : Échos, Corrompus, reliques, synergies. Le non-découvert reste mystérieux.
+
+var _selection: String = ""
+var _detail: RichTextLabel
+
+
+func title_key() -> String:
+	return "TAB_BESTIARY"
+
+
+func refresh() -> void:
+	UiKit.clear(self)
+	var split := HBoxContainer.new()
+	split.add_theme_constant_override("separation", 16)
+	add_child(split)
+	var scroll := ScrollContainer.new()
+	scroll.custom_minimum_size.x = 300
+	split.add_child(scroll)
+	var list := VBoxContainer.new()
+	scroll.add_child(list)
+	_detail = RichTextLabel.new()
+	_detail.bbcode_enabled = true
+	_detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_detail.add_theme_font_size_override("normal_font_size", 16)
+	_detail.add_theme_font_size_override("bold_font_size", 18)
+	split.add_child(_detail)
+	var p: ProfileData = profile()
+	list.add_child(UiKit.label(tr("BESTIARY_ECHOES"), 18, UiKit.ACCENT))
+	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
+		var known: bool = p.is_discovered("monsters", id) or p.is_monster_unlocked(GameDB.monster(id))
+		_entry(list, "monster:" + String(id), tr(GameDB.monster(id).name_key) if known else "???")
+	list.add_child(UiKit.label(tr("BESTIARY_ENEMIES"), 18, UiKit.ACCENT))
+	for id: StringName in GameDB.sorted_ids(GameDB.enemies):
+		_entry(list, "enemy:" + String(id), tr(GameDB.enemy(id).name_key) if p.is_discovered("enemies", id) else "???")
+	for id: StringName in GameDB.sorted_ids(GameDB.bosses):
+		var boss_known: bool = p.lifetime("bosses_killed") > 0 or p.data["records"]["best_time"] >= 420.0
+		_entry(list, "boss:" + String(id), tr(GameDB.boss(id).name_key) if boss_known else "???")
+	list.add_child(UiKit.label(tr("BESTIARY_RELICS"), 18, UiKit.ACCENT))
+	for id: StringName in GameDB.sorted_ids(GameDB.relics):
+		_entry(list, "relic:" + String(id), tr(GameDB.relic(id).name_key) if p.is_discovered("relics", id) else "???")
+	list.add_child(UiKit.label(tr("BESTIARY_SYNERGIES"), 18, UiKit.ACCENT))
+	for id: StringName in GameDB.sorted_ids(GameDB.synergies):
+		_entry(list, "synergy:" + String(id), tr(GameDB.synergies[id].name_key) if p.is_discovered("synergies", id) else "???")
+	if _selection == "":
+		_selection = "monster:" + String(GameDB.sorted_ids(GameDB.monsters)[0])
+	_show(_selection)
+
+
+func _entry(list: VBoxContainer, key: String, text: String) -> void:
+	var b: Button = UiKit.button(text, func() -> void:
+		_selection = key
+		_show(key), 280)
+	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+	list.add_child(b)
+
+
+func _show(key: String) -> void:
+	var kind: String = key.get_slice(":", 0)
+	var id := StringName(key.get_slice(":", 1))
+	match kind:
+		"monster":
+			_detail.text = _monster_text(GameDB.monster(id))
+		"enemy":
+			_detail.text = _enemy_text(GameDB.enemy(id))
+		"boss":
+			var boss: BossData = GameDB.boss(id)
+			_detail.text = "[b]%s[/b] — %s\n\n%s" % [tr(boss.name_key), tr(boss.title_key),
+					tr("BESTIARY_BOSS_LORE_" + String(id).to_upper())]
+		"relic":
+			var relic: RelicData = GameDB.relic(id)
+			var known: bool = profile().is_discovered("relics", id)
+			_detail.text = "[b]%s[/b]\n\n%s" % [tr(relic.name_key), tr(relic.desc_key)] if known else tr("BESTIARY_UNKNOWN")
+		"synergy":
+			var synergy: SynergyData = GameDB.synergies[id]
+			var names: PackedStringArray = []
+			for m: StringName in synergy.required_monsters:
+				names.append(tr(GameDB.monster(m).name_key))
+			var body: String = tr(synergy.desc_key) if profile().is_discovered("synergies", id) else tr("BESTIARY_SYNERGY_HINT")
+			_detail.text = "[b]%s[/b]\n%s\n\n%s" % [tr(synergy.name_key) if profile().is_discovered("synergies", id) else "???",
+				" + ".join(names), body]
+
+
+func _monster_text(m: MonsterData) -> String:
+	var p: ProfileData = profile()
+	if not (p.is_discovered("monsters", m.id) or p.is_monster_unlocked(m)):
+		return tr("BESTIARY_UNKNOWN")
+	var lines: PackedStringArray = []
+	var title: String = " ★ " + tr("MASTERY_REWARD_TITLE_NAME") if Mastery.has_title(p, m) else ""
+	lines.append("[b]%s[/b] — %s%s" % [tr(m.name_key), tr("ROLE_%d" % m.role), title])
+	lines.append("[i]%s[/i]" % tr(m.lore_key))
+	lines.append(tr("BESTIARY_STATS") % [int(m.max_hp), int(m.attack.damage), int(m.defense), int(m.move_speed),
+			int(m.get_range())])
+	lines.append("[color=#ffd966]%s[/color] : %s" % [tr(m.passive_name_key), tr(m.passive_desc_key)])
+	lines.append("[color=#8ce6ff]%s[/color] : %s" % [tr(m.technique.name_key), tr(m.technique.desc_key)])
+	lines.append("\n[b]%s[/b]" % tr("BESTIARY_EVOLUTIONS"))
+	for evo: EvolutionData in m.evolutions:
+		if evo.secret and not p.is_discovered("evolutions", evo.id):
+			lines.append("• ??? — [i]%s[/i]" % tr(evo.hint_key))
+		else:
+			var seen: String = "" if p.is_discovered("evolutions", evo.id) else " (" + tr("BESTIARY_NOT_SEEN") + ")"
+			lines.append("• %s%s : %s" % [tr(evo.name_key), seen, tr(evo.desc_key)])
+	var entry: Dictionary = p.mastery_entry(m.id)
+	var lvl: int = Mastery.level(p, m)
+	var next: String = str(m.mastery.level_thresholds[lvl]) if lvl < m.mastery.level_thresholds.size() else "—"
+	lines.append("\n[b]%s[/b] %s" % [tr("BESTIARY_MASTERY"), tr("BESTIARY_MASTERY_LEVEL") % [lvl, int(entry["xp"]), next]])
+	for challenge: MasteryChallengeData in m.mastery.challenges:
+		var done: bool = (entry["challenges"] as Array).has(String(challenge.id))
+		var progress: float = p.lifetime(String(challenge.stat_key)) if challenge.lifetime else 0.0
+		var progress_text: String = " (%d/%d)" % [int(progress),
+				int(challenge.threshold)] if challenge.lifetime and not done else ""
+		lines.append("%s %s%s  [color=#8899bb]+%d XP[/color]" % ["✔" if done else "○", tr(challenge.desc_key), progress_text,
+				challenge.xp])
+	for reward: MasteryRewardData in m.mastery.rewards:
+		var unlocked: bool = reward.level <= lvl
+		lines.append("%s %s %d — %s : %s" % ["★" if unlocked else "☆", tr("BESTIARY_LEVEL"), reward.level,
+				tr(reward.name_key), tr(reward.desc_key)])
+	return "\n".join(lines)
+
+
+func _enemy_text(e: EnemyData) -> String:
+	var p: ProfileData = profile()
+	if not p.is_discovered("enemies", e.id):
+		return tr("BESTIARY_UNKNOWN")
+	var text: String = "[b]%s[/b]\n\n%s\n\n%s" % [tr(e.name_key), tr(e.desc_key),
+			tr("BESTIARY_KILLS") % int(p.lifetime("kills_" + String(e.id)))]
+	if p.has_unlock("info", &"enemies"):
+		text += "\n" + tr("BESTIARY_ENEMY_STATS") % [int(e.max_hp), int(e.damage), int(e.defense), int(e.move_speed)]
+	else:
+		text += "\n[i]" + tr("BESTIARY_RESEARCH_HINT") + "[/i]"
+	return text
