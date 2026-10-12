@@ -28,10 +28,14 @@ godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --st
 gdlint src tests tools                 # lint GDScript (config : gdlintrc, lignes ≤ 130)
 python3 tools/art/build.py monster.ashblade              # sprites pixel art procéduraux (statut wip)
 python3 tools/art/import_sheet.py <dossier>/job.json     # importer des images générées (statut final)
+python3 tools/art/build_env.py fractured_plain           # décor d'arène depuis un pack (assets/third_party)
+python3 tools/audio/detect_bpm.py                        # mesurer le tempo des musiques (manifeste audio)
 ```
 
 Graphismes : pixel art, règles dans `docs/ART_BIBLE.md` (cellules 64 px, `scale` 0,5, lumière
 haut-gauche, liseré violet bas-droite). Mode d'emploi de l'import : `assets/concepts/incoming/README.md`.
+Décor des arènes : pack Ninja Adventure (CC0, tuiles 16 px, `scale` 1) → `assets/environments/<id>/`, entrée
+`environment.<id>` du manifeste, placé en jeu par `DecorLayout` (déterministe) et dessiné par `ArenaGround`.
 
 Captures d'écran dans le cloud :
 `xvfb-run -a -s "-screen 0 1600x900x24" godot --path . --fixed-fps 60 --resolution 1600x900 res://tools/screenshot.tscn -- --out=<dossier> --times=20,60`

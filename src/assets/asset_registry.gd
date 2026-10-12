@@ -7,6 +7,7 @@ const MANIFEST_PATH := "res://assets/asset_manifest.json"
 var manifest: Dictionary = {}
 var _frames_cache: Dictionary = {}
 var _placeholder_cache: Dictionary = {}
+var _environment_cache: Dictionary = {}
 
 
 func _ready() -> void:
@@ -22,6 +23,7 @@ func load_manifest() -> void:
 	else:
 		push_warning("Manifeste d'assets absent ou invalide : placeholders partout.")
 	_frames_cache.clear()
+	_environment_cache.clear()
 
 
 func entry(visual_id: StringName) -> Dictionary:
@@ -98,3 +100,12 @@ func icon(visual_id: StringName) -> Texture2D:
 	if path != "" and ResourceLoader.exists(path):
 		return load(path)
 	return null
+
+
+## Décor d'arène (null si absent : l'arène dessine un sol de remplacement).
+func environment(environment_id: StringName) -> EnvironmentSet:
+	if environment_id == &"":
+		return null
+	if not _environment_cache.has(environment_id):
+		_environment_cache[environment_id] = EnvironmentSet.from_entry(environment_id, entry(environment_id))
+	return _environment_cache[environment_id]

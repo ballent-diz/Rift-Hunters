@@ -14,6 +14,8 @@ static func validate_manifest(entries: Dictionary) -> Array[Dictionary]:
 static func validate_entry(id: String, e: Dictionary) -> Dictionary:
 	var messages: PackedStringArray = []
 	var category: String = id.get_slice(".", 0)
+	if category == "environment":
+		return validate_environment(id, e)
 	var cell: Array = e.get("cell", [])
 	if cell.size() != 2 or int(cell[0]) <= 0 or int(cell[1]) <= 0:
 		messages.append("cellule invalide")
@@ -66,3 +68,27 @@ static func check_image(image: Image, cell: Array, animations: Dictionary, ancho
 	if anchor.size() == 2 and (int(anchor[0]) < 0 or int(anchor[0]) > cw or int(anchor[1]) < 0 or int(anchor[1]) > ch):
 		messages.append("ancre hors de la cellule")
 	return messages
+
+
+## Décor d'arène : sol et atlas présents, chaque élément dans l'atlas, couches connues.
+static func validate_environment(id: String, e: Dictionary) -> Dictionary:
+	var messages: PackedStringArray = []
+	var present: bool = ResourceLoader.exists(str(e.get("ground", ""))) and ResourceLoader.exists(str(e.get("atlas", "")))
+	if not present:
+		var missing_status: String = "ERROR" if str(e.get("status", "planned")) == "final" else "PLACEHOLDER"
+		if missing_status == "ERROR":
+			messages.append("statut final mais sol ou atlas absent")
+		return {"id": id, "status": missing_status, "messages": messages}
+	var atlas: Texture2D = load(str(e["atlas"]))
+	var bounds := Rect2(Vector2.ZERO, atlas.get_size())
+	var decals: Array = e.get("decals", [])
+	if decals.is_empty():
+		messages.append("aucun élément de décor")
+	for raw: Variant in decals:
+		var d: Dictionary = raw
+		var r: Array = d.get("rect", [])
+		if r.size() != 4 or not bounds.encloses(Rect2(float(r[0]), float(r[1]), float(r[2]), float(r[3]))):
+			messages.append("élément %s hors de l'atlas" % str(d.get("name", "?")))
+		if not EnvironmentSet.LAYERS.has(StringName(str(d.get("layer", "")))):
+			messages.append("élément %s : couche inconnue %s" % [str(d.get("name", "?")), str(d.get("layer", ""))])
+	return {"id": id, "status": "ERROR" if not messages.is_empty() else "OK", "messages": messages}

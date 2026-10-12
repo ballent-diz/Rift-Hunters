@@ -58,7 +58,8 @@ func _process(delta: float) -> void:
 
 func _text(pos: Vector2, value: String, font_size: int, color: Color,
 		align: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT, width: float = -1.0) -> void:
-	draw_string_outline(_font, pos, value, align, width, font_size, 4, Color(0, 0, 0, 0.85))
+	# Contour épais et opaque : texte lisible sur les sols clairs (herbe, sable, neige).
+	draw_string_outline(_font, pos, value, align, width, font_size, 7, Color(0.02, 0.02, 0.05, 1.0))
 	draw_string(_font, pos, value, align, width, font_size, color)
 
 

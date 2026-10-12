@@ -777,6 +777,1231 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/monsters/ashblade_pyrefang.png"
+		},
+		"environment.fractured_plain": {
+			"status": "wip",
+			"generated_by": "tools/art/build_env.py",
+			"source": "assets/third_party/ninja_adventure (Pixel-boy et AAA, CC0)",
+			"scale": 1.0,
+			"ground": "res://assets/environments/fractured_plain/ground.png",
+			"atlas": "res://assets/environments/fractured_plain/decals.png",
+			"decals": [
+				{
+					"name": "dirt_0",
+					"layer": "patch",
+					"weight": 3.0,
+					"rect": [
+						413,
+						82,
+						48,
+						32
+					],
+					"anchor": [
+						24,
+						16
+					]
+				},
+				{
+					"name": "dirt_1",
+					"layer": "patch",
+					"weight": 3.0,
+					"rect": [
+						490,
+						0,
+						48,
+						48
+					],
+					"anchor": [
+						24,
+						24
+					]
+				},
+				{
+					"name": "dirt_2",
+					"layer": "patch",
+					"weight": 3.0,
+					"rect": [
+						540,
+						0,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						24
+					]
+				},
+				{
+					"name": "dirt_3",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						606,
+						0,
+						80,
+						48
+					],
+					"anchor": [
+						40,
+						24
+					]
+				},
+				{
+					"name": "dirt_4",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						212,
+						0,
+						64,
+						64
+					],
+					"anchor": [
+						32,
+						32
+					]
+				},
+				{
+					"name": "dirt_5",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						278,
+						0,
+						96,
+						64
+					],
+					"anchor": [
+						48,
+						32
+					]
+				},
+				{
+					"name": "dirt_6",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						0,
+						0,
+						80,
+						80
+					],
+					"anchor": [
+						40,
+						40
+					]
+				},
+				{
+					"name": "dirt_7",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						376,
+						0,
+						112,
+						64
+					],
+					"anchor": [
+						56,
+						32
+					]
+				},
+				{
+					"name": "dirt_8",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						82,
+						0,
+						128,
+						80
+					],
+					"anchor": [
+						64,
+						40
+					]
+				},
+				{
+					"name": "dirt_spot",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						924,
+						82,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						8
+					]
+				},
+				{
+					"name": "tuft_a",
+					"layer": "detail",
+					"weight": 5,
+					"rect": [
+						520,
+						131,
+						12,
+						9
+					],
+					"anchor": [
+						6,
+						4
+					]
+				},
+				{
+					"name": "tuft_b",
+					"layer": "detail",
+					"weight": 4,
+					"rect": [
+						52,
+						131,
+						14,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "tuft_c",
+					"layer": "detail",
+					"weight": 4,
+					"rect": [
+						598,
+						131,
+						12,
+						7
+					],
+					"anchor": [
+						6,
+						3
+					]
+				},
+				{
+					"name": "tuft_d",
+					"layer": "detail",
+					"weight": 4,
+					"rect": [
+						612,
+						131,
+						15,
+						6
+					],
+					"anchor": [
+						7,
+						3
+					]
+				},
+				{
+					"name": "tuft_e",
+					"layer": "detail",
+					"weight": 3,
+					"rect": [
+						508,
+						131,
+						10,
+						10
+					],
+					"anchor": [
+						5,
+						5
+					]
+				},
+				{
+					"name": "flowers_red",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						460,
+						131,
+						15,
+						11
+					],
+					"anchor": [
+						7,
+						5
+					]
+				},
+				{
+					"name": "sprout",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						534,
+						131,
+						13,
+						9
+					],
+					"anchor": [
+						6,
+						4
+					]
+				},
+				{
+					"name": "clover",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						398,
+						131,
+						16,
+						12
+					],
+					"anchor": [
+						8,
+						6
+					]
+				},
+				{
+					"name": "leaves",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						68,
+						131,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "leaf_bits",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						416,
+						131,
+						14,
+						12
+					],
+					"anchor": [
+						7,
+						6
+					]
+				},
+				{
+					"name": "twig_a",
+					"layer": "detail",
+					"weight": 1,
+					"rect": [
+						477,
+						131,
+						12,
+						11
+					],
+					"anchor": [
+						6,
+						5
+					]
+				},
+				{
+					"name": "twig_b",
+					"layer": "detail",
+					"weight": 1,
+					"rect": [
+						432,
+						131,
+						8,
+						12
+					],
+					"anchor": [
+						4,
+						6
+					]
+				},
+				{
+					"name": "branch",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						312,
+						131,
+						13,
+						13
+					],
+					"anchor": [
+						6,
+						6
+					]
+				},
+				{
+					"name": "skull",
+					"layer": "detail",
+					"weight": 0.3,
+					"rect": [
+						549,
+						131,
+						14,
+						9
+					],
+					"anchor": [
+						7,
+						4
+					]
+				},
+				{
+					"name": "bone",
+					"layer": "detail",
+					"weight": 0.5,
+					"rect": [
+						565,
+						131,
+						14,
+						9
+					],
+					"anchor": [
+						7,
+						4
+					]
+				},
+				{
+					"name": "pebbles",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						581,
+						131,
+						15,
+						8
+					],
+					"anchor": [
+						7,
+						4
+					]
+				},
+				{
+					"name": "grass_a",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						996,
+						82,
+						15,
+						15
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "grass_b",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						327,
+						131,
+						16,
+						13
+					],
+					"anchor": [
+						8,
+						6
+					]
+				},
+				{
+					"name": "grass_c",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						85,
+						131,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "grass_d",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						103,
+						131,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "fern_a",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						121,
+						131,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "fern_b",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						139,
+						131,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "daisy",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						157,
+						131,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "sunflower",
+					"layer": "detail",
+					"weight": 0.4,
+					"rect": [
+						0,
+						131,
+						15,
+						15
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "red_flower",
+					"layer": "detail",
+					"weight": 0.5,
+					"rect": [
+						175,
+						131,
+						14,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "clover_b",
+					"layer": "detail",
+					"weight": 1,
+					"rect": [
+						491,
+						131,
+						15,
+						11
+					],
+					"anchor": [
+						7,
+						5
+					]
+				},
+				{
+					"name": "stone_a",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						942,
+						82,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						8
+					]
+				},
+				{
+					"name": "stone_b",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						191,
+						131,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "stone_c",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						960,
+						82,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						8
+					]
+				},
+				{
+					"name": "flat_stone_a",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						209,
+						131,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "flat_stone_b",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						226,
+						131,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "flat_stone_c",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						243,
+						131,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "bush_a",
+					"layer": "prop",
+					"weight": 3,
+					"rect": [
+						345,
+						131,
+						15,
+						13
+					],
+					"anchor": [
+						7,
+						11
+					]
+				},
+				{
+					"name": "bush_b",
+					"layer": "prop",
+					"weight": 3,
+					"rect": [
+						260,
+						131,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						12
+					]
+				},
+				{
+					"name": "bush_c",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						442,
+						131,
+						16,
+						12
+					],
+					"anchor": [
+						8,
+						10
+					]
+				},
+				{
+					"name": "bush_d",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						362,
+						131,
+						16,
+						13
+					],
+					"anchor": [
+						8,
+						11
+					]
+				},
+				{
+					"name": "boulder_a",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						599,
+						82,
+						32,
+						30
+					],
+					"anchor": [
+						16,
+						28
+					]
+				},
+				{
+					"name": "boulder_b",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						463,
+						82,
+						32,
+						32
+					],
+					"anchor": [
+						16,
+						30
+					]
+				},
+				{
+					"name": "boulder_big",
+					"layer": "prop",
+					"weight": 0.8,
+					"rect": [
+						132,
+						82,
+						64,
+						46
+					],
+					"anchor": [
+						32,
+						44
+					]
+				},
+				{
+					"name": "boulder_tall",
+					"layer": "prop",
+					"weight": 0.8,
+					"rect": [
+						688,
+						0,
+						32,
+						48
+					],
+					"anchor": [
+						16,
+						46
+					]
+				},
+				{
+					"name": "rock_round",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						801,
+						82,
+						29,
+						27
+					],
+					"anchor": [
+						14,
+						25
+					]
+				},
+				{
+					"name": "rock_small",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						978,
+						82,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						14
+					]
+				},
+				{
+					"name": "stump",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						892,
+						82,
+						30,
+						23
+					],
+					"anchor": [
+						15,
+						21
+					]
+				},
+				{
+					"name": "stump_small",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						17,
+						131,
+						16,
+						15
+					],
+					"anchor": [
+						8,
+						13
+					]
+				},
+				{
+					"name": "log",
+					"layer": "prop",
+					"weight": 1,
+					"rect": [
+						380,
+						131,
+						16,
+						13
+					],
+					"anchor": [
+						8,
+						11
+					]
+				},
+				{
+					"name": "dead_bush",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						35,
+						131,
+						15,
+						15
+					],
+					"anchor": [
+						7,
+						13
+					]
+				},
+				{
+					"name": "dead_tree",
+					"layer": "prop",
+					"weight": 1.2,
+					"rect": [
+						531,
+						82,
+						32,
+						31
+					],
+					"anchor": [
+						16,
+						29
+					]
+				},
+				{
+					"name": "tree_round",
+					"layer": "prop",
+					"weight": 0.6,
+					"rect": [
+						701,
+						82,
+						32,
+						29
+					],
+					"anchor": [
+						16,
+						27
+					]
+				},
+				{
+					"name": "pine",
+					"layer": "prop",
+					"weight": 0.6,
+					"rect": [
+						633,
+						82,
+						32,
+						30
+					],
+					"anchor": [
+						16,
+						28
+					]
+				},
+				{
+					"name": "small_tree",
+					"layer": "prop",
+					"weight": 0.6,
+					"rect": [
+						497,
+						82,
+						32,
+						32
+					],
+					"anchor": [
+						16,
+						30
+					]
+				},
+				{
+					"name": "crystal_violet",
+					"layer": "prop",
+					"weight": 1.2,
+					"rect": [
+						278,
+						131,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						12
+					]
+				},
+				{
+					"name": "crystal_teal",
+					"layer": "prop",
+					"weight": 0.6,
+					"rect": [
+						295,
+						131,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						12
+					]
+				},
+				{
+					"name": "gem_boulder",
+					"layer": "prop",
+					"weight": 0.5,
+					"rect": [
+						832,
+						82,
+						28,
+						25
+					],
+					"anchor": [
+						14,
+						23
+					]
+				},
+				{
+					"name": "gem_boulder_dark",
+					"layer": "prop",
+					"weight": 0.5,
+					"rect": [
+						862,
+						82,
+						28,
+						25
+					],
+					"anchor": [
+						14,
+						23
+					]
+				},
+				{
+					"name": "mossy_rock",
+					"layer": "prop",
+					"weight": 1,
+					"rect": [
+						735,
+						82,
+						30,
+						29
+					],
+					"anchor": [
+						15,
+						27
+					]
+				},
+				{
+					"name": "pillar",
+					"layer": "prop",
+					"weight": 0.5,
+					"rect": [
+						327,
+						82,
+						16,
+						42
+					],
+					"anchor": [
+						8,
+						40
+					]
+				},
+				{
+					"name": "broken_pillar",
+					"layer": "prop",
+					"weight": 0.5,
+					"rect": [
+						395,
+						82,
+						16,
+						36
+					],
+					"anchor": [
+						8,
+						34
+					]
+				},
+				{
+					"name": "mossy_statue",
+					"layer": "prop",
+					"weight": 0.3,
+					"rect": [
+						920,
+						0,
+						32,
+						47
+					],
+					"anchor": [
+						16,
+						45
+					]
+				},
+				{
+					"name": "ruined_wall",
+					"layer": "prop",
+					"weight": 0.25,
+					"rect": [
+						345,
+						82,
+						48,
+						40
+					],
+					"anchor": [
+						24,
+						38
+					]
+				},
+				{
+					"name": "ruined_house",
+					"layer": "prop",
+					"weight": 0.15,
+					"rect": [
+						198,
+						82,
+						64,
+						44
+					],
+					"anchor": [
+						32,
+						42
+					]
+				},
+				{
+					"name": "forest_pine",
+					"layer": "border",
+					"weight": 3,
+					"rect": [
+						954,
+						0,
+						64,
+						47
+					],
+					"anchor": [
+						32,
+						45
+					]
+				},
+				{
+					"name": "forest_green",
+					"layer": "border",
+					"weight": 3,
+					"rect": [
+						0,
+						82,
+						64,
+						47
+					],
+					"anchor": [
+						32,
+						45
+					]
+				},
+				{
+					"name": "forest_dead",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						66,
+						82,
+						64,
+						47
+					],
+					"anchor": [
+						32,
+						45
+					]
+				},
+				{
+					"name": "forest_lime",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						722,
+						0,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						46
+					]
+				},
+				{
+					"name": "forest_mossy_a",
+					"layer": "border",
+					"weight": 2,
+					"rect": [
+						788,
+						0,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						46
+					]
+				},
+				{
+					"name": "forest_mossy_b",
+					"layer": "border",
+					"weight": 2,
+					"rect": [
+						854,
+						0,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						46
+					]
+				},
+				{
+					"name": "rock_pile",
+					"layer": "border",
+					"weight": 1,
+					"rect": [
+						264,
+						82,
+						61,
+						44
+					],
+					"anchor": [
+						30,
+						42
+					]
+				},
+				{
+					"name": "border_pine",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						667,
+						82,
+						32,
+						30
+					],
+					"anchor": [
+						16,
+						28
+					]
+				},
+				{
+					"name": "border_tree",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						767,
+						82,
+						32,
+						29
+					],
+					"anchor": [
+						16,
+						27
+					]
+				},
+				{
+					"name": "border_dead",
+					"layer": "border",
+					"weight": 1,
+					"rect": [
+						565,
+						82,
+						32,
+						31
+					],
+					"anchor": [
+						16,
+						29
+					]
+				}
+			],
+			"density": {
+				"patch": 7.0,
+				"detail": 130.0,
+				"prop": 22.0
+			},
+			"border": {
+				"width": 300.0,
+				"spacing": 30.0
+			},
+			"clear_radius": 150.0,
+			"outside_tint": "#06120c99",
+			"ambient": {
+				"color": "#f4f0b8",
+				"amount": 26
+			}
 		}
 	}
 }

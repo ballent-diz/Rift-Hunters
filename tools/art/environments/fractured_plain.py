@@ -1,93 +1,93 @@
-"""Plaine fracturée : terre sèche fendue sous un ciel de Faille, ruines, ossements, fissures violettes."""
-from pixelforge import decor as D
+"""Plaine fracturée (niveau 1) : prairie, plaques de terre, rochers, souches, ruines moussues, cristaux de Faille,
+bordée d'une forêt dense. Éléments extraits du pack Ninja Adventure (CC0, assets/third_party/ninja_adventure)."""
+import os
+from pixelforge import packs as P
 
-GROUND = D.hexramp(["#0d0c14", "#15151f", "#1c1d2a", "#242635", "#2d2f3e", "#393a47", "#4a4a52"])
-DUST = D.hexramp(["#110e12", "#1b1619", "#251f21", "#2f2827", "#3a322e", "#463d36", "#554a40"])
-PEBBLE = D.hexramp(["#0f0e15", "#1a1a24", "#262733", "#323442", "#3f4150", "#4f5160", "#666672"])
-STONE = D.hexramp(["#0f0e17", "#1b1b27", "#272836", "#343647", "#434658", "#56586a", "#717282"])
-RUIN = D.hexramp(["#100f16", "#1d1b24", "#2a2731", "#37333e", "#46414b", "#58525b", "#6f6870"])
-GRASS = D.hexramp(["#121210", "#1e1d17", "#2b291f", "#3a3727", "#4a4630", "#5c573a", "#716a47"])
-BONE = D.hexramp(["#1a1716", "#2e2a27", "#48423b", "#655c51", "#827769", "#9d9282", "#b8ad9b"])
-BARK = D.hexramp(["#110d0e", "#1c1517", "#2a1f20", "#382a29", "#473733", "#58463f", "#6b574c"])
-WOOD = D.hexramp(["#2a1f1c", "#3d2e28", "#524036", "#665143", "#7a6250", "#8d735f", "#a08670"])
-CORRUPT = D.hexramp(["#120b1a", "#1d1029", "#2a163b", "#3a1d4f", "#4b2563", "#5d2f77", "#70398b"])
-RIFT = D.hexramp(["#1a0f2e", "#2d1857", "#45238a", "#6a3cc4", "#8f5ef0", "#b590ff", "#dcc8ff"])
-CLIFF = D.hexramp(["#08070d", "#121119", "#1b1b26", "#262735", "#323445", "#424456", "#56586a"])
-NEBULA = D.hexramp(["#05040a", "#090713", "#0e0a1e", "#150f2b"])
-STARS = D.hexramp(["#2a2640", "#4c4669", "#9a93c2"])
-VOID = (5, 4, 10)
-
-D.register_ramp("bone_plain", BONE)
-D.register_ramp("bark_plain", BARK)
-D.register_ramp("wood_plain", WOOD)
-D.register_ramp("void_dark", [(7, 6, 12)] * 7)
+HERE = os.path.dirname(os.path.abspath(__file__))
+TILESETS = os.path.abspath(os.path.join(HERE, "..", "..", "..", "assets", "third_party", "ninja_adventure", "tilesets"))
 
 
-def decals(rng):
-    """[(nom, couche, poids, image, halo ou None)]."""
-    out = []
+def _src(name):
+    return P.load(os.path.join(TILESETS, name + ".png"))
 
-    def add(name, layer, weight, img, halo=None):
-        out.append((name, layer, weight, img, halo))
 
-    for i, (w, h) in enumerate(((180, 120), (230, 150), (150, 100))):
-        add(f"dirt_{i}", "patch", 3, D.patch(rng, DUST, w, h, "dirt"))
-    for i, (w, h) in enumerate(((210, 136), (160, 110), (250, 160))):
-        add(f"grass_patch_{i}", "patch", 3, D.patch(rng, DUST, w, h, "grass", GRASS))
-    for i, (w, h) in enumerate(((150, 110), (120, 90))):
-        add(f"flagstones_{i}", "patch", 1.2, D.flagstones(rng, RUIN, DUST, w, h))
-    for i, (w, h) in enumerate(((90, 84), (120, 100))):
-        add(f"veins_{i}", "patch", 1, D.veins(rng, CORRUPT, w, h, 6 + i))
-    for i, (w, h) in enumerate(((150, 48), (110, 40), (200, 60))):
-        img, halo = D.fissure(rng, GROUND, RIFT, w, h)
-        add(f"fissure_{i}", "rift", 1, img, halo)
-    for i in range(6):
-        size = [(20, 18), (26, 22), (16, 14), (22, 20), (30, 24), (18, 16)][i]
-        add(f"grass_{i}", "detail", 4, D.grass_tuft(rng, GRASS, size[0], size[1], int(rng.integers(10, 18))))
-    for i in range(5):
-        size = [(14, 10), (18, 12), (10, 8), (22, 14), (12, 10)][i]
-        add(f"pebbles_{i}", "detail", 3, D.pebbles(rng, PEBBLE, size[0], size[1], int(rng.integers(2, 6))))
-    for i in range(4):
-        size = [(44, 20), (32, 16), (56, 24), (28, 14)][i]
-        add(f"crack_{i}", "detail", 2.5, D.small_crack(rng, GROUND, size[0], size[1]))
-    add("bones_0", "detail", 0.6, D.bones(rng, "bone_plain", 18, 12, 2))
-    add("bones_1", "detail", 0.6, D.bones(rng, "bone_plain", 20, 14, 3))
-    add("skull_0", "detail", 0.4, D.skull(rng, "bone_plain"))
-    add("roots_0", "detail", 0.8, D.roots(rng, "bark_plain"))
-    add("roots_1", "detail", 0.8, D.roots(rng, "bark_plain", 28, 14))
-    for i, (w, ht) in enumerate(((22, 6), (30, 8), (40, 11), (18, 5), (34, 9))):
-        add(f"rock_{i}", "prop", 3, D.rock(rng, STONE, w, ht))
-    add("column_0", "prop", 1, D.column_stump(rng, RUIN, 9, 18))
-    add("column_1", "prop", 1, D.column_stump(rng, RUIN, 11, 11))
-    add("fallen_column_0", "prop", 0.8, D.fallen_column(rng, RUIN, 58, 8))
-    add("ribcage_0", "prop", 0.6, D.ribcage(rng, "bone_plain"))
-    add("stump_0", "prop", 1, D.dead_stump(rng, "bark_plain", "wood_plain"))
-    add("stump_1", "prop", 1, D.dead_stump(rng, "bark_plain", "wood_plain", 28, 28))
-    for i in range(2):
-        img, halo = D.crystal_shards(rng, RIFT, 18 + i * 4, 22 + i * 4, 2 + i)
-        add(f"crystals_{i}", "prop", 0.7, img, halo)
-    for i in range(4):
-        add(f"rubble_{i}", "rubble", 1, D.pebbles(rng, PEBBLE, 8 + i * 2, 6 + i, int(rng.integers(1, 3))))
-    return out
+# Rectangles en tuiles (x, y, largeur, hauteur) dans les tilesets du pack.
+DETAILS = [
+    # (nom, tileset, rectangle, poids)
+    ("tuft_a", "TilesetFloorDetail", (0, 2, 1, 1), 5), ("tuft_b", "TilesetFloorDetail", (1, 2, 1, 1), 4),
+    ("tuft_c", "TilesetFloorDetail", (2, 2, 1, 1), 4), ("tuft_d", "TilesetFloorDetail", (3, 2, 1, 1), 4),
+    ("tuft_e", "TilesetFloorDetail", (4, 2, 1, 1), 3), ("flowers_red", "TilesetFloorDetail", (5, 2, 1, 1), 1.2),
+    ("sprout", "TilesetFloorDetail", (6, 2, 1, 1), 2), ("clover", "TilesetFloorDetail", (7, 2, 1, 1), 2),
+    ("leaves", "TilesetFloorDetail", (0, 0, 1, 1), 1.5), ("leaf_bits", "TilesetFloorDetail", (1, 0, 1, 1), 1.5),
+    ("twig_a", "TilesetFloorDetail", (5, 0, 1, 1), 1), ("twig_b", "TilesetFloorDetail", (6, 0, 1, 1), 1),
+    ("branch", "TilesetFloorDetail", (7, 0, 1, 1), 0.8), ("skull", "TilesetFloorDetail", (13, 0, 1, 1), 0.3),
+    ("bone", "TilesetFloorDetail", (14, 0, 1, 1), 0.5), ("pebbles", "TilesetFloorDetail", (0, 1, 1, 1), 1.2),
+    ("grass_a", "TilesetNature", (4, 10, 1, 1), 2), ("grass_b", "TilesetNature", (5, 10, 1, 1), 2),
+    ("grass_c", "TilesetNature", (7, 10, 1, 1), 2), ("grass_d", "TilesetNature", (9, 10, 1, 1), 2),
+    ("fern_a", "TilesetNature", (4, 11, 1, 1), 1.5), ("fern_b", "TilesetNature", (5, 11, 1, 1), 1.5),
+    ("daisy", "TilesetNature", (6, 11, 1, 1), 0.8), ("sunflower", "TilesetNature", (0, 11, 1, 1), 0.4),
+    ("red_flower", "TilesetNature", (3, 11, 1, 1), 0.5), ("clover_b", "TilesetNature", (2, 11, 1, 1), 1),
+    ("stone_a", "TilesetNature", (17, 17, 1, 1), 1.2), ("stone_b", "TilesetNature", (18, 17, 1, 1), 1.2),
+    ("stone_c", "TilesetNature", (19, 17, 1, 1), 1.2), ("flat_stone_a", "TilesetVillageAbandoned", (6, 3, 1, 1), 0.8),
+    ("flat_stone_b", "TilesetVillageAbandoned", (7, 3, 1, 1), 0.8), ("flat_stone_c", "TilesetVillageAbandoned", (8, 4, 1, 1), 0.8),
+]
+
+PROPS = [
+    ("bush_a", "TilesetNature", (0, 10, 1, 1), 3), ("bush_b", "TilesetNature", (1, 10, 1, 1), 3),
+    ("bush_c", "TilesetNature", (2, 10, 1, 1), 2), ("bush_d", "TilesetNature", (3, 10, 1, 1), 2),
+    ("boulder_a", "TilesetNature", (15, 14, 2, 2), 2), ("boulder_b", "TilesetNature", (15, 16, 2, 2), 2),
+    ("boulder_big", "TilesetNature", (17, 14, 4, 3), 0.8), ("boulder_tall", "TilesetNature", (21, 14, 2, 3), 0.8),
+    ("rock_round", "TilesetNature", (16, 8, 2, 2), 1.5), ("rock_small", "TilesetNature", (18, 9, 1, 1), 2),
+    ("stump", "TilesetNature", (0, 8, 2, 2), 1.5), ("stump_small", "TilesetNature", (4, 8, 1, 1), 1.5),
+    ("log", "TilesetNature", (5, 8, 1, 1), 1), ("dead_bush", "TilesetNature", (4, 9, 1, 1), 1.5),
+    ("dead_tree", "TilesetNature", (4, 0, 2, 2), 1.2), ("tree_round", "TilesetNature", (0, 0, 2, 2), 0.6),
+    ("pine", "TilesetNature", (2, 0, 2, 2), 0.6), ("small_tree", "TilesetNature", (6, 8, 2, 2), 0.6),
+    ("crystal_violet", "TilesetNature", (2, 14, 1, 1), 1.2), ("crystal_teal", "TilesetNature", (1, 14, 1, 1), 0.6),
+    ("gem_boulder", "TilesetNature", (7, 14, 2, 2), 0.5), ("gem_boulder_dark", "TilesetNature", (7, 16, 2, 2), 0.5),
+    ("mossy_rock", "TilesetVillageAbandoned", (7, 5, 2, 2), 1), ("pillar", "TilesetVillageAbandoned", (2, 3, 1, 3), 0.5),
+    ("broken_pillar", "TilesetVillageAbandoned", (3, 3, 1, 3), 0.5),
+    ("mossy_statue", "TilesetVillageAbandoned", (0, 3, 2, 3), 0.3),
+    ("ruined_wall", "TilesetVillageAbandoned", (8, 0, 3, 3), 0.25), ("ruined_house", "TilesetVillageAbandoned", (0, 0, 4, 3), 0.15),
+]
+
+BORDER = [
+    ("forest_pine", "TilesetNature", (0, 2, 4, 3), 3), ("forest_green", "TilesetNature", (4, 2, 4, 3), 3),
+    ("forest_dead", "TilesetNature", (0, 5, 4, 3), 1.5), ("forest_lime", "TilesetNature", (16, 2, 4, 3), 1.5),
+    ("forest_mossy_a", "TilesetVillageAbandoned", (0, 6, 4, 3), 2), ("forest_mossy_b", "TilesetVillageAbandoned", (0, 9, 4, 3), 2),
+    ("rock_pile", "TilesetNature", (16, 5, 4, 3), 1), ("border_pine", "TilesetNature", (2, 0, 2, 2), 1.5),
+    ("border_tree", "TilesetNature", (0, 0, 2, 2), 1.5), ("border_dead", "TilesetNature", (4, 0, 2, 2), 1),
+]
+
+# Zones de terre (9-slice du bloc herbe sombre / terre du sol) : tailles en tuiles.
+DIRT_SIZES = [(3, 2), (3, 3), (4, 3), (5, 3), (4, 4), (6, 4), (5, 5), (7, 4), (8, 5)]
+
+
+def build(rng):
+    floor = _src("TilesetFloor")
+    sheets = {name: _src(name) for name in ("TilesetNature", "TilesetFloorDetail", "TilesetVillageAbandoned")}
+    ground = P.tile_fill(floor, 128, (11, 12), [(12, 12), (13, 12), (14, 12), (15, 12)], 0.06, rng)
+    items = []
+    for i, (w, h) in enumerate(DIRT_SIZES):
+        img = P.nine_slice(floor, (11, 7), w, h, rng, center_variants=[(11, 11), (12, 11)], variant_chance=0.12)
+        items.append((f"dirt_{i}", "patch", 3.0 if w * h <= 12 else 1.5, img))
+    items.append(("dirt_spot", "patch", 1.5, P.tiles(floor, 14, 10)))
+    for group, layer in ((DETAILS, "detail"), (PROPS, "prop"), (BORDER, "border")):
+        for name, sheet, rect, weight in group:
+            items.append((name, layer, weight, P.isolate(P.tiles(sheets[sheet], *rect))))
+    return {"ground": ground, "items": items}
 
 
 SPEC = {
     "id": "fractured_plain",
-    "seed": 1201,
-    "ground": lambda rng: D.cracked_ground(1024, rng, {"ground": GROUND, "dust": DUST, "pebble": PEBBLE}),
-    "void": lambda rng: D.void_tile(rng, 512, NEBULA, STARS),
-    "edges": {
-        "south": lambda rng: (D.cliff_strip(rng, CLIFF, 512, glow_ramp=RIFT), 6),
-        "north": lambda rng: (D.rim_strip(rng, CLIFF, 512, 0.9, VOID)[::-1], 8),
-        "west": lambda rng: (D.rim_strip(rng, CLIFF, 512, 0.6, VOID)[::-1].transpose(1, 0, 2), 8),
-        "east": lambda rng: (D.rim_strip(rng, CLIFF, 512, 0.2, VOID).transpose(1, 0, 2), 8),
-    },
-    "decals": decals,
+    "source": "assets/third_party/ninja_adventure (Pixel-boy et AAA, CC0)",
+    "seed": 77,
+    "scale": 1.0,
+    "build": build,
     # Nombre d'éléments par carré de 1000 x 1000 unités du monde (multiplié par decor_density de l'arène).
-    "density": {"patch": 12.0, "rift": 3.0, "detail": 220.0, "prop": 18.0},
-    "scatter": 3,
-    "clear_radius": 160.0,
-    "ambient": {"color": "#8d84b0", "amount": 36},
-    "wall_color": "#8a5cf0",
-    "void_color": "#05040a",
+    "density": {"patch": 7.0, "detail": 130.0, "prop": 22.0},
+    # Forêt qui borde l'arène : largeur de la bande (unités du monde) et espacement des arbres.
+    "border": {"width": 300.0, "spacing": 30.0},
+    "clear_radius": 150.0,
+    "outside_tint": "#06120c99",
+    "ambient": {"color": "#f4f0b8", "amount": 26},
 }

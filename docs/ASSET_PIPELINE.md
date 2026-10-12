@@ -111,3 +111,15 @@ Le plus simple : l'outil d'import (ci-dessus) fait les étapes 1 à 3. À la mai
 - `PLACEHOLDER` : asset prévu mais absent (non bloquant, le jeu utilise le placeholder) ;
 - `ERREUR` : fichier présent mais invalide (dimensions, transparence, animation manquante) :
   **bloquant**.
+
+## Décor des arènes
+
+- Source : pack **Ninja Adventure** (CC0) dans `assets/third_party/ninja_adventure/` (provenance dans son README).
+- `python3 tools/art/build_env.py <arène>` lit la recette `tools/art/environments/<arène>.py` (rectangles en tuiles
+  des éléments choisis) et produit `assets/environments/<arène>/ground.png` (sol périodique) et `decals.png`
+  (atlas), plus l'entrée `environment.<arène>` du manifeste : éléments par couche (`patch` à plat, `detail`,
+  `prop` debout, `border` = forêt hors limites), densités, ambiance. Aperçus : `assets/concepts/previews/`.
+- En jeu : `ArenaData.environment_id` → `Assets.environment()` → `DecorLayout` (placement pur et déterministe,
+  testé) → `ArenaGround` (dessin en blocs, culling automatique). Sans décor : sol de remplacement.
+- Échelle : tuiles de 16 px à `scale` 1 (1 pixel du pack = 1 unité du monde). Les éléments n'ont pas de
+  collision et restent bas dans l'aire de jeu (lisibilité) ; les grands arbres sont réservés à la bordure.
