@@ -11,7 +11,7 @@ var time: float = 0.0
 var finished: bool = false
 var victory: bool = false
 
-var root: Node
+var root: RunController
 var world: Node2D
 var events: RunEvents
 var stats := RunStats.new()

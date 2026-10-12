@@ -25,3 +25,5 @@ var unlocked_upgrades: Array[StringName] = []
 var info_unlocks: Array[String] = []
 ## Modificateurs de partie choisis (Pactes de risque).
 var modifier_ids: Array[StringName] = []
+## Conseils de première partie affichés dans le HUD.
+var show_tutorial: bool = false

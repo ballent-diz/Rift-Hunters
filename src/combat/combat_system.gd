@@ -68,6 +68,7 @@ func deal_damage(enemy: Enemy, info: DamageInfo) -> float:
 		if application.chance >= 1.0 or ctx.rng.randf() <= application.chance:
 			ctx.status_system.apply(enemy, application.status_id, application.stacks, info.source_id)
 	ctx.events.enemy_damaged.emit(enemy, info, amount)
+	Audio.play_sfx(&"enemy_hit")
 	if died:
 		ctx.stats.record_kill(info.source_id)
 		ctx.events.enemy_killed.emit(enemy, info)

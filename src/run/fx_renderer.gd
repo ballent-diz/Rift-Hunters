@@ -4,10 +4,12 @@ extends Node2D
 ## Opacité plafonnée pour ne jamais masquer les ennemis et les projectiles dangereux.
 
 const MAX_ALPHA := 0.55
+const MAX_PARTICLES := 400
 
 var ctx: RunContext
 var _numbers: Array[Dictionary] = []
 var _shapes: Array[Dictionary] = []
+var _particles: Array[Dictionary] = []
 var _font: Font
 
 
@@ -57,6 +59,14 @@ func line(from: Vector2, to: Vector2, color: Color, width: float, life: float = 
 	_shapes.append({"type": 3, "pos": from, "to": to, "color": color, "size": width, "life": life, "total": life})
 
 
+## Éclats projetés (mort d'un ennemi, impact) : plafonnés pour rester lisibles et performants.
+func debris(pos: Vector2, color: Color, count: int, speed: float = 160.0) -> void:
+	for i: int in mini(count, MAX_PARTICLES - _particles.size()):
+		var dir := Vector2.RIGHT.rotated(randf() * TAU)
+		_particles.append({"pos": pos, "vel": dir * randf_range(speed * 0.4, speed), "color": color,
+			"size": randf_range(1.5, 3.5), "life": randf_range(0.25, 0.5), "total": 0.5})
+
+
 ## Télégraphe de trajectoire dangereuse (charge d'ennemi).
 func danger_line(from: Vector2, to: Vector2, width: float, life: float) -> void:
 	_shapes.append({"type": 4, "pos": from, "to": to, "color": Color(1.0, 0.25, 0.6), "size": width, "life": life, "total": life})
@@ -74,10 +84,24 @@ func step(delta: float) -> void:
 			i -= 1
 	for n: Dictionary in _numbers:
 		n["pos"] = (n["pos"] as Vector2) + Vector2(0, -38.0 * delta)
+	var i: int = _particles.size() - 1
+	while i >= 0:
+		var particle: Dictionary = _particles[i]
+		particle["life"] = float(particle["life"]) - delta
+		if float(particle["life"]) <= 0.0:
+			_particles[i] = _particles[_particles.size() - 1]
+			_particles.pop_back()
+		else:
+			particle["pos"] = (particle["pos"] as Vector2) + (particle["vel"] as Vector2) * delta
+			particle["vel"] = (particle["vel"] as Vector2) * maxf(1.0 - 6.0 * delta, 0.0)
+		i -= 1
 	queue_redraw()
 
 
 func _draw() -> void:
+	for particle: Dictionary in _particles:
+		var fade: float = float(particle["life"]) / float(particle["total"])
+		draw_circle(particle["pos"], float(particle["size"]), Color(particle["color"], minf(fade * 1.4, 0.9)))
 	for e: Dictionary in _shapes:
 		var t: float = float(e["life"]) / float(e["total"])
 		var color: Color = e["color"]

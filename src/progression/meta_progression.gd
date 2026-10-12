@@ -9,6 +9,7 @@ static func apply_run_result(profile: ProfileData, result: Dictionary) -> Dictio
 	var lines: PackedStringArray = []
 	var counters: Dictionary = result.get("stats", {}).get("counters", {})
 	var victory: bool = result.get("victory", false)
+	profile.data["flags"]["tutorial_done"] = true
 	profile.add_currency("shards", int(rewards["shards"]))
 	profile.add_currency("essence", int(rewards["essence"]))
 	_update_lifetime(profile, counters, victory)

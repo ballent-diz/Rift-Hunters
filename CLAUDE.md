@@ -19,23 +19,30 @@ Aucun lien avec une licence existante : noms, créatures, visuels et mécaniques
 ## Commandes
 
 ```bash
-tools/run_tests.sh            # import + tests unitaires + validation données/assets + smoke test
-tools/run_tests.sh unit       # tests unitaires seulement
-godot --headless --import --path .                     # (ré)importer les ressources (traductions)
-godot --path .                                         # lancer le jeu (nécessite un affichage)
-godot --headless --path . res://tests/run_tests.tscn   # tests unitaires
-godot --headless --path . res://tests/smoke/autoplay.tscn -- --minutes=8   # partie jouée par un bot
-gdlint src tests tools        # lint GDScript (config : gdlintrc)
+tools/run_tests.sh            # import + scripts + tests unitaires + persistance + assets + partie bot + lint
+tools/run_tests.sh unit       # tests unitaires seulement (aussi : scripts, persistence, assets, smoke, lint)
+tools/balance_sim.sh "mossback ashblade" "fractured_plain" "tension_0" 2   # campagne d'équilibrage (META=veteran)
+godot --headless --import --path .     # (ré)importer : OBLIGATOIRE après ajout d'un class_name ou d'une traduction
+godot --path .                         # lancer le jeu (nécessite un affichage)
+godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter=ashblade --arena=crystal_abyss
+gdlint src tests tools                 # lint GDScript (config : gdlintrc, lignes ≤ 130)
 ```
 
-Captures d'écran dans le cloud : `xvfb-run -a godot --path . --rendering-driver opengl3 ...`.
+Captures d'écran dans le cloud :
+`xvfb-run -a -s "-screen 0 1600x900x24" godot --path . --fixed-fps 60 --resolution 1600x900 res://tools/screenshot.tscn -- --out=<dossier> --times=20,60`
+(`--menu=main|refuge` pour les menus). Le rendu logiciel est lent : viser des instants courts (`--boss-at=35`).
+
+Pièges connus : les sorties de Godot redirigées vers un tube sont perdues si le processus est tué
+(écrire dans un fichier) ; un `.tres` généré doit déclarer ses sous-ressources avant usage ;
+`Array.filter()` renvoie un tableau non typé (utiliser `assign`) ; une ternaire `[x] if c else y`
+donne un tableau non typé.
 
 ## Architecture (détails : docs/ARCHITECTURE.md)
 
 - `src/data/` : classes `Resource` des données (MonsterData, EnemyData, UpgradeData...).
 - `data/` : contenu du jeu en `.tres` (un fichier par entité). Ajouter un monstre = ajouter
   un `.tres`, ses clés de traduction et (plus tard) ses assets. Aucun code à modifier.
-- `src/core/` : autoloads (`GameDB`, `Settings`, `Profile`, `Router`). Garder ce nombre minimal.
+- `src/core/` : autoloads (`GameDB`, `Audio`, `Settings`, `Profile`, `Assets`, `Router`). Garder ce nombre minimal.
 - `src/combat/` : stats, dégâts, statuts, grille spatiale, effets de gameplay.
 - `src/run/` : une partie (RunContext, directeurs de vagues/événements, offres d'amélioration).
 - `src/entities/` : joueur, alliés, ennemis, boss, projectiles, ramassables.

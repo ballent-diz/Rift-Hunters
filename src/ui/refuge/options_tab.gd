@@ -18,6 +18,11 @@ func refresh() -> void:
 			func(on: bool) -> void: Settings.damage_numbers = on))
 	box.add_child(_toggle(tr("OPTIONS_SCREEN_SHAKE") % "", Settings.screen_shake,
 			func(on: bool) -> void: Settings.screen_shake = on))
+	box.add_child(_toggle(tr("OPTIONS_VSYNC"), Settings.vsync, func(on: bool) -> void: Settings.vsync = on))
+	box.add_child(_toggle(tr("OPTIONS_REDUCE_FLASHES") % "", Settings.reduce_flashes, func(on: bool) -> void:
+		Settings.reduce_flashes = on))
+	box.add_child(_toggle(tr("OPTIONS_SHOW_FPS"), Settings.show_fps, func(on: bool) -> void: Settings.show_fps = on))
+	box.add_child(UiKit.label(tr("OPTIONS_CONTROLS"), 14, UiKit.MUTED))
 	box.add_child(UiKit.label(tr("OPTIONS_SAVE_INFO") % [ProjectSettings.globalize_path(Profile.path),
 		SaveMigrations.CURRENT_VERSION], 13, UiKit.MUTED))
 

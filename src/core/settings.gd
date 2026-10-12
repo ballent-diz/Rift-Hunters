@@ -14,6 +14,12 @@ var sfx_volume: float = 0.8
 var fullscreen: bool = false
 var screen_shake: bool = true
 var damage_numbers: bool = true
+var vsync: bool = true
+## Accessibilité : supprime les flashs et pulsations (photosensibilité).
+var reduce_flashes: bool = false
+var show_fps: bool = false
+## Dernier périphérique utilisé : true = manette (visée assistée, navigation au pad).
+var using_gamepad: bool = false
 var load_status: SafeJsonStore.LoadStatus = SafeJsonStore.LoadStatus.MISSING
 
 
@@ -34,6 +40,9 @@ func load_settings() -> void:
 	fullscreen = bool(data.get("fullscreen", fullscreen))
 	screen_shake = bool(data.get("screen_shake", screen_shake))
 	damage_numbers = bool(data.get("damage_numbers", damage_numbers))
+	vsync = bool(data.get("vsync", vsync))
+	reduce_flashes = bool(data.get("reduce_flashes", reduce_flashes))
+	show_fps = bool(data.get("show_fps", show_fps))
 	if locale == "":
 		locale = "fr" if OS.get_locale_language() == "fr" else "en"
 	if not SUPPORTED_LOCALES.has(locale):
@@ -50,6 +59,9 @@ func save_settings() -> Error:
 		"fullscreen": fullscreen,
 		"screen_shake": screen_shake,
 		"damage_numbers": damage_numbers,
+		"vsync": vsync,
+		"reduce_flashes": reduce_flashes,
+		"show_fps": show_fps,
 	}
 	return SafeJsonStore.new(path).save_data(data)
 
@@ -66,6 +78,7 @@ func apply() -> void:
 		var mode := DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED
 		if DisplayServer.window_get_mode() != mode:
 			DisplayServer.window_set_mode(mode)
+		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if vsync else DisplayServer.VSYNC_DISABLED)
 	changed.emit()
 
 
@@ -73,3 +86,13 @@ func set_locale(value: String) -> void:
 	locale = value if SUPPORTED_LOCALES.has(value) else "en"
 	apply()
 	save_settings()
+
+
+func _input(event: InputEvent) -> void:
+	var joy_motion: bool = event is InputEventJoypadMotion and absf((event as InputEventJoypadMotion).axis_value) > 0.4
+	if event is InputEventJoypadButton or joy_motion:
+		using_gamepad = true
+	elif event is InputEventKey or event is InputEventMouseButton:
+		using_gamepad = false
+	elif event is InputEventMouseMotion and (event as InputEventMouseMotion).relative.length() > 2.0:
+		using_gamepad = false

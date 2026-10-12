@@ -13,6 +13,8 @@ var pending_levels: int = 0
 var shield: float = 0.0
 var dash_cooldown_left: float = 0.0
 var last_breaths_used: int = 0
+## Intensité du retour visuel de dégâts (vignette), décroît dans le HUD.
+var hurt_flash: float = 0.0
 ## Mode test : ne subit aucun dégât.
 var god_mode: bool = false
 var _iframes: float = 0.0
@@ -139,6 +141,7 @@ func _update_weapon(delta: float) -> void:
 		_bolt_timer = 0.0
 		return
 	_bolt_timer = bolt.cooldown
+	Audio.play_sfx(&"bolt_fire")
 	var count: int = maxi(stats.get_int(StatKeys.PROJECTILE_COUNT), 1)
 	var base_dir: Vector2 = (target.global_position - global_position).normalized()
 	var spread: float = deg_to_rad(10.0)
@@ -165,6 +168,7 @@ func receive_damage(amount: float) -> void:
 		rest -= absorbed
 	hp -= rest
 	_iframes = ctx.balance.hurt_iframes
+	hurt_flash = 1.0
 	visual.flash()
 	if hp <= 0.0:
 		if last_breaths_used < stats.get_int(StatKeys.LAST_BREATH):

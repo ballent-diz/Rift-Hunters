@@ -120,6 +120,7 @@ func _collect(item: Dictionary) -> void:
 	match item["kind"]:
 		Kind.XP:
 			ctx.player.gain_xp(float(item["value"]))
+			Audio.play_sfx(&"xp_pickup")
 		Kind.HEAL:
 			ctx.player.heal(float(item["value"]))
 		Kind.CHEST:

@@ -30,6 +30,9 @@ func _ready() -> void:
 			suite.before_each()
 			await suite.call(method_name)
 			suite.after_each()
+			# Laisse le moteur libérer les scènes créées par le test (queue_free) avant le suivant.
+			await get_tree().process_frame
+			await get_tree().process_frame
 			if suite.failures.size() > before:
 				failed += 1
 				print("  ✗ ", suite.current_test)

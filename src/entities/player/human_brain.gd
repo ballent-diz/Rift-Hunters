@@ -22,4 +22,11 @@ func focus_requested() -> bool:
 
 
 func aim_point() -> Vector2:
-	return ctx.player.get_global_mouse_position()
+	if not Settings.using_gamepad:
+		return ctx.player.get_global_mouse_position()
+	var stick := Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+	var origin: Vector2 = ctx.player.global_position
+	if stick.length() > 0.3:
+		return origin + stick.normalized() * 260.0
+	var target: Enemy = ctx.enemies.find_nearest(origin, 450.0)
+	return target.global_position if target else origin + ctx.player.facing * 200.0

@@ -85,6 +85,7 @@ func step(delta: float) -> void:
 		var pattern: BossPatternData = _choose_pattern(to_player.length())
 		if pattern:
 			_ready_at[pattern.kind] = ctx.time + pattern.cooldown
+			Audio.play_sfx(&"boss_telegraph")
 			call("_pattern_" + String(pattern.kind), pattern)
 			ctx.stats.add(&"boss_patterns")
 		_next_pattern_time = ctx.time + phase().pattern_interval * (0.7 if enraged else 1.0)
@@ -206,6 +207,7 @@ func _release_absorbed() -> void:
 		ctx.projectiles.spawn_hostile(boss.position + dir * boss.radius, dir, 170.0, damage, data.id, 9.0, 6.0)
 	ctx.stats.set_max(&"boss_absorbed_max", float(boss.absorbed_count))
 	heart_time = 3.0
+	Audio.play_sfx(&"heart_exposed")
 	ctx.fx.text(boss.position + Vector2(0, -boss.radius - 20.0), tr("BOSS_HEART_EXPOSED"), Color(1.0, 0.8, 1.0))
 	ctx.fx.burst(boss.position, boss.radius * 0.6, Color(1.0, 0.6, 1.0, 0.5))
 

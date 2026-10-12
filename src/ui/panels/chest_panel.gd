@@ -46,6 +46,8 @@ func open(free_choice: bool = false) -> void:
 		var relic: RelicData = _relics[i]
 		_cards.add_child(UiKit.card(tr("RELIC_RARITY_%d" % relic.rarity), tr(relic.name_key), tr(relic.desc_key),
 			relic.color, _take.bind(i)))
+	if _cards.get_child_count() > 0:
+		(_cards.get_child(0) as Control).grab_focus.call_deferred()
 	UiKit.clear(_footer)
 	if not free_choice or _relics.is_empty():
 		var shards: int = ctx.balance.chest_break_shards

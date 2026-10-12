@@ -41,12 +41,19 @@ func close() -> void:
 func _build() -> void:
 	UiKit.clear(_box)
 	_box.add_child(UiKit.label(tr("PAUSE_TITLE"), 36, UiKit.ACCENT, HORIZONTAL_ALIGNMENT_CENTER))
-	_box.add_child(UiKit.button(tr("PAUSE_RESUME"), close, 320))
+	var resume: Button = UiKit.button(tr("PAUSE_RESUME"), close, 320)
+	_box.add_child(resume)
+	resume.grab_focus.call_deferred()
 	_box.add_child(UiKit.button(tr("OPTIONS_LANGUAGE") % tr("LANGUAGE_NAME"), _toggle_language, 320))
 	var numbers: String = tr("OPTIONS_ON") if Settings.damage_numbers else tr("OPTIONS_OFF")
 	_box.add_child(UiKit.button(tr("OPTIONS_DAMAGE_NUMBERS") % numbers, _toggle_numbers, 320))
 	var shake: String = tr("OPTIONS_ON") if Settings.screen_shake else tr("OPTIONS_OFF")
 	_box.add_child(UiKit.button(tr("OPTIONS_SCREEN_SHAKE") % shake, _toggle_shake, 320))
+	var flashes: String = tr("OPTIONS_ON") if Settings.reduce_flashes else tr("OPTIONS_OFF")
+	_box.add_child(UiKit.button(tr("OPTIONS_REDUCE_FLASHES") % flashes, func() -> void:
+		Settings.reduce_flashes = not Settings.reduce_flashes
+		Settings.save_settings()
+		_build(), 320))
 	_box.add_child(UiKit.button(tr("PAUSE_ABANDON"), func() -> void:
 		close()
 		abandon_requested.emit(), 320))

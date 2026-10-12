@@ -22,6 +22,7 @@ var _pending_chests: int = 0
 var _victory_timer: float = -1.0
 var _shake: float = 0.0
 var _modal_open: bool = false
+var _hitstop: float = 0.0
 
 
 func _ready() -> void:
@@ -68,6 +69,8 @@ func start(setup: RunSetup) -> void:
 		Audio.play_sfx(&"boss_roar")
 		_shake = 0.6)
 	ctx.events.boss_phase_changed.connect(func(_phase: int) -> void:
+		hitstop(0.25)
+		_shake = 0.6
 		Audio.play_context("boss_phase2")
 		Audio.play_sfx(&"boss_roar"))
 	ctx.events.synergy_proc.connect(func(_id: StringName) -> void: ctx.stats.add(&"synergy_procs"))
@@ -198,8 +201,19 @@ func _build_ui() -> void:
 	results_panel.replay_requested.connect(func() -> void: Router.start_run(Profile.make_run_setup(ctx.setup.starter_id, ctx.setup)))
 
 
+## Gel très bref de la simulation pour souligner un impact (élite, boss). L'affichage continue.
+func hitstop(duration: float) -> void:
+	if not ctx.setup.autopilot:
+		_hitstop = maxf(_hitstop, duration)
+
+
 func _physics_process(delta: float) -> void:
 	if ctx == null or ctx.finished:
+		return
+	if _hitstop > 0.0:
+		_hitstop -= delta
+		ctx.fx.step(delta * 0.2)
+		_update_camera(delta)
 		return
 	ctx.time += delta
 	spawner.step(delta)

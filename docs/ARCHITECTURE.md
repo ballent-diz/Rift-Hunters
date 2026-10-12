@@ -53,8 +53,10 @@ docs/          GDD, architecture, pipeline d'assets, fiches concept
 - **Services purs testables.** La progression (récompenses de fin de partie, arbre,
   objectifs, maîtrise, migrations de sauvegarde) est faite de classes sans nœud, testées
   directement.
-- **Autoloads minimaux** : `GameDB` (données), `Settings` (options), `Profile`
-  (progression + sauvegarde), `Router` (navigation), `Assets` (sprites/placeholders).
+- **Autoloads minimaux** : `GameDB` (données), `Audio` (musiques, sons, tempo), `Settings` (options),
+  `Profile` (progression + sauvegarde), `Assets` (sprites/placeholders), `Router` (navigation en fondu).
+- **Plateforme** : `PlatformServices` (classe statique) relaie les succès vers un backend optionnel
+  (Steam via GodotSteam). Sans backend, rien n'est envoyé : le jeu reste 100 % hors ligne.
   Pas d'état de partie global : tout l'état d'une partie vit dans `RunContext`.
 
 ## 4. Flux d'une partie
@@ -81,7 +83,13 @@ Router.start_run(RunSetup) → scenes/run.tscn (RunController)
 - Migrations : `SaveMigrations` enchaîne `v1 → v2 → ...` (fonctions pures testées).
 - Les identifiants inconnus (contenu retiré) sont conservés, pas supprimés.
 
-## 6. Risques et décisions coûteuses à prendre tôt
+## 6. Garde-fous de robustesse (appris en phase 4)
+- La grille spatiale est reconstruite à la fin de la mise à jour des ennemis, après les retraits :
+  elle ne référence jamais un ennemi libéré. Les nouveaux ennemis y sont insérés dès leur apparition.
+- Les nettoyages déclenchés par la mort du boss (ennemis, zones hostiles) sont différés à la fin du pas.
+- Combat de boss : 90 ennemis maximum ; enragement après 3 minutes (une partie se termine toujours).
+
+## 7. Risques et décisions coûteuses à prendre tôt
 
 | # | Sujet | Décision / statut |
 |---|---|---|

@@ -32,7 +32,28 @@ func _build() -> void:
 	box.add_child(play)
 	box.add_child(UiKit.button(tr("OPTIONS_LANGUAGE") % tr("LANGUAGE_NAME"), func() -> void:
 		Settings.set_locale("en" if Settings.locale == "fr" else "fr"), 360))
+	box.add_child(UiKit.button(tr("MENU_CREDITS"), _show_credits, 360))
 	box.add_child(UiKit.button(tr("MENU_QUIT"), func() -> void: get_tree().quit(), 360))
 	box.add_child(UiKit.label("v" + str(ProjectSettings.get_setting("application/config/version")), 13, UiKit.MUTED,
 		HORIZONTAL_ALIGNMENT_CENTER))
 	play.grab_focus.call_deferred()
+
+
+## Crédits et licences (la licence de Godot doit accompagner toute distribution).
+func _show_credits() -> void:
+	var panel := PanelContainer.new()
+	panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+	panel.add_theme_stylebox_override("panel", UiKit.panel_box(UiKit.BORDER, Color(0.04, 0.045, 0.08, 0.98)))
+	add_child(panel)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 10)
+	panel.add_child(box)
+	box.add_child(UiKit.label(tr("MENU_CREDITS"), 32, UiKit.ACCENT))
+	var text := RichTextLabel.new()
+	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	text.add_theme_font_size_override("normal_font_size", 15)
+	text.text = tr("CREDITS_BODY") + "\n\n" + Engine.get_license_text()
+	box.add_child(text)
+	var back: Button = UiKit.button(tr("CREDITS_BACK"), func() -> void: panel.queue_free(), 260)
+	box.add_child(back)
+	back.grab_focus.call_deferred()

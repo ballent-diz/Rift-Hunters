@@ -372,7 +372,12 @@ func _separate(enemy: Enemy) -> void:
 func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 	_dirty_removal = true
 	var pos: Vector2 = enemy.position
-	ctx.fx.burst(pos, enemy.radius * 1.4, Color(0.75, 0.45, 1.0, 0.35))
+	var tint: Color = enemy.data.visual.primary.lightened(0.3) if enemy.data else Color(0.8, 0.5, 1.0)
+	ctx.fx.debris(pos, tint, 14 if (enemy.is_elite or enemy.is_boss) else 4)
+	if enemy.is_elite or enemy.is_boss:
+		ctx.fx.burst(pos, enemy.radius * 1.6, Color(0.75, 0.45, 1.0, 0.45))
+		ctx.root.hitstop(0.06 if enemy.is_elite else 0.35)
+	Audio.play_sfx(&"enemy_death")
 	if enemy.is_boss:
 		ctx.stats.add(&"bosses_killed")
 		ctx.stats.add(StringName("boss_%s_killed" % enemy.boss_data.id))

@@ -75,6 +75,7 @@ static func button(text: String, callback: Callable, min_width: float = 200.0) -
 	var b := Button.new()
 	b.text = text
 	b.custom_minimum_size = Vector2(min_width, 44)
+	b.pressed.connect(func() -> void: Audio.play_sfx(&"ui_click"))
 	b.pressed.connect(callback)
 	return b
 

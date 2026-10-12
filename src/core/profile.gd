@@ -134,6 +134,7 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 			setup.unlocked_upgrades.append(id)
 	for info: Variant in profile.data["unlocks"].get("info", []):
 		setup.info_unlocks.append(str(info))
+	setup.show_tutorial = not bool(profile.data["flags"].get("tutorial_done", false))
 	setup.meta_effects = SkillTree.effects_for(profile)
 	for id: StringName in unlocked:
 		var monster: MonsterData = GameDB.monster(id)

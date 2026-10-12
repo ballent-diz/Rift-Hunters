@@ -17,7 +17,7 @@ OPTIONS_SCREEN_SHAKE,Secousses de l'écran : %s,Screen shake: %s
 PAUSE_TITLE,Pause,Paused
 PAUSE_RESUME,Reprendre,Resume
 PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
-PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click
+PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit · Manette prise en charge,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click · Gamepad supported
 HUD_LEVEL,Niv. %d,Lv. %d
 HUD_DASH_READY,Ruée prête [Espace],Dash ready [Space]
 HUD_DASH_CD,Ruée : %.1fs,Dash: %.1fs
@@ -578,3 +578,25 @@ EXPEDITION_MODIFIERS,Pactes de risque,Risk Pacts
 EXPEDITION_MODIFIER_MIN,Disponible à partir de la Tension %d.,Available from Tension %d.
 EXPEDITION_MODIFIERS_BONUS,Bonus de récompenses : +%d %%,Reward bonus: +%d%%
 BOSS_ENRAGED,Le Dévoreur entre en rage !,The Devourer is enraged!
+TIP_MOVE,Déplacez-vous avec ZQSD/WASD ou les flèches (stick gauche à la manette).,Move with WASD or the arrow keys (left stick on a gamepad).
+TIP_AUTO_ATTACK,Votre Trait de Faille et vos Échos attaquent seuls : concentrez-vous sur le placement.,Your Rift Bolt and your Echoes attack on their own: focus on positioning.
+TIP_TECHNIQUES,"Touches 1, 2, 3 : déclenchez la Technique de chaque Écho (elle vise le curseur).","Keys 1, 2, 3: trigger each Echo's Technique (it aims at the cursor)."
+TIP_FOCUS,Clic droit : ordonnez à vos Échos de cibler une zone pendant 5 s.,Right click: order your Echoes to target an area for 5 s.
+TIP_DASH,Espace : Ruée invulnérable. Traversez les attaques télégraphiées en rose.,Space: invulnerable Dash. Pass through pink telegraphed attacks.
+TIP_CHESTS,"Les élites lâchent des coffres : relique ou Éclats, à vous de choisir.","Elites drop chests: relic or Shards, your choice."
+TIP_BOSS,"Le Dévoreur arrive vers 7 min. Combinez Fracture, Marques et synergies pour le vaincre.","The Devourer arrives around 7 min. Combine Fracture, Marks and synergies to defeat it."
+OPTIONS_REDUCE_FLASHES,Réduire les flashs : %s,Reduce flashes: %s
+OPTIONS_VSYNC,Synchronisation verticale,Vertical sync
+OPTIONS_SHOW_FPS,Afficher les images par seconde,Show frames per second
+OPTIONS_CONTROLS,Manette : stick gauche déplacement · A/RB Ruée · X/Y/B Techniques · LB focus · Start pause · stick droit visée,Gamepad: left stick move · A/RB Dash · X/Y/B Techniques · LB focus · Start pause · right stick aim
+MENU_CREDITS,Crédits,Credits
+CREDITS_BACK,Retour,Back
+CREDITS_BODY,"Rift Hunters — un jeu original.
+Conception et direction : le propriétaire du projet.
+Programmation, game design et outils : développé avec Claude Code.
+Moteur : Godot Engine (licence MIT).
+Musiques et effets sonores : à créditer lors de leur intégration.","Rift Hunters — an original game.
+Design and direction: the project owner.
+Programming, game design and tools: developed with Claude Code.
+Engine: Godot Engine (MIT license).
+Music and sound effects: to be credited when integrated."

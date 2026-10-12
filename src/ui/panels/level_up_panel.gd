@@ -48,6 +48,8 @@ func _refresh() -> void:
 		var offer: UpgradeOffer = _offers[i]
 		var accent: Color = UiKit.DANGER if _banish_mode else offer.color()
 		_cards.add_child(UiKit.card(offer.category(), offer.title(), offer.description(), accent, _choose.bind(i)))
+	if _cards.get_child_count() > 0:
+		(_cards.get_child(0) as Control).grab_focus.call_deferred()
 	UiKit.clear(_footer)
 	var rerolls_left: int = ctx.player.stats.get_int(StatKeys.REROLLS) - ctx.build.rerolls_used
 	var banishes_left: int = ctx.player.stats.get_int(StatKeys.BANISHES) - ctx.build.banishes_used

@@ -6,6 +6,18 @@ extends Node
 signal beat(index: int)
 
 const MANIFEST_PATH := "res://assets/audio/audio_manifest.json"
+## Dossiers scannés automatiquement : chaque fichier audio déposé est joué dans le contexte du dossier.
+## Le BPM peut être indiqué dans le nom du fichier (ex. « assaut_165bpm.mp3 »).
+const MUSIC_FOLDERS := {
+	"res://assets/audio/music/menu": ["menu", "refuge"],
+	"res://assets/audio/music/refuge": ["refuge"],
+	"res://assets/audio/music/run": ["run"],
+	"res://assets/audio/music/boss": ["boss", "boss_phase2"],
+	"res://assets/audio/music/boss_phase2": ["boss_phase2"],
+	"res://assets/audio/music/victory": ["victory"],
+	"res://assets/audio/music/defeat": ["defeat"],
+}
+const AUDIO_EXTENSIONS: Array[String] = ["mp3", "ogg", "wav"]
 const FADE_TIME := 1.2
 const SFX_VOICES := 16
 
@@ -23,6 +35,7 @@ var _sfx_last_time: Dictionary = {}
 var _stream_cache: Dictionary = {}
 var _last_beat: int = -1
 var _rng := RandomNumberGenerator.new()
+var _available_sfx: Dictionary = {}
 
 
 func _ready() -> void:
@@ -50,6 +63,37 @@ func load_manifest() -> void:
 	if data is Dictionary:
 		music_tracks = data.get("music", {})
 		sfx_events = data.get("sfx", {})
+	music_tracks.merge(scan_music_folders(), false)
+	_available_sfx.clear()
+	for event_id: String in sfx_events:
+		var files: Array = (sfx_events[event_id] as Dictionary).get("files", [])
+		var present: Array = files.filter(func(p: Variant) -> bool: return ResourceLoader.exists(str(p)))
+		if not present.is_empty():
+			_available_sfx[StringName(event_id)] = present
+
+
+## Découvre les musiques déposées dans les dossiers de MUSIC_FOLDERS (gère les fichiers importés des exports).
+static func scan_music_folders() -> Dictionary:
+	var found: Dictionary = {}
+	var bpm_regex := RegEx.create_from_string("(\\d{2,3})\\s*bpm")
+	for folder: String in MUSIC_FOLDERS:
+		var dir := DirAccess.open(folder)
+		if dir == null:
+			continue
+		var files: PackedStringArray = dir.get_files()
+		files.sort()
+		for file_name: String in files:
+			var clean: String = file_name.trim_suffix(".remap").trim_suffix(".import")
+			if not AUDIO_EXTENSIONS.has(clean.get_extension().to_lower()):
+				continue
+			var path: String = folder.path_join(clean)
+			var id: String = folder.get_file() + "/" + clean.get_basename()
+			if found.has(id):
+				continue
+			var bpm_match: RegExMatch = bpm_regex.search(clean.to_lower())
+			found[id] = {"path": path, "bpm": int(bpm_match.get_string(1)) if bpm_match else 0,
+				"contexts": MUSIC_FOLDERS[folder], "loop": not (folder.ends_with("victory") or folder.ends_with("defeat"))}
+	return found
 
 
 static func _ensure_bus(bus_name: String) -> void:
@@ -134,17 +178,14 @@ func _load_stream(path: String, loop: bool) -> AudioStream:
 
 ## Joue l'effet associé à un événement (s'il existe), avec variation de hauteur et limitation de fréquence.
 func play_sfx(event_id: StringName, volume_offset_db: float = 0.0) -> void:
-	var event: Dictionary = sfx_events.get(String(event_id), {})
-	if event.is_empty():
+	if not _available_sfx.has(event_id):
 		return
+	var event: Dictionary = sfx_events.get(String(event_id), {})
 	var now: float = Time.get_ticks_msec() / 1000.0
 	var min_gap: float = float(event.get("min_interval", 0.05))
 	if now - float(_sfx_last_time.get(event_id, -10.0)) < min_gap:
 		return
-	var paths: Array = event.get("files", [])
-	var available: Array = paths.filter(func(p: Variant) -> bool: return ResourceLoader.exists(str(p)))
-	if available.is_empty():
-		return
+	var available: Array = _available_sfx[event_id]
 	_sfx_last_time[event_id] = now
 	var stream: AudioStream = _load_stream(str(available[_rng.randi() % available.size()]), false)
 	var voice: AudioStreamPlayer = _sfx_players[_sfx_next]

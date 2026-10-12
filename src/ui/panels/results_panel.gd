@@ -35,7 +35,9 @@ func show_result(result: Dictionary, rewards: Dictionary) -> void:
 	var buttons := HBoxContainer.new()
 	buttons.alignment = BoxContainer.ALIGNMENT_CENTER
 	buttons.add_theme_constant_override("separation", 16)
-	buttons.add_child(UiKit.button(tr("RESULT_REFUGE"), func() -> void: refuge_requested.emit(), 240))
+	var refuge: Button = UiKit.button(tr("RESULT_REFUGE"), func() -> void: refuge_requested.emit(), 240)
+	buttons.add_child(refuge)
+	refuge.grab_focus.call_deferred()
 	buttons.add_child(UiKit.button(tr("RESULT_REPLAY"), func() -> void: replay_requested.emit(), 240))
 	_box.add_child(buttons)
 

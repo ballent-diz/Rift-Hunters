@@ -26,6 +26,7 @@ static func default_data() -> Dictionary:
 		"records": {"best_time": 0.0, "best_level": 0, "best_kills": 0, "highest_tension_won": -1},
 		"runs": {"played": 0, "won": 0},
 		"preferences": {"starter": "mossback", "arena": "fractured_plain", "difficulty": "tension_0"},
+		"flags": {},
 	}
 
 

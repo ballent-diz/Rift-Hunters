@@ -46,6 +46,7 @@ static func evaluate(profile: ProfileData, result: Dictionary) -> PackedStringAr
 				best[String(id)] = maxf(float(best.get(String(id), 0.0)), value_for(profile, objective, counters))
 		if is_met(profile, objective, result):
 			(profile.data["objectives"]["completed"] as Array).append(String(id))
+			PlatformServices.unlock_achievement(String(id))
 			lines.append(TranslationServer.translate("REPORT_OBJECTIVE") % TranslationServer.translate(objective.name_key))
 			lines.append_array(grant(profile, objective.reward_shards, objective.reward_essence, objective.reward_unlocks))
 	return lines

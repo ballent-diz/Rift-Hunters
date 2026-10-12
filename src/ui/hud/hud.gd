@@ -2,11 +2,19 @@ class_name Hud
 extends Control
 ## Interface de combat dessinée en un passage : PV, XP, temps, équipe et Techniques, synergies, boss, bannières.
 
+## Conseils de première partie : [instant (s), clé de traduction].
+const TUTORIAL_TIPS := [[2.0, "TIP_MOVE"], [9.0, "TIP_AUTO_ATTACK"], [18.0, "TIP_TECHNIQUES"], [32.0, "TIP_FOCUS"],
+	[48.0, "TIP_DASH"], [70.0, "TIP_CHESTS"], [100.0, "TIP_BOSS"]]
+
 var ctx: RunContext
 var _font: Font
 var _banner_text: String = ""
 var _banner_time: float = 0.0
 var _icons: Dictionary = {}
+var _beat: float = 0.0
+var _tips: Array = []
+var _tip_text: String = ""
+var _tip_time: float = 0.0
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -20,6 +28,9 @@ func setup(p_ctx: RunContext) -> void:
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
 		banner(tr("HUD_BOSS_ARRIVES") % boss.display_name()))
 	ctx.events.boss_phase_changed.connect(func(_phase: int) -> void: banner(tr("HUD_BOSS_PHASE2")))
+	Audio.beat.connect(func(_index: int) -> void: _beat = 1.0)
+	if ctx.setup.show_tutorial:
+		_tips = TUTORIAL_TIPS.duplicate()
 	ctx.events.evolution_taken.connect(func(_id: StringName, evo_id: StringName) -> void:
 		for monster: MonsterData in GameDB.monsters.values():
 			for evo: EvolutionData in monster.evolutions:
@@ -34,6 +45,14 @@ func banner(text: String) -> void:
 
 func _process(delta: float) -> void:
 	_banner_time = maxf(_banner_time - delta, 0.0)
+	_beat = maxf(_beat - delta * 4.0, 0.0)
+	_tip_time = maxf(_tip_time - delta, 0.0)
+	if ctx and not _tips.is_empty() and ctx.time >= float(_tips[0][0]):
+		_tip_text = tr(str(_tips[0][1]))
+		_tip_time = 7.0
+		_tips.pop_front()
+	if ctx and ctx.player:
+		ctx.player.hurt_flash = maxf(ctx.player.hurt_flash - delta * 3.0, 0.0)
 	queue_redraw()
 
 
@@ -55,8 +74,10 @@ func _draw() -> void:
 	var w: float = size.x
 	var h: float = size.y
 	var player: Player = ctx.player
-	# Barre d'XP (haut) + niveau
-	_bar(Rect2(0, 0, w, 10), player.xp_ratio(), Color(0.35, 0.85, 1.0))
+	_draw_vignette(w, h, player)
+	# Barre d'XP (haut, pulse sur le tempo de la musique) + niveau
+	var pulse: float = 0.0 if Settings.reduce_flashes else _beat
+	_bar(Rect2(0, 0, w, 10 + 3.0 * pulse), player.xp_ratio(), Color(0.35, 0.85, 1.0).lightened(0.3 * pulse))
 	_text(Vector2(16, 40), tr("HUD_LEVEL") % player.level, 22, UiKit.ACCENT)
 	# PV + bouclier
 	var hp_rect := Rect2(16, 52, 260, 18)
@@ -89,6 +110,32 @@ func _draw() -> void:
 	if _banner_time > 0.0:
 		var alpha: float = clampf(_banner_time, 0.0, 1.0)
 		_text(Vector2(0, h * 0.28), _banner_text, 30, Color(1.0, 0.92, 0.6, alpha), HORIZONTAL_ALIGNMENT_CENTER, w)
+	if _tip_time > 0.0:
+		var tip_alpha: float = clampf(_tip_time, 0.0, 1.0)
+		draw_rect(Rect2(w * 0.2, h - 172, w * 0.6, 34), Color(0.05, 0.06, 0.1, 0.75 * tip_alpha))
+		_text(Vector2(0, h - 148), _tip_text, 17, Color(0.85, 0.95, 1.0, tip_alpha), HORIZONTAL_ALIGNMENT_CENTER, w)
+	if Settings.show_fps:
+		_text(Vector2(w - 120, h - 12), "%d FPS" % Engine.get_frames_per_second(), 14, UiKit.MUTED)
+
+
+## Vignette : rouge bref quand le Chasseur est touché, pulsation lente sous 30 % de PV.
+func _draw_vignette(w: float, h: float, player: Player) -> void:
+	var intensity: float = player.hurt_flash * (0.25 if Settings.reduce_flashes else 0.55)
+	var ratio: float = player.hp / maxf(player.max_hp, 1.0)
+	if ratio < 0.3 and player.alive:
+		var wave: float = 0.5 if Settings.reduce_flashes else 0.5 + 0.5 * sin(ctx.time * 5.0)
+		intensity = maxf(intensity, (0.3 - ratio) / 0.3 * 0.35 * wave + 0.08)
+	if intensity <= 0.01:
+		return
+	var color := Color(0.9, 0.05, 0.15, intensity)
+	var thickness: float = 60.0
+	for i: int in 6:
+		var t: float = thickness * (1.0 - i / 6.0)
+		var c := Color(color, color.a * (i + 1) / 6.0 * 0.5)
+		draw_rect(Rect2(0, 0, w, t), c)
+		draw_rect(Rect2(0, h - t, w, t), c)
+		draw_rect(Rect2(0, 0, t, h), c)
+		draw_rect(Rect2(w - t, 0, t, h), c)
 
 
 func _draw_team(w: float, h: float) -> void:
