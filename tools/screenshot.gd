@@ -15,6 +15,7 @@ func _ready() -> void:
 	setup.run_seed = 1
 	var boss_at: float = -1.0
 	var menu: String = ""
+	var tab: int = 0
 	for arg: String in OS.get_cmdline_user_args():
 		var parts: PackedStringArray = arg.trim_prefix("--").split("=")
 		match parts[0]:
@@ -34,10 +35,35 @@ func _ready() -> void:
 				menu = parts[1] if parts.size() > 1 else "main"
 			"locale":
 				Settings.set_locale(parts[1])
+			"tab":
+				tab = int(parts[1])
 	DirAccess.make_dir_recursive_absolute(_out)
 	if menu != "":
-		var scene: PackedScene = load(Router.REFUGE if menu == "refuge" else Router.MAIN_MENU)
-		add_child(scene.instantiate())
+		if menu in ["pause", "levelup", "chest", "results"]:
+			setup.autopilot = false
+			_run = load(Router.RUN).instantiate()
+			_run.skip_profile = true
+			_run.start(setup)
+			add_child(_run)
+			await get_tree().create_timer(0.2).timeout
+			_run.level_up_panel.visible = false
+			_run.chest_panel.visible = false
+			match menu:
+				"pause": _run.pause_panel.open()
+				"levelup": _run.level_up_panel.open()
+				"chest": _run.chest_panel.open()
+				"results":
+					_run.results_panel.show_result({"victory": true, "time": 900, "level": 30, "kills": 1200},
+						{"shards": 240, "essence": 80})
+					get_tree().paused = true
+		else:
+			var scene: PackedScene = load(Router.REFUGE if menu == "refuge" else Router.MAIN_MENU)
+			var screen: Control = scene.instantiate()
+			add_child(screen)
+			if screen is Refuge:
+				screen.tabs.current_tab = clampi(tab, 0, screen.tabs.get_tab_count() - 1)
+			elif menu == "credits":
+				screen._show_credits()
 		await get_tree().create_timer(0.5).timeout
 		await RenderingServer.frame_post_draw
 		_save("menu_" + menu)

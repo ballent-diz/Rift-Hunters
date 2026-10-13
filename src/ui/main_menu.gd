@@ -126,7 +126,8 @@ func _add_warning() -> void:
 func _show_credits() -> void:
 	var panel := PanelContainer.new()
 	panel.set_anchors_preset(Control.PRESET_FULL_RECT)
-	panel.add_theme_stylebox_override("panel", UiKit.panel_box(UiKit.BORDER, Color(0.04, 0.045, 0.08, 0.98)))
+	panel.theme = MenuSkin.theme()
+	panel.add_theme_stylebox_override("panel", MenuSkin.frame())
 	add_child(panel)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 10)

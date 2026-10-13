@@ -18,7 +18,7 @@ func setup(p_ctx: RunContext) -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	add_child(UiKit.dimmer())
-	var box: VBoxContainer = UiKit.center_box(self, 18)
+	var box: VBoxContainer = MenuSkin.modal_box(self, 18)
 	_title = UiKit.label("", 34, UiKit.ACCENT, HORIZONTAL_ALIGNMENT_CENTER)
 	box.add_child(_title)
 	_cards = HBoxContainer.new()
@@ -47,7 +47,16 @@ func _refresh() -> void:
 	for i: int in _offers.size():
 		var offer: UpgradeOffer = _offers[i]
 		var accent: Color = UiKit.DANGER if _banish_mode else offer.color()
-		_cards.add_child(UiKit.card(offer.category(), offer.title(), offer.description(), accent, _choose.bind(i)))
+		var card: Button = UiKit.card(offer.category(), offer.title(), offer.description(), accent, _choose.bind(i))
+		_cards.add_child(card)
+		if offer.monster_id != &"":
+			var evolution: EvolutionData = offer.evolution
+			var ally: Ally = ctx.allies.get_ally(offer.monster_id)
+			if evolution == null and ally:
+				evolution = ally.evolution
+			EchoPortrait.add_to_card(card, GameDB.monster(offer.monster_id),
+				ctx.setup.palettes.get(offer.monster_id, []), evolution)
+	MenuSkin.finish(_cards)
 	if _cards.get_child_count() > 0:
 		(_cards.get_child(0) as Control).grab_focus.call_deferred()
 	UiKit.clear(_footer)

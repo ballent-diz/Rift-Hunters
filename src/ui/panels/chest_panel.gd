@@ -19,7 +19,7 @@ func setup(p_ctx: RunContext) -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	add_child(UiKit.dimmer())
-	var box: VBoxContainer = UiKit.center_box(self, 16)
+	var box: VBoxContainer = MenuSkin.modal_box(self, 16)
 	_title = UiKit.label("", 34, UiKit.GOLD, HORIZONTAL_ALIGNMENT_CENTER)
 	box.add_child(_title)
 	_subtitle = UiKit.label("", 16, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
@@ -46,6 +46,7 @@ func open(free_choice: bool = false) -> void:
 		var relic: RelicData = _relics[i]
 		_cards.add_child(UiKit.card(tr("RELIC_RARITY_%d" % relic.rarity), tr(relic.name_key), tr(relic.desc_key),
 			relic.color, _take.bind(i)))
+	MenuSkin.finish(_cards)
 	if _cards.get_child_count() > 0:
 		(_cards.get_child(0) as Control).grab_focus.call_deferred()
 	UiKit.clear(_footer)

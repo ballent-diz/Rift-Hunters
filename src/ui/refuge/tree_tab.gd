@@ -28,13 +28,15 @@ func refresh() -> void:
 	var respec: Button = UiKit.button(tr("TREE_RESPEC") % SkillTree.respec_cost(p), _respec, 300)
 	respec.disabled = SkillTree.spent_shards(p) == 0 or not p.can_afford("essence", SkillTree.respec_cost(p))
 	top.add_child(respec)
-	var columns := HBoxContainer.new()
-	columns.add_theme_constant_override("separation", 10)
+	var columns := HFlowContainer.new()
+	columns.add_theme_constant_override("h_separation", 10)
+	columns.add_theme_constant_override("v_separation", 18)
 	box.add_child(columns)
 	var branches: Array = GameDB.skill_branches.values()
 	branches.sort_custom(func(a: SkillBranchData, b: SkillBranchData) -> bool: return a.order < b.order)
 	for branch: SkillBranchData in branches:
 		var col := VBoxContainer.new()
+		col.custom_minimum_size.x = 205
 		col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		col.add_theme_constant_override("separation", 6)
 		columns.add_child(col)

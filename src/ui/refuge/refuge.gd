@@ -19,24 +19,24 @@ var _tab_nodes: Array[RefugeTab] = []
 
 
 func _ready() -> void:
-	theme = UiKit.theme()
+	theme = MenuSkin.theme()
 	set_anchors_preset(Control.PRESET_FULL_RECT)
-	var bg := ColorRect.new()
-	bg.color = Color(0.045, 0.05, 0.085)
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
-	add_child(bg)
+	MenuSkin.background(self)
 	var margin := MarginContainer.new()
 	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
 	for side: String in ["left", "right", "top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, 18)
+		margin.add_theme_constant_override("margin_" + side, 28)
 	add_child(margin)
 	var root := VBoxContainer.new()
-	root.add_theme_constant_override("separation", 10)
+	root.add_theme_constant_override("separation", 18)
 	margin.add_child(root)
 	var header := HBoxContainer.new()
 	header.add_theme_constant_override("separation", 24)
-	root.add_child(header)
-	header.add_child(UiKit.label(tr("REFUGE_TITLE"), 32, UiKit.ACCENT))
+	var banner := PanelContainer.new()
+	banner.add_theme_stylebox_override("panel", MenuSkin.frame(Color(0.045, 0.025, 0.08, 0.92), MenuSkin.LANTERN))
+	root.add_child(banner)
+	banner.add_child(header)
+	header.add_child(UiKit.label(tr("REFUGE_TITLE"), 32, MenuSkin.PAPER))
 	_currencies = UiKit.label("", 20, UiKit.GOLD)
 	_currencies.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_currencies.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -72,6 +72,7 @@ func refresh_all() -> void:
 func refresh_current() -> void:
 	if tabs.current_tab >= 0 and tabs.current_tab < _tab_nodes.size():
 		_tab_nodes[tabs.current_tab].refresh()
+		MenuSkin.finish(_tab_nodes[tabs.current_tab])
 
 
 ## Sauvegarde puis rafraîchit (après un achat, un réglage...).
