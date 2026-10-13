@@ -4,7 +4,7 @@ de la recette), en déduit une carte de distance et écrit l'entrée « environm
 
 Usage : python3 tools/art/build_map.py fractured_plain_map
 Recette : tools/art/maps/<id>.py (SPEC). Nécessite numpy, Pillow et scipy.
-Sorties : assets/environments/<id>/map.png, field.png (distance signée au bord infranchissable, FIELD_STEP unités
+Sorties : assets/environments/<id>/map.png (sauf si la recette fournit une image agrandie, « display »), field.png (distance signée au bord infranchissable, FIELD_STEP unités
 par niveau, 128 = bord, > 128 praticable) et un aperçu des zones dans assets/concepts/previews/.
 """
 import importlib
@@ -43,7 +43,7 @@ def walkable_mask(spec, src):
     hue, sat, light = hue_sat_light(small)
     lo, hi = spec["walk_hue"]
     walk = (hue > lo) & (hue < hi) & (light > spec["walk_light"][0]) & (light < spec["walk_light"][1]) & (sat > spec["walk_sat"])
-    walk = np.array(Image.fromarray((walk * 255).astype(np.uint8)).filter(ImageFilter.MedianFilter(5))) > 128
+    walk = np.array(Image.fromarray((walk * 255).astype(np.uint8)).filter(ImageFilter.MedianFilter(spec.get("median", 5)))) > 128
     # Retouches (coordonnées en pixels de la map d'origine) : zones rendues praticables ou bloquées.
     k = res / src.width
     for kind, shapes in (("walk", spec.get("walk_shapes", [])), ("block", spec.get("block_shapes", []))):
@@ -83,28 +83,42 @@ def build(spec):
     outside = ndimage.distance_transform_edt(~walk) * unit
     signed = np.where(walk, inside, -outside)
     field = np.clip(np.round(signed / FIELD_STEP) + 128, 0, 255).astype(np.uint8)
+    # Départ du joueur : point dégagé (≥ start_clearance du bord bloqué) le plus proche du centre, en unités du monde.
+    yy, xx = np.mgrid[0:res, 0:res]
+    score = np.where(signed >= spec.get("start_clearance", 90.0), -np.hypot(yy - res / 2, xx - res / 2), -np.inf)
+    sy, sx = np.unravel_index(int(score.argmax()), score.shape)
+    start = [round((sx + 0.5) * unit - world / 2), round((sy + 0.5) * unit - world / 2)]
     os.makedirs(os.path.join(REPO, base), exist_ok=True)
-    src.save(os.path.join(REPO, base, "map.png"), optimize=True)
+    # Image affichée : la version agrandie fournie par la recette (déjà dans le dossier du décor), sinon la source.
+    if spec.get("display"):
+        map_rel = spec["display"]
+        display = Image.open(os.path.join(REPO, map_rel))
+    else:
+        map_rel = base + "map.png"
+        display = src
+        src.save(os.path.join(REPO, map_rel), optimize=True)
     Image.fromarray(field, "L").save(os.path.join(REPO, base, "field.png"))
     overlay = src.convert("RGBA")
     red = Image.new("RGBA", src.size, (255, 0, 0, 110))
     mask = Image.fromarray(((~walk) * 255).astype(np.uint8)).resize(src.size, Image.NEAREST)
-    overlay.paste(red, (0, 0), mask)
+    overlay = Image.composite(Image.alpha_composite(overlay, red), overlay, mask)
     os.makedirs(PREVIEWS, exist_ok=True)
     overlay.save(os.path.join(PREVIEWS, f"environment_{env_id}_zones.png"))
     print(f"profondeur max : {outside.max():.0f} (portée {127 * FIELD_STEP:.0f})")
-    print(f"praticable : {walk.mean() * 100:.0f} % ; centre praticable : {bool(walk[res // 2, res // 2])}")
+    print(f"praticable : {walk.mean() * 100:.0f} % ; départ : {start} (dégagé sur {signed[sy, sx]:.0f})")
     return {
         "status": "wip",
         "generated_by": "tools/art/build_map.py",
         "source": spec["source"],
         "kind": "map",
-        "scale": world / src.width,
-        "map": "res://" + base + "map.png",
+        "scale": world / display.width,
+        "filter": "linear" if spec.get("display") else "nearest",
+        "map": "res://" + map_rel,
         "field": "res://" + base + "field.png",
         "field_unit": unit,
         "field_step": FIELD_STEP,
         "arena_size": world,
+        "start": start,
         "ambient": spec["ambient"],
         "outside_tint": spec.get("outside_tint", "#00000000"),
         "decals": [],

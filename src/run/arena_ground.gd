@@ -25,6 +25,8 @@ func setup(p_arena: ArenaData, p_seed: int) -> void:
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	environment = Assets.environment(arena.environment_id)
 	if environment != null:
+		if environment.smooth:
+			texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 		if not environment.is_map():
 			placements = DecorLayout.generate(environment, arena_rect(), seed_value, arena.decor_density)
 			_build_chunks()
@@ -41,6 +43,11 @@ func obstacle_field() -> ObstacleField:
 		for c: Vector3 in item.get("colliders", []):
 			field.add(Vector2(c.x, c.y), c.z)
 	return field
+
+
+## Point de départ du joueur : dégagé sur une map dessinée, sinon le centre de l'arène.
+func player_start() -> Vector2:
+	return environment.start if environment != null and environment.is_map() else Vector2.ZERO
 
 
 func uses_placeholder() -> bool:

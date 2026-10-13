@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxmsifa20pnm2"
-path="res://.godot/imported/map.png-e428c4b7ac7cb14c3948caa689a5ecf6.ctex"
+uid="uid://w25xcknl14b1"
+path="res://.godot/imported/attack.png-5a103e8d832a1bf7b9d5f3699cd31c1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/fractured_plain_map/map.png"
-dest_files=["res://.godot/imported/map.png-e428c4b7ac7cb14c3948caa689a5ecf6.ctex"]
+source_file="res://assets/concepts/incoming/cracheur/attack.png"
+dest_files=["res://.godot/imported/attack.png-5a103e8d832a1bf7b9d5f3699cd31c1a.ctex"]
 
 [params]
 

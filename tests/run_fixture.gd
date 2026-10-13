@@ -2,7 +2,9 @@ class_name RunFixture
 extends RefCounted
 ## Crée une partie contrôlée pour les tests (pas de boucle automatique : on appelle step à la main).
 
-static func create(host: Node, starter: StringName = &"", run_seed: int = 7) -> RunController:
+## `decor` : garde les obstacles du décor (par défaut retirés : les tests de gameplay ne dépendent pas du dessin
+## de la map).
+static func create(host: Node, starter: StringName = &"", run_seed: int = 7, decor: bool = false) -> RunController:
 	var setup := RunSetup.new()
 	setup.starter_id = starter
 	setup.run_seed = run_seed
@@ -13,6 +15,8 @@ static func create(host: Node, starter: StringName = &"", run_seed: int = 7) -> 
 	run.start(setup)
 	host.add_child(run)
 	run.set_physics_process(false)
+	if not decor:
+		run.ctx.obstacles = ObstacleField.new()
 	return run
 
 

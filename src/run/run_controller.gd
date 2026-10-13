@@ -126,8 +126,9 @@ func _spawn_start_obstacles() -> void:
 			continue
 		for i: int in int(ctx.arena.start_obstacles[enemy_id]):
 			var pos := Vector2(ctx.rng.randf_range(rect.position.x, rect.end.x), ctx.rng.randf_range(rect.position.y, rect.end.y))
-			if pos.length() < 260.0:
-				pos = pos.normalized() * 260.0 if pos.length() > 1.0 else Vector2(260, 0)
+			var away: Vector2 = pos - ctx.player.global_position
+			if away.length() < 260.0:
+				pos = ctx.player.global_position + (away.normalized() * 260.0 if away.length() > 1.0 else Vector2(260, 0))
 			ctx.enemies.spawn(data, pos)
 
 
@@ -158,6 +159,7 @@ func _build_world() -> void:
 	ctx.world.add_child(ctx.player)
 	var brain: PlayerBrain = AutopilotBrain.new() if ctx.setup.autopilot else HumanBrain.new()
 	ctx.player.setup(ctx, brain)
+	ctx.player.global_position = ground.player_start()
 	ctx.projectiles = ProjectileManager.new()
 	ctx.projectiles.setup(ctx)
 	ctx.world.add_child(ctx.projectiles)

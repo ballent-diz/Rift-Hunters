@@ -19,6 +19,8 @@ job.json :
   "colors": 32,                             couleurs max de la palette commune (0 = pas de réduction)
   "outline": true,                          ajoute un contour sombre d'1 pixel
   "flip": false,                            true si les images regardent vers la gauche
+  "anchor_mode": "feet",                    "feet" (milieu des pixels les plus bas) ou "mass" (centre du corps : stable
+                                            d'une image à l'autre pour les créatures à pattes, évite le tremblement)
   "hover": 0,                               créatures volantes : pixels entre le bas du corps et l'ancre (ombre au sol)
   "animations": [
     {"name": "idle", "source": "idle.png", "frames": 6 (0 = détection automatique), "fps": 8, "loop": true,
@@ -216,20 +218,22 @@ def crop_alpha(frame: Image.Image) -> Image.Image:
     return frame.crop(bbox) if bbox else frame
 
 
-def feet_point(arr: np.ndarray) -> tuple:
-    """Point d'appui : centre des pixels opaques des 3 rangées les plus basses."""
+def feet_point(arr: np.ndarray, mode: str = "feet") -> tuple:
+    """Point d'appui : centre des pixels opaques des 3 rangées les plus basses (ou centre de masse en x)."""
     alpha = arr[:, :, 3] > 0
     rows = np.nonzero(alpha.any(axis=1))[0]
     bottom = rows.max()
+    if mode == "mass":
+        return float(np.nonzero(alpha)[1].mean()), float(bottom)
     xs = np.nonzero(alpha[max(bottom - 2, 0):bottom + 1].any(axis=0))[0]
     return float(xs.mean()), float(bottom)
 
 
-def place_in_cell(arr: np.ndarray, cell_size: tuple, anchor: tuple, hover: int = 0) -> np.ndarray:
+def place_in_cell(arr: np.ndarray, cell_size: tuple, anchor: tuple, hover: int = 0, mode: str = "feet") -> np.ndarray:
     """Pose la frame dans la cellule : le point d'appui sur l'ancre (relevé de `hover` pixels pour les volants)."""
     cw, ch = cell_size
     ax, ay = anchor
-    fx, fy = feet_point(arr)
+    fx, fy = feet_point(arr, mode)
     cell = np.zeros((ch, cw, 4), dtype=np.uint8)
     ox, oy = int(round(ax - fx)), int(round(ay - hover - fy))
     # Garde la créature entière dans la cellule quand elle y tient (ancrage décalé si nécessaire).
@@ -312,7 +316,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
                 rgb = fr.convert("RGB").quantize(palette=palette_img, dither=Image.Dither.NONE).convert("RGB")
                 arr[:, :, :3] = np.array(rgb)
             arr[:, :, 3] = np.where(alpha, 255, 0)
-            cell = place_in_cell(arr, (cw, ch), (ax, ay), int(job.get("hover", 0)))
+            cell = place_in_cell(arr, (cw, ch), (ax, ay), int(job.get("hover", 0)), job.get("anchor_mode", "feet"))
             if job.get("outline", True):
                 cell = add_outline(cell)
             sheet[row * ch:(row + 1) * ch, i * cw:(i + 1) * cw] = cell

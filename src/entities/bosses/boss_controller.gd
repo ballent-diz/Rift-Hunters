@@ -86,7 +86,7 @@ func step(delta: float) -> void:
 	else:
 		boss.velocity = Vector2.ZERO
 	boss.visual.set_facing_left(to_player.x < 0.0)
-	boss.visual.tick(delta, boss.velocity.length() > 2.0)
+	boss.visual.tick(delta, boss.velocity.length() > 2.0, boss.velocity.length())
 	_pulse_crystals(delta)
 	if busy_time <= 0.0 and absorb_time <= 0.0 and boss.invulnerable_time <= 0.0 and ctx.time >= _next_pattern_time:
 		var pattern: BossPatternData = _choose_pattern(to_player.length())

@@ -27,7 +27,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 		goal = target.global_position + (ally.global_position - target.global_position).normalized() * 50.0
 	ally.move_toward_point(goal, ally.data.move_speed, delta)
 	ally.visual.set_facing_left(ally.velocity.x < -1.0)
-	ally.visual.tick(delta, ally.velocity.length() > 5.0)
+	ally.visual.tick(delta, ally.velocity.length() > 5.0, ally.velocity.length())
 
 
 func _leap(ally: Ally, target: Enemy) -> void:

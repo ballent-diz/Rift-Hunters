@@ -102,7 +102,7 @@ func step(delta: float) -> void:
 		facing = move.normalized()
 	_constrain()
 	visual.set_facing_left(facing.x < -0.1)
-	visual.tick(delta, velocity.length() > 5.0)
+	visual.tick(delta, velocity.length() > 5.0, velocity.length())
 	visual.modulate.a = 0.45 if (_iframes > 0.0 and int(_iframes * 20.0) % 2 == 0) else 1.0
 	_update_weapon(delta)
 	var state: int = int(shield > 0.0) + int(is_dashing()) * 2

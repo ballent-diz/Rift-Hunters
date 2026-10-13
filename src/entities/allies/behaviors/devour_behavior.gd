@@ -10,7 +10,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	var goal: Vector2 = target.global_position if target else ally.follow_point()
 	ally.move_toward_point(goal, ally.data.move_speed, delta)
 	ally.visual.set_facing_left(ally.velocity.x < -1.0)
-	ally.visual.tick(delta, ally.velocity.length() > 5.0)
+	ally.visual.tick(delta, ally.velocity.length() > 5.0, ally.velocity.length())
 	if target == null or ally.attack_cd > 0.0:
 		return
 	if target.global_position.distance_to(ally.global_position) > target.radius + 28.0:

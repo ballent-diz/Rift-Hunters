@@ -26,6 +26,10 @@ var map_texture: Texture2D
 var field_image: Image
 var field_step: float = 1.0
 var arena_size: float = 0.0
+## Départ du joueur (point dégagé de la map, unités du monde).
+var start := Vector2.ZERO
+## Image agrandie (peinture lissée) : filtrage linéaire au lieu des pixels nets.
+var smooth: bool = false
 
 
 func is_map() -> bool:
@@ -85,6 +89,9 @@ static func _from_map_entry(p_id: StringName, e: Dictionary) -> EnvironmentSet:
 	if env.field_image.is_compressed():
 		env.field_image.decompress()
 	env.field_step = float(e.get("field_step", 1.0))
+	env.smooth = str(e.get("filter", "nearest")) == "linear"
+	var start: Array = e.get("start", [0, 0])
+	env.start = Vector2(float(start[0]), float(start[1]))
 	env.arena_size = float(e.get("arena_size", 0.0))
 	env.outside_tint = Color.from_string(str(e.get("outside_tint", "#00000000")), Color(0, 0, 0, 0))
 	var ambient: Dictionary = e.get("ambient", {})

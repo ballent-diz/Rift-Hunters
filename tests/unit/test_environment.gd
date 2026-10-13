@@ -165,7 +165,8 @@ func test_map_arena_zones() -> void:
 	var half: Vector2 = arena.size * 0.5
 	var field := ObstacleField.new()
 	field.set_distance_field(env.field_image, Rect2(-half, arena.size), env.field_step)
-	check(field.distance(Vector2.ZERO) > 40.0, "départ (centre) praticable et dégagé")
+	check(field.distance(env.start) > 40.0, "départ praticable et dégagé")
+	check(env.start.length() < 400.0, "départ près du centre")
 	check(field.distance(-half + Vector2(40, 40)) < 0.0, "coin de la map (forêt) infranchissable")
 	var corner: Vector2 = -half + Vector2(300, 300)
 	var out: Vector2 = field.push_out(corner, 12.0)
@@ -173,7 +174,7 @@ func test_map_arena_zones() -> void:
 
 
 func test_player_cannot_enter_obstacles() -> void:
-	var run: RunController = RunFixture.create(host, &"ashblade")
+	var run: RunController = RunFixture.create(host, &"ashblade", 7, true)
 	check(not run.ctx.obstacles.is_empty(), "obstacles actifs en partie")
 	var blocked := Vector2.ZERO
 	for i: int in 400:

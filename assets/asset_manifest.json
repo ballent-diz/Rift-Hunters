@@ -194,12 +194,12 @@
 			"imported_from": "assets/concepts/incoming/grouillard/job.json",
 			"sheet": "res://assets/sprites/enemies/skitterling/skitterling_sheet.png",
 			"cell": [
-				72,
-				56
+				96,
+				72
 			],
 			"anchor": [
-				36,
-				50
+				48,
+				66
 			],
 			"scale": 0.5,
 			"animations": {
@@ -225,64 +225,74 @@
 			"icon": "res://assets/ui/icons/enemies/skitterling.png"
 		},
 		"enemy.husk": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/carapace/job.json",
 			"sheet": "res://assets/sprites/enemies/husk/husk_sheet.png",
 			"cell": [
-				64,
-				64
+				112,
+				88
 			],
 			"anchor": [
-				32,
-				54
+				56,
+				82
 			],
+			"scale": 0.5,
 			"animations": {
 				"move": {
 					"row": 0,
-					"frames": 6,
-					"fps": 8,
-					"loop": true
-				},
-				"death": {
-					"row": 1,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				}
-			},
-			"scale": 0.5
-		},
-		"enemy.spitter": {
-			"status": "planned",
-			"sheet": "res://assets/sprites/enemies/spitter/spitter_sheet.png",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				54
-			],
-			"animations": {
-				"move": {
-					"row": 0,
-					"frames": 6,
+					"frames": 9,
 					"fps": 10,
 					"loop": true
 				},
 				"attack": {
 					"row": 1,
-					"frames": 4,
+					"frames": 8,
 					"fps": 12,
 					"loop": false
 				},
 				"death": {
 					"row": 2,
-					"frames": 6,
+					"frames": 9,
 					"fps": 12,
 					"loop": false
 				}
 			},
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/enemies/husk.png"
+		},
+		"enemy.spitter": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/cracheur/job.json",
+			"sheet": "res://assets/sprites/enemies/spitter/spitter_sheet.png",
+			"cell": [
+				128,
+				80
+			],
+			"anchor": [
+				64,
+				74
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 10,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 5,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 10,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/spitter.png"
 		},
 		"enemy.lunger": {
 			"status": "planned",
@@ -2574,12 +2584,17 @@
 			"generated_by": "tools/art/build_map.py",
 			"source": "assets/concepts/incoming/map.fractured_plain/map_source.png",
 			"kind": "map",
-			"scale": 2.0,
-			"map": "res://assets/environments/fractured_plain_map/map.png",
+			"scale": 1.0,
+			"filter": "linear",
+			"map": "res://assets/environments/fractured_plain_map/map.webp",
 			"field": "res://assets/environments/fractured_plain_map/field.png",
-			"field_unit": 8.012779552715655,
+			"field_unit": 4.0,
 			"field_step": 5.0,
 			"arena_size": 2508.0,
+			"start": [
+				60,
+				192
+			],
 			"ambient": {
 				"color": "#f4f0b8",
 				"amount": 22
