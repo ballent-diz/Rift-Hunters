@@ -168,7 +168,7 @@ func test_map_arena_zones() -> void:
 	check(field.distance(env.start) > 40.0, "départ praticable et dégagé")
 	check(env.start.length() < 400.0, "départ près du centre")
 	check(field.distance(-half + Vector2(40, 40)) < 0.0, "coin de la map (forêt) infranchissable")
-	var corner: Vector2 = -half + Vector2(300, 300)
+	var corner: Vector2 = -half + Vector2(150, 150)
 	var out: Vector2 = field.push_out(corner, 12.0)
 	check(field.distance(out) >= 0.0 or out.distance_to(corner) > 20.0, "repoussé vers le praticable")
 
@@ -178,7 +178,7 @@ func test_player_cannot_enter_obstacles() -> void:
 	check(not run.ctx.obstacles.is_empty(), "obstacles actifs en partie")
 	var blocked := Vector2.ZERO
 	for i: int in 400:
-		var p := Vector2(randf_range(-1100, 1100), randf_range(-1100, 1100))
+		var p := Vector2(randf_range(-560, 560), randf_range(-560, 560))
 		if run.ctx.obstacles.distance(p) < -20.0:
 			blocked = p
 			break
@@ -189,3 +189,22 @@ func test_player_cannot_enter_obstacles() -> void:
 		"le joueur est repoussé hors de la zone infranchissable")
 	RunFixture.dispose(run)
 
+
+
+func test_stuck_echo_blinks_back_to_hunter() -> void:
+	var run: RunController = RunFixture.create(host, &"ashblade")
+	var field := ObstacleField.new()
+	var player_pos: Vector2 = run.ctx.player.global_position
+	# Mur entre l'Écho et le Chasseur : l'Écho ne peut pas avancer.
+	for i: int in 9:
+		field.add(player_pos + Vector2(-120, (i - 4) * 40.0), 40.0)
+	run.ctx.obstacles = field
+	var ally: Ally = run.ctx.allies.get_ally(&"ashblade")
+	ally.global_position = player_pos + Vector2(-200, 0)
+	for i: int in 90:
+		ally.move_toward_point(player_pos, ally.data.move_speed, 1.0 / 60.0)
+	check(ally.global_position.distance_to(player_pos) < 120.0, "l'Écho bloqué rejoint le Chasseur par un saut de faille")
+	ally.global_position = player_pos + Vector2(2000, 0)
+	ally.move_toward_point(player_pos, ally.data.move_speed, 1.0 / 60.0)
+	check(ally.global_position.distance_to(player_pos) < 120.0, "l'Écho trop loin revient près du Chasseur")
+	RunFixture.dispose(run)

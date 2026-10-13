@@ -25,6 +25,7 @@ var visual: EntityVisual
 var _mult_damage: float = 1.0
 var _mult_speed: float = 1.0
 var _mult_range: float = 1.0
+var _stuck_time: float = 0.0
 
 
 func setup(p_ctx: RunContext, p_data: MonsterData, p_rank: int) -> void:
@@ -111,9 +112,39 @@ func follow_point() -> Vector2:
 
 
 func move_toward_point(target: Vector2, speed: float, delta: float) -> void:
+	# Point visé dans le décor (Chasseur collé à un rocher) : ramené sur le praticable.
+	target = ctx.obstacles.push_out(target, BODY_RADIUS)
 	var offset: Vector2 = target - global_position
 	if offset.length() < 4.0:
 		velocity = Vector2.ZERO
+		_stuck_time = 0.0
 		return
-	velocity = offset.normalized() * minf(speed, offset.length() / maxf(delta, 0.001))
-	global_position = ctx.obstacles.push_out(global_position + velocity * delta, BODY_RADIUS)
+	var wanted: Vector2 = offset.normalized() * minf(speed, offset.length() / maxf(delta, 0.001))
+	var before: Vector2 = global_position
+	global_position = ctx.obstacles.push_out(global_position + wanted * delta, BODY_RADIUS)
+	velocity = (global_position - before) / maxf(delta, 0.001)
+	_check_stuck(wanted, delta)
+
+
+## Écho coincé derrière un obstacle ou trop loin : il rejoint le Chasseur par un saut de faille.
+func _check_stuck(wanted: Vector2, delta: float) -> void:
+	var progress: float = velocity.dot(wanted.normalized())
+	if progress < wanted.length() * 0.3:
+		_stuck_time += delta
+	else:
+		_stuck_time = maxf(_stuck_time - delta, 0.0)
+	var far: bool = global_position.distance_to(ctx.player.global_position) > ctx.balance.ally_leash_distance
+	if _stuck_time >= ctx.balance.ally_stuck_time or far:
+		blink_to_player()
+
+
+func blink_to_player() -> void:
+	var to: Vector2 = ctx.obstacles.push_out(follow_point(), BODY_RADIUS)
+	if ctx.obstacles.blocks(to, BODY_RADIUS):
+		to = ctx.player.global_position
+	if ctx.fx:
+		ctx.fx.ring(global_position, 22.0, Color(0.75, 0.45, 1.0, 0.9), 0.35)
+		ctx.fx.ring(to, 22.0, Color(0.75, 0.45, 1.0, 0.9), 0.35)
+	global_position = to
+	velocity = Vector2.ZERO
+	_stuck_time = 0.0

@@ -38,7 +38,6 @@ l'entoure et se nourrit des âmes et des souvenirs des créatures qu'il croise.
 | Boss à plusieurs phases | Phase 2 à 50 % PV (60 % en Tension 3), transformation invulnérable 2 s |
 | Absorbe les projectiles | *Absorption* : sphère qui avale les projectiles alliés, puis salve de retour |
 | Invoque des créatures | *Invocation* : portails télégraphiés → Grouillards + Cracheur |
-| Déplace l'arène | *Cristaux de faille* (phase 2) : obstacles destructibles qui pulsent |
 | Vulnérable au cœur | *Cœur exposé* après l'Absorption : dégâts subis ×2 pendant 3 s |
 | Vague d'ombres | Anneau en expansion avec brèches sûres |
 | Phase 2 – Rayon du vide | Laser télégraphié (verrouillage 1 s) |

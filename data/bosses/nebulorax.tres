@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BossData" load_steps=18 format=3]
+[gd_resource type="Resource" script_class="BossData" load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
@@ -148,20 +148,6 @@ params = {
 "beams": 1
 }
 
-[sub_resource type="Resource" id="boss_pattern_data_13"]
-script = ExtResource("4")
-kind = &"crystals"
-name_key = "BOSS_PATTERN_CRYSTALS"
-weight = 1.5
-cooldown = 14.0
-damage = 14.0
-telegraph = 1.0
-params = {
-"count": 4,
-"max": 8,
-"enemy": "rift_crystal"
-}
-
 [sub_resource type="Resource" id="boss_phase_data_7"]
 script = ExtResource("3")
 hp_threshold = 0.5
@@ -169,7 +155,7 @@ name_key = "BOSS_NEBULORAX_PHASE2"
 move_speed_mult = 1.5
 pattern_interval = 1.7
 transition_time = 2.0
-patterns = [SubResource("boss_pattern_data_8"), SubResource("boss_pattern_data_9"), SubResource("boss_pattern_data_10"), SubResource("boss_pattern_data_11"), SubResource("boss_pattern_data_12"), SubResource("boss_pattern_data_13")]
+patterns = [SubResource("boss_pattern_data_8"), SubResource("boss_pattern_data_9"), SubResource("boss_pattern_data_10"), SubResource("boss_pattern_data_11"), SubResource("boss_pattern_data_12")]
 
 [resource]
 script = ExtResource("1")

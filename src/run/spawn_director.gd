@@ -2,6 +2,9 @@ class_name SpawnDirector
 extends RefCounted
 ## Fait apparaître les vagues (données de l'arène), les élites et le boss.
 
+## Marge au bord d'une zone infranchissable pour un point d'apparition.
+const SPAWN_CLEARANCE := 20.0
+
 var ctx: RunContext
 var boss_spawned: bool = false
 var _budget: float = 0.0
@@ -69,6 +72,10 @@ func spawn_position() -> Vector2:
 		var angle: float = ctx.rng.randf() * TAU
 		var dist: float = ctx.rng.randf_range(ctx.balance.spawn_distance_min, ctx.balance.spawn_distance_max)
 		var pos: Vector2 = (player_pos + Vector2.RIGHT.rotated(angle) * dist).clamp(rect.position, rect.end)
+		# Map dessinée : on évite d'apparaître au fond d'une zone infranchissable (forêt, eau).
+		if ctx.obstacles.blocks(pos, SPAWN_CLEARANCE):
+			best = ctx.obstacles.push_out(pos, SPAWN_CLEARANCE)
+			continue
 		if pos.distance_to(player_pos) >= ctx.balance.spawn_distance_min * 0.8:
 			return pos
 		best = pos

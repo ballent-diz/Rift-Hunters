@@ -129,8 +129,7 @@ Phalène de verre prismatique aux ailes de filaments lumineux.
 - Phase 1 : *Griffe du vide* (frappe télégraphiée), *Vague d'ombres* (anneau avec brèches
   sûres), *Invocation*, *Absorption* (absorbe les projectiles puis les recrache en salve,
   et expose son **cœur** : dégâts ×2 pendant 3 s).
-- Phase 2 (50 % PV) : transformation, *Rayon du vide* (laser télégraphié), *Cristaux de faille*
-  (obstacles qui pulsent : l'arène change), vagues doublées.
+- Phase 2 (50 % PV) : transformation, *Rayon du vide* (laser télégraphié), vagues doublées.
 
 ## 7. Builds
 

@@ -127,11 +127,8 @@ func test_glass_hunter_reduces_hp() -> void:
 	check_eq(int(run.ctx.stats.get_value(&"modifiers_count")), 1, "modificateurs comptés")
 
 
-func test_crystal_abyss_rules_and_obstacles() -> void:
+func test_crystal_abyss_rules() -> void:
 	_run_with(&"mossback", &"crystal_abyss")
-	check_eq(run.ctx.enemies.obstacles.size(), 10, "10 cristaux au départ")
-	for crystal: Enemy in run.ctx.enemies.obstacles:
-		check(crystal.position.distance_to(Vector2.ZERO) >= 250.0, "aucun cristal sur le Chasseur")
 	check(run.ctx.player.stats.get_value(StatKeys.ALLY_DAMAGE) > 1.0, "règle d'arène installée")
 
 

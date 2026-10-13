@@ -3,11 +3,12 @@
 SPEC = {
     "id": "fractured_plain_map",
     "source": "assets/concepts/incoming/map.fractured_plain/map_source.png",
-    # Version agrandie ×2 affichée en jeu, lissée (1 pixel = 1 unité). Obtenue par :
-    # python3 tools/art/upscale.py RealESRGAN_x4plus.pth <source> map_x2.png  puis conversion en WebP (qualité 92).
+    # Arène de 1254 unités (1 pixel de la map d'origine = 1 unité) : décor à l'échelle des personnages.
+    "arena_size": 1254.0,
+    # Image affichée : version agrandie par tools/art/upscale.py (Real-ESRGAN ×4) puis réduite à 1672 px
+    # (= 1254 × zoom de la caméra 1,333 : 1 pixel de l'image = 1 pixel d'écran), WebP qualité 92.
     "display": "assets/environments/fractured_plain_map/map.webp",
-    "arena_size": 2508.0,
-    # Carte de distance : 1 pixel = 4 unités du monde (assez fin pour les passages étroits).
+    # Carte de distance : 1 pixel = 2 unités du monde (assez fin pour les passages étroits).
     "field_size": 627,
     "median": 3,
     # Praticable : herbe et terre (teintes jaune-vert à brun clair).
@@ -15,6 +16,8 @@ SPEC = {
     "walk_light": (0.2, 0.7),
     "walk_sat": 0.22,
     "min_obstacle_px": 5,
+    # Départ du joueur : au moins à cette distance (unités) de tout obstacle.
+    "start_clearance": 50.0,
     # Retouches en pixels de la map : dalles des ruines et leurs escaliers (praticables).
     "walk_shapes": [
         # Place circulaire du nord et son escalier.

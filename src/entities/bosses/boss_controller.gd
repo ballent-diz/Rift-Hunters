@@ -6,7 +6,7 @@ extends RefCounted
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
-	&"void_beam": &"phase2_attack", &"crystals": &"phase2_attack", &"rock_rain": &"attack",
+	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack",
 }
 
@@ -17,12 +17,10 @@ var phase_index: int = 0
 var heart_time: float = 0.0
 var absorb_time: float = 0.0
 var busy_time: float = 0.0
-var crystals: Array[Enemy] = []
 var enraged: bool = false
 var _next_pattern_time: float = 0.0
 var _ready_at: Dictionary = {}
 var _scheduled: Array[Dictionary] = []
-var _crystal_pulse: float = 4.0
 var _fight_time: float = 0.0
 var _charge_time: float = 0.0
 var _charge_dir := Vector2.ZERO
@@ -87,7 +85,6 @@ func step(delta: float) -> void:
 		boss.velocity = Vector2.ZERO
 	boss.visual.set_facing_left(to_player.x < 0.0)
 	boss.visual.tick(delta, boss.velocity.length() > 2.0, boss.velocity.length())
-	_pulse_crystals(delta)
 	if busy_time <= 0.0 and absorb_time <= 0.0 and boss.invulnerable_time <= 0.0 and ctx.time >= _next_pattern_time:
 		var pattern: BossPatternData = _choose_pattern(to_player.length())
 		if pattern:
@@ -231,38 +228,6 @@ func _pattern_void_beam(pattern: BossPatternData) -> void:
 			float(pattern.params.get("width", 34.0)), pattern.telegraph, float(pattern.params.get("duration", 1.2)),
 			_damage(pattern), data.id)
 	busy_time = pattern.telegraph + float(pattern.params.get("duration", 1.2))
-
-
-## Cristaux de faille : obstacles destructibles qui pulsent (l'arène change).
-func _pattern_crystals(pattern: BossPatternData) -> void:
-	var crystal: EnemyData = GameDB.enemy(StringName(pattern.params.get("enemy", "rift_crystal")))
-	if crystal == null:
-		return
-	var count: int = int(pattern.params.get("count", 4))
-	var player_pos: Vector2 = ctx.player.global_position
-	for i: int in count:
-		var pos: Vector2 = player_pos + Vector2.RIGHT.rotated(TAU * i / count + ctx.rng.randf()) * ctx.rng.randf_range(180.0, 300.0)
-		pos = pos.clamp(ctx.arena_rect().position + Vector2(60, 60), ctx.arena_rect().end - Vector2(60, 60))
-		ctx.fx.ring(pos, 30.0, Color(0.8, 0.4, 1.0, 0.9), pattern.telegraph)
-		schedule(pattern.telegraph, func() -> void:
-			if crystals.size() < int(pattern.params.get("max", 8)):
-				crystals.append(ctx.enemies.spawn(crystal, pos))
-		)
-	_ready_at[&"crystal_damage"] = pattern.damage
-	busy_time = pattern.telegraph
-
-
-func _pulse_crystals(delta: float) -> void:
-	crystals.assign(crystals.filter(func(c: Variant) -> bool: return is_instance_valid(c) and (c as Enemy).alive))
-	if crystals.is_empty():
-		return
-	_crystal_pulse -= delta
-	if _crystal_pulse > 0.0:
-		return
-	_crystal_pulse = 4.0
-	var damage: float = float(_ready_at.get(&"crystal_damage", 12.0)) * ctx.difficulty.enemy_damage_mult
-	for crystal: Enemy in crystals:
-		ctx.hazards.add_circle(crystal.position, 95.0, 1.1, damage, true, &"rift_crystal")
 
 
 ## Pluie de roches : impacts télégraphiés en salves autour du Chasseur.

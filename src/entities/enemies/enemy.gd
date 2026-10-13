@@ -8,7 +8,7 @@ var data: EnemyData
 var boss_data: BossData
 var is_elite: bool = false
 var is_boss: bool = false
-## Obstacle immobile (Cristaux de faille) : bloque le passage.
+## Obstacle immobile (posé au départ via ArenaData.start_obstacles) : bloque le passage.
 var is_obstacle: bool = false
 var affixes: Array[EliteAffixData] = []
 var move_speed: float = 60.0

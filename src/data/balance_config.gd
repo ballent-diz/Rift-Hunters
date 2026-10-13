@@ -31,6 +31,10 @@ extends Resource
 ## Bonus de dégâts par rang au-delà du premier.
 @export var ally_rank_damage_bonus: float = 0.2
 @export var ally_follow_distance: float = 70.0
+## Écho bloqué par le décor (avance < 30 % de sa vitesse) pendant ce temps → saut de faille près du Chasseur.
+@export var ally_stuck_time: float = 0.8
+## Au-delà de cette distance du Chasseur, l'Écho le rejoint aussi par un saut de faille.
+@export var ally_leash_distance: float = 560.0
 @export var focus_duration: float = 5.0
 @export var focus_radius: float = 220.0
 @export_group("Niveaux")

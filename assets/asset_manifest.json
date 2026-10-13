@@ -295,64 +295,39 @@
 			"icon": "res://assets/ui/icons/enemies/spitter.png"
 		},
 		"enemy.lunger": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/bondisseur/job.json",
 			"sheet": "res://assets/sprites/enemies/lunger/lunger_sheet.png",
 			"cell": [
-				64,
-				64
+				144,
+				80
 			],
 			"anchor": [
-				32,
-				54
+				72,
+				74
 			],
+			"scale": 0.5,
 			"animations": {
 				"move": {
 					"row": 0,
-					"frames": 6,
-					"fps": 10,
+					"frames": 9,
+					"fps": 12,
 					"loop": true
 				},
 				"attack": {
 					"row": 1,
-					"frames": 4,
+					"frames": 8,
 					"fps": 12,
 					"loop": false
 				},
 				"death": {
 					"row": 2,
-					"frames": 6,
+					"frames": 9,
 					"fps": 12,
 					"loop": false
 				}
 			},
-			"scale": 0.5
-		},
-		"enemy.rift_crystal": {
-			"status": "planned",
-			"sheet": "res://assets/sprites/enemies/rift_crystal/rift_crystal_sheet.png",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				54
-			],
-			"animations": {
-				"move": {
-					"row": 0,
-					"frames": 6,
-					"fps": 6,
-					"loop": true
-				},
-				"death": {
-					"row": 1,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				}
-			},
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/enemies/lunger.png"
 		},
 		"boss.nebulorax": {
 			"status": "final",
@@ -601,103 +576,109 @@
 			"scale": 0.5
 		},
 		"enemy.broodmother": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/nuee_mere/job.json",
 			"sheet": "res://assets/sprites/enemies/broodmother/broodmother_sheet.png",
 			"cell": [
-				64,
-				64
+				144,
+				104
 			],
 			"anchor": [
-				32,
-				54
+				72,
+				98
 			],
+			"scale": 0.5,
 			"animations": {
 				"move": {
 					"row": 0,
-					"frames": 6,
-					"fps": 10,
+					"frames": 8,
+					"fps": 9,
 					"loop": true
 				},
 				"attack": {
 					"row": 1,
-					"frames": 4,
-					"fps": 12,
+					"frames": 5,
+					"fps": 10,
 					"loop": false
 				},
 				"death": {
 					"row": 2,
-					"frames": 6,
+					"frames": 8,
 					"fps": 12,
 					"loop": false
 				}
 			},
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/enemies/broodmother.png"
 		},
 		"enemy.shade_stalker": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/rodeur/job.json",
 			"sheet": "res://assets/sprites/enemies/shade_stalker/shade_stalker_sheet.png",
 			"cell": [
-				64,
-				64
+				160,
+				104
 			],
 			"anchor": [
-				32,
-				54
+				80,
+				98
 			],
+			"scale": 0.5,
 			"animations": {
 				"move": {
 					"row": 0,
-					"frames": 6,
+					"frames": 8,
 					"fps": 10,
 					"loop": true
 				},
 				"attack": {
 					"row": 1,
-					"frames": 4,
+					"frames": 7,
 					"fps": 12,
 					"loop": false
 				},
 				"death": {
 					"row": 2,
-					"frames": 6,
+					"frames": 8,
 					"fps": 12,
 					"loop": false
 				}
 			},
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/enemies/shade_stalker.png"
 		},
 		"enemy.crystal_warden": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/gardien/job.json",
 			"sheet": "res://assets/sprites/enemies/crystal_warden/crystal_warden_sheet.png",
 			"cell": [
-				64,
-				64
+				128,
+				112
 			],
 			"anchor": [
-				32,
-				54
+				64,
+				104
 			],
+			"scale": 0.5,
 			"animations": {
 				"move": {
 					"row": 0,
-					"frames": 6,
+					"frames": 10,
 					"fps": 10,
 					"loop": true
 				},
 				"attack": {
 					"row": 1,
-					"frames": 4,
-					"fps": 12,
+					"frames": 6,
+					"fps": 10,
 					"loop": false
 				},
 				"death": {
 					"row": 2,
-					"frames": 6,
+					"frames": 10,
 					"fps": 12,
 					"loop": false
 				}
 			},
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/enemies/crystal_warden.png"
 		},
 		"boss.vorgranite": {
 			"status": "planned",
@@ -2584,16 +2565,16 @@
 			"generated_by": "tools/art/build_map.py",
 			"source": "assets/concepts/incoming/map.fractured_plain/map_source.png",
 			"kind": "map",
-			"scale": 1.0,
+			"scale": 0.75,
 			"filter": "linear",
 			"map": "res://assets/environments/fractured_plain_map/map.webp",
 			"field": "res://assets/environments/fractured_plain_map/field.png",
-			"field_unit": 4.0,
+			"field_unit": 2.0,
 			"field_step": 5.0,
-			"arena_size": 2508.0,
+			"arena_size": 1254.0,
 			"start": [
-				60,
-				192
+				34,
+				100
 			],
 			"ambient": {
 				"color": "#f4f0b8",

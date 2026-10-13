@@ -123,9 +123,6 @@ elite_interval = 55.0
 ground_color = Color(0.08, 0.1, 0.16, 1.0)
 ground_detail_color = Color(0.13, 0.17, 0.27, 1.0)
 unlocked_by_default = false
-start_obstacles = {
-"rift_crystal": 10
-}
 rule_effects = [SubResource("stat_modifier_effect_1"), SubResource("stat_modifier_effect_2")]
 waves = [SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5"), SubResource("wave_phase_data_6"), SubResource("wave_phase_data_7")]
 events = [SubResource("run_event_data_8"), SubResource("run_event_data_9"), SubResource("run_event_data_10"), SubResource("run_event_data_11")]

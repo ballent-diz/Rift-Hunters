@@ -132,8 +132,6 @@ ENEMY_SPITTER_NAME,Cracheur,Spitter
 ENEMY_SPITTER_DESC,Garde ses distances et crache des projectiles lents.,Keeps its distance and spits slow projectiles.
 ENEMY_LUNGER_NAME,Bondisseur,Lunger
 ENEMY_LUNGER_DESC,"Se fige, puis charge en ligne droite.","Freezes, then charges in a straight line."
-ENEMY_RIFT_CRYSTAL_NAME,Cristal de faille,Rift Crystal
-ENEMY_RIFT_CRYSTAL_DESC,Obstacle qui pulse. Détruisez-le pour libérer le terrain.,A pulsing obstacle. Destroy it to free the ground.
 AFFIX_HASTED_NAME,Hâtif,Hasted
 AFFIX_HASTED_DESC,Se déplace 45 % plus vite.,Moves 45% faster.
 AFFIX_ARMORED_NAME,Blindé,Armored
@@ -151,7 +149,6 @@ BOSS_PATTERN_SHADOW_WAVE,Vague d'ombres,Shadow Wave
 BOSS_PATTERN_SUMMON,Invocation,Summoning
 BOSS_PATTERN_ABSORB,Absorption,Absorption
 BOSS_PATTERN_VOID_BEAM,Rayon du vide,Void Beam
-BOSS_PATTERN_CRYSTALS,Cristaux de faille,Rift Crystals
 UPGRADE_MIGHT_NAME,Puissance,Might
 UPGRADE_MIGHT_DESC,Dégâts du Chasseur +15 %.,Hunter damage +15%.
 UPGRADE_CADENCE_NAME,Cadence,Cadence
@@ -523,7 +520,7 @@ BOSS_PATTERN_CHARGE,Ruée tellurique,Earthen Charge
 BOSS_PATTERN_QUAKE,Séisme,Quake
 BESTIARY_BOSS_LORE_VORGRANITE,"Une montagne qui a avalé une Faille entière. Sa carapace dévie les coups faibles (défense 60) ; quand elle se brise, son cœur reste sans défense. Ses séismes ne laissent aucune brèche : franchissez-les avec la Ruée.","A mountain that swallowed an entire Rift. Its shell deflects weak blows (defense 60); once it breaks, its heart is defenseless. Its quakes leave no gap: dash through them."
 ARENA_CRYSTAL_ABYSS_NAME,Abysse cristallin,Crystal Abyss
-ARENA_CRYSTAL_ABYSS_DESC,"Une arène plus étroite, hérissée de cristaux. Vorgranite y attend.",A narrower arena bristling with crystals. Vorgranite waits there.
+ARENA_CRYSTAL_ABYSS_DESC,"Une arène plus étroite, aux parois de cristal. Vorgranite y attend.",A narrower arena with crystal walls. Vorgranite waits there.
 ARENA_CRYSTAL_ABYSS_RULE,"Règle : Échos amplifiés (+15 % de dégâts des Échos, vitesse du Chasseur −5 %).","Rule: Amplified Echoes (+15% Echo damage, Hunter speed −5%)."
 RELIC_BRIAR_SEED_NAME,Graine de ronce,Briar Seed
 RELIC_BRIAR_SEED_DESC,12 % de chances que les Traits enracinent.,12% chance for Bolts to root.

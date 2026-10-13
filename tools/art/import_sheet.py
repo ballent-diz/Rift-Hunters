@@ -24,7 +24,8 @@ job.json :
   "hover": 0,                               créatures volantes : pixels entre le bas du corps et l'ancre (ombre au sol)
   "animations": [
     {"name": "idle", "source": "idle.png", "frames": 6 (0 = détection automatique), "fps": 8, "loop": true,
-     "layout": "auto" | "row" | "grid", "grid": [6, 1]}
+     "layout": "auto" | "row" | "grid", "grid": [6, 1],
+     "ranges": [[x0, x1], ...]}            plages x explicites (une par image ; images irrégulières, projectile à exclure)
   ],
   "aliases": {"technique": "attack"}       animations manquantes réutilisant une autre ligne (optionnel)
 }
@@ -271,7 +272,10 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             img = despill(img)
         if job.get("flip"):
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
-        frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"))
+        if anim.get("ranges"):
+            frames = [img.crop((int(a), 0, int(b), img.height)) for a, b in anim["ranges"]]
+        else:
+            frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"))
         if anim.get("isolate", job.get("isolate", False)):
             frames = [isolate_frame(fr) for fr in frames]
         frames = [crop_alpha(fr) for fr in frames]

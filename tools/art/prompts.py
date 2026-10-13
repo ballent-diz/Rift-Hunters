@@ -85,8 +85,6 @@ ENTITIES = [
     ("enemy.shade_stalker", "enemy", 64, "Shade Stalker: thin shadowy wraith, semi-transparent dark violet body, glowing pink eyes"),
     ("enemy.crystal_warden", "enemy", 64, "Crystal Warden: floating corrupted guardian made of blue crystal shards around a glowing "
      "core, protective aura"),
-    ("enemy.rift_crystal", "enemy", 64, "Rift Crystal: a floating jagged violet crystal cluster with a pulsing light core "
-     "(static obstacle: idle pulse as 'move', shattering as 'death')"),
     # Dévoreurs
     ("boss.nebulorax", "boss", 320, "Nebulorax, the Devourer of Dimensions: colossal spiral of obsidian blade-scales and nebula "
      "tentacles around a glowing violet vortex eye (its weak heart), floating rift crystals, palette #1B1E33 #3A1670 #6A1FD0 "
