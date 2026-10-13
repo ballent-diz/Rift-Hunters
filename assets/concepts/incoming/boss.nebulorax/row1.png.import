@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dlb31n5twokgf"
-path="res://.godot/imported/death.png-b8fd730bb5e5ce26070e417632354c85.ctex"
+uid="uid://dty3rfj5ghf3p"
+path="res://.godot/imported/row1.png-89220b28cfdb630398a71f310835b91b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/concepts/incoming/boss.nebulorax/death.png"
-dest_files=["res://.godot/imported/death.png-b8fd730bb5e5ce26070e417632354c85.ctex"]
+source_file="res://assets/concepts/incoming/boss.nebulorax/row1.png"
+dest_files=["res://.godot/imported/row1.png-89220b28cfdb630398a71f310835b91b.ctex"]
 
 [params]
 

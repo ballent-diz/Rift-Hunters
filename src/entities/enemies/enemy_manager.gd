@@ -3,6 +3,8 @@ extends Node2D
 ## Gère tous les ennemis : apparition, IA, séparation, contact, statuts, mort.
 
 const SEPARATION_CHECKS := 10
+## Rafraîchissement de la carte de flux (secondes) : un seul calcul pour tous les ennemis.
+const FLOW_REFRESH := 0.25
 
 var ctx: RunContext
 var list: Array[Enemy] = []
@@ -12,6 +14,7 @@ var _buffer: Array = []
 var _overlay: Node2D
 var _dirty_removal: bool = false
 var _frame: int = 0
+var _flow_timer: float = 0.0
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -144,6 +147,11 @@ func step(delta: float) -> void:
 	var arena: Rect2 = ctx.arena_rect()
 	var contact_interval: float = ctx.balance.contact_damage_interval
 	var parity: int = _frame % 2
+	if ctx.flow != null:
+		_flow_timer -= delta
+		if _flow_timer <= 0.0:
+			_flow_timer = FLOW_REFRESH
+			ctx.flow.update(player_pos)
 	var count: int = list.size()
 	for i: int in count:
 		var enemy: Enemy = list[i]
@@ -213,24 +221,28 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 	var to_target: Vector2 = target_pos - enemy.position
 	var dist: float = to_target.length()
 	var dir: Vector2 = to_target / maxf(dist, 0.001)
+	# Déplacement : pente de la carte de flux vers le Chasseur (contourne le décor) ; visée : ligne droite (dir).
+	var nav: Vector2 = dir
+	if ctx.flow != null and target_pos == player_pos:
+		nav = ctx.flow.direction(enemy.position, dir)
 	var speed: float = enemy.move_speed * enemy.statuses.speed_mult()
 	match enemy.data.brain:
 		EnemyData.Brain.CHASER:
-			enemy.velocity = dir * speed
+			enemy.velocity = nav * speed
 		EnemyData.Brain.RANGED:
-			_tick_ranged(enemy, delta, dir, dist, speed)
+			_tick_ranged(enemy, delta, dir, nav, dist, speed)
 		EnemyData.Brain.CHARGER:
-			_tick_charger(enemy, delta, dir, dist, speed)
+			_tick_charger(enemy, delta, dir, nav, dist, speed)
 		EnemyData.Brain.SUMMONER:
-			_tick_summoner(enemy, delta, dir, dist, speed)
+			_tick_summoner(enemy, delta, dir, nav, dist, speed)
 		EnemyData.Brain.BLINKER:
-			_tick_blinker(enemy, delta, dir, dist, speed, target_pos)
+			_tick_blinker(enemy, delta, dir, nav, dist, speed, target_pos)
 		EnemyData.Brain.WARDEN:
-			_tick_warden(enemy, delta, dir, dist, speed)
+			_tick_warden(enemy, delta, dir, nav, dist, speed)
 	enemy.position += enemy.velocity * delta
 
 
-func _tick_ranged(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float) -> void:
+func _tick_ranged(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist: float, speed: float) -> void:
 	var attack: AttackData = enemy.data.attack
 	var keep: float = float(attack.params.get("keep_distance", 260.0))
 	if enemy.state == Enemy.State.WINDUP:
@@ -242,7 +254,7 @@ func _tick_ranged(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: 
 			ctx.projectiles.spawn_hostile(enemy.position, enemy.aim_dir, attack.projectile_speed, dmg, enemy.data.id, 7.0)
 		return
 	if dist > keep + 40.0:
-		enemy.velocity = dir * speed
+		enemy.velocity = nav * speed
 	elif dist < keep - 40.0:
 		enemy.velocity = -dir * speed * 0.8
 	else:
@@ -257,11 +269,11 @@ func _tick_ranged(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: 
 		enemy.visual.flash()
 
 
-func _tick_charger(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float) -> void:
+func _tick_charger(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist: float, speed: float) -> void:
 	var attack: AttackData = enemy.data.attack
 	match enemy.state:
 		Enemy.State.MOVE:
-			enemy.velocity = dir * speed
+			enemy.velocity = nav * speed
 			enemy.attack_timer -= delta
 			if enemy.attack_timer <= 0.0 and dist < attack.attack_range:
 				enemy.state = Enemy.State.WINDUP
@@ -282,7 +294,7 @@ func _tick_charger(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed:
 				enemy.state = Enemy.State.RECOVER
 				enemy.state_timer = 0.5
 		Enemy.State.RECOVER:
-			enemy.velocity = dir * speed * 0.3
+			enemy.velocity = nav * speed * 0.3
 			enemy.state_timer -= delta
 			if enemy.state_timer <= 0.0:
 				enemy.state = Enemy.State.MOVE
@@ -290,10 +302,10 @@ func _tick_charger(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed:
 
 
 ## Invocatrice : garde ses distances et fait éclore des Corrompus (plafonné).
-func _tick_summoner(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float) -> void:
+func _tick_summoner(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist: float, speed: float) -> void:
 	var attack: AttackData = enemy.data.attack
 	var keep: float = float(attack.params.get("keep_distance", 240.0))
-	enemy.velocity = dir * speed if dist > keep else -dir * speed * 0.5
+	enemy.velocity = nav * speed if dist > keep else -dir * speed * 0.5
 	enemy.attack_timer -= delta
 	if enemy.attack_timer > 0.0:
 		return
@@ -307,11 +319,12 @@ func _tick_summoner(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed
 
 
 ## Rôdeur : se fige, télégraphie un point derrière le Chasseur puis s'y téléporte.
-func _tick_blinker(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float, target_pos: Vector2) -> void:
+func _tick_blinker(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist: float, speed: float,
+		target_pos: Vector2) -> void:
 	var attack: AttackData = enemy.data.attack
 	match enemy.state:
 		Enemy.State.MOVE:
-			enemy.velocity = dir * speed
+			enemy.velocity = nav * speed
 			enemy.attack_timer -= delta
 			if enemy.attack_timer <= 0.0 and dist < attack.attack_range and dist > 90.0:
 				enemy.state = Enemy.State.WINDUP
@@ -337,9 +350,9 @@ func _tick_blinker(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed:
 
 
 ## Gardien : avance derrière les autres et protège ses alliés proches (statut « Égide »).
-func _tick_warden(enemy: Enemy, delta: float, dir: Vector2, dist: float, speed: float) -> void:
+func _tick_warden(enemy: Enemy, delta: float, _dir: Vector2, nav: Vector2, dist: float, speed: float) -> void:
 	var attack: AttackData = enemy.data.attack
-	enemy.velocity = dir * speed if dist > float(attack.params.get("keep_distance", 160.0)) else Vector2.ZERO
+	enemy.velocity = nav * speed if dist > float(attack.params.get("keep_distance", 160.0)) else Vector2.ZERO
 	enemy.attack_timer -= delta
 	if enemy.attack_timer > 0.0:
 		return

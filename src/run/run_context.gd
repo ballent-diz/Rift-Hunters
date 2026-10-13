@@ -28,6 +28,8 @@ var hazards: HazardManager
 var fx: FxRenderer
 ## Obstacles infranchissables du décor (rochers, arbres, eau).
 var obstacles := ObstacleField.new()
+## Carte de flux vers le Chasseur (null sans décor infranchissable) : les ennemis contournent par les routes.
+var flow: FlowField
 var boss: Enemy
 var spawner: SpawnDirector
 

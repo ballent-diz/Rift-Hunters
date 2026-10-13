@@ -1,80 +1,36 @@
 {
 	"visual_id": "boss.nebulorax",
 	"cell": [
-		128,
-		104
+		320,
+		200
 	],
 	"anchor": [
-		64,
-		56
+		160,
+		190
 	],
-	"scale": 2.2,
-	"keep_size": true,
+	"scale": 1.0,
+	"target_height": 150,
 	"status": "final",
-	"background": "smooth",
-	"tolerance": 7,
-	"holes": 0,
-	"colors": 48,
+	"background": "#04f703",
+	"tolerance": 70,
+	"holes": 70,
+	"despill": true,
+	"colors": 56,
 	"outline": true,
 	"flip": false,
-	"hover": -40,
+	"hover": 0,
+	"anchor_mode": "mass",
+	"isolate": true,
+	"aliases": {
+		"summon": "transform"
+	},
 	"animations": [
 		{
 			"name": "idle",
-			"source": "idle.png",
-			"frames": 0,
-			"fps": 7,
-			"loop": true
-		},
-		{
-			"name": "move",
-			"source": "move.png",
-			"frames": 7,
-			"fps": 9,
-			"loop": true,
-			"layout": "grid",
-			"grid": [
-				7,
-				1
-			]
-		},
-		{
-			"name": "attack",
-			"source": "attack.png",
-			"frames": 8,
-			"fps": 10,
-			"loop": false,
-			"layout": "grid",
-			"grid": [
-				8,
-				1
-			]
-		},
-		{
-			"name": "shadow_wave",
-			"source": "shadow_wave.png",
-			"frames": 8,
-			"fps": 10,
-			"loop": false,
-			"layout": "grid",
-			"grid": [
-				8,
-				1
-			]
-		},
-		{
-			"name": "summon",
-			"source": "summon.png",
-			"frames": 0,
-			"fps": 9,
-			"loop": false
-		},
-		{
-			"name": "transform",
-			"source": "transform.png",
+			"source": "row0.png",
 			"frames": 10,
-			"fps": 9,
-			"loop": false,
+			"fps": 7,
+			"loop": true,
 			"layout": "grid",
 			"grid": [
 				10,
@@ -82,25 +38,185 @@
 			]
 		},
 		{
-			"name": "phase2_attack",
-			"source": "phase2_attack.png",
-			"frames": 5,
-			"fps": 10,
-			"loop": false,
+			"name": "move",
+			"source": "row0.png",
+			"frames": 10,
+			"fps": 9,
+			"loop": true,
 			"layout": "grid",
 			"grid": [
-				5,
+				10,
 				1
 			]
 		},
 		{
-			"name": "death",
-			"source": "death.png",
-			"frames": 0,
+			"name": "attack",
+			"source": "row1.png",
+			"frames": 6,
+			"fps": 10,
+			"loop": false,
+			"ranges": [
+				[
+					0,
+					230
+				],
+				[
+					230,
+					535
+				],
+				[
+					535,
+					800
+				],
+				[
+					800,
+					1035
+				],
+				[
+					1035,
+					1240
+				],
+				[
+					1240,
+					1450
+				]
+			]
+		},
+		{
+			"name": "phase2_attack",
+			"source": "row1.png",
+			"frames": 3,
+			"fps": 8,
+			"loop": false,
+			"ranges": [
+				[
+					1035,
+					1240
+				],
+				[
+					1240,
+					1450
+				],
+				[
+					1450,
+					1640
+				]
+			]
+		},
+		{
+			"name": "shadow_wave",
+			"source": "row2.png",
+			"frames": 5,
+			"fps": 10,
+			"loop": false,
+			"ranges": [
+				[
+					0,
+					260
+				],
+				[
+					260,
+					500
+				],
+				[
+					500,
+					830
+				],
+				[
+					830,
+					1130
+				],
+				[
+					1130,
+					1340
+				]
+			]
+		},
+		{
+			"name": "transform",
+			"source": "row2.png",
+			"frames": 5,
 			"fps": 7,
-			"loop": false
+			"loop": false,
+			"ranges": [
+				[
+					1340,
+					1530
+				],
+				[
+					1530,
+					1700
+				],
+				[
+					1700,
+					1840
+				],
+				[
+					1840,
+					1990
+				],
+				[
+					1990,
+					2172
+				]
+			]
+		},
+		{
+			"name": "death",
+			"source": "row3.png",
+			"frames": 12,
+			"fps": 9,
+			"loop": false,
+			"ranges": [
+				[
+					0,
+					240
+				],
+				[
+					240,
+					480
+				],
+				[
+					480,
+					700
+				],
+				[
+					700,
+					890
+				],
+				[
+					890,
+					1060
+				],
+				[
+					1060,
+					1240
+				],
+				[
+					1240,
+					1400
+				],
+				[
+					1400,
+					1580
+				],
+				[
+					1580,
+					1740
+				],
+				[
+					1740,
+					1920
+				],
+				[
+					1920,
+					2080
+				],
+				[
+					2080,
+					2172
+				]
+			]
 		}
-	],
-	"aliases": {},
-	"isolate": true
+	]
 }

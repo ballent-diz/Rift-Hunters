@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://feytylbe7u8j"
-path="res://.godot/imported/attack.png-7315fa185c8ad6aee3eea323582b6cbf.ctex"
+uid="uid://cylf3wo0lvrjm"
+path="res://.godot/imported/shadow_wave.png-216ecbd53a1d058f1489870a578edc94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/concepts/incoming/boss.nebulorax/attack.png"
-dest_files=["res://.godot/imported/attack.png-7315fa185c8ad6aee3eea323582b6cbf.ctex"]
+source_file="res://assets/concepts/incoming/boss.nebulorax/v1/shadow_wave.png"
+dest_files=["res://.godot/imported/shadow_wave.png-216ecbd53a1d058f1489870a578edc94.ctex"]
 
 [params]
 

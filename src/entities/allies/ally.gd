@@ -4,6 +4,8 @@ extends Node2D
 
 ## Rayon du corps pour contourner les obstacles du décor.
 const BODY_RADIUS := 10.0
+## Au-delà de cette distance de son point de formation, l'Écho suit la carte de flux.
+const FLOW_MIN_DISTANCE := 120.0
 
 var ctx: RunContext
 var data: MonsterData
@@ -119,7 +121,12 @@ func move_toward_point(target: Vector2, speed: float, delta: float) -> void:
 		velocity = Vector2.ZERO
 		_stuck_time = 0.0
 		return
-	var wanted: Vector2 = offset.normalized() * minf(speed, offset.length() / maxf(delta, 0.001))
+	var heading: Vector2 = offset.normalized()
+	# Rejoindre le Chasseur de loin : par les routes (carte de flux), pas à travers le décor.
+	if ctx.flow != null and offset.length() > FLOW_MIN_DISTANCE \
+			and target.distance_to(ctx.player.global_position) < ctx.balance.ally_follow_distance * 2.0:
+		heading = ctx.flow.direction(global_position, heading)
+	var wanted: Vector2 = heading * minf(speed, offset.length() / maxf(delta, 0.001))
 	var before: Vector2 = global_position
 	global_position = ctx.obstacles.push_out(global_position + wanted * delta, BODY_RADIUS)
 	velocity = (global_position - before) / maxf(delta, 0.001)

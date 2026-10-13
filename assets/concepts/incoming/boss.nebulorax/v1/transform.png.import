@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daqhiu3ss17sl"
-path="res://.godot/imported/move.png-cf11dd665f6b5e8a8cc4796e9aa28ead.ctex"
+uid="uid://cq8y8uk0kklh4"
+path="res://.godot/imported/transform.png-62aa68dc147caf1b47a6808b2e81ad3c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/concepts/incoming/boss.nebulorax/move.png"
-dest_files=["res://.godot/imported/move.png-cf11dd665f6b5e8a8cc4796e9aa28ead.ctex"]
+source_file="res://assets/concepts/incoming/boss.nebulorax/v1/transform.png"
+dest_files=["res://.godot/imported/transform.png-62aa68dc147caf1b47a6808b2e81ad3c.ctex"]
 
 [params]
 

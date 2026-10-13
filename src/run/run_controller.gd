@@ -140,6 +140,9 @@ func _build_world() -> void:
 	ground.setup(ctx.arena, ctx.rng.seed)
 	ctx.world.add_child(ground)
 	ctx.obstacles = ground.obstacle_field()
+	if not ctx.obstacles.is_empty():
+		ctx.flow = FlowField.new()
+		ctx.flow.setup(ctx.obstacles, ctx.arena_rect())
 	ctx.hazards = HazardManager.new()
 	ctx.hazards.setup(ctx)
 	ctx.world.add_child(ctx.hazards)

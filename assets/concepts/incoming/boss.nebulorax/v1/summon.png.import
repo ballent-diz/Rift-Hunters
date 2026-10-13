@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwky0ppyre5ws"
-path="res://.godot/imported/phase2_attack.png-8a6cdde617fc71ad12ef4e2f56af9a50.ctex"
+uid="uid://cakxikfesgvq0"
+path="res://.godot/imported/summon.png-8011dda9a8ee879e749a680f92afca5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/concepts/incoming/boss.nebulorax/phase2_attack.png"
-dest_files=["res://.godot/imported/phase2_attack.png-8a6cdde617fc71ad12ef4e2f56af9a50.ctex"]
+source_file="res://assets/concepts/incoming/boss.nebulorax/v1/summon.png"
+dest_files=["res://.godot/imported/summon.png-8011dda9a8ee879e749a680f92afca5c.ctex"]
 
 [params]
 

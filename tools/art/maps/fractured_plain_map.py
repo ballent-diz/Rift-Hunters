@@ -21,19 +21,20 @@ SPEC = {
     # Retouches en pixels de la map : dalles des ruines et leurs escaliers (praticables).
     "walk_shapes": [
         # Place circulaire du nord et son escalier.
-        ("ellipse", 505, 58, 700, 152),
-        ("poly", (565, 140), (630, 140), (630, 205), (565, 205)),
-        # Dalles fracturées de l'ouest (deux zones de faille violettes).
-        ("poly", (15, 390), (150, 385), (190, 450), (180, 545), (60, 548), (15, 500)),
-        ("poly", (20, 800), (150, 795), (210, 845), (200, 900), (60, 905), (20, 870)),
+        ("ellipse", 445, 40, 715, 172),
+        ("poly", (565, 150), (645, 150), (645, 220), (565, 220)),
+        # Faille de l'ouest.
+        ("ellipse", -20, 330, 185, 490),
         # Place des ruines de l'est et son escalier.
-        ("ellipse", 1040, 340, 1215, 470),
-        ("poly", (1095, 455), (1160, 455), (1160, 535), (1095, 535)),
-        # Faille violette de l'est (sur l'herbe).
-        ("ellipse", 1100, 580, 1250, 690),
-        # Place centrale et son escalier.
-        ("ellipse", 800, 662, 1008, 796),
-        ("poly", (945, 750), (1005, 750), (1005, 825), (945, 825)),
+        ("ellipse", 1085, 385, 1290, 505),
+        ("poly", (1095, 470), (1160, 470), (1160, 545), (1095, 545)),
+        # Faille de l'est.
+        ("ellipse", 1140, 600, 1290, 710),
+        # Place du sud-est et son escalier.
+        ("ellipse", 895, 745, 1105, 880),
+        ("poly", (1020, 840), (1095, 840), (1095, 920), (1020, 920)),
+        # Faille du sud-ouest.
+        ("ellipse", -20, 885, 150, 1010),
     ],
     "block_shapes": [],
     "ambient": {"color": "#f4f0b8", "amount": 22},

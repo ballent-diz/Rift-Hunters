@@ -208,3 +208,56 @@ func test_stuck_echo_blinks_back_to_hunter() -> void:
 	ally.move_toward_point(player_pos, ally.data.move_speed, 1.0 / 60.0)
 	check(ally.global_position.distance_to(player_pos) < 120.0, "l'Écho trop loin revient près du Chasseur")
 	RunFixture.dispose(run)
+
+
+## Mur vertical (x = 0, de y = -300 à 300) : la seule brèche est au-dessus.
+func _wall_field() -> ObstacleField:
+	var field := ObstacleField.new()
+	var y: float = -300.0
+	while y <= 300.0:
+		field.add(Vector2(0, y), 24.0)
+		y += 30.0
+	return field
+
+
+func test_flow_field_goes_around_walls() -> void:
+	var field: ObstacleField = _wall_field()
+	var flow := FlowField.new()
+	flow.setup(field, Rect2(-600, -600, 1200, 1200))
+	var target := Vector2(200, 0)
+	flow.update(target)
+	var pos := Vector2(-200, 0)
+	var first: Vector2 = flow.direction(pos, (target - pos).normalized())
+	check(first.y < -0.3 or first.y > 0.3, "derrière le mur : on longe vers une extrémité (%s)" % first)
+	for i: int in 600:
+		var dir: Vector2 = flow.direction(pos, (target - pos).normalized())
+		pos = field.push_out(pos + dir * 90.0 / 60.0, 10.0)
+	check(pos.distance_to(target) < 40.0, "l'ennemi contourne le mur et rejoint la cible (%s)" % pos)
+	var open: Vector2 = flow.direction(Vector2(400, 300), (target - Vector2(400, 300)).normalized())
+	check(open.is_equal_approx((target - Vector2(400, 300)).normalized()), "terrain dégagé : ligne droite")
+
+
+func test_flow_field_cost_on_map() -> void:
+	var arena: ArenaData = GameDB.arena(&"fractured_plain")
+	var ground := ArenaGround.new()
+	ground.setup(arena, 1)
+	var obstacles: ObstacleField = ground.obstacle_field()
+	var flow := FlowField.new()
+	var t0: int = Time.get_ticks_usec()
+	flow.setup(obstacles, ground.arena_rect())
+	var t1: int = Time.get_ticks_usec()
+	for k: int in 10:
+		flow.update(ground.player_start() + Vector2(k * 37, -k * 21))
+	var t2: int = Time.get_ticks_usec()
+	var walkable: int = 0
+	var reached: int = 0
+	for y: int in flow.size.y:
+		for x: int in flow.size.x:
+			walkable += 1 if flow.is_walkable(Vector2i(x, y)) else 0
+			reached += 1 if flow.cost_at(flow.cell_center(Vector2i(x, y))) < FlowField.UNREACHED else 0
+	print("    carte de flux : %d cases praticables, %d atteintes ; préparation %.1f ms, calcul %.2f ms" % [
+		walkable, reached, (t1 - t0) / 1000.0, (t2 - t1) / 10000.0])
+	check((t2 - t1) / 10000.0 < 40.0, "calcul de la carte de flux assez rapide")
+	check(reached > walkable * 0.9, "presque toutes les cases praticables sont reliées")
+	check(flow.cost_at(ground.player_start()) < FlowField.UNREACHED, "départ joignable")
+	ground.free()

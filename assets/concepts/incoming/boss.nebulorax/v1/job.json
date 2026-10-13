@@ -1,0 +1,106 @@
+{
+	"visual_id": "boss.nebulorax",
+	"cell": [
+		128,
+		104
+	],
+	"anchor": [
+		64,
+		56
+	],
+	"scale": 2.2,
+	"keep_size": true,
+	"status": "final",
+	"background": "smooth",
+	"tolerance": 7,
+	"holes": 0,
+	"colors": 48,
+	"outline": true,
+	"flip": false,
+	"hover": -40,
+	"animations": [
+		{
+			"name": "idle",
+			"source": "idle.png",
+			"frames": 0,
+			"fps": 7,
+			"loop": true
+		},
+		{
+			"name": "move",
+			"source": "move.png",
+			"frames": 7,
+			"fps": 9,
+			"loop": true,
+			"layout": "grid",
+			"grid": [
+				7,
+				1
+			]
+		},
+		{
+			"name": "attack",
+			"source": "attack.png",
+			"frames": 8,
+			"fps": 10,
+			"loop": false,
+			"layout": "grid",
+			"grid": [
+				8,
+				1
+			]
+		},
+		{
+			"name": "shadow_wave",
+			"source": "shadow_wave.png",
+			"frames": 8,
+			"fps": 10,
+			"loop": false,
+			"layout": "grid",
+			"grid": [
+				8,
+				1
+			]
+		},
+		{
+			"name": "summon",
+			"source": "summon.png",
+			"frames": 0,
+			"fps": 9,
+			"loop": false
+		},
+		{
+			"name": "transform",
+			"source": "transform.png",
+			"frames": 10,
+			"fps": 9,
+			"loop": false,
+			"layout": "grid",
+			"grid": [
+				10,
+				1
+			]
+		},
+		{
+			"name": "phase2_attack",
+			"source": "phase2_attack.png",
+			"frames": 5,
+			"fps": 10,
+			"loop": false,
+			"layout": "grid",
+			"grid": [
+				5,
+				1
+			]
+		},
+		{
+			"name": "death",
+			"source": "death.png",
+			"frames": 0,
+			"fps": 7,
+			"loop": false
+		}
+	],
+	"aliases": {},
+	"isolate": true
+}

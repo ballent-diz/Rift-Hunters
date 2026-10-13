@@ -17,6 +17,7 @@ static func create(host: Node, starter: StringName = &"", run_seed: int = 7, dec
 	run.set_physics_process(false)
 	if not decor:
 		run.ctx.obstacles = ObstacleField.new()
+		run.ctx.flow = null
 	return run
 
 

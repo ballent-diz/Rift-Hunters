@@ -334,60 +334,60 @@
 			"imported_from": "assets/concepts/incoming/boss.nebulorax/job.json",
 			"sheet": "res://assets/sprites/bosses/nebulorax/nebulorax_sheet.png",
 			"cell": [
-				128,
-				104
+				320,
+				200
 			],
 			"anchor": [
-				64,
-				56
+				160,
+				190
 			],
-			"scale": 2.2,
+			"scale": 1.0,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
+					"frames": 10,
 					"fps": 7,
 					"loop": true
 				},
 				"move": {
 					"row": 1,
-					"frames": 7,
+					"frames": 10,
 					"fps": 9,
 					"loop": true
 				},
 				"attack": {
 					"row": 2,
-					"frames": 8,
+					"frames": 6,
 					"fps": 10,
-					"loop": false
-				},
-				"shadow_wave": {
-					"row": 3,
-					"frames": 8,
-					"fps": 10,
-					"loop": false
-				},
-				"summon": {
-					"row": 4,
-					"frames": 7,
-					"fps": 9,
-					"loop": false
-				},
-				"transform": {
-					"row": 5,
-					"frames": 10,
-					"fps": 9,
 					"loop": false
 				},
 				"phase2_attack": {
-					"row": 6,
+					"row": 3,
+					"frames": 3,
+					"fps": 8,
+					"loop": false
+				},
+				"shadow_wave": {
+					"row": 4,
 					"frames": 5,
 					"fps": 10,
 					"loop": false
 				},
+				"transform": {
+					"row": 5,
+					"frames": 5,
+					"fps": 7,
+					"loop": false
+				},
 				"death": {
-					"row": 7,
-					"frames": 6,
+					"row": 6,
+					"frames": 12,
+					"fps": 9,
+					"loop": false
+				},
+				"summon": {
+					"row": 5,
+					"frames": 5,
 					"fps": 7,
 					"loop": false
 				}
@@ -2573,8 +2573,8 @@
 			"field_step": 5.0,
 			"arena_size": 1254.0,
 			"start": [
-				34,
-				100
+				26,
+				104
 			],
 			"ambient": {
 				"color": "#f4f0b8",
