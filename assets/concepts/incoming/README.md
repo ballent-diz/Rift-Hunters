@@ -7,6 +7,17 @@ au bon endroit, puis met à jour `assets/asset_manifest.json`.
 
 Règles graphiques : `docs/ART_BIBLE.md`. Prompts prêts à l'emploi : `docs/art_prompts.md`.
 
+## 0. Rangement du dossier
+
+- **Un dossier par identifiant du jeu** : `player.hunter/`, `monster.mossback/`, `enemy.skitterling/`,
+  `boss.nebulorax/`, `map.fractured_plain/`… (le nom du dossier = l'identifiant du manifeste).
+- Dans chaque dossier : les bandes d'animation découpées (`move.png`, `attack.png`…) et le `job.json` ;
+  les **images d'origine** (planche complète, fiche de référence) dans `source/`.
+- Planches qui mélangent plusieurs créatures : `planches_communes/`. Anciennes versions : `archive_v1/`…
+- Images déposées mais pas encore intégrées : un dossier `<identifiant>_a_integrer/` (ex. `map.l1_a_integrer/`).
+- Ce dossier contient un `.gdignore` : Godot ne l'importe pas (seuls les outils Python le lisent),
+  il ne faut donc pas y versionner de fichiers `.import`.
+
 ## 1. Préparer le dossier
 
 ```

@@ -15,6 +15,8 @@ Aucun lien avec une licence existante : noms, créatures, visuels et mécaniques
    affiché en dur. Le test `test_localization` échoue si une traduction manque.
 3. Langue de travail : français (docs, commits, échanges). Identifiants de code en anglais.
 4. Ne jamais déclarer un système terminé sans l'avoir vérifié (tests + lancement).
+5. Git partagé avec Codex (consignes communes : `AGENTS.md`) : une branche par tâche depuis `main` à jour,
+   pull request vers `main`, pas de push direct sur `main`.
 
 ## Commandes
 

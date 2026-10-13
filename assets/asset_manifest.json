@@ -97,7 +97,7 @@
 		},
 		"monster.mossback": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/pyrolith/job.json",
+			"imported_from": "assets/concepts/incoming/monster.mossback/job.json",
 			"sheet": "res://assets/sprites/monsters/mossback/mossback_sheet.png",
 			"cell": [
 				96,
@@ -144,7 +144,7 @@
 		},
 		"monster.glimmerwing": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/aqualis/job.json",
+			"imported_from": "assets/concepts/incoming/monster.glimmerwing/job.json",
 			"sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_sheet.png",
 			"cell": [
 				96,
@@ -191,7 +191,7 @@
 		},
 		"enemy.skitterling": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/grouillard/job.json",
+			"imported_from": "assets/concepts/incoming/enemy.skitterling/job.json",
 			"sheet": "res://assets/sprites/enemies/skitterling/skitterling_sheet.png",
 			"cell": [
 				83,
@@ -226,7 +226,7 @@
 		},
 		"enemy.husk": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/carapace/job.json",
+			"imported_from": "assets/concepts/incoming/enemy.husk/job.json",
 			"sheet": "res://assets/sprites/enemies/husk/husk_sheet.png",
 			"cell": [
 				97,
@@ -261,7 +261,7 @@
 		},
 		"enemy.spitter": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/cracheur/job.json",
+			"imported_from": "assets/concepts/incoming/enemy.spitter/job.json",
 			"sheet": "res://assets/sprites/enemies/spitter/spitter_sheet.png",
 			"cell": [
 				111,
@@ -296,7 +296,7 @@
 		},
 		"enemy.lunger": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/bondisseur/job.json",
+			"imported_from": "assets/concepts/incoming/enemy.lunger/job.json",
 			"sheet": "res://assets/sprites/enemies/lunger/lunger_sheet.png",
 			"cell": [
 				125,
@@ -396,7 +396,7 @@
 		},
 		"monster.thornweave": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/sylvran/job.json",
+			"imported_from": "assets/concepts/incoming/monster.thornweave/job.json",
 			"sheet": "res://assets/sprites/monsters/thornweave/thornweave_sheet.png",
 			"cell": [
 				96,
@@ -443,7 +443,7 @@
 		},
 		"monster.voltwisp": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/zerak/job.json",
+			"imported_from": "assets/concepts/incoming/monster.voltwisp/job.json",
 			"sheet": "res://assets/sprites/monsters/voltwisp/voltwisp_sheet.png",
 			"cell": [
 				96,
@@ -490,7 +490,7 @@
 		},
 		"monster.gloommaw": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/nyxar/job.json",
+			"imported_from": "assets/concepts/incoming/monster.gloommaw/job.json",
 			"sheet": "res://assets/sprites/monsters/gloommaw/gloommaw_sheet.png",
 			"cell": [
 				96,
@@ -577,7 +577,7 @@
 		},
 		"enemy.broodmother": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/nuee_mere/job.json",
+			"imported_from": "assets/concepts/incoming/enemy.broodmother/job.json",
 			"sheet": "res://assets/sprites/enemies/broodmother/broodmother_sheet.png",
 			"cell": [
 				144,
@@ -612,7 +612,7 @@
 		},
 		"enemy.shade_stalker": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/rodeur/job.json",
+			"imported_from": "assets/concepts/incoming/enemy.shade_stalker/job.json",
 			"sheet": "res://assets/sprites/enemies/shade_stalker/shade_stalker_sheet.png",
 			"cell": [
 				160,
@@ -647,7 +647,7 @@
 		},
 		"enemy.crystal_warden": {
 			"status": "final",
-			"imported_from": "assets/concepts/incoming/gardien/job.json",
+			"imported_from": "assets/concepts/incoming/enemy.crystal_warden/job.json",
 			"sheet": "res://assets/sprites/enemies/crystal_warden/crystal_warden_sheet.png",
 			"cell": [
 				128,
