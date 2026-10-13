@@ -3,6 +3,7 @@ LANGUAGE_NAME,Français,English
 MENU_TAGLINE,Scellez des pactes. Refermez les Failles.,Seal pacts. Close the Rifts.
 MENU_CHOOSE_STARTER,Choisissez l'Écho qui vous accompagne,Choose the Echo that joins you
 MENU_QUIT,Quitter,Quit
+MENU_SETTINGS,Paramètres,Settings
 ROLE_0,Assassin,Assassin
 ROLE_1,Gardien,Guardian
 ROLE_2,Soutien,Support
