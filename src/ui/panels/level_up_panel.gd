@@ -56,6 +56,10 @@ func _refresh() -> void:
 				evolution = ally.evolution
 			EchoPortrait.add_to_card(card, GameDB.monster(offer.monster_id),
 				ctx.setup.palettes.get(offer.monster_id, []), evolution)
+		elif offer.upgrade:
+			ItemArt.add_to_card(card, "upgrade", offer.upgrade.id, accent)
+		else:
+			ItemArt.add_to_card(card, "offer", &"heal" if offer.kind == UpgradeOffer.Kind.HEAL else &"shards", accent)
 	MenuSkin.finish(_cards)
 	if _cards.get_child_count() > 0:
 		(_cards.get_child(0) as Control).grab_focus.call_deferred()
