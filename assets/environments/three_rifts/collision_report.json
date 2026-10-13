@@ -1,0 +1,23 @@
+{
+  "start": [
+    -1208.0,
+    -32.0
+  ],
+  "walkable_percent": 30.4,
+  "clearance": 16,
+  "connected_panels": 3,
+  "source_sizes": [
+    [
+      1254,
+      1254
+    ],
+    [
+      1254,
+      1254
+    ],
+    [
+      1254,
+      1254
+    ]
+  ]
+}

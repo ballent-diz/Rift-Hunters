@@ -1,0 +1,2609 @@
+{
+	"version": 1,
+	"entries": {
+		"player.hunter": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/player.hunter/job.json",
+			"sheet": "res://assets/sprites/players/hunter/hunter_sheet.png",
+			"cell": [
+				96,
+				80
+			],
+			"anchor": [
+				48,
+				74
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 18,
+					"loop": false
+				},
+				"hurt": {
+					"row": 3,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 6,
+					"fps": 8,
+					"loop": false
+				},
+				"dash": {
+					"row": 2,
+					"frames": 7,
+					"fps": 18,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/players/hunter.png"
+		},
+		"monster.ashblade": {
+			"status": "wip",
+			"generated_by": "tools/art/build.py",
+			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/ashblade.png"
+		},
+		"monster.mossback": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.mossback/job.json",
+			"sheet": "res://assets/sprites/monsters/mossback/mossback_sheet.png",
+			"cell": [
+				96,
+				88
+			],
+			"anchor": [
+				48,
+				82
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/mossback.png"
+		},
+		"monster.glimmerwing": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.glimmerwing/job.json",
+			"sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_sheet.png",
+			"cell": [
+				96,
+				88
+			],
+			"anchor": [
+				48,
+				82
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/glimmerwing.png"
+		},
+		"enemy.skitterling": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.skitterling/job.json",
+			"sheet": "res://assets/sprites/enemies/skitterling/skitterling_sheet.png",
+			"cell": [
+				83,
+				62
+			],
+			"anchor": [
+				42,
+				57
+			],
+			"scale": 0.75,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 9,
+					"fps": 14,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 9,
+					"fps": 14,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/skitterling.png"
+		},
+		"enemy.husk": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.husk/job.json",
+			"sheet": "res://assets/sprites/enemies/husk/husk_sheet.png",
+			"cell": [
+				97,
+				76
+			],
+			"anchor": [
+				49,
+				71
+			],
+			"scale": 0.75,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 9,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 9,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/husk.png"
+		},
+		"enemy.spitter": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.spitter/job.json",
+			"sheet": "res://assets/sprites/enemies/spitter/spitter_sheet.png",
+			"cell": [
+				111,
+				69
+			],
+			"anchor": [
+				55,
+				64
+			],
+			"scale": 0.75,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 10,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 5,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 10,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/spitter.png"
+		},
+		"enemy.lunger": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.lunger/job.json",
+			"sheet": "res://assets/sprites/enemies/lunger/lunger_sheet.png",
+			"cell": [
+				125,
+				69
+			],
+			"anchor": [
+				62,
+				64
+			],
+			"scale": 0.75,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 9,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 9,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/lunger.png"
+		},
+		"boss.nebulorax": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.nebulorax/job.json",
+			"sheet": "res://assets/sprites/bosses/nebulorax/nebulorax_sheet.png",
+			"cell": [
+				320,
+				200
+			],
+			"anchor": [
+				160,
+				190
+			],
+			"scale": 1.0,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 10,
+					"fps": 7,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 10,
+					"fps": 9,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"phase2_attack": {
+					"row": 3,
+					"frames": 3,
+					"fps": 8,
+					"loop": false
+				},
+				"shadow_wave": {
+					"row": 4,
+					"frames": 5,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 5,
+					"frames": 5,
+					"fps": 7,
+					"loop": false
+				},
+				"death": {
+					"row": 6,
+					"frames": 12,
+					"fps": 9,
+					"loop": false
+				},
+				"summon": {
+					"row": 5,
+					"frames": 5,
+					"fps": 7,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/nebulorax.png"
+		},
+		"monster.thornweave": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.thornweave/job.json",
+			"sheet": "res://assets/sprites/monsters/thornweave/thornweave_sheet.png",
+			"cell": [
+				96,
+				88
+			],
+			"anchor": [
+				48,
+				82
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/thornweave.png"
+		},
+		"monster.voltwisp": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.voltwisp/job.json",
+			"sheet": "res://assets/sprites/monsters/voltwisp/voltwisp_sheet.png",
+			"cell": [
+				96,
+				88
+			],
+			"anchor": [
+				48,
+				82
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/voltwisp.png"
+		},
+		"monster.gloommaw": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.gloommaw/job.json",
+			"sheet": "res://assets/sprites/monsters/gloommaw/gloommaw_sheet.png",
+			"cell": [
+				96,
+				88
+			],
+			"anchor": [
+				48,
+				82
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/gloommaw.png"
+		},
+		"monster.mirrorling": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/monsters/mirrorling/mirrorling_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				58
+			],
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 14,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/mirrorling.png",
+			"scale": 0.5
+		},
+		"enemy.broodmother": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.broodmother/job.json",
+			"sheet": "res://assets/sprites/enemies/broodmother/broodmother_sheet.png",
+			"cell": [
+				144,
+				104
+			],
+			"anchor": [
+				72,
+				98
+			],
+			"scale": 0.75,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 8,
+					"fps": 9,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 5,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/broodmother.png"
+		},
+		"enemy.shade_stalker": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.shade_stalker/job.json",
+			"sheet": "res://assets/sprites/enemies/shade_stalker/shade_stalker_sheet.png",
+			"cell": [
+				160,
+				104
+			],
+			"anchor": [
+				80,
+				98
+			],
+			"scale": 0.75,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 8,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 7,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/shade_stalker.png"
+		},
+		"enemy.crystal_warden": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.crystal_warden/job.json",
+			"sheet": "res://assets/sprites/enemies/crystal_warden/crystal_warden_sheet.png",
+			"cell": [
+				128,
+				112
+			],
+			"anchor": [
+				64,
+				104
+			],
+			"scale": 0.75,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 10,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 10,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/crystal_warden.png"
+		},
+		"boss.vorgranite": {
+			"status": "planned",
+			"sheet": "res://assets/sprites/bosses/vorgranite/vorgranite_sheet.png",
+			"cell": [
+				320,
+				320
+			],
+			"anchor": [
+				160,
+				188
+			],
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"charge": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"rock_rain": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 5,
+					"frames": 10,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 6,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/vorgranite.png",
+			"scale": 0.5
+		},
+		"monster.ashblade.eclipse_blade": {
+			"status": "wip",
+			"generated_by": "tools/art/build.py",
+			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_eclipse_blade_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/ashblade_eclipse_blade.png"
+		},
+		"monster.ashblade.pyrefang": {
+			"status": "wip",
+			"generated_by": "tools/art/build.py",
+			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_pyrefang_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/ashblade_pyrefang.png"
+		},
+		"environment.fractured_plain": {
+			"status": "wip",
+			"generated_by": "tools/art/build_env.py",
+			"source": "assets/third_party/ninja_adventure (Pixel-boy et AAA, CC0)",
+			"scale": 1.0,
+			"ground": "res://assets/environments/fractured_plain/ground.png",
+			"atlas": "res://assets/environments/fractured_plain/decals.png",
+			"decals": [
+				{
+					"name": "dirt_0",
+					"layer": "patch",
+					"weight": 3.0,
+					"rect": [
+						344,
+						244,
+						48,
+						32
+					],
+					"anchor": [
+						24,
+						16
+					]
+				},
+				{
+					"name": "dirt_1",
+					"layer": "patch",
+					"weight": 3.0,
+					"rect": [
+						836,
+						0,
+						48,
+						48
+					],
+					"anchor": [
+						24,
+						24
+					]
+				},
+				{
+					"name": "dirt_2",
+					"layer": "patch",
+					"weight": 3.0,
+					"rect": [
+						886,
+						0,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						24
+					]
+				},
+				{
+					"name": "dirt_3",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						0,
+						194,
+						80,
+						48
+					],
+					"anchor": [
+						40,
+						24
+					]
+				},
+				{
+					"name": "dirt_4",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						476,
+						0,
+						64,
+						64
+					],
+					"anchor": [
+						32,
+						32
+					]
+				},
+				{
+					"name": "dirt_5",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						542,
+						0,
+						96,
+						64
+					],
+					"anchor": [
+						48,
+						32
+					]
+				},
+				{
+					"name": "dirt_6",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						100,
+						0,
+						80,
+						80
+					],
+					"anchor": [
+						40,
+						40
+					]
+				},
+				{
+					"name": "dirt_7",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						640,
+						0,
+						112,
+						64
+					],
+					"anchor": [
+						56,
+						32
+					]
+				},
+				{
+					"name": "dirt_8",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						182,
+						0,
+						128,
+						80
+					],
+					"anchor": [
+						64,
+						40
+					]
+				},
+				{
+					"name": "dirt_spot",
+					"layer": "patch",
+					"weight": 1.5,
+					"rect": [
+						923,
+						244,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						8
+					]
+				},
+				{
+					"name": "tuft_a",
+					"layer": "detail",
+					"weight": 5,
+					"rect": [
+						520,
+						292,
+						12,
+						9
+					],
+					"anchor": [
+						6,
+						4
+					]
+				},
+				{
+					"name": "tuft_b",
+					"layer": "detail",
+					"weight": 4,
+					"rect": [
+						52,
+						292,
+						14,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "tuft_c",
+					"layer": "detail",
+					"weight": 4,
+					"rect": [
+						598,
+						292,
+						12,
+						7
+					],
+					"anchor": [
+						6,
+						3
+					]
+				},
+				{
+					"name": "tuft_d",
+					"layer": "detail",
+					"weight": 4,
+					"rect": [
+						612,
+						292,
+						15,
+						6
+					],
+					"anchor": [
+						7,
+						3
+					]
+				},
+				{
+					"name": "tuft_e",
+					"layer": "detail",
+					"weight": 3,
+					"rect": [
+						508,
+						292,
+						10,
+						10
+					],
+					"anchor": [
+						5,
+						5
+					]
+				},
+				{
+					"name": "flowers_red",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						460,
+						292,
+						15,
+						11
+					],
+					"anchor": [
+						7,
+						5
+					]
+				},
+				{
+					"name": "sprout",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						534,
+						292,
+						13,
+						9
+					],
+					"anchor": [
+						6,
+						4
+					]
+				},
+				{
+					"name": "clover",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						398,
+						292,
+						16,
+						12
+					],
+					"anchor": [
+						8,
+						6
+					]
+				},
+				{
+					"name": "leaves",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						68,
+						292,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "leaf_bits",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						416,
+						292,
+						14,
+						12
+					],
+					"anchor": [
+						7,
+						6
+					]
+				},
+				{
+					"name": "twig_a",
+					"layer": "detail",
+					"weight": 1,
+					"rect": [
+						477,
+						292,
+						12,
+						11
+					],
+					"anchor": [
+						6,
+						5
+					]
+				},
+				{
+					"name": "twig_b",
+					"layer": "detail",
+					"weight": 1,
+					"rect": [
+						432,
+						292,
+						8,
+						12
+					],
+					"anchor": [
+						4,
+						6
+					]
+				},
+				{
+					"name": "branch",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						312,
+						292,
+						13,
+						13
+					],
+					"anchor": [
+						6,
+						6
+					]
+				},
+				{
+					"name": "skull",
+					"layer": "detail",
+					"weight": 0.3,
+					"rect": [
+						549,
+						292,
+						14,
+						9
+					],
+					"anchor": [
+						7,
+						4
+					]
+				},
+				{
+					"name": "bone",
+					"layer": "detail",
+					"weight": 0.5,
+					"rect": [
+						565,
+						292,
+						14,
+						9
+					],
+					"anchor": [
+						7,
+						4
+					]
+				},
+				{
+					"name": "pebbles",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						581,
+						292,
+						15,
+						8
+					],
+					"anchor": [
+						7,
+						4
+					]
+				},
+				{
+					"name": "grass_a",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						995,
+						244,
+						15,
+						15
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "grass_b",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						327,
+						292,
+						16,
+						13
+					],
+					"anchor": [
+						8,
+						6
+					]
+				},
+				{
+					"name": "grass_c",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						85,
+						292,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "grass_d",
+					"layer": "detail",
+					"weight": 2,
+					"rect": [
+						103,
+						292,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "fern_a",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						121,
+						292,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "fern_b",
+					"layer": "detail",
+					"weight": 1.5,
+					"rect": [
+						139,
+						292,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "daisy",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						157,
+						292,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "sunflower",
+					"layer": "detail",
+					"weight": 0.4,
+					"rect": [
+						0,
+						292,
+						15,
+						15
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "red_flower",
+					"layer": "detail",
+					"weight": 0.5,
+					"rect": [
+						175,
+						292,
+						14,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "clover_b",
+					"layer": "detail",
+					"weight": 1,
+					"rect": [
+						491,
+						292,
+						15,
+						11
+					],
+					"anchor": [
+						7,
+						5
+					]
+				},
+				{
+					"name": "stone_a",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						941,
+						244,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						8
+					]
+				},
+				{
+					"name": "stone_b",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						191,
+						292,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						7
+					]
+				},
+				{
+					"name": "stone_c",
+					"layer": "detail",
+					"weight": 1.2,
+					"rect": [
+						959,
+						244,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						8
+					]
+				},
+				{
+					"name": "flat_stone_a",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						209,
+						292,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "flat_stone_b",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						226,
+						292,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "flat_stone_c",
+					"layer": "detail",
+					"weight": 0.8,
+					"rect": [
+						243,
+						292,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						7
+					]
+				},
+				{
+					"name": "bush_a",
+					"layer": "prop",
+					"weight": 3,
+					"rect": [
+						345,
+						292,
+						15,
+						13
+					],
+					"anchor": [
+						7,
+						11
+					]
+				},
+				{
+					"name": "bush_b",
+					"layer": "prop",
+					"weight": 3,
+					"rect": [
+						260,
+						292,
+						16,
+						14
+					],
+					"anchor": [
+						8,
+						12
+					]
+				},
+				{
+					"name": "bush_c",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						442,
+						292,
+						16,
+						12
+					],
+					"anchor": [
+						8,
+						10
+					]
+				},
+				{
+					"name": "bush_d",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						362,
+						292,
+						16,
+						13
+					],
+					"anchor": [
+						8,
+						11
+					]
+				},
+				{
+					"name": "boulder_a",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						598,
+						244,
+						32,
+						30
+					],
+					"anchor": [
+						16,
+						28
+					]
+				},
+				{
+					"name": "boulder_b",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						394,
+						244,
+						32,
+						32
+					],
+					"anchor": [
+						16,
+						30
+					]
+				},
+				{
+					"name": "rock_round",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						800,
+						244,
+						29,
+						27
+					],
+					"anchor": [
+						14,
+						25
+					]
+				},
+				{
+					"name": "rock_small",
+					"layer": "prop",
+					"weight": 2,
+					"rect": [
+						977,
+						244,
+						16,
+						16
+					],
+					"anchor": [
+						8,
+						14
+					]
+				},
+				{
+					"name": "stump",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						891,
+						244,
+						30,
+						23
+					],
+					"anchor": [
+						15,
+						21
+					]
+				},
+				{
+					"name": "stump_small",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						17,
+						292,
+						16,
+						15
+					],
+					"anchor": [
+						8,
+						13
+					]
+				},
+				{
+					"name": "log",
+					"layer": "prop",
+					"weight": 1,
+					"rect": [
+						380,
+						292,
+						16,
+						13
+					],
+					"anchor": [
+						8,
+						11
+					]
+				},
+				{
+					"name": "dead_bush",
+					"layer": "prop",
+					"weight": 1.5,
+					"rect": [
+						35,
+						292,
+						15,
+						15
+					],
+					"anchor": [
+						7,
+						13
+					]
+				},
+				{
+					"name": "crystal_violet",
+					"layer": "prop",
+					"weight": 1.2,
+					"rect": [
+						278,
+						292,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						12
+					]
+				},
+				{
+					"name": "crystal_teal",
+					"layer": "prop",
+					"weight": 0.6,
+					"rect": [
+						295,
+						292,
+						15,
+						14
+					],
+					"anchor": [
+						7,
+						12
+					]
+				},
+				{
+					"name": "gem_boulder",
+					"layer": "prop",
+					"weight": 0.5,
+					"rect": [
+						831,
+						244,
+						28,
+						25
+					],
+					"anchor": [
+						14,
+						23
+					]
+				},
+				{
+					"name": "gem_boulder_dark",
+					"layer": "prop",
+					"weight": 0.5,
+					"rect": [
+						861,
+						244,
+						28,
+						25
+					],
+					"anchor": [
+						14,
+						23
+					]
+				},
+				{
+					"name": "forest_pine",
+					"layer": "border",
+					"weight": 3,
+					"rect": [
+						754,
+						194,
+						64,
+						47
+					],
+					"anchor": [
+						32,
+						45
+					]
+				},
+				{
+					"name": "forest_green",
+					"layer": "border",
+					"weight": 3,
+					"rect": [
+						820,
+						194,
+						64,
+						47
+					],
+					"anchor": [
+						32,
+						45
+					]
+				},
+				{
+					"name": "forest_dead",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						886,
+						194,
+						64,
+						47
+					],
+					"anchor": [
+						32,
+						45
+					]
+				},
+				{
+					"name": "forest_lime",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						82,
+						194,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						46
+					]
+				},
+				{
+					"name": "forest_mossy_a",
+					"layer": "border",
+					"weight": 2,
+					"rect": [
+						148,
+						194,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						46
+					]
+				},
+				{
+					"name": "forest_mossy_b",
+					"layer": "border",
+					"weight": 2,
+					"rect": [
+						214,
+						194,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						46
+					]
+				},
+				{
+					"name": "rock_pile",
+					"layer": "border",
+					"weight": 1,
+					"rect": [
+						66,
+						244,
+						61,
+						44
+					],
+					"anchor": [
+						30,
+						42
+					]
+				},
+				{
+					"name": "border_pine",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						632,
+						244,
+						32,
+						30
+					],
+					"anchor": [
+						16,
+						28
+					]
+				},
+				{
+					"name": "border_tree",
+					"layer": "border",
+					"weight": 1.5,
+					"rect": [
+						700,
+						244,
+						32,
+						29
+					],
+					"anchor": [
+						16,
+						27
+					]
+				},
+				{
+					"name": "border_dead",
+					"layer": "border",
+					"weight": 1,
+					"rect": [
+						462,
+						244,
+						32,
+						31
+					],
+					"anchor": [
+						16,
+						29
+					]
+				},
+				{
+					"name": "boulder_big",
+					"layer": "obstacle",
+					"weight": 1.5,
+					"rect": [
+						0,
+						244,
+						64,
+						46
+					],
+					"anchor": [
+						32,
+						44
+					],
+					"collision": [
+						[
+							0.0,
+							-14.080000000000002,
+							25.6
+						]
+					]
+				},
+				{
+					"name": "boulder_tall",
+					"layer": "obstacle",
+					"weight": 1.2,
+					"rect": [
+						280,
+						194,
+						32,
+						48
+					],
+					"anchor": [
+						16,
+						46
+					],
+					"collision": [
+						[
+							0.0,
+							-7.392,
+							13.44
+						]
+					]
+				},
+				{
+					"name": "mossy_rock",
+					"layer": "obstacle",
+					"weight": 1.5,
+					"rect": [
+						734,
+						244,
+						30,
+						29
+					],
+					"anchor": [
+						15,
+						27
+					],
+					"collision": [
+						[
+							0.0,
+							-6.930000000000001,
+							12.6
+						]
+					]
+				},
+				{
+					"name": "rock_pile_small",
+					"layer": "obstacle",
+					"weight": 1.0,
+					"rect": [
+						129,
+						244,
+						61,
+						44
+					],
+					"anchor": [
+						30,
+						42
+					],
+					"collision": [
+						[
+							0.0,
+							-13.420000000000002,
+							24.400000000000002
+						]
+					]
+				},
+				{
+					"name": "dead_tree",
+					"layer": "obstacle",
+					"weight": 1.5,
+					"rect": [
+						496,
+						244,
+						32,
+						31
+					],
+					"anchor": [
+						16,
+						29
+					],
+					"collision": [
+						[
+							0.0,
+							-3.8720000000000003,
+							7.04
+						]
+					]
+				},
+				{
+					"name": "tree_round",
+					"layer": "obstacle",
+					"weight": 1.5,
+					"rect": [
+						766,
+						244,
+						32,
+						29
+					],
+					"anchor": [
+						16,
+						27
+					],
+					"collision": [
+						[
+							0.0,
+							-3.5200000000000005,
+							6.4
+						]
+					]
+				},
+				{
+					"name": "pine",
+					"layer": "obstacle",
+					"weight": 1.5,
+					"rect": [
+						666,
+						244,
+						32,
+						30
+					],
+					"anchor": [
+						16,
+						28
+					],
+					"collision": [
+						[
+							0.0,
+							-3.5200000000000005,
+							6.4
+						]
+					]
+				},
+				{
+					"name": "small_tree",
+					"layer": "obstacle",
+					"weight": 1.0,
+					"rect": [
+						428,
+						244,
+						32,
+						32
+					],
+					"anchor": [
+						16,
+						30
+					],
+					"collision": [
+						[
+							0.0,
+							-3.168,
+							5.76
+						]
+					]
+				},
+				{
+					"name": "big_tree_a",
+					"layer": "obstacle",
+					"weight": 0.8,
+					"rect": [
+						530,
+						244,
+						32,
+						31
+					],
+					"anchor": [
+						16,
+						29
+					],
+					"collision": [
+						[
+							0.0,
+							-3.8720000000000003,
+							7.04
+						]
+					]
+				},
+				{
+					"name": "big_tree_b",
+					"layer": "obstacle",
+					"weight": 0.8,
+					"rect": [
+						564,
+						244,
+						32,
+						31
+					],
+					"anchor": [
+						16,
+						29
+					],
+					"collision": [
+						[
+							0.0,
+							-3.8720000000000003,
+							7.04
+						]
+					]
+				},
+				{
+					"name": "pillar",
+					"layer": "obstacle",
+					"weight": 0.6,
+					"rect": [
+						258,
+						244,
+						16,
+						42
+					],
+					"anchor": [
+						8,
+						40
+					],
+					"collision": [
+						[
+							0.0,
+							-3.9600000000000004,
+							7.2
+						]
+					]
+				},
+				{
+					"name": "broken_pillar",
+					"layer": "obstacle",
+					"weight": 0.6,
+					"rect": [
+						326,
+						244,
+						16,
+						36
+					],
+					"anchor": [
+						8,
+						34
+					],
+					"collision": [
+						[
+							0.0,
+							-3.9600000000000004,
+							7.2
+						]
+					]
+				},
+				{
+					"name": "mossy_statue",
+					"layer": "obstacle",
+					"weight": 0.4,
+					"rect": [
+						952,
+						194,
+						32,
+						47
+					],
+					"anchor": [
+						16,
+						45
+					],
+					"collision": [
+						[
+							0.0,
+							-6.688000000000001,
+							12.16
+						]
+					]
+				},
+				{
+					"name": "ruined_wall",
+					"layer": "obstacle",
+					"weight": 0.4,
+					"rect": [
+						276,
+						244,
+						48,
+						40
+					],
+					"anchor": [
+						24,
+						38
+					],
+					"collision": [
+						[
+							0.0,
+							-11.088000000000001,
+							20.16
+						]
+					]
+				},
+				{
+					"name": "ruined_house",
+					"layer": "obstacle",
+					"weight": 0.3,
+					"rect": [
+						192,
+						244,
+						64,
+						44
+					],
+					"anchor": [
+						32,
+						42
+					],
+					"collision": [
+						[
+							0.0,
+							-14.784,
+							26.88
+						]
+					]
+				},
+				{
+					"name": "water_0",
+					"layer": "water",
+					"weight": 1.5,
+					"rect": [
+						314,
+						194,
+						48,
+						48
+					],
+					"anchor": [
+						24,
+						24
+					],
+					"collision": [
+						[
+							0.0,
+							0.0,
+							17.0
+						]
+					]
+				},
+				{
+					"name": "water_1",
+					"layer": "water",
+					"weight": 1.5,
+					"rect": [
+						364,
+						194,
+						64,
+						48
+					],
+					"anchor": [
+						32,
+						24
+					],
+					"collision": [
+						[
+							-8.0,
+							0.0,
+							17.0
+						],
+						[
+							8.0,
+							0.0,
+							17.0
+						]
+					]
+				},
+				{
+					"name": "water_2",
+					"layer": "water",
+					"weight": 1.5,
+					"rect": [
+						754,
+						0,
+						80,
+						64
+					],
+					"anchor": [
+						40,
+						32
+					],
+					"collision": [
+						[
+							-8.0,
+							0.0,
+							25.0
+						],
+						[
+							8.0,
+							0.0,
+							25.0
+						]
+					]
+				},
+				{
+					"name": "water_3",
+					"layer": "water",
+					"weight": 1.5,
+					"rect": [
+						312,
+						0,
+						64,
+						80
+					],
+					"anchor": [
+						32,
+						40
+					],
+					"collision": [
+						[
+							0.0,
+							-8.0,
+							25.0
+						],
+						[
+							0.0,
+							8.0,
+							25.0
+						]
+					]
+				},
+				{
+					"name": "water_4",
+					"layer": "water",
+					"weight": 1.0,
+					"rect": [
+						430,
+						194,
+						128,
+						48
+					],
+					"anchor": [
+						64,
+						24
+					],
+					"collision": [
+						[
+							-40.0,
+							0.0,
+							17.0
+						],
+						[
+							-24.0,
+							0.0,
+							17.0
+						],
+						[
+							-8.0,
+							0.0,
+							17.0
+						],
+						[
+							8.0,
+							0.0,
+							17.0
+						],
+						[
+							24.0,
+							0.0,
+							17.0
+						],
+						[
+							40.0,
+							0.0,
+							17.0
+						]
+					]
+				},
+				{
+					"name": "water_5",
+					"layer": "water",
+					"weight": 1.0,
+					"rect": [
+						560,
+						194,
+						192,
+						48
+					],
+					"anchor": [
+						96,
+						24
+					],
+					"collision": [
+						[
+							-72.0,
+							0.0,
+							17.0
+						],
+						[
+							-56.0,
+							0.0,
+							17.0
+						],
+						[
+							-40.0,
+							0.0,
+							17.0
+						],
+						[
+							-24.0,
+							0.0,
+							17.0
+						],
+						[
+							-8.0,
+							0.0,
+							17.0
+						],
+						[
+							8.0,
+							0.0,
+							17.0
+						],
+						[
+							24.0,
+							0.0,
+							17.0
+						],
+						[
+							40.0,
+							0.0,
+							17.0
+						],
+						[
+							56.0,
+							0.0,
+							17.0
+						],
+						[
+							72.0,
+							0.0,
+							17.0
+						]
+					]
+				},
+				{
+					"name": "water_6",
+					"layer": "water",
+					"weight": 1.0,
+					"rect": [
+						50,
+						0,
+						48,
+						144
+					],
+					"anchor": [
+						24,
+						72
+					],
+					"collision": [
+						[
+							0.0,
+							-48.0,
+							17.0
+						],
+						[
+							0.0,
+							-32.0,
+							17.0
+						],
+						[
+							0.0,
+							-16.0,
+							17.0
+						],
+						[
+							0.0,
+							0.0,
+							17.0
+						],
+						[
+							0.0,
+							16.0,
+							17.0
+						],
+						[
+							0.0,
+							32.0,
+							17.0
+						],
+						[
+							0.0,
+							48.0,
+							17.0
+						]
+					]
+				},
+				{
+					"name": "water_7",
+					"layer": "water",
+					"weight": 1.0,
+					"rect": [
+						0,
+						0,
+						48,
+						192
+					],
+					"anchor": [
+						24,
+						96
+					],
+					"collision": [
+						[
+							0.0,
+							-72.0,
+							17.0
+						],
+						[
+							0.0,
+							-56.0,
+							17.0
+						],
+						[
+							0.0,
+							-40.0,
+							17.0
+						],
+						[
+							0.0,
+							-24.0,
+							17.0
+						],
+						[
+							0.0,
+							-8.0,
+							17.0
+						],
+						[
+							0.0,
+							8.0,
+							17.0
+						],
+						[
+							0.0,
+							24.0,
+							17.0
+						],
+						[
+							0.0,
+							40.0,
+							17.0
+						],
+						[
+							0.0,
+							56.0,
+							17.0
+						],
+						[
+							0.0,
+							72.0,
+							17.0
+						]
+					]
+				},
+				{
+					"name": "water_8",
+					"layer": "water",
+					"weight": 1.0,
+					"rect": [
+						378,
+						0,
+						96,
+						80
+					],
+					"anchor": [
+						48,
+						40
+					],
+					"collision": [
+						[
+							-8.0,
+							0.0,
+							33.0
+						],
+						[
+							8.0,
+							0.0,
+							33.0
+						]
+					]
+				}
+			],
+			"density": {
+				"patch": 7.0,
+				"detail": 130.0,
+				"prop": 18.0,
+				"obstacle": 6.0,
+				"water": 1.0
+			},
+			"border": {
+				"width": 300.0,
+				"spacing": 30.0
+			},
+			"clear_radius": 150.0,
+			"outside_tint": "#06120c99",
+			"ambient": {
+				"color": "#f4f0b8",
+				"amount": 26
+			}
+		},
+		"environment.fractured_plain_map": {
+			"status": "wip",
+			"generated_by": "tools/art/build_map.py",
+			"source": "assets/concepts/incoming/map.fractured_plain/map_source.png",
+			"kind": "map",
+			"scale": 0.75,
+			"filter": "linear",
+			"map": "res://assets/environments/fractured_plain_map/map.webp",
+			"field": "res://assets/environments/fractured_plain_map/field.png",
+			"field_unit": 2.0,
+			"field_step": 5.0,
+			"arena_size": 1254.0,
+			"start": [
+				26,
+				104
+			],
+			"ambient": {
+				"color": "#f4f0b8",
+				"amount": 22
+			},
+			"outside_tint": "#06120c99",
+			"decals": []
+		},
+		"environment.three_rifts": {
+			"status": "final",
+			"kind": "map",
+			"map": "res://assets/environments/three_rifts/L1.png",
+			"map_tiles": [
+				"res://assets/environments/three_rifts/L1.png",
+				"res://assets/environments/three_rifts/L1p2.png",
+				"res://assets/environments/three_rifts/L1p3.png"
+			],
+			"field": "res://assets/environments/three_rifts/field.png",
+			"field_step": 2.0,
+			"arena_size": 3762,
+			"start": [
+				-1208.0,
+				-32.0
+			],
+			"filter": "nearest",
+			"generated_by": "tools/art/build_three_rifts.py",
+			"ambient": {
+				"amount": 0
+			}
+		}
+	}
+}

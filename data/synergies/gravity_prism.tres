@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/status_on_pull_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="status_on_pull_effect_1"]
+script = ExtResource("2")
+status_id = &"mark"
+stacks = 2
+synergy_id = &"gravity_prism"
+
+[resource]
+script = ExtResource("1")
+id = &"gravity_prism"
+name_key = "SYNERGY_GRAVITY_PRISM_NAME"
+desc_key = "SYNERGY_GRAVITY_PRISM_DESC"
+required_monsters = [&"mossback", &"glimmerwing"]
+color = Color(0.55, 1.0, 0.85, 1.0)
+effects = [SubResource("status_on_pull_effect_1")]

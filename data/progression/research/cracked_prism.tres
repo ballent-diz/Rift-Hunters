@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/research_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"cracked_prism"
+name_key = "RESEARCH_CRACKED_PRISM_NAME"
+desc_key = "RESEARCH_CRACKED_PRISM_DESC"
+order = 3
+cost_essence = 10
+prerequisites = [&"corrupted_study"]
+unlocks = ["relic:cracked_prism"]

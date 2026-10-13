@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EliteAffixData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/elite_affix_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"hasted"
+name_key = "AFFIX_HASTED_NAME"
+desc_key = "AFFIX_HASTED_DESC"
+speed_mult = 1.45
+tint = Color(0.7, 1.0, 1.0, 1.0)

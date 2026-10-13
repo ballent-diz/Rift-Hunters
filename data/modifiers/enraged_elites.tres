@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RunModifierData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/run_modifier_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"enraged_elites"
+name_key = "MODIFIER_ENRAGED_ELITES_NAME"
+desc_key = "MODIFIER_ENRAGED_ELITES_DESC"
+reward_bonus = 0.25
+min_difficulty = 1
+player_effects = []
+elite_interval_mult = 0.6
+extra_elite_affixes = 1

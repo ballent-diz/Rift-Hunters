@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RelicData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/relic_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="stat_modifier_effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"elite_damage"
+flat = 0.0
+pct = 0.3
+
+[resource]
+script = ExtResource("1")
+id = &"hunters_eye"
+name_key = "RELIC_HUNTERS_EYE_NAME"
+desc_key = "RELIC_HUNTERS_EYE_DESC"
+rarity = 1
+requires_any_monster = []
+unlocked_by_default = true
+effects = [SubResource("stat_modifier_effect_1")]
+color = Color(1.0, 0.85, 0.4, 1.0)

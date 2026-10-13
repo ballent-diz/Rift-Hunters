@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EliteAffixData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/elite_affix_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"volatile"
+name_key = "AFFIX_VOLATILE_NAME"
+desc_key = "AFFIX_VOLATILE_DESC"
+on_death = &"explode"
+params = {
+"radius": 95.0,
+"damage": 22.0,
+"delay": 0.9
+}
+tint = Color(1.0, 0.6, 0.5, 1.0)

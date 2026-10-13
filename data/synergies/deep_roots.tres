@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/status_chain_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="status_chain_effect_1"]
+script = ExtResource("2")
+trigger_status = &"root"
+applied_status = &"fracture"
+synergy_id = &"deep_roots"
+
+[resource]
+script = ExtResource("1")
+id = &"deep_roots"
+name_key = "SYNERGY_DEEP_ROOTS_NAME"
+desc_key = "SYNERGY_DEEP_ROOTS_DESC"
+required_monsters = [&"thornweave", &"mossback"]
+required_affinities = {
+
+}
+color = Color(0.6, 0.9, 0.45, 1.0)
+effects = [SubResource("status_chain_effect_1")]

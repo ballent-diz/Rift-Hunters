@@ -1,0 +1,59 @@
+{
+	"visual_id": "enemy.husk",
+	"cell": [
+		97,
+		76
+	],
+	"anchor": [
+		49,
+		71
+	],
+	"scale": 0.75,
+	"target_height": 55,
+	"status": "final",
+	"background": "#04f703",
+	"tolerance": 70,
+	"holes": 70,
+	"despill": true,
+	"colors": 40,
+	"outline": true,
+	"flip": false,
+	"hover": 0,
+	"anchor_mode": "mass",
+	"animations": [
+		{
+			"name": "move",
+			"source": "move.png",
+			"frames": 9,
+			"fps": 10,
+			"loop": true
+		},
+		{
+			"name": "attack",
+			"source": "attack.png",
+			"frames": 8,
+			"fps": 12,
+			"loop": false,
+			"layout": "grid",
+			"grid": [
+				8,
+				1
+			],
+			"isolate": true
+		},
+		{
+			"name": "death",
+			"source": "death.png",
+			"frames": 9,
+			"fps": 12,
+			"loop": false,
+			"layout": "grid",
+			"grid": [
+				9,
+				1
+			],
+			"isolate": true
+		}
+	],
+	"aliases": {}
+}

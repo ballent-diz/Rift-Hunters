@@ -1,0 +1,243 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=33 format=3]
+
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/combat/effects/damage_bonus_effect.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="10"]
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("2")
+damage = 14.0
+cooldown = 0.9
+params = {
+"devour_threshold": 0.35,
+"max_stacks": 25,
+"stack_bonus": 0.02,
+"heal": 1.0
+}
+name_key = "ATTACK_GLOOMMAW"
+attack_range = 240.0
+
+[sub_resource type="Resource" id="damage_bonus_effect_2"]
+script = ExtResource("3")
+source_filter = &"owner"
+target_hp_below = 0.5
+bonus_pct = 0.15
+
+[sub_resource type="Resource" id="technique_data_3"]
+script = ExtResource("4")
+id = &"feast"
+technique_kind = &"feast"
+name_key = "TECHNIQUE_FEAST_NAME"
+desc_key = "TECHNIQUE_FEAST_DESC"
+cooldown = 15.0
+damage = 25.0
+radius = 200.0
+params = {
+"threshold": 0.5
+}
+
+[sub_resource type="Resource" id="attack_data_5"]
+script = ExtResource("2")
+damage = 15.0
+cooldown = 0.95
+params = {
+"devour_threshold": 0.5,
+"max_stacks": 25,
+"stack_bonus": 0.03,
+"heal": 1.0,
+"bite_radius": 55.0
+}
+name_key = "ATTACK_GLOOMMAW"
+attack_range = 240.0
+
+[sub_resource type="Resource" id="visual_data_6"]
+script = ExtResource("6")
+visual_id = &"monster.gloommaw.abyssmaw"
+shape = 16
+size = 55.0
+primary = Color(0.18, 0.1, 0.25, 1.0)
+secondary = Color(0.55, 0.25, 0.8, 1.0)
+accent = Color(1.0, 0.85, 1.0, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_4"]
+script = ExtResource("5")
+id = &"abyssmaw"
+name_key = "EVOLUTION_ABYSSMAW_NAME"
+desc_key = "EVOLUTION_ABYSSMAW_DESC"
+required_rank = 3
+attack = SubResource("attack_data_5")
+visual = SubResource("visual_data_6")
+
+[sub_resource type="Resource" id="attack_data_8"]
+script = ExtResource("2")
+damage = 13.0
+cooldown = 0.85
+params = {
+"devour_threshold": 0.35,
+"max_stacks": 40,
+"stack_bonus": 0.02,
+"heal": 3.0
+}
+name_key = "ATTACK_GLOOMMAW"
+attack_range = 240.0
+
+[sub_resource type="Resource" id="visual_data_9"]
+script = ExtResource("6")
+visual_id = &"monster.gloommaw.gorgeshade"
+shape = 16
+size = 55.0
+primary = Color(0.3, 0.12, 0.15, 1.0)
+secondary = Color(0.8, 0.25, 0.3, 1.0)
+accent = Color(1.0, 0.9, 0.6, 1.0)
+
+[sub_resource type="Resource" id="evolution_data_7"]
+script = ExtResource("5")
+id = &"gorgeshade"
+name_key = "EVOLUTION_GORGESHADE_NAME"
+desc_key = "EVOLUTION_GORGESHADE_DESC"
+required_rank = 3
+attack = SubResource("attack_data_8")
+visual = SubResource("visual_data_9")
+
+[sub_resource type="Resource" id="attack_data_11"]
+script = ExtResource("2")
+damage = 10.0
+cooldown = 0.9
+params = {
+"devour_threshold": 0.45,
+"max_stacks": 25,
+"stack_bonus": 0.02,
+"heal": 1.0
+}
+name_key = "ATTACK_GLOOMMAW"
+attack_range = 240.0
+
+[sub_resource type="Resource" id="evolution_data_10"]
+script = ExtResource("5")
+id = &"scavenger"
+name_key = "VARIANT_SCAVENGER_NAME"
+desc_key = "VARIANT_SCAVENGER_DESC"
+required_rank = 1
+attack = SubResource("attack_data_11")
+
+[sub_resource type="Resource" id="mastery_challenge_data_13"]
+script = ExtResource("8")
+id = &"gloommaw_glutton"
+desc_key = "MASTERY_GLOOMMAW_GLUTTON"
+stat_key = &"gloommaw_devoured"
+threshold = 500.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="mastery_challenge_data_14"]
+script = ExtResource("8")
+id = &"gloommaw_feast"
+desc_key = "MASTERY_GLOOMMAW_FEAST"
+stat_key = &"gloommaw_max_feast"
+threshold = 15.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="mastery_challenge_data_15"]
+script = ExtResource("8")
+id = &"gloommaw_evolved_victory"
+desc_key = "MASTERY_GLOOMMAW_EVOLVED_VICTORY"
+stat_key = &"gloommaw_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_modifier_effect_17"]
+script = ExtResource("10")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="mastery_reward_data_16"]
+script = ExtResource("9")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_modifier_effect_17")]
+
+[sub_resource type="Resource" id="mastery_reward_data_18"]
+script = ExtResource("9")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(0.15, 0.25, 0.3, 1.0)
+palette_secondary = Color(0.35, 0.85, 0.75, 1.0)
+
+[sub_resource type="Resource" id="mastery_reward_data_19"]
+script = ExtResource("9")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="mastery_reward_data_20"]
+script = ExtResource("9")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="mastery_reward_data_21"]
+script = ExtResource("9")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_data_12"]
+script = ExtResource("7")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("mastery_challenge_data_13"), SubResource("mastery_challenge_data_14"), SubResource("mastery_challenge_data_15")]
+rewards = [SubResource("mastery_reward_data_16"), SubResource("mastery_reward_data_18"), SubResource("mastery_reward_data_19"), SubResource("mastery_reward_data_20"), SubResource("mastery_reward_data_21")]
+
+[sub_resource type="Resource" id="visual_data_22"]
+script = ExtResource("6")
+visual_id = &"monster.gloommaw"
+shape = 16
+size = 47.0
+primary = Color(0.22, 0.15, 0.3, 1.0)
+secondary = Color(0.45, 0.3, 0.6, 1.0)
+accent = Color(0.95, 0.9, 0.95, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"gloommaw"
+name_key = "MONSTER_GLOOMMAW_NAME"
+desc_key = "MONSTER_GLOOMMAW_DESC"
+lore_key = "MONSTER_GLOOMMAW_LORE"
+role = 4
+affinities = [&"predator", &"void"]
+rarity = 2
+max_hp = 160.0
+defense = 25.0
+move_speed = 190.0
+behavior_id = &"devour"
+attack = SubResource("attack_data_1")
+passive_name_key = "PASSIVE_GLOOMMAW_NAME"
+passive_desc_key = "PASSIVE_GLOOMMAW_DESC"
+passive_effects = [SubResource("damage_bonus_effect_2")]
+technique = SubResource("technique_data_3")
+evolutions = [SubResource("evolution_data_4"), SubResource("evolution_data_7")]
+variant = SubResource("evolution_data_10")
+mastery = SubResource("mastery_data_12")
+unlocked_by_default = false
+visual = SubResource("visual_data_22")

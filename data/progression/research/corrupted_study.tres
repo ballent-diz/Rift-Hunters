@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/research_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"corrupted_study"
+name_key = "RESEARCH_CORRUPTED_STUDY_NAME"
+desc_key = "RESEARCH_CORRUPTED_STUDY_DESC"
+order = 0
+cost_essence = 4
+prerequisites = []
+unlocks = ["info:enemies"]

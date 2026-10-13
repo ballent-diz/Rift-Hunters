@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"warded"
+name_key = "STATUS_WARDED_NAME"
+desc_key = "STATUS_WARDED_DESC"
+duration = 1.2
+max_stacks = 1
+defense_add = 50.0
+color = Color(0.55, 0.75, 1.0, 1.0)

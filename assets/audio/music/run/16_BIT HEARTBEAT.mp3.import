@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5jqbuurp4das"
+path="res://.godot/imported/16_BIT HEARTBEAT.mp3-08af4216dac9d15d69e5dc45951a9f12.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/run/16_BIT HEARTBEAT.mp3"
+dest_files=["res://.godot/imported/16_BIT HEARTBEAT.mp3-08af4216dac9d15d69e5dc45951a9f12.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

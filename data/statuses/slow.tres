@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"slow"
+name_key = "STATUS_SLOW_NAME"
+desc_key = "STATUS_SLOW_DESC"
+duration = 2.0
+max_stacks = 1
+speed_mult = 0.6
+color = Color(0.6, 0.7, 1.0, 1.0)

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="DifficultyData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/difficulty_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"tension_3"
+level = 3
+name_key = "DIFFICULTY_TENSION_3_NAME"
+desc_key = "DIFFICULTY_TENSION_3_DESC"
+unlocked_by_default = false
+enemy_hp_mult = 2.0
+enemy_damage_mult = 1.5
+enemy_speed_mult = 1.1
+spawn_rate_mult = 1.35
+elite_interval_mult = 0.55
+elite_affix_count = 2
+boss_phase2_threshold = 0.65
+reward_mult = 2.0

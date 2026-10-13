@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3k37dpf3srt"
+path="res://.godot/imported/موت الملك.mp3-9e39b9691cf95e9528eaca61d241926a.mp3str"
+
+[deps]
+
+source_file="res://assets/audio/music/run/موت الملك.mp3"
+dest_files=["res://.godot/imported/موت الملك.mp3-9e39b9691cf95e9528eaca61d241926a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

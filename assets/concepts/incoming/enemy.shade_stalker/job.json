@@ -1,0 +1,85 @@
+{
+	"visual_id": "enemy.shade_stalker",
+	"cell": [
+		160,
+		104
+	],
+	"anchor": [
+		80,
+		98
+	],
+	"scale": 0.75,
+	"target_height": 70,
+	"status": "final",
+	"background": "#04f703",
+	"tolerance": 70,
+	"holes": 70,
+	"despill": true,
+	"colors": 40,
+	"outline": true,
+	"flip": false,
+	"hover": 0,
+	"anchor_mode": "mass",
+	"animations": [
+		{
+			"name": "move",
+			"source": "move.png",
+			"frames": 8,
+			"fps": 10,
+			"loop": true,
+			"isolate": true
+		},
+		{
+			"name": "attack",
+			"source": "attack.png",
+			"frames": 7,
+			"fps": 12,
+			"loop": false,
+			"ranges": [
+				[
+					0,
+					260
+				],
+				[
+					260,
+					520
+				],
+				[
+					520,
+					790
+				],
+				[
+					790,
+					1100
+				],
+				[
+					1100,
+					1380
+				],
+				[
+					1380,
+					1780
+				],
+				[
+					1780,
+					2172
+				]
+			],
+			"isolate": true
+		},
+		{
+			"name": "death",
+			"source": "death.png",
+			"frames": 8,
+			"fps": 12,
+			"loop": false,
+			"layout": "grid",
+			"grid": [
+				8,
+				1
+			],
+			"isolate": true
+		}
+	],
+	"aliases": {}
+}

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/spread_status_on_kill_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="spread_status_on_kill_effect_1"]
+script = ExtResource("2")
+source_filter = &"ashblade"
+required_status = &"mark"
+radius = 120.0
+synergy_id = &"prism_ember"
+
+[resource]
+script = ExtResource("1")
+id = &"prism_ember"
+name_key = "SYNERGY_PRISM_EMBER_NAME"
+desc_key = "SYNERGY_PRISM_EMBER_DESC"
+required_monsters = [&"ashblade", &"glimmerwing"]
+color = Color(1.0, 0.8, 0.9, 1.0)
+effects = [SubResource("spread_status_on_kill_effect_1")]

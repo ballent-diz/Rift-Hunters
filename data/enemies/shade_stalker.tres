@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.shade_stalker"
+shape = 19
+size = 45.0
+primary = Color(0.25, 0.15, 0.35, 1.0)
+secondary = Color(0.45, 0.25, 0.6, 1.0)
+accent = Color(1.0, 0.35, 0.7, 1.0)
+
+[sub_resource type="Resource" id="attack_data_2"]
+script = ExtResource("3")
+cooldown = 4.0
+attack_range = 360.0
+params = {
+"windup": 0.6,
+"behind": 70.0
+}
+
+[resource]
+script = ExtResource("1")
+id = &"shade_stalker"
+name_key = "ENEMY_SHADE_STALKER_NAME"
+desc_key = "ENEMY_SHADE_STALKER_DESC"
+brain = 5
+max_hp = 26.0
+damage = 10.0
+defense = 5.0
+move_speed = 85.0
+radius = 20.0
+xp_value = 4
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_2")

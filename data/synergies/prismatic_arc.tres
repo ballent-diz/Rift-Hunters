@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/status_on_hit_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="status_on_hit_effect_1"]
+script = ExtResource("2")
+source_filter = &"voltwisp"
+status_id = &"mark"
+stacks = 1
+
+[resource]
+script = ExtResource("1")
+id = &"prismatic_arc"
+name_key = "SYNERGY_PRISMATIC_ARC_NAME"
+desc_key = "SYNERGY_PRISMATIC_ARC_DESC"
+required_monsters = [&"voltwisp", &"glimmerwing"]
+required_affinities = {
+
+}
+color = Color(0.85, 0.95, 0.6, 1.0)
+effects = [SubResource("status_on_hit_effect_1")]

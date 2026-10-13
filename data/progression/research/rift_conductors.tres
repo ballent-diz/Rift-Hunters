@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ResearchData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/research_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"rift_conductors"
+name_key = "RESEARCH_RIFT_CONDUCTORS_NAME"
+desc_key = "RESEARCH_RIFT_CONDUCTORS_DESC"
+order = 5
+cost_essence = 12
+prerequisites = [&"corrupted_study"]
+unlocks = ["monster:voltwisp"]

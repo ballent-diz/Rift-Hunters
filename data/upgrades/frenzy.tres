@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/upgrade_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="stat_modifier_effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"attack_speed"
+flat = 0.0
+pct = 0.08
+
+[sub_resource type="Resource" id="stat_modifier_effect_2"]
+script = ExtResource("2")
+target = 0
+stat = &"ally_attack_speed"
+flat = 0.0
+pct = 0.08
+
+[resource]
+script = ExtResource("1")
+id = &"frenzy"
+name_key = "UPGRADE_FRENZY_NAME"
+desc_key = "UPGRADE_FRENZY_DESC"
+kind = 0
+weight = 1.0
+max_stacks = 4
+exclusive_group = &""
+requires_any_monster = []
+unlocked_by_default = true
+effects = [SubResource("stat_modifier_effect_1"), SubResource("stat_modifier_effect_2")]
+color = Color(1.0, 0.85, 0.4, 1.0)

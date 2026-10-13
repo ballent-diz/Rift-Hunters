@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="stat_modifier_effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"damage"
+flat = 0.0
+pct = 0.05
+
+[resource]
+script = ExtResource("1")
+id = &"combat_training"
+branch = &"combat"
+tier = 0
+name_key = "NODE_COMBAT_TRAINING_NAME"
+desc_key = "NODE_COMBAT_TRAINING_DESC"
+costs = [40, 80, 140]
+prerequisites = []
+prerequisites_any = false
+exclusive_group = &""
+effects = [SubResource("stat_modifier_effect_1")]

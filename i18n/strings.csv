@@ -1,0 +1,603 @@
+keys,fr,en
+LANGUAGE_NAME,Français,English
+MENU_TAGLINE,Scellez des pactes. Refermez les Failles.,Seal pacts. Close the Rifts.
+MENU_CHOOSE_STARTER,Choisissez l'Écho qui vous accompagne,Choose the Echo that joins you
+MENU_QUIT,Quitter,Quit
+MENU_SETTINGS,Paramètres,Settings
+ROLE_0,Assassin,Assassin
+ROLE_1,Gardien,Guardian
+ROLE_2,Soutien,Support
+ROLE_3,Contrôleur,Controller
+ROLE_4,Combattant,Bruiser
+ROLE_5,Tireur,Marksman
+OPTIONS_LANGUAGE,Langue : %s,Language: %s
+OPTIONS_ON,activé,on
+OPTIONS_OFF,désactivé,off
+OPTIONS_DAMAGE_NUMBERS,Chiffres de dégâts : %s,Damage numbers: %s
+OPTIONS_SCREEN_SHAKE,Secousses de l'écran : %s,Screen shake: %s
+PAUSE_TITLE,Pause,Paused
+PAUSE_RESUME,Reprendre,Resume
+PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
+PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit · Manette prise en charge,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click · Gamepad supported
+HUD_LEVEL,Niv. %d,Lv. %d
+HUD_DASH_READY,Ruée prête [Espace],Dash ready [Space]
+HUD_DASH_CD,Ruée : %.1fs,Dash: %.1fs
+HUD_BOSS_IN,Le Dévoreur arrive dans %d:%02d,The Devourer arrives in %d:%02d
+HUD_KILLS,Éliminations : %d,Kills: %d
+HUD_RELICS,Reliques : %d,Relics: %d
+HUD_RANK,Rang %d,Rank %d
+HUD_FREE_SLOT,Emplacements de pacte libres : %d,Free pact slots: %d
+HUD_SYNERGY_ACTIVATED,Synergie : %s,Synergy: %s
+HUD_BOSS_ARRIVES,%s émerge de la Faille !,%s emerges from the Rift!
+HUD_BOSS_PHASE2,Le Dévoreur se transforme !,The Devourer transforms!
+HUD_EVOLUTION,Évolution : %s,Evolution: %s
+BOSS_HEART_EXPOSED,CŒUR EXPOSÉ ×2,HEART EXPOSED ×2
+BOSS_INVULNERABLE,Invulnérable,Invulnerable
+LEVELUP_TITLE,Niveau %d !,Level %d!
+LEVELUP_BANISH_TITLE,Choisissez une carte à bannir,Choose a card to banish
+LEVELUP_REROLL,Relancer (%d),Reroll (%d)
+LEVELUP_BANISH,Bannir (%d),Banish (%d)
+LEVELUP_BANISH_CANCEL,Annuler le bannissement,Cancel banish
+OFFER_RECRUIT_TITLE,Pacte : %s,Pact: %s
+OFFER_EMPOWER_TITLE,Éveil : %s,Awaken: %s
+OFFER_EMPOWER_DESC,"Rang +1 : dégâts accrus. Au rang 3, l'Écho peut évoluer.","Rank +1: more damage. At rank 3, the Echo can evolve."
+OFFER_HEAL_TITLE,Souffle de répit,Breathing Room
+OFFER_HEAL_DESC,Rend 30 % des PV maximum.,Restores 30% of maximum HP.
+OFFER_SHARDS_TITLE,Éclats épars,Scattered Shards
+OFFER_SHARDS_DESC,+15 Éclats de faille à la fin de la partie.,+15 Rift Shards at the end of the run.
+OFFER_TAG_UPGRADE,Amélioration,Upgrade
+OFFER_TAG_MUTATION,Mutation,Mutation
+OFFER_TAG_PACT,Pacte,Pact
+OFFER_TAG_EMPOWER,Éveil,Awakening
+OFFER_TAG_EVOLUTION,Évolution,Evolution
+OFFER_TAG_SECRET_EVOLUTION,Évolution secrète,Secret evolution
+CHEST_TITLE,Coffre de faille,Rift Chest
+CHEST_START_TITLE,Relique de départ,Starting Relic
+CHEST_SUBTITLE,Prenez une relique… ou brisez le coffre.,Take a relic… or break the chest.
+CHEST_BREAK,Briser le coffre : +%d Éclats et soin,Break the chest: +%d Shards and heal
+RELIC_RARITY_0,Relique commune,Common relic
+RELIC_RARITY_1,Relique rare,Rare relic
+RELIC_RARITY_2,Relique épique,Epic relic
+RELIC_RARITY_3,Relique légendaire,Legendary relic
+RESULT_VICTORY,Faille refermée !,Rift sealed!
+RESULT_DEFEAT,Expédition perdue,Expedition lost
+RESULT_SUMMARY,Temps %d:%02d · Niveau %d · %d éliminations,Time %d:%02d · Level %d · %d kills
+RESULT_DAMAGE_TITLE,Dégâts infligés,Damage dealt
+RESULT_ELITES,Élites vaincues : %d,Elites defeated: %d
+RESULT_DAMAGE_TAKEN,Dégâts subis : %d,Damage taken: %d
+RESULT_REWARDS_TITLE,Récompenses,Rewards
+RESULT_SHARDS,Éclats de faille : +%d,Rift Shards: +%d
+RESULT_ESSENCE,Essence : +%d,Essence: +%d
+RESULT_REFUGE,Retour au Refuge,Back to the Refuge
+RESULT_REPLAY,Nouvelle expédition,New expedition
+SOURCE_PLAYER,Chasseur,Hunter
+WEAPON_RIFT_BOLT,Trait de Faille,Rift Bolt
+STATUS_FRACTURE_NAME,Fracture,Fracture
+STATUS_FRACTURE_DESC,"Défense −60, dégâts subis +15 %.","Defense −60, damage taken +15%."
+STATUS_MARK_NAME,Marque prismatique,Prism Mark
+STATUS_MARK_DESC,Se cumule. Peut être détonée.,Stacks. Can be detonated.
+STATUS_BURN_NAME,Brûlure,Burn
+STATUS_BURN_DESC,"Dégâts sur la durée, se cumule 3 fois.","Damage over time, stacks 3 times."
+STATUS_SLOW_NAME,Entrave,Hinder
+STATUS_SLOW_DESC,Vitesse −40 %.,Speed −40%.
+MONSTER_ASHBLADE_NAME,Cendrelame,Ashblade
+MONSTER_ASHBLADE_DESC,Assassin. Bondit sur ses proies et exécute les ennemis Fracturés (+60 % de dégâts).,Assassin. Leaps on prey and executes Fractured enemies (+60% damage).
+MONSTER_ASHBLADE_LORE,"Né d'une coulée d'obsidienne qui refusait de refroidir, il chasse en silence ce qui saigne déjà.","Born from an obsidian flow that refused to cool, it silently hunts whatever already bleeds."
+MONSTER_MOSSBACK_NAME,Mousseroc,Mossback
+MONSTER_MOSSBACK_DESC,Gardien. Frappe le sol pour Fracturer les ennemis. Technique : Puits de gravité.,Guardian. Pounds the ground to Fracture enemies. Technique: Gravity Well.
+MONSTER_MOSSBACK_LORE,Un monolithe qui marche depuis mille ans. Le lichen qui le couvre se souvient de chaque Faille.,A monolith that has walked for a thousand years. The lichen covering it remembers every Rift.
+MONSTER_GLIMMERWING_NAME,Lucivelle,Glimmerwing
+MONSTER_GLIMMERWING_DESC,Soutien. Ses orbes Marquent les ennemis ; sa Technique fait détoner toutes les Marques.,Support. Its orbs Mark enemies; its Technique detonates every Mark.
+MONSTER_GLIMMERWING_LORE,Une phalène de verre qui boit la lumière des Failles et la rend en éclats prismatiques.,A glass moth that drinks the light of the Rifts and returns it as prismatic shards.
+ATTACK_ASHBLADE,Taille,Slash
+ATTACK_MOSSBACK,Fracas,Crash
+ATTACK_GLIMMERWING,Éclat prismatique,Prism Shard
+PASSIVE_ASHBLADE_NAME,Exécuteur,Executioner
+PASSIVE_ASHBLADE_DESC,+60 % de dégâts contre les ennemis Fracturés.,+60% damage against Fractured enemies.
+PASSIVE_MOSSBACK_NAME,Rempart,Bulwark
+PASSIVE_MOSSBACK_DESC,Le Chasseur subit 10 % de dégâts en moins près de Mousseroc.,The Hunter takes 10% less damage near Mossback.
+PASSIVE_GLIMMERWING_NAME,Lumière apaisante,Soothing Light
+PASSIVE_GLIMMERWING_DESC,"Toutes les 25 Marques posées, soigne le Chasseur de 3 PV.","Every 25 Marks applied, heals the Hunter for 3 HP."
+TECHNIQUE_ASH_DANCE_NAME,Danse des cendres,Ash Dance
+TECHNIQUE_ASH_DANCE_DESC,Enchaîne 6 frappes sur les ennemis autour du curseur.,Chains 6 strikes on enemies around the cursor.
+TECHNIQUE_GRAVITY_WELL_NAME,Puits de gravité,Gravity Well
+TECHNIQUE_GRAVITY_WELL_DESC,Aspire les ennemis vers le curseur pendant 3 s puis implose (Fracture).,"Pulls enemies toward the cursor for 3 s, then implodes (Fracture)."
+TECHNIQUE_PRISM_FLARE_NAME,Embrasement,Prismatic Flare
+TECHNIQUE_PRISM_FLARE_DESC,Fait détoner toutes les Marques : dégâts selon les cumuls.,Detonates every Mark: damage scales with stacks.
+EVOLUTION_ECLIPSE_BLADE_NAME,Lame-Éclipse,Eclipse Blade
+EVOLUTION_ECLIPSE_BLADE_DESC,La Taille rebondit sur 2 cibles de plus. Bonus contre la Fracture doublé.,Slash chains to 2 more targets. Bonus against Fracture doubled.
+EVOLUTION_PYREFANG_NAME,Brasier-Croc,Pyrefang
+EVOLUTION_PYREFANG_DESC,La Taille devient un coup de zone qui inflige Brûlure. Rôle : combattant.,Slash becomes an area strike that inflicts Burn. Role: bruiser.
+EVOLUTION_MONOLITH_NAME,Monolithe,Monolith
+EVOLUTION_MONOLITH_DESC,Provoque les ennemis proches (ils le ciblent). Fracas élargi.,Taunts nearby enemies (they target it). Wider Crash.
+EVOLUTION_QUAKEBACK_NAME,Tremblecroc,Quakeback
+EVOLUTION_QUAKEBACK_DESC,Le Fracas libère un anneau de choc qui Fracture loin. Rôle : contrôleur.,Crash releases a shockwave ring that Fractures far away. Role: controller.
+EVOLUTION_PRISMARA_NAME,Prismara,Prismara
+EVOLUTION_PRISMARA_DESC,Les orbes se divisent au contact : marquage de masse.,Orbs split on impact: mass marking.
+EVOLUTION_DAWNWARD_NAME,Aube-Garde,Dawnward
+EVOLUTION_DAWNWARD_DESC,Les détonations soignent et donnent un bouclier. Les orbes Entravent.,Detonations heal and grant a shield. Orbs Hinder.
+EVOLUTION_PRISMATIC_ECLIPSE_NAME,Éclipse prismatique,Prismatic Eclipse
+EVOLUTION_PRISMATIC_ECLIPSE_DESC,Les Marques détonent seules au cumul maximal. Les orbes rebondissent.,Marks detonate on their own at max stacks. Orbs bounce.
+EVOLUTION_PRISMATIC_ECLIPSE_HINT,Une lumière qui dévore la nuit… quand le trio est réuni autour d'un prisme fêlé.,A light that devours the night… when the trio gathers around a cracked prism.
+VARIANT_TWILIGHT_BLADE_NAME,Variante : Lame du crépuscule,Variant: Twilight Blade
+VARIANT_TWILIGHT_BLADE_DESC,"Portée de bond +50 %, attaques 15 % plus lentes.","Leap range +50%, attacks 15% slower."
+VARIANT_ANCIENT_ROCK_NAME,Variante : Roc ancien,Variant: Ancient Rock
+VARIANT_ANCIENT_ROCK_DESC,Frappe 35 % plus fort mais 20 % plus lentement.,Hits 35% harder but 20% slower.
+VARIANT_VESPER_NAME,Variante : Vesper,Variant: Vesper
+VARIANT_VESPER_DESC,Orbes plus lents qui posent 2 Marques.,Slower orbs that apply 2 Marks.
+ENEMY_SKITTERLING_NAME,Grouillard,Skitterling
+ENEMY_SKITTERLING_DESC,"Rapide et fragile, il arrive toujours en nombre.","Fast and frail, it always comes in numbers."
+ENEMY_HUSK_NAME,Carapace,Husk
+ENEMY_HUSK_DESC,Très résistant. Fracturez-le avant de frapper.,Very tough. Fracture it before striking.
+ENEMY_SPITTER_NAME,Cracheur,Spitter
+ENEMY_SPITTER_DESC,Garde ses distances et crache des projectiles lents.,Keeps its distance and spits slow projectiles.
+ENEMY_LUNGER_NAME,Bondisseur,Lunger
+ENEMY_LUNGER_DESC,"Se fige, puis charge en ligne droite.","Freezes, then charges in a straight line."
+AFFIX_HASTED_NAME,Hâtif,Hasted
+AFFIX_HASTED_DESC,Se déplace 45 % plus vite.,Moves 45% faster.
+AFFIX_ARMORED_NAME,Blindé,Armored
+AFFIX_ARMORED_DESC,Défense +60.,Defense +60.
+AFFIX_VOLATILE_NAME,Volatil,Volatile
+AFFIX_VOLATILE_DESC,Explose à sa mort après un court délai.,Explodes on death after a short delay.
+AFFIX_SPLITTING_NAME,Scissipare,Splitting
+AFFIX_SPLITTING_DESC,Se divise en Grouillards à sa mort.,Splits into Skitterlings on death.
+BOSS_NEBULORAX_NAME,Nébulorax,Nebulorax
+BOSS_NEBULORAX_TITLE,le Dévoreur de dimensions,the Devourer of Dimensions
+BOSS_NEBULORAX_PHASE1,Phase 1 : la Spirale,Phase 1: the Spiral
+BOSS_NEBULORAX_PHASE2,Phase 2 : le Vortex,Phase 2: the Vortex
+BOSS_PATTERN_CLAW,Griffe du vide,Void Claw
+BOSS_PATTERN_SHADOW_WAVE,Vague d'ombres,Shadow Wave
+BOSS_PATTERN_SUMMON,Invocation,Summoning
+BOSS_PATTERN_ABSORB,Absorption,Absorption
+BOSS_PATTERN_VOID_BEAM,Rayon du vide,Void Beam
+UPGRADE_MIGHT_NAME,Puissance,Might
+UPGRADE_MIGHT_DESC,Dégâts du Chasseur +15 %.,Hunter damage +15%.
+UPGRADE_CADENCE_NAME,Cadence,Cadence
+UPGRADE_CADENCE_DESC,Vitesse d'attaque du Chasseur +12 %.,Hunter attack speed +12%.
+UPGRADE_MULTISHOT_NAME,Multitrait,Multishot
+UPGRADE_MULTISHOT_DESC,+1 Trait de Faille par salve.,+1 Rift Bolt per volley.
+UPGRADE_PIERCING_NAME,Perforation,Piercing
+UPGRADE_PIERCING_DESC,Les Traits traversent 1 ennemi de plus.,Bolts pierce 1 more enemy.
+UPGRADE_VITALITY_NAME,Vitalité,Vitality
+UPGRADE_VITALITY_DESC,PV maximum +20.,Maximum HP +20.
+UPGRADE_SWIFTNESS_NAME,Célérité,Swiftness
+UPGRADE_SWIFTNESS_DESC,Vitesse de déplacement +8 %.,Movement speed +8%.
+UPGRADE_MAGNETISM_NAME,Magnétisme,Magnetism
+UPGRADE_MAGNETISM_DESC,Rayon de ramassage +35 %.,Pickup radius +35%.
+UPGRADE_REFLEXES_NAME,Réflexes,Reflexes
+UPGRADE_REFLEXES_DESC,Recharge de la Ruée −15 %.,Dash cooldown −15%.
+UPGRADE_REGENERATION_NAME,Régénération,Regeneration
+UPGRADE_REGENERATION_DESC,"+0,4 PV par seconde.",+0.4 HP per second.
+UPGRADE_STRONG_BOND_NAME,Lien renforcé,Strong Bond
+UPGRADE_STRONG_BOND_DESC,Dégâts des Échos +15 %.,Echo damage +15%.
+UPGRADE_FOCUS_MIND_NAME,Concentration,Focus
+UPGRADE_FOCUS_MIND_DESC,Recharge des Techniques −12 %.,Technique cooldown −12%.
+UPGRADE_SHATTERBOLT_NAME,Mutation : Éclatement,Mutation: Shatterbolt
+UPGRADE_SHATTERBOLT_DESC,Les Traits éclatent en 2 éclats à l'impact. Exclusive.,Bolts burst into 2 shards on impact. Exclusive.
+UPGRADE_MARKING_BOLT_NAME,Mutation : Trait marqueur,Mutation: Marking Bolt
+UPGRADE_MARKING_BOLT_DESC,Les Traits posent une Marque prismatique. Exclusive.,Bolts apply a Prism Mark. Exclusive.
+UPGRADE_BREAKING_BOLT_NAME,Mutation : Trait brisant,Mutation: Breaking Bolt
+UPGRADE_BREAKING_BOLT_DESC,Un Trait sur 4 inflige Fracture. Exclusive.,One Bolt in 4 inflicts Fracture. Exclusive.
+RELIC_EMBER_HEART_NAME,Cœur de cendre,Ember Heart
+RELIC_EMBER_HEART_DESC,Un Trait sur 5 inflige Brûlure. Les ennemis qui meurent en brûlant explosent.,One Bolt in 5 inflicts Burn. Enemies that die while burning explode.
+RELIC_CRACKED_HOURGLASS_NAME,Sablier fêlé,Cracked Hourglass
+RELIC_CRACKED_HOURGLASS_DESC,"Recharge de la Ruée −40 %, mais PV maximum −15 %.","Dash cooldown −40%, but maximum HP −15%."
+RELIC_HUNTERS_EYE_NAME,Œil du chasseur,Hunter's Eye
+RELIC_HUNTERS_EYE_DESC,+30 % de dégâts contre les élites et les Dévoreurs.,+30% damage against elites and Devourers.
+RELIC_BINDING_TALISMAN_NAME,Talisman de lien,Binding Talisman
+RELIC_BINDING_TALISMAN_DESC,"Dégâts des Échos +25 %, dégâts du Chasseur −10 %.","Echo damage +25%, Hunter damage −10%."
+RELIC_CRACKED_PRISM_NAME,Prisme fêlé,Cracked Prism
+RELIC_CRACKED_PRISM_DESC,"Marques : cumul maximal +3, durée +2 s.","Marks: max stacks +3, duration +2 s."
+RELIC_GRAVITY_STONE_NAME,Pierre de gravité,Gravity Stone
+RELIC_GRAVITY_STONE_DESC,"Puits de gravité : rayon +40 %, durée +1 s.","Gravity Well: radius +40%, duration +1 s."
+RELIC_HUNTER_LANTERN_NAME,Lanterne du chasseur,Hunter's Lantern
+RELIC_HUNTER_LANTERN_DESC,"Rayon de ramassage +50 %, XP +10 %.","Pickup radius +50%, XP +10%."
+RELIC_BROKEN_CROWN_NAME,Couronne brisée,Broken Crown
+RELIC_BROKEN_CROWN_DESC,"Dégâts +25 %, mais dégâts subis +20 %.","Damage +25%, but damage taken +20%."
+SYNERGY_BREACH_AND_BLADE_NAME,Brèche & Lame,Breach & Blade
+SYNERGY_BREACH_AND_BLADE_DESC,"Quand Cendrelame touche un ennemi Fracturé, il frappe une seconde fois (50 %).","When Ashblade hits a Fractured enemy, it strikes again (50%)."
+SYNERGY_GRAVITY_PRISM_NAME,Prisme gravitationnel,Gravity Prism
+SYNERGY_GRAVITY_PRISM_DESC,Les ennemis pris dans le Puits de gravité reçoivent 2 Marques par seconde.,Enemies caught in the Gravity Well gain 2 Marks per second.
+SYNERGY_PRISM_EMBER_NAME,Braise prismatique,Prism Ember
+SYNERGY_PRISM_EMBER_DESC,Un ennemi Marqué tué par Cendrelame propage ses Marques autour de lui.,A Marked enemy killed by Ashblade spreads its Marks around.
+ARENA_FRACTURED_PLAIN_NAME,Plaine fracturée,Fractured Plain
+ARENA_FRACTURED_PLAIN_DESC,Une plaine morte zébrée de failles. Nébulorax y rôde.,A dead plain streaked with rifts. Nebulorax lurks here.
+EVENT_SWARM_RING,Une nuée vous encercle !,A swarm surrounds you!
+EVENT_UNSTABLE_RIFT,La Faille devient instable !,The Rift grows unstable!
+EVENT_ELITE_HUNT,Des élites traquent votre piste !,Elites are tracking you!
+DIFFICULTY_TENSION_0_NAME,Tension 0,Tension 0
+DIFFICULTY_TENSION_0_DESC,La Faille telle quelle.,The Rift as it is.
+DIFFICULTY_TENSION_1_NAME,Tension I,Tension I
+DIFFICULTY_TENSION_1_DESC,"Ennemis plus robustes, élites plus fréquentes. Récompenses ×1,3.","Tougher enemies, more frequent elites. Rewards ×1.3."
+DIFFICULTY_TENSION_2_NAME,Tension II,Tension II
+DIFFICULTY_TENSION_2_DESC,"Les élites portent deux affixes, les vagues sont plus denses. Récompenses ×1,6.","Elites carry two affixes, waves are denser. Rewards ×1.6."
+DIFFICULTY_TENSION_3_NAME,Tension III,Tension III
+DIFFICULTY_TENSION_3_DESC,"Ennemis plus rapides, le Dévoreur se transforme à 65 % de PV. Récompenses ×2.","Faster enemies, the Devourer transforms at 65% HP. Rewards ×2."
+MASTERY_REWARD_BONUS_NAME,Affinité,Affinity
+MASTERY_REWARD_BONUS_DESC,+10 % de dégâts pour cet Écho.,+10% damage for this Echo.
+MASTERY_REWARD_PALETTE_NAME,Teinte rare,Rare Hue
+MASTERY_REWARD_PALETTE_DESC,Débloque une palette de couleurs alternative.,Unlocks an alternative color palette.
+MASTERY_REWARD_VARIANT_NAME,Variante,Variant
+MASTERY_REWARD_VARIANT_DESC,Débloque une variante de gameplay au départ.,Unlocks a gameplay variant at the start.
+MASTERY_REWARD_START_RANK_NAME,Vétéran,Veteran
+MASTERY_REWARD_START_RANK_DESC,Commence au rang 2 quand il est choisi au départ.,Starts at rank 2 when chosen as starter.
+MASTERY_REWARD_TITLE_NAME,Maître,Master
+MASTERY_REWARD_TITLE_DESC,Titre de Maître et aura dorée dans le Bestiaire.,Master title and golden aura in the Bestiary.
+MASTERY_ASHBLADE_EXECUTIONER,Frappez 300 ennemis Fracturés avec Cendrelame (cumul).,Hit 300 Fractured enemies with Ashblade (total).
+MASTERY_ASHBLADE_ELITE_DANCER,Achevez une élite avec la Danse des cendres.,Finish an elite with Ash Dance.
+MASTERY_ASHBLADE_EVOLVED_VICTORY,Refermez une Faille avec Cendrelame évolué.,Seal a Rift with an evolved Ashblade.
+MASTERY_MOSSBACK_FRACTURER,Infligez 500 Fractures avec Mousseroc (cumul).,Inflict 500 Fractures with Mossback (total).
+MASTERY_MOSSBACK_SINGULARITY,Attirez 25 ennemis dans un seul Puits de gravité.,Pull 25 enemies into a single Gravity Well.
+MASTERY_MOSSBACK_EVOLVED_VICTORY,Refermez une Faille avec Mousseroc évolué.,Seal a Rift with an evolved Mossback.
+MASTERY_GLIMMERWING_MARKER,Posez 2000 Marques avec Lucivelle (cumul).,Apply 2000 Marks with Glimmerwing (total).
+MASTERY_GLIMMERWING_SUPERNOVA,Faites détoner 40 Marques en un seul Embrasement.,Detonate 40 Marks with a single Prismatic Flare.
+MASTERY_GLIMMERWING_EVOLVED_VICTORY,Refermez une Faille avec Lucivelle évoluée.,Seal a Rift with an evolved Glimmerwing.
+MENU_PLAY,Entrer au Refuge,Enter the Refuge
+REFUGE_TITLE,Refuge,Refuge
+REFUGE_MAIN_MENU,Écran titre,Title screen
+REFUGE_CURRENCIES,Éclats de faille : %d   ·   Essence : %d,Rift Shards: %d   ·   Essence: %d
+TAB_EXPEDITION,Expédition,Expedition
+TAB_TREE,Arbre du Chasseur,Hunter's Tree
+TAB_BESTIARY,Bestiaire,Bestiary
+TAB_LAB,Laboratoire,Laboratory
+TAB_OBJECTIVES,Objectifs,Objectives
+TAB_STATS,Statistiques,Statistics
+TAB_OPTIONS,Options,Options
+SAVE_RESTORED_BACKUP,Votre sauvegarde était endommagée : la copie de secours a été restaurée.,Your save was damaged: the backup copy has been restored.
+SAVE_CORRUPTED,Votre sauvegarde est illisible et aucune copie de secours n'existe. Le fichier a été conservé à part ; un nouveau profil a été créé.,Your save is unreadable and no backup exists. The file was kept aside; a new profile was created.
+SAVE_NEWER_VERSION,Cette sauvegarde provient d'une version plus récente du jeu : elle ne sera pas modifiée.,This save comes from a newer version of the game: it will not be modified.
+EXPEDITION_STARTER,Écho de départ,Starting Echo
+EXPEDITION_MASTERY,Maîtrise : niveau %d,Mastery: level %d
+EXPEDITION_LOCKED,Verrouillé,Locked
+EXPEDITION_UNLOCK_BY,Pour le débloquer : %s,To unlock: %s
+EXPEDITION_PALETTE,Teinte rare,Rare hue
+EXPEDITION_TENSION,Tension (difficulté),Tension (difficulty)
+EXPEDITION_ARENA,Arène,Arena
+EXPEDITION_DEPART,Partir en expédition,Start the expedition
+TREE_INTRO,Dépensez vos Éclats de faille. Les nœuds à bord gauche épais sont exclusifs : un seul par groupe.,Spend your Rift Shards. Nodes with a thick left border are exclusive: only one per group.
+TREE_RESPEC,Réinitialiser (coût : %d Essence),Reset (cost: %d Essence)
+TREE_MAXED,Maximum,Maxed
+TREE_COST,%d Éclats,%d Shards
+TREE_SELECT_HINT,Sélectionnez un nœud pour voir ses détails.,Select a node to see its details.
+TREE_RANK,Rang %d/%d,Rank %d/%d
+TREE_OR, ou , or 
+TREE_REQUIRES,Requiert : %s,Requires: %s
+TREE_EXCLUSIVE,Exclusif,Exclusive
+TREE_EXCLUDED_BY,Bloqué par : %s,Blocked by: %s
+TREE_BUY,Acquérir (%d Éclats),Acquire (%d Shards)
+BESTIARY_ECHOES,Échos,Echoes
+BESTIARY_ENEMIES,Corrompus et Dévoreurs,Hollowed and Devourers
+BESTIARY_RELICS,Reliques,Relics
+BESTIARY_SYNERGIES,Synergies,Synergies
+BESTIARY_UNKNOWN,Pas encore découvert.,Not discovered yet.
+BESTIARY_SYNERGY_HINT,Réunissez ces Échos dans la même équipe pour découvrir leur synergie.,Bring these Echoes into the same team to discover their synergy.
+BESTIARY_STATS,PV %d · Dégâts %d · Défense %d · Vitesse %d · Portée %d,HP %d · Damage %d · Defense %d · Speed %d · Range %d
+BESTIARY_EVOLUTIONS,Évolutions,Evolutions
+BESTIARY_NOT_SEEN,jamais obtenue,never obtained
+BESTIARY_MASTERY,Maîtrise,Mastery
+BESTIARY_MASTERY_LEVEL,niveau %d — %d XP (prochain palier : %s),level %d — %d XP (next tier: %s)
+BESTIARY_LEVEL,Niveau,Level
+BESTIARY_KILLS,Éliminés : %d,Defeated: %d
+BESTIARY_ENEMY_STATS,PV %d · Dégâts %d · Défense %d · Vitesse %d,HP %d · Damage %d · Defense %d · Speed %d
+BESTIARY_RESEARCH_HINT,Recherchez « Étude des Corrompus » au Laboratoire pour voir leurs statistiques.,"Research ""Hollowed Study"" in the Laboratory to see their statistics."
+BESTIARY_BOSS_LORE_NEBULORAX,Une entité colossale née des failles entre les mondes. Nébulorax absorbe l'énergie de tout ce qui l'entoure et se nourrit des âmes et des souvenirs des créatures qu'il croise. Son cœur s'expose après chaque Absorption.,A colossal entity born from the rifts between worlds. Nebulorax absorbs the energy of everything around it and feeds on the souls and memories of the creatures it meets. Its heart is exposed after each Absorption.
+LAB_INTRO,"Les recherches coûtent de l'Essence (élites, Dévoreurs, objectifs) et débloquent du contenu pour toutes les expéditions.","Research costs Essence (elites, Devourers, objectives) and unlocks content for every expedition."
+LAB_DONE,Recherche terminée,Research complete
+LAB_RESEARCH,Rechercher (%d Essence),Research (%d Essence)
+OBJECTIVES_PROGRESS,Objectifs accomplis : %d / %d,Objectives completed: %d / %d
+OBJECTIVE_CATEGORY_0,Missions,Missions
+OBJECTIVE_CATEGORY_1,Succès,Achievements
+OBJECTIVE_CATEGORY_2,Défis de build,Build challenges
+OBJECTIVE_CATEGORY_3,Collection,Collection
+OBJECTIVE_CATEGORY_4,Secrets,Secrets
+OBJECTIVE_SECRET,Objectif secret,Secret objective
+OBJECTIVE_PROGRESS,Progression : %s / %s,Progress: %s / %s
+REWARD_SHARDS,+%d Éclats,+%d Shards
+REWARD_ESSENCE,+%d Essence,+%d Essence
+REPORT_MASTERY_CHALLENGE,Défi de maîtrise (%s) : %s,Mastery challenge (%s): %s
+REPORT_MASTERY_LEVEL,%s atteint le niveau de maîtrise %d !,%s reached mastery level %d!
+REPORT_OBJECTIVE,Objectif accompli : %s,Objective completed: %s
+REPORT_UNLOCK,Débloqué : %s,Unlocked: %s
+REPORT_NEW_EVOLUTION,Nouvelle évolution découverte : %s,New evolution discovered: %s
+REPORT_NEW_SYNERGY,Nouvelle synergie découverte : %s,New synergy discovered: %s
+UNLOCK_TITLE_RIFT_WARDEN,Titre : Gardien des Failles,Title: Rift Warden
+UNLOCK_TITLE_LONE_WOLF,Titre : Loup solitaire,Title: Lone Wolf
+UNLOCK_TITLE_ECLIPSE_SEER,Titre : Voyant de l'Éclipse,Title: Eclipse Seer
+UNLOCK_INFO_ENEMIES,Statistiques des Corrompus (Bestiaire),Hollowed statistics (Bestiary)
+UNLOCK_INFO_AFFIXES,Dossier des élites (affixes visibles),Elite dossier (affixes shown)
+STATS_RECORDS,Records,Records
+STATS_BEST_TIME,Meilleur temps : %d:%02d,Best time: %d:%02d
+STATS_BEST_LEVEL,Meilleur niveau : %d,Best level: %d
+STATS_BEST_KILLS,Éliminations en une partie : %d,Kills in one run: %d
+STATS_BEST_TENSION,Tension la plus haute vaincue : %s,Highest Tension defeated: %s
+STATS_LIFETIME,Depuis le début,All time
+STATS_TITLES,Titres,Titles
+STAT_RUNS,Expéditions,Expeditions
+STAT_VICTORIES,Failles refermées,Rifts sealed
+STAT_KILLS,Corrompus éliminés,Hollowed defeated
+STAT_ELITES_KILLED,Élites vaincues,Elites defeated
+STAT_BOSSES_KILLED,Dévoreurs vaincus,Devourers defeated
+STAT_TIME_SURVIVED,Temps en expédition,Time on expeditions
+STAT_TECHNIQUES_CAST,Techniques lancées,Techniques cast
+STAT_EVOLUTIONS,Évolutions obtenues,Evolutions obtained
+STAT_RELICS_TAKEN,Reliques prises,Relics taken
+STAT_SYNERGY_PROCS,Synergies déclenchées,Synergies triggered
+STAT_MARKS_DETONATED,Marques détonées,Marks detonated
+STAT_DASHES,Ruées,Dashes
+STAT_DAMAGE_TAKEN,Dégâts subis,Damage taken
+OPTIONS_MASTER_VOLUME,Volume général,Master volume
+OPTIONS_MUSIC_VOLUME,Musique,Music
+OPTIONS_SFX_VOLUME,Effets sonores,Sound effects
+OPTIONS_FULLSCREEN,Plein écran,Fullscreen
+OPTIONS_SAVE_INFO,"Sauvegarde : %s (format v%d, écriture atomique + copie de secours)","Save: %s (format v%d, atomic write + backup)"
+BRANCH_COMBAT_NAME,Maîtrise du combat,Combat Mastery
+BRANCH_COMBAT_DESC,"Ruée, arme et survie.","Dash, weapon and survival."
+BRANCH_ECHOES_NAME,Expertise des Échos,Echo Expertise
+BRANCH_ECHOES_DESC,"Pactes, rangs et taille d'équipe.","Pacts, ranks and team size."
+BRANCH_RESEARCH_NAME,Recherche et mutations,Research & Mutations
+BRANCH_RESEARCH_DESC,"Contrôle des choix : relances, bannissements, mutations.","Control your choices: rerolls, banishes, mutations."
+BRANCH_EXPLORATION_NAME,Exploration et récompenses,Exploration & Rewards
+BRANCH_EXPLORATION_DESC,"Éclats, Essence, coffres et reliques.","Shards, Essence, chests and relics."
+BRANCH_SPECIALIZATION_NAME,Spécialisation,Specialization
+BRANCH_SPECIALIZATION_DESC,"Renforce un style : Marques, Fracture, Brûlure ou gravité.","Strengthen a style: Marks, Fracture, Burn or gravity."
+NODE_COMBAT_TRAINING_NAME,Entraînement,Training
+NODE_COMBAT_TRAINING_DESC,Dégâts du Chasseur +5 % par rang.,Hunter damage +5% per rank.
+NODE_COMBAT_PHANTOM_STEP_NAME,Pas fantôme,Phantom Step
+NODE_COMBAT_PHANTOM_STEP_DESC,"Invulnérabilité de la Ruée +0,15 s, recharge −10 %.","Dash invulnerability +0.15 s, cooldown −10%."
+NODE_COMBAT_SHATTERING_DASH_NAME,Ruée fracturante,Shattering Dash
+NODE_COMBAT_SHATTERING_DASH_DESC,La Ruée inflige Fracture aux ennemis autour du point d'arrivée.,Dashing inflicts Fracture on enemies around the landing point.
+NODE_COMBAT_MARKSMAN_NAME,Tireur des Failles,Rift Marksman
+NODE_COMBAT_MARKSMAN_DESC,Les Traits traversent 1 ennemi de plus et portent 20 % plus loin. Exclusif avec Cogneur.,Bolts pierce 1 more enemy and reach 20% further. Exclusive with Brawler.
+NODE_COMBAT_RIFT_BRAWLER_NAME,Cogneur de faille,Rift Brawler
+NODE_COMBAT_RIFT_BRAWLER_DESC,Subir un coup libère une onde de choc (toutes les 5 s). Exclusif avec Tireur.,Taking a hit releases a shockwave (every 5 s). Exclusive with Marksman.
+NODE_COMBAT_LAST_BREATH_NAME,Dernier souffle,Last Breath
+NODE_COMBAT_LAST_BREATH_DESC,"Une fois par expédition, survivez à un coup fatal avec 1 PV.","Once per expedition, survive a lethal hit with 1 HP."
+NODE_ECHOES_BONDS_NAME,Liens solides,Strong Bonds
+NODE_ECHOES_BONDS_DESC,Dégâts des Échos +6 % par rang.,Echo damage +6% per rank.
+NODE_ECHOES_SHARPENED_NAME,Techniques affûtées,Sharpened Techniques
+NODE_ECHOES_SHARPENED_DESC,Recharge des Techniques −8 % par rang.,Technique cooldown −8% per rank.
+NODE_ECHOES_VETERAN_NAME,Recrues aguerries,Veteran Recruits
+NODE_ECHOES_VETERAN_DESC,Les Échos recrutés en expédition arrivent au rang 2.,Echoes recruited during expeditions join at rank 2.
+NODE_ECHOES_THIRD_SEAL_NAME,Troisième sceau,Third Seal
+NODE_ECHOES_THIRD_SEAL_DESC,+1 emplacement d'équipe (3 Échos).,+1 team slot (3 Echoes).
+NODE_ECHOES_PACK_LEADER_NAME,Chef de meute,Pack Leader
+NODE_ECHOES_PACK_LEADER_DESC,"Dégâts des Échos +8 % par Écho, dégâts du Chasseur −15 %. Exclusif.","Echo damage +8% per Echo, Hunter damage −15%. Exclusive."
+NODE_ECHOES_LONE_HUNTER_NAME,Chasseur solitaire,Lone Hunter
+NODE_ECHOES_LONE_HUNTER_DESC,Avec au plus 1 Écho : dégâts +40 % et +30 PV max. Exclusif.,With at most 1 Echo: damage +40% and +30 max HP. Exclusive.
+NODE_RESEARCH_RIFT_STUDY_NAME,Étude des Failles,Rift Study
+NODE_RESEARCH_RIFT_STUDY_DESC,+1 relance des choix de niveau par rang.,+1 level-up reroll per rank.
+NODE_RESEARCH_UNSTABLE_NAME,Mutations instables,Unstable Mutations
+NODE_RESEARCH_UNSTABLE_DESC,Les mutations apparaissent deux fois plus souvent.,Mutations appear twice as often.
+NODE_RESEARCH_BANISH_NAME,Bannissement,Banishment
+NODE_RESEARCH_BANISH_DESC,+2 bannissements : retirez une carte pour toute la partie.,+2 banishes: remove a card for the whole run.
+NODE_RESEARCH_FOURTH_OPTION_NAME,Quatrième choix,Fourth Option
+NODE_RESEARCH_FOURTH_OPTION_DESC,Les passages de niveau proposent 4 cartes.,Level-ups offer 4 cards.
+NODE_RESEARCH_EARLY_EVOLUTION_NAME,Évolution précoce,Early Evolution
+NODE_RESEARCH_EARLY_EVOLUTION_DESC,Les Échos peuvent évoluer dès le rang 2.,Echoes can evolve from rank 2.
+NODE_EXPLORE_PROSPECTOR_NAME,Prospecteur,Prospector
+NODE_EXPLORE_PROSPECTOR_DESC,Éclats gagnés +10 % par rang.,Shards earned +10% per rank.
+NODE_EXPLORE_MAGNET_NAME,Aimant naturel,Natural Magnet
+NODE_EXPLORE_MAGNET_DESC,Rayon de ramassage +25 %.,Pickup radius +25%.
+NODE_EXPLORE_SEALED_CHESTS_NAME,Coffres scellés,Sealed Chests
+NODE_EXPLORE_SEALED_CHESTS_DESC,Les coffres proposent 4 reliques.,Chests offer 4 relics.
+NODE_EXPLORE_ESSENCE_SENSE_NAME,Flair de l'Essence,Essence Sense
+NODE_EXPLORE_ESSENCE_SENSE_DESC,+1 Essence par élite vaincue.,+1 Essence per elite defeated.
+NODE_EXPLORE_STARTING_RELIC_NAME,Relique de départ,Starting Relic
+NODE_EXPLORE_STARTING_RELIC_DESC,Commencez chaque expédition en choisissant une relique.,Start each expedition by choosing a relic.
+NODE_SPEC_PRISMATIC_RESONANCE_NAME,Résonance prismatique,Prismatic Resonance
+NODE_SPEC_PRISMATIC_RESONANCE_DESC,"Marques : cumul maximal +1, durée +2 s.","Marks: max stacks +1, duration +2 s."
+NODE_SPEC_DEEP_BREACH_NAME,Brèche profonde,Deep Breach
+NODE_SPEC_DEEP_BREACH_DESC,"Fracture : durée +1,5 s et dégâts subis +10 % supplémentaires.",Fracture: duration +1.5 s and +10% extra damage taken.
+NODE_SPEC_PYROMANCER_NAME,Pyromancien,Pyromancer
+NODE_SPEC_PYROMANCER_DESC,Brûlure +50 % ; un Trait sur 6 inflige Brûlure. Exclusif avec Gravitationniste.,Burn +50%; one Bolt in 6 inflicts Burn. Exclusive with Gravitationist.
+NODE_SPEC_GRAVITATIONIST_NAME,Gravitationniste,Gravitationist
+NODE_SPEC_GRAVITATIONIST_DESC,"Puits de gravité : rayon +25 %, attraction +30 %, durée +0,5 s. Exclusif.","Gravity Well: radius +25%, pull +30%, duration +0.5 s. Exclusive."
+NODE_SPEC_CHAIN_DETONATION_NAME,Détonation en chaîne,Chain Detonation
+NODE_SPEC_CHAIN_DETONATION_DESC,Un ennemi tué par une détonation pose 2 Marques autour de lui.,An enemy killed by a detonation applies 2 Marks around it.
+OBJ_FIRST_STEPS_NAME,Premiers pas,First Steps
+OBJ_FIRST_STEPS_DESC,Survivez 3 minutes dans une expédition.,Survive 3 minutes in an expedition.
+OBJ_LEVEL_FIFTEEN_NAME,Chasseur confirmé,Seasoned Hunter
+OBJ_LEVEL_FIFTEEN_DESC,Atteignez le niveau 15 en une expédition.,Reach level 15 in one expedition.
+OBJ_DEVOURER_SLAIN_NAME,Dévoreur dévoré,Devourer Devoured
+OBJ_DEVOURER_SLAIN_DESC,Vainquez un Dévoreur.,Defeat a Devourer.
+OBJ_TENSION_ONE_NAME,Sous tension,Under Tension
+OBJ_TENSION_ONE_DESC,Refermez une Faille en Tension I ou plus.,Seal a Rift at Tension I or higher.
+OBJ_TENSION_TWO_NAME,Haute tension,High Tension
+OBJ_TENSION_TWO_DESC,Refermez une Faille en Tension II ou plus.,Seal a Rift at Tension II or higher.
+OBJ_TENSION_THREE_NAME,Gardien des Failles,Rift Warden
+OBJ_TENSION_THREE_DESC,Refermez une Faille en Tension III.,Seal a Rift at Tension III.
+OBJ_ELITE_HUNTER_NAME,Chasseur d'élites,Elite Hunter
+OBJ_ELITE_HUNTER_DESC,Vainquez 10 élites (cumul).,Defeat 10 elites (total).
+OBJ_SLAYER_NAME,Fléau des Corrompus,Bane of the Hollowed
+OBJ_SLAYER_DESC,Éliminez 5000 Corrompus (cumul).,Defeat 5000 Hollowed (total).
+OBJ_SYNERGIST_NAME,Synergiste,Synergist
+OBJ_SYNERGIST_DESC,Activez 3 synergies dans la même expédition.,Activate 3 synergies in the same expedition.
+OBJ_LONE_WOLF_NAME,Loup solitaire,Lone Wolf
+OBJ_LONE_WOLF_DESC,Refermez une Faille sans jamais recruter de second Écho.,Seal a Rift without ever recruiting a second Echo.
+OBJ_MUTANT_NAME,Mutant,Mutant
+OBJ_MUTANT_DESC,Refermez une Faille après avoir pris une mutation.,Seal a Rift after taking a mutation.
+OBJ_EVOLVER_NAME,Évolutionniste,Evolutionist
+OBJ_EVOLVER_DESC,Faites évoluer 3 Échos (cumul).,Evolve 3 Echoes (total).
+OBJ_COLLECTOR_NAME,Collectionneur,Collector
+OBJ_COLLECTOR_DESC,Prenez 15 reliques (cumul).,Take 15 relics (total).
+OBJ_PRISMATIC_ECLIPSE_NAME,Voyant de l'Éclipse,Eclipse Seer
+OBJ_PRISMATIC_ECLIPSE_DESC,Obtenez l'évolution secrète de Lucivelle.,Obtain Glimmerwing's secret evolution.
+RESEARCH_CORRUPTED_STUDY_NAME,Étude des Corrompus,Hollowed Study
+RESEARCH_CORRUPTED_STUDY_DESC,Affiche les statistiques des Corrompus dans le Bestiaire.,Shows Hollowed statistics in the Bestiary.
+RESEARCH_BREAKING_BOLT_NAME,Mutation : Trait brisant,Mutation: Breaking Bolt
+RESEARCH_BREAKING_BOLT_DESC,Ajoute la mutation Trait brisant aux cartes possibles.,Adds the Breaking Bolt mutation to the card pool.
+RESEARCH_EMBER_HEART_NAME,Relique : Cœur de cendre,Relic: Ember Heart
+RESEARCH_EMBER_HEART_DESC,Ajoute le Cœur de cendre aux coffres.,Adds the Ember Heart to chests.
+RESEARCH_CRACKED_PRISM_NAME,Relique : Prisme fêlé,Relic: Cracked Prism
+RESEARCH_CRACKED_PRISM_DESC,Ajoute le Prisme fêlé aux coffres. Il paraît que la lumière s'y comporte étrangement…,Adds the Cracked Prism to chests. Light is said to behave strangely inside it…
+RESEARCH_ELITE_DOSSIER_NAME,Dossier des élites,Elite Dossier
+RESEARCH_ELITE_DOSSIER_DESC,Affiche le nom des affixes au-dessus des élites.,Shows affix names above elites.
+STATUS_ROOT_NAME,Racines,Roots
+STATUS_ROOT_DESC,Immobilisé (sans effet sur les Dévoreurs).,Immobilized (no effect on Devourers).
+STATUS_STATIC_NAME,Électrisé,Charged
+STATUS_STATIC_DESC,Dégâts subis +20 %.,Damage taken +20%.
+STATUS_WARDED_NAME,Égide,Aegis
+STATUS_WARDED_DESC,"Défense +50, accordée par un Gardien de cristal.","Defense +50, granted by a Crystal Warden."
+MONSTER_THORNWEAVE_NAME,Ronceline,Thornweave
+MONSTER_THORNWEAVE_DESC,Contrôleuse. Plante des ronces qui enracinent ; les ennemis enracinés subissent +20 % de dégâts.,Controller. Plants thorns that root; rooted enemies take +20% damage.
+MONSTER_THORNWEAVE_LORE,Une liane qui a poussé à travers une Faille et refuse de la laisser se refermer sans elle.,A vine that grew through a Rift and refuses to let it close without her.
+MONSTER_VOLTWISP_NAME,Fulgurine,Voltwisp
+MONSTER_VOLTWISP_DESC,Tireuse. Foudre en chaîne qui Électrise (+20 % de dégâts subis).,Marksman. Chain lightning that Charges (+20% damage taken).
+MONSTER_VOLTWISP_LORE,"Une étincelle restée coincée entre deux mondes, qui saute d'ennemi en ennemi pour ne jamais s'éteindre.","A spark stuck between two worlds, leaping from foe to foe so it never goes out."
+MONSTER_GLOOMMAW_NAME,Gueule-d'ombre,Gloommaw
+MONSTER_GLOOMMAW_DESC,Combattant. Dévore les ennemis affaiblis : soigne et gagne des dégâts pour toute la partie.,Bruiser. Devours weakened enemies: heals and gains damage for the whole run.
+MONSTER_GLOOMMAW_LORE,"Ce qui reste quand le vide a faim. Il se souvient de chaque proie, et grandit avec elles.","What remains when the void is hungry. It remembers every prey, and grows with them."
+MONSTER_MIRRORLING_NAME,Mirelle,Mirrorling
+MONSTER_MIRRORLING_DESC,"Soutien. Renvoie les projectiles ennemis proches du Chasseur, deux fois plus forts.","Support. Reflects enemy projectiles near the Hunter, twice as strong."
+MONSTER_MIRRORLING_LORE,"Un éclat de miroir tombé de la première Faille. Il renvoie tout, même la peur.","A mirror shard fallen from the first Rift. It reflects everything, even fear."
+ATTACK_THORNWEAVE,Ronces,Thorns
+ATTACK_VOLTWISP,Arc électrique,Electric Arc
+ATTACK_GLOOMMAW,Morsure,Bite
+ATTACK_MIRRORLING,Éclat de miroir,Mirror Shard
+PASSIVE_THORNWEAVE_NAME,Sève piégeuse,Trapping Sap
+PASSIVE_THORNWEAVE_DESC,Les ennemis enracinés subissent +20 % de dégâts de toutes les sources.,Rooted enemies take +20% damage from all sources.
+PASSIVE_VOLTWISP_NAME,Surtension,Overcharge
+PASSIVE_VOLTWISP_DESC,Toute l'équipe inflige +10 % de dégâts aux ennemis Électrisés.,The whole team deals +10% damage to Charged enemies.
+PASSIVE_GLOOMMAW_NAME,Appétit,Appetite
+PASSIVE_GLOOMMAW_DESC,+15 % de dégâts contre les ennemis sous 50 % de PV.,+15% damage against enemies below 50% HP.
+PASSIVE_MIRRORLING_NAME,Reflet protecteur,Guarding Reflection
+PASSIVE_MIRRORLING_DESC,Le Chasseur subit 5 % de dégâts en moins.,The Hunter takes 5% less damage.
+TECHNIQUE_BRIAR_WALL_NAME,Mur de ronces,Briar Wall
+TECHNIQUE_BRIAR_WALL_DESC,Fait pousser un mur de ronces vers le curseur : tout ce qui le traverse est enraciné.,Grows a wall of thorns toward the cursor: anything crossing it is rooted.
+TECHNIQUE_ION_STORM_NAME,Tempête ionique,Ion Storm
+TECHNIQUE_ION_STORM_DESC,La foudre frappe 8 ennemis proches (élites en priorité) et les Électrise.,Lightning strikes 8 nearby enemies (elites first) and Charges them.
+TECHNIQUE_FEAST_NAME,Festin,Feast
+TECHNIQUE_FEAST_DESC,Dévore tous les ennemis sous 50 % de PV autour de Gueule-d'ombre ; les élites sont mordues.,Devours every enemy below 50% HP around Gloommaw; elites get bitten.
+TECHNIQUE_REFLECTION_NAME,Reflet,Reflection
+TECHNIQUE_REFLECTION_DESC,"Pendant 4 s, tous les projectiles ennemis proches du Chasseur sont renvoyés.","For 4 s, every enemy projectile near the Hunter is reflected."
+EVOLUTION_BRIAR_QUEEN_NAME,Reine-ronce,Briar Queen
+EVOLUTION_BRIAR_QUEEN_DESC,Plante trois zones à la fois ; enracine plus souvent.,Plants three zones at once; roots more often.
+EVOLUTION_BLIGHTBLOOM_NAME,Floraison funeste,Blightbloom
+EVOLUTION_BLIGHTBLOOM_DESC,Ses ronces brûlent au lieu d'enraciner. Rôle : dégâts sur la durée.,Its thorns burn instead of rooting. Role: damage over time.
+EVOLUTION_STORMARC_NAME,Arc-tempête,Stormarc
+EVOLUTION_STORMARC_DESC,La foudre rebondit sur 6 cibles.,Lightning chains to 6 targets.
+EVOLUTION_THUNDERHEAD_NAME,Tonnerrine,Thunderhead
+EVOLUTION_THUNDERHEAD_DESC,Éclairs lourds qui éclatent en 3 arcs à l'impact.,Heavy bolts that burst into 3 arcs on impact.
+EVOLUTION_ABYSSMAW_NAME,Gouffre-gueule,Abyssmaw
+EVOLUTION_ABYSSMAW_DESC,Dévore sous 50 % de PV ; ses morsures touchent en zone.,Devours below 50% HP; its bites hit an area.
+EVOLUTION_GORGESHADE_NAME,Gloutombre,Gorgeshade
+EVOLUTION_GORGESHADE_DESC,Chaque dévoration soigne 3 PV ; croissance jusqu'à 40 cumuls.,Each devour heals 3 HP; grows up to 40 stacks.
+EVOLUTION_PRISMWARD_NAME,Prisme-garde,Prismward
+EVOLUTION_PRISMWARD_DESC,"Renvoie les projectiles dans un rayon bien plus large, trois fois plus forts.","Reflects projectiles in a much wider radius, three times as strong."
+EVOLUTION_KALEIDOS_NAME,Kaléidos,Kaleidos
+EVOLUTION_KALEIDOS_DESC,Éclats rapides qui traversent 6 ennemis et posent des Marques.,Fast shards that pierce 6 enemies and apply Marks.
+VARIANT_DEEP_ROOT_NAME,Variante : Racine profonde,Variant: Deep Root
+VARIANT_DEEP_ROOT_DESC,"Ronces plus durables (6,5 s), plantées moins souvent.","Longer-lasting thorns (6.5 s), planted less often."
+VARIANT_SPARK_NAME,Variante : Étincelle,Variant: Spark
+VARIANT_SPARK_DESC,"Arcs plus rapides mais plus faibles, 2 rebonds.","Faster but weaker arcs, 2 chains."
+VARIANT_SCAVENGER_NAME,Variante : Charognard,Variant: Scavenger
+VARIANT_SCAVENGER_DESC,"Dévore sous 45 % de PV, mais mord moins fort.","Devours below 45% HP, but bites weaker."
+VARIANT_SILVER_TAIN_NAME,Variante : Tain d'argent,Variant: Silver Tain
+VARIANT_SILVER_TAIN_DESC,"Renvoie dans un rayon plus large, mais moins souvent.","Reflects in a wider radius, but less often."
+MASTERY_THORNWEAVE_ROOTER,Enracinez 400 ennemis avec Ronceline (cumul).,Root 400 enemies with Thornweave (total).
+MASTERY_THORNWEAVE_WALL,Utilisez 8 Murs de ronces en une expédition.,Use 8 Briar Walls in one expedition.
+MASTERY_THORNWEAVE_EVOLVED_VICTORY,Refermez une Faille avec Ronceline évoluée.,Seal a Rift with an evolved Thornweave.
+MASTERY_VOLTWISP_CONDUCTOR,Électrisez 1500 ennemis avec Fulgurine (cumul).,Charge 1500 enemies with Voltwisp (total).
+MASTERY_VOLTWISP_STORM,Déclenchez 10 Tempêtes ioniques en une expédition.,Unleash 10 Ion Storms in one expedition.
+MASTERY_VOLTWISP_EVOLVED_VICTORY,Refermez une Faille avec Fulgurine évoluée.,Seal a Rift with an evolved Voltwisp.
+MASTERY_GLOOMMAW_GLUTTON,Dévorez 500 ennemis avec Gueule-d'ombre (cumul).,Devour 500 enemies with Gloommaw (total).
+MASTERY_GLOOMMAW_FEAST,Dévorez 15 ennemis en un seul Festin.,Devour 15 enemies in a single Feast.
+MASTERY_GLOOMMAW_EVOLVED_VICTORY,Refermez une Faille avec Gueule-d'ombre évoluée.,Seal a Rift with an evolved Gloommaw.
+MASTERY_MIRRORLING_REFLECTOR,Renvoyez 300 projectiles avec Mirelle (cumul).,Reflect 300 projectiles with Mirrorling (total).
+MASTERY_MIRRORLING_SHIELD,Utilisez 6 Reflets en une expédition.,Use 6 Reflections in one expedition.
+MASTERY_MIRRORLING_EVOLVED_VICTORY,Refermez une Faille avec Mirelle évoluée.,Seal a Rift with an evolved Mirrorling.
+ENEMY_BROODMOTHER_NAME,Nuée-mère,Broodmother
+ENEMY_BROODMOTHER_DESC,Reste en retrait et fait éclore des Grouillards. À éliminer en priorité.,Stays back and hatches Skitterlings. Kill it first.
+ENEMY_SHADE_STALKER_NAME,Rôdeur d'ombre,Shade Stalker
+ENEMY_SHADE_STALKER_DESC,"Se fige, marque un point derrière vous puis s'y téléporte.","Freezes, marks a spot behind you, then teleports there."
+ENEMY_CRYSTAL_WARDEN_NAME,Gardien de cristal,Crystal Warden
+ENEMY_CRYSTAL_WARDEN_DESC,Protège les Corrompus proches avec l'Égide (+50 défense).,Shields nearby Hollowed with Aegis (+50 defense).
+BOSS_VORGRANITE_NAME,Vorgranite,Vorgranite
+BOSS_VORGRANITE_TITLE,la Montagne affamée,the Hungry Mountain
+BOSS_VORGRANITE_PHASE1,Phase 1 : la Carapace,Phase 1: the Shell
+BOSS_VORGRANITE_PHASE2,Phase 2 : le Cœur à nu (défense nulle),Phase 2: the Bare Heart (no defense)
+BOSS_PATTERN_ROCK_RAIN,Pluie de roches,Rock Rain
+BOSS_PATTERN_CHARGE,Ruée tellurique,Earthen Charge
+BOSS_PATTERN_QUAKE,Séisme,Quake
+BESTIARY_BOSS_LORE_VORGRANITE,"Une montagne qui a avalé une Faille entière. Sa carapace dévie les coups faibles (défense 60) ; quand elle se brise, son cœur reste sans défense. Ses séismes ne laissent aucune brèche : franchissez-les avec la Ruée.","A mountain that swallowed an entire Rift. Its shell deflects weak blows (defense 60); once it breaks, its heart is defenseless. Its quakes leave no gap: dash through them."
+ARENA_CRYSTAL_ABYSS_NAME,Abysse cristallin,Crystal Abyss
+ARENA_CRYSTAL_ABYSS_DESC,"Une arène plus étroite, aux parois de cristal. Vorgranite y attend.",A narrower arena with crystal walls. Vorgranite waits there.
+ARENA_CRYSTAL_ABYSS_RULE,"Règle : Échos amplifiés (+15 % de dégâts des Échos, vitesse du Chasseur −5 %).","Rule: Amplified Echoes (+15% Echo damage, Hunter speed −5%)."
+RELIC_BRIAR_SEED_NAME,Graine de ronce,Briar Seed
+RELIC_BRIAR_SEED_DESC,12 % de chances que les Traits enracinent.,12% chance for Bolts to root.
+RELIC_UNSTABLE_COIL_NAME,Bobine instable,Unstable Coil
+RELIC_UNSTABLE_COIL_DESC,Un ennemi Électrisé qui meurt Électrise ses voisins.,A Charged enemy that dies Charges its neighbors.
+RELIC_HUNGRY_FANG_NAME,Croc vorace,Hungry Fang
+RELIC_HUNGRY_FANG_DESC,+30 % de dégâts contre les ennemis sous 30 % de PV.,+30% damage against enemies below 30% HP.
+RELIC_CRACKED_MIRROR_NAME,Miroir fêlé,Cracked Mirror
+RELIC_CRACKED_MIRROR_DESC,"Dégâts subis −12 %, vitesse −5 %.","Damage taken −12%, speed −5%."
+UPGRADE_FRENZY_NAME,Frénésie,Frenzy
+UPGRADE_FRENZY_DESC,Vitesse d'attaque du Chasseur et des Échos +8 %.,Hunter and Echo attack speed +8%.
+UPGRADE_STATIC_BOLT_NAME,Mutation : Trait électrique,Mutation: Static Bolt
+UPGRADE_STATIC_BOLT_DESC,Les Traits Électrisent. Exclusive.,Bolts Charge enemies. Exclusive.
+SYNERGY_DEEP_ROOTS_NAME,Racines brisantes,Breaking Roots
+SYNERGY_DEEP_ROOTS_DESC,Les ennemis enracinés sont aussi Fracturés.,Rooted enemies are also Fractured.
+SYNERGY_PRISMATIC_ARC_NAME,Arc prismatique,Prismatic Arc
+SYNERGY_PRISMATIC_ARC_DESC,La foudre de Fulgurine pose des Marques.,Voltwisp's lightning applies Marks.
+SYNERGY_PREDATORS_NAME,Prédateurs,Predators
+SYNERGY_PREDATORS_DESC,Deux Échos prédateurs : +20 % de dégâts des Échos contre les ennemis sous 50 % de PV.,Two predator Echoes: +20% Echo damage against enemies below 50% HP.
+SYNERGY_LIGHTNING_MIRROR_NAME,Miroir de foudre,Lightning Mirror
+SYNERGY_LIGHTNING_MIRROR_DESC,Les renvois et éclats de Mirelle Électrisent.,Mirrorling's reflections and shards Charge enemies.
+MODIFIER_HORDE_NAME,Horde,Horde
+MODIFIER_HORDE_DESC,Les vagues apparaissent 35 % plus vite.,Waves spawn 35% faster.
+MODIFIER_GLASS_HUNTER_NAME,Chasseur de verre,Glass Hunter
+MODIFIER_GLASS_HUNTER_DESC,PV maximum −30 %.,Maximum HP −30%.
+MODIFIER_ENRAGED_ELITES_NAME,Élites enragées,Enraged Elites
+MODIFIER_ENRAGED_ELITES_DESC,"Élites plus fréquentes, avec un affixe de plus.","More frequent elites, with one extra affix."
+MODIFIER_NO_RESPITE_NAME,Sans répit,No Respite
+MODIFIER_NO_RESPITE_DESC,Tous les soins sont réduits de 60 %.,All healing reduced by 60%.
+MODIFIER_HEAVY_RIFT_NAME,Faille pesante,Heavy Rift
+MODIFIER_HEAVY_RIFT_DESC,"Ennemis : PV +30 %, dégâts +15 %.","Enemies: HP +30%, damage +15%."
+DIFFICULTY_TENSION_4_NAME,Tension IV,Tension IV
+DIFFICULTY_TENSION_4_DESC,"Trois affixes par élite, ennemis bien plus rapides. Récompenses ×2,6.","Three affixes per elite, much faster enemies. Rewards ×2.6."
+DIFFICULTY_TENSION_5_NAME,Tension V,Tension V
+DIFFICULTY_TENSION_5_DESC,"La Faille à son paroxysme. Récompenses ×3,3.",The Rift at its peak. Rewards ×3.3.
+OBJ_DEVOURERS_CALL_NAME,L'appel du vide,Call of the Void
+OBJ_DEVOURERS_CALL_DESC,Éliminez 1500 Corrompus (cumul).,Defeat 1500 Hollowed (total).
+OBJ_MOUNTAIN_FELLED_NAME,Briseur de montagne,Mountain Breaker
+OBJ_MOUNTAIN_FELLED_DESC,Vainquez Vorgranite.,Defeat Vorgranite.
+OBJ_CAPTOR_NAME,Lieur,Binder
+OBJ_CAPTOR_DESC,Capturez 5 Échos errants (cumul).,Capture 5 wandering Echoes (total).
+OBJ_RISK_TAKER_NAME,Goût du risque,Risk Taker
+OBJ_RISK_TAKER_DESC,Refermez une Faille avec au moins 2 Pactes de risque.,Seal a Rift with at least 2 Risk Pacts.
+RESEARCH_RIFT_CONDUCTORS_NAME,Conducteurs de faille,Rift Conductors
+RESEARCH_RIFT_CONDUCTORS_DESC,Permet de lier Fulgurine.,Lets you bind Voltwisp.
+UNLOCK_TITLE_MOUNTAIN_BREAKER,Titre : Briseur de montagne,Title: Mountain Breaker
+CAPTURE_APPEARS,Un Écho errant ! Restez à son contact.,A wandering Echo! Stay close to it.
+CAPTURE_JOINED,%s rejoint votre équipe !,%s joins your team!
+CAPTURE_SENT_TO_REFUGE,%s est lié et vous attend au Refuge.,%s is bound and awaits you at the Refuge.
+REPORT_CAPTURE_UNLOCK,Écho capturé et débloqué : %s,Echo captured and unlocked: %s
+EXPEDITION_MODIFIERS,Pactes de risque,Risk Pacts
+EXPEDITION_MODIFIER_MIN,Disponible à partir de la Tension %d.,Available from Tension %d.
+EXPEDITION_MODIFIERS_BONUS,Bonus de récompenses : +%d %%,Reward bonus: +%d%%
+BOSS_ENRAGED,Le Dévoreur entre en rage !,The Devourer is enraged!
+TIP_MOVE,Déplacez-vous avec ZQSD/WASD ou les flèches (stick gauche à la manette).,Move with WASD or the arrow keys (left stick on a gamepad).
+TIP_AUTO_ATTACK,Votre Trait de Faille et vos Échos attaquent seuls : concentrez-vous sur le placement.,Your Rift Bolt and your Echoes attack on their own: focus on positioning.
+TIP_TECHNIQUES,"Touches 1, 2, 3 : déclenchez la Technique de chaque Écho (elle vise le curseur).","Keys 1, 2, 3: trigger each Echo's Technique (it aims at the cursor)."
+TIP_FOCUS,Clic droit : ordonnez à vos Échos de cibler une zone pendant 5 s.,Right click: order your Echoes to target an area for 5 s.
+TIP_DASH,Espace : Ruée invulnérable. Traversez les attaques télégraphiées en rose.,Space: invulnerable Dash. Pass through pink telegraphed attacks.
+TIP_CHESTS,"Les élites lâchent des coffres : relique ou Éclats, à vous de choisir.","Elites drop chests: relic or Shards, your choice."
+TIP_BOSS,"Le Dévoreur arrive vers 7 min. Combinez Fracture, Marques et synergies pour le vaincre.","The Devourer arrives around 7 min. Combine Fracture, Marks and synergies to defeat it."
+OPTIONS_REDUCE_FLASHES,Réduire les flashs : %s,Reduce flashes: %s
+OPTIONS_VSYNC,Synchronisation verticale,Vertical sync
+OPTIONS_SHOW_FPS,Afficher les images par seconde,Show frames per second
+OPTIONS_CONTROLS,Manette : stick gauche déplacement · A/RB Ruée · X/Y/B Techniques · LB focus · Start pause · stick droit visée,Gamepad: left stick move · A/RB Dash · X/Y/B Techniques · LB focus · Start pause · right stick aim
+MENU_CREDITS,Crédits,Credits
+CREDITS_BACK,Retour,Back
+CREDITS_BODY,"Rift Hunters — un jeu original.
+Conception et direction : le propriétaire du projet.
+Programmation, game design et outils : développé avec Claude Code.
+Moteur : Godot Engine (licence MIT).
+Musiques et effets sonores : à créditer lors de leur intégration.","Rift Hunters — an original game.
+Design and direction: the project owner.
+Programming, game design and tools: developed with Claude Code.
+Engine: Godot Engine (MIT license).
+Music and sound effects: to be credited when integrated."
+
+ARENA_THREE_RIFTS_NAME,Les Trois Failles,The Three Rifts
+ARENA_THREE_RIFTS_DESC,Traversez les ruines et leurs cascades jusqu’à la grande faille violette.,Cross the ruins and waterfalls to reach the great violet rift.

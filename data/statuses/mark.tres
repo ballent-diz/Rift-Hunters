@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="StatusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"mark"
+name_key = "STATUS_MARK_NAME"
+desc_key = "STATUS_MARK_DESC"
+duration = 6.0
+max_stacks = 5
+detonatable = true
+color = Color(0.55, 0.95, 1.0, 1.0)
