@@ -10,8 +10,9 @@ func refresh() -> void:
 	var p: ProfileData = profile()
 	var selected := StringName(p.preference("starter", "mossback"))
 	box.add_child(UiKit.label(tr("EXPEDITION_STARTER"), 22, UiKit.TEXT))
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 12)
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 12)
+	row.add_theme_constant_override("v_separation", 12)
 	box.add_child(row)
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
 		var monster: MonsterData = GameDB.monster(id)
@@ -22,10 +23,11 @@ func refresh() -> void:
 			var card: Button = UiKit.card(tr("ROLE_%d" % monster.role), title, desc, accent, _select_starter.bind(id))
 			card.custom_minimum_size = Vector2(230, 190)
 			row.add_child(card)
+			EchoPortrait.add_to_card(card, monster, EchoPortrait.profile_palette(monster))
 		else:
 			var locked: Button = UiKit.card(tr("EXPEDITION_LOCKED"), "???", _unlock_hint("monster:" + String(id)),
 				Color(0.4, 0.4, 0.45), func() -> void: pass)
-			locked.custom_minimum_size = Vector2(230, 190)
+			locked.custom_minimum_size = Vector2(230, 320)
 			locked.disabled = true
 			row.add_child(locked)
 	var starter: MonsterData = GameDB.monster(selected)
@@ -44,8 +46,9 @@ func refresh() -> void:
 			options.add_child(UiKit.button(tr("EXPEDITION_PALETTE") + (" ✔" if palette_on else ""), _toggle.bind(selected,
 					"use_palette"), 240))
 	box.add_child(UiKit.label(tr("EXPEDITION_TENSION"), 22, UiKit.TEXT))
-	var tension_row := HBoxContainer.new()
-	tension_row.add_theme_constant_override("separation", 10)
+	var tension_row := HFlowContainer.new()
+	tension_row.add_theme_constant_override("h_separation", 10)
+	tension_row.add_theme_constant_override("v_separation", 8)
 	box.add_child(tension_row)
 	var current_difficulty: String = p.preference("difficulty", "tension_0")
 	for difficulty: DifficultyData in GameDB.difficulties_by_level():
@@ -61,7 +64,9 @@ func refresh() -> void:
 		box.add_child(UiKit.wrapped(tr(difficulty_data.desc_key), 15))
 	_add_modifiers(box, difficulty_data)
 	box.add_child(UiKit.label(tr("EXPEDITION_ARENA"), 22, UiKit.TEXT))
-	var arena_row := HBoxContainer.new()
+	var arena_row := HFlowContainer.new()
+	arena_row.add_theme_constant_override("h_separation", 10)
+	arena_row.add_theme_constant_override("v_separation", 8)
 	box.add_child(arena_row)
 	var current_arena: String = p.preference("arena", "fractured_plain")
 	for arena: ArenaData in Profile.unlocked_arenas():
