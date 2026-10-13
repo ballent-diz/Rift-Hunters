@@ -15,6 +15,9 @@ func _ready() -> void:
 	setup.run_seed = 1
 	var boss_at: float = -1.0
 	var menu: String = ""
+	var tab: int = 0
+	var item_ids: PackedStringArray = []
+	var selection: String = ""
 	for arg: String in OS.get_cmdline_user_args():
 		var parts: PackedStringArray = arg.trim_prefix("--").split("=")
 		match parts[0]:
@@ -34,10 +37,63 @@ func _ready() -> void:
 				menu = parts[1] if parts.size() > 1 else "main"
 			"locale":
 				Settings.set_locale(parts[1])
+			"tab":
+				tab = int(parts[1])
+			"item-ids":
+				item_ids = parts[1].split(",", false)
+			"selection":
+				selection = parts[1]
 	DirAccess.make_dir_recursive_absolute(_out)
 	if menu != "":
-		var scene: PackedScene = load(Router.REFUGE if menu == "refuge" else Router.MAIN_MENU)
-		add_child(scene.instantiate())
+		if menu in ["pause", "levelup", "chest", "results"]:
+			setup.autopilot = false
+			_run = load(Router.RUN).instantiate()
+			_run.skip_profile = true
+			_run.start(setup)
+			add_child(_run)
+			await get_tree().create_timer(0.2).timeout
+			_run.level_up_panel.visible = false
+			_run.chest_panel.visible = false
+			match menu:
+				"pause": _run.pause_panel.open()
+				"levelup":
+					_run.level_up_panel.open()
+					if not item_ids.is_empty():
+						await get_tree().process_frame
+						_run.level_up_panel._offers.clear()
+						for id: String in item_ids:
+							var upgrade: UpgradeData = GameDB.upgrade(StringName(id))
+							var offer := UpgradeOffer.new()
+							offer.upgrade = upgrade
+							offer.key = "up:" + id
+							offer.kind = UpgradeOffer.Kind.MUTATION if upgrade.kind == UpgradeData.Kind.MUTATION \
+								else UpgradeOffer.Kind.STAT
+							_run.level_up_panel._offers.append(offer)
+						_run.level_up_panel._refresh()
+				"chest":
+					_run.chest_panel.open()
+					if not item_ids.is_empty():
+						await get_tree().process_frame
+						_run.chest_panel._relics.clear()
+						for id: String in item_ids:
+							_run.chest_panel._relics.append(GameDB.relic(StringName(id)))
+						_run.chest_panel._refresh_cards()
+				"results":
+					_run.results_panel.show_result({"victory": true, "time": 900, "level": 30, "kills": 1200},
+						{"shards": 240, "essence": 80})
+					get_tree().paused = true
+		else:
+			var scene: PackedScene = load(Router.REFUGE if menu == "refuge" else Router.MAIN_MENU)
+			var screen: Control = scene.instantiate()
+			add_child(screen)
+			if screen is Refuge:
+				if selection.begins_with("relic:"):
+					Profile.profile.discover("relics", selection.get_slice(":", 1))
+				screen.tabs.current_tab = clampi(tab, 0, screen.tabs.get_tab_count() - 1)
+				if selection != "" and tab == 2:
+					(screen.tabs.get_child(2) as RefugeTab)._show(selection)
+			elif menu == "credits":
+				screen._show_credits()
 		await get_tree().create_timer(0.5).timeout
 		await RenderingServer.frame_post_draw
 		_save("menu_" + menu)

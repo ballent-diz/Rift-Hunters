@@ -15,6 +15,15 @@ func refresh() -> void:
 		var h := HBoxContainer.new()
 		h.add_theme_constant_override("separation", 16)
 		row.add_child(h)
+		for unlock: String in item.unlocks:
+			var kind: String = unlock.get_slice(":", 0)
+			var id := StringName(unlock.get_slice(":", 1))
+			if kind in ["relic", "upgrade"] and ItemArt.texture(kind, id):
+				var art: PanelContainer = ItemArt.portrait(kind, id, UiKit.GOLD, 72)
+				art.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+				art.custom_minimum_size.x = 112
+				h.add_child(art)
+				break
 		var texts := VBoxContainer.new()
 		texts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		h.add_child(texts)

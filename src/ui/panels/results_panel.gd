@@ -13,7 +13,7 @@ func setup() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	add_child(UiKit.dimmer(0.85))
-	_box = UiKit.center_box(self, 10)
+	_box = MenuSkin.modal_box(self, 10)
 
 
 func show_result(result: Dictionary, rewards: Dictionary) -> void:
