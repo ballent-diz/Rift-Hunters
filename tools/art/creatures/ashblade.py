@@ -11,7 +11,7 @@ from pixelforge.rig import wave
 
 CELL = (64, 64)
 ANCHOR = (32, 54)
-SCALE = 0.5
+SCALE = 0.65
 PLATES = ("plates", 7.0, 1.1)
 FINE_PLATES = ("plates", 5.0, 0.9)
 

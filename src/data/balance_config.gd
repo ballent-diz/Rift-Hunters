@@ -5,7 +5,7 @@ extends Resource
 @export_group("Chasseur")
 @export var player_max_hp: float = 100.0
 @export var player_move_speed: float = 150.0
-@export var player_radius: float = 12.0
+@export var player_radius: float = 15.0
 @export var player_regen: float = 0.0
 @export var hurt_iframes: float = 0.5
 @export var dash_distance: float = 140.0

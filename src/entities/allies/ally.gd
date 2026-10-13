@@ -3,7 +3,7 @@ extends Node2D
 ## Écho allié (invulnérable dans le prototype). Données : MonsterData. Comportement : AllyBehavior.
 
 ## Rayon du corps pour contourner les obstacles du décor.
-const BODY_RADIUS := 10.0
+const BODY_RADIUS := 13.0
 ## Au-delà de cette distance de son point de formation, l'Écho suit la carte de flux.
 const FLOW_MIN_DISTANCE := 120.0
 

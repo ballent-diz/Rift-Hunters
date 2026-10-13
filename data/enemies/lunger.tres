@@ -8,7 +8,7 @@
 script = ExtResource("2")
 visual_id = &"enemy.lunger"
 shape = 7
-size = 30.0
+size = 39.0
 primary = Color(0.45, 0.18, 0.3, 1.0)
 secondary = Color(0.7, 0.3, 0.45, 1.0)
 accent = Color(1.0, 0.6, 0.8, 1.0)
@@ -33,7 +33,7 @@ max_hp = 28.0
 damage = 12.0
 defense = 10.0
 move_speed = 70.0
-radius = 14.0
+radius = 18.0
 xp_value = 3
 visual = SubResource("visual_data_1")
 attack = SubResource("attack_data_2")

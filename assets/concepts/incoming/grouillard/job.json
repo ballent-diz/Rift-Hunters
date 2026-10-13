@@ -1,15 +1,15 @@
 {
 	"visual_id": "enemy.skitterling",
 	"cell": [
-		96,
-		72
+		83,
+		62
 	],
 	"anchor": [
-		48,
-		66
+		42,
+		57
 	],
-	"scale": 0.5,
-	"target_height": 52,
+	"scale": 0.75,
+	"target_height": 45,
 	"status": "final",
 	"background": "#04f703",
 	"tolerance": 70,

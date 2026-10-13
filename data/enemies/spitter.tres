@@ -8,7 +8,7 @@
 script = ExtResource("2")
 visual_id = &"enemy.spitter"
 shape = 6
-size = 28.0
+size = 36.0
 primary = Color(0.4, 0.2, 0.4, 1.0)
 secondary = Color(0.6, 0.3, 0.55, 1.0)
 accent = Color(1.0, 0.5, 0.9, 1.0)
@@ -34,7 +34,7 @@ max_hp = 20.0
 damage = 6.0
 defense = 5.0
 move_speed = 62.0
-radius = 13.0
+radius = 17.0
 xp_value = 3
 visual = SubResource("visual_data_1")
 attack = SubResource("attack_data_2")

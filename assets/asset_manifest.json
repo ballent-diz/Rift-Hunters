@@ -13,7 +13,7 @@
 				48,
 				74
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -66,7 +66,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -107,7 +107,7 @@
 				48,
 				82
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -154,7 +154,7 @@
 				48,
 				82
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -194,14 +194,14 @@
 			"imported_from": "assets/concepts/incoming/grouillard/job.json",
 			"sheet": "res://assets/sprites/enemies/skitterling/skitterling_sheet.png",
 			"cell": [
-				96,
-				72
+				83,
+				62
 			],
 			"anchor": [
-				48,
-				66
+				42,
+				57
 			],
-			"scale": 0.5,
+			"scale": 0.75,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -229,14 +229,14 @@
 			"imported_from": "assets/concepts/incoming/carapace/job.json",
 			"sheet": "res://assets/sprites/enemies/husk/husk_sheet.png",
 			"cell": [
-				112,
-				88
+				97,
+				76
 			],
 			"anchor": [
-				56,
-				82
+				49,
+				71
 			],
-			"scale": 0.5,
+			"scale": 0.75,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -264,14 +264,14 @@
 			"imported_from": "assets/concepts/incoming/cracheur/job.json",
 			"sheet": "res://assets/sprites/enemies/spitter/spitter_sheet.png",
 			"cell": [
-				128,
-				80
+				111,
+				69
 			],
 			"anchor": [
-				64,
-				74
+				55,
+				64
 			],
-			"scale": 0.5,
+			"scale": 0.75,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -299,14 +299,14 @@
 			"imported_from": "assets/concepts/incoming/bondisseur/job.json",
 			"sheet": "res://assets/sprites/enemies/lunger/lunger_sheet.png",
 			"cell": [
-				144,
-				80
+				125,
+				69
 			],
 			"anchor": [
-				72,
-				74
+				62,
+				64
 			],
-			"scale": 0.5,
+			"scale": 0.75,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -406,7 +406,7 @@
 				48,
 				82
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -453,7 +453,7 @@
 				48,
 				82
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -500,7 +500,7 @@
 				48,
 				82
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -587,7 +587,7 @@
 				72,
 				98
 			],
-			"scale": 0.5,
+			"scale": 0.75,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -622,7 +622,7 @@
 				80,
 				98
 			],
-			"scale": 0.5,
+			"scale": 0.75,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -657,7 +657,7 @@
 				64,
 				104
 			],
-			"scale": 0.5,
+			"scale": 0.75,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -750,7 +750,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -791,7 +791,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.65,
 			"animations": {
 				"idle": {
 					"row": 0,

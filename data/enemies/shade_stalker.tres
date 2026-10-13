@@ -8,7 +8,7 @@
 script = ExtResource("2")
 visual_id = &"enemy.shade_stalker"
 shape = 19
-size = 30.0
+size = 45.0
 primary = Color(0.25, 0.15, 0.35, 1.0)
 secondary = Color(0.45, 0.25, 0.6, 1.0)
 accent = Color(1.0, 0.35, 0.7, 1.0)
@@ -32,7 +32,7 @@ max_hp = 26.0
 damage = 10.0
 defense = 5.0
 move_speed = 85.0
-radius = 13.0
+radius = 20.0
 xp_value = 4
 visual = SubResource("visual_data_1")
 attack = SubResource("attack_data_2")
