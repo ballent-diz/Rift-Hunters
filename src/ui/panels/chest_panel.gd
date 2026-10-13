@@ -41,14 +41,7 @@ func open(free_choice: bool = false) -> void:
 	get_tree().paused = true
 	_title.text = tr("CHEST_START_TITLE") if free_choice else tr("CHEST_TITLE")
 	_subtitle.text = tr("CHEST_SUBTITLE")
-	UiKit.clear(_cards)
-	for i: int in _relics.size():
-		var relic: RelicData = _relics[i]
-		_cards.add_child(UiKit.card(tr("RELIC_RARITY_%d" % relic.rarity), tr(relic.name_key), tr(relic.desc_key),
-			relic.color, _take.bind(i)))
-	MenuSkin.finish(_cards)
-	if _cards.get_child_count() > 0:
-		(_cards.get_child(0) as Control).grab_focus.call_deferred()
+	_refresh_cards()
 	UiKit.clear(_footer)
 	if not free_choice or _relics.is_empty():
 		var shards: int = ctx.balance.chest_break_shards
@@ -58,6 +51,19 @@ func open(free_choice: bool = false) -> void:
 			_break.call_deferred()
 		else:
 			_take.call_deferred(0)
+
+
+func _refresh_cards() -> void:
+	UiKit.clear(_cards)
+	for i: int in _relics.size():
+		var relic: RelicData = _relics[i]
+		var card: Button = UiKit.card(tr("RELIC_RARITY_%d" % relic.rarity), tr(relic.name_key), tr(relic.desc_key),
+			relic.color, _take.bind(i))
+		_cards.add_child(card)
+		ItemArt.add_to_card(card, "relic", relic.id, relic.color)
+	MenuSkin.finish(_cards)
+	if _cards.get_child_count() > 0:
+		(_cards.get_child(0) as Control).grab_focus.call_deferred()
 
 
 func _take(index: int) -> void:

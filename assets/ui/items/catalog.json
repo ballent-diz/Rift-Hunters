@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "entries": {
+    "upgrade.might": {
+      "image": "res://assets/ui/items/upgrades/might.png"
+    },
+    "upgrade.cadence": {
+      "image": "res://assets/ui/items/upgrades/cadence.png"
+    },
+    "upgrade.focus_mind": {
+      "image": "res://assets/ui/items/upgrades/focus_mind.png"
+    },
+    "upgrade.frenzy": {
+      "image": "res://assets/ui/items/upgrades/frenzy.png"
+    },
+    "upgrade.magnetism": {
+      "image": "res://assets/ui/items/upgrades/magnetism.png"
+    },
+    "upgrade.marking_bolt": {
+      "image": "res://assets/ui/items/upgrades/marking_bolt.png"
+    },
+    "upgrade.breaking_bolt": {
+      "image": "res://assets/ui/items/upgrades/breaking_bolt.png"
+    },
+    "upgrade.multishot": {
+      "image": "res://assets/ui/items/upgrades/multishot.png"
+    },
+    "upgrade.piercing": {
+      "image": "res://assets/ui/items/upgrades/piercing.png"
+    },
+    "upgrade.reflexes": {
+      "image": "res://assets/ui/items/upgrades/reflexes.png"
+    },
+    "upgrade.regeneration": {
+      "image": "res://assets/ui/items/upgrades/regeneration.png"
+    },
+    "upgrade.shatterbolt": {
+      "image": "res://assets/ui/items/upgrades/shatterbolt.png"
+    },
+    "upgrade.static_bolt": {
+      "image": "res://assets/ui/items/upgrades/static_bolt.png"
+    },
+    "upgrade.strong_bond": {
+      "image": "res://assets/ui/items/upgrades/strong_bond.png"
+    },
+    "upgrade.swiftness": {
+      "image": "res://assets/ui/items/upgrades/swiftness.png"
+    },
+    "upgrade.vitality": {
+      "image": "res://assets/ui/items/upgrades/vitality.png"
+    },
+    "relic.binding_talisman": {
+      "image": "res://assets/ui/items/relics/binding_talisman.png"
+    },
+    "relic.briar_seed": {
+      "image": "res://assets/ui/items/relics/briar_seed.png"
+    },
+    "relic.broken_crown": {
+      "image": "res://assets/ui/items/relics/broken_crown.png"
+    },
+    "relic.cracked_hourglass": {
+      "image": "res://assets/ui/items/relics/cracked_hourglass.png"
+    },
+    "relic.cracked_mirror": {
+      "image": "res://assets/ui/items/relics/cracked_mirror.png"
+    },
+    "relic.cracked_prism": {
+      "image": "res://assets/ui/items/relics/cracked_prism.png"
+    },
+    "relic.ember_heart": {
+      "image": "res://assets/ui/items/relics/ember_heart.png"
+    },
+    "relic.gravity_stone": {
+      "image": "res://assets/ui/items/relics/gravity_stone.png"
+    },
+    "relic.hungry_fang": {
+      "image": "res://assets/ui/items/relics/hungry_fang.png"
+    },
+    "relic.hunter_lantern": {
+      "image": "res://assets/ui/items/relics/hunter_lantern.png"
+    },
+    "relic.hunters_eye": {
+      "image": "res://assets/ui/items/relics/hunters_eye.png"
+    },
+    "relic.unstable_coil": {
+      "image": "res://assets/ui/items/relics/unstable_coil.png"
+    },
+    "offer.heal": {
+      "image": "res://assets/ui/items/offers/heal.png"
+    },
+    "offer.shards": {
+      "image": "res://assets/ui/items/offers/shards.png"
+    }
+  }
+}
