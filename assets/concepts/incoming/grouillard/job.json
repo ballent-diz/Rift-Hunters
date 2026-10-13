@@ -1,0 +1,46 @@
+{
+	"visual_id": "enemy.skitterling",
+	"cell": [
+		72,
+		56
+	],
+	"anchor": [
+		36,
+		50
+	],
+	"scale": 0.5,
+	"target_height": 40,
+	"status": "final",
+	"background": "#04f703",
+	"tolerance": 70,
+	"holes": 70,
+	"colors": 40,
+	"outline": true,
+	"flip": false,
+	"hover": 0,
+	"animations": [
+		{
+			"name": "move",
+			"source": "move.png",
+			"frames": 9,
+			"fps": 14,
+			"loop": true
+		},
+		{
+			"name": "attack",
+			"source": "attack.png",
+			"frames": 8,
+			"fps": 14,
+			"loop": false
+		},
+		{
+			"name": "death",
+			"source": "death.png",
+			"frames": 9,
+			"fps": 14,
+			"loop": false
+		}
+	],
+	"aliases": {},
+	"despill": true
+}

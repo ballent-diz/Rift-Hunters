@@ -25,8 +25,9 @@ func setup(p_arena: ArenaData, p_seed: int) -> void:
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	environment = Assets.environment(arena.environment_id)
 	if environment != null:
-		placements = DecorLayout.generate(environment, arena_rect(), seed_value, arena.decor_density)
-		_build_chunks()
+		if not environment.is_map():
+			placements = DecorLayout.generate(environment, arena_rect(), seed_value, arena.decor_density)
+			_build_chunks()
 		_build_ambient()
 	queue_redraw()
 
@@ -34,6 +35,8 @@ func setup(p_arena: ArenaData, p_seed: int) -> void:
 ## Champ d'obstacles infranchissables du décor (vide sans décor).
 func obstacle_field() -> ObstacleField:
 	var field := ObstacleField.new()
+	if environment != null and environment.is_map():
+		field.set_distance_field(environment.field_image, arena_rect(), environment.field_step)
 	for item: Dictionary in placements:
 		for c: Vector3 in item.get("colliders", []):
 			field.add(Vector2(c.x, c.y), c.z)
@@ -62,6 +65,11 @@ func _draw() -> void:
 		_draw_placeholder()
 		return
 	var rect: Rect2 = arena_rect()
+	if environment.is_map():
+		# Arène dessinée : la map couvre exactement l'arène (la caméra ne montre rien au-delà).
+		draw_rect(rect.grow(OUTSIDE_MARGIN), Color(0.03, 0.06, 0.04))
+		draw_texture_rect(environment.map_texture, rect, false)
+		return
 	var area: Rect2 = rect.grow(environment.border_width + OUTSIDE_MARGIN)
 	var s: float = environment.pixel_scale
 	draw_set_transform(Vector2.ZERO, 0.0, Vector2(s, s))

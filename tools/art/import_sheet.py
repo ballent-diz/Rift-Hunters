@@ -14,6 +14,7 @@ job.json :
   "background": "auto",                     "auto" (couleur des bords), "#00ff00", "alpha" (déjà transparent),
                                             ou "smooth" (fond en dégradé : suit le fond tant qu'il varie doucement)
   "tolerance": 60,                          tolérance du détourage (0-255)
+  "despill": false,                         true : retire les reflets de la couleur du fond (vert) sur les bords
   "holes": 0,                               > 0 : retire aussi le fond enfermé (ex. dans un arc de sabre), tolérance stricte
   "colors": 32,                             couleurs max de la palette commune (0 = pas de réduction)
   "outline": true,                          ajoute un contour sombre d'1 pixel
@@ -100,6 +101,19 @@ def _label(mask):
                     labels[ny, nx] = count
                     stack.append((ny, nx))
     return labels, count
+
+
+def despill(img: Image.Image) -> Image.Image:
+    """Fond vert : pixels où le vert domine nettement → transparents ; reflets légers → vert ramené au niveau
+    du rouge/bleu (liseré verdâtre supprimé)."""
+    arr = np.array(img).astype(int)
+    r, g, b = arr[:, :, 0], arr[:, :, 1], arr[:, :, 2]
+    other = np.maximum(r, b)
+    strong = (g > other + 60) & (arr[:, :, 3] > 0)
+    arr[strong, 3] = 0
+    mild = (g > other + 8) & ~strong
+    arr[:, :, 1] = np.where(mild, other, g)
+    return Image.fromarray(arr.clip(0, 255).astype(np.uint8), "RGBA")
 
 
 def _remove_smooth(arr, step):
@@ -249,6 +263,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     for anim in animations:
         img = Image.open(os.path.join(job_dir, anim["source"]))
         img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)), int(job.get("holes", 0)))
+        if job.get("despill"):
+            img = despill(img)
         if job.get("flip"):
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
         frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"))

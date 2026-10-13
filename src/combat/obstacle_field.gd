@@ -11,6 +11,45 @@ const SLIDE := 0.6
 ## Cercles : Vector3(x, y, rayon).
 var circles: Array[Vector3] = []
 var _grid: Dictionary = {}
+## Carte de distance (arène dessinée) : distance signée au bord infranchissable, en unités du monde.
+var _field: Image
+var _field_rect := Rect2()
+var _field_px := Vector2.ONE
+var _field_step: float = 1.0
+
+
+## Arène dessinée : image en niveaux de gris (128 = bord, chaque niveau = `step` unités, au-dessus = praticable)
+## étendue sur `rect` (l'arène).
+func set_distance_field(image: Image, rect: Rect2, step: float = 1.0) -> void:
+	_field = image
+	_field_step = step
+	_field_rect = rect
+	_field_px = rect.size / Vector2(image.get_size())
+
+
+## Distance signée au bord infranchissable le plus proche (> 0 praticable). Sans carte : très grande.
+func distance(pos: Vector2) -> float:
+	if _field == null:
+		return 1e9
+	var p: Vector2 = (pos - _field_rect.position) / _field_px - Vector2(0.5, 0.5)
+	var size: Vector2i = _field.get_size()
+	var x0: int = clampi(floori(p.x), 0, size.x - 1)
+	var y0: int = clampi(floori(p.y), 0, size.y - 1)
+	var x1: int = mini(x0 + 1, size.x - 1)
+	var y1: int = mini(y0 + 1, size.y - 1)
+	var fx: float = clampf(p.x - x0, 0.0, 1.0)
+	var fy: float = clampf(p.y - y0, 0.0, 1.0)
+	var top: float = lerpf(_field.get_pixel(x0, y0).r, _field.get_pixel(x1, y0).r, fx)
+	var bottom: float = lerpf(_field.get_pixel(x0, y1).r, _field.get_pixel(x1, y1).r, fx)
+	return (lerpf(top, bottom, fy) * 255.0 - 128.0) * _field_step
+
+
+## Direction qui éloigne du bord infranchissable (vers le praticable).
+func _field_normal(pos: Vector2) -> Vector2:
+	var h: float = _field_px.x
+	var grad := Vector2(distance(pos + Vector2(h, 0)) - distance(pos - Vector2(h, 0)),
+		distance(pos + Vector2(0, h)) - distance(pos - Vector2(0, h)))
+	return grad.normalized() if grad.length_squared() > 1e-6 else Vector2.ZERO
 
 
 func add(center: Vector2, radius: float) -> void:
@@ -29,11 +68,13 @@ func add(center: Vector2, radius: float) -> void:
 
 
 func is_empty() -> bool:
-	return circles.is_empty()
+	return circles.is_empty() and _field == null
 
 
 ## Position corrigée pour qu'un cercle (pos, radius) ne chevauche aucun obstacle.
 func push_out(pos: Vector2, radius: float) -> Vector2:
+	if _field != null:
+		pos = _push_out_field(pos, radius)
 	if circles.is_empty():
 		return pos
 	var key := Vector2i(floori(pos.x / CELL), floori(pos.y / CELL))
@@ -62,8 +103,37 @@ func push_out(pos: Vector2, radius: float) -> Vector2:
 	return result
 
 
+func _push_out_field(pos: Vector2, radius: float) -> Vector2:
+	var result: Vector2 = pos
+	for step: int in 3:
+		var d: float = distance(result)
+		if d >= radius:
+			break
+		var normal: Vector2 = _field_normal(result)
+		if normal == Vector2.ZERO:
+			break
+		var depth: float = radius - d
+		result += normal * depth + normal.orthogonal() * depth * SLIDE * 0.5
+	return result
+
+
+## Poussée d'évitement (bot de test) : vers l'extérieur des obstacles à moins de `reach`.
+func repulsion(pos: Vector2, reach: float) -> Vector2:
+	var force := Vector2.ZERO
+	for c: Vector3 in near(pos, reach):
+		var away := Vector2(pos.x - c.x, pos.y - c.y)
+		force += away.normalized() * (reach - (away.length() - c.z)) / 30.0
+	if _field != null:
+		var d: float = distance(pos)
+		if d < reach:
+			force += _field_normal(pos) * (reach - d) / 30.0
+	return force
+
+
 ## Vrai si un cercle (pos, radius) chevauche un obstacle.
 func blocks(pos: Vector2, radius: float) -> bool:
+	if _field != null and distance(pos) < radius:
+		return true
 	var key := Vector2i(floori(pos.x / CELL), floori(pos.y / CELL))
 	for dx: int in range(-1, 2):
 		for dy: int in range(-1, 2):

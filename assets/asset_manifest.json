@@ -190,31 +190,39 @@
 			"icon": "res://assets/ui/icons/monsters/glimmerwing.png"
 		},
 		"enemy.skitterling": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/grouillard/job.json",
 			"sheet": "res://assets/sprites/enemies/skitterling/skitterling_sheet.png",
 			"cell": [
-				48,
-				48
+				72,
+				56
 			],
 			"anchor": [
-				24,
-				42
+				36,
+				50
 			],
+			"scale": 0.5,
 			"animations": {
 				"move": {
 					"row": 0,
-					"frames": 6,
+					"frames": 9,
 					"fps": 14,
 					"loop": true
 				},
-				"death": {
+				"attack": {
 					"row": 1,
-					"frames": 6,
+					"frames": 8,
+					"fps": 14,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 9,
 					"fps": 14,
 					"loop": false
 				}
 			},
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/enemies/skitterling.png"
 		},
 		"enemy.husk": {
 			"status": "planned",
@@ -2560,6 +2568,24 @@
 				"color": "#f4f0b8",
 				"amount": 26
 			}
+		},
+		"environment.fractured_plain_map": {
+			"status": "wip",
+			"generated_by": "tools/art/build_map.py",
+			"source": "assets/concepts/incoming/map.fractured_plain/map_source.png",
+			"kind": "map",
+			"scale": 2.0,
+			"map": "res://assets/environments/fractured_plain_map/map.png",
+			"field": "res://assets/environments/fractured_plain_map/field.png",
+			"field_unit": 8.012779552715655,
+			"field_step": 5.0,
+			"arena_size": 2508.0,
+			"ambient": {
+				"color": "#f4f0b8",
+				"amount": 22
+			},
+			"outside_tint": "#06120c99",
+			"decals": []
 		}
 	}
 }

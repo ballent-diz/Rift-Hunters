@@ -43,6 +43,7 @@ func _start(event: RunEventData) -> void:
 			for i: int in count:
 				var pos: Vector2 = center + Vector2.RIGHT.rotated(TAU * i / count) * radius
 				pos = pos.clamp(ctx.arena_rect().position + Vector2(30, 30), ctx.arena_rect().end - Vector2(30, 30))
+				pos = ctx.obstacles.push_out(pos, 30.0)
 				ctx.enemies.spawn(enemy, pos)
 		&"unstable_rift":
 			_active.append({"left": float(p.get("duration", 30.0)), "interval": float(p.get("interval", 2.0)),

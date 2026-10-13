@@ -35,10 +35,7 @@ func _compute_move() -> Vector2:
 		if gap < 90.0:
 			flee += away.normalized() * (90.0 - gap) / 30.0
 	# Obstacles du décor : comme un joueur, ne pas se laisser coincer contre un rocher ou l'eau.
-	for c: Vector3 in ctx.obstacles.near(pos, 90.0):
-		var away_c := Vector2(pos.x - c.x, pos.y - c.y)
-		var gap_c: float = away_c.length() - c.z
-		flee += away_c.normalized() * (90.0 - gap_c) / 30.0
+	flee += ctx.obstacles.repulsion(pos, 90.0)
 	var threat: Vector2 = _projectile_threat(pos) + _charge_threat(pos)
 	flee += threat * 3.0
 	var gem: Vector2 = ctx.pickups.nearest_position(pos, 400.0)

@@ -73,6 +73,14 @@ static func check_image(image: Image, cell: Array, animations: Dictionary, ancho
 ## Décor d'arène : sol et atlas présents, chaque élément dans l'atlas, couches connues.
 static func validate_environment(id: String, e: Dictionary) -> Dictionary:
 	var messages: PackedStringArray = []
+	if str(e.get("kind", "")) == "map":
+		for key: String in ["map", "field"]:
+			if not ResourceLoader.exists(str(e.get(key, ""))):
+				messages.append("fichier %s absent" % key)
+		if float(e.get("arena_size", 0.0)) <= 0.0:
+			messages.append("arena_size manquant")
+		var map_status: String = "OK" if messages.is_empty() else ("ERROR" if str(e.get("status", "")) == "final" else "PLACEHOLDER")
+		return {"id": id, "status": map_status, "messages": messages}
 	var present: bool = ResourceLoader.exists(str(e.get("ground", ""))) and ResourceLoader.exists(str(e.get("atlas", "")))
 	if not present:
 		var missing_status: String = "ERROR" if str(e.get("status", "planned")) == "final" else "PLACEHOLDER"

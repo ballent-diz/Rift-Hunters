@@ -168,6 +168,13 @@ func _build_world() -> void:
 	camera.position_smoothing_enabled = true
 	camera.position_smoothing_speed = 8.0
 	camera.zoom = Vector2.ONE * ctx.balance.camera_zoom
+	if ground.environment != null and ground.environment.is_map():
+		# Arène dessinée : la caméra s'arrête aux bords de la map.
+		var rect: Rect2 = ctx.arena_rect()
+		camera.limit_left = int(rect.position.x)
+		camera.limit_top = int(rect.position.y)
+		camera.limit_right = int(rect.end.x)
+		camera.limit_bottom = int(rect.end.y)
 	ctx.player.add_child(camera)
 	camera.make_current.call_deferred()
 

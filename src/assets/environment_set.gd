@@ -20,12 +20,24 @@ var clear_radius: float = 150.0
 var outside_tint: Color = Color(0, 0, 0, 0)
 var ambient_color: Color = Color(1, 1, 1, 0.6)
 var ambient_amount: int = 0
+## Arène dessinée d'un seul tenant (« kind » = map) : image du sol entier et carte de distance des zones
+## infranchissables (niveau de gris : 128 = bord, au-dessus praticable, 1 niveau = field_step unités, voir build_map.py).
+var map_texture: Texture2D
+var field_image: Image
+var field_step: float = 1.0
+var arena_size: float = 0.0
+
+
+func is_map() -> bool:
+	return map_texture != null
 
 
 ## Construit le décor depuis une entrée du manifeste. null si un fichier manque (le jeu garde le sol de remplacement).
 static func from_entry(p_id: StringName, e: Dictionary) -> EnvironmentSet:
 	if e.is_empty() or str(e.get("status", "planned")) == "planned":
 		return null
+	if str(e.get("kind", "")) == "map":
+		return _from_map_entry(p_id, e)
 	for key: String in ["ground", "atlas"]:
 		if not ResourceLoader.exists(str(e.get(key, ""))):
 			return null
@@ -55,6 +67,25 @@ static func from_entry(p_id: StringName, e: Dictionary) -> EnvironmentSet:
 	env.border_width = float(border.get("width", 0.0))
 	env.border_spacing = maxf(float(border.get("spacing", 30.0)), 8.0)
 	env.clear_radius = float(e.get("clear_radius", 150.0))
+	env.outside_tint = Color.from_string(str(e.get("outside_tint", "#00000000")), Color(0, 0, 0, 0))
+	var ambient: Dictionary = e.get("ambient", {})
+	env.ambient_color = Color.from_string(str(ambient.get("color", "#ffffff")), Color.WHITE)
+	env.ambient_amount = int(ambient.get("amount", 0))
+	return env
+
+
+static func _from_map_entry(p_id: StringName, e: Dictionary) -> EnvironmentSet:
+	if not ResourceLoader.exists(str(e.get("map", ""))) or not ResourceLoader.exists(str(e.get("field", ""))):
+		return null
+	var env := EnvironmentSet.new()
+	env.id = p_id
+	env.pixel_scale = float(e.get("scale", 1.0))
+	env.map_texture = load(str(e["map"]))
+	env.field_image = (load(str(e["field"])) as Texture2D).get_image()
+	if env.field_image.is_compressed():
+		env.field_image.decompress()
+	env.field_step = float(e.get("field_step", 1.0))
+	env.arena_size = float(e.get("arena_size", 0.0))
 	env.outside_tint = Color.from_string(str(e.get("outside_tint", "#00000000")), Color(0, 0, 0, 0))
 	var ambient: Dictionary = e.get("ambient", {})
 	env.ambient_color = Color.from_string(str(ambient.get("color", "#ffffff")), Color.WHITE)

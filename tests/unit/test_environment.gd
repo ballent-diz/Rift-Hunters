@@ -2,8 +2,9 @@ extends TestCase
 ## Décor des arènes : chargement depuis le manifeste, placement déterministe, bordure, repli sans décor.
 
 
+## Décor en tuiles (pack) : toujours disponible pour les arènes sans map dessinée.
 func _plain() -> EnvironmentSet:
-	return Assets.environment(GameDB.arena(&"fractured_plain").environment_id)
+	return Assets.environment(&"environment.fractured_plain")
 
 
 func test_fractured_plain_environment_loads() -> void:
@@ -92,9 +93,11 @@ func test_ground_falls_back_without_environment() -> void:
 	ground.setup(arena, 1)
 	check(ground.uses_placeholder(), "sol de remplacement sans décor")
 	ground.free()
+	var tiled: ArenaData = GameDB.arena(&"fractured_plain").duplicate()
+	tiled.environment_id = &"environment.fractured_plain"
 	var real := ArenaGround.new()
-	real.setup(GameDB.arena(&"fractured_plain"), 1)
-	check(not real.uses_placeholder(), "décor utilisé pour la Plaine fracturée")
+	real.setup(tiled, 1)
+	check(not real.uses_placeholder(), "décor en tuiles utilisé")
 	check(real.get_child_count() > 4, "blocs de décor créés")
 	real.free()
 
@@ -152,13 +155,36 @@ func test_obstacles_leave_paths_and_clear_start() -> void:
 	check_eq(squeezed, 0, "toujours un passage entre deux obstacles")
 
 
+func test_map_arena_zones() -> void:
+	var arena: ArenaData = GameDB.arena(&"fractured_plain")
+	var env: EnvironmentSet = Assets.environment(arena.environment_id)
+	check(env != null and env.is_map(), "la Plaine fracturée utilise la map dessinée")
+	if env == null:
+		return
+	check_near(env.arena_size, arena.size.x, 0.5, "taille de l'arène = taille de la map")
+	var half: Vector2 = arena.size * 0.5
+	var field := ObstacleField.new()
+	field.set_distance_field(env.field_image, Rect2(-half, arena.size), env.field_step)
+	check(field.distance(Vector2.ZERO) > 40.0, "départ (centre) praticable et dégagé")
+	check(field.distance(-half + Vector2(40, 40)) < 0.0, "coin de la map (forêt) infranchissable")
+	var corner: Vector2 = -half + Vector2(300, 300)
+	var out: Vector2 = field.push_out(corner, 12.0)
+	check(field.distance(out) >= 0.0 or out.distance_to(corner) > 20.0, "repoussé vers le praticable")
+
+
 func test_player_cannot_enter_obstacles() -> void:
 	var run: RunController = RunFixture.create(host, &"ashblade")
 	check(not run.ctx.obstacles.is_empty(), "obstacles actifs en partie")
-	var c: Vector3 = run.ctx.obstacles.circles[0]
-	run.ctx.player.global_position = Vector2(c.x, c.y)
-	run.ctx.player._constrain()
-	check(not run.ctx.obstacles.blocks(run.ctx.player.global_position, run.ctx.player.radius - 0.5),
-		"le joueur est repoussé hors de l'obstacle")
+	var blocked := Vector2.ZERO
+	for i: int in 400:
+		var p := Vector2(randf_range(-1100, 1100), randf_range(-1100, 1100))
+		if run.ctx.obstacles.distance(p) < -20.0:
+			blocked = p
+			break
+	run.ctx.player.global_position = blocked
+	for i: int in 6:
+		run.ctx.player._constrain()
+	check(run.ctx.obstacles.distance(run.ctx.player.global_position) > -run.ctx.player.radius,
+		"le joueur est repoussé hors de la zone infranchissable")
 	RunFixture.dispose(run)
 
