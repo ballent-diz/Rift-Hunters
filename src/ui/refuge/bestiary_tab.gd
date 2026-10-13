@@ -3,6 +3,7 @@ extends RefugeTab
 
 var _selection: String = ""
 var _detail: RichTextLabel
+var _portrait_host: PanelContainer
 
 
 func title_key() -> String:
@@ -15,7 +16,7 @@ func refresh() -> void:
 	split.add_theme_constant_override("separation", 16)
 	add_child(split)
 	var scroll := ScrollContainer.new()
-	scroll.custom_minimum_size.x = 300
+	scroll.custom_minimum_size.x = 240
 	split.add_child(scroll)
 	var list := VBoxContainer.new()
 	scroll.add_child(list)
@@ -24,7 +25,13 @@ func refresh() -> void:
 	_detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_detail.add_theme_font_size_override("normal_font_size", 16)
 	_detail.add_theme_font_size_override("bold_font_size", 18)
-	split.add_child(_detail)
+	var detail_box := VBoxContainer.new()
+	detail_box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	split.add_child(detail_box)
+	_portrait_host = PanelContainer.new()
+	detail_box.add_child(_portrait_host)
+	_detail.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	detail_box.add_child(_detail)
 	var p: ProfileData = profile()
 	list.add_child(UiKit.label(tr("BESTIARY_ECHOES"), 18, UiKit.ACCENT))
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
@@ -50,17 +57,27 @@ func refresh() -> void:
 func _entry(list: VBoxContainer, key: String, text: String) -> void:
 	var b: Button = UiKit.button(text, func() -> void:
 		_selection = key
-		_show(key), 280)
+		_show(key), 220)
 	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	list.add_child(b)
 
 
 func _show(key: String) -> void:
+	UiKit.clear(_portrait_host)
+	_portrait_host.visible = false
 	var kind: String = key.get_slice(":", 0)
 	var id := StringName(key.get_slice(":", 1))
 	match kind:
 		"monster":
-			_detail.text = _monster_text(GameDB.monster(id))
+			var monster: MonsterData = GameDB.monster(id)
+			_detail.text = _monster_text(monster)
+			if profile().is_discovered("monsters", id) or profile().is_monster_unlocked(monster):
+				var portrait := EchoPortrait.new()
+				portrait.custom_minimum_size.y = 170
+				_portrait_host.add_child(portrait)
+				portrait.setup(monster, EchoPortrait.profile_palette(monster))
+				portrait.custom_minimum_size.y = 170
+				_portrait_host.visible = true
 		"enemy":
 			_detail.text = _enemy_text(GameDB.enemy(id))
 		"boss":

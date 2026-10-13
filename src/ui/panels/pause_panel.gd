@@ -15,7 +15,7 @@ func setup(p_ctx: RunContext) -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	add_child(UiKit.dimmer(0.8))
-	_box = UiKit.center_box(self, 12)
+	_box = MenuSkin.modal_box(self, 12, Vector2(680, 640))
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -57,7 +57,9 @@ func _build() -> void:
 	_box.add_child(UiKit.button(tr("PAUSE_ABANDON"), func() -> void:
 		close()
 		abandon_requested.emit(), 320))
-	_box.add_child(UiKit.label(tr("PAUSE_CONTROLS"), 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER))
+	var controls: Label = UiKit.wrapped(tr("PAUSE_CONTROLS"), 14, UiKit.MUTED)
+	controls.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_box.add_child(controls)
 
 
 func _toggle_language() -> void:

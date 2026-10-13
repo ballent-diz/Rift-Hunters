@@ -22,8 +22,8 @@ func refresh() -> void:
 	box.add_child(_toggle(tr("OPTIONS_REDUCE_FLASHES") % "", Settings.reduce_flashes, func(on: bool) -> void:
 		Settings.reduce_flashes = on))
 	box.add_child(_toggle(tr("OPTIONS_SHOW_FPS"), Settings.show_fps, func(on: bool) -> void: Settings.show_fps = on))
-	box.add_child(UiKit.label(tr("OPTIONS_CONTROLS"), 14, UiKit.MUTED))
-	box.add_child(UiKit.label(tr("OPTIONS_SAVE_INFO") % [ProjectSettings.globalize_path(Profile.path),
+	box.add_child(UiKit.wrapped(tr("OPTIONS_CONTROLS"), 14, UiKit.MUTED))
+	box.add_child(UiKit.wrapped(tr("OPTIONS_SAVE_INFO") % [ProjectSettings.globalize_path(Profile.path),
 		SaveMigrations.CURRENT_VERSION], 13, UiKit.MUTED))
 
 
