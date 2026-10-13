@@ -5,6 +5,8 @@ extends Node2D
 enum Kind { XP, CHEST, HEAL, CAPTURE }
 
 const MAX_GEMS := 350
+## Taille d'affichage des gemmes d'XP (1 = taille d'origine).
+const GEM_SCALE := 1.3
 
 var ctx: RunContext
 var items: Array[Dictionary] = []
@@ -32,7 +34,8 @@ func spawn_chest(pos: Vector2) -> void:
 
 
 func spawn_heal(pos: Vector2) -> void:
-	items.append({"kind": Kind.HEAL, "pos": pos, "value": 20, "magnet": false, "speed": 0.0})
+	# value : part des PV max rendue au ramassage (calculée à ce moment-là).
+	items.append({"kind": Kind.HEAL, "pos": pos, "value": ctx.balance.heal_amount_ratio, "magnet": false, "speed": 0.0})
 
 
 func spawn_capture(pos: Vector2, monster_id: StringName) -> void:
@@ -122,7 +125,8 @@ func _collect(item: Dictionary) -> void:
 			ctx.player.gain_xp(float(item["value"]))
 			Audio.play_sfx(&"xp_pickup")
 		Kind.HEAL:
-			ctx.player.heal(float(item["value"]))
+			ctx.player.heal(ctx.player.max_hp * float(item["value"]))
+			ctx.fx.ring(ctx.player.global_position, 26.0, Color(1.0, 0.45, 0.55, 0.7), 0.3)
 		Kind.CHEST:
 			ctx.stats.add(&"chests_opened")
 			ctx.events.chest_collected.emit()
@@ -134,15 +138,9 @@ func _draw() -> void:
 		var pos: Vector2 = item["pos"]
 		match item["kind"]:
 			Kind.XP:
-				var value: int = item["value"]
-				var s: float = 4.0 if value < 5 else (6.0 if value < 20 else 8.5)
-				var color := Color(0.4, 0.95, 0.75) if value < 5 else (Color(0.4, 0.7, 1.0) if value < 20 else Color(1.0, 0.85, 0.3))
-				draw_colored_polygon(PackedVector2Array([pos + Vector2(0, -s), pos + Vector2(s * 0.7, 0),
-					pos + Vector2(0, s), pos + Vector2(-s * 0.7, 0)]), color)
+				_draw_gem(pos, int(item["value"]), t)
 			Kind.HEAL:
-				draw_circle(pos, 7.0, Color(0.3, 0.9, 0.4))
-				draw_rect(Rect2(pos - Vector2(1.5, 4.5), Vector2(3, 9)), Color.WHITE)
-				draw_rect(Rect2(pos - Vector2(4.5, 1.5), Vector2(9, 3)), Color.WHITE)
+				_draw_heart(pos, t)
 			Kind.CAPTURE:
 				var monster: MonsterData = GameDB.monster(item["monster"])
 				var color: Color = monster.visual.primary.lightened(0.3) if monster else Color.WHITE
@@ -160,3 +158,38 @@ func _draw() -> void:
 				draw_rect(Rect2(p - Vector2(12, 8), Vector2(24, 16)), Color(0.75, 0.5, 0.2))
 				draw_rect(Rect2(p - Vector2(12, 2), Vector2(24, 3)), Color(0.4, 0.25, 0.1))
 				draw_circle(p + Vector2(0, 2), 3.0, Color(1.0, 0.9, 0.4))
+
+
+## Gemme d'XP facettée : contour sombre, face claire en haut-gauche, reflet qui scintille.
+func _draw_gem(pos: Vector2, value: int, t: float) -> void:
+	var s: float = (4.0 if value < 5 else (6.0 if value < 20 else 8.5)) * GEM_SCALE
+	var color := Color(0.4, 0.95, 0.75) if value < 5 else (Color(0.4, 0.7, 1.0) if value < 20 else Color(1.0, 0.85, 0.3))
+	var p: Vector2 = pos + Vector2(0, sin(t * 3.0 + pos.x * 0.05) * 1.2)
+	var top := p + Vector2(0, -s)
+	var right := p + Vector2(s * 0.7, 0)
+	var bottom := p + Vector2(0, s)
+	var left := p + Vector2(-s * 0.7, 0)
+	var o: float = 1.6
+	draw_colored_polygon(PackedVector2Array([top + Vector2(0, -o), right + Vector2(o, 0), bottom + Vector2(0, o),
+		left + Vector2(-o, 0)]), Color(0.04, 0.05, 0.08, 0.9))
+	draw_colored_polygon(PackedVector2Array([top, right, bottom, left]), color.darkened(0.25))
+	draw_colored_polygon(PackedVector2Array([top, p, left]), color.lightened(0.35))
+	draw_colored_polygon(PackedVector2Array([top, right, p]), color)
+	var sparkle: float = maxf(sin(t * 4.0 + pos.y * 0.07), 0.0)
+	if sparkle > 0.6:
+		draw_circle(p + Vector2(-s * 0.2, -s * 0.4), 1.2 * GEM_SCALE, Color(1, 1, 1, sparkle))
+
+
+## Soin : cœur rouge qui bat, contour sombre, halo et reflet (bien visible dans la foule).
+func _draw_heart(pos: Vector2, t: float) -> void:
+	var beat: float = 1.0 + 0.12 * maxf(sin(t * 6.0), 0.0)
+	var p: Vector2 = pos + Vector2(0, sin(t * 2.5) * 1.5)
+	draw_circle(p, 15.0 * beat, Color(1.0, 0.3, 0.4, 0.16))
+	for pass_index: int in 2:
+		var k: float = (7.0 if pass_index == 0 else 5.6) * beat
+		var color := Color(0.12, 0.02, 0.05) if pass_index == 0 else Color(0.95, 0.2, 0.3)
+		draw_circle(p + Vector2(-k * 0.5, -k * 0.25), k * 0.58, color)
+		draw_circle(p + Vector2(k * 0.5, -k * 0.25), k * 0.58, color)
+		draw_colored_polygon(PackedVector2Array([p + Vector2(-k * 1.05, -k * 0.05), p + Vector2(k * 1.05, -k * 0.05),
+			p + Vector2(0, k * 1.0)]), color)
+	draw_circle(p + Vector2(-3.0, -3.0) * beat, 1.6, Color(1.0, 0.85, 0.88))

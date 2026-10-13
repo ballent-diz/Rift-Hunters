@@ -14,6 +14,13 @@ extends Resource
 @export var dash_iframes: float = 0.3
 @export var pickup_radius: float = 70.0
 @export var magnet_speed: float = 520.0
+## Soins lâchés par les ennemis : chance par ennemi tué, triplée sous un seuil de PV (filet de sécurité),
+## soin rendu en part des PV max, soin garanti sur les élites.
+@export var heal_drop_chance: float = 0.006
+@export var heal_low_hp_ratio: float = 0.35
+@export var heal_low_hp_mult: float = 3.0
+@export var heal_amount_ratio: float = 0.15
+@export var elite_heal_drop: bool = true
 @export var player_visual: VisualData
 @export_group("Arme du Chasseur")
 @export var bolt: AttackData

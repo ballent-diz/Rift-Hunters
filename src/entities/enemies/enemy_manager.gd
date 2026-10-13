@@ -392,8 +392,11 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 	ctx.stats.add(StringName("kills_" + enemy.data.id))
 	ctx.pickups.spawn_xp(pos, enemy.xp_value)
 	ctx.stats.add(&"shards_earned_raw", ctx.balance.shards_per_kill)
-	if ctx.rng.randf() < 0.008:
-		ctx.pickups.spawn_heal(pos)
+	var heal_chance: float = ctx.balance.heal_drop_chance
+	if ctx.player.hp < ctx.player.max_hp * ctx.balance.heal_low_hp_ratio:
+		heal_chance *= ctx.balance.heal_low_hp_mult
+	if (enemy.is_elite and ctx.balance.elite_heal_drop) or ctx.rng.randf() < heal_chance:
+		ctx.pickups.spawn_heal(pos + Vector2(10, 6))
 	if enemy.is_elite:
 		ctx.stats.add(&"elites_killed")
 		ctx.stats.add(&"shards_earned_raw", ctx.balance.shards_per_elite)
