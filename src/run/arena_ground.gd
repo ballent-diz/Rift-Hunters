@@ -75,7 +75,13 @@ func _draw() -> void:
 	if environment.is_map():
 		# Arène dessinée : la map couvre exactement l'arène (la caméra ne montre rien au-delà).
 		draw_rect(rect.grow(OUTSIDE_MARGIN), Color(0.03, 0.06, 0.04))
-		draw_texture_rect(environment.map_texture, rect, false)
+		if environment.map_tiles.is_empty():
+			draw_texture_rect(environment.map_texture, rect, false)
+		else:
+			var tile_size := Vector2(rect.size.x / environment.map_tiles.size(), rect.size.y)
+			for i: int in environment.map_tiles.size():
+				var tile_rect := Rect2(rect.position + Vector2(i * tile_size.x, 0), tile_size)
+				draw_texture_rect(environment.map_tiles[i], tile_rect, false)
 		return
 	var area: Rect2 = rect.grow(environment.border_width + OUTSIDE_MARGIN)
 	var s: float = environment.pixel_scale

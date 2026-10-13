@@ -77,6 +77,9 @@ static func validate_environment(id: String, e: Dictionary) -> Dictionary:
 		for key: String in ["map", "field"]:
 			if not ResourceLoader.exists(str(e.get(key, ""))):
 				messages.append("fichier %s absent" % key)
+		for path: String in e.get("map_tiles", []):
+			if not ResourceLoader.exists(path):
+				messages.append("panneau de map absent : " + path)
 		if float(e.get("arena_size", 0.0)) <= 0.0:
 			messages.append("arena_size manquant")
 		var map_status: String = "OK" if messages.is_empty() else ("ERROR" if str(e.get("status", "")) == "final" else "PLACEHOLDER")

@@ -27,6 +27,8 @@ func _ready() -> void:
 				_times.clear()
 				for t: String in parts[1].split(","):
 					_times.append(float(t))
+			"arena":
+				setup.arena_id = StringName(parts[1])
 			"starter":
 				setup.starter_id = StringName(parts[1])
 			"seed":
