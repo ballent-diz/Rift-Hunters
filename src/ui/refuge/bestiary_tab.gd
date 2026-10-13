@@ -88,6 +88,9 @@ func _show(key: String) -> void:
 			var relic: RelicData = GameDB.relic(id)
 			var known: bool = profile().is_discovered("relics", id)
 			_detail.text = "[b]%s[/b]\n\n%s" % [tr(relic.name_key), tr(relic.desc_key)] if known else tr("BESTIARY_UNKNOWN")
+			if known and ItemArt.texture("relic", id):
+				_portrait_host.add_child(ItemArt.portrait("relic", id, relic.color, 180))
+				_portrait_host.visible = true
 		"synergy":
 			var synergy: SynergyData = GameDB.synergies[id]
 			var names: PackedStringArray = []

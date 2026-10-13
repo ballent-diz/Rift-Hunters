@@ -1,0 +1,216 @@
+{
+  "mode": "built-in image_gen",
+  "transparent_background": true,
+  "items": [
+    {
+      "kind": "upgrade",
+      "id": "might",
+      "title": "Puissance",
+      "subject": "a single black obsidian katana with a copper tsuba, its diagonal blade releasing a strong ember-red crescent slash",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a single black obsidian katana with a copper tsuba, its diagonal blade releasing a strong ember-red crescent slash."
+    },
+    {
+      "kind": "upgrade",
+      "id": "cadence",
+      "title": "Cadence",
+      "subject": "two short Japanese daggers rotating in a tight circular sequence with three crisp cyan speed trails",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: two short Japanese daggers rotating in a tight circular sequence with three crisp cyan speed trails."
+    },
+    {
+      "kind": "upgrade",
+      "id": "focus_mind",
+      "title": "Concentration",
+      "subject": "an indigo prayer bead loop around a small copper third-eye medallion, a quiet azure halo",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: an indigo prayer bead loop around a small copper third-eye medallion, a quiet azure halo."
+    },
+    {
+      "kind": "upgrade",
+      "id": "frenzy",
+      "title": "Frénésie",
+      "subject": "a cracked red lacquer oni half-mask with two small sharp teeth and a fierce violet flame aura",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a cracked red lacquer oni half-mask with two small sharp teeth and a fierce violet flame aura."
+    },
+    {
+      "kind": "upgrade",
+      "id": "magnetism",
+      "title": "Magnétisme",
+      "subject": "a copper horseshoe lodestone drawing in three small luminous violet crystal fragments",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a copper horseshoe lodestone drawing in three small luminous violet crystal fragments."
+    },
+    {
+      "kind": "upgrade",
+      "id": "marking_bolt",
+      "title": "Trait marqueur",
+      "subject": "a cyan energy arrow passing through one luminous violet diamond-shaped targeting sigil",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a cyan energy arrow passing through one luminous violet diamond-shaped targeting sigil."
+    },
+    {
+      "kind": "upgrade",
+      "id": "breaking_bolt",
+      "title": "Trait brisant",
+      "subject": "an ember-tipped obsidian arrow breaking a dark slate armor plate into two pieces",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: an ember-tipped obsidian arrow breaking a dark slate armor plate into two pieces."
+    },
+    {
+      "kind": "upgrade",
+      "id": "multishot",
+      "title": "Multitrait",
+      "subject": "three narrow arrowheaded rift bolts fanning outward in violet and cyan from one copper origin",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: three narrow arrowheaded rift bolts fanning outward in violet and cyan from one copper origin."
+    },
+    {
+      "kind": "upgrade",
+      "id": "piercing",
+      "title": "Perforation",
+      "subject": "a long needle-like blue energy spear piercing through two dark stone rings",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a long needle-like blue energy spear piercing through two dark stone rings."
+    },
+    {
+      "kind": "upgrade",
+      "id": "reflexes",
+      "title": "Réflexes",
+      "subject": "a single dark Japanese wooden sandal evading sideways, two violet afterimage streaks",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a single dark Japanese wooden sandal evading sideways, two violet afterimage streaks."
+    },
+    {
+      "kind": "upgrade",
+      "id": "regeneration",
+      "title": "Régénération",
+      "subject": "a small jade bamboo sprout with glowing healing dew drops and a warm gold highlight",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a small jade bamboo sprout with glowing healing dew drops and a warm gold highlight."
+    },
+    {
+      "kind": "upgrade",
+      "id": "shatterbolt",
+      "title": "Éclatement",
+      "subject": "a violet crystal bolt bursting into exactly two orange edged shards at its tip",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a violet crystal bolt bursting into exactly two orange edged shards at its tip."
+    },
+    {
+      "kind": "upgrade",
+      "id": "static_bolt",
+      "title": "Trait électrique",
+      "subject": "a jagged cyan electric rift arrow wrapped around a small copper spark coil",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a jagged cyan electric rift arrow wrapped around a small copper spark coil."
+    },
+    {
+      "kind": "upgrade",
+      "id": "strong_bond",
+      "title": "Lien renforcé",
+      "subject": "two intertwined indigo and crimson braided cord rings binding two tiny azure spirit wisps",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: two intertwined indigo and crimson braided cord rings binding two tiny azure spirit wisps."
+    },
+    {
+      "kind": "upgrade",
+      "id": "swiftness",
+      "title": "Célérité",
+      "subject": "a silver-blue feather charm tied with a red knot, three curved swift wind streaks",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a silver-blue feather charm tied with a red knot, three curved swift wind streaks."
+    },
+    {
+      "kind": "upgrade",
+      "id": "vitality",
+      "title": "Vitalité",
+      "subject": "a red lacquer heart-shaped samurai amulet with jade seams and a strong golden inner light",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a red lacquer heart-shaped samurai amulet with jade seams and a strong golden inner light."
+    },
+    {
+      "kind": "relic",
+      "id": "binding_talisman",
+      "title": "Talisman de lien",
+      "subject": "two folded aged paper ofuda charms joined by a copper clasp and a crimson cord knot, abstract ink strokes only",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: two folded aged paper ofuda charms joined by a copper clasp and a crimson cord knot, abstract ink strokes only."
+    },
+    {
+      "kind": "relic",
+      "id": "briar_seed",
+      "title": "Graine de ronce",
+      "subject": "one jade seed pod wrapped by a small thorny dark violet vine",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: one jade seed pod wrapped by a small thorny dark violet vine."
+    },
+    {
+      "kind": "relic",
+      "id": "broken_crown",
+      "title": "Couronne brisée",
+      "subject": "a broken bronze crown with one missing prong and a glowing fractured violet gemstone",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a broken bronze crown with one missing prong and a glowing fractured violet gemstone."
+    },
+    {
+      "kind": "relic",
+      "id": "cracked_hourglass",
+      "title": "Sablier fêlé",
+      "subject": "a small hourglass in a black lacquer Japanese frame, cracked glass and violet sand with golden flecks",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a small hourglass in a black lacquer Japanese frame, cracked glass and violet sand with golden flecks."
+    },
+    {
+      "kind": "relic",
+      "id": "cracked_mirror",
+      "title": "Miroir fêlé",
+      "subject": "a round aged bronze hand mirror with one bright diagonal crack across an indigo reflection",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a round aged bronze hand mirror with one bright diagonal crack across an indigo reflection."
+    },
+    {
+      "kind": "relic",
+      "id": "cracked_prism",
+      "title": "Prisme fêlé",
+      "subject": "a single angular violet prism with a jagged internal crack and cyan-orange refractions",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a single angular violet prism with a jagged internal crack and cyan-orange refractions."
+    },
+    {
+      "kind": "relic",
+      "id": "ember_heart",
+      "title": "Cœur de cendre",
+      "subject": "a heart-shaped black volcanic stone with glowing orange ember fissures and a faint violet rim",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a heart-shaped black volcanic stone with glowing orange ember fissures and a faint violet rim."
+    },
+    {
+      "kind": "relic",
+      "id": "gravity_stone",
+      "title": "Pierre de gravité",
+      "subject": "a dark spherical floating stone with small violet crystal inclusions and a single blue gravitational orbit",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a dark spherical floating stone with small violet crystal inclusions and a single blue gravitational orbit."
+    },
+    {
+      "kind": "relic",
+      "id": "hungry_fang",
+      "title": "Croc vorace",
+      "subject": "one ivory monster fang held in a bronze claw pendant with a tiny crimson jewel",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: one ivory monster fang held in a bronze claw pendant with a tiny crimson jewel."
+    },
+    {
+      "kind": "relic",
+      "id": "hunter_lantern",
+      "title": "Lanterne du chasseur",
+      "subject": "a small Japanese bronze and black lacquer lantern, warm orange light behind ivory rice paper panels",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a small Japanese bronze and black lacquer lantern, warm orange light behind ivory rice paper panels."
+    },
+    {
+      "kind": "relic",
+      "id": "hunters_eye",
+      "title": "Œil du chasseur",
+      "subject": "an aged copper eye-shaped pendant enclosing a luminous cyan iris with a vertical pupil",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: an aged copper eye-shaped pendant enclosing a luminous cyan iris with a vertical pupil."
+    },
+    {
+      "kind": "relic",
+      "id": "unstable_coil",
+      "title": "Bobine instable",
+      "subject": "a compact copper coil on a cracked dark ceramic base, emitting irregular cyan and violet sparks",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a compact copper coil on a cracked dark ceramic base, emitting irregular cyan and violet sparks."
+    },
+    {
+      "kind": "offer",
+      "id": "heal",
+      "title": "Souffle de répit",
+      "subject": "a small ivory Japanese ceramic medicine flask with a jade leaf seal and a gentle pale-blue healing wisp",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: a small ivory Japanese ceramic medicine flask with a jade leaf seal and a gentle pale-blue healing wisp."
+    },
+    {
+      "kind": "offer",
+      "id": "shards",
+      "title": "Éclats épars",
+      "subject": "three broken violet rift crystals arranged as a small pile, blue cores and copper-orange highlights",
+      "prompt": "Use case: stylized-concept. Asset type: a single collectible/card illustration for Rift Hunters, a Japanese nocturnal fantasy pixel-art Godot game. Draw ONLY the specified central symbol/object, isolated on genuinely transparent alpha background. Square 1024x1024 canvas, subject centered and contained within central 72 percent with generous transparent margins. Crisp hand-painted SNES-inspired pixel art, visible consistent pixel clusters, strong readable silhouette, limited deep indigo/violet/cyan palette, aged copper accents and warm amber lantern highlights, light from upper left, subtle violet rim lower right. One cohesive item icon, front or slight three-quarter view. Rich but legible at 128px. NO text, letters, readable glyphs, numbers, frame, badge, UI, floor, scene, watermark or checkerboard. No blurry airbrush, vector-flat graphics, photorealism or glossy 3D. Keep glow tight and alpha clean. Subject: three broken violet rift crystals arranged as a small pile, blue cores and copper-orange highlights."
+    }
+  ]
+}
