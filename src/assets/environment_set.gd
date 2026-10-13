@@ -23,6 +23,8 @@ var ambient_amount: int = 0
 ## Arène dessinée d'un seul tenant (« kind » = map) : image du sol entier et carte de distance des zones
 ## infranchissables (niveau de gris : 128 = bord, au-dessus praticable, 1 niveau = field_step unités, voir build_map.py).
 var map_texture: Texture2D
+## Panneaux de même taille, affichés côte à côte dans leur ordre de déclaration.
+var map_tiles: Array[Texture2D] = []
 var field_image: Image
 var field_step: float = 1.0
 var arena_size: float = 0.0
@@ -85,6 +87,13 @@ static func _from_map_entry(p_id: StringName, e: Dictionary) -> EnvironmentSet:
 	env.id = p_id
 	env.pixel_scale = float(e.get("scale", 1.0))
 	env.map_texture = load(str(e["map"]))
+	for path: String in e.get("map_tiles", []):
+		if not ResourceLoader.exists(path):
+			return null
+		var tile: Texture2D = load(path)
+		if tile.get_size() != env.map_texture.get_size():
+			return null
+		env.map_tiles.append(tile)
 	env.field_image = (load(str(e["field"])) as Texture2D).get_image()
 	if env.field_image.is_compressed():
 		env.field_image.decompress()

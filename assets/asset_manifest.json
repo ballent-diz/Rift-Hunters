@@ -2582,6 +2582,28 @@
 			},
 			"outside_tint": "#06120c99",
 			"decals": []
+		},
+		"environment.three_rifts": {
+			"status": "final",
+			"kind": "map",
+			"map": "res://assets/environments/three_rifts/L1.png",
+			"map_tiles": [
+				"res://assets/environments/three_rifts/L1.png",
+				"res://assets/environments/three_rifts/L1p2.png",
+				"res://assets/environments/three_rifts/L1p3.png"
+			],
+			"field": "res://assets/environments/three_rifts/field.png",
+			"field_step": 2.0,
+			"arena_size": 3762,
+			"start": [
+				-1208.0,
+				-32.0
+			],
+			"filter": "nearest",
+			"generated_by": "tools/art/build_three_rifts.py",
+			"ambient": {
+				"amount": 0
+			}
 		}
 	}
 }
