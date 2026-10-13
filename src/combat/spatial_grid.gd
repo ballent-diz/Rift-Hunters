@@ -20,13 +20,14 @@ func clear() -> void:
 
 
 func insert(item: Object, pos: Vector2) -> void:
-	var key: int = _key(int(floor(pos.x / cell_size)), int(floor(pos.y / cell_size)))
+	var key: int = _key(floori(pos.x / cell_size), floori(pos.y / cell_size))
+	var found: Variant = _cells.get(key)
 	var cell: Array
-	if _cells.has(key):
-		cell = _cells[key]
-	else:
+	if found == null:
 		cell = []
 		_cells[key] = cell
+	else:
+		cell = found
 	if cell.is_empty():
 		_used.append(key)
 	cell.append(item)

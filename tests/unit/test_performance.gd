@@ -31,9 +31,9 @@ func test_dense_crowd_step_time() -> void:
 	var delta: float = 1.0 / 60.0
 	for i: int in 10:
 		_step(ctx, delta)
-	# Meilleure de 3 séries : la machine de test est partagée, on mesure le coût, pas le bruit.
+	# Meilleure de 5 séries : la machine de test est partagée, on mesure le coût, pas le bruit.
 	var avg_ms: float = INF
-	for batch: int in 3:
+	for batch: int in 5:
 		var start: int = Time.get_ticks_usec()
 		var frames: int = 40
 		for i: int in frames:

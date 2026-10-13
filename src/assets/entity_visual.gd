@@ -14,6 +14,9 @@ var _flash: float = 0.0
 var _phase: float = 0.0
 var _base_scale := Vector2.ONE
 var _tint := Color.WHITE
+## Caches : on n'écrit dans le sprite que ce qui change (appelé chaque frame pour des centaines d'ennemis).
+var _current: StringName = &""
+var _facing_left: bool = false
 ## Marche (feuille animée) : distance parcourue par cycle de l'animation « move » (unités du monde) ; l'animation
 ## suit la vitesse réelle pour que les pattes « accrochent » le sol.
 var _stride: float = 0.0
@@ -28,6 +31,8 @@ func setup(visual: VisualData, primary: Color = Color(0, 0, 0, 0), secondary: Co
 		child.queue_free()
 	_sprite = null
 	_anim = null
+	_current = &""
+	_facing_left = false
 	_phase = randf() * TAU
 	shadow_radius = visual.size * 0.36
 	_add_shadow()
@@ -79,14 +84,17 @@ func has_animation(anim: StringName) -> bool:
 
 
 func play(anim: StringName) -> void:
-	if _anim and _anim.sprite_frames.has_animation(anim) and _anim.animation != anim:
-		_anim.play(anim)
+	if _current == anim or _anim == null or not _anim.sprite_frames.has_animation(anim):
+		return
+	_current = anim
+	_anim.play(anim)
 
 
 ## Animation ponctuelle (attaque, Technique) ; retour automatique au repos ou à la course ensuite.
 func play_action(anim: StringName) -> void:
 	if _anim and _anim.sprite_frames.has_animation(anim):
 		_action = anim
+		_current = anim
 		_anim.speed_scale = 1.0
 		_anim.play(anim)
 		_anim.frame = 0
@@ -100,6 +108,9 @@ func _on_action_finished() -> void:
 
 
 func set_facing_left(left: bool) -> void:
+	if left == _facing_left:
+		return
+	_facing_left = left
 	if _sprite:
 		_sprite.flip_h = left
 	elif _anim:
@@ -141,12 +152,15 @@ func _gait(delta: float, walking: bool, speed: float) -> void:
 		return
 	# Cycles par seconde : vitesse / foulée (cadence nominale si la vitesse est inconnue).
 	var cycles: float = speed / _stride if speed >= 0.0 and _stride > 0.0 else 1.0 / _move_cycle
-	_anim.speed_scale = clampf(cycles * _move_cycle, 0.5, 2.2)
+	var scale_value: float = clampf(cycles * _move_cycle, 0.5, 2.2)
+	if absf(_anim.speed_scale - scale_value) > 0.05:
+		_anim.speed_scale = scale_value
 	_phase = fmod(_phase + delta * cycles * TAU, TAU * 8.0)
 	# Deux pas par cycle : rebond à chaque pas, bascule gauche/droite d'un pas à l'autre.
 	var step: float = sin(_phase * 2.0)
-	_anim.position = Vector2(0.0, -absf(step) * _step_bob)
-	_anim.rotation = sin(_phase) * _step_rock * (-1.0 if _anim.flip_h else 1.0)
+	if _step_bob > 0.0 or _step_rock > 0.0:
+		_anim.position = Vector2(0.0, -absf(step) * _step_bob)
+		_anim.rotation = sin(_phase) * _step_rock * (-1.0 if _facing_left else 1.0)
 
 
 func _apply_modulate() -> void:
