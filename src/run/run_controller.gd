@@ -66,6 +66,10 @@ func start(setup: RunSetup) -> void:
 		ctx.allies.add_monster(setup.starter_id, setup.starter_rank, setup.starter_variant)
 	spawner = SpawnDirector.new(ctx)
 	ctx.spawner = spawner
+	if ctx.arena.finale_radii.x > 0:
+		ctx.finale = ArenaFinale.new()
+		ctx.finale.setup(ctx)
+		ctx.world.add_child(ctx.finale)
 	event_director = EventDirector.new(ctx)
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
 		boss_controller = BossController.new(ctx, boss)
@@ -233,11 +237,15 @@ func _physics_process(delta: float) -> void:
 		_update_camera(delta)
 		return
 	ctx.time += delta
+	if ctx.finale:
+		ctx.finale.step(delta)
 	spawner.step(delta)
 	event_director.step(delta)
 	ctx.player.step(delta)
 	ctx.allies.step(delta)
 	ctx.enemies.step(delta)
+	if ctx.finale:
+		ctx.finale.enforce_boundary()
 	if boss_controller:
 		boss_controller.step(delta)
 	ctx.projectiles.step(delta)

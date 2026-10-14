@@ -32,6 +32,7 @@ var obstacles := ObstacleField.new()
 var flow: FlowField
 var boss: Enemy
 var spawner: SpawnDirector
+var finale: ArenaFinale
 
 
 func minutes() -> float:
