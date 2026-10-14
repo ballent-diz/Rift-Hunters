@@ -43,3 +43,7 @@ res://tools/screenshot.tscn -- --out=<dossier> --times=20,60` (`--menu=main|refu
   `assets/concepts/incoming/README.md`. Ce dossier est ignoré par Godot (`.gdignore`).
 - Pipeline graphique : `tools/art/` (`import_sheet.py` pour les planches, `build_map.py` + `upscale.py` pour les
   maps dessinées). Règles graphiques : `docs/ART_BIBLE.md`.
+
+## Génération et intégration de cartes
+
+Lire [docs/MAP_GUIDELINES.md](docs/MAP_GUIDELINES.md) avant toute génération ou intégration de map. Ce document conserve les critères du propriétaire : espace de manœuvre, décors variés et à l’échelle du personnage, routes sans collisions, raccords invisibles et rendu net à l’écran.
