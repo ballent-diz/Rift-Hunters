@@ -2604,6 +2604,23 @@
 			"ambient": {
 				"amount": 0
 			}
+		},
+		"environment.cascade_ruins": {
+			"status": "final",
+			"kind": "map",
+			"map": "res://assets/environments/cascade_ruins/map.webp",
+			"field": "res://assets/environments/cascade_ruins/field.png",
+			"field_step": 2.0,
+			"arena_size": 3762,
+			"start": [
+				-1636.0,
+				-388.0
+			],
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"generated_by": "tools/art/build_cascade_ruins.py"
 		}
 	}
 }

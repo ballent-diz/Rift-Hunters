@@ -73,28 +73,25 @@ static func background(parent: Control) -> void:
 ## Panneau centré et défilant : les actions restent accessibles dans une petite fenêtre.
 static func modal_box(parent: Control, separation: int, preferred: Vector2 = Vector2(1100, 620)) -> VBoxContainer:
 	parent.theme = theme()
-	var margin := MarginContainer.new()
-	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
-	for side: String in ["left", "right", "top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, 24)
-	parent.add_child(margin)
-	var center := CenterContainer.new()
-	margin.add_child(center)
 	var panel := PanelContainer.new()
-	center.add_child(panel)
+	panel.name = "ModalFrame"
+	parent.add_child(panel)
 	var scroll := ScrollContainer.new()
+	scroll.name = "ModalScroll"
 	panel.add_child(scroll)
 	var box := VBoxContainer.new()
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_theme_constant_override("separation", separation)
 	scroll.add_child(box)
 	var fit: Callable = func() -> void:
-		var height: float = maxf(160, box.get_combined_minimum_size().y + 32)
-		panel.custom_minimum_size = Vector2(minf(preferred.x, maxf(100, parent.size.x - 48)),
-			minf(minf(preferred.y, height), maxf(100, parent.size.y - 48)))
+		var available: Vector2 = (parent.size - Vector2(48, 48)).max(Vector2(100, 100))
+		var content_height: float = maxf(160, box.get_combined_minimum_size().y + 32)
+		panel.size = Vector2(minf(preferred.x, available.x), minf(minf(preferred.y, content_height), available.y))
+		panel.position = (parent.size - panel.size) * 0.5
 	parent.resized.connect(fit)
-	box.minimum_size_changed.connect(fit)
-	fit.call()
+	parent.visibility_changed.connect(func() -> void: fit.call_deferred())
+	box.minimum_size_changed.connect(func() -> void: fit.call_deferred())
+	fit.call_deferred()
 	return box
 
 
@@ -113,3 +110,11 @@ static func finish(node: Node) -> void:
 					button.add_theme_stylebox_override(state, style)
 	for child: Node in node.get_children():
 		finish(child)
+
+
+## Le refresh peut remplacer les cartes avant le prochain frame.
+static func focus_first(cards: Container) -> void:
+	var focus: Callable = func() -> void:
+		if is_instance_valid(cards) and cards.is_inside_tree() and cards.get_child_count() > 0:
+			(cards.get_child(0) as Control).grab_focus()
+	focus.call_deferred()

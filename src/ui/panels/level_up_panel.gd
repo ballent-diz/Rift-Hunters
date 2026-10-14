@@ -7,7 +7,7 @@ signal closed
 var ctx: RunContext
 var _offers: Array[UpgradeOffer] = []
 var _banish_mode: bool = false
-var _cards: HBoxContainer
+var _cards: HFlowContainer
 var _footer: HBoxContainer
 var _title: Label
 
@@ -21,9 +21,10 @@ func setup(p_ctx: RunContext) -> void:
 	var box: VBoxContainer = MenuSkin.modal_box(self, 18)
 	_title = UiKit.label("", 34, UiKit.ACCENT, HORIZONTAL_ALIGNMENT_CENTER)
 	box.add_child(_title)
-	_cards = HBoxContainer.new()
-	_cards.add_theme_constant_override("separation", 16)
-	_cards.custom_minimum_size.x = 820
+	_cards = HFlowContainer.new()
+	_cards.add_theme_constant_override("h_separation", 16)
+	_cards.add_theme_constant_override("v_separation", 16)
+
 	box.add_child(_cards)
 	_footer = HBoxContainer.new()
 	_footer.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -61,8 +62,7 @@ func _refresh() -> void:
 		else:
 			ItemArt.add_to_card(card, "offer", &"heal" if offer.kind == UpgradeOffer.Kind.HEAL else &"shards", accent)
 	MenuSkin.finish(_cards)
-	if _cards.get_child_count() > 0:
-		(_cards.get_child(0) as Control).grab_focus.call_deferred()
+	MenuSkin.focus_first(_cards)
 	UiKit.clear(_footer)
 	var rerolls_left: int = ctx.player.stats.get_int(StatKeys.REROLLS) - ctx.build.rerolls_used
 	var banishes_left: int = ctx.player.stats.get_int(StatKeys.BANISHES) - ctx.build.banishes_used

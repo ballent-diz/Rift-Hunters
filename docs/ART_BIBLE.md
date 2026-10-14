@@ -100,3 +100,7 @@ d'écran en 1080p** : le détail dessiné est le détail vu. Toutes les entités
 2. `godot --headless --import --path .` puis `tools/run_tests.sh assets` : aucune `ERREUR`.
 3. Capture en jeu (`tools/screenshot.tscn`) : lisible au milieu de la foule, distinct des Corrompus.
 4. Le code couleur fonctionnel est respecté.
+
+## Cartes : exigences du propriétaire
+
+Pour les décors de niveaux, appliquer aussi [MAP_GUIDELINES.md](MAP_GUIDELINES.md). Les exigences de netteté à l’écran, d’échelle des décors, de routes dégagées et de grandes surfaces de manœuvre priment sur les anciennes recettes de maps.
