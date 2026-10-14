@@ -1,6 +1,6 @@
 # Rift Hunters — Game Design Document (v0.1, prototype)
 
-> **Évolutions validées** (mode vagues par zone, sorts visés, arbres et builds, longévité) :
+> **Évolutions validées** (campagne en chapitres, mode vagues par zone, sorts visés, arbres et builds, longévité) :
 > voir [ROADMAP.md](ROADMAP.md). Ce document décrit l'état actuel du prototype ; en cas d'écart,
 > la feuille de route fait foi pour les décisions à venir.
 

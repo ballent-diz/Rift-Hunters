@@ -5,11 +5,12 @@ avec le propriétaire. Objectif : un jeu qui tient **plusieurs heures**, avec un
 
 ## Modes de jeu
 
-Le système de niveau est décrit en données : chaque map choisit son mode.
+Le système de niveau est décrit en données : chaque map choisit son mode. Répartition dans la campagne
+(~70 % vagues par zone, ~30 % variantes, au moins une par chapitre) : [CAMPAGNE.md](CAMPAGNE.md).
 
 | Mode | Statut | Description |
 |---|---|---|
-| Survie au chrono | Existant (Plaine fracturée) | Vagues continues pendant ~7 min, puis le Dévoreur |
+| Survie au chrono | Existant ; **hors campagne** (Plaine fracturée) | Vagues continues pendant ~7 min, puis le Dévoreur ; épreuve d'endurance pour le score |
 | Vagues par zone | Validé (Ruines des Cascades) | Voir [MODE_VAGUES_PAR_ZONE.md](MODE_VAGUES_PAR_ZONE.md) |
 | Défense d'autel | Idée | Protéger un autel pendant X vagues |
 | Fermeture de failles | Idée | Détruire des portails qui crachent des monstres tant qu'ils sont ouverts |

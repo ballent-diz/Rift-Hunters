@@ -11,6 +11,8 @@ et la zone suivante s'ouvre. La difficulté monte crescendo jusqu'à l'**arène 
 
 ## Premier niveau : Ruines des Cascades (`three_rifts`)
 
+Carte finale du chapitre 1 de la campagne (voir [CAMPAGNE.md](CAMPAGNE.md)).
+
 | Zone | Contenu | Barrières de sortie |
 |---|---|---|
 | Zone 1 (gauche) | 3 vagues de Corrompus standards | Route du haut et sortie du bas vers la zone 2 (le pont central est cassé, infranchissable) |
@@ -49,7 +51,7 @@ une capture de validation lui sera soumise avant de figer les positions.
 - **Barrières** : obstacles dynamiques ajoutés au champ d'obstacles (`ObstacleField`) et à la carte de
   flux (`FlowField`), retirés à l'ouverture.
 - **Directeur de niveau** : remplace le directeur de vagues au chrono pour ce mode ; la Plaine
-  fracturée garde le mode survie actuel.
+  fracturée garde le mode survie actuel (hors campagne).
 - **Tests** : déroulé complet joué par le bot (zones franchies, barrières ouvertes, boss atteint),
   apparitions toujours dans la zone active, aucune vague bloquante.
 
