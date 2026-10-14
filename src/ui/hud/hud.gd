@@ -94,9 +94,16 @@ func _draw() -> void:
 	var minutes: int = int(ctx.time) / 60
 	var seconds: int = int(ctx.time) % 60
 	_text(Vector2(0, 44), "%02d:%02d" % [minutes, seconds], 30, Color.WHITE, HORIZONTAL_ALIGNMENT_CENTER, w)
-	if ctx.boss == null:
+	if ctx.finale and ctx.finale.state >= ArenaFinale.State.CLEARING:
+		var key: String = "FINALE_CLEAR"
+		if ctx.finale.state == ArenaFinale.State.TRAVEL:
+			key = "FINALE_TRAVEL"
+		elif ctx.finale.state >= ArenaFinale.State.OPENING:
+			key = "FINALE_OPENING" if ctx.finale.state == ArenaFinale.State.OPENING else "FINALE_FIGHT"
+		_text(Vector2(0, 66), tr(key), 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
+	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
-		_text(Vector2(0, 66), tr("HUD_BOSS_IN") % [int(left) / 60, int(left) % 60], 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
+		_text(Vector2(0, 66), tr("HUD_NAMED_BOSS_IN") % [tr(GameDB.boss(ctx.arena.boss_id).name_key), int(left) / 60, int(left) % 60], 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 	var kills: int = int(ctx.stats.get_value(&"kills"))
 	_text(Vector2(w - 220, 40), tr("HUD_KILLS") % kills, 18, Color.WHITE, HORIZONTAL_ALIGNMENT_RIGHT, 200)
 	_text(Vector2(w - 220, 62), tr("HUD_RELICS") % ctx.build.relics.size(), 15, UiKit.GOLD, HORIZONTAL_ALIGNMENT_RIGHT, 200)

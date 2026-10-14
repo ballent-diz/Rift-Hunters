@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.silver_harpy"
+shape = 6
+size = 36.0
+primary = Color(0.4, 0.2, 0.4, 1.0)
+secondary = Color(0.6, 0.3, 0.55, 1.0)
+accent = Color(1.0, 0.5, 0.9, 1.0)
+
+[sub_resource type="Resource" id="attack_data_2"]
+script = ExtResource("3")
+damage = 8.0
+cooldown = 2.6
+attack_range = 420.0
+projectile_speed = 170.0
+params = {
+"keep_distance": 260.0,
+"windup": 0.35
+}
+
+[resource]
+script = ExtResource("1")
+id = &"silver_harpy"
+name_key = "ENEMY_SILVER_HARPY_NAME"
+desc_key = "ENEMY_SILVER_HARPY_DESC"
+brain = 1
+max_hp = 28.0
+damage = 8.0
+defense = 5.0
+move_speed = 88.0
+radius = 15.0
+xp_value = 3
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_2")

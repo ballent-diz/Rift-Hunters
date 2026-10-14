@@ -45,6 +45,11 @@ func setup(visual: VisualData, primary: Color = Color(0, 0, 0, 0), secondary: Co
 		_anim.offset = -Assets.anchor(visual.visual_id)
 		_anim.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		_anim.scale = Vector2.ONE * Assets.pixel_scale(visual.visual_id)
+		var shader_path: String = str(Assets.entry(visual.visual_id).get("shader", ""))
+		if shader_path != "" and ResourceLoader.exists(shader_path):
+			var effect := ShaderMaterial.new()
+			effect.shader = load(shader_path) as Shader
+			_anim.material = effect
 		_anim.animation_finished.connect(_on_action_finished)
 		add_child(_anim)
 		_setup_gait(visual.visual_id, frames)

@@ -1,0 +1,66 @@
+[
+  {
+    "id": "heath_runner",
+    "fr": "Courser des landes",
+    "en": "Heath Prowler",
+    "tier": "normal",
+    "description": "lean long-legged slate-grey predatory canine, windswept pale gold mane, curved silver cheek horns, small violet corrupted eyes",
+    "height": 40
+  },
+  {
+    "id": "slate_scarab",
+    "fr": "Scarabée d’ardoise",
+    "en": "Slate Scarab",
+    "tier": "normal",
+    "description": "low wide six-legged beetle with overlapping cracked slate armor, pale gold mineral veins and two silver mandibles, violet eye accents",
+    "height": 32
+  },
+  {
+    "id": "silver_harpy",
+    "fr": "Harpie argentée",
+    "en": "Silver Harpy",
+    "tier": "normal",
+    "description": "compact winged mountain harpy with silver feather fan wings, dark slate torso, pale gold crest, two talons, violet eyes; nonhuman avian head",
+    "height": 44
+  },
+  {
+    "id": "ash_newt",
+    "fr": "Salamandre de cendre",
+    "en": "Ash Newt",
+    "tier": "normal",
+    "description": "low elongated four-legged ash salamander, charcoal skin and cooled volcanic plates, orange ember gills, silver dorsal fins, violet eyes",
+    "height": 32
+  },
+  {
+    "id": "menhir_warden",
+    "fr": "Gardien des menhirs",
+    "en": "Menhir Warden",
+    "tier": "elite",
+    "description": "massive asymmetrical stone guardian, floating slate shoulder blocks attached by violet energy, gold ancient carved runes, broad heavy fists and short sturdy legs",
+    "height": 49
+  },
+  {
+    "id": "storm_knight",
+    "fr": "Chevalier fulgurant",
+    "en": "Thunder Knight",
+    "tier": "elite",
+    "description": "tall haunted empty silver knight armor, torn pale gold tabard, broad jagged lightning polearm, dark hollow helmet with violet eyes, slate pauldrons",
+    "height": 49
+  },
+  {
+    "id": "peak_chimera",
+    "fr": "Chimère des sommets",
+    "en": "Summit Chimera",
+    "tier": "elite",
+    "description": "powerful four-legged mountain chimera combining snow lynx body, silver ram horns, slate feather shoulders and long gold-tipped feline tail; single recognizable head",
+    "height": 48
+  },
+  {
+    "id": "astravorn",
+    "fr": "Astravorn, souverain de l’Orage",
+    "en": "Astravorn, Storm Sovereign",
+    "tier": "boss",
+    "description": "colossal original six-limbed storm leviathan, muscular slate-scaled quadruped body with two enormous silver blade-feather wings, crowned horned eagle-lion head, pale gold armor bands, electric blue chest core and violet corrupted eyes, long storm tail; majestic threatening clear silhouette",
+    "height": 250
+  }
+]

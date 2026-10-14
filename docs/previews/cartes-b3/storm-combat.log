@@ -1,0 +1,16 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+
+Smoke test : départ mossback / tension_0 / graine 1
+  t=29s niv=5 ennemis=7 éliminations=31 PV=100 équipe=[&"mossback", &"gloommaw"] boss=-
+  t=59s niv=7 ennemis=8 éliminations=69 PV=100 équipe=[&"mossback", &"gloommaw"] boss=-
+  t=89s niv=8 ennemis=12 éliminations=100 PV=120 équipe=[&"mossback", &"gloommaw"] boss=77%
+  t=119s niv=10 ennemis=14 éliminations=131 PV=140 équipe=[&"mossback", &"gloommaw"] boss=45%
+  t=149s niv=11 ennemis=15 éliminations=167 PV=140 équipe=[&"mossback", &"gloommaw"] boss=11%
+Fin de partie : VICTOIRE en 160s, niveau 12, 181 éliminations, élites 0, coffres 0, évolutions [], reliques [], synergies []
+Dégâts par source : { "player": 3140.6635031635, "mossback": 3144.21588411588, "gloommaw": 471596.924354004 }
+RESULT|mossback|storm_highlands|tension_0|1|160|12|181|100|0.00|0
+Récompenses : { "shards": 209, "essence": 10, "lines": [] }
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2284)
+ERROR: 29 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:604)

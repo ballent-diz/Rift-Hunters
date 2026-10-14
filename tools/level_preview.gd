@@ -19,20 +19,21 @@ func _ready() -> void:
 	run.skip_profile = true
 	run.start(setup)
 	add_child(run)
+	run.set_physics_process(false)
 	get_tree().paused = true
 	run.camera.position_smoothing_enabled = false
 	var positions: Array[Vector2] = [Vector2(245, 239), Vector2(1053, 690), Vector2(1900, 332),
 		Vector2(2600, 690), Vector2(3420, 700)]
 	var names: Array[String] = ["depart", "pont_casse", "ruines", "pont_2", "faille"]
 	for i: int in positions.size():
-		run.ctx.player.global_position = positions[i] - run.ctx.arena.size * 0.5
+		run.ctx.player.global_position = positions[i] * (run.ctx.arena.size.x / 3762.0) - run.ctx.arena.size * 0.5
 		run.ctx.allies.get_ally(&"mossback").global_position = run.ctx.player.global_position + Vector2(35, 20)
 		run.camera.reset_smoothing()
 		await get_tree().process_frame
 		await get_tree().create_timer(0.1, true).timeout
 		await RenderingServer.frame_post_draw
 		_save(names[i])
-	run.camera.zoom = Vector2.ONE * 0.30
+	run.camera.zoom = Vector2.ONE * minf(get_viewport().get_visible_rect().size.x / run.ctx.arena.size.x, get_viewport().get_visible_rect().size.y / run.ctx.arena.size.y) * 0.92
 	run.ctx.player.global_position = Vector2.ZERO
 	run.camera.limit_left = -10000
 	run.camera.limit_right = 10000

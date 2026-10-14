@@ -1,0 +1,70 @@
+{
+  "mode": "built-in image_gen",
+  "prompts": {
+    "master": "GAMEPLAY LAYOUT REDESIGN of image1, using image2 as strict Rift Hunters material/style reference. User finds there is far too little room to move. Prioritize a landscape that is overwhelmingly open walkable ground, NOT a decorated maze or a network of narrow dirt roads. Keep the nine-region concept loosely but REMOVE at least HALF the currently scattered trees, rocks, standing stones, small ruins, walls and unnecessary stairs. Place decorative clusters at the PERIMETER of large flat open areas. At least 70% of the entire visible image should be solid continuous CLEAR traversable LAND, not water/cliffs/obstacles. Huge windy golden-grass meadows occupying the north and west, giant open central stone-and-earth town square, broad ash plain southwest, expansive clear southern courtyard, large flat eastern plateau. Water restricted to a modest northeast lake near the outer edge and thin border waterfalls; reduce the sprawling lake/river network. Reduce the quarry to a small landmark at western border, keeping a very broad adjacent open field. The town has a small number of detailed buildings only around the far edges of its plaza, no clutter inside. Reduce stone circle north to a few peripheral menhirs with the center and all approaches very wide open. The silver garden is a small boundary feature with open meadow beside it, no stair/labyrinth choke points. Several EXTRA-WIDE continuous LAND connections between every open area, gentle sloped terrain, no thin bridges or narrow gates, no rivers dividing accessible sectors. Borders may have mountains and scenic ruins, but central spaces must be generous enough for a whole party and dozens of enemies to maneuver in any direction. NO circular boss arena and NO rune circle lower-right. Maintain landscape diversity (mountain meadows, modest lake, slate quarry, ancient town, silver garden, cooled ash field, old fort courtyard) without letting architecture dominate gameplay ground. Maintain very fine crisp detailed original-reference fantasy illustrated art, precisely outlined stone blocks, detailed timber/foliage/material textures, rich natural colors, no smooth plastic cartoon, no blurred AI upscaling, no photorealism. Flat ground has subtle fine grass/earth/stone texture, never large obstructing rocks. Full-bleed square continuous overhead orthographic isometric game map, uniform scale, top-left lighting, no text/UI/characters/grid. Exact connections must be wide, visually logical and physically grounded. This is the corrected MASTER COMPOSITION; preserve approved art style but significantly redistribute scenery to make movement genuinely spacious.",
+    "detail": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters landscape. Restore this region at high definition with genuinely NEW FINE MATERIAL DETAIL, not interpolated blurry pixels. Image2 is the strict original Plain art-quality reference. LOCK exact composition, camera, terrain outlines, path widths, landmark footprints and road endpoints. KEEP ALL OPEN GROUND EMPTY AND WIDE: add ONLY FLAT fine surface texture (individual short grass strokes, subtle earth grain, small paving cracks). Do NOT add any new trees, rocks, walls, buildings, fences or monuments; do NOT move existing obstacles. Open clearings remain equally generous. Rebuild existing stone with many fine crisp weathered masonry blocks, existing foliage with tiny distinct leaf clusters/branches, timber with fine grain/joinery, water with fine waves and waterfall foam. Preserve the exact silhouette and material/color distribution at all four edges for seamless joining to neighboring regions. No new perspectives or horizon, no crop changes. Match image2's fine graphic fantasy game material finish, rich natural palette and precise dark accents, no smooth plastic/cartoon forms, no photorealism, no blur, no coarse enlarged pixel grid. Output full-bleed square at maximum possible resolution, aiming for at least 2048 square fine details. No text, characters, UI, watermark or borders.",
+    "vertical": "LOCAL SEAM REPAIR ONLY. This tall narrow crop is a seam in a finely detailed continuous Rift Hunters game map. Remove the straight vertical join down its center. Repaint an irregular natural continuous transition of the soil/grass/paving and seamlessly join any split foliage, masonry, tree, wall or staircase into one coherent object. Keep the exact crop, camera, terrain structure, path widths, all existing broad open playable ground, color palette and crisp fine material details. Keep the outermost left/right edge content and top/bottom edge content exactly aligned to the reference because this patch will be inserted into the unchanged larger map. Do not redesign the scene, do not add obstacles or new buildings, do not narrow any road or plaza. Remove the central rectangle/color/texture discontinuity, cut-off half-objects and misplaced duplicated fragments. Match local terrain colors naturally with no line or gradient blur band. Sharp, richly detailed original fantasy game art, no simplified smooth plastic rendering, no blurry upscaling. Same tall narrow aspect ratio as reference, maximum resolution, full-bleed, no text, border or characters.",
+    "horizontal": "LOCAL SEAM REPAIR ONLY. This wide short crop is a seam in a finely detailed continuous Rift Hunters game map. Remove the straight horizontal join down its center. Repaint an irregular natural continuous transition of the soil/grass/paving and seamlessly join any split foliage, masonry, tree, wall or staircase into one coherent object. Keep the exact crop, camera, terrain structure, path widths, all existing broad open playable ground, color palette and crisp fine material details. Keep the outermost left/right edge content and top/bottom edge content exactly aligned to the reference because this patch will be inserted into the unchanged larger map. Do not redesign the scene, do not add obstacles or new buildings, do not narrow any road or plaza. Remove the central rectangle/color/texture discontinuity, cut-off half-objects and misplaced duplicated fragments. Match local terrain colors naturally with no line or gradient blur band. Sharp, richly detailed original fantasy game art, no simplified smooth plastic rendering, no blurry upscaling. Same tall narrow aspect ratio as reference, maximum resolution, full-bleed, no text, border or characters. Full bleed: NO white/black margin, NO frame. Remove the horizontal discontinuity across the middle and complete any split roof, crane, cliff, tree or paved road physically coherently."
+  },
+  "source": "source/map_source.png",
+  "detailed_source": "source/map_detailed.png",
+  "regions": "source/regions/",
+  "seams": "source/seams/",
+  "assembly": "tools/art/assemble_storm_regions.gd",
+  "seam_application": "tools/art/apply_storm_seams.gd",
+  "presentation": {
+    "tool": "tools/art/prepare_detailed_maps.gd",
+    "factor": 2,
+    "filter": "Lanczos",
+    "encoding": "WebP sans perte",
+    "note": "Les détails proviennent des régions générées ; cet agrandissement ne recrée pas de détails."
+  },
+  "runtime": "res://assets/environments/storm_highlands/map.webp",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "previous_revision": {
+    "mode": "built-in image_gen",
+    "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters landscape. Restore this region at high definition with genuinely NEW FINE MATERIAL DETAIL, not interpolated blurry pixels. Image2 is the strict original Plain art-quality reference. LOCK exact composition, camera, terrain outlines, path widths, landmark footprints and road endpoints. KEEP ALL OPEN GROUND EMPTY AND WIDE: add ONLY FLAT fine surface texture (individual short grass strokes, subtle earth grain, small paving cracks). Do NOT add any new trees, rocks, walls, buildings, fences or monuments; do NOT move existing obstacles. Open clearings remain equally generous. Rebuild existing stone with many fine crisp weathered masonry blocks, existing foliage with tiny distinct leaf clusters/branches, timber with fine grain/joinery, water with fine waves and waterfall foam. Preserve the exact silhouette and material/color distribution at all four edges for seamless joining to neighboring regions. No new perspectives or horizon, no crop changes. Match image2's fine graphic fantasy game material finish, rich natural palette and precise dark accents, no smooth plastic/cartoon forms, no photorealism, no blur, no coarse enlarged pixel grid. Output full-bleed square at maximum possible resolution, aiming for at least 2048 square fine details. No text, characters, UI, watermark or borders.",
+    "regions": [
+      {
+        "coord": "0_0",
+        "name": "exec-c5d8e7e8-cd64-44a8-be3a-8b4dc01a43f6.png"
+      },
+      {
+        "coord": "1_0",
+        "name": "exec-14f965cc-0e83-4ccd-9bfc-0795ebdbeca2.png"
+      },
+      {
+        "coord": "2_0",
+        "name": "exec-ee883b60-ca99-4e66-ad07-c01cd158a311.png"
+      },
+      {
+        "coord": "0_1",
+        "name": "exec-f09bff30-cc8c-4f6d-b070-9078af367f07.png"
+      },
+      {
+        "coord": "1_1",
+        "name": "exec-5c0c9085-c0ef-4942-868a-e5f91dca10b3.png"
+      },
+      {
+        "coord": "2_1",
+        "name": "exec-512c60a9-bcbd-437a-bbd5-ada0131a5d87.png"
+      },
+      {
+        "coord": "0_2",
+        "name": "exec-d4983d6b-4e06-41cc-b291-3af333a7ee71.png"
+      },
+      {
+        "coord": "1_2",
+        "name": "exec-2ebc5f5a-0c9f-4296-bd31-642bc93739f8.png"
+      },
+      {
+        "coord": "2_2",
+        "name": "exec-e7f03633-0720-49a8-a8b3-75a2f65843f3.png"
+      }
+    ],
+    "master_prompt": "GAMEPLAY LAYOUT REDESIGN of image1, using image2 as strict Rift Hunters material/style reference. User finds there is far too little room to move. Prioritize a landscape that is overwhelmingly open walkable ground, NOT a decorated maze or a network of narrow dirt roads. Keep the nine-region concept loosely but REMOVE at least HALF the currently scattered trees, rocks, standing stones, small ruins, walls and unnecessary stairs. Place decorative clusters at the PERIMETER of large flat open areas. At least 70% of the entire visible image should be solid continuous CLEAR traversable LAND, not water/cliffs/obstacles. Huge windy golden-grass meadows occupying the north and west, giant open central stone-and-earth town square, broad ash plain southwest, expansive clear southern courtyard, large flat eastern plateau. Water restricted to a modest northeast lake near the outer edge and thin border waterfalls; reduce the sprawling lake/river network. Reduce the quarry to a small landmark at western border, keeping a very broad adjacent open field. The town has a small number of detailed buildings only around the far edges of its plaza, no clutter inside. Reduce stone circle north to a few peripheral menhirs with the center and all approaches very wide open. The silver garden is a small boundary feature with open meadow beside it, no stair/labyrinth choke points. Several EXTRA-WIDE continuous LAND connections between every open area, gentle sloped terrain, no thin bridges or narrow gates, no rivers dividing accessible sectors. Borders may have mountains and scenic ruins, but central spaces must be generous enough for a whole party and dozens of enemies to maneuver in any direction. NO circular boss arena and NO rune circle lower-right. Maintain landscape diversity (mountain meadows, modest lake, slate quarry, ancient town, silver garden, cooled ash field, old fort courtyard) without letting architecture dominate gameplay ground. Maintain very fine crisp detailed original-reference fantasy illustrated art, precisely outlined stone blocks, detailed timber/foliage/material textures, rich natural colors, no smooth plastic cartoon, no blurred AI upscaling, no photorealism. Flat ground has subtle fine grass/earth/stone texture, never large obstructing rocks. Full-bleed square continuous overhead orthographic isometric game map, uniform scale, top-left lighting, no text/UI/characters/grid. Exact connections must be wide, visually logical and physically grounded. This is the corrected MASTER COMPOSITION; preserve approved art style but significantly redistribute scenery to make movement genuinely spacious."
+  }
+}

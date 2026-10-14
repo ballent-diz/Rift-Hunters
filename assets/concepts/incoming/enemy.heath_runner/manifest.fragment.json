@@ -1,0 +1,44 @@
+{
+	"entries": {
+		"enemy.heath_runner": {
+			"anchor": [
+				64,
+				118
+			],
+			"animations": {
+				"attack": {
+					"fps": 12,
+					"frames": 6,
+					"loop": false,
+					"row": 1
+				},
+				"death": {
+					"fps": 12,
+					"frames": 6,
+					"loop": false,
+					"row": 2
+				},
+				"idle": {
+					"fps": 8,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				},
+				"move": {
+					"fps": 10,
+					"frames": 6,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				128,
+				128
+			],
+			"icon": "res://assets/sprites/storm_highlands/heath_runner/icon.png",
+			"scale": 0.5,
+			"sheet": "res://assets/sprites/storm_highlands/heath_runner/sheet.png",
+			"status": "final"
+		}
+	}
+}
