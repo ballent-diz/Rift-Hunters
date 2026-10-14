@@ -20,7 +20,7 @@ var _tip_time: float = 0.0
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
 	_font = ThemeDB.fallback_font
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ctx.events.event_started.connect(func(key: String) -> void: banner(tr(key)))
 	ctx.events.synergy_activated.connect(func(id: StringName) -> void:

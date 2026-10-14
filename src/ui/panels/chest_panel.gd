@@ -15,7 +15,7 @@ var _free_choice: bool = false
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	add_child(UiKit.dimmer())
