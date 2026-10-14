@@ -681,64 +681,6 @@
 			},
 			"icon": "res://assets/ui/icons/enemies/crystal_warden.png"
 		},
-		"boss.vorgranite": {
-			"status": "planned",
-			"sheet": "res://assets/sprites/bosses/vorgranite/vorgranite_sheet.png",
-			"cell": [
-				320,
-				320
-			],
-			"anchor": [
-				160,
-				188
-			],
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 6,
-					"loop": true
-				},
-				"move": {
-					"row": 1,
-					"frames": 8,
-					"fps": 8,
-					"loop": true
-				},
-				"attack": {
-					"row": 2,
-					"frames": 6,
-					"fps": 10,
-					"loop": false
-				},
-				"charge": {
-					"row": 3,
-					"frames": 6,
-					"fps": 12,
-					"loop": true
-				},
-				"rock_rain": {
-					"row": 4,
-					"frames": 8,
-					"fps": 10,
-					"loop": false
-				},
-				"transform": {
-					"row": 5,
-					"frames": 10,
-					"fps": 10,
-					"loop": false
-				},
-				"death": {
-					"row": 6,
-					"frames": 8,
-					"fps": 10,
-					"loop": false
-				}
-			},
-			"icon": "res://assets/ui/icons/bosses/vorgranite.png",
-			"scale": 0.5
-		},
 		"monster.ashblade.eclipse_blade": {
 			"status": "wip",
 			"generated_by": "tools/art/build.py",

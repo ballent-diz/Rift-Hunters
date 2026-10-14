@@ -37,7 +37,10 @@ func _initialize() -> void:
 		for row: int in 2:
 			for column: int in 3:
 				var rect := Rect2i(column*1254,(row+1)*1254-180,1254,360)
-				image.get_region(rect).save_png("C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters/../quality-regions/seam_h%d_%d.png" % [column,row])
+				# Contrôle visuel des raccords (dossier de travail hors du dépôt).
+				var out_dir: String = ProjectSettings.globalize_path("res://").path_join("../quality-regions")
+				DirAccess.make_dir_recursive_absolute(out_dir)
+				image.get_region(rect).save_png(out_dir.path_join("seam_h%d_%d.png" % [column, row]))
 	quit()
 
 func _white_column(image: Image,x: int) -> bool:

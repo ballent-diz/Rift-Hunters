@@ -33,7 +33,8 @@ func _ready() -> void:
 		await get_tree().create_timer(0.1, true).timeout
 		await RenderingServer.frame_post_draw
 		_save(names[i])
-	run.camera.zoom = Vector2.ONE * minf(get_viewport().get_visible_rect().size.x / run.ctx.arena.size.x, get_viewport().get_visible_rect().size.y / run.ctx.arena.size.y) * 0.92
+	var view: Vector2 = get_viewport().get_visible_rect().size
+	run.camera.zoom = Vector2.ONE * minf(view.x / run.ctx.arena.size.x, view.y / run.ctx.arena.size.y) * 0.92
 	run.ctx.player.global_position = Vector2.ZERO
 	run.camera.limit_left = -10000
 	run.camera.limit_right = 10000
