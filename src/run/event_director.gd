@@ -12,6 +12,9 @@ func _init(p_ctx: RunContext) -> void:
 
 
 func step(delta: float) -> void:
+	if ctx.arena.finale_radii.x > 0 and ctx.time >= ctx.arena.boss_time:
+		_active.clear()
+		return
 	for i: int in ctx.arena.events.size():
 		var event: RunEventData = ctx.arena.events[i]
 		if not _done.has(i) and ctx.time >= event.time and ctx.boss == null:

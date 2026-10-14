@@ -9,6 +9,10 @@ extends Resource
 ## Moment d'arrivée du boss (secondes).
 @export var boss_time: float = 420.0
 @export var boss_id: StringName = &""
+## Finale : vider les vagues puis rejoindre un cercle (rayons nuls = boss chronométré classique).
+@export var finale_center := Vector2.ZERO
+@export var finale_radii := Vector2.ZERO
+@export var finale_opening_duration: float = 3.0
 @export var waves: Array[WavePhaseData] = []
 @export var events: Array[RunEventData] = []
 @export var elite_first_time: float = 90.0
