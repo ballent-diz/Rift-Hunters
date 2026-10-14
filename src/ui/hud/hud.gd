@@ -20,7 +20,7 @@ var _tip_time: float = 0.0
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
 	_font = ThemeDB.fallback_font
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ctx.events.event_started.connect(func(key: String) -> void: banner(tr(key)))
 	ctx.events.synergy_activated.connect(func(id: StringName) -> void:
@@ -103,7 +103,7 @@ func _draw() -> void:
 		_text(Vector2(0, 66), tr(key), 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
-		_text(Vector2(0, 66), tr("HUD_BOSS_IN") % [int(left) / 60, int(left) % 60], 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
+		_text(Vector2(0, 66), tr("HUD_NAMED_BOSS_IN") % [tr(GameDB.boss(ctx.arena.boss_id).name_key), int(left) / 60, int(left) % 60], 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 	var kills: int = int(ctx.stats.get_value(&"kills"))
 	_text(Vector2(w - 220, 40), tr("HUD_KILLS") % kills, 18, Color.WHITE, HORIZONTAL_ALIGNMENT_RIGHT, 200)
 	_text(Vector2(w - 220, 62), tr("HUD_RELICS") % ctx.build.relics.size(), 15, UiKit.GOLD, HORIZONTAL_ALIGNMENT_RIGHT, 200)

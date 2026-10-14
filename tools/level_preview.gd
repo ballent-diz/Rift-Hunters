@@ -25,7 +25,7 @@ func _ready() -> void:
 		Vector2(2600, 690), Vector2(3420, 700)]
 	var names: Array[String] = ["depart", "pont_casse", "ruines", "pont_2", "faille"]
 	for i: int in positions.size():
-		run.ctx.player.global_position = positions[i] - run.ctx.arena.size * 0.5
+		run.ctx.player.global_position = positions[i] * (run.ctx.arena.size.x / 3762.0) - run.ctx.arena.size * 0.5
 		run.ctx.allies.get_ally(&"mossback").global_position = run.ctx.player.global_position + Vector2(35, 20)
 		run.camera.reset_smoothing()
 		await get_tree().process_frame

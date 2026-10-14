@@ -84,14 +84,14 @@ static func button(text: String, callback: Callable, min_width: float = 200.0) -
 static func dimmer(alpha: float = 0.72) -> ColorRect:
 	var dim := ColorRect.new()
 	dim.color = Color(0.02, 0.02, 0.05, alpha)
-	dim.set_anchors_preset(Control.PRESET_FULL_RECT)
+	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	dim.mouse_filter = Control.MOUSE_FILTER_STOP
 	return dim
 
 
 static func center_box(parent: Control, separation: int = 16) -> VBoxContainer:
 	var center := CenterContainer.new()
-	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	center.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	parent.add_child(center)
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", separation)
@@ -120,7 +120,7 @@ static func card(category: String, title: String, description: String, accent: C
 	b.add_theme_stylebox_override("focus", hover)
 	b.pressed.connect(callback)
 	var box := VBoxContainer.new()
-	box.set_anchors_preset(Control.PRESET_FULL_RECT)
+	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	box.offset_left = 14
 	box.offset_right = -14
 	box.offset_top = 16

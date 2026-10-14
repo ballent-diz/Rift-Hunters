@@ -10,7 +10,7 @@ var _canvas: Control
 
 func _ready() -> void:
 	theme = UiKit.theme()
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	resized.connect(_fit_canvas)
 	Settings.changed.connect(_build)
 	_build()
@@ -21,7 +21,7 @@ func _build() -> void:
 	UiKit.clear(self)
 	var bg := ColorRect.new()
 	bg.color = Color(0.025, 0.02, 0.055)
-	bg.set_anchors_preset(Control.PRESET_FULL_RECT)
+	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
 	_canvas = Control.new()
@@ -125,7 +125,7 @@ func _add_warning() -> void:
 ## Crédits et licences (la licence de Godot doit accompagner toute distribution).
 func _show_credits() -> void:
 	var panel := PanelContainer.new()
-	panel.set_anchors_preset(Control.PRESET_FULL_RECT)
+	panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	panel.theme = MenuSkin.theme()
 	panel.add_theme_stylebox_override("panel", MenuSkin.frame())
 	add_child(panel)

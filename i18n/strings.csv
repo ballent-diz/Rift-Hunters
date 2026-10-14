@@ -608,3 +608,24 @@ FINALE_CLEAR,Éliminez les derniers Corrompus.,Defeat the remaining Corrupted.
 FINALE_TRAVEL,Rejoignez la faille dans le grand cercle à l’est.,Reach the rift in the great circle to the east.
 FINALE_OPENING,La faille s’ouvre… Les issues sont scellées.,The rift opens… The exits are sealed.
 FINALE_FIGHT,Terrassez Nébulorax avec vos Échos !,Defeat Nebulorax with your Echoes!
+ENEMY_HEATH_RUNNER_NAME,Courser des landes,Heath Prowler
+ENEMY_HEATH_RUNNER_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_SLATE_SCARAB_NAME,Scarabée d’ardoise,Slate Scarab
+ENEMY_SLATE_SCARAB_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_SILVER_HARPY_NAME,Harpie argentée,Silver Harpy
+ENEMY_SILVER_HARPY_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_ASH_NEWT_NAME,Salamandre de cendre,Ash Newt
+ENEMY_ASH_NEWT_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_MENHIR_WARDEN_NAME,Gardien des menhirs,Menhir Warden
+ENEMY_MENHIR_WARDEN_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_STORM_KNIGHT_NAME,Chevalier fulgurant,Thunder Knight
+ENEMY_STORM_KNIGHT_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_PEAK_CHIMERA_NAME,Chimère des sommets,Summit Chimera
+ENEMY_PEAK_CHIMERA_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+BOSS_ASTRAVORN_NAME,Astravorn,Astravorn
+BOSS_ASTRAVORN_TITLE,Souverain de l’Orage,Sovereign of the Storm
+BOSS_ASTRAVORN_PHASE2,Tempête déchaînée,Unbound storm
+ARENA_STORM_HIGHLANDS_NAME,Hautes Terres d’Orage,Storm Highlands
+ARENA_STORM_HIGHLANDS_DESC,Explorez les landes et les ruines puis affrontez Astravorn.,Explore the moors and ruins then face Astravorn.
+BOSS_ASTRAVORN_PHASE1,Veilleur des Hautes Terres,Watcher of the Highlands
+HUD_NAMED_BOSS_IN,%s arrive dans %d:%02d,%s arrives in %d:%02d

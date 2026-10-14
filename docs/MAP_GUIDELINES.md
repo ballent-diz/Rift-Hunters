@@ -38,3 +38,11 @@ Critères demandés par le propriétaire le 13 octobre 2026. Ils priment sur les
 - Envoyer des captures à chaque étape significative : composition, raccords, collisions et espaces de circulation, puis rendu final en jeu.
 - Vérifier plusieurs résolutions, les mouvements réels et le comportement de la caméra.
 - Respecter AGENTS.md : effort annoncé et approuvé, branche depuis main à jour, textes FR/EN, tests tools/run_tests.sh verts et PR vers main.
+
+## Précisions du 14 octobre 2026
+
+- La Plaine originale (environment.fractured_plain_map) est la référence de qualité, à comparer au même zoom en jeu. Un upscale qui lisse la pierre et le feuillage ne satisfait pas ce critère.
+- Élargir les routes ne suffit pas : créer de grandes surfaces de jeu libres, ouvertes dans plusieurs directions, avec les obstacles regroupés aux bordures.
+- Éviter que la diversité du paysage réduise les zones de combat : carrière, lac et ruines doivent laisser des plaines et places largement praticables.
+- Valider d’abord une carte fonctionnelle avec Chasseur, Échos et ennemis : mouvements, virages, retraite et plusieurs trajets par secteur. Conserver ensuite sa recette validée comme base des prochaines cartes.
+- Pour les Cascades, le propriétaire signale de nombreux passages bloqués : reprendre les surfaces, les raccords et les collisions avant toute déclaration de fin. Le pont cassé reste la seule coupure volontaire sur son passage ; son détour doit être clair et large.

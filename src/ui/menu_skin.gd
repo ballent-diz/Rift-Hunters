@@ -59,13 +59,13 @@ static func background(parent: Control) -> void:
 	art.texture = BACKDROP
 	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	art.set_anchors_preset(Control.PRESET_FULL_RECT)
+	art.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	parent.add_child(art)
 	var shade := ColorRect.new()
 	shade.color = Color(0.02, 0.01, 0.055, 0.3)
-	shade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	shade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	parent.add_child(shade)
 

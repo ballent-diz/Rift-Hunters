@@ -17,6 +17,8 @@ extends Resource
 @export var events: Array[RunEventData] = []
 @export var elite_first_time: float = 90.0
 @export var elite_interval: float = 60.0
+## Bestiaire réservé aux apparitions élites ; vide utilise les candidats des vagues.
+@export var elite_enemy_ids: Array[StringName] = []
 ## Décor (entrée « environment.<id> » du manifeste d'assets). Absent : sol de remplacement aux couleurs ci-dessous.
 @export var environment_id: StringName = &""
 ## Multiplicateur du nombre d'éléments de décor (1 = densité prévue par le décor).
