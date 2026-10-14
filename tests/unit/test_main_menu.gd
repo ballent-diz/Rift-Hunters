@@ -26,7 +26,7 @@ func test_art_and_hit_targets_stay_inside_each_resolution() -> void:
 		var canvas: Control = _menu.get_node("MenuCanvas")
 		var bounds := Rect2(canvas.position, canvas.size * canvas.scale)
 		check(Rect2(Vector2.ZERO, resolution).encloses(bounds), "décor visible : %s" % resolution)
-		for button_name: String in ["Play", "Settings", "Credits", "Quit"]:
+		for button_name: String in ["Play", "Language", "Credits", "Quit"]:
 			var button: Button = canvas.get_node(button_name)
 			var target := Rect2(canvas.position + button.position * canvas.scale, button.size * canvas.scale)
 			check(bounds.encloses(target), "bouton visible : %s / %s" % [button_name, resolution])
@@ -36,12 +36,12 @@ func test_language_action_rebuilds_translated_controls() -> void:
 	await host.get_tree().process_frame
 	Settings.set_locale("fr")
 	await host.get_tree().process_frame
-	var settings: Button = _menu.get_node("MenuCanvas/Settings")
-	check_eq(settings.text, "Paramètres")
+	var settings: Button = _menu.get_node("MenuCanvas/Language")
+	check_eq(settings.text, "Langue : Français")
 	settings.pressed.emit()
 	await host.get_tree().process_frame
 	check_eq(Settings.locale, "en")
-	check_eq(_menu.get_node("MenuCanvas/Settings").text, "Settings")
+	check_eq(_menu.get_node("MenuCanvas/Language").text, "Language: English")
 	check_eq(_menu.get_node("MenuCanvas/Play").text, "Enter the Refuge")
 	check_eq(_menu.get_node("MenuCanvas/Quit").text, "Quit")
 
