@@ -56,7 +56,7 @@ Un lot = une branche depuis `main` à jour + une pull request vers `main` avec `
 |---|---|---|---|---|
 | B1 | Données chapitre / carte, déblocage en avançant, 3 objectifs par carte, récompenses dégressives, Tension par carte, migration de sauvegarde | Claude | A1 | À faire |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | À faire |
-| B3 | Nouvelles cartes du chapitre 1 et cartes colorées du chapitre 2 (+ famille de monstres associée) | Propriétaire (images) + Codex (intégration, zones, collisions) | A1 pour les cartes en vagues | En continu |
+| B3 | Nouvelles cartes du chapitre 1 et cartes colorées du chapitre 2 (+ famille de monstres associée) | Propriétaire (images) + Codex (intégration, zones, collisions) | A1 pour les cartes en vagues | En cours (Codex) — Cascades et Hautes Terres d’Orage : intégration prête pour PR, tests verts ; validation du propriétaire et A1/A2 à suivre |
 
 ### Étape C — Sorts et builds
 

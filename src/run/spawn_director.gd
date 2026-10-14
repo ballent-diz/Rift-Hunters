@@ -25,6 +25,8 @@ func current_wave() -> WavePhaseData:
 
 
 func step(delta: float) -> void:
+	if ctx.arena.finale_radii.x > 0 and ctx.time >= ctx.arena.boss_time:
+		return
 	var wave: WavePhaseData = current_wave()
 	if wave == null:
 		return
@@ -83,6 +85,8 @@ func spawn_position() -> Vector2:
 
 
 func spawn_elite(enemy_id: StringName = &"") -> Enemy:
+	if enemy_id == &"" and not ctx.arena.elite_enemy_ids.is_empty():
+		enemy_id = ctx.arena.elite_enemy_ids[ctx.rng.randi() % ctx.arena.elite_enemy_ids.size()]
 	var data: EnemyData = GameDB.enemy(enemy_id) if enemy_id != &"" else null
 	if data == null:
 		var wave: WavePhaseData = current_wave()

@@ -9,17 +9,17 @@ from build_map import hue_sat_light
 
 ROOT = Path(__file__).resolve().parents[2]
 BASE = ROOT / "assets/environments/cascade_ruins"
-WORLD = (3762, 1254)
-FIELD = (1881, 627)
+WORLD = (5016, 1672)
+FIELD = (2508, 836)
 STEP = 2.0
 
 
 def build():
-    source = Image.open(ROOT / "assets/concepts/incoming/map.three_rifts/source/map_source.png").convert("RGB")
+    source = Image.open(ROOT / "assets/concepts/incoming/map.three_rifts/source/map_detailed.png").convert("RGB")
     assert abs(source.width / source.height - 3) < .001
     small = source.resize(FIELD, Image.Resampling.BOX)
     hue, sat, light = hue_sat_light(np.array(small))
-    walk = (hue > 19) & (hue < 68) & (light > .27) & (light < .80) & (sat > .20)
+    walk = (hue > 19) & (hue < 68) & (light > .25) & (light < .88) & (sat > .16)
     walk = np.array(Image.fromarray(walk.astype("uint8") * 255).filter(ImageFilter.MedianFilter(5))) > 128
     layer = Image.new("L", FIELD)
     draw = ImageDraw.Draw(layer)
@@ -50,8 +50,8 @@ def build():
     # Remplir les petites poches bloquées au milieu du sol (cailloux), garder falaises et eau.
     holes, _ = ndimage.label(~walk)
     counts = np.bincount(holes.ravel())
-    walk |= (holes > 0) & (counts[holes] <= 160)
-    walk = ndimage.binary_closing(walk, iterations=4)
+    walk |= (holes > 0) & (counts[holes] <= 600)
+    walk = ndimage.binary_closing(walk, iterations=6)
     # Trou du pont : le joueur ne peut pas franchir le vide, même avec une esquive.
     gap = Image.new("L", FIELD)
     gd = ImageDraw.Draw(gap)
@@ -74,8 +74,8 @@ def build():
     gy, gx = np.mgrid[8:WORLD[1]:16, 8:WORLD[0]:16]
     clear = ndimage.map_coordinates(signed, [gy/2-.5, gx/2-.5], order=1) >= 16
     labels, _ = ndimage.label(clear)
-    component = labels[int((start[1]+627)//16), int((start[0]+1881)//16)]
-    assert component > 0 and (labels[:, 185:] == component).any(), "Plateforme inaccessible"
+    component = labels[int((start[1]+WORLD[1]/2)//16), int((start[0]+WORLD[0]/2)//16)]
+    assert component > 0 and (labels[:, int(WORLD[0]*.79/16):] == component).any(), "Plateforme inaccessible"
     field = np.clip(np.round(signed / STEP)+128, 0, 255).astype("uint8")
     Image.fromarray(field).save(BASE / "field.png")
     report = {"source_size": list(source.size), "world_size": list(WORLD),

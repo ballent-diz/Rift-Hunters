@@ -5,13 +5,13 @@ extends TestCase
 func test_level_and_original_panels_load() -> void:
 	var arena: ArenaData = GameDB.arena(&"three_rifts")
 	check(arena != null and arena.unlocked_by_default, "niveau disponible sans progression")
-	check_eq(arena.size, Vector2(3762, 1254), "trois panneaux carrés sans déformation")
+	check_eq(arena.size, Vector2(5016, 1672), "trois panneaux carrés sans déformation")
 	var env: EnvironmentSet = Assets.environment(arena.environment_id)
 	check(env != null and env.is_map(), "décor chargé")
 	check(env.map_tiles.is_empty(), "une seule texture continue")
 	check(env.map_texture.get_width() >= 6000, "texture agrandie pour le rendu en jeu")
 	check_near(env.map_texture.get_width() / float(env.map_texture.get_height()), 3, .001, "panorama sans déformation")
-	check_eq(env.field_image.get_size(), Vector2i(1881, 627), "champ rectangulaire")
+	check_eq(env.field_image.get_size(), Vector2i(2508, 836), "champ rectangulaire")
 
 
 func test_routes_connect_all_three_maps_with_enemy_clearance() -> void:
@@ -22,14 +22,14 @@ func test_routes_connect_all_three_maps_with_enemy_clearance() -> void:
 	check(field.distance(ground.player_start()) >= 36, "départ sûr dans la première image")
 	check(ground.player_start().x < -1300 and ground.player_start().y < -300, "départ au nord-ouest")
 	var flow := FlowField.new()
-	flow.setup(field, ground.arena_rect())
+	flow.setup(field, ground.arena_rect(), arena.navigation_cell_size)
 	flow.update(ground.player_start())
 	for pixel: Vector2 in [Vector2(1280, 110), Vector2(1900, 332), Vector2(2600, 690), Vector2(3420, 700)]:
-		var point: Vector2 = pixel - arena.size * 0.5
+		var point: Vector2 = pixel * (4.0 / 3.0) - arena.size * 0.5
 		check(field.distance(point) >= 12, "point de passage praticable %s" % pixel)
 		check(flow.cost_at(point) < FlowField.UNREACHED, "route continue jusqu’à %s" % pixel)
-	check(field.distance(Vector2(1100, 850) - arena.size * 0.5) < 0, "eau infranchissable")
-	check(field.distance(Vector2(3520, 80) - arena.size * 0.5) < 0, "vide hors plateforme infranchissable")
+	check(field.distance(Vector2(.35, .73) * arena.size - arena.size * 0.5) < 0, "eau infranchissable")
+	check(field.distance(Vector2(3520, 80) * (4.0 / 3.0) - arena.size * 0.5) < 0, "vide hors plateforme infranchissable")
 	ground.free()
 
 
@@ -44,8 +44,8 @@ func test_level_starts_with_camera_and_existing_combat() -> void:
 	host.add_child(run)
 	run.set_physics_process(false)
 	check(run.ctx.obstacles.distance(run.ctx.player.global_position) >= run.ctx.player.radius, "départ hors obstacle")
-	check_eq(run.camera.limit_left, -1881, "caméra limitée au début")
-	check_eq(run.camera.limit_right, 1881, "caméra limitée à la fin")
+	check_eq(run.camera.limit_left, -2508, "caméra limitée au début")
+	check_eq(run.camera.limit_right, 2508, "caméra limitée à la fin")
 	check(run.ctx.flow != null and run.spawner.current_wave() != null, "navigation et vagues existantes actives")
 	RunFixture.dispose(run)
 
