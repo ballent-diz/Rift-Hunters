@@ -35,7 +35,7 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 | Attaque de base | **Automatique** |
 | Ruée (esquive) | Espace / Maj (inchangé) |
 | Sorts du Chasseur | **A, E, R, F** |
-| Sorts des Échos | **1, 2, 3…** (un par Écho de l'équipe) |
+| Sorts des Échos | **1, 2, 3** (un par Écho de l'équipe, 3 Échos maximum) |
 | Visée | Le curseur de la souris |
 
 - **Lancement** : le joueur vise avec la souris ; **appuyer sur la touche lance immédiatement le sort
@@ -44,6 +44,9 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 - Manette : stick droit pour viser, boutons pour les sorts (à détailler).
 - Les sorts des Échos remplacent les « techniques » actuelles déclenchées par 1 / 2 / 3, en leur
   ajoutant la visée au curseur.
+- **Équipe** : 3 Échos maximum ; chaque Écho a 2 à 3 sorts dans son arbre mais **un seul équipé**
+  dans le build. Soit 7 compétences actives au plus (4 du Chasseur + 3 d'Échos). Détail :
+  [ECHOS.md](ECHOS.md).
 
 ## Difficulté façon Hades
 
@@ -55,7 +58,8 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 ## Contenu à créer
 
 - Chasseur : 6 à 8 sorts + passifs, répartis dans son arbre.
-- Chaque Écho : un arbre avec passifs + 2 ou 3 compétences actives (7 Échos à terme).
+- Chaque Écho : un arbre avec passifs + 2 ou 3 compétences actives (un seul équipé) ; 16 Échos à
+  terme (voir [ECHOS.md](ECHOS.md)).
 - Pour chaque sort : textes FR/EN, effets visuels, icône (générée par le propriétaire).
 
 ## Découpage prévu (livrable par étapes)
@@ -68,5 +72,5 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 ## Questions ouvertes
 
 - Liste et effets des sorts du Chasseur et des Échos (à proposer au propriétaire).
-- Nombre d'emplacements de sorts équipables par build.
+- Nombre d'emplacements de sorts du Chasseur équipables par build (4 touches : A, E, R, F).
 - Monnaie et coût des points d'arbre (éclats actuels ou nouvelle ressource).
