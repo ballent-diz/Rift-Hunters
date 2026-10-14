@@ -39,7 +39,7 @@ func _build() -> void:
 	var play: Button = UiKit.button(tr("MENU_PLAY"), func() -> void:
 		Audio.play_sfx(&"ui_click")
 		Router.goto_refuge(), 360)
-	var settings: Button = UiKit.button(tr("MENU_SETTINGS"), func() -> void:
+	var settings: Button = UiKit.button(tr("MENU_LANGUAGE") % tr("LANGUAGE_NAME"), func() -> void:
 		Settings.set_locale("en" if Settings.locale == "fr" else "fr"), 360)
 	settings.tooltip_text = tr("OPTIONS_LANGUAGE") % tr("LANGUAGE_NAME")
 	var credits: Button = UiKit.button(tr("MENU_CREDITS"), _show_credits, 360)
@@ -49,7 +49,7 @@ func _build() -> void:
 		Rect2(298, 577, 475, 70), Rect2(298, 662, 475, 70)]
 	for index: int in buttons.size():
 		_skin_button(buttons[index], rows[index])
-		buttons[index].name = ["Play", "Settings", "Credits", "Quit"][index]
+		buttons[index].name = ["Play", "Language", "Credits", "Quit"][index]
 	for index: int in buttons.size():
 		var previous: NodePath = buttons[index].get_path_to(buttons[posmod(index - 1, buttons.size())])
 		var next: NodePath = buttons[index].get_path_to(buttons[(index + 1) % buttons.size()])

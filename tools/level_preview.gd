@@ -21,9 +21,9 @@ func _ready() -> void:
 	add_child(run)
 	get_tree().paused = true
 	run.camera.position_smoothing_enabled = false
-	var positions: Array[Vector2] = [Vector2(640, 579), Vector2(1254, 620), Vector2(1900, 650),
-		Vector2(2508, 588), Vector2(3420, 600)]
-	var names: Array[String] = ["depart", "pont_1", "ruines", "pont_2", "faille"]
+	var positions: Array[Vector2] = [Vector2(245, 239), Vector2(1053, 690), Vector2(1900, 332),
+		Vector2(2600, 690), Vector2(3420, 700)]
+	var names: Array[String] = ["depart", "pont_casse", "ruines", "pont_2", "faille"]
 	for i: int in positions.size():
 		run.ctx.player.global_position = positions[i] - run.ctx.arena.size * 0.5
 		run.ctx.allies.get_ally(&"mossback").global_position = run.ctx.player.global_position + Vector2(35, 20)

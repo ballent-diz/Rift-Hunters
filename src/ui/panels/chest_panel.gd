@@ -6,7 +6,7 @@ signal closed
 
 var ctx: RunContext
 var _relics: Array[RelicData] = []
-var _cards: HBoxContainer
+var _cards: HFlowContainer
 var _footer: HBoxContainer
 var _title: Label
 var _subtitle: Label
@@ -24,9 +24,10 @@ func setup(p_ctx: RunContext) -> void:
 	box.add_child(_title)
 	_subtitle = UiKit.label("", 16, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
 	box.add_child(_subtitle)
-	_cards = HBoxContainer.new()
-	_cards.add_theme_constant_override("separation", 16)
-	_cards.custom_minimum_size.x = 820
+	_cards = HFlowContainer.new()
+	_cards.add_theme_constant_override("h_separation", 16)
+	_cards.add_theme_constant_override("v_separation", 16)
+
 	box.add_child(_cards)
 	_footer = HBoxContainer.new()
 	_footer.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -62,8 +63,7 @@ func _refresh_cards() -> void:
 		_cards.add_child(card)
 		ItemArt.add_to_card(card, "relic", relic.id, relic.color)
 	MenuSkin.finish(_cards)
-	if _cards.get_child_count() > 0:
-		(_cards.get_child(0) as Control).grab_focus.call_deferred()
+	MenuSkin.focus_first(_cards)
 
 
 func _take(index: int) -> void:
