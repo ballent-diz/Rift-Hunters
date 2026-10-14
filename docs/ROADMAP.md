@@ -28,6 +28,8 @@ des dizaines d'heures de rejouabilité : objectifs de cartes, Tension, New Game+
 | Build (permanent) | Arbre du Chasseur + un arbre par Écho (passifs + compétences), points limités, réversible ; plusieurs builds enregistrés, choisis avant le départ | idem |
 | Montées de niveau | Conservées et distinctes du build : renforcent temporairement le build pendant l'expédition, avec raretés | idem |
 | Longévité | New Game+, Tension / pactes étendus, trophées internes reliés aux succès Steam, platine | [design/LONGEVITE.md](design/LONGEVITE.md) |
+| Équipe d'Échos | **3 Échos maximum** (+ le Chasseur) ; départ avec 1 Écho et 2 emplacements, 3e par l'arbre ; un sort actif équipé par Écho | [design/ECHOS.md](design/ECHOS.md) |
+| Roster et synergies | **16 Échos** à la sortie (9 à créer) ; 8 affinités portées chacune par 4 Échos (bonus à 2 et 3) ; 20 à 25 duos nommés | idem |
 
 ## Répartition du travail
 
@@ -67,6 +69,9 @@ Un lot = une branche depuis `main` à jour + une pull request vers `main` avec `
 | C3 | Arbres des Échos et sorts des Échos visés (1, 2, 3) | Claude | C2 | À faire |
 | C4 | Raretés des choix de niveau (commun → héroïque) | Claude | C2 | À faire |
 | C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | À faire |
+| C6 | Équipe à 3 Échos max ; 8 affinités (remplacent « arcane » et « contrôle ») avec bonus à 2 et 3 Échos ; « Prédateurs » devient une synergie d'affinité | Claude | — | À faire |
+| C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | À faire |
+| C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Propriétaire (génération) + Codex (prompts, import, contrôle) | — (peut commencer tout de suite) | À faire |
 
 ### Étape D — Longévité
 
@@ -83,7 +88,7 @@ Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md
 
 ## Documents de référence
 
-- Conception : [GDD.md](GDD.md) (état actuel du prototype), [design/CAMPAGNE.md](design/CAMPAGNE.md),
+- Conception : [GDD.md](GDD.md) (état actuel du prototype), [design/CAMPAGNE.md](design/CAMPAGNE.md), [design/ECHOS.md](design/ECHOS.md),
   [design/MODE_VAGUES_PAR_ZONE.md](design/MODE_VAGUES_PAR_ZONE.md),
   [design/COMPETENCES_ET_BUILDS.md](design/COMPETENCES_ET_BUILDS.md), [design/LONGEVITE.md](design/LONGEVITE.md)
 - Code : [ARCHITECTURE.md](ARCHITECTURE.md) ; équilibrage : [BALANCE.md](BALANCE.md)
