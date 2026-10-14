@@ -1,13 +1,15 @@
 extends SceneTree
 func _initialize() -> void:
-	var creatures: Array = JSON.parse_string(FileAccess.get_file_as_string("res://assets/concepts/incoming/map.storm_highlands/creatures.json"))
+	var creatures: Array = JSON.parse_string(FileAccess.get_file_as_string(
+		"res://assets/concepts/incoming/map.storm_highlands/creatures.json"))
 	var entries: Dictionary = {}
 	var reports: Array = []
 	for data: Dictionary in creatures:
 		var id: String = data.id
 		if id != "heath_runner":
 			continue
-		var source := Image.load_from_file(ProjectSettings.globalize_path("res://assets/concepts/incoming/enemy." + id + "/source/sheet.png"))
+		var source := Image.load_from_file(ProjectSettings.globalize_path(
+			"res://assets/concepts/incoming/enemy." + id + "/source/sheet.png"))
 		source.convert(Image.FORMAT_RGBA8)
 		var cw: int = source.get_width() / 6
 		var ch: int = source.get_height() / 3
@@ -61,10 +63,22 @@ func _initialize() -> void:
 		sheet.save_png(ProjectSettings.globalize_path("res://assets/sprites/storm_highlands/"+id+"/sheet.png"))
 		var icon := sheet.get_region(Rect2i(0,0,cell,cell))
 		icon.save_png(ProjectSettings.globalize_path("res://assets/sprites/storm_highlands/"+id+"/icon.png"))
-		var animations := {"move":{"row":0,"frames":6,"fps":10,"loop":true},"attack":{"row":1,"frames":6,"fps":12,"loop":false},"death":{"row":2,"frames":6,"fps":12,"loop":false},"idle":{"row":0,"frames":1,"fps":8,"loop":true}}
+		var animations := {
+			"move": {"row": 0, "frames": 6, "fps": 10, "loop": true},
+			"attack": {"row": 1, "frames": 6, "fps": 12, "loop": false},
+			"death": {"row": 2, "frames": 6, "fps": 12, "loop": false},
+			"idle": {"row": 0, "frames": 1, "fps": 8, "loop": true},
+		}
 		var vid: String = ("boss." if data.tier == "boss" else "enemy.")+id
-		entries[vid] = {"status":"final","sheet":"res://assets/sprites/storm_highlands/"+id+"/sheet.png","icon":"res://assets/sprites/storm_highlands/"+id+"/icon.png","cell":[cell,cell],"anchor":[cell/2,cell-10],"scale":0.5,"animations":animations}
-		reports.append({"id":id,"source_size":[source.get_width(),source.get_height()],"transparent_fraction":float(transparent)/(source.get_width()*source.get_height()),"frames":18,"cell":cell,"bounds":bounds})
+		entries[vid] = {
+			"status": "final",
+			"sheet": "res://assets/sprites/storm_highlands/" + id + "/sheet.png",
+			"icon": "res://assets/sprites/storm_highlands/" + id + "/icon.png",
+			"cell": [cell, cell], "anchor": [cell / 2, cell - 10], "scale": 0.5, "animations": animations,
+		}
+		var pixels: float = float(source.get_width() * source.get_height())
+		reports.append({"id": id, "source_size": [source.get_width(), source.get_height()],
+			"transparent_fraction": float(transparent) / pixels, "frames": 18, "cell": cell, "bounds": bounds})
 		print(id," : alpha OK, 18 frames, cellule ",cell)
 	var manifest_file := FileAccess.open("res://assets/concepts/incoming/enemy.heath_runner/manifest.fragment.json",FileAccess.WRITE)
 	manifest_file.store_string(JSON.stringify({"entries":entries},"\t"))

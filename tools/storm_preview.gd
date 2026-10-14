@@ -22,7 +22,8 @@ func _ready() -> void:
 	run.set_physics_process(false)
 	get_tree().paused = true
 	run.camera.position_smoothing_enabled = false
-	var positions: Array[Vector2] = [Vector2(400, 680), Vector2(1850, 1750), Vector2(1700, 3050), Vector2(950, 2450), Vector2(3200, 2800)]
+	var positions: Array[Vector2] = [Vector2(400, 680), Vector2(1850, 1750), Vector2(1700, 3050), Vector2(950, 2450),
+		Vector2(3200, 2800)]
 	var names: Array[String] = ["depart", "cite", "remparts", "cendres", "plateau"]
 	for i: int in positions.size():
 		run.ctx.player.global_position = positions[i] * (run.ctx.arena.size.x / 3762.0) - run.ctx.arena.size * 0.5
@@ -33,7 +34,8 @@ func _ready() -> void:
 		await RenderingServer.frame_post_draw
 		_save(names[i])
 	run.ctx.player.position = Vector2(.49, .47) * run.ctx.arena.size - run.ctx.arena.size * .5
-	var ids: Array[StringName] = [&"heath_runner", &"slate_scarab", &"silver_harpy", &"ash_newt", &"menhir_warden", &"storm_knight", &"peak_chimera"]
+	var ids: Array[StringName] = [&"heath_runner", &"slate_scarab", &"silver_harpy", &"ash_newt", &"menhir_warden",
+		&"storm_knight", &"peak_chimera"]
 	for j: int in ids.size():
 		var pos: Vector2 = run.ctx.player.position + Vector2(-240 + (j % 4) * 150, -100 + (j / 4) * 150)
 		run.ctx.enemies.spawn(GameDB.enemy(ids[j]), pos)
@@ -42,7 +44,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	_save("bestiaire")
-	run.camera.zoom = Vector2.ONE * minf(get_viewport().get_visible_rect().size.x / run.ctx.arena.size.x, get_viewport().get_visible_rect().size.y / run.ctx.arena.size.y) * 0.92
+	var view: Vector2 = get_viewport().get_visible_rect().size
+	run.camera.zoom = Vector2.ONE * minf(view.x / run.ctx.arena.size.x, view.y / run.ctx.arena.size.y) * 0.92
 	run.ctx.player.global_position = Vector2.ZERO
 	run.camera.limit_left = -10000
 	run.camera.limit_right = 10000
