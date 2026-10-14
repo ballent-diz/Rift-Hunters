@@ -146,7 +146,7 @@ func _build_world() -> void:
 	ctx.obstacles = ground.obstacle_field()
 	if not ctx.obstacles.is_empty():
 		ctx.flow = FlowField.new()
-		ctx.flow.setup(ctx.obstacles, ctx.arena_rect())
+		ctx.flow.setup(ctx.obstacles, ctx.arena_rect(),ctx.arena.navigation_cell_size)
 	ctx.hazards = HazardManager.new()
 	ctx.hazards.setup(ctx)
 	ctx.world.add_child(ctx.hazards)

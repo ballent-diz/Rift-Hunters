@@ -1,18 +1,18 @@
 {
   "source_size": [
-    2172,
-    724
-  ],
-  "world_size": [
     3762,
     1254
   ],
+  "world_size": [
+    5016,
+    1672
+  ],
   "start": [
-    -1636.0,
-    -388.0
+    -2181.0,
+    -517.0
   ],
   "clearance": 16,
   "small_rocks_blocking": false,
   "connected": true,
-  "walkable_percent": 43.0
+  "walkable_percent": 52.6
 }

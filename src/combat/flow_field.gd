@@ -20,6 +20,7 @@ const UNREACHED := 1 << 30
 const NEIGHBORS: Array[Vector2i] = [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1),
 	Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(-1, -1)]
 
+var cell_size: float = CELL
 var origin := Vector2.ZERO
 var size := Vector2i.ZERO
 var _walkable := PackedByteArray()
@@ -28,9 +29,10 @@ var _target_cell := Vector2i(-1, -1)
 
 
 ## Cases praticables d'après le champ d'obstacles (une fois par partie).
-func setup(obstacles: ObstacleField, rect: Rect2) -> void:
+func setup(obstacles: ObstacleField, rect: Rect2, p_cell_size: float = CELL) -> void:
+	cell_size = clampf(p_cell_size,CELL,64.0)
 	origin = rect.position
-	size = Vector2i(ceili(rect.size.x / CELL), ceili(rect.size.y / CELL))
+	size = Vector2i(ceili(rect.size.x / cell_size), ceili(rect.size.y / cell_size))
 	var count: int = size.x * size.y
 	_walkable.resize(count)
 	_dist.resize(count)
@@ -47,11 +49,11 @@ func is_walkable(cell: Vector2i) -> bool:
 
 
 func cell_of(pos: Vector2) -> Vector2i:
-	return Vector2i(floori((pos.x - origin.x) / CELL), floori((pos.y - origin.y) / CELL))
+	return Vector2i(floori((pos.x - origin.x) / cell_size), floori((pos.y - origin.y) / cell_size))
 
 
 func cell_center(cell: Vector2i) -> Vector2:
-	return origin + (Vector2(cell) + Vector2(0.5, 0.5)) * CELL
+	return origin + (Vector2(cell) + Vector2(0.5, 0.5)) * cell_size
 
 
 ## Distance de parcours (coûts cumulés) depuis la cible, UNREACHED hors carte ou injoignable.
@@ -110,7 +112,7 @@ func direction(pos: Vector2, direct: Vector2) -> Vector2:
 	if not _in_bounds(cell):
 		return direct
 	var here: int = _dist[cell.y * size.x + cell.x]
-	if here <= NEAR_COST:
+	if here <= maxi(1,roundi(NEAR_COST * CELL / cell_size)):
 		return direct
 	# Case injoignable (dans la marge d'un obstacle) : on rejoint la case voisine la plus proche de la cible.
 	var best: int = here
