@@ -1,0 +1,16 @@
+{
+  "world_size": [
+    5016,
+    5016
+  ],
+  "source_size": [
+    1254,
+    1254
+  ],
+  "start": [
+    -1605.0,
+    -1553.0
+  ],
+  "small_rocks_blocking": false,
+  "walkable_percent": 53.92
+}

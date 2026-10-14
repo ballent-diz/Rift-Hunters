@@ -1,0 +1,16 @@
+{
+  "id": "silver_harpy",
+  "fr": "Harpie argentée",
+  "en": "Silver Harpy",
+  "tier": "normal",
+  "description": "compact winged mountain harpy with silver feather fan wings, dark slate torso, pale gold crest, two talons, violet eyes; nonhuman avian head",
+  "height": 44,
+  "source": "C:/Users/petit/.codex/generated_images/01a13908-66df-72f2-971b-dc0a5c935ecf/exec-51a3be33-137f-4be2-90bf-4d7765df32b2.png",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline, violet-magenta corruption fissures. NOT smooth painterly fantasy and NOT cute cartoon. Create original compact winged mountain harpy with silver feather fan wings, dark slate torso, pale gold crest, two talons, violet eyes; nonhuman avian head. Distinct species, do not copy references anatomy. Slate and dark violet base, sparing pale gold/silver highlights, electric-blue only for storm powers, corruption violet. Upper-left light. All poses same character, face RIGHT with slight overhead three-quarter view. ROW1: six successive move gait poses, limbs moving. ROW2: six successive attack poses from anticipation to strike then recovery. ROW3: six death sequence poses from stagger to collapsed to disintegrated remnants. Equal square cells, landscape 2:1 sheet, each figure fits entirely within its cell with large empty gutters, same size and ground baseline. No background glow, no ground shadow, no backdrop or panels, absolutely no words. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo.",
+  "mode": "builtin-imagegen",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ]
+}

@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.peak_chimera"
+shape = 7
+size = 39.0
+primary = Color(0.45, 0.18, 0.3, 1.0)
+secondary = Color(0.7, 0.3, 0.45, 1.0)
+accent = Color(1.0, 0.6, 0.8, 1.0)
+
+[sub_resource type="Resource" id="attack_data_2"]
+script = ExtResource("3")
+cooldown = 3.0
+attack_range = 280.0
+params = {
+"windup": 0.6,
+"charge_speed": 430.0,
+"charge_time": 0.45
+}
+
+[resource]
+script = ExtResource("1")
+id = &"peak_chimera"
+name_key = "ENEMY_PEAK_CHIMERA_NAME"
+desc_key = "ENEMY_PEAK_CHIMERA_DESC"
+brain = 2
+max_hp = 100.0
+damage = 17.0
+defense = 10.0
+move_speed = 88.0
+radius = 24.0
+xp_value = 3
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_2")
