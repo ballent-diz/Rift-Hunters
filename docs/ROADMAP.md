@@ -38,7 +38,9 @@ des dizaines d'heures de rejouabilité : objectifs de cartes, Tension, New Game+
 | **Propriétaire** | Génère les images (sprites, maps), valide les décisions, teste en jeu | Tranche les questions ouvertes |
 
 Un lot = une branche depuis `main` à jour + une pull request vers `main` avec `tools/run_tests.sh` vert
-(voir `AGENTS.md`). Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-dessous.
+(voir `AGENTS.md`). Exception pour les retouches visuelles de Codex, demandée par le propriétaire :
+contrôles ciblés une fois en fin de lot, captures et essais manuels du propriétaire ; ne pas répéter la suite complète.
+Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-dessous.
 
 ## Plan, dans l'ordre
 

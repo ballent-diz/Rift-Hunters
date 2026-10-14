@@ -37,7 +37,7 @@ Critères demandés par le propriétaire le 13 octobre 2026. Ils priment sur les
 
 - Envoyer des captures à chaque étape significative : composition, raccords, collisions et espaces de circulation, puis rendu final en jeu.
 - Vérifier plusieurs résolutions, les mouvements réels et le comportement de la caméra.
-- Respecter AGENTS.md : effort annoncé et approuvé, branche depuis main à jour, textes FR/EN, tests tools/run_tests.sh verts et PR vers main.
+- Respecter AGENTS.md : effort annoncé et approuvé, branche depuis main à jour, textes FR/EN, vérifications proportionnées selon AGENTS.md et PR vers main.
 
 ## Précisions du 14 octobre 2026
 
