@@ -22,9 +22,8 @@ func _ready() -> void:
 	run.set_physics_process(false)
 	get_tree().paused = true
 	run.camera.position_smoothing_enabled = false
-	var positions: Array[Vector2] = [Vector2(400, 680), Vector2(1850, 1750), Vector2(1700, 3050), Vector2(950, 2450),
-		Vector2(3200, 2800)]
-	var names: Array[String] = ["depart", "cite", "remparts", "cendres", "plateau"]
+	var positions: Array[Vector2] = [Vector2(400,680),Vector2(1850,1750),Vector2(1500,2890),Vector2(2120,2800),Vector2(1480,3150),Vector2(3220,1730),Vector2(677,2445),Vector2(3200,2800)]
+	var names: Array[String] = ["depart","cite","escalier_ouest","escalier_nord","escalier_sud","jardin","cendres","plateau"]
 	for i: int in positions.size():
 		run.ctx.player.global_position = positions[i] * (run.ctx.arena.size.x / 3762.0) - run.ctx.arena.size * 0.5
 		run.ctx.allies.get_ally(&"mossback").global_position = run.ctx.player.global_position + Vector2(35, 20)

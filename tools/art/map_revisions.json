@@ -1,0 +1,72 @@
+{
+  "mode": "built-in image_gen",
+  "world_scale_unchanged": true,
+  "display_factor": 3,
+  "jobs": [
+    {
+      "id": "storm_place",
+      "map": "storm_highlands",
+      "folder": "map.storm_highlands",
+      "rect": [
+        1250,
+        1250,
+        1350,
+        850
+      ],
+      "patch": "res://assets/concepts/incoming/map.storm_highlands/source/revision/storm_place.png",
+      "prompt": "Edit image1 only, a local crop from an existing seamless Rift Hunters game map. Image2 is the approved Plaine fracturée STYLE and HUMAN SCALE reference, NOT scenery to paste. Preserve exactly the target's camera perspective, illumination, outermost 30-pixel border, terrain boundary positions and all wide open floor area. Refine to the reference's exceptionally sharp clean fine-textured stylized game art: crisp material edges, no smooth plastic, no blur, no watercolor, no coarse pixel grid. Correct human scale: an adult hunter would be about 32 pixels tall in this crop after it is restored to its original dimensions; ordinary doors 42-50 pixels high, benches 15-20 pixels high, stair risers 3-4 pixels high, individual paving stones 8-14 pixels long. Existing paving and architecture are excessively oversized. Rebuild smaller human-scale structures in the same peripheral locations with natural clear ground around them; do not uniformly shrink the whole terrain or lose the huge usable plaza. Keep road exits in exactly the same positions and preserve outer border pixels so this crop fits the map. NO characters, no text, no UI, no border or white margins. Full bleed original aspect ratio, maximum sharp resolution. Keep the blue-and-gold stone settlement and expansive plaza, but make the buildings less monumental, doors/stalls/steps realistically smaller; maintain structures on edges, no central obstacles. Replace the enormous smooth paving slabs by dense small sharply detailed cobbles. All open accesses must visibly connect into the plaza, no decorative stairs ending at an invisible wall."
+    },
+    {
+      "id": "storm_sud",
+      "map": "storm_highlands",
+      "folder": "map.storm_highlands",
+      "rect": [
+        1250,
+        2680,
+        1300,
+        800
+      ],
+      "patch": "res://assets/concepts/incoming/map.storm_highlands/source/revision/storm_sud.png",
+      "prompt": "Edit image1 only, a local crop from an existing seamless Rift Hunters game map. Image2 is the approved Plaine fracturée STYLE and HUMAN SCALE reference, NOT scenery to paste. Preserve exactly the target's camera perspective, illumination, outermost 30-pixel border, terrain boundary positions and all wide open floor area. Refine to the reference's exceptionally sharp clean fine-textured stylized game art: crisp material edges, no smooth plastic, no blur, no watercolor, no coarse pixel grid. Correct human scale: an adult hunter would be about 32 pixels tall in this crop after it is restored to its original dimensions; ordinary doors 42-50 pixels high, benches 15-20 pixels high, stair risers 3-4 pixels high, individual paving stones 8-14 pixels long. Existing paving and architecture are excessively oversized. Rebuild smaller human-scale structures in the same peripheral locations with natural clear ground around them; do not uniformly shrink the whole terrain or lose the huge usable plaza. Keep road exits in exactly the same positions and preserve outer border pixels so this crop fits the map. NO characters, no text, no UI, no border or white margins. Full bleed original aspect ratio, maximum sharp resolution. Keep the wide south courtyard surrounded by BLUE and GOLD medieval stone ruins. Make the towers, market shelters, staircase architecture and especially paving match human scale, leave an even wider open central court. All three visible stairways must have continuous clear landings joining the grassy surrounding routes. No fence or building crosses a stair landing. Small loose stones are ground texture, never obstacles."
+    },
+    {
+      "id": "storm_lave",
+      "map": "storm_highlands",
+      "folder": "map.storm_highlands",
+      "rect": [
+        0,
+        1900,
+        1120,
+        1000
+      ],
+      "patch": "res://assets/concepts/incoming/map.storm_highlands/source/revision/storm_lave.png",
+      "prompt": "Edit image1 only, a local crop from an existing seamless Rift Hunters game map. Image2 is the approved Plaine fracturée STYLE and HUMAN SCALE reference, NOT scenery to paste. Preserve exactly the target's camera perspective, illumination, outermost 30-pixel border, terrain boundary positions and all wide open floor area. Refine to the reference's exceptionally sharp clean fine-textured stylized game art: crisp material edges, no smooth plastic, no blur, no watercolor, no coarse pixel grid. Correct human scale: an adult hunter would be about 32 pixels tall in this crop after it is restored to its original dimensions; ordinary doors 42-50 pixels high, benches 15-20 pixels high, stair risers 3-4 pixels high, individual paving stones 8-14 pixels long. Existing paving and architecture are excessively oversized. Rebuild smaller human-scale structures in the same peripheral locations with natural clear ground around them; do not uniformly shrink the whole terrain or lose the huge usable plaza. Keep road exits in exactly the same positions and preserve outer border pixels so this crop fits the map. NO characters, no text, no UI, no border or white margins. Full bleed original aspect ratio, maximum sharp resolution. Transform the congested lava interior into a genuinely playable spacious BASALT PLAZA. In the central and eastern 75 percent of this crop create a broad contiguous flat charcoal-grey dry basalt floor with fine cracks, small paving texture and large clear open space. No lava fissures, jagged spires, trees or rubble in this central combat floor. Keep dramatic tall volcanic spires and glowing lava ONLY around the far LEFT and LOWER outer edges as clearly separated inaccessible scenery; maintain the outer border as closely as possible. Connect this flat dark plaza through three broad uninterrupted dry land openings into the grass on the NORTH, EAST and SOUTHEAST. Sharp natural light, no arena ring, no circular boss structure. The player must clearly see where one can walk: a continuous wide solid floor with no confusing crevices. Preserve the right-hand grassy boundary matching neighboring terrain."
+    },
+    {
+      "id": "cascade_depart",
+      "map": "cascade_ruins",
+      "folder": "map.three_rifts",
+      "rect": [
+        0,
+        0,
+        700,
+        480
+      ],
+      "patch": "res://assets/concepts/incoming/map.three_rifts/source/revision/cascade_depart.png",
+      "prompt": "Local restoration edit. Image1 is EDIT TARGET crop of an existing Rift Hunters map, image2 is the Plaine fracturée approved sharp-detail and human-scale reference, not composition to copy. Retain exactly image1's composition, all road and river boundaries, large clear floor areas, viewpoint, lighting, outermost 25 pixel border and original aspect ratio. Make the visual finish match image2: densely finely textured, clear edged material detail, sharp foliage/stone/timber, never blurry, rounded plastic, watercolor or coarse enlarged pixel grid. Human-scale calibration: adult hunter about32 pixels tall at the target's original dimensions; normal doors42-50 pixels tall, stair risers3-4 pixels, paving stones8-14 pixels long. Redraw oversized individual building elements/material details at this scale, do not shrink the entire image, do not narrow the spacious usable terrain. Preserve exact natural connections between stairs, their clear landings and surrounding earth. No characters, text, UI, borders or blank margins. Maximum sharp output resolution full bleed. Keep the entrance at UPPER LEFT, its warmly lit doorway and the generous starting clearing. Bring shrine facade, door, steps, wooden scaffolds and lanterns to plausible human scale while retaining the architectural silhouette and entrance location. The steps and landing are visually open and connect to the dirt clearing. Water and cliffs remain strictly on the sides. Smaller denser paving detail and fine moss leaves, keep wide maneuvering space."
+    },
+    {
+      "id": "cascade_arene",
+      "map": "cascade_ruins",
+      "folder": "map.three_rifts",
+      "rect": [
+        2700,
+        340,
+        1062,
+        820
+      ],
+      "patch": "res://assets/concepts/incoming/map.three_rifts/source/revision/cascade_arene.png",
+      "prompt": "Local restoration edit. Image1 is EDIT TARGET crop of an existing Rift Hunters map, image2 is the Plaine fracturée approved sharp-detail and human-scale reference, not composition to copy. Retain exactly image1's composition, all road and river boundaries, large clear floor areas, viewpoint, lighting, outermost 25 pixel border and original aspect ratio. Make the visual finish match image2: densely finely textured, clear edged material detail, sharp foliage/stone/timber, never blurry, rounded plastic, watercolor or coarse enlarged pixel grid. Human-scale calibration: adult hunter about32 pixels tall at the target's original dimensions; normal doors42-50 pixels tall, stair risers3-4 pixels, paving stones8-14 pixels long. Redraw oversized individual building elements/material details at this scale, do not shrink the entire image, do not narrow the spacious usable terrain. Preserve exact natural connections between stairs, their clear landings and surrounding earth. No characters, text, UI, borders or blank margins. Maximum sharp output resolution full bleed. Keep the huge final circular violet rune floor in exactly the same size and center; it must remain spacious for Nébulorax and Echoes. Retain both stairs at northwest and southwest and the intact wooden bridge at the left, identical positions, contiguous broad walkable decks. Make each individual stair riser, paving tile, peripheral torch/column and rail naturally human-scale; replace excessively oversized steps and paving with smaller finely detailed ones. Continuous unblocked dry stair landings on both ends connect earth to arena. All columns and fence sections stay outside the usable staircase corridors. Purple corruption stays peripheral, NO debris in the arena. Do not add a new seam or change the bridge width."
+    }
+  ]
+}

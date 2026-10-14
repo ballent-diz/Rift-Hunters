@@ -61,3 +61,7 @@ Les cartes suivantes du chapitre 1 et le chapitre 2 (cartes colorées) restent �
 
 - Nom et thème des chapitres 1 et 2, ordre des cartes à l'intérieur.
 - Valeurs exactes des récompenses dégressives.
+
+## Paysages et formats des cartes
+
+Décision du propriétaire après les essais : chaque changement de chapitre doit proposer un autre type de décor, reconnaissable par son terrain, son architecture, sa végétation et sa palette. Les trois formats standards sont 3, 6 et 9 cases ; les règles de netteté, de circulation et d’échelle se trouvent dans ../MAP_GUIDELINES.md. La Plaine fracturée reste la référence visuelle et de proportions, indépendamment du thème du chapitre.

@@ -25,8 +25,16 @@ func setup(p_arena: ArenaData, p_seed: int) -> void:
 	texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 	environment = Assets.environment(arena.environment_id)
 	if environment != null:
+		if environment.is_map():
+			texture_repeat = CanvasItem.TEXTURE_REPEAT_DISABLED
 		if environment.smooth:
 			texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		var detail: float = float(Assets.entry(arena.environment_id).get("detail_strength", 0.0))
+		if environment.is_map() and detail > 0.0:
+			var effect := ShaderMaterial.new()
+			effect.shader = preload("res://assets/shaders/map_detail.gdshader")
+			effect.set_shader_parameter("strength", clampf(detail, 0.0, 0.5))
+			material = effect
 		if not environment.is_map():
 			placements = DecorLayout.generate(environment, arena_rect(), seed_value, arena.decor_density)
 			_build_chunks()

@@ -15,7 +15,7 @@ STEP = 2.0
 
 
 def build():
-    source = Image.open(ROOT / "assets/concepts/incoming/map.three_rifts/source/map_detailed.png").convert("RGB")
+    source = Image.open(ROOT / "assets/concepts/incoming/map.three_rifts/source/map_revised.png").convert("RGB")
     assert abs(source.width / source.height - 3) < .001
     small = source.resize(FIELD, Image.Resampling.BOX)
     hue, sat, light = hue_sat_light(np.array(small))
@@ -28,8 +28,12 @@ def build():
         draw.polygon([(int(x * FIELD[0]), int(y * FIELD[1])) for x, y in points], fill=255)
 
     def route(points, width=.075):
-        draw.line([(int(x * FIELD[0]), int(y * FIELD[1])) for x, y in points],
-                  fill=255, width=int(FIELD[1] * width), joint="curve")
+        pixels = [(int(x * FIELD[0]), int(y * FIELD[1])) for x,y in points]
+        size = int(FIELD[1] * width)
+        draw.line(pixels, fill=255, width=size, joint="curve")
+        for x,y in (pixels[0],pixels[-1]):
+            half = size / 2
+            draw.ellipse((x-half,y-half,x+half,y+half),fill=255)
 
     # Le pont occidental est détruit. Seul le second tablier reste praticable.
     polygon([(.643, .518), (.757, .516), (.757, .581), (.643, .584)])
@@ -42,6 +46,10 @@ def build():
     route([(.075, .84), (.126, .976)], .055)
     draw.ellipse((FIELD[0]*.745, FIELD[1]*.296, FIELD[0]*1.05, FIELD[1]*.859), fill=255)
     route([(.715, .552), (.76, .575), (.825, .575)], .055)
+    # Escaliers visibles : leurs deux débouchés sont ouverts, hors piliers et falaises.
+    route([(.046,.101),(.052,.137),(.062,.177),(.08,.215)], .06)
+    route([(.781,.325),(.795,.38),(.812,.425),(.84,.48)], .06)
+    route([(.77,.76),(.792,.723),(.805,.68),(.819,.64),(.848,.595)], .055)
     # Carrefours et clairières : surfaces où tourner, pas uniquement des rubans de route.
     for cx, cy, rx, ry in [(.15,.52,.029,.075), (.44,.56,.025,.075), (.615,.56,.032,.08),
                            (.49,.83,.035,.08)]:
@@ -86,6 +94,8 @@ def build():
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     manifest["entries"]["environment.cascade_ruins"] = {
         "status": "final", "kind": "map", "map": "res://assets/environments/cascade_ruins/map.webp",
+        "map_tiles": ["res://assets/environments/cascade_ruins/" + name for name in ("map.webp", "map_1.webp", "map_2.webp")],
+        "detail_strength": .32,
         "field": "res://assets/environments/cascade_ruins/field.png", "field_step": STEP,
         "arena_size": WORLD[0], "start": start, "filter": "linear", "ambient": {"amount": 0},
         "generated_by": "tools/art/build_cascade_ruins.py"}

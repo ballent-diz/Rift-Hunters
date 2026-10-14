@@ -66,5 +66,15 @@
       }
     ],
     "master_prompt": "GAMEPLAY LAYOUT REDESIGN of image1, using image2 as strict Rift Hunters material/style reference. User finds there is far too little room to move. Prioritize a landscape that is overwhelmingly open walkable ground, NOT a decorated maze or a network of narrow dirt roads. Keep the nine-region concept loosely but REMOVE at least HALF the currently scattered trees, rocks, standing stones, small ruins, walls and unnecessary stairs. Place decorative clusters at the PERIMETER of large flat open areas. At least 70% of the entire visible image should be solid continuous CLEAR traversable LAND, not water/cliffs/obstacles. Huge windy golden-grass meadows occupying the north and west, giant open central stone-and-earth town square, broad ash plain southwest, expansive clear southern courtyard, large flat eastern plateau. Water restricted to a modest northeast lake near the outer edge and thin border waterfalls; reduce the sprawling lake/river network. Reduce the quarry to a small landmark at western border, keeping a very broad adjacent open field. The town has a small number of detailed buildings only around the far edges of its plaza, no clutter inside. Reduce stone circle north to a few peripheral menhirs with the center and all approaches very wide open. The silver garden is a small boundary feature with open meadow beside it, no stair/labyrinth choke points. Several EXTRA-WIDE continuous LAND connections between every open area, gentle sloped terrain, no thin bridges or narrow gates, no rivers dividing accessible sectors. Borders may have mountains and scenic ruins, but central spaces must be generous enough for a whole party and dozens of enemies to maneuver in any direction. NO circular boss arena and NO rune circle lower-right. Maintain landscape diversity (mountain meadows, modest lake, slate quarry, ancient town, silver garden, cooled ash field, old fort courtyard) without letting architecture dominate gameplay ground. Maintain very fine crisp detailed original-reference fantasy illustrated art, precisely outlined stone blocks, detailed timber/foliage/material textures, rich natural colors, no smooth plastic cartoon, no blurred AI upscaling, no photorealism. Flat ground has subtle fine grass/earth/stone texture, never large obstructing rocks. Full-bleed square continuous overhead orthographic isometric game map, uniform scale, top-left lighting, no text/UI/characters/grid. Exact connections must be wide, visually logical and physically grounded. This is the corrected MASTER COMPOSITION; preserve approved art style but significantly redistribute scenery to make movement genuinely spacious."
+  },
+  "current_revision": {
+    "mode": "built-in image_gen",
+    "recipe": "tools/art/map_revisions.json",
+    "source": "source/map_revised.png",
+    "generated_patches": "source/revision/",
+    "presentation_factor": 3,
+    "conversion": "tools/art/convert_revision_maps.py",
+    "render_filter": "linear + map_detail.gdshader (0.32)",
+    "note": "Retouches générées reportées directement dans la présentation ; les dimensions du monde sont conservées."
   }
 }
