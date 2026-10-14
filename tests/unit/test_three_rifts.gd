@@ -38,7 +38,7 @@ func test_level_starts_with_camera_and_existing_combat() -> void:
 	setup.arena_id = &"three_rifts"
 	setup.starter_id = &"mossback"
 	setup.autopilot = true
-	var run: RunController = load("res://scenes/run.tscn").instantiate()
+	var run: RunController = load(Router.RUN).instantiate()
 	run.skip_profile = true
 	run.start(setup)
 	host.add_child(run)
@@ -77,7 +77,7 @@ func test_broken_bridge_cannot_be_crossed_by_dashing() -> void:
 	var setup := RunSetup.new()
 	setup.arena_id = &"three_rifts"
 	setup.autopilot = true
-	var run: RunController = load("res://scenes/run.tscn").instantiate()
+	var run: RunController = load(Router.RUN).instantiate()
 	run.skip_profile = true
 	run.start(setup)
 	host.add_child(run)

@@ -9,7 +9,7 @@ var _box: VBoxContainer
 
 
 func setup() -> void:
-	set_anchors_preset(Control.PRESET_FULL_RECT)
+	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	visible = false
 	add_child(UiKit.dimmer(0.85))
