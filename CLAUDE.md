@@ -50,6 +50,8 @@ donne un tableau non typé.
 
 ## Architecture (détails : docs/ARCHITECTURE.md)
 
+- **Feuille de route et décisions validées : `docs/ROADMAP.md`** (détails dans `docs/design/`), à lire avant
+  toute tâche de gameplay.
 - `src/data/` : classes `Resource` des données (MonsterData, EnemyData, UpgradeData...).
 - `data/` : contenu du jeu en `.tres` (un fichier par entité). Ajouter un monstre = ajouter
   un `.tres`, ses clés de traduction et (plus tard) ses assets. Aucun code à modifier.

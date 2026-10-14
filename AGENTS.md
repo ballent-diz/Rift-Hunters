@@ -35,6 +35,8 @@ res://tools/screenshot.tscn -- --out=<dossier> --times=20,60` (`--menu=main|refu
 
 ## Où sont les choses
 
+- **Décisions de conception et chantiers à venir : [docs/ROADMAP.md](docs/ROADMAP.md)** (à lire avant toute tâche
+  de gameplay ; détails dans `docs/design/`).
 - Code : `src/` (données `src/data/`, combat `src/combat/`, partie `src/run/`, entités `src/entities/`, UI `src/ui/`).
 - Contenu : `data/*.tres` (un fichier par entité) ; équilibrage dans `data/balance/`, `data/arenas/`, `data/difficulties/`.
 - Sprites et décors : `assets/asset_manifest.json` est la source de vérité des chemins. Ne pas déplacer un fichier
