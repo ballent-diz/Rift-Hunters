@@ -89,8 +89,6 @@ ENTITIES = [
     ("boss.nebulorax", "boss", 320, "Nebulorax, the Devourer of Dimensions: colossal spiral of obsidian blade-scales and nebula "
      "tentacles around a glowing violet vortex eye (its weak heart), floating rift crystals, palette #1B1E33 #3A1670 #6A1FD0 "
      "#C040F0 #EBD6FA (see docs/concepts/bosses/nebulorax.md)"),
-    ("boss.vorgranite", "boss", 320, "Vorgranite, the Hungry Mountain: colossal stone beast shaped like a walking mountain, amber "
-     "magma light pouring from cracks, crystals growing on its back, huge jaw"),
 ]
 
 

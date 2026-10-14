@@ -24,7 +24,7 @@ d'écran en 1080p** : le détail dessiné est le détail vu. Toutes les entités
 | Échos (volants) | 64×64 | (32, 58), `hover` 6–10 | 34–44 |
 | Corrompus petits (Grouillard) | 48×48 | (24, 42) | 22–28 |
 | Corrompus (autres, élites) | 64×64 | (32, 54) | 30–50 |
-| Dévoreurs | 320×320 | centre de masse : Nébulorax (160, 160), Vorgranite (160, 188) | 220–280 |
+| Dévoreurs | 320×320 | centre de masse : Nébulorax (160, 160) | 220–280 |
 | Projectiles / effets | 32×32 ou 64×64 | centre | — |
 
 - L'**ancre** est le point posé au sol (les pieds), sauf pour les Dévoreurs (centre du corps).

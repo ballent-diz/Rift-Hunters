@@ -26,7 +26,7 @@ tools/run_tests.sh unit       # tests unitaires seulement (aussi : scripts, pers
 tools/balance_sim.sh "mossback ashblade" "fractured_plain" "tension_0" 2   # campagne d'équilibrage (META=veteran)
 godot --headless --import --path .     # (ré)importer : OBLIGATOIRE après ajout d'un class_name ou d'une traduction
 godot --path .                         # lancer le jeu (nécessite un affichage)
-godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter=ashblade --arena=crystal_abyss
+godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter=ashblade --arena=three_rifts
 gdlint src tests tools                 # lint GDScript (config : gdlintrc, lignes ≤ 130)
 python3 tools/art/build.py monster.ashblade              # sprites pixel art procéduraux (statut wip)
 python3 tools/art/import_sheet.py <dossier>/job.json     # importer des images générées (statut final)

@@ -169,7 +169,7 @@ Cartes dynamiques : *Pacte* (recruter un Écho si un emplacement est libre), *É
 
 - Synergies : 7 (dont « Prédateurs », activée par deux Échos d'affinité prédateur).
 - Corrompus : Grouillard, Carapace, Cracheur, Bondisseur, Nuée-mère, Rôdeur d'ombre, Gardien de cristal.
-- Dévoreurs : Nébulorax (Plaine fracturée), Vorgranite (Abysse cristallin, carapace brisée en phase 2).
+- Dévoreur : Nébulorax (Plaine fracturée, Ruines des Cascades).
 - **Rite de lien** : une élite peut laisser un Écho errant ; rester à son contact le capture
   (il rejoint l'équipe et, s'il était verrouillé, il est débloqué définitivement).
 - **Pactes de risque** : 5 modificateurs cumulables qui augmentent les récompenses.

@@ -17,7 +17,7 @@ utilise la Ruée et les Techniques, ordonne le focus sur le boss et choisit ses 
 Il joue **moins bien** qu'un humain : ses taux de victoire sont un plancher.
 
 ```bash
-tools/balance_sim.sh "mossback ashblade" "fractured_plain crystal_abyss" "tension_0 tension_1" 3
+tools/balance_sim.sh "mossback ashblade" "fractured_plain three_rifts" "tension_0 tension_1" 3
 META=veteran tools/balance_sim.sh ...   # bonus d'arbre typiques après ~10 parties (expert : ~30 parties)
 JOBS=4 ...                               # parties en parallèle
 ```
@@ -28,7 +28,6 @@ du boss, dégâts subis et nombre d'erreurs de script (doit rester à 0).
 | Contenu | Profil | Victoires du bot |
 |---|---|---|
 | Plaine fracturée, Tension 0 | sans arbre | 5/7 Échos de départ (≈ 50-70 %) |
-| Abysse cristallin, Tension 0 | vétéran | 4/7 |
 | Plaine fracturée, Tension I-II | vétéran | 6/8 |
 | Plaine fracturée, Tension I-II | sans arbre | 1/8 (attendu : ces niveaux se débloquent après progression) |
 
@@ -42,5 +41,4 @@ Repères observés : niveau 25-35 à la fin d'une partie gagnée, combat de boss
 
 ## Pistes pour la suite
 - Lucivelle, Mirelle et Fulgurine sont plus faibles comme Écho de départ que comme recrue : à surveiller en tests humains.
-- Cendrelame souffre dans l'Abysse (foule dense, peu de zone) : c'est un choix de build, mais un correctif léger est possible.
 - Tensions III à V : non simulées en profondeur (nécessitent le profil expert).

@@ -127,23 +127,6 @@ func test_glass_hunter_reduces_hp() -> void:
 	check_eq(int(run.ctx.stats.get_value(&"modifiers_count")), 1, "modificateurs comptés")
 
 
-func test_crystal_abyss_rules() -> void:
-	_run_with(&"mossback", &"crystal_abyss")
-	check(run.ctx.player.stats.get_value(StatKeys.ALLY_DAMAGE) > 1.0, "règle d'arène installée")
-
-
-func test_vorgranite_armor_breaks_in_phase_two() -> void:
-	_run_with(&"mossback", &"crystal_abyss")
-	var boss: Enemy = run.ctx.enemies.spawn_boss(GameDB.boss(&"vorgranite"), Vector2(400, 0))
-	run.ctx.boss = boss
-	var controller := BossController.new(run.ctx, boss)
-	check_near(boss.base_defense, 60.0, 0.01, "carapace en phase 1")
-	boss.hp = boss.max_hp * 0.4
-	controller.step(1.0 / 60.0)
-	check_eq(controller.phase_index, 1, "phase 2")
-	check_near(boss.base_defense, 0.0, 0.01, "armure brisée en phase 2")
-
-
 func test_deep_roots_and_predators_synergies() -> void:
 	_run_with(&"mossback")
 	run.ctx.allies.add_monster(&"thornweave")

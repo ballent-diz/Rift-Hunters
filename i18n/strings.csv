@@ -512,17 +512,9 @@ ENEMY_SHADE_STALKER_NAME,Rôdeur d'ombre,Shade Stalker
 ENEMY_SHADE_STALKER_DESC,"Se fige, marque un point derrière vous puis s'y téléporte.","Freezes, marks a spot behind you, then teleports there."
 ENEMY_CRYSTAL_WARDEN_NAME,Gardien de cristal,Crystal Warden
 ENEMY_CRYSTAL_WARDEN_DESC,Protège les Corrompus proches avec l'Égide (+50 défense).,Shields nearby Hollowed with Aegis (+50 defense).
-BOSS_VORGRANITE_NAME,Vorgranite,Vorgranite
-BOSS_VORGRANITE_TITLE,la Montagne affamée,the Hungry Mountain
-BOSS_VORGRANITE_PHASE1,Phase 1 : la Carapace,Phase 1: the Shell
-BOSS_VORGRANITE_PHASE2,Phase 2 : le Cœur à nu (défense nulle),Phase 2: the Bare Heart (no defense)
 BOSS_PATTERN_ROCK_RAIN,Pluie de roches,Rock Rain
 BOSS_PATTERN_CHARGE,Ruée tellurique,Earthen Charge
 BOSS_PATTERN_QUAKE,Séisme,Quake
-BESTIARY_BOSS_LORE_VORGRANITE,"Une montagne qui a avalé une Faille entière. Sa carapace dévie les coups faibles (défense 60) ; quand elle se brise, son cœur reste sans défense. Ses séismes ne laissent aucune brèche : franchissez-les avec la Ruée.","A mountain that swallowed an entire Rift. Its shell deflects weak blows (defense 60); once it breaks, its heart is defenseless. Its quakes leave no gap: dash through them."
-ARENA_CRYSTAL_ABYSS_NAME,Abysse cristallin,Crystal Abyss
-ARENA_CRYSTAL_ABYSS_DESC,"Une arène plus étroite, aux parois de cristal. Vorgranite y attend.",A narrower arena with crystal walls. Vorgranite waits there.
-ARENA_CRYSTAL_ABYSS_RULE,"Règle : Échos amplifiés (+15 % de dégâts des Échos, vitesse du Chasseur −5 %).","Rule: Amplified Echoes (+15% Echo damage, Hunter speed −5%)."
 RELIC_BRIAR_SEED_NAME,Graine de ronce,Briar Seed
 RELIC_BRIAR_SEED_DESC,12 % de chances que les Traits enracinent.,12% chance for Bolts to root.
 RELIC_UNSTABLE_COIL_NAME,Bobine instable,Unstable Coil
@@ -559,15 +551,12 @@ DIFFICULTY_TENSION_5_NAME,Tension V,Tension V
 DIFFICULTY_TENSION_5_DESC,"La Faille à son paroxysme. Récompenses ×3,3.",The Rift at its peak. Rewards ×3.3.
 OBJ_DEVOURERS_CALL_NAME,L'appel du vide,Call of the Void
 OBJ_DEVOURERS_CALL_DESC,Éliminez 1500 Corrompus (cumul).,Defeat 1500 Hollowed (total).
-OBJ_MOUNTAIN_FELLED_NAME,Briseur de montagne,Mountain Breaker
-OBJ_MOUNTAIN_FELLED_DESC,Vainquez Vorgranite.,Defeat Vorgranite.
 OBJ_CAPTOR_NAME,Lieur,Binder
 OBJ_CAPTOR_DESC,Capturez 5 Échos errants (cumul).,Capture 5 wandering Echoes (total).
 OBJ_RISK_TAKER_NAME,Goût du risque,Risk Taker
 OBJ_RISK_TAKER_DESC,Refermez une Faille avec au moins 2 Pactes de risque.,Seal a Rift with at least 2 Risk Pacts.
 RESEARCH_RIFT_CONDUCTORS_NAME,Conducteurs de faille,Rift Conductors
 RESEARCH_RIFT_CONDUCTORS_DESC,Permet de lier Fulgurine.,Lets you bind Voltwisp.
-UNLOCK_TITLE_MOUNTAIN_BREAKER,Titre : Briseur de montagne,Title: Mountain Breaker
 CAPTURE_APPEARS,Un Écho errant ! Restez à son contact.,A wandering Echo! Stay close to it.
 CAPTURE_JOINED,%s rejoint votre équipe !,%s joins your team!
 CAPTURE_SENT_TO_REFUGE,%s est lié et vous attend au Refuge.,%s is bound and awaits you at the Refuge.
