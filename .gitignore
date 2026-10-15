@@ -7,3 +7,6 @@ export_presets.cfg.local
 __pycache__/
 *.tmp
 tests/tmp/
+# Dossiers de travail des collisions (régénérables : tools/art/collision_mask.py)
+assets/concepts/incoming/*/collision/reference.jpg
+assets/concepts/incoming/*/collision/preview.jpg

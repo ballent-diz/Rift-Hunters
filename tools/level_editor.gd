@@ -1,16 +1,21 @@
 extends Node2D
-## Éditeur de niveau (outil de développement, première version) : ouvrir tools/level_editor.tscn dans Godot et
-## lancer la scène (F6). Affiche la carte dessinée d'une arène, le décor infranchissable (rouge), les régions
-## séparées par les barrières (couleurs), les barrières, les points d'ancrage des zones, le centre de l'arène du
-## boss et le départ. Tout se modifie à la souris ; S enregistre dans data/arenas/<id>.tres et le manifeste.
+## Éditeur de niveau (outil de développement) : ouvrir tools/level_editor.tscn dans Godot et lancer la scène
+## (bouton « Lancer la scène actuelle » ou F6). Affiche la carte dessinée d'une arène, le décor infranchissable
+## (rouge), les régions séparées par les barrières (couleurs), les barrières, les points d'ancrage des zones, le
+## centre de l'arène du boss et le départ. Mode d'emploi : docs/maps/DE_L_IMAGE_AU_NIVEAU.md.
 ##
 ## Souris : glisser un point / une barrière (clic gauche) ; coin bas-droit d'une barrière = redimensionner ;
-## clic droit glissé = nouvelle barrière pour la zone choisie ; molette = zoom ; clic milieu glissé = déplacer la vue.
-## Clavier : 1-9 = zone choisie ; Suppr = supprimer la barrière survolée ; R = recalculer les régions ;
-## S = enregistrer. Lancement : godot --path . res://tools/level_editor.tscn -- --arena=three_rifts
+## clic droit glissé = nouvelle barrière pour la zone choisie ; molette ou pincement = zoom ; clic milieu glissé
+## = déplacer la vue. Clavier : ZQSD / WASD / flèches = déplacer la vue ; + et - = zoom ; 1-9 = zone choisie ;
+## N = nouvelle zone sous la souris ; C = afficher / masquer collisions et régions ; Suppr = supprimer la barrière
+## survolée ; Maj+Suppr = supprimer la zone survolée ; L = recharger les collisions (après
+## tools/art/collision_mask.py build) ; Ctrl+S = enregistrer.
+## Autre arène : godot --path . res://tools/level_editor.tscn -- --arena=storm_highlands
 
 const MANIFEST := "res://assets/asset_manifest.json"
 const HANDLE := 14.0
+## Vitesse de déplacement de la vue au clavier (pixels d'écran par seconde).
+const PAN_SPEED := 900.0
 const REGION_COLORS: Array[Color] = [Color(0.2, 0.6, 1.0), Color(0.3, 1.0, 0.4), Color(1.0, 0.8, 0.2),
 	Color(0.9, 0.4, 1.0), Color(0.3, 1.0, 1.0)]
 
@@ -19,6 +24,7 @@ var arena_path: String = ""
 var start := Vector2.ZERO
 var zone_selected: int = 0
 var _env: EnvironmentSet
+var _field: Image
 var _blocked_tex: ImageTexture
 var _region_tex: ImageTexture
 var _region_rect := Rect2()
@@ -30,6 +36,7 @@ var _drag_offset := Vector2.ZERO
 var _new_from := Vector2.ZERO
 var _panning: bool = false
 var _dirty: bool = false
+var _show_layers: bool = true
 
 
 func _ready() -> void:
@@ -42,7 +49,7 @@ func _ready() -> void:
 	_env = Assets.environment(arena.environment_id)
 	if _env:
 		start = _env.start
-		_build_blocked_overlay()
+		_field = _env.field_image
 	add_child(_camera)
 	_camera.zoom = Vector2.ONE * 0.25
 	var ui := CanvasLayer.new()
@@ -51,21 +58,58 @@ func _ready() -> void:
 	_label.add_theme_color_override("font_outline_color", Color.BLACK)
 	_label.add_theme_constant_override("outline_size", 6)
 	ui.add_child(_label)
+	_build_blocked_overlay()
 	_rebuild_regions()
+
+
+## Recharge field.png depuis le disque (sans passer par l'import de Godot) après un nouveau détourage.
+func _reload_field() -> void:
+	var path: String = str(Assets.entry(arena.environment_id).get("field", ""))
+	var img: Image = Image.load_from_file(ProjectSettings.globalize_path(path))
+	if img == null:
+		return
+	img.convert(Image.FORMAT_L8)
+	_field = img
+	_build_blocked_overlay()
+	_rebuild_regions()
+
+
+func _process(delta: float) -> void:
+	var move := Vector2.ZERO
+	if Input.is_key_pressed(KEY_CTRL):
+		return
+	if Input.is_key_pressed(KEY_LEFT) or Input.is_key_pressed(KEY_Q) or Input.is_key_pressed(KEY_A):
+		move.x -= 1.0
+	if Input.is_key_pressed(KEY_RIGHT) or Input.is_key_pressed(KEY_D):
+		move.x += 1.0
+	if Input.is_key_pressed(KEY_UP) or Input.is_key_pressed(KEY_Z) or Input.is_key_pressed(KEY_W):
+		move.y -= 1.0
+	if Input.is_key_pressed(KEY_DOWN) or Input.is_key_pressed(KEY_S):
+		move.y += 1.0
+	if move != Vector2.ZERO:
+		_camera.position += move.normalized() * PAN_SPEED * delta / _camera.zoom.x
+		queue_redraw()
+
+
+func _zoom_by(factor: float) -> void:
+	_camera.zoom = (_camera.zoom * factor).clamp(Vector2.ONE * 0.08, Vector2.ONE * 3.0)
 
 
 func _rect() -> Rect2:
 	return Rect2(-arena.size * 0.5, arena.size)
 
 
-## Décor infranchissable d'après la carte de distance (valeur < 128 = bloqué).
+## Décor infranchissable d'après la carte de distance (valeur < 128 = bloqué) : hachures sombres, lisibles quelle
+## que soit la couleur de la carte.
 func _build_blocked_overlay() -> void:
-	var field: Image = _env.field_image
+	if _field == null:
+		return
+	var field: Image = _field
 	var img := Image.create(field.get_width(), field.get_height(), false, Image.FORMAT_RGBA8)
 	for y: int in field.get_height():
 		for x: int in field.get_width():
 			if field.get_pixel(x, y).r * 255.0 < 128.0:
-				img.set_pixel(x, y, Color(1.0, 0.1, 0.1, 0.4))
+				img.set_pixel(x, y, Color(0.05, 0.0, 0.1, 0.72 if (x + y) / 12 % 2 == 0 else 0.5))
 	_blocked_tex = ImageTexture.create_from_image(img)
 
 
@@ -74,7 +118,7 @@ func _rebuild_regions() -> void:
 	if _env == null:
 		return
 	var obstacles := ObstacleField.new()
-	obstacles.set_distance_field(_env.field_image, _rect(), _env.field_step)
+	obstacles.set_distance_field(_field, _rect(), _env.field_step)
 	for zone: LevelZoneData in arena.zones:
 		for wall: Rect2 in zone.exit_walls:
 			obstacles.add_wall(wall)
@@ -89,7 +133,7 @@ func _rebuild_regions() -> void:
 	for i: int in labels.size():
 		if labels[i] >= 0:
 			var c: Color = REGION_COLORS[labels[i] % REGION_COLORS.size()]
-			img.set_pixel(i % flow.size.x, i / flow.size.x, Color(c, 0.22))
+			img.set_pixel(i % flow.size.x, i / flow.size.x, Color(c, 0.3))
 	_region_tex = ImageTexture.create_from_image(img)
 	_region_rect = Rect2(flow.origin, Vector2(flow.size) * flow.cell_size)
 	queue_redraw()
@@ -104,9 +148,9 @@ func _draw() -> void:
 			var tile := Vector2(rect.size.x / _env.map_tiles.size(), rect.size.y)
 			for i: int in _env.map_tiles.size():
 				draw_texture_rect(_env.map_tiles[i], Rect2(rect.position + Vector2(i * tile.x, 0), tile), false)
-	if _blocked_tex:
+	if _blocked_tex and _show_layers:
 		draw_texture_rect(_blocked_tex, rect, false)
-	if _region_tex:
+	if _region_tex and _show_layers:
 		draw_texture_rect(_region_tex, _region_rect, false)
 	draw_rect(rect, Color.WHITE, false, 4.0)
 	var s: float = 1.0 / _camera.zoom.x
@@ -130,7 +174,8 @@ func _draw() -> void:
 	_label.text = "Arène %s%s — zone choisie : %d/%d — souris : %s\n%s" % [arena.id, " (modifié)" if _dirty else "",
 		zone_selected + 1, arena.zones.size(), Vector2i(get_global_mouse_position()),
 		"Glisser : points et barrières · coin = taille · clic droit glissé : nouvelle barrière · 1-9 : zone · " +
-		"Suppr : effacer · R : régions · S : enregistrer"]
+		"N : nouvelle zone · Suppr : effacer (Maj : zone)\nZQSD : vue · +/- : zoom · C : calques · " +
+		"L : recharger collisions · Ctrl+S : enregistrer"]
 
 
 ## Élément sous la souris (le plus prioritaire d'abord : poignées, puis barrières).
@@ -158,8 +203,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var b := event as InputEventMouseButton
 		if b.button_index == MOUSE_BUTTON_WHEEL_UP or b.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			var factor: float = 1.15 if b.button_index == MOUSE_BUTTON_WHEEL_UP else 1.0 / 1.15
-			_camera.zoom = (_camera.zoom * factor).clamp(Vector2.ONE * 0.08, Vector2.ONE * 3.0)
+			_zoom_by(1.15 if b.button_index == MOUSE_BUTTON_WHEEL_UP else 1.0 / 1.15)
 		elif b.button_index == MOUSE_BUTTON_MIDDLE:
 			_panning = b.pressed
 		elif b.button_index == MOUSE_BUTTON_LEFT and b.pressed:
@@ -176,6 +220,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			_drag = {}
 			_dirty = true
 			_rebuild_regions()
+	elif event is InputEventMagnifyGesture:
+		_zoom_by((event as InputEventMagnifyGesture).factor)
+	elif event is InputEventPanGesture:
+		_camera.position += (event as InputEventPanGesture).delta * 20.0 / _camera.zoom.x
 	elif event is InputEventMouseMotion:
 		var m := event as InputEventMouseMotion
 		if _panning:
@@ -188,15 +236,42 @@ func _unhandled_input(event: InputEvent) -> void:
 			zone_selected = k.keycode - KEY_1
 		elif k.keycode == KEY_DELETE:
 			var hit: Dictionary = _pick(mouse)
-			if hit.get("kind", "") in ["wall", "resize"]:
+			if k.shift_pressed and hit.get("kind", "") == "anchor":
+				arena.zones.remove_at(hit["zone"])
+				zone_selected = clampi(zone_selected, 0, maxi(arena.zones.size() - 1, 0))
+			elif hit.get("kind", "") in ["wall", "resize"]:
 				arena.zones[hit["zone"]].exit_walls.remove_at(hit["wall"])
-				_dirty = true
-				_rebuild_regions()
+			_dirty = true
+			_rebuild_regions()
+		elif k.keycode == KEY_N:
+			_add_zone(mouse.round())
 		elif k.keycode == KEY_R:
 			_rebuild_regions()
-		elif k.keycode == KEY_S:
+		elif k.keycode == KEY_C:
+			_show_layers = not _show_layers
+		elif k.keycode == KEY_L:
+			_reload_field()
+		elif k.keycode == KEY_PLUS or k.keycode == KEY_KP_ADD or k.keycode == KEY_EQUAL:
+			_zoom_by(1.25)
+		elif k.keycode == KEY_MINUS or k.keycode == KEY_KP_SUBTRACT:
+			_zoom_by(0.8)
+		elif k.keycode == KEY_S and k.ctrl_pressed:
 			save()
 	queue_redraw()
+
+
+## Nouvelle zone (ajoutée à la fin) : ses vagues sont copiées de la zone choisie, à régler ensuite dans
+## l'inspecteur du .tres (nom, vagues, récompense).
+func _add_zone(anchor: Vector2) -> void:
+	var zone := LevelZoneData.new()
+	if not arena.zones.is_empty():
+		zone = arena.zones[zone_selected].duplicate(true)
+		zone.exit_walls = []
+	zone.anchor = anchor
+	arena.zones.append(zone)
+	zone_selected = arena.zones.size() - 1
+	_dirty = true
+	_rebuild_regions()
 
 
 func _position_of(item: Dictionary) -> Vector2:

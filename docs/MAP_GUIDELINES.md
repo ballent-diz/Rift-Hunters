@@ -1,5 +1,8 @@
 # Consignes pour les prochaines cartes
 
+Générer une carte : [maps/GENERER_UNE_CARTE.md](maps/GENERER_UNE_CARTE.md) ; collisions détourées à la main et placement
+des zones à la souris : [maps/DE_L_IMAGE_AU_NIVEAU.md](maps/DE_L_IMAGE_AU_NIVEAU.md).
+
 Critères demandés par le propriétaire le 13 octobre 2026. Ils priment sur les anciennes recettes de maps lorsqu’elles donnent un rendu flou, grossièrement pixelisé ou trop encombré.
 
 ## Espace de jeu

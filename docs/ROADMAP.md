@@ -95,6 +95,7 @@ Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md
   [design/COMPETENCES_ET_BUILDS.md](design/COMPETENCES_ET_BUILDS.md), [design/LONGEVITE.md](design/LONGEVITE.md)
 - Code : [ARCHITECTURE.md](ARCHITECTURE.md) ; équilibrage : [BALANCE.md](BALANCE.md)
 - Graphismes : [ART_BIBLE.md](ART_BIBLE.md), cartes : [MAP_GUIDELINES.md](MAP_GUIDELINES.md),
+  [maps/GENERER_UNE_CARTE.md](maps/GENERER_UNE_CARTE.md), [maps/DE_L_IMAGE_AU_NIVEAU.md](maps/DE_L_IMAGE_AU_NIVEAU.md),
   pipeline d'assets : [ASSET_PIPELINE.md](ASSET_PIPELINE.md)
 - Publication : [STEAM.md](STEAM.md)
 
