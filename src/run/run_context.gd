@@ -33,6 +33,8 @@ var flow: FlowField
 var boss: Enemy
 var spawner: SpawnDirector
 var finale: ArenaFinale
+## Mode « vagues par zone » (null sinon).
+var zones: ZoneDirector
 
 
 func minutes() -> float:

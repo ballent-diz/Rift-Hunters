@@ -50,7 +50,13 @@ func _compute_move() -> Vector2:
 	if ctx.rng.randf() < 0.01:
 		_wander = _wander.rotated(ctx.rng.randf_range(-1.2, 1.2))
 	_dash_wanted = closest < 22.0 or ctx.hazards.danger_vector(pos).length() > 0.5 or threat.length() > 1.5
-	var result: Vector2 = flee + seek + home + _wander * 0.25
+	# Mode « vagues par zone » : suivre la route vers la zone suivante ou l'arène.
+	var route := Vector2.ZERO
+	if ctx.zones:
+		route = ctx.zones.objective_direction(pos) * 1.6
+		if route != Vector2.ZERO:
+			home = Vector2.ZERO
+	var result: Vector2 = flee + seek + home + route + _wander * 0.25
 	return result.normalized() if result.length() > 0.05 else Vector2.ZERO
 
 

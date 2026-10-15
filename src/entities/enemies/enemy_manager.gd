@@ -10,6 +10,8 @@ var ctx: RunContext
 var list: Array[Enemy] = []
 var obstacles: Array[Enemy] = []
 var grid := SpatialGrid.new(64.0)
+## Mode « vagues par zone » : les derniers Corrompus d'une vague accélèrent (traque).
+var hunt_speed_mult: float = 1.0
 var _buffer: Array = []
 var _overlay: Node2D
 var _dirty_removal: bool = false
@@ -79,14 +81,14 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 	var speed_mult: float = ctx.difficulty.enemy_speed_mult
 	enemy.base_defense = data.defense
 	enemy.radius = data.radius
-	enemy.xp_value = data.xp_value
+	enemy.xp_value = maxi(1, roundi(data.xp_value * ctx.arena.xp_mult))
 	var tint := Color.WHITE
 	if not elite_affixes.is_empty():
 		enemy.is_elite = true
 		enemy.affixes = elite_affixes
 		hp_mult *= ctx.balance.elite_hp_mult
 		enemy.radius *= ctx.balance.elite_size_mult
-		enemy.xp_value = int(data.xp_value * ctx.balance.elite_xp_mult)
+		enemy.xp_value = int(data.xp_value * ctx.balance.elite_xp_mult * ctx.arena.xp_mult)
 		for affix: EliteAffixData in elite_affixes:
 			hp_mult *= affix.hp_mult
 			dmg_mult *= affix.damage_mult
@@ -225,7 +227,7 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 	var nav: Vector2 = dir
 	if ctx.flow != null and target_pos == player_pos:
 		nav = ctx.flow.direction(enemy.position, dir)
-	var speed: float = enemy.move_speed * enemy.statuses.speed_mult()
+	var speed: float = enemy.move_speed * enemy.statuses.speed_mult() * hunt_speed_mult
 	match enemy.data.brain:
 		EnemyData.Brain.CHASER:
 			enemy.velocity = nav * speed

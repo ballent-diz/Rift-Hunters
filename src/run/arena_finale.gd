@@ -13,8 +13,15 @@ func setup(context: RunContext) -> void:
 		state = State.COMPLETE
 		queue_redraw())
 
+## Mode « vagues par zone » : la dernière zone est nettoyée, le Chasseur rejoint l'arène.
+func start_travel() -> void:
+	if state == State.WAVES or state == State.CLEARING:
+		state = State.TRAVEL
+		ctx.events.event_started.emit("FINALE_TRAVEL")
+
+
 func step(delta: float) -> void:
-	if state == State.WAVES and ctx.time >= ctx.arena.boss_time:
+	if state == State.WAVES and ctx.arena.zones.is_empty() and ctx.time >= ctx.arena.boss_time:
 		state = State.CLEARING
 		ctx.events.event_started.emit("FINALE_CLEAR")
 	if state == State.CLEARING:

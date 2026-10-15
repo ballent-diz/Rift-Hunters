@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="ArenaData" load_steps=13 format=3]
+[gd_resource type="Resource" script_class="ArenaData" load_steps=25 format=3]
 
 [ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
 [ext_resource type="Script" path="res://src/data/run_event_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/zone_wave_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/level_zone_data.gd" id="5"]
 
 [sub_resource type="Resource" id="wave_phase_data_1"]
 script = ExtResource("2")
@@ -94,6 +96,96 @@ params = {
 "count": 2
 }
 
+[sub_resource type="Resource" id="zone_wave_1"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling"])
+weights = Array[float]([1.0])
+count = 35
+elites = Array[StringName]([])
+spawn_rate = 1.6
+max_alive = 30
+
+[sub_resource type="Resource" id="zone_wave_2"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling", &"lunger"])
+weights = Array[float]([3.0, 1.0])
+count = 50
+elites = Array[StringName]([])
+spawn_rate = 2.0
+max_alive = 40
+
+[sub_resource type="Resource" id="zone_wave_3"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling", &"lunger", &"husk"])
+weights = Array[float]([3.0, 1.0, 1.0])
+count = 65
+elites = Array[StringName]([])
+spawn_rate = 2.3
+max_alive = 50
+
+[sub_resource type="Resource" id="zone_wave_4"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling", &"lunger", &"husk"])
+weights = Array[float]([3.0, 1.0, 1.0])
+count = 50
+elites = Array[StringName]([&"shade_stalker"])
+spawn_rate = 3.0
+max_alive = 70
+
+[sub_resource type="Resource" id="zone_wave_5"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling", &"lunger", &"husk", &"spitter"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 65
+elites = Array[StringName]([&"shade_stalker"])
+spawn_rate = 3.2
+max_alive = 80
+
+[sub_resource type="Resource" id="zone_wave_6"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling", &"lunger", &"husk", &"spitter"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 80
+elites = Array[StringName]([&"broodmother", &"shade_stalker"])
+spawn_rate = 3.5
+max_alive = 90
+
+[sub_resource type="Resource" id="zone_wave_7"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling", &"lunger", &"husk", &"spitter"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 95
+elites = Array[StringName]([&"crystal_warden", &"shade_stalker"])
+spawn_rate = 3.8
+max_alive = 100
+
+[sub_resource type="Resource" id="zone_wave_8"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"skitterling", &"lunger", &"husk", &"spitter"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 120
+elites = Array[StringName]([&"broodmother", &"crystal_warden", &"shade_stalker"])
+spawn_rate = 4.2
+max_alive = 120
+
+[sub_resource type="Resource" id="level_zone_1"]
+script = ExtResource("5")
+name_key = "ZONE_THREE_RIFTS_1_NAME"
+anchor = Vector2(-2181, -517)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2"), SubResource("zone_wave_3")])
+exit_walls = Array[Rect2]([Rect2(-840, -836, 120, 276), Rect2(-1134, 690, 344, 146)])
+heal_ratio = 0.25
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_2"]
+script = ExtResource("5")
+name_key = "ZONE_THREE_RIFTS_2_NAME"
+anchor = Vector2(0, 0)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_4"), SubResource("zone_wave_5"), SubResource("zone_wave_6"), SubResource("zone_wave_7"), SubResource("zone_wave_8")])
+exit_walls = Array[Rect2]([Rect2(1337, -447, 138, 356), Rect2(777, -41, 88, 218), Rect2(1225, 360, 120, 95)])
+heal_ratio = 0.25
+reward_chest = true
+
 [resource]
 script = ExtResource("1")
 id = &"three_rifts"
@@ -111,5 +203,7 @@ environment_id = &"environment.cascade_ruins"
 ground_color = Color(0.1, 0.11, 0.17, 1.0)
 ground_detail_color = Color(0.15, 0.16, 0.24, 1.0)
 unlocked_by_default = true
+xp_mult = 1.5
+zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2")])
 waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5")]
 events = [SubResource("run_event_data_6"), SubResource("run_event_data_7"), SubResource("run_event_data_8"), SubResource("run_event_data_9")]
