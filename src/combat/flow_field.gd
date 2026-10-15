@@ -24,6 +24,9 @@ var cell_size: float = CELL
 var origin := Vector2.ZERO
 var size := Vector2i.ZERO
 var _walkable := PackedByteArray()
+## Cases praticables sans les barrières (référence pour les rouvrir).
+var _base_walkable := PackedByteArray()
+var _walls_version: int = -1
 var _dist := PackedInt32Array()
 var _target_cell := Vector2i(-1, -1)
 
@@ -40,8 +43,59 @@ func setup(obstacles: ObstacleField, rect: Rect2, p_cell_size: float = CELL) -> 
 	for y: int in size.y:
 		for x: int in size.x:
 			var center: Vector2 = cell_center(Vector2i(x, y))
-			_walkable[y * size.x + x] = 0 if obstacles.blocks(center, CLEARANCE) else 1
+			_walkable[y * size.x + x] = 0 if obstacles.blocks(center, CLEARANCE, false) else 1
+	_base_walkable = _walkable.duplicate()
+	apply_walls(obstacles)
+
+
+## Reporte les barrières fermées sur la grille (à rappeler quand une barrière s'ouvre ou se ferme).
+func apply_walls(obstacles: ObstacleField) -> void:
+	if obstacles.walls_version == _walls_version:
+		return
+	_walls_version = obstacles.walls_version
+	_walkable = _base_walkable.duplicate()
+	for i: int in obstacles.walls.size():
+		if not obstacles.wall_enabled[i]:
+			continue
+		var r: Rect2 = obstacles.walls[i].grow(CLEARANCE)
+		var lo: Vector2i = cell_of(r.position)
+		var hi: Vector2i = cell_of(r.end)
+		for y: int in range(maxi(lo.y, 0), mini(hi.y, size.y - 1) + 1):
+			for x: int in range(maxi(lo.x, 0), mini(hi.x, size.x - 1) + 1):
+				if r.has_point(cell_center(Vector2i(x, y))):
+					_walkable[y * size.x + x] = 0
 	_target_cell = Vector2i(-1, -1)
+
+
+## Régions connexes (4-voisinage) contenant chaque graine : `labels[case]` = indice de la graine, -1 sinon.
+func label_regions(seeds: Array[Vector2]) -> PackedInt32Array:
+	var labels := PackedInt32Array()
+	labels.resize(size.x * size.y)
+	labels.fill(-1)
+	for i: int in seeds.size():
+		var start: Vector2i = _nearest_walkable(cell_of(seeds[i]))
+		if start.x < 0 or labels[start.y * size.x + start.x] >= 0:
+			continue
+		var queue: Array[int] = [start.y * size.x + start.x]
+		labels[queue[0]] = i
+		var head: int = 0
+		while head < queue.size():
+			var index: int = queue[head]
+			head += 1
+			var x: int = index % size.x
+			var y: int = index / size.x
+			for n: Vector2i in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+				var c := Vector2i(x + n.x, y + n.y)
+				if is_walkable(c) and labels[c.y * size.x + c.x] < 0:
+					labels[c.y * size.x + c.x] = i
+					queue.append(c.y * size.x + c.x)
+	return labels
+
+
+## Région d'une position d'après `labels` (case praticable la plus proche si la position touche un bord).
+func region_at(labels: PackedInt32Array, pos: Vector2) -> int:
+	var cell: Vector2i = _nearest_walkable(cell_of(pos))
+	return labels[cell.y * size.x + cell.x] if cell.x >= 0 else -1
 
 
 func is_walkable(cell: Vector2i) -> bool:
@@ -130,10 +184,28 @@ func direction(pos: Vector2, direct: Vector2) -> Vector2:
 				continue
 			best = value
 			best_cell = c
+	if best_cell.x < 0 and here == UNREACHED:
+		best_cell = _nearest_reached(cell)
 	if best_cell.x < 0:
 		return direct
 	var flow: Vector2 = (cell_center(best_cell) - pos).normalized()
 	return direct if flow.dot(direct) > STRAIGHT_DOT else flow
+
+
+## Case joignable la plus proche (sortir d'un recoin plus étroit que la marge de navigation).
+func _nearest_reached(cell: Vector2i) -> Vector2i:
+	for radius: int in range(3, 9):
+		var best := Vector2i(-1, -1)
+		var best_d: float = INF
+		for dy: int in range(-radius, radius + 1):
+			for dx: int in range(-radius, radius + 1):
+				var c := Vector2i(cell.x + dx, cell.y + dy)
+				if _in_bounds(c) and _dist[c.y * size.x + c.x] < UNREACHED and Vector2(dx, dy).length() < best_d:
+					best_d = Vector2(dx, dy).length()
+					best = c
+		if best.x >= 0:
+			return best
+	return Vector2i(-1, -1)
 
 
 func _in_bounds(cell: Vector2i) -> bool:

@@ -70,6 +70,12 @@ func start(setup: RunSetup) -> void:
 		ctx.finale = ArenaFinale.new()
 		ctx.finale.setup(ctx)
 		ctx.world.add_child(ctx.finale)
+	if not ctx.arena.zones.is_empty():
+		ctx.zones = ZoneDirector.new(ctx)
+		var overlay := ZoneOverlay.new()
+		overlay.setup(ctx)
+		ctx.zones.overlay = overlay
+		ctx.world.add_child(overlay)
 	event_director = EventDirector.new(ctx)
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
 		boss_controller = BossController.new(ctx, boss)
@@ -239,6 +245,8 @@ func _physics_process(delta: float) -> void:
 	ctx.time += delta
 	if ctx.finale:
 		ctx.finale.step(delta)
+	if ctx.zones:
+		ctx.zones.step(delta)
 	spawner.step(delta)
 	event_director.step(delta)
 	ctx.player.step(delta)

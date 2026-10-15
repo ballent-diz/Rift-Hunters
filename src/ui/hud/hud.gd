@@ -101,6 +101,8 @@ func _draw() -> void:
 		elif ctx.finale.state >= ArenaFinale.State.OPENING:
 			key = "FINALE_OPENING" if ctx.finale.state == ArenaFinale.State.OPENING else "FINALE_FIGHT"
 		_text(Vector2(0, 66), tr(key), 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
+	elif ctx.zones:
+		_draw_zone_status(w, h)
 	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
 		var boss_name: String = tr(GameDB.boss(ctx.arena.boss_id).name_key)
@@ -201,3 +203,43 @@ func _draw_boss(w: float) -> void:
 			HORIZONTAL_ALIGNMENT_RIGHT, 220)
 	elif boss.is_invulnerable():
 		_text(Vector2(rect.end.x - 220, rect.position.y - 4), tr("BOSS_INVULNERABLE"), 16, UiKit.MUTED, HORIZONTAL_ALIGNMENT_RIGHT, 220)
+
+
+## Mode « vagues par zone » : zone, vague et Corrompus restants ; flèches vers les derniers pendant la traque.
+func _draw_zone_status(w: float, h: float) -> void:
+	var zones: ZoneDirector = ctx.zones
+	var line: String = ""
+	match zones.phase:
+		ZoneDirector.Phase.WAVE:
+			line = tr("HUD_ZONE_WAVE") % [zones.zone_index + 1, zones.wave_index + 1, zones.zone().waves.size(),
+				zones.remaining()]
+		ZoneDirector.Phase.START, ZoneDirector.Phase.PAUSE:
+			line = tr("HUD_ZONE_NEXT_WAVE") % [zones.zone_index + 1, zones.wave_index + 1, zones.zone().waves.size(),
+				ceili(zones.seconds_left())]
+		ZoneDirector.Phase.ENTER:
+			line = tr("HUD_ZONE_ADVANCE")
+	if line != "":
+		_text(Vector2(0, 66), line, 15, UiKit.ACCENT if zones.phase == ZoneDirector.Phase.ENTER else UiKit.MUTED,
+			HORIZONTAL_ALIGNMENT_CENTER, w)
+	if zones.hunting:
+		_text(Vector2(0, 86), tr("HUD_ZONE_HUNT"), 14, UiKit.GOLD, HORIZONTAL_ALIGNMENT_CENTER, w)
+		_draw_hunt_arrows(w, h)
+
+
+func _draw_hunt_arrows(w: float, h: float) -> void:
+	var to_screen: Transform2D = ctx.world.get_canvas_transform()
+	var screen := Rect2(Vector2.ZERO, Vector2(w, h))
+	var center: Vector2 = screen.get_center()
+	var drawn: int = 0
+	for enemy: Enemy in ctx.enemies.list:
+		if not enemy.alive or drawn >= 12:
+			continue
+		var p: Vector2 = to_screen * enemy.global_position
+		if screen.grow(-20.0).has_point(p):
+			continue
+		var dir: Vector2 = (p - center).normalized()
+		var reach: float = minf((w * 0.5 - 36.0) / maxf(absf(dir.x), 0.001), (h * 0.5 - 36.0) / maxf(absf(dir.y), 0.001))
+		var tip: Vector2 = center + dir * reach
+		var side: Vector2 = dir.orthogonal() * 9.0
+		draw_colored_polygon(PackedVector2Array([tip, tip - dir * 16.0 + side, tip - dir * 16.0 - side]), UiKit.GOLD)
+		drawn += 1

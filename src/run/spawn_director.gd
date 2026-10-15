@@ -25,6 +25,8 @@ func current_wave() -> WavePhaseData:
 
 
 func step(delta: float) -> void:
+	if not ctx.arena.zones.is_empty():
+		return  # mode « vagues par zone » : ZoneDirector fait apparaître les vagues
 	if ctx.arena.finale_radii.x > 0 and ctx.time >= ctx.arena.boss_time:
 		return
 	var wave: WavePhaseData = current_wave()
@@ -84,7 +86,7 @@ func spawn_position() -> Vector2:
 	return best
 
 
-func spawn_elite(enemy_id: StringName = &"") -> Enemy:
+func spawn_elite(enemy_id: StringName = &"", at: Vector2 = Vector2.INF) -> Enemy:
 	if enemy_id == &"" and not ctx.arena.elite_enemy_ids.is_empty():
 		enemy_id = ctx.arena.elite_enemy_ids[ctx.rng.randi() % ctx.arena.elite_enemy_ids.size()]
 	var data: EnemyData = GameDB.enemy(enemy_id) if enemy_id != &"" else null
@@ -105,7 +107,7 @@ func spawn_elite(enemy_id: StringName = &"") -> Enemy:
 		affix_ids.erase(pick)
 		chosen.append(GameDB.affix(pick))
 	ctx.stats.add(&"elites_spawned")
-	return ctx.enemies.spawn(data, spawn_position(), chosen)
+	return ctx.enemies.spawn(data, spawn_position() if at == Vector2.INF else at, chosen)
 
 
 func spawn_boss() -> void:

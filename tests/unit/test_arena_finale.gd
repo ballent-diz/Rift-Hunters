@@ -15,16 +15,15 @@ func make_run(arena_id: StringName = &"three_rifts") -> RunController:
 func test_finale_requires_clear_then_arrival_and_keeps_echoes() -> void:
 	var run: RunController = make_run()
 	var ctx: RunContext = run.ctx
+	# Mode « vagues par zone » : la finale démarre quand la dernière zone est nettoyée (test_zone_mode).
 	ctx.time = ctx.arena.boss_time
-	ctx.enemies.spawn(GameDB.enemy(&"skitterling"), ctx.player.position + Vector2(100, 0))
 	ctx.finale.step(0.1)
-	check_eq(ctx.finale.state, ArenaFinale.State.CLEARING, "attente du dernier ennemi")
+	check_eq(ctx.finale.state, ArenaFinale.State.WAVES, "pas de finale au chrono en mode zones")
 	var count: int = ctx.enemies.count()
 	run.spawner.step(100)
-	check_eq(ctx.enemies.count(), count, "aucune nouvelle vague")
+	check_eq(ctx.enemies.count(), count, "aucune vague au chrono")
 	check(ctx.boss == null, "pas de boss chronométré")
-	ctx.enemies.clear_all()
-	ctx.finale.step(0.1)
+	ctx.finale.start_travel()
 	check_eq(ctx.finale.state, ArenaFinale.State.TRAVEL, "appel vers le cercle")
 	ctx.finale.step(10)
 	check(ctx.boss == null, "attend la venue du Chasseur")

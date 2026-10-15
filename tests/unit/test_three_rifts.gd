@@ -10,7 +10,8 @@ func test_level_and_original_panels_load() -> void:
 	check(env != null and env.is_map(), "décor chargé")
 	check_eq(env.map_tiles.size(), 3, "une image continue répartie en trois textures contiguës")
 	check(env.map_texture.get_width() * env.map_tiles.size() >= 11000, "texture agrandie pour le rendu en jeu")
-	check_near(env.map_texture.get_width() * env.map_tiles.size() / float(env.map_texture.get_height()), 3, .001, "panorama sans déformation")
+	var ratio: float = env.map_texture.get_width() * env.map_tiles.size() / float(env.map_texture.get_height())
+	check_near(ratio, 3, .001, "panorama sans déformation")
 	check_eq(env.field_image.get_size(), Vector2i(2508, 836), "champ rectangulaire")
 
 

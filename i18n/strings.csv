@@ -618,3 +618,11 @@ ARENA_STORM_HIGHLANDS_NAME,Hautes Terres d’Orage,Storm Highlands
 ARENA_STORM_HIGHLANDS_DESC,Explorez les landes et les ruines puis affrontez Astravorn.,Explore the moors and ruins then face Astravorn.
 BOSS_ASTRAVORN_PHASE1,Veilleur des Hautes Terres,Watcher of the Highlands
 HUD_NAMED_BOSS_IN,%s arrive dans %d:%02d,%s arrives in %d:%02d
+HUD_ZONE_WAVE,Zone %d · Vague %d/%d · %d restants,Zone %d · Wave %d/%d · %d left
+HUD_ZONE_NEXT_WAVE,Zone %d · Vague %d/%d dans %d s,Zone %d · Wave %d/%d in %d s
+HUD_ZONE_ADVANCE,Les barrières sont tombées : suivez la flèche vers la zone suivante.,The barriers have fallen: follow the arrow to the next zone.
+HUD_ZONE_HUNT,Derniers Corrompus : ils accourent !,The last Corrupted are coming for you!
+ZONE_WAVE_BANNER,Vague %d / %d,Wave %d / %d
+ZONE_CLEARED_BANNER,Zone libérée ! Les barrières se dissipent.,Zone cleared! The barriers fade away.
+ZONE_THREE_RIFTS_1_NAME,Le Gué des Ruines,The Ruins Ford
+ZONE_THREE_RIFTS_2_NAME,La Cour des Cascades,The Cascade Courtyard

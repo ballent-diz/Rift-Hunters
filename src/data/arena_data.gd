@@ -16,6 +16,11 @@ extends Resource
 @export var finale_radii := Vector2.ZERO
 @export var finale_opening_duration: float = 3.0
 @export var waves: Array[WavePhaseData] = []
+## Mode « vagues par zone » (si non vide) : zones à nettoyer dans l'ordre, puis la finale (boss).
+## Les vagues au chrono, les événements et le boss chronométré sont alors désactivés.
+@export var zones: Array[LevelZoneData] = []
+## Multiplicateur d'XP des Corrompus (mode zones : nombre fini d'ennemis, il faut garder le rythme des niveaux).
+@export var xp_mult: float = 1.0
 @export var events: Array[RunEventData] = []
 @export var elite_first_time: float = 90.0
 @export var elite_interval: float = 60.0
