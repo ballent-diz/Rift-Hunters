@@ -1,0 +1,225 @@
+
+Scripts vérifiés : 175, échecs : 0
+✅ scripts
+
+  ✓ test_arena_finale::test_finale_requires_clear_then_arrival_and_keeps_echoes
+  ✓ test_arena_finale::test_other_arenas_keep_timed_boss
+  ✓ test_assets::test_manifest_loaded
+  ✓ test_assets::test_every_visual_id_is_declared
+  ✓ test_assets::test_manifest_has_no_errors
+  ✓ test_assets::test_validator_detects_bad_sheet
+  ✓ test_assets::test_validator_accepts_good_sheet
+  ✓ test_assets::test_placeholder_generation
+  ✓ test_assets::test_missing_sheet_falls_back_to_placeholder
+  ✓ test_assets::test_generated_sheet_is_used
+  ✓ test_build::test_offer_count_and_uniqueness
+  ✓ test_build::test_max_stacks_respected
+  ✓ test_build::test_exclusive_mutations
+  ✓ test_build::test_locked_upgrade_not_offered
+  ✓ test_build::test_recruit_requires_free_slot
+  ✓ test_build::test_evolution_offered_at_rank_three
+  ✓ test_build::test_evolution_changes_behaviour
+  ✓ test_build::test_pyrefang_becomes_area_and_burns
+  ✓ test_build::test_secret_evolution_conditions
+  ✓ test_build::test_relic_tradeoff
+  ✓ test_build::test_empower_increases_damage
+  ✓ test_content_p4::test_gloommaw_devours_weak_enemies_only
+  ✓ test_content_p4::test_mirrorling_reflects_projectiles
+  ✓ test_content_p4::test_thornweave_wall_roots_but_not_bosses
+  ✓ test_content_p4::test_voltwisp_chains_and_charges
+  ✓ test_content_p4::test_warden_and_summoner_brains
+  ✓ test_content_p4::test_shade_stalker_teleports_behind
+  ✓ test_content_p4::test_capture_recruits_and_records
+  ✓ test_content_p4::test_modifiers_raise_difficulty_and_rewards
+  ✓ test_content_p4::test_glass_hunter_reduces_hp
+  ✓ test_content_p4::test_deep_roots_and_predators_synergies
+  ✓ test_damage::test_defense_formula
+  ✓ test_damage::test_damage_applies_defense
+  ✓ test_damage::test_fracture_amplifies_damage
+  ✓ test_damage::test_kill_drops_xp_and_counts
+  ✓ test_damage::test_elite_drops_chest
+  ✓ test_damage::test_player_iframes
+  ✓ test_damage::test_last_breath_prevents_death
+  ✓ test_damage::test_status_stacking_and_detonation
+  ✓ test_damage::test_mark_bonus_stacks_from_stats
+  ✓ test_damage::test_burn_ticks
+  ✓ test_data::test_no_load_errors
+  ✓ test_data::test_minimum_content
+  ✓ test_data::test_status_references
+  ✓ test_data::test_monsters_are_complete
+  ✓ test_data::test_monsters_play_differently
+  ✓ test_data::test_arena_references
+  ✓ test_data::test_boss_patterns_exist_in_code
+  ✓ test_data::test_synergies_reference_monsters
+  ✓ test_data::test_difficulties_are_ordered
+  ✓ test_environment::test_fractured_plain_environment_loads
+  ✓ test_environment::test_layout_is_deterministic_and_respects_rules
+  ✓ test_environment::test_density_multiplier_scales_interior
+  ✓ test_environment::test_border_sprites_never_cover_the_arena
+  ✓ test_environment::test_ground_falls_back_without_environment
+  ✓ test_environment::test_validator_rejects_decal_outside_atlas
+  ✓ test_environment::test_obstacle_field_pushes_out_and_slides
+  ✓ test_environment::test_obstacles_leave_paths_and_clear_start
+  ✓ test_environment::test_map_arena_zones
+  ✓ test_environment::test_player_cannot_enter_obstacles
+  ✓ test_environment::test_stuck_echo_blinks_back_to_hunter
+  ✓ test_environment::test_flow_field_goes_around_walls
+    carte de flux : 1889 cases praticables, 1798 atteintes ; préparation 9.3 ms, calcul 4.07 ms
+  ✓ test_environment::test_flow_field_cost_on_map
+  ✓ test_item_art::test_every_upgrade_and_relic_has_a_distinct_illustration
+  ✓ test_item_art::test_illustrations_keep_transparency_and_readable_size
+  ✓ test_item_art::test_art_does_not_intercept_card_clicks
+  ✓ test_item_art::test_illustrated_choices_apply_the_original_upgrade_and_relic
+  ✓ test_item_art::test_undiscovered_relic_stays_hidden_in_bestiary
+  ✓ test_localization::test_all_rows_have_both_languages
+  ✓ test_localization::test_placeholders_match_between_languages
+  ✓ test_localization::test_data_keys_are_translated
+  ✓ test_localization::test_code_keys_are_translated
+  ✓ test_localization::test_ui_literal_keys_are_translated
+  ✓ test_localization::test_translation_server_has_both_locales
+  ✓ test_main_menu::test_art_and_hit_targets_stay_inside_each_resolution
+  ✓ test_main_menu::test_language_action_rebuilds_translated_controls
+  ✓ test_main_menu::test_keyboard_cycle_and_credits_action
+  ✓ test_map_passages::test_visible_stairs_and_basalt_are_reachable
+  ✓ test_map_passages::test_basalt_has_turning_room_and_lava_stays_blocked
+  ✓ test_menu_skin::test_refuge_keeps_all_tabs_and_hides_unknown_portraits
+  ✓ test_menu_skin::test_echo_portrait_reuses_actual_game_sprite_and_palette
+  ✓ test_menu_skin::test_menu_theme_does_not_change_shared_hud_theme
+  ✓ test_menu_skin::test_pause_and_results_keep_existing_callbacks
+  ✓ test_modal_layout::test_level_choices_remain_accessible_in_small_windows
+  ✓ test_modal_layout::test_four_choices_wrap_and_stay_accessible
+    Charge : 260 ennemis, 142 projectiles → 6.99 ms/frame (budget 10 ms)
+  ✓ test_performance::test_dense_crowd_step_time
+  ✓ test_polish::test_gamepad_actions_exist
+  ✓ test_polish::test_objective_unlocks_platform_achievement
+  ✓ test_polish::test_tutorial_only_on_first_run
+  ✓ test_polish::test_settings_roundtrip
+  ✓ test_polish::test_hitstop_pauses_simulation_only_for_humans
+  ✓ test_polish::test_debris_are_capped
+  ✓ test_polish::test_audio_missing_files_are_silent
+  ✓ test_polish::test_music_folders_are_scanned
+  ✓ test_polish::test_music_playlist_and_fallbacks
+  ✓ test_polish::test_measured_tempo_is_applied
+  ✓ test_polish::test_player_sprite_and_death_animation
+  ✓ test_progression::test_tree_prerequisites_and_costs
+  ✓ test_progression::test_tree_exclusive_nodes
+  ✓ test_progression::test_tree_respec_rules
+  ✓ test_progression::test_tree_effects_scale_with_rank
+  ✓ test_progression::test_tree_effects_apply_in_run
+  ✓ test_progression::test_glimmerwing_locked_then_unlocked_by_objective
+  ✓ test_progression::test_objective_conditions
+  ✓ test_progression::test_lifetime_objective_accumulates
+  ✓ test_progression::test_victory_unlocks_next_tension_and_rewards
+  ✓ test_progression::test_mastery_rewards_play_style
+  ✓ test_progression::test_mastery_level_rewards
+  ✓ test_progression::test_research_spends_essence_and_unlocks
+  ✓ test_progression::test_discoveries_recorded
+  ✓ test_save::test_save_and_reload
+  ✓ test_save::test_second_save_creates_backup
+ERROR: Parse JSON failed. Error at line 0: Expected key
+   at: (core/io/json.cpp:576)
+WARNING: Sauvegarde corrompue conservée dans user://test_saves/profile_15888670.json.corrupted-2026-10-14T22-30-49
+     at: push_warning (core/variant/variant_utility.cpp:1112)
+  ✓ test_save::test_corrupted_file_restores_backup
+ERROR: Parse JSON failed. Error at line 0: Expected 'true','false' or 'null', got 'garbage'.
+   at: (core/io/json.cpp:576)
+WARNING: Sauvegarde corrompue conservée dans user://test_saves/profile_15960845.json.corrupted-2026-10-14T22-30-49
+     at: push_warning (core/variant/variant_utility.cpp:1112)
+  ✓ test_save::test_corrupted_without_backup_is_never_deleted
+WARNING: Sauvegarde invalide (user://test_saves/profile_15991984.json) : format_version absent
+     at: push_warning (core/variant/variant_utility.cpp:1112)
+WARNING: Sauvegarde corrompue conservée dans user://test_saves/profile_15991984.json.corrupted-2026-10-14T22-30-49
+     at: push_warning (core/variant/variant_utility.cpp:1112)
+  ✓ test_save::test_invalid_structure_is_treated_as_corrupted
+  ✓ test_save::test_missing_file
+  ✓ test_save::test_migration_v0_to_v1
+  ✓ test_save::test_newer_version_is_refused
+  ✓ test_save::test_sanitize_keeps_unknown_keys
+  ✓ test_save::test_profile_autoload_roundtrip_and_read_only
+  ✓ test_save::test_numbers_survive_json_roundtrip
+  ✓ test_stats::test_base_flat_pct
+  ✓ test_stats::test_pct_floor
+  ✓ test_stats::test_remove_modifier
+  ✓ test_stats::test_spatial_grid_query
+  ✓ test_stats::test_xp_curve_increases
+  ✓ test_storm_highlands::test_map_routes_clearance_and_scale
+  ✓ test_storm_highlands::test_new_bestiaire_spawn_and_boss
+  ✓ test_synergies::test_synergy_activates_with_pair
+  ✓ test_synergies::test_breach_and_blade_extra_strike
+  ✓ test_synergies::test_no_extra_strike_without_fracture
+  ✓ test_synergies::test_prism_ember_spreads_marks
+  ✓ test_synergies::test_gravity_prism_marks_pulled_enemies
+  ✓ test_synergies::test_mossback_guard_reduces_damage
+  ✓ test_three_rifts::test_level_and_original_panels_load
+  ✓ test_three_rifts::test_routes_connect_all_three_maps_with_enemy_clearance
+  ✓ test_three_rifts::test_level_starts_with_camera_and_existing_combat
+  ✓ test_three_rifts::test_missing_panel_falls_back_and_is_reported
+  ✓ test_three_rifts::test_open_plazas_allow_turning_without_small_rock_collisions
+  ✓ test_three_rifts::test_broken_bridge_cannot_be_crossed_by_dashing
+  ✓ test_ui_layout::test_run_ui_fills_screen_when_built_in_tree
+  ✓ test_ui_layout::test_menus_fill_screen_when_built_in_tree
+
+Tests : 142, réussis : 142, échoués : 0
+✅ unit
+
+Écriture : OK
+✅ persistence_write
+
+  ✓ état
+  ✓ Éclats
+  ✓ arbre
+  ✓ déblocage
+  ✓ maîtrise
+Relecture après redémarrage : OK
+✅ persistence_read
+
+OK           player.hunter
+OK           monster.ashblade
+OK           monster.mossback
+OK           monster.glimmerwing
+OK           enemy.skitterling
+OK           enemy.husk
+OK           enemy.spitter
+OK           enemy.lunger
+OK           boss.nebulorax
+OK           monster.thornweave
+OK           monster.voltwisp
+OK           monster.gloommaw
+PLACEHOLDER  monster.mirrorling
+OK           enemy.broodmother
+OK           enemy.shade_stalker
+OK           enemy.crystal_warden
+OK           monster.ashblade.eclipse_blade
+OK           monster.ashblade.pyrefang
+OK           environment.fractured_plain
+OK           environment.fractured_plain_map
+OK           environment.three_rifts
+OK           environment.cascade_ruins
+OK           boss.astravorn
+OK           enemy.ash_newt
+OK           enemy.heath_runner
+OK           enemy.menhir_warden
+OK           enemy.peak_chimera
+OK           enemy.silver_harpy
+OK           enemy.slate_scarab
+OK           enemy.storm_knight
+OK           environment.storm_highlands
+
+Assets : 31, valides : 30, placeholders : 1, erreurs : 0
+✅ assets
+Aperçu : (2166, 554)
+Import OK : fond retiré, frames découpées, échelle et palette communes, ancrage aux pieds.
+✅ art
+
+Smoke test : départ ashblade / tension_0 / graine 1
+  t=29s niv=3 ennemis=6 éliminations=32 PV=100 équipe=[&"ashblade", &"gloommaw"] boss=-
+  t=59s niv=3 ennemis=9 éliminations=68 PV=100 équipe=[&"ashblade", &"gloommaw"] boss=-
+  t=89s niv=6 ennemis=14 éliminations=123 PV=58 équipe=[&"ashblade", &"gloommaw"] boss=-
+  t=119s niv=7 ennemis=23 éliminations=175 PV=72 équipe=[&"ashblade", &"gloommaw"] boss=-
+  t=149s niv=8 ennemis=36 éliminations=258 PV=66 équipe=[&"ashblade", &"gloommaw"] boss=-
+  t=179s niv=10 ennemis=50 éliminations=323 PV=80 équipe=[&"ashblade", &"gloommaw"] boss=-
+Fin de partie : DÉFAITE en 195s, niveau 11, 358 éliminations, élites 2, coffres 2, évolutions [], reliques ["hunters_eye", "hunter_lantern"], synergies ["predators"]
+Dégâts par source : { "player": 2286.25618686868, "ashblade": 3872.44949494949, "gloommaw": 1000039.67068184, "taken_lunger": 77.6492000000001, "taken_skitterling": 104.392666666667, "taken_husk": 79.6957333333343 }
+RESULT|ashblade|fractured_plain|tension_0|0|195|11|358|0|1.00|261
+Récompenses : { "shards": 109, "essence": 2, "lines": [] }
+✅ smoke

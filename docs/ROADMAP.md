@@ -40,7 +40,9 @@ des dizaines d'heures de rejouabilité : objectifs de cartes, Tension, New Game+
 | **Propriétaire** | Génère les images (sprites, maps), valide les décisions, teste en jeu | Tranche les questions ouvertes |
 
 Un lot = une branche depuis `main` à jour + une pull request vers `main` avec `tools/run_tests.sh` vert
-(voir `AGENTS.md`). Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-dessous.
+(voir `AGENTS.md`). Exception pour les retouches visuelles de Codex, demandée par le propriétaire :
+contrôles ciblés une fois en fin de lot, captures et essais manuels du propriétaire ; ne pas répéter la suite complète.
+Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-dessous.
 
 ## Plan, dans l'ordre
 
@@ -58,7 +60,7 @@ Un lot = une branche depuis `main` à jour + une pull request vers `main` avec `
 |---|---|---|---|---|
 | B1 | Données chapitre / carte, déblocage en avançant, 3 objectifs par carte, récompenses dégressives, Tension par carte, migration de sauvegarde | Claude | A1 | À faire |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | À faire |
-| B3 | Nouvelles cartes du chapitre 1 et cartes colorées du chapitre 2 (+ famille de monstres associée) | Propriétaire (images) + Codex (intégration, zones, collisions) | A1 pour les cartes en vagues | En cours (Codex) — Cascades et Hautes Terres d’Orage : intégration prête pour PR, tests verts ; validation du propriétaire et A1/A2 à suivre |
+| B3 | Nouvelles cartes du chapitre 1 et cartes colorées du chapitre 2 (+ famille de monstres associée) | Propriétaire (images) + Codex (intégration, zones, collisions) | A1 pour les cartes en vagues | En cours (Codex) — retours corrigés : textures ×3, détails d’échelle, basalte et escaliers ; PR prête, validation manuelle du propriétaire attendue ; A1/A2 à suivre |
 
 ### Étape C — Sorts et builds
 

@@ -10,13 +10,17 @@ Les mêmes règles s'appliquent à tous les agents ; `CLAUDE.md` en est la versi
 2. **Bilingue FR/EN** : tout texte visible par le joueur passe par une clé de `i18n/strings.csv` avec les colonnes
    `fr` ET `en` remplies. Jamais de texte en dur. Le test `test_localization` échoue sinon.
 3. **Langue de travail : français** (docs, commits, échanges). Identifiants de code en anglais.
-4. **Rien n'est terminé sans vérification** : `tools/run_tests.sh` vert (et une capture si c'est visuel).
+4. **Vérification proportionnée** : `tools/run_tests.sh` pour les changements de code qui le justifient.
+   Pour les lots visuels de Codex, décision du propriétaire du 14 octobre : contrôles ciblés de chargement et
+   d’erreurs évidentes une fois en fin de lot, captures, puis essais en jeu par le propriétaire. Ne pas relancer
+   systématiquement toute la suite à chaque retouche ; conserver les tests existants.
 
 ## Git : organisation commune
 
 - `main` est la version de référence. On ne pousse pas directement dessus : une branche par tâche
   (`codex/<sujet>` pour Codex, `claude/<sujet>` pour Claude), créée **depuis un `main` à jour**, puis une pull request
-  vers `main`. On fusionne seulement ce qui passe les tests.
+  vers `main`. Pour le code, on fusionne seulement ce qui passe les tests ; pour les lots visuels de Codex,
+  appliquer les contrôles ciblés et la validation manuelle indiqués ci-dessus.
 - Avant de commencer : `git fetch origin && git checkout -b codex/<sujet> origin/main`.
 - Un seul agent à la fois sur une même branche. Après fusion, supprimer la branche (pas de branches `snapshot/…` :
   l'historique git suffit pour revenir en arrière).

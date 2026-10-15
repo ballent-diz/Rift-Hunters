@@ -49,5 +49,15 @@
       ],
       "tool": "tools/art/apply_map_patch.gd"
     }
+  },
+  "current_revision": {
+    "mode": "built-in image_gen",
+    "recipe": "tools/art/map_revisions.json",
+    "source": "source/map_revised.png",
+    "generated_patches": "source/revision/",
+    "presentation_factor": 3,
+    "conversion": "tools/art/convert_revision_maps.py",
+    "render_filter": "linear + map_detail.gdshader (0.32)",
+    "note": "Retouches générées reportées directement dans la présentation ; les dimensions du monde sont conservées."
   }
 }

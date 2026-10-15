@@ -8,9 +8,9 @@ func test_level_and_original_panels_load() -> void:
 	check_eq(arena.size, Vector2(5016, 1672), "trois panneaux carrés sans déformation")
 	var env: EnvironmentSet = Assets.environment(arena.environment_id)
 	check(env != null and env.is_map(), "décor chargé")
-	check(env.map_tiles.is_empty(), "une seule texture continue")
-	check(env.map_texture.get_width() >= 6000, "texture agrandie pour le rendu en jeu")
-	check_near(env.map_texture.get_width() / float(env.map_texture.get_height()), 3, .001, "panorama sans déformation")
+	check_eq(env.map_tiles.size(), 3, "une image continue répartie en trois textures contiguës")
+	check(env.map_texture.get_width() * env.map_tiles.size() >= 11000, "texture agrandie pour le rendu en jeu")
+	check_near(env.map_texture.get_width() * env.map_tiles.size() / float(env.map_texture.get_height()), 3, .001, "panorama sans déformation")
 	check_eq(env.field_image.get_size(), Vector2i(2508, 836), "champ rectangulaire")
 
 
