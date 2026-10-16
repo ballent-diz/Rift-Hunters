@@ -20,6 +20,7 @@ var skill_nodes: Dictionary = {}
 var objectives: Dictionary = {}
 var research: Dictionary = {}
 var modifiers: Dictionary = {}
+var spells: Dictionary = {}
 var load_errors: PackedStringArray = []
 
 
@@ -48,6 +49,7 @@ func load_all() -> void:
 	objectives = _load_dir("progression/objectives")
 	research = _load_dir("progression/research")
 	modifiers = _load_dir("modifiers")
+	spells = _load_dir("spells")
 	for error: String in load_errors:
 		push_error("GameDB : " + error)
 

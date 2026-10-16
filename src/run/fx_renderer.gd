@@ -30,6 +30,9 @@ func damage_number(pos: Vector2, amount: float, info: DamageInfo) -> void:
 	elif info.has_tag(DamageInfo.TAG_DETONATION):
 		color = Color(0.5, 1.0, 1.0)
 		size = 17
+	elif info.has_tag(DamageInfo.TAG_SPELL):
+		color = Color(1.0, 0.95, 0.75)
+		size = 16
 	elif info.has_tag(DamageInfo.TAG_TECHNIQUE):
 		color = Color(1.0, 0.9, 0.4)
 		size = 16
@@ -65,6 +68,22 @@ func debris(pos: Vector2, color: Color, count: int, speed: float = 160.0) -> voi
 		var dir := Vector2.RIGHT.rotated(randf() * TAU)
 		_particles.append({"pos": pos, "vel": dir * randf_range(speed * 0.4, speed), "color": color,
 			"size": randf_range(1.5, 3.5), "life": randf_range(0.25, 0.5), "total": 0.5})
+
+
+## Arc plein (Taille fendante) : centre, direction, rayon et demi-angle en radians.
+func sector(pos: Vector2, dir: Vector2, radius: float, half_angle: float, color: Color, life: float) -> void:
+	_shapes.append({"type": 5, "pos": pos, "points": sector_points(pos, dir, radius, half_angle), "color": color,
+		"size": radius, "life": life, "total": life})
+
+
+## Contour d'un arc plein (polygone : centre puis points de l'arc).
+static func sector_points(pos: Vector2, dir: Vector2, radius: float, half_angle: float) -> PackedVector2Array:
+	var points := PackedVector2Array([pos])
+	var steps: int = 14
+	for i: int in steps + 1:
+		var angle: float = -half_angle + 2.0 * half_angle * i / steps
+		points.append(pos + dir.rotated(angle) * radius)
+	return points
 
 
 ## Télégraphe de trajectoire dangereuse (charge d'ennemi).
@@ -119,6 +138,10 @@ func _draw() -> void:
 			4:
 				draw_line(e["pos"], e["to"], Color(color, 0.25), float(e["size"]))
 				draw_line(e["pos"], e["to"], Color(color, 0.85), 2.0)
+			5:
+				var points: PackedVector2Array = e["points"]
+				draw_colored_polygon(points, Color(color, alpha * 0.8))
+				draw_polyline(points.slice(1), Color(color, alpha + 0.3), 3.0)
 	for n: Dictionary in _numbers:
 		var t: float = float(n["life"]) / float(n["total"])
 		var color: Color = n["color"]

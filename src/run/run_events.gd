@@ -9,6 +9,7 @@ signal detonation(enemy: Enemy, stacks: int, source_id: StringName)
 signal player_hurt(amount: float)
 signal player_dashed(from: Vector2, to: Vector2)
 signal technique_cast(monster_id: StringName, technique_kind: StringName)
+signal spell_cast(spell_id: StringName)
 signal well_tick(enemies: Array, source_id: StringName)
 signal team_changed
 signal synergy_activated(synergy_id: StringName)

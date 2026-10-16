@@ -99,6 +99,16 @@ func technique_pressed(_index: int) -> bool:
 	return ctx.enemies.count() > 8 or ctx.boss != null
 
 
+## Comme un joueur : Taille fendante (emplacement 0) au contact, Lance prismatique (1) dès qu'une cible est à portée.
+func spell_pressed(slot: int) -> bool:
+	var spells: HunterSpells = ctx.spells
+	if spells == null or slot >= spells.slots.size() or spells.slots[slot] == null:
+		return false
+	var spell: SpellData = spells.slots[slot]
+	var reach: float = spell.spell_range * (0.9 if spell.spell_kind == &"slash" else 0.7)
+	return ctx.enemies.find_nearest(ctx.player.global_position, reach) != null
+
+
 ## Comme un joueur : ordonne aux Échos de cibler le boss (ordre de focus).
 func focus_requested() -> bool:
 	return ctx.boss != null and ctx.boss.alive and ctx.allies.focus_time <= 0.0

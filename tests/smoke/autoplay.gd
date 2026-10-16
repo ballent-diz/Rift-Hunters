@@ -97,6 +97,7 @@ func _on_finished(result: Dictionary) -> void:
 		int(counters.get("elites_killed", 0)), int(counters.get("chests_opened", 0)), result["evolutions"],
 		result["relics"], result["synergies"]])
 	print("Dégâts par source : ", result["stats"]["damage_by_source"])
+	print("Sorts lancés : ", int(_run.ctx.stats.get_value(&"spells_cast")))
 	var boss_ratio: float = (_run.ctx.boss.hp / _run.ctx.boss.max_hp) if _run.ctx.boss else 1.0
 	var boss_time: float = float(result["time"]) - _run.ctx.arena.boss_time if _run.ctx.boss else 0.0
 	print("RESULT|%s|%s|%s|%d|%d|%d|%d|%d|%.2f|%d" % [_run.ctx.setup.starter_id, _run.ctx.arena.id, _run.ctx.setup.difficulty_id,

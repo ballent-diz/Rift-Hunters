@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="2"]
+
+[sub_resource type="Resource" id="status_application_1"]
+script = ExtResource("2")
+status_id = &"fracture"
+stacks = 1
+
+[resource]
+script = ExtResource("1")
+id = &"cleaving_slash"
+spell_kind = &"slash"
+name_key = "SPELL_CLEAVING_SLASH_NAME"
+desc_key = "SPELL_CLEAVING_SLASH_DESC"
+family = 0
+cooldown = 4.0
+damage = 40.0
+spell_range = 150.0
+width = 60.0
+knockback = 90.0
+statuses = Array[ExtResource("2")]([SubResource("status_application_1")])
+color = Color(1, 0.86, 0.55, 1)

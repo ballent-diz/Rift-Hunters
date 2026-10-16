@@ -22,6 +22,22 @@ func refresh() -> void:
 	box.add_child(_toggle(tr("OPTIONS_REDUCE_FLASHES") % "", Settings.reduce_flashes, func(on: bool) -> void:
 		Settings.reduce_flashes = on))
 	box.add_child(_toggle(tr("OPTIONS_SHOW_FPS"), Settings.show_fps, func(on: bool) -> void: Settings.show_fps = on))
+	box.add_child(UiKit.label(tr("OPTIONS_KEYS_TITLE"), 20, UiKit.ACCENT))
+	box.add_child(_toggle(tr("OPTIONS_SPELL_PREVIEW"), Settings.spell_preview, func(on: bool) -> void:
+		Settings.spell_preview = on))
+	var grid := GridContainer.new()
+	grid.columns = 4
+	grid.add_theme_constant_override("h_separation", 16)
+	grid.add_theme_constant_override("v_separation", 6)
+	for action: StringName in InputSetup.REBINDABLE:
+		var label: Label = UiKit.label(tr("ACTION_" + String(action).to_upper()), 16)
+		label.custom_minimum_size.x = 200
+		grid.add_child(label)
+		grid.add_child(KeyBindButton.new().setup(action))
+	box.add_child(grid)
+	box.add_child(UiKit.button(tr("OPTIONS_RESET_KEYS"), func() -> void:
+		Settings.reset_bindings()
+		refresh(), 280))
 	box.add_child(UiKit.wrapped(tr("OPTIONS_CONTROLS"), 14, UiKit.MUTED))
 	box.add_child(UiKit.wrapped(tr("OPTIONS_SAVE_INFO") % [ProjectSettings.globalize_path(Profile.path),
 		SaveMigrations.CURRENT_VERSION], 13, UiKit.MUTED))

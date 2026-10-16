@@ -18,6 +18,10 @@ var vsync: bool = true
 ## Accessibilité : supprime les flashs et pulsations (photosensibilité).
 var reduce_flashes: bool = false
 var show_fps: bool = false
+## Sorts du Chasseur : maintenir la touche affiche la zone, la relâcher lance (sinon lancement immédiat).
+var spell_preview: bool = false
+## Touches personnalisées du clavier : {action: [touches physiques]} (actions absentes : touches par défaut).
+var bindings: Dictionary = {}
 ## Dernier périphérique utilisé : true = manette (visée assistée, navigation au pad).
 var using_gamepad: bool = false
 var load_status: SafeJsonStore.LoadStatus = SafeJsonStore.LoadStatus.MISSING
@@ -43,6 +47,13 @@ func load_settings() -> void:
 	vsync = bool(data.get("vsync", vsync))
 	reduce_flashes = bool(data.get("reduce_flashes", reduce_flashes))
 	show_fps = bool(data.get("show_fps", show_fps))
+	spell_preview = bool(data.get("spell_preview", spell_preview))
+	bindings = {}
+	var saved: Variant = data.get("bindings", {})
+	if saved is Dictionary:
+		for action: Variant in saved:
+			if InputSetup.REBINDABLE.has(StringName(str(action))) and saved[action] is Array:
+				bindings[str(action)] = saved[action]
 	if locale == "":
 		locale = "fr" if OS.get_locale_language() == "fr" else "en"
 	if not SUPPORTED_LOCALES.has(locale):
@@ -62,12 +73,15 @@ func save_settings() -> Error:
 		"vsync": vsync,
 		"reduce_flashes": reduce_flashes,
 		"show_fps": show_fps,
+		"spell_preview": spell_preview,
+		"bindings": bindings,
 	}
 	return SafeJsonStore.new(path).save_data(data)
 
 
 func apply() -> void:
 	TranslationServer.set_locale(locale)
+	InputSetup.apply_bindings(bindings)
 	var bus: int = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(master_volume, 0.0001)))
 	for pair: Array in [["Music", music_volume], ["SFX", sfx_volume]]:
@@ -84,6 +98,32 @@ func apply() -> void:
 
 func set_locale(value: String) -> void:
 	locale = value if SUPPORTED_LOCALES.has(value) else "en"
+	apply()
+	save_settings()
+
+
+## Attribue une touche à une action ; si une autre action l'utilisait, elle prend l'ancienne touche (échange).
+func bind_key(action: StringName, keycode: int) -> void:
+	var previous: Array[int] = InputSetup.keys_of(action)
+	for other: StringName in InputSetup.REBINDABLE:
+		if other != action and InputSetup.keys_of(other).has(keycode):
+			var keys: Array[int] = InputSetup.keys_of(other)
+			keys.erase(keycode)
+			if not previous.is_empty() and not keys.has(previous[0]):
+				keys.push_front(previous[0])
+			bindings[String(other)] = keys
+	# La touche choisie devient la principale ; les touches secondaires (flèches…) sont gardées.
+	var keys: Array[int] = [keycode]
+	for key: int in previous.slice(1):
+		if key != keycode:
+			keys.append(key)
+	bindings[String(action)] = keys
+	apply()
+	save_settings()
+
+
+func reset_bindings() -> void:
+	bindings = {}
 	apply()
 	save_settings()
 

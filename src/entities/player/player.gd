@@ -47,6 +47,7 @@ func setup(p_ctx: RunContext, p_brain: PlayerBrain) -> void:
 		StatKeys.REROLLS: 0.0, StatKeys.BANISHES: 0.0, StatKeys.UPGRADE_CHOICES: float(b.upgrade_choices),
 		StatKeys.RELIC_CHOICES: float(b.relic_choices), StatKeys.MUTATION_WEIGHT: 1.0,
 		StatKeys.STARTING_RELIC_CHOICE: 0.0, StatKeys.HEALING: 1.0,
+		StatKeys.SPELL_DAMAGE: 1.0, StatKeys.SPELL_COOLDOWN: 1.0,
 	}
 	for key: StringName in defaults:
 		stats.set_base(key, float(defaults[key]))

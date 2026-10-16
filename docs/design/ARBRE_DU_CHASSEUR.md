@@ -41,7 +41,8 @@ Valeurs indicatives, à régler à l'équilibrage. Portée et zone affichées au
 | Lien | **Égide de faille** | Défensif | Bouclier sur le Chasseur et ses Échos (absorbe 25 % des PV max, 4 s) | 18 s | *Riposte* : quand il se brise, onde de choc | *Partage* : le Chasseur reçoit 50 % du bouclier mais se soigne de 15 % |
 | Lien | **Permutation** | Défensif · technique | Échange instantané de place avec l'Écho le plus proche du curseur ; l'Écho est invulnérable 1 s et **provoque** les ennemis proches 2 s. Utilisé à l'instant d'un coup : le coup est esquivé et le prochain sort recharge 50 % plus vite | 10 s | *Relais* : l'Écho échangé lance aussitôt son propre sort | *Sanctuaire* : les deux positions soignent les alliés de 8 % des PV max |
 
-**Départ** : *Taille fendante* (A) et *Lance prismatique* (E) sont connues dès le début (lot C1). Les 10 autres
+**Départ** : *Taille fendante* (A) et *Lance prismatique* (E) sont connues dès le début (lot C1, **réalisé** : données
+`data/spells/`, code `src/entities/player/hunter_spells.gd`, tests `tests/unit/test_hunter_spells.gd` ; variantes au lot C2). Les 10 autres
 s'apprennent dans l'arbre. Idées en réserve (pour les variantes, les Échos ou plus tard) : *Écho temporel*
 (rejouer sa position et ses PV d'il y a 3 s), *Lame suspendue* (piège à déclencher au bon moment), *Contre-sort*.
 

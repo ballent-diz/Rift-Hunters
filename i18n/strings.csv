@@ -575,7 +575,7 @@ TIP_BOSS,"Le Dévoreur arrive vers 7 min. Combinez Fracture, Marques et synergie
 OPTIONS_REDUCE_FLASHES,Réduire les flashs : %s,Reduce flashes: %s
 OPTIONS_VSYNC,Synchronisation verticale,Vertical sync
 OPTIONS_SHOW_FPS,Afficher les images par seconde,Show frames per second
-OPTIONS_CONTROLS,Manette : stick gauche déplacement · A/RB Ruée · X/Y/B Techniques · LB focus · Start pause · stick droit visée,Gamepad: left stick move · A/RB Dash · X/Y/B Techniques · LB focus · Start pause · right stick aim
+OPTIONS_CONTROLS,Manette : stick gauche déplacement · stick droit visée · A/RB Ruée · RT/LT sorts 1 et 2 · croix haut/droite sorts 3 et 4 · X/Y/B Techniques · LB focus · Start pause,Gamepad: left stick move · right stick aim · A/RB Dash · RT/LT spells 1 and 2 · D-pad up/right spells 3 and 4 · X/Y/B Techniques · LB focus · Start pause
 MENU_CREDITS,Crédits,Credits
 CREDITS_BACK,Retour,Back
 CREDITS_BODY,"Rift Hunters — un jeu original.
@@ -626,3 +626,24 @@ ZONE_WAVE_BANNER,Vague %d / %d,Wave %d / %d
 ZONE_CLEARED_BANNER,Zone libérée ! Les barrières se dissipent.,Zone cleared! The barriers fade away.
 ZONE_THREE_RIFTS_1_NAME,Le Gué des Ruines,The Ruins Ford
 ZONE_THREE_RIFTS_2_NAME,La Cour des Cascades,The Cascade Courtyard
+SPELL_CLEAVING_SLASH_NAME,Taille fendante,Cleaving Slash
+SPELL_CLEAVING_SLASH_DESC,Arc de lame vers le curseur : gros dégâts et Fracture aux ennemis touchés.,Blade arc toward the cursor: heavy damage and Fracture on enemies hit.
+SPELL_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
+SPELL_PRISMATIC_LANCE_DESC,Trait lourd vers le curseur qui traverse tous les ennemis et pose 2 Marques.,Heavy bolt toward the cursor that pierces every enemy and applies 2 Marks.
+TIP_SPELLS,"Touches %s et %s : sorts du Chasseur, lancés vers le curseur.","Keys %s and %s: Hunter spells, cast toward the cursor."
+OPTIONS_KEYS_TITLE,Touches du clavier,Keyboard keys
+OPTIONS_SPELL_PREVIEW,"Sorts : maintenir pour voir la zone, relâcher pour lancer","Spells: hold to preview the area, release to cast"
+OPTIONS_RESET_KEYS,Touches par défaut,Default keys
+OPTIONS_PRESS_KEY,Appuyez sur une touche…,Press a key…
+ACTION_MOVE_UP,Haut,Up
+ACTION_MOVE_DOWN,Bas,Down
+ACTION_MOVE_LEFT,Gauche,Left
+ACTION_MOVE_RIGHT,Droite,Right
+ACTION_DASH,Ruée,Dash
+ACTION_SPELL_1,Sort 1,Spell 1
+ACTION_SPELL_2,Sort 2,Spell 2
+ACTION_SPELL_3,Sort 3,Spell 3
+ACTION_SPELL_4,Sort 4,Spell 4
+ACTION_TECHNIQUE_1,Technique de l'Écho 1,Echo 1 Technique
+ACTION_TECHNIQUE_2,Technique de l'Écho 2,Echo 2 Technique
+ACTION_TECHNIQUE_3,Technique de l'Écho 3,Echo 3 Technique
