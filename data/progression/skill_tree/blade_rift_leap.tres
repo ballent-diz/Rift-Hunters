@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"blade_rift_leap"
+branch = &"blade"
+tier = 2
+kind = 2
+name_key = "NODE_BLADE_RIFT_LEAP_NAME"
+desc_key = "NODE_BLADE_RIFT_LEAP_DESC"
+costs = Array[int]([200])
+point_cost = 2
+prerequisites = Array[StringName]([&"blade_cleaving_slash"])
+prerequisites_any = false
+exclusive_group = &""
+spell_id = &"rift_leap"
+variant_kind = &""
+required_wins = 1
+learned_by_default = false
+implemented = false
+effects = []

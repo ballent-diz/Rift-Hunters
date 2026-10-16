@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1")
-id = &"combat"
-name_key = "BRANCH_COMBAT_NAME"
-desc_key = "BRANCH_COMBAT_DESC"
-order = 0
-color = Color(1.0, 0.5, 0.45, 1.0)
+id = &"prism"
+name_key = "BRANCH_PRISM_NAME"
+desc_key = "BRANCH_PRISM_DESC"
+order = 2
+color = Color(0.55, 0.95, 1.0, 1.0)
+utility = false

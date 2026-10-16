@@ -13,12 +13,14 @@ pct = 0.0
 [resource]
 script = ExtResource("1")
 id = &"echoes_veteran"
-branch = &"echoes"
+branch = &"research"
 tier = 1
 name_key = "NODE_ECHOES_VETERAN_NAME"
 desc_key = "NODE_ECHOES_VETERAN_DESC"
 costs = [180]
-prerequisites = [&"echoes_bonds"]
+prerequisites = []
 prerequisites_any = false
 exclusive_group = &""
+kind = 0
+point_cost = 0
 effects = [SubResource("stat_modifier_effect_1")]

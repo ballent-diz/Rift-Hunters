@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"abyss_void_wake"
+branch = &"abyss"
+tier = 1
+kind = 4
+name_key = "NODE_ABYSS_VOID_WAKE_NAME"
+desc_key = "NODE_ABYSS_VOID_WAKE_DESC"
+costs = Array[int]([200])
+point_cost = 2
+prerequisites = Array[StringName]([&"abyss_depths", &"spec_deep_breach", &"spec_gravitationist"])
+prerequisites_any = true
+exclusive_group = &""
+spell_id = &""
+variant_kind = &""
+required_wins = 0
+learned_by_default = false
+implemented = false
+effects = []

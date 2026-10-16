@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"blade_counter_cut"
+branch = &"blade"
+tier = 3
+kind = 4
+name_key = "NODE_BLADE_COUNTER_CUT_NAME"
+desc_key = "NODE_BLADE_COUNTER_CUT_DESC"
+costs = Array[int]([250])
+point_cost = 2
+prerequisites = Array[StringName]([&"blade_slicing_dash"])
+prerequisites_any = false
+exclusive_group = &""
+spell_id = &""
+variant_kind = &""
+required_wins = 3
+learned_by_default = false
+implemented = false
+effects = []

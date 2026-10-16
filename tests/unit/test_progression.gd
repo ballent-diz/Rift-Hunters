@@ -16,51 +16,103 @@ func _result(overrides: Dictionary = {}, counters: Dictionary = {}) -> Dictionar
 	return result
 
 
-func test_tree_prerequisites_and_costs() -> void:
-	var training: SkillNodeData = GameDB.skill_node(&"combat_training")
-	var phantom: SkillNodeData = GameDB.skill_node(&"combat_phantom_step")
-	check_eq(SkillTree.status(profile, training), SkillTree.Status.TOO_EXPENSIVE, "trop cher sans Éclats")
+func _node(id: StringName) -> SkillNodeData:
+	return GameDB.skill_node(id)
+
+
+func test_tree_learning_costs_and_ranks() -> void:
+	var training: SkillNodeData = _node(&"combat_training")
+	check_eq(HunterTree.status(profile, training), HunterTree.Status.TOO_EXPENSIVE, "trop cher sans Éclats")
 	profile.add_currency("shards", 1000)
-	check_eq(SkillTree.status(profile, phantom), SkillTree.Status.LOCKED, "prérequis manquant")
-	check(SkillTree.buy(profile, training), "achat du rang 1")
+	check_eq(HunterTree.status(profile, training), HunterTree.Status.LEARNABLE, "apprenable")
+	check(HunterTree.learn(profile, training), "rang 1 appris")
 	check_eq(profile.shards(), 1000 - training.costs[0], "coût débité")
-	check_eq(SkillTree.status(profile, phantom), SkillTree.Status.AVAILABLE, "prérequis rempli")
+	HunterTree.learn(profile, training)
+	HunterTree.learn(profile, training)
+	check_eq(HunterTree.status(profile, training), HunterTree.Status.LEARNED, "rangs au maximum")
+	check(not HunterTree.learn(profile, training), "plus rien à apprendre")
 
 
-func test_tree_exclusive_nodes() -> void:
+func test_tree_gates_prerequisites_and_coming_soon() -> void:
 	profile.add_currency("shards", 5000)
-	SkillTree.buy(profile, GameDB.skill_node(&"combat_training"))
-	check(SkillTree.buy(profile, GameDB.skill_node(&"combat_marksman")), "Tireur acquis")
-	var brawler: SkillNodeData = GameDB.skill_node(&"combat_rift_brawler")
-	check_eq(SkillTree.status(profile, brawler), SkillTree.Status.EXCLUDED, "Cogneur exclu")
-	check(not SkillTree.buy(profile, brawler), "achat refusé")
+	var whirlwind: SkillNodeData = _node(&"blade_slash_whirlwind")
+	check_eq(HunterTree.learned_rank(profile, _node(&"blade_cleaving_slash")), 1, "sort de départ connu")
+	check_eq(HunterTree.status(profile, whirlwind), HunterTree.Status.GATED, "palier : 1 victoire contre un boss")
+	profile.data["runs"]["won"] = 1
+	check_eq(HunterTree.status(profile, whirlwind), HunterTree.Status.LEARNABLE, "palier atteint")
+	check_eq(HunterTree.status(profile, _node(&"abyss_singularity")), HunterTree.Status.COMING_SOON, "sort à venir")
+	check(not HunterTree.learn(profile, _node(&"abyss_singularity")), "à venir : non apprenable")
+	check_eq(HunterTree.status(profile, _node(&"blade_counter_cut")), HunterTree.Status.COMING_SOON, "transformant à venir")
 
 
-func test_tree_respec_rules() -> void:
+func test_tree_activation_spends_points() -> void:
 	profile.add_currency("shards", 1000)
-	SkillTree.buy(profile, GameDB.skill_node(&"combat_training"))
-	SkillTree.buy(profile, GameDB.skill_node(&"combat_training"))
-	check_eq(SkillTree.respec_cost(profile), 0, "première réinitialisation gratuite")
-	check(SkillTree.respec(profile), "réinitialisation")
-	check_eq(profile.shards(), 1000, "100 % des Éclats remboursés")
-	check_eq(profile.tree_rank(&"combat_training"), 0, "arbre vidé")
-	SkillTree.buy(profile, GameDB.skill_node(&"combat_training"))
-	check_eq(SkillTree.respec_cost(profile), SkillTree.RESPEC_ESSENCE_PER_RESET, "la suivante coûte de l'Essence")
-	check(not SkillTree.respec(profile), "refusée sans Essence")
+	check_eq(HunterTree.points_used(profile), 4, "les 2 sorts de départ sont actifs (2 + 2)")
+	check_eq(HunterTree.points_total(profile), HunterTree.BASE_POINTS, "points de départ")
+	var training: SkillNodeData = _node(&"combat_training")
+	check_eq(HunterTree.activation_error(profile, training), "TREE_ERR_NOT_LEARNED", "apprendre avant d'activer")
+	for i: int in 3:
+		HunterTree.learn(profile, training)
+	check(HunterTree.activate(profile, training), "rang 1 actif")
+	check(HunterTree.activate(profile, training), "rang 2 actif")
+	check_eq(HunterTree.activation_error(profile, training), "TREE_ERR_POINTS", "plus de points")
+	HunterTree.record_victory(profile, "three_rifts")
+	check(not HunterTree.record_victory(profile, "three_rifts"), "un seul point par carte")
+	check(HunterTree.activate(profile, training), "rang 3 actif avec le point de la victoire")
+	check(HunterTree.deactivate(profile, training), "désactivation gratuite")
+	check_eq(HunterTree.active_rank(profile, training), 2, "un rang de moins")
 
 
-func test_tree_effects_scale_with_rank() -> void:
-	profile.add_currency("shards", 1000)
-	var training: SkillNodeData = GameDB.skill_node(&"combat_training")
-	SkillTree.buy(profile, training)
-	SkillTree.buy(profile, training)
-	check_eq(SkillTree.effects_for(profile).size(), training.effects.size() * 2, "effets installés une fois par rang")
+func test_tree_variants_are_exclusive_and_need_their_spell() -> void:
+	profile.add_currency("shards", 5000)
+	profile.data["runs"]["won"] = 1
+	var slash: SkillNodeData = _node(&"blade_cleaving_slash")
+	var whirlwind: SkillNodeData = _node(&"blade_slash_whirlwind")
+	var thrust: SkillNodeData = _node(&"blade_slash_thrust")
+	HunterTree.learn(profile, whirlwind)
+	HunterTree.learn(profile, thrust)
+	check(HunterTree.activate(profile, whirlwind), "Tourbillon actif")
+	check(HunterTree.activate(profile, thrust), "Estoc remplace Tourbillon")
+	check_eq(HunterTree.active_rank(profile, whirlwind), 0, "Tourbillon désactivé")
+	check_eq(HunterTree.loadout(profile)["variants"], {&"cleaving_slash": &"thrust"}, "variante transmise à la partie")
+	check(HunterTree.deactivate(profile, slash), "sort désactivé")
+	check_eq(HunterTree.active_rank(profile, thrust), 0, "ses variantes aussi")
+	check_eq(HunterTree.slot_of(profile, &"cleaving_slash"), -1, "et il quitte son emplacement")
+	check_eq(HunterTree.activation_error(profile, thrust), "TREE_ERR_NEEDS_SPELL", "variante sans son sort")
+	check(HunterTree.activate(profile, slash), "sort réactivé")
+	check_eq(HunterTree.slot_of(profile, &"cleaving_slash"), 0, "rééquipé sur le premier emplacement libre")
+
+
+func test_tree_equip_swaps_slots_and_builds_are_independent() -> void:
+	check(HunterTree.equip(profile, &"prismatic_lance", 0), "Lance sur A")
+	check_eq(HunterTree.loadout(profile)["spells"], [&"prismatic_lance", &"cleaving_slash", &"", &""] as Array[StringName],
+		"emplacements échangés")
+	HunterTree.set_active_index(profile, 1)
+	check_eq(HunterTree.slot_of(profile, &"cleaving_slash"), 0, "le build 2 garde sa propre disposition")
+	check(not HunterTree.equip(profile, &"singularity", 2), "un sort inactif ne s'équipe pas")
+
+
+func test_tree_effects_use_active_nodes_and_utilities() -> void:
+	profile.add_currency("shards", 5000)
+	var training: SkillNodeData = _node(&"combat_training")
+	HunterTree.learn(profile, training)
+	HunterTree.learn(profile, training)
+	check_eq(HunterTree.effects_for(profile).size(), 0, "appris mais inactif : aucun effet")
+	HunterTree.activate(profile, training)
+	HunterTree.activate(profile, training)
+	check_eq(HunterTree.effects_for(profile).size(), training.effects.size() * 2, "effets installés une fois par rang actif")
+	var seal: SkillNodeData = _node(&"echoes_veteran")
+	HunterTree.learn(profile, seal)
+	check_eq(HunterTree.effects_for(profile).size(), training.effects.size() * 2 + seal.effects.size(),
+		"amélioration du refuge active dès qu'apprise")
 
 
 func test_tree_effects_apply_in_run() -> void:
 	profile.add_currency("shards", 5000)
-	for id: StringName in [&"echoes_bonds", &"echoes_veteran", &"echoes_third_seal"]:
-		check(SkillTree.buy(profile, GameDB.skill_node(id)), "achat %s" % id)
+	profile.data["runs"]["won"] = 1
+	for id: StringName in [&"echoes_veteran", &"echoes_third_seal", &"prism_lance_fan"]:
+		check(HunterTree.learn(profile, _node(id)), "apprentissage %s" % id)
+	check(HunterTree.activate(profile, _node(&"prism_lance_fan")), "Éventail actif")
 	var setup: RunSetup = _setup_from(profile)
 	var run: RunController = load("res://scenes/run.tscn").instantiate()
 	run.skip_profile = true
@@ -70,7 +122,24 @@ func test_tree_effects_apply_in_run() -> void:
 	run.set_physics_process(false)
 	check_eq(run.ctx.allies.team_slots(), 3, "Troisième sceau : 3 emplacements")
 	check_eq(run.ctx.player.stats.get_int(StatKeys.RECRUIT_RANK), 2, "Recrues aguerries : rang 2")
+	check_eq(run.ctx.spells.slots[1].id, &"prismatic_lance", "sorts du build équipés")
+	check_eq(run.ctx.spells.variants[1], &"fan", "variante du build appliquée")
 	RunFixture.dispose(run)
+
+
+func test_save_v1_migrates_to_tree_v2() -> void:
+	var old := ProfileData.default_data()
+	old["format_version"] = 1
+	old.erase("hunter")
+	old["tree"] = {"combat_training": 2, "explore_prospector": 1}
+	var migrated: Dictionary = SaveMigrations.migrate(old)
+	check_eq(migrated["error"], "", "migration sans erreur")
+	check_eq(int(migrated["to"]), SaveMigrations.CURRENT_VERSION, "version à jour")
+	var p := ProfileData.new(migrated["data"])
+	check_eq(p.tree_rank(&"combat_training"), 2, "rangs appris conservés")
+	check_eq(HunterTree.active_rank(p, _node(&"combat_training")), 2, "passifs appris activés dans le premier build")
+	check_eq(HunterTree.active_rank(p, _node(&"explore_prospector")), 1, "amélioration du refuge toujours active")
+	check_eq(HunterTree.loadout(p)["spells"][0], &"cleaving_slash", "sorts de départ équipés")
 
 
 func test_glimmerwing_locked_then_unlocked_by_objective() -> void:

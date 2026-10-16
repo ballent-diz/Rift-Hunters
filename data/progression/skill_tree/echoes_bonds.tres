@@ -13,12 +13,15 @@ pct = 0.06
 [resource]
 script = ExtResource("1")
 id = &"echoes_bonds"
-branch = &"echoes"
+branch = &"bond"
 tier = 0
 name_key = "NODE_ECHOES_BONDS_NAME"
 desc_key = "NODE_ECHOES_BONDS_DESC"
-costs = [40, 80, 140]
+costs = [40, 70, 110]
 prerequisites = []
 prerequisites_any = false
 exclusive_group = &""
+kind = 1
+point_cost = 1
+required_wins = 0
 effects = [SubResource("stat_modifier_effect_1")]

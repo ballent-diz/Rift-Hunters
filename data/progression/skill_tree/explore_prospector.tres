@@ -21,4 +21,6 @@ costs = [50, 100, 160]
 prerequisites = []
 prerequisites_any = false
 exclusive_group = &""
+kind = 0
+point_cost = 0
 effects = [SubResource("stat_modifier_effect_1")]

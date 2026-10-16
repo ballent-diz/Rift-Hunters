@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"abyss_wall_burning"
+branch = &"abyss"
+tier = 3
+kind = 3
+name_key = "NODE_ABYSS_WALL_BURNING_NAME"
+desc_key = "NODE_ABYSS_WALL_BURNING_DESC"
+costs = Array[int]([150])
+point_cost = 1
+prerequisites = Array[StringName]([&"abyss_rift_wall"])
+prerequisites_any = false
+exclusive_group = &"wall_variant"
+spell_id = &"rift_wall"
+variant_kind = &"burning"
+required_wins = 3
+learned_by_default = false
+implemented = false
+effects = []

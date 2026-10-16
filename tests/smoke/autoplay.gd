@@ -69,9 +69,12 @@ func _meta_profile(kind: String) -> Array[GameplayEffect]:
 			"research_banish": 1, "research_fourth_option": 1, "spec_prismatic_resonance": 1, "explore_sealed_chests": 1,
 			"research_rift_study": 2})
 	var profile := ProfileData.new()
+	var nodes: Dictionary = HunterTree.active_build(profile)["nodes"]
 	for id: String in ranks:
 		profile.set_tree_rank(StringName(id), int(ranks[id]))
-	return SkillTree.effects_for(profile)
+		# Profil d'équilibrage : passifs appris et actifs, sans limite de points.
+		nodes[id] = int(ranks[id])
+	return HunterTree.effects_for(profile)
 
 
 func _physics_process(_delta: float) -> void:

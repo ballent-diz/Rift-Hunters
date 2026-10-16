@@ -180,7 +180,8 @@ func _build_world() -> void:
 	ctx.fx.setup(ctx)
 	ctx.world.add_child(ctx.fx)
 	ctx.spells = HunterSpells.new()
-	ctx.spells.setup(ctx, ctx.setup.spell_ids if not ctx.setup.spell_ids.is_empty() else ctx.balance.default_spells)
+	ctx.spells.setup(ctx, ctx.setup.spell_ids if not ctx.setup.spell_ids.is_empty() else ctx.balance.default_spells,
+		ctx.setup.spell_variants)
 	ctx.world.add_child(ctx.spells)
 	camera = Camera2D.new()
 	camera.position_smoothing_enabled = true

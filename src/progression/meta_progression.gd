@@ -34,6 +34,8 @@ static func apply_run_result(profile: ProfileData, result: Dictionary) -> Dictio
 	lines.append_array(Objectives.evaluate(profile, result))
 	if victory:
 		lines.append_array(_unlock_next_tension(profile, int(result.get("difficulty_level", 0))))
+		if HunterTree.record_victory(profile, str(result.get("arena", ""))):
+			lines.append(TranslationServer.translate("REPORT_HUNTER_POINT"))
 	rewards["lines"] = lines
 	return rewards
 

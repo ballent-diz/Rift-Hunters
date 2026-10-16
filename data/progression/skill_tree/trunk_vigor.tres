@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="stat_modifier_effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"max_hp"
+flat = 10.0
+pct = 0.0
+
+[resource]
+script = ExtResource("1")
+id = &"trunk_vigor"
+branch = &"trunk"
+tier = 0
+kind = 1
+name_key = "NODE_TRUNK_VIGOR_NAME"
+desc_key = "NODE_TRUNK_VIGOR_DESC"
+costs = Array[int]([40, 70, 110])
+point_cost = 1
+prerequisites = Array[StringName]([])
+prerequisites_any = false
+exclusive_group = &""
+spell_id = &""
+variant_kind = &""
+required_wins = 0
+learned_by_default = false
+implemented = true
+effects = [SubResource("stat_modifier_effect_1")]

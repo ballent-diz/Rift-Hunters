@@ -128,7 +128,7 @@ victoires contre un boss (1 pour le niveau III, 3 pour les niveaux IV et V).
 
 ## 5. Points de Chasseur
 
-- Départ : **4 points**. **+1** à la première victoire sur chaque carte en Normal, **+1** tous les 3 objectifs réussis,
+- Départ : **6 points** (les 2 sorts de départ en coûtent 4 : il en reste 2 pour un premier passif). **+1** à la première victoire sur chaque carte en Normal, **+1** tous les 3 objectifs réussis,
   **+1** à la première victoire sur chaque carte en Cauchemar. Ordre de grandeur : ≈ 20 points en fin de campagne,
   ≈ 35 au maximum.
 - Coûts d'activation : passif 1 point/rang, sort 2 points, variante 1 point (une seule par sort), transformant
@@ -153,7 +153,17 @@ Les cartes de niveau restent et renforcent le build (lot C4, avec raretés) : pa
 Migration de la version de sauvegarde : les Éclats dépensés dans l'arbre actuel sont **remboursés** ; les nœuds
 d'exploration et de recherche déjà achetés sont **conservés** comme améliorations du refuge.
 
-## 9. Reste à confirmer
+## 9. Réalisation
+
+- **Lot C2a (16 octobre 2026)** : `SkillNodeData` (types, points, variantes, paliers, « à venir »), règles
+  `src/progression/hunter_tree.gd`, données `data/progression/skill_tree/` et `branches/`, onglet
+  `src/ui/refuge/tree_tab.gd` (habillage provisoire, remplacé par le lot C5), sauvegarde v2 (les rangs appris sont
+  conservés ; le premier build active les passifs déjà appris), variantes Tourbillon, Estoc, Éventail et Surcharge
+  (`hunter_spells.gd`), gains d'Éclats réduits. Palier provisoire : victoires contre un boss (`runs.won`).
+- **Lot C2b (à faire)** : les 10 autres sorts et leurs variantes, les 8 passifs transformants, les 4 clés de voûte
+  (nœuds déjà dans l'arbre avec `implemented = false`).
+
+## 10. Reste à confirmer
 
 1. Les 5 sorts ajoutés : *Parade*, *Cristal réfracteur*, *Mur de faille* (qui reprend les anciennes *Chaînes de
    faille* en variante), *Failles jumelles* et *Permutation*.

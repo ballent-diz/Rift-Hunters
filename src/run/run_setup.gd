@@ -27,5 +27,7 @@ var info_unlocks: Array[String] = []
 var modifier_ids: Array[StringName] = []
 ## Sorts du Chasseur équipés, dans l'ordre des touches (vide : ceux de l'équilibrage).
 var spell_ids: Array[StringName] = []
+## Variantes actives des sorts : {spell_id: variant_kind} (arbre du Chasseur v2).
+var spell_variants: Dictionary = {}
 ## Conseils de première partie affichés dans le HUD.
 var show_tutorial: bool = false

@@ -30,6 +30,10 @@ func spell_released(slot: int) -> bool:
 	return slot < SPELL_ACTIONS.size() and Input.is_action_just_released(SPELL_ACTIONS[slot])
 
 
+func can_hold() -> bool:
+	return true
+
+
 func preview_casting() -> bool:
 	return Settings.spell_preview
 
