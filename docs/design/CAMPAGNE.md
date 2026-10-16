@@ -6,7 +6,7 @@ Statut : **validé le 14 octobre 2026**. Structure de la progression d'une carte
 
 - La campagne est découpée en **chapitres**, un par région / ambiance (Ruines des Cascades, puis les
   cartes « plus colorées » préparées par le propriétaire…).
-- Chaque chapitre compte **3 à 4 cartes**. La **dernière carte** de chaque chapitre se termine par un
+- Chaque chapitre compte **2 à 3 cartes** (piste : 5 chapitres, voir « Volume visé »). La **dernière carte** de chaque chapitre se termine par un
   **Dévoreur** (boss de chapitre), précédé de zones de vagues.
 - **Déblocage en avançant** : finir une carte débloque la suivante ; battre le Dévoreur débloque le
   chapitre suivant. Au refuge, la liste des chapitres (ou une carte du monde) montre les cartes
@@ -17,11 +17,12 @@ Statut : **validé le 14 octobre 2026**. Structure de la progression d'une carte
 
 - **Toute carte débloquée est rejouable à l'infini** (gagner des points d'arbre, tester un build,
   viser un trophée).
-- **3 objectifs par carte** (façon étoiles) : par exemple terminer ; terminer sans dépasser X dégâts
-  subis ; terminer en Tension II ou plus. Ils alimentent les trophées et le platine.
+- **3 objectifs par carte en Normal, 3 en Cauchemar** (façon étoiles) : par exemple terminer ; terminer sans
+  dépasser X dégâts subis ; vaincre le boss en moins de 2 min. Ils alimentent les trophées et le platine.
 - **Récompenses dégressives** : la première victoire rapporte beaucoup, les suivantes moins, sauf en
-  montant la Tension (évite le farm abusif).
-- **Tension choisie par carte** : refaire une carte connue en plus difficile.
+  Cauchemar avec un score de Pacte plus élevé (évite le farm abusif).
+- **Deux difficultés par carte** : Normal, puis **Cauchemar** une fois le jeu fini, avec le **Pacte** (malus au
+  choix). La Tension est supprimée. Détail : [LONGEVITE.md](LONGEVITE.md).
 - Plus tard (option) : **carte du jour**, même carte et mêmes modificateurs pour tous, avec classement.
 
 ## Répartition des modes
@@ -37,8 +38,10 @@ chaque mode coûte cher à développer et à équilibrer. Détail des modes : [L
 
 ## Volume visé
 
-- 4 chapitres × 4 cartes = **16 cartes**, soit **6 à 10 heures** pour finir la campagne (échecs compris).
-- Puis objectifs de cartes, Tension, New Game+ et trophées : **plusieurs dizaines d'heures** pour le platine.
+Décision du 16 octobre 2026 : **un jeu plus court, très rejouable**.
+
+- Campagne de **3 à 6 heures** (échecs compris). Piste actuelle : **5 chapitres** de 2 à 3 cartes (rien n'est figé).
+- Puis Cauchemar, Pacte, objectifs, prophéties et trophées : **20 à 30 heures** pour le platine.
 
 ## Contenu actuel
 
@@ -53,7 +56,7 @@ Les cartes suivantes du chapitre 1 et le chapitre 2 (cartes colorées) restent �
 
 - Données : une ressource **chapitre** (liste ordonnée de cartes, Dévoreur, ambiance) et, par carte,
   son **mode**, ses **3 objectifs**, ses récompenses (première victoire / suivantes).
-- Sauvegarde : cartes débloquées, objectifs obtenus et meilleure Tension par carte (migration du profil
+- Sauvegarde : cartes débloquées, objectifs obtenus, Cauchemar débloqué et meilleur score de Pacte par carte (migration du profil
   versionné ; les arènes déjà débloquées restent débloquées).
 - Refuge : l'onglet Expédition devient une sélection chapitre → carte, avec les objectifs visibles.
 
