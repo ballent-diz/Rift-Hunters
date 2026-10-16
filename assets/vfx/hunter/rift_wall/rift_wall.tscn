@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/hunter/spell_vfx.gd" id="1"]
+
+[node name="rift_wall" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1")
+effect_kind = &"rift_wall"
+spell_range = 260.0
+destination_offset = Vector2(260, 0)
+active_duration = 4.0

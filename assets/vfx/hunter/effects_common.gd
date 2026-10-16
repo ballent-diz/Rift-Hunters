@@ -46,3 +46,20 @@ static func star(canvas: Node2D, center: Vector2, radius: float, color: Color, a
 		var distance: float = radius if i%2 == 0 else radius*.17
 		points.append(center+Vector2.from_angle(float(i)*PI*.25+angle)*distance)
 	canvas.draw_colored_polygon(points,color)
+
+## Déforme une texture dessinée sur une courbe ; un seul vocabulaire peint réutilisé sans nouvelle image.
+static func painted_path(canvas: Node2D, points: PackedVector2Array, width: float,
+		texture: Texture2D, ink: Color = Color.WHITE) -> void:
+	if points.size() < 2 or width < .1 or ink.a < .001:
+		return
+	for i: int in points.size()-1:
+		var delta: Vector2 = points[i+1]-points[i]
+		if delta.length_squared() < .01:
+			continue
+		var normal: Vector2 = delta.normalized().orthogonal()*width*.5
+		var u0: float = float(i)/(points.size()-1)
+		var u1: float = float(i+1)/(points.size()-1)
+		var quad := PackedVector2Array([points[i]-normal,points[i+1]-normal,
+			points[i+1]+normal,points[i]+normal])
+		var uv := PackedVector2Array([Vector2(u0,0),Vector2(u1,0),Vector2(u1,1),Vector2(u0,1)])
+		canvas.draw_colored_polygon(quad,ink,uv,texture)

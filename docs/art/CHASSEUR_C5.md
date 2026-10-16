@@ -1,11 +1,12 @@
-# Chasseur v2 — livraison visuelle C5, première partie
+# Chasseur v2 — ressources visuelles C5
 
 ## Périmètre
 
-Habillage du futur arbre, maquettes statiques, 24 prompts d’icônes et deux familles d’effets.
+Habillage du futur arbre, maquettes statiques, 24 prompts d’icônes et douze familles d’effets.
 Aucun fichier de `src/`, scène fonctionnelle du refuge ou comportement de sort n’est modifié.
-Claude raccorde ces ressources dans C1/C2. Les dix autres familles d’effets restent à livrer
-progressivement ; C5 reste « En cours (Codex) ».
+Claude raccorde ces ressources dans C1/C2. C5 reste « En cours (Codex) » : validation en jeu
+et images d’icônes à recevoir. Les trente configurations des dix dernières familles sont décrites
+dans [AUTRES_SORTS_C5.md](AUTRES_SORTS_C5.md).
 
 Suite validée comme chantier par le propriétaire : [pilote de Taille fendante](TAILLE_FENDANTE_PILOTE.md),
 avec textures dessinées, poses existantes du Chasseur, cible et décor de la Plaine.
@@ -123,17 +124,19 @@ faces, fragments orbitaux, étincelles et dispersion. Les deux scènes restent m
 `wip` tant que le propriétaire n’a pas validé leur rendu. La vitesse de projectile et les
 portées de référence sont conservées ; les durées visuelles incluent la dissipation.
 
-À produire au fil de C1/C2 : Bond de faille, Parade, Rupture, Cristal réfracteur,
-Singularité, Mur de faille, Failles jumelles, Appel de meute, Égide de faille, Permutation.
+Scènes supplémentaires livrées avec leurs variantes : Bond de faille, Parade, Rupture,
+Cristal réfracteur, Singularité, Mur de faille, Failles jumelles, Appel de meute,
+Égide de faille, Permutation. Aucune nouvelle génération d’image ou vidéo pour cette suite.
 Les images d’icônes seront importées après génération par le propriétaire.
 La validation de la scène d’arbre fonctionnelle et des sorts raccordés revient à C1/C2.
 
 ## Vérifications de cette livraison
 
-Import Godot terminé sans erreur. Validation des ressources : 71 entrées, 70 valides,
+Import Godot terminé sans erreur. Validation des ressources : 83 entrées, 82 valides,
 un placeholder préexistant (`monster.mirrorling`), aucune erreur. Captures natives des
 trois maquettes et lecture des six variantes sur 48 images sans erreur de rendu.
-Contrôle ciblé : 117 clés C5 uniques et complètes en FR/EN, 24 recettes d’import
-avec chemins résolus, 40 nouvelles ressources présentes. Aucun changement dans `src/`.
+Contrôle ciblé : 117 clés C5 et 7 clés C5P uniques et complètes en FR/EN, 24 recettes d’import
+avec chemins résolus, 52 ressources C5 présentes. Les trente configurations des dix dernières
+familles sont chargées et rendues à cinq moments sans export d’image. Aucun changement dans `src/`.
 Conformément à AGENTS.md, pas de relance de toute la suite pour ce lot visuel ;
 le raccordement et les essais en jeu restent à faire dans C1/C2 puis par le propriétaire.

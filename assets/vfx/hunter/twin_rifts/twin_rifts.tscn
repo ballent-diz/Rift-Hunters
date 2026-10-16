@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/hunter/spell_vfx.gd" id="1"]
+
+[node name="twin_rifts" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1")
+effect_kind = &"twin_rifts"
+spell_range = 240.0
+destination_offset = Vector2(240, 0)
+active_duration = 4.0

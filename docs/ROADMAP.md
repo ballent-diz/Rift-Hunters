@@ -89,6 +89,10 @@ avec les personnages et la palette alliée de Rift Hunters. Aucune modification 
 Vérification en vraie partie ajoutée : HUD, Écho et vagues existants, contacts C1 confirmés,
 impact limité en taille et en occurrences ; vidéo 1080p dans `docs/previews/c5/live/`.
 Le raccordement au lancement normal reste à réaliser par Claude dans C1/C2.
+Suite C5 livrée : dix autres familles et leurs variantes (30 configurations), en réutilisant les textures existantes.
+Décision du propriétaire : pas de nouvelle génération d’image ni de vidéo d’aperçu pour cette suite ; contrôle ciblé final.
+Les douze familles du Chasseur ont maintenant leurs scènes autonomes ; [contrat des dix suivantes](art/AUTRES_SORTS_C5.md).
+Raccordement C1/C2 et validation en jeu à suivre ; icônes en attente des images du propriétaire.
 
 ### Étape D — Longévité
 
