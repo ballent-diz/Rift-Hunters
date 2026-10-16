@@ -164,6 +164,10 @@ d'exploration et de recherche déjà achetés sont **conservés** comme amélior
   pour les sorts persistants : cristaux, murs, portails, Égide, Parade), leurs 20 variantes, les 8 passifs
   transformants et les 4 clés de voûte (`src/combat/effects/hunter_talent_effect.gd`). Tests :
   `tests/unit/test_hunter_spells_c2b.gd` (chaque sort, chaque variante et chaque talent en mêlée).
+- **Animations de Codex raccordées (16 octobre 2026)** : `src/entities/player/hunter_spell_vfx.gd` joue les scènes
+  `assets/vfx/hunter/` (manifeste `vfx.hunter.*`) pour les 12 sorts et leurs variantes ; les dessins provisoires ne
+  servent plus qu'en secours. **Mode test** (Refuge → Options, visible seulement depuis Godot) : tout l'arbre appris,
+  paliers ouverts, 200 Points de Chasseur, pour essayer chaque sort.
 - Ajustements de réalisation : les Échos n'ont pas de points de vie, donc *Égide* renforce le bouclier du Chasseur
   (+5 % par Écho), *Garde de meute* fait contre-attaquer les Échos proches, *Sanctuaire* soigne le Chasseur (12 %) ;
   *Contre-taille* se déclenche en esquivant un coup pendant la Ruée ; *Mur de faille* est perpendiculaire à la

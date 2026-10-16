@@ -239,3 +239,25 @@ func test_every_variant_and_talent_runs_in_a_brawl() -> void:
 		run.ctx.spells.world.return_until = -1.0
 		run.ctx.spells.world.portals = {}
 	check(run.ctx.player.alive, "le Chasseur survit au test")
+
+
+func test_codex_animations_are_played_for_every_spell() -> void:
+	var spells: HunterSpells = run.ctx.spells
+	for kind: StringName in HunterSpellVfx.EFFECT_IDS:
+		check(spells.vfx.has_effect(kind), "animation disponible : %s" % kind)
+	RunFixture.spawn(run, &"husk", Vector2(80, 0))
+	var before: int = spells.vfx.layer.get_child_count()
+	_equip(&"cleaving_slash").cast(0, _pos(Vector2(100, 0)))
+	check(spells.vfx.layer.get_child_count() >= before + 2, "Taille fendante : coupe + impact sur le contact")
+	_equip(&"singularity").cast(0, _pos(Vector2(200, 0)))
+	check(spells.vfx.layer.get_child_count() >= before + 3, "Singularité : animation jouée")
+
+
+func test_test_mode_unlocks_the_whole_tree() -> void:
+	var profile := ProfileData.new()
+	HunterTree.unlock_all_for_testing(profile)
+	for id: StringName in GameDB.skill_nodes:
+		var node: SkillNodeData = GameDB.skill_nodes[id]
+		check_eq(HunterTree.learned_rank(profile, node), node.max_rank(), "%s appris" % id)
+	check(HunterTree.points_left(profile) >= 150, "points en abondance")
+	check(HunterTree.activate(profile, GameDB.skill_node(&"bond_swap")), "un sort de niveau IV s'active")

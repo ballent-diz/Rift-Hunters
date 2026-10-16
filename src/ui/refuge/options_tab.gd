@@ -39,6 +39,12 @@ func refresh() -> void:
 		Settings.reset_bindings()
 		refresh(), 280))
 	box.add_child(UiKit.wrapped(tr("OPTIONS_CONTROLS"), 14, UiKit.MUTED))
+	# Outil de développement : visible seulement quand le jeu est lancé depuis Godot (jamais dans un export publié).
+	if OS.is_debug_build():
+		box.add_child(UiKit.button(tr("OPTIONS_TEST_MODE"), func() -> void:
+			HunterTree.unlock_all_for_testing(profile())
+			refuge.commit(), 420))
+		box.add_child(UiKit.wrapped(tr("OPTIONS_TEST_MODE_HINT"), 13, UiKit.MUTED))
 	box.add_child(UiKit.wrapped(tr("OPTIONS_SAVE_INFO") % [ProjectSettings.globalize_path(Profile.path),
 		SaveMigrations.CURRENT_VERSION], 13, UiKit.MUTED))
 
