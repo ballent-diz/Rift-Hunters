@@ -3,7 +3,8 @@ extends Node2D
 ## Sorts du Chasseur (lot C1, docs/design/ARBRE_DU_CHASSEUR.md) : 4 emplacements (A, E, R, F par défaut), visée au
 ## curseur. Par défaut la touche lance immédiatement ; avec l'option « aperçu », maintenir la touche affiche la zone
 ## au sol et la relâcher lance. Dessine aussi le réticule de visée et l'aperçu (indicateur au sol).
-## spell_kind (données) → fonction de code, comme les Techniques des Échos.
+## spell_kind (données) → fonction de code, comme les Techniques des Échos. Les sorts du lot C2b et leurs objets
+## persistants (cristaux, murs, portails…) vivent dans HunterSpellWorld (`world`).
 
 const SLOTS := 4
 const RETICLE_COLOR := Color(0.85, 0.95, 1.0, 0.55)
@@ -29,6 +30,7 @@ var preview_slot: int = -1
 ## Emplacement en charge (Surcharge), -1 sinon, et durée de charge.
 var charge_slot: int = -1
 var charge_time: float = 0.0
+var world: HunterSpellWorld
 
 
 func setup(p_ctx: RunContext, spell_ids: Array[StringName], spell_variants: Dictionary = {}) -> void:
@@ -42,6 +44,9 @@ func setup(p_ctx: RunContext, spell_ids: Array[StringName], spell_variants: Dict
 		variants.append(StringName(str(spell_variants.get(spell.id, ""))) if spell else &"")
 	cooldowns.resize(SLOTS)
 	cooldowns.fill(0.0)
+	world = HunterSpellWorld.new()
+	world.setup(ctx, self)
+	add_child(world)
 
 
 func step(delta: float) -> void:
@@ -49,6 +54,7 @@ func step(delta: float) -> void:
 	var brain: PlayerBrain = player.brain
 	for i: int in SLOTS:
 		cooldowns[i] = maxf(cooldowns[i] - delta, 0.0)
+	world.step(delta)
 	if not player.alive:
 		preview_slot = -1
 		return
@@ -85,11 +91,17 @@ func charge_power() -> float:
 ## Faux si vide ou en recharge.
 func cast(slot: int, aim: Vector2, power: float = 1.0) -> bool:
 	var spell: SpellData = slots[slot] if slot < slots.size() else null
-	if spell == null or cooldowns[slot] > 0.0:
+	if spell == null or ctx.player.is_leaping():
 		return false
 	var origin: Vector2 = ctx.player.global_position
 	var dir: Vector2 = aim_direction(aim)
 	var variant: StringName = variants[slot]
+	# Second appui gratuit : Retour du Bond, sortie des Failles jumelles.
+	if world.free_recast(spell):
+		return world.cast(slot, spell, variant, origin, dir, aim, power)
+	if cooldowns[slot] > 0.0:
+		return false
+	power *= world.consume_power(spell)
 	match spell.spell_kind:
 		&"slash":
 			if variant == &"thrust":
@@ -103,14 +115,28 @@ func cast(slot: int, aim: Vector2, power: float = 1.0) -> bool:
 			else:
 				_lance(spell, origin, dir, power)
 		_:
-			push_error("Sort inconnu : %s" % spell.spell_kind)
-			return false
+			if not world.cast(slot, spell, variant, origin, dir, aim, power):
+				return false
 	cooldowns[slot] = spell.cooldown * maxf(ctx.player.stats.get_value(StatKeys.SPELL_COOLDOWN), 0.1)
 	ctx.player.facing = dir
 	ctx.stats.add(&"spells_cast")
 	ctx.stats.add(StringName(String(spell.id) + "_casts"))
 	ctx.events.spell_cast.emit(spell.id)
 	return true
+
+
+## Relais vers les sorts persistants (appelés par les combats et les projectiles).
+func on_parry() -> void:
+	world.on_parry()
+
+
+func blocks_projectile(pos: Vector2) -> bool:
+	return not world.walls.is_empty() and world.blocks_projectile(pos)
+
+
+func affect_projectile(p: Projectile) -> void:
+	if not world.crystals.is_empty() or not world.portals.is_empty():
+		world.affect_projectile(p)
 
 
 func ready_ratio(slot: int) -> float:
@@ -229,6 +255,34 @@ func draw_shape(spell: SpellData, origin: Vector2, dir: Vector2, variant: String
 			draw_polyline(points, edge, 2.0)
 		&"lance":
 			_draw_line_shape(origin, dir, spell.spell_range, spell.width, fill, edge)
+		&"leap":
+			var target: Vector2 = origin + dir * minf(spell.spell_range, ctx.player.brain.aim_point().distance_to(origin))
+			draw_line(origin, target, edge, 2.0)
+			_draw_circle_shape(target, spell.width * (2.0 if variant == &"impact" else 1.0), fill, edge)
+		&"parry", &"aegis":
+			_draw_circle_shape(origin, maxf(spell.width, 60.0) if spell.spell_kind == &"parry" else 60.0, fill, edge)
+		&"wall":
+			var center: Vector2 = _aim_point(origin, spell.spell_range)
+			var axis: Vector2 = dir.orthogonal() * spell.width * 0.5
+			draw_line(center - axis, center + axis, edge, 6.0)
+		&"swap":
+			draw_line(origin, _aim_point(origin, spell.spell_range), edge, 2.0)
+		&"singularity":
+			_draw_circle_shape(_aim_point(origin, spell.spell_range),
+				spell.width * (1.4 if variant == &"horizon" else 1.0), fill, edge)
+		&"crystal", &"rifts":
+			_draw_circle_shape(_aim_point(origin, spell.spell_range), maxf(spell.width, 26.0), fill, edge)
+		_:
+			_draw_circle_shape(_aim_point(origin, spell.spell_range), spell.width, fill, edge)
+
+
+func _aim_point(origin: Vector2, max_range: float) -> Vector2:
+	return origin + (ctx.player.brain.aim_point() - origin).limit_length(max_range)
+
+
+func _draw_circle_shape(center: Vector2, radius: float, fill: Color, edge: Color) -> void:
+	draw_circle(center, radius, fill)
+	draw_arc(center, radius, 0.0, TAU, 40, edge, 2.0)
 
 
 func _draw_line_shape(origin: Vector2, dir: Vector2, length: float, half_width: float, fill: Color, edge: Color) -> void:

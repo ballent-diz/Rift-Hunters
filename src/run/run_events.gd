@@ -8,6 +8,8 @@ signal status_applied(target: Combatant, status_id: StringName, added: int, sour
 signal detonation(enemy: Enemy, stacks: int, source_id: StringName)
 signal player_hurt(amount: float)
 signal player_dashed(from: Vector2, to: Vector2)
+## Un coup a été évité pendant la Ruée.
+signal player_dodged
 signal technique_cast(monster_id: StringName, technique_kind: StringName)
 signal spell_cast(spell_id: StringName)
 signal well_tick(enemies: Array, source_id: StringName)

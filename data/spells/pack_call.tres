@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"pack_call"
+spell_kind = &"pack_call"
+name_key = "SPELL_PACK_CALL_NAME"
+desc_key = "SPELL_PACK_CALL_DESC"
+family = 0
+path = &"bond"
+cooldown = 12.0
+damage = 20.0
+spell_range = 500.0
+width = 90.0
+knockback = 60.0
+speed = 0.0
+statuses = []
+color = Color(0.55, 1, 0.6, 1)
+params = {}

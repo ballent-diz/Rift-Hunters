@@ -15,6 +15,7 @@ spell_kind = &"slash"
 name_key = "SPELL_CLEAVING_SLASH_NAME"
 desc_key = "SPELL_CLEAVING_SLASH_DESC"
 family = 0
+path = &"blade"
 cooldown = 4.0
 damage = 40.0
 spell_range = 150.0

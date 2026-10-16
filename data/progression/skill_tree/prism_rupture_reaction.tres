@@ -19,5 +19,5 @@ spell_id = &"rupture"
 variant_kind = &"reaction"
 required_wins = 3
 learned_by_default = false
-implemented = false
+implemented = true
 effects = []

@@ -15,6 +15,7 @@ spell_kind = &"lance"
 name_key = "SPELL_PRISMATIC_LANCE_NAME"
 desc_key = "SPELL_PRISMATIC_LANCE_DESC"
 family = 0
+path = &"prism"
 cooldown = 6.0
 damage = 30.0
 spell_range = 700.0

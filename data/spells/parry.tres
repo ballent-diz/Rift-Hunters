@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="2"]
+
+[sub_resource type="Resource" id="status_application_1"]
+script = ExtResource("2")
+status_id = &"root"
+stacks = 1
+
+[resource]
+script = ExtResource("1")
+id = &"parry"
+spell_kind = &"parry"
+name_key = "SPELL_PARRY_NAME"
+desc_key = "SPELL_PARRY_DESC"
+family = 1
+path = &"blade"
+cooldown = 7.0
+damage = 25.0
+spell_range = 0.0
+width = 140.0
+knockback = 160.0
+speed = 0.0
+statuses = Array[ExtResource("2")]([SubResource("status_application_1")])
+color = Color(1, 0.95, 0.7, 1)
+params = {"window": 0.4, "counter": 4.0}

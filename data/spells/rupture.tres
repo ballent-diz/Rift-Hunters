@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"rupture"
+spell_kind = &"rupture"
+name_key = "SPELL_RUPTURE_NAME"
+desc_key = "SPELL_RUPTURE_DESC"
+family = 0
+path = &"prism"
+cooldown = 10.0
+damage = 14.0
+spell_range = 520.0
+width = 220.0
+knockback = 0.0
+speed = 0.0
+statuses = []
+color = Color(0.6, 0.95, 1, 1)
+params = {}

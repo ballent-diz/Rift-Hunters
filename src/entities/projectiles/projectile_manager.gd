@@ -109,6 +109,8 @@ func _step_friendly(p: Projectile, delta: float, rect: Rect2) -> bool:
 	p.life -= delta
 	if p.life <= 0.0 or not rect.has_point(p.position):
 		return false
+	if ctx.spells:
+		ctx.spells.affect_projectile(p)
 	var boss: Enemy = ctx.boss
 	if boss and boss.alive and boss.absorb_radius > 0.0 and p.position.distance_to(boss.position) < boss.absorb_radius:
 		boss.absorbed_count += 1
@@ -169,9 +171,12 @@ func _step_hostile(p: Projectile, delta: float, rect: Rect2) -> bool:
 	p.life -= delta
 	if p.life <= 0.0 or not rect.has_point(p.position):
 		return false
+	if ctx.spells and ctx.spells.blocks_projectile(p.position):
+		ctx.fx.spark(p.position, Color(0.75, 0.45, 1.0), 6.0)
+		return false
 	var player: Player = ctx.player
 	if player.alive and p.position.distance_to(player.position) < p.radius + player.radius * 0.8:
-		if player.can_be_hurt():
+		if player.can_be_hurt() or player.parry_time > 0.0:
 			ctx.combat.damage_player(p.hostile_damage, p.source_id)
 			return false
 	return true

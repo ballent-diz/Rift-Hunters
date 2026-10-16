@@ -19,5 +19,5 @@ spell_id = &"singularity"
 variant_kind = &""
 required_wins = 0
 learned_by_default = false
-implemented = false
+implemented = true
 effects = []

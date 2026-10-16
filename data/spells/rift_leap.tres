@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"rift_leap"
+spell_kind = &"leap"
+name_key = "SPELL_RIFT_LEAP_NAME"
+desc_key = "SPELL_RIFT_LEAP_DESC"
+family = 0
+path = &"blade"
+cooldown = 9.0
+damage = 30.0
+spell_range = 380.0
+width = 110.0
+knockback = 140.0
+speed = 0.0
+statuses = []
+color = Color(1, 0.7, 0.5, 1)
+params = {"duration": 0.25}

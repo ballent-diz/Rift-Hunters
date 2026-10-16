@@ -40,9 +40,12 @@ func test_tree_gates_prerequisites_and_coming_soon() -> void:
 	check_eq(HunterTree.status(profile, whirlwind), HunterTree.Status.GATED, "palier : 1 victoire contre un boss")
 	profile.data["runs"]["won"] = 1
 	check_eq(HunterTree.status(profile, whirlwind), HunterTree.Status.LEARNABLE, "palier atteint")
-	check_eq(HunterTree.status(profile, _node(&"abyss_singularity")), HunterTree.Status.COMING_SOON, "sort à venir")
-	check(not HunterTree.learn(profile, _node(&"abyss_singularity")), "à venir : non apprenable")
-	check_eq(HunterTree.status(profile, _node(&"blade_counter_cut")), HunterTree.Status.COMING_SOON, "transformant à venir")
+	check_eq(HunterTree.status(profile, _node(&"abyss_singularity")), HunterTree.Status.LOCKED, "Singularité : passif requis")
+	check(HunterTree.learn(profile, _node(&"abyss_depths")), "passif de l'Abîme appris")
+	check_eq(HunterTree.status(profile, _node(&"abyss_singularity")), HunterTree.Status.LEARNABLE, "Singularité apprenable")
+	check_eq(HunterTree.status(profile, _node(&"blade_parry")), HunterTree.Status.GATED, "niveau IV : 3 victoires")
+	for id: StringName in GameDB.skill_nodes:
+		check(GameDB.skill_nodes[id].implemented, "%s réalisé" % id)
 
 
 func test_tree_activation_spends_points() -> void:

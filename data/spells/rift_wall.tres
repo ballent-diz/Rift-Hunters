@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"rift_wall"
+spell_kind = &"wall"
+name_key = "SPELL_RIFT_WALL_NAME"
+desc_key = "SPELL_RIFT_WALL_DESC"
+family = 1
+path = &"abyss"
+cooldown = 13.0
+damage = 0.0
+spell_range = 400.0
+width = 260.0
+knockback = 0.0
+speed = 0.0
+statuses = []
+color = Color(0.75, 0.45, 1, 1)
+params = {"duration": 4.0}

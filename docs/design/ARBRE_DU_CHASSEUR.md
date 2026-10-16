@@ -160,8 +160,15 @@ d'exploration et de recherche déjà achetés sont **conservés** comme amélior
   `src/ui/refuge/tree_tab.gd` (habillage provisoire, remplacé par le lot C5), sauvegarde v2 (les rangs appris sont
   conservés ; le premier build active les passifs déjà appris), variantes Tourbillon, Estoc, Éventail et Surcharge
   (`hunter_spells.gd`), gains d'Éclats réduits. Palier provisoire : victoires contre un boss (`runs.won`).
-- **Lot C2b (à faire)** : les 10 autres sorts et leurs variantes, les 8 passifs transformants, les 4 clés de voûte
-  (nœuds déjà dans l'arbre avec `implemented = false`).
+- **Lot C2b (16 octobre 2026)** : les 10 autres sorts (`data/spells/`, code `src/entities/player/hunter_spell_world.gd`
+  pour les sorts persistants : cristaux, murs, portails, Égide, Parade), leurs 20 variantes, les 8 passifs
+  transformants et les 4 clés de voûte (`src/combat/effects/hunter_talent_effect.gd`). Tests :
+  `tests/unit/test_hunter_spells_c2b.gd` (chaque sort, chaque variante et chaque talent en mêlée).
+- Ajustements de réalisation : les Échos n'ont pas de points de vie, donc *Égide* renforce le bouclier du Chasseur
+  (+5 % par Écho), *Garde de meute* fait contre-attaquer les Échos proches, *Sanctuaire* soigne le Chasseur (12 %) ;
+  *Contre-taille* se déclenche en esquivant un coup pendant la Ruée ; *Mur de faille* est perpendiculaire à la
+  visée ; le *Bond* ne franchit ni l'eau, ni les falaises, ni les barrières ; les portails se posent sur un sol
+  praticable.
 
 ## 10. Reste à confirmer
 

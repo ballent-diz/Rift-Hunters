@@ -19,5 +19,5 @@ spell_id = &"swap"
 variant_kind = &""
 required_wins = 3
 learned_by_default = false
-implemented = false
+implemented = true
 effects = []

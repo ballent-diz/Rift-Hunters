@@ -668,11 +668,11 @@ NODE_BLADE_LEAP_IMPACT_DESC,Bond de faille : onde 2× plus large qui Entrave 2 s
 NODE_BLADE_PARRY_NAME,Parade,Parry
 NODE_BLADE_PARRY_DESC,"Sort : garde de 0,4 s ; un coup paré déclenche une contre-attaque ×4 et étourdit.",Spell: 0.4 s guard; a parried hit triggers a ×4 counterattack and stuns.
 NODE_BLADE_COUNTER_CUT_NAME,Contre-taille,Counter Cut
-NODE_BLADE_COUNTER_CUT_DESC,Une Ruée juste avant un coup recharge le prochain sort de Lame et lui donne +50 % de dégâts.,Dashing just before a hit recharges your next Blade spell and gives it +50% damage.
+NODE_BLADE_COUNTER_CUT_DESC,Esquiver un coup pendant la Ruée recharge le prochain sort de Lame et lui donne +50 % de dégâts.,Dodging a hit while dashing recharges your next Blade spell and gives it +50% damage.
 NODE_BLADE_PARRY_MIRROR_NAME,Miroir,Mirror
 NODE_BLADE_PARRY_MIRROR_DESC,Parade : les projectiles parés repartent vers le curseur.,Parry: parried projectiles fly back toward the cursor.
 NODE_BLADE_PARRY_PACK_GUARD_NAME,Garde de meute,Pack Guard
-NODE_BLADE_PARRY_PACK_GUARD_DESC,Parade : protège aussi les Échos proches.,Parry: also protects nearby Echoes.
+NODE_BLADE_PARRY_PACK_GUARD_DESC,Parade : les Échos proches contre-attaquent aussi.,Parry: nearby Echoes counterattack too.
 NODE_BLADE_MASTER_NAME,Maître-lame,Blade Master
 NODE_BLADE_MASTER_DESC,Clé de voûte : chaque sort de Lame réduit de 1 s la recharge des autres sorts.,Keystone: each Blade spell reduces the other spells' cooldowns by 1 s.
 NODE_PRISM_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
@@ -728,25 +728,25 @@ NODE_ABYSS_VOID_MASTER_DESC,Clé de voûte : les ennemis sous Racines ou Entrave
 NODE_BOND_PACK_CALL_NAME,Appel de meute,Pack Call
 NODE_BOND_PACK_CALL_DESC,Sort : les Échos bondissent vers le curseur et frappent ensemble.,Spell: your Echoes leap toward the cursor and strike together.
 NODE_BOND_CLOSE_GUARD_NAME,Garde rapprochée,Close Guard
-NODE_BOND_CLOSE_GUARD_DESC,"Quand le Chasseur est touché, l'Écho le plus proche bondit sur l'agresseur.","When the Hunter is hit, the nearest Echo leaps at the attacker."
+NODE_BOND_CLOSE_GUARD_DESC,"Quand le Chasseur est touché, l'Écho le plus proche bondit sur l'ennemi le plus proche (toutes les 3 s).","When the Hunter is hit, the nearest Echo leaps at the nearest enemy (every 3 s)."
 NODE_BOND_CALL_RALLY_NAME,Ralliement,Rally
 NODE_BOND_CALL_RALLY_DESC,Appel de meute : +25 % de vitesse d'attaque aux Échos 4 s.,Pack Call: Echoes gain +25% attack speed for 4 s.
 NODE_BOND_CALL_QUARRY_NAME,Curée,Quarry
 NODE_BOND_CALL_QUARRY_DESC,Appel de meute : dégâts ×2 sur les élites et le boss.,Pack Call: ×2 damage against elites and the boss.
 NODE_BOND_AEGIS_NAME,Égide de faille,Rift Aegis
-NODE_BOND_AEGIS_DESC,"Sort : bouclier sur le Chasseur et ses Échos (25 % des PV max, 4 s).","Spell: shield on the Hunter and Echoes (25% of max HP, 4 s)."
+NODE_BOND_AEGIS_DESC,Sort : bouclier de 25 % des PV max (+5 % par Écho) pendant 4 s.,Spell: shield worth 25% of max HP (+5% per Echo) for 4 s.
 NODE_BOND_AEGIS_RIPOSTE_NAME,Riposte,Riposte
 NODE_BOND_AEGIS_RIPOSTE_DESC,Égide de faille : une onde de choc quand le bouclier se brise.,Rift Aegis: a shockwave when the shield breaks.
 NODE_BOND_AEGIS_SHARE_NAME,Partage,Share
-NODE_BOND_AEGIS_SHARE_DESC,Égide de faille : le Chasseur reçoit 50 % du bouclier mais se soigne de 15 %.,Rift Aegis: the Hunter gets 50% of the shield but heals 15%.
+NODE_BOND_AEGIS_SHARE_DESC,Égide de faille : bouclier réduit de moitié mais soin de 15 % des PV max.,Rift Aegis: shield halved but heals 15% of max HP.
 NODE_BOND_SWAP_NAME,Permutation,Swap
 NODE_BOND_SWAP_DESC,"Sort : échange de place avec un Écho, qui provoque les ennemis proches.","Spell: swap places with an Echo, which taunts nearby enemies."
 NODE_BOND_FUSION_NAME,Fusion,Fusion
-NODE_BOND_FUSION_DESC,"4 s après un sort de Lien, les attaques des Échos appliquent les statuts du Chasseur.","For 4 s after a Bond spell, Echo attacks apply the Hunter's statuses."
+NODE_BOND_FUSION_DESC,"4 s après un sort de Lien, les attaques des Échos posent Marque et Fracture (35 % chacune).","For 4 s after a Bond spell, Echo attacks apply Mark and Fracture (35% each)."
 NODE_BOND_SWAP_RELAY_NAME,Relais,Relay
 NODE_BOND_SWAP_RELAY_DESC,Permutation : l'Écho échangé lance aussitôt son propre sort.,Swap: the swapped Echo casts its own spell at once.
 NODE_BOND_SWAP_SANCTUARY_NAME,Sanctuaire,Sanctuary
-NODE_BOND_SWAP_SANCTUARY_DESC,Permutation : les deux positions soignent les alliés de 8 % des PV max.,Swap: both positions heal allies for 8% of max HP.
+NODE_BOND_SWAP_SANCTUARY_DESC,Permutation : soigne le Chasseur de 12 % des PV max.,Swap: heals the Hunter for 12% of max HP.
 NODE_BOND_PACK_SOUL_NAME,Âme de meute,Pack Soul
 NODE_BOND_PACK_SOUL_DESC,Clé de voûte : chaque sort du Chasseur réduit de 1 s la recharge des sorts d'Échos.,Keystone: each Hunter spell reduces Echo spell cooldowns by 1 s.
 BRANCH_TRUNK_NAME,Tronc,Trunk
@@ -791,3 +791,23 @@ TREE_ERR_MAX_ACTIVE,Déjà actif au maximum.,Already fully active.
 TREE_ERR_NEEDS_SPELL,Activez d'abord le sort.,Activate the spell first.
 TREE_ERR_POINTS,Pas assez de Points de Chasseur (gagnez une nouvelle carte ou réussissez des objectifs).,Not enough Hunter Points (win a new map or complete objectives).
 REPORT_HUNTER_POINT,Première victoire sur cette carte : +1 Point de Chasseur !,First victory on this map: +1 Hunter Point!
+SPELL_RIFT_LEAP_NAME,Bond de faille,Rift Leap
+SPELL_RIFT_LEAP_DESC,"Bond jusqu'au curseur, invulnérable pendant le saut, onde de choc à l'arrivée. Ne franchit ni l'eau, ni les falaises, ni les barrières.","Leap to the cursor, invulnerable while airborne, shockwave on landing. Cannot cross water, cliffs or barriers."
+SPELL_PARRY_NAME,Parade,Parry
+SPELL_PARRY_DESC,"Garde de 0,4 s : un coup paré n'inflige rien, déclenche une contre-attaque ×4, étourdit et recharge la Parade.","0.4 s guard: a parried hit deals nothing, triggers a ×4 counterattack, stuns and recharges Parry."
+SPELL_RUPTURE_NAME,Rupture,Rupture
+SPELL_RUPTURE_DESC,Fait détoner toutes les Marques dans une zone au curseur.,Detonates every Mark in an area at the cursor.
+SPELL_REFRACTING_CRYSTAL_NAME,Cristal réfracteur,Refracting Crystal
+SPELL_REFRACTING_CRYSTAL_DESC,Cristal au curseur (8 s) : chaque Trait ou Lance qui le traverse se divise en 3 et pose une Marque.,Crystal at the cursor (8 s): every Bolt or Lance passing through splits into 3 and applies a Mark.
+SPELL_SINGULARITY_NAME,Singularité,Singularity
+SPELL_SINGULARITY_DESC,Sphère au curseur qui attire les ennemis 3 s puis implose.,"Sphere at the cursor that pulls enemies for 3 s, then implodes."
+SPELL_RIFT_WALL_NAME,Mur de faille,Rift Wall
+SPELL_RIFT_WALL_DESC,"Mur au curseur, perpendiculaire à la visée (4 s) : bloque les ennemis et leurs projectiles.","Wall at the cursor, perpendicular to your aim (4 s): blocks enemies and their projectiles."
+SPELL_TWIN_RIFTS_NAME,Failles jumelles,Twin Rifts
+SPELL_TWIN_RIFTS_DESC,"1er appui : entrée ; 2e appui : sortie (6 s). Tirs, Échos et Chasseur en Ruée passent de l'une à l'autre ; les ennemis qui les touchent sont Fracturés.","1st press: entrance; 2nd press: exit (6 s). Shots, Echoes and the dashing Hunter travel between them; enemies touching them are Fractured."
+SPELL_PACK_CALL_NAME,Appel de meute,Pack Call
+SPELL_PACK_CALL_DESC,Les Échos bondissent vers le curseur et frappent ensemble (+25 % par Écho au-delà du premier).,Your Echoes leap to the cursor and strike together (+25% per Echo beyond the first).
+SPELL_AEGIS_NAME,Égide de faille,Rift Aegis
+SPELL_AEGIS_DESC,Bouclier de 25 % des PV max (+5 % par Écho) pendant 4 s.,Shield worth 25% of max HP (+5% per Echo) for 4 s.
+SPELL_SWAP_NAME,Permutation,Swap
+SPELL_SWAP_DESC,"Échange de place avec l'Écho le plus proche du curseur, qui provoque les ennemis proches 2 s. À l'instant d'un coup : esquive et recharges divisées par 2.","Swap places with the Echo nearest the cursor, which taunts nearby enemies for 2 s. Right before a hit: dodge and halve your cooldowns."
