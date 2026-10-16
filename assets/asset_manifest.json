@@ -4595,6 +4595,714 @@
 			"contract": "Deux positions réelles ; échange uniquement illustré. Relais attend le signal du vrai sort de l’Écho. Sanctuaire est un accent visuel.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
 			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+		},
+		"ui.hunter_tree.node.passive.upcoming": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_passive_upcoming.svg",
+			"cell": [
+				80,
+				80
+			],
+			"anchor": [
+				40,
+				40
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				40,
+				40
+			]
+		},
+		"ui.hunter_tree.node.spell.upcoming": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_spell_upcoming.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				56,
+				56
+			]
+		},
+		"ui.hunter_tree.node.transform.upcoming": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_transform_upcoming.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				25.92,
+				28.799999999999997,
+				44.160000000000004,
+				40.32
+			]
+		},
+		"ui.hunter_tree.node.keystone.upcoming": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_keystone_upcoming.svg",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				34.56,
+				38.4,
+				58.88,
+				53.76
+			]
+		},
+		"ui.hunter_tree.link.vertical.upcoming": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_vertical_upcoming.svg",
+			"cell": [
+				16,
+				128
+			],
+			"anchor": [
+				8,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.fork.upcoming": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_fork_upcoming.svg",
+			"cell": [
+				160,
+				64
+			],
+			"anchor": [
+				80,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"icon.hunter.cleaving_slash": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.cleaving_slash\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_cleaving_slash_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_cleaving_slash.png"
+		},
+		"icon.hunter.rift_leap": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_leap\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_leap_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_rift_leap.png"
+		},
+		"icon.hunter.parry": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.parry\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_parry_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_parry.png"
+		},
+		"icon.hunter.prismatic_lance": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.prismatic_lance\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_prismatic_lance_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_prismatic_lance.png"
+		},
+		"icon.hunter.refractor_crystal": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.refractor_crystal\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_refractor_crystal_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_refractor_crystal.png"
+		},
+		"icon.hunter.rift_wall": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_wall\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_wall_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_rift_wall.png"
+		},
+		"icon.hunter.rupture": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rupture\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_rupture_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_rupture.png"
+		},
+		"icon.hunter.singularity": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.singularity\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_singularity_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_singularity.png"
+		},
+		"icon.hunter.propagation": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.propagation\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_propagation_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_propagation.png"
+		},
+		"icon.hunter.counter_slash": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.counter_slash\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_counter_slash_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_counter_slash.png"
+		},
+		"icon.hunter.slashing_dash": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.slashing_dash\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_slashing_dash_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_slashing_dash.png"
+		},
+		"icon.hunter.void_wake": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.void_wake\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_void_wake_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_void_wake.png"
+		},
+		"icon.hunter.swap": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.swap\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_swap_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_swap.png"
+		},
+		"icon.hunter.split_bolt": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.split_bolt\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_split_bolt_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_split_bolt.png"
+		},
+		"icon.hunter.twin_rifts": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.twin_rifts\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_twin_rifts_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_twin_rifts.png"
+		},
+		"icon.hunter.anchor": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.anchor\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_anchor_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_anchor.png"
+		},
+		"icon.hunter.rift_aegis": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_aegis\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_aegis_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_rift_aegis.png"
+		},
+		"icon.hunter.close_guard": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.close_guard\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_close_guard_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_close_guard.png"
+		},
+		"icon.hunter.pack_call": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.pack_call\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_pack_call_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_pack_call.png"
+		},
+		"icon.hunter.fusion": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.fusion\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_fusion_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_fusion.png"
+		},
+		"icon.hunter.blade_master": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.blade_master\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_blade_master_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_blade_master.png"
+		},
+		"icon.hunter.living_prism": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.living_prism\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_living_prism_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_living_prism.png"
+		},
+		"icon.hunter.pack_soul": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.pack_soul\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_pack_soul_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_pack_soul.png"
+		},
+		"icon.hunter.void_master": {
+			"status": "final",
+			"imported_from": "assets\\concepts\\incoming\\icon.hunter.void_master\\job.json",
+			"sheet": "res://assets/sprites/skills/hunter/hunter_void_master_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/hunter_void_master.png"
 		}
 	}
 }

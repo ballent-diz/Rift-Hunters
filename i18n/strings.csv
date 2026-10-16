@@ -932,3 +932,9 @@ C5P_CUT,02  FRAPPE,02  SWING
 C5P_HIT,03  IMPACT,03  IMPACT
 C5P_RECOVERY,04  RETOUR,04  RECOVERY
 C5P_NOTE,Mise en scène à valider · effets pas encore raccordés aux sorts en jeu,Staged visual preview · effects are not yet connected to in-game spells
+
+TREE_SKIN_POINTS_HINT,Points utilisés dans ce build / points disponibles. Changement gratuit au refuge.,Points used in this build / total available. Free changes at the Refuge.
+TREE_SKIN_TREE,Arbre du Chasseur,Hunter tree
+TREE_SKIN_REFUGE,Améliorations du refuge,Refuge upgrades
+TREE_SKIN_EMPTY,Emplacement libre,Empty slot
+TREE_SKIN_NEED_SHARDS,Éclats insuffisants,Not enough Shards

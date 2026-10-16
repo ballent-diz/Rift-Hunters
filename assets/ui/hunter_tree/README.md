@@ -1,10 +1,10 @@
 # Habillage de l’arbre du Chasseur — C5
 
 Catalogue : `catalog.json` ; identifiants `ui.hunter_tree.*` dans le manifeste commun.
-Les 38 SVG sont sans texte. Le refuge réutilise `assets/ui/menus/refuge-backdrop.png`.
+Les 44 SVG sont sans texte. Le refuge réutilise `assets/ui/menus/refuge-backdrop.png`.
 La conception reste celle de `docs/design/ARBRE_DU_CHASSEUR.md`.
 
-- `node_<type>_<état>` : passif, sort, transformant, clé de voûte ; quatre états.
+- `node_<type>_<état>` : passif, sort, transformant, clé de voûte ; cinq états (dont « à venir »).
 - Verrouillé : cadenas et bord assombri. Apprenable : quatre repères lumineux.
   Appris : coche et contour bleu acier. Activé : double contour ivoire/cyan et coche.
   La couleur seule ne porte donc pas l’état.
@@ -23,3 +23,6 @@ de placement, pas les illustrations définitives. `mockup_data.json` est un jeu 
 sans validation de prérequis, sauvegarde, achat ou activation. Ne pas en faire une base de gameplay.
 
 Guide de raccordement C2 et effets : `docs/art/CHASSEUR_C5.md`.
+
+L’écran fonctionnel C5 utilise désormais ces éléments : src/ui/refuge/tree_tab.gd.
+Sa référence est 1280 × 720 ; voir docs/art/HABILLAGE_ARBRE_C5.md pour les contrôles et les captures.

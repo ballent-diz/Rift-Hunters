@@ -1,6 +1,6 @@
 # Prompts des icônes du Chasseur — C5
 
-24 icônes : 12 sorts, 8 transformants, 4 clés de voûte. Images générées par le propriétaire ; aucune icône définitive n’est inventée dans les maquettes. Joindre la Bible graphique et une icône du jeu comme références de style. Les variantes A/B réutilisent l’icône du sort avec un badge de variante.
+24 icônes : 12 sorts, 8 transformants, 4 clés de voûte. Les 24 images ont été générées par Codex avec imagegen, à la demande du propriétaire, puis importées dans le jeu. Les originaux et les prompts exacts sont conservés dans source/ et generation.json. Joindre la Bible graphique et une icône du jeu comme références de style. Les variantes A/B réutilisent l’icône du sort avec un badge de variante.
 
 ## Taille fendante
 
