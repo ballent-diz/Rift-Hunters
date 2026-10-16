@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/hunter/spell_vfx.gd" id="1"]
+
+[node name="parry" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1")
+effect_kind = &"parry"
+spell_range = 65.0
+destination_offset = Vector2(260, 0)

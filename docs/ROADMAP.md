@@ -72,10 +72,27 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | C2 | Arbre du Chasseur v2 (passifs + compétences, branches exclusives, réversible) et builds enregistrés au refuge | Claude | C1 | Fait (16 oct.) : apprendre/activer, tronc + 4 voies, 3 builds, 12 sorts et leurs 24 variantes, 8 passifs transformants, 4 clés de voûte, sauvegarde v2, gains d'Éclats −30 % |
 | C3 | Arbres des Échos et sorts des Échos visés (1, 2, 3) | Claude | C2 | À faire |
 | C4 | Raretés des choix de niveau (commun → héroïque) | Claude | C2 | À faire |
-| C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | À faire |
+| C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | En cours (Codex) |
 | C6 | Équipe à 3 Échos max ; 8 affinités (remplacent « arcane » et « contrôle ») avec bonus à 2 et 3 Échos ; « Prédateurs » devient une synergie d'affinité | Claude | — | À faire |
 | C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | À faire |
 | C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Propriétaire (génération) + Codex (prompts, import, contrôle) | — (peut commencer tout de suite) | À faire |
+
+C5, première livraison du 16 octobre : maquettes de l’arbre, 38 éléments graphiques,
+24 prompts d’icônes et effets autonomes de Taille fendante / Lance prismatique avec variantes.
+Raccordement C2 : [fiche visuelle](art/CHASSEUR_C5.md) et [captures](previews/c5/README.md).
+Les images d’icônes attendent la génération du propriétaire ; les dix autres familles d’effets suivent au fil des sorts.
+Retour du propriétaire pris en compte : animations enrichies (armé, balayage, filaments, cristaux et dispersion), rendu à valider.
+Suite C5 livrée pour validation visuelle : [pilote de Taille fendante](art/TAILLE_FENDANTE_PILOTE.md)
+avec textures dessinées, poses du Chasseur, impact sur une cible et démonstration dans la Plaine.
+Référence d’intention : rythme et impact de Hades,
+avec les personnages et la palette alliée de Rift Hunters. Aucune modification de `src/`.
+Vérification en vraie partie ajoutée : HUD, Écho et vagues existants, contacts C1 confirmés,
+impact limité en taille et en occurrences ; vidéo 1080p dans `docs/previews/c5/live/`.
+Le raccordement au lancement normal reste à réaliser par Claude dans C1/C2.
+Suite C5 livrée : dix autres familles et leurs variantes (30 configurations), en réutilisant les textures existantes.
+Décision du propriétaire : pas de nouvelle génération d’image ni de vidéo d’aperçu pour cette suite ; contrôle ciblé final.
+Les douze familles du Chasseur ont maintenant leurs scènes autonomes ; [contrat des dix suivantes](art/AUTRES_SORTS_C5.md).
+Raccordement C1/C2 et validation en jeu à suivre ; icônes en attente des images du propriétaire.
 
 ### Étape D — Longévité
 

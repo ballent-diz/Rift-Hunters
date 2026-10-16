@@ -1,0 +1,547 @@
+{
+  "nodes": {
+    "cleaving_slash": {
+      "id": "cleaving_slash",
+      "label_key": "C5_CLEAVING_SLASH",
+      "type": "spell",
+      "state": "active"
+    },
+    "rift_leap": {
+      "id": "rift_leap",
+      "label_key": "C5_RIFT_LEAP",
+      "type": "spell",
+      "state": "active"
+    },
+    "parry": {
+      "id": "parry",
+      "label_key": "C5_PARRY",
+      "type": "spell",
+      "state": "learned"
+    },
+    "prismatic_lance": {
+      "id": "prismatic_lance",
+      "label_key": "C5_PRISMATIC_LANCE",
+      "type": "spell",
+      "state": "active"
+    },
+    "rupture": {
+      "id": "rupture",
+      "label_key": "C5_RUPTURE",
+      "type": "spell",
+      "state": "active"
+    },
+    "refractor_crystal": {
+      "id": "refractor_crystal",
+      "label_key": "C5_REFRACTOR_CRYSTAL",
+      "type": "spell",
+      "state": "learnable"
+    },
+    "singularity": {
+      "id": "singularity",
+      "label_key": "C5_SINGULARITY",
+      "type": "spell",
+      "state": "learnable"
+    },
+    "rift_wall": {
+      "id": "rift_wall",
+      "label_key": "C5_RIFT_WALL",
+      "type": "spell",
+      "state": "learnable"
+    },
+    "twin_rifts": {
+      "id": "twin_rifts",
+      "label_key": "C5_TWIN_RIFTS",
+      "type": "spell",
+      "state": "locked"
+    },
+    "pack_call": {
+      "id": "pack_call",
+      "label_key": "C5_PACK_CALL",
+      "type": "spell",
+      "state": "learned"
+    },
+    "rift_aegis": {
+      "id": "rift_aegis",
+      "label_key": "C5_RIFT_AEGIS",
+      "type": "spell",
+      "state": "learnable"
+    },
+    "swap": {
+      "id": "swap",
+      "label_key": "C5_SWAP",
+      "type": "spell",
+      "state": "locked"
+    },
+    "slashing_dash": {
+      "id": "slashing_dash",
+      "label_key": "C5_SLASHING_DASH",
+      "type": "transform",
+      "state": "active"
+    },
+    "counter_slash": {
+      "id": "counter_slash",
+      "label_key": "C5_COUNTER_SLASH",
+      "type": "transform",
+      "state": "learnable"
+    },
+    "propagation": {
+      "id": "propagation",
+      "label_key": "C5_PROPAGATION",
+      "type": "transform",
+      "state": "active"
+    },
+    "split_bolt": {
+      "id": "split_bolt",
+      "label_key": "C5_SPLIT_BOLT",
+      "type": "transform",
+      "state": "learnable"
+    },
+    "void_wake": {
+      "id": "void_wake",
+      "label_key": "C5_VOID_WAKE",
+      "type": "transform",
+      "state": "learnable"
+    },
+    "anchor": {
+      "id": "anchor",
+      "label_key": "C5_ANCHOR",
+      "type": "transform",
+      "state": "locked"
+    },
+    "close_guard": {
+      "id": "close_guard",
+      "label_key": "C5_CLOSE_GUARD",
+      "type": "transform",
+      "state": "learnable"
+    },
+    "fusion": {
+      "id": "fusion",
+      "label_key": "C5_FUSION",
+      "type": "transform",
+      "state": "locked"
+    },
+    "blade_master": {
+      "id": "blade_master",
+      "label_key": "C5_BLADE_MASTER",
+      "type": "keystone",
+      "state": "active"
+    },
+    "living_prism": {
+      "id": "living_prism",
+      "label_key": "C5_LIVING_PRISM",
+      "type": "keystone",
+      "state": "learned"
+    },
+    "void_master": {
+      "id": "void_master",
+      "label_key": "C5_VOID_MASTER",
+      "type": "keystone",
+      "state": "learned"
+    },
+    "pack_soul": {
+      "id": "pack_soul",
+      "label_key": "C5_PACK_SOUL",
+      "type": "keystone",
+      "state": "learned"
+    },
+    "vigor": {
+      "id": "vigor",
+      "label_key": "C5_VIGOR",
+      "type": "passive",
+      "state": "active"
+    },
+    "training": {
+      "id": "training",
+      "label_key": "C5_TRAINING",
+      "type": "passive",
+      "state": "active"
+    },
+    "ghost_step": {
+      "id": "ghost_step",
+      "label_key": "C5_GHOST_STEP",
+      "type": "passive",
+      "state": "learned"
+    },
+    "last_breath": {
+      "id": "last_breath",
+      "label_key": "C5_LAST_BREATH",
+      "type": "passive",
+      "state": "learned"
+    },
+    "third_seal": {
+      "id": "third_seal",
+      "label_key": "C5_THIRD_SEAL",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "shattering_dash": {
+      "id": "shattering_dash",
+      "label_key": "C5_SHATTERING_DASH",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "melee_damage": {
+      "id": "melee_damage",
+      "label_key": "C5_MELEE_DAMAGE",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "rift_brawler": {
+      "id": "rift_brawler",
+      "label_key": "C5_RIFT_BRAWLER",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "rift_shooter": {
+      "id": "rift_shooter",
+      "label_key": "C5_RIFT_SHOOTER",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "resonance": {
+      "id": "resonance",
+      "label_key": "C5_RESONANCE",
+      "type": "passive",
+      "state": "active"
+    },
+    "pyromancer": {
+      "id": "pyromancer",
+      "label_key": "C5_PYROMANCER",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "chain_reaction": {
+      "id": "chain_reaction",
+      "label_key": "C5_CHAIN_REACTION",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "deep_breach": {
+      "id": "deep_breach",
+      "label_key": "C5_DEEP_BREACH",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "gravity": {
+      "id": "gravity",
+      "label_key": "C5_GRAVITY",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "control_duration": {
+      "id": "control_duration",
+      "label_key": "C5_CONTROL_DURATION",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "strong_bonds": {
+      "id": "strong_bonds",
+      "label_key": "C5_STRONG_BONDS",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "sharp_techniques": {
+      "id": "sharp_techniques",
+      "label_key": "C5_SHARP_TECHNIQUES",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "lone_hunter": {
+      "id": "lone_hunter",
+      "label_key": "C5_LONE_HUNTER",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "pack_leader": {
+      "id": "pack_leader",
+      "label_key": "C5_PACK_LEADER",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "whirlwind": {
+      "id": "whirlwind",
+      "label_key": "C5_WHIRLWIND",
+      "type": "passive",
+      "state": "active"
+    },
+    "thrust": {
+      "id": "thrust",
+      "label_key": "C5_THRUST",
+      "type": "passive",
+      "state": "learned"
+    },
+    "return": {
+      "id": "return",
+      "label_key": "C5_RETURN",
+      "type": "passive",
+      "state": "learned"
+    },
+    "impact": {
+      "id": "impact",
+      "label_key": "C5_IMPACT",
+      "type": "passive",
+      "state": "learned"
+    },
+    "mirror": {
+      "id": "mirror",
+      "label_key": "C5_MIRROR",
+      "type": "passive",
+      "state": "learned"
+    },
+    "pack_guard": {
+      "id": "pack_guard",
+      "label_key": "C5_PACK_GUARD",
+      "type": "passive",
+      "state": "learned"
+    },
+    "fan": {
+      "id": "fan",
+      "label_key": "C5_FAN",
+      "type": "passive",
+      "state": "learned"
+    },
+    "overcharge": {
+      "id": "overcharge",
+      "label_key": "C5_OVERCHARGE",
+      "type": "passive",
+      "state": "learned"
+    },
+    "reaction": {
+      "id": "reaction",
+      "label_key": "C5_REACTION",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "inferno": {
+      "id": "inferno",
+      "label_key": "C5_INFERNO",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "double_prism": {
+      "id": "double_prism",
+      "label_key": "C5_DOUBLE_PRISM",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "focus": {
+      "id": "focus",
+      "label_key": "C5_FOCUS",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "horizon": {
+      "id": "horizon",
+      "label_key": "C5_HORIZON",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "collapse": {
+      "id": "collapse",
+      "label_key": "C5_COLLAPSE",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "chains": {
+      "id": "chains",
+      "label_key": "C5_CHAINS",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "burning_wall": {
+      "id": "burning_wall",
+      "label_key": "C5_BURNING_WALL",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "loop": {
+      "id": "loop",
+      "label_key": "C5_LOOP",
+      "type": "passive",
+      "state": "locked"
+    },
+    "exile": {
+      "id": "exile",
+      "label_key": "C5_EXILE",
+      "type": "passive",
+      "state": "locked"
+    },
+    "rally": {
+      "id": "rally",
+      "label_key": "C5_RALLY",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "feast": {
+      "id": "feast",
+      "label_key": "C5_FEAST",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "riposte": {
+      "id": "riposte",
+      "label_key": "C5_RIPOSTE",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "sharing": {
+      "id": "sharing",
+      "label_key": "C5_SHARING",
+      "type": "passive",
+      "state": "learnable"
+    },
+    "relay": {
+      "id": "relay",
+      "label_key": "C5_RELAY",
+      "type": "passive",
+      "state": "locked"
+    },
+    "sanctuary": {
+      "id": "sanctuary",
+      "label_key": "C5_SANCTUARY",
+      "type": "passive",
+      "state": "locked"
+    }
+  },
+  "paths": [
+    {
+      "id": "blade",
+      "rows": [
+        [
+          "shattering_dash",
+          "melee_damage",
+          "rift_brawler"
+        ],
+        [
+          "cleaving_slash",
+          "slashing_dash"
+        ],
+        [
+          "whirlwind",
+          "thrust",
+          "rift_leap"
+        ],
+        [
+          "return",
+          "impact",
+          "parry",
+          "counter_slash"
+        ],
+        [
+          "mirror",
+          "pack_guard",
+          "blade_master"
+        ]
+      ]
+    },
+    {
+      "id": "prism",
+      "rows": [
+        [
+          "rift_shooter",
+          "resonance",
+          "pyromancer",
+          "chain_reaction"
+        ],
+        [
+          "prismatic_lance",
+          "propagation"
+        ],
+        [
+          "fan",
+          "overcharge",
+          "rupture"
+        ],
+        [
+          "reaction",
+          "inferno",
+          "refractor_crystal",
+          "split_bolt"
+        ],
+        [
+          "double_prism",
+          "focus",
+          "living_prism"
+        ]
+      ]
+    },
+    {
+      "id": "abyss",
+      "rows": [
+        [
+          "deep_breach",
+          "gravity",
+          "control_duration"
+        ],
+        [
+          "singularity",
+          "void_wake"
+        ],
+        [
+          "horizon",
+          "collapse",
+          "rift_wall"
+        ],
+        [
+          "chains",
+          "burning_wall",
+          "twin_rifts",
+          "anchor"
+        ],
+        [
+          "loop",
+          "exile",
+          "void_master"
+        ]
+      ]
+    },
+    {
+      "id": "bond",
+      "rows": [
+        [
+          "strong_bonds",
+          "sharp_techniques",
+          "lone_hunter",
+          "pack_leader"
+        ],
+        [
+          "pack_call",
+          "close_guard"
+        ],
+        [
+          "rally",
+          "feast",
+          "rift_aegis"
+        ],
+        [
+          "riposte",
+          "sharing",
+          "swap",
+          "fusion"
+        ],
+        [
+          "relay",
+          "sanctuary",
+          "pack_soul"
+        ]
+      ]
+    }
+  ],
+  "trunk": [
+    "vigor",
+    "training",
+    "ghost_step",
+    "last_breath",
+    "third_seal"
+  ],
+  "build_points": [
+    20,
+    20
+  ],
+  "slots": [
+    "cleaving_slash",
+    "prismatic_lance",
+    "rift_leap",
+    "rupture"
+  ]
+}
