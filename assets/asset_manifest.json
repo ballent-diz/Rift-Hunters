@@ -2569,7 +2569,7 @@
 			"ambient": {
 				"amount": 0
 			},
-			"generated_by": "tools/art/build_cascade_ruins.py"
+			"generated_by": "tools/art/collision_mask.py"
 		},
 		"boss.astravorn": {
 			"anchor": [

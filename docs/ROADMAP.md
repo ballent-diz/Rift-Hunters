@@ -5,29 +5,31 @@ Chaque sujet a son document détaillé dans `docs/design/`. **Avant de travaille
 lire ce fichier puis le document concerné.** Les décisions « validées » ne se remettent pas en cause
 sans l'accord du propriétaire ; les « questions ouvertes » se tranchent avec lui.
 
-Dernière mise à jour : 14 octobre 2026.
+Dernière mise à jour : 16 octobre 2026.
 
 ## Vision
 
 Un survivor-like 2D (attaque automatique, hordes) avec la profondeur de build, la difficulté exigeante
-mais juste et la rejouabilité de **Hades**. Une **campagne en chapitres** de cartes (6 à 10 h), puis
-des dizaines d'heures de rejouabilité : objectifs de cartes, Tension, New Game+, modes, et des
+mais juste et la rejouabilité de **Hades**. Une **campagne courte en chapitres** de cartes (3 à 6 h), puis
+20 à 30 h de rejouabilité : mode Cauchemar et Pacte, objectifs de cartes, prophéties, modes, et des
 **trophées jusqu'au platine**.
 
 ## Décisions validées (14 octobre 2026)
 
 | Sujet | Décision | Détail |
 |---|---|---|
-| Campagne | Chapitres de 3-4 cartes, Dévoreur à la fin de chaque chapitre ; finir une carte débloque la suivante | [design/CAMPAGNE.md](design/CAMPAGNE.md) |
-| Rejouabilité des cartes | Toute carte débloquée est rejouable à l'infini ; 3 objectifs par carte ; récompenses dégressives ; Tension choisie par carte | idem |
+| Campagne | 3 à 6 h ; piste : 5 chapitres de 2-3 cartes (non figé), Dévoreur à la fin de chaque chapitre ; finir une carte débloque la suivante | [design/CAMPAGNE.md](design/CAMPAGNE.md) |
+| Rejouabilité des cartes | Toute carte débloquée est rejouable à l'infini ; 3 objectifs par carte et par difficulté ; récompenses dégressives | idem |
+| Difficultés (16 oct.) | **Tension supprimée** ; Normal, puis **Cauchemar** (New Game+) débloqué en finissant le jeu, sur chaque carte, avec le **Pacte** (malus au choix, score par carte) | [design/LONGEVITE.md](design/LONGEVITE.md) |
 | Modes | ~70 % vagues par zone (mode principal), ~30 % variantes (au moins une par chapitre) ; Survie au chrono hors campagne sur la Plaine fracturée | idem, [design/LONGEVITE.md](design/LONGEVITE.md) |
 | Vagues par zone | Zones fermées par des barrières qui tombent quand les vagues sont nettoyées, puis arène du boss | [design/MODE_VAGUES_PAR_ZONE.md](design/MODE_VAGUES_PAR_ZONE.md) |
 | Ruines des Cascades | Zone 1 : 3 vagues ; zone 2 : 5 vagues avec élites dès la 1re ; arène : Nébulorax (+ Échos et invocations) | idem |
 | Attaque de base | Automatique | [design/COMPETENCES_ET_BUILDS.md](design/COMPETENCES_ET_BUILDS.md) |
 | Sorts et touches | Visée au curseur, la touche lance immédiatement ; ZQSD ; sorts du Chasseur A, E, R, F ; sorts des Échos 1, 2, 3… ; reconfigurables | idem |
 | Build (permanent) | Arbre du Chasseur + un arbre par Écho (passifs + compétences), points limités, réversible ; plusieurs builds enregistrés, choisis avant le départ | idem |
+| Arbre du Chasseur v2 (16 oct.) | Apprendre (Éclats) / activer (points) ; 4 voies, 12 sorts dont défensifs et techniques, 4 équipés ; passifs transformants ; ≈ 10 500 Éclats, gains −30 % | [design/ARBRE_DU_CHASSEUR.md](design/ARBRE_DU_CHASSEUR.md) |
 | Montées de niveau | Conservées et distinctes du build : renforcent temporairement le build pendant l'expédition, avec raretés | idem |
-| Longévité | New Game+, Tension / pactes étendus, trophées internes reliés aux succès Steam, platine | [design/LONGEVITE.md](design/LONGEVITE.md) |
+| Longévité | Cauchemar et Pacte, prophéties (défis à long terme), trophées internes reliés aux succès Steam, platine | [design/LONGEVITE.md](design/LONGEVITE.md) |
 | Équipe d'Échos | **3 Échos maximum** (+ le Chasseur) ; départ avec 1 Écho et 2 emplacements, 3e par l'arbre ; un sort actif équipé par Écho | [design/ECHOS.md](design/ECHOS.md) |
 | Roster et synergies | **16 Échos** à la sortie (9 à créer) ; 8 affinités portées chacune par 4 Échos (bonus à 2 et 3) ; 20 à 25 duos nommés | idem |
 
@@ -58,7 +60,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
-| B1 | Données chapitre / carte, déblocage en avançant, 3 objectifs par carte, récompenses dégressives, Tension par carte, migration de sauvegarde | Claude | A1 | À faire |
+| B1 | Données chapitre / carte, déblocage en avançant, objectifs par carte, récompenses dégressives, Normal / Cauchemar par carte (suppression de la Tension), migration de sauvegarde | Claude | A1 | À faire |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | À faire |
 | B3 | Nouvelles cartes du chapitre 1 et cartes colorées du chapitre 2 (+ famille de monstres associée) | Propriétaire (images) + Codex (intégration, zones, collisions) | A1 pour les cartes en vagues | En cours (Codex) — retours corrigés : textures ×3, détails d’échelle, basalte et escaliers ; PR prête, validation manuelle du propriétaire attendue ; A1/A2 à suivre |
 
@@ -81,8 +83,8 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 |---|---|---|---|---|
 | D1 | Trophées internes + platine (reliés à Steam plus tard), à partir des 18 objectifs actuels | Claude | B1 | À concevoir |
 | D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | À concevoir |
-| D3 | Pactes étendus façon Hades | Claude | — | À concevoir |
-| D4 | New Game+ | Claude | B1, C2 | À concevoir |
+| D3 | Le Pacte (≈ 10 malus, score par carte) et prophéties | Claude | B1 | À concevoir |
+| D4 | Mode Cauchemar (règles, boss enragés) | Claude | B1, C2 | À concevoir |
 
 ### Étape E — Publication
 
@@ -92,9 +94,11 @@ Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md
 
 - Conception : [GDD.md](GDD.md) (état actuel du prototype), [design/CAMPAGNE.md](design/CAMPAGNE.md), [design/ECHOS.md](design/ECHOS.md),
   [design/MODE_VAGUES_PAR_ZONE.md](design/MODE_VAGUES_PAR_ZONE.md),
-  [design/COMPETENCES_ET_BUILDS.md](design/COMPETENCES_ET_BUILDS.md), [design/LONGEVITE.md](design/LONGEVITE.md)
+  [design/COMPETENCES_ET_BUILDS.md](design/COMPETENCES_ET_BUILDS.md), [design/ARBRE_DU_CHASSEUR.md](design/ARBRE_DU_CHASSEUR.md),
+  [design/LONGEVITE.md](design/LONGEVITE.md)
 - Code : [ARCHITECTURE.md](ARCHITECTURE.md) ; équilibrage : [BALANCE.md](BALANCE.md)
 - Graphismes : [ART_BIBLE.md](ART_BIBLE.md), cartes : [MAP_GUIDELINES.md](MAP_GUIDELINES.md),
+  [maps/GENERER_UNE_CARTE.md](maps/GENERER_UNE_CARTE.md), [maps/DE_L_IMAGE_AU_NIVEAU.md](maps/DE_L_IMAGE_AU_NIVEAU.md),
   pipeline d'assets : [ASSET_PIPELINE.md](ASSET_PIPELINE.md)
 - Publication : [STEAM.md](STEAM.md)
 

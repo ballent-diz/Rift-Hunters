@@ -31,6 +31,7 @@ gdlint src tests tools                 # lint GDScript (config : gdlintrc, ligne
 python3 tools/art/build.py monster.ashblade              # sprites pixel art procéduraux (statut wip)
 python3 tools/art/import_sheet.py <dossier>/job.json     # importer des images générées (statut final)
 python3 tools/art/build_env.py fractured_plain           # décor d'arène depuis un pack (assets/third_party)
+python3 tools/art/collision_mask.py export|build three_rifts   # collisions détourées à la main (docs/maps/)
 python3 tools/audio/detect_bpm.py                        # mesurer le tempo des musiques (manifeste audio)
 ```
 
@@ -38,6 +39,8 @@ Graphismes : pixel art, règles dans `docs/ART_BIBLE.md` (cellules 64 px, `scale
 haut-gauche, liseré violet bas-droite). Mode d'emploi de l'import : `assets/concepts/incoming/README.md`.
 Décor des arènes : pack Ninja Adventure (CC0, tuiles 16 px, `scale` 1) → `assets/environments/<id>/`, entrée
 `environment.<id>` du manifeste, placé en jeu par `DecorLayout` (déterministe) et dessiné par `ArenaGround`.
+Cartes dessinées : générer selon `docs/maps/GENERER_UNE_CARTE.md`, collisions et zones selon
+`docs/maps/DE_L_IMAGE_AU_NIVEAU.md` (masque `collision.png` + éditeur de niveau `tools/level_editor.tscn`).
 
 Captures d'écran dans le cloud :
 `xvfb-run -a -s "-screen 0 1600x900x24" godot --path . --fixed-fps 60 --resolution 1600x900 res://tools/screenshot.tscn -- --out=<dossier> --times=20,60`

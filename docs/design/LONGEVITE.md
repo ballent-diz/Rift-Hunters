@@ -19,18 +19,31 @@ Le système de niveau est décrit en données : chaque map choisit son mode. Ré
 
 Le propriétaire proposera d'autres modes au fil de l'eau ; les ajouter à ce tableau.
 
-## Difficultés
+## Difficultés (décision du 16 octobre 2026)
 
-- **Tension** (existant, 0 à V) : niveaux débloqués en battant le Dévoreur au niveau précédent ;
-  chaque niveau ajoute des règles, pas seulement des PV.
-- **Pactes de risque** (existant, 5 modificateurs) : à étendre en « Pacte » façon Hades, des malus au
-  choix qui augmentent les récompenses.
+La **Tension** (choix de 0 à V avant l'expédition) est **supprimée**. Modèle inspiré de Hades : une campagne courte
+à difficulté fixe, puis une rejouabilité que le joueur compose lui-même.
 
-## New Game+
+| Difficulté | Déblocage | Contenu |
+|---|---|---|
+| **Normal** | Dès le départ | La campagne (3 à 6 h), difficulté fixe, sans réglage |
+| **Cauchemar** (le New Game+) | En **finissant le jeu** (dernier boss de la campagne) ; ensuite disponible sur **chaque carte** | Ennemis renforcés et surtout **nouvelles règles** : élites à double modificateur, boss enragés avec une phase de plus, vagues plus denses. Arbre, builds et Échos conservés. +25 % d'Éclats, +1 point de Chasseur à la première victoire sur chaque carte |
+| **Le Pacte** (notre « Chaleur » de Hades) | Avec le Cauchemar | Les 5 pactes de risque actuels, étendus à ≈ 10 malus au choix (ennemis plus rapides, moins de soins, boss plus résistants…). Chaque malus vaut des points ; **chaque carte retient son meilleur score de Pacte**. Paliers de récompenses et trophées par score |
 
-- Recommencer la campagne en conservant arbres et builds.
-- Ennemis renforcés, nouveaux modificateurs d'élites, variantes de boss.
-- Détail à concevoir (nombre de cycles, récompenses propres).
+Technique : les fichiers `data/difficulties/tension_*.tres` servent de base au Normal, au Cauchemar et aux paliers du
+Pacte ; le sélecteur de Tension du refuge disparaît (lots B1 et D3).
+
+## Objectifs de carte et « prophéties »
+
+Deux sortes de défis, qui donnent une raison de rejouer et d'essayer d'autres builds :
+
+- **Objectifs de carte** : 3 par carte en Normal, 3 autres en Cauchemar, comme des étoiles. Exemples : finir la carte ;
+  la finir en subissant moins de 300 dégâts ; vaincre le boss en moins de 2 min. Ils donnent des Éclats et des points
+  de Chasseur.
+- **Prophéties** (nom repris des « Prophéties du destin » de Hades) : une liste de défis **à long terme**, valables sur
+  tout le jeu, qui poussent à varier : gagner une fois avec chaque voie, utiliser chaque clé de voûte, recruter les
+  16 Échos, réussir 100 Parades, atteindre un score de Pacte de 20… Chacune rapporte une récompense (Éclats, cosmétique,
+  emplacement de build) et la plupart deviennent des **trophées**. Les 18 objectifs actuels du jeu y sont reversés.
 
 ## Trophées
 
@@ -43,5 +56,5 @@ Le propriétaire proposera d'autres modes au fil de l'eau ; les ajouter à ce ta
 ## Questions ouvertes
 
 - Liste des trophées et répartition (bronze / argent / or ?).
-- Récompenses du New Game+.
+- Liste des malus du Pacte et des prophéties.
 - Ordre de réalisation de ces systèmes après les chantiers de gameplay.

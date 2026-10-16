@@ -52,8 +52,8 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 
 - Ennemis qui **télégraphient** leurs attaques et demandent d'esquiver, plutôt que des sacs à PV.
 - Élites à modificateurs (existant), boss à phases (Nébulorax : 2 phases).
-- Tension et pactes de risque (existants) étendus en vrai « Pacte » : malus au choix qui augmentent
-  les récompenses (voir [LONGEVITE.md](LONGEVITE.md)).
+- Après la campagne : mode **Cauchemar** et **Pacte** (malus au choix qui augmentent les récompenses), qui
+  remplacent la Tension (voir [LONGEVITE.md](LONGEVITE.md)).
 
 ## Contenu à créer
 
@@ -68,6 +68,10 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 2. Arbre du Chasseur v2 + builds enregistrés au refuge.
 3. Arbres des Échos et sorts des Échos visés (1, 2, 3).
 4. Raretés des choix de niveau.
+
+## Arbre et sorts du Chasseur
+
+Détail validé le 16 octobre 2026 (12 sorts dont défensifs et techniques) : [ARBRE_DU_CHASSEUR.md](ARBRE_DU_CHASSEUR.md).
 
 ## Questions ouvertes
 
