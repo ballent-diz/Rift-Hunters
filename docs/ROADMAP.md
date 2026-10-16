@@ -72,10 +72,16 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | C2 | Arbre du Chasseur v2 (passifs + compétences, branches exclusives, réversible) et builds enregistrés au refuge | Claude | C1 | À faire |
 | C3 | Arbres des Échos et sorts des Échos visés (1, 2, 3) | Claude | C2 | À faire |
 | C4 | Raretés des choix de niveau (commun → héroïque) | Claude | C2 | À faire |
-| C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | À faire |
+| C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | En cours (Codex) |
 | C6 | Équipe à 3 Échos max ; 8 affinités (remplacent « arcane » et « contrôle ») avec bonus à 2 et 3 Échos ; « Prédateurs » devient une synergie d'affinité | Claude | — | À faire |
 | C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | À faire |
 | C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Propriétaire (génération) + Codex (prompts, import, contrôle) | — (peut commencer tout de suite) | À faire |
+
+C5, première livraison du 16 octobre : maquettes de l’arbre, 38 éléments graphiques,
+24 prompts d’icônes et effets autonomes de Taille fendante / Lance prismatique avec variantes.
+Raccordement C2 : [fiche visuelle](art/CHASSEUR_C5.md) et [captures](previews/c5/README.md).
+Les images d’icônes attendent la génération du propriétaire ; les dix autres familles d’effets suivent au fil des sorts.
+Retour du propriétaire pris en compte : animations enrichies (armé, balayage, filaments, cristaux et dispersion), rendu à valider.
 
 ### Étape D — Longévité
 

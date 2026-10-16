@@ -2559,11 +2559,11 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cascade_ruins/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
-				-2181.0,
-				-517.0
+				-2181,
+				-517
 			],
 			"filter": "linear",
 			"ambient": {
@@ -2923,14 +2923,1119 @@
 			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
-				-1605.0,
-				-1553.0
+				-1605,
+				-1553
 			],
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
 			"generated_by": "tools/art/build_storm_highlands.py"
+		},
+		"ui.hunter_tree.node.passive.locked": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_passive_locked.svg",
+			"cell": [
+				80,
+				80
+			],
+			"anchor": [
+				40,
+				40
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				40,
+				40
+			]
+		},
+		"ui.hunter_tree.node.passive.learnable": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_passive_learnable.svg",
+			"cell": [
+				80,
+				80
+			],
+			"anchor": [
+				40,
+				40
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				40,
+				40
+			]
+		},
+		"ui.hunter_tree.node.passive.learned": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_passive_learned.svg",
+			"cell": [
+				80,
+				80
+			],
+			"anchor": [
+				40,
+				40
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				40,
+				40
+			]
+		},
+		"ui.hunter_tree.node.passive.active": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_passive_active.svg",
+			"cell": [
+				80,
+				80
+			],
+			"anchor": [
+				40,
+				40
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				40,
+				40
+			]
+		},
+		"ui.hunter_tree.node.spell.locked": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_spell_locked.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				56,
+				56
+			]
+		},
+		"ui.hunter_tree.node.spell.learnable": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_spell_learnable.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				56,
+				56
+			]
+		},
+		"ui.hunter_tree.node.spell.learned": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_spell_learned.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				56,
+				56
+			]
+		},
+		"ui.hunter_tree.node.spell.active": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_spell_active.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				20,
+				20,
+				56,
+				56
+			]
+		},
+		"ui.hunter_tree.node.transform.locked": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_transform_locked.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				25.92,
+				28.799999999999997,
+				44.160000000000004,
+				40.32
+			]
+		},
+		"ui.hunter_tree.node.transform.learnable": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_transform_learnable.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				25.92,
+				28.799999999999997,
+				44.160000000000004,
+				40.32
+			]
+		},
+		"ui.hunter_tree.node.transform.learned": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_transform_learned.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				25.92,
+				28.799999999999997,
+				44.160000000000004,
+				40.32
+			]
+		},
+		"ui.hunter_tree.node.transform.active": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_transform_active.svg",
+			"cell": [
+				96,
+				96
+			],
+			"anchor": [
+				48,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				25.92,
+				28.799999999999997,
+				44.160000000000004,
+				40.32
+			]
+		},
+		"ui.hunter_tree.node.keystone.locked": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_keystone_locked.svg",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				34.56,
+				38.4,
+				58.88,
+				53.76
+			]
+		},
+		"ui.hunter_tree.node.keystone.learnable": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_keystone_learnable.svg",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				34.56,
+				38.4,
+				58.88,
+				53.76
+			]
+		},
+		"ui.hunter_tree.node.keystone.learned": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_keystone_learned.svg",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				34.56,
+				38.4,
+				58.88,
+				53.76
+			]
+		},
+		"ui.hunter_tree.node.keystone.active": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/node_keystone_active.svg",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_rect": [
+				34.56,
+				38.4,
+				58.88,
+				53.76
+			]
+		},
+		"ui.hunter_tree.link.vertical.locked": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_vertical_locked.svg",
+			"cell": [
+				16,
+				128
+			],
+			"anchor": [
+				8,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.fork.locked": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_fork_locked.svg",
+			"cell": [
+				160,
+				64
+			],
+			"anchor": [
+				80,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.vertical.learnable": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_vertical_learnable.svg",
+			"cell": [
+				16,
+				128
+			],
+			"anchor": [
+				8,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.fork.learnable": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_fork_learnable.svg",
+			"cell": [
+				160,
+				64
+			],
+			"anchor": [
+				80,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.vertical.learned": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_vertical_learned.svg",
+			"cell": [
+				16,
+				128
+			],
+			"anchor": [
+				8,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.fork.learned": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_fork_learned.svg",
+			"cell": [
+				160,
+				64
+			],
+			"anchor": [
+				80,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.vertical.active": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_vertical_active.svg",
+			"cell": [
+				16,
+				128
+			],
+			"anchor": [
+				8,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.link.fork.active": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/link_fork_active.svg",
+			"cell": [
+				160,
+				64
+			],
+			"anchor": [
+				80,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.choice.exclusive": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/choice_exclusive.svg",
+			"cell": [
+				160,
+				40
+			],
+			"anchor": [
+				80,
+				20
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.slot.empty": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/slot_empty.svg",
+			"cell": [
+				256,
+				96
+			],
+			"anchor": [
+				128,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_margins": [
+				16,
+				12,
+				16,
+				12
+			]
+		},
+		"ui.hunter_tree.slot.equipped": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/slot_equipped.svg",
+			"cell": [
+				256,
+				96
+			],
+			"anchor": [
+				128,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_margins": [
+				16,
+				12,
+				16,
+				12
+			]
+		},
+		"ui.hunter_tree.slot.focus": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/slot_focus.svg",
+			"cell": [
+				256,
+				96
+			],
+			"anchor": [
+				128,
+				48
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"content_margins": [
+				16,
+				12,
+				16,
+				12
+			]
+		},
+		"ui.hunter_tree.build.idle": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/build_idle.svg",
+			"cell": [
+				256,
+				56
+			],
+			"anchor": [
+				128,
+				28
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"patch_margins": [
+				14,
+				14,
+				14,
+				14
+			]
+		},
+		"ui.hunter_tree.build.active": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/build_active.svg",
+			"cell": [
+				256,
+				56
+			],
+			"anchor": [
+				128,
+				28
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"patch_margins": [
+				14,
+				14,
+				14,
+				14
+			]
+		},
+		"ui.hunter_tree.panel": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/panel.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"patch_margins": [
+				18,
+				18,
+				18,
+				18
+			]
+		},
+		"ui.hunter_tree.keycap": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/keycap.svg",
+			"cell": [
+				48,
+				48
+			],
+			"anchor": [
+				24,
+				24
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.points": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/points.svg",
+			"cell": [
+				256,
+				72
+			],
+			"anchor": [
+				128,
+				36
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.heading.blade": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/heading_blade.svg",
+			"cell": [
+				288,
+				56
+			],
+			"anchor": [
+				144,
+				28
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.heading.prism": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/heading_prism.svg",
+			"cell": [
+				288,
+				56
+			],
+			"anchor": [
+				144,
+				28
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.heading.abyss": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/heading_abyss.svg",
+			"cell": [
+				288,
+				56
+			],
+			"anchor": [
+				144,
+				28
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.heading.bond": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/heading_bond.svg",
+			"cell": [
+				288,
+				56
+			],
+			"anchor": [
+				144,
+				28
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"ui.hunter_tree.background": {
+			"status": "final",
+			"kind": "ui_element",
+			"sheet": "res://assets/ui/hunter_tree/background.svg",
+			"cell": [
+				1440,
+				840
+			],
+			"anchor": [
+				720,
+				420
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"vfx.hunter.cleaving_slash": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"sheet": "res://assets/vfx/hunter/cleaving_slash/preview.svg",
+			"scene": "res://assets/vfx/hunter/cleaving_slash/cleaving_slash.tscn",
+			"cell": [
+				384,
+				384
+			],
+			"anchor": [
+				192,
+				192
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"variants": {
+				"base": {
+					"duration_seconds": 0.34,
+					"radius": 150,
+					"angle_degrees": 120,
+					"bounds": [
+						-180,
+						-180,
+						360,
+						360
+					]
+				},
+				"whirlwind": {
+					"duration_seconds": 0.55,
+					"radius": 150,
+					"angle_degrees": 360,
+					"bounds": [
+						-180,
+						-180,
+						360,
+						360
+					]
+				},
+				"thrust": {
+					"duration_seconds": 0.4,
+					"range": 320,
+					"width": 20,
+					"bounds": [
+						0,
+						-40,
+						360,
+						80
+					]
+				}
+			},
+			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision."
+		},
+		"vfx.hunter.prismatic_lance": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"sheet": "res://assets/vfx/hunter/prismatic_lance/preview.svg",
+			"scene": "res://assets/vfx/hunter/prismatic_lance/prismatic_lance.tscn",
+			"cell": [
+				768,
+				128
+			],
+			"anchor": [
+				24,
+				64
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"variants": {
+				"base": {
+					"duration_seconds": 0.9768421052631578,
+					"range": 700,
+					"speed": 950,
+					"half_width": 14,
+					"bounds": [
+						-20,
+						-70,
+						790,
+						140
+					]
+				},
+				"fan": {
+					"duration_seconds": 0.9768421052631578,
+					"range": 700,
+					"speed": 950,
+					"rays": 3,
+					"angles_degrees": [
+						-14,
+						0,
+						14
+					],
+					"bounds": [
+						-20,
+						-240,
+						800,
+						480
+					]
+				},
+				"overcharge": {
+					"duration_seconds": 0.9768421052631578,
+					"range": 700,
+					"speed": 950,
+					"half_width": 21,
+					"bounds": [
+						-20,
+						-70,
+						790,
+						140
+					]
+				},
+				"charge": {
+					"duration_seconds": null,
+					"caller_stops": true,
+					"max_radius": 27,
+					"bounds": [
+						-30,
+						-55,
+						115,
+						110
+					]
+				}
+			},
+			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision."
 		}
 	}
 }
