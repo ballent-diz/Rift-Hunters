@@ -69,6 +69,10 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 3. Arbres des Échos et sorts des Échos visés (1, 2, 3).
 4. Raretés des choix de niveau.
 
+## Arbre et sorts du Chasseur
+
+Proposition détaillée (16 octobre 2026, à valider) : [ARBRE_DU_CHASSEUR.md](ARBRE_DU_CHASSEUR.md).
+
 ## Questions ouvertes
 
 - Liste et effets des sorts du Chasseur et des Échos (à proposer au propriétaire).
