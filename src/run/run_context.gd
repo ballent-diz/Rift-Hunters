@@ -25,6 +25,7 @@ var allies: AllyManager
 var projectiles: ProjectileManager
 var pickups: PickupManager
 var hazards: HazardManager
+var spells: HunterSpells
 var fx: FxRenderer
 ## Obstacles infranchissables du décor (rochers, arbres, eau).
 var obstacles := ObstacleField.new()

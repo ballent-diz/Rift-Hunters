@@ -17,6 +17,24 @@ func technique_pressed(_index: int) -> bool:
 	return false
 
 
+## Sorts du Chasseur (emplacement 0 à 3) : touche enfoncée à cette image, maintenue, relâchée.
+func spell_pressed(_slot: int) -> bool:
+	return false
+
+
+func spell_held(_slot: int) -> bool:
+	return false
+
+
+func spell_released(_slot: int) -> bool:
+	return false
+
+
+## Option « aperçu » : maintenir montre la zone, relâcher lance (sinon la touche lance immédiatement).
+func preview_casting() -> bool:
+	return false
+
+
 func focus_requested() -> bool:
 	return false
 

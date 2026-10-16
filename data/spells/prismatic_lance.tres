@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="2"]
+
+[sub_resource type="Resource" id="status_application_1"]
+script = ExtResource("2")
+status_id = &"mark"
+stacks = 2
+
+[resource]
+script = ExtResource("1")
+id = &"prismatic_lance"
+spell_kind = &"lance"
+name_key = "SPELL_PRISMATIC_LANCE_NAME"
+desc_key = "SPELL_PRISMATIC_LANCE_DESC"
+family = 0
+cooldown = 6.0
+damage = 30.0
+spell_range = 700.0
+width = 14.0
+knockback = 30.0
+speed = 950.0
+statuses = Array[ExtResource("2")]([SubResource("status_application_1")])
+color = Color(0.55, 0.95, 1, 1)

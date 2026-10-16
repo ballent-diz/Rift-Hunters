@@ -7,6 +7,7 @@ enum SourceKind { PLAYER, ALLY, ENEMY, ENVIRONMENT }
 const TAG_BOLT := &"bolt"
 const TAG_ATTACK := &"attack"
 const TAG_TECHNIQUE := &"technique"
+const TAG_SPELL := &"spell"
 const TAG_DETONATION := &"detonation"
 const TAG_DOT := &"dot"
 const TAG_EXPLOSION := &"explosion"

@@ -24,6 +24,8 @@ extends Resource
 @export var player_visual: VisualData
 @export_group("Arme du Chasseur")
 @export var bolt: AttackData
+## Sorts du Chasseur équipés par défaut (touches A, E, R, F), tant que le build (lot C2) ne les choisit pas.
+@export var default_spells: Array[StringName] = [&"cleaving_slash", &"prismatic_lance"]
 @export_group("Équipe")
 @export var base_team_slots: int = 2
 @export var max_team_slots: int = 4

@@ -68,7 +68,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
-| C1 | Visée au curseur, indicateur au sol, lancement de 2 sorts du Chasseur (A, E), touches reconfigurables | Claude | — | À faire |
+| C1 | Visée au curseur, indicateur au sol, lancement de 2 sorts du Chasseur (A, E), touches reconfigurables | Claude | — | Fait (16 oct.) : Taille fendante et Lance prismatique, réticule, aperçu en option, barre de sorts, touches du clavier dans les options |
 | C2 | Arbre du Chasseur v2 (passifs + compétences, branches exclusives, réversible) et builds enregistrés au refuge | Claude | C1 | À faire |
 | C3 | Arbres des Échos et sorts des Échos visés (1, 2, 3) | Claude | C2 | À faire |
 | C4 | Raretés des choix de niveau (commun → héroïque) | Claude | C2 | À faire |

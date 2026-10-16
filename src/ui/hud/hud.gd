@@ -3,8 +3,11 @@ extends Control
 ## Interface de combat dessinée en un passage : PV, XP, temps, équipe et Techniques, synergies, boss, bannières.
 
 ## Conseils de première partie : [instant (s), clé de traduction].
-const TUTORIAL_TIPS := [[2.0, "TIP_MOVE"], [9.0, "TIP_AUTO_ATTACK"], [18.0, "TIP_TECHNIQUES"], [32.0, "TIP_FOCUS"],
-	[48.0, "TIP_DASH"], [70.0, "TIP_CHESTS"], [100.0, "TIP_BOSS"]]
+const TUTORIAL_TIPS := [[2.0, "TIP_MOVE"], [9.0, "TIP_AUTO_ATTACK"], [16.0, "TIP_SPELLS"], [25.0, "TIP_TECHNIQUES"],
+	[36.0, "TIP_FOCUS"], [50.0, "TIP_DASH"], [70.0, "TIP_CHESTS"], [100.0, "TIP_BOSS"]]
+## Barre des sorts du Chasseur (bas gauche) : taille d'un emplacement et écart.
+const SPELL_SLOT := 64.0
+const SPELL_GAP := 34.0
 
 var ctx: RunContext
 var _font: Font
@@ -49,6 +52,8 @@ func _process(delta: float) -> void:
 	_tip_time = maxf(_tip_time - delta, 0.0)
 	if ctx and not _tips.is_empty() and ctx.time >= float(_tips[0][0]):
 		_tip_text = tr(str(_tips[0][1]))
+		if str(_tips[0][1]) == "TIP_SPELLS":
+			_tip_text = _tip_text % [InputSetup.key_label(&"spell_1"), InputSetup.key_label(&"spell_2")]
 		_tip_time = 7.0
 		_tips.pop_front()
 	if ctx and ctx.player:
@@ -118,6 +123,7 @@ func _draw() -> void:
 		_text(Vector2(w - 320, y), "◆ " + tr(synergy.name_key), 15, synergy.color, HORIZONTAL_ALIGNMENT_RIGHT, 300)
 		y += 20.0
 	_draw_team(w, h)
+	_draw_spells(h)
 	_draw_boss(w)
 	if _banner_time > 0.0:
 		var alpha: float = clampf(_banner_time, 0.0, 1.0)
@@ -180,6 +186,34 @@ func _draw_team(w: float, h: float) -> void:
 	if ctx.allies.has_free_slot():
 		var free: int = ctx.allies.team_slots() - team.size()
 		_text(Vector2(0, h - 96), tr("HUD_FREE_SLOT") % free, 13, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
+
+
+## Sorts du Chasseur : touche, nom et recharge de chaque emplacement équipé (icônes : lot C5).
+func _draw_spells(h: float) -> void:
+	var spells: HunterSpells = ctx.spells
+	if spells == null:
+		return
+	var x: float = 16.0
+	var y: float = h - SPELL_SLOT - 22.0
+	for i: int in spells.slots.size():
+		var spell: SpellData = spells.slots[i]
+		if spell == null:
+			continue
+		var rect := Rect2(x, y, SPELL_SLOT, SPELL_SLOT)
+		var ready: bool = spells.cooldowns[i] <= 0.0
+		draw_rect(rect, Color(0.07, 0.08, 0.13, 0.85))
+		draw_circle(rect.get_center(), SPELL_SLOT * 0.3, Color(spell.color, 0.35 if ready else 0.12))
+		if not ready:
+			var left: float = 1.0 - spells.ready_ratio(i)
+			draw_rect(Rect2(rect.position, Vector2(SPELL_SLOT, SPELL_SLOT * left)), Color(0.0, 0.0, 0.0, 0.55))
+			_text(rect.position + Vector2(0, 40), "%.1f" % spells.cooldowns[i], 17, Color.WHITE,
+				HORIZONTAL_ALIGNMENT_CENTER, SPELL_SLOT)
+		draw_rect(rect, spell.color if ready else UiKit.MUTED, false, 2.0)
+		_text(rect.position + Vector2(5, 18), InputSetup.key_label(StringName("spell_%d" % (i + 1))), 15,
+			UiKit.GOLD if ready else UiKit.MUTED)
+		_text(rect.position + Vector2(-SPELL_GAP, SPELL_SLOT + 15), tr(spell.name_key), 11,
+			Color.WHITE if ready else UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, SPELL_SLOT + 2.0 * SPELL_GAP)
+		x += SPELL_SLOT + SPELL_GAP
 
 
 func _icon_for(ally: Ally) -> Texture2D:

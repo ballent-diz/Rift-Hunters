@@ -55,6 +55,7 @@ Refuge ──► Expédition (arène + Tension + Écho de départ)
 |---|---|
 | Déplacement | WASD (ZQSD en AZERTY) / flèches |
 | Ruée (dash, invulnérable) | Espace / Maj |
+| Sorts du Chasseur (visés au curseur) | A / E / R / F en AZERTY (Q / E / R / F en QWERTY) ; touches reconfigurables dans les options |
 | Techniques des Échos | 1 / 2 / 3 |
 | Ordre de focus | Clic droit (les Échos priorisent la zone 5 s) |
 | Pause | Échap / P |

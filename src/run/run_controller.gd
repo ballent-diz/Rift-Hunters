@@ -179,6 +179,9 @@ func _build_world() -> void:
 	ctx.fx = FxRenderer.new()
 	ctx.fx.setup(ctx)
 	ctx.world.add_child(ctx.fx)
+	ctx.spells = HunterSpells.new()
+	ctx.spells.setup(ctx, ctx.setup.spell_ids if not ctx.setup.spell_ids.is_empty() else ctx.balance.default_spells)
+	ctx.world.add_child(ctx.spells)
 	camera = Camera2D.new()
 	camera.position_smoothing_enabled = true
 	camera.position_smoothing_speed = 8.0
@@ -250,6 +253,7 @@ func _physics_process(delta: float) -> void:
 	spawner.step(delta)
 	event_director.step(delta)
 	ctx.player.step(delta)
+	ctx.spells.step(delta)
 	ctx.allies.step(delta)
 	ctx.enemies.step(delta)
 	if ctx.finale:
