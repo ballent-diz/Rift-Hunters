@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"abyss_twin_rifts"
+branch = &"abyss"
+tier = 3
+kind = 2
+name_key = "NODE_ABYSS_TWIN_RIFTS_NAME"
+desc_key = "NODE_ABYSS_TWIN_RIFTS_DESC"
+costs = Array[int]([250])
+point_cost = 2
+prerequisites = Array[StringName]([&"abyss_rift_wall"])
+prerequisites_any = false
+exclusive_group = &""
+spell_id = &"twin_rifts"
+variant_kind = &""
+required_wins = 3
+learned_by_default = false
+implemented = true
+effects = []

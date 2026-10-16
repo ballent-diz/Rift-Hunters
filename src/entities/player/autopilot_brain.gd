@@ -105,8 +105,16 @@ func spell_pressed(slot: int) -> bool:
 	if spells == null or slot >= spells.slots.size() or spells.slots[slot] == null:
 		return false
 	var spell: SpellData = spells.slots[slot]
+	var pos: Vector2 = ctx.player.global_position
+	match spell.spell_kind:
+		&"parry", &"swap":
+			return ctx.enemies.find_nearest(pos, 70.0) != null
+		&"aegis":
+			return ctx.player.hp < ctx.player.max_hp * 0.6
+		&"rifts", &"wall", &"crystal":
+			return ctx.enemies.count() > 10 and ctx.enemies.find_nearest(pos, 300.0) != null
 	var reach: float = spell.spell_range * (0.9 if spell.spell_kind == &"slash" else 0.7)
-	return ctx.enemies.find_nearest(ctx.player.global_position, reach) != null
+	return ctx.enemies.find_nearest(pos, maxf(reach, 120.0)) != null
 
 
 ## Comme un joueur : ordonne aux Échos de cibler le boss (ordre de focus).

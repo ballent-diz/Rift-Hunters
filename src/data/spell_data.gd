@@ -11,6 +11,8 @@ enum Family { OFFENSIVE, DEFENSIVE, TECHNICAL }
 @export var name_key: String = ""
 @export var desc_key: String = ""
 @export var family: Family = Family.OFFENSIVE
+## Voie de l'arbre (blade, prism, abyss, bond) : clés de voûte et passifs qui réagissent à une voie.
+@export var path: StringName = &""
 @export var cooldown: float = 5.0
 @export var damage: float = 30.0
 ## Portée maximale depuis le Chasseur (unités du monde).

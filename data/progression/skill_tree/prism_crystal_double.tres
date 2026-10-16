@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"prism_crystal_double"
+branch = &"prism"
+tier = 4
+kind = 3
+name_key = "NODE_PRISM_CRYSTAL_DOUBLE_NAME"
+desc_key = "NODE_PRISM_CRYSTAL_DOUBLE_DESC"
+costs = Array[int]([150])
+point_cost = 1
+prerequisites = Array[StringName]([&"prism_refracting_crystal"])
+prerequisites_any = false
+exclusive_group = &"crystal_variant"
+spell_id = &"refracting_crystal"
+variant_kind = &"double"
+required_wins = 3
+learned_by_default = false
+implemented = true
+effects = []

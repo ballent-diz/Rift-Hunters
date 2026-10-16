@@ -27,6 +27,9 @@ static func default_data() -> Dictionary:
 		"runs": {"played": 0, "won": 0},
 		"preferences": {"starter": "mossback", "arena": "fractured_plain", "difficulty": "tension_0"},
 		"flags": {},
+		# Arbre du Chasseur v2 : builds enregistrés et cartes gagnées (Points de Chasseur).
+		"hunter": {"active_build": 0, "builds": [HunterTree.default_build(), HunterTree.default_build(),
+			HunterTree.default_build()], "maps_won": []},
 	}
 
 

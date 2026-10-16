@@ -135,7 +135,10 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	for info: Variant in profile.data["unlocks"].get("info", []):
 		setup.info_unlocks.append(str(info))
 	setup.show_tutorial = not bool(profile.data["flags"].get("tutorial_done", false))
-	setup.meta_effects = SkillTree.effects_for(profile)
+	setup.meta_effects = HunterTree.effects_for(profile)
+	var loadout: Dictionary = HunterTree.loadout(profile)
+	setup.spell_ids = loadout["spells"]
+	setup.spell_variants = loadout["variants"]
 	for id: StringName in unlocked:
 		var monster: MonsterData = GameDB.monster(id)
 		setup.monster_meta_effects[id] = Mastery.effects_for(profile, monster)

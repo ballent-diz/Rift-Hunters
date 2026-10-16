@@ -62,11 +62,11 @@ extends Resource
 @export var boss_enrage_damage_mult: float = 1.6
 @export var boss_enrage_speed_mult: float = 1.4
 @export_group("Récompenses")
-@export var shards_per_minute: float = 12.0
-@export var shards_per_elite: float = 8.0
-@export var shards_per_kill: float = 0.15
+@export var shards_per_minute: float = 8.0
+@export var shards_per_elite: float = 6.0
+@export var shards_per_kill: float = 0.1
 @export var essence_per_elite: int = 1
-@export var chest_break_shards: int = 25
+@export var chest_break_shards: int = 20
 @export var chest_break_heal_ratio: float = 0.3
 @export var relic_choices: int = 3
 @export_group("Capture (Rite de lien)")

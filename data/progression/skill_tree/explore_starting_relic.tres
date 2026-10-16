@@ -21,4 +21,6 @@ costs = [380]
 prerequisites = [&"explore_sealed_chests"]
 prerequisites_any = false
 exclusive_group = &""
+kind = 0
+point_cost = 0
 effects = [SubResource("stat_modifier_effect_1")]

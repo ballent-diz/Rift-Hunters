@@ -21,4 +21,6 @@ costs = [400]
 prerequisites = [&"research_unstable", &"research_banish"]
 prerequisites_any = true
 exclusive_group = &""
+kind = 0
+point_cost = 0
 effects = [SubResource("stat_modifier_effect_1")]

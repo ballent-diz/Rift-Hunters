@@ -17,11 +17,19 @@ var last_breaths_used: int = 0
 var hurt_flash: float = 0.0
 ## Mode test : ne subit aucun dégât.
 var god_mode: bool = false
+## Parade (sort du Chasseur) : fenêtre restante pendant laquelle un coup reçu est paré.
+var parry_time: float = 0.0
 var _iframes: float = 0.0
 var _dash_time: float = 0.0
 var _dash_dir := Vector2.ZERO
 var _dash_from := Vector2.ZERO
 var _bolt_timer: float = 0.0
+## Bond de faille : déplacement en arc vers un point, invulnérable, puis action à l'atterrissage.
+var _leap_time: float = 0.0
+var _leap_total: float = 0.0
+var _leap_from := Vector2.ZERO
+var _leap_to := Vector2.ZERO
+var _leap_land: Callable
 var _redraw_state: int = -1
 
 
@@ -76,8 +84,28 @@ func is_dashing() -> bool:
 	return _dash_time > 0.0
 
 
+func is_leaping() -> bool:
+	return _leap_time > 0.0
+
+
 func can_be_hurt() -> bool:
-	return alive and _iframes <= 0.0 and _dash_time <= 0.0 and not god_mode
+	return alive and _iframes <= 0.0 and _dash_time <= 0.0 and _leap_time <= 0.0 and not god_mode
+
+
+## Invulnérabilité temporaire (Permutation réussie à l'instant d'un coup).
+func grant_iframes(duration: float) -> void:
+	_iframes = maxf(_iframes, duration)
+
+
+## Bond vers `to` en `duration` secondes (invulnérable) ; `on_land` est appelé à l'arrivée.
+func start_leap(to: Vector2, duration: float, on_land: Callable) -> void:
+	_leap_from = global_position
+	_leap_to = to
+	_leap_total = maxf(duration, 0.01)
+	_leap_time = _leap_total
+	_leap_land = on_land
+	_dash_time = 0.0
+	visual.play_action(&"dash")
 
 
 func step(delta: float) -> void:
@@ -88,8 +116,15 @@ func step(delta: float) -> void:
 	var regen: float = stats.get_value(StatKeys.REGEN)
 	if regen > 0.0:
 		heal(regen * delta, false)
+	parry_time = maxf(parry_time - delta, 0.0)
 	var move: Vector2 = brain.move_vector()
-	if _dash_time > 0.0:
+	if _leap_time > 0.0:
+		_leap_time -= delta
+		var t: float = clampf(1.0 - _leap_time / _leap_total, 0.0, 1.0)
+		position = _leap_from.lerp(_leap_to, t)
+		if _leap_time <= 0.0 and _leap_land.is_valid():
+			_leap_land.call()
+	elif _dash_time > 0.0:
 		_dash_time -= delta
 		position += _dash_dir * (ctx.balance.dash_distance / ctx.balance.dash_duration) * delta
 		if _dash_time <= 0.0:
@@ -106,7 +141,7 @@ func step(delta: float) -> void:
 	visual.tick(delta, velocity.length() > 5.0, velocity.length())
 	visual.modulate.a = 0.45 if (_iframes > 0.0 and int(_iframes * 20.0) % 2 == 0) else 1.0
 	_update_weapon(delta)
-	var state: int = int(shield > 0.0) + int(is_dashing()) * 2
+	var state: int = int(shield > 0.0) + int(is_dashing()) * 2 + int(parry_time > 0.0) * 4
 	if state != _redraw_state:
 		_redraw_state = state
 		queue_redraw()
@@ -221,3 +256,5 @@ func _draw() -> void:
 	var body := Vector2(0, -14) if visual != null and visual.has_sheet() else Vector2.ZERO
 	if shield > 0.0:
 		draw_arc(body, radius + 12.0, 0.0, TAU, 32, Color(1.0, 0.95, 0.6, 0.8), 2.5)
+	if parry_time > 0.0:
+		draw_arc(body, radius + 18.0, 0.0, TAU, 32, Color(1.0, 1.0, 1.0, 0.9), 3.5)

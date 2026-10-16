@@ -90,3 +90,43 @@ func test_bindings_rebind_and_swap() -> void:
 	Settings.path = path
 	Settings.bindings = saved
 	Settings.apply()
+
+
+func _set_variant(slot: int, variant: StringName) -> void:
+	_spells().variants[slot] = variant
+
+
+func test_whirlwind_hits_all_around() -> void:
+	_set_variant(0, &"whirlwind")
+	var behind: Enemy = RunFixture.spawn(run, &"husk", Vector2(-90, 0))
+	_spells().cast(0, run.ctx.player.global_position + Vector2(200, 0))
+	run.ctx.combat.flush_queue()
+	check(behind.hp < behind.max_hp or not behind.alive, "Tourbillon : l'ennemi derrière est touché")
+
+
+func test_thrust_reaches_far_in_a_line() -> void:
+	_set_variant(0, &"thrust")
+	var far: Enemy = RunFixture.spawn(run, &"husk", Vector2(290, 0))
+	var side: Enemy = RunFixture.spawn(run, &"husk", Vector2(100, 90))
+	_spells().cast(0, run.ctx.player.global_position + Vector2(200, 0))
+	run.ctx.combat.flush_queue()
+	check(far.hp < far.max_hp or not far.alive, "Estoc : touche loin dans l'axe")
+	check_eq(side.hp, side.max_hp, "Estoc : épargne les côtés")
+
+
+func test_fan_fires_three_lances() -> void:
+	_set_variant(1, &"fan")
+	var before: int = run.ctx.projectiles.friendly.size()
+	_spells().cast(1, run.ctx.player.global_position + Vector2(300, 0))
+	check_eq(run.ctx.projectiles.friendly.size() - before, 3, "Éventail : 3 lances")
+
+
+func test_overcharge_scales_damage_with_charge() -> void:
+	_set_variant(1, &"overcharge")
+	_spells().charge_time = 0.0
+	check_eq(_spells().charge_power(), 1.0, "sans charge : ×1")
+	_spells().charge_time = HunterSpells.OVERCHARGE_TIME * 2.0
+	check_eq(_spells().charge_power(), HunterSpells.OVERCHARGE_MAX, "charge pleine : ×2,5")
+	_spells().cast(1, run.ctx.player.global_position + Vector2(300, 0), _spells().charge_power())
+	var lance: Projectile = run.ctx.projectiles.friendly.back()
+	check(lance.info.amount >= 30.0 * 2.4, "dégâts de la lance chargée")

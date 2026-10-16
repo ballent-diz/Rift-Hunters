@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bond_call_quarry"
+branch = &"bond"
+tier = 2
+kind = 3
+name_key = "NODE_BOND_CALL_QUARRY_NAME"
+desc_key = "NODE_BOND_CALL_QUARRY_DESC"
+costs = Array[int]([120])
+point_cost = 1
+prerequisites = Array[StringName]([&"bond_pack_call"])
+prerequisites_any = false
+exclusive_group = &"call_variant"
+spell_id = &"pack_call"
+variant_kind = &"quarry"
+required_wins = 1
+learned_by_default = false
+implemented = true
+effects = []

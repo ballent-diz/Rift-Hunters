@@ -79,7 +79,13 @@ func deal_damage(enemy: Enemy, info: DamageInfo) -> float:
 ## Dégâts subis par le Chasseur (contact, projectiles, zones).
 func damage_player(amount: float, source_id: StringName) -> float:
 	var player: Player = ctx.player
+	if player.alive and player.parry_time > 0.0 and ctx.spells:
+		ctx.spells.on_parry()
+		return 0.0
 	if not player.can_be_hurt():
+		# Coup évité par la Ruée (passif « Contre-taille »).
+		if player.alive and player.is_dashing():
+			ctx.events.player_dodged.emit()
 		return 0.0
 	var final: float = amount * player.stats.get_value(StatKeys.DAMAGE_TAKEN)
 	for modifier: Callable in _player_damage_modifiers:

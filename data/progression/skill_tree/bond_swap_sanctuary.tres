@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"bond_swap_sanctuary"
+branch = &"bond"
+tier = 4
+kind = 3
+name_key = "NODE_BOND_SWAP_SANCTUARY_NAME"
+desc_key = "NODE_BOND_SWAP_SANCTUARY_DESC"
+costs = Array[int]([150])
+point_cost = 1
+prerequisites = Array[StringName]([&"bond_swap"])
+prerequisites_any = false
+exclusive_group = &"swap_variant"
+spell_id = &"swap"
+variant_kind = &"sanctuary"
+required_wins = 3
+learned_by_default = false
+implemented = true
+effects = []

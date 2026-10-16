@@ -15,7 +15,7 @@ func _ready() -> void:
 			DirAccess.remove_absolute(ProjectSettings.globalize_path(PATH + suffix))
 		Profile.load_profile(PATH)
 		Profile.profile.add_currency("shards", 500)
-		SkillTree.buy(Profile.profile, GameDB.skill_node(&"combat_training"))
+		HunterTree.learn(Profile.profile, GameDB.skill_node(&"combat_training"))
 		Profile.profile.unlock("monster:glimmerwing")
 		Profile.profile.mastery_entry(&"mossback")["xp"] = 42
 		var ok: bool = Profile.save() == OK

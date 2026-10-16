@@ -3,15 +3,18 @@ extends Node2D
 const WORLD_SCALE := 2.0
 const START := .50
 const HIT := .19
+## Image de l'animation d'attaque selon le temps écoulé (mêmes seuils que la version d'origine).
+const POSE_TIMES: Array[float] = [.055, .10, .14, .185, .215, .26, .32, .38]
+const POSE_FRAMES: Array[int] = [0, 1, 2, 3, 4, 6, 5, 3]
 const HOLD := .045
 const HERO := Vector2(-90,10)
 const TARGET := Vector2(44,10)
-const FLASH_SHADER := "shader_type canvas_item;
-uniform float flash = 0.0;
-uniform vec4 ink : source_color = vec4(0.88,1.0,1.0,1.0);
-varying vec4 tint;
-void vertex(){tint=COLOR;}
-void fragment(){vec4 c=texture(TEXTURE,UV);COLOR=vec4(mix(c.rgb,ink.rgb,flash),c.a)*tint;}"
+const FLASH_SHADER := ("shader_type canvas_item;\n"
+	+ "uniform float flash = 0.0;\n"
+	+ "uniform vec4 ink : source_color = vec4(0.88,1.0,1.0,1.0);\n"
+	+ "varying vec4 tint;\n"
+	+ "void vertex(){tint=COLOR;}\n"
+	+ "void fragment(){vec4 c=texture(TEXTURE,UV);COLOR=vec4(mix(c.rgb,ink.rgb,flash),c.a)*tint;}")
 var time := 0.0
 var cast_time := -1.0
 var labels: Dictionary = {}
@@ -96,22 +99,9 @@ func _flash_material(amount: float) -> ShaderMaterial:
 	return result
 
 func _pose(t: float) -> int:
-	if t < .055:
-		return 0
-	if t < .10:
-		return 1
-	if t < .14:
-		return 2
-	if t < .185:
-		return 3
-	if t < .215:
-		return 4
-	if t < .26:
-		return 6
-	if t < .32:
-		return 5
-	if t < .38:
-		return 3
+	for i: int in POSE_TIMES.size():
+		if t < POSE_TIMES[i]:
+			return POSE_FRAMES[i]
 	return 1
 
 func _lunge(t: float) -> float:

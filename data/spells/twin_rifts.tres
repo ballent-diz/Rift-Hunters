@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="2"]
+
+[sub_resource type="Resource" id="status_application_1"]
+script = ExtResource("2")
+status_id = &"fracture"
+stacks = 1
+
+[resource]
+script = ExtResource("1")
+id = &"twin_rifts"
+spell_kind = &"rifts"
+name_key = "SPELL_TWIN_RIFTS_NAME"
+desc_key = "SPELL_TWIN_RIFTS_DESC"
+family = 2
+path = &"abyss"
+cooldown = 16.0
+damage = 0.0
+spell_range = 520.0
+width = 34.0
+knockback = 0.0
+speed = 0.0
+statuses = Array[ExtResource("2")]([SubResource("status_application_1")])
+color = Color(0.65, 0.4, 1, 1)
+params = {"duration": 6.0, "place_time": 4.0}

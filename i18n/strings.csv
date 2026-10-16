@@ -347,9 +347,9 @@ NODE_COMBAT_PHANTOM_STEP_DESC,"Invulnérabilité de la Ruée +0,15 s, recharge �
 NODE_COMBAT_SHATTERING_DASH_NAME,Ruée fracturante,Shattering Dash
 NODE_COMBAT_SHATTERING_DASH_DESC,La Ruée inflige Fracture aux ennemis autour du point d'arrivée.,Dashing inflicts Fracture on enemies around the landing point.
 NODE_COMBAT_MARKSMAN_NAME,Tireur des Failles,Rift Marksman
-NODE_COMBAT_MARKSMAN_DESC,Les Traits traversent 1 ennemi de plus et portent 20 % plus loin. Exclusif avec Cogneur.,Bolts pierce 1 more enemy and reach 20% further. Exclusive with Brawler.
+NODE_COMBAT_MARKSMAN_DESC,Les Traits traversent 1 ennemi de plus et portent 20 % plus loin.,Bolts pierce 1 more enemy and reach 20% further.
 NODE_COMBAT_RIFT_BRAWLER_NAME,Cogneur de faille,Rift Brawler
-NODE_COMBAT_RIFT_BRAWLER_DESC,Subir un coup libère une onde de choc (toutes les 5 s). Exclusif avec Tireur.,Taking a hit releases a shockwave (every 5 s). Exclusive with Marksman.
+NODE_COMBAT_RIFT_BRAWLER_DESC,Subir un coup libère une onde de choc (toutes les 5 s).,Taking a hit releases a shockwave (every 5 s).
 NODE_COMBAT_LAST_BREATH_NAME,Dernier souffle,Last Breath
 NODE_COMBAT_LAST_BREATH_DESC,"Une fois par expédition, survivez à un coup fatal avec 1 PV.","Once per expedition, survive a lethal hit with 1 HP."
 NODE_ECHOES_BONDS_NAME,Liens solides,Strong Bonds
@@ -361,9 +361,9 @@ NODE_ECHOES_VETERAN_DESC,Les Échos recrutés en expédition arrivent au rang 2.
 NODE_ECHOES_THIRD_SEAL_NAME,Troisième sceau,Third Seal
 NODE_ECHOES_THIRD_SEAL_DESC,+1 emplacement d'équipe (3 Échos).,+1 team slot (3 Echoes).
 NODE_ECHOES_PACK_LEADER_NAME,Chef de meute,Pack Leader
-NODE_ECHOES_PACK_LEADER_DESC,"Dégâts des Échos +8 % par Écho, dégâts du Chasseur −15 %. Exclusif.","Echo damage +8% per Echo, Hunter damage −15%. Exclusive."
+NODE_ECHOES_PACK_LEADER_DESC,"Dégâts des Échos +8 % par Écho, dégâts du Chasseur −15 %. Exclusif avec Chasseur solitaire.","Echo damage +8% per Echo, Hunter damage −15%. Exclusive with Lone Hunter."
 NODE_ECHOES_LONE_HUNTER_NAME,Chasseur solitaire,Lone Hunter
-NODE_ECHOES_LONE_HUNTER_DESC,Avec au plus 1 Écho : dégâts +40 % et +30 PV max. Exclusif.,With at most 1 Echo: damage +40% and +30 max HP. Exclusive.
+NODE_ECHOES_LONE_HUNTER_DESC,Avec au plus 1 Écho : dégâts +40 % et +30 PV max. Exclusif avec Chef de meute.,With at most 1 Echo: damage +40% and +30 max HP. Exclusive with Pack Leader.
 NODE_RESEARCH_RIFT_STUDY_NAME,Étude des Failles,Rift Study
 NODE_RESEARCH_RIFT_STUDY_DESC,+1 relance des choix de niveau par rang.,+1 level-up reroll per rank.
 NODE_RESEARCH_UNSTABLE_NAME,Mutations instables,Unstable Mutations
@@ -389,9 +389,9 @@ NODE_SPEC_PRISMATIC_RESONANCE_DESC,"Marques : cumul maximal +1, durée +2 s.","M
 NODE_SPEC_DEEP_BREACH_NAME,Brèche profonde,Deep Breach
 NODE_SPEC_DEEP_BREACH_DESC,"Fracture : durée +1,5 s et dégâts subis +10 % supplémentaires.",Fracture: duration +1.5 s and +10% extra damage taken.
 NODE_SPEC_PYROMANCER_NAME,Pyromancien,Pyromancer
-NODE_SPEC_PYROMANCER_DESC,Brûlure +50 % ; un Trait sur 6 inflige Brûlure. Exclusif avec Gravitationniste.,Burn +50%; one Bolt in 6 inflicts Burn. Exclusive with Gravitationist.
+NODE_SPEC_PYROMANCER_DESC,Brûlure +50 % ; un Trait sur 6 inflige Brûlure.,Burn +50%; one Bolt in 6 inflicts Burn.
 NODE_SPEC_GRAVITATIONIST_NAME,Gravitationniste,Gravitationist
-NODE_SPEC_GRAVITATIONIST_DESC,"Puits de gravité : rayon +25 %, attraction +30 %, durée +0,5 s. Exclusif.","Gravity Well: radius +25%, pull +30%, duration +0.5 s. Exclusive."
+NODE_SPEC_GRAVITATIONIST_DESC,"Puits de gravité (Mousseroc) : rayon +25 %, attraction +30 %, durée +0,5 s.","Gravity Well (Mossback): radius +25%, pull +30%, duration +0.5 s."
 NODE_SPEC_CHAIN_DETONATION_NAME,Détonation en chaîne,Chain Detonation
 NODE_SPEC_CHAIN_DETONATION_DESC,Un ennemi tué par une détonation pose 2 Marques autour de lui.,An enemy killed by a detonation applies 2 Marks around it.
 OBJ_FIRST_STEPS_NAME,Premiers pas,First Steps
@@ -587,12 +587,9 @@ Design and direction: the project owner.
 Programming, game design and tools: developed with Claude Code.
 Engine: Godot Engine (MIT license).
 Music and sound effects: to be credited when integrated."
-
 ARENA_THREE_RIFTS_NAME,Ruines des Cascades,Waterfall Ruins
 ARENA_THREE_RIFTS_DESC,Traversez les ruines et leurs cascades jusqu’à la grande faille violette.,Cross the ruins and waterfalls to reach the great violet rift.
-
 MENU_LANGUAGE,Langue : %s,Language: %s
-
 FINALE_CLEAR,Éliminez les derniers Corrompus.,Defeat the remaining Corrupted.
 FINALE_TRAVEL,Rejoignez la faille dans le grand cercle à l’est.,Reach the rift in the great circle to the east.
 FINALE_OPENING,La faille s’ouvre… Les issues sont scellées.,The rift opens… The exits are sealed.
@@ -647,127 +644,291 @@ ACTION_SPELL_4,Sort 4,Spell 4
 ACTION_TECHNIQUE_1,Technique de l'Écho 1,Echo 1 Technique
 ACTION_TECHNIQUE_2,Technique de l'Écho 2,Echo 2 Technique
 ACTION_TECHNIQUE_3,Technique de l'Écho 3,Echo 3 Technique
-"C5_CLEAVING_SLASH","Taille fendante","Cleaving Slash"
-"C5_RIFT_LEAP","Bond de faille","Rift Leap"
-"C5_PARRY","Parade","Parry"
-"C5_PRISMATIC_LANCE","Lance prismatique","Prismatic Lance"
-"C5_RUPTURE","Rupture","Rupture"
-"C5_REFRACTOR_CRYSTAL","Cristal réfracteur","Refractor Crystal"
-"C5_SINGULARITY","Singularité","Singularity"
-"C5_RIFT_WALL","Mur de faille","Rift Wall"
-"C5_TWIN_RIFTS","Failles jumelles","Twin Rifts"
-"C5_PACK_CALL","Appel de meute","Pack Call"
-"C5_RIFT_AEGIS","Égide de faille","Rift Aegis"
-"C5_SWAP","Permutation","Swap"
-"C5_SLASHING_DASH","Ruée tranchante","Slashing Dash"
-"C5_COUNTER_SLASH","Contre-taille","Counter Slash"
-"C5_PROPAGATION","Propagation","Propagation"
-"C5_SPLIT_BOLT","Trait scindé","Split Bolt"
-"C5_VOID_WAKE","Sillage du vide","Void Wake"
-"C5_ANCHOR","Ancre","Anchor"
-"C5_CLOSE_GUARD","Garde rapprochée","Close Guard"
-"C5_FUSION","Fusion","Fusion"
-"C5_BLADE_MASTER","Maître-lame","Blademaster"
-"C5_LIVING_PRISM","Prisme vivant","Living Prism"
-"C5_VOID_MASTER","Maître du vide","Void Master"
-"C5_PACK_SOUL","Âme de meute","Soul of the Pack"
-"C5_VIGOR","Vigueur","Vigor"
-"C5_TRAINING","Entraînement","Training"
-"C5_GHOST_STEP","Pas fantôme","Ghost Step"
-"C5_LAST_BREATH","Dernier souffle","Last Breath"
-"C5_THIRD_SEAL","Troisième sceau","Third Seal"
-"C5_SHATTERING_DASH","Ruée fracturante","Shattering Dash"
-"C5_MELEE_DAMAGE","Maîtrise du sabre","Sword Mastery"
-"C5_RIFT_BRAWLER","Cogneur de faille","Rift Brawler"
-"C5_RIFT_SHOOTER","Tireur des Failles","Rift Shooter"
-"C5_RESONANCE","Résonance prismatique","Prismatic Resonance"
-"C5_PYROMANCER","Pyromancien","Pyromancer"
-"C5_CHAIN_REACTION","Détonation en chaîne","Chain Detonation"
-"C5_DEEP_BREACH","Brèche profonde","Deep Breach"
-"C5_GRAVITY","Gravitationniste","Gravitationalist"
-"C5_CONTROL_DURATION","Contrôles prolongés","Longer Control"
-"C5_STRONG_BONDS","Liens solides","Strong Bonds"
-"C5_SHARP_TECHNIQUES","Techniques affûtées","Honed Techniques"
-"C5_LONE_HUNTER","Chasseur solitaire","Lone Hunter"
-"C5_PACK_LEADER","Chef de meute","Pack Leader"
-"C5_WHIRLWIND","Tourbillon","Whirlwind"
-"C5_THRUST","Estoc","Thrust"
-"C5_RETURN","Retour","Return"
-"C5_IMPACT","Impact","Impact"
-"C5_MIRROR","Miroir","Mirror"
-"C5_PACK_GUARD","Garde de meute","Pack Guard"
-"C5_FAN","Éventail","Fan"
-"C5_OVERCHARGE","Surcharge","Overcharge"
-"C5_REACTION","Réaction","Reaction"
-"C5_INFERNO","Brasier","Blaze"
-"C5_DOUBLE_PRISM","Prisme double","Double Prism"
-"C5_FOCUS","Foyer","Focus"
-"C5_HORIZON","Horizon","Horizon"
-"C5_COLLAPSE","Effondrement","Collapse"
-"C5_CHAINS","Chaînes","Chains"
-"C5_BURNING_WALL","Rempart ardent","Burning Rampart"
-"C5_LOOP","Boucle","Loop"
-"C5_EXILE","Exil","Exile"
-"C5_RALLY","Ralliement","Rally"
-"C5_FEAST","Curée","Feast"
-"C5_RIPOSTE","Riposte","Riposte"
-"C5_SHARING","Partage","Sharing"
-"C5_RELAY","Relais","Relay"
-"C5_SANCTUARY","Sanctuaire","Sanctuary"
-"C5_TITLE","L’ARBRE DU CHASSEUR","THE HUNTER TREE"
-"C5_REFUGE","LE REFUGE · ARSENAL DES FAILLES","THE REFUGE · RIFT ARSENAL"
-"C5_POINTS","POINTS DE CHASSEUR","HUNTER POINTS"
-"C5_SHARDS","Éclats","Shards"
-"C5_BUILD_1","Lame de faille","Rift Blade"
-"C5_BUILD_2","Prisme errant","Wandering Prism"
-"C5_BUILD_3","Pacte de meute","Pack Pact"
-"C5_COMMON","TRONC COMMUN","COMMON TRUNK"
-"C5_BLADE","LAME","BLADE"
-"C5_PRISM","PRISME","PRISM"
-"C5_ABYSS","ABÎME","ABYSS"
-"C5_BOND","LIEN","BOND"
-"C5_LOCKED","Verrouillé","Locked"
-"C5_LEARNABLE","Apprenable","Learnable"
-"C5_LEARNED","Appris","Learned"
-"C5_ACTIVE","Activé dans le build","Active in build"
-"C5_EQUIPPED","SORTS ÉQUIPÉS","EQUIPPED SPELLS"
-"C5_VARIANTS","VARIANTES EXCLUSIVES","EXCLUSIVE VARIANTS"
-"C5_ONE_VARIANT","Une seule variante par sort","One variant per spell"
-"C5_ONE_KEYSTONE","Une seule clé de voûte active","Only one active keystone"
-"C5_KNOWN","Connu dès le départ","Known from the start"
-"C5_ACTIVATE_COST","Activation : 2 points","Activation: 2 points"
-"C5_VARIANT_COST","Variante : 1 point","Variant: 1 point"
-"C5_KEYSTONE_COST","Clé de voûte : 4 points","Keystone: 4 points"
-"C5_LEARN_COST","Apprendre : 150 Éclats","Learn: 150 Shards"
-"C5_KNOWN_FOREVER","Appris pour toujours","Permanently learned"
-"C5_LEARN","Apprendre","Learn"
-"C5_ACTIVATE","Activer dans le build","Activate in build"
-"C5_REMOVE","Retirer du build","Remove from build"
-"C5_CHAPTER_1","Après le chapitre 1","After Chapter 1"
-"C5_CHAPTER_2","Après le chapitre 2","After Chapter 2"
-"C5_FREE_CHANGE","Modification gratuite au refuge","Free changes at the Refuge"
-"C5_SELECT_NODE","TAILLE FENDANTE","CLEAVING SLASH"
-"C5_SLASH_DESC","Arc de lame : portée 150 · recharge 4 s","Blade arc: range 150 · cooldown 4 s"
-"C5_WHIRLWIND_DESC","Cercle complet autour du Chasseur.","A full circle around the Hunter."
-"C5_THRUST_DESC","Ligne étroite et perçante : portée 320.","A narrow piercing line: range 320."
-"C5_TRUNK_NOTE","Apprendre avec les Éclats · activer avec les points","Learn with Shards · activate with points"
-"C5_STATES_TITLE","ÉTATS ET CHOIX DU BUILD","BUILD STATES AND CHOICES"
-"C5_FOCUS_TITLE","VOIE DE LA LAME","PATH OF THE BLADE"
-"C5_STATES_NOTE","Les états restent identifiables par leur forme.","States remain identifiable by shape."
-"C5_EXCLUSIVE_AB","A ou B","A or B"
-"C5_PROTOTYPE_NOTE","Maquette de composition · icônes définitives à illustrer","Layout mockup · final icons to be illustrated"
-"C5_VFX_TITLE","EFFETS DU CHASSEUR · PREMIER LOT","HUNTER EFFECTS · FIRST DELIVERY"
-"C5_VFX_NOTE","Effets autonomes · aucune logique de combat","Standalone effects · no combat logic"
-"C5_BASE","Base","Base"
-"C5_CHARGE","Charge","Charge"
-"C5_RELEASE","Libération","Release"
-"C5_RADIUS_150","Portée 150","Range 150"
-"C5_RANGE_320","Portée 320","Range 320"
-"C5_RANGE_700","Portée 700 · vitesse 950","Range 700 · speed 950"
-"C5P_TITLE","TAILLE FENDANTE · PILOTE D’ANIMATION","CLEAVING SLASH · ANIMATION PILOT"
-"C5P_SUBTITLE","Poses du Chasseur · traînée dessinée · impact sur une cible","Hunter poses · illustrated trail · target impact"
-"C5P_WINDUP","01  ARMÉ","01  WINDUP"
-"C5P_CUT","02  FRAPPE","02  SWING"
-"C5P_HIT","03  IMPACT","03  IMPACT"
-"C5P_RECOVERY","04  RETOUR","04  RECOVERY"
-"C5P_NOTE","Mise en scène à valider · effets pas encore raccordés aux sorts en jeu","Staged visual preview · effects are not yet connected to in-game spells"
+NODE_TRUNK_VIGOR_NAME,Vigueur,Vigor
+NODE_TRUNK_VIGOR_DESC,+10 PV max par rang.,+10 max HP per rank.
+NODE_BLADE_HONED_EDGE_NAME,Fil aiguisé,Honed Edge
+NODE_BLADE_HONED_EDGE_DESC,Dégâts des sorts +8 % par rang.,Spell damage +8% per rank.
+NODE_BLADE_CLEAVING_SLASH_NAME,Taille fendante,Cleaving Slash
+NODE_BLADE_CLEAVING_SLASH_DESC,"Sort : arc de lame vers le curseur, gros dégâts et Fracture.","Spell: blade arc toward the cursor, heavy damage and Fracture."
+NODE_BLADE_SLICING_DASH_NAME,Ruée tranchante,Slicing Dash
+NODE_BLADE_SLICING_DASH_DESC,La Ruée blesse les ennemis traversés.,Dashing wounds the enemies you pass through.
+NODE_BLADE_SLASH_WHIRLWIND_NAME,Tourbillon,Whirlwind
+NODE_BLADE_SLASH_WHIRLWIND_DESC,Taille fendante devient un cercle complet autour du Chasseur (portée −15 %).,Cleaving Slash becomes a full circle around the Hunter (−15% reach).
+NODE_BLADE_SLASH_THRUST_NAME,Estoc,Thrust
+NODE_BLADE_SLASH_THRUST_DESC,Taille fendante devient une ligne longue et étroite (portée 320) qui perce tout.,Cleaving Slash becomes a long narrow line (reach 320) that pierces everything.
+NODE_BLADE_RIFT_LEAP_NAME,Bond de faille,Rift Leap
+NODE_BLADE_RIFT_LEAP_DESC,"Sort : bond jusqu'au curseur, invulnérable pendant le saut, onde de choc à l'arrivée.","Spell: leap to the cursor, invulnerable while airborne, shockwave on landing."
+NODE_BLADE_LEAP_RETURN_NAME,Retour,Return
+NODE_BLADE_LEAP_RETURN_DESC,Bond de faille : le réutiliser dans les 3 s ramène au point de départ.,Rift Leap: recast within 3 s to return to the starting point.
+NODE_BLADE_LEAP_IMPACT_NAME,Impact,Impact
+NODE_BLADE_LEAP_IMPACT_DESC,Bond de faille : onde 2× plus large qui Entrave 2 s.,Rift Leap: shockwave twice as wide that Slows for 2 s.
+NODE_BLADE_PARRY_NAME,Parade,Parry
+NODE_BLADE_PARRY_DESC,"Sort : garde de 0,4 s ; un coup paré déclenche une contre-attaque ×4 et étourdit.",Spell: 0.4 s guard; a parried hit triggers a ×4 counterattack and stuns.
+NODE_BLADE_COUNTER_CUT_NAME,Contre-taille,Counter Cut
+NODE_BLADE_COUNTER_CUT_DESC,Esquiver un coup pendant la Ruée recharge le prochain sort de Lame et lui donne +50 % de dégâts.,Dodging a hit while dashing recharges your next Blade spell and gives it +50% damage.
+NODE_BLADE_PARRY_MIRROR_NAME,Miroir,Mirror
+NODE_BLADE_PARRY_MIRROR_DESC,Parade : les projectiles parés repartent vers le curseur.,Parry: parried projectiles fly back toward the cursor.
+NODE_BLADE_PARRY_PACK_GUARD_NAME,Garde de meute,Pack Guard
+NODE_BLADE_PARRY_PACK_GUARD_DESC,Parade : les Échos proches contre-attaquent aussi.,Parry: nearby Echoes counterattack too.
+NODE_BLADE_MASTER_NAME,Maître-lame,Blade Master
+NODE_BLADE_MASTER_DESC,Clé de voûte : chaque sort de Lame réduit de 1 s la recharge des autres sorts.,Keystone: each Blade spell reduces the other spells' cooldowns by 1 s.
+NODE_PRISM_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
+NODE_PRISM_PRISMATIC_LANCE_DESC,Sort : trait lourd vers le curseur qui traverse tout et pose 2 Marques.,Spell: heavy bolt toward the cursor that pierces everything and applies 2 Marks.
+NODE_PRISM_PROPAGATION_NAME,Propagation,Propagation
+NODE_PRISM_PROPAGATION_DESC,Un ennemi marqué qui meurt transmet ses Marques au plus proche.,A marked enemy that dies passes its Marks to the nearest enemy.
+NODE_PRISM_LANCE_FAN_NAME,Éventail,Fan
+NODE_PRISM_LANCE_FAN_DESC,Lance prismatique : 3 lances en cône (dégâts −20 % chacune).,Prismatic Lance: 3 lances in a cone (−20% damage each).
+NODE_PRISM_LANCE_OVERCHARGE_NAME,Surcharge,Overcharge
+NODE_PRISM_LANCE_OVERCHARGE_DESC,"Lance prismatique : maintenir la touche charge la lance jusqu'à ×2,5 dégâts (1,2 s).",Prismatic Lance: hold the key to charge up to ×2.5 damage (1.2 s).
+NODE_PRISM_RUPTURE_NAME,Rupture,Rupture
+NODE_PRISM_RUPTURE_DESC,Sort : fait détoner toutes les Marques dans une zone au curseur.,Spell: detonates every Mark in an area at the cursor.
+NODE_PRISM_RUPTURE_REACTION_NAME,Réaction,Reaction
+NODE_PRISM_RUPTURE_REACTION_DESC,Rupture : chaque détonation pose 1 Marque à côté (chaîne).,Rupture: each detonation applies 1 Mark nearby (chain).
+NODE_PRISM_RUPTURE_BLAZE_NAME,Brasier,Blaze
+NODE_PRISM_RUPTURE_BLAZE_DESC,Rupture : les détonations laissent de la Brûlure au sol 3 s.,Rupture: detonations leave Burn on the ground for 3 s.
+NODE_PRISM_REFRACTING_CRYSTAL_NAME,Cristal réfracteur,Refracting Crystal
+NODE_PRISM_REFRACTING_CRYSTAL_DESC,Sort : cristal au curseur ; chaque tir qui le traverse se divise en 3 et marque.,Spell: crystal at the cursor; every shot passing through splits into 3 and marks.
+NODE_PRISM_SPLIT_BOLT_NAME,Trait scindé,Split Bolt
+NODE_PRISM_SPLIT_BOLT_DESC,Le Trait de Faille se divise en 2 en touchant un ennemi marqué.,The Rift Bolt splits in 2 when it hits a marked enemy.
+NODE_PRISM_CRYSTAL_DOUBLE_NAME,Prisme double,Double Prism
+NODE_PRISM_CRYSTAL_DOUBLE_DESC,Cristal réfracteur : 2 cristaux ; un tir qui traverse les deux se divise en 9.,Refracting Crystal: 2 crystals; a shot through both splits into 9.
+NODE_PRISM_CRYSTAL_FOCUS_NAME,Foyer,Focus
+NODE_PRISM_CRYSTAL_FOCUS_DESC,Cristal réfracteur : les tirs convergent sur l'ennemi le plus résistant.,Refracting Crystal: shots converge on the toughest enemy.
+NODE_PRISM_LIVING_PRISM_NAME,Prisme vivant,Living Prism
+NODE_PRISM_LIVING_PRISM_DESC,Clé de voûte : le Trait de Faille pose une Marque tous les 3 tirs.,Keystone: the Rift Bolt applies a Mark every 3 shots.
+NODE_ABYSS_DEPTHS_NAME,Profondeurs,Depths
+NODE_ABYSS_DEPTHS_DESC,"Fracture : durée +0,5 s par rang.",Fracture: duration +0.5 s per rank.
+NODE_ABYSS_SINGULARITY_NAME,Singularité,Singularity
+NODE_ABYSS_SINGULARITY_DESC,Sort : sphère au curseur qui attire les ennemis 3 s puis implose.,"Spell: sphere at the cursor that pulls enemies for 3 s, then implodes."
+NODE_ABYSS_VOID_WAKE_NAME,Sillage du vide,Void Wake
+NODE_ABYSS_VOID_WAKE_DESC,La Ruée laisse une traînée qui Entrave 2 s.,Dashing leaves a trail that Slows for 2 s.
+NODE_ABYSS_SINGULARITY_HORIZON_NAME,Horizon,Horizon
+NODE_ABYSS_SINGULARITY_HORIZON_DESC,"Singularité : rayon +40 %, les ennemis attirés subissent +15 % de dégâts.","Singularity: radius +40%, pulled enemies take +15% damage."
+NODE_ABYSS_SINGULARITY_COLLAPSE_NAME,Effondrement,Collapse
+NODE_ABYSS_SINGULARITY_COLLAPSE_DESC,"Singularité : implosion 2× plus forte, durée 1,5 s.","Singularity: implosion twice as strong, 1.5 s duration."
+NODE_ABYSS_RIFT_WALL_NAME,Mur de faille,Rift Wall
+NODE_ABYSS_RIFT_WALL_DESC,Sort : mur orienté avec la souris qui bloque ennemis et projectiles 4 s.,Spell: a wall oriented with the mouse that blocks enemies and projectiles for 4 s.
+NODE_ABYSS_WALL_CHAINS_NAME,Chaînes,Chains
+NODE_ABYSS_WALL_CHAINS_DESC,"Mur de faille : les ennemis qui le touchent sont enracinés 1,5 s.",Rift Wall: enemies touching it are rooted for 1.5 s.
+NODE_ABYSS_WALL_BURNING_NAME,Rempart ardent,Burning Rampart
+NODE_ABYSS_WALL_BURNING_DESC,Mur de faille : le traverser inflige Brûlure et Fracture.,Rift Wall: crossing it inflicts Burn and Fracture.
+NODE_ABYSS_TWIN_RIFTS_NAME,Failles jumelles,Twin Rifts
+NODE_ABYSS_TWIN_RIFTS_DESC,"Sort : deux portails ; tirs, Échos et Chasseur (en Ruée) passent de l'un à l'autre.","Spell: two portals; shots, Echoes and the dashing Hunter travel between them."
+NODE_ABYSS_ANCHOR_NAME,Ancre,Anchor
+NODE_ABYSS_ANCHOR_DESC,Un ennemi tué sous Racines s'effondre en petite Singularité.,An enemy killed while Rooted collapses into a small Singularity.
+NODE_ABYSS_RIFTS_LOOP_NAME,Boucle,Loop
+NODE_ABYSS_RIFTS_LOOP_DESC,Failles jumelles : les Traits qui entrent ressortent ×2.,Twin Rifts: Bolts entering come out doubled.
+NODE_ABYSS_RIFTS_EXILE_NAME,Exil,Exile
+NODE_ABYSS_RIFTS_EXILE_DESC,"Failles jumelles : les ennemis aspirés ressortent loin, Entravés 3 s.","Twin Rifts: pulled-in enemies come out far away, Slowed for 3 s."
+NODE_ABYSS_VOID_MASTER_NAME,Maître du vide,Void Master
+NODE_ABYSS_VOID_MASTER_DESC,Clé de voûte : les ennemis sous Racines ou Entrave subissent +25 % de dégâts.,Keystone: Rooted or Slowed enemies take +25% damage.
+NODE_BOND_PACK_CALL_NAME,Appel de meute,Pack Call
+NODE_BOND_PACK_CALL_DESC,Sort : les Échos bondissent vers le curseur et frappent ensemble.,Spell: your Echoes leap toward the cursor and strike together.
+NODE_BOND_CLOSE_GUARD_NAME,Garde rapprochée,Close Guard
+NODE_BOND_CLOSE_GUARD_DESC,"Quand le Chasseur est touché, l'Écho le plus proche bondit sur l'ennemi le plus proche (toutes les 3 s).","When the Hunter is hit, the nearest Echo leaps at the nearest enemy (every 3 s)."
+NODE_BOND_CALL_RALLY_NAME,Ralliement,Rally
+NODE_BOND_CALL_RALLY_DESC,Appel de meute : +25 % de vitesse d'attaque aux Échos 4 s.,Pack Call: Echoes gain +25% attack speed for 4 s.
+NODE_BOND_CALL_QUARRY_NAME,Curée,Quarry
+NODE_BOND_CALL_QUARRY_DESC,Appel de meute : dégâts ×2 sur les élites et le boss.,Pack Call: ×2 damage against elites and the boss.
+NODE_BOND_AEGIS_NAME,Égide de faille,Rift Aegis
+NODE_BOND_AEGIS_DESC,Sort : bouclier de 25 % des PV max (+5 % par Écho) pendant 4 s.,Spell: shield worth 25% of max HP (+5% per Echo) for 4 s.
+NODE_BOND_AEGIS_RIPOSTE_NAME,Riposte,Riposte
+NODE_BOND_AEGIS_RIPOSTE_DESC,Égide de faille : une onde de choc quand le bouclier se brise.,Rift Aegis: a shockwave when the shield breaks.
+NODE_BOND_AEGIS_SHARE_NAME,Partage,Share
+NODE_BOND_AEGIS_SHARE_DESC,Égide de faille : bouclier réduit de moitié mais soin de 15 % des PV max.,Rift Aegis: shield halved but heals 15% of max HP.
+NODE_BOND_SWAP_NAME,Permutation,Swap
+NODE_BOND_SWAP_DESC,"Sort : échange de place avec un Écho, qui provoque les ennemis proches.","Spell: swap places with an Echo, which taunts nearby enemies."
+NODE_BOND_FUSION_NAME,Fusion,Fusion
+NODE_BOND_FUSION_DESC,"4 s après un sort de Lien, les attaques des Échos posent Marque et Fracture (35 % chacune).","For 4 s after a Bond spell, Echo attacks apply Mark and Fracture (35% each)."
+NODE_BOND_SWAP_RELAY_NAME,Relais,Relay
+NODE_BOND_SWAP_RELAY_DESC,Permutation : l'Écho échangé lance aussitôt son propre sort.,Swap: the swapped Echo casts its own spell at once.
+NODE_BOND_SWAP_SANCTUARY_NAME,Sanctuaire,Sanctuary
+NODE_BOND_SWAP_SANCTUARY_DESC,Permutation : soigne le Chasseur de 12 % des PV max.,Swap: heals the Hunter for 12% of max HP.
+NODE_BOND_PACK_SOUL_NAME,Âme de meute,Pack Soul
+NODE_BOND_PACK_SOUL_DESC,Clé de voûte : chaque sort du Chasseur réduit de 1 s la recharge des sorts d'Échos.,Keystone: each Hunter spell reduces Echo spell cooldowns by 1 s.
+BRANCH_TRUNK_NAME,Tronc,Trunk
+BRANCH_TRUNK_DESC,"Les fondations du Chasseur : vie, dégâts et Ruée.","The Hunter's foundations: life, damage and Dash."
+BRANCH_BLADE_NAME,Lame,Blade
+BRANCH_BLADE_DESC,"Corps à corps, Fracture et mobilité.","Melee, Fracture and mobility."
+BRANCH_PRISM_NAME,Prisme,Prism
+BRANCH_PRISM_DESC,"Distance, Marques et détonations.","Range, Marks and detonations."
+BRANCH_ABYSS_NAME,Abîme,Abyss
+BRANCH_ABYSS_DESC,Contrôle des foules et zones.,Crowd control and zones.
+BRANCH_BOND_NAME,Lien,Bond
+BRANCH_BOND_DESC,Les Échos et la protection de l'équipe.,Echoes and team protection.
+TREE_INTRO_V2,"Apprenez les nœuds avec vos Éclats (une fois pour toutes), puis activez-les dans un build avec vos Points de Chasseur. Changer de build ou d'activation est gratuit. Bord gauche épais : un seul nœud actif par groupe.","Learn nodes with your Shards (once and for all), then activate them in a build with your Hunter Points. Switching builds or activations is free. Thick left border: only one active node per group."
+TREE_POINTS,Points de Chasseur : %d / %d,Hunter Points: %d / %d
+TREE_BUILD,Build %d,Build %d
+TREE_SPELL_SLOTS,Sorts équipés :,Equipped spells:
+TREE_SLOT_EMPTY,—,—
+TREE_EQUIP_HINT,"Sélectionnez un sort actif dans l'arbre, puis cliquez sur un emplacement pour l'y équiper.","Select an active spell in the tree, then click a slot to equip it there."
+TREE_TIER,Niveau %s,Tier %s
+TREE_GATE_SHORT,%d victoire(s),%d win(s)
+TREE_GATE,Requiert %d victoire(s) contre un boss (actuellement %d),Requires %d boss victory(ies) (currently %d)
+TREE_COMING_SOON,À venir,Coming soon
+TREE_STATE_LOCKED,Verrouillé,Locked
+TREE_STATE_LEARNED,Appris,Learned
+TREE_STATE_ACTIVE,Actif %d/%d,Active %d/%d
+TREE_LEARN,Apprendre (%d Éclats),Learn (%d Shards)
+TREE_ACTIVATE,Activer (%d points),Activate (%d points)
+TREE_DEACTIVATE,Désactiver,Deactivate
+TREE_POINT_COST,%d point(s) par rang actif,%d point(s) per active rank
+TREE_EXCLUSIVE_ACTIVE,Exclusif : en activer un remplace l'autre,Exclusive: activating one replaces the other
+TREE_UTILITIES,Améliorations du refuge (toujours actives une fois apprises),Refuge upgrades (always active once learned)
+TREE_KIND_UTILITY,Amélioration du refuge,Refuge upgrade
+TREE_KIND_PASSIVE,Passif,Passive
+TREE_KIND_SPELL,Sort,Spell
+TREE_KIND_VARIANT,Variante,Variant
+TREE_KIND_TRANSFORM,Passif transformant,Transforming passive
+TREE_KIND_KEYSTONE,Clé de voûte,Keystone
+TREE_ERR_UTILITY,Toujours active une fois apprise.,Always active once learned.
+TREE_ERR_COMING_SOON,Arrive dans une prochaine mise à jour.,Coming in a future update.
+TREE_ERR_NOT_LEARNED,Apprenez d'abord ce nœud.,Learn this node first.
+TREE_ERR_MAX_ACTIVE,Déjà actif au maximum.,Already fully active.
+TREE_ERR_NEEDS_SPELL,Activez d'abord le sort.,Activate the spell first.
+TREE_ERR_POINTS,Pas assez de Points de Chasseur (gagnez une nouvelle carte ou réussissez des objectifs).,Not enough Hunter Points (win a new map or complete objectives).
+REPORT_HUNTER_POINT,Première victoire sur cette carte : +1 Point de Chasseur !,First victory on this map: +1 Hunter Point!
+SPELL_RIFT_LEAP_NAME,Bond de faille,Rift Leap
+SPELL_RIFT_LEAP_DESC,"Bond jusqu'au curseur, invulnérable pendant le saut, onde de choc à l'arrivée. Ne franchit ni l'eau, ni les falaises, ni les barrières.","Leap to the cursor, invulnerable while airborne, shockwave on landing. Cannot cross water, cliffs or barriers."
+SPELL_PARRY_NAME,Parade,Parry
+SPELL_PARRY_DESC,"Garde de 0,4 s : un coup paré n'inflige rien, déclenche une contre-attaque ×4, étourdit et recharge la Parade.","0.4 s guard: a parried hit deals nothing, triggers a ×4 counterattack, stuns and recharges Parry."
+SPELL_RUPTURE_NAME,Rupture,Rupture
+SPELL_RUPTURE_DESC,Fait détoner toutes les Marques dans une zone au curseur.,Detonates every Mark in an area at the cursor.
+SPELL_REFRACTING_CRYSTAL_NAME,Cristal réfracteur,Refracting Crystal
+SPELL_REFRACTING_CRYSTAL_DESC,Cristal au curseur (8 s) : chaque Trait ou Lance qui le traverse se divise en 3 et pose une Marque.,Crystal at the cursor (8 s): every Bolt or Lance passing through splits into 3 and applies a Mark.
+SPELL_SINGULARITY_NAME,Singularité,Singularity
+SPELL_SINGULARITY_DESC,Sphère au curseur qui attire les ennemis 3 s puis implose.,"Sphere at the cursor that pulls enemies for 3 s, then implodes."
+SPELL_RIFT_WALL_NAME,Mur de faille,Rift Wall
+SPELL_RIFT_WALL_DESC,"Mur au curseur, perpendiculaire à la visée (4 s) : bloque les ennemis et leurs projectiles.","Wall at the cursor, perpendicular to your aim (4 s): blocks enemies and their projectiles."
+SPELL_TWIN_RIFTS_NAME,Failles jumelles,Twin Rifts
+SPELL_TWIN_RIFTS_DESC,"1er appui : entrée ; 2e appui : sortie (6 s). Tirs, Échos et Chasseur en Ruée passent de l'une à l'autre ; les ennemis qui les touchent sont Fracturés.","1st press: entrance; 2nd press: exit (6 s). Shots, Echoes and the dashing Hunter travel between them; enemies touching them are Fractured."
+SPELL_PACK_CALL_NAME,Appel de meute,Pack Call
+SPELL_PACK_CALL_DESC,Les Échos bondissent vers le curseur et frappent ensemble (+25 % par Écho au-delà du premier).,Your Echoes leap to the cursor and strike together (+25% per Echo beyond the first).
+SPELL_AEGIS_NAME,Égide de faille,Rift Aegis
+SPELL_AEGIS_DESC,Bouclier de 25 % des PV max (+5 % par Écho) pendant 4 s.,Shield worth 25% of max HP (+5% per Echo) for 4 s.
+SPELL_SWAP_NAME,Permutation,Swap
+SPELL_SWAP_DESC,"Échange de place avec l'Écho le plus proche du curseur, qui provoque les ennemis proches 2 s. À l'instant d'un coup : esquive et recharges divisées par 2.","Swap places with the Echo nearest the cursor, which taunts nearby enemies for 2 s. Right before a hit: dodge and halve your cooldowns."
+C5_CLEAVING_SLASH,Taille fendante,Cleaving Slash
+C5_RIFT_LEAP,Bond de faille,Rift Leap
+C5_PARRY,Parade,Parry
+C5_PRISMATIC_LANCE,Lance prismatique,Prismatic Lance
+C5_RUPTURE,Rupture,Rupture
+C5_REFRACTOR_CRYSTAL,Cristal réfracteur,Refractor Crystal
+C5_SINGULARITY,Singularité,Singularity
+C5_RIFT_WALL,Mur de faille,Rift Wall
+C5_TWIN_RIFTS,Failles jumelles,Twin Rifts
+C5_PACK_CALL,Appel de meute,Pack Call
+C5_RIFT_AEGIS,Égide de faille,Rift Aegis
+C5_SWAP,Permutation,Swap
+C5_SLASHING_DASH,Ruée tranchante,Slashing Dash
+C5_COUNTER_SLASH,Contre-taille,Counter Slash
+C5_PROPAGATION,Propagation,Propagation
+C5_SPLIT_BOLT,Trait scindé,Split Bolt
+C5_VOID_WAKE,Sillage du vide,Void Wake
+C5_ANCHOR,Ancre,Anchor
+C5_CLOSE_GUARD,Garde rapprochée,Close Guard
+C5_FUSION,Fusion,Fusion
+C5_BLADE_MASTER,Maître-lame,Blademaster
+C5_LIVING_PRISM,Prisme vivant,Living Prism
+C5_VOID_MASTER,Maître du vide,Void Master
+C5_PACK_SOUL,Âme de meute,Soul of the Pack
+C5_VIGOR,Vigueur,Vigor
+C5_TRAINING,Entraînement,Training
+C5_GHOST_STEP,Pas fantôme,Ghost Step
+C5_LAST_BREATH,Dernier souffle,Last Breath
+C5_THIRD_SEAL,Troisième sceau,Third Seal
+C5_SHATTERING_DASH,Ruée fracturante,Shattering Dash
+C5_MELEE_DAMAGE,Maîtrise du sabre,Sword Mastery
+C5_RIFT_BRAWLER,Cogneur de faille,Rift Brawler
+C5_RIFT_SHOOTER,Tireur des Failles,Rift Shooter
+C5_RESONANCE,Résonance prismatique,Prismatic Resonance
+C5_PYROMANCER,Pyromancien,Pyromancer
+C5_CHAIN_REACTION,Détonation en chaîne,Chain Detonation
+C5_DEEP_BREACH,Brèche profonde,Deep Breach
+C5_GRAVITY,Gravitationniste,Gravitationalist
+C5_CONTROL_DURATION,Contrôles prolongés,Longer Control
+C5_STRONG_BONDS,Liens solides,Strong Bonds
+C5_SHARP_TECHNIQUES,Techniques affûtées,Honed Techniques
+C5_LONE_HUNTER,Chasseur solitaire,Lone Hunter
+C5_PACK_LEADER,Chef de meute,Pack Leader
+C5_WHIRLWIND,Tourbillon,Whirlwind
+C5_THRUST,Estoc,Thrust
+C5_RETURN,Retour,Return
+C5_IMPACT,Impact,Impact
+C5_MIRROR,Miroir,Mirror
+C5_PACK_GUARD,Garde de meute,Pack Guard
+C5_FAN,Éventail,Fan
+C5_OVERCHARGE,Surcharge,Overcharge
+C5_REACTION,Réaction,Reaction
+C5_INFERNO,Brasier,Blaze
+C5_DOUBLE_PRISM,Prisme double,Double Prism
+C5_FOCUS,Foyer,Focus
+C5_HORIZON,Horizon,Horizon
+C5_COLLAPSE,Effondrement,Collapse
+C5_CHAINS,Chaînes,Chains
+C5_BURNING_WALL,Rempart ardent,Burning Rampart
+C5_LOOP,Boucle,Loop
+C5_EXILE,Exil,Exile
+C5_RALLY,Ralliement,Rally
+C5_FEAST,Curée,Feast
+C5_RIPOSTE,Riposte,Riposte
+C5_SHARING,Partage,Sharing
+C5_RELAY,Relais,Relay
+C5_SANCTUARY,Sanctuaire,Sanctuary
+C5_TITLE,L’ARBRE DU CHASSEUR,THE HUNTER TREE
+C5_REFUGE,LE REFUGE · ARSENAL DES FAILLES,THE REFUGE · RIFT ARSENAL
+C5_POINTS,POINTS DE CHASSEUR,HUNTER POINTS
+C5_SHARDS,Éclats,Shards
+C5_BUILD_1,Lame de faille,Rift Blade
+C5_BUILD_2,Prisme errant,Wandering Prism
+C5_BUILD_3,Pacte de meute,Pack Pact
+C5_COMMON,TRONC COMMUN,COMMON TRUNK
+C5_BLADE,LAME,BLADE
+C5_PRISM,PRISME,PRISM
+C5_ABYSS,ABÎME,ABYSS
+C5_BOND,LIEN,BOND
+C5_LOCKED,Verrouillé,Locked
+C5_LEARNABLE,Apprenable,Learnable
+C5_LEARNED,Appris,Learned
+C5_ACTIVE,Activé dans le build,Active in build
+C5_EQUIPPED,SORTS ÉQUIPÉS,EQUIPPED SPELLS
+C5_VARIANTS,VARIANTES EXCLUSIVES,EXCLUSIVE VARIANTS
+C5_ONE_VARIANT,Une seule variante par sort,One variant per spell
+C5_ONE_KEYSTONE,Une seule clé de voûte active,Only one active keystone
+C5_KNOWN,Connu dès le départ,Known from the start
+C5_ACTIVATE_COST,Activation : 2 points,Activation: 2 points
+C5_VARIANT_COST,Variante : 1 point,Variant: 1 point
+C5_KEYSTONE_COST,Clé de voûte : 4 points,Keystone: 4 points
+C5_LEARN_COST,Apprendre : 150 Éclats,Learn: 150 Shards
+C5_KNOWN_FOREVER,Appris pour toujours,Permanently learned
+C5_LEARN,Apprendre,Learn
+C5_ACTIVATE,Activer dans le build,Activate in build
+C5_REMOVE,Retirer du build,Remove from build
+C5_CHAPTER_1,Après le chapitre 1,After Chapter 1
+C5_CHAPTER_2,Après le chapitre 2,After Chapter 2
+C5_FREE_CHANGE,Modification gratuite au refuge,Free changes at the Refuge
+C5_SELECT_NODE,TAILLE FENDANTE,CLEAVING SLASH
+C5_SLASH_DESC,Arc de lame : portée 150 · recharge 4 s,Blade arc: range 150 · cooldown 4 s
+C5_WHIRLWIND_DESC,Cercle complet autour du Chasseur.,A full circle around the Hunter.
+C5_THRUST_DESC,Ligne étroite et perçante : portée 320.,A narrow piercing line: range 320.
+C5_TRUNK_NOTE,Apprendre avec les Éclats · activer avec les points,Learn with Shards · activate with points
+C5_STATES_TITLE,ÉTATS ET CHOIX DU BUILD,BUILD STATES AND CHOICES
+C5_FOCUS_TITLE,VOIE DE LA LAME,PATH OF THE BLADE
+C5_STATES_NOTE,Les états restent identifiables par leur forme.,States remain identifiable by shape.
+C5_EXCLUSIVE_AB,A ou B,A or B
+C5_PROTOTYPE_NOTE,Maquette de composition · icônes définitives à illustrer,Layout mockup · final icons to be illustrated
+C5_VFX_TITLE,EFFETS DU CHASSEUR · PREMIER LOT,HUNTER EFFECTS · FIRST DELIVERY
+C5_VFX_NOTE,Effets autonomes · aucune logique de combat,Standalone effects · no combat logic
+C5_BASE,Base,Base
+C5_CHARGE,Charge,Charge
+C5_RELEASE,Libération,Release
+C5_RADIUS_150,Portée 150,Range 150
+C5_RANGE_320,Portée 320,Range 320
+C5_RANGE_700,Portée 700 · vitesse 950,Range 700 · speed 950
+C5P_TITLE,TAILLE FENDANTE · PILOTE D’ANIMATION,CLEAVING SLASH · ANIMATION PILOT
+C5P_SUBTITLE,Poses du Chasseur · traînée dessinée · impact sur une cible,Hunter poses · illustrated trail · target impact
+C5P_WINDUP,01  ARMÉ,01  WINDUP
+C5P_CUT,02  FRAPPE,02  SWING
+C5P_HIT,03  IMPACT,03  IMPACT
+C5P_RECOVERY,04  RETOUR,04  RECOVERY
+C5P_NOTE,Mise en scène à valider · effets pas encore raccordés aux sorts en jeu,Staged visual preview · effects are not yet connected to in-game spells

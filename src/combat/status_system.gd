@@ -62,7 +62,8 @@ func detonate(enemy: Enemy, damage_per_stack: float, source_id: StringName) -> i
 		return 0
 	enemy.statuses.remove(&"mark")
 	var tags: Array[StringName] = [DamageInfo.TAG_DETONATION]
-	var info := DamageInfo.make(damage_per_stack * stacks, DamageInfo.SourceKind.ALLY, source_id, tags)
+	var kind := DamageInfo.SourceKind.PLAYER if source_id == &"player" else DamageInfo.SourceKind.ALLY
+	var info := DamageInfo.make(damage_per_stack * stacks, kind, source_id, tags)
 	ctx.events.detonation.emit(enemy, stacks, source_id)
 	ctx.stats.add(&"marks_detonated", stacks)
 	ctx.fx.burst(enemy.global_position, 26.0 + stacks * 4.0, Color(0.7, 0.95, 1.0, 0.55))

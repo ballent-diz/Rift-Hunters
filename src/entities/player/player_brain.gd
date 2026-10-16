@@ -30,6 +30,11 @@ func spell_released(_slot: int) -> bool:
 	return false
 
 
+## Peut maintenir une touche (Surcharge) : le bot de test lance sans charger.
+func can_hold() -> bool:
+	return false
+
+
 ## Option « aperçu » : maintenir montre la zone, relâcher lance (sinon la touche lance immédiatement).
 func preview_casting() -> bool:
 	return false
