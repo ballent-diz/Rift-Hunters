@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "status": "wip",
+  "reference": "docs/art/TAILLE_FENDANTE_PILOTE.md",
+  "actor": "player.hunter",
+  "actor_animation": "attack",
+  "actor_frames": [
+    {"time": 0.0, "frame": 0},
+    {"time": 0.055, "frame": 1},
+    {"time": 0.10, "frame": 2},
+    {"time": 0.14, "frame": 3},
+    {"time": 0.185, "frame": 4},
+    {"time": 0.215, "frame": 6},
+    {"time": 0.26, "frame": 5},
+    {"time": 0.32, "frame": 3},
+    {"time": 0.38, "frame": 1},
+    {"time": 0.44, "animation": "idle", "frame": 0}
+  ],
+  "cues": {
+    "slash_start": 0.09,
+    "illustrated_contact": 0.19,
+    "recovery_complete": 0.49
+  },
+  "preview_only": {
+    "hit_pause_seconds": 0.045,
+    "camera_shake_pixels_1080p": 2.0,
+    "max_actor_offset_world": 12.0,
+    "target_recoil_world": 13.0
+  },
+  "notes": "Contrat visuel indicatif. Aucune donnée de dégâts, collision, déplacement physique, invulnérabilité ou délai de lancement. Le combat confirme les vrais contacts ; ne jamais déclencher un impact réel seulement depuis ce chronogramme."
+}

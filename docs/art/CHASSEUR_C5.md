@@ -7,6 +7,10 @@ Aucun fichier de `src/`, scène fonctionnelle du refuge ou comportement de sort 
 Claude raccorde ces ressources dans C1/C2. Les dix autres familles d’effets restent à livrer
 progressivement ; C5 reste « En cours (Codex) ».
 
+Suite validée comme chantier par le propriétaire : [pilote de Taille fendante](TAILLE_FENDANTE_PILOTE.md),
+avec textures dessinées, poses existantes du Chasseur, cible et décor de la Plaine.
+Ce pilote illustre la référence de rythme et d’impact demandée ; le raccordement au combat reste dans C1/C2.
+
 ## Livre des maquettes
 
 Captures natives Godot, 1920 × 1080, dans `docs/previews/c5/` :

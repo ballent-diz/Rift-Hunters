@@ -82,6 +82,13 @@ C5, première livraison du 16 octobre : maquettes de l’arbre, 38 éléments gr
 Raccordement C2 : [fiche visuelle](art/CHASSEUR_C5.md) et [captures](previews/c5/README.md).
 Les images d’icônes attendent la génération du propriétaire ; les dix autres familles d’effets suivent au fil des sorts.
 Retour du propriétaire pris en compte : animations enrichies (armé, balayage, filaments, cristaux et dispersion), rendu à valider.
+Suite C5 livrée pour validation visuelle : [pilote de Taille fendante](art/TAILLE_FENDANTE_PILOTE.md)
+avec textures dessinées, poses du Chasseur, impact sur une cible et démonstration dans la Plaine.
+Référence d’intention : rythme et impact de Hades,
+avec les personnages et la palette alliée de Rift Hunters. Aucune modification de `src/`.
+Vérification en vraie partie ajoutée : HUD, Écho et vagues existants, contacts C1 confirmés,
+impact limité en taille et en occurrences ; vidéo 1080p dans `docs/previews/c5/live/`.
+Le raccordement au lancement normal reste à réaliser par Claude dans C1/C2.
 
 ### Étape D — Longévité
 

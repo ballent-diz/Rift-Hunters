@@ -2,9 +2,11 @@ extends Node2D
 ## Chorégraphie autonome : armé, coupe balayée, doubles traînées, étincelles et dissipation.
 signal visual_finished
 const Shapes = preload("res://assets/vfx/hunter/effects_common.gd")
-const GOLD := Color("f6b760")
-const IVORY := Color("fff5d7")
-const COPPER := Color("bb603a")
+const GOLD := Color("73deef")
+const IVORY := Color("efffff")
+const COPPER := Color("22758e")
+const BRUSH = preload("res://assets/vfx/hunter/cleaving_slash/textures/blade-ribbon.png")
+const PALETTE = preload("res://assets/vfx/hunter/cel_paint.gdshader")
 
 @export var spell_range: float = 150.0
 @export var thrust_range: float = 320.0
@@ -13,6 +15,11 @@ const COPPER := Color("bb603a")
 var variant: StringName = &"base"
 var _elapsed: float = 0.0
 var _playing: bool = false
+
+func _ready() -> void:
+	var paint := ShaderMaterial.new()
+	paint.shader = PALETTE
+	material = paint
 
 func play(direction: Vector2 = Vector2.RIGHT, p_variant: StringName = &"base") -> void:
 	variant = p_variant
@@ -23,6 +30,12 @@ func play(direction: Vector2 = Vector2.RIGHT, p_variant: StringName = &"base") -
 
 func duration() -> float:
 	return .55 if variant == &"whirlwind" else (.40 if variant == &"thrust" else .34)
+
+## Démarre à une phase donnée, notamment pour un coup de C1 déjà confirmé instantanément.
+func play_from(direction: Vector2, p_variant: StringName, seconds: float) -> void:
+	play(direction,p_variant)
+	_elapsed = maxf(seconds,0.0)
+	queue_redraw()
 
 func seek_visual(seconds: float) -> void:
 	_elapsed = maxf(seconds,0.0)
@@ -63,11 +76,9 @@ func _draw() -> void:
 		Shapes.facet(self,armed,start,43.0*windup,3,GOLD,IVORY,(1.0-phase/.18)*.8)
 		Shapes.star(self,armed,9.0*sin(windup*PI),IVORY)
 	if sweep > 0.0:
-		_ribbon(spell_range-7,tail-.07,head-.07,20,Color(COPPER,fade*.24))
-		_ribbon(spell_range-2,tail,head,17,Color(GOLD,fade*.35))
-		_ribbon(spell_range-5,tail+.02,head,10,Color(GOLD,fade))
-		_ribbon(spell_range-3,tail+.13,head,3.3,Color(IVORY,fade))
-		_ribbon(spell_range-24,tail+.1,head-.1,2,Color(IVORY,fade*.42))
+		_painted_ribbon(spell_range-28,tail,head,110,fade)
+		_painted_ribbon(spell_range-47,tail-.12,head-.12,54,fade*.32)
+		_ribbon(spell_range-5,tail+.10,head,2.0,Color(IVORY,fade*.8))
 		var tip := Vector2.from_angle(head)*(spell_range-8)
 		var inner := Vector2.from_angle(head)*38.0
 		var sideways := Vector2.from_angle(head).orthogonal()
@@ -128,3 +139,16 @@ func _thrust() -> void:
 	if phase > .40:
 		var impact: float = (phase-.40)/.60
 		Shapes.ring(self,Vector2(thrust_range-8,0),4+impact*26,Color(GOLD,(1-impact)*.8),1.5)
+
+func _painted_ribbon(radius: float, start: float, finish: float, width: float, opacity: float) -> void:
+	if finish-start < .01:
+		return
+	var steps := 48
+	for i: int in steps:
+		var u0: float = float(i)/steps
+		var u1: float = float(i+1)/steps
+		var a := Vector2.from_angle(lerpf(start,finish,u0))
+		var b := Vector2.from_angle(lerpf(start,finish,u1))
+		var points := PackedVector2Array([a*(radius+width*.5),b*(radius+width*.5),b*(radius-width*.5),a*(radius-width*.5)])
+		var uv := PackedVector2Array([Vector2(u0,0),Vector2(u1,0),Vector2(u1,1),Vector2(u0,1)])
+		draw_colored_polygon(points,Color(1,1,1,opacity),uv,BRUSH)

@@ -3,6 +3,22 @@
 Captures Godot en 1920 × 1080. L’écran fonctionnel sera raccordé par Claude dans C2.
 Les glyphes de placement seront remplacés par les icônes générées par le propriétaire.
 
+## Pilote de Taille fendante — dernière proposition
+
+### Vérification dans une vraie partie
+
+![Taille fendante pendant une partie réelle, HUD et Écho présents](live/impact.png)
+
+[Vidéo native en partie, 1080p](live/taille-fendante-en-partie.mp4).
+Adaptateur visuel de test : les contacts et dégâts proviennent du combat C1.
+L’impact est ramené à 72 unités et limité à deux occurrences par frappe pour préserver la lisibilité.
+
+### Étude du geste isolé
+
+![Animation pilote avec poses du Chasseur, texture dessinée et impact](pilot/taille-fendante.webp)
+
+[Fiche et chronogramme de raccordement](../../art/TAILLE_FENDANTE_PILOTE.md).
+
 ## Vue d’ensemble
 
 ![Tronc commun, quatre voies et cinq niveaux, trois builds et quatre sorts équipés](overview.png)

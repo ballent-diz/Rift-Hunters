@@ -3957,7 +3957,11 @@
 					]
 				}
 			},
-			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision."
+			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision.",
+			"textures": [
+				"res://assets/vfx/hunter/cleaving_slash/textures/blade-ribbon.png",
+				"res://assets/vfx/hunter/cleaving_slash/textures/blade-impact.png"
+			]
 		},
 		"vfx.hunter.prismatic_lance": {
 			"status": "wip",
@@ -4036,6 +4040,61 @@
 				}
 			},
 			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision."
+		},
+		"vfx.hunter.cleaving_slash.ribbon": {
+			"status": "wip",
+			"kind": "vfx_texture",
+			"sheet": "res://assets/vfx/hunter/cleaving_slash/textures/blade-ribbon.png",
+			"cell": [
+				2172,
+				724
+			],
+			"anchor": [
+				1086,
+				362
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader"
+		},
+		"vfx.hunter.cleaving_slash.impact": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"sheet": "res://assets/vfx/hunter/cleaving_slash/textures/blade-impact.png",
+			"scene": "res://assets/vfx/hunter/cleaving_slash/blade_impact.tscn",
+			"cell": [
+				1254,
+				1254
+			],
+			"anchor": [
+				627,
+				627
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"duration_seconds": 0.42,
+			"visual_size": 104,
+			"bounds": [
+				-72,
+				-72,
+				144,
+				144
+			],
+			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader"
 		}
 	}
 }

@@ -25,6 +25,7 @@ for(const [id,def] of Object.entries(definitions)){
  manifest.entries['vfx.hunter.'+id]={status:'wip',kind:'effect_scene',sheet:'res://'+folder+'/preview.svg',
   scene:'res://'+folder+'/'+id+'.tscn',cell:def.cell,anchor:def.anchor,scale:1,
   animations:{idle:{row:0,frames:1,fps:1,loop:false}},variants:def.variants,
+  ...(id==='cleaving_slash'?{textures:['res://'+folder+'/textures/blade-ribbon.png','res://'+folder+'/textures/blade-impact.png']}:{}),
   notes:'sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision.'};
 }
 await fs.writeFile(manifestPath,JSON.stringify(manifest,null,'\t')+'\n');
