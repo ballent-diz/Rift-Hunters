@@ -1,6 +1,7 @@
 # Arbre du Chasseur v2 et sorts du Chasseur
 
-Statut : **proposition du 16 octobre 2026, à valider par le propriétaire**. Une fois validée, sert de référence aux
+Statut : **proposition du 16 octobre 2026, à valider par le propriétaire** (complétée le même jour : coûts,
+paliers de campagne, passifs transformants, gains d'Éclats). Une fois validée, sert de référence aux
 lots C1 (visée, premiers sorts) et C2 (arbre v2, builds). Cadre général : [COMPETENCES_ET_BUILDS.md](COMPETENCES_ET_BUILDS.md).
 
 ## 1. Principes
@@ -46,10 +47,10 @@ Un **tronc** commun, puis **4 voies** de 5 niveaux. Coûts : Éclats pour appren
  LAME              PRISME              ABÎME              LIEN
  (corps à corps,   (distance,          (contrôle,         (Échos)
   Fracture)         Marques)            zones)
- I   passif ×3     passif ×3           passif ×3          passif ×3
- II  sort 1        sort 1              sort 1             sort 1
- III variante A|B  variante A|B        variante A|B       variante A|B
- IV  sort 2 + var. sort 2 + var.       sort 2 + var.      sort 2 + var.
+ I   passifs       passifs             passifs            passifs
+ II  sort 1 + transformant 1 (chaque voie)
+ III variante A|B du sort 1                                              ← après le chapitre 1
+ IV  sort 2 + variante A|B + transformant 2 + passif                     ← après le chapitre 2
  V   CLÉ DE VOÛTE  CLÉ DE VOÛTE        CLÉ DE VOÛTE       CLÉ DE VOÛTE   ← une seule active par build
 ```
 
@@ -63,6 +64,17 @@ Un **tronc** commun, puis **4 voies** de 5 niveaux. Coûts : Éclats pour appren
 | Abîme | **Brèche profonde** ; **Gravitationniste** ; durée des contrôles +15 %/rang | *Maître du vide* : les ennemis sous Racines ou Entrave subissent +25 % de dégâts |
 | Lien | **Liens solides** ; **Techniques affûtées** ; **Chasseur solitaire** *ou* **Chef de meute** | *Âme de meute* : chaque sort du Chasseur réduit de 1 s la recharge des sorts d'Échos |
 
+### Passifs transformants (2 par voie)
+
+Ils changent la façon de jouer, pas seulement les chiffres (le cœur du plaisir façon Hades).
+
+| Voie | Transformant 1 (niveau II) | Transformant 2 (niveau IV) |
+|---|---|---|
+| Lame | *Ruée tranchante* : la Ruée blesse les ennemis traversés | *Contre-taille* : une Ruée juste avant un coup (0,3 s) recharge le prochain sort de Lame et lui donne +50 % de dégâts |
+| Prisme | *Propagation* : un ennemi marqué qui meurt transmet ses Marques au plus proche | *Trait scindé* : le Trait de Faille se divise en 2 en touchant un ennemi marqué |
+| Abîme | *Sillage du vide* : la Ruée laisse une traînée qui Entrave 2 s | *Ancre* : un ennemi tué sous Racines s'effondre en petite Singularité |
+| Lien | *Garde rapprochée* : quand le Chasseur est touché, l'Écho le plus proche bondit sur l'agresseur | *Fusion* : 4 s après un sort de Lien, les attaques des Échos appliquent les statuts du Chasseur |
+
 **Troisième sceau** (+1 emplacement d'équipe, 3e Écho) reste un nœud à part du tronc, débloqué par la progression de la
 campagne, comme prévu dans [ECHOS.md](ECHOS.md).
 
@@ -74,35 +86,66 @@ ne font pas un style de jeu : ce sont des **confort de partie**. Proposition : i
 refuge**, achetées une fois et toujours actives (Laboratoire, payées en Essence ou en Éclats), hors du budget de points.
 L'arbre ne contient plus que le build de combat.
 
-## 4. Points de Chasseur
+## 4. Rythme de déblocage (Éclats)
+
+Objectif : **tout apprendre en 8 à 10 h de jeu** (≈ 55-60 expéditions), en phase avec la campagne (6-10 h).
+
+**Coûts pour apprendre** (Éclats, une fois) :
+
+| Niveau | Nœud | Coût |
+|---|---|---|
+| Tronc | Vigueur et Entraînement (3 rangs chacun) ; Pas fantôme ; Dernier souffle | 50 / 100 / 160 ; 150 ; 350 |
+| I | Passif à 3 rangs + passif simple | 60 / 100 / 160 + 120 |
+| II | Sort 1 + transformant 1 | 250 + 300 |
+| III | Chaque variante du sort 1 | 200 |
+| IV | Sort 2 ; chaque variante ; transformant 2 | 400 ; 250 ; 400 |
+| V | Clé de voûte | 700 |
+
+Total ≈ **14 000 Éclats** (1 120 pour le tronc, ≈ 3 400 par voie ; les 2 sorts de départ sont offerts).
+L'arbre actuel coûte 6 640 Éclats, soit 3 à 4 h : trop court.
+
+**Gains d'Éclats réduits d'environ 30 %** (à appliquer avec le lot C2, dans `data/balance/balance_config.tres` et les
+boss) : par minute 12 → 8, par Corrompu 0,15 → 0,10, par élite 8 → 6, coffre brisé 25 → 20, boss 150 → 100.
+Une victoire de 10 min rapporte alors ≈ 290 Éclats, une défaite ≈ 150-200 ; moyenne ≈ 240, soit ≈ 58 expéditions
+pour tout apprendre. Les multiplicateurs de Tension restent (jouer plus dur accélère).
+
+**Paliers de campagne** : niveau III après le chapitre 1, niveaux IV et V après le chapitre 2. On ne peut pas foncer
+au bout d'une voie dès la première heure. En attendant la campagne (lot B1), le palier provisoire est le nombre de
+victoires contre un boss (1 pour le niveau III, 3 pour les niveaux IV et V).
+
+## 5. Points de Chasseur
 
 - Départ : **4 points**. **+1 point** à la première victoire sur chaque carte, **+1** tous les 3 objectifs de carte
   réussis. Ordre de grandeur en fin de campagne : **25 à 30 points**.
 - Coûts d'activation : passif 1 point/rang, sort 2 points, variante 1 point, clé de voûte 4 points.
   Activer tout l'arbre coûterait ≈ 60 points : en fin de jeu, on remplit **à peu près deux voies** et on choisit.
+- Après la campagne, le New Game+ et la Tension donnent quelques points de plus (lot D4) : la longévité continue,
+  sans jamais tout activer à la fois.
 - Les 4 sorts équipés doivent être activés ; les sorts de départ coûtent quand même leurs points (pas de gratuité
   qui fausse le budget), mais le joueur commence avec de quoi les activer.
 
-## 5. Builds enregistrés
+## 6. Builds enregistrés
 
 - **3 emplacements de build** nommables (un 4e et un 5e plus tard par la progression).
 - Un build = nœuds activés + 4 sorts équipés sur A, E, R, F + (lot C3) le sort équipé de chaque Écho.
 - Choix du build dans le menu de départ d'expédition ; modification au refuge, gratuite.
 
-## 6. En partie : les montées de niveau
+## 7. En partie : les montées de niveau
 
 Les cartes de niveau restent et renforcent le build (lot C4, avec raretés) : par exemple *Taille fendante : +1 coup*,
 *Singularité : recharge −20 %*, *Lance prismatique : +1 Marque*. Seuls les sorts **équipés** reçoivent des cartes.
 
-## 7. Sauvegarde
+## 8. Sauvegarde
 
 Migration de la version de sauvegarde : les Éclats dépensés dans l'arbre actuel sont **remboursés** ; les nœuds
 d'exploration et de recherche déjà achetés sont **conservés** comme améliorations du refuge.
 
-## 8. À valider par le propriétaire
+## 9. À valider par le propriétaire
 
 1. Le principe *apprendre (Éclats) / activer (Points)* et la réinitialisation gratuite.
 2. Les 4 voies (Lame, Prisme, Abîme, Lien) et les 8 sorts ; noms et effets à retoucher librement.
 3. Les 2 sorts de départ (Taille fendante, Lance prismatique).
 4. La sortie des nœuds d'exploration et de recherche vers le refuge.
 5. Le budget de points (4 au départ, 25-30 en fin de campagne) et 3 builds enregistrés.
+6. Le rythme : ≈ 14 000 Éclats pour tout apprendre, gains réduits de 30 %, paliers par chapitre.
+7. Les 8 passifs transformants.
