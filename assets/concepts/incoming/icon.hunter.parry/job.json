@@ -1,0 +1,28 @@
+{
+  "visual_id": "icon.hunter.parry",
+  "cell": [
+    64,
+    64
+  ],
+  "anchor": [
+    32,
+    32
+  ],
+  "scale": 1,
+  "target_height": 50,
+  "status": "final",
+  "background": "alpha",
+  "colors": 32,
+  "outline": true,
+  "anchor_mode": "mass",
+  "animations": [
+    {
+      "name": "idle",
+      "source": "source/icon.png",
+      "frames": 1,
+      "fps": 1,
+      "loop": true,
+      "layout": "row"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 from .render import render_frame
 
-CATEGORY_FOLDERS = {"player": "players", "monster": "monsters", "enemy": "enemies", "boss": "bosses"}
+CATEGORY_FOLDERS = {"player": "players", "monster": "monsters", "enemy": "enemies", "boss": "bosses", "icon": "skills"}
 
 
 class EntitySpec:
