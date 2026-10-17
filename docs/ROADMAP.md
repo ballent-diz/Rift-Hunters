@@ -75,7 +75,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | En cours (Codex) |
 | C6 | Équipe à 3 Échos max ; 8 affinités (remplacent « arcane » et « contrôle ») avec bonus à 2 et 3 Échos ; « Prédateurs » devient une synergie d'affinité | Claude | — | Fait (17 oct.) : 16 bonus d'affinité, affinités au bestiaire |
 | C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | À faire |
-| C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Propriétaire (génération) + Codex (prompts, import, contrôle) | — (peut commencer tout de suite) | À faire |
+| C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Codex (génération autorisée, prompts, import, contrôle) | — | Livré (Codex), PR de génération à fusionner |
 
 C5, habillage fonctionnel de l’arbre après fusion de la PR #16 : **En cours (Codex)**.
 Écran 1280 × 720, états et connexions, builds et équipements ; règles de progression inchangées.
@@ -134,4 +134,4 @@ C5 — En cours (Codex), 17 octobre : réorganisation visuelle par familles de s
 
 C5 / B2 — En cours (Codex), 17 octobre : 35 illustrations HD des Échos intégrées et Expédition habillé sur codex/echos-expedition ; captures 720p dans docs/previews/echo-expedition/, validation visuelle du propriétaire attendue. Règles des arbres et gameplay inchangés.
 
-C8 — En cours (Codex), 17 octobre : prompts et dossiers d’import pour les neuf nouveaux Échos, Mirelle et le rework de Cendrelame, sur codex/c8-sprites-echos. Génération par le propriétaire ; validation des sprites et planche des 16 en attente des images.
+C8 — Livré (Codex), 18 octobre, branche codex/c8-sprites-generes depuis main après fusion de la PR #24 : 11 créatures (9 nouvelles, Mirelle et Cendrelame), 55 animations et 429 poses importées. Captures Godot des 16, aperçu animé et contrôles réussis ; sensation en partie à confirmer par le propriétaire. Aucun changement de gameplay C7.

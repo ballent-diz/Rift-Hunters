@@ -16,6 +16,7 @@ job.json :
   "tolerance": 60,                          tolérance du détourage (0-255)
   "despill": false,                         true : retire les reflets de la couleur du fond (vert) sur les bords
   "holes": 0,                               > 0 : retire aussi le fond enfermé (ex. dans un arc de sabre), tolérance stricte
+  "holes_min_area": 8,                      taille minimale d’un trou de fond retiré (1 pour fond uni contrôlé)
   "colors": 32,                             couleurs max de la palette commune (0 = pas de réduction)
   "outline": true,                          ajoute un contour sombre d'1 pixel
   "flip": false,                            true si les images regardent vers la gauche
@@ -43,7 +44,7 @@ from pixelforge.sheet import EntitySpec, make_icon, make_preview, _save  # noqa:
 from pixelforge.palette import OUTLINE, hexrgb  # noqa: E402
 
 
-def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 0) -> Image.Image:
+def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 0, holes_min_area: int = 8) -> Image.Image:
     rgba = img.convert("RGBA")
     arr = np.array(rgba)
     if mode == "alpha":
@@ -75,14 +76,17 @@ def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 
     halo = near & _touches(background)
     arr[halo, 3] = 0
     if holes > 0:
-        # Fond enfermé dans le dessin (non relié aux bords) : seulement les zones assez grandes et très proches
-        # de la couleur du fond, pour ne pas trouer les parties sombres du personnage.
+        # Fond enfermé : couleur strictement proche du fond. Le seuil de surface protège par défaut
+        # les détails ; une surface minimale de 1 convient au fond uni contrôlé des planches C8.
         strict = (dist <= holes) & ~background
-        labels, count = _label(strict)
-        for i in range(1, count + 1):
-            zone = labels == i
-            if zone.sum() >= 8:
-                arr[zone, 3] = 0
+        if holes_min_area <= 1:
+            arr[strict, 3] = 0
+        else:
+            labels, count = _label(strict)
+            for i in range(1, count + 1):
+                zone = labels == i
+                if zone.sum() >= holes_min_area:
+                    arr[zone, 3] = 0
     return Image.fromarray(arr, "RGBA")
 
 
@@ -267,7 +271,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     sources = []
     for anim in animations:
         img = Image.open(os.path.join(job_dir, anim["source"]))
-        img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)), int(job.get("holes", 0)))
+        img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)),
+                                int(job.get("holes", 0)), int(job.get("holes_min_area", 8)))
         if job.get("despill"):
             img = despill(img)
         if job.get("flip"):
@@ -339,7 +344,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
           os.path.join(preview_dir, job["visual_id"].replace(".", "_") + "_import.png"))
     entry = {
         "status": job.get("status", "final"),
-        "imported_from": os.path.relpath(job_path, REPO),
+        "imported_from": os.path.relpath(job_path, REPO).replace(os.sep, "/"),
         "sheet": "res://" + sheet_rel,
         "cell": [cw, ch],
         "anchor": [ax, ay],

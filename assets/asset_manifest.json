@@ -55,18 +55,18 @@
 			"icon": "res://assets/ui/icons/players/hunter.png"
 		},
 		"monster.ashblade": {
-			"status": "wip",
-			"generated_by": "tools/art/build.py",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.ashblade/job.json",
 			"sheet": "res://assets/sprites/monsters/ashblade/ashblade_sheet.png",
 			"cell": [
-				64,
-				64
+				128,
+				112
 			],
 			"anchor": [
-				32,
-				54
+				64,
+				102
 			],
-			"scale": 0.65,
+			"scale": 0.75,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -90,6 +90,12 @@
 					"row": 3,
 					"frames": 8,
 					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
 					"loop": false
 				}
 			},
@@ -537,20 +543,22 @@
 			"icon": "res://assets/ui/icons/monsters/gloommaw.png"
 		},
 		"monster.mirrorling": {
-			"status": "planned",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.mirrorling/job.json",
 			"sheet": "res://assets/sprites/monsters/mirrorling/mirrorling_sheet.png",
 			"cell": [
-				64,
-				64
+				128,
+				112
 			],
 			"anchor": [
-				32,
-				58
+				64,
+				102
 			],
+			"scale": 0.75,
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 6,
+					"frames": 8,
 					"fps": 8,
 					"loop": true
 				},
@@ -562,19 +570,24 @@
 				},
 				"attack": {
 					"row": 2,
-					"frames": 6,
-					"fps": 14,
+					"frames": 7,
+					"fps": 16,
 					"loop": false
 				},
 				"technique": {
 					"row": 3,
 					"frames": 8,
-					"fps": 14,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
 					"loop": false
 				}
 			},
-			"icon": "res://assets/ui/icons/monsters/mirrorling.png",
-			"scale": 0.5
+			"icon": "res://assets/ui/icons/monsters/mirrorling.png"
 		},
 		"enemy.broodmother": {
 			"status": "final",
@@ -4760,7 +4773,7 @@
 		},
 		"icon.hunter.cleaving_slash": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.cleaving_slash\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.cleaving_slash/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_cleaving_slash_sheet.png",
 			"cell": [
 				512,
@@ -4783,7 +4796,7 @@
 		},
 		"icon.hunter.rift_leap": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_leap\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.rift_leap/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_leap_sheet.png",
 			"cell": [
 				512,
@@ -4806,7 +4819,7 @@
 		},
 		"icon.hunter.parry": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.parry\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.parry/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_parry_sheet.png",
 			"cell": [
 				512,
@@ -4829,7 +4842,7 @@
 		},
 		"icon.hunter.prismatic_lance": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.prismatic_lance\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.prismatic_lance/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_prismatic_lance_sheet.png",
 			"cell": [
 				512,
@@ -4852,7 +4865,7 @@
 		},
 		"icon.hunter.refractor_crystal": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.refractor_crystal\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.refractor_crystal/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_refractor_crystal_sheet.png",
 			"cell": [
 				512,
@@ -4875,7 +4888,7 @@
 		},
 		"icon.hunter.rift_wall": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_wall\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.rift_wall/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_wall_sheet.png",
 			"cell": [
 				512,
@@ -4898,7 +4911,7 @@
 		},
 		"icon.hunter.rupture": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rupture\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.rupture/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rupture_sheet.png",
 			"cell": [
 				512,
@@ -4921,7 +4934,7 @@
 		},
 		"icon.hunter.singularity": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.singularity\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.singularity/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_singularity_sheet.png",
 			"cell": [
 				512,
@@ -4944,7 +4957,7 @@
 		},
 		"icon.hunter.propagation": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.propagation\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.propagation/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_propagation_sheet.png",
 			"cell": [
 				512,
@@ -4967,7 +4980,7 @@
 		},
 		"icon.hunter.counter_slash": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.counter_slash\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.counter_slash/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_counter_slash_sheet.png",
 			"cell": [
 				512,
@@ -4990,7 +5003,7 @@
 		},
 		"icon.hunter.slashing_dash": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.slashing_dash\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.slashing_dash/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_slashing_dash_sheet.png",
 			"cell": [
 				512,
@@ -5013,7 +5026,7 @@
 		},
 		"icon.hunter.void_wake": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.void_wake\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.void_wake/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_void_wake_sheet.png",
 			"cell": [
 				512,
@@ -5036,7 +5049,7 @@
 		},
 		"icon.hunter.swap": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.swap\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.swap/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_swap_sheet.png",
 			"cell": [
 				512,
@@ -5059,7 +5072,7 @@
 		},
 		"icon.hunter.split_bolt": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.split_bolt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.split_bolt/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_split_bolt_sheet.png",
 			"cell": [
 				512,
@@ -5082,7 +5095,7 @@
 		},
 		"icon.hunter.twin_rifts": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.twin_rifts\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.twin_rifts/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_twin_rifts_sheet.png",
 			"cell": [
 				512,
@@ -5105,7 +5118,7 @@
 		},
 		"icon.hunter.anchor": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.anchor\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.anchor/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_anchor_sheet.png",
 			"cell": [
 				512,
@@ -5128,7 +5141,7 @@
 		},
 		"icon.hunter.rift_aegis": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_aegis\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.rift_aegis/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_aegis_sheet.png",
 			"cell": [
 				512,
@@ -5151,7 +5164,7 @@
 		},
 		"icon.hunter.close_guard": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.close_guard\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.close_guard/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_close_guard_sheet.png",
 			"cell": [
 				512,
@@ -5174,7 +5187,7 @@
 		},
 		"icon.hunter.pack_call": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.pack_call\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.pack_call/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_pack_call_sheet.png",
 			"cell": [
 				512,
@@ -5197,7 +5210,7 @@
 		},
 		"icon.hunter.fusion": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.fusion\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.fusion/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_fusion_sheet.png",
 			"cell": [
 				512,
@@ -5220,7 +5233,7 @@
 		},
 		"icon.hunter.blade_master": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.blade_master\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.blade_master/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_blade_master_sheet.png",
 			"cell": [
 				512,
@@ -5243,7 +5256,7 @@
 		},
 		"icon.hunter.living_prism": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.living_prism\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.living_prism/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_living_prism_sheet.png",
 			"cell": [
 				512,
@@ -5266,7 +5279,7 @@
 		},
 		"icon.hunter.pack_soul": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.pack_soul\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.pack_soul/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_pack_soul_sheet.png",
 			"cell": [
 				512,
@@ -5289,7 +5302,7 @@
 		},
 		"icon.hunter.void_master": {
 			"status": "final",
-			"imported_from": "assets\\concepts\\incoming\\icon.hunter.void_master\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.hunter.void_master/job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_void_master_sheet.png",
 			"cell": [
 				512,
@@ -5328,7 +5341,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_ashblade_focus.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_focus\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.ashblade_focus/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_focus_sheet.png",
 			"status": "final"
@@ -5351,7 +5364,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_ashblade_might.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_might\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.ashblade_might/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_might_sheet.png",
 			"status": "final"
@@ -5374,7 +5387,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_ashblade_signature.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_signature\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.ashblade_signature/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_signature_sheet.png",
 			"status": "final"
@@ -5397,7 +5410,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_ashblade_spell_alt.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_spell_alt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.ashblade_spell_alt/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_spell_alt_sheet.png",
 			"status": "final"
@@ -5420,7 +5433,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_ashblade_spell_base.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_spell_base\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.ashblade_spell_base/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_spell_base_sheet.png",
 			"status": "final"
@@ -5443,7 +5456,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_focus.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_focus\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.glimmerwing_focus/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_focus_sheet.png",
 			"status": "final"
@@ -5466,7 +5479,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_might.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_might\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.glimmerwing_might/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_might_sheet.png",
 			"status": "final"
@@ -5489,7 +5502,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_signature.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_signature\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.glimmerwing_signature/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_signature_sheet.png",
 			"status": "final"
@@ -5512,7 +5525,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_spell_alt.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_spell_alt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.glimmerwing_spell_alt/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_spell_alt_sheet.png",
 			"status": "final"
@@ -5535,7 +5548,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_spell_base.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_spell_base\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.glimmerwing_spell_base/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_spell_base_sheet.png",
 			"status": "final"
@@ -5558,7 +5571,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_gloommaw_focus.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_focus\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.gloommaw_focus/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_focus_sheet.png",
 			"status": "final"
@@ -5581,7 +5594,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_gloommaw_might.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_might\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.gloommaw_might/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_might_sheet.png",
 			"status": "final"
@@ -5604,7 +5617,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_gloommaw_signature.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_signature\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.gloommaw_signature/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_signature_sheet.png",
 			"status": "final"
@@ -5627,7 +5640,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_gloommaw_spell_alt.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_spell_alt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.gloommaw_spell_alt/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_spell_alt_sheet.png",
 			"status": "final"
@@ -5650,7 +5663,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_gloommaw_spell_base.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_spell_base\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.gloommaw_spell_base/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_spell_base_sheet.png",
 			"status": "final"
@@ -5673,7 +5686,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mirrorling_focus.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_focus\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mirrorling_focus/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_focus_sheet.png",
 			"status": "final"
@@ -5696,7 +5709,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mirrorling_might.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_might\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mirrorling_might/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_might_sheet.png",
 			"status": "final"
@@ -5719,7 +5732,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mirrorling_signature.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_signature\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mirrorling_signature/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_signature_sheet.png",
 			"status": "final"
@@ -5742,7 +5755,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mirrorling_spell_alt.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_spell_alt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mirrorling_spell_alt/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_spell_alt_sheet.png",
 			"status": "final"
@@ -5765,7 +5778,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mirrorling_spell_base.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_spell_base\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mirrorling_spell_base/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_spell_base_sheet.png",
 			"status": "final"
@@ -5788,7 +5801,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mossback_focus.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_focus\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mossback_focus/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mossback_focus_sheet.png",
 			"status": "final"
@@ -5811,7 +5824,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mossback_might.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_might\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mossback_might/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mossback_might_sheet.png",
 			"status": "final"
@@ -5834,7 +5847,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mossback_signature.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_signature\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mossback_signature/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mossback_signature_sheet.png",
 			"status": "final"
@@ -5857,7 +5870,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mossback_spell_alt.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_spell_alt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mossback_spell_alt/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mossback_spell_alt_sheet.png",
 			"status": "final"
@@ -5880,7 +5893,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_mossback_spell_base.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_spell_base\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.mossback_spell_base/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_mossback_spell_base_sheet.png",
 			"status": "final"
@@ -5903,7 +5916,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_thornweave_focus.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_focus\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.thornweave_focus/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_focus_sheet.png",
 			"status": "final"
@@ -5926,7 +5939,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_thornweave_might.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_might\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.thornweave_might/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_might_sheet.png",
 			"status": "final"
@@ -5949,7 +5962,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_thornweave_signature.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_signature\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.thornweave_signature/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_signature_sheet.png",
 			"status": "final"
@@ -5972,7 +5985,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_thornweave_spell_alt.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_spell_alt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.thornweave_spell_alt/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_spell_alt_sheet.png",
 			"status": "final"
@@ -5995,7 +6008,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_thornweave_spell_base.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_spell_base\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.thornweave_spell_base/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_spell_base_sheet.png",
 			"status": "final"
@@ -6018,7 +6031,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_voltwisp_focus.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_focus\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.voltwisp_focus/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_focus_sheet.png",
 			"status": "final"
@@ -6041,7 +6054,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_voltwisp_might.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_might\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.voltwisp_might/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_might_sheet.png",
 			"status": "final"
@@ -6064,7 +6077,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_voltwisp_signature.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_signature\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.voltwisp_signature/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_signature_sheet.png",
 			"status": "final"
@@ -6087,7 +6100,7 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_voltwisp_spell_alt.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_spell_alt\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.voltwisp_spell_alt/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_spell_alt_sheet.png",
 			"status": "final"
@@ -6110,10 +6123,433 @@
 				512
 			],
 			"icon": "res://assets/ui/icons/skills/echo_voltwisp_spell_base.png",
-			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_spell_base\\job.json",
+			"imported_from": "assets/concepts/incoming/icon.echo.voltwisp_spell_base/job.json",
 			"scale": 1,
 			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_spell_base_sheet.png",
 			"status": "final"
+		},
+		"monster.cinderwing": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.cinderwing/job.json",
+			"sheet": "res://assets/sprites/monsters/cinderwing/cinderwing_sheet.png",
+			"cell": [
+				128,
+				112
+			],
+			"anchor": [
+				64,
+				102
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/cinderwing.png"
+		},
+		"monster.magmander": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.magmander/job.json",
+			"sheet": "res://assets/sprites/monsters/magmander/magmander_sheet.png",
+			"cell": [
+				192,
+				128
+			],
+			"anchor": [
+				96,
+				118
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/magmander.png"
+		},
+		"monster.hollowflame": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.hollowflame/job.json",
+			"sheet": "res://assets/sprites/monsters/hollowflame/hollowflame_sheet.png",
+			"cell": [
+				128,
+				112
+			],
+			"anchor": [
+				64,
+				102
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/hollowflame.png"
+		},
+		"monster.moonspore": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.moonspore/job.json",
+			"sheet": "res://assets/sprites/monsters/moonspore/moonspore_sheet.png",
+			"cell": [
+				128,
+				112
+			],
+			"anchor": [
+				64,
+				102
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/moonspore.png"
+		},
+		"monster.gravishell": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.gravishell/job.json",
+			"sheet": "res://assets/sprites/monsters/gravishell/gravishell_sheet.png",
+			"cell": [
+				128,
+				112
+			],
+			"anchor": [
+				64,
+				102
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/gravishell.png"
+		},
+		"monster.grovestag": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.grovestag/job.json",
+			"sheet": "res://assets/sprites/monsters/grovestag/grovestag_sheet.png",
+			"cell": [
+				128,
+				112
+			],
+			"anchor": [
+				64,
+				102
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/grovestag.png"
+		},
+		"monster.sunclaw": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.sunclaw/job.json",
+			"sheet": "res://assets/sprites/monsters/sunclaw/sunclaw_sheet.png",
+			"cell": [
+				192,
+				128
+			],
+			"anchor": [
+				96,
+				118
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/sunclaw.png"
+		},
+		"monster.glowmoth": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.glowmoth/job.json",
+			"sheet": "res://assets/sprites/monsters/glowmoth/glowmoth_sheet.png",
+			"cell": [
+				128,
+				112
+			],
+			"anchor": [
+				64,
+				102
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/glowmoth.png"
+		},
+		"monster.stormshell": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.stormshell/job.json",
+			"sheet": "res://assets/sprites/monsters/stormshell/stormshell_sheet.png",
+			"cell": [
+				192,
+				128
+			],
+			"anchor": [
+				96,
+				118
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/stormshell.png"
 		}
 	}
 }

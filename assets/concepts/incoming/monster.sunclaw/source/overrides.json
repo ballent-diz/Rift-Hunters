@@ -1,0 +1,39 @@
+{
+  "note": "La ligne de repos générée comporte neuf poses. Les huit premières poses complètes sont conservées ; la neuvième répétition est exclue.",
+  "ranges": {
+    "idle": [
+      [
+        0,
+        188
+      ],
+      [
+        188,
+        361
+      ],
+      [
+        361,
+        533
+      ],
+      [
+        533,
+        704
+      ],
+      [
+        704,
+        876
+      ],
+      [
+        876,
+        1036
+      ],
+      [
+        1036,
+        1194
+      ],
+      [
+        1194,
+        1362
+      ]
+    ]
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "authorization": "Le propriétaire a demandé « génère les sprites » le 18 octobre 2026.",
+  "selected": [
+    {
+      "id": "ashblade",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.ashblade/source/reference.png",
+      "sha256": "db2313584b69e4b63dfd9ecd4893c7fe4d2d25aabc3365f08c7a1ace1acc8194",
+      "prompt": "Use case: style-transfer / creature sprite rework. Image 1 is STYLE REFERENCE ONLY: match the rendering quality of its large creature portraits, never copy its text, panels or any of its creature designs. Image 2 is the EDIT TARGET / identity reference: rework Ashblade while retaining its recognizable quadruped obsidian predator design, swept-back horns, two serrated forearm blades, compact segmented blade tail and amber eye. Create ONE full-body resting creature, facing RIGHT, side view with slight top-down 3/4 angle. Improve anatomy readability, richer volcanic armor plates, ember orange cracks and dark silver blade edges. Palette bases #252331 #F07A2A #F6BA59 #7D8295. Sharp illustrated 16-bit game art, crisp detailed clusters, cool shadows, warm highlights, main light top-left, restrained violet rim only. Dominant accent ORANGE not magenta. Solid flat #00D648 green background, no ground shadow, no text, no panels, no border, no other creature, entire body and tail in frame with generous margins. Square reference image, creature fills about 75% width. This is a reference portrait for subsequent animations, not an icon with a frame.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "ashblade",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.ashblade/source/sheet.png",
+      "sha256": "114a50e7d095f5717ba7c9da0df075ec9194a71842090dfdd85e73db368f4501",
+      "prompt": "Use case: game sprite animation production. EDIT TARGET: the attached Ashblade reference creature. Preserve EXACTLY this creature, its obsidian armor, horns, blade forearms, compact blade-tail and ember orange palette. Create a clean ANIMATION SPRITE SHEET, wide landscape image, ideally 2048x1280 or larger, EXACTLY 8 equal columns and 5 equal horizontal rows, NO grid lines, NO text, entirely flat solid #00D648 green background. Camera fixed slight top-down 3/4 SIDE VIEW facing RIGHT in ALL poses, same body size and design. Each cell has its own centered full creature with green padding separating every silhouette; no appendage or flame crosses a cell. No shadows. TOP ROW: 8 distinct subtle breathing idle poses, seamless loop. SECOND ROW: 8 sequential RUNNING IN PLACE poses, clearly changing four-leg foot positions, anticipation/extension/contact/recovery cycle. THIRD ROW: 7 sequential BASIC ATTACK poses from columns 1 through 7: 2 anticipation, 3 sweeping blade attack, 2 recovery; column 8 stays PURE GREEN EMPTY. FOURTH ROW: 8 sequential ash-dance special attack poses with small contained ember slashes, starting windup, six compact cuts, return. FIFTH/BOTTOM ROW: 8 sequential death poses: body kneels, lowers, cracks, collapses and gradually becomes small ash fragments; last cell contains visible tiny fragments and is NOT empty. Keep death fragments around the same foot baseline. All rows aligned to their own equally spaced cell baseline, no diagonal arrangement. Every cell shows ONLY ONE animation pose of the SAME creature. Sharp illustrated 16-bit dark fantasy game art matching the provided reference, rich but readable clustered detail and clean outlines. No cinematic scenery, no UI, no titles, no numbers, no multiple species.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "cinderwing",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.cinderwing/source/reference.png",
+      "sha256": "64714d45eece6aae9cfc105d57a63034edf66dbf5040a638adb0e647be0a2ff8",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, a polished 2D illustrated dark fantasy game sprite design. Cinderwing, a compact low-flying raptor bird with a hooked beak, sharp ember-orange feather wings, a small electric-yellow lightning crest, charcoal-brown body and short forked tail. Two feathered wings, two tucked talons, recognizable bird profile, neither moth nor dragon. Base palette #F07A2A #E0C232 #553C35 #F6D28B. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera. Hovering, no feet touching the ground. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic or a 3D render. Main light upper left, cool blue shadows, warm highlights, very subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no spritesheet yet. Whole body and every wing or appendage within image with 10% clear margins. Creature fills about 75% image width. It must remain immediately readable when reduced to a game sprite about 60 pixels high.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "cinderwing",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.cinderwing/source/sheet.png",
+      "sha256": "c7a77bbab6b8c96b911989caa0eb967c3582ae0a52373ccc139332832f55a423",
+      "prompt": "Make a production animation atlas by editing attached Pyraile reference. EXACT same individual, anatomy, colors and painted fantasy style: Cinderwing, a compact low-flying raptor bird with a hooked beak, sharp ember-orange feather wings, a small electric-yellow lightning crest, charcoal-brown body and short forked tail. Two feathered wings, two tucked talons, recognizable bird profile, neither moth nor dragon. VERY SMALL SPRITES in 8 columns × 5 rows, 40 equally sized rectangular slots, full canvas solid #00D648. At most 45% of slot width and 60% slot height may contain artwork INCLUDING wings, antlers, tail and effects. More than HALF each slot must be EMPTY GREEN SPACE. Each pose must be isolated, never touching any other. NO LONG BEAMS OR TRAILS, NO separate projectiles. Every effect stays against body. Fixed right-facing side view slight overhead 3/4, constant creature scale, moves in place. Five rows: 1 idle eight poses (hovering loop with small controlled feather wingbeats and a steady torso); 2 move eight poses (forward-flight cycle in place, wings sweep through clear silhouettes and short tail steers, no screen translation); 3 attack seven poses in slots1-7 (coils head back, pecks and sweeps a wing forward with one brief ember flash, recovers) with final slot8 EMPTY GREEN; 4 technique eight poses (draws wings up then releases a short downward cone of ember feathers, faint yellow electricity on the crest, returns to hover) compact near-body effects ONLY; 5 death eight poses (wings fold, ember feathers darken and break into ash; final frame retains a few dim feathers), last pose tiny remaining fragments. No labels, no grid lines. Use HUGE green gaps between poses, smaller creature over more green is mandatory. All appendages fit inside each pose.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "magmander",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.magmander/source/reference.png",
+      "sha256": "caa187150f1d107e031a849a56fef8d38c929892a6551cfe5bbabe74ef814d8c",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, a polished 2D illustrated dark fantasy game sprite design. Magmander, a stocky low quadruped salamander with a broad flattened head, four short heavy legs and a thick tapering tail. Cooled basalt skin in large rounded plates, lava-red fissures with restrained orange interiors, no dorsal flames, no blades, no horns. Base palette #393B42 #E74729 #F59645 #8C8180. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera. Four/six feet as specified in its anatomy, supported on one stable baseline. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic or a 3D render. Main light upper left, cool blue shadows, warm highlights, very subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no spritesheet yet. Whole body and every wing or appendage within image with 10% clear margins. Creature fills about 75% image width. It must remain immediately readable when reduced to a game sprite about 60 pixels high.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "magmander",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.magmander/source/sheet.png",
+      "sha256": "683015949de2c195ab383d82f75bb84f7918135362765f9eac87592ab8fd18cc",
+      "prompt": "Make a production animation atlas by editing attached Scoriade reference. EXACT same individual, anatomy, colors and painted fantasy style: Magmander, a stocky low quadruped salamander with a broad flattened head, four short heavy legs and a thick tapering tail. Cooled basalt skin in large rounded plates, lava-red fissures with restrained orange interiors, no dorsal flames, no blades, no horns. VERY SMALL SPRITES in 8 columns × 5 rows, 40 equally sized rectangular slots, full canvas solid #00D648. At most 45% of slot width and 60% slot height may contain artwork INCLUDING wings, antlers, tail and effects. More than HALF each slot must be EMPTY GREEN SPACE. Each pose must be isolated, never touching any other. NO LONG BEAMS OR TRAILS, NO separate projectiles. Every effect stays against body. Fixed right-facing side view slight overhead 3/4, constant creature scale, moves in place. Five rows: 1 idle eight poses (heavy slow breathing with lava fissures brightening and fading, all four feet planted); 2 move eight poses (squat salamander walk in place, side-to-side torso flexion and restrained tail movement); 3 attack seven poses in slots1-7 (brief head recoil, forward bite and short forefoot stomp, then settles) with final slot8 EMPTY GREEN; 4 technique eight poses (braces all four feet and vents one compact lava geyser immediately ahead of its mouth, then closes the fissures) compact near-body effects ONLY; 5 death eight poses (basalt body settles flat, lava fissures cool to charcoal; a few red embers remain in the last frame), last pose tiny remaining fragments. No labels, no grid lines. Use HUGE green gaps between poses, smaller creature over more green is mandatory. All appendages fit inside each pose.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "hollowflame",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.hollowflame/source/reference.png",
+      "sha256": "7686eec4a50127681f4474cd9b1944268d378f8c03c348a3f336b63a48b1f152",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, a polished 2D illustrated dark fantasy game sprite design. Hollowflame, a legless hovering shadow will-o-the-wisp enclosed in a pale ice-blue flame. A hollow teardrop core of smoky charcoal, a narrow readable face slit, two asymmetrical flame tips, no arms, no wings, no mouth full of teeth. Pale-blue emission dominates; no magenta or purple emission. Base palette #A8DEF2 #476C8A #252934 #E7F6F3. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera. Hovering, no feet touching the ground. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic or a 3D render. Main light upper left, cool blue shadows, warm highlights, very subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no spritesheet yet. Whole body and every wing or appendage within image with 10% clear margins. Creature fills about 75% image width. It must remain immediately readable when reduced to a game sprite about 60 pixels high.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "hollowflame",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.hollowflame/source/sheet.png",
+      "sha256": "3dcf3093a6a08514d22191f2dc75022f4982bd734ac018739313f9e02a5e6eb7",
+      "prompt": "Use case: game sprite animation production. EDIT TARGET: attached Spectrâtre reference. Preserve EXACTLY its creature design, anatomy, appendage count, materials and colors in all frames. Hollowflame, a legless hovering shadow will-o-the-wisp enclosed in a pale ice-blue flame. A hollow teardrop core of smoky charcoal, a narrow readable face slit, two asymmetrical flame tips, no arms, no wings, no mouth full of teeth. Pale-blue emission dominates; no magenta or purple emission. Create ONE clean wide landscape ANIMATION SPRITE SHEET, ideally 2048x1280, EXACTLY 8 equal columns and 5 equally spaced horizontal rows. No grid lines or text, solid flat exact #00D648 green background. Fixed camera and identical body scale, SIDE VIEW facing RIGHT with slight top-down 3/4 angle throughout. Every cell contains one full pose, centered and separated by clear green padding on all sides. No poses or particles may overlap a neighbor cell or cross a row boundary. Creature HOVERS throughout rows 1-4, no landing, no ground shadow. Keep torso position stable during wing motion. TOP ROW: 8 distinct sequential IDLE loop poses: pale flame breathes around an empty dark core, subtle vertical ripple, stable center. SECOND ROW: 8 distinct sequential MOVE loop poses: tilts its flame envelope forward in a floating travel loop in place, core stays coherent. THIRD ROW: 7 sequential ATTACK poses in columns 1-7: compresses then thrusts one short pale-blue flame tongue forward, recoils to its resting shape; the eighth cell of THIS ROW stays completely empty green. FOURTH ROW: 8 sequential TECHNIQUE poses: contracts the dark core and creates one small contained implosion ring immediately around its body, then expands back. FIFTH/BOTTOM ROW: 8 sequential DEATH poses: outer flame contracts around its core and extinguishes into a few pale-blue fragments, last frame not fully empty; progressive visible collapse/dissolve, final cell retains small visible fragments, not empty. Every animation starts with anticipation, performs action and recovers except death. Crisp illustrated 16-bit dark fantasy game sprite art matching the reference, sharp readable forms, no blur or 3D rendering. No titles, labels, text, numbers, scenery, ground shadows, enemies or second species.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "moonspore",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.moonspore/source/reference.png",
+      "sha256": "7aa768228937ca0c8102ac5368be9c55a5889af1fd79a217d9daef55f509efbc",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, polished 2D illustrated dark fantasy game sprite design. Moonspore, a small mushroom creature with a broad domed bioluminescent teal cap, thick beige stalk body and two tiny walking feet. Three large cap spots glow blue-green, a simple small face below the brim, three restrained spores float above the cap. Rounded mushroom silhouette, no limbs shaped like vines, no antlers. Base palette #56CAC2 #34777C #D8C5A4 #EFF1CF. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera, feet on one stable baseline. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic, NOT 3D. Main light upper left, cool blue shadows, warm highlights, subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no sprite sheet yet. Whole body and every appendage within image with 10% clear margins. Creature fills about 75% image width, reads clearly as a 60 pixel tall sprite.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "moonspore",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.moonspore/source/sheet.png",
+      "sha256": "69b3cd4be094daed3b9a9f23590051008d4b29596703da8967489925eef3462c",
+      "prompt": "Use case: game sprite animation production. EDIT TARGET attached Sporelune reference. Preserve EXACT creature anatomy, proportions, markings, materials and palette in every frame. Moonspore, a small mushroom creature with a broad domed bioluminescent teal cap, thick beige stalk body and two tiny walking feet. Three large cap spots glow blue-green, a simple small face below the brim, three restrained spores float above the cap. Rounded mushroom silhouette, no limbs shaped like vines, no antlers. ONE wide landscape animation SPRITE SHEET ideally 2048x1280, EXACTLY 8 equal columns and 5 equally spaced horizontal rows. Flat exact #00D648 green background. NO text, grid lines, UI, scenery or shadows. Fixed side camera, slight top-down 3/4, facing RIGHT throughout. Same body size in all cells, 10% green padding around each full pose, no effects or appendages crossing cell or row boundaries. All motion IN PLACE, feet at the same baseline within each row. TOP ROW: 8 distinct sequential IDLE loop poses: cap gently breathes and luminous spots pulse, tiny feet remain still; spores stay close and above the cap. SECOND ROW: 8 distinct sequential WALK cycle poses: short waddling walk in place with alternating tiny feet, cap bobs gently. THIRD ROW: 7 sequential ATTACK poses in columns 1-7: leans cap back and flicks it forward to release a compact puff of three teal spores. The eighth cell in row 3 remains EMPTY green. FOURTH ROW: 8 sequential TECHNIQUE poses: plants a small beige-and-teal bud directly in front of its feet with a brief contained spore pulse, then returns. FIFTH ROW: 8 sequential DEATH poses: cap droops and shrinks into beige fragments and dim teal spores; last frame retains a visible fragment. Death progresses from whole creature to collapsed dim fragments; last cell has visible fragments, not empty. All other action rows wind up, act and recover. Crisp detailed 2D illustrated 16-bit fantasy sprite art matching reference, sharp shapes and readable silhouettes, not 3D or blurry. Preserve the exact same creature across all 39 poses.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "gravishell",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.gravishell/source/reference.png",
+      "sha256": "29df6f70b55af8318759e7785b5d4b82ce0ad74f63c6941f215c36a310d8bbdb",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, polished 2D illustrated dark fantasy game sprite design. Gravishell, a squat four-legged asteroid tortoise with a domed angular lunar-rock shell, a short blunt head, four sturdy stone feet and small craters. Slate grey-blue body, one thin restrained golden orbital ring wrapped obliquely around the shell, pale lunar highlights. The tortoise walks on the ground; the ring orbits, the animal does not levitate. Base palette #6F829B #354356 #D2AD56 #C7D4DF. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera, feet on one stable baseline. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic, NOT 3D. Main light upper left, cool blue shadows, warm highlights, subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no sprite sheet yet. Whole body and every appendage within image with 10% clear margins. Creature fills about 75% image width, reads clearly as a 60 pixel tall sprite.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "gravishell",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.gravishell/source/sheet.png",
+      "sha256": "c7714f6f38263663b6d7dfc8e4d81deb45e7bac2cf3e5ff6d6c5fd1fcb4cf62c",
+      "prompt": "Production animation atlas, edit attached Gravelune reference keeping EXACT same individual: Gravishell, a squat four-legged asteroid tortoise with a domed angular lunar-rock shell, a short blunt head, four sturdy stone feet and small craters. Slate grey-blue body, one thin restrained golden orbital ring wrapped obliquely around the shell, pale lunar highlights. The tortoise walks on the ground; the ring orbits, the animal does not levitate. Eight columns and five rows, 40 evenly spaced slots. Very SMALL sprites occupying at most 45 percent SLOT WIDTH including ALL effects; huge blank GREEN spacing. Background FLAT #00D648. Fixed side right-facing slight3/4 overhead, stable body proportions and scale. Row1 idle8: slow grounded breathing, golden ring turns subtly around the same shell and remains compact. Row2 move8: heavy tortoise walk in place, four stone feet alternate, shell stays solid. Row3 attack7 in slots1-7: withdraws head briefly then delivers a short forward shell ram without translating the full sprite, slot8 emptygreen. Row4 technique8: plants all feet, tilts the orbital ring forward and compresses a small gravity knot just in front of the head, then relaxes. Restrict technique to light on the body, tiny sparks and a SMALL close ring, NO LARGE BEAM OR DOME OR ORBIT. The entire effect must fit within half a slot, not travel. Row5 death8: head retracts and lunar shell cracks into a few grey-blue fragments; golden ring breaks and fades, last frame keeps stone fragments, final tiny remaining debris. Anticipation, peak action, recovery. Same rich detailed painted 2D fantasy style as reference. Never touch adjacent poses, no decorations text or gridlines. More than half the slot width must remain green.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "grovestag",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.grovestag/source/reference.png",
+      "sha256": "8062e005a6a76005c1a08deafc125e752193c01507b1d072901fdeb32eeeca56",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, polished 2D illustrated dark fantasy game sprite design. Grovestag, a sturdy broad-bodied forest stag made of overlapping bark scales and dense moss, four clearly separated hooves and a horizontal back. Short thick branching antlers carry three large amber crystals rather than leaves or flowers. Moss-green coat, dark bark joints and warm amber crystals. A heavy guardian elk silhouette, not a slender flower-crowned deer, not a vine dryad. Base palette #648653 #A46F32 #DBAF54 #343E36. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera, feet on one stable baseline. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic, NOT 3D. Main light upper left, cool blue shadows, warm highlights, subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no sprite sheet yet. Whole body and every appendage within image with 10% clear margins. Creature fills about 75% image width, reads clearly as a 60 pixel tall sprite.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "grovestag",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.grovestag/source/sheet.png",
+      "sha256": "941a3c78a5578eed69f0ac91f2e246986bd902eae1b931bcac0e2b4d9e594674",
+      "prompt": "Make a production animation atlas by editing attached Sylvécaille reference. EXACT same individual, anatomy, colors and painted fantasy style: Grovestag, a sturdy broad-bodied forest stag made of overlapping bark scales and dense moss, four clearly separated hooves and a horizontal back. Short thick branching antlers carry three large amber crystals rather than leaves or flowers. Moss-green coat, dark bark joints and warm amber crystals. A heavy guardian elk silhouette, not a slender flower-crowned deer, not a vine dryad. VERY SMALL SPRITES in 8 columns × 5 rows, 40 equally sized rectangular slots, full canvas solid #00D648. At most 45% of slot width and 60% slot height may contain artwork INCLUDING wings, antlers, tail and effects. More than HALF each slot must be EMPTY GREEN SPACE. Each pose must be isolated, never touching any other. NO LONG BEAMS OR TRAILS, NO separate projectiles. Every effect stays against body. Fixed right-facing side view slight overhead 3/4, constant creature scale, moves in place. Five rows: 1 idle eight poses (calm breathing, moss mantle shifts subtly and three antler crystals pulse softly); 2 move eight poses (grounded four-hoof walking cycle in place, restrained head and antler sway); 3 attack seven poses in slots1-7 (lowers the short crystal antlers, delivers a brief forward head sweep, then recovers) with final slot8 EMPTY GREEN; 4 technique eight poses (bows its antlers and grows one compact protective amber-green grove at the forehooves, gentle healing pulse, no large scenery) compact near-body effects ONLY; 5 death eight poses (kneels, antler crystals dim and moss mantle folds over bark fragments; final frame retains a few amber leaves), last pose tiny remaining fragments. No labels, no grid lines. Use HUGE green gaps between poses, smaller creature over more green is mandatory. All appendages fit inside each pose.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "sunclaw",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.sunclaw/source/reference.png",
+      "sha256": "932e2c395bb142df387bacf51385479c5a01cd87d2cd576eafe75364baa0dc5c",
+      "prompt": "EDIT this exact reference image only to fix framing. Keep exactly the same golden lynx creature, same anatomy, pose, colors, fur markings, mane and facing right. Zoom out enough to add generous flat #00D648 green margin above BOTH ear tips and around the whole creature, at least 12% canvas margin on every side. Both ear tips must be fully visible, not touching the top edge. No design changes, no text, no ground shadow, same 2D illustrated sprite reference.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "sunclaw",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.sunclaw/source/sheet.png",
+      "sha256": "1bb642c5282b9d57bbf14f023adc3d30d48dd9c5e6086573eda6ac6410873fd1",
+      "prompt": "Production animation atlas, edit attached Solgriffe reference keeping EXACT same individual: Sunclaw, a slender golden lynx with tufted pointed ears, a very short bobtail, long agile paws and a compact mane of distinct white-gold solar rays around the neck. Warm golden fur with dark ochre spots, ivory chest, sharp sunlit claws. Fully organic feline anatomy, no armor, no forearm blades and no long tail. Eight columns and five rows, 40 evenly spaced slots. Very SMALL sprites occupying at most 45 percent SLOT WIDTH including ALL effects; huge blank GREEN spacing. Background FLAT #00D648. Fixed side right-facing slight3/4 overhead, stable body proportions and scale. Row1 idle8: alert feline breathing, ear tufts flick slightly, mane rays pulse softly. Row2 move8: springy lynx running cycle in place, four paws alternate, mane rays stay attached to the collar. Row3 attack7 in slots1-7: crouched anticipation, one clean luminous paw slash and quick recovery, slot8 emptygreen. Row4 technique8: raises its head and releases a small forward fan of three white-gold rays to suggest a solar flash, then settles. Restrict technique to light on the body, tiny sparks and a SMALL close ring, NO LARGE BEAM OR DOME OR ORBIT. The entire effect must fit within half a slot, not travel. Row5 death8: crouches and lies down as mane rays dim into a few golden flecks, last frame keeps a visible warm silhouette fragment, final tiny remaining debris. Anticipation, peak action, recovery. Same rich detailed painted 2D fantasy style as reference. Never touch adjacent poses, no decorations text or gridlines. More than half the slot width must remain green.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "glowmoth",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.glowmoth/source/reference.png",
+      "sha256": "60bf1ceb2a9ea0630dbdb766aee666267c58241ec52b8eaf83acdd4ffadac282",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, polished 2D illustrated dark fantasy game sprite design. Glowmoth, a large hovering night moth with two broad rounded translucent-looking wings rendered with solid crisp pale-ivory and yellow-green shapes, a small soft body and feathery antennae. Three large fireflies orbit tightly above the body. Organic curved wing veins, luminous lemon-green eyespots, no glass facets, no bird feathers, no magenta. Base palette #CADB68 #F2EFD2 #7F9562 #41483A. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera. Hovering without ground contact. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic, NOT a 3D render. Main light upper left, cool blue shadows, warm highlights, subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no sprite sheet yet. Whole body and all appendages within image with 10% margins. Creature fills about 75% image width, immediately readable as a 60 pixel high sprite.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "glowmoth",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.glowmoth/source/sheet.png",
+      "sha256": "52306f80979a3688a59f742f47c602a87b4366deb37a6d76f22708b0b8bd5e6e",
+      "prompt": "Use case: production game animation sheet. EDIT TARGET attached Lueurine reference; keep EXACT same creature anatomy, materials and colors. Glowmoth, a large hovering night moth with two broad rounded translucent-looking wings rendered with solid crisp pale-ivory and yellow-green shapes, a small soft body and feathery antennae. Three large fireflies orbit tightly above the body. Organic curved wing veins, luminous lemon-green eyespots, no glass facets, no bird feathers, no magenta. Create a SPACIOUS SPRITE SHEET of SMALL sprites, wide landscape, 8 columns by 5 rows (40 evenly spaced square slots). IMPORTANT: each creature and ALL its effects together occupy AT MOST 65% of its slot width and 65% height, leaving very large EMPTY GREEN gutters. Do NOT fill or crowd the slots. A completely clear vertical GREEN stripe must separate every two slots, and a clear horizontal GREEN stripe must separate every row. No grid lines. Entire background flat #00D648 green. Side view facing RIGHT, slight top-down 3/4, fixed camera and body size, movement IN PLACE. Always hovering, stable torso, wing strokes stay within the small slot. Row 1 TOP: 8 sequential idle loop poses, gentle controlled rounded-wing flutter and three close fireflies changing positions above the torso. Row 2: 8 sequential move cycle poses with clear limb/wing changes, moth flight cycle in place, rounded wings alternate open and folded without camera or body translation. Row 3: 7 sequential basic attack poses in slots 1-7, brief wing recoil then a short concentrated wing-dust puff ahead of the body; leave slot 8 of row 3 EMPTY green. Row 4: 8 sequential special technique poses, draws three fireflies into a compact luminous ring around itself to suggest team haste, then releases them back to orbit. Row 5 BOTTOM: 8 sequential death poses, wings fold and their light fades into a few ivory flecks; last frame retains one small dim wing fragment, last pose retains tiny visible fragments. Actions wind up, act, recover; death only progresses. All limbs, particles and effects remain safely within the central 65% of their slot; no long projectiles. Sharp readable illustrated 16-bit dark fantasy game art matching reference. No text, labels, numbers, borders, scenery, shadows or UI.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "stormshell",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.stormshell/source/reference.png",
+      "sha256": "0d85d6a53e249d0d03f054c724ef5f181d112d15a4d231d86c273f06412536cd",
+      "prompt": "Use case: stylized-concept. ONE creature reference portrait for Rift Hunters, polished 2D illustrated dark fantasy game sprite design. Stormshell, a massive low-slung six-legged guardian beetle with a broad closed oval steel-blue shell, short anchored legs and a thick forward shield-like headplate. A few electric-yellow conducting seams and tiny controlled arcs on the shell, pale steel edges. Heavy enclosed dome silhouette, no large horns, no long exposed articulated legs, not the lean open-legged gold insect of Voltwisp. Base palette #476783 #253D55 #E4CA57 #BCCDD5. Resting pose, full body, side view facing RIGHT, slight top-down 3/4 camera. Grounded on one stable foot baseline. Detailed 16-bit inspired hand-painted clustered shapes with crisp edges, rich readable materials and strong silhouette, NOT photorealistic, NOT a 3D render. Main light upper left, cool blue shadows, warm highlights, subtle violet rim only. No dominant magenta. Solid flat exact #00D648 green background, NO ground shadow, NO text, NO border, NO panel, NO other creatures, no sprite sheet yet. Whole body and all appendages within image with 10% margins. Creature fills about 75% image width, immediately readable as a 60 pixel high sprite.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "stormshell",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.stormshell/source/sheet.png",
+      "sha256": "0fa0e951a785cb2e629ae6d4a835efbe219baf8623b5648c813b2bdf48eeb2a9",
+      "prompt": "Production animation atlas, edit attached Égidor reference keeping EXACT same individual: Stormshell, a massive low-slung six-legged guardian beetle with a broad closed oval steel-blue shell, short anchored legs and a thick forward shield-like headplate. A few electric-yellow conducting seams and tiny controlled arcs on the shell, pale steel edges. Heavy enclosed dome silhouette, no large horns, no long exposed articulated legs, not the lean open-legged gold insect of Voltwisp. Eight columns and five rows, 40 evenly spaced slots. Very SMALL sprites occupying at most 45 percent SLOT WIDTH including ALL effects; huge blank GREEN spacing. Background FLAT #00D648. Fixed side right-facing slight3/4 overhead, stable body proportions and scale. Row1 idle8: solid grounded idle, closed shell rises very slightly and yellow seams pulse. Row2 move8: slow weighty six-leg beetle walk in place, closed blue dome remains coherent. Row3 attack7 in slots1-7: braces four rear legs, pushes the frontal shield forward in a short bash then recovers, slot8 emptygreen. Row4 technique8: plants all six legs and forms a compact conductive blue-gold dome immediately over the closed shell, then discharges a short contained ring. Restrict technique to light on the body, tiny sparks and a SMALL close ring, NO LARGE BEAM OR DOME OR ORBIT. The entire effect must fit within half a slot, not travel. Row5 death8: legs fold underneath, blue shell lowers and yellow arcs cease; final frame retains a few steel-blue shell fragments, final tiny remaining debris. Anticipation, peak action, recovery. Same rich detailed painted 2D fantasy style as reference. Never touch adjacent poses, no decorations text or gridlines. More than half the slot width must remain green.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "mirrorling",
+      "kind": "reference",
+      "source": "assets/concepts/incoming/monster.mirrorling/source/reference.png",
+      "sha256": "fe0bcff1203792dd8ff12a4b74ec7c92cb2c91173b629975742dd84f4d8a84fb",
+      "prompt": "Use case: stylized-concept. ONE reference creature portrait for Rift Hunters. Mirrorling, a living floating hexagonal mirror creature with one large solid silver-blue faceted mirror body, its reflective front angled slightly toward the viewer while the creature faces right, two small expressive pale eyes and three compact satellite mirror shards above its lower edge. Pale silver rim, blue-periwinkle interior facets, no magenta, no wings, no limbs, no amorphous cloud. Palette #A8C4D5 #6685B0 #E9F2F4 #3B4766. Resting hover, full body, slight top-down 3/4 SIDE view facing RIGHT; the mirror face remains visible at an oblique angle. Rich readable hand-painted 2D illustrated dark fantasy sprite art with crisp clusters and sharp outlines, not photorealistic or 3D. Main light upper left, subtle cool shadows, highlights white-silver. Solid flat exact #00D648 green background, no ground shadow, no panels, no text or numbers, no frame or scene, no other creature. Keep the entire hexagonal body and its three satellites inside the image with 12% clear margin, immediately recognizable when reduced to a 56-pixel game sprite. No magenta.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    },
+    {
+      "id": "mirrorling",
+      "kind": "sheet",
+      "source": "assets/concepts/incoming/monster.mirrorling/source/sheet.png",
+      "sha256": "fb2206980069133486f462f3cd12ec82cdc51079cecc6fdc396258eec43fc286",
+      "prompt": "Production game sprite animation sheet. Edit the attached Mirelle reference keeping the EXACT creature identity: Mirrorling, a living floating hexagonal mirror creature with one large solid silver-blue faceted mirror body, its reflective front angled slightly toward the viewer while the creature faces right, two small expressive pale eyes and three compact satellite mirror shards above its lower edge. Pale silver rim, blue-periwinkle interior facets, no magenta, no wings, no limbs, no amorphous cloud. 8 columns by 5 rows, equally spaced slots. SMALL creatures occupying only central 55 percent of each slot, wide empty green gutters between ALL poses. Entire canvas flat #00D648 green, no gradients, text, lines or decoration. Fixed side view RIGHT slight 3/4 overhead, consistent body size, floating in place. Row 1 idle eight poses: gently tilts the same solid hexagonal mirror while small satellite shards orbit tightly, no shape morphing. Row 2 move eight poses: floating glide cycle in place, body leans slightly toward the right and keeps the same six corners. Row 3 attack SEVEN poses in slots 1 to 7: one compact mirror shard projects briefly from the right edge and returns, body tilts back then recovers. Slot8 completely empty green. Row 4 technique eight poses: reflective face brightens and deflects a small incoming light streak back toward the right, brief silver-blue protective sheen, no external enemy, NO extended beam, keep light inside slot. Row5 death eight poses: hexagonal body cracks along its facets and collapses into a few silver-blue shards; final frame keeps one tiny visible shard. Animation shows anticipation action recovery. Preserve same six-sided mirror and two eyes. No frame touching adjacent slot, no long trails, no new limbs. Clean detailed painted 2D fantasy sprite, matching attached reference.",
+      "generator": "imagegen intégré à Codex",
+      "date": "2026-10-18"
+    }
+  ]
+}

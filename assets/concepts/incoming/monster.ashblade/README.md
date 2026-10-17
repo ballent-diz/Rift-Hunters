@@ -1,10 +1,19 @@
 # Cendrelame — import C8
 
-Identifiant : monster.ashblade. Statut : wip, images attendues.
+Visuel monster.ashblade généré avec imagegen, référence conservée puis réutilisée pour les animations.
+Originaux : source/reference.png et source/sheet.png. Cinq bandes découpées à côté de job.json.
 
-Conserver reference.png et les originaux dans source/. Déposer les bandes prêtes pour l’import
-à côté de job.json : idle.png (8), move.png (8), attack.png (7), technique.png (8), death.png (8).
-Les cinq images sont requises par cette recette ; ne pas lancer un import réel tant qu’il en manque.
+Statut final : contrôlé graphiquement ; sensation en partie à confirmer par le propriétaire.
+Cellule [128, 112], ancre [64, 102], scale 0.75, target_height 64, hover 0.
+La cellule réserve la place aux appendices sans changer la taille apparente du corps.
 
-Prompts : docs/art_prompts.md, section monster.ashblade. Consignes : docs/art/C8_GENERATION.md.
-La validation concerne la créature, l’alignement, la taille, la fluidité et le rendu sur le sol des Cascades.
+Fond #00D648, tolérance 30, trous 42 et holes_min_area 1. Despill global : True.
+Les verts naturels de Sylvécaille et Lueurine sont préservés. Palette commune à 32 couleurs et contour discret.
+
+Reproduction : python3 tools/art/prepare_c8_sheet.py ashblade, puis
+python3 tools/art/import_sheet.py assets/concepts/incoming/monster.ashblade/job.json.
+Séparations dans source/slicing.json ; éventuelles corrections dans source/overrides.json.
+
+Prompts : docs/art/C8_PROMPTS.md. Provenance exacte : ../c8-generation/generation.json.
+Contrôles : docs/previews/c8/, outils tools/art/review_c8.py et preview_c8.tscn.
+Aucune donnée de gameplay ni ressource data/monsters créée ; le lot C7 reste distinct.
