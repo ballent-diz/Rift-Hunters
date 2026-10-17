@@ -18,6 +18,9 @@ var _beat: float = 0.0
 var _tips: Array = []
 var _tip_text: String = ""
 var _tip_time: float = 0.0
+## Barre des sorts (illustrations HD de 512 px) : dessinée sur un calque filtré avec mipmaps pour rester nette une
+## fois réduite ; le HUD garde le filtre pixel art pour le reste.
+var _spell_icon_layer := Control.new()
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -25,6 +28,11 @@ func setup(p_ctx: RunContext) -> void:
 	_font = ThemeDB.fallback_font
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_spell_icon_layer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_spell_icon_layer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_spell_icon_layer.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	_spell_icon_layer.draw.connect(func() -> void: _draw_spells(_spell_icon_layer, size.y))
+	add_child(_spell_icon_layer)
 	ctx.events.event_started.connect(func(key: String) -> void: banner(tr(key)))
 	ctx.events.synergy_activated.connect(func(id: StringName) -> void:
 		banner(tr("HUD_SYNERGY_ACTIVATED") % tr(GameDB.synergies[id].name_key)))
@@ -56,6 +64,7 @@ func _process(delta: float) -> void:
 			_tip_text = _tip_text % [InputSetup.key_label(&"spell_1"), InputSetup.key_label(&"spell_2")]
 		_tip_time = 7.0
 		_tips.pop_front()
+	_spell_icon_layer.queue_redraw()
 	if ctx and ctx.player:
 		ctx.player.hurt_flash = maxf(ctx.player.hurt_flash - delta * 3.0, 0.0)
 	queue_redraw()
@@ -123,7 +132,6 @@ func _draw() -> void:
 		_text(Vector2(w - 320, y), "◆ " + tr(synergy.name_key), 15, synergy.color, HORIZONTAL_ALIGNMENT_RIGHT, 300)
 		y += 20.0
 	_draw_team(w, h)
-	_draw_spells(h)
 	_draw_boss(w)
 	if _banner_time > 0.0:
 		var alpha: float = clampf(_banner_time, 0.0, 1.0)
@@ -188,9 +196,10 @@ func _draw_team(w: float, h: float) -> void:
 		_text(Vector2(0, h - 96), tr("HUD_FREE_SLOT") % free, 13, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 
 
-## Sorts du Chasseur : touche, nom et recharge de chaque emplacement équipé (icônes : lot C5).
-func _draw_spells(h: float) -> void:
-	var spells: HunterSpells = ctx.spells
+## Sorts du Chasseur : icône, touche, nom et recharge de chaque emplacement équipé. Dessinés sur `canvas` (calque
+## filtré avec mipmaps : les illustrations HD restent nettes une fois réduites).
+func _draw_spells(canvas: CanvasItem, h: float) -> void:
+	var spells: HunterSpells = ctx.spells if ctx else null
 	if spells == null:
 		return
 	var x: float = 16.0
@@ -201,19 +210,38 @@ func _draw_spells(h: float) -> void:
 			continue
 		var rect := Rect2(x, y, SPELL_SLOT, SPELL_SLOT)
 		var ready: bool = spells.cooldowns[i] <= 0.0
-		draw_rect(rect, Color(0.07, 0.08, 0.13, 0.85))
-		draw_circle(rect.get_center(), SPELL_SLOT * 0.3, Color(spell.color, 0.35 if ready else 0.12))
+		canvas.draw_rect(rect, Color(0.07, 0.08, 0.13, 0.85))
+		var icon: Texture2D = _spell_icon(spell)
+		if icon:
+			canvas.draw_texture_rect(icon, rect.grow(-4.0), false, Color(1, 1, 1, 1.0 if ready else 0.45))
+		else:
+			canvas.draw_circle(rect.get_center(), SPELL_SLOT * 0.3, Color(spell.color, 0.35 if ready else 0.12))
 		if not ready:
 			var left: float = 1.0 - spells.ready_ratio(i)
-			draw_rect(Rect2(rect.position, Vector2(SPELL_SLOT, SPELL_SLOT * left)), Color(0.0, 0.0, 0.0, 0.55))
-			_text(rect.position + Vector2(0, 40), "%.1f" % spells.cooldowns[i], 17, Color.WHITE,
+			canvas.draw_rect(Rect2(rect.position, Vector2(SPELL_SLOT, SPELL_SLOT * left)), Color(0.0, 0.0, 0.0, 0.55))
+			_text_on(canvas, rect.position + Vector2(0, 40), "%.1f" % spells.cooldowns[i], 17, Color.WHITE,
 				HORIZONTAL_ALIGNMENT_CENTER, SPELL_SLOT)
-		draw_rect(rect, spell.color if ready else UiKit.MUTED, false, 2.0)
-		_text(rect.position + Vector2(5, 18), InputSetup.key_label(StringName("spell_%d" % (i + 1))), 15,
+		canvas.draw_rect(rect, spell.color if ready else UiKit.MUTED, false, 2.0)
+		_text_on(canvas, rect.position + Vector2(5, 18), InputSetup.key_label(StringName("spell_%d" % (i + 1))), 15,
 			UiKit.GOLD if ready else UiKit.MUTED)
-		_text(rect.position + Vector2(-SPELL_GAP, SPELL_SLOT + 15), tr(spell.name_key), 11,
+		_text_on(canvas, rect.position + Vector2(-SPELL_GAP, SPELL_SLOT + 15), tr(spell.name_key), 11,
 			Color.WHITE if ready else UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, SPELL_SLOT + 2.0 * SPELL_GAP)
 		x += SPELL_SLOT + SPELL_GAP
+
+
+func _text_on(canvas: CanvasItem, pos: Vector2, value: String, font_size: int, color: Color,
+		align: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT, width: float = -1.0) -> void:
+	canvas.draw_string_outline(_font, pos, value, align, width, font_size, 7, Color(0.02, 0.02, 0.05, 1.0))
+	canvas.draw_string(_font, pos, value, align, width, font_size, color)
+
+
+## Icône d'un sort (dessinée par Codex, lot C5, la même que dans l'arbre), mise en cache ; null si absente.
+func _spell_icon(spell: SpellData) -> Texture2D:
+	var key: String = "spell:" + String(spell.id)
+	if not _icons.has(key):
+		var node: SkillNodeData = HunterTree.spell_node(spell.id)
+		_icons[key] = HunterTreeSkin.icon(node) if node else null
+	return _icons[key]
 
 
 func _icon_for(ally: Ally) -> Texture2D:
