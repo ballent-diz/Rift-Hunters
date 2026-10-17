@@ -35,7 +35,24 @@ var _timers: Array[Dictionary] = []
 var _parry_spell: SpellData
 var _parry_slot: int = -1
 var _parry_variant: StringName = &""
+var _parry_fx: Node2D
 var _next_id: int = 0
+
+
+## Animation de Codex d'un sort (null si absente) : placée en `pos`, durée de maintien `hold` (0 = par défaut).
+func _vfx(spell: SpellData, pos: Vector2, hold: float = 0.0) -> Node2D:
+	var effect: Node2D = spells.vfx.spawn(spell.spell_kind, pos)
+	if effect and hold > 0.0:
+		effect.set("active_duration", hold)
+	return effect
+
+
+static func _fx_variant(variant: StringName) -> StringName:
+	return HunterSpellVfx.variant_name(variant)
+
+
+static func _alive(effect: Variant) -> bool:
+	return effect is Node2D and is_instance_valid(effect)
 
 
 func setup(p_ctx: RunContext, p_spells: HunterSpells) -> void:
@@ -149,8 +166,12 @@ func consume_power(spell: SpellData) -> float:
 func _leap(spell: SpellData, variant: StringName, origin: Vector2, dir: Vector2, aim: Vector2, power: float) -> bool:
 	if variant == &"return" and ctx.time < return_until:
 		return_until = -1.0
+		var back: Node2D = _vfx(spell, origin)
+		if back:
+			back.call("play_between", origin, return_point, &"return")
 		ctx.player.start_leap(return_point, float(spell.params.get("duration", 0.25)), func() -> void:
-			ctx.fx.ring(return_point, 40.0, spell.color, 0.3))
+			if back == null:
+				ctx.fx.ring(return_point, 40.0, spell.color, 0.3))
 		return true
 	var target: Vector2 = _leap_target(origin, _clamp_aim(origin, aim, spell.spell_range))
 	var impact: bool = variant == &"impact"
@@ -158,13 +179,17 @@ func _leap(spell: SpellData, variant: StringName, origin: Vector2, dir: Vector2,
 		return_point = origin
 		return_until = ctx.time + RETURN_WINDOW + float(spell.params.get("duration", 0.25))
 	ctx.player.facing = dir
+	var effect: Node2D = _vfx(spell, origin)
+	if effect:
+		effect.call("play_between", origin, target, _fx_variant(variant))
 	ctx.player.start_leap(target, float(spell.params.get("duration", 0.25)), func() -> void:
 		var radius: float = spell.width * (2.0 if impact else 1.0)
 		var statuses: Array[StatusApplication] = []
 		if impact:
 			statuses = _status(&"slow")
 		_blast(target, radius, spell, power, statuses)
-		ctx.fx.burst(target, radius, Color(spell.color, 0.5))
+		if effect == null:
+			ctx.fx.burst(target, radius, Color(spell.color, 0.5))
 		Audio.play_sfx(&"enemy_hit"))
 	return true
 
@@ -190,7 +215,16 @@ func _parry(slot: int, spell: SpellData, variant: StringName) -> bool:
 	_parry_slot = slot
 	_parry_variant = variant
 	ctx.player.parry_time = float(spell.params.get("window", 0.4))
-	ctx.fx.ring(ctx.player.global_position, 34.0, spell.color, 0.25)
+	_parry_fx = _vfx(spell, ctx.player.global_position)
+	if _parry_fx:
+		_parry_fx.call("play", ctx.player.facing, _fx_variant(variant))
+		if variant == &"pack_guard":
+			var allies := PackedVector2Array()
+			for ally: Ally in ctx.allies.team:
+				allies.append(_parry_fx.to_local(ally.global_position))
+			_parry_fx.call("set_secondary_offsets", allies)
+	else:
+		ctx.fx.ring(ctx.player.global_position, 34.0, spell.color, 0.25)
 	return true
 
 
@@ -205,7 +239,10 @@ func on_parry() -> void:
 	var center: Vector2 = player.global_position
 	var power: float = float(spell.params.get("counter", 4.0)) * consume_power(spell)
 	_blast(center, spell.width, spell, power)
-	ctx.fx.burst(center, spell.width, Color(spell.color, 0.6))
+	if _alive(_parry_fx):
+		_parry_fx.call("trigger_pulse", Vector2(40, 0), Vector2.RIGHT)
+	else:
+		ctx.fx.burst(center, spell.width, Color(spell.color, 0.6))
 	if _parry_variant == &"mirror":
 		var template: DamageInfo = _info(spell, 1.0)
 		ctx.projectiles.reflect_hostiles(center, spell.width + 60.0, template, spell.color)
@@ -229,6 +266,13 @@ func _rupture(spell: SpellData, variant: StringName, center: Vector2, power: flo
 	for enemy: Enemy in ctx.enemies.query_radius(center, spell.width):
 		if enemy.statuses.get_stacks(&"mark") > 0:
 			detonated.append(enemy)
+	var effect: Node2D = _vfx(spell, center)
+	if effect:
+		effect.call("play", Vector2.RIGHT, _fx_variant(variant))
+		var marks := PackedVector2Array()
+		for enemy: Enemy in detonated:
+			marks.append(effect.to_local(enemy.global_position))
+		effect.call("set_secondary_offsets", marks)
 	for enemy: Enemy in detonated:
 		var pos: Vector2 = enemy.global_position
 		ctx.status_system.detonate(enemy, per_stack, &"player")
@@ -238,23 +282,29 @@ func _rupture(spell: SpellData, variant: StringName, center: Vector2, power: flo
 				ctx.status_system.apply(next, &"mark", 1, &"player")
 		elif variant == &"blaze":
 			ctx.hazards.add_zone(pos, 55.0, 3.0, per_stack * 0.3, &"player", _status(&"burn"), Color(1.0, 0.55, 0.2))
-	ctx.fx.ring(center, spell.width, spell.color, 0.35)
+	if effect == null:
+		ctx.fx.ring(center, spell.width, spell.color, 0.35)
 	return true
 
 
 ## Cristal réfracteur : chaque tir allié qui le traverse se divise en 3 et marque.
 func _crystal(spell: SpellData, variant: StringName, center: Vector2, dir: Vector2) -> bool:
 	var duration: float = float(spell.params.get("duration", 8.0))
-	_add_crystal(center, spell, variant, duration)
+	var effect: Node2D = _vfx(spell, center, duration)
+	if effect:
+		effect.call("play", dir, _fx_variant(variant))
+		if variant == &"double":
+			effect.call("set_destination", effect.to_local(center + dir * DOUBLE_CRYSTAL_GAP))
+	_add_crystal(center, spell, variant, duration, effect)
 	if variant == &"double":
-		_add_crystal(center + dir * DOUBLE_CRYSTAL_GAP, spell, variant, duration)
+		_add_crystal(center + dir * DOUBLE_CRYSTAL_GAP, spell, variant, duration, effect)
 	return true
 
 
-func _add_crystal(pos: Vector2, spell: SpellData, variant: StringName, duration: float) -> void:
+func _add_crystal(pos: Vector2, spell: SpellData, variant: StringName, duration: float, effect: Node2D) -> void:
 	_next_id += 1
 	crystals.append({"id": "crystal_%d" % _next_id, "pos": pos, "radius": spell.width, "until": ctx.time + duration,
-		"variant": variant, "color": spell.color})
+		"variant": variant, "color": spell.color, "fx": effect})
 
 
 ## Effets des sorts sur un projectile allié (cristaux, portails). Appelé à chaque pas de chaque projectile allié.
@@ -270,6 +320,9 @@ func affect_projectile(p: Projectile) -> void:
 	if not portals.is_empty() and not bool(portals["placing"]) and not p.hit_ids.has("portal"):
 		if p.position.distance_to(portals["entrance"]) <= 34.0:
 			p.hit_ids["portal"] = true
+			var effect: Variant = portals.get("fx")
+			if _alive(effect):
+				(effect as Node2D).call("trigger_pulse", Vector2.ZERO, Vector2.RIGHT)
 			p.position = portals["exit"]
 			if portals["variant"] == &"loop":
 				var copy: Projectile = _copy_projectile(p, deg_to_rad(8.0))
@@ -292,7 +345,11 @@ func _refract(p: Projectile, crystal: Dictionary) -> void:
 	if focus:
 		p.homing = FOCUS_HOMING
 		p.target = focus
-	ctx.fx.spark(crystal["pos"], crystal["color"], 10.0)
+	var effect: Variant = crystal["fx"]
+	if _alive(effect):
+		(effect as Node2D).call("trigger_pulse", (effect as Node2D).to_local(p.position), p.velocity.normalized())
+	else:
+		ctx.fx.spark(crystal["pos"], crystal["color"], 10.0)
 
 
 func _copy_projectile(p: Projectile, angle: float) -> Projectile:
@@ -318,6 +375,10 @@ func _singularity(spell: SpellData, variant: StringName, center: Vector2, power:
 	var duration: float = float(spell.params.get("duration", 3.0)) * (0.5 if variant == &"collapse" else 1.0)
 	var implode: DamageInfo = _info(spell, power * (2.0 if variant == &"collapse" else 1.0))
 	ctx.hazards.add_well(center, radius, duration, float(spell.params.get("pull", 260.0)), implode, &"player")
+	var effect: Node2D = _vfx(spell, center, duration)
+	if effect:
+		effect.set("spell_range", radius)
+		effect.call("play", Vector2.RIGHT, _fx_variant(variant))
 	if variant == &"horizon":
 		horizon_wells.append({"pos": center, "radius": radius, "until": ctx.time + duration})
 	return true
@@ -344,8 +405,13 @@ func _wall(spell: SpellData, variant: StringName, center: Vector2, dir: Vector2)
 		ids.append(ctx.obstacles.add_wall(Rect2(point - Vector2.ONE * WALL_SEGMENT * 0.5, Vector2.ONE * WALL_SEGMENT)))
 	if ctx.flow:
 		ctx.flow.apply_walls(ctx.obstacles)
+	var duration: float = float(spell.params.get("duration", 4.0))
+	var effect: Node2D = _vfx(spell, center, duration)
+	if effect:
+		effect.set("spell_range", spell.width)
+		effect.call("play", dir, _fx_variant(variant))
 	walls.append({"from": center - axis * half, "to": center + axis * half, "ids": ids, "variant": variant,
-		"until": ctx.time + float(spell.params.get("duration", 4.0)), "tick": 0.0, "touched": {}, "spell": spell})
+		"until": ctx.time + duration, "tick": 0.0, "touched": {}, "spell": spell, "fx": effect})
 	return true
 
 
@@ -371,10 +437,16 @@ func _rifts(spell: SpellData, variant: StringName, wanted: Vector2) -> bool:
 
 func _open_rifts(exit_point: Vector2) -> void:
 	var spell: SpellData = portals["spell"]
+	var duration: float = float(spell.params.get("duration", 6.0))
 	portals["exit"] = exit_point
 	portals["placing"] = false
-	portals["until"] = ctx.time + float(spell.params.get("duration", 6.0))
-	ctx.fx.ring(exit_point, 34.0, spell.color, 0.3)
+	portals["until"] = ctx.time + duration
+	var effect: Node2D = _vfx(spell, portals["entrance"], duration)
+	if effect:
+		effect.call("play_between", portals["entrance"], exit_point, _fx_variant(portals["variant"]))
+		portals["fx"] = effect
+	else:
+		ctx.fx.ring(exit_point, 34.0, spell.color, 0.3)
 
 
 func _step_rifts() -> void:
@@ -426,16 +498,28 @@ func _pack_call(spell: SpellData, variant: StringName, center: Vector2, power: f
 	if team.is_empty():
 		return false
 	var mult: float = power * (1.0 + 0.25 * (team.size() - 1))
+	var effect: Node2D = _vfx(spell, center)
+	if effect:
+		effect.call("play", (center - ctx.player.global_position).normalized(), _fx_variant(variant))
+		var starts := PackedVector2Array()
+		var colors := PackedColorArray()
+		for ally: Ally in team:
+			starts.append(effect.to_local(ally.global_position))
+			colors.append(ally.data.visual.primary)
+		effect.call("set_secondary_offsets", starts)
+		effect.call("set_secondary_colors", colors)
 	for i: int in team.size():
 		var ally: Ally = team[i]
 		var spot: Vector2 = center + Vector2.RIGHT.rotated(TAU * i / team.size()) * 40.0
 		spot = ctx.obstacles.push_out(spot, 14.0)
-		ctx.fx.line(ally.global_position, spot, spell.color, 3.0, 0.25)
+		if effect == null:
+			ctx.fx.line(ally.global_position, spot, spell.color, 3.0, 0.25)
 		ally.global_position = spot
 		for enemy: Enemy in ctx.enemies.query_radius(spot, spell.width):
 			var quarry: float = 2.0 if variant == &"quarry" and (enemy.is_elite or enemy.is_boss) else 1.0
 			ctx.combat.deal_damage(enemy, _info(spell, mult * quarry, (enemy.global_position - spot).normalized()))
-	ctx.fx.burst(center, spell.width, Color(spell.color, 0.45))
+	if effect == null:
+		ctx.fx.burst(center, spell.width, Color(spell.color, 0.45))
 	if variant == &"rally":
 		ctx.player.stats.add_modifier(StatKeys.ALLY_ATTACK_SPEED, 0.0, 0.25)
 		_after(4.0, func() -> void: ctx.player.stats.add_modifier(StatKeys.ALLY_ATTACK_SPEED, 0.0, -0.25))
@@ -450,9 +534,16 @@ func _aegis(spell: SpellData, variant: StringName) -> bool:
 	if variant == &"share":
 		player.heal(player.max_hp * 0.15)
 	player.add_shield(amount, player.shield + amount)
-	aegis = {"amount": amount, "until": ctx.time + float(spell.params.get("duration", 4.0)), "variant": variant,
-		"spell": spell}
-	ctx.fx.ring(player.global_position, 40.0, spell.color, 0.35)
+	var duration: float = float(spell.params.get("duration", 4.0))
+	var effect: Node2D = _vfx(spell, player.global_position, duration)
+	if effect:
+		# L'Égide suit le Chasseur : l'animation est attachée à lui.
+		effect.reparent(player)
+		effect.position = Vector2(0, -14)
+		effect.call("play", Vector2.RIGHT, _fx_variant(variant))
+	else:
+		ctx.fx.ring(player.global_position, 40.0, spell.color, 0.35)
+	aegis = {"amount": amount, "until": ctx.time + duration, "variant": variant, "spell": spell, "fx": effect}
 	return true
 
 
@@ -460,14 +551,22 @@ func _step_aegis() -> void:
 	if aegis.is_empty():
 		return
 	var player: Player = ctx.player
+	var effect: Variant = aegis.get("fx")
 	if player.shield <= 0.0:
 		if aegis["variant"] == &"riposte":
 			var spell: SpellData = aegis["spell"]
 			_blast(player.global_position, 140.0, spell, 1.0)
-			ctx.fx.burst(player.global_position, 140.0, Color(spell.color, 0.6))
+			if _alive(effect):
+				(effect as Node2D).call("trigger_pulse", Vector2.ZERO, Vector2.RIGHT)
+			else:
+				ctx.fx.burst(player.global_position, 140.0, Color(spell.color, 0.6))
+		elif _alive(effect):
+			(effect as Node2D).call("release")
 		aegis = {}
 	elif ctx.time >= float(aegis["until"]):
 		player.shield = maxf(player.shield - float(aegis["amount"]), 0.0)
+		if _alive(effect):
+			(effect as Node2D).call("release")
 		aegis = {}
 
 
@@ -484,7 +583,11 @@ func _swap(spell: SpellData, variant: StringName, aim: Vector2) -> bool:
 	var from: Vector2 = player.global_position
 	player.global_position = ally.global_position
 	ally.global_position = from
-	ctx.fx.line(from, player.global_position, spell.color, 3.0, 0.25)
+	var effect: Node2D = _vfx(spell, from)
+	if effect:
+		effect.call("play_between", from, player.global_position, _fx_variant(variant))
+	else:
+		ctx.fx.line(from, player.global_position, spell.color, 3.0, 0.25)
 	for enemy: Enemy in ctx.enemies.query_radius(from, spell.width):
 		enemy.taunt_target = ally
 		enemy.taunt_time = float(spell.params.get("taunt", 2.0))
@@ -573,6 +676,8 @@ func _wall_contact(wall: Dictionary, delta: float) -> void:
 
 func _draw() -> void:
 	for crystal: Dictionary in crystals:
+		if _alive(crystal["fx"]):
+			continue
 		var pos: Vector2 = crystal["pos"]
 		var r: float = float(crystal["radius"])
 		var diamond := PackedVector2Array([pos + Vector2(0, -r), pos + Vector2(r * 0.6, 0), pos + Vector2(0, r),
@@ -580,10 +685,12 @@ func _draw() -> void:
 		draw_colored_polygon(diamond, Color(crystal["color"], 0.55))
 		draw_arc(pos, r, 0.0, TAU, 24, Color(crystal["color"], 0.8), 1.5)
 	for wall: Dictionary in walls:
+		if _alive(wall["fx"]):
+			continue
 		var spell: SpellData = wall["spell"]
 		draw_line(wall["from"], wall["to"], Color(spell.color, 0.45), WALL_SEGMENT)
 		draw_line(wall["from"], wall["to"], Color(spell.color, 0.95), 3.0)
-	if not portals.is_empty():
+	if not portals.is_empty() and not _alive(portals.get("fx")):
 		var spell: SpellData = portals["spell"]
 		draw_arc(portals["entrance"], 34.0, 0.0, TAU, 28, Color(spell.color, 0.9), 3.0)
 		if not bool(portals["placing"]):

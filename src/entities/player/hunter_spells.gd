@@ -31,6 +31,11 @@ var preview_slot: int = -1
 var charge_slot: int = -1
 var charge_time: float = 0.0
 var world: HunterSpellWorld
+## Animations de Codex (lot C5) ; dessins provisoires si une animation manque.
+var vfx := HunterSpellVfx.new()
+## Puissance du lancement en cours (Surcharge, Contre-taille) et variante de la Lance.
+var _power: float = 1.0
+var _lance_variant: StringName = &""
 
 
 func setup(p_ctx: RunContext, spell_ids: Array[StringName], spell_variants: Dictionary = {}) -> void:
@@ -44,6 +49,7 @@ func setup(p_ctx: RunContext, spell_ids: Array[StringName], spell_variants: Dict
 		variants.append(StringName(str(spell_variants.get(spell.id, ""))) if spell else &"")
 	cooldowns.resize(SLOTS)
 	cooldowns.fill(0.0)
+	vfx.setup(ctx.world)
 	world = HunterSpellWorld.new()
 	world.setup(ctx, self)
 	add_child(world)
@@ -102,6 +108,7 @@ func cast(slot: int, aim: Vector2, power: float = 1.0) -> bool:
 	if cooldowns[slot] > 0.0:
 		return false
 	power *= world.consume_power(spell)
+	_power = power
 	match spell.spell_kind:
 		&"slash":
 			if variant == &"thrust":
@@ -109,9 +116,10 @@ func cast(slot: int, aim: Vector2, power: float = 1.0) -> bool:
 			else:
 				_slash(spell, origin, dir, variant == &"whirlwind")
 		&"lance":
+			_lance_variant = variant
 			if variant == &"fan":
 				for angle: float in [-FAN_ANGLE, 0.0, FAN_ANGLE]:
-					_lance(spell, origin, dir.rotated(deg_to_rad(angle)), FAN_DAMAGE)
+					_lance(spell, origin, dir.rotated(deg_to_rad(angle)), FAN_DAMAGE * power, angle == 0.0)
 			else:
 				_lance(spell, origin, dir, power)
 		_:
@@ -137,6 +145,20 @@ func blocks_projectile(pos: Vector2) -> bool:
 func affect_projectile(p: Projectile) -> void:
 	if not world.crystals.is_empty() or not world.portals.is_empty():
 		world.affect_projectile(p)
+
+
+## Joue l'animation de Codex d'un sort ; faux si elle n'existe pas (le dessin provisoire est alors gardé).
+func _play_vfx(spell: SpellData, origin: Vector2, dir: Vector2, variant: StringName, from_phase: float = 0.0) -> bool:
+	var effect: Node2D = vfx.spawn(spell.spell_kind, origin)
+	if effect == null:
+		return false
+	if spell.spell_kind == &"lance":
+		effect.set("fan_angle_degrees", FAN_ANGLE)
+	if from_phase > 0.0 and effect.has_method("play_from"):
+		effect.call("play_from", dir, HunterSpellVfx.variant_name(variant), from_phase)
+	else:
+		effect.call("play", dir, HunterSpellVfx.variant_name(variant))
+	return true
 
 
 func ready_ratio(slot: int) -> float:
@@ -177,10 +199,13 @@ func _slash(spell: SpellData, origin: Vector2, dir: Vector2, whirlwind: bool = f
 		var tolerance: float = asin(clampf(enemy.radius / dist, 0.0, 1.0))
 		if absf(dir.angle_to(offset)) > half + tolerance:
 			continue
-		ctx.combat.deal_damage(enemy, _make_info(spell, offset / dist))
+		if hits < HunterSpellVfx.MAX_IMPACTS:
+			vfx.slash_impact(enemy.global_position, offset / dist)
+		ctx.combat.deal_damage(enemy, _make_info(spell, offset / dist, _power))
 		hits += 1
 	ctx.stats.set_max(&"slash_max_hits", float(hits))
-	ctx.fx.sector(origin, dir, reach, minf(half, PI - 0.01), spell.color, 0.22)
+	if not _play_vfx(spell, origin, dir, &"whirlwind" if whirlwind else &"", HunterSpellVfx.SLASH_CUT_PHASE):
+		ctx.fx.sector(origin, dir, reach, minf(half, PI - 0.01), spell.color, 0.22)
 	ctx.player.visual.play_action(&"attack")
 	Audio.play_sfx(&"bolt_fire")
 
@@ -195,24 +220,28 @@ func _thrust(spell: SpellData, origin: Vector2, dir: Vector2) -> void:
 			continue
 		if absf(offset.dot(dir.orthogonal())) > THRUST_HALF_WIDTH + enemy.radius:
 			continue
-		ctx.combat.deal_damage(enemy, _make_info(spell, dir))
+		ctx.combat.deal_damage(enemy, _make_info(spell, dir, _power))
 		hits += 1
 	ctx.stats.set_max(&"slash_max_hits", float(hits))
-	ctx.fx.line(origin, origin + dir * THRUST_RANGE, spell.color, THRUST_HALF_WIDTH * 2.0, 0.2)
+	if not _play_vfx(spell, origin, dir, &"thrust", HunterSpellVfx.SLASH_CUT_PHASE):
+		ctx.fx.line(origin, origin + dir * THRUST_RANGE, spell.color, THRUST_HALF_WIDTH * 2.0, 0.2)
 	ctx.player.visual.play_action(&"attack")
 	Audio.play_sfx(&"bolt_fire")
 
 
-## Lance prismatique : trait lourd qui traverse tout jusqu'à sa portée et pose des Marques.
-func _lance(spell: SpellData, origin: Vector2, dir: Vector2, power: float = 1.0) -> void:
+## Lance prismatique : trait lourd qui traverse tout jusqu'à sa portée et pose des Marques. Avec l'animation de
+## Codex, le projectile de jeu devient invisible (l'animation dessine la lance, sans superposer deux tirs).
+func _lance(spell: SpellData, origin: Vector2, dir: Vector2, power: float = 1.0, draw: bool = true) -> void:
 	var speed: float = maxf(spell.speed, 1.0)
+	var animated: bool = vfx.has_effect(&"lance")
 	ctx.projectiles.spawn_friendly(origin, dir, speed, _make_info(spell, dir, power), {
 		"pierce": 999,
 		"radius": spell.width * (1.0 + 0.4 * (power - 1.0)),
 		"life": spell.spell_range / speed,
-		"color": spell.color,
+		"color": Color(spell.color, 0.0) if animated else spell.color,
 	})
-	ctx.fx.line(origin, origin + dir * 60.0, spell.color, 6.0, 0.15)
+	if draw and not _play_vfx(spell, origin, dir, _lance_variant):
+		ctx.fx.line(origin, origin + dir * 60.0, spell.color, 6.0, 0.15)
 	ctx.player.visual.play_action(&"attack")
 	Audio.play_sfx(&"bolt_fire")
 

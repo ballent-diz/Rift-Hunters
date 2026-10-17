@@ -126,7 +126,8 @@ static func active_rank(profile: ProfileData, node: SkillNodeData) -> int:
 static func points_total(profile: ProfileData) -> int:
 	var maps: int = (profile.data["hunter"].get("maps_won", []) as Array).size()
 	var objectives: int = (profile.data["objectives"].get("completed", []) as Array).size()
-	return BASE_POINTS + maps + objectives / OBJECTIVES_PER_POINT
+	var test: int = int(profile.data["hunter"].get("test_points", 0))
+	return BASE_POINTS + maps + objectives / OBJECTIVES_PER_POINT + test
 
 
 static func points_used(profile: ProfileData) -> int:
@@ -268,6 +269,17 @@ static func effects_for(profile: ProfileData) -> Array[GameplayEffect]:
 		for i: int in mini(active_rank(profile, node), node.max_rank()):
 			effects.append_array(node.effects)
 	return effects
+
+
+## Mode test (outil de développement, jamais dans le jeu publié) : tout l'arbre appris, paliers ouverts, points
+## en abondance. Le joueur active et équipe ensuite ce qu'il veut essayer.
+static func unlock_all_for_testing(profile: ProfileData) -> void:
+	for id: StringName in GameDB.skill_nodes:
+		var node: SkillNodeData = GameDB.skill_nodes[id]
+		profile.set_tree_rank(id, node.max_rank())
+	profile.data["runs"]["won"] = maxi(boss_wins(profile), 3)
+	profile.data["hunter"]["test_points"] = 200
+	profile.add_currency("shards", 10000)
 
 
 ## Première victoire sur une carte : +1 Point de Chasseur.

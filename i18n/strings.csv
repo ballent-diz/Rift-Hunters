@@ -932,3 +932,5 @@ C5P_CUT,02  FRAPPE,02  SWING
 C5P_HIT,03  IMPACT,03  IMPACT
 C5P_RECOVERY,04  RETOUR,04  RECOVERY
 C5P_NOTE,Mise en scène à valider · effets pas encore raccordés aux sorts en jeu,Staged visual preview · effects are not yet connected to in-game spells
+OPTIONS_TEST_MODE,Mode test : apprendre tout l'arbre du Chasseur,Test mode: learn the whole Hunter tree
+OPTIONS_TEST_MODE_HINT,"Outil de développement (visible seulement depuis Godot) : tous les nœuds appris, paliers ouverts, 200 Points de Chasseur en plus. Activez et équipez ensuite les sorts dans l'arbre.","Development tool (only visible from Godot): every node learned, tiers open, 200 extra Hunter Points. Then activate and equip spells in the tree."
