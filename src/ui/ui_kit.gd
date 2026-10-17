@@ -10,16 +10,44 @@ const MUTED := Color(0.62, 0.66, 0.8)
 const ACCENT := Color(0.55, 0.9, 1.0)
 const GOLD := Color(1.0, 0.85, 0.4)
 const DANGER := Color(1.0, 0.4, 0.6)
+## Polices libres (SIL OFL 1.1, assets/fonts) : Inter pour le texte, Cinzel pour les titres.
+const _INTER := preload("res://assets/fonts/inter/Inter-Variable.ttf")
+const _CINZEL := preload("res://assets/fonts/cinzel/Cinzel-Variable.ttf")
 
 static var _theme: Theme
+static var _fonts: Dictionary = {}
+
+
+## Styles : body (texte), strong (boutons, libellés), numbers (compteurs, chiffres à chasse fixe), title (titres).
+static func font(style: StringName = &"body") -> Font:
+	if _fonts.has(style):
+		return _fonts[style]
+	var variation := FontVariation.new()
+	variation.base_font = _CINZEL if style == &"title" else _INTER
+	var weight: int = 400
+	match style:
+		&"title":
+			weight = 700
+		&"strong", &"numbers":
+			weight = 600
+	variation.variation_opentype = {TextServerManager.get_primary_interface().name_to_tag("wght"): weight}
+	if style == &"numbers":
+		variation.opentype_features = {TextServerManager.get_primary_interface().name_to_tag("tnum"): 1}
+	_fonts[style] = variation
+	return variation
 
 
 static func theme() -> Theme:
 	if _theme:
 		return _theme
 	_theme = Theme.new()
-	_theme.default_font = ThemeDB.fallback_font
+	_theme.default_font = font(&"body")
 	_theme.default_font_size = 18
+	for type: String in ["Button", "TabContainer", "CheckBox", "OptionButton"]:
+		_theme.set_font("font", type, font(&"strong"))
+	_theme.set_stylebox("panel", "TooltipPanel", _box(Color(0.06, 0.05, 0.11, 0.98), Color(0.6, 0.45, 0.5), 1, 4))
+	_theme.set_color("font_color", "TooltipLabel", TEXT)
+	_theme.set_font_size("font_size", "TooltipLabel", 14)
 	_theme.set_stylebox("normal", "Button", _box(Color(0.14, 0.16, 0.26), BORDER, 2))
 	_theme.set_stylebox("hover", "Button", _box(Color(0.2, 0.23, 0.36), ACCENT, 2))
 	_theme.set_stylebox("pressed", "Button", _box(Color(0.1, 0.12, 0.2), ACCENT, 2))
@@ -61,6 +89,22 @@ static func label(text: String, size: int = 18, color: Color = TEXT,
 	l.add_theme_font_size_override("font_size", size)
 	l.add_theme_color_override("font_color", color)
 	l.horizontal_alignment = align
+	return l
+
+
+## Titre en Cinzel (capitales gravées), réservé aux noms et en-têtes : jamais pour un paragraphe.
+static func title(text: String, size: int = 22, color: Color = TEXT,
+		align: HorizontalAlignment = HORIZONTAL_ALIGNMENT_LEFT) -> Label:
+	var l: Label = label(text, size, color, align)
+	l.add_theme_font_override("font", font(&"title"))
+	return l
+
+
+## Texte secondaire en petites capitales espacées (catégorie, rubrique).
+static func caption(text: String, size: int = 12, color: Color = MUTED) -> Label:
+	var l: Label = label(text.to_upper(), size, color)
+	l.add_theme_font_override("font", font(&"strong"))
+	l.add_theme_constant_override("outline_size", 0)
 	return l
 
 

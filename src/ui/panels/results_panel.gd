@@ -20,7 +20,7 @@ func show_result(result: Dictionary, rewards: Dictionary) -> void:
 	visible = true
 	UiKit.clear(_box)
 	var victory: bool = result.get("victory", false)
-	_box.add_child(UiKit.label(tr("RESULT_VICTORY") if victory else tr("RESULT_DEFEAT"), 44,
+	_box.add_child(UiKit.title(tr("RESULT_VICTORY") if victory else tr("RESULT_DEFEAT"), 44,
 		UiKit.GOLD if victory else UiKit.DANGER, HORIZONTAL_ALIGNMENT_CENTER))
 	var time: float = result.get("time", 0.0)
 	var summary: String = tr("RESULT_SUMMARY") % [int(time) / 60, int(time) % 60, int(result.get("level", 1)),
@@ -44,7 +44,7 @@ func show_result(result: Dictionary, rewards: Dictionary) -> void:
 
 func _damage_column(result: Dictionary) -> VBoxContainer:
 	var col := VBoxContainer.new()
-	col.add_child(UiKit.label(tr("RESULT_DAMAGE_TITLE"), 20, UiKit.ACCENT))
+	col.add_child(UiKit.title(tr("RESULT_DAMAGE_TITLE"), 20, UiKit.ACCENT))
 	var damage: Dictionary = result.get("stats", {}).get("damage_by_source", {})
 	var entries: Array = []
 	for source: Variant in damage:
@@ -61,7 +61,7 @@ func _damage_column(result: Dictionary) -> VBoxContainer:
 
 func _rewards_column(_result: Dictionary, rewards: Dictionary) -> VBoxContainer:
 	var col := VBoxContainer.new()
-	col.add_child(UiKit.label(tr("RESULT_REWARDS_TITLE"), 20, UiKit.GOLD))
+	col.add_child(UiKit.title(tr("RESULT_REWARDS_TITLE"), 20, UiKit.GOLD))
 	col.add_child(UiKit.label(tr("RESULT_SHARDS") % int(rewards.get("shards", 0)), 16, UiKit.TEXT))
 	col.add_child(UiKit.label(tr("RESULT_ESSENCE") % int(rewards.get("essence", 0)), 16, UiKit.TEXT))
 	for line: String in rewards.get("lines", []):

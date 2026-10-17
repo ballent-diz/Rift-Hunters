@@ -28,7 +28,7 @@ func refresh() -> void:
 		texts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		h.add_child(texts)
 		var done: bool = Research.is_done(p, item.id)
-		texts.add_child(UiKit.label(("✔ " if done else "") + tr(item.name_key), 19, UiKit.GOLD if done else UiKit.TEXT))
+		texts.add_child(UiKit.label(("✓ " if done else "") + tr(item.name_key), 19, UiKit.GOLD if done else UiKit.TEXT))
 		texts.add_child(UiKit.wrapped(tr(item.desc_key), 15))
 		if not Research.prerequisites_met(p, item):
 			var names: PackedStringArray = []

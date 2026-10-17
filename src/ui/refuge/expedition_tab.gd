@@ -1,149 +1,352 @@
 extends RefugeTab
-## Préparation de l'expédition : Écho de départ (variante, palette), difficulté (Normal / Cauchemar), carte.
+## Préparation de l'expédition (lots B1-B2) : à gauche, l'Écho de départ puis les chapitres et leurs cartes ;
+## à droite, le résumé de la carte choisie (objectifs, difficulté, pactes) et le départ, toujours visibles.
+
+const TILE_SIZE := Vector2(232, 92)
+
 
 func title_key() -> String:
 	return "TAB_EXPEDITION"
 
 
 func refresh() -> void:
-	var box: VBoxContainer = scroll_box(12)
 	var p: ProfileData = profile()
-	var selected := StringName(p.preference("starter", "mossback"))
-	box.add_child(UiKit.label(tr("EXPEDITION_STARTER"), 22, UiKit.TEXT))
+	var previous: int = 0
+	var old: ScrollContainer = find_child("ExpeditionScroll", true, false) as ScrollContainer
+	if old:
+		previous = old.scroll_vertical
+	UiKit.clear(self)
+	var root := HBoxContainer.new()
+	root.add_theme_constant_override("separation", 16)
+	add_child(root)
+	var scroll := ScrollContainer.new()
+	scroll.name = "ExpeditionScroll"
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	root.add_child(scroll)
+	var box := VBoxContainer.new()
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	box.add_theme_constant_override("separation", 12)
+	scroll.add_child(box)
+	_add_starters(box, p)
+	box.add_child(UiKit.title(tr("EXPEDITION_MAPS"), 20, MenuSkin.PAPER))
+	var arena: ArenaData = _current_arena(p)
+	for chapter: ChapterData in GameDB.chapters_in_order():
+		box.add_child(_chapter_panel(p, chapter, arena))
+	box.add_child(_survival_panel(p, arena))
+	root.add_child(_summary(p, arena))
+	if previous > 0:
+		var bar: VScrollBar = scroll.get_v_scroll_bar()
+		_scroll_restore = _restore_scroll.bind(bar, previous)
+		bar.changed.connect(_scroll_restore)
+
+
+# --- Écho de départ
+
+func _add_starters(box: VBoxContainer, p: ProfileData) -> void:
+	box.add_child(UiKit.title(tr("EXPEDITION_STARTER"), 20, MenuSkin.PAPER))
 	var row := HFlowContainer.new()
-	row.add_theme_constant_override("h_separation", 12)
-	row.add_theme_constant_override("v_separation", 12)
+	row.add_theme_constant_override("h_separation", 8)
+	row.add_theme_constant_override("v_separation", 8)
 	box.add_child(row)
+	var selected := StringName(p.preference("starter", "mossback"))
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
-		var monster: MonsterData = GameDB.monster(id)
-		if p.is_monster_unlocked(monster):
-			var title: String = tr(monster.name_key) + ("  ✔" if id == selected else "")
-			var desc: String = tr(monster.desc_key) + "\n" + tr("EXPEDITION_MASTERY") % Mastery.level(p, monster)
-			var accent: Color = UiKit.GOLD if id == selected else monster.visual.primary.lightened(0.3)
-			var card: Button = UiKit.card(tr("ROLE_%d" % monster.role), title, desc, accent, _select_starter.bind(id))
-			card.custom_minimum_size = Vector2(230, 190)
-			row.add_child(card)
-			EchoPortrait.add_to_card(card, monster, EchoPortrait.profile_palette(monster))
-		else:
-			var locked: Button = UiKit.card(tr("EXPEDITION_LOCKED"), "???", _unlock_hint("monster:" + String(id)),
-				Color(0.4, 0.4, 0.45), func() -> void: pass)
-			locked.custom_minimum_size = Vector2(230, 320)
-			locked.disabled = true
-			row.add_child(locked)
+		row.add_child(_starter_tile(p, GameDB.monster(id), id == selected))
 	var starter: MonsterData = GameDB.monster(selected)
-	if starter:
-		var options := HBoxContainer.new()
-		options.add_theme_constant_override("separation", 12)
+	if starter == null:
+		return
+	var options := HBoxContainer.new()
+	options.add_theme_constant_override("separation", 10)
+	var entry: Dictionary = p.mastery_entry(selected)
+	if Mastery.variant_unlocked(p, starter):
+		var on: bool = bool(entry.get("use_variant", false))
+		var variant: Button = UiKit.button(tr(starter.variant.name_key) + (" ✓" if on else ""), _toggle.bind(selected,
+			"use_variant"), 0)
+		variant.tooltip_text = tr(starter.variant.desc_key)
+		options.add_child(variant)
+	if not Mastery.palette(p, starter).is_empty():
+		var palette_on: bool = bool(entry.get("use_palette", false))
+		options.add_child(UiKit.button(tr("EXPEDITION_PALETTE") + (" ✓" if palette_on else ""), _toggle.bind(selected,
+			"use_palette"), 0))
+	if options.get_child_count() > 0:
 		box.add_child(options)
-		var entry: Dictionary = p.mastery_entry(selected)
-		if Mastery.variant_unlocked(p, starter):
-			var on: bool = bool(entry.get("use_variant", false))
-			options.add_child(UiKit.button(tr(starter.variant.name_key) + (" ✔" if on else ""), _toggle.bind(selected,
-					"use_variant"), 320))
-			options.add_child(UiKit.wrapped(tr(starter.variant.desc_key), 14))
-		if not Mastery.palette(p, starter).is_empty():
-			var palette_on: bool = bool(entry.get("use_palette", false))
-			options.add_child(UiKit.button(tr("EXPEDITION_PALETTE") + (" ✔" if palette_on else ""), _toggle.bind(selected,
-					"use_palette"), 240))
-	var difficulty_data: DifficultyData = _add_difficulties(box, p)
-	_add_modifiers(box, difficulty_data)
-	_add_maps(box, p, Campaign.mode_of(difficulty_data.id))
-	var go: Button = UiKit.button(tr("EXPEDITION_DEPART"), _depart, 420)
-	go.custom_minimum_size.y = 60
-	go.add_theme_font_size_override("font_size", 24)
-	box.add_child(go)
+
+
+func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Button:
+	var tile := Button.new()
+	tile.custom_minimum_size = Vector2(100, 116)
+	tile.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	var unlocked: bool = p.is_monster_unlocked(monster)
+	_tile_style(tile, monster.visual.primary.lightened(0.3) if unlocked else MenuSkin.COPPER.darkened(0.4), selected)
+	var box := VBoxContainer.new()
+	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	box.offset_left = 8
+	box.offset_right = -8
+	box.offset_top = 6
+	box.offset_bottom = -8
+	box.add_theme_constant_override("separation", 2)
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	tile.add_child(box)
+	if unlocked:
+		var portrait := EchoPortrait.new()
+		portrait.setup(monster, EchoPortrait.profile_palette(monster))
+		portrait.custom_minimum_size = Vector2(0, 64)
+		portrait.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		box.add_child(portrait)
+		var name_label: Label = UiKit.label(tr(monster.name_key), 13, UiKit.GOLD if selected else MenuSkin.PAPER,
+			HORIZONTAL_ALIGNMENT_CENTER)
+		name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+		box.add_child(name_label)
+		var role: Label = UiKit.caption(tr("ROLE_%d" % monster.role), 10, UiKit.MUTED)
+		role.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		box.add_child(role)
+		tile.tooltip_text = tr(monster.desc_key) + "\n" + tr("EXPEDITION_MASTERY") % Mastery.level(p, monster)
+		tile.pressed.connect(_select_starter.bind(monster.id))
+	else:
+		var mystery: Label = UiKit.title("?", 32, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
+		mystery.size_flags_vertical = Control.SIZE_EXPAND_FILL
+		mystery.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		box.add_child(mystery)
+		var locked: Label = UiKit.caption(tr("EXPEDITION_LOCKED"), 10, UiKit.MUTED)
+		locked.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		box.add_child(locked)
+		tile.tooltip_text = _unlock_hint("monster:" + String(monster.id))
+	for child: Node in box.get_children():
+		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return tile
+
+
+# --- Cartes
+
+func _current_arena(p: ProfileData) -> ArenaData:
+	var arena: ArenaData = GameDB.arena(StringName(p.preference("arena", "three_rifts")))
+	if arena == null or not p.is_arena_unlocked(arena):
+		arena = Profile.unlocked_arenas()[0]
+		for map: CampaignMapData in Campaign.maps_in_order():
+			var candidate: ArenaData = GameDB.arena(map.arena_id)
+			if candidate and p.is_arena_unlocked(candidate):
+				arena = candidate
+	return arena
+
+
+func _chapter_panel(p: ProfileData, chapter: ChapterData, current: ArenaData) -> PanelContainer:
+	var panel := PanelContainer.new()
+	var frame: StyleBoxFlat = MenuSkin.frame(Color(0.06, 0.045, 0.1, 0.9), Color(chapter.color, 0.45))
+	frame.border_width_left = 4
+	frame.border_color = Color(chapter.color, 0.6)
+	panel.add_theme_stylebox_override("panel", frame)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 6)
+	panel.add_child(box)
+	box.add_child(UiKit.caption(tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order, 11, chapter.color))
+	box.add_child(UiKit.title(tr(chapter.name_key), 20, MenuSkin.PAPER))
+	box.add_child(UiKit.wrapped(tr(chapter.desc_key), 13, UiKit.MUTED))
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 10)
+	row.add_theme_constant_override("v_separation", 10)
+	box.add_child(row)
+	var maps: Array[CampaignMapData] = Campaign.maps_in_order()
+	for map: CampaignMapData in chapter.maps:
+		var arena: ArenaData = GameDB.arena(map.arena_id)
+		if arena == null:
+			continue
+		var index: int = maps.find(map)
+		var previous: ArenaData = GameDB.arena(maps[index - 1].arena_id) if index > 0 else null
+		row.add_child(_map_tile(p, arena, map, chapter.color, arena == current, previous))
+	return panel
+
+
+func _map_tile(p: ProfileData, arena: ArenaData, map: CampaignMapData, accent: Color, selected: bool,
+		previous: ArenaData) -> Button:
+	var tile := Button.new()
+	tile.name = "Map_" + String(arena.id)
+	tile.custom_minimum_size = TILE_SIZE
+	tile.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
+	var unlocked: bool = p.is_arena_unlocked(arena)
+	_tile_style(tile, accent if unlocked else MenuSkin.COPPER.darkened(0.4), selected)
+	var box := VBoxContainer.new()
+	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	box.offset_left = 12
+	box.offset_right = -12
+	box.offset_top = 8
+	box.offset_bottom = -8
+	box.add_theme_constant_override("separation", 4)
+	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	tile.add_child(box)
+	var name_label: Label = UiKit.label(tr(arena.name_key), 16, UiKit.GOLD if selected else (MenuSkin.PAPER if unlocked
+		else UiKit.MUTED))
+	name_label.add_theme_font_override("font", UiKit.font(&"strong"))
+	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	box.add_child(name_label)
+	if map and unlocked:
+		var done: int = 0
+		for objective: MapObjectiveData in map.objectives:
+			done += 1 if Campaign.objective_done(p, arena.id, Campaign.NORMAL, objective.id) else 0
+		box.add_child(_stars(done, map.objectives.size()))
+		var won: bool = Campaign.wins(p, arena.id) > 0
+		box.add_child(UiKit.caption(tr("EXPEDITION_MAP_CLEARED") if won else tr("EXPEDITION_MAP_NEW"), 10,
+			accent if won else UiKit.GOLD))
+	elif unlocked:
+		box.add_child(UiKit.caption(tr("EXPEDITION_SURVIVAL_TAG"), 10, accent))
+	else:
+		var hint: String = tr("EXPEDITION_MAP_LOCKED_BY") % tr(previous.name_key) if previous else tr("EXPEDITION_LOCKED")
+		var locked: Label = UiKit.wrapped(hint, 12, UiKit.MUTED)
+		box.add_child(locked)
+	for child: Node in box.get_children():
+		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
+	tile.disabled = not unlocked
+	tile.tooltip_text = tr(arena.desc_key) if unlocked else tr("EXPEDITION_MAP_LOCKED")
+	tile.pressed.connect(_set_pref.bind("arena", String(arena.id)))
+	return tile
+
+
+func _survival_panel(p: ProfileData, current: ArenaData) -> PanelContainer:
+	var panel := PanelContainer.new()
+	panel.add_theme_stylebox_override("panel", MenuSkin.frame(Color(0.05, 0.04, 0.08, 0.85), MenuSkin.COPPER.darkened(0.3)))
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 6)
+	panel.add_child(box)
+	box.add_child(UiKit.caption(tr("EXPEDITION_SURVIVAL"), 11, UiKit.MUTED))
+	box.add_child(UiKit.wrapped(tr("EXPEDITION_SURVIVAL_NOTE"), 13, UiKit.MUTED))
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 10)
+	box.add_child(row)
+	for arena: ArenaData in Profile.unlocked_arenas():
+		if not Campaign.is_campaign_map(arena.id):
+			row.add_child(_map_tile(p, arena, null, MenuSkin.LANTERN, arena == current, null))
+	return panel
+
+
+## Trois étoiles dessinées (objectifs Normal obtenus) : lisibles à toute taille, sans dépendre d'une police.
+func _stars(done: int, total: int) -> Control:
+	var stars := Control.new()
+	stars.custom_minimum_size = Vector2(16 * total, 16)
+	stars.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	stars.draw.connect(func() -> void:
+		for i: int in total:
+			var center := Vector2(8 + i * 18, 8)
+			var points := PackedVector2Array()
+			for k: int in 10:
+				var radius: float = 7.0 if k % 2 == 0 else 3.0
+				points.append(center + Vector2.UP.rotated(k * PI / 5.0) * radius)
+			if i < done:
+				stars.draw_colored_polygon(points, UiKit.GOLD)
+			else:
+				points.append(points[0])
+				stars.draw_polyline(points, Color(UiKit.MUTED, 0.7), 1.2, true))
+	return stars
+
+
+func _tile_style(tile: Button, accent: Color, selected: bool) -> void:
+	var normal: StyleBoxFlat = MenuSkin.frame(Color(0.2, 0.06, 0.12) if selected else Color(0.07, 0.055, 0.12),
+		MenuSkin.LANTERN if selected else Color(accent, 0.55))
+	if selected:
+		normal.set_border_width_all(3)
+	var hover: StyleBoxFlat = MenuSkin.frame(Color(0.16, 0.07, 0.17), accent)
+	var disabled: StyleBoxFlat = MenuSkin.frame(Color(0.045, 0.04, 0.07, 0.9), Color(accent, 0.35))
+	tile.add_theme_stylebox_override("normal", normal)
+	tile.add_theme_stylebox_override("hover", hover)
+	tile.add_theme_stylebox_override("pressed", normal)
+	tile.add_theme_stylebox_override("focus", hover)
+	tile.add_theme_stylebox_override("disabled", disabled)
+	tile.set_meta(MenuSkin.KEEP_STYLE, true)
+
+
+# --- Résumé et départ
+
+func _summary(p: ProfileData, arena: ArenaData) -> PanelContainer:
+	var panel := PanelContainer.new()
+	panel.name = "ExpeditionSummary"
+	panel.custom_minimum_size.x = 340
+	panel.add_theme_stylebox_override("panel", MenuSkin.frame(Color(0.05, 0.04, 0.1, 0.97), MenuSkin.COPPER))
+	var outer := VBoxContainer.new()
+	outer.add_theme_constant_override("separation", 10)
+	panel.add_child(outer)
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	outer.add_child(scroll)
+	var box := VBoxContainer.new()
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	box.add_theme_constant_override("separation", 8)
+	scroll.add_child(box)
+	var chapter: ChapterData = Campaign.chapter_of(arena.id)
+	box.add_child(UiKit.caption(tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order + " · " + tr(chapter.name_key) if chapter
+		else tr("EXPEDITION_SURVIVAL_TAG"), 11, chapter.color if chapter else MenuSkin.LANTERN))
+	var title: Label = UiKit.title(tr(arena.name_key), 24, MenuSkin.PAPER)
+	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	box.add_child(title)
+	box.add_child(UiKit.wrapped(tr(arena.desc_key), 14, UiKit.MUTED))
+	var difficulty: DifficultyData = _add_difficulties(box, p)
+	var mode: StringName = Campaign.mode_of(difficulty.id)
+	var map: CampaignMapData = Campaign.map_data(arena.id)
+	if map:
+		box.add_child(UiKit.caption(tr("EXPEDITION_OBJECTIVES") % tr(difficulty.name_key), 11, UiKit.MUTED))
+		for objective: MapObjectiveData in Campaign.objectives_of(map, mode):
+			var ok: bool = Campaign.objective_done(p, arena.id, mode, objective.id)
+			box.add_child(UiKit.wrapped(("★  " if ok else "☆  ") + Campaign.objective_text(objective), 13,
+				UiKit.GOLD if ok else MenuSkin.PAPER))
+	_add_modifiers(box, difficulty)
+	var starter: MonsterData = GameDB.monster(StringName(p.preference("starter", "mossback")))
+	if starter:
+		outer.add_child(UiKit.label(tr("EXPEDITION_WITH") % tr(starter.name_key), 13, UiKit.MUTED))
+	var go: Button = UiKit.button(tr("EXPEDITION_DEPART"), _depart, 0)
+	go.name = "DepartButton"
+	go.custom_minimum_size.y = 56
+	go.add_theme_font_override("font", UiKit.font(&"title"))
+	go.add_theme_font_size_override("font_size", 22)
+	go.add_theme_stylebox_override("normal", MenuSkin.frame(Color(0.3, 0.08, 0.12), MenuSkin.LANTERN))
+	go.add_theme_stylebox_override("hover", MenuSkin.frame(Color(0.42, 0.12, 0.16), MenuSkin.PAPER))
+	go.set_meta(MenuSkin.KEEP_STYLE, true)
+	outer.add_child(go)
+	return panel
 
 
 ## Normal, puis Cauchemar une fois la campagne finie. Retourne la difficulté retenue.
 func _add_difficulties(box: VBoxContainer, p: ProfileData) -> DifficultyData:
-	box.add_child(UiKit.label(tr("EXPEDITION_DIFFICULTY"), 22, UiKit.TEXT))
-	var row := HFlowContainer.new()
-	row.add_theme_constant_override("h_separation", 10)
-	row.add_theme_constant_override("v_separation", 8)
-	box.add_child(row)
 	var current: DifficultyData = GameDB.difficulty(StringName(p.preference("difficulty", "normal")))
 	if current == null or not p.is_difficulty_unlocked(current):
 		current = GameDB.difficulty(Campaign.NORMAL)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	box.add_child(row)
 	for difficulty: DifficultyData in GameDB.difficulties_by_level():
 		var unlocked: bool = p.is_difficulty_unlocked(difficulty)
-		var label: String = tr(difficulty.name_key) + (" ✔" if difficulty == current else "")
-		var button: Button = UiKit.button(label if unlocked else tr(difficulty.name_key) + " — " + tr("EXPEDITION_NIGHTMARE_LOCKED"),
-				_set_pref.bind("difficulty", String(difficulty.id)), 260)
-		button.disabled = not unlocked
-		button.tooltip_text = tr(difficulty.desc_key)
-		row.add_child(button)
-	box.add_child(UiKit.wrapped(tr(current.desc_key), 15))
+		var b: Button = HunterTreeSkin.button(tr(difficulty.name_key), _set_pref.bind("difficulty", String(difficulty.id)),
+			difficulty == current)
+		b.name = "Difficulty_" + String(difficulty.id)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		b.custom_minimum_size.y = 36
+		b.disabled = not unlocked
+		b.tooltip_text = tr(difficulty.desc_key) if unlocked else tr("EXPEDITION_NIGHTMARE_LOCKED")
+		row.add_child(b)
+	box.add_child(UiKit.wrapped(tr(current.desc_key), 13, UiKit.MUTED))
 	return current
-
-
-## Cartes de campagne par chapitre (verrouillées en grisé, objectifs de la difficulté choisie), puis la Survie.
-func _add_maps(box: VBoxContainer, p: ProfileData, mode: StringName) -> void:
-	box.add_child(UiKit.label(tr("EXPEDITION_ARENA"), 22, UiKit.TEXT))
-	var current_arena: String = p.preference("arena", "three_rifts")
-	for chapter: ChapterData in GameDB.chapters_in_order():
-		box.add_child(UiKit.label(tr("EXPEDITION_CHAPTER") % [chapter.order, tr(chapter.name_key)], 18, chapter.color))
-		var row: HFlowContainer = _map_row(box)
-		for map: CampaignMapData in chapter.maps:
-			var arena: ArenaData = GameDB.arena(map.arena_id)
-			if arena == null:
-				continue
-			var objectives: Array[MapObjectiveData] = Campaign.objectives_of(map, mode)
-			var lines: PackedStringArray = [tr(arena.desc_key)]
-			var done: int = 0
-			for objective: MapObjectiveData in objectives:
-				var ok: bool = Campaign.objective_done(p, arena.id, mode, objective.id)
-				done += 1 if ok else 0
-				lines.append(("★ " if ok else "☆ ") + Campaign.objective_text(objective))
-			var label: String = "%s  ★ %d/%d" % [tr(arena.name_key), done, objectives.size()]
-			_add_map_button(row, arena, label + (" ✔" if String(arena.id) == current_arena else ""), "\n".join(lines),
-				p.is_arena_unlocked(arena))
-	box.add_child(UiKit.label(tr("EXPEDITION_SURVIVAL"), 18, UiKit.MUTED))
-	var survival: HFlowContainer = _map_row(box)
-	for arena: ArenaData in Profile.unlocked_arenas():
-		if not Campaign.is_campaign_map(arena.id):
-			_add_map_button(survival, arena, tr(arena.name_key) + (" ✔" if String(arena.id) == current_arena else ""),
-				tr(arena.desc_key), true)
-
-
-func _map_row(box: VBoxContainer) -> HFlowContainer:
-	var row := HFlowContainer.new()
-	row.add_theme_constant_override("h_separation", 10)
-	row.add_theme_constant_override("v_separation", 8)
-	box.add_child(row)
-	return row
-
-
-func _add_map_button(row: HFlowContainer, arena: ArenaData, label: String, tooltip: String, unlocked: bool) -> void:
-	var button: Button = UiKit.button(label if unlocked else tr(arena.name_key) + " — " + tr("EXPEDITION_LOCKED"),
-		_set_pref.bind("arena", String(arena.id)), 300)
-	button.disabled = not unlocked
-	button.tooltip_text = tooltip if unlocked else tr("EXPEDITION_MAP_LOCKED")
-	row.add_child(button)
 
 
 ## Pactes de risque : modificateurs cumulables, réservés au Cauchemar.
 func _add_modifiers(box: VBoxContainer, difficulty: DifficultyData) -> void:
 	if GameDB.modifiers.is_empty() or difficulty.level < 1:
 		return
-	box.add_child(UiKit.label(tr("EXPEDITION_MODIFIERS"), 22, UiKit.TEXT))
+	box.add_child(UiKit.caption(tr("EXPEDITION_MODIFIERS"), 11, UiKit.MUTED))
 	var chosen: PackedStringArray = profile().preference("modifiers", "").split(",", false)
 	var flow := HFlowContainer.new()
-	flow.add_theme_constant_override("h_separation", 10)
-	flow.add_theme_constant_override("v_separation", 8)
+	flow.add_theme_constant_override("h_separation", 6)
+	flow.add_theme_constant_override("v_separation", 6)
 	box.add_child(flow)
 	var bonus: float = 0.0
 	for id: StringName in GameDB.sorted_ids(GameDB.modifiers):
 		var modifier: RunModifierData = GameDB.modifier(id)
-		var allowed: bool = difficulty != null and difficulty.level >= modifier.min_difficulty
+		var allowed: bool = difficulty.level >= modifier.min_difficulty
 		var on: bool = chosen.has(String(id)) and allowed
 		if on:
 			bonus += modifier.reward_bonus
-		var text: String = "%s%s (+%d %%)" % [tr(modifier.name_key), " ✔" if on else "", int(round(modifier.reward_bonus * 100.0))]
-		var button: Button = UiKit.button(text, _toggle_modifier.bind(String(id)), 230)
-		button.tooltip_text = tr(modifier.desc_key) + ("" if allowed else "\n" + tr("EXPEDITION_MODIFIER_NIGHTMARE"))
+		var text: String = "%s +%d %%" % [tr(modifier.name_key), int(round(modifier.reward_bonus * 100.0))]
+		var button: Button = HunterTreeSkin.button(text, _toggle_modifier.bind(String(id)), on)
+		button.tooltip_text = tr(modifier.desc_key)
 		button.disabled = not allowed
 		flow.add_child(button)
-	box.add_child(UiKit.label(tr("EXPEDITION_MODIFIERS_BONUS") % int(round(bonus * 100.0)), 15, UiKit.GOLD))
+	box.add_child(UiKit.label(tr("EXPEDITION_MODIFIERS_BONUS") % int(round(bonus * 100.0)), 13, UiKit.GOLD))
 
 
 func _toggle_modifier(id: String) -> void:

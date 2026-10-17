@@ -132,7 +132,7 @@ func _show_credits() -> void:
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 10)
 	panel.add_child(box)
-	box.add_child(UiKit.label(tr("MENU_CREDITS"), 32, UiKit.ACCENT))
+	box.add_child(UiKit.title(tr("MENU_CREDITS"), 32, UiKit.ACCENT))
 	var text := RichTextLabel.new()
 	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	text.add_theme_font_size_override("normal_font_size", 15)

@@ -29,10 +29,8 @@ func _ready() -> void:
 	await _capture("01-depart-fr")
 	_prepare_build()
 	_tab._selected = &"blade_master"
-	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 350
 	await _capture("02-build-fr")
 	_tab._selected = &"blade_slash_whirlwind"
-	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 90
 	await _capture("03-variantes-fr")
 	TranslationServer.set_locale("en")
 	_screen.queue_free()
@@ -51,8 +49,8 @@ func _ready() -> void:
 	_viewport.add_child(_screen)
 	_screen.tabs.current_tab = 1
 	_tab = _screen.tabs.get_child(1)
-	_tab._focused_branch = &""
-	await _capture("05-ensemble-fr")
+	_tab._focused_branch = &"prism"
+	await _capture("05-prisme-fr")
 	await _capture_full_branch()
 	_screen.queue_free()
 	await get_tree().process_frame

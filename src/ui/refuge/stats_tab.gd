@@ -12,7 +12,7 @@ func title_key() -> String:
 func refresh() -> void:
 	var box: VBoxContainer = scroll_box(6)
 	var p: ProfileData = profile()
-	box.add_child(UiKit.label(tr("STATS_RECORDS"), 20, UiKit.ACCENT))
+	box.add_child(UiKit.title(tr("STATS_RECORDS"), 20, MenuSkin.PAPER))
 	var records: Dictionary = p.data["records"]
 	var best_time: float = float(records["best_time"])
 	box.add_child(UiKit.label(tr("STATS_BEST_TIME") % [int(best_time) / 60, int(best_time) % 60], 16))
@@ -26,7 +26,7 @@ func refresh() -> void:
 		objectives += Campaign.objectives_of(map, Campaign.NORMAL).size() + Campaign.objectives_of(map, Campaign.NIGHTMARE).size()
 	box.add_child(UiKit.label(tr("STATS_CAMPAIGN") % [cleared, maps.size()], 16))
 	box.add_child(UiKit.label(tr("STATS_MAP_OBJECTIVES") % [Campaign.objectives_completed(p), objectives], 16))
-	box.add_child(UiKit.label(tr("STATS_LIFETIME"), 20, UiKit.ACCENT))
+	box.add_child(UiKit.title(tr("STATS_LIFETIME"), 20, MenuSkin.PAPER))
 	var grid := GridContainer.new()
 	grid.columns = 2
 	grid.add_theme_constant_override("h_separation", 40)
@@ -38,6 +38,6 @@ func refresh() -> void:
 		grid.add_child(UiKit.label(text, 16))
 	var titles: Array = p.data["unlocks"].get("titles", [])
 	if not titles.is_empty():
-		box.add_child(UiKit.label(tr("STATS_TITLES"), 20, UiKit.ACCENT))
+		box.add_child(UiKit.title(tr("STATS_TITLES"), 20, MenuSkin.PAPER))
 		for title: String in titles:
 			box.add_child(UiKit.label("★ " + tr("UNLOCK_TITLE_" + title.to_upper()), 16, UiKit.GOLD))

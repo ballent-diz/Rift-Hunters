@@ -35,7 +35,7 @@ func test_tree_and_upgrades_fit_720p_in_both_languages() -> void:
 	viewport.add_child(screen)
 	screen.tabs.current_tab = 1
 	var tab: RefugeTab = screen.tabs.get_child(1)
-	tab._focused_branch = &""
+	tab._focused_branch = &"blade"
 	for locale: String in ["fr", "en"]:
 		TranslationServer.set_locale(locale)
 		for utilities: bool in [false, true]:
@@ -48,10 +48,8 @@ func test_tree_and_upgrades_fit_720p_in_both_languages() -> void:
 				check_eq(tab.find_children("SpellSlot*", "Button", true, false).size(), 4, "quatre emplacements")
 				if not utilities:
 					var plan: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
-					var expected: int = 0
-					for branch: StringName in [&"trunk"] + HunterTreeSkin.PATHS:
-						expected += HunterTree.nodes_of_branch(branch).size()
-					check_eq(plan._buttons.size(), expected, "tous les nœuds de combat présents")
+					var expected: int = HunterTree.nodes_of_branch(&"trunk").size() + HunterTree.nodes_of_branch(&"blade").size()
+					check_eq(plan._buttons.size(), expected, "tronc commun et voie entière présents")
 				# Le moteur sans affichage fournit une police factice (hauteur 3× la taille).
 				# Les assertions géométriques sont aussi exécutées avec le moteur graphique réel.
 				if DisplayServer.get_name() == "headless":
@@ -126,7 +124,7 @@ func test_all_24_spell_and_talent_icons_are_imported() -> void:
 	check_eq(count, 24, "12 sorts, 8 transformants et 4 clés de voûte")
 
 
-func test_focused_paths_keep_large_icons_and_last_tier_accessible() -> void:
+func test_each_path_fits_without_scrolling() -> void:
 	var viewport := SubViewport.new()
 	viewport.size = Vector2i(1280, 720)
 	host.add_child(viewport)
@@ -138,15 +136,15 @@ func test_focused_paths_keep_large_icons_and_last_tier_accessible() -> void:
 		tab._focused_branch = branch
 		screen.refresh_current()
 		await _settle()
+		check(tab.find_child("TreeScroll", true, false) == null, "aucun défilement dans l'arbre : %s" % branch)
 		var plan: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
-		var scroll: ScrollContainer = tab.find_child("TreeScroll", true, false)
 		for data: SkillNodeData in HunterTree.nodes_of_branch(branch):
 			var button: HunterTreeNode = plan._buttons[data.id]
-			check(button.expanded, "illustration agrandie : %s" % data.id)
-			if data.kind == SkillNodeData.Kind.KEYSTONE:
-				scroll.ensure_control_visible(button)
-				await _settle()
-				check(scroll.get_global_rect().intersects(button.get_global_rect()), "niveau V accessible : %s" % branch)
+			check(not button.caption.text.is_empty(), "nom sous l'icône : %s" % data.id)
+			# Police factice en mode sans affichage : la géométrie se vérifie avec le moteur graphique réel.
+			if DisplayServer.get_name() != "headless":
+				check(button.emblem_rect().size.x >= 40, "icône lisible : %s" % data.id)
+				check(plan.get_global_rect().encloses(button.get_global_rect()), "nœud visible : %s" % data.id)
 		check(tab.get_combined_minimum_size().x <= tab.size.x, "voie sans débordement horizontal")
 		if DisplayServer.get_name() != "headless":
 			check(tab.get_combined_minimum_size().y <= tab.size.y, "voie sans débordement vertical")
@@ -154,3 +152,14 @@ func test_focused_paths_keep_large_icons_and_last_tier_accessible() -> void:
 	screen.queue_free()
 	viewport.queue_free()
 	await _settle()
+
+
+func test_node_tooltip_and_compact_card() -> void:
+	var node := HunterTreeNode.new()
+	node.setup(Profile.profile, GameDB.skill_node(&"blade_cleaving_slash"), &"")
+	var tip: Control = node._make_custom_tooltip(node.tooltip_text)
+	check(tip != null and tip.find_children("*", "RichTextLabel", true, false).size() == 1, "infobulle compacte au survol")
+	tip.free()
+	node.free()
+	check(SkillCard.highlight("+8 % et 3 s").contains("[color="), "chiffres clés mis en couleur")
+	check(SkillCard.highlight("[b]").begins_with("[lb]"), "texte traduit échappé du BBCode")
