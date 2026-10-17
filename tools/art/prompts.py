@@ -3,6 +3,8 @@
 Modifier les descriptions ici puis relancer : python3 tools/art/prompts.py"""
 import os
 
+from echo_sprite_specs import C8_ECHOS
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.abspath(os.path.join(HERE, "..", "..", "docs", "art_prompts.md"))
 
@@ -92,6 +94,71 @@ ENTITIES = [
 ]
 
 
+# Le lot C8 conserve les autres prompts existants et remplace seulement les deux références concernées.
+C8_ANIMS = [("idle", 8), ("move", 8), ("attack", 7), ("technique", 8), ("death", 8)]
+for echo_id, spec in C8_ECHOS.items():
+    visual_id = "monster." + echo_id
+    replacement = (visual_id, "monster", 128, spec["desc"])
+    previous = next((i for i, item in enumerate(ENTITIES) if item[0] == visual_id), None)
+    if previous is None:
+        ENTITIES.append(replacement)
+    else:
+        ENTITIES[previous] = replacement
+
+
+def c8_section(visual_id):
+    """Prompts autonomes : résumé français, référence, cinq bandes et consignes de cohérence."""
+    spec = C8_ECHOS[visual_id.split(".")[1]]
+    floating = spec["hover"] > 0
+    description = spec["desc"] + ". Base material colors: " + ", ".join(spec["palette"])
+    baseline = (
+        "floating creature with no planted feet; keep the torso center and the body's lower reference line stable, "
+        "wing tips and particles stay above that reference line, no landing or ground contact"
+        if floating else "grounded creature, all supporting feet on one stable horizontal baseline"
+    )
+    lock = (
+        "Use the approved reference image as character reference with high identity fidelity. "
+        "Preserve the EXACT same anatomy, appendage count, markings, materials and palette in every frame. "
+        "Fixed camera, fixed scale, no camera motion, no in-frame screen translation. "
+        "Each pose including tail, wings and effects stays inside an equal 256x256 source cell, "
+        "at least 16 pixels of clear green separation between silhouettes, no touching frames. "
+        "No detached projectiles, enemies or environmental scenery. "
+        + baseline + ". Keep effects compact and attached; no particles below the feet or floating-body reference line. "
+        "Final death frame retains a few visible fragments, never a completely empty cell. "
+        "No magenta as a dominant accent."
+    )
+    lines = [f"## \u0060{visual_id}\u0060", "", f"**{spec['name']} — fiche de silhouette**", "",
+             f"- Silhouette : {spec['silhouette']}.",
+             "- Palette : " + " · ".join(spec["palette"]) + ".",
+             f"- Différence : {spec['distinct']}",
+             f"- Import prévu : hauteur {spec['height']} px × 0,75 = {spec['height'] * 0.75:g} unités monde ; "
+             + (f"flottement hover={spec['hover']}." if floating else "ancre au sol ; hover=0."), "",
+             "**Fiche de génération** : créer la référence en premier, puis joindre cette même référence validée "
+             "à chaque génération image-to-image. Réutiliser les cinq prompts ci-dessous sans changer la créature. "
+             "Vérifier le nombre exact de frames sur une seule rangée, la taille constante, les pieds alignés "
+             "(ou le bas du corps stable pour les volants), l’orientation droite, le fond vert uniforme, "
+             "l’absence de décor, d’ombre au sol et de texte. Ne pas déposer une planche de créatures différentes.", "",
+             "**Référence** : \u0060Single creature character reference, " + description
+             + ". Full body, resting pose, side view facing RIGHT, slight top-down 3/4 angle. "
+             + baseline + ". Include all appendages, generous clear margins, no other creatures, no contact sheet. "
+             + STYLE + ". Solid flat pure green background (#00D648), no ground shadow, no text, no frame. "
+             + "No magenta as a dominant accent.\u0060", ""]
+    for i, (name, frames) in enumerate(C8_ANIMS):
+        cycle = (" Seamless loop: the final pose connects naturally to the first, no abrupt reset."
+                 if name in ["idle", "move"] else " Clear anticipation, action and recovery.")
+        layout = LAYOUT.format(frames=frames).replace("feet on the same baseline, ", "")
+        prompt = (f"Pixel art sprite sheet of {description}. Animation: {spec['actions'][i]}.{cycle} "
+                  f"{layout}. {lock} EXACTLY {frames} equal cells in ONE row. "
+                  f"Use a wide canvas; if its aspect ratio is constrained, leave unused solid green above and below "
+                  f"the single row rather than wrapping to another row. {STYLE}.")
+        lines.append(f"- **{name}** ({frames} frames) : \u0060{prompt}\u0060")
+    lines += ["", "**Prompt négatif** : \u0060" + NEGATIVE
+              + ", magenta dominant accents, green gradient background, cast shadow, detached projectiles, "
+              "touching frames, missing frame, extra limb, mirrored orientation, changing anatomy, camera motion, "
+              "completely blank death frame\u0060", ""]
+    return [line.replace("\u0060", chr(96)) for line in lines]
+
+
 def main():
     lines = ["# Prompts de génération d'images", "",
              "Généré par `tools/art/prompts.py` à partir de la bible graphique (`docs/ART_BIBLE.md`).", "",
@@ -106,6 +173,9 @@ def main():
              f"**Style commun (à garder dans chaque prompt)** : {STYLE}.", "",
              f"**Prompt négatif (générateurs qui l'acceptent)** : {NEGATIVE}.", ""]
     for visual_id, category, size, description in ENTITIES:
+        if visual_id.startswith("monster.") and visual_id.split(".", 1)[1] in C8_ECHOS:
+            lines.extend(c8_section(visual_id))
+            continue
         lines.append(f"## `{visual_id}`")
         lines.append("")
         lines.append(f"**Référence** : `Character reference sheet, {description}. Single character, full body, side view facing "
@@ -118,7 +188,15 @@ def main():
         lines.append("")
     with open(OUT, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
-    print("écrit :", OUT, f"({len(ENTITIES)} visuels)")
+    focused = ["# C8 — prompts des 11 créatures", "",
+               "66 prompts : une référence et cinq animations par créature. "
+               "Lire [la fiche de génération](C8_GENERATION.md) avant de commencer.", ""]
+    for echo_id in C8_ECHOS:
+        focused.extend(c8_section("monster." + echo_id))
+    c8_out = os.path.join(HERE, "..", "..", "docs", "art", "C8_PROMPTS.md")
+    with open(c8_out, "w", encoding="utf-8") as f:
+        f.write("\n".join(focused))
+    print("écrit :", OUT, f"({len(ENTITIES)} visuels, dont {len(C8_ECHOS)} C8)")
 
 
 if __name__ == "__main__":

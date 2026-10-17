@@ -1,0 +1,67 @@
+{
+  "visual_id": "monster.mirrorling",
+  "cell": [
+    128,
+    112
+  ],
+  "anchor": [
+    64,
+    102
+  ],
+  "scale": 0.75,
+  "target_height": 56,
+  "keep_size": false,
+  "status": "wip",
+  "background": "#00D648",
+  "tolerance": 30,
+  "holes": 12,
+  "colors": 32,
+  "outline": true,
+  "flip": false,
+  "hover": 8,
+  "anchor_mode": "mass",
+  "despill": false,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "idle.png",
+      "frames": 8,
+      "fps": 8,
+      "loop": true,
+      "layout": "row"
+    },
+    {
+      "name": "move",
+      "source": "move.png",
+      "frames": 8,
+      "fps": 12,
+      "loop": true,
+      "layout": "row"
+    },
+    {
+      "name": "attack",
+      "source": "attack.png",
+      "frames": 7,
+      "fps": 16,
+      "loop": false,
+      "layout": "row"
+    },
+    {
+      "name": "technique",
+      "source": "technique.png",
+      "frames": 8,
+      "fps": 16,
+      "loop": false,
+      "layout": "row"
+    },
+    {
+      "name": "death",
+      "source": "death.png",
+      "frames": 8,
+      "fps": 10,
+      "loop": false,
+      "layout": "row"
+    }
+  ],
+  "aliases": {}
+}
