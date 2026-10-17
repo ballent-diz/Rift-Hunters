@@ -128,7 +128,7 @@ func _detail(p: ProfileData, monster: MonsterData) -> SkillCard:
 	card.show_entry({
 		"title": EchoTreeBoard.display_name(n, monster),
 		"accent": monster.visual.primary.lightened(0.4),
-		"icon": null,
+		"icon": EchoTreeBoard.node_icon(n),
 		"kind": tr(HunterTreeSkin.KIND_KEYS[n.kind]),
 		"state": EchoTreeBoard.state_text(p, n),
 		"state_color": HunterTreeSkin.GOLD if state == "active" else HunterTreeSkin.CYAN,

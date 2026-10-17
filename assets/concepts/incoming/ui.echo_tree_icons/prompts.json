@@ -1,0 +1,251 @@
+{
+  "generator": "imagegen intégré",
+  "reference": "docs/ART_BIBLE.md",
+  "icons": [
+    {
+      "node": "ashblade_might",
+      "echo": "ashblade",
+      "role": "might",
+      "prompt": "Use case: stylized-concept. Une seule illustration de compétence fantasy HD carrée pour Rift Hunters : une griffe-lame courbe de prédateur en obsidienne, parcourue de braises orange ambre et or, frappe une pierre fendue, symbolisant la puissance de Cendrelame. Illustration peinte très nette aux contours précis et ombres franches bleu nuit, accent lumineux ambre, silhouette forte lisible à 48–64 px. Sujet centré occupe 85%, marge transparente 8%, lumière haut gauche. Fond réellement transparent. Aucun cadre, texte, lettre, nombre, interface ou planche multiple. Pas de gros pixels ni de flou.",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_might/source/icon.png"
+    },
+    {
+      "node": "ashblade_focus",
+      "echo": "ashblade",
+      "role": "focus",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Cendrelame. Palette dominante : braise orange ambre, obsidienne et or. Motif matériel : lames courbes de prédateur en obsidienne parcourues de braises. Sujet à représenter : braise concentrée entre deux lames en cercle ouvert.",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_focus/source/icon.png"
+    },
+    {
+      "node": "ashblade_spell_base",
+      "echo": "ashblade",
+      "role": "spell_base",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Cendrelame. Palette dominante : braise orange ambre, obsidienne et or. Motif matériel : lames courbes de prédateur en obsidienne parcourues de braises. Sujet à représenter : six entailles incandescentes tournoyant autour d’une cible sombre.",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_spell_base/source/icon.png"
+    },
+    {
+      "node": "ashblade_spell_alt",
+      "echo": "ashblade",
+      "role": "spell_alt",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Cendrelame. Palette dominante : braise orange ambre, obsidienne et or. Motif matériel : lames courbes de prédateur en obsidienne parcourues de braises. Sujet à représenter : lame de cendres filant en une ruée rectiligne et traînée de feu.",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_spell_alt/source/icon.png"
+    },
+    {
+      "node": "ashblade_signature",
+      "echo": "ashblade",
+      "role": "signature",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Cendrelame. Palette dominante : braise orange ambre, obsidienne et or. Motif matériel : lames courbes de prédateur en obsidienne parcourues de braises. Sujet à représenter : deux lames ardentes croisées entourées de trois traînées de vitesse, frénésie.",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_signature/source/icon.png"
+    },
+    {
+      "node": "glimmerwing_might",
+      "echo": "glimmerwing",
+      "role": "might",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Lucivelle. Palette dominante : blanc cyan et bleu prismatique pâle. Motif matériel : ailes cristallines de luciole prismatique. Sujet à représenter : orbe prismatique éclatant en une frappe rayonnante.",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_might/source/icon.png"
+    },
+    {
+      "node": "glimmerwing_focus",
+      "echo": "glimmerwing",
+      "role": "focus",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Lucivelle. Palette dominante : blanc cyan et bleu prismatique pâle. Motif matériel : ailes cristallines de luciole prismatique. Sujet à représenter : petit cœur lumineux focalisé entre deux ailes de verre.",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_focus/source/icon.png"
+    },
+    {
+      "node": "glimmerwing_spell_base",
+      "echo": "glimmerwing",
+      "role": "spell_base",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Lucivelle. Palette dominante : blanc cyan et bleu prismatique pâle. Motif matériel : ailes cristallines de luciole prismatique. Sujet à représenter : marques prismatiques qui détonent en une étoile cristalline.",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_spell_base/source/icon.png"
+    },
+    {
+      "node": "glimmerwing_spell_alt",
+      "echo": "glimmerwing",
+      "role": "spell_alt",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Lucivelle. Palette dominante : blanc cyan et bleu prismatique pâle. Motif matériel : ailes cristallines de luciole prismatique. Sujet à représenter : pluie de petites étincelles et deux sceaux lumineux sur une cible.",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_spell_alt/source/icon.png"
+    },
+    {
+      "node": "glimmerwing_signature",
+      "echo": "glimmerwing",
+      "role": "signature",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Lucivelle. Palette dominante : blanc cyan et bleu prismatique pâle. Motif matériel : ailes cristallines de luciole prismatique. Sujet à représenter : prisme central et une constellation de marques supplémentaires.",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_signature/source/icon.png"
+    },
+    {
+      "node": "gloommaw_might",
+      "echo": "gloommaw",
+      "role": "might",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Gueule-d’ombre. Palette dominante : indigo bleu nuit, argent froid et ombre, sans magenta dominant. Motif matériel : mâchoires d’ombre et crocs argentés. Sujet à représenter : mâchoire d’ombre fermée sur une pierre fissurée.",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_might/source/icon.png"
+    },
+    {
+      "node": "gloommaw_focus",
+      "echo": "gloommaw",
+      "role": "focus",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Gueule-d’ombre. Palette dominante : indigo bleu nuit, argent froid et ombre, sans magenta dominant. Motif matériel : mâchoires d’ombre et crocs argentés. Sujet à représenter : œil sombre lumineux cerclé de deux crocs en concentration.",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_focus/source/icon.png"
+    },
+    {
+      "node": "gloommaw_spell_base",
+      "echo": "gloommaw",
+      "role": "spell_base",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Gueule-d’ombre. Palette dominante : indigo bleu nuit, argent froid et ombre, sans magenta dominant. Motif matériel : mâchoires d’ombre et crocs argentés. Sujet à représenter : gueule ouverte dévorant des silhouettes dissipées en brume.",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_spell_base/source/icon.png"
+    },
+    {
+      "node": "gloommaw_spell_alt",
+      "echo": "gloommaw",
+      "role": "spell_alt",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Gueule-d’ombre. Palette dominante : indigo bleu nuit, argent froid et ombre, sans magenta dominant. Motif matériel : mâchoires d’ombre et crocs argentés. Sujet à représenter : petit gouffre spiralé avec des crocs aspirant des fragments rocheux.",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_spell_alt/source/icon.png"
+    },
+    {
+      "node": "gloommaw_signature",
+      "echo": "gloommaw",
+      "role": "signature",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Gueule-d’ombre. Palette dominante : indigo bleu nuit, argent froid et ombre, sans magenta dominant. Motif matériel : mâchoires d’ombre et crocs argentés. Sujet à représenter : crocs d’ombre broyant un écusson de champion brisé, appétit.",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_signature/source/icon.png"
+    },
+    {
+      "node": "mirrorling_might",
+      "echo": "mirrorling",
+      "role": "might",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mirelle. Palette dominante : argent, bleu pervenche et blanc nacré. Motif matériel : éclats de miroir argenté bleuté. Sujet à représenter : éclat de miroir frappant une pierre en gerbe de verre.",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_might/source/icon.png"
+    },
+    {
+      "node": "mirrorling_focus",
+      "echo": "mirrorling",
+      "role": "focus",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mirelle. Palette dominante : argent, bleu pervenche et blanc nacré. Motif matériel : éclats de miroir argenté bleuté. Sujet à représenter : miroir ovale concentrant un petit point lumineux.",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_focus/source/icon.png"
+    },
+    {
+      "node": "mirrorling_spell_base",
+      "echo": "mirrorling",
+      "role": "spell_base",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mirelle. Palette dominante : argent, bleu pervenche et blanc nacré. Motif matériel : éclats de miroir argenté bleuté. Sujet à représenter : bouclier de miroir renvoyant un projectile selon une trajectoire inversée.",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_spell_base/source/icon.png"
+    },
+    {
+      "node": "mirrorling_spell_alt",
+      "echo": "mirrorling",
+      "role": "spell_alt",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mirelle. Palette dominante : argent, bleu pervenche et blanc nacré. Motif matériel : éclats de miroir argenté bleuté. Sujet à représenter : exactement cinq grands éclats de miroir en éventail lisible.",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_spell_alt/source/icon.png"
+    },
+    {
+      "node": "mirrorling_signature",
+      "echo": "mirrorling",
+      "role": "signature",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mirelle. Palette dominante : argent, bleu pervenche et blanc nacré. Motif matériel : éclats de miroir argenté bleuté. Sujet à représenter : cœur de miroir protégé par une seconde enveloppe argentée, vitalité.",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_signature/source/icon.png"
+    },
+    {
+      "node": "mossback_might",
+      "echo": "mossback",
+      "role": "might",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mousseroc. Palette dominante : vert mousse et menthe lumineuse, pierre gris ardoise. Motif matériel : roche de golem couverte de mousse. Sujet à représenter : poing rocheux moussu écrasant le sol.",
+      "source": "assets/concepts/incoming/icon.echo.mossback_might/source/icon.png"
+    },
+    {
+      "node": "mossback_focus",
+      "echo": "mossback",
+      "role": "focus",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mousseroc. Palette dominante : vert mousse et menthe lumineuse, pierre gris ardoise. Motif matériel : roche de golem couverte de mousse. Sujet à représenter : rune lumineuse focalisée dans une pierre ronde moussue.",
+      "source": "assets/concepts/incoming/icon.echo.mossback_focus/source/icon.png"
+    },
+    {
+      "node": "mossback_spell_base",
+      "echo": "mossback",
+      "role": "spell_base",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mousseroc. Palette dominante : vert mousse et menthe lumineuse, pierre gris ardoise. Motif matériel : roche de golem couverte de mousse. Sujet à représenter : puits de gravité vert aspirant trois roches vers son centre.",
+      "source": "assets/concepts/incoming/icon.echo.mossback_spell_base/source/icon.png"
+    },
+    {
+      "node": "mossback_spell_alt",
+      "echo": "mossback",
+      "role": "spell_alt",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mousseroc. Palette dominante : vert mousse et menthe lumineuse, pierre gris ardoise. Motif matériel : roche de golem couverte de mousse. Sujet à représenter : rempart rocheux moussu entouré d’ondes vertes de provocation.",
+      "source": "assets/concepts/incoming/icon.echo.mossback_spell_alt/source/icon.png"
+    },
+    {
+      "node": "mossback_signature",
+      "echo": "mossback",
+      "role": "signature",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Mousseroc. Palette dominante : vert mousse et menthe lumineuse, pierre gris ardoise. Motif matériel : roche de golem couverte de mousse. Sujet à représenter : bouclier d’écorce et mousse entourant une petite silhouette alliée.",
+      "source": "assets/concepts/incoming/icon.echo.mossback_signature/source/icon.png"
+    },
+    {
+      "node": "thornweave_might",
+      "echo": "thornweave",
+      "role": "might",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Ronceline. Palette dominante : vert feuille jade et or pâle, bois sombre. Motif matériel : ronces végétales et feuilles jade. Sujet à représenter : liane épineuse frappant une roche.",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_might/source/icon.png"
+    },
+    {
+      "node": "thornweave_focus",
+      "echo": "thornweave",
+      "role": "focus",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Ronceline. Palette dominante : vert feuille jade et or pâle, bois sombre. Motif matériel : ronces végétales et feuilles jade. Sujet à représenter : graine lumineuse concentrée entre deux feuilles en cercle.",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_focus/source/icon.png"
+    },
+    {
+      "node": "thornweave_spell_base",
+      "echo": "thornweave",
+      "role": "spell_base",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Ronceline. Palette dominante : vert feuille jade et or pâle, bois sombre. Motif matériel : ronces végétales et feuilles jade. Sujet à représenter : mur de ronces tressées aux grandes épines.",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_spell_base/source/icon.png"
+    },
+    {
+      "node": "thornweave_spell_alt",
+      "echo": "thornweave",
+      "role": "spell_alt",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Ronceline. Palette dominante : vert feuille jade et or pâle, bois sombre. Motif matériel : ronces végétales et feuilles jade. Sujet à représenter : fleur lumineuse au-dessus de racines encerclant deux pierres, soin et enracinement.",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_spell_alt/source/icon.png"
+    },
+    {
+      "node": "thornweave_signature",
+      "echo": "thornweave",
+      "role": "signature",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Ronceline. Palette dominante : vert feuille jade et or pâle, bois sombre. Motif matériel : ronces végétales et feuilles jade. Sujet à représenter : goutte de sève dorée dans un cœur de feuilles, régénération.",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_signature/source/icon.png"
+    },
+    {
+      "node": "voltwisp_might",
+      "echo": "voltwisp",
+      "role": "might",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Fulgurine. Palette dominante : or jaune électrique, blanc crème et bleu nuit. Motif matériel : étincelles de foudre dorée. Sujet à représenter : éclair massif frappant une roche.",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_might/source/icon.png"
+    },
+    {
+      "node": "voltwisp_focus",
+      "echo": "voltwisp",
+      "role": "focus",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Fulgurine. Palette dominante : or jaune électrique, blanc crème et bleu nuit. Motif matériel : étincelles de foudre dorée. Sujet à représenter : étincelle dense contenue entre deux arcs électriques.",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_focus/source/icon.png"
+    },
+    {
+      "node": "voltwisp_spell_base",
+      "echo": "voltwisp",
+      "role": "spell_base",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Fulgurine. Palette dominante : or jaune électrique, blanc crème et bleu nuit. Motif matériel : étincelles de foudre dorée. Sujet à représenter : tempête ionique, vortex de foudre dorée autour d’une cible.",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_spell_base/source/icon.png"
+    },
+    {
+      "node": "voltwisp_spell_alt",
+      "echo": "voltwisp",
+      "role": "spell_alt",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Fulgurine. Palette dominante : or jaune électrique, blanc crème et bleu nuit. Motif matériel : étincelles de foudre dorée. Sujet à représenter : éclair en zigzag rebondissant entre six petits noyaux sombres.",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_spell_alt/source/icon.png"
+    },
+    {
+      "node": "voltwisp_signature",
+      "echo": "voltwisp",
+      "role": "signature",
+      "prompt": "Use case: stylized-concept. Asset type: illustration d’une compétence pour Rift Hunters. Une seule icône carrée HD 512 px minimum. Illustration fantasy peinte avec contours précis, ombres franches indigo et touches lumineuses, même fini détaillé et silhouette forte que les icônes du Chasseur. Sujet unique centré, gros volumes immédiatement lisibles à 48–64 px, occupe environ 85% de la surface, marge transparente de 8%. Lumière haut gauche. Fond réellement transparent. Aucun cadre, aucun texte, aucune lettre, aucun nombre, aucune interface, aucune vignette multiple, aucun damier peint, pas de gros pixels visibles ni de flou. Écho : Fulgurine. Palette dominante : or jaune électrique, blanc crème et bleu nuit. Motif matériel : étincelles de foudre dorée. Sujet à représenter : long éclair traversant trois anneaux espacés en perspective, portée accrue.",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_signature/source/icon.png"
+    }
+  ]
+}
