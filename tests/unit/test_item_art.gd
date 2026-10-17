@@ -78,9 +78,9 @@ func test_undiscovered_relic_stays_hidden_in_bestiary() -> void:
 	Profile.profile = ProfileData.new()
 	var refuge: Refuge = load("res://scenes/refuge.tscn").instantiate()
 	host.add_child(refuge)
-	refuge.tabs.current_tab = 2
+	refuge.tabs.current_tab = 3
 	await host.get_tree().process_frame
-	var bestiary: RefugeTab = refuge.tabs.get_child(2)
+	var bestiary: RefugeTab = refuge.tabs.get_child(3)
 	bestiary._show("relic:cracked_hourglass")
 	check(not bestiary._portrait_host.visible, "relique inconnue sans illustration")
 	Profile.profile.discover("relics", "cracked_hourglass")

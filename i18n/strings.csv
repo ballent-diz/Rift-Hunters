@@ -986,3 +986,93 @@ AFFINITY_PREDATOR_NAME,Prédateur,Predator
 AFFINITY_GUARDIAN_NAME,Gardien,Guardian
 BESTIARY_AFFINITIES,Affinités : %s,Affinities: %s
 BESTIARY_SYNERGY_AFFINITY,%d Échos : %s,%d Echoes: %s
+TECHNIQUE_CINDER_DASH_NAME,Lame de cendres,Cinder Blade
+TECHNIQUE_CINDER_DASH_DESC,Fonce jusqu'au curseur en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the cursor, slashing everything in its path and inflicting Burn."
+ECHO_NODE_ASHBLADE_MIGHT_NAME,Puissance,Might
+ECHO_NODE_ASHBLADE_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_ASHBLADE_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_ASHBLADE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_ASHBLADE_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_ASHBLADE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_ASHBLADE_SPELL_ALT_NAME,Lame de cendres,Cinder Blade
+ECHO_NODE_ASHBLADE_SPELL_ALT_DESC,Fonce jusqu'au curseur en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the cursor, slashing everything in its path and inflicting Burn."
+ECHO_NODE_ASHBLADE_SIGNATURE_NAME,Frénésie,Frenzy
+ECHO_NODE_ASHBLADE_SIGNATURE_DESC,Vitesse d'attaque de Cendrelame +20 %.,Ashblade attack speed +20%.
+TECHNIQUE_STONE_TAUNT_NAME,Rempart de mousse,Moss Rampart
+TECHNIQUE_STONE_TAUNT_DESC,Provoque et ralentit les ennemis autour du curseur pendant 3 s.,Taunts and slows enemies around the cursor for 3 s.
+ECHO_NODE_MOSSBACK_MIGHT_NAME,Puissance,Might
+ECHO_NODE_MOSSBACK_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_MOSSBACK_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_MOSSBACK_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_MOSSBACK_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_MOSSBACK_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_MOSSBACK_SPELL_ALT_NAME,Rempart de mousse,Moss Rampart
+ECHO_NODE_MOSSBACK_SPELL_ALT_DESC,Provoque et ralentit les ennemis autour du curseur pendant 3 s.,Taunts and slows enemies around the cursor for 3 s.
+ECHO_NODE_MOSSBACK_SIGNATURE_NAME,Écorce,Bark
+ECHO_NODE_MOSSBACK_SIGNATURE_DESC,Dégâts subis par le Chasseur −6 %.,Damage taken by the Hunter −6%.
+TECHNIQUE_SPARK_RAIN_NAME,Pluie d'étincelles,Spark Rain
+TECHNIQUE_SPARK_RAIN_DESC,Pose 2 Marques sur les ennemis autour du curseur.,Applies 2 Marks to enemies around the cursor.
+ECHO_NODE_GLIMMERWING_MIGHT_NAME,Puissance,Might
+ECHO_NODE_GLIMMERWING_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_GLIMMERWING_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_GLIMMERWING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_GLIMMERWING_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_GLIMMERWING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_GLIMMERWING_SPELL_ALT_NAME,Pluie d'étincelles,Spark Rain
+ECHO_NODE_GLIMMERWING_SPELL_ALT_DESC,Pose 2 Marques sur les ennemis autour du curseur.,Applies 2 Marks to enemies around the cursor.
+ECHO_NODE_GLIMMERWING_SIGNATURE_NAME,Prisme,Prism
+ECHO_NODE_GLIMMERWING_SIGNATURE_DESC,Marques : cumul maximal +1.,Marks: max stacks +1.
+TECHNIQUE_BLOOM_NAME,Floraison,Bloom
+TECHNIQUE_BLOOM_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du curseur.,Heals the Hunter for 10% of max HP and roots enemies around the cursor.
+ECHO_NODE_THORNWEAVE_MIGHT_NAME,Puissance,Might
+ECHO_NODE_THORNWEAVE_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_THORNWEAVE_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_THORNWEAVE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_THORNWEAVE_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_THORNWEAVE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_THORNWEAVE_SPELL_ALT_NAME,Floraison,Bloom
+ECHO_NODE_THORNWEAVE_SPELL_ALT_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du curseur.,Heals the Hunter for 10% of max HP and roots enemies around the cursor.
+ECHO_NODE_THORNWEAVE_SIGNATURE_NAME,Sève,Sap
+ECHO_NODE_THORNWEAVE_SIGNATURE_DESC,"Régénération du Chasseur +0,4 PV/s.",Hunter regeneration +0.4 HP/s.
+TECHNIQUE_CHAIN_ARC_NAME,Arc chaîné,Chain Arc
+TECHNIQUE_CHAIN_ARC_DESC,Éclair qui part de l'ennemi le plus proche du curseur et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the cursor and bounces through 6 enemies, electrifying them."
+ECHO_NODE_VOLTWISP_MIGHT_NAME,Puissance,Might
+ECHO_NODE_VOLTWISP_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_VOLTWISP_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_VOLTWISP_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_VOLTWISP_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_VOLTWISP_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_VOLTWISP_SPELL_ALT_NAME,Arc chaîné,Chain Arc
+ECHO_NODE_VOLTWISP_SPELL_ALT_DESC,Éclair qui part de l'ennemi le plus proche du curseur et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the cursor and bounces through 6 enemies, electrifying them."
+ECHO_NODE_VOLTWISP_SIGNATURE_NAME,Portée,Reach
+ECHO_NODE_VOLTWISP_SIGNATURE_DESC,Portée d'attaque de Fulgurine +20 %.,Voltwisp attack range +20%.
+TECHNIQUE_MAW_PIT_NAME,Gouffre,Maw Pit
+TECHNIQUE_MAW_PIT_DESC,"Petit puits du Vide au curseur qui aspire les ennemis, les mord et les Fracture.","A small Void well at the cursor that pulls enemies in, bites and Fractures them."
+ECHO_NODE_GLOOMMAW_MIGHT_NAME,Puissance,Might
+ECHO_NODE_GLOOMMAW_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_GLOOMMAW_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_GLOOMMAW_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_GLOOMMAW_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_GLOOMMAW_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_GLOOMMAW_SPELL_ALT_NAME,Gouffre,Maw Pit
+ECHO_NODE_GLOOMMAW_SPELL_ALT_DESC,"Petit puits du Vide au curseur qui aspire les ennemis, les mord et les Fracture.","A small Void well at the cursor that pulls enemies in, bites and Fractures them."
+ECHO_NODE_GLOOMMAW_SIGNATURE_NAME,Appétit,Appetite
+ECHO_NODE_GLOOMMAW_SIGNATURE_DESC,Dégâts contre les élites et le boss +10 %.,Damage against elites and the boss +10%.
+TECHNIQUE_MIRROR_SHARDS_NAME,Éclats miroirs,Mirror Shards
+TECHNIQUE_MIRROR_SHARDS_DESC,Projette 5 éclats en éventail vers le curseur.,Throws 5 shards in a fan toward the cursor.
+ECHO_NODE_MIRRORLING_MIGHT_NAME,Puissance,Might
+ECHO_NODE_MIRRORLING_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_MIRRORLING_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_MIRRORLING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_MIRRORLING_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_MIRRORLING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_MIRRORLING_SPELL_ALT_NAME,Éclats miroirs,Mirror Shards
+ECHO_NODE_MIRRORLING_SPELL_ALT_DESC,Projette 5 éclats en éventail vers le curseur.,Throws 5 shards in a fan toward the cursor.
+ECHO_NODE_MIRRORLING_SIGNATURE_NAME,Reflet,Reflection
+ECHO_NODE_MIRRORLING_SIGNATURE_DESC,+15 PV max.,+15 max HP.
+TAB_ECHOES,Échos,Echoes
+ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (1 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (1, 2, 3). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (1 + mastery level). One spell equipped per Echo, cast with its key (1, 2, 3). Activations are saved in the Hunter's active build."
+ECHO_TREE_POINTS,Points d'Écho : %d / %d,Echo Points: %d / %d
+ECHO_TREE_EQUIPPED,Sort équipé : %s,Equipped spell: %s
+ECHO_TREE_LOCKED,Écho pas encore débloqué.,Echo not unlocked yet.
+ECHO_TREE_ERR_POINTS,Pas assez de Points d'Écho (montez le niveau de maîtrise de cet Écho).,Not enough Echo Points (raise this Echo's mastery level).

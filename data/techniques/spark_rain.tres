@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TechniqueData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="2"]
+
+[sub_resource type="Resource" id="status_application_1"]
+script = ExtResource("2")
+status_id = &"mark"
+stacks = 2
+
+[resource]
+script = ExtResource("1")
+id = &"spark_rain"
+technique_kind = &"spark_rain"
+name_key = "TECHNIQUE_SPARK_RAIN_NAME"
+desc_key = "TECHNIQUE_SPARK_RAIN_DESC"
+cooldown = 9.0
+damage = 8.0
+radius = 160.0
+duration = 0.0
+count = 1
+statuses = Array[ExtResource("2")]([SubResource("status_application_1")])
+params = {}

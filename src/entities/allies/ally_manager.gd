@@ -46,6 +46,10 @@ func add_monster(id: StringName, rank: int = 1, use_variant: bool = false) -> Al
 	ally.slot_index = team.size()
 	add_child(ally)
 	ally.setup(ctx, data, clampi(rank, 1, ctx.balance.ally_rank_max))
+	var chosen: TechniqueData = ctx.setup.echo_techniques.get(id)
+	if chosen:
+		ally.technique = chosen
+		ally.technique_locked = true
 	ally.global_position = ctx.player.global_position + Vector2(30, 0).rotated(team.size() * 2.0)
 	team.append(ally)
 	for effect: GameplayEffect in data.passive_effects:

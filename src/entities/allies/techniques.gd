@@ -2,6 +2,10 @@ class_name Techniques
 extends RefCounted
 ## Techniques actives (touches 1-2-3). technique_kind (données) → fonction de code.
 
+## Portée de visée des seconds sorts des Échos (depuis le Chasseur).
+const AIM_RANGE := 450.0
+
+
 static func cast(ally: Ally, ctx: RunContext, aim: Vector2) -> bool:
 	var tech: TechniqueData = ally.technique
 	if tech == null:
@@ -22,6 +26,21 @@ static func cast(ally: Ally, ctx: RunContext, aim: Vector2) -> bool:
 			ok = _feast(ally, ctx, tech)
 		&"reflection":
 			ok = _reflection(ally, ctx, tech)
+		&"cinder_dash":
+			ok = _cinder_dash(ally, ctx, tech, aim)
+		&"stone_taunt":
+			ok = _stone_taunt(ally, ctx, tech, aim)
+		&"spark_rain":
+			ok = _area_strike(ally, ctx, tech, aim, Color(1.0, 1.0, 0.7))
+		&"bloom":
+			ctx.player.heal(ctx.player.max_hp * float(tech.params.get("heal", 0.1)))
+			ok = _area_strike(ally, ctx, tech, aim, Color(0.5, 1.0, 0.5))
+		&"chain_arc":
+			ok = _chain_arc(ally, ctx, tech, aim)
+		&"maw_pit":
+			ok = _maw_pit(ally, ctx, tech, aim)
+		&"mirror_shards":
+			ok = _mirror_shards(ally, ctx, tech, aim)
 		_:
 			push_error("Technique inconnue : %s" % tech.technique_kind)
 	if ok:
@@ -138,4 +157,93 @@ static func _reflection(ally: Ally, ctx: RunContext, tech: TechniqueData) -> boo
 	ally.memory["reflect_until"] = ctx.time + tech.duration
 	ally.memory["reflect_radius"] = tech.radius
 	ctx.fx.ring(ctx.player.global_position, tech.radius, Color(0.85, 0.95, 1.0, 0.7), tech.duration)
+	return true
+
+
+# --- Seconds sorts des Échos (arbres des Échos, docs/design/ARBRES_DES_ECHOS.md)
+
+## Point visé, ramené à portée du Chasseur.
+static func _aim_point(ctx: RunContext, aim: Vector2, max_range: float = AIM_RANGE) -> Vector2:
+	var origin: Vector2 = ctx.player.global_position
+	return origin + (aim - origin).limit_length(max_range)
+
+
+static func _info(ally: Ally, tech: TechniqueData) -> DamageInfo:
+	var info: DamageInfo = ally.make_info(tech.damage, [DamageInfo.TAG_TECHNIQUE])
+	info.statuses = tech.statuses
+	return info
+
+
+## Lame de cendres : l'Écho fonce jusqu'au curseur et tranche tout sur son passage.
+static func _cinder_dash(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var from: Vector2 = ally.global_position
+	var to: Vector2 = ctx.obstacles.push_out(_aim_point(ctx, aim, float(tech.params.get("range", 360.0))), 14.0)
+	var middle: Vector2 = (from + to) * 0.5
+	for enemy: Enemy in ctx.enemies.query_radius(middle, from.distance_to(to) * 0.5 + tech.radius):
+		var closest: Vector2 = Geometry2D.get_closest_point_to_segment(enemy.global_position, from, to)
+		if closest.distance_to(enemy.global_position) <= tech.radius + enemy.radius:
+			ctx.combat.deal_damage(enemy, _info(ally, tech))
+	ctx.fx.line(from, to, Color(1.0, 0.55, 0.25), 8.0, 0.3)
+	ally.global_position = to
+	return true
+
+
+## Rempart de mousse : l'Écho se plante au curseur, provoque et ralentit les ennemis proches.
+static func _stone_taunt(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var center: Vector2 = ctx.obstacles.push_out(_aim_point(ctx, aim), 14.0)
+	ally.global_position = center
+	for enemy: Enemy in ctx.enemies.query_radius(center, tech.radius):
+		if enemy.is_boss:
+			continue
+		enemy.taunt_target = ally
+		enemy.taunt_time = tech.duration
+		for application: StatusApplication in tech.statuses:
+			ctx.status_system.apply(enemy, application.status_id, application.stacks, ally.data.id)
+	ctx.fx.ring(center, tech.radius, Color(0.6, 0.9, 0.5, 0.7), 0.4)
+	return true
+
+
+## Zone au curseur : dégâts et statuts (Pluie d'étincelles, Floraison).
+static func _area_strike(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2, color: Color) -> bool:
+	var center: Vector2 = _aim_point(ctx, aim)
+	for enemy: Enemy in ctx.enemies.query_radius(center, tech.radius):
+		ctx.combat.deal_damage(enemy, _info(ally, tech))
+	ctx.fx.burst(center, tech.radius, Color(color, 0.4))
+	return true
+
+
+## Arc chaîné : l'éclair part de l'ennemi le plus proche du curseur et rebondit.
+static func _chain_arc(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var target: Enemy = ctx.enemies.find_nearest(_aim_point(ctx, aim), tech.radius)
+	if target == null:
+		return false
+	var hit: Dictionary = {}
+	var previous: Vector2 = ally.global_position
+	for i: int in tech.count:
+		hit[target.get_instance_id()] = true
+		ctx.fx.line(previous, target.global_position, Color(1.0, 0.95, 0.5), 3.0, 0.25)
+		previous = target.global_position
+		ctx.combat.deal_damage(target, _info(ally, tech))
+		target = ctx.enemies.find_nearest(previous, 180.0, hit)
+		if target == null:
+			break
+	return true
+
+
+## Gouffre : petit puits du Vide qui aspire puis mord (Fracture).
+static func _maw_pit(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	ctx.hazards.add_well(_aim_point(ctx, aim), tech.radius, tech.duration, float(tech.params.get("pull", 240.0)),
+		_info(ally, tech), ally.data.id)
+	return true
+
+
+## Éclats miroirs : éventail d'éclats vers le curseur.
+static func _mirror_shards(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var origin: Vector2 = ally.global_position
+	var dir: Vector2 = (aim - origin).normalized() if aim.distance_to(origin) > 4.0 else Vector2.RIGHT
+	var spread: float = float(tech.params.get("spread", 0.5))
+	for i: int in tech.count:
+		var angle: float = (i - (tech.count - 1) * 0.5) * spread / maxf(tech.count - 1, 1)
+		ctx.projectiles.spawn_friendly(origin, dir.rotated(angle), float(tech.params.get("speed", 620.0)),
+			_info(ally, tech), {"pierce": 1, "radius": tech.radius, "life": 0.9, "color": Color(0.85, 0.95, 1.0)})
 	return true

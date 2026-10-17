@@ -68,7 +68,7 @@ static func learn(profile: ProfileData, node: SkillNodeData) -> bool:
 
 static func default_build() -> Dictionary:
 	return {"name": "", "nodes": {"blade_cleaving_slash": 1, "prism_prismatic_lance": 1},
-		"spells": DEFAULT_SPELLS.duplicate()}
+		"spells": DEFAULT_SPELLS.duplicate(), "echoes": {}}
 
 
 ## Builds du profil, complétés si la sauvegarde est incomplète ou abîmée.
@@ -88,6 +88,8 @@ static func builds(profile: ProfileData) -> Array:
 			(build["spells"] as Array).append("")
 		if not build.has("name"):
 			build["name"] = ""
+		if not (build.get("echoes") is Dictionary):
+			build["echoes"] = {}
 	while list.size() < BUILD_COUNT:
 		list.append(default_build())
 	if migrated:
@@ -277,6 +279,8 @@ static func unlock_all_for_testing(profile: ProfileData) -> void:
 	for id: StringName in GameDB.skill_nodes:
 		var node: SkillNodeData = GameDB.skill_nodes[id]
 		profile.set_tree_rank(id, node.max_rank())
+	for id: StringName in GameDB.echo_nodes:
+		profile.set_tree_rank(id, (GameDB.echo_nodes[id] as SkillNodeData).max_rank())
 	profile.data["runs"]["won"] = maxi(boss_wins(profile), 3)
 	profile.data["hunter"]["test_points"] = 200
 	profile.add_currency("shards", 10000)

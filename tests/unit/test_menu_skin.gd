@@ -20,16 +20,16 @@ func test_refuge_keeps_all_tabs_and_hides_unknown_portraits() -> void:
 	_refuge = load("res://scenes/refuge.tscn").instantiate()
 	host.add_child(_refuge)
 	await host.get_tree().process_frame
-	check_eq(_refuge.tabs.get_tab_count(), 7, "les sept onglets existants")
+	check_eq(_refuge.tabs.get_tab_count(), 8, "les huit onglets (dont Échos)")
 	for i: int in 7:
 		_refuge.tabs.current_tab = i
 		await host.get_tree().process_frame
 		await host.get_tree().process_frame
 		check(_refuge.tabs.get_child(i).get_child_count() > 0, "onglet construit : %d" % i)
 		check(_refuge.tabs.position.x + _refuge.tabs.size.x <= _refuge.size.x + 1, "onglet sans débordement : %d" % i)
-	_refuge.tabs.current_tab = 2
+	_refuge.tabs.current_tab = 3
 	await host.get_tree().process_frame
-	var bestiary: RefugeTab = _refuge.tabs.get_child(2)
+	var bestiary: RefugeTab = _refuge.tabs.get_child(3)
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
 		bestiary._show("monster:" + String(id))
 		var known: bool = Profile.profile.is_monster_unlocked(GameDB.monster(id))

@@ -39,7 +39,8 @@ func test_data_keys_are_translated() -> void:
 	var missing: PackedStringArray = []
 	for collection: Dictionary in [GameDB.monsters, GameDB.enemies, GameDB.affixes, GameDB.bosses, GameDB.statuses,
 			GameDB.upgrades, GameDB.relics, GameDB.synergies, GameDB.arenas, GameDB.difficulties, GameDB.skill_branches,
-			GameDB.skill_nodes, GameDB.objectives, GameDB.research, GameDB.spells]:
+			GameDB.skill_nodes, GameDB.objectives, GameDB.research, GameDB.spells,
+			GameDB.echo_nodes, GameDB.techniques]:
 		for id: StringName in collection:
 			_collect_missing(collection[id], missing, {})
 	check(missing.is_empty(), "clés de données sans traduction : %s" % ", ".join(missing))

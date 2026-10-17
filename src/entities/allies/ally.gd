@@ -20,6 +20,8 @@ var affinities: Array[StringName] = []
 var slot_index: int = 0
 var attack_cd: float = 0.5
 var technique_cd: float = 0.0
+## Sort choisi dans l'arbre de l'Écho : une évolution ne le remplace pas.
+var technique_locked: bool = false
 var velocity := Vector2.ZERO
 ## Mémoire du comportement (état, cible, minuteries).
 var memory: Dictionary = {}
@@ -37,6 +39,7 @@ func setup(p_ctx: RunContext, p_data: MonsterData, p_rank: int) -> void:
 	stats.set_base(StatKeys.DAMAGE, 1.0)
 	stats.set_base(StatKeys.ATTACK_SPEED, 1.0)
 	stats.set_base(StatKeys.ALLY_RANGE, 1.0)
+	stats.set_base(StatKeys.TECHNIQUE_COOLDOWN, 1.0)
 	affinities = data.affinities.duplicate()
 	attack = data.attack
 	technique = data.technique
@@ -53,7 +56,7 @@ func apply_modifier(evo: EvolutionData) -> void:
 		memory.clear()
 	if evo.attack:
 		attack = evo.attack
-	if evo.technique:
+	if evo.technique and not technique_locked:
 		technique = evo.technique
 	_mult_damage *= evo.damage_mult
 	_mult_speed *= evo.attack_speed_mult
@@ -95,7 +98,10 @@ func attack_range() -> float:
 
 
 func technique_cooldown() -> float:
-	return technique.cooldown * ctx.player.stats.get_value(StatKeys.TECHNIQUE_COOLDOWN) if technique else 0.0
+	if technique == null:
+		return 0.0
+	return technique.cooldown * ctx.player.stats.get_value(StatKeys.TECHNIQUE_COOLDOWN) \
+		* maxf(stats.get_value(StatKeys.TECHNIQUE_COOLDOWN), 0.2)
 
 
 func make_info(amount: float, tags: Array[StringName]) -> DamageInfo:

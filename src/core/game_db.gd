@@ -21,6 +21,9 @@ var objectives: Dictionary = {}
 var research: Dictionary = {}
 var modifiers: Dictionary = {}
 var spells: Dictionary = {}
+## Arbres des Échos (nœuds, branch = identifiant de l'Écho) et seconds sorts des Échos (lot C3).
+var echo_nodes: Dictionary = {}
+var techniques: Dictionary = {}
 var load_errors: PackedStringArray = []
 
 
@@ -50,6 +53,8 @@ func load_all() -> void:
 	research = _load_dir("progression/research")
 	modifiers = _load_dir("modifiers")
 	spells = _load_dir("spells")
+	echo_nodes = _load_dir("progression/echo_tree")
+	techniques = _load_dir("techniques")
 	for error: String in load_errors:
 		push_error("GameDB : " + error)
 

@@ -141,7 +141,12 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	setup.spell_variants = loadout["variants"]
 	for id: StringName in unlocked:
 		var monster: MonsterData = GameDB.monster(id)
-		setup.monster_meta_effects[id] = Mastery.effects_for(profile, monster)
+		var effects: Array[GameplayEffect] = Mastery.effects_for(profile, monster)
+		effects.append_array(EchoTree.effects_for(profile, monster.id))
+		setup.monster_meta_effects[id] = effects
+		var technique: TechniqueData = EchoTree.chosen_technique(profile, monster.id)
+		if technique:
+			setup.echo_techniques[id] = technique
 		var entry: Dictionary = profile.mastery_entry(id)
 		var palette: Array = Mastery.palette(profile, monster)
 		if bool(entry.get("use_palette", false)) and palette.size() == 2:

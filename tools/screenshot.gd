@@ -92,8 +92,8 @@ func _ready() -> void:
 				if selection.begins_with("relic:"):
 					Profile.profile.discover("relics", selection.get_slice(":", 1))
 				screen.tabs.current_tab = clampi(tab, 0, screen.tabs.get_tab_count() - 1)
-				if selection != "" and tab == 2:
-					(screen.tabs.get_child(2) as RefugeTab)._show(selection)
+				if selection != "" and tab == 3:
+					(screen.tabs.get_child(3) as RefugeTab)._show(selection)
 			elif menu == "credits":
 				screen._show_credits()
 		await get_tree().create_timer(0.5).timeout
