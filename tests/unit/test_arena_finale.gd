@@ -40,8 +40,10 @@ func test_finale_requires_clear_then_arrival_and_keeps_echoes() -> void:
 	ctx.player.position = ctx.arena.finale_center + Vector2(-800, 0)
 	ctx.finale.enforce_boundary()
 	check(ctx.finale.contains(ctx.player.position, ctx.player.radius), "sortie infranchissable")
+	ctx.time += 42.0
 	ctx.events.boss_defeated.emit(boss)
 	check(not ctx.finale.closed(), "barrière levée après victoire")
+	check_near(ctx.stats.get_value(&"boss_fight_time"), 42.0, 0.01, "durée du combat mesurée (objectifs de carte)")
 	RunFixture.dispose(run)
 
 func test_other_arenas_keep_timed_boss() -> void:

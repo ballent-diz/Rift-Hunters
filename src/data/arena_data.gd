@@ -32,6 +32,7 @@ extends Resource
 @export var decor_density: float = 1.0
 @export var ground_color: Color = Color(0.11, 0.12, 0.18)
 @export var ground_detail_color: Color = Color(0.16, 0.17, 0.25)
+## Arènes hors campagne seulement : les cartes d'un chapitre se débloquent en avançant (Campaign).
 @export var unlocked_by_default: bool = true
 ## Obstacles présents dès le début : {identifiant d'ennemi STATIC: nombre}.
 @export var start_obstacles: Dictionary = {}

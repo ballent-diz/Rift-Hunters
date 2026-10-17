@@ -45,20 +45,37 @@ Décision du 16 octobre 2026 : **un jeu plus court, très rejouable**.
 
 ## Contenu actuel
 
-| Carte | Rôle |
-|---|---|
-| Ruines des Cascades (`three_rifts`) | Chapitre 1, carte finale (zones puis Nébulorax) — premier niveau en vagues par zone |
-| Plaine fracturée (`fractured_plain`) | Mode Survie, hors campagne |
+| Chapitre | Carte | Rôle |
+|---|---|---|
+| 1 — Le Val des Cascades | Ruines des Cascades (`three_rifts`) | Carte finale (zones puis Nébulorax) — premier niveau en vagues par zone |
+| 2 — Les Hautes Terres | Hautes Terres d'Orage (`storm_highlands`) | Carte finale (Astravorn) ; la gagner termine la campagne actuelle et débloque le Cauchemar |
+| Hors campagne | Plaine fracturée (`fractured_plain`) | Mode Survie, toujours accessible |
 
-Les cartes suivantes du chapitre 1 et le chapitre 2 (cartes colorées) restent à produire.
+Noms des chapitres provisoires. Les autres cartes des chapitres 1 et 2 restent à produire (lot B3) : il suffit de les
+ajouter à la liste `maps` du chapitre, dans l'ordre.
 
-## Conception technique (prévue)
+## Réalisation (lot B1, 17 octobre 2026)
 
-- Données : une ressource **chapitre** (liste ordonnée de cartes, Dévoreur, ambiance) et, par carte,
-  son **mode**, ses **3 objectifs**, ses récompenses (première victoire / suivantes).
-- Sauvegarde : cartes débloquées, objectifs obtenus, Cauchemar débloqué et meilleur score de Pacte par carte (migration du profil
-  versionné ; les arènes déjà débloquées restent débloquées).
-- Refuge : l'onglet Expédition devient une sélection chapitre → carte, avec les objectifs visibles.
+- **Données** : un fichier par chapitre dans `data/chapters/` (`ChapterData` : rang, nom, couleur d'ambiance, cartes
+  dans l'ordre). Chaque carte (`CampaignMapData`) nomme son arène, sa prime de première victoire (Normal / Cauchemar)
+  et ses 3 + 3 objectifs (`MapObjectiveData` : compteur de partie, seuil « au moins » ou « au plus », Éclats). Le mode
+  de jeu et le Dévoreur restent ceux de l'arène. Les fichiers d'arène ne changent pas.
+- **Règles** : `src/progression/campaign.gd`. La première carte est ouverte ; gagner une carte en Normal ouvre la
+  suivante (et annonce le nouveau chapitre) ; gagner la dernière carte débloque le Cauchemar sur toutes les cartes.
+  Les arènes hors chapitre (Survie) gardent leur réglage `unlocked_by_default`.
+- **Objectifs de carte** : évalués sur une victoire dans la difficulté jouée ; chacun rapporte des Éclats et compte
+  pour les Points de Chasseur (avec les objectifs du jeu : +1 point tous les 3).
+- **Récompenses** : prime de première victoire (150 / 250 Éclats aux Ruines, 200 / 300 aux Hautes Terres), puis
+  récompenses de partie ×0,8 par victoire déjà obtenue dans la difficulté, plancher ×0,4
+  (`balance_config` : `map_repeat_decay`, `map_repeat_floor`). En Cauchemar, battre son meilleur score de Pacte rend le
+  plein tarif. Score de Pacte provisoire : nombre de pactes choisis (lot D3).
+- **Première victoire en Cauchemar** sur une carte : +1 Point de Chasseur, comme la première victoire en Normal.
+- **Sauvegarde v3** : section `campaign` (victoires et objectifs par carte et difficulté, meilleur Pacte, Cauchemar
+  débloqué). Migration : les cartes déjà gagnées comptent une victoire en Normal ; elles et la dernière arène choisie
+  restent débloquées ; une préférence de Tension devient Normal.
+- **Refuge** : l'onglet Expédition propose Normal / Cauchemar et liste les cartes par chapitre (verrouillées en grisé,
+  objectifs obtenus « ★ n/3 » et détail en infobulle), puis la Survie. Les pactes n'apparaissent qu'en Cauchemar.
+  L'interface définitive (chapitre → carte, objectifs visibles) est le lot B2.
 
 ## Questions ouvertes
 

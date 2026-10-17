@@ -112,12 +112,12 @@ func test_capture_recruits_and_records() -> void:
 
 
 func test_modifiers_raise_difficulty_and_rewards() -> void:
-	var base: DifficultyData = GameDB.difficulty(&"tension_2")
+	var base: DifficultyData = GameDB.difficulty(&"nightmare")
 	var mods: Array[StringName] = [&"horde", &"heavy_rift"]
 	var combined: DifficultyData = RunController.combine_difficulty(base, mods)
 	check(combined.spawn_rate_mult > base.spawn_rate_mult and combined.enemy_hp_mult > base.enemy_hp_mult, "plus difficile")
 	check_near(combined.reward_mult, base.reward_mult * 1.5, 0.001, "récompenses +50 %")
-	check_near(base.spawn_rate_mult, 1.2, 0.001, "la Tension d'origine n'est pas modifiée")
+	check_near(base.spawn_rate_mult, 1.25, 0.001, "la difficulté d'origine n'est pas modifiée")
 
 
 func test_glass_hunter_reduces_hp() -> void:

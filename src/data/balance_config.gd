@@ -69,6 +69,9 @@ extends Resource
 @export var chest_break_shards: int = 20
 @export var chest_break_heal_ratio: float = 0.3
 @export var relic_choices: int = 3
+## Récompenses dégressives d'une carte de campagne déjà gagnée : ×decay par victoire dans la difficulté, plancher floor.
+@export var map_repeat_decay: float = 0.8
+@export var map_repeat_floor: float = 0.4
 @export_group("Capture (Rite de lien)")
 ## Chance qu'une élite laisse un Écho errant.
 @export var capture_chance: float = 0.3

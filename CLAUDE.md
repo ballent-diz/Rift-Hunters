@@ -23,7 +23,7 @@ Aucun lien avec une licence existante : noms, créatures, visuels et mécaniques
 ```bash
 tools/run_tests.sh            # import + scripts + tests unitaires + persistance + assets + outils art + partie bot + lint
 tools/run_tests.sh unit       # tests unitaires seulement (aussi : scripts, persistence, assets, art, smoke, lint)
-tools/balance_sim.sh "mossback ashblade" "fractured_plain" "tension_0" 2   # campagne d'équilibrage (META=veteran)
+tools/balance_sim.sh "mossback ashblade" "fractured_plain" "normal" 2   # campagne d'équilibrage (META=veteran)
 godot --headless --import --path .     # (ré)importer : OBLIGATOIRE après ajout d'un class_name ou d'une traduction
 godot --path .                         # lancer le jeu (nécessite un affichage)
 godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter=ashblade --arena=three_rifts

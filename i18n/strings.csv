@@ -205,14 +205,6 @@ ARENA_FRACTURED_PLAIN_DESC,Une plaine morte zébrée de failles. Nébulorax y r�
 EVENT_SWARM_RING,Une nuée vous encercle !,A swarm surrounds you!
 EVENT_UNSTABLE_RIFT,La Faille devient instable !,The Rift grows unstable!
 EVENT_ELITE_HUNT,Des élites traquent votre piste !,Elites are tracking you!
-DIFFICULTY_TENSION_0_NAME,Tension 0,Tension 0
-DIFFICULTY_TENSION_0_DESC,La Faille telle quelle.,The Rift as it is.
-DIFFICULTY_TENSION_1_NAME,Tension I,Tension I
-DIFFICULTY_TENSION_1_DESC,"Ennemis plus robustes, élites plus fréquentes. Récompenses ×1,3.","Tougher enemies, more frequent elites. Rewards ×1.3."
-DIFFICULTY_TENSION_2_NAME,Tension II,Tension II
-DIFFICULTY_TENSION_2_DESC,"Les élites portent deux affixes, les vagues sont plus denses. Récompenses ×1,6.","Elites carry two affixes, waves are denser. Rewards ×1.6."
-DIFFICULTY_TENSION_3_NAME,Tension III,Tension III
-DIFFICULTY_TENSION_3_DESC,"Ennemis plus rapides, le Dévoreur se transforme à 65 % de PV. Récompenses ×2.","Faster enemies, the Devourer transforms at 65% HP. Rewards ×2."
 MASTERY_REWARD_BONUS_NAME,Affinité,Affinity
 MASTERY_REWARD_BONUS_DESC,+10 % de dégâts pour cet Écho.,+10% damage for this Echo.
 MASTERY_REWARD_PALETTE_NAME,Teinte rare,Rare Hue
@@ -251,7 +243,6 @@ EXPEDITION_MASTERY,Maîtrise : niveau %d,Mastery: level %d
 EXPEDITION_LOCKED,Verrouillé,Locked
 EXPEDITION_UNLOCK_BY,Pour le débloquer : %s,To unlock: %s
 EXPEDITION_PALETTE,Teinte rare,Rare hue
-EXPEDITION_TENSION,Tension (difficulté),Tension (difficulty)
 EXPEDITION_ARENA,Arène,Arena
 EXPEDITION_DEPART,Partir en expédition,Start the expedition
 TREE_INTRO,Dépensez vos Éclats de faille. Les nœuds à bord gauche épais sont exclusifs : un seul par groupe.,Spend your Rift Shards. Nodes with a thick left border are exclusive: only one per group.
@@ -309,7 +300,6 @@ STATS_RECORDS,Records,Records
 STATS_BEST_TIME,Meilleur temps : %d:%02d,Best time: %d:%02d
 STATS_BEST_LEVEL,Meilleur niveau : %d,Best level: %d
 STATS_BEST_KILLS,Éliminations en une partie : %d,Kills in one run: %d
-STATS_BEST_TENSION,Tension la plus haute vaincue : %s,Highest Tension defeated: %s
 STATS_LIFETIME,Depuis le début,All time
 STATS_TITLES,Titres,Titles
 STAT_RUNS,Expéditions,Expeditions
@@ -400,12 +390,12 @@ OBJ_LEVEL_FIFTEEN_NAME,Chasseur confirmé,Seasoned Hunter
 OBJ_LEVEL_FIFTEEN_DESC,Atteignez le niveau 15 en une expédition.,Reach level 15 in one expedition.
 OBJ_DEVOURER_SLAIN_NAME,Dévoreur dévoré,Devourer Devoured
 OBJ_DEVOURER_SLAIN_DESC,Vainquez un Dévoreur.,Defeat a Devourer.
-OBJ_TENSION_ONE_NAME,Sous tension,Under Tension
-OBJ_TENSION_ONE_DESC,Refermez une Faille en Tension I ou plus.,Seal a Rift at Tension I or higher.
-OBJ_TENSION_TWO_NAME,Haute tension,High Tension
-OBJ_TENSION_TWO_DESC,Refermez une Faille en Tension II ou plus.,Seal a Rift at Tension II or higher.
+OBJ_TENSION_ONE_NAME,Chasseur confirmé,Seasoned Hunter
+OBJ_TENSION_ONE_DESC,Remportez 2 expéditions.,Win 2 expeditions.
+OBJ_TENSION_TWO_NAME,Cauchemar éveillé,Waking Nightmare
+OBJ_TENSION_TWO_DESC,Refermez une Faille en Cauchemar.,Seal a Rift in Nightmare.
 OBJ_TENSION_THREE_NAME,Gardien des Failles,Rift Warden
-OBJ_TENSION_THREE_DESC,Refermez une Faille en Tension III.,Seal a Rift at Tension III.
+OBJ_TENSION_THREE_DESC,Refermez une Faille en Cauchemar avec au moins 3 pactes.,Seal a Rift in Nightmare with at least 3 pacts.
 OBJ_ELITE_HUNTER_NAME,Chasseur d'élites,Elite Hunter
 OBJ_ELITE_HUNTER_DESC,Vainquez 10 élites (cumul).,Defeat 10 elites (total).
 OBJ_SLAYER_NAME,Fléau des Corrompus,Bane of the Hollowed
@@ -545,10 +535,6 @@ MODIFIER_NO_RESPITE_NAME,Sans répit,No Respite
 MODIFIER_NO_RESPITE_DESC,Tous les soins sont réduits de 60 %.,All healing reduced by 60%.
 MODIFIER_HEAVY_RIFT_NAME,Faille pesante,Heavy Rift
 MODIFIER_HEAVY_RIFT_DESC,"Ennemis : PV +30 %, dégâts +15 %.","Enemies: HP +30%, damage +15%."
-DIFFICULTY_TENSION_4_NAME,Tension IV,Tension IV
-DIFFICULTY_TENSION_4_DESC,"Trois affixes par élite, ennemis bien plus rapides. Récompenses ×2,6.","Three affixes per elite, much faster enemies. Rewards ×2.6."
-DIFFICULTY_TENSION_5_NAME,Tension V,Tension V
-DIFFICULTY_TENSION_5_DESC,"La Faille à son paroxysme. Récompenses ×3,3.",The Rift at its peak. Rewards ×3.3.
 OBJ_DEVOURERS_CALL_NAME,L'appel du vide,Call of the Void
 OBJ_DEVOURERS_CALL_DESC,Éliminez 1500 Corrompus (cumul).,Defeat 1500 Hollowed (total).
 OBJ_CAPTOR_NAME,Lieur,Binder
@@ -562,7 +548,6 @@ CAPTURE_JOINED,%s rejoint votre équipe !,%s joins your team!
 CAPTURE_SENT_TO_REFUGE,%s est lié et vous attend au Refuge.,%s is bound and awaits you at the Refuge.
 REPORT_CAPTURE_UNLOCK,Écho capturé et débloqué : %s,Echo captured and unlocked: %s
 EXPEDITION_MODIFIERS,Pactes de risque,Risk Pacts
-EXPEDITION_MODIFIER_MIN,Disponible à partir de la Tension %d.,Available from Tension %d.
 EXPEDITION_MODIFIERS_BONUS,Bonus de récompenses : +%d %%,Reward bonus: +%d%%
 BOSS_ENRAGED,Le Dévoreur entre en rage !,The Devourer is enraged!
 TIP_MOVE,Déplacez-vous avec ZQSD/WASD ou les flèches (stick gauche à la manette).,Move with WASD or the arrow keys (left stick on a gamepad).
@@ -1076,3 +1061,31 @@ ECHO_TREE_POINTS,Points d'Écho : %d / %d,Echo Points: %d / %d
 ECHO_TREE_EQUIPPED,Sort équipé : %s,Equipped spell: %s
 ECHO_TREE_LOCKED,Écho pas encore débloqué.,Echo not unlocked yet.
 ECHO_TREE_ERR_POINTS,Pas assez de Points d'Écho (montez le niveau de maîtrise de cet Écho).,Not enough Echo Points (raise this Echo's mastery level).
+DIFFICULTY_NORMAL_NAME,Normal,Normal
+DIFFICULTY_NORMAL_DESC,La campagne telle qu’elle a été pensée.,The campaign as intended.
+DIFFICULTY_NIGHTMARE_NAME,Cauchemar,Nightmare
+DIFFICULTY_NIGHTMARE_DESC,"Ennemis renforcés, élites à deux affixes, vagues plus denses ; le Dévoreur se transforme à 65 % de PV. Pactes de risque disponibles. Récompenses +25 %.","Stronger enemies, elites with two affixes, denser waves; the Devourer transforms at 65% HP. Risk pacts available. Rewards +25%."
+EXPEDITION_DIFFICULTY,Difficulté,Difficulty
+EXPEDITION_NIGHTMARE_LOCKED,finissez la campagne,finish the campaign
+EXPEDITION_CHAPTER,Chapitre %d — %s,Chapter %d — %s
+EXPEDITION_SURVIVAL,Hors campagne : Survie,Outside the campaign: Survival
+EXPEDITION_MAP_LOCKED,Terminez la carte précédente pour débloquer celle-ci.,Clear the previous map to unlock this one.
+EXPEDITION_MODIFIER_NIGHTMARE,Réservé au Cauchemar.,Nightmare only.
+CHAPTER_CASCADE_RUINS_NAME,Le Val des Cascades,Waterfall Vale
+CHAPTER_CASCADE_RUINS_DESC,"Des ruines noyées d’eau vive, où la première grande faille s’est ouverte.","Ruins drowned in rushing water, where the first great rift opened."
+CHAPTER_STORM_HIGHLANDS_NAME,Les Hautes Terres,The Highlands
+CHAPTER_STORM_HIGHLANDS_DESC,"Landes battues par l’orage, menhirs et ruines oubliées.","Storm-lashed moors, standing stones and forgotten ruins."
+MAP_OBJ_CLEAR_DESC,Terminer la carte,Clear the map
+MAP_OBJ_DAMAGE_DESC,Terminer en subissant au plus %d dégâts,Clear it taking at most %d damage
+MAP_OBJ_BOSS_TIME_DESC,Vaincre le Dévoreur en moins de %s,Defeat the Devourer in under %s
+MAP_OBJ_TEAM_DESC,Terminer avec au plus %d Échos,Clear it with at most %d Echoes
+MAP_OBJ_PACTS_DESC,Terminer avec au moins %d pactes de risque,Clear it with at least %d risk pacts
+MAP_OBJ_ELITES_DESC,Terminer en vainquant au moins %d élites,Clear it defeating at least %d elites
+REPORT_MAP_FIRST_VICTORY,Première victoire sur cette carte : +%d Éclats,First victory on this map: +%d Shards
+REPORT_MAP_OBJECTIVE,★ Objectif de carte : %s (+%d Éclats),★ Map objective: %s (+%d Shards)
+REPORT_MAP_UNLOCKED,Nouvelle carte : %s,New map: %s
+REPORT_CHAPTER_UNLOCKED,Nouveau chapitre : %s,New chapter: %s
+REPORT_NIGHTMARE_UNLOCKED,Campagne terminée ! Le Cauchemar est débloqué sur toutes les cartes.,Campaign complete! Nightmare is unlocked on every map.
+REPORT_REPEAT_REWARD,Carte déjà gagnée : récompenses à %d %%,Map already won: rewards at %d%%
+STATS_CAMPAIGN,Campagne : %d / %d cartes terminées,Campaign: %d / %d maps cleared
+STATS_MAP_OBJECTIVES,Objectifs de carte : %d / %d,Map objectives: %d / %d

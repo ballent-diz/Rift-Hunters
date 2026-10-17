@@ -24,6 +24,7 @@ var spells: Dictionary = {}
 ## Arbres des Échos (nœuds, branch = identifiant de l'Écho) et seconds sorts des Échos (lot C3).
 var echo_nodes: Dictionary = {}
 var techniques: Dictionary = {}
+var chapters: Dictionary = {}
 var load_errors: PackedStringArray = []
 
 
@@ -55,6 +56,7 @@ func load_all() -> void:
 	spells = _load_dir("spells")
 	echo_nodes = _load_dir("progression/echo_tree")
 	techniques = _load_dir("techniques")
+	chapters = _load_dir("chapters")
 	for error: String in load_errors:
 		push_error("GameDB : " + error)
 
@@ -118,6 +120,15 @@ static func sorted_ids(dict: Dictionary) -> Array[StringName]:
 		ids.append(id)
 	ids.sort_custom(func(a: StringName, b: StringName) -> bool: return String(a) < String(b))
 	return ids
+
+
+## Chapitres de campagne dans l'ordre.
+func chapters_in_order() -> Array[ChapterData]:
+	var list: Array[ChapterData] = []
+	for id: StringName in chapters:
+		list.append(chapters[id] as ChapterData)
+	list.sort_custom(func(a: ChapterData, b: ChapterData) -> bool: return a.order < b.order)
+	return list
 
 
 func difficulties_by_level() -> Array[DifficultyData]:

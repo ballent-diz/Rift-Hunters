@@ -30,8 +30,11 @@ La **Tension** (choix de 0 à V avant l'expédition) est **supprimée**. Modèle
 | **Cauchemar** (le New Game+) | En **finissant le jeu** (dernier boss de la campagne) ; ensuite disponible sur **chaque carte** | Ennemis renforcés et surtout **nouvelles règles** : élites à double modificateur, boss enragés avec une phase de plus, vagues plus denses. Arbre, builds et Échos conservés. +25 % d'Éclats, +1 point de Chasseur à la première victoire sur chaque carte |
 | **Le Pacte** (notre « Chaleur » de Hades) | Avec le Cauchemar | Les 5 pactes de risque actuels, étendus à ≈ 10 malus au choix (ennemis plus rapides, moins de soins, boss plus résistants…). Chaque malus vaut des points ; **chaque carte retient son meilleur score de Pacte**. Paliers de récompenses et trophées par score |
 
-Technique : les fichiers `data/difficulties/tension_*.tres` servent de base au Normal, au Cauchemar et aux paliers du
-Pacte ; le sélecteur de Tension du refuge disparaît (lots B1 et D3).
+Réalisé (lot B1) : `data/difficulties/normal.tres` et `nightmare.tres` remplacent les six niveaux de Tension (valeurs
+du Cauchemar reprises de l'ancienne Tension II, avec la phase 2 du boss à 65 % et +25 % de récompenses). Les 5 pactes
+de risque actuels sont réservés au Cauchemar. Les règles propres au Cauchemar (boss enragés…) viendront avec le lot D4,
+les malus et le score du Pacte avec le lot D3. Les objectifs « Tension » deviennent : remporter 2 expéditions ; vaincre
+en Cauchemar ; vaincre en Cauchemar avec au moins 3 pactes (mêmes identifiants, pour les sauvegardes et Steam).
 
 ## Objectifs de carte et « prophéties »
 

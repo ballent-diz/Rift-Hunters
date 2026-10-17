@@ -42,7 +42,7 @@ rôle, coffres à décision, boss à mécaniques (absorption, cœur exposé, ar�
 ## 3. Boucle de jeu
 
 ```
-Refuge ──► Expédition (arène + Tension + Écho de départ)
+Refuge ──► Expédition (carte de campagne ou Survie + Normal / Cauchemar + Écho de départ)
    ▲            │
    │            ▼
    │      Partie (~7 min + boss) : vagues → XP → choix → coffres → événements → Dévoreur
@@ -157,9 +157,11 @@ Cartes dynamiques : *Pacte* (recruter un Écho si un emplacement est libre), *É
   gameplay**, rang de départ, titre.
 - **Laboratoire** : recherches payées en Essence (reliques, mutations, informations).
 - **Objectifs** : missions, succès, défis de build, avec condition et récompense explicites.
-- **Tension** (difficulté) : niveaux débloqués en battant le Dévoreur au niveau précédent ;
-  chaque niveau ajoute des règles (élites plus fréquentes, double affixe, phase 2 plus tôt),
-  pas seulement des PV.
+- **Campagne** : chapitres de cartes débloquées en avançant, 3 objectifs par carte et par difficulté,
+  récompenses dégressives (docs/design/CAMPAGNE.md).
+- **Difficulté** : Normal, puis **Cauchemar** débloqué en finissant la campagne ; il ajoute des règles
+  (élites plus fréquentes, double affixe, phase 2 plus tôt), pas seulement des PV, et ouvre les pactes de risque.
+  La Tension (0 à V) a été supprimée le 16 octobre 2026 (docs/design/LONGEVITE.md).
 
 ## 9. Contenu après la phase 4
 
@@ -178,7 +180,7 @@ Cartes dynamiques : *Pacte* (recruter un Écho si un emplacement est libre), *É
 - Dévoreur : Nébulorax (Plaine fracturée, Ruines des Cascades).
 - **Rite de lien** : une élite peut laisser un Écho errant ; rester à son contact le capture
   (il rejoint l'équipe et, s'il était verrouillé, il est débloqué définitivement).
-- **Pactes de risque** : 5 modificateurs cumulables qui augmentent les récompenses.
+- **Pactes de risque** : 5 modificateurs cumulables qui augmentent les récompenses (Cauchemar uniquement depuis le lot B1).
 - Tension 0 à V, objectifs (18), recherches (6), arbre (27 nœuds).
 
 Équilibrage et méthode de simulation : `docs/BALANCE.md`.

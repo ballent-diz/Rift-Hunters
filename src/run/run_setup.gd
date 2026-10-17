@@ -3,7 +3,7 @@ extends RefCounted
 ## Paramètres de lancement d'une partie (choisis au Refuge).
 
 var arena_id: StringName = &"fractured_plain"
-var difficulty_id: StringName = &"tension_0"
+var difficulty_id: StringName = &"normal"
 var starter_id: StringName = &"mossback"
 var starter_variant: bool = false
 var run_seed: int = 0

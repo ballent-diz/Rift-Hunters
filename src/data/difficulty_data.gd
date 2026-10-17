@@ -1,6 +1,7 @@
 class_name DifficultyData
 extends Resource
-## Niveau de Tension (difficulté). Ajoute des règles, pas seulement des PV.
+## Difficulté : Normal (niveau 0) ou Cauchemar (niveau 1, débloqué en finissant la campagne). Ajoute des règles,
+## pas seulement des PV (docs/design/LONGEVITE.md).
 
 @export var id: StringName = &""
 @export var level: int = 0

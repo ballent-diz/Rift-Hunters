@@ -10,7 +10,7 @@ const BUILD_COUNT := 3
 const SPELL_SLOTS := 4
 ## Points de départ : de quoi activer les 2 sorts de départ (2 + 2) et un premier passif.
 const BASE_POINTS := 6
-## +1 point tous les N objectifs réussis.
+## +1 point tous les N objectifs réussis (objectifs du jeu et objectifs de carte).
 const OBJECTIVES_PER_POINT := 3
 const DEFAULT_SPELLS: Array[String] = ["cleaving_slash", "prismatic_lance", "", ""]
 
@@ -127,7 +127,8 @@ static func active_rank(profile: ProfileData, node: SkillNodeData) -> int:
 
 static func points_total(profile: ProfileData) -> int:
 	var maps: int = (profile.data["hunter"].get("maps_won", []) as Array).size()
-	var objectives: int = (profile.data["objectives"].get("completed", []) as Array).size()
+	var objectives: int = (profile.data["objectives"].get("completed", []) as Array).size() \
+		+ Campaign.objectives_completed(profile)
 	var test: int = int(profile.data["hunter"].get("test_points", 0))
 	return BASE_POINTS + maps + objectives / OBJECTIVES_PER_POINT + test
 
@@ -283,10 +284,11 @@ static func unlock_all_for_testing(profile: ProfileData) -> void:
 		profile.set_tree_rank(id, (GameDB.echo_nodes[id] as SkillNodeData).max_rank())
 	profile.data["runs"]["won"] = maxi(boss_wins(profile), 3)
 	profile.data["hunter"]["test_points"] = 200
+	Campaign.unlock_all_for_testing(profile)
 	profile.add_currency("shards", 10000)
 
 
-## Première victoire sur une carte : +1 Point de Chasseur.
+## Première victoire sur une carte (clé « nightmare:<carte> » pour le Cauchemar) : +1 Point de Chasseur.
 static func record_victory(profile: ProfileData, arena_id: String) -> bool:
 	var maps: Array = profile.data["hunter"]["maps_won"]
 	if arena_id == "" or maps.has(arena_id):

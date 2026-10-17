@@ -2,7 +2,7 @@ extends Node
 ## Smoke test : une partie complète jouée par le bot, sans intervention.
 ## Vérifie que la boucle tient de bout en bout (vagues, niveaux, coffres, boss, fin de partie).
 ## Usage : godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- [--starter=mossback]
-##         [--difficulty=tension_0] [--seed=1] [--god] [--max-minutes=12] [--boss-at=60]
+##         [--difficulty=normal] [--seed=1] [--god] [--max-minutes=12] [--boss-at=60]
 
 var _run: RunController
 var _frames: int = 0
@@ -21,7 +21,7 @@ func _ready() -> void:
 	setup.meta_effects = []
 	setup.modifier_ids = []
 	setup.arena_id = &"fractured_plain"
-	setup.difficulty_id = &"tension_0"
+	setup.difficulty_id = &"normal"
 	var god: bool = false
 	var boss_at: float = -1.0
 	for arg: String in OS.get_cmdline_user_args():

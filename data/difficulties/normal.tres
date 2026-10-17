@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1")
-id = &"tension_0"
+id = &"normal"
 level = 0
-name_key = "DIFFICULTY_TENSION_0_NAME"
-desc_key = "DIFFICULTY_TENSION_0_DESC"
+name_key = "DIFFICULTY_NORMAL_NAME"
+desc_key = "DIFFICULTY_NORMAL_DESC"
 unlocked_by_default = true
