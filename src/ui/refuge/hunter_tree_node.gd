@@ -41,12 +41,12 @@ func setup(p: ProfileData, node: SkillNodeData, selected: StringName) -> void:
 
 
 func _draw() -> void:
-	var side: float = minf(144 if large else (80 if expanded else 40), size.y - (0 if large else (36 if expanded else 15)))
-	var rect := Rect2(Vector2((size.x - side) * 0.5, 0), Vector2.ONE * side)
+	var rect: Rect2 = emblem_rect()
+	var side: float = rect.size.y
 	var faded: bool = current in ["locked", "upcoming"]
 	if picked or is_hovered() or has_focus():
-		draw_rect(Rect2(Vector2.ZERO, size), Color(0.13, 0.16, 0.23, 0.95))
-		draw_rect(Rect2(Vector2.ZERO, size), HunterTreeSkin.CYAN if picked else ink, false, 1)
+		draw_rect(rect.grow(4), Color(0.13, 0.16, 0.23, 0.95))
+		draw_rect(rect.grow(4), HunterTreeSkin.CYAN if picked else ink, false, 1.5)
 	draw_texture_rect(border, rect, false, Color(1, 1, 1, 0.65 if faded else 1.0))
 	if portrait:
 		draw_texture_rect(portrait, rect.grow(-7), false, Color(1, 1, 1, 0.5 if faded else 1.0))
@@ -59,9 +59,10 @@ func _draw() -> void:
 			HORIZONTAL_ALIGNMENT_LEFT, -1, 11, HunterTreeSkin.PAPER)
 	_draw_state(rect)
 	if caption.visible:
-		draw_rect(Rect2(0, side, size.x, 36 if expanded else 15), HunterTreeSkin.NIGHT)
-		caption.position = Vector2(0, side)
-		caption.size = Vector2(size.x, 36 if expanded else 15)
+		var width: float = minf(size.x, 120 if expanded else 116)
+		caption.position = Vector2((size.x - width) * 0.5, side)
+		caption.size = Vector2(width, 36 if expanded else 15)
+		draw_rect(Rect2(caption.position, caption.size), HunterTreeSkin.NIGHT)
 
 
 func _draw_symbol(rect: Rect2, color: Color) -> void:
@@ -117,3 +118,9 @@ func _draw_state(rect: Rect2) -> void:
 	if rank > 0:
 		draw_string(ThemeDB.fallback_font, rect.position + Vector2(3, 11), str(rank),
 			HORIZONTAL_ALIGNMENT_LEFT, -1, 10, HunterTreeSkin.PAPER)
+
+
+func emblem_rect() -> Rect2:
+	var edge: float = minf(144 if large else (80 if expanded else 40),
+		size.y - (0 if large else (36 if expanded else 15)))
+	return Rect2(Vector2((size.x - edge) * 0.5, 0), Vector2.ONE * edge)

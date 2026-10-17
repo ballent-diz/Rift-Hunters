@@ -90,3 +90,13 @@ Les tests vérifient aussi les dimensions HD et l’accès aux clés de voûte d
 
 Validation de la correction : 182/182 tests unitaires, lint sans problème, 113 entrées du manifeste
 sans erreur, pipeline Python existant validé, 4/4 contrôles C5 avec affichage réel à 720p.
+
+## Ramifications lisibles — retour visuel du 17 octobre
+
+Les cadres et les légendes ne masquent plus les connexions : la sélection entoure seulement le cadre,
+les légendes sont limitées à leur zone de texte et les niveaux détaillés sont davantage espacés.
+Le tronc partage un raccord vers les en-têtes des voies. Chaque voie relie ses nœuds de départ
+sans leur inventer de prérequis. Les flèches entre nœuds suivent exclusivement les ressources de progression.
+Les traits ont un contour sombre, un contraste renforcé et une couleur de voie ; le chemin sélectionné
+est cyan. Les prérequis qui sautent un niveau empruntent un couloir extérieur, à l’écart des autres nœuds.
+Aucun coût, prérequis, achat ni comportement de build n’est modifié.

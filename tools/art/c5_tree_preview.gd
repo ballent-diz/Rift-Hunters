@@ -29,10 +29,10 @@ func _ready() -> void:
 	await _capture("01-depart-fr")
 	_prepare_build()
 	_tab._selected = &"blade_master"
-	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 400
+	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 600
 	await _capture("02-build-fr")
 	_tab._selected = &"blade_slash_whirlwind"
-	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 180
+	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 250
 	await _capture("03-variantes-fr")
 	TranslationServer.set_locale("en")
 	_screen.queue_free()
@@ -45,9 +45,15 @@ func _ready() -> void:
 	_tab._selected = &"research_fourth_option"
 	await _capture("04-refuge-en")
 	TranslationServer.set_locale("fr")
-	_tab._show_upgrades = false
+	_screen.queue_free()
+	await get_tree().process_frame
+	_screen = load(Router.REFUGE).instantiate()
+	_viewport.add_child(_screen)
+	_screen.tabs.current_tab = 1
+	_tab = _screen.tabs.get_child(1)
 	_tab._focused_branch = &""
 	await _capture("05-ensemble-fr")
+	await _capture_full_branch()
 	_screen.queue_free()
 	await get_tree().process_frame
 	get_tree().quit()
@@ -79,3 +85,25 @@ func _capture(file: String) -> void:
 	var image: Image = _viewport.get_texture().get_image()
 	image.save_png(OUT + file + ".png")
 	print("Capture C5 : ", file, " ", image.get_size())
+
+
+func _capture_full_branch() -> void:
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(840, 840)
+	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(viewport)
+	var background := ColorRect.new()
+	background.color = HunterTreeSkin.NIGHT
+	viewport.add_child(background)
+	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	var board := HunterTreeBoard.new()
+	board.focus_branch = &"blade"
+	viewport.add_child(board)
+	board.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	board.setup(Profile.profile, &"blade_slash_whirlwind")
+	for frame: int in 5:
+		await get_tree().process_frame
+	await RenderingServer.frame_post_draw
+	viewport.get_texture().get_image().save_png(OUT + "06-voie-lame.png")
+	viewport.queue_free()
+	await get_tree().process_frame

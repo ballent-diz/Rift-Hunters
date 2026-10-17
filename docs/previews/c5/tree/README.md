@@ -15,3 +15,9 @@ Le profil de démonstration est créé en mémoire et n’est jamais sauvegardé
 
 Révision du 17 octobre : affichage par voie, nœuds de 80 px, aperçu de 144 px, illustrations importées
 en 512 × 512 sans réduction à 32 couleurs. Les niveaux défilent à l’intérieur de l’arbre.
+
+Ramifications retracées le 17 octobre : voir notamment 03-variantes-fr.png pour les bifurcations
+de Taille fendante et 05-ensemble-fr.png pour le raccord du tronc aux quatre voies.
+
+[Voie Lame entièrement dépliée](06-voie-lame.png) : le même composant graphique rendu sans
+défilement, pour voir les ramifications sur les cinq niveaux à la fois.
