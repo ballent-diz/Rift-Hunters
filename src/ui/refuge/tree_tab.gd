@@ -123,7 +123,7 @@ func _spell_bar(p: ProfileData) -> HBoxContainer:
 			image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			image.custom_minimum_size.x = 30
-			image.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+			image.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 			content.add_child(image)
 		var label: Label = HunterTreeSkin.trimmed(tr(spell.name_key) if spell else tr("TREE_SKIN_EMPTY"), 14)
 		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL

@@ -17,7 +17,7 @@ var caption: Label
 
 func setup(p: ProfileData, node: SkillNodeData, selected: StringName) -> void:
 	data = node
-	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	# Le bouton ne porte pas de texte ; sa légende est un Label indépendant.
 	add_theme_font_size_override("font_size", 1)
 	name = str(node.id)
