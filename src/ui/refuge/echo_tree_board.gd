@@ -24,7 +24,7 @@ func setup(p: ProfileData, monster: MonsterData, selected: StringName) -> void:
 		var button := HunterTreeNode.new()
 		button.symbol = role(n)
 		button.configure(n, state_of(p, n), EchoTree.active_rank(p, n) if EchoTree.active_rank(p, n) > 0
-			else EchoTree.learned_rank(p, n), n.id == selected, null, display_name(n, monster), MenuSkin.PAPER)
+			else EchoTree.learned_rank(p, n), n.id == selected, node_icon(n), display_name(n, monster), MenuSkin.PAPER)
 		button.set_tip(display_name(n, monster), tr(HunterTreeSkin.KIND_KEYS[n.kind]), state_text(p, n),
 			description(n, monster))
 		button.pressed.connect(func() -> void: node_selected.emit(n.id))
@@ -34,6 +34,12 @@ func setup(p: ProfileData, monster: MonsterData, selected: StringName) -> void:
 	add_child(_or_label)
 	resized.connect(_layout)
 	_layout.call_deferred()
+
+
+## Les symboles existants restent visibles si une illustration manque.
+static func node_icon(n: SkillNodeData) -> Texture2D:
+	var id := StringName("icon.echo." + String(n.id))
+	return Assets.icon(id) if not Assets.entry(id).is_empty() else null
 
 
 static func role_key(n: SkillNodeData) -> String:

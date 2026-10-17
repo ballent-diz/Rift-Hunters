@@ -131,3 +131,5 @@ Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md
 - Déclarer l'usage d'IA générative sur la page Steam.
 
 C5 — En cours (Codex), 17 octobre : réorganisation visuelle par familles de sorts avec bifurcations A/B locales, talents séparés et illustrations HD conservées ; validation visuelle du propriétaire en attente dans la PR #18.
+
+C5 / B2 — En cours (Codex), 17 octobre : 35 illustrations HD des Échos intégrées et Expédition habillé sur codex/echos-expedition ; captures 720p dans docs/previews/echo-expedition/, validation visuelle du propriétaire attendue. Règles des arbres et gameplay inchangés.

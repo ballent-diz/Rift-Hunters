@@ -2524,7 +2524,9 @@
 				"amount": 22
 			},
 			"outside_tint": "#06120c99",
-			"decals": []
+			"decals": [],
+			"menu_preview": "res://assets/ui/expedition/fractured_plain.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.three_rifts": {
 			"status": "final",
@@ -2569,7 +2571,9 @@
 			"ambient": {
 				"amount": 0
 			},
-			"generated_by": "tools/art/collision_mask.py"
+			"generated_by": "tools/art/collision_mask.py",
+			"menu_preview": "res://assets/ui/expedition/three_rifts.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"boss.astravorn": {
 			"anchor": [
@@ -2930,7 +2934,9 @@
 			"ambient": {
 				"amount": 0
 			},
-			"generated_by": "tools/art/build_storm_highlands.py"
+			"generated_by": "tools/art/build_storm_highlands.py",
+			"menu_preview": "res://assets/ui/expedition/storm_highlands.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"ui.hunter_tree.node.passive.locked": {
 			"status": "final",
@@ -5303,6 +5309,811 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/skills/hunter_void_master.png"
+		},
+		"icon.echo.ashblade_focus": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_ashblade_focus.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_focus\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_focus_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.ashblade_might": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_ashblade_might.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_might\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_might_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.ashblade_signature": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_ashblade_signature.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_signature\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_signature_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.ashblade_spell_alt": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_ashblade_spell_alt.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_spell_alt\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_spell_alt_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.ashblade_spell_base": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_ashblade_spell_base.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.ashblade_spell_base\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_ashblade_spell_base_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.glimmerwing_focus": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_focus.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_focus\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_focus_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.glimmerwing_might": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_might.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_might\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_might_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.glimmerwing_signature": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_signature.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_signature\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_signature_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.glimmerwing_spell_alt": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_spell_alt.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_spell_alt\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_spell_alt_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.glimmerwing_spell_base": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_glimmerwing_spell_base.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.glimmerwing_spell_base\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_glimmerwing_spell_base_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.gloommaw_focus": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_gloommaw_focus.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_focus\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_focus_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.gloommaw_might": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_gloommaw_might.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_might\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_might_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.gloommaw_signature": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_gloommaw_signature.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_signature\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_signature_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.gloommaw_spell_alt": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_gloommaw_spell_alt.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_spell_alt\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_spell_alt_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.gloommaw_spell_base": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_gloommaw_spell_base.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.gloommaw_spell_base\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_gloommaw_spell_base_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mirrorling_focus": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mirrorling_focus.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_focus\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_focus_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mirrorling_might": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mirrorling_might.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_might\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_might_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mirrorling_signature": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mirrorling_signature.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_signature\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_signature_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mirrorling_spell_alt": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mirrorling_spell_alt.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_spell_alt\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_spell_alt_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mirrorling_spell_base": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mirrorling_spell_base.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mirrorling_spell_base\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mirrorling_spell_base_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mossback_focus": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mossback_focus.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_focus\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mossback_focus_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mossback_might": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mossback_might.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_might\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mossback_might_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mossback_signature": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mossback_signature.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_signature\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mossback_signature_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mossback_spell_alt": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mossback_spell_alt.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_spell_alt\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mossback_spell_alt_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.mossback_spell_base": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_mossback_spell_base.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.mossback_spell_base\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_mossback_spell_base_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.thornweave_focus": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_thornweave_focus.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_focus\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_focus_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.thornweave_might": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_thornweave_might.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_might\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_might_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.thornweave_signature": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_thornweave_signature.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_signature\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_signature_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.thornweave_spell_alt": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_thornweave_spell_alt.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_spell_alt\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_spell_alt_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.thornweave_spell_base": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_thornweave_spell_base.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.thornweave_spell_base\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_thornweave_spell_base_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.voltwisp_focus": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_voltwisp_focus.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_focus\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_focus_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.voltwisp_might": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_voltwisp_might.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_might\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_might_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.voltwisp_signature": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_voltwisp_signature.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_signature\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_signature_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.voltwisp_spell_alt": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_voltwisp_spell_alt.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_spell_alt\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_spell_alt_sheet.png",
+			"status": "final"
+		},
+		"icon.echo.voltwisp_spell_base": {
+			"anchor": [
+				256,
+				256
+			],
+			"animations": {
+				"idle": {
+					"fps": 1,
+					"frames": 1,
+					"loop": true,
+					"row": 0
+				}
+			},
+			"cell": [
+				512,
+				512
+			],
+			"icon": "res://assets/ui/icons/skills/echo_voltwisp_spell_base.png",
+			"imported_from": "assets\\concepts\\incoming\\icon.echo.voltwisp_spell_base\\job.json",
+			"scale": 1,
+			"sheet": "res://assets/sprites/skills/echo/echo_voltwisp_spell_base_sheet.png",
+			"status": "final"
 		}
 	}
 }

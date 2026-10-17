@@ -1,0 +1,215 @@
+{
+  "generator": "imagegen intégré",
+  "images": [
+    {
+      "node": "ashblade_might",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_might/source/icon.png",
+      "sha256": "3d6405c7fe9b32f1d2209f98afb36da9a9d835b643a242208a73aa8741225f5c",
+      "artifact": "exec-8041414a-f0c7-450a-bb3c-5fb783c06bbb.png"
+    },
+    {
+      "node": "ashblade_focus",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_focus/source/icon.png",
+      "sha256": "cfb2771ff05b102b0cd785865ac23bb186c9093882ca236b23c78857352d1835",
+      "artifact": "exec-55780c19-a955-4e8b-b1f9-5865c47d38c9.png"
+    },
+    {
+      "node": "ashblade_spell_base",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_spell_base/source/icon.png",
+      "sha256": "43a430debc2834d4a81889a5ee39476138b341d04de40a6d27ca24fb3650a2c2",
+      "artifact": "exec-57d568f1-eb4c-4864-aeac-798a1007982b.png"
+    },
+    {
+      "node": "ashblade_spell_alt",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_spell_alt/source/icon.png",
+      "sha256": "cc59412f12137c7771f0a334f0070d5e82e863b7a3776948174e51d7c01755be",
+      "artifact": "exec-a3c4f5b9-0d57-43b7-9b17-d91b95b6f733.png"
+    },
+    {
+      "node": "ashblade_signature",
+      "source": "assets/concepts/incoming/icon.echo.ashblade_signature/source/icon.png",
+      "sha256": "ea57f97eae07635b41e043037172094949fae8528660ff82cdda421f23604944",
+      "artifact": "exec-f9bb8475-10fc-4995-8899-4d246b3d2ffb.png"
+    },
+    {
+      "node": "glimmerwing_might",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_might/source/icon.png",
+      "sha256": "aaee9e46eb9eee75173a165e0bada663688af76f709051208950c10080ebeb05",
+      "artifact": "exec-3cd8785f-c1ec-4009-a5df-71f081789f1b.png"
+    },
+    {
+      "node": "glimmerwing_spell_base",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_spell_base/source/icon.png",
+      "sha256": "bead2116f14693b80979152aef4a8d1532cff83debc7c3e22922139c660ec4f9",
+      "artifact": "exec-4d5a3c90-d8d1-4838-9fc4-f832cbc461fd.png"
+    },
+    {
+      "node": "glimmerwing_focus",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_focus/source/icon.png",
+      "sha256": "e64e2049e3708ce7941c1ba5f81a24be93ed5d81c80fca4095c8392966c11e56",
+      "artifact": "exec-8575dff6-9184-4226-bb44-baa66ce6ccca.png"
+    },
+    {
+      "node": "glimmerwing_spell_alt",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_spell_alt/source/icon.png",
+      "sha256": "a3ccbc6037f938dd3d8484181ac44bcc37363b65595be47dcc019700ea33abf5",
+      "artifact": "exec-de88350a-b820-4c57-96f8-0eb8ad6cb2d8.png"
+    },
+    {
+      "node": "gloommaw_might",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_might/source/icon.png",
+      "sha256": "7d572e575b6f2551f65198097dce6ce8633897c5c963ee4e4f64358387af4b9d",
+      "artifact": "exec-817a9fa0-10bb-4dbb-92fd-aa641785df3d.png"
+    },
+    {
+      "node": "glimmerwing_signature",
+      "source": "assets/concepts/incoming/icon.echo.glimmerwing_signature/source/icon.png",
+      "sha256": "c414cd96b9ee470b5086eb46caec6d21013b21832c32efafe3ec7f37efaed849",
+      "artifact": "exec-7f529951-8322-43d5-b0a0-b1a41a9539c1.png"
+    },
+    {
+      "node": "gloommaw_focus",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_focus/source/icon.png",
+      "sha256": "8a46902752bfcb531bb0413fb6eea07a4558442334abde4cd7f5ddb21aef88dc",
+      "artifact": "exec-7a431b53-d475-410e-b547-d8a2d4788e59.png"
+    },
+    {
+      "node": "gloommaw_spell_alt",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_spell_alt/source/icon.png",
+      "sha256": "1b83523e05678670482428181c50674298b778e9138b6f2bd2f0d1c94747c28d",
+      "artifact": "exec-0d5429cb-ebc9-4746-b1f4-117cfebe6d05.png"
+    },
+    {
+      "node": "gloommaw_spell_base",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_spell_base/source/icon.png",
+      "sha256": "e1f1ec0e621a7b92e2d66f043e7a1b8d64e71321f36cd2b0918a89358fe537df",
+      "artifact": "exec-de777d12-0ad4-4e43-9e7a-0cf96d57bcbc.png"
+    },
+    {
+      "node": "gloommaw_signature",
+      "source": "assets/concepts/incoming/icon.echo.gloommaw_signature/source/icon.png",
+      "sha256": "ac344c927852df3477917c38bd0b9229b024144b9a30b1357583f0f72c171562",
+      "artifact": "exec-3127b619-cbb4-43dd-b13c-55d9d18eb171.png"
+    },
+    {
+      "node": "mirrorling_focus",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_focus/source/icon.png",
+      "sha256": "96b9e04636033962dc5354c5ef5f7c9858ecfd3f24dd2321a6d719504bdc6a5a",
+      "artifact": "exec-fd9b225c-9e44-4270-bf90-a0a4d0ab1576.png"
+    },
+    {
+      "node": "mirrorling_might",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_might/source/icon.png",
+      "sha256": "eee7b5f3d3916ad14f7231ae92c4f187142dd071a001a1a26355bcb9fdc80c1c",
+      "artifact": "exec-78ec101c-5d22-436b-bb02-6abc4ae93880.png"
+    },
+    {
+      "node": "mirrorling_spell_base",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_spell_base/source/icon.png",
+      "sha256": "e85cd2e4ccaf21d1da1bb0adaba6528ad9a6b0658c37a7b13ac0fc229fd0cc10",
+      "artifact": "exec-b0fbc89d-e839-425d-8ccf-ef2affd40e9c.png"
+    },
+    {
+      "node": "mirrorling_spell_alt",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_spell_alt/source/icon.png",
+      "sha256": "25358e249364d923fa0d86692c7066604d860299aa5085904274a17f444e57f3",
+      "artifact": "exec-f8e132f0-6631-4cad-84cd-e5fd978d8262.png"
+    },
+    {
+      "node": "mossback_might",
+      "source": "assets/concepts/incoming/icon.echo.mossback_might/source/icon.png",
+      "sha256": "4d5b8c3f077ff5df4242931ce36c0dc58e0f27065a580763f8fdfb17dc4e4a48",
+      "artifact": "exec-3f694490-7a11-40d5-b322-9db4ca22dd98.png"
+    },
+    {
+      "node": "mirrorling_signature",
+      "source": "assets/concepts/incoming/icon.echo.mirrorling_signature/source/icon.png",
+      "sha256": "613879e23355416bc8f05610d1a1c9fcca8de1a902e643707f5bba8fc33b34aa",
+      "artifact": "exec-4025a7e1-3748-438b-a5c6-e602121d75a7.png"
+    },
+    {
+      "node": "mossback_focus",
+      "source": "assets/concepts/incoming/icon.echo.mossback_focus/source/icon.png",
+      "sha256": "7d43b460e6f9f0e99c49ef6bfa3c2e9a56223a9e9b361272c6f16b668fea9710",
+      "artifact": "exec-9daa153f-fa50-4b23-ad14-432a899ce561.png"
+    },
+    {
+      "node": "mossback_spell_alt",
+      "source": "assets/concepts/incoming/icon.echo.mossback_spell_alt/source/icon.png",
+      "sha256": "ffe7f7abf9a14addc0ebec3a5594666929da86b3bca4e0cfc1443b0d8f8fda72",
+      "artifact": "exec-4743adbe-88df-4515-b6d0-a3e0361741dd.png"
+    },
+    {
+      "node": "mossback_spell_base",
+      "source": "assets/concepts/incoming/icon.echo.mossback_spell_base/source/icon.png",
+      "sha256": "68bed817f5641980321362aec1cf907f0ca17374cfd359a8ea0ea3fd2ef6c5d9",
+      "artifact": "exec-ba04c3b9-9510-40eb-89ca-162741f78a72.png"
+    },
+    {
+      "node": "thornweave_focus",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_focus/source/icon.png",
+      "sha256": "265dc8cf9640ef725709ad6783fd7436bdd0164b6ebd93793a9e9c6d7f6db4a3",
+      "artifact": "exec-e7de8c58-5609-4360-a566-e7d8c27cfae4.png"
+    },
+    {
+      "node": "mossback_signature",
+      "source": "assets/concepts/incoming/icon.echo.mossback_signature/source/icon.png",
+      "sha256": "b3c7964679cf11f1329bcc200993f7105d631ea0182a482b21af4b3ea89d41f5",
+      "artifact": "exec-da13a2a9-05d8-402d-b2fa-c4044a165ca4.png"
+    },
+    {
+      "node": "thornweave_might",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_might/source/icon.png",
+      "sha256": "52a00b387892edfeebf8e3e2a6356404743ef94ccfd80865e93cc9a3e330d359",
+      "artifact": "exec-a65ff8cd-ac81-4292-8d8d-994b3e78b2b7.png"
+    },
+    {
+      "node": "thornweave_spell_base",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_spell_base/source/icon.png",
+      "sha256": "d6aaab610a97d6c6d79485963b26dd878904272e9ce8136ae5114a56e1635126",
+      "artifact": "exec-fa0977da-a8f3-4c82-a3bc-628bdfc30e8b.png"
+    },
+    {
+      "node": "thornweave_spell_alt",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_spell_alt/source/icon.png",
+      "sha256": "7e072316f1acbfcee41a140a5dab5686d6d49158f572383bbfd368300fd6dd3f",
+      "artifact": "exec-ecbe75a1-6434-4f29-99b7-1b8d9e0ebb2f.png"
+    },
+    {
+      "node": "thornweave_signature",
+      "source": "assets/concepts/incoming/icon.echo.thornweave_signature/source/icon.png",
+      "sha256": "22e3d3d76ad53087cdf51f588b2f5b06ba01839b2fc0a7dc5d7ba31b7b2108f4",
+      "artifact": "exec-528a5559-4001-4bee-b7c5-33d3ebde57c0.png"
+    },
+    {
+      "node": "voltwisp_spell_base",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_spell_base/source/icon.png",
+      "sha256": "e0b587d39f77805f1d6c002823f190a08b7aee8031ce0203c7ad5acf4089bddd",
+      "artifact": "exec-8389341d-32cb-4643-91e2-95553b28afb3.png"
+    },
+    {
+      "node": "voltwisp_might",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_might/source/icon.png",
+      "sha256": "93109e411461b25551176d0ce4dad5ee102d4b1e08e5bc7770172a5d164f0e5c",
+      "artifact": "exec-38848342-2d78-4f9a-be49-56e8c90e1b3a.png"
+    },
+    {
+      "node": "voltwisp_spell_alt",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_spell_alt/source/icon.png",
+      "sha256": "564734d4a2c4b469bef7736967052a6014f0f18c619ada5c8e64dc4339d69539",
+      "artifact": "exec-f849e5d2-695a-4336-a447-707b047d880c.png"
+    },
+    {
+      "node": "voltwisp_focus",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_focus/source/icon.png",
+      "sha256": "c89143606062717c814571448a6d8d0790085a26c8ae6c3b19f546d0280f9f7b",
+      "artifact": "exec-97af95f7-ffb4-41dd-8a1e-51721d2f1b1b.png"
+    },
+    {
+      "node": "voltwisp_signature",
+      "source": "assets/concepts/incoming/icon.echo.voltwisp_signature/source/icon.png",
+      "sha256": "c4f9c90d5b92d827c68ded5696be7cfe6fbb06ec6546e228b89b725ce6c1c8cd",
+      "artifact": "exec-867382b7-ecc7-4f6c-b02e-bfb6c15014f6.png"
+    }
+  ]
+}

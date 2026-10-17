@@ -2,7 +2,7 @@ extends RefugeTab
 ## Préparation de l'expédition (lots B1-B2) : à gauche, l'Écho de départ puis les chapitres et leurs cartes ;
 ## à droite, le résumé de la carte choisie (objectifs, difficulté, pactes) et le départ, toujours visibles.
 
-const TILE_SIZE := Vector2(232, 92)
+const TILE_SIZE := Vector2(248, 178)
 
 
 func title_key() -> String:
@@ -138,8 +138,17 @@ func _chapter_panel(p: ProfileData, chapter: ChapterData, current: ArenaData) ->
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 6)
 	panel.add_child(box)
-	box.add_child(UiKit.caption(tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order, 11, chapter.color))
-	box.add_child(UiKit.title(tr(chapter.name_key), 20, MenuSkin.PAPER))
+	var banner := PanelContainer.new()
+	var banner_frame := MenuSkin.frame(Color(chapter.color, 0.10), Color(chapter.color, 0.45))
+	banner_frame.set_border_width_all(1)
+	banner_frame.border_width_left = 5
+	banner.add_theme_stylebox_override("panel", banner_frame)
+	var heading := VBoxContainer.new()
+	heading.add_theme_constant_override("separation", 2)
+	banner.add_child(heading)
+	heading.add_child(UiKit.caption(tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order, 11, chapter.color))
+	heading.add_child(UiKit.title(tr(chapter.name_key), 20, MenuSkin.PAPER))
+	box.add_child(banner)
 	box.add_child(UiKit.wrapped(tr(chapter.desc_key), 13, UiKit.MUTED))
 	var row := HFlowContainer.new()
 	row.add_theme_constant_override("h_separation", 10)
@@ -164,18 +173,25 @@ func _map_tile(p: ProfileData, arena: ArenaData, map: CampaignMapData, accent: C
 	tile.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 	var unlocked: bool = p.is_arena_unlocked(arena)
 	_tile_style(tile, accent if unlocked else MenuSkin.COPPER.darkened(0.4), selected)
+	var image: TextureRect = _map_preview(arena, 80)
+	image.modulate = Color.WHITE if unlocked else Color(0.42, 0.42, 0.46, 1)
+	tile.add_child(image)
+	image.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
+	image.offset_left = 4
+	image.offset_right = -4
+	image.offset_top = 4
+	image.offset_bottom = 84
 	var box := VBoxContainer.new()
 	box.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	box.offset_left = 12
 	box.offset_right = -12
-	box.offset_top = 8
+	box.offset_top = 94
 	box.offset_bottom = -8
 	box.add_theme_constant_override("separation", 4)
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	tile.add_child(box)
-	var name_label: Label = UiKit.label(tr(arena.name_key), 16, UiKit.GOLD if selected else (MenuSkin.PAPER if unlocked
+	var name_label: Label = UiKit.title(tr(arena.name_key), 16, UiKit.GOLD if selected else (MenuSkin.PAPER if unlocked
 		else UiKit.MUTED))
-	name_label.add_theme_font_override("font", UiKit.font(&"strong"))
 	name_label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	box.add_child(name_label)
 	if map and unlocked:
@@ -270,10 +286,11 @@ func _summary(p: ProfileData, arena: ArenaData) -> PanelContainer:
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_theme_constant_override("separation", 8)
 	scroll.add_child(box)
+	box.add_child(_map_preview(arena, 104))
 	var chapter: ChapterData = Campaign.chapter_of(arena.id)
 	box.add_child(UiKit.caption(tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order + " · " + tr(chapter.name_key) if chapter
 		else tr("EXPEDITION_SURVIVAL_TAG"), 11, chapter.color if chapter else MenuSkin.LANTERN))
-	var title: Label = UiKit.title(tr(arena.name_key), 24, MenuSkin.PAPER)
+	var title: Label = UiKit.title(tr(arena.name_key), 22, MenuSkin.PAPER)
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	box.add_child(title)
 	box.add_child(UiKit.wrapped(tr(arena.desc_key), 14, UiKit.MUTED))
@@ -384,3 +401,18 @@ func _toggle(id: StringName, key: String) -> void:
 func _depart() -> void:
 	Audio.play_sfx(&"ui_click")
 	Router.start_run(Profile.make_run_setup(StringName(profile().preference("starter", "mossback"))))
+
+## Aperçu léger du décor réel, référencé dans le manifeste ; aucune texture de niveau chargée ici.
+func _map_preview(arena: ArenaData, height: float) -> TextureRect:
+	var image := TextureRect.new()
+	image.name = "MapPreview_" + String(arena.id)
+	var entry: Dictionary = Assets.entry(arena.environment_id)
+	var path: String = str(entry.get("menu_preview", ""))
+	if path != "" and ResourceLoader.exists(path):
+		image.texture = load(path)
+	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	image.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	image.custom_minimum_size.y = height
+	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return image
