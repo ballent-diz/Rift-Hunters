@@ -37,7 +37,7 @@ func _ready() -> void:
 	banner.add_theme_stylebox_override("panel", MenuSkin.frame(Color(0.045, 0.025, 0.08, 0.92), MenuSkin.LANTERN))
 	root.add_child(banner)
 	banner.add_child(header)
-	header.add_child(UiKit.label(tr("REFUGE_TITLE"), 32, MenuSkin.PAPER))
+	header.add_child(UiKit.title(tr("REFUGE_TITLE"), 32, MenuSkin.PAPER))
 	_currencies = UiKit.label("", 20, UiKit.GOLD)
 	_currencies.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_currencies.vertical_alignment = VERTICAL_ALIGNMENT_CENTER

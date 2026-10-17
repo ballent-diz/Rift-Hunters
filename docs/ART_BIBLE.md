@@ -112,3 +112,13 @@ transparence conservée, réduction de qualité Lanczos, sans réduction de pale
 ni contour ajouté. Affichage filtré et vue détaillée par voie avec nœuds de 80 px et aperçu de 144 px.
 Les 64 × 64 et les palettes limitées restent les recettes des sprites de gameplay ; ne pas les appliquer
 aux illustrations détaillées de cet écran. Conserver les originaux pour les prochains imports.
+
+## Typographie des menus — 17 octobre 2026
+
+- **Cinzel** (titres : noms de compétences, de cartes, de chapitres, en-têtes) et **Inter** (texte, boutons, chiffres à
+  chasse fixe pour les compteurs). Polices libres SIL OFL 1.1 dans `assets/fonts/` (licences jointes, créditées).
+- Accès en code : `UiKit.font(&"body" | &"strong" | &"numbers" | &"title")`, `UiKit.title()`, `UiKit.caption()`.
+  Cinzel n'est jamais utilisé pour un paragraphe.
+- Inter n'a pas certains symboles : utiliser « ✓ » (pas « ✔ »), « ★ / ☆ », « · », « — » ; pas d'emoji.
+- Principes des menus (inspirés de Hades, Diablo IV, Path of Exile 2) : une décision par écran, l'essentiel visible
+  sans défiler à 1280 × 720, détails en infobulle au survol, action conseillée mise en avant, chiffres clés en couleur.

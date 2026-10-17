@@ -73,9 +73,10 @@ d'ajouter une carte à la liste `maps` de son chapitre, dans l'ordre, ou un fich
 - **Sauvegarde v3** : section `campaign` (victoires et objectifs par carte et difficulté, meilleur Pacte, Cauchemar
   débloqué). Migration : les cartes déjà gagnées comptent une victoire en Normal ; elles et la dernière arène choisie
   restent débloquées ; une préférence de Tension devient Normal.
-- **Refuge** : l'onglet Expédition propose Normal / Cauchemar et liste les cartes par chapitre (verrouillées en grisé,
-  objectifs obtenus « ★ n/3 » et détail en infobulle), puis la Survie. Les pactes n'apparaissent qu'en Cauchemar.
-  L'interface définitive (chapitre → carte, objectifs visibles) est le lot B2.
+- **Refuge (lot B2)** : l'onglet Expédition est en deux colonnes. À gauche, l'Écho de départ (vignettes compactes)
+  puis un panneau par chapitre avec ses cartes (étoiles des objectifs Normal, « Nouvelle » / « Terminée », carte
+  verrouillée avec la carte à terminer) et la Survie hors campagne. À droite, toujours visibles : la carte choisie,
+  sa description, Normal / Cauchemar, les objectifs de la difficulté, les pactes (Cauchemar) et le départ.
 
 ## Questions ouvertes
 

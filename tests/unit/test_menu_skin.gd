@@ -91,18 +91,27 @@ func test_pause_and_results_keep_existing_callbacks() -> void:
 
 
 func test_refuge_tab_keeps_scroll_after_rebuild() -> void:
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(1280, 720)
+	host.add_child(viewport)
 	_refuge = REFUGE_SCENE.instantiate()
-	host.add_child(_refuge)
+	viewport.add_child(_refuge)
 	_refuge.tabs.current_tab = 0
 	await host.get_tree().process_frame
 	await host.get_tree().process_frame
-	var tab: RefugeTab = _refuge.tabs.get_child(0)
-	var scroll: ScrollContainer = tab.get_child(0) as ScrollContainer
-	scroll.scroll_vertical = 300
-	check_eq(scroll.scroll_vertical, 300, "onglet défilé")
-	tab.refresh()
-	await host.get_tree().process_frame
-	await host.get_tree().process_frame
-	var rebuilt: ScrollContainer = tab.get_child(0) as ScrollContainer
-	check(rebuilt != scroll, "contenu reconstruit")
-	check_eq(rebuilt.scroll_vertical, 300, "un clic ne fait plus remonter en haut du menu")
+	for index: int in [0, 5]:
+		_refuge.tabs.current_tab = index
+		await host.get_tree().process_frame
+		await host.get_tree().process_frame
+		var tab: RefugeTab = _refuge.tabs.get_child(index)
+		var scroll: ScrollContainer = tab.find_children("*", "ScrollContainer", true, false)[0]
+		scroll.scroll_vertical = 60
+		check_eq(scroll.scroll_vertical, 60, "onglet défilé : %d" % index)
+		tab.refresh()
+		await host.get_tree().process_frame
+		await host.get_tree().process_frame
+		var rebuilt: ScrollContainer = tab.find_children("*", "ScrollContainer", true, false)[0]
+		check(rebuilt != scroll, "contenu reconstruit : %d" % index)
+		check_eq(rebuilt.scroll_vertical, 60, "un clic ne fait plus remonter en haut du menu : %d" % index)
+	_refuge.free()
+	viewport.queue_free()

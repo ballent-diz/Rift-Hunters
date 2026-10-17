@@ -44,5 +44,7 @@ demandent au moins un rang de Puissance ou de Concentration.
 
 - Données : `data/progression/echo_tree/` (`SkillNodeData`, `branch` = identifiant de l'Écho), sorts dans
   `data/techniques/`. Règles : `src/progression/echo_tree.gd`. Sorts : `src/entities/allies/techniques.gd`.
-- Interface provisoire : onglet **Échos** du refuge (`src/ui/refuge/echo_tab.gd`), à habiller par Codex (lot C5).
+- Interface : onglet **Échos** du refuge (`src/ui/refuge/echo_tab.gd`) : liste des Échos, arbre de l'Écho
+  (`echo_tree_board.gd` : Puissance et Concentration, choix « ou » entre les deux sorts, Signature) et fiche commune
+  avec l'arbre du Chasseur (`skill_card.gd`). Icônes des nœuds : symboles provisoires, à illustrer (Codex).
 - Les 9 nouveaux Échos (lot C7) recevront leur arbre sur le même modèle.

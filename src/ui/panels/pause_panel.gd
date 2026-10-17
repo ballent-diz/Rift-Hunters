@@ -40,7 +40,7 @@ func close() -> void:
 
 func _build() -> void:
 	UiKit.clear(_box)
-	_box.add_child(UiKit.label(tr("PAUSE_TITLE"), 36, UiKit.ACCENT, HORIZONTAL_ALIGNMENT_CENTER))
+	_box.add_child(UiKit.title(tr("PAUSE_TITLE"), 36, UiKit.ACCENT, HORIZONTAL_ALIGNMENT_CENTER))
 	var resume: Button = UiKit.button(tr("PAUSE_RESUME"), close, 320)
 	_box.add_child(resume)
 	resume.grab_focus.call_deferred()

@@ -390,7 +390,7 @@ OBJ_LEVEL_FIFTEEN_NAME,Chasseur confirmé,Seasoned Hunter
 OBJ_LEVEL_FIFTEEN_DESC,Atteignez le niveau 15 en une expédition.,Reach level 15 in one expedition.
 OBJ_DEVOURER_SLAIN_NAME,Dévoreur dévoré,Devourer Devoured
 OBJ_DEVOURER_SLAIN_DESC,Vainquez un Dévoreur.,Defeat a Devourer.
-OBJ_TENSION_ONE_NAME,Chasseur confirmé,Seasoned Hunter
+OBJ_TENSION_ONE_NAME,Vétéran des Failles,Rift Veteran
 OBJ_TENSION_ONE_DESC,Remportez 2 expéditions.,Win 2 expeditions.
 OBJ_TENSION_TWO_NAME,Cauchemar éveillé,Waking Nightmare
 OBJ_TENSION_TWO_DESC,Refermez une Faille en Cauchemar.,Seal a Rift in Nightmare.
@@ -567,10 +567,12 @@ CREDITS_BODY,"Rift Hunters — un jeu original.
 Conception et direction : le propriétaire du projet.
 Programmation, game design et outils : développé avec Claude Code.
 Moteur : Godot Engine (licence MIT).
+Polices : Cinzel (The Cinzel Project Authors) et Inter (The Inter Project Authors), SIL Open Font License 1.1.
 Musiques et effets sonores : à créditer lors de leur intégration.","Rift Hunters — an original game.
 Design and direction: the project owner.
 Programming, game design and tools: developed with Claude Code.
 Engine: Godot Engine (MIT license).
+Fonts: Cinzel (The Cinzel Project Authors) and Inter (The Inter Project Authors), SIL Open Font License 1.1.
 Music and sound effects: to be credited when integrated."
 ARENA_THREE_RIFTS_NAME,Ruines des Cascades,Waterfall Ruins
 ARENA_THREE_RIFTS_DESC,Traversez les ruines et leurs cascades jusqu’à la grande faille violette.,Cross the ruins and waterfalls to reach the great violet rift.
@@ -755,7 +757,7 @@ TREE_STATE_LOCKED,Verrouillé,Locked
 TREE_STATE_LEARNED,Appris,Learned
 TREE_STATE_ACTIVE,Actif %d/%d,Active %d/%d
 TREE_LEARN,Apprendre (%d Éclats),Learn (%d Shards)
-TREE_ACTIVATE,Activer (%d points),Activate (%d points)
+TREE_ACTIVATE,Activer (%d pt),Activate (%d pt)
 TREE_DEACTIVATE,Désactiver,Deactivate
 TREE_POINT_COST,%d point(s) par rang actif,%d point(s) per active rank
 TREE_EXCLUSIVE_ACTIVE,Exclusif : en activer un remplace l'autre,Exclusive: activating one replaces the other
@@ -1067,7 +1069,6 @@ DIFFICULTY_NIGHTMARE_NAME,Cauchemar,Nightmare
 DIFFICULTY_NIGHTMARE_DESC,"Ennemis renforcés, élites à deux affixes, vagues plus denses ; le Dévoreur se transforme à 65 % de PV. Pactes de risque disponibles. Récompenses +25 %.","Stronger enemies, elites with two affixes, denser waves; the Devourer transforms at 65% HP. Risk pacts available. Rewards +25%."
 EXPEDITION_DIFFICULTY,Difficulté,Difficulty
 EXPEDITION_NIGHTMARE_LOCKED,finissez la campagne,finish the campaign
-EXPEDITION_CHAPTER,Chapitre %d — %s,Chapter %d — %s
 EXPEDITION_SURVIVAL,Hors campagne : Survie,Outside the campaign: Survival
 EXPEDITION_MAP_LOCKED,Terminez la carte précédente pour débloquer celle-ci.,Clear the previous map to unlock this one.
 EXPEDITION_MODIFIER_NIGHTMARE,Réservé au Cauchemar.,Nightmare only.
@@ -1087,3 +1088,24 @@ REPORT_NIGHTMARE_UNLOCKED,Campagne terminée ! Le Cauchemar est débloqué sur t
 REPORT_REPEAT_REWARD,Carte déjà gagnée : récompenses à %d %%,Map already won: rewards at %d%%
 STATS_CAMPAIGN,Campagne : %d / %d cartes terminées,Campaign: %d / %d maps cleared
 STATS_MAP_OBJECTIVES,Objectifs de carte : %d / %d,Map objectives: %d / %d
+TREE_SECTION_COMMON,Tronc commun,Common trunk
+TREE_SECTION_SPELLS,Sorts · une variante A ou B,"Spells · one variant, A or B"
+TREE_SECTION_PASSIVES,Passifs,Passives
+TREE_SECTION_TRANSFORMS,Transformants,Transforming
+TREE_SECTION_KEYSTONE,Clé de voûte,Keystone
+TREE_EQUIP_READY,Cliquez sur un emplacement en bas pour équiper ce sort.,Click a slot below to equip this spell.
+ECHO_TREE_OR,ou,or
+ECHO_TREE_HINT,"Un seul sort équipé par Écho, lancé avec sa touche (1, 2, 3). Les choix sont enregistrés dans le build actif du Chasseur.","One spell equipped per Echo, cast with its key (1, 2, 3). Choices are saved in the Hunter's active build."
+ECHO_TREE_POINTS_HINT,Points d'Écho : 1 + niveau de maîtrise de cet Écho.,Echo Points: 1 + this Echo's mastery level.
+ECHO_TREE_ONE_SPELL,Un seul des deux sorts peut être équipé.,Only one of the two spells can be equipped.
+ECHO_TREE_NEEDS_PASSIVE,Requiert un rang de Puissance ou de Concentration.,Requires a rank of Might or Focus.
+ECHO_TREE_EQUIP,Équiper ce sort,Equip this spell
+EXPEDITION_MAPS,Carte,Map
+EXPEDITION_CHAPTER_NUMBER,Chapitre %d,Chapter %d
+EXPEDITION_OBJECTIVES,Objectifs · %s,Objectives · %s
+EXPEDITION_MAP_CLEARED,Terminée,Cleared
+EXPEDITION_MAP_NEW,Nouvelle,New
+EXPEDITION_MAP_LOCKED_BY,Terminez « %s »,Clear “%s”
+EXPEDITION_SURVIVAL_TAG,Survie,Survival
+EXPEDITION_SURVIVAL_NOTE,Épreuve d'endurance pour le score : tenez jusqu'au Dévoreur.,Endurance trial for score: hold out until the Devourer.
+EXPEDITION_WITH,Écho de départ : %s,Starting Echo: %s

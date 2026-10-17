@@ -33,20 +33,20 @@ func refresh() -> void:
 	_detail.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	detail_box.add_child(_detail)
 	var p: ProfileData = profile()
-	list.add_child(UiKit.label(tr("BESTIARY_ECHOES"), 18, UiKit.ACCENT))
+	list.add_child(UiKit.title(tr("BESTIARY_ECHOES"), 16, UiKit.ACCENT))
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
 		var known: bool = p.is_discovered("monsters", id) or p.is_monster_unlocked(GameDB.monster(id))
 		_entry(list, "monster:" + String(id), tr(GameDB.monster(id).name_key) if known else "???")
-	list.add_child(UiKit.label(tr("BESTIARY_ENEMIES"), 18, UiKit.ACCENT))
+	list.add_child(UiKit.title(tr("BESTIARY_ENEMIES"), 16, UiKit.ACCENT))
 	for id: StringName in GameDB.sorted_ids(GameDB.enemies):
 		_entry(list, "enemy:" + String(id), tr(GameDB.enemy(id).name_key) if p.is_discovered("enemies", id) else "???")
 	for id: StringName in GameDB.sorted_ids(GameDB.bosses):
 		var boss_known: bool = p.lifetime("bosses_killed") > 0 or p.data["records"]["best_time"] >= 420.0
 		_entry(list, "boss:" + String(id), tr(GameDB.boss(id).name_key) if boss_known else "???")
-	list.add_child(UiKit.label(tr("BESTIARY_RELICS"), 18, UiKit.ACCENT))
+	list.add_child(UiKit.title(tr("BESTIARY_RELICS"), 16, UiKit.ACCENT))
 	for id: StringName in GameDB.sorted_ids(GameDB.relics):
 		_entry(list, "relic:" + String(id), tr(GameDB.relic(id).name_key) if p.is_discovered("relics", id) else "???")
-	list.add_child(UiKit.label(tr("BESTIARY_SYNERGIES"), 18, UiKit.ACCENT))
+	list.add_child(UiKit.title(tr("BESTIARY_SYNERGIES"), 16, UiKit.ACCENT))
 	for id: StringName in GameDB.sorted_ids(GameDB.synergies):
 		_entry(list, "synergy:" + String(id), tr(GameDB.synergies[id].name_key) if p.is_discovered("synergies", id) else "???")
 	if _selection == "":
@@ -141,7 +141,7 @@ func _monster_text(m: MonsterData) -> String:
 		var progress: float = p.lifetime(String(challenge.stat_key)) if challenge.lifetime else 0.0
 		var progress_text: String = " (%d/%d)" % [int(progress),
 				int(challenge.threshold)] if challenge.lifetime and not done else ""
-		lines.append("%s %s%s  [color=#8899bb]+%d XP[/color]" % ["✔" if done else "○", tr(challenge.desc_key), progress_text,
+		lines.append("%s %s%s  [color=#8899bb]+%d XP[/color]" % ["✓" if done else "○", tr(challenge.desc_key), progress_text,
 				challenge.xp])
 	for reward: MasteryRewardData in m.mastery.rewards:
 		var unlocked: bool = reward.level <= lvl

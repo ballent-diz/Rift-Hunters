@@ -10,7 +10,7 @@ func refresh() -> void:
 	var p: ProfileData = profile()
 	var total: int = GameDB.objectives.size()
 	var done: int = (p.data["objectives"]["completed"] as Array).size()
-	box.add_child(UiKit.label(tr("OBJECTIVES_PROGRESS") % [done, total], 20, UiKit.ACCENT))
+	box.add_child(UiKit.title(tr("OBJECTIVES_PROGRESS") % [done, total], 20, MenuSkin.PAPER))
 	for category: int in ObjectiveData.Category.values():
 		var header_added: bool = false
 		for id: StringName in GameDB.sorted_ids(GameDB.objectives):
@@ -18,7 +18,7 @@ func refresh() -> void:
 			if objective.category != category:
 				continue
 			if not header_added:
-				box.add_child(UiKit.label(tr("OBJECTIVE_CATEGORY_%d" % category), 18, UiKit.GOLD))
+				box.add_child(UiKit.title(tr("OBJECTIVE_CATEGORY_%d" % category), 17, UiKit.GOLD))
 				header_added = true
 			box.add_child(_row(p, objective))
 
@@ -33,7 +33,7 @@ func _row(p: ProfileData, objective: ObjectiveData) -> PanelContainer:
 	var texts := VBoxContainer.new()
 	texts.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	h.add_child(texts)
-	texts.add_child(UiKit.label(("✔ " if completed else "○ ") + (tr("OBJECTIVE_SECRET") if hidden else tr(objective.name_key)), 17,
+	texts.add_child(UiKit.label(("✓ " if completed else "○ ") + (tr("OBJECTIVE_SECRET") if hidden else tr(objective.name_key)), 17,
 		UiKit.GOLD if completed else UiKit.TEXT))
 	texts.add_child(UiKit.wrapped("???" if hidden else tr(objective.desc_key), 14))
 	if not completed and not hidden:

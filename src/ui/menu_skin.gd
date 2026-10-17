@@ -7,6 +7,8 @@ const PAPER := Color(1.0, 0.91, 0.8)
 const COPPER := Color(0.6, 0.38, 0.42)
 const LANTERN := Color(1.0, 0.55, 0.36)
 const NIGHT := Color(0.055, 0.045, 0.105, 0.96)
+## Métadonnée d'un bouton dont le style propre doit être conservé par finish() (action principale…).
+const KEEP_STYLE := &"menu_skin_keep_style"
 
 static var _theme: Theme
 
@@ -97,7 +99,7 @@ static func modal_box(parent: Control, separation: int, preferred: Vector2 = Vec
 
 ## Harmonise seulement les cadres personnalisés ; les couleurs de rareté/état restent distinctes.
 static func finish(node: Node) -> void:
-	if node is Button:
+	if node is Button and not node.has_meta(KEEP_STYLE):
 		var button: Button = node
 		button.mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 		for state: String in ["normal", "hover", "focus"]:
