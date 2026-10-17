@@ -938,3 +938,5 @@ TREE_SKIN_TREE,Arbre du Chasseur,Hunter tree
 TREE_SKIN_REFUGE,Améliorations du refuge,Refuge upgrades
 TREE_SKIN_EMPTY,Emplacement libre,Empty slot
 TREE_SKIN_NEED_SHARDS,Éclats insuffisants,Not enough Shards
+OPTIONS_TEST_MODE,Mode test : apprendre tout l'arbre du Chasseur,Test mode: learn the whole Hunter tree
+OPTIONS_TEST_MODE_HINT,"Outil de développement (visible seulement depuis Godot) : tous les nœuds appris, paliers ouverts, 200 Points de Chasseur en plus. Activez et équipez ensuite les sorts dans l'arbre.","Development tool (only visible from Godot): every node learned, tiers open, 200 extra Hunter Points. Then activate and equip spells in the tree."
