@@ -28,7 +28,7 @@ extends Resource
 @export var default_spells: Array[StringName] = [&"cleaving_slash", &"prismatic_lance"]
 @export_group("Équipe")
 @export var base_team_slots: int = 2
-@export var max_team_slots: int = 4
+@export var max_team_slots: int = 3
 @export var ally_rank_max: int = 5
 ## Bonus de dégâts par rang au-delà du premier.
 @export var ally_rank_damage_bonus: float = 0.2

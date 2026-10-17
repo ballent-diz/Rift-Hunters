@@ -531,7 +531,7 @@ SYNERGY_DEEP_ROOTS_NAME,Racines brisantes,Breaking Roots
 SYNERGY_DEEP_ROOTS_DESC,Les ennemis enracinés sont aussi Fracturés.,Rooted enemies are also Fractured.
 SYNERGY_PRISMATIC_ARC_NAME,Arc prismatique,Prismatic Arc
 SYNERGY_PRISMATIC_ARC_DESC,La foudre de Fulgurine pose des Marques.,Voltwisp's lightning applies Marks.
-SYNERGY_PREDATORS_NAME,Prédateurs,Predators
+SYNERGY_PREDATORS_NAME,Prédateur (2),Predator (2)
 SYNERGY_PREDATORS_DESC,Deux Échos prédateurs : +20 % de dégâts des Échos contre les ennemis sous 50 % de PV.,Two predator Echoes: +20% Echo damage against enemies below 50% HP.
 SYNERGY_LIGHTNING_MIRROR_NAME,Miroir de foudre,Lightning Mirror
 SYNERGY_LIGHTNING_MIRROR_DESC,Les renvois et éclats de Mirelle Électrisent.,Mirrorling's reflections and shards Charge enemies.
@@ -946,3 +946,43 @@ C5_PASSIVES,I · PASSIFS,I · PASSIVES
 C5_TRANSFORMS,II / IV · TALENTS TRANSFORMANTS,II / IV · TRANSFORMING TALENTS
 C5_KEYSTONE,V · CLÉ DE VOÛTE,V · KEYSTONE
 C5_SPELL_CHOICES,SORTS II → III → IV · VARIANTES A / B,SPELLS II → III → IV · A / B VARIANTS
+SYNERGY_AFFINITY_EMBER_2_NAME,Braise (2),Ember (2)
+SYNERGY_AFFINITY_EMBER_2_DESC,Deux Échos de Braise : les attaques des Échos ont 15 % de chances d'infliger Brûlure.,Two Ember Echoes: Echo attacks have a 15% chance to inflict Burn.
+SYNERGY_AFFINITY_EMBER_3_NAME,Braise (3),Ember (3)
+SYNERGY_AFFINITY_EMBER_3_DESC,Trois Échos de Braise : Brûlure +50 %.,Three Ember Echoes: Burn +50%.
+SYNERGY_AFFINITY_STORM_2_NAME,Foudre (2),Storm (2)
+SYNERGY_AFFINITY_STORM_2_DESC,Deux Échos de Foudre : vitesse d'attaque des Échos +10 %.,Two Storm Echoes: Echo attack speed +10%.
+SYNERGY_AFFINITY_STORM_3_NAME,Foudre (3),Storm (3)
+SYNERGY_AFFINITY_STORM_3_DESC,Trois Échos de Foudre : les attaques des Échos ont 20 % de chances d'électriser (dégâts subis +20 %).,Three Storm Echoes: Echo attacks have a 20% chance to electrify (damage taken +20%).
+SYNERGY_AFFINITY_LIGHT_2_NAME,Lumière (2),Light (2)
+SYNERGY_AFFINITY_LIGHT_2_DESC,"Deux Échos de Lumière : Marques, cumul maximal +1.","Two Light Echoes: Marks, max stacks +1."
+SYNERGY_AFFINITY_LIGHT_3_NAME,Lumière (3),Light (3)
+SYNERGY_AFFINITY_LIGHT_3_DESC,Trois Échos de Lumière : les attaques des Échos ont 15 % de chances de poser une Marque.,Three Light Echoes: Echo attacks have a 15% chance to apply a Mark.
+SYNERGY_AFFINITY_VOID_2_NAME,Vide (2),Void (2)
+SYNERGY_AFFINITY_VOID_2_DESC,Deux Échos du Vide : Fracture +1 s.,Two Void Echoes: Fracture +1 s.
+SYNERGY_AFFINITY_VOID_3_NAME,Vide (3),Void (3)
+SYNERGY_AFFINITY_VOID_3_DESC,"Trois Échos du Vide : ennemis Fracturés, dégâts subis +10 % supplémentaires.",Three Void Echoes: Fractured enemies take +10% extra damage.
+SYNERGY_AFFINITY_STONE_2_NAME,Pierre (2),Stone (2)
+SYNERGY_AFFINITY_STONE_2_DESC,Deux Échos de Pierre : +20 PV max.,Two Stone Echoes: +20 max HP.
+SYNERGY_AFFINITY_STONE_3_NAME,Pierre (3),Stone (3)
+SYNERGY_AFFINITY_STONE_3_DESC,Trois Échos de Pierre : dégâts subis −10 %.,Three Stone Echoes: damage taken −10%.
+SYNERGY_AFFINITY_NATURE_2_NAME,Nature (2),Nature (2)
+SYNERGY_AFFINITY_NATURE_2_DESC,"Deux Échos de Nature : régénération +0,5 PV/s.",Two Nature Echoes: +0.5 HP/s regeneration.
+SYNERGY_AFFINITY_NATURE_3_NAME,Nature (3),Nature (3)
+SYNERGY_AFFINITY_NATURE_3_DESC,"Trois Échos de Nature : soins +25 % et régénération +0,5 PV/s.",Three Nature Echoes: healing +25% and +0.5 HP/s regeneration.
+SYNERGY_AFFINITY_PREDATOR_3_NAME,Prédateur (3),Predator (3)
+SYNERGY_AFFINITY_PREDATOR_3_DESC,Trois Échos prédateurs : dégâts contre les élites et le boss +20 %.,Three Predator Echoes: damage against elites and the boss +20%.
+SYNERGY_AFFINITY_GUARDIAN_2_NAME,Gardien (2),Guardian (2)
+SYNERGY_AFFINITY_GUARDIAN_2_DESC,Deux Échos gardiens : dégâts subis −8 %.,Two Guardian Echoes: damage taken −8%.
+SYNERGY_AFFINITY_GUARDIAN_3_NAME,Gardien (3),Guardian (3)
+SYNERGY_AFFINITY_GUARDIAN_3_DESC,Trois Échos gardiens : dégâts subis −7 % supplémentaires et +20 PV max.,Three Guardian Echoes: a further −7% damage taken and +20 max HP.
+AFFINITY_EMBER_NAME,Braise,Ember
+AFFINITY_STORM_NAME,Foudre,Storm
+AFFINITY_LIGHT_NAME,Lumière,Light
+AFFINITY_VOID_NAME,Vide,Void
+AFFINITY_STONE_NAME,Pierre,Stone
+AFFINITY_NATURE_NAME,Nature,Nature
+AFFINITY_PREDATOR_NAME,Prédateur,Predator
+AFFINITY_GUARDIAN_NAME,Gardien,Guardian
+BESTIARY_AFFINITIES,Affinités : %s,Affinities: %s
+BESTIARY_SYNERGY_AFFINITY,%d Échos : %s,%d Echoes: %s

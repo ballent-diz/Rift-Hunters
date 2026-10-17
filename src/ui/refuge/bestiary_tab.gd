@@ -96,9 +96,20 @@ func _show(key: String) -> void:
 			var names: PackedStringArray = []
 			for m: StringName in synergy.required_monsters:
 				names.append(tr(GameDB.monster(m).name_key))
+			for affinity: Variant in synergy.required_affinities:
+				names.append(tr("BESTIARY_SYNERGY_AFFINITY") % [int(synergy.required_affinities[affinity]),
+					affinity_names([StringName(str(affinity))])])
 			var body: String = tr(synergy.desc_key) if profile().is_discovered("synergies", id) else tr("BESTIARY_SYNERGY_HINT")
 			_detail.text = "[b]%s[/b]\n%s\n\n%s" % [tr(synergy.name_key) if profile().is_discovered("synergies", id) else "???",
 				" + ".join(names), body]
+
+
+## Noms traduits des affinités (« Braise · Prédateur »).
+static func affinity_names(affinities: Array) -> String:
+	var names: PackedStringArray = []
+	for affinity: Variant in affinities:
+		names.append(TranslationServer.translate("AFFINITY_%s_NAME" % str(affinity).to_upper()))
+	return " · ".join(names)
 
 
 func _monster_text(m: MonsterData) -> String:
@@ -109,6 +120,7 @@ func _monster_text(m: MonsterData) -> String:
 	var title: String = " ★ " + tr("MASTERY_REWARD_TITLE_NAME") if Mastery.has_title(p, m) else ""
 	lines.append("[b]%s[/b] — %s%s" % [tr(m.name_key), tr("ROLE_%d" % m.role), title])
 	lines.append("[i]%s[/i]" % tr(m.lore_key))
+	lines.append(tr("BESTIARY_AFFINITIES") % affinity_names(m.affinities))
 	lines.append(tr("BESTIARY_STATS") % [int(m.max_hp), int(m.attack.damage), int(m.defense), int(m.move_speed),
 			int(m.get_range())])
 	lines.append("[color=#ffd966]%s[/color] : %s" % [tr(m.passive_name_key), tr(m.passive_desc_key)])

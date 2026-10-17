@@ -102,7 +102,7 @@ id = &"pyrefang"
 name_key = "EVOLUTION_PYREFANG_NAME"
 desc_key = "EVOLUTION_PYREFANG_DESC"
 required_rank = 3
-added_affinities = [&"blaze"]
+added_affinities = [&"ember"]
 attack = SubResource("attack_data_9")
 visual = SubResource("visual_data_11")
 

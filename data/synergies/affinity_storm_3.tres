@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/status_on_hit_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="effect_1"]
+script = ExtResource("2")
+source_filter = &"allies"
+status_id = &"static"
+stacks = 1
+chance = 0.2
+
+[resource]
+script = ExtResource("1")
+id = &"affinity_storm_3"
+name_key = "SYNERGY_AFFINITY_STORM_3_NAME"
+desc_key = "SYNERGY_AFFINITY_STORM_3_DESC"
+required_monsters = []
+required_affinities = {
+"storm": 3
+}
+color = Color(1.0, 0.95, 0.4, 1.0)
+effects = [SubResource("effect_1")]
