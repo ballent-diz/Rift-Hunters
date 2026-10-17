@@ -1,6 +1,8 @@
 extends TestCase
 ## Les menus utilisent les mêmes assets que la partie et conservent les onglets/actions.
 
+const REFUGE_SCENE := preload("res://scenes/refuge.tscn")
+
 var _profile: ProfileData
 var _refuge: Refuge
 
@@ -17,7 +19,7 @@ func after_each() -> void:
 
 
 func test_refuge_keeps_all_tabs_and_hides_unknown_portraits() -> void:
-	_refuge = load("res://scenes/refuge.tscn").instantiate()
+	_refuge = REFUGE_SCENE.instantiate()
 	host.add_child(_refuge)
 	await host.get_tree().process_frame
 	check_eq(_refuge.tabs.get_tab_count(), 8, "les huit onglets (dont Échos)")
@@ -86,3 +88,21 @@ func test_pause_and_results_keep_existing_callbacks() -> void:
 	(buttons.get_child(1) as Button).pressed.emit()
 	check(calls["refuge"] and calls["replay"], "signaux de résultat conservés")
 	RunFixture.dispose(run)
+
+
+func test_refuge_tab_keeps_scroll_after_rebuild() -> void:
+	_refuge = REFUGE_SCENE.instantiate()
+	host.add_child(_refuge)
+	_refuge.tabs.current_tab = 0
+	await host.get_tree().process_frame
+	await host.get_tree().process_frame
+	var tab: RefugeTab = _refuge.tabs.get_child(0)
+	var scroll: ScrollContainer = tab.get_child(0) as ScrollContainer
+	scroll.scroll_vertical = 300
+	check_eq(scroll.scroll_vertical, 300, "onglet défilé")
+	tab.refresh()
+	await host.get_tree().process_frame
+	await host.get_tree().process_frame
+	var rebuilt: ScrollContainer = tab.get_child(0) as ScrollContainer
+	check(rebuilt != scroll, "contenu reconstruit")
+	check_eq(rebuilt.scroll_vertical, 300, "un clic ne fait plus remonter en haut du menu")
