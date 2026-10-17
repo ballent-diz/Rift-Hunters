@@ -60,7 +60,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
-| B1 | Données chapitre / carte, déblocage en avançant, objectifs par carte, récompenses dégressives, Normal / Cauchemar par carte (suppression de la Tension), migration de sauvegarde | Claude | A1 | Fait (17/10) — 2 chapitres provisoires, voir [design/CAMPAGNE.md](design/CAMPAGNE.md) |
+| B1 | Données chapitre / carte, déblocage en avançant, objectifs par carte, récompenses dégressives, Normal / Cauchemar par carte (suppression de la Tension), migration de sauvegarde | Claude | A1 | Fait (17/10) — chapitre 1 : Ruines des Cascades puis Hautes Terres d'Orage, voir [design/CAMPAGNE.md](design/CAMPAGNE.md) |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | À faire |
 | B3 | Nouvelles cartes du chapitre 1 et cartes colorées du chapitre 2 (+ famille de monstres associée) | Propriétaire (images) + Codex (intégration, zones, collisions) | A1 pour les cartes en vagues | En cours (Codex) — retours corrigés : textures ×3, détails d’échelle, basalte et escaliers ; PR prête, validation manuelle du propriétaire attendue ; A1/A2 à suivre |
 

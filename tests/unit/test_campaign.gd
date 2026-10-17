@@ -22,7 +22,12 @@ func _win(arena: StringName, difficulty: StringName = &"normal", counters: Dicti
 
 func test_chapters_are_valid() -> void:
 	var chapters: Array[ChapterData] = GameDB.chapters_in_order()
-	check(chapters.size() >= 2, "au moins deux chapitres")
+	check(not chapters.is_empty(), "au moins un chapitre")
+	var first_chapter: Array[StringName] = []
+	for map: CampaignMapData in chapters[0].maps:
+		first_chapter.append(map.arena_id)
+	check_eq(first_chapter.slice(0, 2), [&"three_rifts", &"storm_highlands"] as Array[StringName],
+		"chapitre 1 : Ruines des Cascades puis Hautes Terres d'Orage")
 	var seen: Array[StringName] = []
 	for chapter: ChapterData in chapters:
 		check(not chapter.maps.is_empty(), "%s : au moins une carte" % chapter.id)
@@ -51,7 +56,9 @@ func test_maps_unlock_by_progressing() -> void:
 	check(profile.is_arena_unlocked(second), "finir la carte débloque la suivante")
 	var text: String = "\n".join(report["lines"] as PackedStringArray)
 	check(text.contains(tr(GameDB.arena(second.id).name_key)), "nouvelle carte annoncée")
-	check(text.contains(tr(Campaign.chapter_of(second.id).name_key)), "nouveau chapitre annoncé")
+	var same_chapter: bool = Campaign.chapter_of(second.id) == Campaign.chapter_of(first.id)
+	check(text.contains(tr("REPORT_CHAPTER_UNLOCKED").get_slice("%", 0)) != same_chapter,
+		"nouveau chapitre annoncé seulement en changeant de chapitre")
 
 
 func test_nightmare_unlocks_when_campaign_is_finished() -> void:

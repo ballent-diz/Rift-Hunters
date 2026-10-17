@@ -1072,9 +1072,7 @@ EXPEDITION_SURVIVAL,Hors campagne : Survie,Outside the campaign: Survival
 EXPEDITION_MAP_LOCKED,Terminez la carte précédente pour débloquer celle-ci.,Clear the previous map to unlock this one.
 EXPEDITION_MODIFIER_NIGHTMARE,Réservé au Cauchemar.,Nightmare only.
 CHAPTER_CASCADE_RUINS_NAME,Le Val des Cascades,Waterfall Vale
-CHAPTER_CASCADE_RUINS_DESC,"Des ruines noyées d’eau vive, où la première grande faille s’est ouverte.","Ruins drowned in rushing water, where the first great rift opened."
-CHAPTER_STORM_HIGHLANDS_NAME,Les Hautes Terres,The Highlands
-CHAPTER_STORM_HIGHLANDS_DESC,"Landes battues par l’orage, menhirs et ruines oubliées.","Storm-lashed moors, standing stones and forgotten ruins."
+CHAPTER_CASCADE_RUINS_DESC,Des ruines noyées d’eau vive aux landes battues par l’orage : là où les premières failles se sont ouvertes.,From ruins drowned in rushing water to storm-lashed moors: where the first rifts opened.
 MAP_OBJ_CLEAR_DESC,Terminer la carte,Clear the map
 MAP_OBJ_DAMAGE_DESC,Terminer en subissant au plus %d dégâts,Clear it taking at most %d damage
 MAP_OBJ_BOSS_TIME_DESC,Vaincre le Dévoreur en moins de %s,Defeat the Devourer in under %s
