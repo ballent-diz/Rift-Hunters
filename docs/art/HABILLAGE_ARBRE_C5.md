@@ -91,12 +91,19 @@ Les tests vérifient aussi les dimensions HD et l’accès aux clés de voûte d
 Validation de la correction : 182/182 tests unitaires, lint sans problème, 113 entrées du manifeste
 sans erreur, pipeline Python existant validé, 4/4 contrôles C5 avec affichage réel à 720p.
 
-## Ramifications lisibles — retour visuel du 17 octobre
+## Composition par familles de compétences — 17 octobre
 
-Les cadres et les légendes ne masquent plus les connexions : la sélection entoure seulement le cadre,
-les légendes sont limitées à leur zone de texte et les niveaux détaillés sont davantage espacés.
-Le tronc partage un raccord vers les en-têtes des voies. Chaque voie relie ses nœuds de départ
-sans leur inventer de prérequis. Les flèches entre nœuds suivent exclusivement les ressources de progression.
-Les traits ont un contour sombre, un contraste renforcé et une couleur de voie ; le chemin sélectionné
-est cyan. Les prérequis qui sautent un niveau empruntent un couloir extérieur, à l’écart des autres nœuds.
-Aucun coût, prérequis, achat ni comportement de build n’est modifié.
+Le retour du propriétaire invalide la disposition en rangées reliées par de nombreux couloirs.
+La voie détaillée affiche désormais une progression horizontale des trois sorts. Chaque sort possède
+sa bifurcation locale vers A et B dans un même groupe graphique. Les passifs de niveau I et les
+transformants II / IV sont réunis dans un bloc distinct ; la clé de niveau V occupe son propre bloc,
+relié directement au dernier sort. Aucun trait décoratif ne prétend imposer un prérequis au tronc.
+Les conditions « un parmi plusieurs passifs » restent explicites dans le panneau de détail :
+on évite de les représenter par un faisceau qui pourrait suggérer que tous sont obligatoires.
+La vue d’ensemble reste un index compact des quatre voies, sans réseau de lignes croisées.
+
+Référence de lecture : [présentation officielle du système de Diablo IV](https://news.blizzard.com/en-us/article/23938756/make-sanctuary-yoursplay-your-way-in-diablo-iv),
+qui distingue compétences, améliorations, passifs et passifs clés. La composition de Rift Hunters est originale ;
+aucun élément graphique de Diablo n’est repris. Les illustrations HD existantes sont conservées, sans nouvelle génération.
+Les légendes des sorts sont placées au-dessus des cadres afin de laisser leurs bifurcations lisibles.
+Captures : écran réel 1280 × 720 et voie Lame dépliée sur une surface de 840 × 640.

@@ -129,3 +129,5 @@ Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md
 - Créditer les musiques (selon les conditions des outils qui les ont générées) et vérifier les licences
   tierces (Godot : mention MIT obligatoire ; pack Ninja Adventure : CC0).
 - Déclarer l'usage d'IA générative sur la page Steam.
+
+C5 — En cours (Codex), 17 octobre : réorganisation visuelle par familles de sorts avec bifurcations A/B locales, talents séparés et illustrations HD conservées ; validation visuelle du propriétaire en attente dans la PR #18.

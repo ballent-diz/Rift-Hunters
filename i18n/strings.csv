@@ -941,3 +941,8 @@ TREE_SKIN_NEED_SHARDS,Éclats insuffisants,Not enough Shards
 OPTIONS_TEST_MODE,Mode test : apprendre tout l'arbre du Chasseur,Test mode: learn the whole Hunter tree
 OPTIONS_TEST_MODE_HINT,"Outil de développement (visible seulement depuis Godot) : tous les nœuds appris, paliers ouverts, 200 Points de Chasseur en plus. Activez et équipez ensuite les sorts dans l'arbre.","Development tool (only visible from Godot): every node learned, tiers open, 200 extra Hunter Points. Then activate and equip spells in the tree."
 TREE_SKIN_OVERVIEW,Vue d’ensemble,Overview
+
+C5_PASSIVES,I · PASSIFS,I · PASSIVES
+C5_TRANSFORMS,II / IV · TALENTS TRANSFORMANTS,II / IV · TRANSFORMING TALENTS
+C5_KEYSTONE,V · CLÉ DE VOÛTE,V · KEYSTONE
+C5_SPELL_CHOICES,SORTS II → III → IV · VARIANTES A / B,SPELLS II → III → IV · A / B VARIANTS

@@ -7,6 +7,7 @@ var current: String
 var picked := false
 var large := false
 var expanded := false
+var caption_above := false
 var ink: Color
 var portrait: Texture2D
 var border: Texture2D
@@ -60,7 +61,7 @@ func _draw() -> void:
 	_draw_state(rect)
 	if caption.visible:
 		var width: float = minf(size.x, 120 if expanded else 116)
-		caption.position = Vector2((size.x - width) * 0.5, side)
+		caption.position = Vector2((size.x - width) * 0.5, 0 if caption_above else side)
 		caption.size = Vector2(width, 36 if expanded else 15)
 		draw_rect(Rect2(caption.position, caption.size), HunterTreeSkin.NIGHT)
 
@@ -123,4 +124,4 @@ func _draw_state(rect: Rect2) -> void:
 func emblem_rect() -> Rect2:
 	var edge: float = minf(144 if large else (80 if expanded else 40),
 		size.y - (0 if large else (36 if expanded else 15)))
-	return Rect2(Vector2((size.x - edge) * 0.5, 0), Vector2.ONE * edge)
+	return Rect2(Vector2((size.x - edge) * 0.5, 36 if caption_above else 0), Vector2.ONE * edge)

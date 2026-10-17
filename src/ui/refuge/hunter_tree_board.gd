@@ -1,7 +1,7 @@
 class_name HunterTreeBoard
 extends Control
-## Plan lisible à 720p : le tronc et les cinq paliers restent visibles ensemble.
-## Ramifications de voie et flèches de prérequis réels ; aucune règle de progression ajoutée.
+## Voie détaillée : trois sorts sur un axe, bifurcations A/B locales et talents séparés.
+## Index compact des quatre voies ; aucune règle de progression ajoutée.
 
 signal node_selected(id: StringName)
 
@@ -14,11 +14,12 @@ var _buttons: Dictionary = {}
 var _headings: Array[Label] = []
 var _tiers: Array[Label] = []
 var _common: Label
+var _sections: Array[Label] = []
 
 
 func setup(p: ProfileData, selection: StringName) -> void:
 	_profile = p
-	custom_minimum_size = Vector2(752, 840 if focus_branch != &"" else 300)
+	custom_minimum_size = Vector2(752, 640 if focus_branch != &"" else 300)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_common = UiKit.label(tr("C5_COMMON"), 12, HunterTreeSkin.MUTED)
@@ -48,6 +49,11 @@ func setup(p: ProfileData, selection: StringName) -> void:
 		label.tooltip_text = tr("TREE_TIER") % ROMAN[tier]
 		add_child(label)
 		_tiers.append(label)
+	if focus_branch != &"":
+		for key: String in ["C5_PASSIVES", "C5_TRANSFORMS", "C5_KEYSTONE", "C5_SPELL_CHOICES"]:
+			var label := UiKit.label(tr(key), 12, HunterTreeSkin.MUTED)
+			add_child(label)
+			_sections.append(label)
 	resized.connect(_layout)
 	_layout.call_deferred()
 
@@ -110,78 +116,122 @@ func _draw() -> void:
 	for tier: int in 5:
 		var y: float = 82 + (tier + 1) * row_height
 		draw_line(Vector2(28, y), Vector2(size.x - 4, y), Color(0.7, 0.65, 0.7, 0.07), 1)
-	_draw_trunk()
-	for column: int in 4:
-		_draw_roots(HunterTreeSkin.PATHS[column], 28 + column * width, width, 79)
-	for raw: StringName in _buttons:
-		_draw_links(_buttons[raw])
 
-
-func _draw_links(button: HunterTreeNode) -> void:
-	for prereq: StringName in button.data.prerequisites:
-		if not _buttons.has(prereq) or not (_buttons[prereq] as Control).visible:
-			continue
-		var parent: HunterTreeNode = _buttons[prereq]
-		var parent_frame: Rect2 = _frame(parent)
-		var child_frame: Rect2 = _frame(button)
-		var direction: float = 1.0 if child_frame.get_center().x >= parent_frame.get_center().x else -1.0
-		var start: Vector2 = parent_frame.get_center() + Vector2(direction * parent_frame.size.x * 0.5, 0)
-		var end: Vector2 = Vector2(child_frame.get_center().x, child_frame.position.y - 2)
-		var rail: float = clampf(start.x + direction * (26 if focus_branch != &"" else 7), 28, size.x - 8)
-		if focus_branch != &"" and button.data.tier - parent.data.tier > 1:
-			rail = size.x - 12
-		var bend: float = end.y - (16 if focus_branch != &"" else 7)
-		var ink: Color = HunterTreeSkin.accent(button.data.branch)
-		var learned: bool = HunterTree.learned_rank(_profile, parent.data) > 0
-		var selected: bool = button.picked or parent.picked
-		var points := PackedVector2Array([start, Vector2(rail, start.y), Vector2(rail, bend),
-			Vector2(end.x, bend), end])
-		_wire(points, HunterTreeSkin.CYAN if selected else ink,
-			3.2 if focus_branch != &"" else 1.5, 0.95 if learned or selected else 0.65)
-		var arrow: float = 5 if focus_branch != &"" else 3
-		draw_polyline(PackedVector2Array([end + Vector2(-arrow, -arrow), end, end + Vector2(arrow, -arrow)]),
-			Color(ink, 0.95), 2, true)
 
 
 func _layout_focus() -> void:
-	var trunk: Array[SkillNodeData] = HunterTree.nodes_of_branch(&"trunk")
 	_common.position = Vector2(12, 14)
+	var trunk: Array[SkillNodeData] = HunterTree.nodes_of_branch(&"trunk")
 	for i: int in trunk.size():
-		var button: HunterTreeNode = _buttons[trunk[i].id]
-		button.position = Vector2(146 + i * (size.x - 158) / trunk.size(), 0)
-		button.size = Vector2((size.x - 158) / trunk.size(), 50)
-	for column: int in 4:
-		_headings[column].visible = HunterTreeSkin.PATHS[column] == focus_branch
-		_headings[column].position = Vector2(28, 60)
-		_headings[column].size = Vector2(size.x - 28, 24)
-	for tier: int in 5:
-		_tiers[tier].position = Vector2(5, 146 + tier * 148)
-		var row: Array[SkillNodeData] = []
-		for data: SkillNodeData in HunterTree.nodes_of_branch(focus_branch):
-			if data.tier == tier:
-				row.append(data)
-		row.sort_custom(func(a: SkillNodeData, b: SkillNodeData) -> bool:
-			if a.kind != b.kind:
-				return a.kind < b.kind
-			if a.kind == SkillNodeData.Kind.VARIANT:
-				return HunterTreeSkin.variant_letter(a) < HunterTreeSkin.variant_letter(b)
-			return String(a.id) < String(b.id))
-		var cell: float = (size.x - 40) / maxi(1, row.size())
-		for i: int in row.size():
-			var button: HunterTreeNode = _buttons[row[i].id]
-			button.position = Vector2(32 + i * cell, 110 + tier * 148)
-			button.size = Vector2(cell - 8, 116)
+		_place(trunk[i], Vector2(146 + i * (size.x - 158) / trunk.size(), 0),
+			Vector2((size.x - 158) / trunk.size(), 50))
+	for i: int in 4:
+		_headings[i].visible = HunterTreeSkin.PATHS[i] == focus_branch
+		_headings[i].position = Vector2(16, 60)
+		_headings[i].size = Vector2(size.x - 32, 24)
+	for tier: Label in _tiers:
+		tier.visible = false
+	var spells: Array[SkillNodeData] = _kind(SkillNodeData.Kind.SPELL)
+	var width: float = (size.x - 32) / 3
+	for i: int in spells.size():
+		var x: float = 16 + (i + 0.5) * width
+		var parent: HunterTreeNode = _buttons[spells[i].id]
+		parent.caption_above = true
+		_place(spells[i], Vector2(x - 62, 98), Vector2(124, 116))
+		var variants: Array[SkillNodeData] = []
+		for data: SkillNodeData in _kind(SkillNodeData.Kind.VARIANT):
+			if spells[i].id in data.prerequisites:
+				variants.append(data)
+		variants.sort_custom(func(a: SkillNodeData, b: SkillNodeData) -> bool:
+			return HunterTreeSkin.variant_letter(a) < HunterTreeSkin.variant_letter(b))
+		for j: int in variants.size():
+			_place(variants[j], Vector2(x - 124 + j * 128, 268), Vector2(120, 116))
+	var passives: Array[SkillNodeData] = _kind(SkillNodeData.Kind.PASSIVE)
+	var passive_width: float = (size.x * 0.64 - 32) / maxi(1, passives.size())
+	for i: int in passives.size():
+		_place(passives[i], Vector2(16 + i * passive_width, 426), Vector2(passive_width, 90))
+	var transforms: Array[SkillNodeData] = _kind(SkillNodeData.Kind.TRANSFORM)
+	for i: int in transforms.size():
+		_place(transforms[i], Vector2(48 + i * (size.x * 0.64 - 172), 544), Vector2(124, 90))
+	for data: SkillNodeData in _kind(SkillNodeData.Kind.KEYSTONE):
+		_place(data, Vector2(size.x * 0.82 - 62, 506), Vector2(124, 116))
+	_sections[0].position = Vector2(24, 400)
+	_sections[1].position = Vector2(24, 522)
+	_sections[2].position = Vector2(size.x * 0.67, 468)
+	_sections[3].position = Vector2(24, 88)
 	queue_redraw()
+
+
+func _kind(kind: int) -> Array[SkillNodeData]:
+	var result: Array[SkillNodeData] = []
+	for data: SkillNodeData in HunterTree.nodes_of_branch(focus_branch):
+		if data.kind == kind:
+			result.append(data)
+	return result
+
+
+func _place(data: SkillNodeData, at: Vector2, extent: Vector2) -> void:
+	var button: HunterTreeNode = _buttons[data.id]
+	button.position = at
+	button.size = extent
 
 
 func _draw_focus() -> void:
 	var ink: Color = HunterTreeSkin.accent(focus_branch)
-	draw_rect(Rect2(28, 56, size.x - 32, size.y - 56), Color(ink, 0.025))
-	_draw_trunk()
-	_draw_roots(focus_branch, 28, size.x - 28, 84)
+	var width: float = (size.x - 32) / 3
+	for i: int in 3:
+		var rect := Rect2(16 + i * width, 116, width - 8, 272)
+		draw_style_box(_group_style(ink), rect)
+	draw_style_box(_group_style(ink), Rect2(16, 396, size.x * 0.64 - 16, 240))
+	draw_style_box(_group_style(ink), Rect2(size.x * 0.66, 396, size.x * 0.34 - 16, 240))
 	for button: HunterTreeNode in _buttons.values():
-		if button.visible:
+		if button.visible and button.data.branch == focus_branch:
 			_draw_links(button)
+
+
+func _group_style(ink: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.045, 0.055, 0.10, 0.95)
+	style.border_color = Color(ink, 0.22)
+	style.set_border_width_all(1)
+	style.set_corner_radius_all(8)
+	return style
+
+
+func _draw_links(button: HunterTreeNode) -> void:
+	if focus_branch == &"":
+		return
+	for prereq: StringName in button.data.prerequisites:
+		if not _buttons.has(prereq) or not (_buttons[prereq] as Control).visible:
+			continue
+		var parent: HunterTreeNode = _buttons[prereq]
+		var a: Rect2 = _frame(parent)
+		var b: Rect2 = _frame(button)
+		var points: PackedVector2Array
+		if button.data.kind == SkillNodeData.Kind.VARIANT:
+			var start := Vector2(a.get_center().x, a.end.y)
+			var end := Vector2(b.get_center().x, b.position.y)
+			points = PackedVector2Array([start, Vector2(start.x, 244), Vector2(end.x, 244), end])
+		elif button.data.kind == SkillNodeData.Kind.SPELL:
+			points = PackedVector2Array([Vector2(a.end.x, a.get_center().y),
+				Vector2(b.position.x, b.get_center().y)])
+		elif button.data.kind == SkillNodeData.Kind.KEYSTONE:
+			# Le dernier sort descend directement vers sa clé, sans traverser les variantes.
+			var rail: float = size.x - 21
+			points = PackedVector2Array([Vector2(a.end.x, a.get_center().y),
+				Vector2(rail, a.get_center().y), Vector2(rail, b.get_center().y),
+				Vector2(b.end.x, b.get_center().y)])
+		elif parent.data.kind == SkillNodeData.Kind.TRANSFORM:
+			points = PackedVector2Array([Vector2(a.end.x, a.get_center().y),
+				Vector2(b.position.x, b.get_center().y)])
+		else:
+			# Les prérequis « un parmi plusieurs passifs » restent explicités dans le détail.
+			# Aucun faisceau ambigu ne traverse ici les légendes des passifs.
+			continue
+		var selected: bool = button.picked or parent.picked
+		var learned: bool = HunterTree.learned_rank(_profile, parent.data) > 0
+		_wire(points, HunterTreeSkin.CYAN if selected else HunterTreeSkin.accent(focus_branch),
+			2.0, 0.95 if selected or learned else 0.35)
 
 
 func _frame(button: HunterTreeNode) -> Rect2:
@@ -193,45 +243,3 @@ func _frame(button: HunterTreeNode) -> Rect2:
 func _wire(points: PackedVector2Array, color: Color, width: float, alpha: float = 0.8) -> void:
 	draw_polyline(points, Color(0.025, 0.025, 0.055, 0.95), width + 4, true)
 	draw_polyline(points, Color(color, alpha), width, true)
-
-
-func _draw_trunk() -> void:
-	var centers: Array[float] = []
-	for data: SkillNodeData in HunterTree.nodes_of_branch(&"trunk"):
-		var frame: Rect2 = _frame(_buttons[data.id])
-		var x: float = frame.get_center().x
-		centers.append(x)
-		_wire(PackedVector2Array([Vector2(x, frame.end.y), Vector2(x, 54)]), HunterTreeSkin.PAPER, 2, 0.65)
-	if centers.is_empty():
-		return
-	var bus_left: float = minf(centers.min(), 28 + (size.x - 28) / 8)
-	var bus_right: float = maxf(centers.max(), size.x - (size.x - 28) / 8)
-	_wire(PackedVector2Array([Vector2(bus_left, 54), Vector2(bus_right, 54)]), HunterTreeSkin.PAPER, 2, 0.65)
-	var width: float = (size.x - 28) / 4
-	for i: int in 1 if focus_branch != &"" else 4:
-		var x: float = size.x * 0.5 if focus_branch != &"" else 28 + (i + 0.5) * width
-		var ink: Color = HunterTreeSkin.accent(focus_branch if focus_branch != &"" else HunterTreeSkin.PATHS[i])
-		_wire(PackedVector2Array([Vector2(x, 54), Vector2(x, 59)]), ink, 2.5)
-		draw_circle(Vector2(x, 54), 3.5, ink)
-
-
-func _draw_roots(branch: StringName, left: float, width: float, header_bottom: float) -> void:
-	var ink: Color = HunterTreeSkin.accent(branch)
-	var roots: Array[HunterTreeNode] = []
-	var rail: float = left + (14 if focus_branch != &"" else 5)
-	var bottom: float = header_bottom
-	for data: SkillNodeData in HunterTree.nodes_of_branch(branch):
-		if data.prerequisites.is_empty():
-			var button: HunterTreeNode = _buttons[data.id]
-			roots.append(button)
-			bottom = maxf(bottom, _frame(button).position.y - 12)
-	_wire(PackedVector2Array([Vector2(left + width * 0.5, header_bottom),
-		Vector2(left + width * 0.5, header_bottom + 5), Vector2(rail, header_bottom + 5),
-		Vector2(rail, bottom)]), ink, 2.3 if focus_branch != &"" else 1.5, 0.65)
-	for button: HunterTreeNode in roots:
-		var rect: Rect2 = _frame(button)
-		var end := Vector2(rect.get_center().x, rect.position.y - 2)
-		var bend: float = rect.position.y - 12
-		_wire(PackedVector2Array([Vector2(rail, bend), Vector2(end.x, bend), end]), ink,
-			2.3 if focus_branch != &"" else 1.5, 0.75)
-		draw_circle(Vector2(rail, bend), 3, ink)

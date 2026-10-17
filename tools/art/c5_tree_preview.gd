@@ -29,10 +29,10 @@ func _ready() -> void:
 	await _capture("01-depart-fr")
 	_prepare_build()
 	_tab._selected = &"blade_master"
-	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 600
+	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 350
 	await _capture("02-build-fr")
 	_tab._selected = &"blade_slash_whirlwind"
-	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 250
+	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 90
 	await _capture("03-variantes-fr")
 	TranslationServer.set_locale("en")
 	_screen.queue_free()
@@ -89,7 +89,7 @@ func _capture(file: String) -> void:
 
 func _capture_full_branch() -> void:
 	var viewport := SubViewport.new()
-	viewport.size = Vector2i(840, 840)
+	viewport.size = Vector2i(840, 640)
 	viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	add_child(viewport)
 	var background := ColorRect.new()

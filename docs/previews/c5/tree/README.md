@@ -1,23 +1,16 @@
-# Arbre fonctionnel C5 — captures 1280 × 720
+# Arbre du Chasseur — captures C5
 
-Captures du véritable onglet du refuge, rendues avec Godot 4.3.
-Les 24 icônes de sorts, transformants et clés de voûte sont créées et intégrées.
-[Planche des 24 icônes](icones.png) — illustrations HD 512 px du pipeline, réduites pour la planche.
+Captures de l’écran du refuge à 1280 × 720 sur un profil de démonstration isolé, jamais sauvegardé.
 
-- [Départ FR](01-depart-fr.png) : vue Lame détaillée avec deux sorts offerts.
-- [Build FR](02-build-fr.png) : nœuds appris, quatre sorts équipés, Maître-lame actif et grand aperçu.
-- [Variantes FR](03-variantes-fr.png) : Tourbillon A sélectionné, règle A/B et actions.
-- [Vue d’ensemble FR](05-ensemble-fr.png) : tronc et quatre voies sur cinq niveaux.
-- [Refuge EN](04-refuge-en.png) : améliorations permanentes et panneau de détail.
+- 01-depart-fr.png : profil initial, tronc et début de la voie Lame.
+- 02-build-fr.png : bas de la voie, talents et clé de voûte.
+- 03-variantes-fr.png : trois groupes de sorts et leurs choix A/B ; panneau de détail fixe.
+- 04-refuge-en.png : améliorations du refuge en anglais.
+- 05-ensemble-fr.png : index compact des quatre voies.
+- 06-voie-lame.png : même composant graphique déplié à 840 × 640 ; ce n’est pas une fenêtre de jeu complète.
+- icones.png : planche des 24 illustrations HD.
 
-Reproduire : Godot en mode graphique, résolution 1280×720, scène tools/art/c5_tree_preview.tscn.
-Le profil de démonstration est créé en mémoire et n’est jamais sauvegardé.
+La voie détaillée progresse de gauche à droite. Chaque paire A/B reste directement sous son sort.
+Passifs, talents transformants et clé de voûte sont séparés pour éviter les croisements.
 
-Révision du 17 octobre : affichage par voie, nœuds de 80 px, aperçu de 144 px, illustrations importées
-en 512 × 512 sans réduction à 32 couleurs. Les niveaux défilent à l’intérieur de l’arbre.
-
-Ramifications retracées le 17 octobre : voir notamment 03-variantes-fr.png pour les bifurcations
-de Taille fendante et 05-ensemble-fr.png pour le raccord du tronc aux quatre voies.
-
-[Voie Lame entièrement dépliée](06-voie-lame.png) : le même composant graphique rendu sans
-défilement, pour voir les ramifications sur les cinq niveaux à la fois.
+Reproduction : Godot, scène tools/art/c5_tree_preview.tscn, résolution 1280 × 720.
