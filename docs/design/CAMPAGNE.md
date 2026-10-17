@@ -47,12 +47,12 @@ Décision du 16 octobre 2026 : **un jeu plus court, très rejouable**.
 
 | Chapitre | Carte | Rôle |
 |---|---|---|
-| 1 — Le Val des Cascades | Ruines des Cascades (`three_rifts`) | Carte finale (zones puis Nébulorax) — premier niveau en vagues par zone |
-| 2 — Les Hautes Terres | Hautes Terres d'Orage (`storm_highlands`) | Carte finale (Astravorn) ; la gagner termine la campagne actuelle et débloque le Cauchemar |
+| 1 — Le Val des Cascades | Ruines des Cascades (`three_rifts`) | Carte 1 (zones puis Nébulorax) — premier niveau en vagues par zone |
+| 1 — Le Val des Cascades | Hautes Terres d'Orage (`storm_highlands`) | Carte 2 (Astravorn) ; la gagner termine la campagne actuelle et débloque le Cauchemar |
 | Hors campagne | Plaine fracturée (`fractured_plain`) | Mode Survie, toujours accessible |
 
-Noms des chapitres provisoires. Les autres cartes des chapitres 1 et 2 restent à produire (lot B3) : il suffit de les
-ajouter à la liste `maps` du chapitre, dans l'ordre.
+Nom du chapitre provisoire. Les autres cartes du chapitre 1 et le chapitre 2 restent à produire (lot B3) : il suffit
+d'ajouter une carte à la liste `maps` de son chapitre, dans l'ordre, ou un fichier par nouveau chapitre.
 
 ## Réalisation (lot B1, 17 octobre 2026)
 
