@@ -28,7 +28,7 @@ extends Resource
 @export var default_spells: Array[StringName] = [&"cleaving_slash", &"prismatic_lance"]
 @export_group("Équipe")
 @export var base_team_slots: int = 2
-@export var max_team_slots: int = 4
+@export var max_team_slots: int = 3
 @export var ally_rank_max: int = 5
 ## Bonus de dégâts par rang au-delà du premier.
 @export var ally_rank_damage_bonus: float = 0.2
@@ -69,6 +69,9 @@ extends Resource
 @export var chest_break_shards: int = 20
 @export var chest_break_heal_ratio: float = 0.3
 @export var relic_choices: int = 3
+## Récompenses dégressives d'une carte de campagne déjà gagnée : ×decay par victoire dans la difficulté, plancher floor.
+@export var map_repeat_decay: float = 0.8
+@export var map_repeat_floor: float = 0.4
 @export_group("Capture (Rite de lien)")
 ## Chance qu'une élite laisse un Écho errant.
 @export var capture_chance: float = 0.3

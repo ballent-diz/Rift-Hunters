@@ -3,7 +3,7 @@ extends RefCounted
 ## Migrations de format de sauvegarde. Chaque étape transforme la version N en N+1 (fonction pure).
 ## Règle : ne jamais supprimer une donnée inconnue, seulement la déplacer ou la renommer.
 
-const CURRENT_VERSION := 2
+const CURRENT_VERSION := 3
 
 
 ## Retourne {data, from, to, error}. error non vide si la migration est impossible.
@@ -20,6 +20,8 @@ static func migrate(data: Dictionary) -> Dictionary:
 				current = _v0_to_v1(current)
 			1:
 				current = _v1_to_v2(current)
+			2:
+				current = _v2_to_v3(current)
 			_:
 				result["error"] = "no_migration_from_%d" % version
 				return result
@@ -58,4 +60,38 @@ static func _v1_to_v2(old: Dictionary) -> Dictionary:
 	if not (data.get("hunter") is Dictionary):
 		data["hunter"] = {"active_build": 0, "builds": [], "maps_won": []}
 	data["format_version"] = 2
+	return data
+
+
+## v2 → v3 : campagne en chapitres et fin de la Tension (docs/design/CAMPAGNE.md). Les cartes déjà gagnées comptent
+## une victoire en Normal ; elles et la dernière arène choisie restent débloquées. La préférence de Tension devient
+## Normal ; les anciens déblocages de Tension et le record « highest_tension_won » sont conservés tels quels.
+static func _v2_to_v3(old: Dictionary) -> Dictionary:
+	var data: Dictionary = old.duplicate(true)
+	var campaign: Dictionary = data.get("campaign") if data.get("campaign") is Dictionary else {}
+	if not (campaign.get("maps") is Dictionary):
+		campaign["maps"] = {}
+	if not campaign.has("nightmare_unlocked"):
+		campaign["nightmare_unlocked"] = false
+	data["campaign"] = campaign
+	var hunter: Dictionary = data.get("hunter") if data.get("hunter") is Dictionary else {}
+	var won: Array = hunter.get("maps_won") if hunter.get("maps_won") is Array else []
+	var unlocks: Dictionary = data.get("unlocks") if data.get("unlocks") is Dictionary else {}
+	var arenas: Array = unlocks.get("arenas") if unlocks.get("arenas") is Array else []
+	var preferences: Dictionary = data.get("preferences") if data.get("preferences") is Dictionary else {}
+	for raw: Variant in won:
+		var id: String = str(raw)
+		campaign["maps"][id] = {"normal": {"wins": 1, "objectives": []}, "nightmare": {"wins": 0, "objectives": []},
+			"best_pact": 0}
+		if not arenas.has(id):
+			arenas.append(id)
+	var last_arena: String = str(preferences.get("arena", ""))
+	if last_arena != "" and not arenas.has(last_arena):
+		arenas.append(last_arena)
+	unlocks["arenas"] = arenas
+	data["unlocks"] = unlocks
+	if str(preferences.get("difficulty", "")).begins_with("tension_"):
+		preferences["difficulty"] = "normal"
+	data["preferences"] = preferences
+	data["format_version"] = 3
 	return data

@@ -13,7 +13,7 @@ Statut : **validé le 14 octobre 2026**. Noms, rôles et mécaniques des nouveau
   équipe un seul (touche 1, 2 ou 3 selon sa place dans l'équipe).
 - Équipes possibles avec 16 Échos et 3 places : **560**.
 
-À modifier dans le code (lot C6) : `max_team_slots` passe de 4 à 3 (`src/data/balance_config.gd`).
+Réalisé (lot C6) : `max_team_slots` = 3 (`src/data/balance_config.gd`).
 
 ## Roster cible : 16 Échos
 
@@ -34,6 +34,23 @@ ce sont des récompenses de campagne).
 - **2 Échos** de la même affinité dans l'équipe → bonus.
 - **3 Échos** (toute l'équipe) → bonus renforcé (build spécialisé).
 - Les anciennes affinités « arcane » et « contrôle » disparaissent (remplacées ci-dessous).
+
+**Bonus réalisés (lot C6, 17 octobre 2026 ; valeurs proposées, à ajuster à l'équilibrage)** — données
+`data/synergies/affinity_<affinité>_<2|3>.tres` (Prédateur (2) garde l'identifiant `predators`). Les bonus à 3 Échos
+s'ajoutent à ceux à 2.
+
+| Affinité (identifiant) | 2 Échos | 3 Échos (en plus) |
+|---|---|---|
+| Braise (`ember`) | Attaques des Échos : 15 % de Brûlure | Brûlure +50 % |
+| Foudre (`storm`) | Vitesse d'attaque des Échos +10 % | Attaques des Échos : 20 % d'électrisation (dégâts subis +20 %) |
+| Lumière (`light`) | Marques : cumul max +1 | Attaques des Échos : 15 % de Marque |
+| Vide (`void`) | Fracture +1 s | Ennemis Fracturés : +10 % de dégâts subis |
+| Pierre (`stone`) | +20 PV max | Dégâts subis −10 % |
+| Nature (`nature`) | Régénération +0,5 PV/s | Soins +25 %, régénération +0,5 PV/s |
+| Prédateur (`predator`) | Échos +20 % contre les ennemis sous 50 % de PV | Dégâts contre élites et boss +20 % |
+| Gardien (`guardian`) | Dégâts subis −8 % | Dégâts subis −7 % de plus, +20 PV max |
+
+Affinités affichées au bestiaire (fiche de chaque Écho et condition des synergies).
 
 ### Duos nommés (faits à la main)
 
@@ -104,4 +121,4 @@ Solgriffe + Cendrelame (chasse à l'aube), Lueurine + Lucivelle (constellation),
 
 - Validation Écho par Écho (nom, apparence, mécanique) au moment de la création.
 - Ordre d'arrivée des nouveaux Échos dans les chapitres.
-- Valeurs des bonus d'affinité (2 et 3 Échos).
+- Valeurs des bonus d'affinité : proposées (tableau ci-dessus), à ajuster à l'équilibrage.

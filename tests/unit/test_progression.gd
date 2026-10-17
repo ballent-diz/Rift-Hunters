@@ -162,9 +162,11 @@ func test_objective_conditions() -> void:
 			"équipe trop grande")
 	check(Objectives.is_met(profile, lone, _result({"victory": true}, {"victories": 1.0, "max_team_size": 1.0})),
 			"condition remplie")
-	var tension: ObjectiveData = GameDB.objective(&"tension_two")
-	check(not Objectives.is_met(profile, tension, _result({"victory": true, "difficulty_level": 1}, {"victories": 1.0})),
-			"Tension trop basse")
+	var nightmare: ObjectiveData = GameDB.objective(&"tension_two")
+	check(not Objectives.is_met(profile, nightmare, _result({"victory": true, "difficulty_level": 0}, {"victories": 1.0})),
+			"Cauchemar requis")
+	check(Objectives.is_met(profile, nightmare, _result({"victory": true, "difficulty_level": 1}, {"victories": 1.0})),
+			"victoire en Cauchemar")
 
 
 func test_lifetime_objective_accumulates() -> void:
@@ -174,10 +176,9 @@ func test_lifetime_objective_accumulates() -> void:
 	check(Objectives.is_completed(profile, &"elite_hunter"), "11 élites cumulées : accompli")
 
 
-func test_victory_unlocks_next_tension_and_rewards() -> void:
+func test_victory_rewards() -> void:
 	var report: Dictionary = MetaProgression.apply_run_result(profile, _result({"victory": true, "time": 500.0},
 		{"bosses_killed": 1.0, "victories": 1.0, "shards_earned_raw": 50.0, "essence_earned_raw": 3.0}))
-	check(profile.has_unlock("difficulties", &"tension_1"), "Tension I débloquée")
 	check(int(report["shards"]) > 150, "Éclats du boss inclus")
 	check_eq(int(profile.data["runs"]["won"]), 1, "victoire comptée")
 	check_near(float(profile.data["records"]["best_time"]), 500.0, 0.01, "record de temps")

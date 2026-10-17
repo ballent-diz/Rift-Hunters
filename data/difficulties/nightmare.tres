@@ -4,16 +4,16 @@
 
 [resource]
 script = ExtResource("1")
-id = &"tension_3"
-level = 3
-name_key = "DIFFICULTY_TENSION_3_NAME"
-desc_key = "DIFFICULTY_TENSION_3_DESC"
+id = &"nightmare"
+level = 1
+name_key = "DIFFICULTY_NIGHTMARE_NAME"
+desc_key = "DIFFICULTY_NIGHTMARE_DESC"
 unlocked_by_default = false
-enemy_hp_mult = 2.0
-enemy_damage_mult = 1.5
-enemy_speed_mult = 1.1
-spawn_rate_mult = 1.35
-elite_interval_mult = 0.55
+enemy_hp_mult = 1.6
+enemy_damage_mult = 1.35
+enemy_speed_mult = 1.05
+spawn_rate_mult = 1.25
+elite_interval_mult = 0.65
 elite_affix_count = 2
 boss_phase2_threshold = 0.65
-reward_mult = 2.0
+reward_mult = 1.25

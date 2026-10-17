@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="TechniqueData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="2"]
+
+[sub_resource type="Resource" id="status_application_1"]
+script = ExtResource("2")
+status_id = &"fracture"
+stacks = 1
+
+[resource]
+script = ExtResource("1")
+id = &"maw_pit"
+technique_kind = &"maw_pit"
+name_key = "TECHNIQUE_MAW_PIT_NAME"
+desc_key = "TECHNIQUE_MAW_PIT_DESC"
+cooldown = 13.0
+damage = 30.0
+radius = 130.0
+duration = 1.5
+count = 1
+statuses = Array[ExtResource("2")]([SubResource("status_application_1")])
+params = {"pull": 240.0}

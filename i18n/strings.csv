@@ -205,14 +205,6 @@ ARENA_FRACTURED_PLAIN_DESC,Une plaine morte zébrée de failles. Nébulorax y r�
 EVENT_SWARM_RING,Une nuée vous encercle !,A swarm surrounds you!
 EVENT_UNSTABLE_RIFT,La Faille devient instable !,The Rift grows unstable!
 EVENT_ELITE_HUNT,Des élites traquent votre piste !,Elites are tracking you!
-DIFFICULTY_TENSION_0_NAME,Tension 0,Tension 0
-DIFFICULTY_TENSION_0_DESC,La Faille telle quelle.,The Rift as it is.
-DIFFICULTY_TENSION_1_NAME,Tension I,Tension I
-DIFFICULTY_TENSION_1_DESC,"Ennemis plus robustes, élites plus fréquentes. Récompenses ×1,3.","Tougher enemies, more frequent elites. Rewards ×1.3."
-DIFFICULTY_TENSION_2_NAME,Tension II,Tension II
-DIFFICULTY_TENSION_2_DESC,"Les élites portent deux affixes, les vagues sont plus denses. Récompenses ×1,6.","Elites carry two affixes, waves are denser. Rewards ×1.6."
-DIFFICULTY_TENSION_3_NAME,Tension III,Tension III
-DIFFICULTY_TENSION_3_DESC,"Ennemis plus rapides, le Dévoreur se transforme à 65 % de PV. Récompenses ×2.","Faster enemies, the Devourer transforms at 65% HP. Rewards ×2."
 MASTERY_REWARD_BONUS_NAME,Affinité,Affinity
 MASTERY_REWARD_BONUS_DESC,+10 % de dégâts pour cet Écho.,+10% damage for this Echo.
 MASTERY_REWARD_PALETTE_NAME,Teinte rare,Rare Hue
@@ -251,7 +243,6 @@ EXPEDITION_MASTERY,Maîtrise : niveau %d,Mastery: level %d
 EXPEDITION_LOCKED,Verrouillé,Locked
 EXPEDITION_UNLOCK_BY,Pour le débloquer : %s,To unlock: %s
 EXPEDITION_PALETTE,Teinte rare,Rare hue
-EXPEDITION_TENSION,Tension (difficulté),Tension (difficulty)
 EXPEDITION_ARENA,Arène,Arena
 EXPEDITION_DEPART,Partir en expédition,Start the expedition
 TREE_INTRO,Dépensez vos Éclats de faille. Les nœuds à bord gauche épais sont exclusifs : un seul par groupe.,Spend your Rift Shards. Nodes with a thick left border are exclusive: only one per group.
@@ -309,7 +300,6 @@ STATS_RECORDS,Records,Records
 STATS_BEST_TIME,Meilleur temps : %d:%02d,Best time: %d:%02d
 STATS_BEST_LEVEL,Meilleur niveau : %d,Best level: %d
 STATS_BEST_KILLS,Éliminations en une partie : %d,Kills in one run: %d
-STATS_BEST_TENSION,Tension la plus haute vaincue : %s,Highest Tension defeated: %s
 STATS_LIFETIME,Depuis le début,All time
 STATS_TITLES,Titres,Titles
 STAT_RUNS,Expéditions,Expeditions
@@ -400,12 +390,12 @@ OBJ_LEVEL_FIFTEEN_NAME,Chasseur confirmé,Seasoned Hunter
 OBJ_LEVEL_FIFTEEN_DESC,Atteignez le niveau 15 en une expédition.,Reach level 15 in one expedition.
 OBJ_DEVOURER_SLAIN_NAME,Dévoreur dévoré,Devourer Devoured
 OBJ_DEVOURER_SLAIN_DESC,Vainquez un Dévoreur.,Defeat a Devourer.
-OBJ_TENSION_ONE_NAME,Sous tension,Under Tension
-OBJ_TENSION_ONE_DESC,Refermez une Faille en Tension I ou plus.,Seal a Rift at Tension I or higher.
-OBJ_TENSION_TWO_NAME,Haute tension,High Tension
-OBJ_TENSION_TWO_DESC,Refermez une Faille en Tension II ou plus.,Seal a Rift at Tension II or higher.
+OBJ_TENSION_ONE_NAME,Chasseur confirmé,Seasoned Hunter
+OBJ_TENSION_ONE_DESC,Remportez 2 expéditions.,Win 2 expeditions.
+OBJ_TENSION_TWO_NAME,Cauchemar éveillé,Waking Nightmare
+OBJ_TENSION_TWO_DESC,Refermez une Faille en Cauchemar.,Seal a Rift in Nightmare.
 OBJ_TENSION_THREE_NAME,Gardien des Failles,Rift Warden
-OBJ_TENSION_THREE_DESC,Refermez une Faille en Tension III.,Seal a Rift at Tension III.
+OBJ_TENSION_THREE_DESC,Refermez une Faille en Cauchemar avec au moins 3 pactes.,Seal a Rift in Nightmare with at least 3 pacts.
 OBJ_ELITE_HUNTER_NAME,Chasseur d'élites,Elite Hunter
 OBJ_ELITE_HUNTER_DESC,Vainquez 10 élites (cumul).,Defeat 10 elites (total).
 OBJ_SLAYER_NAME,Fléau des Corrompus,Bane of the Hollowed
@@ -531,7 +521,7 @@ SYNERGY_DEEP_ROOTS_NAME,Racines brisantes,Breaking Roots
 SYNERGY_DEEP_ROOTS_DESC,Les ennemis enracinés sont aussi Fracturés.,Rooted enemies are also Fractured.
 SYNERGY_PRISMATIC_ARC_NAME,Arc prismatique,Prismatic Arc
 SYNERGY_PRISMATIC_ARC_DESC,La foudre de Fulgurine pose des Marques.,Voltwisp's lightning applies Marks.
-SYNERGY_PREDATORS_NAME,Prédateurs,Predators
+SYNERGY_PREDATORS_NAME,Prédateur (2),Predator (2)
 SYNERGY_PREDATORS_DESC,Deux Échos prédateurs : +20 % de dégâts des Échos contre les ennemis sous 50 % de PV.,Two predator Echoes: +20% Echo damage against enemies below 50% HP.
 SYNERGY_LIGHTNING_MIRROR_NAME,Miroir de foudre,Lightning Mirror
 SYNERGY_LIGHTNING_MIRROR_DESC,Les renvois et éclats de Mirelle Électrisent.,Mirrorling's reflections and shards Charge enemies.
@@ -545,10 +535,6 @@ MODIFIER_NO_RESPITE_NAME,Sans répit,No Respite
 MODIFIER_NO_RESPITE_DESC,Tous les soins sont réduits de 60 %.,All healing reduced by 60%.
 MODIFIER_HEAVY_RIFT_NAME,Faille pesante,Heavy Rift
 MODIFIER_HEAVY_RIFT_DESC,"Ennemis : PV +30 %, dégâts +15 %.","Enemies: HP +30%, damage +15%."
-DIFFICULTY_TENSION_4_NAME,Tension IV,Tension IV
-DIFFICULTY_TENSION_4_DESC,"Trois affixes par élite, ennemis bien plus rapides. Récompenses ×2,6.","Three affixes per elite, much faster enemies. Rewards ×2.6."
-DIFFICULTY_TENSION_5_NAME,Tension V,Tension V
-DIFFICULTY_TENSION_5_DESC,"La Faille à son paroxysme. Récompenses ×3,3.",The Rift at its peak. Rewards ×3.3.
 OBJ_DEVOURERS_CALL_NAME,L'appel du vide,Call of the Void
 OBJ_DEVOURERS_CALL_DESC,Éliminez 1500 Corrompus (cumul).,Defeat 1500 Hollowed (total).
 OBJ_CAPTOR_NAME,Lieur,Binder
@@ -562,7 +548,6 @@ CAPTURE_JOINED,%s rejoint votre équipe !,%s joins your team!
 CAPTURE_SENT_TO_REFUGE,%s est lié et vous attend au Refuge.,%s is bound and awaits you at the Refuge.
 REPORT_CAPTURE_UNLOCK,Écho capturé et débloqué : %s,Echo captured and unlocked: %s
 EXPEDITION_MODIFIERS,Pactes de risque,Risk Pacts
-EXPEDITION_MODIFIER_MIN,Disponible à partir de la Tension %d.,Available from Tension %d.
 EXPEDITION_MODIFIERS_BONUS,Bonus de récompenses : +%d %%,Reward bonus: +%d%%
 BOSS_ENRAGED,Le Dévoreur entre en rage !,The Devourer is enraged!
 TIP_MOVE,Déplacez-vous avec ZQSD/WASD ou les flèches (stick gauche à la manette).,Move with WASD or the arrow keys (left stick on a gamepad).
@@ -946,3 +931,161 @@ C5_PASSIVES,I · PASSIFS,I · PASSIVES
 C5_TRANSFORMS,II / IV · TALENTS TRANSFORMANTS,II / IV · TRANSFORMING TALENTS
 C5_KEYSTONE,V · CLÉ DE VOÛTE,V · KEYSTONE
 C5_SPELL_CHOICES,SORTS II → III → IV · VARIANTES A / B,SPELLS II → III → IV · A / B VARIANTS
+SYNERGY_AFFINITY_EMBER_2_NAME,Braise (2),Ember (2)
+SYNERGY_AFFINITY_EMBER_2_DESC,Deux Échos de Braise : les attaques des Échos ont 15 % de chances d'infliger Brûlure.,Two Ember Echoes: Echo attacks have a 15% chance to inflict Burn.
+SYNERGY_AFFINITY_EMBER_3_NAME,Braise (3),Ember (3)
+SYNERGY_AFFINITY_EMBER_3_DESC,Trois Échos de Braise : Brûlure +50 %.,Three Ember Echoes: Burn +50%.
+SYNERGY_AFFINITY_STORM_2_NAME,Foudre (2),Storm (2)
+SYNERGY_AFFINITY_STORM_2_DESC,Deux Échos de Foudre : vitesse d'attaque des Échos +10 %.,Two Storm Echoes: Echo attack speed +10%.
+SYNERGY_AFFINITY_STORM_3_NAME,Foudre (3),Storm (3)
+SYNERGY_AFFINITY_STORM_3_DESC,Trois Échos de Foudre : les attaques des Échos ont 20 % de chances d'électriser (dégâts subis +20 %).,Three Storm Echoes: Echo attacks have a 20% chance to electrify (damage taken +20%).
+SYNERGY_AFFINITY_LIGHT_2_NAME,Lumière (2),Light (2)
+SYNERGY_AFFINITY_LIGHT_2_DESC,"Deux Échos de Lumière : Marques, cumul maximal +1.","Two Light Echoes: Marks, max stacks +1."
+SYNERGY_AFFINITY_LIGHT_3_NAME,Lumière (3),Light (3)
+SYNERGY_AFFINITY_LIGHT_3_DESC,Trois Échos de Lumière : les attaques des Échos ont 15 % de chances de poser une Marque.,Three Light Echoes: Echo attacks have a 15% chance to apply a Mark.
+SYNERGY_AFFINITY_VOID_2_NAME,Vide (2),Void (2)
+SYNERGY_AFFINITY_VOID_2_DESC,Deux Échos du Vide : Fracture +1 s.,Two Void Echoes: Fracture +1 s.
+SYNERGY_AFFINITY_VOID_3_NAME,Vide (3),Void (3)
+SYNERGY_AFFINITY_VOID_3_DESC,"Trois Échos du Vide : ennemis Fracturés, dégâts subis +10 % supplémentaires.",Three Void Echoes: Fractured enemies take +10% extra damage.
+SYNERGY_AFFINITY_STONE_2_NAME,Pierre (2),Stone (2)
+SYNERGY_AFFINITY_STONE_2_DESC,Deux Échos de Pierre : +20 PV max.,Two Stone Echoes: +20 max HP.
+SYNERGY_AFFINITY_STONE_3_NAME,Pierre (3),Stone (3)
+SYNERGY_AFFINITY_STONE_3_DESC,Trois Échos de Pierre : dégâts subis −10 %.,Three Stone Echoes: damage taken −10%.
+SYNERGY_AFFINITY_NATURE_2_NAME,Nature (2),Nature (2)
+SYNERGY_AFFINITY_NATURE_2_DESC,"Deux Échos de Nature : régénération +0,5 PV/s.",Two Nature Echoes: +0.5 HP/s regeneration.
+SYNERGY_AFFINITY_NATURE_3_NAME,Nature (3),Nature (3)
+SYNERGY_AFFINITY_NATURE_3_DESC,"Trois Échos de Nature : soins +25 % et régénération +0,5 PV/s.",Three Nature Echoes: healing +25% and +0.5 HP/s regeneration.
+SYNERGY_AFFINITY_PREDATOR_3_NAME,Prédateur (3),Predator (3)
+SYNERGY_AFFINITY_PREDATOR_3_DESC,Trois Échos prédateurs : dégâts contre les élites et le boss +20 %.,Three Predator Echoes: damage against elites and the boss +20%.
+SYNERGY_AFFINITY_GUARDIAN_2_NAME,Gardien (2),Guardian (2)
+SYNERGY_AFFINITY_GUARDIAN_2_DESC,Deux Échos gardiens : dégâts subis −8 %.,Two Guardian Echoes: damage taken −8%.
+SYNERGY_AFFINITY_GUARDIAN_3_NAME,Gardien (3),Guardian (3)
+SYNERGY_AFFINITY_GUARDIAN_3_DESC,Trois Échos gardiens : dégâts subis −7 % supplémentaires et +20 PV max.,Three Guardian Echoes: a further −7% damage taken and +20 max HP.
+AFFINITY_EMBER_NAME,Braise,Ember
+AFFINITY_STORM_NAME,Foudre,Storm
+AFFINITY_LIGHT_NAME,Lumière,Light
+AFFINITY_VOID_NAME,Vide,Void
+AFFINITY_STONE_NAME,Pierre,Stone
+AFFINITY_NATURE_NAME,Nature,Nature
+AFFINITY_PREDATOR_NAME,Prédateur,Predator
+AFFINITY_GUARDIAN_NAME,Gardien,Guardian
+BESTIARY_AFFINITIES,Affinités : %s,Affinities: %s
+BESTIARY_SYNERGY_AFFINITY,%d Échos : %s,%d Echoes: %s
+TECHNIQUE_CINDER_DASH_NAME,Lame de cendres,Cinder Blade
+TECHNIQUE_CINDER_DASH_DESC,Fonce jusqu'au curseur en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the cursor, slashing everything in its path and inflicting Burn."
+ECHO_NODE_ASHBLADE_MIGHT_NAME,Puissance,Might
+ECHO_NODE_ASHBLADE_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_ASHBLADE_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_ASHBLADE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_ASHBLADE_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_ASHBLADE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_ASHBLADE_SPELL_ALT_NAME,Lame de cendres,Cinder Blade
+ECHO_NODE_ASHBLADE_SPELL_ALT_DESC,Fonce jusqu'au curseur en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the cursor, slashing everything in its path and inflicting Burn."
+ECHO_NODE_ASHBLADE_SIGNATURE_NAME,Frénésie,Frenzy
+ECHO_NODE_ASHBLADE_SIGNATURE_DESC,Vitesse d'attaque de Cendrelame +20 %.,Ashblade attack speed +20%.
+TECHNIQUE_STONE_TAUNT_NAME,Rempart de mousse,Moss Rampart
+TECHNIQUE_STONE_TAUNT_DESC,Provoque et ralentit les ennemis autour du curseur pendant 3 s.,Taunts and slows enemies around the cursor for 3 s.
+ECHO_NODE_MOSSBACK_MIGHT_NAME,Puissance,Might
+ECHO_NODE_MOSSBACK_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_MOSSBACK_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_MOSSBACK_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_MOSSBACK_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_MOSSBACK_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_MOSSBACK_SPELL_ALT_NAME,Rempart de mousse,Moss Rampart
+ECHO_NODE_MOSSBACK_SPELL_ALT_DESC,Provoque et ralentit les ennemis autour du curseur pendant 3 s.,Taunts and slows enemies around the cursor for 3 s.
+ECHO_NODE_MOSSBACK_SIGNATURE_NAME,Écorce,Bark
+ECHO_NODE_MOSSBACK_SIGNATURE_DESC,Dégâts subis par le Chasseur −6 %.,Damage taken by the Hunter −6%.
+TECHNIQUE_SPARK_RAIN_NAME,Pluie d'étincelles,Spark Rain
+TECHNIQUE_SPARK_RAIN_DESC,Pose 2 Marques sur les ennemis autour du curseur.,Applies 2 Marks to enemies around the cursor.
+ECHO_NODE_GLIMMERWING_MIGHT_NAME,Puissance,Might
+ECHO_NODE_GLIMMERWING_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_GLIMMERWING_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_GLIMMERWING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_GLIMMERWING_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_GLIMMERWING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_GLIMMERWING_SPELL_ALT_NAME,Pluie d'étincelles,Spark Rain
+ECHO_NODE_GLIMMERWING_SPELL_ALT_DESC,Pose 2 Marques sur les ennemis autour du curseur.,Applies 2 Marks to enemies around the cursor.
+ECHO_NODE_GLIMMERWING_SIGNATURE_NAME,Prisme,Prism
+ECHO_NODE_GLIMMERWING_SIGNATURE_DESC,Marques : cumul maximal +1.,Marks: max stacks +1.
+TECHNIQUE_BLOOM_NAME,Floraison,Bloom
+TECHNIQUE_BLOOM_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du curseur.,Heals the Hunter for 10% of max HP and roots enemies around the cursor.
+ECHO_NODE_THORNWEAVE_MIGHT_NAME,Puissance,Might
+ECHO_NODE_THORNWEAVE_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_THORNWEAVE_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_THORNWEAVE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_THORNWEAVE_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_THORNWEAVE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_THORNWEAVE_SPELL_ALT_NAME,Floraison,Bloom
+ECHO_NODE_THORNWEAVE_SPELL_ALT_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du curseur.,Heals the Hunter for 10% of max HP and roots enemies around the cursor.
+ECHO_NODE_THORNWEAVE_SIGNATURE_NAME,Sève,Sap
+ECHO_NODE_THORNWEAVE_SIGNATURE_DESC,"Régénération du Chasseur +0,4 PV/s.",Hunter regeneration +0.4 HP/s.
+TECHNIQUE_CHAIN_ARC_NAME,Arc chaîné,Chain Arc
+TECHNIQUE_CHAIN_ARC_DESC,Éclair qui part de l'ennemi le plus proche du curseur et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the cursor and bounces through 6 enemies, electrifying them."
+ECHO_NODE_VOLTWISP_MIGHT_NAME,Puissance,Might
+ECHO_NODE_VOLTWISP_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_VOLTWISP_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_VOLTWISP_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_VOLTWISP_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_VOLTWISP_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_VOLTWISP_SPELL_ALT_NAME,Arc chaîné,Chain Arc
+ECHO_NODE_VOLTWISP_SPELL_ALT_DESC,Éclair qui part de l'ennemi le plus proche du curseur et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the cursor and bounces through 6 enemies, electrifying them."
+ECHO_NODE_VOLTWISP_SIGNATURE_NAME,Portée,Reach
+ECHO_NODE_VOLTWISP_SIGNATURE_DESC,Portée d'attaque de Fulgurine +20 %.,Voltwisp attack range +20%.
+TECHNIQUE_MAW_PIT_NAME,Gouffre,Maw Pit
+TECHNIQUE_MAW_PIT_DESC,"Petit puits du Vide au curseur qui aspire les ennemis, les mord et les Fracture.","A small Void well at the cursor that pulls enemies in, bites and Fractures them."
+ECHO_NODE_GLOOMMAW_MIGHT_NAME,Puissance,Might
+ECHO_NODE_GLOOMMAW_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_GLOOMMAW_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_GLOOMMAW_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_GLOOMMAW_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_GLOOMMAW_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_GLOOMMAW_SPELL_ALT_NAME,Gouffre,Maw Pit
+ECHO_NODE_GLOOMMAW_SPELL_ALT_DESC,"Petit puits du Vide au curseur qui aspire les ennemis, les mord et les Fracture.","A small Void well at the cursor that pulls enemies in, bites and Fractures them."
+ECHO_NODE_GLOOMMAW_SIGNATURE_NAME,Appétit,Appetite
+ECHO_NODE_GLOOMMAW_SIGNATURE_DESC,Dégâts contre les élites et le boss +10 %.,Damage against elites and the boss +10%.
+TECHNIQUE_MIRROR_SHARDS_NAME,Éclats miroirs,Mirror Shards
+TECHNIQUE_MIRROR_SHARDS_DESC,Projette 5 éclats en éventail vers le curseur.,Throws 5 shards in a fan toward the cursor.
+ECHO_NODE_MIRRORLING_MIGHT_NAME,Puissance,Might
+ECHO_NODE_MIRRORLING_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_MIRRORLING_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_MIRRORLING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_MIRRORLING_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_MIRRORLING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_MIRRORLING_SPELL_ALT_NAME,Éclats miroirs,Mirror Shards
+ECHO_NODE_MIRRORLING_SPELL_ALT_DESC,Projette 5 éclats en éventail vers le curseur.,Throws 5 shards in a fan toward the cursor.
+ECHO_NODE_MIRRORLING_SIGNATURE_NAME,Reflet,Reflection
+ECHO_NODE_MIRRORLING_SIGNATURE_DESC,+15 PV max.,+15 max HP.
+TAB_ECHOES,Échos,Echoes
+ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (1 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (1, 2, 3). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (1 + mastery level). One spell equipped per Echo, cast with its key (1, 2, 3). Activations are saved in the Hunter's active build."
+ECHO_TREE_POINTS,Points d'Écho : %d / %d,Echo Points: %d / %d
+ECHO_TREE_EQUIPPED,Sort équipé : %s,Equipped spell: %s
+ECHO_TREE_LOCKED,Écho pas encore débloqué.,Echo not unlocked yet.
+ECHO_TREE_ERR_POINTS,Pas assez de Points d'Écho (montez le niveau de maîtrise de cet Écho).,Not enough Echo Points (raise this Echo's mastery level).
+DIFFICULTY_NORMAL_NAME,Normal,Normal
+DIFFICULTY_NORMAL_DESC,La campagne telle qu’elle a été pensée.,The campaign as intended.
+DIFFICULTY_NIGHTMARE_NAME,Cauchemar,Nightmare
+DIFFICULTY_NIGHTMARE_DESC,"Ennemis renforcés, élites à deux affixes, vagues plus denses ; le Dévoreur se transforme à 65 % de PV. Pactes de risque disponibles. Récompenses +25 %.","Stronger enemies, elites with two affixes, denser waves; the Devourer transforms at 65% HP. Risk pacts available. Rewards +25%."
+EXPEDITION_DIFFICULTY,Difficulté,Difficulty
+EXPEDITION_NIGHTMARE_LOCKED,finissez la campagne,finish the campaign
+EXPEDITION_CHAPTER,Chapitre %d — %s,Chapter %d — %s
+EXPEDITION_SURVIVAL,Hors campagne : Survie,Outside the campaign: Survival
+EXPEDITION_MAP_LOCKED,Terminez la carte précédente pour débloquer celle-ci.,Clear the previous map to unlock this one.
+EXPEDITION_MODIFIER_NIGHTMARE,Réservé au Cauchemar.,Nightmare only.
+CHAPTER_CASCADE_RUINS_NAME,Le Val des Cascades,Waterfall Vale
+CHAPTER_CASCADE_RUINS_DESC,"Des ruines noyées d’eau vive, où la première grande faille s’est ouverte.","Ruins drowned in rushing water, where the first great rift opened."
+CHAPTER_STORM_HIGHLANDS_NAME,Les Hautes Terres,The Highlands
+CHAPTER_STORM_HIGHLANDS_DESC,"Landes battues par l’orage, menhirs et ruines oubliées.","Storm-lashed moors, standing stones and forgotten ruins."
+MAP_OBJ_CLEAR_DESC,Terminer la carte,Clear the map
+MAP_OBJ_DAMAGE_DESC,Terminer en subissant au plus %d dégâts,Clear it taking at most %d damage
+MAP_OBJ_BOSS_TIME_DESC,Vaincre le Dévoreur en moins de %s,Defeat the Devourer in under %s
+MAP_OBJ_TEAM_DESC,Terminer avec au plus %d Échos,Clear it with at most %d Echoes
+MAP_OBJ_PACTS_DESC,Terminer avec au moins %d pactes de risque,Clear it with at least %d risk pacts
+MAP_OBJ_ELITES_DESC,Terminer en vainquant au moins %d élites,Clear it defeating at least %d elites
+REPORT_MAP_FIRST_VICTORY,Première victoire sur cette carte : +%d Éclats,First victory on this map: +%d Shards
+REPORT_MAP_OBJECTIVE,★ Objectif de carte : %s (+%d Éclats),★ Map objective: %s (+%d Shards)
+REPORT_MAP_UNLOCKED,Nouvelle carte : %s,New map: %s
+REPORT_CHAPTER_UNLOCKED,Nouveau chapitre : %s,New chapter: %s
+REPORT_NIGHTMARE_UNLOCKED,Campagne terminée ! Le Cauchemar est débloqué sur toutes les cartes.,Campaign complete! Nightmare is unlocked on every map.
+REPORT_REPEAT_REWARD,Carte déjà gagnée : récompenses à %d %%,Map already won: rewards at %d%%
+STATS_CAMPAIGN,Campagne : %d / %d cartes terminées,Campaign: %d / %d maps cleared
+STATS_MAP_OBJECTIVES,Objectifs de carte : %d / %d,Map objectives: %d / %d

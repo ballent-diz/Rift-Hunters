@@ -1,5 +1,5 @@
 extends RefugeTab
-## Préparation de l'expédition : Écho de départ (variante, palette), Tension, arène.
+## Préparation de l'expédition : Écho de départ (variante, palette), difficulté (Normal / Cauchemar), carte.
 
 func title_key() -> String:
 	return "TAB_EXPEDITION"
@@ -45,44 +45,85 @@ func refresh() -> void:
 			var palette_on: bool = bool(entry.get("use_palette", false))
 			options.add_child(UiKit.button(tr("EXPEDITION_PALETTE") + (" ✔" if palette_on else ""), _toggle.bind(selected,
 					"use_palette"), 240))
-	box.add_child(UiKit.label(tr("EXPEDITION_TENSION"), 22, UiKit.TEXT))
-	var tension_row := HFlowContainer.new()
-	tension_row.add_theme_constant_override("h_separation", 10)
-	tension_row.add_theme_constant_override("v_separation", 8)
-	box.add_child(tension_row)
-	var current_difficulty: String = p.preference("difficulty", "tension_0")
-	for difficulty: DifficultyData in GameDB.difficulties_by_level():
-		var unlocked: bool = p.is_difficulty_unlocked(difficulty)
-		var label: String = tr(difficulty.name_key) + (" ✔" if String(difficulty.id) == current_difficulty else "")
-		var button: Button = UiKit.button(label if unlocked else tr(difficulty.name_key) + " — " + tr("EXPEDITION_LOCKED"),
-				_set_pref.bind("difficulty", String(difficulty.id)), 170)
-		button.disabled = not unlocked
-		button.tooltip_text = tr(difficulty.desc_key)
-		tension_row.add_child(button)
-	var difficulty_data: DifficultyData = GameDB.difficulty(StringName(current_difficulty))
-	if difficulty_data:
-		box.add_child(UiKit.wrapped(tr(difficulty_data.desc_key), 15))
+	var difficulty_data: DifficultyData = _add_difficulties(box, p)
 	_add_modifiers(box, difficulty_data)
-	box.add_child(UiKit.label(tr("EXPEDITION_ARENA"), 22, UiKit.TEXT))
-	var arena_row := HFlowContainer.new()
-	arena_row.add_theme_constant_override("h_separation", 10)
-	arena_row.add_theme_constant_override("v_separation", 8)
-	box.add_child(arena_row)
-	var current_arena: String = p.preference("arena", "fractured_plain")
-	for arena: ArenaData in Profile.unlocked_arenas():
-		var arena_label: String = tr(arena.name_key) + (" ✔" if String(arena.id) == current_arena else "")
-		var arena_button: Button = UiKit.button(arena_label, _set_pref.bind("arena", String(arena.id)), 260)
-		arena_button.tooltip_text = tr(arena.desc_key)
-		arena_row.add_child(arena_button)
+	_add_maps(box, p, Campaign.mode_of(difficulty_data.id))
 	var go: Button = UiKit.button(tr("EXPEDITION_DEPART"), _depart, 420)
 	go.custom_minimum_size.y = 60
 	go.add_theme_font_size_override("font_size", 24)
 	box.add_child(go)
 
 
-## Pactes de risque : modificateurs cumulables, disponibles à partir d'une certaine Tension.
+## Normal, puis Cauchemar une fois la campagne finie. Retourne la difficulté retenue.
+func _add_difficulties(box: VBoxContainer, p: ProfileData) -> DifficultyData:
+	box.add_child(UiKit.label(tr("EXPEDITION_DIFFICULTY"), 22, UiKit.TEXT))
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 10)
+	row.add_theme_constant_override("v_separation", 8)
+	box.add_child(row)
+	var current: DifficultyData = GameDB.difficulty(StringName(p.preference("difficulty", "normal")))
+	if current == null or not p.is_difficulty_unlocked(current):
+		current = GameDB.difficulty(Campaign.NORMAL)
+	for difficulty: DifficultyData in GameDB.difficulties_by_level():
+		var unlocked: bool = p.is_difficulty_unlocked(difficulty)
+		var label: String = tr(difficulty.name_key) + (" ✔" if difficulty == current else "")
+		var button: Button = UiKit.button(label if unlocked else tr(difficulty.name_key) + " — " + tr("EXPEDITION_NIGHTMARE_LOCKED"),
+				_set_pref.bind("difficulty", String(difficulty.id)), 260)
+		button.disabled = not unlocked
+		button.tooltip_text = tr(difficulty.desc_key)
+		row.add_child(button)
+	box.add_child(UiKit.wrapped(tr(current.desc_key), 15))
+	return current
+
+
+## Cartes de campagne par chapitre (verrouillées en grisé, objectifs de la difficulté choisie), puis la Survie.
+func _add_maps(box: VBoxContainer, p: ProfileData, mode: StringName) -> void:
+	box.add_child(UiKit.label(tr("EXPEDITION_ARENA"), 22, UiKit.TEXT))
+	var current_arena: String = p.preference("arena", "three_rifts")
+	for chapter: ChapterData in GameDB.chapters_in_order():
+		box.add_child(UiKit.label(tr("EXPEDITION_CHAPTER") % [chapter.order, tr(chapter.name_key)], 18, chapter.color))
+		var row: HFlowContainer = _map_row(box)
+		for map: CampaignMapData in chapter.maps:
+			var arena: ArenaData = GameDB.arena(map.arena_id)
+			if arena == null:
+				continue
+			var objectives: Array[MapObjectiveData] = Campaign.objectives_of(map, mode)
+			var lines: PackedStringArray = [tr(arena.desc_key)]
+			var done: int = 0
+			for objective: MapObjectiveData in objectives:
+				var ok: bool = Campaign.objective_done(p, arena.id, mode, objective.id)
+				done += 1 if ok else 0
+				lines.append(("★ " if ok else "☆ ") + Campaign.objective_text(objective))
+			var label: String = "%s  ★ %d/%d" % [tr(arena.name_key), done, objectives.size()]
+			_add_map_button(row, arena, label + (" ✔" if String(arena.id) == current_arena else ""), "\n".join(lines),
+				p.is_arena_unlocked(arena))
+	box.add_child(UiKit.label(tr("EXPEDITION_SURVIVAL"), 18, UiKit.MUTED))
+	var survival: HFlowContainer = _map_row(box)
+	for arena: ArenaData in Profile.unlocked_arenas():
+		if not Campaign.is_campaign_map(arena.id):
+			_add_map_button(survival, arena, tr(arena.name_key) + (" ✔" if String(arena.id) == current_arena else ""),
+				tr(arena.desc_key), true)
+
+
+func _map_row(box: VBoxContainer) -> HFlowContainer:
+	var row := HFlowContainer.new()
+	row.add_theme_constant_override("h_separation", 10)
+	row.add_theme_constant_override("v_separation", 8)
+	box.add_child(row)
+	return row
+
+
+func _add_map_button(row: HFlowContainer, arena: ArenaData, label: String, tooltip: String, unlocked: bool) -> void:
+	var button: Button = UiKit.button(label if unlocked else tr(arena.name_key) + " — " + tr("EXPEDITION_LOCKED"),
+		_set_pref.bind("arena", String(arena.id)), 300)
+	button.disabled = not unlocked
+	button.tooltip_text = tooltip if unlocked else tr("EXPEDITION_MAP_LOCKED")
+	row.add_child(button)
+
+
+## Pactes de risque : modificateurs cumulables, réservés au Cauchemar.
 func _add_modifiers(box: VBoxContainer, difficulty: DifficultyData) -> void:
-	if GameDB.modifiers.is_empty():
+	if GameDB.modifiers.is_empty() or difficulty.level < 1:
 		return
 	box.add_child(UiKit.label(tr("EXPEDITION_MODIFIERS"), 22, UiKit.TEXT))
 	var chosen: PackedStringArray = profile().preference("modifiers", "").split(",", false)
@@ -99,7 +140,7 @@ func _add_modifiers(box: VBoxContainer, difficulty: DifficultyData) -> void:
 			bonus += modifier.reward_bonus
 		var text: String = "%s%s (+%d %%)" % [tr(modifier.name_key), " ✔" if on else "", int(round(modifier.reward_bonus * 100.0))]
 		var button: Button = UiKit.button(text, _toggle_modifier.bind(String(id)), 230)
-		button.tooltip_text = tr(modifier.desc_key) + "\n" + tr("EXPEDITION_MODIFIER_MIN") % modifier.min_difficulty
+		button.tooltip_text = tr(modifier.desc_key) + ("" if allowed else "\n" + tr("EXPEDITION_MODIFIER_NIGHTMARE"))
 		button.disabled = not allowed
 		flow.add_child(button)
 	box.add_child(UiKit.label(tr("EXPEDITION_MODIFIERS_BONUS") % int(round(bonus * 100.0)), 15, UiKit.GOLD))

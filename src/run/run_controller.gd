@@ -78,6 +78,7 @@ func start(setup: RunSetup) -> void:
 		ctx.world.add_child(overlay)
 	event_director = EventDirector.new(ctx)
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
+		ctx.stats.set_value(&"boss_spawned_at", ctx.time)
 		boss_controller = BossController.new(ctx, boss)
 		Audio.play_context("boss")
 		Audio.play_sfx(&"boss_roar")
@@ -303,6 +304,8 @@ func _update_camera(delta: float) -> void:
 
 
 func _on_boss_defeated(_boss: Enemy) -> void:
+	# Durée du combat contre le Dévoreur (objectifs de carte).
+	ctx.stats.set_value(&"boss_fight_time", ctx.time - ctx.stats.get_value(&"boss_spawned_at"))
 	_victory_timer = 2.5
 	ctx.enemies.clear_all()
 	ctx.projectiles.clear_hostile()

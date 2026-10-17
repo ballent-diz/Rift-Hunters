@@ -5,8 +5,15 @@ extends RefCounted
 
 ## Retourne {shards, essence, lines}.
 static func apply_run_result(profile: ProfileData, result: Dictionary) -> Dictionary:
-	var rewards: Dictionary = RunRewards.compute(result, GameDB.balance)
+	var arena_id := StringName(str(result.get("arena", "")))
+	var mode: StringName = Campaign.mode_of(StringName(str(result.get("difficulty", ""))))
+	var repeat_mult: float = Campaign.reward_mult(profile, arena_id, mode, (result.get("modifiers", []) as Array).size())
+	var scaled: Dictionary = result.duplicate()
+	scaled["reward_mult"] = float(result.get("reward_mult", 1.0)) * repeat_mult
+	var rewards: Dictionary = RunRewards.compute(scaled, GameDB.balance)
 	var lines: PackedStringArray = []
+	if repeat_mult < 1.0:
+		lines.append(TranslationServer.translate("REPORT_REPEAT_REWARD") % int(round(repeat_mult * 100.0)))
 	var counters: Dictionary = result.get("stats", {}).get("counters", {})
 	var victory: bool = result.get("victory", false)
 	profile.data["flags"]["tutorial_done"] = true
@@ -32,9 +39,13 @@ static func apply_run_result(profile: ProfileData, result: Dictionary) -> Dictio
 			lines.append(TranslationServer.translate("REPORT_CAPTURE_UNLOCK") % TranslationServer.translate(captured.name_key))
 		profile.discover("monsters", id)
 	lines.append_array(Objectives.evaluate(profile, result))
+	var campaign: Dictionary = Campaign.apply_result(profile, result)
+	rewards["shards"] = int(rewards["shards"]) + int(campaign["shards"])
+	lines.append_array(campaign["lines"])
 	if victory:
-		lines.append_array(_unlock_next_tension(profile, int(result.get("difficulty_level", 0))))
-		if HunterTree.record_victory(profile, str(result.get("arena", ""))):
+		# Première victoire sur une carte (puis en Cauchemar) : +1 Point de Chasseur.
+		var key: String = ("nightmare:" if mode == Campaign.NIGHTMARE else "") + String(arena_id)
+		if arena_id != &"" and HunterTree.record_victory(profile, key):
 			lines.append(TranslationServer.translate("REPORT_HUNTER_POINT"))
 	rewards["lines"] = lines
 	return rewards
@@ -92,11 +103,3 @@ static func _evolution_name(evolution_id: String) -> String:
 				return evo.name_key
 	return evolution_id
 
-
-static func _unlock_next_tension(profile: ProfileData, level: int) -> PackedStringArray:
-	var lines: PackedStringArray = []
-	for difficulty: DifficultyData in GameDB.difficulties_by_level():
-		if difficulty.level == level + 1 and not profile.is_difficulty_unlocked(difficulty):
-			profile.unlock("difficulty:" + String(difficulty.id))
-			lines.append(TranslationServer.translate("REPORT_UNLOCK") % TranslationServer.translate(difficulty.name_key))
-	return lines

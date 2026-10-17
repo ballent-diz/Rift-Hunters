@@ -92,6 +92,23 @@ func test_migration_v0_to_v1() -> void:
 	check(bool(migrated["data"]["legacy_v0"]["custom_flag"]), "clé inconnue conservée (jamais perdue)")
 
 
+func test_migration_v2_to_v3_campaign() -> void:
+	var old := {"format_version": 2, "currencies": {"shards": 10, "essence": 0},
+		"unlocks": {"arenas": [], "difficulties": ["tension_1"]},
+		"preferences": {"arena": "storm_highlands", "difficulty": "tension_2"},
+		"hunter": {"active_build": 0, "builds": [], "maps_won": ["three_rifts"]}}
+	var migrated: Dictionary = SaveMigrations.migrate(old)
+	check_eq(migrated["error"], "", "migration réussie")
+	check_eq(int(migrated["to"]), 3, "version 3")
+	var profile := ProfileData.new(migrated["data"])
+	check_eq(Campaign.wins(profile, &"three_rifts"), 1, "carte gagnée comptée en Normal")
+	check(profile.is_arena_unlocked(GameDB.arena(&"storm_highlands")), "arène déjà choisie : reste débloquée")
+	check_eq(profile.preference("difficulty", ""), "normal", "préférence de Tension remplacée par Normal")
+	check(profile.has_unlock("difficulties", &"tension_1"), "anciens déblocages conservés")
+	check(not profile.is_difficulty_unlocked(GameDB.difficulty(&"nightmare")) or Campaign.final_map().arena_id == &"three_rifts",
+		"le Cauchemar attend la fin de la campagne")
+
+
 func test_newer_version_is_refused() -> void:
 	check_eq(SaveMigrations.migrate({"format_version": 99})["error"], "newer_version", "version future détectée")
 

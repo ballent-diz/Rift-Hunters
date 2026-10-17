@@ -15,5 +15,5 @@ extends Resource
 @export var player_effects: Array[GameplayEffect] = []
 ## Bonus de récompenses (+0.2 = +20 %).
 @export var reward_bonus: float = 0.2
-## Tension minimale pour pouvoir le choisir.
+## Difficulté minimale pour pouvoir le choisir (1 = Cauchemar : les pactes font partie du Pacte).
 @export var min_difficulty: int = 1

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"healing"
+flat = 0.0
+pct = 0.25
+
+[sub_resource type="Resource" id="effect_2"]
+script = ExtResource("2")
+target = 0
+stat = &"regen"
+flat = 0.5
+pct = 0.0
+
+[resource]
+script = ExtResource("1")
+id = &"affinity_nature_3"
+name_key = "SYNERGY_AFFINITY_NATURE_3_NAME"
+desc_key = "SYNERGY_AFFINITY_NATURE_3_DESC"
+required_monsters = []
+required_affinities = {
+"nature": 3
+}
+color = Color(0.5, 1.0, 0.5, 1.0)
+effects = [SubResource("effect_1"), SubResource("effect_2")]

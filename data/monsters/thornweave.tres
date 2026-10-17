@@ -157,7 +157,7 @@ desc_key = "EVOLUTION_BLIGHTBLOOM_DESC"
 required_rank = 3
 attack = SubResource("attack_data_14")
 visual = SubResource("visual_data_17")
-added_affinities = [&"blaze"]
+added_affinities = [&"ember"]
 
 [sub_resource type="Resource" id="status_application_20"]
 script = ExtResource("3")
@@ -290,7 +290,7 @@ name_key = "MONSTER_THORNWEAVE_NAME"
 desc_key = "MONSTER_THORNWEAVE_DESC"
 lore_key = "MONSTER_THORNWEAVE_LORE"
 role = 3
-affinities = [&"nature", &"controller"]
+affinities = [&"nature", &"guardian"]
 rarity = 1
 max_hp = 110.0
 defense = 15.0

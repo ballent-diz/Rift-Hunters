@@ -25,11 +25,13 @@ static func default_data() -> Dictionary:
 		"lifetime": {},
 		"records": {"best_time": 0.0, "best_level": 0, "best_kills": 0, "highest_tension_won": -1},
 		"runs": {"played": 0, "won": 0},
-		"preferences": {"starter": "mossback", "arena": "fractured_plain", "difficulty": "tension_0"},
+		"preferences": {"starter": "mossback", "arena": "three_rifts", "difficulty": "normal"},
 		"flags": {},
 		# Arbre du Chasseur v2 : builds enregistrés et cartes gagnées (Points de Chasseur).
 		"hunter": {"active_build": 0, "builds": [HunterTree.default_build(), HunterTree.default_build(),
 			HunterTree.default_build()], "maps_won": []},
+		# Campagne (Campaign) : victoires et objectifs par carte et par difficulté, Cauchemar débloqué.
+		"campaign": {"maps": {}, "nightmare_unlocked": false},
 	}
 
 
@@ -114,12 +116,15 @@ func is_upgrade_unlocked(upgrade: UpgradeData) -> bool:
 	return upgrade.unlocked_by_default or has_unlock("upgrades", upgrade.id)
 
 
+## Le Cauchemar (niveau 1 et plus) s'obtient en finissant la campagne.
 func is_difficulty_unlocked(difficulty: DifficultyData) -> bool:
-	return difficulty.unlocked_by_default or has_unlock("difficulties", difficulty.id)
+	if difficulty.unlocked_by_default or has_unlock("difficulties", difficulty.id):
+		return true
+	return difficulty.level >= 1 and Campaign.is_nightmare_unlocked(self)
 
 
 func is_arena_unlocked(arena: ArenaData) -> bool:
-	return arena.unlocked_by_default or has_unlock("arenas", arena.id)
+	return Campaign.is_map_unlocked(self, arena)
 
 
 # --- Découvertes

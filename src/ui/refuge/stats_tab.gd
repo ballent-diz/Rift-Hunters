@@ -18,8 +18,14 @@ func refresh() -> void:
 	box.add_child(UiKit.label(tr("STATS_BEST_TIME") % [int(best_time) / 60, int(best_time) % 60], 16))
 	box.add_child(UiKit.label(tr("STATS_BEST_LEVEL") % int(records["best_level"]), 16))
 	box.add_child(UiKit.label(tr("STATS_BEST_KILLS") % int(records["best_kills"]), 16))
-	var tension: int = int(records["highest_tension_won"])
-	box.add_child(UiKit.label(tr("STATS_BEST_TENSION") % (str(tension) if tension >= 0 else "—"), 16))
+	var maps: Array[CampaignMapData] = Campaign.maps_in_order()
+	var cleared: int = 0
+	var objectives: int = 0
+	for map: CampaignMapData in maps:
+		cleared += 1 if Campaign.wins(p, map.arena_id) > 0 else 0
+		objectives += Campaign.objectives_of(map, Campaign.NORMAL).size() + Campaign.objectives_of(map, Campaign.NIGHTMARE).size()
+	box.add_child(UiKit.label(tr("STATS_CAMPAIGN") % [cleared, maps.size()], 16))
+	box.add_child(UiKit.label(tr("STATS_MAP_OBJECTIVES") % [Campaign.objectives_completed(p), objectives], 16))
 	box.add_child(UiKit.label(tr("STATS_LIFETIME"), 20, UiKit.ACCENT))
 	var grid := GridContainer.new()
 	grid.columns = 2

@@ -109,16 +109,16 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	setup.starter_id = starter_id if starter_id != &"" else StringName(profile.preference("starter", "mossback"))
 	if not unlocked.has(setup.starter_id) and not unlocked.is_empty():
 		setup.starter_id = unlocked[0]
-	setup.arena_id = previous.arena_id if previous else StringName(profile.preference("arena", "fractured_plain"))
+	setup.arena_id = previous.arena_id if previous else StringName(profile.preference("arena", "three_rifts"))
 	if previous:
 		setup.modifier_ids = previous.modifier_ids.duplicate()
-	setup.difficulty_id = previous.difficulty_id if previous else StringName(profile.preference("difficulty", "tension_0"))
+	setup.difficulty_id = previous.difficulty_id if previous else StringName(profile.preference("difficulty", "normal"))
 	var arena: ArenaData = GameDB.arena(setup.arena_id)
 	if arena == null or not profile.is_arena_unlocked(arena):
 		setup.arena_id = unlocked_arenas()[0].id
 	var difficulty: DifficultyData = GameDB.difficulty(setup.difficulty_id)
 	if difficulty == null or not profile.is_difficulty_unlocked(difficulty):
-		setup.difficulty_id = &"tension_0"
+		setup.difficulty_id = Campaign.NORMAL
 	setup.unlocked_monsters = unlocked
 	var level: int = GameDB.difficulty(setup.difficulty_id).level
 	if previous == null:
@@ -141,7 +141,12 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	setup.spell_variants = loadout["variants"]
 	for id: StringName in unlocked:
 		var monster: MonsterData = GameDB.monster(id)
-		setup.monster_meta_effects[id] = Mastery.effects_for(profile, monster)
+		var effects: Array[GameplayEffect] = Mastery.effects_for(profile, monster)
+		effects.append_array(EchoTree.effects_for(profile, monster.id))
+		setup.monster_meta_effects[id] = effects
+		var technique: TechniqueData = EchoTree.chosen_technique(profile, monster.id)
+		if technique:
+			setup.echo_techniques[id] = technique
 		var entry: Dictionary = profile.mastery_entry(id)
 		var palette: Array = Mastery.palette(profile, monster)
 		if bool(entry.get("use_palette", false)) and palette.size() == 2:

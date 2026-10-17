@@ -1,11 +1,11 @@
 #!/bin/bash
-# Campagne de simulations d'équilibrage (bot). Usage : tools/balance_sim.sh "starters" "arenas" "tensions" seeds [modificateurs]
-# Exemple : tools/balance_sim.sh "mossback ashblade" "fractured_plain" "tension_0 tension_1" 3
+# Campagne de simulations d'équilibrage (bot). Usage : tools/balance_sim.sh "starters" "arenas" "difficultés" seeds [modificateurs]
+# Exemple : tools/balance_sim.sh "mossback ashblade" "fractured_plain" "normal nightmare" 3
 # Variables : JOBS (parallélisme), META=veteran|expert (bonus d'arbre typiques)
 cd "$(dirname "$0")/.."
 STARTERS="${1:-mossback ashblade glimmerwing}"
 ARENAS="${2:-fractured_plain}"
-TENSIONS="${3:-tension_0}"
+DIFFICULTIES="${3:-normal}"
 SEEDS="${4:-2}"
 MODS="${5:-}"
 META="${META:-}"
@@ -21,9 +21,9 @@ run_one() {
 }
 export -f run_one
 export MODS META
-for s in $STARTERS; do for a in $ARENAS; do for t in $TENSIONS; do for seed in $(seq 1 "$SEEDS"); do
+for s in $STARTERS; do for a in $ARENAS; do for t in $DIFFICULTIES; do for seed in $(seq 1 "$SEEDS"); do
 	echo "$s $a $t $seed"
 done; done; done; done | xargs -P "${JOBS:-4}" -n 4 bash -c 'run_one "$@"' _ >> "$OUT"
-echo "starter|arène|tension|victoire|temps|niveau|éliminations|durée boss|PV boss restants|dégâts subis|erreurs"
+echo "starter|arène|difficulté|victoire|temps|niveau|éliminations|durée boss|PV boss restants|dégâts subis|erreurs"
 sort "$OUT" | sed 's/^RESULT|//'
 awk -F'|' '{n++; v+=$5; e+=$12} END {printf "\nParties : %d, victoires : %d (%.0f %%), erreurs de script : %d\n", n, v, 100*v/n, e}' "$OUT"

@@ -15,7 +15,7 @@
 project.godot
 data/            contenu du jeu (.tres) — un fichier par entité, sans code
   balance/  monsters/  enemies/  affixes/  bosses/  statuses/  upgrades/  relics/
-  synergies/  arenas/  difficulties/  progression/{skill_tree,objectives,research}/
+  synergies/  arenas/  chapters/  difficulties/  progression/{skill_tree,objectives,research}/
 i18n/strings.csv     toutes les chaînes FR/EN
 assets/              concepts/, sprites/, effects/, environments/, ui/, audio/
   asset_manifest.json   identifiant d'asset → fichiers + découpage des animations
@@ -25,7 +25,7 @@ src/
   combat/      StatSheet, DamageInfo, CombatSystem, StatusSystem, SpatialGrid, effects/
   entities/    player/, allies/, enemies/, bosses/, projectiles/, pickups/, hazards/
   run/         RunController, RunContext, SpawnDirector, EventDirector, UpgradeOffers, BuildState
-  progression/ SafeJsonStore, migrations, ProfileData, services (arbre, maîtrise, objectifs...)
+  progression/ SafeJsonStore, migrations, ProfileData, services (arbre, maîtrise, objectifs, campagne...)
   ui/          hud/, panels/, refuge/, thème
   assets/      AssetRegistry, PlaceholderFactory, EntityVisual
 scenes/        scènes racines (main, refuge, run)

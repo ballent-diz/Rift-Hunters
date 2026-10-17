@@ -5,7 +5,7 @@
 |---|---|
 | `data/balance/balance_config.tres` | Chasseur, arme, XP, croissance des ennemis, élites, récompenses, capture, boss (plafond d'ennemis, enragement), zoom |
 | `data/arenas/*.tres` | Durée avant le boss, vagues (ennemis, poids, débit, densité max), événements, élites, obstacles, règle d'arène |
-| `data/difficulties/tension_*.tres` | Multiplicateurs de Tension, affixes d'élite, seuil de phase 2 du boss, récompenses |
+| `data/difficulties/normal.tres`, `nightmare.tres` | Multiplicateurs du Normal et du Cauchemar, affixes d'élite, seuil de phase 2 du boss, récompenses |
 | `data/modifiers/*.tres` | Pactes de risque (multiplicateurs + bonus de récompenses) |
 | `data/monsters`, `enemies`, `bosses`, `upgrades`, `relics` | Valeurs de chaque entité |
 
@@ -17,7 +17,7 @@ utilise la Ruée et les Techniques, ordonne le focus sur le boss et choisit ses 
 Il joue **moins bien** qu'un humain : ses taux de victoire sont un plancher.
 
 ```bash
-tools/balance_sim.sh "mossback ashblade" "fractured_plain three_rifts" "tension_0 tension_1" 3
+tools/balance_sim.sh "mossback ashblade" "fractured_plain three_rifts" "normal nightmare" 3
 META=veteran tools/balance_sim.sh ...   # bonus d'arbre typiques après ~10 parties (expert : ~30 parties)
 JOBS=4 ...                               # parties en parallèle
 ```
