@@ -87,7 +87,9 @@ const prompts=[];
 for(const [type,list] of [['spell',spells],['transform',transforms],['keystone',keystones]])for(const [id,fr,en,branch,subject] of list){
  const visual='icon.hunter.'+id; const dir=path.join(root,'assets/concepts/incoming',visual);await fs.mkdir(path.join(dir,'source'),{recursive:true});
  const hasSource=await fs.access(path.join(dir,'source/icon.png')).then(()=>true,()=>false);
- const job={visual_id:visual,cell:[64,64],anchor:[32,32],scale:1,target_height:50,status:'final',background:'alpha',colors:32,outline:true,anchor_mode:'mass',animations:[{name:'idle',source:'source/icon.png',frames:1,fps:1,loop:true,layout:'row'}]};
+ const job={visual_id:visual,cell:[512,512],anchor:[256,256],scale:1,target_height:400,status:'final',background:'alpha',colors:0,outline:false,resample:'lanczos',preserve_alpha:true,icon_size:512,preview_zoom:1,anchor_mode:'mass',animations:[{name:'idle',source:'source/icon.png',frames:1,fps:1,loop:true,layout:'row'}]};
+ const existingJob=await fs.readFile(path.join(dir,'job.json'),'utf8').then(JSON.parse).catch(()=>({}));
+ Object.assign(job,existingJob);
  await fs.writeFile(path.join(dir,'job.json'),JSON.stringify(job,null,2)+'\n');
  prompts.push({id,visual_id:visual,name_fr:fr,name_en:en,type,branch,prompt:prefix+subject,source:'assets/concepts/incoming/'+visual+'/source/icon.png',job:'assets/concepts/incoming/'+visual+'/job.json',state:hasSource?'source_ready':'awaiting_source'});
 }

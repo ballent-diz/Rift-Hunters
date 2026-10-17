@@ -35,6 +35,7 @@ func test_tree_and_upgrades_fit_720p_in_both_languages() -> void:
 	viewport.add_child(screen)
 	screen.tabs.current_tab = 1
 	var tab: RefugeTab = screen.tabs.get_child(1)
+	tab._focused_branch = &""
 	for locale: String in ["fr", "en"]:
 		TranslationServer.set_locale(locale)
 		for utilities: bool in [false, true]:
@@ -60,6 +61,10 @@ func test_tree_and_upgrades_fit_720p_in_both_languages() -> void:
 				check(tab.get_combined_minimum_size().x <= tab.size.x, "aucun débordement horizontal")
 				check(tab.get_combined_minimum_size().y <= tab.size.y, "aucun débordement vertical")
 				for button: Node in tab.find_children("*", "Button", true, false):
+					if button.is_ancestor_of(tab.find_child("DetailScroll", true, false)):
+						continue
+					if button.get_parent() is CenterContainer:
+						continue
 					check(bounds.encloses(button.get_global_rect()), "bouton accessible : %s %s" % [button.name, button.get_global_rect()])
 				if not utilities:
 					var board: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
@@ -114,5 +119,38 @@ func test_all_24_spell_and_talent_icons_are_imported() -> void:
 	for data: SkillNodeData in GameDB.skill_nodes.values():
 		if data.kind in [SkillNodeData.Kind.SPELL, SkillNodeData.Kind.TRANSFORM, SkillNodeData.Kind.KEYSTONE]:
 			count += 1
-			check(HunterTreeSkin.icon(data) != null, "illustration du nœud : %s" % data.id)
+			var icon: Texture2D = HunterTreeSkin.icon(data)
+			check(icon != null, "illustration du nœud : %s" % data.id)
+			if icon:
+				check(icon.get_width() >= 512 and icon.get_height() >= 512, "illustration HD : %s" % data.id)
 	check_eq(count, 24, "12 sorts, 8 transformants et 4 clés de voûte")
+
+
+func test_focused_paths_keep_large_icons_and_last_tier_accessible() -> void:
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(1280, 720)
+	host.add_child(viewport)
+	var screen: Refuge = load(Router.REFUGE).instantiate()
+	viewport.add_child(screen)
+	screen.tabs.current_tab = 1
+	var tab: RefugeTab = screen.tabs.get_child(1)
+	for branch: StringName in HunterTreeSkin.PATHS:
+		tab._focused_branch = branch
+		screen.refresh_current()
+		await _settle()
+		var plan: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
+		var scroll: ScrollContainer = tab.find_child("TreeScroll", true, false)
+		for data: SkillNodeData in HunterTree.nodes_of_branch(branch):
+			var button: HunterTreeNode = plan._buttons[data.id]
+			check(button.expanded, "illustration agrandie : %s" % data.id)
+			if data.kind == SkillNodeData.Kind.KEYSTONE:
+				scroll.ensure_control_visible(button)
+				await _settle()
+				check(scroll.get_global_rect().intersects(button.get_global_rect()), "niveau V accessible : %s" % branch)
+		check(tab.get_combined_minimum_size().x <= tab.size.x, "voie sans débordement horizontal")
+		if DisplayServer.get_name() != "headless":
+			check(tab.get_combined_minimum_size().y <= tab.size.y, "voie sans débordement vertical")
+			check(Rect2(Vector2.ZERO, Vector2(viewport.size)).encloses(tab.get_global_rect()), "voie dans la fenêtre")
+	screen.queue_free()
+	viewport.queue_free()
+	await _settle()

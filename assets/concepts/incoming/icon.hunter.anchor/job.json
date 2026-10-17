@@ -1,19 +1,19 @@
 {
   "visual_id": "icon.hunter.anchor",
   "cell": [
-    64,
-    64
+    512,
+    512
   ],
   "anchor": [
-    32,
-    32
+    256,
+    256
   ],
   "scale": 1,
-  "target_height": 50,
+  "target_height": 443,
   "status": "final",
   "background": "alpha",
-  "colors": 32,
-  "outline": true,
+  "colors": 0,
+  "outline": false,
   "anchor_mode": "mass",
   "animations": [
     {
@@ -24,5 +24,9 @@
       "loop": true,
       "layout": "row"
     }
-  ]
+  ],
+  "resample": "lanczos",
+  "preserve_alpha": true,
+  "icon_size": 512,
+  "preview_zoom": 1
 }

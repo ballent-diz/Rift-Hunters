@@ -4757,12 +4757,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.cleaving_slash\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_cleaving_slash_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4780,12 +4780,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_leap\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_leap_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4803,12 +4803,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.parry\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_parry_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4826,12 +4826,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.prismatic_lance\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_prismatic_lance_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4849,12 +4849,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.refractor_crystal\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_refractor_crystal_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4872,12 +4872,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_wall\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_wall_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4895,12 +4895,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rupture\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rupture_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4918,12 +4918,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.singularity\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_singularity_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4941,12 +4941,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.propagation\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_propagation_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4964,12 +4964,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.counter_slash\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_counter_slash_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -4987,12 +4987,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.slashing_dash\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_slashing_dash_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5010,12 +5010,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.void_wake\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_void_wake_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5033,12 +5033,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.swap\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_swap_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5056,12 +5056,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.split_bolt\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_split_bolt_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5079,12 +5079,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.twin_rifts\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_twin_rifts_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5102,12 +5102,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.anchor\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_anchor_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5125,12 +5125,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.rift_aegis\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_rift_aegis_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5148,12 +5148,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.close_guard\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_close_guard_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5171,12 +5171,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.pack_call\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_pack_call_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5194,12 +5194,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.fusion\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_fusion_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5217,12 +5217,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.blade_master\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_blade_master_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5240,12 +5240,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.living_prism\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_living_prism_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5263,12 +5263,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.pack_soul\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_pack_soul_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {
@@ -5286,12 +5286,12 @@
 			"imported_from": "assets\\concepts\\incoming\\icon.hunter.void_master\\job.json",
 			"sheet": "res://assets/sprites/skills/hunter/hunter_void_master_sheet.png",
 			"cell": [
-				64,
-				64
+				512,
+				512
 			],
 			"anchor": [
-				32,
-				32
+				256,
+				256
 			],
 			"scale": 1,
 			"animations": {

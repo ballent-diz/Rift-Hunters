@@ -6,6 +6,7 @@ var data: SkillNodeData
 var current: String
 var picked := false
 var large := false
+var expanded := false
 var ink: Color
 var portrait: Texture2D
 var border: Texture2D
@@ -15,7 +16,7 @@ var caption: Label
 
 func setup(p: ProfileData, node: SkillNodeData, selected: StringName) -> void:
 	data = node
-	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
 	# Le bouton ne porte pas de texte ; sa légende est un Label indépendant.
 	add_theme_font_size_override("font_size", 1)
 	name = str(node.id)
@@ -40,7 +41,7 @@ func setup(p: ProfileData, node: SkillNodeData, selected: StringName) -> void:
 
 
 func _draw() -> void:
-	var side: float = minf(60 if large else 40, size.y - (0 if large else 15))
+	var side: float = minf(144 if large else (80 if expanded else 40), size.y - (0 if large else (36 if expanded else 15)))
 	var rect := Rect2(Vector2((size.x - side) * 0.5, 0), Vector2.ONE * side)
 	var faded: bool = current in ["locked", "upcoming"]
 	if picked or is_hovered() or has_focus():
@@ -57,9 +58,10 @@ func _draw() -> void:
 		draw_string(ThemeDB.fallback_font, badge.position + Vector2(2, 10), HunterTreeSkin.variant_letter(data),
 			HORIZONTAL_ALIGNMENT_LEFT, -1, 11, HunterTreeSkin.PAPER)
 	_draw_state(rect)
-	draw_rect(Rect2(0, side, size.x, 15), HunterTreeSkin.NIGHT)
-	caption.position = Vector2(0, side)
-	caption.size = Vector2(size.x, 15)
+	if caption.visible:
+		draw_rect(Rect2(0, side, size.x, 36 if expanded else 15), HunterTreeSkin.NIGHT)
+		caption.position = Vector2(0, side)
+		caption.size = Vector2(size.x, 36 if expanded else 15)
 
 
 func _draw_symbol(rect: Rect2, color: Color) -> void:

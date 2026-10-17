@@ -29,8 +29,10 @@ func _ready() -> void:
 	await _capture("01-depart-fr")
 	_prepare_build()
 	_tab._selected = &"blade_master"
+	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 400
 	await _capture("02-build-fr")
 	_tab._selected = &"blade_slash_whirlwind"
+	(_tab.find_child("TreeScroll", true, false) as ScrollContainer).scroll_vertical = 180
 	await _capture("03-variantes-fr")
 	TranslationServer.set_locale("en")
 	_screen.queue_free()
@@ -42,6 +44,10 @@ func _ready() -> void:
 	_tab._show_upgrades = true
 	_tab._selected = &"research_fourth_option"
 	await _capture("04-refuge-en")
+	TranslationServer.set_locale("fr")
+	_tab._show_upgrades = false
+	_tab._focused_branch = &""
+	await _capture("05-ensemble-fr")
 	_screen.queue_free()
 	await get_tree().process_frame
 	get_tree().quit()

@@ -7,6 +7,8 @@ signal node_selected(id: StringName)
 
 const ROMAN: Array[String] = ["I", "II", "III", "IV", "V"]
 
+var focus_branch: StringName = &""
+
 var _profile: ProfileData
 var _buttons: Dictionary = {}
 var _headings: Array[Label] = []
@@ -16,7 +18,7 @@ var _common: Label
 
 func setup(p: ProfileData, selection: StringName) -> void:
 	_profile = p
-	custom_minimum_size = Vector2(752, 300)
+	custom_minimum_size = Vector2(752, 680 if focus_branch != &"" else 300)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
 	_common = UiKit.label(tr("C5_COMMON"), 12, HunterTreeSkin.MUTED)
@@ -25,6 +27,12 @@ func setup(p: ProfileData, selection: StringName) -> void:
 		for data: SkillNodeData in HunterTree.nodes_of_branch(branch_id):
 			var button := HunterTreeNode.new()
 			button.setup(p, data, selection)
+			button.visible = focus_branch == &"" or branch_id in [&"trunk", focus_branch]
+			if focus_branch != &"" and branch_id != &"trunk":
+				button.expanded = true
+				button.caption.add_theme_font_size_override("font_size", 13)
+				button.caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+				button.caption.max_lines_visible = 2
 			button.pressed.connect(func() -> void: node_selected.emit(data.id))
 			add_child(button)
 			_buttons[data.id] = button
@@ -45,6 +53,9 @@ func setup(p: ProfileData, selection: StringName) -> void:
 
 
 func _layout() -> void:
+	if focus_branch != &"":
+		_layout_focus()
+		return
 	var trunk: Array[SkillNodeData] = HunterTree.nodes_of_branch(&"trunk")
 	_common.position = Vector2(12, 14)
 	for i: int in trunk.size():
@@ -84,6 +95,9 @@ func _place_row(column: int, tier: int, width: float, row_height: float) -> void
 
 
 func _draw() -> void:
+	if focus_branch != &"":
+		_draw_focus()
+		return
 	if _buttons.is_empty():
 		return
 	var width: float = (size.x - 28) / 4
@@ -104,7 +118,7 @@ func _draw() -> void:
 
 func _draw_links(button: HunterTreeNode) -> void:
 	for prereq: StringName in button.data.prerequisites:
-		if not _buttons.has(prereq):
+		if not _buttons.has(prereq) or not (_buttons[prereq] as Control).visible:
 			continue
 		var parent: HunterTreeNode = _buttons[prereq]
 		var start: Vector2 = parent.position + Vector2(parent.size.x * 0.5, parent.size.y - 13)
@@ -116,3 +130,45 @@ func _draw_links(button: HunterTreeNode) -> void:
 			Color(ink, 0.55 if learned else 0.16), 1.5 if learned else 1.0, true)
 		if button.data.kind == SkillNodeData.Kind.VARIANT:
 			draw_circle(end - Vector2(0, 2), 1.5, Color(ink, 0.6))
+
+
+func _layout_focus() -> void:
+	var trunk: Array[SkillNodeData] = HunterTree.nodes_of_branch(&"trunk")
+	_common.position = Vector2(12, 14)
+	for i: int in trunk.size():
+		var button: HunterTreeNode = _buttons[trunk[i].id]
+		button.position = Vector2(146 + i * (size.x - 158) / trunk.size(), 0)
+		button.size = Vector2((size.x - 158) / trunk.size(), 50)
+	for column: int in 4:
+		_headings[column].visible = HunterTreeSkin.PATHS[column] == focus_branch
+		_headings[column].position = Vector2(28, 60)
+		_headings[column].size = Vector2(size.x - 28, 24)
+	for tier: int in 5:
+		_tiers[tier].position = Vector2(5, 124 + tier * 116)
+		var row: Array[SkillNodeData] = []
+		for data: SkillNodeData in HunterTree.nodes_of_branch(focus_branch):
+			if data.tier == tier:
+				row.append(data)
+		row.sort_custom(func(a: SkillNodeData, b: SkillNodeData) -> bool:
+			if a.kind != b.kind:
+				return a.kind < b.kind
+			if a.kind == SkillNodeData.Kind.VARIANT:
+				return HunterTreeSkin.variant_letter(a) < HunterTreeSkin.variant_letter(b)
+			return String(a.id) < String(b.id))
+		var cell: float = (size.x - 40) / maxi(1, row.size())
+		for i: int in row.size():
+			var button: HunterTreeNode = _buttons[row[i].id]
+			button.position = Vector2(32 + i * cell, 90 + tier * 116)
+			button.size = Vector2(cell - 8, 116)
+	queue_redraw()
+
+
+func _draw_focus() -> void:
+	var ink: Color = HunterTreeSkin.accent(focus_branch)
+	draw_rect(Rect2(28, 56, size.x - 32, size.y - 56), Color(ink, 0.035))
+	draw_line(Vector2(32, 84), Vector2(size.x - 8, 84), Color(ink, 0.6), 1)
+	for tier: int in 5:
+		draw_line(Vector2(28, 89 + tier * 116), Vector2(size.x - 8, 89 + tier * 116), Color(ink, 0.15), 1)
+	for button: HunterTreeNode in _buttons.values():
+		if button.visible:
+			_draw_links(button)

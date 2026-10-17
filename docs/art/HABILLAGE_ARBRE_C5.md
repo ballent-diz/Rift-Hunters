@@ -1,8 +1,10 @@
 # Habillage de l’arbre du Chasseur — suite C5
 
 Écran fonctionnel après la PR #16, fenêtre de référence **1280 × 720**.
-Le tronc, les quatre voies et leurs cinq niveaux sont visibles ensemble. Les nœuds compacts donnent
-leur nom complet et leur description dans le panneau de droite et en infobulle.
+Révision du 17 octobre : vue détaillée par voie avec cadres de 80 px et aperçu de 144 px,
+pour rendre les illustrations lisibles. Les cinq niveaux défilent dans la zone de l’arbre ;
+les builds, équipements et actions restent fixes. Le bouton « Vue d’ensemble » conserve le plan
+compact du tronc et des quatre voies. Les noms complets sont visibles sous les nœuds agrandis.
 
 ## Utilisation
 
@@ -32,13 +34,15 @@ ornement traversant leur texte. Le manifeste référence chaque ressource graphi
 
 Les **24 prompts complets** sont dans
 [assets/concepts/incoming/ui.hunter_tree_icons/PROMPTS.md](../../assets/concepts/incoming/ui.hunter_tree_icons/PROMPTS.md).
-Ils suivent docs/ART_BIBLE.md : silhouette lisible en 64 × 64, fond transparent, 24–32 couleurs,
-lumière haut-gauche, ombres violettes et accents alliés blancs/cyan.
+Les prompts historiques suivent la Bible graphique. Retour du propriétaire du 17 octobre :
+la réduction à 64 × 64 et 32 couleurs rendait les images illisibles. Pour ces illustrations d’interface,
+les originaux sont désormais conservés en 512 × 512, sans limitation de palette ni contour ajouté,
+avec transparence et réduction Lanczos. Les sprites de gameplay gardent leurs recettes existantes.
 Le propriétaire a confié leur génération à Codex pendant cette livraison. Les 24 images ont été créées avec
 imagegen puis importées avec tools/art/import_sheet.py ; generation.json conserve les prompts exacts et les empreintes des sources.
 
 Les 24 originaux transparents sont conservés dans les dossiers source/. Les 24 icônes et leurs feuilles
-64 × 64 sont importées et déclarées finales dans le manifeste. Les nœuds et les emplacements de sorts
+512 × 512 sont importées et déclarées finales dans le manifeste. Les nœuds et les emplacements de sorts
 utilisent ces illustrations ; seuls les passifs simples et les améliorations du refuge gardent des symboles de catégorie.
 Le fichier bindings.json du même dossier associe les 24 identifiants d’illustration aux vrais nœuds C2.
 Il prend notamment en compte refracting_crystal / refractor_crystal, aegis / rift_aegis,
@@ -71,6 +75,18 @@ Le test des icônes vérifie les 24 correspondances sort / talent / illustration
 
 Les fichiers hunter_tree.gd, hunter_spells.gd et hunter_spell_world.gd restent inchangés.
 
-Résultats finaux : **179/179 tests unitaires**, **lint sans problème**, **113 entrées graphiques sans erreur**
+Résultats de la livraison initiale : **179/179 tests unitaires**, **lint sans problème**, **113 entrées graphiques sans erreur**
 (112 valides et un placeholder préexistant, sans rapport avec ce lot). Les **3 contrôles C5 avec affichage**
 passent également, dont les cadrages FR/EN à 1280 × 720.
+
+## Correction du 17 octobre
+
+Conflit avec main résolu par conservation des deux ensembles de traductions.
+Le nouveau mode test ajouté sur main est conservé. Aucune régénération IA des 24 images :
+réimport des originaux avec les options resample=lanczos, preserve_alpha=true, colors=0,
+outline=false, icon_size=512. Les options restent facultatives : les autres recettes ne changent pas.
+La largeur des images est ajustée à la cellule pour garder les silhouettes entières.
+Les tests vérifient aussi les dimensions HD et l’accès aux clés de voûte de chaque voie par défilement.
+
+Validation de la correction : 182/182 tests unitaires, lint sans problème, 113 entrées du manifeste
+sans erreur, pipeline Python existant validé, 4/4 contrôles C5 avec affichage réel à 720p.
