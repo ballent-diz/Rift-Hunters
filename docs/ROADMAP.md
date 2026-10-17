@@ -77,10 +77,14 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | À faire |
 | C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Propriétaire (génération) + Codex (prompts, import, contrôle) | — (peut commencer tout de suite) | À faire |
 
+C5, habillage fonctionnel de l’arbre après fusion de la PR #16 : **En cours (Codex)**.
+Écran 1280 × 720, états et connexions, builds et équipements ; règles de progression inchangées.
+Mise à jour du propriétaire : génération des 24 icônes confiée à Codex, puis import par le pipeline commun.
+
 C5, première livraison du 16 octobre : maquettes de l’arbre, 38 éléments graphiques,
 24 prompts d’icônes et effets autonomes de Taille fendante / Lance prismatique avec variantes.
 Raccordement C2 : [fiche visuelle](art/CHASSEUR_C5.md) et [captures](previews/c5/README.md).
-Les images d’icônes attendent la génération du propriétaire ; les dix autres familles d’effets suivent au fil des sorts.
+Les images d’icônes et les dix autres familles d’effets ont été livrées dans les suites ci-dessous.
 Retour du propriétaire pris en compte : animations enrichies (armé, balayage, filaments, cristaux et dispersion), rendu à valider.
 Suite C5 livrée pour validation visuelle : [pilote de Taille fendante](art/TAILLE_FENDANTE_PILOTE.md)
 avec textures dessinées, poses du Chasseur, impact sur une cible et démonstration dans la Plaine.
@@ -92,7 +96,7 @@ Le raccordement au lancement normal reste à réaliser par Claude dans C1/C2.
 Suite C5 livrée : dix autres familles et leurs variantes (30 configurations), en réutilisant les textures existantes.
 Décision du propriétaire : pas de nouvelle génération d’image ni de vidéo d’aperçu pour cette suite ; contrôle ciblé final.
 Les douze familles du Chasseur ont maintenant leurs scènes autonomes ; [contrat des dix suivantes](art/AUTRES_SORTS_C5.md).
-Raccordement C1/C2 et validation en jeu à suivre ; icônes en attente des images du propriétaire.
+Raccordement C1/C2 et validation en jeu à suivre ; les 24 icônes sont désormais intégrées à l’écran fonctionnel.
 
 ### Étape D — Longévité
 
@@ -125,3 +129,5 @@ Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md
 - Créditer les musiques (selon les conditions des outils qui les ont générées) et vérifier les licences
   tierces (Godot : mention MIT obligatoire ; pack Ninja Adventure : CC0).
 - Déclarer l'usage d'IA générative sur la page Steam.
+
+C5 — En cours (Codex), 17 octobre : réorganisation visuelle par familles de sorts avec bifurcations A/B locales, talents séparés et illustrations HD conservées ; validation visuelle du propriétaire en attente dans la PR #18.

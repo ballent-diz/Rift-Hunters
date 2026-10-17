@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 const root = fileURLToPath(new URL('../../', import.meta.url));
 const target = path.join(root, 'assets/ui/hunter_tree');
 await fs.mkdir(target, {recursive:true});
-const colors = {locked:'#5c586c',learnable:'#dfad7a',learned:'#8393b5',active:'#a5ebec'};
+const colors = {upcoming:'#46435a',locked:'#5c586c',learnable:'#dfad7a',learned:'#8393b5',active:'#a5ebec'};
 const branches = [
  ['blade','Lame','Blade','#edc18d'],['prism','Prisme','Prism','#74dce7'],
  ['abyss','Abîme','Abyss','#b7a7df'],['bond','Lien','Bond','#a5d4b5']
@@ -39,7 +39,7 @@ for(const [state,color] of Object.entries(colors)) {
 await save('choice.exclusive',160,40,'<path d="M12 20h52m32 0h52" stroke="#b58c80" stroke-width="2"/><path d="M80 6l14 14-14 14-14-14z" fill="#121325" stroke="#e0b58b" stroke-width="2"/><path d="M75 15l10 10m0-10l-10 10" stroke="#f0ddc7" stroke-width="2"/>');
 for(const state of ['empty','equipped','focus']) {
  const c=state==='empty'?'#514b66':state==='focus'?'#a5ebec':'#ba8c79';
- await save('slot.'+state,256,96,`<path d="M13 5h230l8 8v70l-8 8H13l-8-8V13z" fill="#101323" stroke="${c}" stroke-width="2"/><path d="M22 16h54v64H22z" fill="#080c19" stroke="${c}" stroke-width="1"/><path d="M89 22v52M101 76h131" stroke="${c}" stroke-width="1" opacity=".5"/>`,{content_margins:[16,12,16,12]});
+ await save('slot.'+state,256,96,`<path d="M13 5h230l8 8v70l-8 8H13l-8-8V13z" fill="#101323" stroke="${c}" stroke-width="2"/>`,{content_margins:[16,12,16,12]});
 }
 for(const state of ['idle','active']) await save('build.'+state,256,56,`<path d="M12 4h232l8 8v32l-8 8H12l-8-8V12z" fill="${state==='active'?'#26323d':'#111324'}" stroke="${state==='active'?'#ead4a3':'#6c5868'}" stroke-width="2"/>`,{patch_margins:[14,14,14,14]});
 await save('panel',64,64,'<path d="M12 3h40l9 9v40l-9 9H12l-9-9V12z" fill="#101326" fill-opacity=".96" stroke="#88636c" stroke-width="2"/><path d="M17 8h30M8 17v30M56 17v30M17 56h30" stroke="#c9a287" stroke-width="1" opacity=".5"/>',{patch_margins:[18,18,18,18]});
@@ -54,7 +54,7 @@ const manifest=JSON.parse(await fs.readFile(manifestPath,'utf8'));
 Object.assign(manifest.entries,entries);
 await fs.writeFile(manifestPath,JSON.stringify(manifest,null,'\t')+'\n');
 const catalog={version:1,source:'docs/design/ARBRE_DU_CHASSEUR.md',backdrop:'res://assets/ui/menus/refuge-backdrop.png',
- reference_size:[1920,1080],states:Object.keys(colors),branches:branches.map(([id,fr,en,color])=>({id,name_fr:fr,name_en:en,color})),
- assets:entries,notes:['Les images ne contiennent aucun texte.','Aucune scène fonctionnelle d’arbre.','Les icônes définitives seront générées par le propriétaire.']};
+ reference_size:[1280,720],states:Object.keys(colors),branches:branches.map(([id,fr,en,color])=>({id,name_fr:fr,name_en:en,color})),
+ assets:entries,notes:['Les images ne contiennent aucun texte.','Écran fonctionnel : src/ui/refuge/tree_tab.gd.','Les icônes définitives seront générées par le propriétaire.']};
 await fs.writeFile(path.join(target,'catalog.json'),JSON.stringify(catalog,null,2)+'\n');
 console.log(Object.keys(entries).length+' éléments graphiques C5 générés.');

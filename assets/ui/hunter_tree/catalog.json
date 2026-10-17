@@ -3,10 +3,11 @@
   "source": "docs/design/ARBRE_DU_CHASSEUR.md",
   "backdrop": "res://assets/ui/menus/refuge-backdrop.png",
   "reference_size": [
-    1920,
-    1080
+    1280,
+    720
   ],
   "states": [
+    "upcoming",
     "locked",
     "learnable",
     "learned",
@@ -39,6 +40,34 @@
     }
   ],
   "assets": {
+    "ui.hunter_tree.node.passive.upcoming": {
+      "status": "final",
+      "kind": "ui_element",
+      "sheet": "res://assets/ui/hunter_tree/node_passive_upcoming.svg",
+      "cell": [
+        80,
+        80
+      ],
+      "anchor": [
+        40,
+        40
+      ],
+      "scale": 1,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": true
+        }
+      },
+      "content_rect": [
+        20,
+        20,
+        40,
+        40
+      ]
+    },
     "ui.hunter_tree.node.passive.locked": {
       "status": "final",
       "kind": "ui_element",
@@ -149,6 +178,34 @@
         20,
         40,
         40
+      ]
+    },
+    "ui.hunter_tree.node.spell.upcoming": {
+      "status": "final",
+      "kind": "ui_element",
+      "sheet": "res://assets/ui/hunter_tree/node_spell_upcoming.svg",
+      "cell": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "scale": 1,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": true
+        }
+      },
+      "content_rect": [
+        20,
+        20,
+        56,
+        56
       ]
     },
     "ui.hunter_tree.node.spell.locked": {
@@ -263,6 +320,34 @@
         56
       ]
     },
+    "ui.hunter_tree.node.transform.upcoming": {
+      "status": "final",
+      "kind": "ui_element",
+      "sheet": "res://assets/ui/hunter_tree/node_transform_upcoming.svg",
+      "cell": [
+        96,
+        96
+      ],
+      "anchor": [
+        48,
+        48
+      ],
+      "scale": 1,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": true
+        }
+      },
+      "content_rect": [
+        25.92,
+        28.799999999999997,
+        44.160000000000004,
+        40.32
+      ]
+    },
     "ui.hunter_tree.node.transform.locked": {
       "status": "final",
       "kind": "ui_element",
@@ -373,6 +458,34 @@
         28.799999999999997,
         44.160000000000004,
         40.32
+      ]
+    },
+    "ui.hunter_tree.node.keystone.upcoming": {
+      "status": "final",
+      "kind": "ui_element",
+      "sheet": "res://assets/ui/hunter_tree/node_keystone_upcoming.svg",
+      "cell": [
+        128,
+        128
+      ],
+      "anchor": [
+        64,
+        64
+      ],
+      "scale": 1,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": true
+        }
+      },
+      "content_rect": [
+        34.56,
+        38.4,
+        58.88,
+        53.76
       ]
     },
     "ui.hunter_tree.node.keystone.locked": {
@@ -486,6 +599,50 @@
         58.88,
         53.76
       ]
+    },
+    "ui.hunter_tree.link.vertical.upcoming": {
+      "status": "final",
+      "kind": "ui_element",
+      "sheet": "res://assets/ui/hunter_tree/link_vertical_upcoming.svg",
+      "cell": [
+        16,
+        128
+      ],
+      "anchor": [
+        8,
+        64
+      ],
+      "scale": 1,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": true
+        }
+      }
+    },
+    "ui.hunter_tree.link.fork.upcoming": {
+      "status": "final",
+      "kind": "ui_element",
+      "sheet": "res://assets/ui/hunter_tree/link_fork_upcoming.svg",
+      "cell": [
+        160,
+        64
+      ],
+      "anchor": [
+        80,
+        32
+      ],
+      "scale": 1,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 1,
+          "fps": 1,
+          "loop": true
+        }
+      }
     },
     "ui.hunter_tree.link.vertical.locked": {
       "status": "final",
@@ -1010,7 +1167,7 @@
   },
   "notes": [
     "Les images ne contiennent aucun texte.",
-    "Aucune scène fonctionnelle d’arbre.",
+    "Écran fonctionnel : src/ui/refuge/tree_tab.gd.",
     "Les icônes définitives seront générées par le propriétaire."
   ]
 }

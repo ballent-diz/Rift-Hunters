@@ -1,229 +1,262 @@
 extends RefugeTab
-## Arbre du Chasseur v2 : tronc + 4 voies (apprendre avec les Éclats, activer avec les Points de Chasseur), 3 builds,
-## sorts équipés sur A/E/R/F, améliorations du refuge. Visuels définitifs : lot C5 (Codex).
+## C5 : arbre gravé du Refuge. Les règles et les sauvegardes restent exclusivement dans HunterTree.
 
-const ROMAN: Array[String] = ["I", "II", "III", "IV", "V"]
-const ACTIVE_COLOR := Color(1.0, 0.85, 0.4)
-const LEARNED_COLOR := Color(0.85, 0.92, 1.0)
-const STATUS_COLORS := {
-	HunterTree.Status.COMING_SOON: Color(0.4, 0.4, 0.48),
-	HunterTree.Status.GATED: Color(0.45, 0.46, 0.55),
-	HunterTree.Status.LOCKED: Color(0.45, 0.46, 0.55),
-	HunterTree.Status.TOO_EXPENSIVE: Color(0.6, 0.65, 0.8),
-	HunterTree.Status.LEARNABLE: Color(0.55, 0.95, 1.0),
-	HunterTree.Status.LEARNED: LEARNED_COLOR,
-}
-const KIND_KEYS := {
-	SkillNodeData.Kind.UTILITY: "TREE_KIND_UTILITY", SkillNodeData.Kind.PASSIVE: "TREE_KIND_PASSIVE",
-	SkillNodeData.Kind.SPELL: "TREE_KIND_SPELL", SkillNodeData.Kind.VARIANT: "TREE_KIND_VARIANT",
-	SkillNodeData.Kind.TRANSFORM: "TREE_KIND_TRANSFORM", SkillNodeData.Kind.KEYSTONE: "TREE_KIND_KEYSTONE",
-}
-
-var _selected: StringName = &""
+var _selected: StringName = &"blade_cleaving_slash"
+var _show_upgrades := false
+var _focused_branch: StringName = &"blade"
+var _tree_scroll := 0
 
 
 func title_key() -> String:
 	return "TAB_TREE"
 
 
-## Mise en page : l'arbre défile à gauche, le détail du nœud choisi reste visible à droite. La position de
-## défilement est conservée d'un rafraîchissement à l'autre (chaque action reconstruit l'onglet).
 func refresh() -> void:
-	var previous_scroll: int = 0
-	for child: Node in get_children():
-		var old: ScrollContainer = child.find_child("TreeScroll", true, false) as ScrollContainer
-		if old:
-			previous_scroll = old.scroll_vertical
+	var previous: ScrollContainer = find_child("TreeScroll", true, false) as ScrollContainer
+	if previous:
+		_tree_scroll = previous.scroll_vertical
 	UiKit.clear(self)
 	var p: ProfileData = profile()
 	var root := VBoxContainer.new()
-	root.add_theme_constant_override("separation", 8)
+	root.add_theme_constant_override("separation", 6)
 	add_child(root)
-	root.add_child(UiKit.wrapped(tr("TREE_INTRO_V2"), 15))
 	root.add_child(_header(p))
 	root.add_child(_spell_bar(p))
 	var split := HBoxContainer.new()
 	split.add_theme_constant_override("separation", 12)
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	root.add_child(split)
-	var scroll := ScrollContainer.new()
-	scroll.name = "TreeScroll"
-	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	split.add_child(scroll)
-	# Détail dans sa propre zone défilante : sa hauteur ne doit jamais agrandir la page.
-	var detail_scroll := ScrollContainer.new()
-	detail_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
-	detail_scroll.custom_minimum_size.x = 300
-	split.add_child(detail_scroll)
-	var detail: PanelContainer = _detail(p)
-	detail.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	detail_scroll.add_child(detail)
-	var box := VBoxContainer.new()
-	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	box.add_theme_constant_override("separation", 10)
-	scroll.add_child(box)
-	var columns := HBoxContainer.new()
-	columns.add_theme_constant_override("separation", 6)
-	box.add_child(columns)
-	for branch: SkillBranchData in _branches(false):
-		columns.add_child(_branch_column(p, branch))
-	box.add_child(UiKit.label(tr("TREE_UTILITIES"), 19, UiKit.ACCENT))
-	var utilities := HFlowContainer.new()
-	utilities.add_theme_constant_override("h_separation", 10)
-	utilities.add_theme_constant_override("v_separation", 8)
-	box.add_child(utilities)
-	for branch: SkillBranchData in _branches(true):
-		for node: SkillNodeData in HunterTree.nodes_of_branch(branch.id):
-			utilities.add_child(_node_button(p, node))
-	_restore_scroll.call_deferred(scroll, previous_scroll)
+	if _show_upgrades:
+		split.add_child(_upgrades(p))
+	else:
+		split.add_child(_tree_area(p))
+	split.add_child(_detail(p))
+	root.add_child(_legend())
 
 
-func _restore_scroll(scroll: ScrollContainer, value: int) -> void:
-	if is_instance_valid(scroll):
-		scroll.scroll_vertical = value
+func _select(id: StringName) -> void:
+	_selected = id
+	var data: SkillNodeData = GameDB.skill_node(id)
+	if data and _focused_branch != &"" and data.branch in HunterTreeSkin.PATHS:
+		_focused_branch = data.branch
+	refresh()
+	var button: Control = find_child(str(id), true, false) as Control
+	if button:
+		_restore_focus.call_deferred(button)
 
 
-func _branches(utility: bool) -> Array[SkillBranchData]:
-	var list: Array[SkillBranchData] = []
-	for branch: SkillBranchData in GameDB.skill_branches.values():
-		if branch.utility == utility:
-			list.append(branch)
-	list.sort_custom(func(a: SkillBranchData, b: SkillBranchData) -> bool: return a.order < b.order)
-	return list
+func _restore_focus(button: Control) -> void:
+	if is_instance_valid(button) and button.is_inside_tree():
+		button.grab_focus()
+		var scroll: ScrollContainer = find_child("TreeScroll", true, false) as ScrollContainer
+		if scroll:
+			scroll.ensure_control_visible(button)
 
 
 func _header(p: ProfileData) -> HBoxContainer:
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 12)
-	var points := UiKit.label(tr("TREE_POINTS") % [HunterTree.points_used(p), HunterTree.points_total(p)], 18,
-		UiKit.GOLD)
-	points.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_theme_constant_override("separation", 8)
+	var title := HunterTreeSkin.trimmed(tr("C5_TITLE"), 20)
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(title)
+	var points := PanelContainer.new()
+	var points_frame: StyleBoxTexture = HunterTreeSkin.panel("points", 10)
+	points_frame.set_content_margin(SIDE_LEFT, 34)
+	points.add_theme_stylebox_override("panel", points_frame)
+	points.tooltip_text = tr("TREE_SKIN_POINTS_HINT")
+	points.add_child(UiKit.label(tr("TREE_POINTS") % [HunterTree.points_used(p), HunterTree.points_total(p)],
+		14, HunterTreeSkin.GOLD))
 	row.add_child(points)
 	for i: int in HunterTree.BUILD_COUNT:
-		var button: Button = UiKit.button(tr("TREE_BUILD") % (i + 1), func() -> void:
+		var b: Button = HunterTreeSkin.button(tr("TREE_BUILD") % (i + 1), func() -> void:
 			HunterTree.set_active_index(p, i)
-			refuge.commit(), 130)
-		button.disabled = i == HunterTree.active_index(p)
-		row.add_child(button)
+			refuge.commit(), i == HunterTree.active_index(p))
+		b.name = "BuildSelect%d" % i
+		b.custom_minimum_size.x = 82
+		b.tooltip_text = tr("C5_FREE_CHANGE")
+		row.add_child(b)
+	var toggle: Button = HunterTreeSkin.button(tr("TREE_SKIN_TREE") if _show_upgrades else tr("TREE_SKIN_REFUGE"),
+		func() -> void:
+			_show_upgrades = not _show_upgrades
+			refresh(), _show_upgrades)
+	toggle.custom_minimum_size.x = 156
+	row.add_child(toggle)
 	return row
 
 
-## Sorts équipés : un clic sur un emplacement y équipe le sort sélectionné dans l'arbre.
 func _spell_bar(p: ProfileData) -> HBoxContainer:
 	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 10)
-	row.add_child(UiKit.label(tr("TREE_SPELL_SLOTS"), 17))
-	var selected: SkillNodeData = GameDB.skill_node(_selected)
+	row.add_theme_constant_override("separation", 8)
 	var spells: Array = HunterTree.active_build(p)["spells"]
+	var selected: SkillNodeData = GameDB.skill_node(_selected)
 	for i: int in HunterTree.SPELL_SLOTS:
 		var spell: SpellData = GameDB.spells.get(StringName(str(spells[i])))
-		var key: String = InputSetup.key_label(StringName("spell_%d" % (i + 1)))
-		var text: String = "%s : %s" % [key, tr(spell.name_key) if spell else tr("TREE_SLOT_EMPTY")]
-		var button: Button = UiKit.button(text, func() -> void:
+		var data: SkillNodeData = HunterTree.spell_node(spell.id) if spell else null
+		var b: Button = HunterTreeSkin.button("", func() -> void:
 			if selected and selected.kind == SkillNodeData.Kind.SPELL and HunterTree.equip(p, selected.spell_id, i):
-				refuge.commit(), 190)
-		button.tooltip_text = tr("TREE_EQUIP_HINT")
-		row.add_child(button)
+				refuge.commit()
+			elif data:
+				_show_upgrades = false
+				_select(data.id))
+		b.name = "SpellSlot%d" % i
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		b.custom_minimum_size.y = 42
+		b.add_theme_stylebox_override("normal", HunterTreeSkin.panel("slot_equipped" if spell else "slot_empty", 4))
+		b.tooltip_text = tr("TREE_EQUIP_HINT")
+		row.add_child(b)
+		var content := HBoxContainer.new()
+		b.add_child(content)
+		content.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		content.offset_left = 14
+		content.offset_right = -14
+		content.add_theme_constant_override("separation", 12)
+		content.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var key: String = InputSetup.key_label(StringName("spell_%d" % (i + 1)))
+		var key_label: Label = UiKit.label(key, 17, HunterTreeSkin.GOLD)
+		key_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		key_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		key_label.custom_minimum_size.x = 24
+		content.add_child(key_label)
+		if data and HunterTreeSkin.icon(data):
+			var image := TextureRect.new()
+			image.texture = HunterTreeSkin.icon(data)
+			image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			image.custom_minimum_size.x = 30
+			image.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+			content.add_child(image)
+		var label: Label = HunterTreeSkin.trimmed(tr(spell.name_key) if spell else tr("TREE_SKIN_EMPTY"), 14)
+		label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		content.add_child(label)
+		for child: Control in content.get_children():
+			child.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return row
 
 
-func _branch_column(p: ProfileData, branch: SkillBranchData) -> VBoxContainer:
-	var col := VBoxContainer.new()
-	col.custom_minimum_size.x = 150
-	col.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	col.add_theme_constant_override("separation", 5)
-	col.add_child(UiKit.label(tr(branch.name_key), 19, branch.color, HORIZONTAL_ALIGNMENT_CENTER))
-	var tier: int = -1
-	for node: SkillNodeData in HunterTree.nodes_of_branch(branch.id):
-		if node.tier != tier:
-			tier = node.tier
-			var title: String = tr("TREE_TIER") % ROMAN[clampi(tier, 0, ROMAN.size() - 1)]
-			if node.required_wins > HunterTree.boss_wins(p):
-				title += " · " + tr("TREE_GATE_SHORT") % node.required_wins
-			col.add_child(UiKit.label(title, 13, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER))
-		col.add_child(_node_button(p, node))
-	return col
-
-
-func _state_text(p: ProfileData, node: SkillNodeData) -> String:
-	var active: int = HunterTree.active_rank(p, node)
-	if active > 0 and not node.is_utility():
-		return tr("TREE_STATE_ACTIVE") % [active, node.max_rank()]
-	match HunterTree.status(p, node):
-		HunterTree.Status.COMING_SOON:
-			return tr("TREE_COMING_SOON")
-		HunterTree.Status.GATED, HunterTree.Status.LOCKED:
-			return tr("TREE_STATE_LOCKED")
-		HunterTree.Status.LEARNED:
-			return tr("TREE_STATE_LEARNED")
-	var learned: int = HunterTree.learned_rank(p, node)
-	var cost: String = tr("TREE_COST") % HunterTree.next_cost(p, node)
-	return cost if learned == 0 else "%d/%d · %s" % [learned, node.max_rank(), cost]
-
-
-func _node_button(p: ProfileData, node: SkillNodeData) -> Button:
-	var status: HunterTree.Status = HunterTree.status(p, node)
-	var active: bool = HunterTree.active_rank(p, node) > 0 and not node.is_utility()
-	var color: Color = ACTIVE_COLOR if active else STATUS_COLORS[status]
-	var b := Button.new()
-	b.text = "%s\n%s" % [tr(node.name_key), _state_text(p, node)]
-	b.custom_minimum_size = Vector2(148, 50)
-	b.add_theme_font_size_override("font_size", 12)
-	b.add_theme_color_override("font_color", color)
-	var border: Color = Color.WHITE if node.id == _selected else color.darkened(0.25)
-	var style: StyleBoxFlat = UiKit.panel_box(border, Color(0.16, 0.14, 0.08) if active else Color(0.1, 0.11, 0.18))
-	style.set_border_width_all(3 if node.id == _selected else 2)
-	style.border_width_left = 6 if node.exclusive_group != &"" else style.border_width_left
-	b.add_theme_stylebox_override("normal", style)
-	b.add_theme_stylebox_override("hover", UiKit.panel_box(Color.WHITE, Color(0.16, 0.18, 0.28)))
-	b.tooltip_text = tr(node.desc_key)
-	b.pressed.connect(func() -> void:
-		_selected = node.id
-		refresh())
-	return b
+func _upgrades(p: ProfileData) -> VBoxContainer:
+	var box := VBoxContainer.new()
+	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	box.custom_minimum_size = Vector2(752, 300)
+	box.add_child(UiKit.label(tr("TREE_SKIN_REFUGE"), 20, HunterTreeSkin.GOLD))
+	box.add_child(UiKit.wrapped(tr("TREE_UTILITIES"), 14, HunterTreeSkin.MUTED))
+	var scroll := ScrollContainer.new()
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	box.add_child(scroll)
+	var grid := GridContainer.new()
+	grid.columns = 3
+	grid.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	grid.add_theme_constant_override("h_separation", 8)
+	grid.add_theme_constant_override("v_separation", 8)
+	scroll.add_child(grid)
+	for raw: StringName in GameDB.sorted_ids(GameDB.skill_nodes):
+		var node: SkillNodeData = GameDB.skill_nodes[raw]
+		if not node.is_utility():
+			continue
+		var b: Button = HunterTreeSkin.button("%s\n%s" % [tr(node.name_key), HunterTreeSkin.state_text(p, node)],
+			func() -> void: _select(node.id), node.id == _selected)
+		b.name = str(node.id)
+		b.custom_minimum_size = Vector2(220, 62)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		b.tooltip_text = tr(node.desc_key)
+		grid.add_child(b)
+	return box
 
 
 func _detail(p: ProfileData) -> PanelContainer:
 	var panel := PanelContainer.new()
+	panel.name = "TreeDetail"
+	panel.custom_minimum_size.x = 300
+	panel.add_theme_stylebox_override("panel", HunterTreeSkin.panel())
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 6)
 	panel.add_child(box)
 	var node: SkillNodeData = GameDB.skill_node(_selected)
 	if node == null:
-		box.add_child(UiKit.wrapped(tr("TREE_SELECT_HINT"), 16, UiKit.MUTED))
+		box.add_child(UiKit.wrapped(tr("TREE_SELECT_HINT"), 16, HunterTreeSkin.MUTED))
 		return panel
-	box.add_child(UiKit.wrapped(tr(node.name_key), 21, UiKit.ACCENT))
-	box.add_child(UiKit.label(tr(KIND_KEYS[node.kind]), 14, UiKit.MUTED))
-	box.add_child(UiKit.wrapped(tr(node.desc_key), 16, UiKit.TEXT))
-	var actions := VBoxContainer.new()
-	actions.add_theme_constant_override("separation", 6)
-	box.add_child(actions)
-	var cost: int = HunterTree.next_cost(p, node)
-	if cost >= 0 and node.implemented:
-		var learn: Button = UiKit.button(tr("TREE_LEARN") % cost, func() -> void:
-			if HunterTree.learn(profile(), node):
-				refuge.commit(), 230)
-		learn.disabled = HunterTree.status(p, node) != HunterTree.Status.LEARNABLE
-		actions.add_child(learn)
+	var top := HBoxContainer.new()
+	top.add_theme_constant_override("separation", 8)
+	box.add_child(top)
+	var emblem := HunterTreeNode.new()
+	emblem.setup(p, node, &"")
+	emblem.large = true
+	emblem.custom_minimum_size = Vector2(144, 144)
+	emblem.disabled = true
+	emblem.caption.visible = false
+	var illustration := CenterContainer.new()
+	illustration.add_child(emblem)
+	var title: Label = UiKit.wrapped(tr(node.name_key), 20, HunterTreeSkin.accent(node.branch))
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	top.add_child(title)
+	box.add_child(UiKit.label(tr(HunterTreeSkin.KIND_KEYS[node.kind]), 12, HunterTreeSkin.MUTED))
+	box.add_child(UiKit.wrapped(HunterTreeSkin.state_text(p, node), 13, HunterTreeSkin.CYAN))
+	var scroll := ScrollContainer.new()
+	scroll.name = "DetailScroll"
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	box.add_child(scroll)
+	var text := VBoxContainer.new()
+	text.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	text.add_theme_constant_override("separation", 10)
+	scroll.add_child(text)
+	if HunterTreeSkin.icon(node):
+		text.add_child(illustration)
+	else:
+		illustration.queue_free()
+	text.add_child(UiKit.wrapped(tr(node.desc_key), 15, HunterTreeSkin.PAPER))
+	if node.kind == SkillNodeData.Kind.KEYSTONE:
+		text.add_child(UiKit.wrapped(tr("C5_ONE_KEYSTONE"), 13, HunterTreeSkin.GOLD))
+	elif node.kind == SkillNodeData.Kind.VARIANT:
+		text.add_child(UiKit.wrapped(tr("C5_EXCLUSIVE_AB") + " · " + tr("C5_ONE_VARIANT"), 13, HunterTreeSkin.GOLD))
+	for info: String in _infos(p, node):
+		text.add_child(UiKit.wrapped(info, 12, HunterTreeSkin.MUTED))
 	if not node.is_utility() and node.implemented:
 		var error: String = HunterTree.activation_error(p, node)
-		var activate: Button = UiKit.button(tr("TREE_ACTIVATE") % node.point_cost, func() -> void:
-			if HunterTree.activate(profile(), node):
-				refuge.commit(), 220)
-		activate.disabled = error != ""
-		actions.add_child(activate)
-		var deactivate: Button = UiKit.button(tr("TREE_DEACTIVATE"), func() -> void:
-			if HunterTree.deactivate(profile(), node):
-				refuge.commit(), 180)
-		deactivate.disabled = HunterTree.active_rank(p, node) == 0
-		actions.add_child(deactivate)
 		if error != "" and error != "TREE_ERR_MAX_ACTIVE":
-			box.add_child(UiKit.wrapped(tr(error), 14, UiKit.MUTED))
+			text.add_child(UiKit.wrapped(tr(error), 13, HunterTreeSkin.GOLD))
 	if node.kind == SkillNodeData.Kind.SPELL and HunterTree.active_rank(p, node) > 0:
-		box.add_child(UiKit.wrapped(tr("TREE_EQUIP_HINT"), 14, UiKit.MUTED))
-	box.add_child(UiKit.wrapped(" · ".join(_infos(p, node)), 14))
+		text.add_child(UiKit.wrapped(tr("TREE_EQUIP_HINT"), 13, HunterTreeSkin.CYAN))
+	_actions(box, p, node)
 	return panel
+
+
+func _actions(box: VBoxContainer, p: ProfileData, node: SkillNodeData) -> void:
+	var cost: int = HunterTree.next_cost(p, node)
+	if cost >= 0 and node.implemented:
+		var learn: Button = HunterTreeSkin.button(tr("TREE_LEARN") % cost, func() -> void:
+			if HunterTree.learn(profile(), node):
+				refuge.commit())
+		learn.name = "LearnNode"
+		learn.disabled = HunterTree.status(p, node) != HunterTree.Status.LEARNABLE
+		box.add_child(learn)
+	if not node.is_utility() and node.implemented:
+		var activate: Button = HunterTreeSkin.button(tr("TREE_ACTIVATE") % node.point_cost, func() -> void:
+			if HunterTree.activate(profile(), node):
+				refuge.commit())
+		activate.name = "ActivateNode"
+		activate.disabled = HunterTree.activation_error(p, node) != ""
+		box.add_child(activate)
+		var deactivate: Button = HunterTreeSkin.button(tr("TREE_DEACTIVATE"), func() -> void:
+			if HunterTree.deactivate(profile(), node):
+				refuge.commit())
+		deactivate.name = "DeactivateNode"
+		deactivate.disabled = HunterTree.active_rank(p, node) == 0
+		box.add_child(deactivate)
+
+
+func _legend() -> HBoxContainer:
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 14)
+	for item: Array in [["…", "TREE_COMING_SOON"], ["▣", "TREE_STATE_LOCKED"], ["+", "C5_LEARNABLE"],
+		["✓", "TREE_STATE_LEARNED"], ["◆", "C5_ACTIVE"]]:
+		row.add_child(UiKit.label(item[0] + " " + tr(item[1]), 11, HunterTreeSkin.MUTED))
+	var exclusive := HunterTreeSkin.trimmed(tr("C5_EXCLUSIVE_AB") + " · " + tr("C5_ONE_KEYSTONE"), 11)
+	exclusive.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	exclusive.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	row.add_child(exclusive)
+	return row
 
 
 func _infos(p: ProfileData, node: SkillNodeData) -> PackedStringArray:
@@ -246,3 +279,43 @@ func _infos(p: ProfileData, node: SkillNodeData) -> PackedStringArray:
 	if node.exclusive_group != &"":
 		info.append(tr("TREE_EXCLUSIVE_ACTIVE"))
 	return info
+
+
+func _tree_area(p: ProfileData) -> VBoxContainer:
+	var area := VBoxContainer.new()
+	area.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	area.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	area.custom_minimum_size = Vector2(752, 300)
+	var navigation := HBoxContainer.new()
+	navigation.add_theme_constant_override("separation", 6)
+	area.add_child(navigation)
+	for branch: StringName in [&""] + HunterTreeSkin.PATHS:
+		var label_key: String = "TREE_SKIN_OVERVIEW" if branch == &"" else (GameDB.skill_branches[branch] as SkillBranchData).name_key
+		var b: Button = HunterTreeSkin.button(tr(label_key), func() -> void:
+			_focused_branch = branch
+			_tree_scroll = 0
+			var old: ScrollContainer = find_child("TreeScroll", true, false) as ScrollContainer
+			if old:
+				old.scroll_vertical = 0
+			refresh(), branch == _focused_branch)
+		b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		navigation.add_child(b)
+	var scroll := ScrollContainer.new()
+	scroll.name = "TreeScroll"
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	area.add_child(scroll)
+	var board := HunterTreeBoard.new()
+	board.name = "TreeBoard"
+	board.focus_branch = _focused_branch
+	board.size_flags_vertical = Control.SIZE_EXPAND_FILL if _focused_branch == &"" else Control.SIZE_FILL
+	board.setup(p, _selected)
+	board.node_selected.connect(_select)
+	scroll.add_child(board)
+	_restore_tree_scroll.call_deferred(scroll, _tree_scroll)
+	return area
+
+
+func _restore_tree_scroll(scroll: ScrollContainer, value: int) -> void:
+	if is_instance_valid(scroll) and scroll.is_inside_tree():
+		scroll.scroll_vertical = value

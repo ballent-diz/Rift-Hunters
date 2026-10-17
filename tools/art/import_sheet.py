@@ -292,7 +292,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
                 out.append(fr)
                 continue
             size = (max(1, round(fr.width * factor)), max(1, round(fr.height * factor)))
-            out.append(fr.resize(size, Image.BOX))
+            resample = Image.Resampling.LANCZOS if job.get("resample") == "lanczos" else Image.Resampling.BOX
+            out.append(fr.resize(size, resample))
         scaled.append((anim, out))
     # Palette commune à toutes les images (cohérence entre frames).
     colors = int(job.get("colors", 32))
@@ -319,7 +320,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             if palette_img is not None:
                 rgb = fr.convert("RGB").quantize(palette=palette_img, dither=Image.Dither.NONE).convert("RGB")
                 arr[:, :, :3] = np.array(rgb)
-            arr[:, :, 3] = np.where(alpha, 255, 0)
+            if not job.get("preserve_alpha", False):
+                arr[:, :, 3] = np.where(alpha, 255, 0)
             cell = place_in_cell(arr, (cw, ch), (ax, ay), int(job.get("hover", 0)), job.get("anchor_mode", "feet"))
             if job.get("outline", True):
                 cell = add_outline(cell)
@@ -333,7 +335,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     spec = EntitySpec(job["visual_id"], None, (cw, ch), (ax, ay), scale=job.get("scale", 1.0))
     sheet_rel, icon_rel = spec.paths()
     preview_dir = preview_dir or os.path.join(REPO, "assets", "concepts", "previews")
-    _save(make_preview(job["visual_id"] + " (import)", rows_out, (cw, ch)),
+    _save(make_preview(job["visual_id"] + " (import)", rows_out, (cw, ch), zoom=int(job.get("preview_zoom", 4))),
           os.path.join(preview_dir, job["visual_id"].replace(".", "_") + "_import.png"))
     entry = {
         "status": job.get("status", "final"),
@@ -348,7 +350,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     if preview_only:
         return entry
     _save(Image.fromarray(sheet, "RGBA"), os.path.join(REPO, sheet_rel))
-    _save(make_icon(rows_out[0][1][0]), os.path.join(REPO, icon_rel))
+    _save(make_icon(rows_out[0][1][0], size=int(job.get("icon_size", 64))), os.path.join(REPO, icon_rel))
     manifest_path = os.path.join(REPO, "assets", "asset_manifest.json")
     with open(manifest_path, encoding="utf-8") as f:
         manifest = json.load(f)

@@ -104,3 +104,11 @@ d'écran en 1080p** : le détail dessiné est le détail vu. Toutes les entités
 ## Cartes : exigences du propriétaire
 
 Pour les décors de niveaux, appliquer aussi [MAP_GUIDELINES.md](MAP_GUIDELINES.md). Les exigences de netteté à l’écran, d’échelle des décors, de routes dégagées et de grandes surfaces de manœuvre priment sur les anciennes recettes de maps.
+
+## Illustrations de l’arbre du Chasseur — précision du 17 octobre 2026
+
+Pour les illustrations d’interface, préserver les détails des originaux : sorties 512 × 512,
+transparence conservée, réduction de qualité Lanczos, sans réduction de palette à 32 couleurs
+ni contour ajouté. Affichage filtré et vue détaillée par voie avec nœuds de 80 px et aperçu de 144 px.
+Les 64 × 64 et les palettes limitées restent les recettes des sprites de gameplay ; ne pas les appliquer
+aux illustrations détaillées de cet écran. Conserver les originaux pour les prochains imports.

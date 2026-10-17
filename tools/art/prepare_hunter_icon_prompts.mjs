@@ -86,12 +86,15 @@ const prefix='Icône pour Rift Hunters, dark fantasy de samouraï des Failles. P
 const prompts=[];
 for(const [type,list] of [['spell',spells],['transform',transforms],['keystone',keystones]])for(const [id,fr,en,branch,subject] of list){
  const visual='icon.hunter.'+id; const dir=path.join(root,'assets/concepts/incoming',visual);await fs.mkdir(path.join(dir,'source'),{recursive:true});
- const job={visual_id:visual,cell:[64,64],anchor:[32,32],scale:1,target_height:50,status:'final',background:'alpha',colors:32,outline:true,anchor_mode:'mass',animations:[{name:'idle',source:'source/icon.png',frames:1,fps:1,loop:true,layout:'row'}]};
+ const hasSource=await fs.access(path.join(dir,'source/icon.png')).then(()=>true,()=>false);
+ const job={visual_id:visual,cell:[512,512],anchor:[256,256],scale:1,target_height:400,status:'final',background:'alpha',colors:0,outline:false,resample:'lanczos',preserve_alpha:true,icon_size:512,preview_zoom:1,anchor_mode:'mass',animations:[{name:'idle',source:'source/icon.png',frames:1,fps:1,loop:true,layout:'row'}]};
+ const existingJob=await fs.readFile(path.join(dir,'job.json'),'utf8').then(JSON.parse).catch(()=>({}));
+ Object.assign(job,existingJob);
  await fs.writeFile(path.join(dir,'job.json'),JSON.stringify(job,null,2)+'\n');
- prompts.push({id,visual_id:visual,name_fr:fr,name_en:en,type,branch,prompt:prefix+subject,source:'assets/concepts/incoming/'+visual+'/source/icon.png',job:'assets/concepts/incoming/'+visual+'/job.json',state:'awaiting_owner_source'});
+ prompts.push({id,visual_id:visual,name_fr:fr,name_en:en,type,branch,prompt:prefix+subject,source:'assets/concepts/incoming/'+visual+'/source/icon.png',job:'assets/concepts/incoming/'+visual+'/job.json',state:hasSource?'source_ready':'awaiting_source'});
 }
-await fs.writeFile(path.join(promptRoot,'prompts.json'),JSON.stringify({reference:'docs/ART_BIBLE.md',generator:'propriétaire',icons:prompts},null,2)+'\n');
-let md='# Prompts des icônes du Chasseur — C5\n\n24 icônes : 12 sorts, 8 transformants, 4 clés de voûte. Images générées par le propriétaire ; aucune icône définitive n’est inventée dans les maquettes. Joindre la Bible graphique et une icône du jeu comme références de style. Les variantes A/B réutilisent l’icône du sort avec un badge de variante.\n\n';
+await fs.writeFile(path.join(promptRoot,'prompts.json'),JSON.stringify({reference:'docs/ART_BIBLE.md',generator:'Codex (imagegen), autorisé par le propriétaire le 16 octobre 2026',icons:prompts},null,2)+'\n');
+let md='# Prompts des icônes du Chasseur — C5\n\n24 icônes : 12 sorts, 8 transformants, 4 clés de voûte. Génération confiée à Codex par le propriétaire le 16 octobre 2026. Les originaux restent dans les dossiers source/ et les sorties passent par le pipeline commun. Joindre la Bible graphique et une icône du jeu comme références de style. Les variantes A/B réutilisent l’icône du sort avec un badge de variante.\n\n';
 for(const p of prompts)md+=`## ${p.name_fr}\n\n${p.prompt}\n\nFichier attendu : \`${p.source}\`\n\nImport : \`python tools/art/import_sheet.py ${p.job}\`\n\n`;
 await fs.writeFile(path.join(promptRoot,'PROMPTS.md'),md.trimEnd()+'\n');
 let csv=await fs.readFile(path.join(root,'i18n/strings.csv'),'utf8');
