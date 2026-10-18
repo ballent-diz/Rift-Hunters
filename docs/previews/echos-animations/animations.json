@@ -1,0 +1,530 @@
+[
+  {
+    "echo": "ashblade",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 30,
+    "source_duration": 0.65,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "ashblade",
+    "effect": "ash_dance",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "ashblade",
+    "effect": "cinder_dash",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "mossback",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 30,
+    "source_duration": 0.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "mossback",
+    "effect": "gravity_well",
+    "frames": 39,
+    "frame_ms": 60,
+    "source_duration": 2.4,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "mossback",
+    "effect": "stone_taunt",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "glimmerwing",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 30,
+    "source_duration": 0.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "glimmerwing",
+    "effect": "prism_flare",
+    "frames": 20,
+    "frame_ms": 60,
+    "source_duration": 1.1,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "glimmerwing",
+    "effect": "spark_rain",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "thornweave",
+    "effect": "attack",
+    "frames": 64,
+    "frame_ms": 60,
+    "source_duration": 4.0,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "thornweave",
+    "effect": "briar_wall",
+    "frames": 64,
+    "frame_ms": 60,
+    "source_duration": 4.0,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "thornweave",
+    "effect": "bloom",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "voltwisp",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 20,
+    "source_duration": 0.5,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "voltwisp",
+    "effect": "ion_storm",
+    "frames": 29,
+    "frame_ms": 60,
+    "source_duration": 1.8,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "voltwisp",
+    "effect": "chain_arc",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "gloommaw",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 30,
+    "source_duration": 0.65,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "gloommaw",
+    "effect": "feast",
+    "frames": 20,
+    "frame_ms": 60,
+    "source_duration": 1.1,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "gloommaw",
+    "effect": "maw_pit",
+    "frames": 29,
+    "frame_ms": 60,
+    "source_duration": 1.8,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "mirrorling",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 30,
+    "source_duration": 0.65,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "mirrorling",
+    "effect": "reflection",
+    "frames": 32,
+    "frame_ms": 60,
+    "source_duration": 2.0,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "mirrorling",
+    "effect": "mirror_shards",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.8,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "cinderwing",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "cinderwing",
+    "effect": "ash_rain",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "cinderwing",
+    "effect": "thunder_dive",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "magmander",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "magmander",
+    "effect": "lava_flow",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "magmander",
+    "effect": "geyser",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "hollowflame",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "hollowflame",
+    "effect": "implosion",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "hollowflame",
+    "effect": "wandering_flame",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "moonspore",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "moonspore",
+    "effect": "spore_cloud",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "moonspore",
+    "effect": "bud_trap",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "gravishell",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "gravishell",
+    "effect": "gravity_well",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "gravishell",
+    "effect": "meteor",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "grovestag",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "grovestag",
+    "effect": "healing_grove",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "grovestag",
+    "effect": "protective_thorns",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "sunclaw",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "sunclaw",
+    "effect": "solar_flare",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "sunclaw",
+    "effect": "radiant_leap",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "glowmoth",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "glowmoth",
+    "effect": "firefly_swarm",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "glowmoth",
+    "effect": "wing_dust",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "stormshell",
+    "effect": "attack",
+    "frames": 20,
+    "frame_ms": 40,
+    "source_duration": 0.75,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "stormshell",
+    "effect": "conductive_dome",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  },
+  {
+    "echo": "stormshell",
+    "effect": "discharge",
+    "frames": 26,
+    "frame_ms": 60,
+    "source_duration": 1.6,
+    "size": [
+      1280,
+      720
+    ]
+  }
+]

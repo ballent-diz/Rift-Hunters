@@ -13,6 +13,7 @@ var _metrics: Dictionary = {}
 
 
 func _ready() -> void:
+	AudioServer.set_bus_mute(0, true)
 	Profile.read_only = true
 	TranslationServer.set_locale("fr")
 	DirAccess.make_dir_recursive_absolute(OUT)

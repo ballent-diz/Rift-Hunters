@@ -1,0 +1,258 @@
+{
+	"ashblade": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.917,
+			"p95_frame_ms": 35.717,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 39.282,
+			"p95_frame_ms": 42.512,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"cinderwing": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 33.056,
+			"p95_frame_ms": 34.648,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 39.658,
+			"p95_frame_ms": 48.905,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"glimmerwing": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.764,
+			"p95_frame_ms": 34.527,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 39.643,
+			"p95_frame_ms": 43.391,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"gloommaw": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.49,
+			"p95_frame_ms": 34.212,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 46.581,
+			"p95_frame_ms": 50.134,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"glowmoth": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.152,
+			"p95_frame_ms": 33.106,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 40.989,
+			"p95_frame_ms": 45.309,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"gravishell": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.594,
+			"p95_frame_ms": 34.901,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 35.9,
+			"p95_frame_ms": 38.361,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"grovestag": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 45.712,
+			"p95_frame_ms": 47.251,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 46.996,
+			"p95_frame_ms": 54.384,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"hollowflame": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.84,
+			"p95_frame_ms": 35.743,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 36.641,
+			"p95_frame_ms": 38.71,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"magmander": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.693,
+			"p95_frame_ms": 34.891,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 42.564,
+			"p95_frame_ms": 45.174,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"mirrorling": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 33.126,
+			"p95_frame_ms": 35.516,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 38.245,
+			"p95_frame_ms": 41.968,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"moonspore": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 34.409,
+			"p95_frame_ms": 37.666,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 38.188,
+			"p95_frame_ms": 44.582,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"mossback": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 33.108,
+			"p95_frame_ms": 35.626,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 39.631,
+			"p95_frame_ms": 43.068,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"stormshell": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 45.858,
+			"p95_frame_ms": 49.844,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 46.902,
+			"p95_frame_ms": 53.401,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"sunclaw": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 32.373,
+			"p95_frame_ms": 34.414,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 37.657,
+			"p95_frame_ms": 41.468,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"thornweave": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 39.516,
+			"p95_frame_ms": 47.767,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 46.852,
+			"p95_frame_ms": 57.874,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	},
+	"voltwisp": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 33.081,
+			"p95_frame_ms": 35.024,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 40.432,
+			"p95_frame_ms": 42.524,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Rendu de la vraie partie gelée ; géométrie redessinée, IA et collisions non mesurées.",
+		"particle_budget_per_emitter": 4
+	}
+}
