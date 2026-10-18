@@ -21,6 +21,8 @@ var result: Dictionary = {}
 var rewards: Dictionary = {}
 ## Tests : ne pas appliquer la progression au profil.
 var skip_profile: bool = false
+## Temps fort atteint (ou touche « choix ») : les choix de niveau en réserve s'ouvrent l'un après l'autre.
+var release_choices: bool = false
 var _pending_chests: int = 0
 var _victory_timer: float = -1.0
 var _defeat_timer: float = -1.0
@@ -96,7 +98,13 @@ func start(setup: RunSetup) -> void:
 		Audio.play_context("boss_phase2")
 		Audio.play_sfx(&"boss_roar"))
 	ctx.events.synergy_proc.connect(func(_id: StringName) -> void: ctx.stats.add(&"synergy_procs"))
-	ctx.events.level_up.connect(func(_level: int) -> void: Audio.play_sfx(&"level_up"))
+	ctx.events.level_up.connect(func(level: int) -> void:
+		Audio.play_sfx(&"level_up")
+		ctx.fx.text(ctx.player.global_position + Vector2(0, -60), tr("LEVELUP_TITLE") % level, UiKit.ACCENT))
+	ctx.events.event_started.connect(func(key: String) -> void:
+		if key == "FINALE_OPENING":
+			release_choices = true)
+	ctx.events.boss_spawned.connect(func(_boss: Enemy) -> void: release_choices = true)
 	ctx.events.evolution_taken.connect(func(_id: StringName, _evo: StringName) -> void: Audio.play_sfx(&"evolution"))
 	ctx.events.elite_spawned.connect(func(_enemy: Enemy) -> void: Audio.play_sfx(&"elite_spawn"))
 	ctx.events.technique_cast.connect(func(_id: StringName, _kind: StringName) -> void: Audio.play_sfx(&"technique"))
@@ -109,6 +117,7 @@ func start(setup: RunSetup) -> void:
 	ctx.events.boss_defeated.connect(_on_boss_defeated)
 	ctx.events.chest_collected.connect(func() -> void:
 		_pending_chests += 1
+		release_choices = true
 		Audio.play_sfx(&"chest_open"))
 	ctx.events.player_hurt.connect(func(_amount: float) -> void:
 		_shake = maxf(_shake, 0.25)
@@ -222,7 +231,10 @@ func _build_ui() -> void:
 	level_up_panel = LevelUpPanel.new()
 	root.add_child(level_up_panel)
 	level_up_panel.setup(ctx)
-	level_up_panel.closed.connect(func() -> void: _modal_open = false)
+	level_up_panel.closed.connect(func() -> void:
+		_modal_open = false
+		if ctx.player.pending_levels == 0:
+			release_choices = false)
 	chest_panel = ChestPanel.new()
 	root.add_child(chest_panel)
 	chest_panel.setup(ctx)
@@ -295,13 +307,23 @@ func _physics_process(delta: float) -> void:
 func _open_modals() -> void:
 	if _modal_open or get_tree().paused:
 		return
-	if ctx.player.pending_levels > 0:
+	if ctx.player.pending_levels == 0:
+		release_choices = false
+	if ctx.player.pending_levels >= ctx.balance.level_reserve_cap:
+		release_choices = true  # réserve pleine : elle s'ouvre en entier, en une seule pause
+	if ctx.player.pending_levels > 0 and release_choices:
 		_modal_open = true
 		level_up_panel.open()
 	elif _pending_chests > 0:
 		_pending_chests -= 1
 		_modal_open = true
 		chest_panel.open()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"open_choices") and not get_tree().paused and ctx.player.pending_levels > 0:
+		release_choices = true
+		get_viewport().set_input_as_handled()
 
 
 func _update_camera(delta: float) -> void:

@@ -26,6 +26,11 @@ Inspiration principale : **Hades** (profondeur de build, difficulté exigeante m
 - Elles renforcent les sorts et passifs du build (équivalent des bienfaits de Hades), avec des
   **raretés** (commun → rare → épique → héroïque).
 - Les synergies entre Échos jouent le rôle des bienfaits « duo ».
+- **Choix en réserve** (décision du 18 octobre 2026, pour garder la nervosité) : une montée de niveau ne met plus
+  le jeu en pause. Le choix est mis en réserve (compteur dans le HUD) et la réserve s'ouvre en entier aux temps
+  forts : coffre (élite, zone nettoyée, faille refermée), arrivée du boss, ou touche « Ouvrir les choix en réserve »
+  (Tab, bouton Select). Pleine (`level_reserve_cap` = 5 dans `balance_config.tres`), elle s'ouvre d'elle-même.
+  Mesure au bot : 6 à 11 pauses par partie au lieu d'une vingtaine, victoires sur les deux cartes du chapitre 1.
 
 ## Commandes (validées)
 
