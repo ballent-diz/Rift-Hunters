@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/echo_effect.gd" id="1"]
+
+[node name="stormshell_status" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"stormshell"
+effect_kind = &"conductive_shield"
+color = Color(0.43137254901960786, 0.615686274509804, 0.7411764705882353, 1)
+accent = Color(0.8784313725490196, 0.7607843137254902, 0.19607843137254902, 1)
+radius = 44.0
+visual_duration = 2.0
+travel_distance = 0.0
+target_shape = &"area"

@@ -1,0 +1,281 @@
+[
+  {
+    "id": "cinderwing",
+    "name": "Pyraile",
+    "color": "#F07A2A",
+    "accent": "#E0C232",
+    "motif": "ember-orange raptor feathers with electric-yellow tips",
+    "base": "ash_rain",
+    "alt": "thunder_dive",
+    "forms": [
+      "feather",
+      "rain",
+      "dash"
+    ],
+    "status": "burn",
+    "subjects": [
+      "three crossed sharp ember raptor feathers forming a powerful talon strike",
+      "a single ember feather inside two concentric electrical focus arcs",
+      "a shower of five burning raptor feathers descending toward a small ember impact",
+      "one diagonal raptor feather diving through a forked lightning bolt",
+      "a crowned phoenix feather crossed by a lightning bolt"
+    ],
+    "labels": [
+      "Pluie de cendres",
+      "Piqué foudroyant"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Pyraile, node might. Subject: three crossed sharp ember raptor feathers forming a powerful talon strike. Palette: #F07A2A, #E0C232, deep midnight shadows; ember-orange raptor feathers with electric-yellow tips. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Pyraile, node focus. Subject: a single ember feather inside two concentric electrical focus arcs. Palette: #F07A2A, #E0C232, deep midnight shadows; ember-orange raptor feathers with electric-yellow tips. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Pyraile, node spell_base. Subject: a shower of five burning raptor feathers descending toward a small ember impact. Palette: #F07A2A, #E0C232, deep midnight shadows; ember-orange raptor feathers with electric-yellow tips. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Pyraile, node spell_alt. Subject: one diagonal raptor feather diving through a forked lightning bolt. Palette: #F07A2A, #E0C232, deep midnight shadows; ember-orange raptor feathers with electric-yellow tips. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Pyraile, node signature. Subject: a crowned phoenix feather crossed by a lightning bolt. Palette: #F07A2A, #E0C232, deep midnight shadows; ember-orange raptor feathers with electric-yellow tips. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "magmander",
+    "name": "Scoriade",
+    "color": "#E74729",
+    "accent": "#F59645",
+    "motif": "lava-red molten rock fissures on cool dark basalt",
+    "base": "lava_flow",
+    "alt": "geyser",
+    "forms": [
+      "bite",
+      "flow",
+      "geyser"
+    ],
+    "status": "lava",
+    "subjects": [
+      "a heavy basalt salamander jaw with glowing lava cracks",
+      "a compact basalt plate with three molten concentric channels",
+      "a winding ribbon of molten lava between charcoal crusts",
+      "a vertical lava geyser throwing three dark basalt shards",
+      "a cracked basalt heart filled with brilliant molten lava"
+    ],
+    "labels": [
+      "Coulée",
+      "Geyser"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Scoriade, node might. Subject: a heavy basalt salamander jaw with glowing lava cracks. Palette: #E74729, #F59645, deep midnight shadows; lava-red molten rock fissures on cool dark basalt. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Scoriade, node focus. Subject: a compact basalt plate with three molten concentric channels. Palette: #E74729, #F59645, deep midnight shadows; lava-red molten rock fissures on cool dark basalt. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Scoriade, node spell_base. Subject: a winding ribbon of molten lava between charcoal crusts. Palette: #E74729, #F59645, deep midnight shadows; lava-red molten rock fissures on cool dark basalt. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Scoriade, node spell_alt. Subject: a vertical lava geyser throwing three dark basalt shards. Palette: #E74729, #F59645, deep midnight shadows; lava-red molten rock fissures on cool dark basalt. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Scoriade, node signature. Subject: a cracked basalt heart filled with brilliant molten lava. Palette: #E74729, #F59645, deep midnight shadows; lava-red molten rock fissures on cool dark basalt. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "hollowflame",
+    "name": "Spectrâtre",
+    "color": "#A8DEF2",
+    "accent": "#476C8A",
+    "motif": "pale ice-blue flame enclosing a smoky charcoal hollow",
+    "base": "implosion",
+    "alt": "wandering_flame",
+    "forms": [
+      "flame",
+      "implode",
+      "projectile"
+    ],
+    "status": "implosion_mark",
+    "subjects": [
+      "a hooked pale blue flame slicing into a smoky dark core",
+      "an empty charcoal teardrop held between two pale-blue flame brackets",
+      "six pale blue flames collapsing inward around a black hollow",
+      "a pale blue will-o-wisp with two small displaced afterimages",
+      "a hollow smoky flame-heart with sharp pale blue inward rays"
+    ],
+    "labels": [
+      "Implosion",
+      "Flamme errante"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Spectrâtre, node might. Subject: a hooked pale blue flame slicing into a smoky dark core. Palette: #A8DEF2, #476C8A, deep midnight shadows; pale ice-blue flame enclosing a smoky charcoal hollow. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Spectrâtre, node focus. Subject: an empty charcoal teardrop held between two pale-blue flame brackets. Palette: #A8DEF2, #476C8A, deep midnight shadows; pale ice-blue flame enclosing a smoky charcoal hollow. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Spectrâtre, node spell_base. Subject: six pale blue flames collapsing inward around a black hollow. Palette: #A8DEF2, #476C8A, deep midnight shadows; pale ice-blue flame enclosing a smoky charcoal hollow. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Spectrâtre, node spell_alt. Subject: a pale blue will-o-wisp with two small displaced afterimages. Palette: #A8DEF2, #476C8A, deep midnight shadows; pale ice-blue flame enclosing a smoky charcoal hollow. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Spectrâtre, node signature. Subject: a hollow smoky flame-heart with sharp pale blue inward rays. Palette: #A8DEF2, #476C8A, deep midnight shadows; pale ice-blue flame enclosing a smoky charcoal hollow. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "moonspore",
+    "name": "Sporelune",
+    "color": "#56CAC2",
+    "accent": "#D8C5A4",
+    "motif": "bioluminescent teal mushroom spores with warm beige stems",
+    "base": "spore_cloud",
+    "alt": "bud_trap",
+    "forms": [
+      "spore",
+      "cloud",
+      "bud"
+    ],
+    "status": "spores",
+    "subjects": [
+      "three large luminous teal mushroom spores bursting forward",
+      "one teal spore centered under a precise crescent-shaped mushroom gill",
+      "a dense but readable plume of five teal spores above beige mushroom gills",
+      "a closed teal mushroom bud with three outward root hooks",
+      "a luminous teal mushroom cap linked to three bright spores"
+    ],
+    "labels": [
+      "Nuée de spores",
+      "Bourgeon"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sporelune, node might. Subject: three large luminous teal mushroom spores bursting forward. Palette: #56CAC2, #D8C5A4, deep midnight shadows; bioluminescent teal mushroom spores with warm beige stems. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sporelune, node focus. Subject: one teal spore centered under a precise crescent-shaped mushroom gill. Palette: #56CAC2, #D8C5A4, deep midnight shadows; bioluminescent teal mushroom spores with warm beige stems. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sporelune, node spell_base. Subject: a dense but readable plume of five teal spores above beige mushroom gills. Palette: #56CAC2, #D8C5A4, deep midnight shadows; bioluminescent teal mushroom spores with warm beige stems. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sporelune, node spell_alt. Subject: a closed teal mushroom bud with three outward root hooks. Palette: #56CAC2, #D8C5A4, deep midnight shadows; bioluminescent teal mushroom spores with warm beige stems. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sporelune, node signature. Subject: a luminous teal mushroom cap linked to three bright spores. Palette: #56CAC2, #D8C5A4, deep midnight shadows; bioluminescent teal mushroom spores with warm beige stems. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "gravishell",
+    "name": "Gravelune",
+    "color": "#6F829B",
+    "accent": "#D2AD56",
+    "motif": "slate lunar rock and a thin antique gold orbital ring",
+    "base": "gravity_well",
+    "alt": "meteor",
+    "forms": [
+      "ram",
+      "gravity",
+      "meteor"
+    ],
+    "status": "gravity",
+    "subjects": [
+      "a heavy angular lunar shell smashing a small stone shard",
+      "a single golden orbit precisely aligned around a slate lunar pebble",
+      "three lunar rocks spiralling inward around a dark gravity knot",
+      "a faceted grey-blue meteor descending with a narrow golden tail",
+      "a cratered lunar shell encircled by one broken golden orbital ring"
+    ],
+    "labels": [
+      "Singularité",
+      "Météore"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Gravelune, node might. Subject: a heavy angular lunar shell smashing a small stone shard. Palette: #6F829B, #D2AD56, deep midnight shadows; slate lunar rock and a thin antique gold orbital ring. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Gravelune, node focus. Subject: a single golden orbit precisely aligned around a slate lunar pebble. Palette: #6F829B, #D2AD56, deep midnight shadows; slate lunar rock and a thin antique gold orbital ring. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Gravelune, node spell_base. Subject: three lunar rocks spiralling inward around a dark gravity knot. Palette: #6F829B, #D2AD56, deep midnight shadows; slate lunar rock and a thin antique gold orbital ring. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Gravelune, node spell_alt. Subject: a faceted grey-blue meteor descending with a narrow golden tail. Palette: #6F829B, #D2AD56, deep midnight shadows; slate lunar rock and a thin antique gold orbital ring. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Gravelune, node signature. Subject: a cratered lunar shell encircled by one broken golden orbital ring. Palette: #6F829B, #D2AD56, deep midnight shadows; slate lunar rock and a thin antique gold orbital ring. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "grovestag",
+    "name": "Sylvécaille",
+    "color": "#648653",
+    "accent": "#DBAF54",
+    "motif": "moss green bark and warm amber antler crystals",
+    "base": "healing_grove",
+    "alt": "protective_thorns",
+    "forms": [
+      "antler",
+      "grove",
+      "thorns"
+    ],
+    "status": "heal",
+    "subjects": [
+      "two short heavy bark antlers tipped by large amber crystals",
+      "an amber antler crystal enclosed by two curved moss leaves",
+      "three amber crystal saplings growing from a small mossy healing grove",
+      "curved protective thorn branches enclosing one amber crystal",
+      "a bark heart sprouting moss and three amber crystal antlers"
+    ],
+    "labels": [
+      "Bosquet",
+      "Ronces protectrices"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sylvécaille, node might. Subject: two short heavy bark antlers tipped by large amber crystals. Palette: #648653, #DBAF54, deep midnight shadows; moss green bark and warm amber antler crystals. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sylvécaille, node focus. Subject: an amber antler crystal enclosed by two curved moss leaves. Palette: #648653, #DBAF54, deep midnight shadows; moss green bark and warm amber antler crystals. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sylvécaille, node spell_base. Subject: three amber crystal saplings growing from a small mossy healing grove. Palette: #648653, #DBAF54, deep midnight shadows; moss green bark and warm amber antler crystals. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sylvécaille, node spell_alt. Subject: curved protective thorn branches enclosing one amber crystal. Palette: #648653, #DBAF54, deep midnight shadows; moss green bark and warm amber antler crystals. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Sylvécaille, node signature. Subject: a bark heart sprouting moss and three amber crystal antlers. Palette: #648653, #DBAF54, deep midnight shadows; moss green bark and warm amber antler crystals. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "sunclaw",
+    "name": "Solgriffe",
+    "color": "#D8A63E",
+    "accent": "#FFF0BD",
+    "motif": "golden lynx claws and ivory solar rays",
+    "base": "solar_flare",
+    "alt": "radiant_leap",
+    "forms": [
+      "claw",
+      "cone",
+      "leap"
+    ],
+    "status": "blind",
+    "subjects": [
+      "three sharp golden feline claw slashes with ivory tips",
+      "a compact golden cat pupil centered in a six-ray ivory sun",
+      "a fan-shaped burst of six golden solar rays",
+      "a golden lynx paw leaping along a clean curved ivory light trail",
+      "a radiant golden lynx eye framed by a compact solar mane"
+    ],
+    "labels": [
+      "Éclat solaire",
+      "Bond lumineux"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Solgriffe, node might. Subject: three sharp golden feline claw slashes with ivory tips. Palette: #D8A63E, #FFF0BD, deep midnight shadows; golden lynx claws and ivory solar rays. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Solgriffe, node focus. Subject: a compact golden cat pupil centered in a six-ray ivory sun. Palette: #D8A63E, #FFF0BD, deep midnight shadows; golden lynx claws and ivory solar rays. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Solgriffe, node spell_base. Subject: a fan-shaped burst of six golden solar rays. Palette: #D8A63E, #FFF0BD, deep midnight shadows; golden lynx claws and ivory solar rays. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Solgriffe, node spell_alt. Subject: a golden lynx paw leaping along a clean curved ivory light trail. Palette: #D8A63E, #FFF0BD, deep midnight shadows; golden lynx claws and ivory solar rays. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Solgriffe, node signature. Subject: a radiant golden lynx eye framed by a compact solar mane. Palette: #D8A63E, #FFF0BD, deep midnight shadows; golden lynx claws and ivory solar rays. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "glowmoth",
+    "name": "Lueurine",
+    "color": "#C6DD65",
+    "accent": "#F3F5D1",
+    "motif": "yellow-green fireflies and translucent ivory moth-wing veins",
+    "base": "firefly_swarm",
+    "alt": "wing_dust",
+    "forms": [
+      "dust",
+      "swarm",
+      "powder"
+    ],
+    "status": "speed",
+    "subjects": [
+      "a translucent moth wing releasing three sharp yellow-green sparks",
+      "a single bright firefly precisely framed by two symmetrical wing veins",
+      "five luminous yellow-green fireflies orbiting an ivory moth-wing fragment",
+      "a diagonal fan of ivory wing powder dotted with yellow-green pollen",
+      "two translucent moth wings enclosing one brilliant yellow-green firefly"
+    ],
+    "labels": [
+      "Essaim de lucioles",
+      "Poudre d’ailes"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Lueurine, node might. Subject: a translucent moth wing releasing three sharp yellow-green sparks. Palette: #C6DD65, #F3F5D1, deep midnight shadows; yellow-green fireflies and translucent ivory moth-wing veins. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Lueurine, node focus. Subject: a single bright firefly precisely framed by two symmetrical wing veins. Palette: #C6DD65, #F3F5D1, deep midnight shadows; yellow-green fireflies and translucent ivory moth-wing veins. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Lueurine, node spell_base. Subject: five luminous yellow-green fireflies orbiting an ivory moth-wing fragment. Palette: #C6DD65, #F3F5D1, deep midnight shadows; yellow-green fireflies and translucent ivory moth-wing veins. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Lueurine, node spell_alt. Subject: a diagonal fan of ivory wing powder dotted with yellow-green pollen. Palette: #C6DD65, #F3F5D1, deep midnight shadows; yellow-green fireflies and translucent ivory moth-wing veins. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Lueurine, node signature. Subject: two translucent moth wings enclosing one brilliant yellow-green firefly. Palette: #C6DD65, #F3F5D1, deep midnight shadows; yellow-green fireflies and translucent ivory moth-wing veins. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  },
+  {
+    "id": "stormshell",
+    "name": "Égidor",
+    "color": "#6E9DBD",
+    "accent": "#E0C232",
+    "motif": "steel-blue beetle carapace and electric-yellow conduction arcs",
+    "base": "conductive_dome",
+    "alt": "discharge",
+    "forms": [
+      "ram",
+      "dome",
+      "wave"
+    ],
+    "status": "conductive_shield",
+    "subjects": [
+      "a heavy blue steel beetle horn crackling with yellow lightning",
+      "a bright yellow electrical node held in a blue steel circuit ring",
+      "a blue steel shell-shaped protective dome with two yellow conductor arcs",
+      "a jagged yellow electrical shockwave expanding from one blue steel plate",
+      "a massive blue steel carapace bearing a bright branching yellow circuit"
+    ],
+    "labels": [
+      "Dôme conducteur",
+      "Décharge"
+    ],
+    "prompt_might": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Égidor, node might. Subject: a heavy blue steel beetle horn crackling with yellow lightning. Palette: #6E9DBD, #E0C232, deep midnight shadows; steel-blue beetle carapace and electric-yellow conduction arcs. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_focus": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Égidor, node focus. Subject: a bright yellow electrical node held in a blue steel circuit ring. Palette: #6E9DBD, #E0C232, deep midnight shadows; steel-blue beetle carapace and electric-yellow conduction arcs. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_base": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Égidor, node spell_base. Subject: a blue steel shell-shaped protective dome with two yellow conductor arcs. Palette: #6E9DBD, #E0C232, deep midnight shadows; steel-blue beetle carapace and electric-yellow conduction arcs. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_spell_alt": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Égidor, node spell_alt. Subject: a jagged yellow electrical shockwave expanding from one blue steel plate. Palette: #6E9DBD, #E0C232, deep midnight shadows; steel-blue beetle carapace and electric-yellow conduction arcs. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage.",
+    "prompt_signature": "Use case: stylized-concept. Asset: one square 512px HD fantasy skill illustration for Rift Hunters, Égidor, node signature. Subject: a massive blue steel carapace bearing a bright branching yellow circuit. Palette: #6E9DBD, #E0C232, deep midnight shadows; steel-blue beetle carapace and electric-yellow conduction arcs. Polished hand-painted dark fantasy game UI illustration, bold clearly separated silhouette readable at 48px, crisp material facets, top-left ivory highlights, restrained luminous edges, no blur, strong central emblem occupying 80 percent of frame. Transparent background. No text, letters, numbers, frame, watermark, scenery or characters, no magenta. This is a single icon, never a sheet or collage."
+  }
+]

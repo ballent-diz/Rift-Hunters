@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/echo_effect.gd" id="1"]
+
+[node name="glowmoth_attack" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"glowmoth"
+effect_kind = &"dust"
+color = Color(0.7764705882352941, 0.8666666666666667, 0.396078431372549, 1)
+accent = Color(0.9529411764705882, 0.9607843137254902, 0.8196078431372549, 1)
+radius = 44.0
+visual_duration = 0.75
+travel_distance = 180.0
+target_shape = &"area"

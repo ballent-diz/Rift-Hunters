@@ -6613,6 +6613,2121 @@
 					"loop": true
 				}
 			}
+		},
+		"vfx.echo.cinderwing.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/cinderwing/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/cinderwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.cinderwing.ash_rain": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/cinderwing/ash_rain.tscn",
+			"sheet": "res://assets/vfx/echoes/cinderwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.cinderwing.thunder_dive": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/cinderwing/thunder_dive.tscn",
+			"sheet": "res://assets/vfx/echoes/cinderwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.cinderwing.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/cinderwing/status.tscn",
+			"sheet": "res://assets/vfx/echoes/cinderwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.cinderwing.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/cinderwing/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/cinderwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.magmander.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/magmander/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/magmander/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.magmander.lava_flow": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/magmander/lava_flow.tscn",
+			"sheet": "res://assets/vfx/echoes/magmander/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.magmander.geyser": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/magmander/geyser.tscn",
+			"sheet": "res://assets/vfx/echoes/magmander/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.magmander.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/magmander/status.tscn",
+			"sheet": "res://assets/vfx/echoes/magmander/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.magmander.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/magmander/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/magmander/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.hollowflame.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/hollowflame/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/hollowflame/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.hollowflame.implosion": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/hollowflame/implosion.tscn",
+			"sheet": "res://assets/vfx/echoes/hollowflame/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.hollowflame.wandering_flame": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/hollowflame/wandering_flame.tscn",
+			"sheet": "res://assets/vfx/echoes/hollowflame/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.hollowflame.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/hollowflame/status.tscn",
+			"sheet": "res://assets/vfx/echoes/hollowflame/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.hollowflame.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/hollowflame/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/hollowflame/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.moonspore.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/moonspore/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/moonspore/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.moonspore.spore_cloud": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/moonspore/spore_cloud.tscn",
+			"sheet": "res://assets/vfx/echoes/moonspore/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.moonspore.bud_trap": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/moonspore/bud_trap.tscn",
+			"sheet": "res://assets/vfx/echoes/moonspore/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.moonspore.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/moonspore/status.tscn",
+			"sheet": "res://assets/vfx/echoes/moonspore/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.moonspore.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/moonspore/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/moonspore/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.gravishell.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gravishell/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/gravishell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.gravishell.gravity_well": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gravishell/gravity_well.tscn",
+			"sheet": "res://assets/vfx/echoes/gravishell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.gravishell.meteor": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gravishell/meteor.tscn",
+			"sheet": "res://assets/vfx/echoes/gravishell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.gravishell.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gravishell/status.tscn",
+			"sheet": "res://assets/vfx/echoes/gravishell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.gravishell.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gravishell/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/gravishell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.grovestag.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/grovestag/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/grovestag/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.grovestag.healing_grove": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/grovestag/healing_grove.tscn",
+			"sheet": "res://assets/vfx/echoes/grovestag/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.grovestag.protective_thorns": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/grovestag/protective_thorns.tscn",
+			"sheet": "res://assets/vfx/echoes/grovestag/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.grovestag.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/grovestag/status.tscn",
+			"sheet": "res://assets/vfx/echoes/grovestag/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.grovestag.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/grovestag/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/grovestag/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.sunclaw.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/sunclaw/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/sunclaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.sunclaw.solar_flare": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/sunclaw/solar_flare.tscn",
+			"sheet": "res://assets/vfx/echoes/sunclaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.sunclaw.radiant_leap": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/sunclaw/radiant_leap.tscn",
+			"sheet": "res://assets/vfx/echoes/sunclaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.sunclaw.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/sunclaw/status.tscn",
+			"sheet": "res://assets/vfx/echoes/sunclaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.sunclaw.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/sunclaw/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/sunclaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.glowmoth.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glowmoth/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/glowmoth/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.glowmoth.firefly_swarm": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glowmoth/firefly_swarm.tscn",
+			"sheet": "res://assets/vfx/echoes/glowmoth/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.glowmoth.wing_dust": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glowmoth/wing_dust.tscn",
+			"sheet": "res://assets/vfx/echoes/glowmoth/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.glowmoth.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glowmoth/status.tscn",
+			"sheet": "res://assets/vfx/echoes/glowmoth/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.glowmoth.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glowmoth/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/glowmoth/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.stormshell.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/stormshell/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/stormshell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.stormshell.conductive_dome": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/stormshell/conductive_dome.tscn",
+			"sheet": "res://assets/vfx/echoes/stormshell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.stormshell.discharge": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/stormshell/discharge.tscn",
+			"sheet": "res://assets/vfx/echoes/stormshell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.stormshell.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/stormshell/status.tscn",
+			"sheet": "res://assets/vfx/echoes/stormshell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.stormshell.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/stormshell/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/stormshell/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"icon.echo.cinderwing_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.cinderwing_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_cinderwing_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_cinderwing_might.png"
+		},
+		"icon.echo.cinderwing_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.cinderwing_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_cinderwing_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_cinderwing_focus.png"
+		},
+		"icon.echo.cinderwing_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.cinderwing_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_cinderwing_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_cinderwing_spell_base.png"
+		},
+		"icon.echo.cinderwing_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.cinderwing_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_cinderwing_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_cinderwing_spell_alt.png"
+		},
+		"icon.echo.cinderwing_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.cinderwing_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_cinderwing_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_cinderwing_signature.png"
+		},
+		"icon.echo.magmander_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.magmander_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_magmander_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_magmander_might.png"
+		},
+		"icon.echo.magmander_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.magmander_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_magmander_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_magmander_focus.png"
+		},
+		"icon.echo.magmander_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.magmander_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_magmander_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_magmander_spell_base.png"
+		},
+		"icon.echo.magmander_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.magmander_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_magmander_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_magmander_spell_alt.png"
+		},
+		"icon.echo.magmander_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.magmander_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_magmander_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_magmander_signature.png"
+		},
+		"icon.echo.hollowflame_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.hollowflame_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_hollowflame_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_hollowflame_might.png"
+		},
+		"icon.echo.hollowflame_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.hollowflame_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_hollowflame_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_hollowflame_focus.png"
+		},
+		"icon.echo.hollowflame_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.hollowflame_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_hollowflame_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_hollowflame_spell_base.png"
+		},
+		"icon.echo.hollowflame_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.hollowflame_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_hollowflame_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_hollowflame_spell_alt.png"
+		},
+		"icon.echo.hollowflame_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.hollowflame_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_hollowflame_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_hollowflame_signature.png"
+		},
+		"icon.echo.moonspore_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.moonspore_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_moonspore_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_moonspore_might.png"
+		},
+		"icon.echo.moonspore_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.moonspore_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_moonspore_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_moonspore_focus.png"
+		},
+		"icon.echo.moonspore_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.moonspore_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_moonspore_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_moonspore_spell_base.png"
+		},
+		"icon.echo.moonspore_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.moonspore_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_moonspore_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_moonspore_spell_alt.png"
+		},
+		"icon.echo.moonspore_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.moonspore_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_moonspore_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_moonspore_signature.png"
+		},
+		"icon.echo.gravishell_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.gravishell_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_gravishell_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_gravishell_might.png"
+		},
+		"icon.echo.gravishell_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.gravishell_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_gravishell_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_gravishell_focus.png"
+		},
+		"icon.echo.gravishell_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.gravishell_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_gravishell_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_gravishell_spell_base.png"
+		},
+		"icon.echo.gravishell_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.gravishell_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_gravishell_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_gravishell_spell_alt.png"
+		},
+		"icon.echo.gravishell_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.gravishell_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_gravishell_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_gravishell_signature.png"
+		},
+		"icon.echo.grovestag_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.grovestag_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_grovestag_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_grovestag_might.png"
+		},
+		"icon.echo.grovestag_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.grovestag_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_grovestag_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_grovestag_focus.png"
+		},
+		"icon.echo.grovestag_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.grovestag_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_grovestag_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_grovestag_spell_base.png"
+		},
+		"icon.echo.grovestag_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.grovestag_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_grovestag_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_grovestag_spell_alt.png"
+		},
+		"icon.echo.grovestag_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.grovestag_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_grovestag_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_grovestag_signature.png"
+		},
+		"icon.echo.sunclaw_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.sunclaw_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_sunclaw_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_sunclaw_might.png"
+		},
+		"icon.echo.sunclaw_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.sunclaw_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_sunclaw_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_sunclaw_focus.png"
+		},
+		"icon.echo.sunclaw_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.sunclaw_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_sunclaw_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_sunclaw_spell_base.png"
+		},
+		"icon.echo.sunclaw_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.sunclaw_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_sunclaw_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_sunclaw_spell_alt.png"
+		},
+		"icon.echo.sunclaw_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.sunclaw_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_sunclaw_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_sunclaw_signature.png"
+		},
+		"icon.echo.glowmoth_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.glowmoth_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_glowmoth_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_glowmoth_might.png"
+		},
+		"icon.echo.glowmoth_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.glowmoth_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_glowmoth_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_glowmoth_focus.png"
+		},
+		"icon.echo.glowmoth_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.glowmoth_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_glowmoth_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_glowmoth_spell_base.png"
+		},
+		"icon.echo.glowmoth_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.glowmoth_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_glowmoth_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_glowmoth_spell_alt.png"
+		},
+		"icon.echo.glowmoth_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.glowmoth_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_glowmoth_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_glowmoth_signature.png"
+		},
+		"icon.echo.stormshell_might": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.stormshell_might/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_stormshell_might_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_stormshell_might.png"
+		},
+		"icon.echo.stormshell_focus": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.stormshell_focus/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_stormshell_focus_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_stormshell_focus.png"
+		},
+		"icon.echo.stormshell_spell_base": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.stormshell_spell_base/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_stormshell_spell_base_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_stormshell_spell_base.png"
+		},
+		"icon.echo.stormshell_spell_alt": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.stormshell_spell_alt/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_stormshell_spell_alt_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_stormshell_spell_alt.png"
+		},
+		"icon.echo.stormshell_signature": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/icon.echo.stormshell_signature/job.json",
+			"sheet": "res://assets/sprites/skills/echo/echo_stormshell_signature_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				256
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/skills/echo_stormshell_signature.png"
 		}
 	}
 }

@@ -1,0 +1,407 @@
+[
+  {
+    "echo": "cinderwing",
+    "name": "attack",
+    "form": "feather",
+    "scene": "res://assets/vfx/echoes/cinderwing/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "cinderwing",
+    "name": "ash_rain",
+    "form": "rain",
+    "scene": "res://assets/vfx/echoes/cinderwing/ash_rain.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "cinderwing",
+    "name": "thunder_dive",
+    "form": "dash",
+    "scene": "res://assets/vfx/echoes/cinderwing/thunder_dive.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "line"
+  },
+  {
+    "echo": "cinderwing",
+    "name": "status",
+    "form": "burn",
+    "scene": "res://assets/vfx/echoes/cinderwing/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "cinderwing",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/cinderwing/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "magmander",
+    "name": "attack",
+    "form": "bite",
+    "scene": "res://assets/vfx/echoes/magmander/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "magmander",
+    "name": "lava_flow",
+    "form": "flow",
+    "scene": "res://assets/vfx/echoes/magmander/lava_flow.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "line"
+  },
+  {
+    "echo": "magmander",
+    "name": "geyser",
+    "form": "geyser",
+    "scene": "res://assets/vfx/echoes/magmander/geyser.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "magmander",
+    "name": "status",
+    "form": "lava",
+    "scene": "res://assets/vfx/echoes/magmander/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "magmander",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/magmander/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "line"
+  },
+  {
+    "echo": "hollowflame",
+    "name": "attack",
+    "form": "flame",
+    "scene": "res://assets/vfx/echoes/hollowflame/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "hollowflame",
+    "name": "implosion",
+    "form": "implode",
+    "scene": "res://assets/vfx/echoes/hollowflame/implosion.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "hollowflame",
+    "name": "wandering_flame",
+    "form": "projectile",
+    "scene": "res://assets/vfx/echoes/hollowflame/wandering_flame.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "line"
+  },
+  {
+    "echo": "hollowflame",
+    "name": "status",
+    "form": "implosion_mark",
+    "scene": "res://assets/vfx/echoes/hollowflame/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "hollowflame",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/hollowflame/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "moonspore",
+    "name": "attack",
+    "form": "spore",
+    "scene": "res://assets/vfx/echoes/moonspore/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "moonspore",
+    "name": "spore_cloud",
+    "form": "cloud",
+    "scene": "res://assets/vfx/echoes/moonspore/spore_cloud.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "moonspore",
+    "name": "bud_trap",
+    "form": "bud",
+    "scene": "res://assets/vfx/echoes/moonspore/bud_trap.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "moonspore",
+    "name": "status",
+    "form": "spores",
+    "scene": "res://assets/vfx/echoes/moonspore/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "moonspore",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/moonspore/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "gravishell",
+    "name": "attack",
+    "form": "ram",
+    "scene": "res://assets/vfx/echoes/gravishell/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "gravishell",
+    "name": "gravity_well",
+    "form": "gravity",
+    "scene": "res://assets/vfx/echoes/gravishell/gravity_well.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "gravishell",
+    "name": "meteor",
+    "form": "meteor",
+    "scene": "res://assets/vfx/echoes/gravishell/meteor.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "gravishell",
+    "name": "status",
+    "form": "gravity",
+    "scene": "res://assets/vfx/echoes/gravishell/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "gravishell",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/gravishell/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "grovestag",
+    "name": "attack",
+    "form": "antler",
+    "scene": "res://assets/vfx/echoes/grovestag/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "grovestag",
+    "name": "healing_grove",
+    "form": "grove",
+    "scene": "res://assets/vfx/echoes/grovestag/healing_grove.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "grovestag",
+    "name": "protective_thorns",
+    "form": "thorns",
+    "scene": "res://assets/vfx/echoes/grovestag/protective_thorns.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "grovestag",
+    "name": "status",
+    "form": "heal",
+    "scene": "res://assets/vfx/echoes/grovestag/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "grovestag",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/grovestag/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "sunclaw",
+    "name": "attack",
+    "form": "claw",
+    "scene": "res://assets/vfx/echoes/sunclaw/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "sunclaw",
+    "name": "solar_flare",
+    "form": "cone",
+    "scene": "res://assets/vfx/echoes/sunclaw/solar_flare.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "cone"
+  },
+  {
+    "echo": "sunclaw",
+    "name": "radiant_leap",
+    "form": "leap",
+    "scene": "res://assets/vfx/echoes/sunclaw/radiant_leap.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "line"
+  },
+  {
+    "echo": "sunclaw",
+    "name": "status",
+    "form": "blind",
+    "scene": "res://assets/vfx/echoes/sunclaw/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "sunclaw",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/sunclaw/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "glowmoth",
+    "name": "attack",
+    "form": "dust",
+    "scene": "res://assets/vfx/echoes/glowmoth/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "glowmoth",
+    "name": "firefly_swarm",
+    "form": "swarm",
+    "scene": "res://assets/vfx/echoes/glowmoth/firefly_swarm.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "glowmoth",
+    "name": "wing_dust",
+    "form": "powder",
+    "scene": "res://assets/vfx/echoes/glowmoth/wing_dust.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "glowmoth",
+    "name": "status",
+    "form": "speed",
+    "scene": "res://assets/vfx/echoes/glowmoth/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "glowmoth",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/glowmoth/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "stormshell",
+    "name": "attack",
+    "form": "ram",
+    "scene": "res://assets/vfx/echoes/stormshell/attack.tscn",
+    "duration": 0.75,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "stormshell",
+    "name": "conductive_dome",
+    "form": "dome",
+    "scene": "res://assets/vfx/echoes/stormshell/conductive_dome.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "stormshell",
+    "name": "discharge",
+    "form": "wave",
+    "scene": "res://assets/vfx/echoes/stormshell/discharge.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  },
+  {
+    "echo": "stormshell",
+    "name": "status",
+    "form": "conductive_shield",
+    "scene": "res://assets/vfx/echoes/stormshell/status.tscn",
+    "duration": 2.0,
+    "radius": 44,
+    "target_shape": "area"
+  },
+  {
+    "echo": "stormshell",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/stormshell/indicator.tscn",
+    "duration": 1.6,
+    "radius": 88,
+    "target_shape": "area"
+  }
+]

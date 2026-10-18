@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/echo_effect.gd" id="1"]
+
+[node name="grovestag_healing_grove" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"grovestag"
+effect_kind = &"grove"
+color = Color(0.39215686274509803, 0.5254901960784314, 0.3254901960784314, 1)
+accent = Color(0.8588235294117647, 0.6862745098039216, 0.32941176470588235, 1)
+radius = 88.0
+visual_duration = 1.6
+travel_distance = 240.0
+target_shape = &"area"
