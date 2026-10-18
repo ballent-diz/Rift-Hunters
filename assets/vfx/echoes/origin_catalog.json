@@ -1,0 +1,219 @@
+[
+  {
+    "id": "ashblade",
+    "name": "Cendrelame",
+    "color": "ed792b",
+    "accent": "ffc979",
+    "attack": [
+      "blade_pounce",
+      42,
+      0.65,
+      140
+    ],
+    "status": null,
+    "spells": [
+      [
+        "ash_dance",
+        "ash_dance",
+        48,
+        1.6,
+        0,
+        "area"
+      ],
+      [
+        "cinder_dash",
+        "cinder_dash",
+        48,
+        0.75,
+        240,
+        "line"
+      ]
+    ]
+  },
+  {
+    "id": "mossback",
+    "name": "Mousseroc",
+    "color": "e77b31",
+    "accent": "ffc36c",
+    "attack": [
+      "stone_slam",
+      95,
+      0.6,
+      0
+    ],
+    "status": "fracture",
+    "spells": [
+      [
+        "gravity_well",
+        "stone_gravity",
+        110,
+        2.4,
+        0,
+        "area"
+      ],
+      [
+        "stone_taunt",
+        "stone_taunt",
+        100,
+        1.6,
+        0,
+        "area"
+      ]
+    ]
+  },
+  {
+    "id": "glimmerwing",
+    "name": "Lucivelle",
+    "color": "60c7ed",
+    "accent": "e2f6ff",
+    "attack": [
+      "prism_orb",
+      30,
+      0.6,
+      180
+    ],
+    "status": "prism_mark",
+    "spells": [
+      [
+        "prism_flare",
+        "prism_flare",
+        95,
+        1.1,
+        0,
+        "area"
+      ],
+      [
+        "spark_rain",
+        "spark_rain",
+        95,
+        1.6,
+        0,
+        "area"
+      ]
+    ]
+  },
+  {
+    "id": "thornweave",
+    "name": "Ronceline",
+    "color": "668951",
+    "accent": "dfc77b",
+    "attack": [
+      "thorn_patch",
+      75,
+      4.0,
+      0
+    ],
+    "status": "roots",
+    "spells": [
+      [
+        "briar_wall",
+        "briar_wall",
+        44,
+        4.0,
+        240,
+        "line"
+      ],
+      [
+        "bloom",
+        "bloom",
+        95,
+        1.6,
+        0,
+        "area"
+      ]
+    ]
+  },
+  {
+    "id": "voltwisp",
+    "name": "Fulgurine",
+    "color": "6297ad",
+    "accent": "f4c75c",
+    "attack": [
+      "chain",
+      30,
+      0.5,
+      180
+    ],
+    "status": "electrified",
+    "spells": [
+      [
+        "ion_storm",
+        "ion_storm",
+        110,
+        1.8,
+        0,
+        "area"
+      ],
+      [
+        "chain_arc",
+        "chain",
+        30,
+        0.75,
+        240,
+        "line"
+      ]
+    ]
+  },
+  {
+    "id": "gloommaw",
+    "name": "Gueule-d’ombre",
+    "color": "534178",
+    "accent": "bba1df",
+    "attack": [
+      "devour",
+      32,
+      0.65,
+      0
+    ],
+    "status": null,
+    "spells": [
+      [
+        "feast",
+        "feast",
+        100,
+        1.1,
+        0,
+        "area"
+      ],
+      [
+        "maw_pit",
+        "maw_pit",
+        95,
+        1.8,
+        0,
+        "area"
+      ]
+    ]
+  },
+  {
+    "id": "mirrorling",
+    "name": "Mirelle",
+    "color": "91b4e7",
+    "accent": "f0f5ff",
+    "attack": [
+      "mirror_bolt",
+      30,
+      0.65,
+      180
+    ],
+    "status": null,
+    "spells": [
+      [
+        "reflection",
+        "reflection",
+        65,
+        2.0,
+        0,
+        "area"
+      ],
+      [
+        "mirror_shards",
+        "mirror_shards",
+        30,
+        0.8,
+        240,
+        "line"
+      ]
+    ]
+  }
+]
