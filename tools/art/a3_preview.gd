@@ -17,13 +17,14 @@ func _ready() -> void:
 	add_child(_viewport)
 	await _make_run(&"three_rifts")
 	var ctx: RunContext = _run.ctx
-	_focus(Vector2(-960, -650), Vector2(-800, -550))
+	_focus(Vector2(690, 55), Vector2(826, -5))
 	await _save("01-barriere-fermee", 0.2)
 	await _sequence("barrier", 16)
-	var wall: int = ctx.zones._walls[0][0]
+	var wall: int = ctx.zones._walls[1][1]
 	ctx.obstacles.set_wall_enabled(wall, false)
 	ctx.zones.overlay.dissolve(wall)
 	await _save("02-dissolution", 0.6)
+	_focus(Vector2(-960, -650), Vector2(-800, -550))
 	ctx.zones.phase = ZoneDirector.Phase.ENTER
 	ctx.zones.zone_index = 1
 	await _save("03-fleche", 0.7)

@@ -7,7 +7,8 @@ const CURTAIN := preload("res://assets/shaders/rift_curtain.gdshader")
 
 var members: Array[int] = []
 var _curtain_material: ShaderMaterial
-var _lift := Vector2(0, -88)
+var _lift := Vector2(0, -108)
+var _particles: CPUParticles2D
 
 
 static func connected_groups(rects: Array[Rect2]) -> Array[PackedInt32Array]:
@@ -68,7 +69,7 @@ func setup(rects: Array[Rect2], indices: Array[int]) -> void:
 	members = indices
 	var path: PackedVector2Array = curtain_path(rects)
 	var span: Vector2 = path[-1] - path[0]
-	_lift = Vector2(58.0 if absf(span.y) > absf(span.x) * 1.6 else 0.0, -88.0)
+	_lift = Vector2(58.0 if absf(span.y) > absf(span.x) * 1.6 else 0.0, -108.0)
 	var entry: Dictionary = Assets.entry(&"vfx.barrier.energy")
 	_curtain_material = ShaderMaterial.new()
 	_curtain_material.shader = CURTAIN
@@ -78,11 +79,17 @@ func setup(rects: Array[Rect2], indices: Array[int]) -> void:
 	for i: int in path.size() - 1:
 		segments.append(PackedVector2Array([path[i], path[i + 1]]))
 	_build_curtain(segments)
+	_build_particles(path)
 
 
 func _build_curtain(segments: Array[PackedVector2Array]) -> void:
 	var vertices := PackedVector3Array()
 	var uvs := PackedVector2Array()
+	var colors := PackedColorArray()
+	var total: float = 0.0
+	for segment: PackedVector2Array in segments:
+		total += segment[0].distance_to(segment[1])
+	var traveled: float = 0.0
 	for segment: PackedVector2Array in segments:
 		var columns: int = maxi(1, ceili(segment[0].distance_to(segment[1]) / 16.0))
 		for column: int in columns:
@@ -93,14 +100,19 @@ func _build_curtain(segments: Array[PackedVector2Array]) -> void:
 				var bottom: float = float(row + 1) / 6.0
 				var points: Array[Vector2] = [a, b, b, a, b, a]
 				var heights: Array[float] = [top, top, bottom, top, bottom, bottom]
+				var distances: Array[float] = [0.0, 1.0, 1.0, 0.0, 1.0, 0.0]
 				for i: int in 6:
 					var point: Vector2 = points[i] + _lift * (1.0 - heights[i])
 					vertices.append(Vector3(point.x, point.y, 0))
-					uvs.append(Vector2((points[i].x + points[i].y * 0.35) / 160.0, heights[i]))
+					var along: float = traveled + segment[0].distance_to(a) + a.distance_to(b) * distances[i]
+					uvs.append(Vector2(along / 140.0, heights[i]))
+					colors.append(Color(along / maxf(total, 1.0), 1.0, 1.0, 1.0))
+		traveled += segment[0].distance_to(segment[1])
 	var arrays: Array = []
 	arrays.resize(Mesh.ARRAY_MAX)
 	arrays[Mesh.ARRAY_VERTEX] = vertices
 	arrays[Mesh.ARRAY_TEX_UV] = uvs
+	arrays[Mesh.ARRAY_COLOR] = colors
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 	var curtain := MeshInstance2D.new()
@@ -109,8 +121,37 @@ func _build_curtain(segments: Array[PackedVector2Array]) -> void:
 	add_child(curtain)
 
 
+func _build_particles(path: PackedVector2Array) -> void:
+	# Aucun émetteur graphique sans affichage (tests et serveur headless).
+	if DisplayServer.get_name() == "headless":
+		return
+	_particles = CPUParticles2D.new()
+	_particles.amount = 32
+	_particles.lifetime = 0.9
+	_particles.preprocess = 0.4
+	_particles.emission_shape = CPUParticles2D.EMISSION_SHAPE_POINTS
+	_particles.emission_points = path
+	_particles.direction = Vector2.UP
+	_particles.spread = 24.0
+	_particles.gravity = Vector2(0, -34)
+	_particles.initial_velocity_min = 8.0
+	_particles.initial_velocity_max = 28.0
+	_particles.scale_amount_min = 1.2
+	_particles.scale_amount_max = 2.2
+	var gradient := Gradient.new()
+	gradient.offsets = PackedFloat32Array([0.0, 0.2, 0.7, 1.0])
+	gradient.colors = PackedColorArray([Color(0.5, 0.4, 1, 0), Color(0.9, 0.85, 1, 0.9),
+		Color(0.5, 0.4, 1, 0.6), Color(0.3, 0.2, 1, 0)])
+	_particles.color_ramp = gradient
+	add_child(_particles)
+
+
 func animate(strength: float, clock: float, dissolving: bool = false) -> void:
 	visible = strength > 0.0
 	_curtain_material.set_shader_parameter("strength", strength)
 	_curtain_material.set_shader_parameter("clock", clock)
 	_curtain_material.set_shader_parameter("dissolving", dissolving)
+	if _particles:
+		_particles.position = _lift * (1.0 if dissolving else smoothstep(0.0, 1.0, strength))
+		_particles.modulate.a = strength
+		_particles.emitting = strength > 0.1

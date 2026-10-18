@@ -9,7 +9,7 @@ Aucun changement des collisions, vagues, PV, minuteries de combat, positions ou 
 - Vagues d’énergie violette, éclairs et filaments ; shader commun avec bord lumineux et particules.
 - Les rectangles voisins sont regroupés par connexité. Chaque chaîne devient **un ruban courbe continu**,
   porté par un MeshInstance2D : aucun panneau carré ni contour interne sur les escaliers.
-- Le maillage monte à 88 unités du sol ; un shader Godot déforme réellement ses sommets.
+- Le maillage monte à 108 unités du sol ; un shader Godot déforme réellement ses sommets.
   Des arcs électriques et des fragments mobiles complètent les huit poses de texture.
 - À l’apparition, le rideau se déploie depuis le sol ; à la dissolution, ses fragments se dispersent
   sans replier tout le mur en un bloc. La texture est répétée en miroir pour éviter une couture entre tuiles.
@@ -101,3 +101,17 @@ La faille contient 24 poses non vides, sans rognage ni fond vert résiduel déte
 Mesure locale avec 90 Corrompus affichés, simulation gelée : médiane 16,76 ms pour les murs
 et 16,79 ms pour les failles avec effets, contre 16,71 ms et 16,60 ms masqués.
 Ces écarts restent dans le bruit de mesure ; ils n’établissent pas les performances de toute l’IA.
+
+
+### Retouche des barrières à la demande du propriétaire
+
+La silhouette utilise désormais une crête irrégulière, des extrémités adoucies et une ondulation plus ample.
+Deux arcs lumineux parcourent le mur ; la matière indigo est plus contrastée, avec des filaments lavande.
+Un émetteur natif Godot de 32 particules par chaîne détache des éclats au-dessus du rideau
+(un seul nœud par émetteur, aucun nœud individuel par particule). Les émissions suivent la montée
+puis s’éteignent pendant la dissolution. Les captures et le GIF principal montrent maintenant la barrière
+du pont en entier. Aucune nouvelle génération d’image ni modification des collisions.
+
+La nouvelle comparaison de rendu reste autour de 16,7 ms avec ou sans effets pour 90 Corrompus affichés ;
+voir performance.json pour les valeurs actuelles. Cette retouche est vérifiée par les tests unitaires,
+le lint et les captures Godot ; la suite complète précédente reste consignée ci-dessus.
