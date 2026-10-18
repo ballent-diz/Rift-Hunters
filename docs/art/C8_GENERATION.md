@@ -1,7 +1,8 @@
 # C8 — fiche de génération et d’import
 
-Préparation du lot : neuf nouveaux Échos, Mirelle et rework de Cendrelame. Génération par le propriétaire.
-Les images ne sont pas encore livrées ; aucun nouveau sprite n’est déclaré final.
+Lot livré : neuf nouveaux Échos, Mirelle et rework de Cendrelame.
+Le propriétaire a autorisé Codex à générer les images le 18 octobre 2026. Imagegen intégré a produit
+les références puis les planches en réutilisant chaque référence ; aucune source tierce ajoutée.
 
 ## Commencer ici
 
@@ -65,7 +66,7 @@ Sous assets/concepts/incoming/, un dossier par identifiant :
 | monster.mirrorling | Mirelle | Volant, hover 8 |
 | monster.ashblade | Cendrelame, rework | Sol |
 
-Chaque dossier contient job.json en statut wip, README.md et source/ pour les originaux.
+Chaque dossier contenait une recette wip à la préparation ; les recettes livrées ci-dessous sont désormais final.
 Aucun fichier .import n’est ajouté sous incoming/ (exclu de Godot par son .gdignore).
 
 ## Échelle et détourage
@@ -144,3 +145,56 @@ quatre volants correctement relevés et aucun .import dans leurs dossiers. Impor
 tools/run_tests.sh complet terminé avec code 0 : 207/207 tests unitaires, scripts, persistance,
 assets (148 entrées, zéro erreur), art, smoke et lint réussis. Ces résultats valident la préparation
 et l’état actuel du jeu ; ils ne valident pas les sprites encore à recevoir.
+
+
+## Livraison générée le 18 octobre 2026
+
+11 références et 11 planches complètes retenues. Chaque planche rassemble cinq rangées ;
+prepare_c8_sheet.py mesure les séparations vides, produit les cinq bandes et renseigne leurs plages explicites.
+Les planches avec chevauchements ont été régénérées. Solgriffe avait neuf poses de repos :
+les huit premières sont conservées, la répétition finale est exclue via source/overrides.json.
+Les prompts exacts, les chemins relatifs et les empreintes SHA-256 des originaux sont dans
+assets/concepts/incoming/c8-generation/generation.json. Les consignes par animation restent disponibles
+pour de futures retouches ciblées.
+
+L’import livre 39 poses par créature, soit 429 poses : repos 8, déplacement 8, attaque 7, technique 8, mort 8.
+Palette commune à 32 couleurs. Les cellules plus larges de Scoriade, Solgriffe et Égidor réservent
+la place aux queues et effets ; elles ne grossissent pas les créatures. Les hauteurs apparentes
+sont de 40 à 51 unités du monde, contre 48 pour Mousseroc. Le rework de Cendrelame fait environ 49 unités.
+Les variantes de maîtrise existantes de Cendrelame ne sont pas remplacées par ce lot.
+
+Le détourage retire également les petits trous de fond vert (holes=42, holes_min_area=1).
+Le retrait global des reflets verts reste désactivé pour Sylvécaille et Lueurine afin de garder
+les feuilles et leurs lumières naturelles. Le contrôle review_c8.py vérifie l’absence de fond vert,
+les marges de chaque pose et la stabilité des ancres ; il produit quality.json et animations.gif.
+
+### Voir et reproduire les contrôles
+
+- docs/previews/c8/roster_16.png : 16 Échos côte à côte, Chasseur inclus comme repère, zoom de jeu 4/3.
+- docs/previews/c8/cascade_roster.png : rendu Godot sur le vrai décor des Ruines des Cascades.
+- docs/previews/c8/animations.gif : cinq animations, aperçu agrandi ×2 pour examiner les gestes.
+- docs/previews/c8/imports/ : détails des 11 imports.
+
+~~~bash
+python3 tools/art/prepare_c8_sheet.py
+# Réimporter les onze job.json après une modification des sources.
+python3 tools/art/review_c8.py
+godot --path . res://tools/art/preview_c8.tscn
+~~~
+
+Les captures sont des contrôles graphiques hors partie : elles ne créent pas de personnages recrutables.
+Les neuf nouveaux Échos attendent les données et les sorts du lot C7 de Claude.
+La sensation des cycles en combat reste à vérifier manuellement par le propriétaire.
+
+
+### Vérification finale de la livraison graphique
+
+Import Godot : code 0, sans erreur. Suite complète exécutée : 207/207 tests unitaires,
+215 scripts, persistance, 157/157 assets sans placeholder, smoke et lint réussis.
+Le test art utilisait encore les anciennes cellules 64 × 64 de Cendrelame et un détourage sans
+retrait des trous fermés. Sa fixture lit désormais la cellule du manifeste et utilise la même
+recette de détourage que le nouveau Cendrelame, sans relâcher le seuil de vert résiduel.
+Après correction, seule l’étape art a été relancée : code 0. Le contrôle des petits trous vérifie
+aussi qu’une couleur naturelle verte reste opaque. Aucun test existant n’a été supprimé.
+review_c8.py : 429 poses non vides, marges intactes, ancres stables et zéro pixel de fond vert détecté.
+Les captures Godot et le GIF sont joints à la PR ; les essais de sensation en partie restent manuels.

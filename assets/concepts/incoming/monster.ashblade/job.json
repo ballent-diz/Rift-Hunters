@@ -11,16 +11,16 @@
   "scale": 0.75,
   "target_height": 64,
   "keep_size": false,
-  "status": "wip",
+  "status": "final",
   "background": "#00D648",
   "tolerance": 30,
-  "holes": 12,
+  "holes": 42,
   "colors": 32,
   "outline": true,
   "flip": false,
   "hover": 0,
   "anchor_mode": "mass",
-  "despill": false,
+  "despill": true,
   "animations": [
     {
       "name": "idle",
@@ -28,7 +28,41 @@
       "frames": 8,
       "fps": 8,
       "loop": true,
-      "layout": "row"
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          209
+        ],
+        [
+          209,
+          410
+        ],
+        [
+          410,
+          602
+        ],
+        [
+          602,
+          794
+        ],
+        [
+          794,
+          990
+        ],
+        [
+          990,
+          1189
+        ],
+        [
+          1189,
+          1385
+        ],
+        [
+          1385,
+          1586
+        ]
+      ]
     },
     {
       "name": "move",
@@ -36,7 +70,41 @@
       "frames": 8,
       "fps": 12,
       "loop": true,
-      "layout": "row"
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          203
+        ],
+        [
+          203,
+          401
+        ],
+        [
+          401,
+          597
+        ],
+        [
+          597,
+          794
+        ],
+        [
+          794,
+          995
+        ],
+        [
+          995,
+          1192
+        ],
+        [
+          1192,
+          1388
+        ],
+        [
+          1388,
+          1586
+        ]
+      ]
     },
     {
       "name": "attack",
@@ -44,7 +112,37 @@
       "frames": 7,
       "fps": 16,
       "loop": false,
-      "layout": "row"
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          208
+        ],
+        [
+          208,
+          398
+        ],
+        [
+          398,
+          595
+        ],
+        [
+          595,
+          795
+        ],
+        [
+          795,
+          988
+        ],
+        [
+          988,
+          1189
+        ],
+        [
+          1189,
+          1425
+        ]
+      ]
     },
     {
       "name": "technique",
@@ -52,7 +150,41 @@
       "frames": 8,
       "fps": 16,
       "loop": false,
-      "layout": "row"
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          200
+        ],
+        [
+          200,
+          401
+        ],
+        [
+          401,
+          598
+        ],
+        [
+          598,
+          795
+        ],
+        [
+          795,
+          991
+        ],
+        [
+          991,
+          1191
+        ],
+        [
+          1191,
+          1386
+        ],
+        [
+          1386,
+          1586
+        ]
+      ]
     },
     {
       "name": "death",
@@ -60,8 +192,44 @@
       "frames": 8,
       "fps": 10,
       "loop": false,
-      "layout": "row"
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          203
+        ],
+        [
+          203,
+          398
+        ],
+        [
+          398,
+          599
+        ],
+        [
+          599,
+          795
+        ],
+        [
+          795,
+          989
+        ],
+        [
+          989,
+          1189
+        ],
+        [
+          1189,
+          1387
+        ],
+        [
+          1387,
+          1586
+        ]
+      ]
     }
   ],
-  "aliases": {}
+  "aliases": {},
+  "preview_zoom": 2,
+  "holes_min_area": 1
 }
