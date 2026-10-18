@@ -11,10 +11,6 @@ func title_key() -> String:
 
 func refresh() -> void:
 	var p: ProfileData = profile()
-	var previous: int = 0
-	var old: ScrollContainer = find_child("ExpeditionScroll", true, false) as ScrollContainer
-	if old:
-		previous = old.scroll_vertical
 	UiKit.clear(self)
 	var root := HBoxContainer.new()
 	root.add_theme_constant_override("separation", 16)
@@ -35,10 +31,6 @@ func refresh() -> void:
 		box.add_child(_chapter_panel(p, chapter, arena))
 	box.add_child(_survival_panel(p, arena))
 	root.add_child(_summary(p, arena))
-	if previous > 0:
-		var bar: VScrollBar = scroll.get_v_scroll_bar()
-		_scroll_restore = _restore_scroll.bind(bar, previous)
-		bar.changed.connect(_scroll_restore)
 
 
 # --- Écho de départ
