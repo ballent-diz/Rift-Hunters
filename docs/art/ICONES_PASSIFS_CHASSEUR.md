@@ -47,3 +47,8 @@ Les trente sources ont un canal alpha contrôlé ; soixante fichiers d’import 
 les mipmaps. Aucun .import ajouté aux trente nouveaux dossiers incoming/.
 Les cinq captures réelles sont en 1280 × 720. Seule l’image de Fil aiguisé a demandé un recadrage ;
 l’original avant recadrage et le prompt corrigé sont conservés avec la source définitive.
+
+Compatibilité : la branche réunit également la PR #32, afin que les ajouts au manifeste et à la feuille
+de route ne se retrouvent pas en conflit après sa fusion. Le contrôle complet après réunion des deux lots
+est vert : 231 tests et 311 ressources sans erreur, persistance, import graphique, partie automatique et lint.
+Fusion conseillée : PR #32, puis PR des icônes. Le diff des icônes se réduira automatiquement après la première.
