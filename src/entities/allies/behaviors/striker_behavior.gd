@@ -39,6 +39,7 @@ func _leap(ally: Ally, target: Enemy) -> void:
 	m["target"] = target
 	ally.visual.set_facing_left(target.global_position.x < ally.global_position.x)
 	ally.visual.play_action(&"attack")
+	ally.ctx.allies.vfx.attack(ally, ally.global_position, target.global_position, 0.35)
 
 
 func _strike(ally: Ally, ctx: RunContext) -> void:
@@ -64,7 +65,7 @@ func _strike(ally: Ally, ctx: RunContext) -> void:
 		info.direction = (enemy.global_position - (m["from"] as Vector2)).normalized()
 		ctx.combat.deal_damage(enemy, info)
 		hit[enemy.get_instance_id()] = true
-	ctx.fx.line(m["from"], center, Color(1.0, 0.6, 0.3), 3.0, 0.12)
+	ctx.fx.line(m["from"], center, ally.data.visual.primary.lerp(Color(1.0, 0.6, 0.3), 0.5), 3.0, 0.12)
 	var chain_left: int = int(m.get("chain_left", 0))
 	if chain_left > 0:
 		var next: Enemy = ctx.enemies.find_nearest(center, 170.0, hit)

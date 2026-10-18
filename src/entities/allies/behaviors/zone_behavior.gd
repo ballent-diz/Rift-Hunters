@@ -19,8 +19,12 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	var count: int = int(params.get("count", 1))
 	var spread: float = float(params.get("spread", 60.0))
 	var info: DamageInfo = ally.make_info(ally.attack.damage, [DamageInfo.TAG_ATTACK])
+	var duration: float = float(params.get("duration", 4.0))
+	ctx.allies.vfx.play(ally.data.id, &"attack", target.global_position, target.global_position - ally.global_position,
+		{"radius": ally.attack.radius, "travel_distance": 0.0, "visual_duration": 0.6})
 	for i: int in count:
 		var offset: Vector2 = Vector2.ZERO if i == 0 else Vector2.RIGHT.rotated(TAU * i / maxf(count - 1, 1)) * spread
-		ctx.hazards.add_zone(target.global_position + offset, ally.attack.radius, float(params.get("duration", 4.0)),
+		ctx.hazards.add_zone(target.global_position + offset, ally.attack.radius, duration,
 			info.amount, ally.data.id, ally.attack.statuses, ally.data.visual.secondary)
+		ctx.allies.vfx.status_at(ally.data.id, target.global_position + offset, ally.attack.radius, duration)
 	ctx.fx.line(ally.global_position, target.global_position, Color(0.5, 0.9, 0.4, 0.6), 2.0, 0.2)

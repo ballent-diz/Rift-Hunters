@@ -7,6 +7,11 @@ var _dash_wanted: bool = false
 var _wander := Vector2.RIGHT
 var _cached := Vector2.ZERO
 var _frame: int = 0
+## Anti-blocage : position relevée toutes les 2 s ; si le bot n'avance plus, il longe l'obstacle sans viser les gemmes.
+var _check_pos := Vector2.INF
+var _check_time: float = 0.0
+var _unstick_until: float = -1.0
+var _slide: float = 1.0
 
 
 func move_vector() -> Vector2:
@@ -56,7 +61,18 @@ func _compute_move() -> Vector2:
 		route = (ctx.zones.objective_direction(pos) if ctx.zones else ctx.rifts.objective_direction(pos)) * 1.6
 		if route != Vector2.ZERO:
 			home = Vector2.ZERO
-	var result: Vector2 = flee + seek + home + route + _wander * 0.25
+	if ctx.time >= _check_time:
+		if _check_pos != Vector2.INF and pos.distance_to(_check_pos) < 40.0:
+			_unstick_until = ctx.time + 2.5
+			_slide = -_slide
+		_check_pos = pos
+		_check_time = ctx.time + 2.0
+	var slide := Vector2.ZERO
+	if ctx.time < _unstick_until:
+		seek = Vector2.ZERO
+		var heading: Vector2 = route if route != Vector2.ZERO else _wander
+		slide = heading.normalized().orthogonal() * _slide * 1.4
+	var result: Vector2 = flee + seek + home + route + slide + _wander * 0.25
 	return result.normalized() if result.length() > 0.05 else Vector2.ZERO
 
 

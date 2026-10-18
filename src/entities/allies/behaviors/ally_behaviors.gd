@@ -16,5 +16,7 @@ static func create(behavior_id: StringName) -> AllyBehavior:
 			return DevourBehavior.new()
 		&"mirror":
 			return MirrorBehavior.new()
+		&"dive":
+			return DiveBehavior.new()
 	push_error("Comportement d'Écho inconnu : %s" % behavior_id)
 	return AllyBehavior.new()

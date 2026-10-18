@@ -78,7 +78,7 @@ func test_expedition_tab_chapters_summary_and_departure() -> void:
 
 
 func test_echo_node_illustrations_are_hd_with_mipmaps() -> void:
-	check_eq(GameDB.echo_nodes.size(), 35, "sept Échos avec cinq illustrations chacun")
+	check_eq(GameDB.echo_nodes.size(), GameDB.monsters.size() * 5, "chaque Écho avec cinq illustrations")
 	for n: SkillNodeData in GameDB.echo_nodes.values():
 		var icon: Texture2D = EchoTreeBoard.node_icon(n)
 		check(icon != null, "illustration du nœud : " + String(n.id))

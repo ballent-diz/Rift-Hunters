@@ -41,6 +41,25 @@ static func cast(ally: Ally, ctx: RunContext, aim: Vector2) -> bool:
 			ok = _maw_pit(ally, ctx, tech, aim)
 		&"mirror_shards":
 			ok = _mirror_shards(ally, ctx, tech, aim)
+		# Nouveaux Échos (lot C7, docs/design/ECHOS.md)
+		&"barrage":
+			ok = _barrage(ally, ctx, tech, aim)
+		&"delayed_strike":
+			ok = _delayed_strike(ally, ctx, tech, aim)
+		&"field":
+			ok = _field(ally, ctx, tech, aim)
+		&"field_line":
+			ok = _field_line(ally, ctx, tech, aim)
+		&"bouncing_bolt":
+			ok = _bouncing_bolt(ally, ctx, tech, aim)
+		&"heal_field":
+			ok = _heal_field(ally, ctx, tech, aim)
+		&"guard_field":
+			ok = _guard_field(ally, ctx, tech)
+		&"cone":
+			ok = _cone(ally, ctx, tech, aim)
+		&"shock_ring":
+			ok = _shock_ring(ally, ctx, tech)
 		_:
 			push_error("Technique inconnue : %s" % tech.technique_kind)
 	if ok:
@@ -160,6 +179,33 @@ static func _reflection(ally: Ally, ctx: RunContext, tech: TechniqueData) -> boo
 	return true
 
 
+## Forme de l'indicateur de visée (Codex) : &"line", &"cone" ou &"area".
+static func aim_shape(tech: TechniqueData) -> StringName:
+	match tech.technique_kind:
+		&"cinder_dash", &"field_line", &"bouncing_bolt", &"briar_wall", &"mirror_shards":
+			return &"line"
+		&"cone":
+			return &"cone"
+	return &"area"
+
+
+## Longueur de l'indicateur en ligne (portée du sort).
+static func aim_length(tech: TechniqueData) -> float:
+	match tech.technique_kind:
+		&"cinder_dash":
+			return float(tech.params.get("range", 360.0))
+		&"field_line":
+			return float(tech.params.get("start", 60.0)) + tech.radius * 1.5 * tech.count
+		&"cone":
+			return tech.radius
+	return AIM_RANGE * 0.6
+
+
+## Point d'impact d'un sort de zone (ramené à portée), pour l'aperçu.
+static func preview_point(ctx: RunContext, aim: Vector2) -> Vector2:
+	return _aim_point(ctx, aim)
+
+
 # --- Seconds sorts des Échos (arbres des Échos, docs/design/ARBRES_DES_ECHOS.md)
 
 ## Point visé, ramené à portée du Chasseur.
@@ -183,7 +229,12 @@ static func _cinder_dash(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: 
 		var closest: Vector2 = Geometry2D.get_closest_point_to_segment(enemy.global_position, from, to)
 		if closest.distance_to(enemy.global_position) <= tech.radius + enemy.radius:
 			ctx.combat.deal_damage(enemy, _info(ally, tech))
-	ctx.fx.line(from, to, Color(1.0, 0.55, 0.25), 8.0, 0.3)
+	var impact: float = float(tech.params.get("impact_radius", 0.0))
+	if impact > 0.0:
+		for enemy: Enemy in ctx.enemies.query_radius(to, impact):
+			ctx.combat.deal_damage(enemy, _info(ally, tech))
+	if ctx.allies.vfx.spell(ally, tech, from, to - from, maxf(impact, tech.radius), 0.7, from.distance_to(to)) == null:
+		ctx.fx.line(from, to, Color(1.0, 0.55, 0.25), 8.0, 0.3)
 	ally.global_position = to
 	return true
 
@@ -232,8 +283,10 @@ static func _chain_arc(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Ve
 
 ## Gouffre : petit puits du Vide qui aspire puis mord (Fracture).
 static func _maw_pit(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
-	ctx.hazards.add_well(_aim_point(ctx, aim), tech.radius, tech.duration, float(tech.params.get("pull", 240.0)),
+	var center: Vector2 = _aim_point(ctx, aim)
+	ctx.hazards.add_well(center, tech.radius, tech.duration, float(tech.params.get("pull", 240.0)),
 		_info(ally, tech), ally.data.id)
+	ctx.allies.vfx.spell(ally, tech, center, center - ally.global_position, tech.radius, tech.duration + 0.4, 0.0)
 	return true
 
 
@@ -246,4 +299,142 @@ static func _mirror_shards(ally: Ally, ctx: RunContext, tech: TechniqueData, aim
 		var angle: float = (i - (tech.count - 1) * 0.5) * spread / maxf(tech.count - 1, 1)
 		ctx.projectiles.spawn_friendly(origin, dir.rotated(angle), float(tech.params.get("speed", 620.0)),
 			_info(ally, tech), {"pierce": 1, "radius": tech.radius, "life": 0.9, "color": Color(0.85, 0.95, 1.0)})
+	return true
+
+
+# --- Sorts des nouveaux Échos (lot C7). Dégâts, rayons et durées : données (data/techniques/).
+
+## Direction du Chasseur vers le curseur (droite par défaut).
+static func _aim_dir(ctx: RunContext, aim: Vector2) -> Vector2:
+	var offset: Vector2 = aim - ctx.player.global_position
+	return offset.normalized() if offset.length() > 4.0 else Vector2.RIGHT
+
+
+## Pluie de cendres : impacts successifs (radius) répartis dans la zone visée (params.area).
+static func _barrage(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var center: Vector2 = _aim_point(ctx, aim)
+	var area: float = float(tech.params.get("area", 150.0))
+	var info: DamageInfo = _info(ally, tech)
+	for i: int in tech.count:
+		var spot: Vector2 = center + Vector2.RIGHT.rotated(ctx.rng.randf() * TAU) * sqrt(ctx.rng.randf()) * area
+		var delay: float = 0.15 + float(tech.params.get("spacing", 0.12)) * i
+		ctx.hazards.add_circle(spot, tech.radius, delay, info.amount, false, ally.data.id, tech.statuses)
+	ctx.allies.vfx.spell(ally, tech, center, center - ally.global_position, area,
+		0.4 + float(tech.params.get("spacing", 0.12)) * tech.count, 0.0)
+	return true
+
+
+## Frappe retardée au curseur (Geyser, Météore, Bourgeon) ; params.linger : zone laissée ensuite (secondes).
+static func _delayed_strike(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var center: Vector2 = ctx.obstacles.push_out(_aim_point(ctx, aim), 8.0)
+	var delay: float = float(tech.params.get("delay", 0.6))
+	var info: DamageInfo = _info(ally, tech)
+	ctx.hazards.add_circle(center, tech.radius, delay, info.amount, false, ally.data.id, tech.statuses)
+	var linger: float = float(tech.params.get("linger", 0.0))
+	if linger > 0.0:
+		var tick: float = info.amount * float(tech.params.get("linger_damage", 0.1))
+		var zone_statuses: Array[StatusApplication] = tech.statuses
+		ctx.hazards.add_zone(center, tech.radius * 0.8, delay + linger, tick, ally.data.id, zone_statuses,
+			ally.data.visual.secondary)
+	# Le Météore frappe graphiquement à 52 % de son effet : durée calée sur le délai réel.
+	var shown: float = delay / float(tech.params.get("impact_at", 0.6)) + linger
+	ctx.allies.vfx.spell(ally, tech, center, center - ally.global_position, tech.radius, shown, 0.0)
+	return true
+
+
+## Champ au curseur : dégâts et statuts toutes les 0,5 s (Nuée de spores, Essaim de lucioles).
+## params.haste : bonus de vitesse du Chasseur et de cadence des Échos pendant params.haste_duration.
+static func _field(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var center: Vector2 = _aim_point(ctx, aim)
+	var info: DamageInfo = _info(ally, tech)
+	ctx.hazards.add_zone(center, tech.radius, tech.duration, info.amount, ally.data.id, tech.statuses,
+		ally.data.visual.primary)
+	var haste: float = float(tech.params.get("haste", 0.0))
+	if haste > 0.0:
+		var duration: float = float(tech.params.get("haste_duration", tech.duration))
+		ctx.allies.add_timed_buff(String(tech.id), StatKeys.MOVE_SPEED, haste, duration)
+		ctx.allies.add_timed_buff(String(tech.id), StatKeys.ALLY_ATTACK_SPEED, haste, duration)
+	ctx.allies.vfx.spell(ally, tech, center, center - ally.global_position, tech.radius, tech.duration, 0.0)
+	return true
+
+
+## Coulée : chapelet de zones du Chasseur vers le curseur (count zones de rayon radius).
+static func _field_line(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var origin: Vector2 = ctx.player.global_position
+	var dir: Vector2 = _aim_dir(ctx, aim)
+	var spacing: float = tech.radius * 1.5
+	var start: float = float(tech.params.get("start", 60.0))
+	var info: DamageInfo = _info(ally, tech)
+	var last: Vector2 = origin
+	for i: int in tech.count:
+		last = origin + dir * (start + spacing * i)
+		if ctx.obstacles.blocks(last, 4.0):
+			break
+		ctx.hazards.add_zone(last, tech.radius, tech.duration, info.amount, ally.data.id, tech.statuses,
+			ally.data.visual.primary)
+	var from: Vector2 = origin + dir * start
+	ctx.allies.vfx.spell(ally, tech, from, dir, tech.radius, tech.duration, from.distance_to(last))
+	return true
+
+
+## Flamme errante : projectile vers le curseur qui rebondit (chain = count) en cherchant ses cibles.
+static func _bouncing_bolt(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var origin: Vector2 = ally.global_position
+	var dir: Vector2 = (aim - origin).normalized() if aim.distance_to(origin) > 4.0 else Vector2.RIGHT
+	var speed: float = float(tech.params.get("speed", 520.0))
+	var shown: bool = ctx.allies.vfx.spell(ally, tech, origin, dir, tech.radius, 1.2, speed * 0.6) != null
+	ctx.projectiles.spawn_friendly(origin, dir, speed, _info(ally, tech), {"chain": tech.count, "homing": 4.0,
+		"radius": tech.radius * 0.25, "life": 2.6, "color": Color(ally.data.visual.primary, 0.5 if shown else 1.0)})
+	return true
+
+
+## Bosquet : zone au curseur qui soigne le Chasseur (params.heal_pct des PV max par demi-seconde) et entrave.
+static func _heal_field(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var center: Vector2 = _aim_point(ctx, aim)
+	var heal: float = ctx.player.max_hp * float(tech.params.get("heal_pct", 0.01))
+	ctx.hazards.add_heal_zone(center, tech.radius, tech.duration, heal, _info(ally, tech).amount, ally.data.id,
+		tech.statuses, ally.data.visual.primary)
+	var fx: Node2D = ctx.allies.vfx.spell(ally, tech, center, center - ally.global_position, tech.radius,
+		tech.duration, 0.0)
+	if fx and fx.has_method("set_secondary_offsets"):
+		fx.call("set_secondary_offsets", PackedVector2Array([fx.to_local(ctx.player.global_position)]))
+	return true
+
+
+## Garde autour du Chasseur : bouclier (params.shield = part des PV max) et zone qui le suit le temps du sort
+## (Ronces protectrices, Dôme conducteur).
+static func _guard_field(ally: Ally, ctx: RunContext, tech: TechniqueData) -> bool:
+	var center: Vector2 = ctx.player.global_position
+	var shield: float = ctx.player.max_hp * float(tech.params.get("shield", 0.15))
+	ctx.player.add_shield(shield, maxf(shield, ctx.player.shield))
+	ctx.hazards.add_zone(center, tech.radius, tech.duration, _info(ally, tech).amount, ally.data.id, tech.statuses,
+		ally.data.visual.primary)
+	ctx.allies.vfx.spell(ally, tech, center, Vector2.RIGHT, tech.radius, tech.duration, 0.0)
+	return true
+
+
+## Cône du Chasseur vers le curseur : portée radius, demi-angle params.angle (Éclat solaire, Poudre d'ailes).
+static func _cone(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Vector2) -> bool:
+	var origin: Vector2 = ctx.player.global_position
+	var dir: Vector2 = _aim_dir(ctx, aim)
+	var half_angle: float = float(tech.params.get("angle", 0.6))
+	for enemy: Enemy in ctx.enemies.query_radius(origin, tech.radius):
+		var offset: Vector2 = enemy.global_position - origin
+		if offset.length() > 1.0 and absf(dir.angle_to(offset)) > half_angle:
+			continue
+		var info: DamageInfo = _info(ally, tech)
+		info.knockback = float(tech.params.get("knockback", 0.0))
+		info.direction = offset.normalized()
+		ctx.combat.deal_damage(enemy, info)
+	if ctx.allies.vfx.spell(ally, tech, origin, dir, tech.radius, 0.8, tech.radius) == null:
+		ctx.fx.burst(origin + dir * tech.radius * 0.5, tech.radius * 0.5, Color(ally.data.visual.primary, 0.35))
+	return true
+
+
+## Décharge : onde qui part de l'Écho et frappe une fois chaque ennemi traversé.
+static func _shock_ring(ally: Ally, ctx: RunContext, tech: TechniqueData) -> bool:
+	var center: Vector2 = ally.global_position
+	ctx.hazards.add_ring(center, float(tech.params.get("speed", 600.0)), tech.radius, 28.0, _info(ally, tech).amount,
+		false, ally.data.id, [], 0.35, tech.statuses, 0.0)
+	ctx.allies.vfx.spell(ally, tech, center, Vector2.RIGHT, tech.radius, tech.radius / 600.0 + 0.5, 0.0)
 	return true

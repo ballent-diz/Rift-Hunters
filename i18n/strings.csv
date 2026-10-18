@@ -20,6 +20,7 @@ PAUSE_RESUME,Reprendre,Resume
 PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
 PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit · Manette prise en charge,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click · Gamepad supported
 HUD_LEVEL,Niv. %d,Lv. %d
+HUD_CHOICES_RESERVED,%d choix en réserve [%s],%d choice(s) stored [%s]
 HUD_DASH_READY,Ruée prête [Espace],Dash ready [Space]
 HUD_DASH_CD,Ruée : %.1fs,Dash: %.1fs
 HUD_BOSS_IN,Le Dévoreur arrive dans %d:%02d,The Devourer arrives in %d:%02d
@@ -34,6 +35,7 @@ HUD_EVOLUTION,Évolution : %s,Evolution: %s
 BOSS_HEART_EXPOSED,CŒUR EXPOSÉ ×2,HEART EXPOSED ×2
 BOSS_INVULNERABLE,Invulnérable,Invulnerable
 LEVELUP_TITLE,Niveau %d !,Level %d!
+LEVELUP_REMAINING,encore %d en réserve,%d more stored
 LEVELUP_BANISH_TITLE,Choisissez une carte à bannir,Choose a card to banish
 LEVELUP_REROLL,Relancer (%d),Reroll (%d)
 LEVELUP_BANISH,Bannir (%d),Banish (%d)
@@ -631,6 +633,7 @@ ACTION_SPELL_4,Sort 4,Spell 4
 ACTION_TECHNIQUE_1,Technique de l'Écho 1,Echo 1 Technique
 ACTION_TECHNIQUE_2,Technique de l'Écho 2,Echo 2 Technique
 ACTION_TECHNIQUE_3,Technique de l'Écho 3,Echo 3 Technique
+ACTION_OPEN_CHOICES,Ouvrir les choix en réserve,Open stored choices
 NODE_TRUNK_VIGOR_NAME,Vigueur,Vigor
 NODE_TRUNK_VIGOR_DESC,+10 PV max par rang.,+10 max HP per rank.
 NODE_BLADE_HONED_EDGE_NAME,Fil aiguisé,Honed Edge
@@ -1115,3 +1118,288 @@ RIFTS_PROGRESS,Failles refermées : %d / %d,Rifts sealed: %d / %d
 RIFT_CLOSED_BANNER,Faille refermée ! (%d / %d),Rift sealed! (%d / %d)
 ENEMY_RIFT_BREACH_NAME,Faille,Rift Breach
 ENEMY_RIFT_BREACH_DESC,Déchirure ouverte sur la Faille : des Corrompus en sortent tant qu'on ne l'a pas détruite.,A tear opened onto the Rift: Corrupted pour out of it until it is destroyed.
+STATUS_POISON_NAME,Poison,Poison
+STATUS_POISON_DESC,"Dégâts sur la durée, cumulables ; se propage à la mort (Sporelune).",Stacking damage over time; spreads on death (Moonspore).
+STATUS_BLIND_NAME,Aveuglé,Blinded
+STATUS_BLIND_DESC,Rate la moitié de ses attaques.,Misses half of its attacks.
+STATUS_HOLLOW_NAME,Marque creuse,Hollow Mark
+STATUS_HOLLOW_DESC,Implose à sa mort (Spectrâtre).,Implodes on death (Hollowflame).
+STATUS_REVEAL_NAME,Révélé,Revealed
+STATUS_REVEAL_DESC,Dégâts subis +12 %.,Damage taken +12%.
+TECHNIQUE_ASH_RAIN_NAME,Pluie de cendres,Ash Rain
+TECHNIQUE_ASH_RAIN_DESC,Huit plumes de braise s'abattent autour du curseur et brûlent.,Eight ember feathers rain around the cursor and burn.
+TECHNIQUE_THUNDER_DIVE_NAME,Piqué foudroyant,Thunder Dive
+TECHNIQUE_THUNDER_DIVE_DESC,"Pyraile pique jusqu'au curseur, frappe la ligne et foudroie l'arrivée (Électrise).","Cinderwing dives to the cursor, striking the line and blasting the landing (Charges)."
+TECHNIQUE_LAVA_FLOW_NAME,Coulée,Lava Flow
+TECHNIQUE_LAVA_FLOW_DESC,Une ligne de lave part du Chasseur vers le curseur : brûle et ralentit 4 s.,A line of lava runs from the Hunter toward the cursor: burns and slows for 4 s.
+TECHNIQUE_GEYSER_NAME,Geyser,Geyser
+TECHNIQUE_GEYSER_DESC,"Le sol entre en éruption au curseur après un instant, puis bouillonne 2,5 s.","The ground erupts at the cursor after a moment, then simmers for 2.5 s."
+TECHNIQUE_IMPLOSION_NAME,Implosion,Implosion
+TECHNIQUE_IMPLOSION_DESC,Aspire les ennemis au curseur puis implose : Marque creuse et Fracture.,Pulls enemies at the cursor then implodes: Hollow Mark and Fracture.
+TECHNIQUE_WANDERING_FLAME_NAME,Flamme errante,Wandering Flame
+TECHNIQUE_WANDERING_FLAME_DESC,"Une flamme vers le curseur qui rebondit sur 6 ennemis (Marque creuse, Brûlure).","A flame toward the cursor that bounces through 6 enemies (Hollow Mark, Burn)."
+TECHNIQUE_SPORE_CLOUD_NAME,Nuée de spores,Spore Cloud
+TECHNIQUE_SPORE_CLOUD_DESC,Un nuage de spores au curseur empoisonne pendant 5 s.,A spore cloud at the cursor poisons for 5 s.
+TECHNIQUE_BUD_TRAP_NAME,Bourgeon,Bud Trap
+TECHNIQUE_BUD_TRAP_DESC,"Un bourgeon pousse au curseur et éclate : 3 Poisons, Racines, puis spores 3 s.","A bud sprouts at the cursor and bursts: 3 Poisons, Roots, then spores for 3 s."
+TECHNIQUE_SINGULARITY_NAME,Singularité,Singularity
+TECHNIQUE_SINGULARITY_DESC,"Un puits de gravité au curseur aspire 2,5 s, Fracture et ralentit.","A gravity well at the cursor pulls for 2.5 s, Fractures and slows."
+TECHNIQUE_METEOR_NAME,Météore,Meteor
+TECHNIQUE_METEOR_DESC,"Un éclat de lune s'écrase au curseur après 0,7 s et ralentit.",A moon shard crashes at the cursor after 0.7 s and slows.
+TECHNIQUE_HEALING_GROVE_NAME,Bosquet,Healing Grove
+TECHNIQUE_HEALING_GROVE_DESC,Un bosquet au curseur soigne le Chasseur qui s'y tient (12 % en 5 s) et ralentit.,A grove at the cursor heals the Hunter standing in it (12% over 5 s) and slows.
+TECHNIQUE_PROTECTIVE_THORNS_NAME,Ronces protectrices,Protective Thorns
+TECHNIQUE_PROTECTIVE_THORNS_DESC,Bouclier de 20 % des PV max ; des ronces enracinent autour du Chasseur 4 s.,Shield of 20% max HP; thorns root enemies around the Hunter for 4 s.
+TECHNIQUE_SOLAR_FLARE_NAME,Éclat solaire,Solar Flare
+TECHNIQUE_SOLAR_FLARE_DESC,Un éventail de lumière vers le curseur : dégâts et Aveuglement.,A fan of light toward the cursor: damage and Blindness.
+TECHNIQUE_RADIANT_LEAP_NAME,Bond lumineux,Radiant Leap
+TECHNIQUE_RADIANT_LEAP_DESC,Solgriffe bondit jusqu'au curseur et aveugle autour de son arrivée.,Sunclaw leaps to the cursor and blinds around its landing.
+TECHNIQUE_FIREFLY_SWARM_NAME,Essaim de lucioles,Firefly Swarm
+TECHNIQUE_FIREFLY_SWARM_DESC,Des lucioles au curseur révèlent les ennemis 5 s ; Chasseur et Échos +15 % de vitesse.,Fireflies at the cursor reveal enemies for 5 s; Hunter and Echoes +15% speed.
+TECHNIQUE_WING_DUST_NAME,Poudre d'ailes,Wing Dust
+TECHNIQUE_WING_DUST_DESC,Un nuage de poudre vers le curseur : ralentit et révèle.,A cloud of dust toward the cursor: slows and reveals.
+TECHNIQUE_CONDUCTIVE_DOME_NAME,Dôme conducteur,Conductive Dome
+TECHNIQUE_CONDUCTIVE_DOME_DESC,Bouclier de 25 % des PV max ; le dôme Électrise les ennemis autour du Chasseur 4 s.,Shield of 25% max HP; the dome Charges enemies around the Hunter for 4 s.
+TECHNIQUE_DISCHARGE_NAME,Décharge,Discharge
+TECHNIQUE_DISCHARGE_DESC,Une onde électrique part d'Égidor et Électrise tout sur son passage.,An electric wave bursts from Stormshell and Charges everything in its path.
+EVOLUTION_PHOENIXWING_NAME,Phénixaile,Phoenixwing
+EVOLUTION_PHOENIXWING_DESC,Piqués plus lourds : 2 Brûlures et une traînée de 5 flammes.,Heavier dives: 2 Burns and a trail of 5 flames.
+EVOLUTION_STORMTALON_NAME,Serre-tonnerre,Stormtalon
+EVOLUTION_STORMTALON_DESC,Piqués chargés : Brûlure et Électrisation.,Charged dives: Burn and Charge.
+MASTERY_CINDERWING_BLAZE,Infligez 1500 Brûlures avec Pyraile (cumul).,Inflict 1500 Burns with Cinderwing (total).
+MASTERY_CINDERWING_RAIN,Lancez 10 sorts de Pyraile en une expédition.,Cast 10 Cinderwing spells in one expedition.
+MASTERY_CINDERWING_EVOLVED_VICTORY,Refermez une Faille avec Pyraile évoluée.,Seal a Rift with an evolved Cinderwing.
+MONSTER_CINDERWING_NAME,Pyraile,Cinderwing
+MONSTER_CINDERWING_DESC,Tireuse aérienne. Pique à travers ses cibles et laisse une traînée de feu.,Aerial marksman. Dives through its targets and leaves a trail of fire.
+MONSTER_CINDERWING_LORE,Un oiseau de braise né d'un orage tombé dans un volcan ; ses plumes crépitent encore.,An ember bird born from a storm that fell into a volcano; its feathers still crackle.
+ATTACK_CINDERWING,Piqué de braise,Ember Dive
+PASSIVE_CINDERWING_NAME,Plumes ardentes,Blazing Plumes
+PASSIVE_CINDERWING_DESC,Toute l'équipe inflige +10 % de dégâts aux ennemis Brûlés.,The whole team deals +10% damage to Burning enemies.
+VARIANT_SKIMMER_NAME,Variante : Rase-mottes,Variant: Skimmer
+VARIANT_SKIMMER_DESC,"Piqués courts et rapides, une seule flamme.","Short, quick dives with a single flame."
+ECHO_NODE_CINDERWING_MIGHT_NAME,Puissance,Might
+ECHO_NODE_CINDERWING_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_CINDERWING_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_CINDERWING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_CINDERWING_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_CINDERWING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_CINDERWING_SPELL_ALT_NAME,Piqué foudroyant,Thunder Dive
+ECHO_NODE_CINDERWING_SPELL_ALT_DESC,"Pyraile pique jusqu'au curseur, frappe la ligne et foudroie l'arrivée (Électrise).","Cinderwing dives to the cursor, striking the line and blasting the landing (Charges)."
+ECHO_NODE_CINDERWING_SIGNATURE_NAME,Ailes d'orage,Storm Wings
+ECHO_NODE_CINDERWING_SIGNATURE_DESC,Les coups de Pyraile ont 30 % de chances d'Électriser.,Cinderwing's hits have a 30% chance to Charge.
+EVOLUTION_VOLCANYX_NAME,Volcandre,Volcanyx
+EVOLUTION_VOLCANYX_DESC,Crache deux flaques de lave qui durent 5 s.,Spits two lava pools that last 5 s.
+EVOLUTION_OBSIDRAKE_NAME,Obsidrake,Obsidrake
+EVOLUTION_OBSIDRAKE_DESC,Flaques brèves mais brûlantes : 2 Brûlures.,Short but scorching pools: 2 Burns.
+MASTERY_MAGMANDER_MAGMA,Ralentissez 1500 ennemis avec Scoriade (cumul).,Slow 1500 enemies with Magmander (total).
+MASTERY_MAGMANDER_FLOWS,Lancez 10 sorts de Scoriade en une expédition.,Cast 10 Magmander spells in one expedition.
+MASTERY_MAGMANDER_EVOLVED_VICTORY,Refermez une Faille avec Scoriade évoluée.,Seal a Rift with an evolved Magmander.
+MONSTER_MAGMANDER_NAME,Scoriade,Magmander
+MONSTER_MAGMANDER_DESC,Contrôleur. Crache des flaques de lave qui brûlent et ralentissent.,Controller. Spits lava pools that burn and slow.
+MONSTER_MAGMANDER_LORE,"Une salamandre à la peau de basalte refroidi ; là où elle passe, la roche se remet à couler.","A salamander with cooled-basalt skin; wherever it walks, the rock starts flowing again."
+ATTACK_MAGMANDER,Crachat de lave,Lava Spit
+PASSIVE_MAGMANDER_NAME,Peau de basalte,Basalt Hide
+PASSIVE_MAGMANDER_DESC,Le Chasseur subit 6 % de dégâts en moins près de Scoriade.,The Hunter takes 6% less damage near Magmander.
+VARIANT_SLOW_EMBER_NAME,Variante : Braise lente,Variant: Slow Ember
+VARIANT_SLOW_EMBER_DESC,"Flaques plus larges et plus longues, mais plus faibles.","Wider, longer but weaker pools."
+ECHO_NODE_MAGMANDER_MIGHT_NAME,Puissance,Might
+ECHO_NODE_MAGMANDER_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_MAGMANDER_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_MAGMANDER_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_MAGMANDER_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_MAGMANDER_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_MAGMANDER_SPELL_ALT_NAME,Geyser,Geyser
+ECHO_NODE_MAGMANDER_SPELL_ALT_DESC,"Le sol entre en éruption au curseur après un instant, puis bouillonne 2,5 s.","The ground erupts at the cursor after a moment, then simmers for 2.5 s."
+ECHO_NODE_MAGMANDER_SIGNATURE_NAME,Fournaise,Furnace
+ECHO_NODE_MAGMANDER_SIGNATURE_DESC,Dégâts de Brûlure +25 % (toute l'équipe).,Burn damage +25% (whole team).
+EVOLUTION_HEARTHVOID_NAME,Âtrenoir,Hearthvoid
+EVOLUTION_HEARTHVOID_DESC,Deux flammes creuses à chaque tir.,Two hollow flames per shot.
+EVOLUTION_VOID_LANTERN_NAME,Lanterne-néant,Void Lantern
+EVOLUTION_VOID_LANTERN_DESC,Flammes perçantes qui Fracturent.,Piercing flames that Fracture.
+MASTERY_HOLLOWFLAME_HOLLOW,Posez 1500 Marques creuses avec Spectrâtre (cumul).,Apply 1500 Hollow Marks with Hollowflame (total).
+MASTERY_HOLLOWFLAME_IMPLODE,Lancez 10 sorts de Spectrâtre en une expédition.,Cast 10 Hollowflame spells in one expedition.
+MASTERY_HOLLOWFLAME_EVOLVED_VICTORY,Refermez une Faille avec Spectrâtre évolué.,Seal a Rift with an evolved Hollowflame.
+MONSTER_HOLLOWFLAME_NAME,Spectrâtre,Hollowflame
+MONSTER_HOLLOWFLAME_DESC,Tireur. Ses flammes posent une Marque creuse : l'ennemi implose à sa mort.,Marksman. Its flames apply a Hollow Mark: the enemy implodes on death.
+MONSTER_HOLLOWFLAME_LORE,"Un feu follet d'ombre qui brûle à l'envers : il ne chauffe pas, il aspire.","A shadow wisp that burns backwards: it does not warm, it draws in."
+ATTACK_HOLLOWFLAME,Flamme creuse,Hollow Flame
+PASSIVE_HOLLOWFLAME_NAME,Implosion,Implosion
+PASSIVE_HOLLOWFLAME_DESC,Les ennemis sous Marque creuse implosent à leur mort et blessent leurs voisins.,Enemies with a Hollow Mark implode on death and hurt those nearby.
+VARIANT_WISP_NAME,Variante : Feu follet,Variant: Will-o'-wisp
+VARIANT_WISP_DESC,Flammes plus rapides mais plus faibles.,Faster but weaker flames.
+ECHO_NODE_HOLLOWFLAME_MIGHT_NAME,Puissance,Might
+ECHO_NODE_HOLLOWFLAME_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_HOLLOWFLAME_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_HOLLOWFLAME_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_HOLLOWFLAME_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_HOLLOWFLAME_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_HOLLOWFLAME_SPELL_ALT_NAME,Flamme errante,Wandering Flame
+ECHO_NODE_HOLLOWFLAME_SPELL_ALT_DESC,"Une flamme vers le curseur qui rebondit sur 6 ennemis (Marque creuse, Brûlure).","A flame toward the cursor that bounces through 6 enemies (Hollow Mark, Burn)."
+ECHO_NODE_HOLLOWFLAME_SIGNATURE_NAME,Vide dévorant,Devouring Void
+ECHO_NODE_HOLLOWFLAME_SIGNATURE_DESC,Toute l'équipe inflige +12 % de dégâts aux ennemis sous Marque creuse.,The whole team deals +12% damage to enemies with a Hollow Mark.
+EVOLUTION_MOONMOLD_NAME,Moisilune,Moonmold
+EVOLUTION_MOONMOLD_DESC,Ses spores éclatent en 2 éclats à l'impact.,Its spores burst into 2 shards on impact.
+EVOLUTION_SPORECROWN_NAME,Couronne-spore,Sporecrown
+EVOLUTION_SPORECROWN_DESC,Trois bouffées en éventail.,Three puffs in a fan.
+MASTERY_MOONSPORE_TOXIN,Infligez 2500 Poisons avec Sporelune (cumul).,Inflict 2500 Poisons with Moonspore (total).
+MASTERY_MOONSPORE_BLOOM,Lancez 10 sorts de Sporelune en une expédition.,Cast 10 Moonspore spells in one expedition.
+MASTERY_MOONSPORE_EVOLVED_VICTORY,Refermez une Faille avec Sporelune évoluée.,Seal a Rift with an evolved Moonspore.
+MONSTER_MOONSPORE_NAME,Sporelune,Moonspore
+MONSTER_MOONSPORE_DESC,Affaiblisseur. Empoisonne ; le Poison se propage à la mort de l'ennemi.,Debuffer. Poisons; the Poison spreads when the enemy dies.
+MONSTER_MOONSPORE_LORE,Un champignon qui pousse sous les lunes de la Faille ; ses spores dérivent comme des étoiles.,A mushroom that grows under the Rift's moons; its spores drift like stars.
+ATTACK_MOONSPORE,Bouffée de spores,Spore Puff
+PASSIVE_MOONSPORE_NAME,Contagion,Contagion
+PASSIVE_MOONSPORE_DESC,Un ennemi empoisonné qui meurt transmet ses Poisons à ses voisins.,A Poisoned enemy that dies passes its Poisons to those nearby.
+VARIANT_MIST_NAME,Variante : Brume,Variant: Mist
+VARIANT_MIST_DESC,"Bouffées plus fréquentes, un seul Poison.","More frequent puffs, a single Poison."
+ECHO_NODE_MOONSPORE_MIGHT_NAME,Puissance,Might
+ECHO_NODE_MOONSPORE_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_MOONSPORE_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_MOONSPORE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_MOONSPORE_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_MOONSPORE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_MOONSPORE_SPELL_ALT_NAME,Bourgeon,Bud Trap
+ECHO_NODE_MOONSPORE_SPELL_ALT_DESC,"Un bourgeon pousse au curseur et éclate : 3 Poisons, Racines, puis spores 3 s.","A bud sprouts at the cursor and bursts: 3 Poisons, Roots, then spores for 3 s."
+ECHO_NODE_MOONSPORE_SIGNATURE_NAME,Moisissure,Mildew
+ECHO_NODE_MOONSPORE_SIGNATURE_DESC,Toute l'équipe inflige +10 % de dégâts aux ennemis empoisonnés.,The whole team deals +10% damage to Poisoned enemies.
+EVOLUTION_MOONARCH_NAME,Lunarche,Moonarch
+EVOLUTION_MOONARCH_DESC,Choc plus large qui attire plus fort.,Wider shock that pulls harder.
+EVOLUTION_ECLIPSE_SHELL_NAME,Carapace d'éclipse,Eclipse Shell
+EVOLUTION_ECLIPSE_SHELL_DESC,Son choc attire et Fracture.,Its shock pulls and Fractures.
+MASTERY_GRAVISHELL_PULL,Aspirez 30 ennemis dans un même puits de Gravelune.,Pull 30 enemies into one Gravishell well.
+MASTERY_GRAVISHELL_ORBIT,Lancez 10 sorts de Gravelune en une expédition.,Cast 10 Gravishell spells in one expedition.
+MASTERY_GRAVISHELL_EVOLVED_VICTORY,Refermez une Faille avec Gravelune évoluée.,Seal a Rift with an evolved Gravishell.
+MONSTER_GRAVISHELL_NAME,Gravelune,Gravishell
+MONSTER_GRAVISHELL_DESC,Contrôleur. Son choc attire les ennemis vers lui et les ralentit.,Controller. Its shock pulls enemies toward it and slows them.
+MONSTER_GRAVISHELL_LORE,Une tortue dont la carapace est un fragment de lune ; les cailloux tombent vers elle.,A tortoise whose shell is a fragment of moon; pebbles fall toward it.
+ATTACK_GRAVISHELL,Choc gravitationnel,Gravity Shock
+PASSIVE_GRAVISHELL_NAME,Poids de lune,Moon Weight
+PASSIVE_GRAVISHELL_DESC,Les coups de Gravelune ont 25 % de chances de Fracturer.,Gravishell's hits have a 25% chance to Fracture.
+VARIANT_SATELLITE_NAME,Variante : Satellite,Variant: Satellite
+VARIANT_SATELLITE_DESC,Chocs plus fréquents mais plus petits.,More frequent but smaller shocks.
+ECHO_NODE_GRAVISHELL_MIGHT_NAME,Puissance,Might
+ECHO_NODE_GRAVISHELL_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_GRAVISHELL_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_GRAVISHELL_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_GRAVISHELL_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_GRAVISHELL_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_GRAVISHELL_SPELL_ALT_NAME,Météore,Meteor
+ECHO_NODE_GRAVISHELL_SPELL_ALT_DESC,"Un éclat de lune s'écrase au curseur après 0,7 s et ralentit.",A moon shard crashes at the cursor after 0.7 s and slows.
+ECHO_NODE_GRAVISHELL_SIGNATURE_NAME,Orbite,Orbit
+ECHO_NODE_GRAVISHELL_SIGNATURE_DESC,+25 PV max pour le Chasseur.,+25 max HP for the Hunter.
+EVOLUTION_SYLVAN_STAG_NAME,Cerf-sylve,Sylvan Stag
+EVOLUTION_SYLVAN_STAG_DESC,Enchaîne deux charges à chaque attaque.,Chains two charges per attack.
+EVOLUTION_AMBERWOOD_NAME,Bois-d'ambre,Amberwood
+EVOLUTION_AMBERWOOD_DESC,Ses charges frappent toute une zone.,Its charges strike a whole area.
+MASTERY_GROVESTAG_SAP,Rendez 1500 PV au Chasseur avec Sylvécaille (cumul).,Restore 1500 HP to the Hunter with Grovestag (total).
+MASTERY_GROVESTAG_GROVE,Lancez 10 sorts de Sylvécaille en une expédition.,Cast 10 Grovestag spells in one expedition.
+MASTERY_GROVESTAG_EVOLVED_VICTORY,Refermez une Faille avec Sylvécaille évoluée.,Seal a Rift with an evolved Grovestag.
+MONSTER_GROVESTAG_NAME,Sylvécaille,Grovestag
+MONSTER_GROVESTAG_DESC,Soutien. Ses charges soignent le Chasseur ; plante des bosquets.,Support. Its charges heal the Hunter; plants groves.
+MONSTER_GROVESTAG_LORE,Un cerf de mousse et d'écorce ; l'ambre de ses bois garde la chaleur d'un été disparu.,A stag of moss and bark; the amber in its antlers keeps the warmth of a vanished summer.
+ATTACK_GROVESTAG,Ramure,Antler Charge
+PASSIVE_GROVESTAG_NAME,Sève ambrée,Amber Sap
+PASSIVE_GROVESTAG_DESC,"Chaque coup de Sylvécaille soigne le Chasseur de 1 PV (au plus toutes les 0,6 s).",Each Grovestag hit heals the Hunter for 1 HP (at most every 0.6 s).
+VARIANT_FAWN_NAME,Variante : Faon,Variant: Fawn
+VARIANT_FAWN_DESC,"Charges plus vives : plus de soins, moins de dégâts.","Quicker charges: more healing, less damage."
+ECHO_NODE_GROVESTAG_MIGHT_NAME,Puissance,Might
+ECHO_NODE_GROVESTAG_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_GROVESTAG_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_GROVESTAG_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_GROVESTAG_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_GROVESTAG_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_GROVESTAG_SPELL_ALT_NAME,Ronces protectrices,Protective Thorns
+ECHO_NODE_GROVESTAG_SPELL_ALT_DESC,Bouclier de 20 % des PV max ; des ronces enracinent autour du Chasseur 4 s.,Shield of 20% max HP; thorns root enemies around the Hunter for 4 s.
+ECHO_NODE_GROVESTAG_SIGNATURE_NAME,Ambre vive,Living Amber
+ECHO_NODE_GROVESTAG_SIGNATURE_DESC,Soins reçus par le Chasseur +20 %.,Healing received by the Hunter +20%.
+EVOLUTION_ZENITH_NAME,Zénithe,Zenith
+EVOLUTION_ZENITH_DESC,Bondit sur 3 cibles à chaque attaque.,Leaps through 3 targets per attack.
+EVOLUTION_NOONFANG_NAME,Croc-de-midi,Noonfang
+EVOLUTION_NOONFANG_DESC,Griffes en zone qui aveuglent tout un groupe.,Area claws that blind a whole group.
+MASTERY_SUNCLAW_BLIND,Aveuglez 1200 ennemis avec Solgriffe (cumul).,Blind 1200 enemies with Sunclaw (total).
+MASTERY_SUNCLAW_FLARE,Lancez 10 sorts de Solgriffe en une expédition.,Cast 10 Sunclaw spells in one expedition.
+MASTERY_SUNCLAW_EVOLVED_VICTORY,Refermez une Faille avec Solgriffe évoluée.,Seal a Rift with an evolved Sunclaw.
+MONSTER_SUNCLAW_NAME,Solgriffe,Sunclaw
+MONSTER_SUNCLAW_DESC,Assassin. Bondit de cible en cible et aveugle : les ennemis ratent leurs attaques.,Assassin. Leaps from target to target and blinds: enemies miss their attacks.
+MONSTER_SUNCLAW_LORE,Un lynx dont la crinière retient la lumière de midi ; on ne le voit qu'une fois ébloui.,A lynx whose mane holds the noon light; you only see it once you are dazzled.
+ATTACK_SUNCLAW,Griffes solaires,Solar Claws
+PASSIVE_SUNCLAW_NAME,Chasse à vue,Sight Hunt
+PASSIVE_SUNCLAW_DESC,Solgriffe inflige +25 % de dégâts aux ennemis aveuglés.,Sunclaw deals +25% damage to Blinded enemies.
+VARIANT_DAWN_NAME,Variante : Aube,Variant: Dawn
+VARIANT_DAWN_DESC,Griffes plus rapides sur une seule cible.,Faster claws on a single target.
+ECHO_NODE_SUNCLAW_MIGHT_NAME,Puissance,Might
+ECHO_NODE_SUNCLAW_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_SUNCLAW_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_SUNCLAW_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_SUNCLAW_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_SUNCLAW_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_SUNCLAW_SPELL_ALT_NAME,Bond lumineux,Radiant Leap
+ECHO_NODE_SUNCLAW_SPELL_ALT_DESC,Solgriffe bondit jusqu'au curseur et aveugle autour de son arrivée.,Sunclaw leaps to the cursor and blinds around its landing.
+ECHO_NODE_SUNCLAW_SIGNATURE_NAME,Rayon marqueur,Marking Ray
+ECHO_NODE_SUNCLAW_SIGNATURE_DESC,Les coups de Solgriffe ont 30 % de chances de poser une Marque.,Sunclaw's hits have a 30% chance to apply a Mark.
+EVOLUTION_AURORA_MOTH_NAME,Phalène d'aurore,Aurora Moth
+EVOLUTION_AURORA_MOTH_DESC,Deux traits de poudre à chaque battement.,Two dust bolts per wingbeat.
+EVOLUTION_LANTERN_MOTH_NAME,Phalène-lanterne,Lantern Moth
+EVOLUTION_LANTERN_MOTH_DESC,Sa poudre rebondit sur 2 ennemis de plus.,Its dust bounces to 2 more enemies.
+MASTERY_GLOWMOTH_REVEAL,Révélez 1500 ennemis avec Lueurine (cumul).,Reveal 1500 enemies with Glowmoth (total).
+MASTERY_GLOWMOTH_SWARM,Lancez 10 sorts de Lueurine en une expédition.,Cast 10 Glowmoth spells in one expedition.
+MASTERY_GLOWMOTH_EVOLVED_VICTORY,Refermez une Faille avec Lueurine évoluée.,Seal a Rift with an evolved Glowmoth.
+MONSTER_GLOWMOTH_NAME,Lueurine,Glowmoth
+MONSTER_GLOWMOTH_DESC,Soutien. Accélère l'équipe et révèle les ennemis (+12 % de dégâts subis).,Support. Speeds up the team and reveals enemies (+12% damage taken).
+MONSTER_GLOWMOTH_LORE,Un grand papillon de nuit escorté de lucioles ; il éclaire ce que la Faille voudrait cacher.,A great moth escorted by fireflies; it lights up what the Rift would rather hide.
+ATTACK_GLOWMOTH,Poudre lumineuse,Glowing Dust
+PASSIVE_GLOWMOTH_NAME,Vent d'ailes,Wing Wind
+PASSIVE_GLOWMOTH_DESC,Cadence des Échos +8 % et vitesse du Chasseur +5 %.,Echo attack speed +8% and Hunter speed +5%.
+VARIANT_FIREFLY_NAME,Variante : Luciole,Variant: Firefly
+VARIANT_FIREFLY_DESC,Traits plus rapides mais plus faibles.,Faster but weaker bolts.
+ECHO_NODE_GLOWMOTH_MIGHT_NAME,Puissance,Might
+ECHO_NODE_GLOWMOTH_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_GLOWMOTH_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_GLOWMOTH_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_GLOWMOTH_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_GLOWMOTH_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_GLOWMOTH_SPELL_ALT_NAME,Poudre d'ailes,Wing Dust
+ECHO_NODE_GLOWMOTH_SPELL_ALT_DESC,Un nuage de poudre vers le curseur : ralentit et révèle.,A cloud of dust toward the cursor: slows and reveals.
+ECHO_NODE_GLOWMOTH_SIGNATURE_NAME,Battement,Wingbeat
+ECHO_NODE_GLOWMOTH_SIGNATURE_DESC,Recharge de la Ruée −15 %.,Dash cooldown −15%.
+EVOLUTION_THUNDERAEGIS_NAME,Égide-tonnerre,Thunderaegis
+EVOLUTION_THUNDERAEGIS_DESC,Choc plus large qui provoque plus longtemps.,Wider shock that taunts for longer.
+EVOLUTION_DYNAMO_NAME,Dynamo,Dynamo
+EVOLUTION_DYNAMO_DESC,Chaque choc libère une onde électrique.,Each shock releases an electric wave.
+MASTERY_STORMSHELL_CONDUCTOR,Ripostez 300 fois avec Égidor (cumul).,Retaliate 300 times with Stormshell (total).
+MASTERY_STORMSHELL_DOME,Lancez 10 sorts d'Égidor en une expédition.,Cast 10 Stormshell spells in one expedition.
+MASTERY_STORMSHELL_EVOLVED_VICTORY,Refermez une Faille avec Égidor évolué.,Seal a Rift with an evolved Stormshell.
+MONSTER_STORMSHELL_NAME,Égidor,Stormshell
+MONSTER_STORMSHELL_DESC,"Gardien. Provoque, encaisse et renvoie la foudre quand le Chasseur est touché.","Guardian. Taunts, endures and strikes back with lightning when the Hunter is hit."
+MONSTER_STORMSHELL_LORE,Un scarabée à carapace d'acier où courent des arcs ; chaque coup reçu le recharge.,A steel-shelled beetle crawling with arcs; every blow it takes recharges it.
+ATTACK_STORMSHELL,Carapace foudroyante,Thunder Shell
+PASSIVE_STORMSHELL_NAME,Conducteur,Conductor
+PASSIVE_STORMSHELL_DESC,"Quand le Chasseur est touché, la foudre frappe 3 ennemis proches et les Électrise.","When the Hunter is hit, lightning strikes 3 nearby enemies and Charges them."
+VARIANT_QUICKSHELL_NAME,Variante : Bouclier vif,Variant: Quickshell
+VARIANT_QUICKSHELL_DESC,Chocs plus fréquents mais plus faibles.,More frequent but weaker shocks.
+ECHO_NODE_STORMSHELL_MIGHT_NAME,Puissance,Might
+ECHO_NODE_STORMSHELL_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
+ECHO_NODE_STORMSHELL_FOCUS_NAME,Concentration,Focus
+ECHO_NODE_STORMSHELL_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,This Echo's spell cooldown −10% per rank.
+ECHO_NODE_STORMSHELL_SPELL_BASE_NAME,Sort d'origine,Original spell
+ECHO_NODE_STORMSHELL_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
+ECHO_NODE_STORMSHELL_SPELL_ALT_NAME,Décharge,Discharge
+ECHO_NODE_STORMSHELL_SPELL_ALT_DESC,Une onde électrique part d'Égidor et Électrise tout sur son passage.,An electric wave bursts from Stormshell and Charges everything in its path.
+ECHO_NODE_STORMSHELL_SIGNATURE_NAME,Paratonnerre,Lightning Rod
+ECHO_NODE_STORMSHELL_SIGNATURE_DESC,Le Chasseur subit 6 % de dégâts en moins près d'Égidor.,The Hunter takes 6% less damage near Stormshell.
+SYNERGY_EMBER_STORM_NAME,Orage de braise,Ember Storm
+SYNERGY_EMBER_STORM_DESC,Les Brûlures de Pyraile Électrisent aussi.,Cinderwing's Burns also Charge.
+SYNERGY_STONE_FLOW_NAME,Coulée de pierre,Stone Flow
+SYNERGY_STONE_FLOW_DESC,Les ennemis pris dans un puits de gravité brûlent.,Enemies caught in a gravity well burn.
+SYNERGY_PUTRID_FEAST_NAME,Festin putride,Putrid Feast
+SYNERGY_PUTRID_FEAST_DESC,Les ennemis empoisonnés éclatent à leur mort.,Poisoned enemies burst when they die.
+SYNERGY_COLLAPSE_NAME,Effondrement,Collapse
+SYNERGY_COLLAPSE_DESC,Les ennemis pris dans un puits reçoivent une Marque creuse.,Enemies caught in a well receive a Hollow Mark.
+SYNERGY_LIVING_FOREST_NAME,Forêt vivante,Living Forest
+SYNERGY_LIVING_FOREST_DESC,"Toutes les 6 Racines posées, le Chasseur récupère 3 PV.","Every 6 Roots applied, the Hunter recovers 3 HP."
+SYNERGY_DAWN_HUNT_NAME,Chasse à l'aube,Dawn Hunt
+SYNERGY_DAWN_HUNT_DESC,"Cendrelame +30 % contre les aveuglés, Solgriffe +30 % contre les Brûlés.","Ashblade +30% against Blinded enemies, Sunclaw +30% against Burning enemies."
+SYNERGY_CONSTELLATION_NAME,Constellation,Constellation
+SYNERGY_CONSTELLATION_DESC,Chaque ennemi révélé reçoit une Marque.,Every revealed enemy receives a Mark.
+SYNERGY_TOTAL_REFLECTION_NAME,Réflexion totale,Total Reflection
+SYNERGY_TOTAL_REFLECTION_DESC,Mirelle frappe une seconde fois les ennemis Électrisés (50 %).,Mirrorling strikes Charged enemies a second time (50%).

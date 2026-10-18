@@ -67,6 +67,21 @@ func test_walls_block_everyone_and_the_dash() -> void:
 	check(player.global_position.x < top.position.x, "la ruée ne traverse pas la barrière")
 
 
+## Pas plus long que l'épaisseur d'une barrière (Ruée, image lente, poussée du décor) : jamais de l'autre côté.
+func test_fast_moves_never_cross_a_thin_wall() -> void:
+	var obstacles: ObstacleField = run.ctx.obstacles
+	var player: Player = run.ctx.player
+	var thin := Rect2(player.global_position + Vector2(40, -150), Vector2(8, 300))
+	obstacles.add_wall(thin)
+	check(obstacles.crosses_wall(player.global_position, player.global_position + Vector2(120, 0), player.radius),
+		"trajet à travers la barrière détecté")
+	var along: Vector2 = Vector2(thin.position.x - player.radius - 0.5, thin.position.y + 20.0)
+	check(not obstacles.crosses_wall(along, along + Vector2(0, 80), player.radius), "longer la barrière reste permis")
+	player._start_dash(Vector2.RIGHT)
+	player.step(0.12)
+	check(player.global_position.x < thin.position.x, "une Ruée en une seule image ne traverse pas")
+
+
 func test_spawns_stay_in_active_zone() -> void:
 	var zones: ZoneDirector = run.ctx.zones
 	for i: int in 40:

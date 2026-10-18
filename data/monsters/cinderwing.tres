@@ -1,0 +1,276 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=38 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/combat/effects/damage_bonus_effect.gd" id="3"]
+[ext_resource type="Resource" path="res://data/techniques/ash_rain.tres" id="4"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="10"]
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="11"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_2"]
+script = ExtResource("2")
+name_key = "ATTACK_CINDERWING"
+damage = 13.0
+cooldown = 1.6
+attack_range = 340.0
+radius = 24.0
+knockback = 40.0
+statuses = [SubResource("status_app_1")]
+params = {
+"overshoot": 70.0,
+"trail_count": 3,
+"trail_radius": 30.0,
+"trail_duration": 2.0,
+"trail_damage": 0.15
+}
+
+[sub_resource type="Resource" id="damage_bonus_3"]
+script = ExtResource("3")
+source_filter = &"any"
+target_status = &"burn"
+bonus_pct = 0.1
+
+[sub_resource type="Resource" id="status_app_4"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 2
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_5"]
+script = ExtResource("2")
+name_key = "ATTACK_CINDERWING"
+damage = 18.0
+cooldown = 1.4
+attack_range = 360.0
+radius = 28.0
+knockback = 50.0
+statuses = [SubResource("status_app_4")]
+params = {
+"overshoot": 80.0,
+"trail_count": 5,
+"trail_radius": 34.0,
+"trail_duration": 2.5,
+"trail_damage": 0.15
+}
+
+[sub_resource type="Resource" id="visual_6"]
+script = ExtResource("5")
+visual_id = &"monster.cinderwing.phoenixwing"
+shape = 3
+size = 40.0
+primary = Color(1.0, 0.62, 0.2, 1.0)
+secondary = Color(1.0, 0.9, 0.35, 1.0)
+accent = Color(1.0, 1.0, 0.85, 1.0)
+
+[sub_resource type="Resource" id="evolution_7"]
+script = ExtResource("6")
+id = &"phoenixwing"
+name_key = "EVOLUTION_PHOENIXWING_NAME"
+desc_key = "EVOLUTION_PHOENIXWING_DESC"
+required_rank = 3
+attack = SubResource("attack_5")
+visual = SubResource("visual_6")
+
+[sub_resource type="Resource" id="status_app_8"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_app_9"]
+script = ExtResource("1")
+status_id = &"static"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_10"]
+script = ExtResource("2")
+name_key = "ATTACK_CINDERWING"
+damage = 16.0
+cooldown = 1.5
+attack_range = 360.0
+radius = 26.0
+knockback = 40.0
+statuses = [SubResource("status_app_8"), SubResource("status_app_9")]
+params = {
+"overshoot": 70.0,
+"trail_count": 2,
+"trail_radius": 30.0,
+"trail_duration": 2.0,
+"trail_damage": 0.15
+}
+
+[sub_resource type="Resource" id="visual_11"]
+script = ExtResource("5")
+visual_id = &"monster.cinderwing.stormtalon"
+shape = 3
+size = 40.0
+primary = Color(0.6, 0.75, 1.0, 1.0)
+secondary = Color(1.0, 0.9, 0.3, 1.0)
+accent = Color(1.0, 1.0, 0.9, 1.0)
+
+[sub_resource type="Resource" id="evolution_12"]
+script = ExtResource("6")
+id = &"stormtalon"
+name_key = "EVOLUTION_STORMTALON_NAME"
+desc_key = "EVOLUTION_STORMTALON_DESC"
+required_rank = 3
+attack = SubResource("attack_10")
+visual = SubResource("visual_11")
+
+[sub_resource type="Resource" id="status_app_13"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_14"]
+script = ExtResource("2")
+name_key = "ATTACK_CINDERWING"
+damage = 9.0
+cooldown = 1.0
+attack_range = 300.0
+radius = 20.0
+knockback = 20.0
+statuses = [SubResource("status_app_13")]
+params = {
+"overshoot": 50.0,
+"trail_count": 1,
+"trail_radius": 26.0,
+"trail_duration": 1.5,
+"trail_damage": 0.15
+}
+
+[sub_resource type="Resource" id="evolution_15"]
+script = ExtResource("6")
+id = &"skimmer"
+name_key = "VARIANT_SKIMMER_NAME"
+desc_key = "VARIANT_SKIMMER_DESC"
+required_rank = 1
+attack = SubResource("attack_14")
+
+[sub_resource type="Resource" id="challenge_16"]
+script = ExtResource("7")
+id = &"cinderwing_blaze"
+desc_key = "MASTERY_CINDERWING_BLAZE"
+stat_key = &"cinderwing_applied_burn"
+threshold = 1500.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="challenge_17"]
+script = ExtResource("7")
+id = &"cinderwing_rain"
+desc_key = "MASTERY_CINDERWING_RAIN"
+stat_key = &"cinderwing_techniques"
+threshold = 10.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="challenge_18"]
+script = ExtResource("7")
+id = &"cinderwing_evolved_victory"
+desc_key = "MASTERY_CINDERWING_EVOLVED_VICTORY"
+stat_key = &"cinderwing_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_mod_19"]
+script = ExtResource("8")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="reward_20"]
+script = ExtResource("9")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_mod_19")]
+
+[sub_resource type="Resource" id="reward_21"]
+script = ExtResource("9")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(0.55, 0.75, 1.0, 1.0)
+palette_secondary = Color(1.0, 0.95, 0.5, 1.0)
+
+[sub_resource type="Resource" id="reward_22"]
+script = ExtResource("9")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="reward_23"]
+script = ExtResource("9")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="reward_24"]
+script = ExtResource("9")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_25"]
+script = ExtResource("10")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("challenge_16"), SubResource("challenge_17"), SubResource("challenge_18")]
+rewards = [SubResource("reward_20"), SubResource("reward_21"), SubResource("reward_22"), SubResource("reward_23"), SubResource("reward_24")]
+
+[sub_resource type="Resource" id="visual_26"]
+script = ExtResource("5")
+visual_id = &"monster.cinderwing"
+shape = 3
+size = 40.0
+primary = Color(0.94, 0.48, 0.16, 1.0)
+secondary = Color(0.88, 0.76, 0.2, 1.0)
+accent = Color(1.0, 0.95, 0.7, 1.0)
+
+[resource]
+script = ExtResource("11")
+id = &"cinderwing"
+name_key = "MONSTER_CINDERWING_NAME"
+desc_key = "MONSTER_CINDERWING_DESC"
+lore_key = "MONSTER_CINDERWING_LORE"
+role = 5
+affinities = [&"ember", &"storm"]
+rarity = 2
+max_hp = 70.0
+defense = 0.0
+move_speed = 250.0
+behavior_id = &"dive"
+attack = SubResource("attack_2")
+passive_name_key = "PASSIVE_CINDERWING_NAME"
+passive_desc_key = "PASSIVE_CINDERWING_DESC"
+passive_effects = [SubResource("damage_bonus_3")]
+technique = ExtResource("4")
+evolutions = [SubResource("evolution_7"), SubResource("evolution_12")]
+variant = SubResource("evolution_15")
+mastery = SubResource("mastery_25")
+unlocked_by_default = false
+visual = SubResource("visual_26")

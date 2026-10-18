@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="TechniqueData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"poison"
+stacks = 1
+chance = 1.0
+
+[resource]
+script = ExtResource("2")
+id = &"spore_cloud"
+technique_kind = &"field"
+name_key = "TECHNIQUE_SPORE_CLOUD_NAME"
+desc_key = "TECHNIQUE_SPORE_CLOUD_DESC"
+cooldown = 12.0
+damage = 4.0
+radius = 120.0
+duration = 5.0
+count = 1
+statuses = Array[ExtResource("1")]([SubResource("status_app_1")])
+params = {}

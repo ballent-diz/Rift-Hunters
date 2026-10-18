@@ -1,0 +1,282 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=41 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/combat/effects/guard_aura_effect.gd" id="3"]
+[ext_resource type="Resource" path="res://data/techniques/lava_flow.tres" id="4"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="10"]
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="11"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_app_2"]
+script = ExtResource("1")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_3"]
+script = ExtResource("2")
+name_key = "ATTACK_MAGMANDER"
+damage = 6.0
+cooldown = 2.6
+attack_range = 320.0
+radius = 55.0
+statuses = [SubResource("status_app_1"), SubResource("status_app_2")]
+params = {
+"duration": 4.0,
+"count": 1,
+"status_vfx": false
+}
+
+[sub_resource type="Resource" id="guard_aura_4"]
+script = ExtResource("3")
+radius = 170.0
+reduction = 0.06
+
+[sub_resource type="Resource" id="status_app_5"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_app_6"]
+script = ExtResource("1")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_7"]
+script = ExtResource("2")
+name_key = "ATTACK_MAGMANDER"
+damage = 8.0
+cooldown = 2.4
+attack_range = 340.0
+radius = 60.0
+statuses = [SubResource("status_app_5"), SubResource("status_app_6")]
+params = {
+"duration": 5.0,
+"count": 2,
+"spread": 70.0,
+"status_vfx": false
+}
+
+[sub_resource type="Resource" id="visual_8"]
+script = ExtResource("5")
+visual_id = &"monster.magmander.volcanyx"
+shape = 7
+size = 42.0
+primary = Color(1.0, 0.35, 0.1, 1.0)
+secondary = Color(0.3, 0.28, 0.3, 1.0)
+accent = Color(1.0, 0.85, 0.4, 1.0)
+
+[sub_resource type="Resource" id="evolution_9"]
+script = ExtResource("6")
+id = &"volcanyx"
+name_key = "EVOLUTION_VOLCANYX_NAME"
+desc_key = "EVOLUTION_VOLCANYX_DESC"
+required_rank = 3
+attack = SubResource("attack_7")
+visual = SubResource("visual_8")
+
+[sub_resource type="Resource" id="status_app_10"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 2
+chance = 1.0
+
+[sub_resource type="Resource" id="status_app_11"]
+script = ExtResource("1")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_12"]
+script = ExtResource("2")
+name_key = "ATTACK_MAGMANDER"
+damage = 12.0
+cooldown = 2.4
+attack_range = 320.0
+radius = 50.0
+statuses = [SubResource("status_app_10"), SubResource("status_app_11")]
+params = {
+"duration": 3.0,
+"count": 1,
+"status_vfx": false
+}
+
+[sub_resource type="Resource" id="visual_13"]
+script = ExtResource("5")
+visual_id = &"monster.magmander.obsidrake"
+shape = 7
+size = 42.0
+primary = Color(0.25, 0.2, 0.3, 1.0)
+secondary = Color(1.0, 0.4, 0.15, 1.0)
+accent = Color(1.0, 0.7, 0.4, 1.0)
+
+[sub_resource type="Resource" id="evolution_14"]
+script = ExtResource("6")
+id = &"obsidrake"
+name_key = "EVOLUTION_OBSIDRAKE_NAME"
+desc_key = "EVOLUTION_OBSIDRAKE_DESC"
+required_rank = 3
+attack = SubResource("attack_12")
+visual = SubResource("visual_13")
+
+[sub_resource type="Resource" id="status_app_15"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_app_16"]
+script = ExtResource("1")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_17"]
+script = ExtResource("2")
+name_key = "ATTACK_MAGMANDER"
+damage = 4.0
+cooldown = 3.2
+attack_range = 320.0
+radius = 75.0
+statuses = [SubResource("status_app_15"), SubResource("status_app_16")]
+params = {
+"duration": 6.0,
+"count": 1,
+"status_vfx": false
+}
+
+[sub_resource type="Resource" id="evolution_18"]
+script = ExtResource("6")
+id = &"slow_ember"
+name_key = "VARIANT_SLOW_EMBER_NAME"
+desc_key = "VARIANT_SLOW_EMBER_DESC"
+required_rank = 1
+attack = SubResource("attack_17")
+
+[sub_resource type="Resource" id="challenge_19"]
+script = ExtResource("7")
+id = &"magmander_magma"
+desc_key = "MASTERY_MAGMANDER_MAGMA"
+stat_key = &"magmander_applied_slow"
+threshold = 1500.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="challenge_20"]
+script = ExtResource("7")
+id = &"magmander_flows"
+desc_key = "MASTERY_MAGMANDER_FLOWS"
+stat_key = &"magmander_techniques"
+threshold = 10.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="challenge_21"]
+script = ExtResource("7")
+id = &"magmander_evolved_victory"
+desc_key = "MASTERY_MAGMANDER_EVOLVED_VICTORY"
+stat_key = &"magmander_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_mod_22"]
+script = ExtResource("8")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="reward_23"]
+script = ExtResource("9")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_mod_22")]
+
+[sub_resource type="Resource" id="reward_24"]
+script = ExtResource("9")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(0.3, 0.55, 0.9, 1.0)
+palette_secondary = Color(0.85, 0.85, 0.95, 1.0)
+
+[sub_resource type="Resource" id="reward_25"]
+script = ExtResource("9")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="reward_26"]
+script = ExtResource("9")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="reward_27"]
+script = ExtResource("9")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_28"]
+script = ExtResource("10")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("challenge_19"), SubResource("challenge_20"), SubResource("challenge_21")]
+rewards = [SubResource("reward_23"), SubResource("reward_24"), SubResource("reward_25"), SubResource("reward_26"), SubResource("reward_27")]
+
+[sub_resource type="Resource" id="visual_29"]
+script = ExtResource("5")
+visual_id = &"monster.magmander"
+shape = 7
+size = 42.0
+primary = Color(0.85, 0.27, 0.12, 1.0)
+secondary = Color(0.42, 0.42, 0.46, 1.0)
+accent = Color(1.0, 0.7, 0.3, 1.0)
+
+[resource]
+script = ExtResource("11")
+id = &"magmander"
+name_key = "MONSTER_MAGMANDER_NAME"
+desc_key = "MONSTER_MAGMANDER_DESC"
+lore_key = "MONSTER_MAGMANDER_LORE"
+role = 3
+affinities = [&"ember", &"stone"]
+rarity = 2
+max_hp = 150.0
+defense = 5.0
+move_speed = 160.0
+behavior_id = &"zone"
+attack = SubResource("attack_3")
+passive_name_key = "PASSIVE_MAGMANDER_NAME"
+passive_desc_key = "PASSIVE_MAGMANDER_DESC"
+passive_effects = [SubResource("guard_aura_4")]
+technique = ExtResource("4")
+evolutions = [SubResource("evolution_9"), SubResource("evolution_14")]
+variant = SubResource("evolution_18")
+mastery = SubResource("mastery_28")
+unlocked_by_default = false
+visual = SubResource("visual_29")

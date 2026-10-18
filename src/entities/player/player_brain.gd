@@ -17,6 +17,15 @@ func technique_pressed(_index: int) -> bool:
 	return false
 
 
+## Sorts des Échos avec l'option « aperçu » : touche maintenue (indicateur), puis relâchée (lancement).
+func technique_held(_index: int) -> bool:
+	return false
+
+
+func technique_released(_index: int) -> bool:
+	return false
+
+
 ## Sorts du Chasseur (emplacement 0 à 3) : touche enfoncée à cette image, maintenue, relâchée.
 func spell_pressed(_slot: int) -> bool:
 	return false

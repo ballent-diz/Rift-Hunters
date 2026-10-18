@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="StatusData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"hollow"
+name_key = "STATUS_HOLLOW_NAME"
+desc_key = "STATUS_HOLLOW_DESC"
+duration = 4.0
+max_stacks = 1
+color = Color(0.6, 0.8, 1.0, 1.0)

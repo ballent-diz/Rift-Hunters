@@ -122,6 +122,17 @@ func _draw() -> void:
 		&"dome", &"wave", &"conductive_shield": _electric(p, fade)
 
 
+## Polygone plein, ignoré s'il est dégénéré (surface nulle au début d'une croissance) ou invisible.
+func _poly(points: PackedVector2Array, ink: Color) -> void:
+	if ink.a <= 0.001 or points.size() < 3:
+		return
+	var area: float = 0.0
+	for i: int in points.size():
+		area += points[i].cross(points[(i + 1) % points.size()])
+	if absf(area) > 0.5:
+		draw_colored_polygon(points, ink)
+
+
 func _ink(ink: Color, opacity: float) -> Color:
 	return Color(ink, clampf(opacity, 0.0, 1.0))
 
@@ -138,7 +149,7 @@ func _spark(center: Vector2, size: float, fade: float, angle: float = 0.0) -> vo
 	if detail_level == 0:
 		var along := Vector2.from_angle(angle) * size * 0.5
 		var across: Vector2 = along.orthogonal() * 0.4
-		draw_colored_polygon(PackedVector2Array([center - along, center + across,
+		_poly(PackedVector2Array([center - along, center + across,
 			center + along, center - across]), _ink(accent, fade))
 		return
 	Shapes.facet(self, center, angle, size, size * 0.4, color, accent, fade)
@@ -151,8 +162,8 @@ func _quill(pos: Vector2, length: float, width: float, angle: float, fade: float
 	var tail: Vector2 = pos - Vector2(length * 0.5, 0).rotated(angle)
 	var top: Vector2 = pos + Vector2(-length * 0.1, -width * 0.55).rotated(angle)
 	var bottom: Vector2 = pos + Vector2(-length * 0.2, width * 0.45).rotated(angle)
-	draw_colored_polygon(PackedVector2Array([tail, top, tip]), _ink(color, fade))
-	draw_colored_polygon(PackedVector2Array([tail, bottom, tip]), _ink(color.darkened(0.3), fade))
+	_poly(PackedVector2Array([tail, top, tip]), _ink(color, fade))
+	_poly(PackedVector2Array([tail, bottom, tip]), _ink(color.darkened(0.3), fade))
 	draw_line(tail, tip, _ink(accent, fade), 1.2)
 	if detail_level == 0:
 		return
@@ -273,7 +284,7 @@ func _lava(p: float, fade: float, flowing: bool) -> void:
 		for j: int in 12:
 			var a: float = j * TAU / 12.0
 			points.append(pos + Vector2.from_angle(a) * radius * 0.3 * grow * (0.85 + sin(j * 2 + i) * 0.15))
-		draw_colored_polygon(points, _ink(Color("312934"), fade * 0.48))
+		_poly(points, _ink(Color("312934"), fade * 0.48))
 		for j: int in 3:
 			var start: Vector2 = pos + Vector2.from_angle(j * 2.1 + i) * radius * 0.08
 			draw_line(start, start * 0.4 + pos * 0.6 + Vector2(radius * 0.18, 4), _ink(color, fade * grow), 2.0)
@@ -307,10 +318,10 @@ func _flame(p: float, fade: float) -> void:
 		pos + Vector2(18, 0), pos + Vector2(2, -11), pos + Vector2(-16, -9),
 		pos + Vector2(-9, -3), pos + Vector2(-27, 1), pos + Vector2(-11, 5),
 		pos + Vector2(-19, 13), pos + Vector2(3, 10)])
-	draw_colored_polygon(flame, _ink(color, fade * 0.9))
+	_poly(flame, _ink(color, fade * 0.9))
 	var core := PackedVector2Array([pos + Vector2(8, 0), pos + Vector2(-2, -6),
 		pos + Vector2(-14, -3), pos + Vector2(-7, 0), pos + Vector2(-14, 5), pos + Vector2(-1, 6)])
-	draw_colored_polygon(core, _ink(Color("252934"), fade * 0.9))
+	_poly(core, _ink(Color("252934"), fade * 0.9))
 	Shapes.star(self, pos + Vector2(6, -2), 5, _ink(WHITE, fade))
 
 

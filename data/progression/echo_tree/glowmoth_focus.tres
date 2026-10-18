@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="2"]
+
+[sub_resource type="Resource" id="stat_mod_1"]
+script = ExtResource("1")
+target = 1
+stat = &"technique_cooldown"
+flat = 0.0
+pct = -0.1
+
+[resource]
+script = ExtResource("2")
+id = &"glowmoth_focus"
+branch = &"glowmoth"
+tier = 0
+kind = 1
+name_key = "ECHO_NODE_GLOWMOTH_FOCUS_NAME"
+desc_key = "ECHO_NODE_GLOWMOTH_FOCUS_DESC"
+costs = Array[int]([60, 100])
+point_cost = 1
+prerequisites = Array[StringName]([])
+prerequisites_any = true
+exclusive_group = &""
+spell_id = &""
+learned_by_default = false
+effects = [SubResource("stat_mod_1")]

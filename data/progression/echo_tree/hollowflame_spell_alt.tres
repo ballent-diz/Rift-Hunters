@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"hollowflame_spell_alt"
+branch = &"hollowflame"
+tier = 1
+kind = 2
+name_key = "ECHO_NODE_HOLLOWFLAME_SPELL_ALT_NAME"
+desc_key = "ECHO_NODE_HOLLOWFLAME_SPELL_ALT_DESC"
+costs = Array[int]([200])
+point_cost = 0
+prerequisites = Array[StringName]([&"hollowflame_might", &"hollowflame_focus"])
+prerequisites_any = true
+exclusive_group = &"hollowflame_spell"
+spell_id = &"wandering_flame"
+learned_by_default = false
+effects = []

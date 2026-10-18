@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/status_chain_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_chain_1"]
+script = ExtResource("1")
+trigger_status = &"burn"
+source_filter = &"cinderwing"
+applied_status = &"static"
+stacks = 1
+synergy_id = &"ember_storm"
+
+[resource]
+script = ExtResource("2")
+id = &"ember_storm"
+name_key = "SYNERGY_EMBER_STORM_NAME"
+desc_key = "SYNERGY_EMBER_STORM_DESC"
+required_monsters = [&"cinderwing", &"voltwisp"]
+color = Color(1.0, 0.75, 0.35, 1.0)
+effects = [SubResource("status_chain_1")]

@@ -84,7 +84,7 @@ Affinités affichées au bestiaire (fiche de chaque Écho et condition des syner
 
 Contrôle : Braise 4 · Foudre 4 · Lumière 4 · Vide 4 · Pierre 4 · Nature 4 · Prédateur 4 · Gardien 4.
 
-## Les 9 nouveaux Échos (proposition)
+## Les 9 nouveaux Échos (proposition d'origine, réalisée ci-dessous)
 
 Chaque Écho a **sa couleur vive propre** ; aucun n'utilise le **magenta** comme accent principal
 (réservé aux Corrompus et au danger, voir `docs/ART_BIBLE.md`).
@@ -106,6 +106,40 @@ Scoriade + Mousseroc (coulée de pierre), Sporelune + Gueule-d'ombre (festin put
 Gravelune + Spectrâtre (effondrement), Sylvécaille + Ronceline (forêt vivante),
 Solgriffe + Cendrelame (chasse à l'aube), Lueurine + Lucivelle (constellation),
 Égidor + Mirelle (réflexion totale).
+
+## Réalisation (lot C7, 18 octobre 2026)
+
+Les 9 Échos sont jouables. **Proposition à valider par le propriétaire** : noms, effets et chiffres sont en données
+(`data/monsters/<écho>.tres`, `data/techniques/`, `data/progression/echo_tree/`, `data/synergies/`), retouchables
+sans code. Ils se débloquent comme Mirelle ou Gueule-d'ombre : **Rite de lien** (capture d'un Écho errant à la mort
+d'une élite), puis recrutement en expédition.
+
+| Écho | Attaque (comportement) | Passif | Sort d'origine | Second sort | Signature |
+|---|---|---|---|---|---|
+| Pyraile | Piqué de braise : traverse sa cible, traînée de feu (`dive`) | Équipe +10 % contre les Brûlés | Pluie de cendres (8 impacts, Brûlure) | Piqué foudroyant (ligne + impact, Électrise) | 30 % d'Électriser |
+| Scoriade | Crachat de lave : flaque 4 s, Brûlure + ralenti (`zone`) | Chasseur −6 % de dégâts près d'elle | Coulée (ligne de lave 4 s) | Geyser (éruption retardée, bouillonne 2,5 s) | Brûlure +25 % |
+| Spectrâtre | Flamme creuse : Marque creuse (`orb`) | Les marqués implosent à leur mort | Implosion (aspire puis implose, Fracture) | Flamme errante (rebondit sur 6 ennemis) | Équipe +12 % contre les marqués |
+| Sporelune | Bouffée de spores : 2 Poisons (`orb`) | Le Poison se propage à la mort | Nuée de spores (zone 5 s) | Bourgeon (piège : 3 Poisons, Racines, spores) | Équipe +10 % contre les empoisonnés |
+| Gravelune | Choc gravitationnel : attire et ralentit (`slam`, recul négatif) | 25 % de Fracture | Singularité (puits 2,5 s, Fracture) | Météore (impact retardé 0,7 s) | +25 PV max |
+| Sylvécaille | Ramure : charge au contact (`striker`) | Chaque coup soigne 1 PV (0,6 s) | Bosquet (zone 5 s qui soigne 12 % et ralentit) | Ronces protectrices (bouclier 20 %, Racines) | Soins +20 % |
+| Solgriffe | Griffes solaires : 2 cibles, Aveuglement (`striker`) | +25 % contre les aveuglés | Éclat solaire (cône, Aveuglement) | Bond lumineux (bond + impact) | 30 % de Marque |
+| Lueurine | Poudre lumineuse : Révèle (`orb`) | Cadence des Échos +8 %, vitesse +5 % | Essaim de lucioles (zone 5 s, équipe +15 % de vitesse) | Poudre d'ailes (cône : ralentit, révèle) | Ruée −15 % de recharge |
+| Égidor | Carapace foudroyante : provoque, Électrise (`slam`) | Riposte : quand le Chasseur est touché, foudre sur 3 ennemis | Dôme conducteur (bouclier 25 %, zone qui Électrise) | Décharge (onde depuis Égidor) | −6 % de dégâts près de lui |
+
+- **Nouveaux statuts** : Poison (3 dégâts/s par cumul, 6 cumuls), Aveuglé (rate 50 % de ses attaques, contact et
+  tirs), Marque creuse (implose à la mort avec le passif de Spectrâtre), Révélé (dégâts subis +12 %).
+- **Deux évolutions par Écho** (rang 3) et une **variante** de maîtrise, comme les Échos existants. Les évolutions
+  n'ont pas encore de sprite propre : le sprite de base est teinté.
+- **Duos nommés** (8 nouveaux, 14 au total) : Orage de braise (Pyraile + Fulgurine), Coulée de pierre (Scoriade +
+  Mousseroc), Festin putride (Sporelune + Gueule-d'ombre), Effondrement (Gravelune + Spectrâtre), Forêt vivante
+  (Sylvécaille + Ronceline), Chasse à l'aube (Solgriffe + Cendrelame), Constellation (Lueurine + Lucivelle),
+  Réflexion totale (Égidor + Mirelle).
+- **Effets peints** (Codex, `docs/art/ECHOS_C7_EFFETS.md`) raccordés par `src/entities/allies/echo_vfx.gd` :
+  attaques, sorts, statuts et indicateurs de visée. Avec l'option « aperçu », maintenir la touche d'un Écho affiche
+  l'indicateur, relâcher lance le sort.
+- Code : comportement `dive` (Pyraile), sorts `barrage`, `delayed_strike`, `field`, `field_line`, `bouncing_bolt`,
+  `heal_field`, `guard_field`, `cone`, `shock_ring` (`techniques.gd`), effets `HealOnHitEffect` et
+  `RetaliateOnHurtEffect`, zones de soin et bonus temporaires.
 
 ## Sprites des nouveaux Échos
 

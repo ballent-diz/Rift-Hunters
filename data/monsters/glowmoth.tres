@@ -1,0 +1,251 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=37 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="3"]
+[ext_resource type="Resource" path="res://data/techniques/firefly_swarm.tres" id="4"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="10"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"reveal"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_2"]
+script = ExtResource("2")
+name_key = "ATTACK_GLOWMOTH"
+damage = 7.0
+cooldown = 1.0
+attack_range = 360.0
+projectile_speed = 340.0
+homing = 4.0
+statuses = [SubResource("status_app_1")]
+
+[sub_resource type="Resource" id="stat_mod_3"]
+script = ExtResource("3")
+target = 0
+stat = &"ally_attack_speed"
+flat = 0.0
+pct = 0.08
+
+[sub_resource type="Resource" id="stat_mod_4"]
+script = ExtResource("3")
+target = 0
+stat = &"move_speed"
+flat = 0.0
+pct = 0.05
+
+[sub_resource type="Resource" id="status_app_5"]
+script = ExtResource("1")
+status_id = &"reveal"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_6"]
+script = ExtResource("2")
+name_key = "ATTACK_GLOWMOTH"
+damage = 9.0
+cooldown = 1.0
+attack_range = 380.0
+projectile_speed = 360.0
+projectile_count = 2
+homing = 4.0
+statuses = [SubResource("status_app_5")]
+
+[sub_resource type="Resource" id="visual_7"]
+script = ExtResource("5")
+visual_id = &"monster.glowmoth.aurora_moth"
+shape = 3
+size = 40.0
+primary = Color(0.75, 1.0, 0.55, 1.0)
+secondary = Color(0.85, 0.95, 1.0, 1.0)
+accent = Color(1.0, 1.0, 1.0, 1.0)
+
+[sub_resource type="Resource" id="evolution_8"]
+script = ExtResource("6")
+id = &"aurora_moth"
+name_key = "EVOLUTION_AURORA_MOTH_NAME"
+desc_key = "EVOLUTION_AURORA_MOTH_DESC"
+required_rank = 3
+attack = SubResource("attack_6")
+visual = SubResource("visual_7")
+
+[sub_resource type="Resource" id="status_app_9"]
+script = ExtResource("1")
+status_id = &"reveal"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_10"]
+script = ExtResource("2")
+name_key = "ATTACK_GLOWMOTH"
+damage = 8.0
+cooldown = 1.0
+attack_range = 380.0
+projectile_speed = 360.0
+chain = 2
+homing = 4.0
+statuses = [SubResource("status_app_9")]
+
+[sub_resource type="Resource" id="visual_11"]
+script = ExtResource("5")
+visual_id = &"monster.glowmoth.lantern_moth"
+shape = 3
+size = 40.0
+primary = Color(1.0, 0.85, 0.45, 1.0)
+secondary = Color(0.95, 1.0, 0.8, 1.0)
+accent = Color(1.0, 1.0, 0.9, 1.0)
+
+[sub_resource type="Resource" id="evolution_12"]
+script = ExtResource("6")
+id = &"lantern_moth"
+name_key = "EVOLUTION_LANTERN_MOTH_NAME"
+desc_key = "EVOLUTION_LANTERN_MOTH_DESC"
+required_rank = 3
+attack = SubResource("attack_10")
+visual = SubResource("visual_11")
+
+[sub_resource type="Resource" id="status_app_13"]
+script = ExtResource("1")
+status_id = &"reveal"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_14"]
+script = ExtResource("2")
+name_key = "ATTACK_GLOWMOTH"
+damage = 5.0
+cooldown = 0.7
+attack_range = 340.0
+projectile_speed = 380.0
+homing = 5.0
+statuses = [SubResource("status_app_13")]
+
+[sub_resource type="Resource" id="evolution_15"]
+script = ExtResource("6")
+id = &"firefly"
+name_key = "VARIANT_FIREFLY_NAME"
+desc_key = "VARIANT_FIREFLY_DESC"
+required_rank = 1
+attack = SubResource("attack_14")
+
+[sub_resource type="Resource" id="challenge_16"]
+script = ExtResource("7")
+id = &"glowmoth_reveal"
+desc_key = "MASTERY_GLOWMOTH_REVEAL"
+stat_key = &"glowmoth_applied_reveal"
+threshold = 1500.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="challenge_17"]
+script = ExtResource("7")
+id = &"glowmoth_swarm"
+desc_key = "MASTERY_GLOWMOTH_SWARM"
+stat_key = &"glowmoth_techniques"
+threshold = 10.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="challenge_18"]
+script = ExtResource("7")
+id = &"glowmoth_evolved_victory"
+desc_key = "MASTERY_GLOWMOTH_EVOLVED_VICTORY"
+stat_key = &"glowmoth_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_mod_19"]
+script = ExtResource("3")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="reward_20"]
+script = ExtResource("8")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_mod_19")]
+
+[sub_resource type="Resource" id="reward_21"]
+script = ExtResource("8")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(0.6, 0.85, 1.0, 1.0)
+palette_secondary = Color(0.95, 0.9, 1.0, 1.0)
+
+[sub_resource type="Resource" id="reward_22"]
+script = ExtResource("8")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="reward_23"]
+script = ExtResource("8")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="reward_24"]
+script = ExtResource("8")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_25"]
+script = ExtResource("9")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("challenge_16"), SubResource("challenge_17"), SubResource("challenge_18")]
+rewards = [SubResource("reward_20"), SubResource("reward_21"), SubResource("reward_22"), SubResource("reward_23"), SubResource("reward_24")]
+
+[sub_resource type="Resource" id="visual_26"]
+script = ExtResource("5")
+visual_id = &"monster.glowmoth"
+shape = 3
+size = 40.0
+primary = Color(0.85, 0.95, 0.4, 1.0)
+secondary = Color(1.0, 1.0, 0.95, 1.0)
+accent = Color(1.0, 1.0, 0.8, 1.0)
+
+[resource]
+script = ExtResource("10")
+id = &"glowmoth"
+name_key = "MONSTER_GLOWMOTH_NAME"
+desc_key = "MONSTER_GLOWMOTH_DESC"
+lore_key = "MONSTER_GLOWMOTH_LORE"
+role = 2
+affinities = [&"light", &"nature"]
+rarity = 2
+max_hp = 65.0
+defense = 0.0
+move_speed = 230.0
+behavior_id = &"orb"
+attack = SubResource("attack_2")
+passive_name_key = "PASSIVE_GLOWMOTH_NAME"
+passive_desc_key = "PASSIVE_GLOWMOTH_DESC"
+passive_effects = [SubResource("stat_mod_3"), SubResource("stat_mod_4")]
+technique = ExtResource("4")
+evolutions = [SubResource("evolution_8"), SubResource("evolution_12")]
+variant = SubResource("evolution_15")
+mastery = SubResource("mastery_25")
+unlocked_by_default = false
+visual = SubResource("visual_26")

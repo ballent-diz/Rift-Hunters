@@ -43,6 +43,10 @@ extends Resource
 @export var xp_base: float = 4.0
 @export var xp_exponent: float = 1.3
 @export var upgrade_choices: int = 3
+## Les montées de niveau ne mettent pas le jeu en pause : leurs choix sont mis en réserve et s'ouvrent aux temps
+## forts (coffre, zone nettoyée, faille refermée, arrivée du boss) ou à la demande. Quand la réserve atteint ce
+## nombre, elle s'ouvre en entier d'elle-même.
+@export var level_reserve_cap: int = 5
 @export_group("Ennemis")
 ## Croissance des PV ennemis par minute (+0.12 = +12 %/min).
 @export var enemy_hp_growth_per_min: float = 0.12

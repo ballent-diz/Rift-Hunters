@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="TechniqueData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"static"
+stacks = 1
+chance = 1.0
+
+[resource]
+script = ExtResource("2")
+id = &"conductive_dome"
+technique_kind = &"guard_field"
+name_key = "TECHNIQUE_CONDUCTIVE_DOME_NAME"
+desc_key = "TECHNIQUE_CONDUCTIVE_DOME_DESC"
+cooldown = 15.0
+damage = 6.0
+radius = 140.0
+duration = 4.0
+count = 1
+statuses = Array[ExtResource("1")]([SubResource("status_app_1")])
+params = {
+"shield": 0.25
+}

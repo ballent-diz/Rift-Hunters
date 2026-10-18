@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"grovestag_spell_alt"
+branch = &"grovestag"
+tier = 1
+kind = 2
+name_key = "ECHO_NODE_GROVESTAG_SPELL_ALT_NAME"
+desc_key = "ECHO_NODE_GROVESTAG_SPELL_ALT_DESC"
+costs = Array[int]([200])
+point_cost = 0
+prerequisites = Array[StringName]([&"grovestag_might", &"grovestag_focus"])
+prerequisites_any = true
+exclusive_group = &"grovestag_spell"
+spell_id = &"protective_thorns"
+learned_by_default = false
+effects = []

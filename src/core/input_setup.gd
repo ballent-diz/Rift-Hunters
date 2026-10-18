@@ -17,13 +17,15 @@ const ACTIONS := {
 	&"technique_1": [KEY_1, KEY_KP_1],
 	&"technique_2": [KEY_2, KEY_KP_2],
 	&"technique_3": [KEY_3, KEY_KP_3],
+	&"open_choices": [KEY_TAB],
 	&"pause": [KEY_ESCAPE, KEY_P],
 }
 
 
 ## Actions reconfigurables au clavier, dans l'ordre affiché par les options.
 const REBINDABLE: Array[StringName] = [&"move_up", &"move_down", &"move_left", &"move_right", &"dash",
-	&"spell_1", &"spell_2", &"spell_3", &"spell_4", &"technique_1", &"technique_2", &"technique_3"]
+	&"spell_1", &"spell_2", &"spell_3", &"spell_4", &"technique_1", &"technique_2", &"technique_3",
+	&"open_choices"]
 
 const JOY_BUTTONS := {
 	&"dash": [JOY_BUTTON_A, JOY_BUTTON_RIGHT_SHOULDER],
@@ -33,6 +35,7 @@ const JOY_BUTTONS := {
 	&"focus_order": [JOY_BUTTON_LEFT_SHOULDER],
 	&"spell_3": [JOY_BUTTON_DPAD_UP],
 	&"spell_4": [JOY_BUTTON_DPAD_RIGHT],
+	&"open_choices": [JOY_BUTTON_BACK],
 	&"pause": [JOY_BUTTON_START],
 }
 const JOY_AXES := {

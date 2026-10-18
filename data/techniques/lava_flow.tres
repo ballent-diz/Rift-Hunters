@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="TechniqueData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_app_2"]
+script = ExtResource("1")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[resource]
+script = ExtResource("2")
+id = &"lava_flow"
+technique_kind = &"field_line"
+name_key = "TECHNIQUE_LAVA_FLOW_NAME"
+desc_key = "TECHNIQUE_LAVA_FLOW_DESC"
+cooldown = 13.0
+damage = 6.0
+radius = 40.0
+duration = 4.0
+count = 6
+statuses = Array[ExtResource("1")]([SubResource("status_app_1"), SubResource("status_app_2")])
+params = {
+"start": 60.0
+}

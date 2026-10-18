@@ -188,7 +188,8 @@ func step(delta: float) -> void:
 			var reach: float = r + player_radius
 			if pos.distance_squared_to(player_pos) < reach * reach:
 				enemy.touch_cooldown = contact_interval
-				ctx.combat.damage_player(enemy.contact_damage, enemy.data.id if enemy.data else &"boss")
+				if not misses(enemy):
+					ctx.combat.damage_player(enemy.contact_damage, enemy.data.id if enemy.data else &"boss")
 		if view.has_point(pos):
 			enemy.visual.set_facing_left(enemy.velocity.x < -1.0)
 			enemy.visual.tick(delta, enemy.velocity.length_squared() > 4.0, enemy.velocity.length())
@@ -197,6 +198,12 @@ func step(delta: float) -> void:
 	rebuild_grid()
 	queue_redraw()
 	_overlay.queue_redraw()
+
+
+## Ennemi aveuglé : son attaque rate (contact ou tir).
+func misses(enemy: Enemy) -> bool:
+	var chance: float = enemy.statuses.miss_chance()
+	return chance > 0.0 and ctx.rng.randf() < chance
 
 
 ## Reconstruit la grille après les déplacements et les retraits : elle ne référence jamais un ennemi libéré.
@@ -253,7 +260,8 @@ func _tick_ranged(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist: 
 		if enemy.state_timer <= 0.0:
 			enemy.state = Enemy.State.MOVE
 			var dmg: float = attack.damage * enemy.contact_damage / maxf(enemy.data.damage, 0.001)
-			ctx.projectiles.spawn_hostile(enemy.position, enemy.aim_dir, attack.projectile_speed, dmg, enemy.data.id, 7.0)
+			if not misses(enemy):
+				ctx.projectiles.spawn_hostile(enemy.position, enemy.aim_dir, attack.projectile_speed, dmg, enemy.data.id, 7.0)
 		return
 	if dist > keep + 40.0:
 		enemy.velocity = nav * speed

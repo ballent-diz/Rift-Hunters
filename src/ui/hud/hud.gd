@@ -93,7 +93,13 @@ func _draw() -> void:
 	# Barre d'XP (haut, pulse sur le tempo de la musique) + niveau
 	var pulse: float = 0.0 if Settings.reduce_flashes else _beat
 	_bar(Rect2(0, 0, w, 10 + 3.0 * pulse), player.xp_ratio(), Color(0.35, 0.85, 1.0).lightened(0.3 * pulse))
-	_text(Vector2(16, 40), tr("HUD_LEVEL") % player.level, 22, UiKit.ACCENT)
+	var level_text: String = tr("HUD_LEVEL") % player.level
+	_text(Vector2(16, 40), level_text, 22, UiKit.ACCENT)
+	if player.pending_levels > 0:
+		# Choix de niveau en réserve (sans pause) : rappel et touche pour les ouvrir.
+		var x: float = 30.0 + _font.get_string_size(level_text, HORIZONTAL_ALIGNMENT_LEFT, -1, 22).x
+		_text(Vector2(x, 38), tr("HUD_CHOICES_RESERVED") % [player.pending_levels, InputSetup.key_label(&"open_choices")],
+			16, Color(1.0, 0.85, 0.4).lightened(0.25 * pulse))
 	# PV + bouclier
 	var hp_rect := Rect2(16, 52, 260, 18)
 	_bar(hp_rect, player.hp / player.max_hp, Color(0.9, 0.25, 0.35))

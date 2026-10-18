@@ -1,6 +1,7 @@
 class_name LevelUpPanel
 extends Control
 ## Choix d'amélioration au passage de niveau (jeu en pause). Relance et bannissement selon l'arbre.
+## Les choix sont mis en réserve pendant le combat et s'ouvrent aux temps forts (RunController.release_choices).
 
 signal closed
 
@@ -44,6 +45,8 @@ func open() -> void:
 
 func _refresh() -> void:
 	_title.text = tr("LEVELUP_BANISH_TITLE") if _banish_mode else tr("LEVELUP_TITLE") % ctx.player.level
+	if not _banish_mode and ctx.player.pending_levels > 1:
+		_title.text += "  ·  " + tr("LEVELUP_REMAINING") % (ctx.player.pending_levels - 1)
 	UiKit.clear(_cards)
 	for i: int in _offers.size():
 		var offer: UpgradeOffer = _offers[i]

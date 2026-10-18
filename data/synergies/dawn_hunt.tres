@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/damage_bonus_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="2"]
+
+[sub_resource type="Resource" id="damage_bonus_1"]
+script = ExtResource("1")
+source_filter = &"ashblade"
+target_status = &"blind"
+bonus_pct = 0.3
+
+[sub_resource type="Resource" id="damage_bonus_2"]
+script = ExtResource("1")
+source_filter = &"sunclaw"
+target_status = &"burn"
+bonus_pct = 0.3
+
+[resource]
+script = ExtResource("2")
+id = &"dawn_hunt"
+name_key = "SYNERGY_DAWN_HUNT_NAME"
+desc_key = "SYNERGY_DAWN_HUNT_DESC"
+required_monsters = [&"sunclaw", &"ashblade"]
+color = Color(1.0, 0.8, 0.4, 1.0)
+effects = [SubResource("damage_bonus_1"), SubResource("damage_bonus_2")]

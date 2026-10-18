@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/heal_on_status_count_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="2"]
+
+[sub_resource type="Resource" id="heal_on_status_1"]
+script = ExtResource("1")
+source_filter = &"any"
+status_id = &"root"
+count = 6
+heal = 3.0
+
+[resource]
+script = ExtResource("2")
+id = &"living_forest"
+name_key = "SYNERGY_LIVING_FOREST_NAME"
+desc_key = "SYNERGY_LIVING_FOREST_DESC"
+required_monsters = [&"grovestag", &"thornweave"]
+color = Color(0.55, 0.9, 0.45, 1.0)
+effects = [SubResource("heal_on_status_1")]

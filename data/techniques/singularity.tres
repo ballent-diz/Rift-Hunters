@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="TechniqueData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"fracture"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="status_app_2"]
+script = ExtResource("1")
+status_id = &"slow"
+stacks = 1
+chance = 1.0
+
+[resource]
+script = ExtResource("2")
+id = &"singularity"
+technique_kind = &"maw_pit"
+name_key = "TECHNIQUE_SINGULARITY_NAME"
+desc_key = "TECHNIQUE_SINGULARITY_DESC"
+cooldown = 14.0
+damage = 32.0
+radius = 170.0
+duration = 2.5
+count = 1
+statuses = Array[ExtResource("1")]([SubResource("status_app_1"), SubResource("status_app_2")])
+params = {
+"pull": 260.0,
+"vfx": "gravity_well"
+}

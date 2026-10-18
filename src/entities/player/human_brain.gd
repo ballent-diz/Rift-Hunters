@@ -18,6 +18,14 @@ func technique_pressed(index: int) -> bool:
 	return index < TECHNIQUE_ACTIONS.size() and Input.is_action_just_pressed(TECHNIQUE_ACTIONS[index])
 
 
+func technique_held(index: int) -> bool:
+	return index < TECHNIQUE_ACTIONS.size() and Input.is_action_pressed(TECHNIQUE_ACTIONS[index])
+
+
+func technique_released(index: int) -> bool:
+	return index < TECHNIQUE_ACTIONS.size() and Input.is_action_just_released(TECHNIQUE_ACTIONS[index])
+
+
 func spell_pressed(slot: int) -> bool:
 	return slot < SPELL_ACTIONS.size() and Input.is_action_just_pressed(SPELL_ACTIONS[slot])
 
