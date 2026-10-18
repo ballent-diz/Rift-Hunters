@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/echo_effect.gd" id="1"]
+
+[node name="cinderwing_ash_rain" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"cinderwing"
+effect_kind = &"rain"
+color = Color(0.9411764705882353, 0.47843137254901963, 0.16470588235294117, 1)
+accent = Color(0.8784313725490196, 0.7607843137254902, 0.19607843137254902, 1)
+radius = 88.0
+visual_duration = 1.6
+travel_distance = 240.0
+target_shape = &"area"

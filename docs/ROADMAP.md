@@ -74,7 +74,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | C4 | Raretés des choix de niveau (commun → héroïque) | Claude | C2 | À faire ; choix de niveau en réserve faits (18/10, sans pause en plein combat, voir design/COMPETENCES_ET_BUILDS.md) |
 | C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | En cours (Codex) |
 | C6 | Équipe à 3 Échos max ; 8 affinités (remplacent « arcane » et « contrôle ») avec bonus à 2 et 3 Échos ; « Prédateurs » devient une synergie d'affinité | Claude | — | Fait (17 oct.) : 16 bonus d'affinité, affinités au bestiaire |
-| C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | À faire |
+| C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | En cours (Claude) ; effets et icônes C5-bis livrés par Codex, raccordement par Claude |
 | C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Codex (génération autorisée, prompts, import, contrôle) | — | Livré (Codex), PR #25 |
 
 C5, habillage fonctionnel de l’arbre après fusion de la PR #16 : **En cours (Codex)**.
@@ -137,3 +137,5 @@ C5 / B2 — En cours (Codex), 17 octobre : 35 illustrations HD des Échos intég
 C8 — Livré (Codex), 18 octobre, PR #25 (sprites), après la PR #24 (préparation) : 11 créatures (9 nouvelles, Mirelle et Cendrelame), 55 animations et 429 poses importées. Captures Godot des 16, aperçu animé et contrôles réussis ; sensation en partie à confirmer par le propriétaire. Aucun changement de gameplay C7.
 
 A3 + visuels D2 — Livré (Codex), 18 octobre : rideaux continus en hauteur, maillage animé dans Godot et huit poses dessinées à 12 images/s, apparition 0,5 s et dissolution 1,2 s ; flèche, portail du boss, failles et sorties des Corrompus. Cercles au sol retirés à la demande du propriétaire. Captures et contrat dans docs/art/BARRIERES_FAILLES_A3.md ; branche codex/barrieres-failles après PR #26. Règles de jeu inchangées.
+
+C5-bis / préparation C7 — Livré (Codex), 18 octobre : 27 scènes d'attaque/sort, 9 statuts, 9 indicateurs, 45 icônes HD importées. Animations natives Godot, matière animée et détails adaptatifs ; aucune modification de src/ ni des données de gameplay. Contrat : docs/art/ECHOS_C7_EFFETS.md ; 9 captures 720p et 18 GIF dans docs/previews/c7-echos/. Import, contrôles visuels ciblés et tools/run_tests.sh complet verts ; raccordement par Claude (C7), validation artistique du propriétaire à suivre.
