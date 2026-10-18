@@ -1,0 +1,366 @@
+{
+  "tool": "imagegen intégré",
+  "date": "2026-10-18",
+  "images": [
+    {
+      "id": "combat_training",
+      "source": "assets/concepts/incoming/icon.hunter.combat_training/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: warm ivory, weathered silver, midnight blue shadows. Subject: A well-worn ivory katana striking a compact wooden practice target; a single clear impact spark. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "1e33cf9334977cad8906857559abcd2718b0320e9f7b048480d861f5a150c244",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "trunk_vigor",
+      "source": "assets/concepts/incoming/icon.hunter.trunk_vigor/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: warm ivory, weathered silver, midnight blue shadows. Subject: A stout silver breastplate protecting one bright warm ivory heart, powerful upright silhouette. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "2056f0f50a48d1fd90a00ddb532759aae078634046dc2fc52597d4c55ffe12a6",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "combat_phantom_step",
+      "source": "assets/concepts/incoming/icon.hunter.combat_phantom_step/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: warm ivory, weathered silver, midnight blue shadows. Subject: One samurai boot stepping through a silver translucent afterimage, a short curved ivory motion trail. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "44833b16d2845e57ebd5f53d10b6c7423ecd0863c5da65bbcf187c267ecc933f",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "combat_last_breath",
+      "source": "assets/concepts/incoming/icon.hunter.combat_last_breath/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: warm ivory, weathered silver, midnight blue shadows. Subject: One battered silver mask with a narrow crack, a last small ivory flame still burning inside. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "546e5f63417ebbcfd2082aeab28004f85705236aa073088dcefa3a86f8c1aebc",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "blade_honed_edge",
+      "source": "assets/concepts/incoming/icon.hunter.blade_honed_edge/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: amber gold, warm ivory, dark bronze, midnight blue shadows. Subject: One polished katana edge being sharpened by a dark whetstone, a sharp amber-white glint at contact. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram. Reframe the reference icon: zoom out and include the ENTIRE katana, the complete handle including its pommel, the full blade tip, and the complete whetstone. No object cropped by any canvas edge. At least 12 percent clear transparent padding on ALL sides. Retain the same shapes, warm ivory-gold materials, dark blue shadows and sharpening contact glint. Transparent alpha background.",
+      "sha256": "6425d304b17b42930dbab7001989074fdbf9da803d20f33892130be67b9b0b2e",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "combat_rift_brawler",
+      "source": "assets/concepts/incoming/icon.hunter.combat_rift_brawler/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: amber gold, warm ivory, dark bronze, midnight blue shadows. Subject: One armored fist intercepting an incoming dark shard and sending three strong amber impact rays outward. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "81cf2b96ab9795a3beef9ded65ef033dae187deed8172edc7aebee2b357f03a7",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "combat_shattering_dash",
+      "source": "assets/concepts/incoming/icon.hunter.combat_shattering_dash/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: amber gold, warm ivory, dark bronze, midnight blue shadows. Subject: One forward samurai boot landing and shattering a small basalt slab, sharp amber cracks and a short motion streak. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "c71ec4733027504f280df08b15fc7605f2da611794ae0511adceb0f2a37533a1",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "combat_marksman",
+      "source": "assets/concepts/incoming/icon.hunter.combat_marksman/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: luminous cyan, icy white, silver, midnight blue shadows. Subject: One long cyan-white crystal bolt piercing two small dark armored plates aligned in a diagonal. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "60f72226f1638983bcb0495dcb105d4b685c7400aba577df2c821922179a20ea",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "spec_chain_detonation",
+      "source": "assets/concepts/incoming/icon.hunter.spec_chain_detonation/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: luminous cyan, icy white, silver, midnight blue shadows. Subject: Three cyan diamond marks connected by a zigzag, the central diamond detonating into large angular white fragments. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "0b22e6d6535f13d49e4611f4d803be3bc631c35bd4838522bf30db5a2037e982",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "spec_prismatic_resonance",
+      "source": "assets/concepts/incoming/icon.hunter.spec_prismatic_resonance/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: luminous cyan, icy white, silver, midnight blue shadows. Subject: Three nested cyan crystal diamonds resonating around a bright white central diamond, bold compact symmetry. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "d163c7d99528f0ff0a802acbabd01c69211398647610aa5230d055f4c573dbc5",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "spec_pyromancer",
+      "source": "assets/concepts/incoming/icon.hunter.spec_pyromancer/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: luminous cyan, icy white, silver, midnight blue shadows. Subject: One long cyan crystal arrow with a clear orange flame wrapped around its head; cyan shaft and ivory-orange flame contrast. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "248523bf24b893068431b891e379078b95ed90b47a911d52cb344ec296423ff8",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "abyss_depths",
+      "source": "assets/concepts/incoming/icon.hunter.abyss_depths/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: pale lavender, cold ivory, deep indigo, dark basalt. Subject: One dark basalt plate with a deep vertical pale lavender fracture, two layered fragments showing its depth. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "f0e140dfe4dbea2c8820cbe1a683aea0d3a317edceb46b8c6ad65e831e976ca1",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "spec_deep_breach",
+      "source": "assets/concepts/incoming/icon.hunter.spec_deep_breach/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: pale lavender, cold ivory, deep indigo, dark basalt. Subject: Two heavy basalt halves torn apart by a jagged ivory-lavender chasm, a bright sharp center and dark side planes. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "2b4f5f351aed6cacf1f8372bf17eaefe6ff8596d2ce59f1e79970ae4aea003ce",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "spec_gravitationist",
+      "source": "assets/concepts/incoming/icon.hunter.spec_gravitationist/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: pale lavender, cold ivory, deep indigo, dark basalt. Subject: A compact dark gravity core with an ivory-lavender rim pulling three chunky stone fragments inward; short inward curves. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "56c8428048507209663a50fb7b2e849b2f0cf1a2188a071687c20f9d8703c363",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "echoes_bonds",
+      "source": "assets/concepts/incoming/icon.hunter.echoes_bonds/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: jade green, ivory, silver, dark teal shadows. Subject: Two powerful interlocking silver-jade links joining a hunter blade and a stylized companion claw. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "87d0200b61d96285a5662f7e9b4a6828d02bb1a4410cd411d677e741092b09a4",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "echoes_lone_hunter",
+      "source": "assets/concepts/incoming/icon.hunter.echoes_lone_hunter/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: jade green, ivory, silver, dark teal shadows. Subject: One lone samurai hunter bust with a jade shoulder guard and upright ivory blade, strong solitary silhouette. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "cbc83117b5545c2aafc97292be80c23eff4655a60beaa18f9f077a0b0dcaa272",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "echoes_pack_leader",
+      "source": "assets/concepts/incoming/icon.hunter.echoes_pack_leader/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: jade green, ivory, silver, dark teal shadows. Subject: Three distinct small companion heads beneath one jade and ivory command crest, grouped triangular silhouette. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "7d043eef9ca1feac380313ff86b33771d3b5dd40e60c4462c1ec28827d214fc6",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "echoes_sharpened",
+      "source": "assets/concepts/incoming/icon.hunter.echoes_sharpened/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: jade green, ivory, silver, dark teal shadows. Subject: One companion claw and an ivory lightning-shaped technique spark inside a broken jade refresh arc, clear dominant claw. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "a581f4007a6879604d713cf1a2249a23355347daa7a3ed6cb6c23ad5a9db02ca",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "echoes_third_seal",
+      "source": "assets/concepts/incoming/icon.hunter.echoes_third_seal/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique copper instruments, jade details, ivory, midnight blue shadows. Subject: Three separate jade wax seals held by one copper clasp on a small dark research scroll; three big distinct shapes. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "48c68386efb7ba2a1d85084332feb3b0278a580e5d36da3380948592c3623a60",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "echoes_veteran",
+      "source": "assets/concepts/incoming/icon.hunter.echoes_veteran/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique copper instruments, jade details, ivory, midnight blue shadows. Subject: A copper veteran medal with two broad silver chevrons above one jade companion paw emblem. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "42d1ee49106f05509fd8ba7fa3443c060f219fdd50e81936f310f110902e25e0",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "research_banish",
+      "source": "assets/concepts/incoming/icon.hunter.research_banish/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique copper instruments, jade details, ivory, midnight blue shadows. Subject: One copper research card being crossed and swept away by a crisp jade diagonal slash; no letters or symbols resembling text. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "eba6fadd7a7c04876f09b72a04c4fb04d0e9db627d8228ad8703ce5a1556d7a1",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "research_early_evolution",
+      "source": "assets/concepts/incoming/icon.hunter.research_early_evolution/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique copper instruments, jade details, ivory, midnight blue shadows. Subject: A copper specimen cradle holding a jade chrysalis splitting to reveal one luminous ivory wing. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "2c15415cd0121ad263381a488297aa72ab830e529a32c027e1d262609d1d1de0",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "research_fourth_option",
+      "source": "assets/concepts/incoming/icon.hunter.research_fourth_option/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique copper instruments, jade details, ivory, midnight blue shadows. Subject: Four clearly separated ivory card faces fanned from a copper card holder, each with a simple jade jewel and no writing. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "478d8c89bc4493545d058b01e4c4dac99af3db16a2152b298476568cc6f842c8",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "research_rift_study",
+      "source": "assets/concepts/incoming/icon.hunter.research_rift_study/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique copper instruments, jade details, ivory, midnight blue shadows. Subject: One open copper-bound research book with a large jade crystal diagram rising physically from its center, no writing. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "3738913ca3fa62f29bc08bec09449693e49d4fbe675470e83365a47393ac9db7",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "research_unstable",
+      "source": "assets/concepts/incoming/icon.hunter.research_unstable/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique copper instruments, jade details, ivory, midnight blue shadows. Subject: One copper alchemical flask containing two swirling jade crystal growths and a small ivory spark, bold bottle silhouette. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "7c7f9ea954023fb6fcff4ed7f1f9027d033b0ebfff32a684fca67f266c0ef432",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "explore_essence_sense",
+      "source": "assets/concepts/incoming/icon.hunter.explore_essence_sense/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique brass expedition equipment, jade crystals, ivory, dark teal shadows. Subject: One brass compass whose ivory needle points toward a single large luminous jade essence droplet. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "e5aa8f26877b8271fc75a444bf3d32952aaf366f0eec791342cdc3f790bd2bcc",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "explore_magnet",
+      "source": "assets/concepts/incoming/icon.hunter.explore_magnet/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique brass expedition equipment, jade crystals, ivory, dark teal shadows. Subject: A broad brass horseshoe magnet drawing three chunky jade essence fragments inward with short ivory trails. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "ad4048e9c2ad6af923f3a1cb15023169e34b7deb6b7256878a5fc5bb603e00f6",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "explore_prospector",
+      "source": "assets/concepts/incoming/icon.hunter.explore_prospector/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique brass expedition equipment, jade crystals, ivory, dark teal shadows. Subject: One brass pickaxe striking a large jade crystal cluster on a small dark rock, one ivory contact glint. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "e8fe7fa59da2916849f52ce31c221236c47256c5bbdfcd8075c9dba6ea0cac56",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "explore_sealed_chests",
+      "source": "assets/concepts/incoming/icon.hunter.explore_sealed_chests/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique brass expedition equipment, jade crystals, ivory, dark teal shadows. Subject: One compact dark wood and brass treasure chest with a prominent jade seal and ivory light escaping from its lid. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "d247f5c01a1d9929bd96d4b9fe1c56d1084449cc4a1bdb5752d6289519c954bb",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    },
+    {
+      "id": "explore_starting_relic",
+      "source": "assets/concepts/incoming/icon.hunter.explore_starting_relic/source/icon.png",
+      "prompt": "Use case: stylized-concept. Asset: one Rift Hunters skill-tree icon, square 512 x 512. Crisp high-definition painted dark fantasy Japanese samurai game illustration, sculpted cel-shaded materials, sharp selective edges and restrained fine etched details; not blocky pixel art. One dominant centered silhouette filling 85 percent of the canvas with transparent margins. Read instantly when reduced to 48 pixels: broad masses, few separated secondary shapes, high contrast. No environment, floor, background plate, border, badge frame, text, letters, digits, UI, watermark, checkerboard pattern, bloom haze or magenta glow. Actual transparent alpha background. Top-left key light, deep blue-violet shadows, small luminous highlights. Palette: antique brass expedition equipment, jade crystals, ivory, dark teal shadows. Subject: One brass expedition satchel open around a prominent jade relic talisman, a single ivory ribbon of light. Keep the illustration elegant and cohesive with hand-painted action RPG spell icons, not a flat vector pictogram.",
+      "sha256": "1a08b920243e3f8df3abb41cb0bcd64afbd492bb2f0058d9c6ffc8e0b9a9a801",
+      "original_size": [
+        1254,
+        1254
+      ],
+      "alpha": true,
+      "status": "final"
+    }
+  ]
+}

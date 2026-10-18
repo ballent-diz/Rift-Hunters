@@ -1,0 +1,32 @@
+{
+  "visual_id": "icon.hunter.explore_essence_sense",
+  "cell": [
+    512,
+    512
+  ],
+  "anchor": [
+    256,
+    256
+  ],
+  "scale": 1,
+  "target_height": 448,
+  "status": "final",
+  "background": "alpha",
+  "colors": 0,
+  "outline": false,
+  "anchor_mode": "mass",
+  "animations": [
+    {
+      "name": "idle",
+      "source": "source/icon.png",
+      "frames": 1,
+      "fps": 1,
+      "loop": true,
+      "layout": "row"
+    }
+  ],
+  "resample": "lanczos",
+  "preserve_alpha": true,
+  "icon_size": 512,
+  "preview_zoom": 1
+}
