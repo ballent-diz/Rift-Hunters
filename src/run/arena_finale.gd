@@ -35,15 +35,16 @@ func setup(context: RunContext) -> void:
 func walled() -> bool:
 	return not _wall_ids.is_empty()
 
-## Mode « vagues par zone » : la dernière zone est nettoyée, le Chasseur rejoint l'arène.
+## Mode « vagues par zone » ou « failles » : tout est nettoyé ou refermé, le Chasseur rejoint l'arène.
 func start_travel() -> void:
 	if state == State.WAVES or state == State.CLEARING:
 		state = State.TRAVEL
-		ctx.events.event_started.emit("FINALE_TRAVEL")
+		ctx.events.event_started.emit(ctx.arena.finale_travel_key)
 
 
 func step(delta: float) -> void:
-	if state == State.WAVES and ctx.arena.zones.is_empty() and ctx.time >= ctx.arena.boss_time:
+	if state == State.WAVES and ctx.arena.zones.is_empty() and ctx.arena.rift_points.is_empty() \
+			and ctx.time >= ctx.arena.boss_time:
 		state = State.CLEARING
 		ctx.events.event_started.emit("FINALE_CLEAR")
 	if state == State.CLEARING:
@@ -53,7 +54,7 @@ func step(delta: float) -> void:
 				remaining = true
 		if not remaining:
 			state = State.TRAVEL
-			ctx.events.event_started.emit("FINALE_TRAVEL")
+			ctx.events.event_started.emit(ctx.arena.finale_travel_key)
 	if state == State.TRAVEL and contains(ctx.player.global_position, 45.0):
 		state = State.OPENING
 		opening_time = 0.0

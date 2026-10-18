@@ -72,9 +72,16 @@ func start(setup: RunSetup) -> void:
 		ctx.world.add_child(ctx.finale)
 	if not ctx.arena.zones.is_empty():
 		ctx.zones = ZoneDirector.new(ctx)
+	if not ctx.arena.rift_points.is_empty():
+		ctx.rifts = RiftDirector.new()
+		ctx.world.add_child(ctx.rifts)
+		ctx.rifts.setup(ctx)
+	# Barrières (zones, arène murée) et flèche de route.
+	if ctx.zones or ctx.rifts or not ctx.arena.finale_walls.is_empty():
 		var overlay := ZoneOverlay.new()
 		overlay.setup(ctx)
-		ctx.zones.overlay = overlay
+		if ctx.zones:
+			ctx.zones.overlay = overlay
 		ctx.world.add_child(overlay)
 	event_director = EventDirector.new(ctx)
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
@@ -252,6 +259,8 @@ func _physics_process(delta: float) -> void:
 		ctx.finale.step(delta)
 	if ctx.zones:
 		ctx.zones.step(delta)
+	if ctx.rifts:
+		ctx.rifts.step(delta)
 	spawner.step(delta)
 	event_director.step(delta)
 	ctx.player.step(delta)

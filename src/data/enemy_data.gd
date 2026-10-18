@@ -17,6 +17,9 @@ enum Brain { CHASER, RANGED, CHARGER, STATIC, SUMMONER, BLINKER, WARDEN }
 @export var xp_value: int = 1
 @export_range(0.0, 1.0) var knockback_resist: float = 0.0
 @export var can_be_elite: bool = true
+## Structure (cerveau STATIC) : immobile mais ciblée et attaquée comme un Corrompu (faille à refermer).
+## Sans cela, un STATIC est un simple obstacle ignoré par les attaques automatiques.
+@export var structure: bool = false
 ## Attaque spéciale (projectile du Cracheur, charge du Bondisseur).
 @export var attack: AttackData
 @export var visual: VisualData

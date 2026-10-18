@@ -36,6 +36,8 @@ var spawner: SpawnDirector
 var finale: ArenaFinale
 ## Mode « vagues par zone » (null sinon).
 var zones: ZoneDirector
+## Mode « fermeture de failles » (null sinon).
+var rifts: RiftDirector
 
 
 func minutes() -> float:

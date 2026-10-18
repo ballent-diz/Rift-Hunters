@@ -18,6 +18,20 @@ extends Resource
 ## Finale murée : barrières qui apparaissent quand le Chasseur entre dans l'arène (ses collisions et ces barrières
 ## délimitent le combat ; aucun cercle d'énergie). Vide : finale en cercle (finale_radii).
 @export var finale_walls: Array[Rect2] = []
+## Message d'appel vers l'arène du boss (une fois les zones ou les failles terminées).
+@export var finale_travel_key: String = "FINALE_TRAVEL"
+@export_group("Fermeture de failles")
+## Mode « fermeture de failles » (si non vide, docs/design/LONGEVITE.md) : une faille (structure à détruire) à chaque
+## point ; tant qu'elle est ouverte, des Corrompus en sortent. Toutes refermées : la finale appelle vers l'arène.
+@export var rift_points: Array[Vector2] = []
+@export var rift_enemy_id: StringName = &"rift_breach"
+## Corrompus par seconde et par faille ouverte (× difficulté), dans la limite de la vague en cours (max_alive).
+@export var rift_spawn_rate: float = 0.8
+## Distance d'apparition autour de la faille.
+@export var rift_spawn_radius: float = 240.0
+## Une élite sort d'une faille ouverte toutes les N secondes (× difficulté).
+@export var rift_elite_interval: float = 40.0
+@export_group("")
 @export var waves: Array[WavePhaseData] = []
 ## Mode « vagues par zone » (si non vide) : zones à nettoyer dans l'ordre, puis la finale (boss).
 ## Les vagues au chrono, les événements et le boss chronométré sont alors désactivés.

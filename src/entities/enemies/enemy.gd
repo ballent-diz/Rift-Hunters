@@ -38,6 +38,11 @@ func push(impulse: Vector2) -> void:
 	push_velocity += impulse
 
 
+## Cible des attaques automatiques : tout Corrompu sauf les obstacles, à l'exception des structures (failles).
+func is_target() -> bool:
+	return not is_obstacle or (data != null and data.structure)
+
+
 func data_knockback_resist() -> float:
 	if is_boss or is_obstacle:
 		return 1.0

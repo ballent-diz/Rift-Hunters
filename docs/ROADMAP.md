@@ -103,7 +103,7 @@ Raccordement C1/C2 et validation en jeu à suivre ; les 24 icônes sont désorma
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
 | D1 | Trophées internes + platine (reliés à Steam plus tard), à partir des 18 objectifs actuels | Claude | B1 | À concevoir |
-| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | À concevoir |
+| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | Fermeture de failles faite (18/10, Hautes Terres) ; visuel des failles : Codex ; autres modes à concevoir |
 | D3 | Le Pacte (≈ 10 malus, score par carte) et prophéties | Claude | B1 | À concevoir |
 | D4 | Mode Cauchemar (règles, boss enragés) | Claude | B1, C2 | À concevoir |
 

@@ -25,8 +25,8 @@ func current_wave() -> WavePhaseData:
 
 
 func step(delta: float) -> void:
-	if not ctx.arena.zones.is_empty():
-		return  # mode « vagues par zone » : ZoneDirector fait apparaître les vagues
+	if not ctx.arena.zones.is_empty() or not ctx.arena.rift_points.is_empty():
+		return  # modes « vagues par zone » et « failles » : ZoneDirector / RiftDirector font apparaître les Corrompus
 	if ctx.arena.has_finale() and ctx.time >= ctx.arena.boss_time:
 		return
 	var wave: WavePhaseData = current_wave()

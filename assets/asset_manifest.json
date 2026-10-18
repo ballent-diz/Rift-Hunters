@@ -6550,6 +6550,41 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/monsters/stormshell.png"
+		},
+		"enemy.rift_breach": {
+			"status": "wip",
+			"generated_by": "provisoire : simple cercle, visuel définitif confié à Codex",
+			"sheet": "res://assets/sprites/enemies/rift_breach/rift_breach_sheet.png",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				108
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"death": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/rift_breach.png"
 		}
 	}
 }

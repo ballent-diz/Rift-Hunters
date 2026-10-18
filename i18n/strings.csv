@@ -580,7 +580,7 @@ MENU_LANGUAGE,Langue : %s,Language: %s
 FINALE_CLEAR,Éliminez les derniers Corrompus.,Defeat the remaining Corrupted.
 FINALE_TRAVEL,Rejoignez l’arène à l’est : la faille s’y ouvrira.,Reach the arena to the east: the rift will open there.
 FINALE_OPENING,La faille s’ouvre… Les issues sont scellées.,The rift opens… The exits are sealed.
-FINALE_FIGHT,Terrassez Nébulorax avec vos Échos !,Defeat Nebulorax with your Echoes!
+FINALE_FIGHT,Terrassez %s avec vos Échos !,Defeat %s with your Echoes!
 ENEMY_HEATH_RUNNER_NAME,Courser des landes,Heath Prowler
 ENEMY_HEATH_RUNNER_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
 ENEMY_SLATE_SCARAB_NAME,Scarabée d’ardoise,Slate Scarab
@@ -599,7 +599,7 @@ BOSS_ASTRAVORN_NAME,Astravorn,Astravorn
 BOSS_ASTRAVORN_TITLE,Souverain de l’Orage,Sovereign of the Storm
 BOSS_ASTRAVORN_PHASE2,Tempête déchaînée,Unbound storm
 ARENA_STORM_HIGHLANDS_NAME,Hautes Terres d’Orage,Storm Highlands
-ARENA_STORM_HIGHLANDS_DESC,Explorez les landes et les ruines puis affrontez Astravorn.,Explore the moors and ruins then face Astravorn.
+ARENA_STORM_HIGHLANDS_DESC,"Refermez les quatre failles des landes, puis affrontez Astravorn sur la place centrale.","Seal the four rifts across the moors, then face Astravorn in the central square."
 BOSS_ASTRAVORN_PHASE1,Veilleur des Hautes Terres,Watcher of the Highlands
 HUD_NAMED_BOSS_IN,%s arrive dans %d:%02d,%s arrives in %d:%02d
 HUD_ZONE_WAVE,Zone %d · Vague %d/%d · %d restants,Zone %d · Wave %d/%d · %d left
@@ -1109,3 +1109,9 @@ EXPEDITION_MAP_LOCKED_BY,Terminez « %s »,Clear “%s”
 EXPEDITION_SURVIVAL_TAG,Survie,Survival
 EXPEDITION_SURVIVAL_NOTE,Épreuve d'endurance pour le score : tenez jusqu'au Dévoreur.,Endurance trial for score: hold out until the Devourer.
 EXPEDITION_WITH,Écho de départ : %s,Starting Echo: %s
+FINALE_TRAVEL_PLAZA,Les failles sont refermées : rejoignez la place centrale.,The rifts are sealed: reach the central square.
+RIFTS_INTRO,Refermez les %d failles : détruisez-les pour arrêter les Corrompus.,Seal the %d rifts: destroy them to stop the Corrupted.
+RIFTS_PROGRESS,Failles refermées : %d / %d,Rifts sealed: %d / %d
+RIFT_CLOSED_BANNER,Faille refermée ! (%d / %d),Rift sealed! (%d / %d)
+ENEMY_RIFT_BREACH_NAME,Faille,Rift Breach
+ENEMY_RIFT_BREACH_DESC,Déchirure ouverte sur la Faille : des Corrompus en sortent tant qu'on ne l'a pas détruite.,A tear opened onto the Rift: Corrupted pour out of it until it is destroyed.

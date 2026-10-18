@@ -84,6 +84,9 @@ func _physics_process(_delta: float) -> void:
 		print("  t=%ds niv=%d ennemis=%d éliminations=%d PV=%d équipe=%s boss=%s" % [int(ctx.time), ctx.player.level,
 			ctx.enemies.count(), int(ctx.stats.get_value(&"kills")), int(ctx.player.hp), ctx.allies.team_ids(),
 			("%d%%" % int(100.0 * ctx.boss.hp / ctx.boss.max_hp)) if ctx.boss else "-"])
+		if ctx.rifts:
+			print("    failles %d/%d · finale %d · position %s" % [ctx.rifts.closed, ctx.rifts.total(),
+				ctx.finale.state if ctx.finale else -1, ctx.player.global_position.round()])
 		if ctx.zones:
 			print("    zone %d phase %d vague %d · finale %d · position %s" % [ctx.zones.zone_index, ctx.zones.phase,
 				ctx.zones.wave_index, ctx.finale.state if ctx.finale else -1, ctx.player.global_position.round()])
