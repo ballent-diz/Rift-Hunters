@@ -6,7 +6,7 @@ Statut : **validé le 14 octobre 2026**. Structure de la progression d'une carte
 
 - La campagne est découpée en **chapitres**, un par région / ambiance (Ruines des Cascades, puis les
   cartes « plus colorées » préparées par le propriétaire…).
-- Chaque chapitre compte **2 à 3 cartes** (piste : 5 chapitres, voir « Volume visé »). La **dernière carte** de chaque chapitre se termine par un
+- Chaque chapitre compte **5 cartes** (5 chapitres, voir « Volume visé » et [CARTES.md](CARTES.md)). La **dernière carte** de chaque chapitre se termine par un
   **Dévoreur** (boss de chapitre), précédé de zones de vagues.
 - **Déblocage en avançant** : finir une carte débloque la suivante ; battre le Dévoreur débloque le
   chapitre suivant. Au refuge, la liste des chapitres (ou une carte du monde) montre les cartes
@@ -38,9 +38,10 @@ chaque mode coûte cher à développer et à équilibrer. Détail des modes : [L
 
 ## Volume visé
 
-Décision du 16 octobre 2026 : **un jeu plus court, très rejouable**.
+Décision du 18 octobre 2026 (remplace celle du 16 octobre, « jeu plus court ») : **un jeu plus long**.
 
-- Campagne de **3 à 6 heures** (échecs compris). Piste actuelle : **5 chapitres** de 2 à 3 cartes (rien n'est figé).
+- Campagne d'environ **6 à 10 heures** (échecs compris) : **5 chapitres de 5 cartes**, soit 25 cartes, chacune avec
+  sa particularité de terrain (catalogue et plan des 25 cartes : [CARTES.md](CARTES.md)).
 - Puis Cauchemar, Pacte, objectifs, prophéties et trophées : **20 à 30 heures** pour le platine.
 
 ## Contenu actuel
@@ -51,7 +52,8 @@ Décision du 16 octobre 2026 : **un jeu plus court, très rejouable**.
 | 1 — Le Val des Cascades | Hautes Terres d'Orage (`storm_highlands`) | Carte 2, mode **fermeture de failles** (4 failles, puis Astravorn sur la place centrale murée) ; la gagner termine la campagne actuelle et débloque le Cauchemar |
 | Hors campagne | Plaine fracturée (`fractured_plain`) | Mode Survie, toujours accessible |
 
-Nom du chapitre provisoire. Les autres cartes du chapitre 1 et le chapitre 2 restent à produire (lot B3) : il suffit
+Nom du chapitre provisoire. Cartes 3 à 5 du chapitre 1 (Bois des Lucioles, Gué des Brumes, Source des Cascades) et
+chapitres suivants : plan dans [CARTES.md](CARTES.md), à produire (lot B3) : il suffit
 d'ajouter une carte à la liste `maps` de son chapitre, dans l'ordre, ou un fichier par nouveau chapitre.
 
 ## Réalisation (lot B1, 17 octobre 2026)

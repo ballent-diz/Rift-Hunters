@@ -18,7 +18,7 @@ mais juste et la rejouabilité de **Hades**. Une **campagne courte en chapitres*
 
 | Sujet | Décision | Détail |
 |---|---|---|
-| Campagne | 3 à 6 h ; piste : 5 chapitres de 2-3 cartes (non figé), Dévoreur à la fin de chaque chapitre ; finir une carte débloque la suivante | [design/CAMPAGNE.md](design/CAMPAGNE.md) |
+| Campagne | 6 à 10 h (18 oct.) : 5 chapitres de 5 cartes, une particularité de terrain par carte, Dévoreur à la fin de chaque chapitre ; finir une carte débloque la suivante | [design/CAMPAGNE.md](design/CAMPAGNE.md), [design/CARTES.md](design/CARTES.md) |
 | Rejouabilité des cartes | Toute carte débloquée est rejouable à l'infini ; 3 objectifs par carte et par difficulté ; récompenses dégressives | idem |
 | Difficultés (16 oct.) | **Tension supprimée** ; Normal, puis **Cauchemar** (New Game+) débloqué en finissant le jeu, sur chaque carte, avec le **Pacte** (malus au choix, score par carte) | [design/LONGEVITE.md](design/LONGEVITE.md) |
 | Modes | ~70 % vagues par zone (mode principal), ~30 % variantes (au moins une par chapitre) ; Survie au chrono hors campagne sur la Plaine fracturée | idem, [design/LONGEVITE.md](design/LONGEVITE.md) |
@@ -62,7 +62,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 |---|---|---|---|---|
 | B1 | Données chapitre / carte, déblocage en avançant, objectifs par carte, récompenses dégressives, Normal / Cauchemar par carte (suppression de la Tension), migration de sauvegarde | Claude | A1 | Fait (17/10) — chapitre 1 : Ruines des Cascades puis Hautes Terres d'Orage, voir [design/CAMPAGNE.md](design/CAMPAGNE.md) |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | Code fait (17/10) : chapitres en cartes, résumé et départ toujours visibles ; habillage à affiner (Codex) |
-| B3 | Nouvelles cartes du chapitre 1 et cartes colorées du chapitre 2 (+ famille de monstres associée) | Propriétaire (images) + Codex (intégration, zones, collisions) | A1 pour les cartes en vagues | En cours (Codex) — retours corrigés : textures ×3, détails d’échelle, basalte et escaliers ; PR prête, validation manuelle du propriétaire attendue ; A1/A2 à suivre |
+| B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; prochaine carte : Bois des Lucioles |
 
 ### Étape C — Sorts et builds
 
@@ -116,7 +116,7 @@ Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md
 - Conception : [GDD.md](GDD.md) (état actuel du prototype), [design/CAMPAGNE.md](design/CAMPAGNE.md), [design/ECHOS.md](design/ECHOS.md),
   [design/MODE_VAGUES_PAR_ZONE.md](design/MODE_VAGUES_PAR_ZONE.md),
   [design/COMPETENCES_ET_BUILDS.md](design/COMPETENCES_ET_BUILDS.md), [design/ARBRE_DU_CHASSEUR.md](design/ARBRE_DU_CHASSEUR.md),
-  [design/LONGEVITE.md](design/LONGEVITE.md)
+  [design/LONGEVITE.md](design/LONGEVITE.md), [design/CARTES.md](design/CARTES.md) (25 cartes et particularités)
 - Code : [ARCHITECTURE.md](ARCHITECTURE.md) ; équilibrage : [BALANCE.md](BALANCE.md)
 - Graphismes : [ART_BIBLE.md](ART_BIBLE.md), cartes : [MAP_GUIDELINES.md](MAP_GUIDELINES.md),
   [maps/GENERER_UNE_CARTE.md](maps/GENERER_UNE_CARTE.md), [maps/DE_L_IMAGE_AU_NIVEAU.md](maps/DE_L_IMAGE_AU_NIVEAU.md),
