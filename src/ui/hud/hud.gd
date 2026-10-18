@@ -109,14 +109,19 @@ func _draw() -> void:
 	var seconds: int = int(ctx.time) % 60
 	_text(Vector2(0, 44), "%02d:%02d" % [minutes, seconds], 30, Color.WHITE, HORIZONTAL_ALIGNMENT_CENTER, w)
 	if ctx.finale and ctx.finale.state >= ArenaFinale.State.CLEARING:
-		var key: String = "FINALE_CLEAR"
+		var text: String = tr("FINALE_CLEAR")
 		if ctx.finale.state == ArenaFinale.State.TRAVEL:
-			key = "FINALE_TRAVEL"
-		elif ctx.finale.state >= ArenaFinale.State.OPENING:
-			key = "FINALE_OPENING" if ctx.finale.state == ArenaFinale.State.OPENING else "FINALE_FIGHT"
-		_text(Vector2(0, 66), tr(key), 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
+			text = tr(ctx.arena.finale_travel_key)
+		elif ctx.finale.state == ArenaFinale.State.OPENING:
+			text = tr("FINALE_OPENING")
+		elif ctx.finale.state > ArenaFinale.State.OPENING:
+			text = tr("FINALE_FIGHT") % tr(GameDB.boss(ctx.arena.boss_id).name_key)
+		_text(Vector2(0, 66), text, 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 	elif ctx.zones:
 		_draw_zone_status(w, h)
+	elif ctx.rifts:
+		_text(Vector2(0, 66), tr("RIFTS_PROGRESS") % [ctx.rifts.closed, ctx.rifts.total()], 14, UiKit.GOLD,
+			HORIZONTAL_ALIGNMENT_CENTER, w)
 	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
 		var boss_name: String = tr(GameDB.boss(ctx.arena.boss_id).name_key)

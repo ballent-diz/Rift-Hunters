@@ -12,7 +12,8 @@ func _init(p_ctx: RunContext) -> void:
 
 
 func step(delta: float) -> void:
-	if not ctx.arena.zones.is_empty() or ctx.arena.finale_radii.x > 0 and ctx.time >= ctx.arena.boss_time:
+	if not ctx.arena.zones.is_empty() or not ctx.arena.rift_points.is_empty() \
+			or ctx.arena.has_finale() and ctx.time >= ctx.arena.boss_time:
 		_active.clear()
 		return
 	for i: int in ctx.arena.events.size():

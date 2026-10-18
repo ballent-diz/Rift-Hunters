@@ -70,10 +70,10 @@ func _draw_wall(rect: Rect2, strength: float) -> void:
 
 ## Chevrons autour du Chasseur dans la direction de la route à suivre.
 func _draw_route() -> void:
-	if ctx.zones == null or ctx.player == null:
+	if ctx.player == null or (ctx.zones == null and ctx.rifts == null):
 		return
 	var pos: Vector2 = ctx.player.global_position
-	var dir: Vector2 = ctx.zones.objective_direction(pos)
+	var dir: Vector2 = ctx.zones.objective_direction(pos) if ctx.zones else ctx.rifts.objective_direction(pos)
 	if dir == Vector2.ZERO:
 		return
 	var bob: float = 6.0 * sin(_time * 5.0)

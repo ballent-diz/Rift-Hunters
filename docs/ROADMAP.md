@@ -53,7 +53,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
 | A1 | Système de niveau en données : zones, barrières (obstacles dynamiques + carte de flux), points d'apparition par zone, directeur de vagues par zone, interface « Vague 2/3 · 12 restants », flèches, arène qui se referme | Claude | — | Fait (15 oct.) |
-| A2 | Ruines des Cascades configurées (3 + 5 vagues, élites, Nébulorax) et équilibrage XP / durée | Claude | A1 | Fait (15 oct.) — à rééquilibrer après les sorts |
+| A2 | Ruines des Cascades configurées (3 + 5 vagues, élites, Nébulorax) et équilibrage XP / durée | Claude | A1 | Fait (15 oct.) — à rééquilibrer après les sorts. 18 oct. : collisions peintes par le propriétaire, arène murée (barrières d'entrée à l'arrivée, sans cercle d'énergie) |
 | A3 | Visuels : mur d'énergie violette des barrières + animation de dissolution, flèche de direction, effet d'ouverture de l'arène | Codex | — (intégration avec A1) | À faire |
 
 ### Étape B — Campagne
@@ -103,7 +103,7 @@ Raccordement C1/C2 et validation en jeu à suivre ; les 24 icônes sont désorma
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
 | D1 | Trophées internes + platine (reliés à Steam plus tard), à partir des 18 objectifs actuels | Claude | B1 | À concevoir |
-| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | À concevoir |
+| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | Fermeture de failles faite (18/10, Hautes Terres) ; visuel des failles : Codex ; autres modes à concevoir |
 | D3 | Le Pacte (≈ 10 malus, score par carte) et prophéties | Claude | B1 | À concevoir |
 | D4 | Mode Cauchemar (règles, boss enragés) | Claude | B1, C2 | À concevoir |
 

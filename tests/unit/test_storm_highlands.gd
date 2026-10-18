@@ -31,7 +31,7 @@ func test_new_bestiaire_spawn_and_boss() -> void:
 	run.start(setup)
 	host.add_child(run)
 	run.set_physics_process(false)
-	check(run.ctx.finale == null,"aucune arène fermée sur cette carte")
+	check(run.ctx.finale != null and run.ctx.finale.walled(),"place centrale murée (mode failles : test_rift_mode)")
 	for id: StringName in [&"heath_runner",&"slate_scarab",&"silver_harpy",&"ash_newt"]:
 		var enemy: Enemy = run.ctx.enemies.spawn(GameDB.enemy(id),run.ctx.player.position+Vector2(120,0))
 		check(enemy != null and enemy.visual != null,"ennemi animé " + String(id))
@@ -40,5 +40,6 @@ func test_new_bestiaire_spawn_and_boss() -> void:
 		check(elite != null and elite.is_elite,"élite distinct " + String(id))
 	run.ctx.time=run.ctx.arena.boss_time
 	run.spawner.step(.1)
-	check(run.ctx.boss != null and run.ctx.boss.boss_data.id == &"astravorn","boss propre à la zone")
+	check(run.ctx.boss == null,"pas de boss chronométré : il attend la fermeture des failles")
+	check_eq(run.ctx.arena.boss_id,&"astravorn","boss propre à la zone")
 	RunFixture.dispose(run)

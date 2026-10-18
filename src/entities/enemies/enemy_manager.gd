@@ -61,7 +61,7 @@ func _nearest_within(pos: Vector2, max_range: float, exclude: Dictionary) -> Ene
 	grid.query(pos, max_range, _buffer)
 	for item: Variant in _buffer:
 		var enemy: Enemy = item
-		if not enemy.alive or enemy.is_obstacle or exclude.has(enemy.get_instance_id()):
+		if not enemy.alive or not enemy.is_target() or exclude.has(enemy.get_instance_id()):
 			continue
 		var d: float = enemy.position.distance_squared_to(pos)
 		if d < best_d:

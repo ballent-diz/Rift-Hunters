@@ -25,10 +25,11 @@ func test_routes_connect_all_three_maps_with_enemy_clearance() -> void:
 	var flow := FlowField.new()
 	flow.setup(field, ground.arena_rect(), arena.navigation_cell_size)
 	flow.update(ground.player_start())
-	for pixel: Vector2 in [Vector2(1280, 110), Vector2(1900, 332), Vector2(2600, 690), Vector2(3420, 700)]:
-		var point: Vector2 = pixel * (4.0 / 3.0) - arena.size * 0.5
-		check(field.distance(point) >= 12, "point de passage praticable %s" % pixel)
-		check(flow.cost_at(point) < FlowField.UNREACHED, "route continue jusqu’à %s" % pixel)
+	# Zones 1 et 2, pont, entrées et centre de l'arène (collisions peintes par le propriétaire, 18 oct.).
+	for point: Vector2 in [Vector2(-1648, -136), Vector2(154, -144), Vector2(1030, 16), Vector2(1332, 16),
+			Vector2(1452, -196), Vector2(1512, 324), Vector2(1960, 31)]:
+		check(field.distance(point) >= 12, "point de passage praticable %s" % point)
+		check(flow.cost_at(point) < FlowField.UNREACHED, "route continue jusqu’à %s" % point)
 	check(field.distance(Vector2(.35, .73) * arena.size - arena.size * 0.5) < 0, "eau infranchissable")
 	check(field.distance(Vector2(3520, 80) * (4.0 / 3.0) - arena.size * 0.5) < 0, "vide hors plateforme infranchissable")
 	ground.free()
@@ -63,13 +64,12 @@ func test_open_plazas_allow_turning_without_small_rock_collisions() -> void:
 	var ground := ArenaGround.new()
 	ground.setup(arena, 7)
 	var field: ObstacleField = ground.obstacle_field()
-	for uv: Vector2 in [Vector2(.15, .52), Vector2(.44, .56), Vector2(.615, .56)]:
-		var center: Vector2 = uv * arena.size - arena.size * .5
+	for center: Vector2 in [Vector2(-1868, 84), Vector2(-1648, -136), Vector2(-108, 124), Vector2(154, -144)]:
 		for i: int in 24:
 			var point: Vector2 = center + Vector2.RIGHT.rotated(i * TAU / 24) * 60
-			check(not field.blocks(point, 12), "tourner dans la place %s" % uv)
+			check(not field.blocks(point, 12), "tourner dans la place %s" % center)
 	for i: int in 40:
-		var point := Vector2(lerpf(.655, .745, i / 39.0), .55) * arena.size - arena.size * .5
+		var point := Vector2(lerpf(860, 1260, i / 39.0), 16)
 		check(not field.blocks(point, 12), "tablier du pont sans collision de détail")
 	ground.free()
 

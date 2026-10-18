@@ -15,20 +15,23 @@ Carte finale du chapitre 1 de la campagne (voir [CAMPAGNE.md](CAMPAGNE.md)).
 
 | Zone | Contenu | Barrières de sortie |
 |---|---|---|
-| Zone 1 (gauche) | 3 vagues de Corrompus standards | Route du haut et sortie du bas vers la zone 2 (le pont central est cassé, infranchissable) |
-| Zone 2 (milieu) | 5 vagues, **élites dès la 1re vague**, difficulté croissante | Entrée du pont de droite et les deux escaliers de l'arène |
-| Arène (droite) | Nébulorax en 1v1 (+ Échos du joueur et invocations du boss) | Une barrière se referme derrière le joueur à l'entrée |
+| Zone 1 (gauche) | 3 vagues de Corrompus standards | Route du haut vers la zone 2 (le pont central est cassé, infranchissable) |
+| Zone 2 (milieu) | 5 vagues, **élites dès la 1re vague**, difficulté croissante | Passage du haut, entrée du pont et passage du bas, vers l'arène |
+| Arène (droite) | Nébulorax en 1v1 (+ Échos du joueur et invocations du boss) | Ses trois entrées (escalier nord, bout du pont, escalier sud) se ferment dès que le Chasseur est dans l'arène ; pas de cercle d'énergie : les collisions de l'arène et ces barrières délimitent le combat |
 
-Départ : en haut à gauche, devant le bâtiment. Barrières (coordonnées du monde, `data/arenas/three_rifts.tres`),
-placées d'après les rectangles rouges du propriétaire puis vérifiées par connexité sur la carte des collisions :
+Départ : en haut à gauche, devant le bâtiment. Collisions et barrières redessinées par le propriétaire le 18 octobre
+2026 (image peinte : `assets/concepts/incoming/map.three_rifts/collision/painted.webp` ; trait noir = sortie de la
+zone 1, traits bleus = sorties de la zone 2, traits rouge foncé = entrées de l'arène). Chaque trait devient un ou
+plusieurs rectangles (coordonnées du monde, `data/arenas/three_rifts.tres`) ; l'étanchéité est vérifiée par
+connexité (tests `test_arena_finale.gd`, `test_map_passages.gd`) :
 
-| Barrière | Rectangle (x, y, largeur, hauteur) | Rôle |
+| Barrière | Rectangles | Rôle |
 |---|---|---|
-| Route du haut | (-840, -836, 120, 276) | Zone 1 → zone 2 |
-| Sortie du bas | (-1134, 690, 344, 146) | Bord de carte (ferme la route qui sort de l'image) |
-| Escalier nord de l'arène | (1337, -447, 138, 356) | Zone 2 → arène |
-| Entrée du pont | (777, -41, 88, 218) | Zone 2 → arène |
-| Passage sud de l'arène | (1225, 360, 120, 95) | Zone 2 → arène (déplacé à l'endroit le plus étroit du passage réel) |
+| Route du haut | (-816, -828, 84, 220) | Zone 1 → zone 2 |
+| Passage du haut | (716, -676, 84, 248) | Zone 2 → arène |
+| Entrée du pont | (798, -80, 56, 196) | Zone 2 → arène |
+| Passage du bas | (852, 332, 56, 336) | Zone 2 → arène |
+| Entrées de l'arène (`finale_walls`) | 11 rectangles en escalier le long des trois traits | Se ferment à l'arrivée du Chasseur |
 
 Vagues réglées (`three_rifts.tres`) : zone 1 = 35, 50 et 65 Corrompus ; zone 2 = 50 à 120 Corrompus et 1 à 3
 élites par vague (Rôdeur, Nuée-mère, Gardien). XP des Corrompus × 1,5 sur cette carte (`xp_mult`).
@@ -49,7 +52,7 @@ Mesure au bot de test (tension 0, avant les sorts et builds) : 2 victoires sur 3
    La carte de flux des ennemis tient compte des barrières et se recalcule quand elles tombent.
 4. **Respiration entre les zones** : quelques secondes de calme quand les barrières tombent, avec une
    récompense (coffre ou soin) ; la zone suivante démarre quand le joueur y entre.
-5. **Arène** : barrière qui se referme derrière le joueur, apparition du boss avec son titre.
+5. **Arène** : ses entrées se ferment dès que le Chasseur y est entré, puis la faille s'ouvre au centre et le boss en sort.
 6. **Équilibrage** : un nombre fini de monstres rapporte moins d'XP qu'une survie au chrono ; l'XP et
    la composition des vagues sont recalibrées pour garder une progression de niveaux satisfaisante.
    Durée visée : ~3 min (zone 1), ~5 min (zone 2), 2-3 min (boss), soit 10-12 min par expédition.
