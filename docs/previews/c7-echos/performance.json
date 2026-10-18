@@ -1,0 +1,155 @@
+{
+	"cinderwing": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.626,
+			"p95_frame_ms": 17.335,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.739,
+			"p95_frame_ms": 17.949,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"glowmoth": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.665,
+			"p95_frame_ms": 16.841,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.688,
+			"p95_frame_ms": 16.998,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"gravishell": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.651,
+			"p95_frame_ms": 17.055,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.68,
+			"p95_frame_ms": 16.99,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"grovestag": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.667,
+			"p95_frame_ms": 16.83,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.666,
+			"p95_frame_ms": 16.905,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"hollowflame": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.673,
+			"p95_frame_ms": 16.852,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.672,
+			"p95_frame_ms": 17.133,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"magmander": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.641,
+			"p95_frame_ms": 17.187,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.663,
+			"p95_frame_ms": 17.07,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"moonspore": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.663,
+			"p95_frame_ms": 17.033,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.696,
+			"p95_frame_ms": 16.9,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"stormshell": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.653,
+			"p95_frame_ms": 17.048,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.671,
+			"p95_frame_ms": 17.08,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	},
+	"sunclaw": {
+		"adaptive_detail": true,
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.661,
+			"p95_frame_ms": 17.009,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.667,
+			"p95_frame_ms": 16.88,
+			"samples": 60
+		},
+		"emitters": 24,
+		"note": "Comparaison locale du rendu ; vraie partie gelée, pas un benchmark de l'IA.",
+		"particle_budget_per_emitter": 4
+	}
+}

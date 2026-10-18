@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/echo_effect.gd" id="1"]
+
+[node name="gravishell_indicator" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"gravishell"
+effect_kind = &"indicator"
+color = Color(0.43529411764705883, 0.5098039215686274, 0.6078431372549019, 1)
+accent = Color(0.8235294117647058, 0.6784313725490196, 0.33725490196078434, 1)
+radius = 88.0
+visual_duration = 1.6
+travel_distance = 240.0
+target_shape = &"area"
