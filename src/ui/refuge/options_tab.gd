@@ -45,6 +45,10 @@ func refresh() -> void:
 			HunterTree.unlock_all_for_testing(profile())
 			refuge.commit(), 420))
 		box.add_child(UiKit.wrapped(tr("OPTIONS_TEST_MODE_HINT"), 13, UiKit.MUTED))
+		box.add_child(UiKit.button(tr("OPTIONS_TEST_ECHOES"), func() -> void:
+			EchoTree.unlock_all_echoes_for_testing(profile())
+			refuge.commit(), 420))
+		box.add_child(UiKit.wrapped(tr("OPTIONS_TEST_ECHOES_HINT"), 13, UiKit.MUTED))
 	box.add_child(UiKit.wrapped(tr("OPTIONS_SAVE_INFO") % [ProjectSettings.globalize_path(Profile.path),
 		SaveMigrations.CURRENT_VERSION], 13, UiKit.MUTED))
 

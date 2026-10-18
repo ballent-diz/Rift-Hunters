@@ -160,3 +160,16 @@ func test_every_new_echo_is_complete() -> void:
 		for n: SkillNodeData in EchoTree.nodes_of(id):
 			check(EchoTreeBoard.node_icon(n) != null, "%s : icône du nœud %s" % [id, n.id])
 		check(not monster.unlocked_by_default, "%s : se débloque en jeu (Rite de lien)" % id)
+
+
+func test_test_mode_unlocks_every_echo() -> void:
+	var profile := ProfileData.new()
+	var locked: int = 0
+	for id: StringName in GameDB.monsters:
+		if not profile.is_monster_unlocked(GameDB.monsters[id]):
+			locked += 1
+	check(locked >= NEW_ECHOES.size(), "les nouveaux Échos sont verrouillés au départ")
+	check_eq(EchoTree.unlock_all_echoes_for_testing(profile), locked, "mode test : tous débloqués")
+	for id: StringName in GameDB.monsters:
+		check(profile.is_monster_unlocked(GameDB.monsters[id]), "%s débloqué" % id)
+		check(profile.is_discovered("monsters", id), "%s au bestiaire" % id)

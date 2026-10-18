@@ -113,3 +113,26 @@ func test_expedition_art_keeps_departure_visible_in_both_languages() -> void:
 				var go: Control = tab.find_child("DepartButton", true, false)
 				check(bounds.encloses(go.get_global_rect()), "départ visible : " + locale)
 	TranslationServer.set_locale(previous_locale)
+
+
+## Outil de développement (jeu lancé depuis Godot) : le bouton des Options débloque tous les Échos.
+func test_options_test_button_unlocks_every_echo() -> void:
+	if not OS.is_debug_build():
+		return
+	var options: RefugeTab = _screen.tabs.get_child(7)
+	options.refresh()
+	var button: Button = null
+	for node: Node in options.find_children("*", "Button", true, false):
+		if (node as Button).text == tr("OPTIONS_TEST_ECHOES"):
+			button = node
+	check(button != null, "bouton « débloquer tous les Échos » présent")
+	if button == null:
+		return
+	button.pressed.emit()
+	for id: StringName in GameDB.monsters:
+		check(Profile.profile.is_monster_unlocked(GameDB.monsters[id]), "%s débloqué depuis les Options" % id)
+	var echoes: RefugeTab = _screen.tabs.get_child(2)
+	echoes.refresh()
+	var list: Array[Node] = echoes.find_children("Echo_sunclaw", "Button", true, false)
+	check(not list.is_empty() and (list[0] as Button).tooltip_text != tr("ECHO_TREE_LOCKED"),
+		"Solgriffe n'est plus verrouillé dans l'onglet Échos")
