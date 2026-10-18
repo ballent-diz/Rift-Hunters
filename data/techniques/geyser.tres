@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="TechniqueData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/technique_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 2
+chance = 1.0
+
+[resource]
+script = ExtResource("2")
+id = &"geyser"
+technique_kind = &"delayed_strike"
+name_key = "TECHNIQUE_GEYSER_NAME"
+desc_key = "TECHNIQUE_GEYSER_DESC"
+cooldown = 10.0
+damage = 34.0
+radius = 90.0
+duration = 0.0
+count = 1
+statuses = Array[ExtResource("1")]([SubResource("status_app_1")])
+params = {
+"delay": 0.5,
+"linger": 2.5,
+"linger_damage": 0.12,
+"impact_at": 0.5
+}

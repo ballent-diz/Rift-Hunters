@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/status_on_pull_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_on_pull_1"]
+script = ExtResource("1")
+status_id = &"burn"
+stacks = 1
+synergy_id = &"stone_flow"
+
+[resource]
+script = ExtResource("2")
+id = &"stone_flow"
+name_key = "SYNERGY_STONE_FLOW_NAME"
+desc_key = "SYNERGY_STONE_FLOW_DESC"
+required_monsters = [&"magmander", &"mossback"]
+color = Color(1.0, 0.5, 0.25, 1.0)
+effects = [SubResource("status_on_pull_1")]

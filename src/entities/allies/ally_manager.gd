@@ -6,10 +6,43 @@ var ctx: RunContext
 var team: Array[Ally] = []
 var focus_point := Vector2.ZERO
 var focus_time: float = 0.0
+## Effets peints des Échos (présentation).
+var vfx := EchoVfx.new()
+## Aperçu de visée d'un sort d'Écho (option « aperçu ») : emplacement maintenu et indicateur affiché.
+var preview_index: int = -1
+var _preview_fx: Node2D
+## Bonus temporaires des sorts (Essaim de lucioles) : [{stat, pct, until}] sur la feuille du Chasseur.
+var _timed_buffs: Array[Dictionary] = []
 
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
+	vfx.setup(ctx, self)
+
+
+## Bonus temporaire d'une statistique du Chasseur (vitesse, cadence des Échos...) ; le même sort ne se cumule pas.
+func add_timed_buff(key: String, stat: StringName, pct: float, duration: float) -> void:
+	for buff: Dictionary in _timed_buffs:
+		if buff["key"] == key and buff["stat"] == stat:
+			buff["until"] = ctx.time + duration
+			return
+	ctx.player.stats.add_modifier(stat, 0.0, pct)
+	_timed_buffs.append({"key": key, "stat": stat, "pct": pct, "until": ctx.time + duration})
+
+
+func timed_buff_active(key: String) -> bool:
+	for buff: Dictionary in _timed_buffs:
+		if buff["key"] == key:
+			return true
+	return false
+
+
+func _expire_buffs() -> void:
+	for i: int in range(_timed_buffs.size() - 1, -1, -1):
+		var buff: Dictionary = _timed_buffs[i]
+		if ctx.time >= float(buff["until"]):
+			ctx.player.stats.remove_modifier(buff["stat"], 0.0, float(buff["pct"]))
+			_timed_buffs.remove_at(i)
 
 
 func team_size() -> int:
@@ -141,6 +174,8 @@ func _synergy_satisfied(synergy: SynergyData, ids: Array[StringName]) -> bool:
 func step(delta: float) -> void:
 	var brain: PlayerBrain = ctx.player.brain
 	focus_time = maxf(focus_time - delta, 0.0)
+	if not _timed_buffs.is_empty():
+		_expire_buffs()
 	if brain.focus_requested():
 		focus_point = brain.aim_point()
 		focus_time = ctx.balance.focus_duration
@@ -150,9 +185,45 @@ func step(delta: float) -> void:
 		var ally: Ally = team[i]
 		ally.technique_cd = maxf(ally.technique_cd - delta, 0.0)
 		ally.behavior.tick(ally, ctx, delta)
-		if ally.technique_cd <= 0.0 and brain.technique_pressed(i):
+		if ally.technique_cd > 0.0:
+			if preview_index == i:
+				_end_preview()
+			continue
+		if not brain.preview_casting():
+			if brain.technique_pressed(i):
+				Techniques.cast(ally, ctx, brain.aim_point())
+		elif brain.technique_held(i) and (preview_index == -1 or preview_index == i):
+			_show_preview(ally, i, brain.aim_point())
+		elif preview_index == i and brain.technique_released(i):
+			_end_preview()
 			Techniques.cast(ally, ctx, brain.aim_point())
 	queue_redraw()
+
+
+## Indicateur de visée (Codex) : zone au curseur, ligne ou cône depuis le Chasseur.
+func _show_preview(ally: Ally, index: int, aim: Vector2) -> void:
+	preview_index = index
+	var tech: TechniqueData = ally.technique
+	var shape: StringName = Techniques.aim_shape(tech)
+	# Bond, piqué et flamme errante partent de l'Écho ; les autres sorts, du Chasseur.
+	var from_echo: bool = tech.technique_kind in [&"cinder_dash", &"bouncing_bolt", &"mirror_shards"]
+	var origin: Vector2 = ally.global_position if from_echo else ctx.player.global_position
+	var pos: Vector2 = Techniques.preview_point(ctx, aim) if shape == &"area" else origin
+	var dir: Vector2 = (aim - origin).normalized() if aim.distance_to(origin) > 4.0 else Vector2.RIGHT
+	if not is_instance_valid(_preview_fx):
+		_preview_fx = vfx.play(ally.data.id, &"indicator", pos, dir, {"radius": tech.radius,
+			"travel_distance": Techniques.aim_length(tech), "target_shape": shape, "loop_visual": true,
+			"visual_duration": 30.0})
+	if is_instance_valid(_preview_fx):
+		_preview_fx.global_position = pos
+		_preview_fx.rotation = dir.angle()
+
+
+func _end_preview() -> void:
+	preview_index = -1
+	if is_instance_valid(_preview_fx) and _preview_fx.has_method("release"):
+		_preview_fx.call("release")
+	_preview_fx = null
 
 
 func _draw() -> void:

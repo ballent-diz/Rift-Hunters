@@ -74,7 +74,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | C4 | Raretés des choix de niveau (commun → héroïque) | Claude | C2 | À faire ; choix de niveau en réserve faits (18/10, sans pause en plein combat, voir design/COMPETENCES_ET_BUILDS.md) |
 | C5 | Effets visuels des sorts, icônes des sorts et des nœuds d'arbre | Codex (+ images du propriétaire) | C1, puis au fil des sorts | En cours (Codex) |
 | C6 | Équipe à 3 Échos max ; 8 affinités (remplacent « arcane » et « contrôle ») avec bonus à 2 et 3 Échos ; « Prédateurs » devient une synergie d'affinité | Claude | — | Fait (17 oct.) : 16 bonus d'affinité, affinités au bestiaire |
-| C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | En cours (Claude) ; effets et icônes C5-bis livrés par Codex, raccordement par Claude |
+| C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | Fait (18 oct.) : 9 Échos, 18 sorts, 4 statuts, 8 duos, effets et icônes de Codex raccordés — [design/ECHOS.md](design/ECHOS.md), à valider |
 | C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Codex (génération autorisée, prompts, import, contrôle) | — | Livré (Codex), PR #25 |
 
 C5, habillage fonctionnel de l’arbre après fusion de la PR #16 : **En cours (Codex)**.

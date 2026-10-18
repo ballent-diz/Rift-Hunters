@@ -47,4 +47,5 @@ demandent au moins un rang de Puissance ou de Concentration.
 - Interface : onglet **Échos** du refuge (`src/ui/refuge/echo_tab.gd`) : liste des Échos, arbre de l'Écho
   (`echo_tree_board.gd` : Puissance et Concentration, choix « ou » entre les deux sorts, Signature) et fiche commune
   avec l'arbre du Chasseur (`skill_card.gd`). Icônes des nœuds : symboles provisoires, à illustrer (Codex).
-- Les 9 nouveaux Échos (lot C7) recevront leur arbre sur le même modèle.
+- Les 9 nouveaux Échos (lot C7) ont leur arbre sur le même modèle : seconds sorts et signatures dans
+  [ECHOS.md](ECHOS.md), section « Réalisation ». Icônes des nœuds : illustrations de Codex.

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/extra_strike_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="2"]
+
+[sub_resource type="Resource" id="extra_strike_1"]
+script = ExtResource("1")
+source_filter = &"mirrorling"
+required_status = &"static"
+damage_ratio = 0.5
+synergy_id = &"total_reflection"
+
+[resource]
+script = ExtResource("2")
+id = &"total_reflection"
+name_key = "SYNERGY_TOTAL_REFLECTION_NAME"
+desc_key = "SYNERGY_TOTAL_REFLECTION_DESC"
+required_monsters = [&"stormshell", &"mirrorling"]
+color = Color(0.75, 0.9, 1.0, 1.0)
+effects = [SubResource("extra_strike_1")]

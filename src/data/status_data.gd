@@ -15,6 +15,8 @@ extends Resource
 @export var speed_mult: float = 1.0
 ## Dégâts par seconde et par cumul (dégâts sur la durée).
 @export var dps_per_stack: float = 0.0
+## Chance qu'un ennemi sous ce statut rate ses attaques (Aveuglement).
+@export_range(0.0, 1.0) var miss_chance: float = 0.0
 ## Peut être détoné (Marques).
 @export var detonatable: bool = false
 ## Les Dévoreurs (boss) y sont insensibles (ex. Racines).

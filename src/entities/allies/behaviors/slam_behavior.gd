@@ -40,7 +40,10 @@ func _slam(ally: Ally, ctx: RunContext) -> void:
 		info.knockback = ally.attack.knockback
 		info.direction = (enemy.global_position - center).normalized()
 		ctx.combat.deal_damage(enemy, info)
-	ctx.fx.burst(center, radius, Color(0.55, 1.0, 0.6, 0.35))
+	var facing: Vector2 = Vector2.LEFT if ally.velocity.x < -1.0 else Vector2.RIGHT
+	if ctx.allies.vfx.play(ally.data.id, &"attack", center, facing,
+			{"radius": radius, "travel_distance": 0.0, "visual_duration": 0.6}) == null:
+		ctx.fx.burst(center, radius, Color(0.55, 1.0, 0.6, 0.35))
 	var taunt_radius: float = float(params.get("taunt_radius", 0.0))
 	if taunt_radius > 0.0:
 		for enemy: Enemy in ctx.enemies.query_radius(center, taunt_radius):

@@ -146,3 +146,14 @@ Rendu local sur Intel Iris Xe / OpenGL Compatibility, 90 Corrompus et 24 effets 
 médianes avec effets **16,66 à 16,74 ms**, p95 **16,88 à 17,95 ms** sur 60 images par cas.
 Simulation gelée : ces mesures ne couvrent pas le coût des règles de combat ni de toute l'IA.
 Les ressources restent proposées à la validation artistique du propriétaire et au raccordement C7.
+
+## Raccordement en jeu (Claude, lot C7)
+
+- `src/entities/allies/echo_vfx.gd` crée une seule couche `effect_layer.gd` pour toute l'équipe et joue les scènes
+  par convention : `attack` (comportements), `<id du sort>` ou `params.vfx` (Singularité → `gravity_well`),
+  `status` (premier statut de l'attaque de l'Écho, au plus toutes les 0,35 s ; flaques de Scoriade et soins de
+  Sylvécaille joués par leur règle) et `indicator` (option « aperçu » : touche maintenue).
+- Rayons, durées et trajets passés aux scènes = valeurs réelles des données. Un effet refusé par le plafond ne
+  change rien au jeu ; les projectiles réels restent, plus discrets sous la peinture.
+- Correctif : `echo_effect.gd` ignore les polygones de surface nulle (début de croissance des flaques), qui
+  faisaient échouer la triangulation de Godot (« Invalid polygon data »).

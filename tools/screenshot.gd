@@ -94,6 +94,12 @@ func _ready() -> void:
 				screen.tabs.current_tab = clampi(tab, 0, screen.tabs.get_tab_count() - 1)
 				if selection != "" and tab == 3:
 					(screen.tabs.get_child(3) as RefugeTab)._show(selection)
+				if selection.begins_with("echo:") and tab == 2:
+					# Onglet Échos : l'Écho et le nœud affichés (ex. echo:sunclaw:sunclaw_spell_alt).
+					var echoes: RefugeTab = screen.tabs.get_child(2)
+					echoes.set("_monster", StringName(selection.get_slice(":", 1)))
+					echoes.set("_selected", StringName(selection.get_slice(":", 2)))
+					echoes.refresh()
 			elif menu == "credits":
 				screen._show_credits()
 		await get_tree().create_timer(0.5).timeout

@@ -1,0 +1,244 @@
+[gd_resource type="Resource" script_class="MonsterData" load_steps=37 format=3]
+
+[ext_resource type="Script" path="res://src/data/status_application.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/combat/effects/spread_status_on_kill_effect.gd" id="3"]
+[ext_resource type="Resource" path="res://data/techniques/spore_cloud.tres" id="4"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="5"]
+[ext_resource type="Script" path="res://src/data/evolution_data.gd" id="6"]
+[ext_resource type="Script" path="res://src/data/mastery_challenge_data.gd" id="7"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="8"]
+[ext_resource type="Script" path="res://src/data/mastery_reward_data.gd" id="9"]
+[ext_resource type="Script" path="res://src/data/mastery_data.gd" id="10"]
+[ext_resource type="Script" path="res://src/data/monster_data.gd" id="11"]
+
+[sub_resource type="Resource" id="status_app_1"]
+script = ExtResource("1")
+status_id = &"poison"
+stacks = 2
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_2"]
+script = ExtResource("2")
+name_key = "ATTACK_MOONSPORE"
+damage = 6.0
+cooldown = 1.4
+attack_range = 340.0
+projectile_speed = 300.0
+homing = 3.0
+statuses = [SubResource("status_app_1")]
+
+[sub_resource type="Resource" id="spread_on_kill_3"]
+script = ExtResource("3")
+source_filter = &"any"
+required_status = &"poison"
+radius = 110.0
+
+[sub_resource type="Resource" id="status_app_4"]
+script = ExtResource("1")
+status_id = &"poison"
+stacks = 2
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_5"]
+script = ExtResource("2")
+name_key = "ATTACK_MOONSPORE"
+damage = 8.0
+cooldown = 1.3
+attack_range = 360.0
+projectile_speed = 320.0
+split = 2
+homing = 3.0
+statuses = [SubResource("status_app_4")]
+
+[sub_resource type="Resource" id="visual_6"]
+script = ExtResource("5")
+visual_id = &"monster.moonspore.moonmold"
+shape = 13
+size = 38.0
+primary = Color(0.4, 0.95, 0.85, 1.0)
+secondary = Color(0.6, 0.5, 0.85, 1.0)
+accent = Color(0.9, 1.0, 1.0, 1.0)
+
+[sub_resource type="Resource" id="evolution_7"]
+script = ExtResource("6")
+id = &"moonmold"
+name_key = "EVOLUTION_MOONMOLD_NAME"
+desc_key = "EVOLUTION_MOONMOLD_DESC"
+required_rank = 3
+attack = SubResource("attack_5")
+visual = SubResource("visual_6")
+
+[sub_resource type="Resource" id="status_app_8"]
+script = ExtResource("1")
+status_id = &"poison"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_9"]
+script = ExtResource("2")
+name_key = "ATTACK_MOONSPORE"
+damage = 5.0
+cooldown = 1.4
+attack_range = 340.0
+projectile_speed = 300.0
+projectile_count = 3
+homing = 3.0
+statuses = [SubResource("status_app_8")]
+
+[sub_resource type="Resource" id="visual_10"]
+script = ExtResource("5")
+visual_id = &"monster.moonspore.sporecrown"
+shape = 13
+size = 38.0
+primary = Color(0.55, 0.9, 0.6, 1.0)
+secondary = Color(0.95, 0.85, 0.6, 1.0)
+accent = Color(1.0, 1.0, 0.9, 1.0)
+
+[sub_resource type="Resource" id="evolution_11"]
+script = ExtResource("6")
+id = &"sporecrown"
+name_key = "EVOLUTION_SPORECROWN_NAME"
+desc_key = "EVOLUTION_SPORECROWN_DESC"
+required_rank = 3
+attack = SubResource("attack_9")
+visual = SubResource("visual_10")
+
+[sub_resource type="Resource" id="status_app_12"]
+script = ExtResource("1")
+status_id = &"poison"
+stacks = 1
+chance = 1.0
+
+[sub_resource type="Resource" id="attack_13"]
+script = ExtResource("2")
+name_key = "ATTACK_MOONSPORE"
+damage = 4.0
+cooldown = 0.9
+attack_range = 320.0
+projectile_speed = 340.0
+homing = 3.0
+statuses = [SubResource("status_app_12")]
+
+[sub_resource type="Resource" id="evolution_14"]
+script = ExtResource("6")
+id = &"mist"
+name_key = "VARIANT_MIST_NAME"
+desc_key = "VARIANT_MIST_DESC"
+required_rank = 1
+attack = SubResource("attack_13")
+
+[sub_resource type="Resource" id="challenge_15"]
+script = ExtResource("7")
+id = &"moonspore_toxin"
+desc_key = "MASTERY_MOONSPORE_TOXIN"
+stat_key = &"moonspore_applied_poison"
+threshold = 2500.0
+lifetime = true
+requires_victory = false
+xp = 50
+
+[sub_resource type="Resource" id="challenge_16"]
+script = ExtResource("7")
+id = &"moonspore_bloom"
+desc_key = "MASTERY_MOONSPORE_BLOOM"
+stat_key = &"moonspore_techniques"
+threshold = 10.0
+lifetime = false
+requires_victory = false
+xp = 40
+
+[sub_resource type="Resource" id="challenge_17"]
+script = ExtResource("7")
+id = &"moonspore_evolved_victory"
+desc_key = "MASTERY_MOONSPORE_EVOLVED_VICTORY"
+stat_key = &"moonspore_evolved"
+threshold = 1.0
+lifetime = false
+requires_victory = true
+xp = 60
+
+[sub_resource type="Resource" id="stat_mod_18"]
+script = ExtResource("8")
+target = 1
+stat = &"damage"
+flat = 0.0
+pct = 0.1
+
+[sub_resource type="Resource" id="reward_19"]
+script = ExtResource("9")
+level = 1
+kind = 0
+name_key = "MASTERY_REWARD_BONUS_NAME"
+desc_key = "MASTERY_REWARD_BONUS_DESC"
+effects = [SubResource("stat_mod_18")]
+
+[sub_resource type="Resource" id="reward_20"]
+script = ExtResource("9")
+level = 2
+kind = 1
+name_key = "MASTERY_REWARD_PALETTE_NAME"
+desc_key = "MASTERY_REWARD_PALETTE_DESC"
+palette_primary = Color(0.75, 0.55, 1.0, 1.0)
+palette_secondary = Color(0.95, 0.9, 0.75, 1.0)
+
+[sub_resource type="Resource" id="reward_21"]
+script = ExtResource("9")
+level = 3
+kind = 2
+name_key = "MASTERY_REWARD_VARIANT_NAME"
+desc_key = "MASTERY_REWARD_VARIANT_DESC"
+
+[sub_resource type="Resource" id="reward_22"]
+script = ExtResource("9")
+level = 4
+kind = 3
+name_key = "MASTERY_REWARD_START_RANK_NAME"
+desc_key = "MASTERY_REWARD_START_RANK_DESC"
+start_rank = 2
+
+[sub_resource type="Resource" id="reward_23"]
+script = ExtResource("9")
+level = 5
+kind = 4
+name_key = "MASTERY_REWARD_TITLE_NAME"
+desc_key = "MASTERY_REWARD_TITLE_DESC"
+
+[sub_resource type="Resource" id="mastery_24"]
+script = ExtResource("10")
+level_thresholds = [20, 60, 120, 200, 300]
+challenges = [SubResource("challenge_15"), SubResource("challenge_16"), SubResource("challenge_17")]
+rewards = [SubResource("reward_19"), SubResource("reward_20"), SubResource("reward_21"), SubResource("reward_22"), SubResource("reward_23")]
+
+[sub_resource type="Resource" id="visual_25"]
+script = ExtResource("5")
+visual_id = &"monster.moonspore"
+shape = 13
+size = 38.0
+primary = Color(0.3, 0.85, 0.78, 1.0)
+secondary = Color(0.9, 0.84, 0.68, 1.0)
+accent = Color(0.85, 1.0, 0.95, 1.0)
+
+[resource]
+script = ExtResource("11")
+id = &"moonspore"
+name_key = "MONSTER_MOONSPORE_NAME"
+desc_key = "MONSTER_MOONSPORE_DESC"
+lore_key = "MONSTER_MOONSPORE_LORE"
+role = 3
+affinities = [&"void", &"nature"]
+rarity = 2
+max_hp = 90.0
+defense = 0.0
+move_speed = 180.0
+behavior_id = &"orb"
+attack = SubResource("attack_2")
+passive_name_key = "PASSIVE_MOONSPORE_NAME"
+passive_desc_key = "PASSIVE_MOONSPORE_DESC"
+passive_effects = [SubResource("spread_on_kill_3")]
+technique = ExtResource("4")
+evolutions = [SubResource("evolution_7"), SubResource("evolution_11")]
+variant = SubResource("evolution_14")
+mastery = SubResource("mastery_24")
+unlocked_by_default = false
+visual = SubResource("visual_25")

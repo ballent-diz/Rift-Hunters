@@ -58,6 +58,13 @@ func add_zone(pos: Vector2, radius: float, duration: float, damage: float, sourc
 		"damage": damage, "source": source_id, "statuses": statuses, "tick": 0.0, "color": color, "life": duration})
 
 
+## Zone alliée qui soigne aussi le Chasseur (heal PV par demi-seconde) tant qu'il s'y trouve (Bosquet).
+func add_heal_zone(pos: Vector2, radius: float, duration: float, heal: float, damage: float, source_id: StringName,
+		statuses: Array[StatusApplication] = [], color: Color = Color(0.55, 0.9, 0.45)) -> void:
+	add_zone(pos, radius, duration, damage, source_id, statuses, color)
+	hazards[-1]["heal"] = heal
+
+
 ## Vecteur d'évitement des zones hostiles (utilisé par le bot de test).
 func danger_vector(pos: Vector2) -> Vector2:
 	var result := Vector2.ZERO
@@ -202,6 +209,11 @@ func _step_zone(h: Dictionary, delta: float) -> bool:
 		h["tick"] = 0.5
 		for enemy: Enemy in ctx.enemies.query_radius(h["pos"], float(h["radius"])):
 			_hit_enemy(enemy, h)
+		var heal: float = float(h.get("heal", 0.0))
+		if heal > 0.0 and ctx.player.global_position.distance_to(h["pos"]) <= float(h["radius"]):
+			var before: float = ctx.player.hp
+			ctx.player.heal(heal, false)
+			ctx.stats.add(StringName(String(h["source"]) + "_healed"), ctx.player.hp - before)
 	h["duration"] = float(h["duration"]) - delta
 	return float(h["duration"]) > 0.0
 

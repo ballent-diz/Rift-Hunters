@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="SkillNodeData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/damage_bonus_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/skill_node_data.gd" id="2"]
+
+[sub_resource type="Resource" id="damage_bonus_1"]
+script = ExtResource("1")
+source_filter = &"any"
+target_status = &"hollow"
+bonus_pct = 0.12
+
+[resource]
+script = ExtResource("2")
+id = &"hollowflame_signature"
+branch = &"hollowflame"
+tier = 2
+kind = 1
+name_key = "ECHO_NODE_HOLLOWFLAME_SIGNATURE_NAME"
+desc_key = "ECHO_NODE_HOLLOWFLAME_SIGNATURE_DESC"
+costs = Array[int]([300])
+point_cost = 3
+prerequisites = Array[StringName]([&"hollowflame_might", &"hollowflame_focus"])
+prerequisites_any = true
+exclusive_group = &""
+spell_id = &""
+learned_by_default = false
+effects = [SubResource("damage_bonus_1")]

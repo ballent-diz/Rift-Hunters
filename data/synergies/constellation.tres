@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SynergyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/combat/effects/status_chain_effect.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/synergy_data.gd" id="2"]
+
+[sub_resource type="Resource" id="status_chain_1"]
+script = ExtResource("1")
+trigger_status = &"reveal"
+source_filter = &"any"
+applied_status = &"mark"
+stacks = 1
+synergy_id = &"constellation"
+
+[resource]
+script = ExtResource("2")
+id = &"constellation"
+name_key = "SYNERGY_CONSTELLATION_NAME"
+desc_key = "SYNERGY_CONSTELLATION_DESC"
+required_monsters = [&"glowmoth", &"glimmerwing"]
+color = Color(0.8, 1.0, 0.7, 1.0)
+effects = [SubResource("status_chain_1")]
