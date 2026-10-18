@@ -27,7 +27,7 @@ func current_wave() -> WavePhaseData:
 func step(delta: float) -> void:
 	if not ctx.arena.zones.is_empty():
 		return  # mode « vagues par zone » : ZoneDirector fait apparaître les vagues
-	if ctx.arena.finale_radii.x > 0 and ctx.time >= ctx.arena.boss_time:
+	if ctx.arena.has_finale() and ctx.time >= ctx.arena.boss_time:
 		return
 	var wave: WavePhaseData = current_wave()
 	if wave == null:

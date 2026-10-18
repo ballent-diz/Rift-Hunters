@@ -1,47 +1,71 @@
 extends TestCase
-## Régressions observées en jeu : escaliers et place de basalte, avec gabarit d'une élite.
-func test_visible_stairs_and_basalt_are_reachable() -> void:
-	_check_routes(&"storm_highlands", [
-		[Vector2(.403,.737),Vector2(.407,.755),Vector2(.415,.785),Vector2(.45,.8)],
-		[Vector2(.567,.725),Vector2(.563,.747),Vector2(.56,.77),Vector2(.55,.796)],
-		[Vector2(.376,.865),Vector2(.382,.846),Vector2(.386,.827),Vector2(.428,.809)],
-		[Vector2(.81,.493),Vector2(.851,.465),Vector2(.888,.437)],
-		[Vector2(.18,.575),Vector2(.20,.54),Vector2(.28,.505)],
-		[Vector2(.22,.70),Vector2(.28,.743),Vector2(.35,.74)],
-	])
-	_check_routes(&"three_rifts", [
-		[Vector2(.046,.101),Vector2(.052,.137),Vector2(.062,.177),Vector2(.08,.215)],
-		[Vector2(.781,.325),Vector2(.795,.38),Vector2(.812,.425),Vector2(.84,.48)],
-		[Vector2(.77,.76),Vector2(.792,.723),Vector2(.805,.68),Vector2(.819,.64),Vector2(.848,.595)],
-	])
+## Passages des cartes dessinées (collisions peintes à la main par le propriétaire, docs/maps/DE_L_IMAGE_AU_NIVEAU.md) :
+## chaque lieu clé est atteignable depuis le départ avec le gabarit d'une élite, et les obstacles peints le restent.
 
-func _check_routes(id: StringName, routes: Array) -> void:
+const ELITE_RADIUS := 24.0
+const STEP := 16.0
+
+
+## Parcours en largeur sur une grille de STEP unités, avec la marge `radius` aux obstacles.
+static func reachable(field: ObstacleField, rect: Rect2, from: Vector2, targets: Array[Vector2], radius: float) -> Array[bool]:
+	var size := Vector2i(ceili(rect.size.x / STEP), ceili(rect.size.y / STEP))
+	var seen := PackedByteArray()
+	seen.resize(size.x * size.y)
+	var cell := func(p: Vector2) -> Vector2i: return Vector2i(((p - rect.position) / STEP).floor())
+	var start: Vector2i = cell.call(from)
+	var queue: Array[Vector2i] = [start]
+	seen[start.y * size.x + start.x] = 1
+	var head: int = 0
+	while head < queue.size():
+		var c: Vector2i = queue[head]
+		head += 1
+		for n: Vector2i in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+			var next: Vector2i = c + n
+			if next.x < 0 or next.y < 0 or next.x >= size.x or next.y >= size.y or seen[next.y * size.x + next.x]:
+				continue
+			if field.blocks(rect.position + (Vector2(next) + Vector2(0.5, 0.5)) * STEP, radius):
+				continue
+			seen[next.y * size.x + next.x] = 1
+			queue.append(next)
+	var result: Array[bool] = []
+	for target: Vector2 in targets:
+		var t: Vector2i = cell.call(target)
+		result.append(seen[t.y * size.x + t.x] == 1)
+	return result
+
+
+func _check(id: StringName, places: Dictionary) -> void:
 	var arena: ArenaData = GameDB.arena(id)
 	var ground := ArenaGround.new()
-	ground.setup(arena,7)
+	ground.setup(arena, 7)
 	var field: ObstacleField = ground.obstacle_field()
-	var flow := FlowField.new()
-	flow.setup(field,ground.arena_rect(),arena.navigation_cell_size)
-	flow.update(ground.player_start())
-	for route: Array in routes:
-		for segment: int in route.size()-1:
-			var a: Vector2 = route[segment]*arena.size-arena.size*.5
-			var b: Vector2 = route[segment+1]*arena.size-arena.size*.5
-			for index: int in 40:
-				var point: Vector2 = a.lerp(b,index/39.0)
-				check(field.push_out(point,24).distance_to(point)<.1,"passage libre " + String(id) + " " + str(route))
-				var cell: Vector2i = flow._nearest_walkable(flow.cell_of(point))
-				check(flow.cost_at(flow.cell_center(cell))<FlowField.UNREACHED,"passage relié au départ " + String(id) + " " + str(route))
+	var targets: Array[Vector2] = []
+	targets.assign(places.values())
+	var ok: Array[bool] = reachable(field, ground.arena_rect(), ground.player_start(), targets, ELITE_RADIUS)
+	var names: Array = places.keys()
+	for i: int in ok.size():
+		check(ok[i], "%s : %s atteignable par une élite" % [id, names[i]])
 	ground.free()
 
-func test_basalt_has_turning_room_and_lava_stays_blocked() -> void:
-	var arena: ArenaData = GameDB.arena(&"storm_highlands")
+
+func test_storm_highlands_landmarks_are_reachable() -> void:
+	_check(&"storm_highlands", {"place centrale": Vector2(-11, -323), "cour du bas": Vector2(167, 1505),
+		"sanctuaire": Vector2(1710, -225), "champ de basalte": Vector2(-1605, 752), "menhirs": Vector2(-11, -1928)})
+
+
+func test_three_rifts_landmarks_are_reachable() -> void:
+	_check(&"three_rifts", {"zone 1": Vector2(-1648, -136), "zone 2": Vector2(154, -144), "arène": Vector2(1960, 31),
+		"pont": Vector2(1030, 16), "escalier nord de l'arène": Vector2(1452, -196),
+		"bout du pont": Vector2(1332, 16), "escalier sud de l'arène": Vector2(1512, 324)})
+
+
+func test_painted_obstacles_stay_blocked() -> void:
+	var storm: ArenaData = GameDB.arena(&"storm_highlands")
 	var ground := ArenaGround.new()
-	ground.setup(arena,7)
-	var field: ObstacleField = ground.obstacle_field()
-	var center: Vector2 = Vector2(.18,.65)*arena.size-arena.size*.5
+	ground.setup(storm, 7)
+	check(ground.obstacle_field().blocks(Vector2(.035, .67) * storm.size - storm.size * .5, 14), "lave périphérique infranchissable")
+	var center: Vector2 = Vector2(.18, .65) * storm.size - storm.size * .5
 	for index: int in 40:
-		var point: Vector2 = center+Vector2.from_angle(TAU*index/40)*160
-		check(not field.blocks(point,24),"tourner sur le basalte avec une élite")
-	check(field.blocks(Vector2(.035,.67)*arena.size-arena.size*.5,14),"lave périphérique infranchissable")
+		var point: Vector2 = center + Vector2.from_angle(TAU * index / 40) * 160
+		check(not ground.obstacle_field().blocks(point, ELITE_RADIUS), "tourner sur le basalte avec une élite")
 	ground.free()

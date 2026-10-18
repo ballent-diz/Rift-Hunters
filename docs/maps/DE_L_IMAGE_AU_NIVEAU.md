@@ -59,6 +59,26 @@ Conseils :
 - Pas de taches blanches isolées dans le noir (le contrôle les signale en magenta) : un ennemi pourrait y apparaître.
 - Pour un pont cassé : noir sur toute la largeur du vide.
 
+## 3 bis. Méthode rapide : peindre en rouge sur la carte (18 octobre 2026)
+
+Sans calque ni noir et blanc : prendre la carte elle-même (capture ou image du jeu, **n'importe quelle taille**, même
+cadrage), peindre en **rouge translucide** tout ce qui est bloqué, puis :
+
+```
+python tools/art/collision_mask.py overlay <arène> <image peinte>
+python tools/art/collision_mask.py build <arène>
+```
+
+- Le rouge peut être plus ou moins opaque : l'outil compare l'image peinte à la carte d'origine (il reconnaît aussi
+  la peinture sur la lave ou le feuillage rouge).
+- **L'eau de la carte est toujours bloquée**, et le **bord de la carte** aussi, même non peints.
+- Seule la grande région praticable est gardée : un îlot non relié devient bloqué.
+- On peut **annoter sur la même image** : traits **noirs**, **bleus** ou **rouge foncé** (barrières, numéros de
+  zone). Ils sont ignorés pour les collisions (le passage sous un trait reste praticable). Ils servent à indiquer à
+  Claude où placer les barrières. Convention des Ruines des Cascades : noir = sortie de la zone 1, bleu = sorties de
+  la zone 2, rouge foncé = entrées de l'arène qui se ferment au combat final.
+- Garder l'image peinte dans `assets/concepts/incoming/map.<arène>/collision/painted.webp` (source des collisions).
+
 ## 4. Construire les collisions
 
 ```

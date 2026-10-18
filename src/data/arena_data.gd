@@ -15,6 +15,9 @@ extends Resource
 @export var finale_center := Vector2.ZERO
 @export var finale_radii := Vector2.ZERO
 @export var finale_opening_duration: float = 3.0
+## Finale murée : barrières qui apparaissent quand le Chasseur entre dans l'arène (ses collisions et ces barrières
+## délimitent le combat ; aucun cercle d'énergie). Vide : finale en cercle (finale_radii).
+@export var finale_walls: Array[Rect2] = []
 @export var waves: Array[WavePhaseData] = []
 ## Mode « vagues par zone » (si non vide) : zones à nettoyer dans l'ordre, puis la finale (boss).
 ## Les vagues au chrono, les événements et le boss chronométré sont alors désactivés.
@@ -39,3 +42,8 @@ extends Resource
 ## Règles propres à l'arène (effets installés au début de la partie).
 @export var rule_effects: Array[GameplayEffect] = []
 @export var rule_key: String = ""
+
+
+## L'arène se termine par une finale (cercle ou arène murée) plutôt que par un boss chronométré classique.
+func has_finale() -> bool:
+	return finale_radii.x > 0 or not finale_walls.is_empty()

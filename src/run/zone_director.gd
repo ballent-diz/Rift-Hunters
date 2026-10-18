@@ -56,7 +56,7 @@ func _init(p_ctx: RunContext) -> void:
 	var seeds: Array[Vector2] = []
 	for zone: LevelZoneData in ctx.arena.zones:
 		seeds.append(zone.anchor)
-	if ctx.arena.finale_radii.x > 0:
+	if ctx.arena.has_finale():
 		seeds.append(ctx.arena.finale_center)
 	labels = ctx.flow.label_regions(seeds)
 	for i: int in ctx.arena.zones.size():

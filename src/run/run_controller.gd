@@ -66,7 +66,7 @@ func start(setup: RunSetup) -> void:
 		ctx.allies.add_monster(setup.starter_id, setup.starter_rank, setup.starter_variant)
 	spawner = SpawnDirector.new(ctx)
 	ctx.spawner = spawner
-	if ctx.arena.finale_radii.x > 0:
+	if ctx.arena.has_finale():
 		ctx.finale = ArenaFinale.new()
 		ctx.finale.setup(ctx)
 		ctx.world.add_child(ctx.finale)
