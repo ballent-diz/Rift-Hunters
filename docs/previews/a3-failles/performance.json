@@ -1,0 +1,30 @@
+{
+	"cascade_walls": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.706,
+			"p95_frame_ms": 17.475,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.761,
+			"p95_frame_ms": 17.318,
+			"samples": 60
+		},
+		"note": "Coût local du rendu ; simulation gelée pour garder 90 Corrompus identiques."
+	},
+	"storm_rifts": {
+		"corrupted": 90,
+		"effects_off": {
+			"median_frame_ms": 16.596,
+			"p95_frame_ms": 17.481,
+			"samples": 60
+		},
+		"effects_on": {
+			"median_frame_ms": 16.79,
+			"p95_frame_ms": 17.363,
+			"samples": 60
+		},
+		"note": "Coût local du rendu ; simulation gelée pour garder 90 Corrompus identiques."
+	}
+}

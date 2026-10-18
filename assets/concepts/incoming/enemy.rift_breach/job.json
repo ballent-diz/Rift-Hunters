@@ -1,0 +1,154 @@
+{
+  "visual_id": "enemy.rift_breach",
+  "cell": [
+    192,
+    192
+  ],
+  "anchor": [
+    96,
+    174
+  ],
+  "scale": 0.75,
+  "target_height": 128,
+  "status": "final",
+  "background": "#00D648",
+  "tolerance": 35,
+  "holes": 45,
+  "holes_min_area": 1,
+  "despill": true,
+  "colors": 32,
+  "outline": false,
+  "anchor_mode": "mass",
+  "preview_zoom": 2,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "idle.png",
+      "frames": 8,
+      "fps": 10,
+      "loop": true,
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          265
+        ],
+        [
+          265,
+          518
+        ],
+        [
+          518,
+          766
+        ],
+        [
+          766,
+          1025
+        ],
+        [
+          1025,
+          1278
+        ],
+        [
+          1278,
+          1534
+        ],
+        [
+          1534,
+          1791
+        ],
+        [
+          1791,
+          2048
+        ]
+      ]
+    },
+    {
+      "name": "hurt",
+      "source": "hurt.png",
+      "frames": 8,
+      "fps": 20,
+      "loop": false,
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          269
+        ],
+        [
+          269,
+          508
+        ],
+        [
+          508,
+          767
+        ],
+        [
+          767,
+          1024
+        ],
+        [
+          1024,
+          1279
+        ],
+        [
+          1279,
+          1532
+        ],
+        [
+          1532,
+          1791
+        ],
+        [
+          1791,
+          2048
+        ]
+      ]
+    },
+    {
+      "name": "death",
+      "source": "death.png",
+      "frames": 8,
+      "fps": 12,
+      "loop": false,
+      "layout": "row",
+      "ranges": [
+        [
+          0,
+          265
+        ],
+        [
+          265,
+          523
+        ],
+        [
+          523,
+          770
+        ],
+        [
+          770,
+          1008
+        ],
+        [
+          1008,
+          1292
+        ],
+        [
+          1292,
+          1535
+        ],
+        [
+          1535,
+          1791
+        ],
+        [
+          1791,
+          2048
+        ]
+      ]
+    }
+  ],
+  "aliases": {
+    "move": "idle"
+  }
+}

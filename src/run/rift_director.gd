@@ -3,11 +3,10 @@ extends Node2D
 ## Mode « fermeture de failles » (docs/design/LONGEVITE.md, lot D2) : des failles réparties sur la carte crachent des
 ## Corrompus et des élites tant qu'elles sont ouvertes. Le Chasseur les referme en les détruisant, dans l'ordre qu'il
 ## veut ; quand la dernière se referme, la finale (ArenaFinale) appelle vers l'arène du boss.
-## Dessine aussi le halo au sol et la jauge de chaque faille (visuels définitifs : Codex).
+## Dessine aussi les fissures et la petite jauge droite de chaque faille (visuels A3/D2).
 
 ## Part des PV max rendue au Chasseur à chaque faille refermée.
 const HEAL_RATIO := 0.15
-const HALO := Color(0.62, 0.3, 1.0)
 
 var ctx: RunContext
 var rifts: Array[Enemy] = []
@@ -17,10 +16,14 @@ var guide: FlowField
 var _budget: float = 0.0
 var _elite_timer: float = 0.0
 var _time: float = 0.0
+var _art: RiftPresentation
 
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
+	_art = RiftPresentation.new()
+	ctx.world.add_child(_art)
+	_art.setup(ctx)
 	z_index = 1
 	var data: EnemyData = GameDB.enemy(ctx.arena.rift_enemy_id)
 	if data == null:
@@ -60,7 +63,8 @@ func step(delta: float) -> void:
 		_budget -= 1.0
 		var data: EnemyData = ctx.spawner.pick_enemy(wave)
 		if data:
-			ctx.enemies.spawn(data, spawn_position(open[ctx.rng.randi() % open.size()]))
+			var spawned: Enemy = ctx.enemies.spawn(data, spawn_position(open[ctx.rng.randi() % open.size()]))
+			_art.emerge(spawned)
 			alive += 1
 	_elite_timer -= delta
 	if _elite_timer <= 0.0:
@@ -116,12 +120,11 @@ func _on_enemy_killed(enemy: Enemy, _info: DamageInfo) -> void:
 
 
 func _draw() -> void:
-	var pulse: float = 0.5 + 0.5 * sin(_time * 2.6)
 	for rift: Enemy in open_rifts():
 		var center: Vector2 = rift.position
 		var radius: float = rift.radius * 2.2
-		draw_circle(center, radius * (1.0 + 0.08 * pulse), Color(HALO, 0.14 + 0.08 * pulse))
-		draw_arc(center, radius, 0.0, TAU, 48, Color(HALO.lightened(0.3), 0.55), 2.0, true)
-		# Jauge de la faille : arc qui se vide avec ses PV.
+		RiftArt.ground(self, center, radius, _time)
 		var ratio: float = clampf(rift.hp / rift.max_hp, 0.0, 1.0)
-		draw_arc(center, radius + 10.0, -PI / 2.0, -PI / 2.0 + TAU * ratio, 48, Color(1.0, 0.82, 0.45, 0.9), 4.0, true)
+		var bar := Rect2(center + Vector2(-32, 15), Vector2(64, 3))
+		draw_rect(bar.grow(1.0), Color(0.04, 0.03, 0.09, 0.8))
+		draw_rect(Rect2(bar.position, Vector2(bar.size.x * ratio, bar.size.y)), Color(0.78, 0.76, 1.0, 0.9))
