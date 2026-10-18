@@ -142,6 +142,18 @@ static func deactivate(profile: ProfileData, n: SkillNodeData) -> bool:
 	return true
 
 
+## Mode test (outil de développement, jamais dans le jeu publié) : tous les Échos débloqués et découverts,
+## sans passer par le Rite de lien. Retourne le nombre d'Échos nouvellement débloqués.
+static func unlock_all_echoes_for_testing(profile: ProfileData) -> int:
+	var added: int = 0
+	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
+		if not profile.is_monster_unlocked(GameDB.monsters[id]):
+			profile.unlock("monster:" + String(id))
+			added += 1
+		profile.discover("monsters", String(id))
+	return added
+
+
 # --- Partie
 
 ## Second sort équipé (null : la Technique d'origine de l'Écho).

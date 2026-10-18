@@ -930,6 +930,8 @@ TREE_SKIN_EMPTY,Emplacement libre,Empty slot
 TREE_SKIN_NEED_SHARDS,Éclats insuffisants,Not enough Shards
 OPTIONS_TEST_MODE,Mode test : apprendre tout l'arbre du Chasseur,Test mode: learn the whole Hunter tree
 OPTIONS_TEST_MODE_HINT,"Outil de développement (visible seulement depuis Godot) : tous les nœuds appris, paliers ouverts, 200 Points de Chasseur en plus. Activez et équipez ensuite les sorts dans l'arbre.","Development tool (only visible from Godot): every node learned, tiers open, 200 extra Hunter Points. Then activate and equip spells in the tree."
+OPTIONS_TEST_ECHOES,Mode test : débloquer tous les Échos,Test mode: unlock every Echo
+OPTIONS_TEST_ECHOES_HINT,"Outil de développement (visible seulement depuis Godot) : les 16 Échos sont débloqués et apparaissent au bestiaire, sans avoir à capturer d'Écho errant.","Development tool (only visible from Godot): all 16 Echoes are unlocked and listed in the bestiary, without capturing wandering Echoes."
 TREE_SKIN_OVERVIEW,Vue d’ensemble,Overview
 
 C5_PASSIVES,I · PASSIFS,I · PASSIVES
