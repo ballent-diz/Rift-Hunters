@@ -121,8 +121,11 @@ func _monster_text(m: MonsterData) -> String:
 	lines.append("[b]%s[/b] — %s%s" % [tr(m.name_key), tr("ROLE_%d" % m.role), title])
 	lines.append("[i]%s[/i]" % tr(m.lore_key))
 	lines.append(tr("BESTIARY_AFFINITIES") % affinity_names(m.affinities))
-	lines.append(tr("BESTIARY_STATS") % [int(m.max_hp), int(m.attack.damage), int(m.defense), int(m.move_speed),
-			int(m.get_range())])
+	# Les Échos sont invulnérables : on montre ce qui compte en combat (dégâts, cadence, portée), pas des PV.
+	var rate: String = "%.1f" % (1.0 / maxf(m.attack.cooldown, 0.01))
+	if TranslationServer.get_locale().begins_with("fr"):
+		rate = rate.replace(".", ",")
+	lines.append(tr("BESTIARY_STATS") % [int(m.attack.damage), rate, int(m.get_range())])
 	lines.append("[color=#ffd966]%s[/color] : %s" % [tr(m.passive_name_key), tr(m.passive_desc_key)])
 	lines.append("[color=#8ce6ff]%s[/color] : %s" % [tr(m.technique.name_key), tr(m.technique.desc_key)])
 	lines.append("\n[b]%s[/b]" % tr("BESTIARY_EVOLUTIONS"))

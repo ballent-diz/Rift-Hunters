@@ -136,3 +136,44 @@ func test_options_test_button_unlocks_every_echo() -> void:
 	var list: Array[Node] = echoes.find_children("Echo_sunclaw", "Button", true, false)
 	check(not list.is_empty() and (list[0] as Button).tooltip_text != tr("ECHO_TREE_LOCKED"),
 		"Solgriffe n'est plus verrouillé dans l'onglet Échos")
+
+
+## Un clic qui reconstruit l'onglet (choisir un Écho, apprendre un nœud) ne fait pas remonter la liste.
+func test_clicks_keep_the_scroll_position() -> void:
+	_screen.tabs.current_tab = 2
+	await _settle()
+	var tab: RefugeTab = _screen.tabs.get_child(2)
+	# Un Écho déjà choisi : la mise en page ne change plus de hauteur d'un clic à l'autre.
+	(tab.find_child("Echo_glowmoth", true, false) as Button).pressed.emit()
+	await _settle()
+	var list: ScrollContainer = tab.find_children("*", "ScrollContainer", true, false)[0]
+	list.scroll_vertical = 10000
+	await _settle()
+	var scrolled: int = list.scroll_vertical
+	check(scrolled > 0, "la liste des 16 Échos défile")
+	(tab.find_child("Echo_stormshell", true, false) as Button).pressed.emit()
+	await _settle()
+	list = tab.find_children("*", "ScrollContainer", true, false)[0]
+	check_eq(list.scroll_vertical, _kept(list, scrolled), "choisir un Écho garde la position de la liste")
+	(tab.find_child("stormshell_might", true, false) as Button).pressed.emit()
+	await _settle()
+	(tab.find_child("LearnNode", true, false) as Button).pressed.emit()
+	await _settle()
+	list = tab.find_children("*", "ScrollContainer", true, false)[0]
+	check_eq(list.scroll_vertical, _kept(list, scrolled), "apprendre un nœud (sauvegarde) garde la position de la liste")
+
+
+## Position attendue après reconstruction : l'ancienne, ou le bas de la liste si la nouvelle mise en page est plus
+## courte ; jamais le haut.
+func _kept(list: ScrollContainer, previous: int) -> int:
+	var bar: VScrollBar = list.get_v_scroll_bar()
+	var expected: int = mini(previous, int(bar.max_value - bar.page))
+	check(expected > 0, "la liste reste défilée")
+	return expected
+
+
+func test_maximized_window_counts_as_windowed() -> void:
+	check(not Settings.is_fullscreen_mode(DisplayServer.WINDOW_MODE_MAXIMIZED),
+		"fenêtre agrandie : mode fenêtré, aucun redimensionnement forcé")
+	check(not Settings.is_fullscreen_mode(DisplayServer.WINDOW_MODE_MINIMIZED), "fenêtre réduite : mode fenêtré")
+	check(Settings.is_fullscreen_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN), "plein écran exclusif")

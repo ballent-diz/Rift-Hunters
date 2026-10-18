@@ -89,11 +89,17 @@ func apply() -> void:
 		if index >= 0:
 			AudioServer.set_bus_volume_db(index, linear_to_db(maxf(float(pair[1]), 0.0001)))
 	if DisplayServer.get_name() != "headless":
-		var mode := DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen else DisplayServer.WINDOW_MODE_WINDOWED
-		if DisplayServer.window_get_mode() != mode:
-			DisplayServer.window_set_mode(mode)
+		var current: DisplayServer.WindowMode = DisplayServer.window_get_mode()
+		if fullscreen != is_fullscreen_mode(current):
+			# Fenêtre agrandie ou réduite = mode fenêtré : on ne la remet pas à sa taille d'origine à chaque réglage.
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen
+				else DisplayServer.WINDOW_MODE_WINDOWED)
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if vsync else DisplayServer.VSYNC_DISABLED)
 	changed.emit()
+
+
+static func is_fullscreen_mode(mode: DisplayServer.WindowMode) -> bool:
+	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
 
 
 func set_locale(value: String) -> void:

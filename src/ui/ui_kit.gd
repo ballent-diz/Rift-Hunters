@@ -144,10 +144,51 @@ static func center_box(parent: Control, separation: int = 16) -> VBoxContainer:
 	return box
 
 
+## Vide un conteneur avant de le reconstruire. Les zones défilantes reconstruites retrouvent leur position
+## (dans l'ordre de l'arbre) : un clic dans un menu ne le fait plus remonter en haut.
 static func clear(node: Node) -> void:
+	var positions: Array[int] = []
+	for scroll: Node in node.find_children("*", "ScrollContainer", true, false):
+		positions.append((scroll as ScrollContainer).scroll_vertical)
 	for child: Node in node.get_children():
 		node.remove_child(child)
 		child.queue_free()
+	if positions.any(func(value: int) -> bool: return value > 0):
+		_restore_scrolls.call_deferred(node, positions)
+
+
+static func _restore_scrolls(node: Node, positions: Array[int]) -> void:
+	if not is_instance_valid(node):
+		return
+	var scrolls: Array[Node] = node.find_children("*", "ScrollContainer", true, false)
+	for i: int in mini(scrolls.size(), positions.size()):
+		if positions[i] > 0:
+			ScrollHold.new((scrolls[i] as ScrollContainer).get_v_scroll_bar(), positions[i])
+
+
+## Replace une barre de défilement tant que la mise en page n'a pas fini d'étendre sa plage (quelques passes).
+class ScrollHold:
+	extends RefCounted
+	const MAX_TRIES := 8
+	var bar: VScrollBar
+	var value: int
+	var tries: int = 0
+
+	func _init(p_bar: VScrollBar, p_value: int) -> void:
+		bar = p_bar
+		value = p_value
+		# Une connexion de signal ne garde pas l'objet en vie : la barre le retient le temps de la restauration.
+		bar.set_meta(&"scroll_hold", self)
+		bar.changed.connect(_apply)
+		_apply()
+
+	func _apply() -> void:
+		bar.value = value
+		tries += 1
+		var reached: bool = bar.page > 0.0 and bar.max_value - bar.page >= value
+		if (reached or tries >= MAX_TRIES) and bar.changed.is_connected(_apply):
+			bar.changed.disconnect(_apply)
+			bar.remove_meta(&"scroll_hold")
 
 
 ## Carte de choix (amélioration, relique) : bandeau de couleur, catégorie, titre, description.
