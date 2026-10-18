@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/origin_effect.gd" id="1"]
+
+[node name="thornweave_status" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"thornweave"
+effect_kind = &"roots"
+color = Color(0.4, 0.5372549019607843, 0.3176470588235294, 1)
+accent = Color(0.8745098039215686, 0.7803921568627451, 0.4823529411764706, 1)
+radius = 20.0
+visual_duration = 1.2
+travel_distance = 0.0
+target_shape = &"area"
+loop_visual = false

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/origin_effect.gd" id="1"]
+
+[node name="mossback_stone_taunt" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"mossback"
+effect_kind = &"stone_taunt"
+color = Color(0.9058823529411765, 0.4823529411764706, 0.19215686274509805, 1)
+accent = Color(1.0, 0.7647058823529411, 0.4235294117647059, 1)
+radius = 100.0
+visual_duration = 1.6
+travel_distance = 0.0
+target_shape = &"area"
+loop_visual = false

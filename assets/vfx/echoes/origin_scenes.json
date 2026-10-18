@@ -1,0 +1,322 @@
+[
+  {
+    "echo": "ashblade",
+    "name": "attack",
+    "form": "blade_pounce",
+    "scene": "res://assets/vfx/echoes/ashblade/attack.tscn",
+    "radius": 42,
+    "duration": 0.65,
+    "distance": 140,
+    "shape": "area"
+  },
+  {
+    "echo": "ashblade",
+    "name": "ash_dance",
+    "form": "ash_dance",
+    "scene": "res://assets/vfx/echoes/ashblade/ash_dance.tscn",
+    "radius": 48,
+    "duration": 1.6,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "ashblade",
+    "name": "cinder_dash",
+    "form": "cinder_dash",
+    "scene": "res://assets/vfx/echoes/ashblade/cinder_dash.tscn",
+    "radius": 48,
+    "duration": 0.75,
+    "distance": 240,
+    "shape": "line"
+  },
+  {
+    "echo": "ashblade",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/ashblade/indicator.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 240,
+    "shape": "area"
+  },
+  {
+    "echo": "mossback",
+    "name": "attack",
+    "form": "stone_slam",
+    "scene": "res://assets/vfx/echoes/mossback/attack.tscn",
+    "radius": 95,
+    "duration": 0.6,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "mossback",
+    "name": "gravity_well",
+    "form": "stone_gravity",
+    "scene": "res://assets/vfx/echoes/mossback/gravity_well.tscn",
+    "radius": 110,
+    "duration": 2.4,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "mossback",
+    "name": "stone_taunt",
+    "form": "stone_taunt",
+    "scene": "res://assets/vfx/echoes/mossback/stone_taunt.tscn",
+    "radius": 100,
+    "duration": 1.6,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "mossback",
+    "name": "status",
+    "form": "fracture",
+    "scene": "res://assets/vfx/echoes/mossback/status.tscn",
+    "radius": 20,
+    "duration": 1.2,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "mossback",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/mossback/indicator.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 240,
+    "shape": "area"
+  },
+  {
+    "echo": "glimmerwing",
+    "name": "attack",
+    "form": "prism_orb",
+    "scene": "res://assets/vfx/echoes/glimmerwing/attack.tscn",
+    "radius": 30,
+    "duration": 0.6,
+    "distance": 180,
+    "shape": "area"
+  },
+  {
+    "echo": "glimmerwing",
+    "name": "prism_flare",
+    "form": "prism_flare",
+    "scene": "res://assets/vfx/echoes/glimmerwing/prism_flare.tscn",
+    "radius": 95,
+    "duration": 1.1,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "glimmerwing",
+    "name": "spark_rain",
+    "form": "spark_rain",
+    "scene": "res://assets/vfx/echoes/glimmerwing/spark_rain.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "glimmerwing",
+    "name": "status",
+    "form": "prism_mark",
+    "scene": "res://assets/vfx/echoes/glimmerwing/status.tscn",
+    "radius": 20,
+    "duration": 1.2,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "glimmerwing",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/glimmerwing/indicator.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 240,
+    "shape": "area"
+  },
+  {
+    "echo": "thornweave",
+    "name": "attack",
+    "form": "thorn_patch",
+    "scene": "res://assets/vfx/echoes/thornweave/attack.tscn",
+    "radius": 75,
+    "duration": 4.0,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "thornweave",
+    "name": "briar_wall",
+    "form": "briar_wall",
+    "scene": "res://assets/vfx/echoes/thornweave/briar_wall.tscn",
+    "radius": 44,
+    "duration": 4.0,
+    "distance": 240,
+    "shape": "line"
+  },
+  {
+    "echo": "thornweave",
+    "name": "bloom",
+    "form": "bloom",
+    "scene": "res://assets/vfx/echoes/thornweave/bloom.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "thornweave",
+    "name": "status",
+    "form": "roots",
+    "scene": "res://assets/vfx/echoes/thornweave/status.tscn",
+    "radius": 20,
+    "duration": 1.2,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "thornweave",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/thornweave/indicator.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 240,
+    "shape": "area"
+  },
+  {
+    "echo": "voltwisp",
+    "name": "attack",
+    "form": "chain",
+    "scene": "res://assets/vfx/echoes/voltwisp/attack.tscn",
+    "radius": 30,
+    "duration": 0.5,
+    "distance": 180,
+    "shape": "area"
+  },
+  {
+    "echo": "voltwisp",
+    "name": "ion_storm",
+    "form": "ion_storm",
+    "scene": "res://assets/vfx/echoes/voltwisp/ion_storm.tscn",
+    "radius": 110,
+    "duration": 1.8,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "voltwisp",
+    "name": "chain_arc",
+    "form": "chain",
+    "scene": "res://assets/vfx/echoes/voltwisp/chain_arc.tscn",
+    "radius": 30,
+    "duration": 0.75,
+    "distance": 240,
+    "shape": "line"
+  },
+  {
+    "echo": "voltwisp",
+    "name": "status",
+    "form": "electrified",
+    "scene": "res://assets/vfx/echoes/voltwisp/status.tscn",
+    "radius": 20,
+    "duration": 1.2,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "voltwisp",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/voltwisp/indicator.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 240,
+    "shape": "area"
+  },
+  {
+    "echo": "gloommaw",
+    "name": "attack",
+    "form": "devour",
+    "scene": "res://assets/vfx/echoes/gloommaw/attack.tscn",
+    "radius": 32,
+    "duration": 0.65,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "gloommaw",
+    "name": "feast",
+    "form": "feast",
+    "scene": "res://assets/vfx/echoes/gloommaw/feast.tscn",
+    "radius": 100,
+    "duration": 1.1,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "gloommaw",
+    "name": "maw_pit",
+    "form": "maw_pit",
+    "scene": "res://assets/vfx/echoes/gloommaw/maw_pit.tscn",
+    "radius": 95,
+    "duration": 1.8,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "gloommaw",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/gloommaw/indicator.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 240,
+    "shape": "area"
+  },
+  {
+    "echo": "mirrorling",
+    "name": "attack",
+    "form": "mirror_bolt",
+    "scene": "res://assets/vfx/echoes/mirrorling/attack.tscn",
+    "radius": 30,
+    "duration": 0.65,
+    "distance": 180,
+    "shape": "area"
+  },
+  {
+    "echo": "mirrorling",
+    "name": "reflection",
+    "form": "reflection",
+    "scene": "res://assets/vfx/echoes/mirrorling/reflection.tscn",
+    "radius": 65,
+    "duration": 2.0,
+    "distance": 0,
+    "shape": "area"
+  },
+  {
+    "echo": "mirrorling",
+    "name": "mirror_shards",
+    "form": "mirror_shards",
+    "scene": "res://assets/vfx/echoes/mirrorling/mirror_shards.tscn",
+    "radius": 30,
+    "duration": 0.8,
+    "distance": 240,
+    "shape": "line"
+  },
+  {
+    "echo": "mirrorling",
+    "name": "indicator",
+    "form": "indicator",
+    "scene": "res://assets/vfx/echoes/mirrorling/indicator.tscn",
+    "radius": 95,
+    "duration": 1.6,
+    "distance": 240,
+    "shape": "area"
+  }
+]
