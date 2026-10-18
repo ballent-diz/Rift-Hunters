@@ -6552,39 +6552,67 @@
 			"icon": "res://assets/ui/icons/monsters/stormshell.png"
 		},
 		"enemy.rift_breach": {
-			"status": "wip",
-			"generated_by": "provisoire : simple cercle, visuel définitif confié à Codex",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rift_breach/job.json",
 			"sheet": "res://assets/sprites/enemies/rift_breach/rift_breach_sheet.png",
 			"cell": [
-				128,
-				128
+				192,
+				192
 			],
 			"anchor": [
-				64,
-				108
+				96,
+				174
 			],
 			"scale": 0.75,
 			"animations": {
 				"idle": {
 					"row": 0,
 					"frames": 8,
-					"fps": 8,
+					"fps": 10,
 					"loop": true
+				},
+				"hurt": {
+					"row": 1,
+					"frames": 8,
+					"fps": 20,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
 				},
 				"move": {
 					"row": 0,
 					"frames": 8,
-					"fps": 8,
+					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 1,
-					"frames": 8,
-					"fps": 12,
-					"loop": false
 				}
 			},
 			"icon": "res://assets/ui/icons/enemies/rift_breach.png"
+		},
+		"vfx.barrier.energy": {
+			"status": "final",
+			"sheet": "res://assets/vfx/barriers/energy_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				128
+			],
+			"scale": 1.0,
+			"generated_by": "tools/art/prepare_barrier_energy.py",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				}
+			}
 		}
 	}
 }

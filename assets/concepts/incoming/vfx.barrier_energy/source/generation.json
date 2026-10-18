@@ -1,0 +1,7 @@
+{
+  "generator": "imagegen intégré",
+  "date": "2026-10-18",
+  "prompt": "Production game VFX SPRITE SHEET, exactly 4 columns × 2 rows = EIGHT chronological frames of ONE animated violet magical energy curtain. Each frame is a broad rectangular 4:3 patch of turbulent spectral energy, no physical posts or stone. Animation: thick blue-violet waves roll upward, irregular twisting lavender lightning veins travel sideways, bright ragged wisps peel off the top, dark indigo translucent gaps between waves. A dramatic richly drawn energy wall like high-quality hand-painted action roguelike combat effects. Strong dark-violet to electric-lavender contrast, NO pink or magenta, no red. Eight visibly distinct fluid animation poses with similar overall density; first and last blend smoothly. All frames same size, wide empty GREEN gutters around each frame; no energy or sparks crossing gutters. Whole canvas flat chroma green #00D648, completely uniform, no green lighting on energy. Orthographic frontal view, game sprite texture, no floor, shadows, background, characters, text, labels or gridlines. Keep energy patch inside central 80% of each slot. We will mask this animated texture to arbitrary barrier shapes. Wisps and lightning should make motion obvious when played at 12 frames per second.",
+  "source": "assets/concepts/incoming/vfx.barrier_energy/source/sheet.png",
+  "sha256": "9180327a5501e4b8aea7a399c321fd9098af32aea2bc75b5c24f891de93e8755"
+}

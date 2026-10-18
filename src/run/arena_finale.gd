@@ -9,13 +9,14 @@ const WALL_CLEARANCE := 60.0
 var ctx: RunContext
 var state: State = State.WAVES
 var opening_time: float = 0.0
+var _exit_flash: float = 0.0
 var _wall_ids: Array[int] = []
 ## Arène murée : cases de navigation de l'arène (barrières fermées), pour savoir quand le Chasseur y est entré.
 var _arena_labels := PackedInt32Array()
 
 func setup(context: RunContext) -> void:
 	ctx = context
-	z_index = 5
+	z_index = -1
 	ctx.events.boss_defeated.connect(func(_boss: Enemy) -> void:
 		state = State.COMPLETE
 		queue_redraw())
@@ -43,6 +44,7 @@ func start_travel() -> void:
 
 
 func step(delta: float) -> void:
+	_exit_flash = maxf(0.0, _exit_flash - delta)
 	if state == State.WAVES and ctx.arena.zones.is_empty() and ctx.arena.rift_points.is_empty() \
 			and ctx.time >= ctx.arena.boss_time:
 		state = State.CLEARING
@@ -74,6 +76,7 @@ func step(delta: float) -> void:
 				ctx.boss = ctx.enemies.spawn_boss(data, ctx.arena.finale_center)
 				ctx.events.boss_spawned.emit(ctx.boss)
 				state = State.FIGHT
+				_exit_flash = 0.5
 	queue_redraw()
 
 func closed() -> bool:
@@ -111,9 +114,6 @@ func enforce_boundary() -> void:
 func _set_walls(enabled: bool) -> void:
 	for id: int in _wall_ids:
 		ctx.obstacles.set_wall_enabled(id, enabled)
-		if enabled and ctx.fx:
-			var rect: Rect2 = ctx.obstacles.walls[id]
-			ctx.fx.burst(rect.get_center(), maxf(rect.size.x, rect.size.y) * 0.6, Color(0.75, 0.45, 1.0, 0.6))
 	ctx.flow.apply_walls(ctx.obstacles)
 
 func _draw() -> void:
@@ -127,7 +127,10 @@ func _draw() -> void:
 		draw_polyline(points, Color(0.68, 0.28, 1.0, 0.6), 8.0, true)
 		draw_polyline(points, Color(0.85, 0.65, 1.0), 2.0, true)
 	if state != State.FIGHT:
-		var radius: float = 30.0 + 55.0 * clampf(opening_time / ctx.arena.finale_opening_duration, 0.0, 1.0)
-		draw_circle(center, radius, Color(0.08, 0.015, 0.16, 0.9))
-		draw_arc(center, radius, 0, TAU, 64, Color(0.8, 0.35, 1.0), 4.0, true)
-		draw_arc(center, radius + 8, 0, TAU, 64, Color(0.5, 0.25, 1.0, 0.6), 2.0, true)
+		var progress: float = clampf(opening_time / ctx.arena.finale_opening_duration, 0.0, 1.0)
+		var rise: float = smoothstep(0.0, 0.65, progress) if state == State.OPENING else 0.12
+		RiftArt.ground(self, center, 55.0 + 45.0 * rise, opening_time)
+		RiftArt.portal(self, center, 36.0 + 200.0 * rise, opening_time, 0.35 + 0.65 * rise)
+	elif _exit_flash > 0.0:
+		RiftArt.ground(self, center, 100.0 + (0.5 - _exit_flash) * 70.0, opening_time, _exit_flash * 2.0)
+		RiftArt.portal(self, center, 236.0, opening_time, _exit_flash)

@@ -54,7 +54,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 |---|---|---|---|---|
 | A1 | Système de niveau en données : zones, barrières (obstacles dynamiques + carte de flux), points d'apparition par zone, directeur de vagues par zone, interface « Vague 2/3 · 12 restants », flèches, arène qui se referme | Claude | — | Fait (15 oct.) |
 | A2 | Ruines des Cascades configurées (3 + 5 vagues, élites, Nébulorax) et équilibrage XP / durée | Claude | A1 | Fait (15 oct.) — à rééquilibrer après les sorts. 18 oct. : collisions peintes par le propriétaire, arène murée (barrières d'entrée à l'arrivée, sans cercle d'énergie) |
-| A3 | Visuels : mur d'énergie violette des barrières + animation de dissolution, flèche de direction, effet d'ouverture de l'arène | Codex | — (intégration avec A1) | À faire |
+| A3 | Visuels : mur d'énergie violette des barrières + animation de dissolution, flèche de direction, effet d'ouverture de l'arène | Codex | — (intégration avec A1) | Livré (Codex), validation visuelle du propriétaire |
 
 ### Étape B — Campagne
 
@@ -103,7 +103,7 @@ Raccordement C1/C2 et validation en jeu à suivre ; les 24 icônes sont désorma
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
 | D1 | Trophées internes + platine (reliés à Steam plus tard), à partir des 18 objectifs actuels | Claude | B1 | À concevoir |
-| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | Fermeture de failles faite (18/10, Hautes Terres) ; visuel des failles : Codex ; autres modes à concevoir |
+| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | Fermeture de failles faite (18/10, Hautes Terres) ; visuels des failles livrés par Codex (A3/D2) ; autres modes à concevoir |
 | D3 | Le Pacte (≈ 10 malus, score par carte) et prophéties | Claude | B1 | À concevoir |
 | D4 | Mode Cauchemar (règles, boss enragés) | Claude | B1, C2 | À concevoir |
 
@@ -135,3 +135,5 @@ C5 — En cours (Codex), 17 octobre : réorganisation visuelle par familles de s
 C5 / B2 — En cours (Codex), 17 octobre : 35 illustrations HD des Échos intégrées et Expédition habillé sur codex/echos-expedition ; captures 720p dans docs/previews/echo-expedition/, validation visuelle du propriétaire attendue. Règles des arbres et gameplay inchangés.
 
 C8 — Livré (Codex), 18 octobre, PR #25 (sprites), après la PR #24 (préparation) : 11 créatures (9 nouvelles, Mirelle et Cendrelame), 55 animations et 429 poses importées. Captures Godot des 16, aperçu animé et contrôles réussis ; sensation en partie à confirmer par le propriétaire. Aucun changement de gameplay C7.
+
+A3 + visuels D2 — Livré (Codex), 18 octobre : rideaux continus en hauteur, maillage animé dans Godot et huit poses dessinées à 12 images/s, apparition 0,5 s et dissolution 1,2 s ; flèche, portail du boss, failles et sorties des Corrompus. Cercles au sol retirés à la demande du propriétaire. Captures et contrat dans docs/art/BARRIERES_FAILLES_A3.md ; branche codex/barrieres-failles après PR #26. Règles de jeu inchangées.

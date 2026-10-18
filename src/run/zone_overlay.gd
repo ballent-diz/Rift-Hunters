@@ -1,71 +1,90 @@
 class_name ZoneOverlay
 extends Node2D
-## Affichage du mode « vagues par zone » dans le monde : barrières d'énergie violette (et leur dissolution),
-## flèche de route autour du Chasseur quand il faut rejoindre la zone suivante ou l'arène.
-## Rendu procédural provisoire : les visuels définitifs sont le lot A3 (docs/ROADMAP.md).
+## Barrières continues et flèche de route ; uniquement le rendu, pas les obstacles.
 
 const DISSOLVE_TIME := 1.2
-const CORE := Color(0.62, 0.3, 1.0)
-const GLOW := Color(0.85, 0.65, 1.0)
+const APPEAR_TIME := 0.5
+const GLOW := Color(0.72, 0.79, 1.0)
 
 var ctx: RunContext
 var _time: float = 0.0
-## Barrières en cours de dissolution : indice → temps restant.
 var _dissolving: Dictionary = {}
+var _appearing: Dictionary = {}
+var _previous: Array[bool] = []
+var _curtains: Array[RiftWallVisual] = []
+var _version: int = -1
+var _dirty: bool = true
 
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
 	z_index = 6
+	_previous.assign(ctx.obstacles.wall_enabled)
 
 
 func dissolve(index: int) -> void:
 	_dissolving[index] = DISSOLVE_TIME
-	var wall: Rect2 = ctx.obstacles.walls[index]
-	ctx.fx.burst(wall.get_center(), maxf(wall.size.x, wall.size.y) * 0.6, Color(0.75, 0.45, 1.0, 0.6))
+	_dirty = true
 
 
 func _process(delta: float) -> void:
+	if ctx == null:
+		return
 	_time += delta
+	if _version != ctx.obstacles.walls_version:
+		for i: int in ctx.obstacles.walls.size():
+			if ctx.obstacles.wall_enabled[i] and (i >= _previous.size() or not _previous[i]):
+				_appearing[i] = 0.0
+		_previous.assign(ctx.obstacles.wall_enabled)
+		_version = ctx.obstacles.walls_version
+		_dirty = true
 	for index: int in _dissolving.keys():
 		_dissolving[index] = float(_dissolving[index]) - delta
 		if float(_dissolving[index]) <= 0.0:
 			_dissolving.erase(index)
+			_dirty = true
+	for index: int in _appearing.keys():
+		_appearing[index] = minf(APPEAR_TIME, float(_appearing[index]) + delta)
+	if _dirty:
+		_rebuild()
+	for curtain: RiftWallVisual in _curtains:
+		var id: int = curtain.members[0]
+		var strength: float = 1.0
+		if _dissolving.has(id):
+			strength = float(_dissolving[id]) / DISSOLVE_TIME
+		elif _appearing.has(id):
+			strength = float(_appearing[id]) / APPEAR_TIME
+		curtain.animate(strength, _time, _dissolving.has(id))
 	queue_redraw()
 
 
+func _rebuild() -> void:
+	for curtain: RiftWallVisual in _curtains:
+		curtain.queue_free()
+	_curtains.clear()
+	for dissolving: bool in [false, true]:
+		var rects: Array[Rect2] = []
+		var indices: Array[int] = []
+		for i: int in ctx.obstacles.walls.size():
+			if (_dissolving.has(i) if dissolving else ctx.obstacles.wall_enabled[i]):
+				rects.append(ctx.obstacles.walls[i])
+				indices.append(i)
+		for group: PackedInt32Array in RiftWallVisual.connected_groups(rects):
+			var pieces: Array[Rect2] = []
+			var members: Array[int] = []
+			for local: int in group:
+				pieces.append(rects[local])
+				members.append(indices[local])
+			var curtain := RiftWallVisual.new()
+			curtain.setup(pieces, members)
+			add_child(curtain)
+			_curtains.append(curtain)
+	_dirty = false
+
+
 func _draw() -> void:
-	if ctx == null:
-		return
-	for i: int in ctx.obstacles.walls.size():
-		if ctx.obstacles.wall_enabled[i]:
-			_draw_wall(ctx.obstacles.walls[i], 1.0)
-		elif _dissolving.has(i):
-			_draw_wall(ctx.obstacles.walls[i], float(_dissolving[i]) / DISSOLVE_TIME)
-	_draw_route()
-
-
-## Mur d'énergie : voile translucide, bords lumineux et filaments qui montent.
-func _draw_wall(rect: Rect2, strength: float) -> void:
-	var pulse: float = 0.5 + 0.5 * sin(_time * 3.0)
-	draw_rect(rect, Color(CORE, (0.16 + 0.08 * pulse) * strength))
-	draw_rect(rect, Color(GLOW, 0.75 * strength), false, 2.0)
-	var vertical: bool = rect.size.y >= rect.size.x
-	var length: float = rect.size.y if vertical else rect.size.x
-	var across: float = rect.size.x if vertical else rect.size.y
-	var lanes: int = maxi(3, int(across / 14.0))
-	for lane: int in lanes:
-		var offset: float = (lane + 0.5) / lanes * across
-		var phase: float = fmod(_time * 60.0 + lane * 37.0, length)
-		var a: Vector2
-		var b: Vector2
-		if vertical:
-			a = rect.position + Vector2(offset, length - phase)
-			b = a + Vector2(0, -minf(26.0, length - phase))
-		else:
-			a = rect.position + Vector2(phase, offset)
-			b = a + Vector2(minf(26.0, length - phase), 0)
-		draw_line(a, b, Color(GLOW, 0.55 * strength), 2.0)
+	if ctx != null:
+		_draw_route()
 
 
 ## Chevrons autour du Chasseur dans la direction de la route à suivre.
@@ -76,10 +95,12 @@ func _draw_route() -> void:
 	var dir: Vector2 = ctx.zones.objective_direction(pos) if ctx.zones else ctx.rifts.objective_direction(pos)
 	if dir == Vector2.ZERO:
 		return
-	var bob: float = 6.0 * sin(_time * 5.0)
-	for k: int in 3:
+	var bob: float = 2.0 * sin(_time * 2.4)
+	for k: int in 2:
 		var tip: Vector2 = pos + dir * (58.0 + 14.0 * k + bob)
 		var side: Vector2 = dir.orthogonal() * 9.0
 		var back: Vector2 = tip - dir * 11.0
-		var alpha: float = 0.9 - 0.25 * k
-		draw_polyline(PackedVector2Array([back + side, tip, back - side]), Color(GLOW, alpha), 3.0, true)
+		var alpha: float = (0.76 - 0.24 * k) * (0.86 + 0.14 * sin(_time * 2.4))
+		var points := PackedVector2Array([back + side, tip, back - side])
+		draw_polyline(points, Color(0.04, 0.06, 0.13, alpha), 6.0, true)
+		draw_polyline(points, Color(GLOW, alpha), 2.0, true)

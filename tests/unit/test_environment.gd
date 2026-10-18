@@ -176,12 +176,20 @@ func test_map_arena_zones() -> void:
 func test_player_cannot_enter_obstacles() -> void:
 	var run: RunController = RunFixture.create(host, &"ashblade", 7, true)
 	check(not run.ctx.obstacles.is_empty(), "obstacles actifs en partie")
+	# Enfoncement près d’une lisière, comme après un déplacement ; pas une téléportation au milieu d’un lac.
 	var blocked := Vector2.ZERO
-	for i: int in 400:
-		var p := Vector2(randf_range(-560, 560), randf_range(-560, 560))
-		if run.ctx.obstacles.distance(p) < -20.0:
-			blocked = p
+	var found: bool = false
+	for y: int in range(-560, 561, 8):
+		for x: int in range(-560, 561, 8):
+			var p := Vector2(x, y)
+			var depth: float = run.ctx.obstacles.distance(p)
+			if depth < -20.0 and depth > -30.0:
+				blocked = p
+				found = true
+				break
+		if found:
 			break
+	check(found, "point de collision réel trouvé de façon déterministe")
 	run.ctx.player.global_position = blocked
 	for i: int in 6:
 		run.ctx.player._constrain()
