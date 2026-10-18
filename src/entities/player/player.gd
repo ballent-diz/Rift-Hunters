@@ -117,6 +117,7 @@ func step(delta: float) -> void:
 	if regen > 0.0:
 		heal(regen * delta, false)
 	parry_time = maxf(parry_time - delta, 0.0)
+	var before: Vector2 = position
 	var move: Vector2 = brain.move_vector()
 	if _leap_time > 0.0:
 		_leap_time -= delta
@@ -137,6 +138,9 @@ func step(delta: float) -> void:
 	if move.length() > 0.1:
 		facing = move.normalized()
 	_constrain()
+	# Jamais à travers une barrière de zone ou d'arène : le pas qui y entrerait est annulé.
+	if ctx.obstacles.crosses_wall(before, position, radius):
+		position = before
 	visual.set_facing_left(facing.x < -0.1)
 	visual.tick(delta, velocity.length() > 5.0, velocity.length())
 	visual.modulate.a = 0.45 if (_iframes > 0.0 and int(_iframes * 20.0) % 2 == 0) else 1.0

@@ -41,6 +41,11 @@ func scene(echo_id: StringName, effect: StringName) -> PackedScene:
 	return _scenes[path]
 
 
+## Vrai si l'Écho a ses effets peints (les zones au sol ne gardent alors qu'un repère discret).
+func has_effects(echo_id: StringName) -> bool:
+	return scene(echo_id, &"attack") != null
+
+
 ## Joue un effet ; retourne null s'il n'existe pas pour cet Écho ou si le plafond est atteint.
 func play(echo_id: StringName, effect: StringName, origin: Vector2, direction: Vector2,
 		parameters: Dictionary = {}) -> Node2D:

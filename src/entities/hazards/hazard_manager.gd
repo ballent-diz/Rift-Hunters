@@ -251,9 +251,10 @@ func _draw() -> void:
 				var color: Color = DANGER if h["hostile"] else FRIENDLY
 				if float(h["delay"]) > 0.0:
 					var progress: float = 1.0 - float(h["delay"]) / maxf(float(h["total"]), 0.01)
-					draw_circle(h["pos"], float(h["radius"]), Color(color, 0.12))
-					draw_circle(h["pos"], float(h["radius"]) * progress, Color(color, 0.22))
-					draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(color, 0.9), 2.5)
+					var soft: float = 0.35 if _painted(h) else 1.0
+					draw_circle(h["pos"], float(h["radius"]), Color(color, 0.12 * soft))
+					draw_circle(h["pos"], float(h["radius"]) * progress, Color(color, 0.22 * soft))
+					draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(color, 0.9 * soft), 2.5 * soft)
 			Kind.RING:
 				_draw_ring(h)
 			Kind.BEAM:
@@ -267,13 +268,20 @@ func _draw() -> void:
 			Kind.ZONE:
 				var fade: float = clampf(float(h["duration"]) / 0.5, 0.0, 1.0)
 				var zone_color: Color = h["color"]
-				draw_circle(h["pos"], float(h["radius"]), Color(zone_color, 0.16 * fade))
-				draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 40, Color(zone_color, 0.6 * fade), 2.0)
+				# Écho aux effets peints (Codex) : repère discret, la peinture porte le visuel.
+				var soft: float = 0.45 if _painted(h) else 1.0
+				draw_circle(h["pos"], float(h["radius"]), Color(zone_color, 0.16 * fade * soft))
+				draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 40, Color(zone_color, 0.6 * fade * soft), 2.0)
 			Kind.WELL:
 				var t: float = float(h["duration"]) / maxf(float(h["total"]), 0.01)
-				draw_circle(h["pos"], float(h["radius"]), Color(0.3, 0.8, 0.5, 0.12))
-				draw_arc(h["pos"], float(h["radius"]) * (0.3 + 0.7 * t), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.7), 2.0)
-				draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.5), 1.5)
+				var soft: float = 0.3 if _painted(h) else 1.0
+				draw_circle(h["pos"], float(h["radius"]), Color(0.3, 0.8, 0.5, 0.12 * soft))
+				draw_arc(h["pos"], float(h["radius"]) * (0.3 + 0.7 * t), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.7 * soft), 2.0)
+				draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.5 * soft), 1.5)
+
+
+func _painted(h: Dictionary) -> bool:
+	return ctx.allies != null and ctx.allies.vfx.has_effects(h.get("source", &""))
 
 
 func _draw_ring(h: Dictionary) -> void:

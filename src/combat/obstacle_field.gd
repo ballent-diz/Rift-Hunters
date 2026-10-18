@@ -111,6 +111,43 @@ func _push_out_walls(pos: Vector2, radius: float) -> Vector2:
 	return pos
 
 
+## Vrai si le trajet de `from` (hors barrière) à `to` entre dans une barrière active : empêche de traverser une
+## barrière mince quand le dégagement choisit le côté opposé (barrières jointives, poussée du décor, Ruée).
+func crosses_wall(from: Vector2, to: Vector2, radius: float) -> bool:
+	if walls.is_empty() or from.is_equal_approx(to):
+		return false
+	for i: int in walls.size():
+		if not wall_enabled[i]:
+			continue
+		var r: Rect2 = walls[i].grow(radius - 0.25)
+		if r.has_point(from):
+			continue
+		if _segment_hits_rect(from, to, r):
+			return true
+	return false
+
+
+static func _segment_hits_rect(from: Vector2, to: Vector2, r: Rect2) -> bool:
+	var t_min: float = 0.0
+	var t_max: float = 1.0
+	var d: Vector2 = to - from
+	for axis: int in 2:
+		var origin: float = from[axis]
+		var lo: float = r.position[axis]
+		var hi: float = r.end[axis]
+		if absf(d[axis]) < 0.0001:
+			if origin < lo or origin > hi:
+				return false
+			continue
+		var t1: float = (lo - origin) / d[axis]
+		var t2: float = (hi - origin) / d[axis]
+		t_min = maxf(t_min, minf(t1, t2))
+		t_max = minf(t_max, maxf(t1, t2))
+		if t_min > t_max:
+			return false
+	return true
+
+
 func _wall_blocks(pos: Vector2, radius: float) -> bool:
 	for i: int in walls.size():
 		if wall_enabled[i] and walls[i].grow(radius).has_point(pos):
