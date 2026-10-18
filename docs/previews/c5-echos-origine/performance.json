@@ -2,13 +2,13 @@
 	"ashblade": {
 		"corrupted": 90,
 		"effects_off": {
-			"median_frame_ms": 33.055,
-			"p95_frame_ms": 34.781,
+			"median_frame_ms": 32.356,
+			"p95_frame_ms": 34.786,
 			"samples": 60
 		},
 		"effects_on": {
-			"median_frame_ms": 41.192,
-			"p95_frame_ms": 52.42,
+			"median_frame_ms": 48.132,
+			"p95_frame_ms": 59.863,
 			"samples": 60
 		},
 		"emitters": 24,

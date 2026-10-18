@@ -17,7 +17,7 @@ Les sorts encore absents du raccordement C7 nécessitent l’intervention de Cla
 
 `animations.json` conserve les durées et nombres d’images. `performance.json` mesure le rendu avec
 90 Corrompus et 24 émetteurs, limité à quatre détails par effet. Sur l’Intel Iris Xe de contrôle :
-temps médian de 37,3 à 45,3 ms avec effets, contre 32,0 à 33,1 ms sans effets. Ce test de saturation
+temps médian de 37,3 à 48,1 ms avec effets, contre 32,0 à 32,7 ms sans effets. Ce test de saturation
 hors écran ne démontre donc pas 60 images/s ; il exclut l’IA et les collisions. Les effets excédentaires
 sont refusés par la couche commune, sans empêcher une action de gameplay.
 

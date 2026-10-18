@@ -111,7 +111,14 @@ pipeline d’import, partie automatique et lint verts. Lint supplémentaire du r
 Les captures ne signalent aucune erreur de triangulation. Le nettoyage de l’outil de présentation
 signale encore des ressources en usage à la fermeture ; ce message ne vient pas des scènes d’effet.
 
-Sur Intel Iris Xe, le test hors écran à 90 Corrompus et 24 émetteurs mesure 37,3–45,3 ms médians avec
-effets, contre 32,0–33,1 ms sans eux. Ces chiffres ne valident pas 60 images/s. Le plafond et les détails
+Sur Intel Iris Xe, le test hors écran à 90 Corrompus et 24 émetteurs mesure 37,3–48,1 ms médians avec
+effets, contre 32,0–32,7 ms sans eux. Ces chiffres ne valident pas 60 images/s. Le plafond et les détails
 adaptatifs sont effectifs ; la passe artistique suivante devra aussi surveiller ce coût de saturation.
 Les [captures et GIF](../previews/c5-echos-origine/README.md) restent à la validation du propriétaire.
+
+Retour du propriétaire après aperçu : Cendrelame manquait de visibilité. Ses coupes utilisent désormais
+un croissant plein effilé, un bord ivoire, une traînée orange et une gerbe d’impact, dans le rayon fourni
+par C7. Une matière dédiée réutilise la brosse du Chasseur en supprimant sa teinte cyan. Les trois GIF
+et la capture sont réexportés ; contrat et lint recontrôlés après cette retouche, sans nouvelle suite complète.
+La mesure de Cendrelame passe à 48,1 ms médians avec 24 effets simultanés ; la plage globale est donc
+37,3–48,1 ms, et non une validation de fluidité à 60 images/s.

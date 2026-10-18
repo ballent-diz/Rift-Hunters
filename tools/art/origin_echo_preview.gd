@@ -20,15 +20,23 @@ func _ready() -> void:
 	_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	add_child(_viewport)
 	var specs: Array = JSON.parse_string(FileAccess.get_file_as_string("res://assets/vfx/echoes/origin_catalog.json"))
+	for argument: String in OS.get_cmdline_user_args():
+		if argument.begins_with("--only="):
+			var selected: String = argument.trim_prefix("--only=")
+			specs = specs.filter(func(spec: Dictionary) -> bool: return spec.id == selected)
 	for spec: Dictionary in specs:
 		print("C5-ter : ", spec.id)
 		await _make_run(StringName(spec.id))
 		if "--metrics-only" not in OS.get_cmdline_user_args():
 			await _capture_echo(spec)
 		await _benchmark(spec)
+	var previous: Variant = JSON.parse_string(FileAccess.get_file_as_string(OUT + "performance.json"))
+	if previous is Dictionary:
+		previous.merge(_metrics, true)
+		_metrics = previous
 	var file := FileAccess.open(OUT + "performance.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(_metrics, "\t") + "\n")
-	print("C5-ter : sept captures, vingt et une séquences et sept mesures enregistrées.")
+	print("C5-ter : export terminé pour ", specs.size(), " Écho(s).")
 	_run.queue_free()
 	await get_tree().process_frame
 	get_tree().quit()

@@ -2,6 +2,12 @@ extends "res://assets/vfx/echoes/echo_effect.gd"
 ## C5-ter : vocabulaire peint des sept Échos d'origine ; contrat et couche commune hérités.
 
 
+func _ready() -> void:
+	super._ready()
+	if echo_id == &"ashblade":
+		material.shader = preload("res://assets/vfx/echoes/ember_paint.gdshader")
+
+
 func _draw() -> void:
 	if _elapsed >= duration():
 		return
@@ -38,13 +44,30 @@ func _draw() -> void:
 
 
 func _slash(center: Vector2, size: float, p: float, fade: float, flip: float = 1.0) -> void:
-	var sweep: float = lerpf(-1.4, 1.0, smoothstep(0.05, 0.8, p))
-	for layer: int in (3 if detail_level == 1 else 2):
-		var points := PackedVector2Array()
-		for i: int in (14 if detail_level == 1 else 7):
-			var angle: float = sweep - i * 0.075
-			points.append(center + Vector2(cos(angle), sin(angle) * flip) * (size - layer * 5))
-		_path(points, 12.0 - layer * 3, accent if layer == 0 else color, fade * (1 - layer * 0.2))
+	var sweep: float = lerpf(-1.9, 1.45, smoothstep(0.02, 0.82, p))
+	var span: float = lerpf(0.65, 2.15, smoothstep(0.0, 0.24, p))
+	var count: int = 16 if detail_level == 1 else 8
+	var outer := PackedVector2Array()
+	var inner := PackedVector2Array()
+	var spine := PackedVector2Array()
+	for i: int in count:
+		var t: float = i / float(count - 1)
+		var angle: float = sweep - span * (1.0 - t)
+		var direction := Vector2(cos(angle), sin(angle) * flip)
+		var width: float = maxf(0.5, (20.0 if detail_level == 1 else 15.0) * pow(maxf(0.0, sin(t * PI)), 0.65))
+		outer.append(center + direction * (size + width * 0.12))
+		inner.append(center + direction * (size - width))
+		spine.append(center + direction * (size - width * 0.15))
+	inner.reverse()
+	var body: PackedVector2Array = outer.duplicate()
+	body.append_array(inner)
+	_poly(body, _ink(Color("3d181c"), fade * 0.95))
+	_poly(body, _ink(color, fade * 0.9))
+	draw_polyline(spine, _ink(accent, fade), 3.0, true)
+	if detail_level == 1:
+		_path(spine, 18.0, Color("fff0c9"), fade * 0.8)
+	var head: Vector2 = center + Vector2(cos(sweep), sin(sweep) * flip) * size
+	Shapes.star(self, head, 12 * fade, _ink(Color("fff4d6"), fade), sweep)
 	if p > 0.35:
 		for i: int in mini(5, particle_budget):
 			var pos: Vector2 = center + Vector2.from_angle(i * 2.399 + sweep) * size * p
@@ -60,9 +83,13 @@ func _blade_move(p: float, fade: float, pounce: bool) -> void:
 	for i: int in 12:
 		var back: float = i / 11.0
 		ribbon.append(tip - Vector2(minf(tip.x, 85) * back, -sin(back * PI) * 8))
-	_path(ribbon, 20, color, fade * 0.65)
-	_path(ribbon, 5, accent, fade * 0.7)
+	if ribbon[0].distance_squared_to(ribbon[-1]) > 1.0:
+		draw_polyline(ribbon, _ink(Color("512326"), fade * 0.8), 20, true)
+		draw_polyline(ribbon, _ink(color, fade * 0.9), 12, true)
+		_path(ribbon, 30, accent, fade * 0.9)
 	_slash(tip, radius, clampf((p - 0.25) / 0.7, 0, 1), fade)
+	Shapes.burst(self, tip, (p - 0.46) * duration(), duration() * 0.42,
+		mini(12, particle_budget), radius * 0.7, color, accent)
 	if not pounce:
 		_slash(tip + Vector2(-10, 0), radius * 0.75, clampf((p - 0.3) / 0.6, 0, 1), fade * 0.7, -1)
 
@@ -79,8 +106,10 @@ func _dance(p: float, fade: float) -> void:
 		var target: Vector2 = secondary_offsets[i]
 		var start: Vector2 = Vector2.ZERO if i == 0 else secondary_offsets[i - 1]
 		var tip: Vector2 = start.lerp(target, smoothstep(0, 0.4, age))
-		_path(PackedVector2Array([start, (start + tip) * 0.5 + Vector2(0, -12), tip]),
-			10, color, fade * (1 - age) * 0.7)
+		var trail := PackedVector2Array([start, (start + tip) * 0.5 + Vector2(0, -12), tip])
+		if start.distance_squared_to(tip) > 1.0:
+			draw_polyline(trail, _ink(color, fade * (1 - age) * 0.85), 10, true)
+			_path(trail, 23, accent, fade * (1 - age) * 0.9)
 		_slash(target, radius, age, fade * sin(age * PI), -1 if i % 2 else 1)
 
 
