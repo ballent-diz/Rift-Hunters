@@ -264,7 +264,7 @@ BESTIARY_RELICS,Reliques,Relics
 BESTIARY_SYNERGIES,Synergies,Synergies
 BESTIARY_UNKNOWN,Pas encore découvert.,Not discovered yet.
 BESTIARY_SYNERGY_HINT,Réunissez ces Échos dans la même équipe pour découvrir leur synergie.,Bring these Echoes into the same team to discover their synergy.
-BESTIARY_STATS,PV %d · Dégâts %d · Défense %d · Vitesse %d · Portée %d,HP %d · Damage %d · Defense %d · Speed %d · Range %d
+BESTIARY_STATS,Dégâts %d · %s attaques/s · Portée %d · ne tombe jamais au combat,Damage %d · %s attacks/s · Range %d · never falls in battle
 BESTIARY_EVOLUTIONS,Évolutions,Evolutions
 BESTIARY_NOT_SEEN,jamais obtenue,never obtained
 BESTIARY_MASTERY,Maîtrise,Mastery

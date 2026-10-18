@@ -12,7 +12,7 @@ enum Role { ASSASSIN, GUARDIAN, SUPPORT, CONTROLLER, BRUISER, MARKSMAN }
 @export var affinities: Array[StringName] = []
 @export_range(0, 3) var rarity: int = 0
 @export_group("Stats")
-## PV de référence (les Échos sont invulnérables dans le prototype, voir ARCHITECTURE.md).
+## PV et défense de référence, inutilisés : les Échos sont invulnérables (non affichés au bestiaire).
 @export var max_hp: float = 100.0
 @export var defense: float = 0.0
 @export var move_speed: float = 170.0
