@@ -8728,6 +8728,774 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/skills/echo_stormshell_signature.png"
+		},
+		"vfx.echo.ashblade.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/ashblade/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/ashblade/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65
+		},
+		"vfx.echo.ashblade.ash_dance": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/ashblade/ash_dance.tscn",
+			"sheet": "res://assets/vfx/echoes/ashblade/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.ashblade.cinder_dash": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/ashblade/cinder_dash.tscn",
+			"sheet": "res://assets/vfx/echoes/ashblade/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.ashblade.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/ashblade/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/ashblade/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.mossback.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mossback/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/mossback/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.6
+		},
+		"vfx.echo.mossback.gravity_well": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mossback/gravity_well.tscn",
+			"sheet": "res://assets/vfx/echoes/mossback/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.4
+		},
+		"vfx.echo.mossback.stone_taunt": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mossback/stone_taunt.tscn",
+			"sheet": "res://assets/vfx/echoes/mossback/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.mossback.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mossback/status.tscn",
+			"sheet": "res://assets/vfx/echoes/mossback/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2
+		},
+		"vfx.echo.mossback.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mossback/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/mossback/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.glimmerwing.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glimmerwing/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/glimmerwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.6
+		},
+		"vfx.echo.glimmerwing.prism_flare": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glimmerwing/prism_flare.tscn",
+			"sheet": "res://assets/vfx/echoes/glimmerwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.1
+		},
+		"vfx.echo.glimmerwing.spark_rain": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glimmerwing/spark_rain.tscn",
+			"sheet": "res://assets/vfx/echoes/glimmerwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.glimmerwing.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glimmerwing/status.tscn",
+			"sheet": "res://assets/vfx/echoes/glimmerwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2
+		},
+		"vfx.echo.glimmerwing.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/glimmerwing/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/glimmerwing/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.thornweave.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/thornweave/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/thornweave/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 4.0
+		},
+		"vfx.echo.thornweave.briar_wall": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/thornweave/briar_wall.tscn",
+			"sheet": "res://assets/vfx/echoes/thornweave/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 4.0
+		},
+		"vfx.echo.thornweave.bloom": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/thornweave/bloom.tscn",
+			"sheet": "res://assets/vfx/echoes/thornweave/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.thornweave.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/thornweave/status.tscn",
+			"sheet": "res://assets/vfx/echoes/thornweave/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2
+		},
+		"vfx.echo.thornweave.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/thornweave/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/thornweave/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.voltwisp.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/voltwisp/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/voltwisp/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.5
+		},
+		"vfx.echo.voltwisp.ion_storm": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/voltwisp/ion_storm.tscn",
+			"sheet": "res://assets/vfx/echoes/voltwisp/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.8
+		},
+		"vfx.echo.voltwisp.chain_arc": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/voltwisp/chain_arc.tscn",
+			"sheet": "res://assets/vfx/echoes/voltwisp/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75
+		},
+		"vfx.echo.voltwisp.status": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/voltwisp/status.tscn",
+			"sheet": "res://assets/vfx/echoes/voltwisp/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2
+		},
+		"vfx.echo.voltwisp.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/voltwisp/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/voltwisp/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.gloommaw.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gloommaw/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/gloommaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65
+		},
+		"vfx.echo.gloommaw.feast": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gloommaw/feast.tscn",
+			"sheet": "res://assets/vfx/echoes/gloommaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.1
+		},
+		"vfx.echo.gloommaw.maw_pit": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gloommaw/maw_pit.tscn",
+			"sheet": "res://assets/vfx/echoes/gloommaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.8
+		},
+		"vfx.echo.gloommaw.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/gloommaw/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/gloommaw/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
+		},
+		"vfx.echo.mirrorling.attack": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mirrorling/attack.tscn",
+			"sheet": "res://assets/vfx/echoes/mirrorling/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65
+		},
+		"vfx.echo.mirrorling.reflection": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mirrorling/reflection.tscn",
+			"sheet": "res://assets/vfx/echoes/mirrorling/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0
+		},
+		"vfx.echo.mirrorling.mirror_shards": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mirrorling/mirror_shards.tscn",
+			"sheet": "res://assets/vfx/echoes/mirrorling/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.8
+		},
+		"vfx.echo.mirrorling.indicator": {
+			"status": "wip",
+			"scene": "res://assets/vfx/echoes/mirrorling/indicator.tscn",
+			"sheet": "res://assets/vfx/echoes/mirrorling/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6
 		}
 	}
 }

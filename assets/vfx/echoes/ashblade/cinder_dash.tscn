@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/echoes/origin_effect.gd" id="1"]
+
+[node name="ashblade_cinder_dash" type="Node2D"]
+script = ExtResource("1")
+echo_id = &"ashblade"
+effect_kind = &"cinder_dash"
+color = Color(0.9294117647058824, 0.4745098039215686, 0.16862745098039217, 1)
+accent = Color(1.0, 0.788235294117647, 0.4745098039215686, 1)
+radius = 48.0
+visual_duration = 0.75
+travel_distance = 240.0
+target_shape = &"line"
+loop_visual = false
