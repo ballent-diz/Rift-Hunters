@@ -40,8 +40,10 @@ var zones: ZoneDirector
 var rifts: RiftDirector
 ## Mode « défense d'autel » (null sinon).
 var altar: AltarDirector
-## Terrain lent, brique B1 (null sans zone lente).
+## Terrain lent (B1) et courants (B6) ; null si la carte n'en a pas.
 var terrain: TerrainDirector
+## Crues, brique B3 (null sans lit de crue).
+var flood: FloodDirector
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 
@@ -72,3 +74,21 @@ func objective_direction(pos: Vector2) -> Vector2:
 ## Ralentissement du terrain à cette position (1 si la carte n'a pas de terrain lent).
 func terrain_speed(pos: Vector2) -> float:
 	return terrain.speed_mult(pos) if terrain else 1.0
+
+
+## Dérive des courants et des crues à cette position (px/s ; zéro ailleurs).
+func terrain_drift(pos: Vector2) -> Vector2:
+	var result := Vector2.ZERO
+	if terrain:
+		result += terrain.drift(pos)
+	if flood:
+		result += flood.drift(pos)
+	return result
+
+
+## Dangers à fuir (bot de test) : zones télégraphiées et lit en crue.
+func danger_vector(pos: Vector2) -> Vector2:
+	var result: Vector2 = hazards.danger_vector(pos)
+	if flood:
+		result += flood.danger(pos)
+	return result

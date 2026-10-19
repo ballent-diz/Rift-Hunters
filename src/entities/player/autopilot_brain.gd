@@ -33,7 +33,7 @@ func _compute_move() -> Vector2:
 		closest = minf(closest, dist - enemy.radius)
 		var weight: float = (3.0 if enemy.is_boss or enemy.is_elite else 1.0) / (dist * dist)
 		flee += offset.normalized() * weight * 4000.0
-	flee += ctx.hazards.danger_vector(pos) * 3.0
+	flee += ctx.danger_vector(pos) * 3.0
 	for obstacle: Enemy in ctx.enemies.obstacles:
 		var away: Vector2 = pos - obstacle.position
 		var gap: float = away.length() - obstacle.radius
@@ -54,7 +54,7 @@ func _compute_move() -> Vector2:
 		home = (rect.get_center() - pos).normalized() * 1.5
 	if ctx.rng.randf() < 0.01:
 		_wander = _wander.rotated(ctx.rng.randf_range(-1.2, 1.2))
-	_dash_wanted = closest < 22.0 or ctx.hazards.danger_vector(pos).length() > 0.5 or threat.length() > 1.5
+	_dash_wanted = closest < 22.0 or ctx.danger_vector(pos).length() > 0.5 or threat.length() > 1.5
 	# Modes « vagues par zone », « failles » et « autel » : suivre la route (zone suivante, faille, arène, autel).
 	var route: Vector2 = ctx.objective_direction(pos) * 1.6
 	if route != Vector2.ZERO:

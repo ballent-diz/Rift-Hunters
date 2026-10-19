@@ -184,10 +184,14 @@ func _build_world() -> void:
 	ctx.enemies.z_index = 2
 	ctx.enemies.setup(ctx)
 	ctx.world.add_child(ctx.enemies)
-	if not ctx.arena.slow_zones.is_empty():
+	if TerrainDirector.uses_terrain(ctx.arena):
 		ctx.terrain = TerrainDirector.new()
 		ctx.world.add_child(ctx.terrain)
 		ctx.terrain.setup(ctx)
+	if not ctx.arena.flood_lanes.is_empty():
+		ctx.flood = FloodDirector.new()
+		ctx.world.add_child(ctx.flood)
+		ctx.flood.setup(ctx)
 	if ctx.arena.night > 0.0:
 		# Juste après les Corrompus : le voile les couvre, pas les Échos, le Chasseur ni les dangers.
 		ctx.night = NightDirector.new()
@@ -290,6 +294,8 @@ func _physics_process(delta: float) -> void:
 		ctx.altar.step(delta)
 	if ctx.terrain:
 		ctx.terrain.step(delta)
+	if ctx.flood:
+		ctx.flood.step(delta)
 	if ctx.night:
 		ctx.night.step(delta)
 	spawner.step(delta)

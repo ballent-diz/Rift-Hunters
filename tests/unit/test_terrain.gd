@@ -9,7 +9,7 @@ func before_each() -> void:
 	setup.arena_id = &"fractured_plain"
 	setup.starter_id = &"mossback"
 	setup.autopilot = true
-	setup.arena_override = TestArena.build(&"fractured_plain", false, &"", false, true)
+	setup.arena_override = TestArena.build(&"fractured_plain", &"", ["shallows"])
 	run = load(Router.RUN).instantiate()
 	run.skip_profile = true
 	run.start(setup)

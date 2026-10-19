@@ -15,7 +15,10 @@ func _start(arena_id: StringName, night: bool, boss_id: StringName = &"") -> Run
 	setup.arena_id = arena_id
 	setup.starter_id = &"mossback"
 	setup.autopilot = true
-	setup.arena_override = TestArena.build(arena_id, night, boss_id)
+	var features: Array[String] = []
+	if night:
+		features.append("night")
+	setup.arena_override = TestArena.build(arena_id, boss_id, features)
 	run = load(Router.RUN).instantiate()
 	run.skip_profile = true
 	run.start(setup)

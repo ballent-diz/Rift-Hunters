@@ -152,6 +152,25 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 - Essai : `--shallows` (trois gués sur la Plaine fracturée, combinable avec `--altar`). Bot Cendrelame (graine 3,
   autel + gués) : victoire en 4 min 25.
 
+### Briques B3 « crues » et B6 « courants » (carte 5)
+
+- **Crues** (groupe « Crues » d'`ArenaData`) : `flood_lanes` (lits de rivière, rectangles) et `flood_dirs` (sens du
+  flot), `flood_first` (30 s), `flood_interval` (18 s de calme), `flood_warning` (3 s), `flood_duration` (3,5 s),
+  `flood_push` (300 px/s), `flood_damage` (6 toutes les 0,5 s, × dégâts ennemis de la difficulté) et
+  `flood_enemy_ratio` (12 % des PV max d'un Corrompu toutes les 0,5 s).
+- `src/run/flood_director.gd` : les lits débordent **à tour de rôle**. Alerte de 3 s (l'eau monte, bord de danger
+  clignotant et chevrons dans le sens du flot, dessinés au-dessus des Corrompus et du voile de nuit), puis la crue
+  emporte et blesse tout ce qui s'y trouve. Le Chasseur en sort par le côté ou par la **Ruée** (invulnérable, sans
+  dérive) ; un Corrompu qui reste dans la crue en meurt presque toujours. Boss et Échos épargnés. Annonce à la
+  première crue.
+- **Courants** (groupe « Courants ») : `currents`, `current_dirs` et `current_speed` (140 px/s). Le Chasseur et les
+  Corrompus y dérivent (les lourds moins, selon leur résistance au recul) : le suivre est un **raccourci**, le
+  remonter coûte cher. Pas de dérive pendant la Ruée ; boss et Échos (liés au Chasseur) épargnés.
+- Code commun : `RunContext.terrain_drift` (courants + crue) et `RunContext.danger_vector` (le bot sort du lit
+  pendant l'alerte). Les déclinaisons futures (coulées de lave, éboulements) réutilisent `FloodDirector` avec un
+  autre habillage.
+- Essai : `--rivers` (deux lits qui se croisent et un courant sur la Plaine fracturée, première crue à 15 s).
+
 ## Ordre de réalisation
 
 1. Chapitre 1, carte 3 (Bois des Lucioles) : image (Codex), collisions peintes (propriétaire), zones, brique B2 et

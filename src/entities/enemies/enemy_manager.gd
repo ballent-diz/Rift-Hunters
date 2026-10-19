@@ -181,6 +181,9 @@ func step(delta: float) -> void:
 			if i % 2 == parity:
 				_separate(enemy)
 		var pos: Vector2 = enemy.position
+		if not enemy.is_boss:
+			# Courants et crues : les Corrompus lourds (résistance au recul) dérivent moins.
+			pos += ctx.terrain_drift(pos) * (1.0 - enemy.data_knockback_resist() * 0.5) * delta
 		if enemy.push_velocity.length_squared() > 1.0:
 			pos += enemy.push_velocity * delta
 			enemy.push_velocity *= maxf(1.0 - 8.0 * delta, 0.0)
