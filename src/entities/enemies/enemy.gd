@@ -22,6 +22,8 @@ var attack_timer: float = 0.0
 var aim_dir := Vector2.RIGHT
 var touch_cooldown: float = 0.0
 var taunt_target: Node2D
+## Navigation vers la cible de provocation quand elle est fixe (pillards de l'autel) ; null : ligne droite.
+var goal_flow: FlowField
 var taunt_time: float = 0.0
 var invulnerable_time: float = 0.0
 var spawn_time: float = 0.0

@@ -129,6 +129,8 @@ func _draw() -> void:
 	elif ctx.rifts:
 		_text(Vector2(0, 66), tr("RIFTS_PROGRESS") % [ctx.rifts.closed, ctx.rifts.total()], 14, UiKit.GOLD,
 			HORIZONTAL_ALIGNMENT_CENTER, w)
+	elif ctx.altar and ctx.altar.phase != AltarDirector.Phase.BOSS:
+		_draw_altar_status(w)
 	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
 		var boss_name: String = tr(GameDB.boss(ctx.arena.boss_id).name_key)
@@ -280,6 +282,18 @@ func _draw_boss(w: float) -> void:
 			HORIZONTAL_ALIGNMENT_RIGHT, 220)
 	elif boss.is_invulnerable():
 		_text(Vector2(rect.end.x - 220, rect.position.y - 4), tr("BOSS_INVULNERABLE"), 16, UiKit.MUTED, HORIZONTAL_ALIGNMENT_RIGHT, 220)
+
+
+## Mode « défense d'autel » : PV de l'autel (barre) et vague en cours ou à venir.
+func _draw_altar_status(w: float) -> void:
+	var altar: AltarDirector = ctx.altar
+	var rect := Rect2(w * 0.35, 84, w * 0.3, 12)
+	var ratio: float = altar.hp / maxf(altar.max_hp, 1.0)
+	_bar(rect, ratio, Color(0.55, 0.95, 0.7) if ratio > 0.3 else UiKit.DANGER)
+	var key: String = "ALTAR_STATUS_WAVE" if altar.phase == AltarDirector.Phase.WAVE else "ALTAR_STATUS_NEXT"
+	var line: String = tr(key) % [mini(altar.wave_index + 1, altar.waves()), altar.waves(), int(ceil(altar.time_left()))]
+	_text(Vector2(0, 66), tr("ALTAR_STATUS") % [int(altar.hp), int(altar.max_hp)] + "  ·  " + line, 14, UiKit.GOLD,
+		HORIZONTAL_ALIGNMENT_CENTER, w)
 
 
 ## Mode « vagues par zone » : zone, vague et Corrompus restants ; flèches vers les derniers pendant la traque.

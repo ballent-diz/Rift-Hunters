@@ -1,7 +1,7 @@
 extends Node
 ## Captures d'écran d'une partie jouée par le bot (nécessite un affichage, ex. xvfb-run).
 ## Usage : xvfb-run -a godot --path . --fixed-fps 60 res://tools/screenshot.tscn -- --out=/chemin --times=20,150
-##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr] [--night] [--boss=root_sentinel]
+##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr] [--night] [--boss=root_sentinel] [--altar]
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -15,6 +15,7 @@ func _ready() -> void:
 	setup.run_seed = 1
 	var boss_at: float = -1.0
 	var night: bool = false
+	var altar: bool = false
 	var boss_id: StringName = &""
 	var menu: String = ""
 	var tab: int = 0
@@ -39,6 +40,8 @@ func _ready() -> void:
 				boss_at = float(parts[1])
 			"night":
 				night = true
+			"altar":
+				altar = true
 			"boss":
 				boss_id = StringName(parts[1])
 			"menu":
@@ -113,7 +116,7 @@ func _ready() -> void:
 		_save("menu_" + menu)
 		get_tree().quit()
 		return
-	setup.arena_override = TestArena.build(setup.arena_id, night, boss_id)
+	setup.arena_override = TestArena.build(setup.arena_id, night, boss_id, altar)
 	_run = load("res://scenes/run.tscn").instantiate()
 	_run.skip_profile = true
 	_run.start(setup)

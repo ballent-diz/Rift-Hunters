@@ -89,10 +89,10 @@ func _draw() -> void:
 
 ## Chevrons autour du Chasseur dans la direction de la route à suivre.
 func _draw_route() -> void:
-	if ctx.player == null or (ctx.zones == null and ctx.rifts == null):
+	if ctx.player == null:
 		return
 	var pos: Vector2 = ctx.player.global_position
-	var dir: Vector2 = ctx.zones.objective_direction(pos) if ctx.zones else ctx.rifts.objective_direction(pos)
+	var dir: Vector2 = ctx.objective_direction(pos)
 	if dir == Vector2.ZERO:
 		return
 	var bob: float = 2.0 * sin(_time * 2.4)

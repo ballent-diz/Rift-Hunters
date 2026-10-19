@@ -78,8 +78,12 @@ func start(setup: RunSetup) -> void:
 		ctx.rifts = RiftDirector.new()
 		ctx.world.add_child(ctx.rifts)
 		ctx.rifts.setup(ctx)
+	if ctx.arena.altar_waves > 0 and ctx.zones == null and ctx.rifts == null:
+		ctx.altar = AltarDirector.new()
+		ctx.world.add_child(ctx.altar)
+		ctx.altar.setup(ctx)
 	# Barrières (zones, arène murée) et flèche de route.
-	if ctx.zones or ctx.rifts or not ctx.arena.finale_walls.is_empty():
+	if ctx.zones or ctx.rifts or ctx.altar or not ctx.arena.finale_walls.is_empty():
 		var overlay := ZoneOverlay.new()
 		overlay.setup(ctx)
 		if ctx.zones:
@@ -278,6 +282,8 @@ func _physics_process(delta: float) -> void:
 		ctx.zones.step(delta)
 	if ctx.rifts:
 		ctx.rifts.step(delta)
+	if ctx.altar:
+		ctx.altar.step(delta)
 	if ctx.night:
 		ctx.night.step(delta)
 	spawner.step(delta)
@@ -301,7 +307,8 @@ func _physics_process(delta: float) -> void:
 		if _victory_timer < 0.0:
 			_finish(true)
 		return
-	if not ctx.player.alive:
+	# Défaite : Chasseur tombé, ou autel détruit (mode défense d'autel).
+	if not ctx.player.alive or (ctx.altar and ctx.altar.destroyed):
 		if _defeat_timer < 0.0:
 			_defeat_timer = DEFEAT_DELAY if ctx.player.visual.has_sheet() else 0.0
 		_defeat_timer -= delta

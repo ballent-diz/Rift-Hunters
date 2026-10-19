@@ -55,12 +55,10 @@ func _compute_move() -> Vector2:
 	if ctx.rng.randf() < 0.01:
 		_wander = _wander.rotated(ctx.rng.randf_range(-1.2, 1.2))
 	_dash_wanted = closest < 22.0 or ctx.hazards.danger_vector(pos).length() > 0.5 or threat.length() > 1.5
-	# Modes « vagues par zone » et « failles » : suivre la route vers la zone suivante, la faille la plus proche ou l'arène.
-	var route := Vector2.ZERO
-	if ctx.zones or ctx.rifts:
-		route = (ctx.zones.objective_direction(pos) if ctx.zones else ctx.rifts.objective_direction(pos)) * 1.6
-		if route != Vector2.ZERO:
-			home = Vector2.ZERO
+	# Modes « vagues par zone », « failles » et « autel » : suivre la route (zone suivante, faille, arène, autel).
+	var route: Vector2 = ctx.objective_direction(pos) * 1.6
+	if route != Vector2.ZERO:
+		home = Vector2.ZERO
 	if ctx.time >= _check_time:
 		if _check_pos != Vector2.INF and pos.distance_to(_check_pos) < 40.0:
 			_unstick_until = ctx.time + 2.5

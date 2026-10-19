@@ -4,8 +4,8 @@ extends RefCounted
 ## null si rien n'est modifié (la partie charge alors l'arène normale).
 
 
-static func build(arena_id: StringName, night: bool, boss_id: StringName) -> ArenaData:
-	if not night and boss_id == &"":
+static func build(arena_id: StringName, night: bool, boss_id: StringName, altar: bool = false) -> ArenaData:
+	if not night and boss_id == &"" and not altar:
 		return null
 	var arena: ArenaData = GameDB.arena(arena_id)
 	arena = arena.duplicate()
@@ -13,6 +13,12 @@ static func build(arena_id: StringName, night: bool, boss_id: StringName) -> Are
 		_add_test_night(arena)
 	if boss_id != &"":
 		arena.boss_id = boss_id
+	if altar:
+		# Défense d'autel d'essai (Plaine fracturée conseillée) : sceau au centre, gardien du Bois à la fin.
+		arena.altar_waves = 5
+		arena.altar_point = Vector2.ZERO
+		if boss_id == &"":
+			arena.boss_id = &"root_sentinel"
 	return arena
 
 

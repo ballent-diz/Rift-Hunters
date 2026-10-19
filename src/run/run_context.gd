@@ -38,6 +38,8 @@ var finale: ArenaFinale
 var zones: ZoneDirector
 ## Mode « fermeture de failles » (null sinon).
 var rifts: RiftDirector
+## Mode « défense d'autel » (null sinon).
+var altar: AltarDirector
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 
@@ -52,3 +54,14 @@ func has_monster(id: StringName) -> bool:
 
 func arena_rect() -> Rect2:
 	return Rect2(-arena.size * 0.5, arena.size)
+
+
+## Flèche de route du mode en cours (zones, failles, autel) ; zéro si rien à rejoindre.
+func objective_direction(pos: Vector2) -> Vector2:
+	if zones:
+		return zones.objective_direction(pos)
+	if rifts:
+		return rifts.objective_direction(pos)
+	if altar:
+		return altar.objective_direction(pos)
+	return Vector2.ZERO

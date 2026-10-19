@@ -239,6 +239,8 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 	var nav: Vector2 = dir
 	if ctx.flow != null and target_pos == player_pos:
 		nav = ctx.flow.direction(enemy.position, dir)
+	elif enemy.goal_flow != null and target_pos != player_pos:
+		nav = enemy.goal_flow.direction(enemy.position, dir)
 	var speed: float = enemy.move_speed * enemy.statuses.speed_mult() * hunt_speed_mult
 	match enemy.data.brain:
 		EnemyData.Brain.CHASER:

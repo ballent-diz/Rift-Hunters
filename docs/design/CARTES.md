@@ -123,6 +123,22 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
   pour le Bois des Lucioles : griffes, ruée tellurique, séisme à deux anneaux, appel de Corrompus du sous-bois.
 - Essai : `--boss=root_sentinel` (avec `--boss-at=20` sur la Plaine fracturée).
 
+### Mode « défense d'autel » (carte 4)
+
+- Réglages dans `ArenaData` (groupe « Défense d'autel ») : `altar_waves` (0 = désactivé), `altar_point`, `altar_hp`
+  (2000), `altar_radius`, `altar_wave_duration` (40 s), `altar_wave_pause` (8 s), `altar_spawn_rate` (1,3 par seconde,
+  +20 % par vague), `altar_damage_mult` (part des dégâts de contact subie par l'autel, 0,3), `altar_raider_share`
+  (0,4) et `altar_spawn_points` (arrivées des vagues ; vide = tout autour de l'autel).
+- `src/run/altar_director.gd` : vagues de durée fixe ; une partie des Corrompus de corps à corps (les **pillards**) suit
+  sa propre route vers l'autel et l'abîme à son contact (6 à la fois au plus). Entre deux vagues, le sceau se répare
+  (+15 %) et un coffre tombe (il ouvre aussi les choix de niveau en réserve). Après la dernière vague, **le sceau se
+  referme** : son onde purifie les Corrompus restants, il ne craint plus rien, et le gardien de la carte s'éveille.
+  Autel détruit pendant les vagues : défaite.
+- HUD : barre du sceau, vague en cours ou à venir et secondes restantes ; flèche vers l'autel si le Chasseur s'en
+  éloigne. Visuel de l'autel provisoire (disque de pierre et runes) : à remplacer par Codex.
+- Essai : `--altar` sur la Plaine fracturée (sceau au centre, 5 vagues, Sentinelle des Racines à la fin). Bot
+  (graine 3) : 4 victoires sur 4 (Mousseroc, Cendrelame, Lueurine, Solgriffe) en 4 min 17 à 4 min 39.
+
 ## Ordre de réalisation
 
 1. Chapitre 1, carte 3 (Bois des Lucioles) : image (Codex), collisions peintes (propriétaire), zones, brique B2 et

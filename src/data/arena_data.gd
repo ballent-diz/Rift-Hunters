@@ -56,6 +56,22 @@ extends Resource
 ## Règles propres à l'arène (effets installés au début de la partie).
 @export var rule_effects: Array[GameplayEffect] = []
 @export var rule_key: String = ""
+@export_group("Défense d'autel (docs/design/CARTES.md)")
+## Nombre de vagues à tenir (0 = mode désactivé). Après la dernière, le boss de la carte (gardien) s'éveille.
+@export var altar_waves: int = 0
+@export var altar_point: Vector2 = Vector2.ZERO
+@export var altar_hp: float = 2000.0
+@export var altar_radius: float = 70.0
+@export var altar_wave_duration: float = 40.0
+@export var altar_wave_pause: float = 8.0
+## Corrompus apparus par seconde à la première vague (+20 % par vague).
+@export var altar_spawn_rate: float = 1.3
+## Part des dégâts de contact d'un pillard subie par l'autel.
+@export var altar_damage_mult: float = 0.3
+## Part des Corrompus de corps à corps qui marchent vers l'autel (pillards).
+@export_range(0.0, 1.0) var altar_raider_share: float = 0.4
+## Points d'arrivée des vagues (vide : cercle autour de l'autel).
+@export var altar_spawn_points: Array[Vector2] = []
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0
