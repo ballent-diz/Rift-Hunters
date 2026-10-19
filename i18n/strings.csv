@@ -612,6 +612,12 @@ ZONE_WAVE_BANNER,Vague %d / %d,Wave %d / %d
 ZONE_CLEARED_BANNER,Zone libérée ! Les barrières se dissipent.,Zone cleared! The barriers fade away.
 ZONE_THREE_RIFTS_1_NAME,Le Gué des Ruines,The Ruins Ford
 ZONE_THREE_RIFTS_2_NAME,La Cour des Cascades,The Cascade Courtyard
+ARENA_FIREFLY_WOODS_NAME,Bois des Lucioles,Firefly Woods
+ARENA_FIREFLY_WOODS_DESC,"La nuit tombe sur la forêt : avancez de clairière en clairière, puis réveillez le gardien de l'arbre-monde.","Night falls on the forest: advance from glade to glade, then awaken the guardian of the world tree."
+ZONE_FIREFLY_WOODS_1_NAME,La Prairie du Sous-bois,The Underwood Meadow
+ZONE_FIREFLY_WOODS_2_NAME,La Clairière du Sanctuaire,The Shrine Glade
+ZONE_FIREFLY_WOODS_3_NAME,Le Plateau de Mousse,The Moss Plateau
+FINALE_TRAVEL_GUARDIAN,"Les bois sont nettoyés : rejoignez l'arbre-monde, au nord-est.","The woods are cleared: reach the world tree to the north-east."
 SPELL_CLEAVING_SLASH_NAME,Taille fendante,Cleaving Slash
 SPELL_CLEAVING_SLASH_DESC,Arc de lame vers le curseur : gros dégâts et Fracture aux ennemis touchés.,Blade arc toward the cursor: heavy damage and Fracture on enemies hit.
 SPELL_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
