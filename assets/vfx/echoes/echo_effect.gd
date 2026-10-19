@@ -5,6 +5,7 @@ signal visual_finished
 const Shapes = preload("res://assets/vfx/hunter/effects_common.gd")
 const BRUSH = preload("res://assets/vfx/hunter/cleaving_slash/textures/blade-ribbon.png")
 const PAINT = preload("res://assets/vfx/echoes/echo_paint.gdshader")
+const Stroke = preload("res://assets/vfx/echoes/painted_stroke.gd")
 const WHITE := Color("fff5dd")
 
 @export var echo_id: StringName = &"cinderwing"
@@ -99,7 +100,7 @@ func _draw() -> void:
 	if _elapsed >= duration():
 		return
 	var p: float = clampf(_elapsed / duration(), 0.0, 1.0)
-	var fade: float = smoothstep(0.0, 0.08, p) * (1.0 - smoothstep(0.70, 1.0, p))
+	var fade: float = smoothstep(0.0, 0.06, p) * (1.0 - smoothstep(0.80, 1.0, p))
 	var strike: float = clampf((p - 0.12) / 0.58, 0.0, 1.0)
 	match effect_kind:
 		&"indicator": _indicator(fade)
@@ -139,13 +140,14 @@ func _ink(ink: Color, opacity: float) -> Color:
 
 func _path(points: PackedVector2Array, width: float, ink: Color, fade: float) -> void:
 	if detail_level == 0:
-		if points.size() > 1 and fade > 0.001:
-			draw_polyline(points, _ink(ink, fade), maxf(1.0, width * 0.6), false)
+		if points.size() > 1 and fade > 0.003:
+			draw_polyline(points, _ink(ink.lerp(accent, 0.3), fade), maxf(1.5, width * 0.75), false)
 		return
-	Shapes.painted_path(self, points, width, BRUSH, _ink(ink, fade))
+	Stroke.stroke(self, points, width, ink, accent, fade, BRUSH if detail_level == 1 else null)
 
 
 func _spark(center: Vector2, size: float, fade: float, angle: float = 0.0) -> void:
+	size *= 1.25
 	if detail_level == 0:
 		var along := Vector2.from_angle(angle) * size * 0.5
 		var across: Vector2 = along.orthogonal() * 0.4
@@ -205,8 +207,8 @@ func _feather(pos: Vector2, fade: float, p: float) -> void:
 	var points := PackedVector2Array()
 	for i: int in 9:
 		points.append(pos - Vector2(i * 6.0, sin(p * 12.0 - i * 0.5) * i))
-	_path(points, 10.0, color, fade * 0.6)
-	_quill(pos, 30.0, 13.0, 0.0, fade)
+	_path(points, 17.0, color, fade * 0.85)
+	_quill(pos, 46.0, 22.0, 0.0, fade)
 	draw_line(pos - Vector2(12, 0), pos + Vector2(14, 0), _ink(WHITE, fade), 1.5)
 
 
@@ -215,7 +217,8 @@ func _rain(p: float, fade: float) -> void:
 		var phase: float = fmod(p * 2.0 + i * 0.137, 1.0)
 		var base := Vector2.from_angle(i * 2.39996) * radius * sqrt((i + 1.0) / 13.0)
 		var pos: Vector2 = base + Vector2(12, -105) * (1.0 - phase)
-		_quill(pos, 23.0, 9.0, 1.8, fade * sin(phase * PI))
+		_path(PackedVector2Array([pos - Vector2(5, -24), pos]), 7, color, fade * sin(phase * PI) * 0.8)
+		_quill(pos, 38.0, 17.0, 1.8, fade * sin(phase * PI))
 		if phase > 0.7:
 			Shapes.star(self, base, 8.0 * (1.0 - phase) * 3.0, _ink(accent, fade * 0.7))
 
@@ -228,7 +231,7 @@ func _dash(p: float, fade: float, leap: bool) -> void:
 	for i: int in 14:
 		var x: float = maxf(0.0, pos.x - i * 8.0)
 		points.append(Vector2(x, pos.y + sin(i * 0.7 + p * 12) * i * 0.5))
-	_path(points, 20.0, color, fade * 0.7)
+	_path(points, 28.0, color, fade * 0.9)
 	for i: int in 3:
 		_spark(pos + Vector2(-i * 7, (i - 1) * 9), 34.0 - i * 6, fade, -0.3)
 	if echo_id == &"cinderwing":
@@ -261,15 +264,19 @@ func _melee(p: float, fade: float) -> void:
 			for i: int in 8:
 				var t: float = i / 7.0
 				jaw.append(Vector2(t * radius, side * (1 - t) * 24 * (1 - p)))
-			_path(jaw, 7, color, fade)
+			_path(jaw, 15, color, fade)
+			for tooth: int in (4 if detail_level == 1 else 2):
+				var center := Vector2(radius * (0.35 + tooth * 0.15), side * 12 * (1 - p))
+				_poly(PackedVector2Array([center + Vector2(-6, 0), center + Vector2(6, 0),
+					center - Vector2(0, side * 12)]), _ink(accent, fade))
 		_spark(Vector2(radius, 0), 18, fade)
 		return
 	for j: int in 3:
 		var points := PackedVector2Array()
 		for i: int in 12:
-			var a: float = tip - i * 0.07
+			var a: float = tip - i * 0.13
 			points.append(Vector2.from_angle(a) * (radius - j * 9.0))
-		_path(points, 10.0 - j * 2.0, accent if j == 0 else color, fade * (1.0 - j * 0.18))
+		_path(points, 16.0 - j * 3.0, accent if j == 0 else color, fade * (1.0 - j * 0.12))
 	_scatter(maxf(0, p - 0.25) * 1.2, fade, 9, radius * 0.6)
 
 
@@ -285,9 +292,14 @@ func _lava(p: float, fade: float, flowing: bool) -> void:
 			var a: float = j * TAU / 12.0
 			points.append(pos + Vector2.from_angle(a) * radius * 0.3 * grow * (0.85 + sin(j * 2 + i) * 0.15))
 		_poly(points, _ink(Color("312934"), fade * 0.48))
+		var molten := PackedVector2Array()
+		for point: Vector2 in points:
+			molten.append(pos + (point - pos) * 0.78)
+		_poly(molten, _ink(color, fade * grow * 0.65))
 		for j: int in 3:
 			var start: Vector2 = pos + Vector2.from_angle(j * 2.1 + i) * radius * 0.08
-			draw_line(start, start * 0.4 + pos * 0.6 + Vector2(radius * 0.18, 4), _ink(color, fade * grow), 2.0)
+			_path(PackedVector2Array([start, start * 0.4 + pos * 0.6 + Vector2(radius * 0.18, 4)]),
+				6.0, accent, fade * grow)
 		_spark(pos + Vector2(0, -8 - sin(p * 9 + i) * 7), 6, fade * 0.6, -1.5)
 
 
@@ -298,7 +310,7 @@ func _geyser(p: float, fade: float) -> void:
 		for j: int in 10:
 			var t: float = j / 9.0
 			points.append(Vector2((i - 2) * 9.0 * t, -radius * 1.4 * lift * sin(t * PI * 0.6)))
-		_path(points, 13.0 - absf(i - 2) * 3, color if i != 2 else accent, fade)
+		_path(points, 22.0 - absf(i - 2) * 4, color if i != 2 else accent, fade)
 	_scatter(p, fade, 14, radius * 0.8)
 
 
@@ -313,12 +325,14 @@ func _flame(p: float, fade: float) -> void:
 		var tail := PackedVector2Array()
 		for j: int in 9:
 			tail.append(pos + Vector2(-j * 5.0, sin(j * 0.6 + p * 17 + i) * (j + 2) + (i - 2) * 3))
-		_path(tail, 11.0 - i, color, fade * 0.6)
+		_path(tail, 17.0 - i * 2, color, fade * 0.8)
 	var flame := PackedVector2Array([
 		pos + Vector2(18, 0), pos + Vector2(2, -11), pos + Vector2(-16, -9),
 		pos + Vector2(-9, -3), pos + Vector2(-27, 1), pos + Vector2(-11, 5),
 		pos + Vector2(-19, 13), pos + Vector2(3, 10)])
-	_poly(flame, _ink(color, fade * 0.9))
+	for i: int in flame.size():
+		flame[i] = pos + (flame[i] - pos) * 1.4
+	_poly(flame, _ink(color, fade * 0.98))
 	var core := PackedVector2Array([pos + Vector2(8, 0), pos + Vector2(-2, -6),
 		pos + Vector2(-14, -3), pos + Vector2(-7, 0), pos + Vector2(-14, 5), pos + Vector2(-1, 6)])
 	_poly(core, _ink(Color("252934"), fade * 0.9))
@@ -330,7 +344,10 @@ func _implode(p: float, fade: float) -> void:
 	for i: int in mini(18, particle_budget):
 		var a: float = i * TAU / 18.0 + p * 0.8
 		var pos := Vector2.from_angle(a) * (r + 8)
-		_spark(pos, 9 + p * 6, fade, a + PI)
+		_spark(pos, 16 + p * 12, fade, a + PI)
+		if i % 3 == 0:
+			_path(PackedVector2Array([pos * 1.1, pos + pos.orthogonal() * 0.2, pos * 0.5]),
+				8, color, fade * 0.75)
 		draw_line(pos, pos + Vector2.from_angle(a) * 14, _ink(color, fade * 0.4), 1.0)
 	if p > 0.6:
 		Shapes.star(self, Vector2.ZERO, radius * 0.26 * sin((p - 0.6) / 0.4 * PI), _ink(color, fade))
@@ -342,7 +359,10 @@ func _spores(p: float, fade: float) -> void:
 	for i: int in mini(22, particle_budget):
 		var pos: Vector2 = center + Vector2.from_angle(i * 2.39996 + p * 0.3) * radius * spread * sqrt((i + 1.0) / 23.0)
 		pos.y -= 8 + sin(p * 8 + i) * 6
-		draw_circle(pos, 3.5, _ink(color, fade * 0.65))
+		var swell: float = 5.5 + sin(p * 7 + i) * 1.5
+		_poly(PackedVector2Array([pos + Vector2(-swell, 1), pos + Vector2(-swell * 0.7, -swell),
+			pos + Vector2(swell * 0.4, -swell * 1.2), pos + Vector2(swell, 0),
+			pos + Vector2(0, swell * 0.6)]), _ink(color, fade * 0.85))
 		draw_line(pos + Vector2(-1, -2), pos + Vector2(1, -2), _ink(WHITE, fade), 1.0)
 		draw_line(pos + Vector2(0, 5), pos + Vector2(2, 12), _ink(accent, fade * 0.35), 1.0)
 
@@ -353,7 +373,7 @@ func _bud(p: float, fade: float) -> void:
 		var a: float = i * TAU / 5.0
 		_spark(Vector2.from_angle(a) * 14 * grow, 24 * grow, fade, a)
 	draw_line(Vector2(0, 0), Vector2(0, -23 * grow), _ink(accent, fade), 4.0)
-	Shapes.facet(self, Vector2(0, -28 * grow), -PI * 0.5, 25 * grow, 22 * grow, color, accent, fade)
+	Shapes.facet(self, Vector2(0, -28 * grow), -PI * 0.5, 36 * grow, 30 * grow, color, accent, fade)
 	if p > 0.65:
 		_spores((p - 0.65) / 0.35, fade)
 
@@ -362,18 +382,18 @@ func _gravity(p: float, fade: float) -> void:
 	for i: int in mini(12, particle_budget):
 		var a: float = i * TAU / 12.0 + p * 4.0
 		var r: float = radius * (0.25 + fmod(i * 0.137 + 1 - p, 1.0) * 0.75)
-		_spark(Vector2.from_angle(a) * Vector2(r, r * 0.6), 8 + i % 3 * 3, fade, a)
+		_spark(Vector2.from_angle(a) * Vector2(r, r * 0.6), 17 + i % 3 * 4, fade, a)
 		var points := PackedVector2Array()
 		for j: int in 8:
 			points.append(Vector2.from_angle(a - j * 0.08) * Vector2(r + j * 2, (r + j * 2) * 0.6))
-		_path(points, 2.0, accent, fade * 0.5)
+		_path(points, 7.0, accent, fade * 0.7)
 
 
 func _meteor(p: float, fade: float) -> void:
 	if p < 0.52:
 		var pos := Vector2(60, -150) * (1.0 - p / 0.52)
-		_path(PackedVector2Array([pos, pos + Vector2(30, -70)]), 20, accent, fade * 0.6)
-		Shapes.facet(self, pos, -1.1, 38, 32, color, accent, fade)
+		_path(PackedVector2Array([pos, pos + Vector2(30, -70)]), 30, accent, fade * 0.9)
+		Shapes.facet(self, pos, -1.1, 52, 40, color, accent, fade)
 	else:
 		Shapes.burst(self, Vector2.ZERO, p - 0.52, 0.48, mini(18, particle_budget), radius, color, accent)
 		for i: int in 6:
@@ -382,30 +402,32 @@ func _meteor(p: float, fade: float) -> void:
 
 
 func _grove(p: float, fade: float) -> void:
-	for i: int in mini(7, particle_budget):
+	for i: int in mini(7 if detail_level == 1 else 2, particle_budget):
 		var pos := Vector2.from_angle(i * 2.39996) * radius * (0.35 + i * 0.08)
-		var height: float = 25 * smoothstep(i * 0.018, 0.35, p)
-		draw_line(pos, pos - Vector2(0, height), _ink(color, fade * 0.65), 3)
+		var height: float = 34 * smoothstep(i * 0.018, 0.35, p)
+		_path(PackedVector2Array([pos, pos - Vector2(4, height * 0.5), pos - Vector2(0, height)]),
+			7, color, fade * 0.85)
 		if detail_level == 1:
-			Shapes.facet(self, pos - Vector2(0, height), -1.57, 15, 8, color, accent, fade)
-			Shapes.facet(self, pos - Vector2(7, height * 0.5), -2.4, 13, 5, color, accent, fade * 0.8)
+			Shapes.facet(self, pos - Vector2(0, height), -1.57, 24, 13, color, accent, fade)
+			Shapes.facet(self, pos - Vector2(7, height * 0.5), -2.4, 20, 10, color, accent, fade * 0.9)
 		else:
 			_spark(pos - Vector2(0, height), 12, fade, -1.57)
 	for offset: Vector2 in secondary_offsets:
-		_path(PackedVector2Array([Vector2.ZERO, offset * 0.5 + Vector2(0, -10), offset]), 3, accent, fade * 0.45)
+		_path(PackedVector2Array([Vector2.ZERO, offset * 0.5 + Vector2(0, -10), offset]), 7, accent, fade * 0.75)
 	_scatter(p * 0.6, fade, 8, radius * 0.65)
 
 
 func _thorns(p: float, fade: float) -> void:
+	var steps: int = 18 if detail_level == 1 else 9
 	for side: float in [-1.0, 1.0]:
 		var points := PackedVector2Array()
-		for i: int in 18:
-			var a: float = -PI * 0.5 + i * PI / 17.0
+		for i: int in steps:
+			var a: float = -PI * 0.5 + i * PI / float(steps - 1)
 			var pos := Vector2(side * cos(a) * radius * 0.6, sin(a) * radius * 0.75)
 			points.append(pos)
-			if i % 3 == 0:
-				_spark(pos * 1.08, 13, fade, pos.angle())
-		_path(points, 6, color, fade * smoothstep(0, 0.25, p))
+			if i % 3 == 0 and (detail_level == 1 or i in [3, 6]):
+				_spark(pos * 1.08, 20, fade, pos.angle())
+		_path(points, 11, color, fade * smoothstep(0, 0.25, p))
 
 
 func _solar(p: float, fade: float) -> void:
@@ -413,7 +435,7 @@ func _solar(p: float, fade: float) -> void:
 	for i: int in 7:
 		var a: float = (i - 3) * 0.15
 		var points := PackedVector2Array([Vector2.from_angle(a) * reach * 0.2, Vector2.from_angle(a) * reach])
-		_path(points, 11 - absf(i - 3) * 2, color if i % 2 else accent, fade * 0.75)
+		_path(points, 17 - absf(i - 3) * 3, color if i % 2 else accent, fade * 0.9)
 		_spark(Vector2.from_angle(a) * reach, 10, fade, a)
 
 
@@ -425,10 +447,11 @@ func _moths(p: float, fade: float) -> void:
 		pos.y -= 8 + sin(p * 12 + i) * 8
 		if effect_kind == &"dust":
 			pos.x += travel_distance * p
-		Shapes.star(self, pos, 3 + i % 2, _ink(color, fade * 0.85))
-		var wing: float = 3 + sin(p * 35 + i) * 2
-		draw_line(pos, pos + Vector2(wing, -3), _ink(accent, fade * 0.7), 1)
-		draw_line(pos, pos + Vector2(-wing, -3), _ink(accent, fade * 0.7), 1)
+		Shapes.star(self, pos, 6 + i % 2, _ink(color, fade * 0.9))
+		var wing: float = 6 + sin(p * 35 + i) * 3
+		for side: float in [-1, 1]:
+			_poly(PackedVector2Array([pos, pos + Vector2(side * wing, -6),
+				pos + Vector2(side * wing * 0.8, 3)]), _ink(accent, fade * 0.85))
 		if effect_kind == &"speed" or effect_kind == &"powder":
 			draw_line(pos - Vector2(9, 0), pos, _ink(color, fade * 0.4), 1)
 
@@ -440,19 +463,20 @@ func _bolt(from: Vector2, to: Vector2, fade: float) -> void:
 		if i > 0 and i < 8:
 			pos += (to - from).normalized().orthogonal() * sin(i * 5.0 + floor(_elapsed * 18)) * 6.0
 		points.append(pos)
-	draw_polyline(points, _ink(color, fade * 0.5), 4)
-	draw_polyline(points, _ink(accent, fade), 1.5)
+	_path(points, 8, color, fade * 0.9)
+	draw_polyline(points, _ink(accent, fade), 2.5)
 
 
 func _electric(p: float, fade: float) -> void:
 	var r: float = radius * (0.2 + p * 0.8) if effect_kind == &"wave" else radius
-	for i: int in 6:
-		var a: float = i * TAU / 6.0
-		var b: float = (i + 1) * TAU / 6.0
+	var segments: int = 6 if detail_level == 1 else 4
+	for i: int in segments:
+		var a: float = i * TAU / segments
+		var b: float = (i + 1) * TAU / segments
 		var start := Vector2.from_angle(a) * Vector2(r, r * 0.7)
 		var end := Vector2.from_angle(b) * Vector2(r, r * 0.7)
 		_bolt(start, end, fade * 0.8)
-		if effect_kind != &"wave":
+		if effect_kind != &"wave" and (detail_level == 1 or i % 2 == 0):
 			_bolt(start, Vector2(start.x * 0.4, -radius * 0.85), fade * 0.45)
 	for offset: Vector2 in secondary_offsets:
 		_bolt(Vector2.ZERO, offset, fade)

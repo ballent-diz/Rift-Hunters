@@ -5,6 +5,7 @@ var _viewport: SubViewport
 
 
 func _ready() -> void:
+	AudioServer.set_bus_mute(0, true)
 	get_tree().set_auto_accept_quit(false)
 	get_window().unfocusable = true
 	Profile.profile = ProfileData.new()

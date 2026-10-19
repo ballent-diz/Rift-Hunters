@@ -1,6 +1,6 @@
 extends Node
 ## Contrôle C5-ter dans la vraie partie : profil isolé, un vrai Écho et 90 ennemis gelés.
-const OUT := "res://docs/previews/c5-echos-origine/"
+var output_path: String = "res://docs/previews/c5-echos-origine/"
 
 var _viewport: SubViewport
 var _run: RunController
@@ -10,36 +10,44 @@ var _metrics: Dictionary = {}
 
 
 func _ready() -> void:
+	AudioServer.set_bus_mute(0, true)
 	get_tree().set_auto_accept_quit(false)
 	get_window().unfocusable = true
 	Profile.read_only = true
 	TranslationServer.set_locale("fr")
-	DirAccess.make_dir_recursive_absolute(OUT)
+	DirAccess.make_dir_recursive_absolute(output_path)
 	_viewport = SubViewport.new()
 	_viewport.size = Vector2i(1280, 720)
 	_viewport.render_target_update_mode = SubViewport.UPDATE_ALWAYS
 	add_child(_viewport)
-	var specs: Array = JSON.parse_string(FileAccess.get_file_as_string("res://assets/vfx/echoes/origin_catalog.json"))
+	var specs: Array = _specifications()
 	for argument: String in OS.get_cmdline_user_args():
 		if argument.begins_with("--only="):
 			var selected: String = argument.trim_prefix("--only=")
-			specs = specs.filter(func(spec: Dictionary) -> bool: return spec.id == selected)
+			specs = specs.filter(func(spec: Dictionary) -> bool: return spec.id in selected.split(","))
 	for spec: Dictionary in specs:
 		print("C5-ter : ", spec.id)
 		await _make_run(StringName(spec.id))
 		if "--metrics-only" not in OS.get_cmdline_user_args():
 			await _capture_echo(spec)
-		await _benchmark(spec)
-	var previous: Variant = JSON.parse_string(FileAccess.get_file_as_string(OUT + "performance.json"))
+		if "--skip-metrics" not in OS.get_cmdline_user_args():
+			await _benchmark(spec)
+	var previous: Variant = null
+	if FileAccess.file_exists(output_path + "performance.json"):
+		previous = JSON.parse_string(FileAccess.get_file_as_string(output_path + "performance.json"))
 	if previous is Dictionary:
 		previous.merge(_metrics, true)
 		_metrics = previous
-	var file := FileAccess.open(OUT + "performance.json", FileAccess.WRITE)
+	var file := FileAccess.open(output_path + "performance.json", FileAccess.WRITE)
 	file.store_string(JSON.stringify(_metrics, "\t") + "\n")
 	print("C5-ter : export terminé pour ", specs.size(), " Écho(s).")
 	_run.queue_free()
 	await get_tree().process_frame
 	get_tree().quit()
+
+
+func _specifications() -> Array:
+	return JSON.parse_string(FileAccess.get_file_as_string("res://assets/vfx/echoes/origin_catalog.json"))
 
 
 func _notification(what: int) -> void:
@@ -80,6 +88,8 @@ func _make_run(identity: StringName) -> void:
 	if _run.ctx.player.visual._anim:
 		_run.ctx.player.visual._anim.pause()
 	await get_tree().create_timer(1.8).timeout
+	if not OS.get_environment("ORIGIN_FRAME_DIR").is_empty():
+		_run.process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func _capture_echo(spec: Dictionary) -> void:
@@ -96,7 +106,9 @@ func _capture_echo(spec: Dictionary) -> void:
 	var main: Node2D = _effect(spec.id, main_name, main_origin)
 	_configure_targets(main, main_name, spec.id)
 	main.call("seek_visual", float(main.call("duration")) * 0.4)
-	await _save(OUT + spec.id + ".png")
+	await _save(output_path + spec.id + ".png")
+	if "--shots-only" in OS.get_cmdline_user_args():
+		return
 	var names: Array[String] = ["attack", spec.spells[0][0], spec.spells[1][0]]
 	for name: String in names:
 		_clear()

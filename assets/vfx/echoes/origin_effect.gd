@@ -46,7 +46,13 @@ func _draw() -> void:
 func _slash(center: Vector2, size: float, p: float, fade: float, flip: float = 1.0) -> void:
 	var sweep: float = lerpf(-1.9, 1.45, smoothstep(0.02, 0.82, p))
 	var span: float = lerpf(0.65, 2.15, smoothstep(0.0, 0.24, p))
-	var count: int = 16 if detail_level == 1 else 8
+	if detail_level == 0:
+		var start: float = minf((sweep - span) * flip, sweep * flip)
+		var end: float = maxf((sweep - span) * flip, sweep * flip)
+		draw_arc(center, size - 2, start, end, 9, _ink(color, fade), 12.0)
+		draw_arc(center, size, start, end, 9, _ink(accent, fade), 3.0)
+		return
+	var count: int = 16
 	var outer := PackedVector2Array()
 	var inner := PackedVector2Array()
 	var spine := PackedVector2Array()
@@ -61,8 +67,7 @@ func _slash(center: Vector2, size: float, p: float, fade: float, flip: float = 1
 	inner.reverse()
 	var body: PackedVector2Array = outer.duplicate()
 	body.append_array(inner)
-	_poly(body, _ink(Color("3d181c"), fade * 0.95))
-	_poly(body, _ink(color, fade * 0.9))
+	_poly(body, _ink(color, fade * 0.98))
 	draw_polyline(spine, _ink(accent, fade), 3.0, true)
 	if detail_level == 1:
 		_path(spine, 18.0, Color("fff0c9"), fade * 0.8)
@@ -120,8 +125,8 @@ func _cracks(center: Vector2, size: float, p: float, fade: float) -> void:
 		var points := PackedVector2Array([center, center + Vector2.from_angle(a - 0.12) * size * 0.42 * growth,
 			center + Vector2.from_angle(a + 0.05) * size * 0.75 * growth,
 			center + Vector2.from_angle(a) * size * growth])
-		draw_polyline(points, _ink(Color("25232e"), fade * 0.7), 4)
-		draw_polyline(points, _ink(color, fade * 0.9), 1.5)
+		draw_polyline(points, _ink(Color("25232e"), fade * 0.8), 7)
+		draw_polyline(points, _ink(color, fade), 3.5)
 		if detail_level == 1:
 			draw_line(points[1], points[1] + Vector2.from_angle(a + 0.8) * size * 0.2 * growth,
 				_ink(accent, fade * 0.6), 1)
@@ -133,7 +138,7 @@ func _slam(p: float, fade: float) -> void:
 		var a: float = i * 2.39996
 		var lift: float = sin(clampf((p - 0.1) / 0.8, 0, 1) * PI)
 		var pos: Vector2 = Vector2.from_angle(a) * radius * (0.2 + p * 0.6) - Vector2(0, 20 * lift)
-		_spark(pos, (8 + i % 3 * 4) * lift, fade, a + p)
+		_spark(pos, (14 + i % 3 * 5) * lift, fade, a + p)
 
 
 func _well(p: float, fade: float) -> void:
@@ -143,9 +148,9 @@ func _well(p: float, fade: float) -> void:
 		var a: float = i * 2.39996 + p * 4
 		var distance: float = size * (0.2 + fmod(i * 0.137 + 1 - p, 1) * 0.8)
 		var pos := Vector2.from_angle(a) * Vector2(distance, distance * 0.65)
-		_spark(pos, 10 + i % 3 * 3, fade, a)
+		_spark(pos, 17 + i % 3 * 4, fade, a)
 		_path(PackedVector2Array([pos, pos * 0.7 + pos.orthogonal() * 0.18, pos * 0.45]),
-			3, accent, fade * 0.45)
+			7, accent, fade * 0.7)
 	if collapse > 0:
 		_cracks(Vector2.ZERO, radius * collapse, p, fade * collapse)
 
@@ -186,8 +191,8 @@ func _orb(p: float, fade: float) -> void:
 		var tail := PackedVector2Array()
 		for j: int in 8:
 			tail.append(pos + Vector2(-j * 6, sin(j * 0.5 + p * 14 + i) * (j + 2)))
-		_path(tail, 8 - i * 2, color, fade * 0.5)
-	_prism(pos, 21, p * 3, fade)
+		_path(tail, 16 - i * 3, color, fade * 0.8)
+	_prism(pos, 28, p * 3, fade)
 	Shapes.star(self, pos, 5, _ink(accent, fade))
 
 
@@ -208,7 +213,7 @@ func _flare(p: float, fade: float) -> void:
 		for i: int in mini(8, particle_budget):
 			var a: float = i * TAU / 8.0
 			var dist: float = radius * smoothstep(0.12, 0.65, p)
-			_prism(pos + Vector2.from_angle(a) * dist, 16 * (1 - p * 0.7), a, fade)
+			_prism(pos + Vector2.from_angle(a) * dist, 24 * (1 - p * 0.6), a, fade)
 		if p < 0.35:
 			_mark(pos, radius * 0.35, p, fade)
 
@@ -218,14 +223,15 @@ func _prism_rain(p: float, fade: float) -> void:
 		var age: float = fmod(p * 1.8 + i * 0.173, 1)
 		var target := Vector2.from_angle(i * 2.39996) * radius * sqrt((i + 1.0) / 11.0)
 		var pos: Vector2 = target + Vector2(-20, -100) * (1 - age)
-		_prism(pos, 18, 1.3, fade * sin(age * PI))
+		_path(PackedVector2Array([pos - Vector2(-4, -22), pos]), 8, color, fade * sin(age * PI) * 0.8)
+		_prism(pos, 27, 1.3, fade * sin(age * PI))
 		if age > 0.75:
 			Shapes.star(self, target, 11 * (1 - age) * 4, _ink(accent, fade * 0.8))
 
 
 func _bramble(center: Vector2, size: float, p: float, fade: float) -> void:
 	var grow: float = smoothstep(0.04, 0.25, p)
-	for i: int in mini(6 if detail_level == 1 else 3, particle_budget):
+	for i: int in mini(4 if detail_level == 1 else 3, particle_budget):
 		var a: float = i * 2.39996
 		var reach: float = size * (0.5 + i % 3 * 0.2) * grow
 		var points := PackedVector2Array()
@@ -233,10 +239,10 @@ func _bramble(center: Vector2, size: float, p: float, fade: float) -> void:
 			var t: float = j / (9.0 if detail_level == 1 else 4.0)
 			points.append(center + Vector2.from_angle(a + sin(t * 3 + p) * 0.15) * reach * t
 				- Vector2(0, sin(t * PI) * 9))
-		_path(points, 6, color, fade * 0.8)
-		for j: int in (3 if detail_level == 1 else 1):
+		_path(points, 10, color, fade * 0.95)
+		for j: int in (1 if detail_level == 1 or i == 0 else 0):
 			var pos: Vector2 = center + Vector2.from_angle(a) * reach * (0.4 + j * 0.23)
-			_spark(pos - Vector2(0, 4), 11 * grow, fade, a - 0.7)
+			_spark(pos - Vector2(0, 4), 17 * grow, fade, a - 0.7)
 
 
 func _briar_line(p: float, fade: float) -> void:
@@ -252,7 +258,7 @@ func _bloom(p: float, fade: float) -> void:
 		var grow: float = smoothstep(0.1, 0.4, p)
 		for petal: int in (4 if detail_level == 1 else 2):
 			_spark(pos + Vector2.from_angle(petal * TAU / 4) * 7 * grow,
-				13 * grow, fade, petal * TAU / 4)
+				19 * grow, fade, petal * TAU / 4)
 		Shapes.star(self, pos - Vector2(0, p * 18), 3, _ink(WHITE, fade * 0.8))
 	for target: Vector2 in secondary_offsets.slice(0, 3):
 		_path(PackedVector2Array([Vector2.ZERO, target * 0.5 - Vector2(0, 12), target]), 4, accent, fade * 0.55)
@@ -289,8 +295,8 @@ func _conduct(from: Vector2, to: Vector2, fade: float) -> void:
 		if i > 0 and i < 10:
 			point += normal * sin(i * 4.9 + floor(_elapsed * 18)) * 7
 		points.append(point)
-	_path(points, 8, color, fade * 0.7)
-	draw_polyline(points, _ink(accent, fade), 1.5)
+	_path(points, 12, color, fade * 0.9)
+	draw_polyline(points, _ink(accent, fade), 3.0)
 	if detail_level == 1:
 		for i: int in [3, 7]:
 			var end: Vector2 = points[i] + direction * 12 + normal * (15 if i == 3 else -12)
@@ -312,7 +318,7 @@ func _storm(p: float, fade: float) -> void:
 			_mark(pos, 14, p, fade * 0.65)
 		if age >= 0 and age < 1:
 			_conduct(pos - Vector2(12, 130), pos, fade * (1 - age))
-			_prism(pos, 18 * (1 - age), i, fade)
+			_prism(pos, 26 * (1 - age), i, fade)
 
 
 func _jaws(center: Vector2, size: float, p: float, fade: float) -> void:
@@ -323,12 +329,12 @@ func _jaws(center: Vector2, size: float, p: float, fade: float) -> void:
 			var t: float = i / 8.0
 			jaw.append(center + Vector2((t - 0.5) * size * 1.7,
 				side * (sin(t * PI) * size * 0.5 + 4) * (1 - close * 0.8)))
-		_path(jaw, 11, color, fade * 0.8)
+		_path(jaw, 19, color, fade * 0.98)
 		for i: int in (5 if detail_level == 1 else 3):
 			var x: float = (i / (4.0 if detail_level == 1 else 2.0) - 0.5) * size * 1.2
 			var y: float = side * (size * 0.35 + 4) * (1 - close * 0.8)
 			var tooth := PackedVector2Array([center + Vector2(x - 4, y), center + Vector2(x + 4, y),
-				center + Vector2(x + 1, y - side * 11)])
+				center + Vector2(x + 1, y - side * 18)])
 			_poly(tooth, _ink(accent, fade * 0.9))
 
 
@@ -345,7 +351,7 @@ func _pit(p: float, fade: float) -> void:
 		var a: float = i * TAU / 8 + p * 0.5
 		var outer := Vector2.from_angle(a) * Vector2(radius, radius * 0.55) * grow
 		var inner: Vector2 = outer * (0.12 + (1 - p) * 0.2)
-		_path(PackedVector2Array([outer, outer * 0.65 + outer.orthogonal() * 0.18, inner]), 8, color, fade * 0.7)
+		_path(PackedVector2Array([outer, outer * 0.65 + outer.orthogonal() * 0.18, inner]), 14, color, fade * 0.9)
 		_spark(inner, 12 * grow, fade, a + PI)
 	_jaws(Vector2.ZERO, radius * 0.45, p, fade)
 
@@ -364,8 +370,8 @@ func _mirrors(p: float, fade: float, count: int) -> void:
 			else:
 				pos = secondary_offsets[0].lerp(secondary_offsets[1], smoothstep(0.48, 0.85, p))
 		var tail: Vector2 = pos - Vector2.from_angle(angle) * minf(70, travel_distance * progress)
-		_path(PackedVector2Array([tail, pos]), 12, color, fade * 0.55)
-		_prism(pos, 28, angle, fade)
+		_path(PackedVector2Array([tail, pos]), 20, color, fade * 0.85)
+		_prism(pos, 36, angle, fade)
 		if count == 1 and secondary_offsets.size() >= 2 and p > 0.5:
 			_path(PackedVector2Array([pos, pos + Vector2(-28, -15)]), 3, accent, fade * 0.45)
 
