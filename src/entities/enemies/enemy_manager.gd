@@ -6,6 +6,8 @@ const SEPARATION_CHECKS := 10
 ## Rafraîchissement de la carte de flux (secondes) : un seul calcul pour tous les ennemis.
 const FLOW_REFRESH := 0.25
 
+## Nuit (NightDirector) : seuls les ennemis visibles peuvent être ciblés ; vide = tout est visible.
+var visibility: Callable
 var ctx: RunContext
 var list: Array[Enemy] = []
 var obstacles: Array[Enemy] = []
@@ -62,6 +64,8 @@ func _nearest_within(pos: Vector2, max_range: float, exclude: Dictionary) -> Ene
 	for item: Variant in _buffer:
 		var enemy: Enemy = item
 		if not enemy.alive or not enemy.is_target() or exclude.has(enemy.get_instance_id()):
+			continue
+		if visibility.is_valid() and not bool(visibility.call(enemy)):
 			continue
 		var d: float = enemy.position.distance_squared_to(pos)
 		if d < best_d:
@@ -131,6 +135,7 @@ func spawn_boss(data: BossData, pos: Vector2) -> Enemy:
 	enemy.visual = EntityVisual.new()
 	enemy.add_child(enemy.visual)
 	enemy.visual.setup(data.visual)
+	enemy.visual.scale = Vector2.ONE * data.visual_scale
 	enemy.visual.bob_amount = 0.03
 	add_child(enemy)
 	list.append(enemy)
@@ -176,6 +181,9 @@ func step(delta: float) -> void:
 			if i % 2 == parity:
 				_separate(enemy)
 		var pos: Vector2 = enemy.position
+		if not enemy.is_boss:
+			# Courants et crues : les Corrompus lourds (résistance au recul) dérivent moins.
+			pos += ctx.terrain_drift(pos) * (1.0 - enemy.data_knockback_resist() * 0.5) * delta
 		if enemy.push_velocity.length_squared() > 1.0:
 			pos += enemy.push_velocity * delta
 			enemy.push_velocity *= maxf(1.0 - 8.0 * delta, 0.0)
@@ -234,7 +242,9 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 	var nav: Vector2 = dir
 	if ctx.flow != null and target_pos == player_pos:
 		nav = ctx.flow.direction(enemy.position, dir)
-	var speed: float = enemy.move_speed * enemy.statuses.speed_mult() * hunt_speed_mult
+	elif enemy.goal_flow != null and target_pos != player_pos:
+		nav = enemy.goal_flow.direction(enemy.position, dir)
+	var speed: float = enemy.move_speed * enemy.statuses.speed_mult() * hunt_speed_mult * ctx.terrain_speed(enemy.position)
 	match enemy.data.brain:
 		EnemyData.Brain.CHASER:
 			enemy.velocity = nav * speed

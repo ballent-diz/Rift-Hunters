@@ -37,7 +37,8 @@ func setup(p_ctx: RunContext) -> void:
 	ctx.events.synergy_activated.connect(func(id: StringName) -> void:
 		banner(tr("HUD_SYNERGY_ACTIVATED") % tr(GameDB.synergies[id].name_key)))
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
-		banner(tr("HUD_BOSS_ARRIVES") % boss.display_name()))
+		var key: String = "HUD_GUARDIAN_ARRIVES" if boss.boss_data and boss.boss_data.guardian else "HUD_BOSS_ARRIVES"
+		banner(tr(key) % boss.display_name()))
 	ctx.events.boss_phase_changed.connect(func(_phase: int) -> void: banner(tr("HUD_BOSS_PHASE2")))
 	Audio.beat.connect(func(_index: int) -> void: _beat = 1.0)
 	if ctx.setup.show_tutorial:
@@ -128,6 +129,8 @@ func _draw() -> void:
 	elif ctx.rifts:
 		_text(Vector2(0, 66), tr("RIFTS_PROGRESS") % [ctx.rifts.closed, ctx.rifts.total()], 14, UiKit.GOLD,
 			HORIZONTAL_ALIGNMENT_CENTER, w)
+	elif ctx.altar and ctx.altar.phase != AltarDirector.Phase.BOSS:
+		_draw_altar_status(w)
 	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
 		var boss_name: String = tr(GameDB.boss(ctx.arena.boss_id).name_key)
@@ -269,13 +272,28 @@ func _draw_boss(w: float) -> void:
 	if boss == null or not boss.alive:
 		return
 	var rect := Rect2(w * 0.25, 84, w * 0.5, 16)
-	_bar(rect, boss.hp / boss.max_hp, Color(0.65, 0.2, 0.95))
-	_text(Vector2(rect.position.x, rect.position.y - 4), boss.display_name(), 18, Color(0.95, 0.8, 1.0))
+	# Gardien de carte : barre verte et titre « Gardien », pour le distinguer d'un Dévoreur.
+	var guardian: bool = boss.boss_data != null and boss.boss_data.guardian
+	_bar(rect, boss.hp / boss.max_hp, Color(0.4, 0.85, 0.45) if guardian else Color(0.65, 0.2, 0.95))
+	var label: String = tr("HUD_GUARDIAN_LABEL") % boss.display_name() if guardian else boss.display_name()
+	_text(Vector2(rect.position.x, rect.position.y - 4), label, 18, Color(0.85, 1.0, 0.85) if guardian else Color(0.95, 0.8, 1.0))
 	if boss.extra_damage_taken > 1.0:
 		_text(Vector2(rect.end.x - 220, rect.position.y - 4), tr("BOSS_HEART_EXPOSED"), 16, Color(1.0, 0.7, 1.0),
 			HORIZONTAL_ALIGNMENT_RIGHT, 220)
 	elif boss.is_invulnerable():
 		_text(Vector2(rect.end.x - 220, rect.position.y - 4), tr("BOSS_INVULNERABLE"), 16, UiKit.MUTED, HORIZONTAL_ALIGNMENT_RIGHT, 220)
+
+
+## Mode « défense d'autel » : PV de l'autel (barre) et vague en cours ou à venir.
+func _draw_altar_status(w: float) -> void:
+	var altar: AltarDirector = ctx.altar
+	var rect := Rect2(w * 0.35, 84, w * 0.3, 12)
+	var ratio: float = altar.hp / maxf(altar.max_hp, 1.0)
+	_bar(rect, ratio, Color(0.55, 0.95, 0.7) if ratio > 0.3 else UiKit.DANGER)
+	var key: String = "ALTAR_STATUS_WAVE" if altar.phase == AltarDirector.Phase.WAVE else "ALTAR_STATUS_NEXT"
+	var line: String = tr(key) % [mini(altar.wave_index + 1, altar.waves()), altar.waves(), int(ceil(altar.time_left()))]
+	_text(Vector2(0, 66), tr("ALTAR_STATUS") % [int(altar.hp), int(altar.max_hp)] + "  ·  " + line, 14, UiKit.GOLD,
+		HORIZONTAL_ALIGNMENT_CENTER, w)
 
 
 ## Mode « vagues par zone » : zone, vague et Corrompus restants ; flèches vers les derniers pendant la traque.

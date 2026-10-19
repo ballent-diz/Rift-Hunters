@@ -3,6 +3,8 @@ extends RefCounted
 ## Paramètres de lancement d'une partie (choisis au Refuge).
 
 var arena_id: StringName = &"fractured_plain"
+## Outils et tests : arène modifiée à utiliser à la place de celle de arena_id (nuit d'essai, autre boss...).
+var arena_override: ArenaData
 var difficulty_id: StringName = &"normal"
 var starter_id: StringName = &"mossback"
 var starter_variant: bool = false

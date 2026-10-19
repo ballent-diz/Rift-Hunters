@@ -2,6 +2,7 @@ extends Node
 ## Captures d'écran d'une partie jouée par le bot (nécessite un affichage, ex. xvfb-run).
 ## Usage : xvfb-run -a godot --path . --fixed-fps 60 res://tools/screenshot.tscn -- --out=/chemin --times=20,150
 ##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr]
+##         [--night] [--boss=root_sentinel] [--altar] [--shallows] [--rivers]
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -14,12 +15,16 @@ func _ready() -> void:
 	setup.autopilot = true
 	setup.run_seed = 1
 	var boss_at: float = -1.0
+	var features: Array[String] = []
+	var boss_id: StringName = &""
 	var menu: String = ""
 	var tab: int = 0
 	var item_ids: PackedStringArray = []
 	var selection: String = ""
 	for arg: String in OS.get_cmdline_user_args():
 		var parts: PackedStringArray = arg.trim_prefix("--").split("=")
+		if parts[0] in TestArena.FEATURES:
+			features.append(parts[0])
 		match parts[0]:
 			"out":
 				_out = parts[1]
@@ -35,6 +40,8 @@ func _ready() -> void:
 				setup.run_seed = int(parts[1])
 			"boss-at":
 				boss_at = float(parts[1])
+			"boss":
+				boss_id = StringName(parts[1])
 			"menu":
 				menu = parts[1] if parts.size() > 1 else "main"
 			"locale":
@@ -107,6 +114,7 @@ func _ready() -> void:
 		_save("menu_" + menu)
 		get_tree().quit()
 		return
+	setup.arena_override = TestArena.build(setup.arena_id, boss_id, features)
 	_run = load("res://scenes/run.tscn").instantiate()
 	_run.skip_profile = true
 	_run.start(setup)

@@ -38,6 +38,14 @@ var finale: ArenaFinale
 var zones: ZoneDirector
 ## Mode « fermeture de failles » (null sinon).
 var rifts: RiftDirector
+## Mode « défense d'autel » (null sinon).
+var altar: AltarDirector
+## Terrain lent (B1) et courants (B6) ; null si la carte n'en a pas.
+var terrain: TerrainDirector
+## Crues, brique B3 (null sans lit de crue).
+var flood: FloodDirector
+## Nuit et lucioles, brique B2 (null de jour).
+var night: NightDirector
 
 
 func minutes() -> float:
@@ -50,3 +58,37 @@ func has_monster(id: StringName) -> bool:
 
 func arena_rect() -> Rect2:
 	return Rect2(-arena.size * 0.5, arena.size)
+
+
+## Flèche de route du mode en cours (zones, failles, autel) ; zéro si rien à rejoindre.
+func objective_direction(pos: Vector2) -> Vector2:
+	if zones:
+		return zones.objective_direction(pos)
+	if rifts:
+		return rifts.objective_direction(pos)
+	if altar:
+		return altar.objective_direction(pos)
+	return Vector2.ZERO
+
+
+## Ralentissement du terrain à cette position (1 si la carte n'a pas de terrain lent).
+func terrain_speed(pos: Vector2) -> float:
+	return terrain.speed_mult(pos) if terrain else 1.0
+
+
+## Dérive des courants et des crues à cette position (px/s ; zéro ailleurs).
+func terrain_drift(pos: Vector2) -> Vector2:
+	var result := Vector2.ZERO
+	if terrain:
+		result += terrain.drift(pos)
+	if flood:
+		result += flood.drift(pos)
+	return result
+
+
+## Dangers à fuir (bot de test) : zones télégraphiées et lit en crue.
+func danger_vector(pos: Vector2) -> Vector2:
+	var result: Vector2 = hazards.danger_vector(pos)
+	if flood:
+		result += flood.danger(pos)
+	return result

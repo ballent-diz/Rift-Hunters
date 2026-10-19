@@ -12,7 +12,7 @@ Le système de niveau est décrit en données : chaque map choisit son mode. Ré
 |---|---|---|
 | Survie au chrono | Existant ; **hors campagne** (Plaine fracturée) | Vagues continues pendant ~7 min, puis le Dévoreur ; épreuve d'endurance pour le score |
 | Vagues par zone | Validé (Ruines des Cascades) | Voir [MODE_VAGUES_PAR_ZONE.md](MODE_VAGUES_PAR_ZONE.md) |
-| Défense d'autel | Idée | Protéger un autel pendant X vagues |
+| Défense d'autel | Fait (19 oct.) : mode prêt, carte 4 du chapitre 1 (Gué des Brumes) à produire | Protéger un sceau pendant N vagues qui arrivent de plusieurs côtés ; une partie des Corrompus (pillards) l'attaque ; réparation et coffre entre les vagues ; le sceau refermé purifie les restants et le gardien s'éveille. Données : `ArenaData.altar_*` ; règles : `src/run/altar_director.gd` ; détail : [CARTES.md](CARTES.md) |
 | Fermeture de failles | Fait (18 oct.) : Hautes Terres d'Orage | 4 failles réparties sur la carte crachent des Corrompus et des élites tant qu'elles sont ouvertes ; le Chasseur les détruit dans l'ordre qu'il veut (flèche vers la plus proche, +15 % de PV et un coffre par faille) ; toutes refermées, la place centrale se ferme et Astravorn surgit. Données : `ArenaData.rift_points` et suivants, ennemi `rift_breach` ; règles : `src/run/rift_director.gd` |
 | Zone qui se resserre | Idée | L'espace jouable rétrécit avec le temps |
 | Ruée de boss | Idée | Enchaîner les boss |

@@ -41,7 +41,7 @@ func start(setup: RunSetup) -> void:
 	ctx = RunContext.new()
 	ctx.setup = setup
 	ctx.balance = GameDB.balance
-	ctx.arena = GameDB.arena(setup.arena_id)
+	ctx.arena = setup.arena_override if setup.arena_override else GameDB.arena(setup.arena_id)
 	ctx.difficulty = RunController.combine_difficulty(GameDB.difficulty(setup.difficulty_id), setup.modifier_ids)
 	ctx.rng.seed = setup.run_seed if setup.run_seed != 0 else randi()
 	ctx.root = self
@@ -78,8 +78,12 @@ func start(setup: RunSetup) -> void:
 		ctx.rifts = RiftDirector.new()
 		ctx.world.add_child(ctx.rifts)
 		ctx.rifts.setup(ctx)
+	if ctx.arena.altar_waves > 0 and ctx.zones == null and ctx.rifts == null:
+		ctx.altar = AltarDirector.new()
+		ctx.world.add_child(ctx.altar)
+		ctx.altar.setup(ctx)
 	# Barrières (zones, arène murée) et flèche de route.
-	if ctx.zones or ctx.rifts or not ctx.arena.finale_walls.is_empty():
+	if ctx.zones or ctx.rifts or ctx.altar or not ctx.arena.finale_walls.is_empty():
 		var overlay := ZoneOverlay.new()
 		overlay.setup(ctx)
 		if ctx.zones:
@@ -180,6 +184,19 @@ func _build_world() -> void:
 	ctx.enemies.z_index = 2
 	ctx.enemies.setup(ctx)
 	ctx.world.add_child(ctx.enemies)
+	if TerrainDirector.uses_terrain(ctx.arena):
+		ctx.terrain = TerrainDirector.new()
+		ctx.world.add_child(ctx.terrain)
+		ctx.terrain.setup(ctx)
+	if not ctx.arena.flood_lanes.is_empty():
+		ctx.flood = FloodDirector.new()
+		ctx.world.add_child(ctx.flood)
+		ctx.flood.setup(ctx)
+	if ctx.arena.night > 0.0:
+		# Juste après les Corrompus : le voile les couvre, pas les Échos, le Chasseur ni les dangers.
+		ctx.night = NightDirector.new()
+		ctx.world.add_child(ctx.night)
+		ctx.night.setup(ctx)
 	ctx.allies = AllyManager.new()
 	ctx.allies.z_index = 3
 	ctx.allies.setup(ctx)
@@ -273,6 +290,14 @@ func _physics_process(delta: float) -> void:
 		ctx.zones.step(delta)
 	if ctx.rifts:
 		ctx.rifts.step(delta)
+	if ctx.altar:
+		ctx.altar.step(delta)
+	if ctx.terrain:
+		ctx.terrain.step(delta)
+	if ctx.flood:
+		ctx.flood.step(delta)
+	if ctx.night:
+		ctx.night.step(delta)
 	spawner.step(delta)
 	event_director.step(delta)
 	ctx.player.step(delta)
@@ -294,7 +319,8 @@ func _physics_process(delta: float) -> void:
 		if _victory_timer < 0.0:
 			_finish(true)
 		return
-	if not ctx.player.alive:
+	# Défaite : Chasseur tombé, ou autel détruit (mode défense d'autel).
+	if not ctx.player.alive or (ctx.altar and ctx.altar.destroyed):
 		if _defeat_timer < 0.0:
 			_defeat_timer = DEFEAT_DELAY if ctx.player.visual.has_sheet() else 0.0
 		_defeat_timer -= delta

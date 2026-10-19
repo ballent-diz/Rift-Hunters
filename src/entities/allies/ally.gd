@@ -132,7 +132,7 @@ func move_toward_point(target: Vector2, speed: float, delta: float) -> void:
 	if ctx.flow != null and offset.length() > FLOW_MIN_DISTANCE \
 			and target.distance_to(ctx.player.global_position) < ctx.balance.ally_follow_distance * 2.0:
 		heading = ctx.flow.direction(global_position, heading)
-	var wanted: Vector2 = heading * minf(speed, offset.length() / maxf(delta, 0.001))
+	var wanted: Vector2 = heading * minf(speed * ctx.terrain_speed(global_position), offset.length() / maxf(delta, 0.001))
 	var before: Vector2 = global_position
 	global_position = ctx.obstacles.push_out(global_position + wanted * delta, BODY_RADIUS)
 	velocity = (global_position - before) / maxf(delta, 0.001)

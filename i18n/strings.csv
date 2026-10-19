@@ -1405,3 +1405,20 @@ SYNERGY_CONSTELLATION_NAME,Constellation,Constellation
 SYNERGY_CONSTELLATION_DESC,Chaque ennemi révélé reçoit une Marque.,Every revealed enemy receives a Mark.
 SYNERGY_TOTAL_REFLECTION_NAME,Réflexion totale,Total Reflection
 SYNERGY_TOTAL_REFLECTION_DESC,Mirelle frappe une seconde fois les ennemis Électrisés (50 %).,Mirrorling strikes Charged enemies a second time (50%).
+HUD_GUARDIAN_ARRIVES,Le gardien %s s'éveille !,The guardian %s awakens!
+HUD_GUARDIAN_LABEL,Gardien · %s,Guardian · %s
+BOSS_ROOT_SENTINEL_NAME,Sentinelle des Racines,Root Sentinel
+BOSS_ROOT_SENTINEL_TITLE,Gardien du Bois des Lucioles,Guardian of the Firefly Woods
+BOSS_ROOT_SENTINEL_PHASE1,Veille des racines,Root vigil
+BESTIARY_BOSS_LORE_ROOT_SENTINEL,"Un vieux menhir que les racines ont fini par habiter. La Faille l'a réveillé : il charge, fait trembler le sol et appelle les Corrompus du sous-bois.","An old menhir the roots finally made their home. The Rift woke it: it charges, shakes the ground and calls the Hollowed of the undergrowth."
+BESTIARY_BOSS_LORE_ASTRAVORN,"Le souverain de l'orage qui règne sur les Hautes Terres. Il frappe de ses griffes, lance des vagues d'ombre et absorbe l'énergie de ses ennemis.","The storm sovereign who rules the Highlands. It strikes with its claws, casts waves of shadow and absorbs its foes' energy."
+NIGHT_INTRO,La nuit tombe : restez près des lucioles pour voir vos ennemis.,Night falls: stay near the fireflies to see your enemies.
+ALTAR_INTRO,Protégez le sceau ancien pendant %d vagues !,Protect the ancient seal for %d waves!
+ALTAR_WAVE,Vague %d / %d : ils viennent pour le sceau !,Wave %d / %d: they are coming for the seal!
+ALTAR_WAVE_HELD,Vague %d / %d repoussée : le sceau se répare.,Wave %d / %d repelled: the seal mends itself.
+ALTAR_DESTROYED,Le sceau est brisé…,The seal is broken…
+ALTAR_STATUS,Sceau %d / %d,Seal %d / %d
+ALTAR_STATUS_WAVE,Vague %d / %d · encore %d s,Wave %d / %d · %d s left
+ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
+ALTAR_SEALED,Le sceau se referme… quelque chose s'éveille !,The seal closes… something awakens!
+FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."

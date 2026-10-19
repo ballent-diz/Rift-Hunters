@@ -11,11 +11,16 @@ const FRIENDLY := Color(0.5, 0.9, 1.0)
 var ctx: RunContext
 var hazards: Array[Dictionary] = []
 var _clear_hostile_pending: bool = false
+var _hostile_layer: Node2D
 
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
 	z_index = 0
+	_hostile_layer = Node2D.new()
+	_hostile_layer.z_index = 3  # au-dessus des Corrompus et du voile de nuit (2), sous le Chasseur (4)
+	add_child(_hostile_layer)
+	_hostile_layer.draw.connect(_draw_hostile)
 
 
 ## Cercle qui frappe après « delay » secondes.
@@ -115,6 +120,7 @@ func step(delta: float) -> void:
 		hazards.assign(hazards.filter(func(h: Dictionary) -> bool: return h["kind"] in [Kind.WELL,
 				Kind.ZONE] or not h.get("hostile", true)))
 	queue_redraw()
+	_hostile_layer.queue_redraw()
 
 
 func _step_circle(h: Dictionary, delta: float) -> bool:
@@ -246,49 +252,65 @@ func clear_hostile() -> void:
 
 func _draw() -> void:
 	for h: Dictionary in hazards:
-		match h["kind"]:
-			Kind.CIRCLE:
-				var color: Color = DANGER if h["hostile"] else FRIENDLY
-				if float(h["delay"]) > 0.0:
-					var progress: float = 1.0 - float(h["delay"]) / maxf(float(h["total"]), 0.01)
-					var soft: float = 0.35 if _painted(h) else 1.0
-					draw_circle(h["pos"], float(h["radius"]), Color(color, 0.12 * soft))
-					draw_circle(h["pos"], float(h["radius"]) * progress, Color(color, 0.22 * soft))
-					draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(color, 0.9 * soft), 2.5 * soft)
-			Kind.RING:
-				_draw_ring(h)
-			Kind.BEAM:
-				var end: Vector2 = (h["pos"] as Vector2) + (h["dir"] as Vector2) * float(h["length"])
-				if float(h["delay"]) > 0.0:
-					draw_line(h["pos"], end, Color(DANGER, 0.35), float(h["width"]))
-					draw_line(h["pos"], end, Color(DANGER, 0.9), 2.0)
-				else:
-					draw_line(h["pos"], end, Color(0.55, 0.1, 0.9, 0.85), float(h["width"]))
-					draw_line(h["pos"], end, Color(1.0, 0.8, 1.0), float(h["width"]) * 0.35)
-			Kind.ZONE:
-				var fade: float = clampf(float(h["duration"]) / 0.5, 0.0, 1.0)
-				var zone_color: Color = h["color"]
-				# Écho aux effets peints (Codex) : repère discret, la peinture porte le visuel.
-				var soft: float = 0.45 if _painted(h) else 1.0
-				draw_circle(h["pos"], float(h["radius"]), Color(zone_color, 0.16 * fade * soft))
-				draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 40, Color(zone_color, 0.6 * fade * soft), 2.0)
-			Kind.WELL:
-				var t: float = float(h["duration"]) / maxf(float(h["total"]), 0.01)
-				var soft: float = 0.3 if _painted(h) else 1.0
-				draw_circle(h["pos"], float(h["radius"]), Color(0.3, 0.8, 0.5, 0.12 * soft))
-				draw_arc(h["pos"], float(h["radius"]) * (0.3 + 0.7 * t), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.7 * soft), 2.0)
-				draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.5 * soft), 1.5)
+		if not _is_hostile(h):
+			_draw_hazard(self, h)
+
+
+## Dangers (télégraphes ennemis) dessinés sur une couche au-dessus du voile de nuit : toujours visibles.
+func _draw_hostile() -> void:
+	for h: Dictionary in hazards:
+		if _is_hostile(h):
+			_draw_hazard(_hostile_layer, h)
+
+
+func _is_hostile(h: Dictionary) -> bool:
+	return bool(h.get("hostile", h["kind"] == Kind.BEAM))
+
+
+func _draw_hazard(canvas: CanvasItem, h: Dictionary) -> void:
+	match h["kind"]:
+		Kind.CIRCLE:
+			var color: Color = DANGER if h["hostile"] else FRIENDLY
+			if float(h["delay"]) > 0.0:
+				var progress: float = 1.0 - float(h["delay"]) / maxf(float(h["total"]), 0.01)
+				var soft: float = 0.35 if _painted(h) else 1.0
+				canvas.draw_circle(h["pos"], float(h["radius"]), Color(color, 0.12 * soft))
+				canvas.draw_circle(h["pos"], float(h["radius"]) * progress, Color(color, 0.22 * soft))
+				canvas.draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(color, 0.9 * soft), 2.5 * soft)
+		Kind.RING:
+			_draw_ring(canvas, h)
+		Kind.BEAM:
+			var end: Vector2 = (h["pos"] as Vector2) + (h["dir"] as Vector2) * float(h["length"])
+			if float(h["delay"]) > 0.0:
+				canvas.draw_line(h["pos"], end, Color(DANGER, 0.35), float(h["width"]))
+				canvas.draw_line(h["pos"], end, Color(DANGER, 0.9), 2.0)
+			else:
+				canvas.draw_line(h["pos"], end, Color(0.55, 0.1, 0.9, 0.85), float(h["width"]))
+				canvas.draw_line(h["pos"], end, Color(1.0, 0.8, 1.0), float(h["width"]) * 0.35)
+		Kind.ZONE:
+			var fade: float = clampf(float(h["duration"]) / 0.5, 0.0, 1.0)
+			var zone_color: Color = h["color"]
+			# Écho aux effets peints (Codex) : repère discret, la peinture porte le visuel.
+			var soft: float = 0.45 if _painted(h) else 1.0
+			canvas.draw_circle(h["pos"], float(h["radius"]), Color(zone_color, 0.16 * fade * soft))
+			canvas.draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 40, Color(zone_color, 0.6 * fade * soft), 2.0)
+		Kind.WELL:
+			var t: float = float(h["duration"]) / maxf(float(h["total"]), 0.01)
+			var soft: float = 0.3 if _painted(h) else 1.0
+			canvas.draw_circle(h["pos"], float(h["radius"]), Color(0.3, 0.8, 0.5, 0.12 * soft))
+			canvas.draw_arc(h["pos"], float(h["radius"]) * (0.3 + 0.7 * t), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.7 * soft), 2.0)
+			canvas.draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.5 * soft), 1.5)
 
 
 func _painted(h: Dictionary) -> bool:
 	return ctx.allies != null and ctx.allies.vfx.has_effects(h.get("source", &""))
 
 
-func _draw_ring(h: Dictionary) -> void:
+func _draw_ring(canvas: CanvasItem, h: Dictionary) -> void:
 	var color: Color = DANGER if h["hostile"] else Color(1.0, 0.65, 0.3)
 	var center: Vector2 = h["pos"]
 	if float(h["delay"]) > 0.0:
-		draw_arc(center, 40.0, 0.0, TAU, 32, Color(color, 0.8), 3.0)
+		canvas.draw_arc(center, 40.0, 0.0, TAU, 32, Color(color, 0.8), 3.0)
 		return
 	var r: float = h["radius"]
 	var segments: int = 64
@@ -297,4 +319,4 @@ func _draw_ring(h: Dictionary) -> void:
 		var a1: float = TAU * (s + 1) / segments
 		if h["hostile"] and _in_gap(h, (a0 + a1) * 0.5):
 			continue
-		draw_arc(center, r, a0, a1, 3, Color(color, 0.85), float(h["thickness"]) * 0.6)
+		canvas.draw_arc(center, r, a0, a1, 3, Color(color, 0.85), float(h["thickness"]) * 0.6)
