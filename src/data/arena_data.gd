@@ -72,6 +72,10 @@ extends Resource
 @export_range(0.0, 1.0) var altar_raider_share: float = 0.4
 ## Points d'arrivée des vagues (vide : cercle autour de l'autel).
 @export var altar_spawn_points: Array[Vector2] = []
+@export_group("Terrain lent (brique B1, docs/design/CARTES.md)")
+## Zones de terrain lent (gués, boue...) : tout le monde y est ralenti, la Ruée garde sa vitesse.
+@export var slow_zones: Array[Rect2] = []
+@export_range(0.1, 1.0) var slow_zone_mult: float = 0.6
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0

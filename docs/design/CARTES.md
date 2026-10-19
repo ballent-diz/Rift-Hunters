@@ -139,6 +139,19 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 - Essai : `--altar` sur la Plaine fracturée (sceau au centre, 5 vagues, Sentinelle des Racines à la fin). Bot
   (graine 3) : 4 victoires sur 4 (Mousseroc, Cendrelame, Lueurine, Solgriffe) en 4 min 17 à 4 min 39.
 
+### Brique B1 « gués » (carte 4)
+
+- Réglages dans `ArenaData` (groupe « Terrain lent ») : `slow_zones` (rectangles d'eau peu profonde, dans le repère
+  de la carte) et `slow_zone_mult` (vitesse dans l'eau, 0,6).
+- `src/run/terrain_director.gd` : ralentit **tout le monde** dans l'eau, Chasseur, Échos et Corrompus
+  (`RunContext.terrain_speed`). **La Ruée garde sa pleine vitesse** : c'est la porte de sortie. Tactique : attirer
+  les hordes dans le gué et les y frapper pendant qu'elles pataugent.
+- Lisibilité : teinte, bord et ondulations animées par-dessus le sol (sur la carte définitive, l'eau sera peinte
+  dans l'image ; les rectangles suivront les gués du dessin).
+- Même code pour les déclinaisons futures (boue, neige, cendres) : seul l'habillage change.
+- Essai : `--shallows` (trois gués sur la Plaine fracturée, combinable avec `--altar`). Bot Cendrelame (graine 3,
+  autel + gués) : victoire en 4 min 25.
+
 ## Ordre de réalisation
 
 1. Chapitre 1, carte 3 (Bois des Lucioles) : image (Codex), collisions peintes (propriétaire), zones, brique B2 et

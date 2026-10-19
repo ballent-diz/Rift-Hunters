@@ -40,6 +40,8 @@ var zones: ZoneDirector
 var rifts: RiftDirector
 ## Mode « défense d'autel » (null sinon).
 var altar: AltarDirector
+## Terrain lent, brique B1 (null sans zone lente).
+var terrain: TerrainDirector
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 
@@ -65,3 +67,8 @@ func objective_direction(pos: Vector2) -> Vector2:
 	if altar:
 		return altar.objective_direction(pos)
 	return Vector2.ZERO
+
+
+## Ralentissement du terrain à cette position (1 si la carte n'a pas de terrain lent).
+func terrain_speed(pos: Vector2) -> float:
+	return terrain.speed_mult(pos) if terrain else 1.0

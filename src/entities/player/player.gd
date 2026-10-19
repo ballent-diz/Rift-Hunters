@@ -131,7 +131,7 @@ func step(delta: float) -> void:
 		if _dash_time <= 0.0:
 			ctx.events.player_dashed.emit(_dash_from, global_position)
 	else:
-		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult()
+		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() * ctx.terrain_speed(position)
 		position += velocity * delta
 		if brain.wants_dash() and dash_cooldown_left <= 0.0:
 			_start_dash(move)

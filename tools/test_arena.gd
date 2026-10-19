@@ -4,8 +4,9 @@ extends RefCounted
 ## null si rien n'est modifié (la partie charge alors l'arène normale).
 
 
-static func build(arena_id: StringName, night: bool, boss_id: StringName, altar: bool = false) -> ArenaData:
-	if not night and boss_id == &"" and not altar:
+static func build(arena_id: StringName, night: bool, boss_id: StringName, altar: bool = false,
+		shallows: bool = false) -> ArenaData:
+	if not night and boss_id == &"" and not altar and not shallows:
 		return null
 	var arena: ArenaData = GameDB.arena(arena_id)
 	arena = arena.duplicate()
@@ -19,6 +20,10 @@ static func build(arena_id: StringName, night: bool, boss_id: StringName, altar:
 		arena.altar_point = Vector2.ZERO
 		if boss_id == &"":
 			arena.boss_id = &"root_sentinel"
+	if shallows:
+		# Gués d'essai : trois bandes d'eau peu profonde autour du centre de la carte.
+		var bands: Array[Rect2] = [Rect2(-700, -420, 1400, 160), Rect2(-700, 260, 1400, 160), Rect2(-160, -160, 320, 320)]
+		arena.slow_zones = bands
 	return arena
 
 

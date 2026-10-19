@@ -62,7 +62,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 |---|---|---|---|---|
 | B1 | Données chapitre / carte, déblocage en avançant, objectifs par carte, récompenses dégressives, Normal / Cauchemar par carte (suppression de la Tension), migration de sauvegarde | Claude | A1 | Fait (17/10) — chapitre 1 : Ruines des Cascades puis Hautes Terres d'Orage, voir [design/CAMPAGNE.md](design/CAMPAGNE.md) |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | Code fait (17/10) : chapitres en cartes, résumé et départ toujours visibles ; habillage à affiner (Codex) |
-| B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; brique B2 « nuit et lucioles » et premier gardien faits (19 oct.) ; prochaine carte : Bois des Lucioles (image : Codex) |
+| B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; briques B2 « nuit et lucioles » et B1 « gués », premier gardien et mode défense d'autel faits (19 oct.) ; prochaine carte : Bois des Lucioles (image : Codex) |
 
 ### Étape C — Sorts et builds
 
@@ -103,7 +103,7 @@ Raccordement C1/C2 et validation en jeu à suivre ; les 24 icônes sont désorma
 | Lot | Contenu | Qui | Dépend de | État |
 |---|---|---|---|---|
 | D1 | Trophées internes + platine (reliés à Steam plus tard), à partir des 18 objectifs actuels | Claude | B1 | À concevoir |
-| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | Fermeture de failles faite (18/10, Hautes Terres) ; visuels des failles livrés par Codex (A3/D2) ; autres modes à concevoir |
+| D2 | Modes variantes (défense d'autel, fermeture de failles…), un par chapitre | Claude + Codex | A1, B1 | Fermeture de failles faite (18/10, Hautes Terres) ; visuels des failles livrés par Codex (A3/D2) ; défense d'autel faite (19/10, visuel du sceau : Codex) ; autres modes à concevoir |
 | D3 | Le Pacte (≈ 10 malus, score par carte) et prophéties | Claude | B1 | À concevoir |
 | D4 | Mode Cauchemar (règles, boss enragés) | Claude | B1, C2 | À concevoir |
 
