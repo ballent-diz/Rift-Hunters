@@ -10196,14 +10196,15 @@
 			"field_step": 2.0,
 			"arena_size": 5016,
 			"start": [
-				-2006,
-				1037
+				-1930,
+				840
 			],
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
-			"generated_by": "tools/art/collision_mask.py"
+			"generated_by": "tools/art/collision_mask.py",
+			"note": "Agrandissement provisoire de map_source.png (Real-ESRGAN anime 6B, x4) : qualité insuffisante, à remplacer par une carte détaillée de même plan."
 		}
 	}
 }
