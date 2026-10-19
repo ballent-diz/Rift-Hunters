@@ -15,7 +15,22 @@ const ICON_ALIASES := {"blade_slicing_dash": "slashing_dash", "blade_counter_cut
 	"prism_propagation": "propagation", "prism_split_bolt": "split_bolt", "abyss_void_wake": "void_wake",
 	"abyss_anchor": "anchor", "bond_close_guard": "close_guard", "bond_fusion": "fusion",
 	"blade_master": "blade_master", "prism_living_prism": "living_prism",
-	"abyss_void_master": "void_master", "bond_pack_soul": "pack_soul"}
+	"abyss_void_master": "void_master", "bond_pack_soul": "pack_soul",
+	"combat_training": "combat_training", "trunk_vigor": "trunk_vigor",
+	"combat_phantom_step": "combat_phantom_step", "combat_last_breath": "combat_last_breath",
+	"blade_honed_edge": "blade_honed_edge", "combat_rift_brawler": "combat_rift_brawler",
+	"combat_shattering_dash": "combat_shattering_dash", "combat_marksman": "combat_marksman",
+	"spec_chain_detonation": "spec_chain_detonation", "spec_prismatic_resonance": "spec_prismatic_resonance",
+	"spec_pyromancer": "spec_pyromancer", "abyss_depths": "abyss_depths",
+	"spec_deep_breach": "spec_deep_breach", "spec_gravitationist": "spec_gravitationist",
+	"echoes_bonds": "echoes_bonds", "echoes_lone_hunter": "echoes_lone_hunter",
+	"echoes_pack_leader": "echoes_pack_leader", "echoes_sharpened": "echoes_sharpened",
+	"echoes_third_seal": "echoes_third_seal", "echoes_veteran": "echoes_veteran",
+	"research_banish": "research_banish", "research_early_evolution": "research_early_evolution",
+	"research_fourth_option": "research_fourth_option", "research_rift_study": "research_rift_study",
+	"research_unstable": "research_unstable", "explore_essence_sense": "explore_essence_sense",
+	"explore_magnet": "explore_magnet", "explore_prospector": "explore_prospector",
+	"explore_sealed_chests": "explore_sealed_chests", "explore_starting_relic": "explore_starting_relic"}
 const SPELL_ALIASES := {"aegis": "rift_aegis", "refracting_crystal": "refractor_crystal"}
 const VARIANT_A: Array[StringName] = [&"whirlwind", &"return", &"mirror", &"fan", &"reaction", &"double",
 	&"horizon", &"chains", &"loop", &"rally", &"riposte", &"relay"]
