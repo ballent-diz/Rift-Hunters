@@ -1,0 +1,20 @@
+[
+	{
+		"center_percent": [
+			44.9999988079071,
+			30.0000011920929
+		],
+		"echo": "mossback",
+		"hunter_sprite_world_cell": 32,
+		"map": "bois",
+		"viewport": [
+			1280,
+			720
+		],
+		"world_size": [
+			5016,
+			3344
+		],
+		"zoom": 1.33329999446869
+	}
+]

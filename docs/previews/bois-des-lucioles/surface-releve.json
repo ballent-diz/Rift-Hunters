@@ -1,0 +1,5 @@
+{
+  "survey_walkable_percent": 55.28,
+  "method": "Relevé manuel du sol visible ; polygones de mesure seulement, jamais utilisés comme collisions.",
+  "precision": "Relevé visuel approximatif, incertitude de quelques points ; ce n'est pas une validation des collisions."
+}

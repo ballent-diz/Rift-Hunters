@@ -1,0 +1,56 @@
+[
+  {
+    "region": "0_0",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 0.578,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "1_0",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 0.548,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "2_0",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 1.071,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "0_1",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 1.233,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "1_1",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 0.576,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "2_1",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 1.371,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "0_2",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 0.0,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "1_2",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 0.0,
+    "opencv": "5.0.0"
+  },
+  {
+    "region": "2_2",
+    "method": "DIS medium, bornage 24 px source",
+    "median_offset_px": 0.0,
+    "opencv": "5.0.0"
+  }
+]

@@ -87,3 +87,18 @@ locale en gardant le reste identique (voir les prompts « vertical » et « deta
 
 Si un point échoue, régénérer ou retoucher localement **avant** l'intégration : corriger une image coûte moins
 cher que corriger des collisions.
+
+## Cadence optimisée — décision du propriétaire du 19 octobre 2026
+
+Éviter les reprises tardives de toute une carte :
+
+1. Fixer le plan, les surfaces ouvertes et l'échelle avec les références avant la génération.
+2. Prévoir dès le départ la densité de pixels nécessaire à la caméra du jeu. La résolution demandée dans un
+   prompt n'est pas une garantie de résolution produite : relever la taille réelle de la première sortie.
+3. Contrôler un petit secteur représentatif au zoom réel, avec le Chasseur et un Écho, **avant** de détailler
+   toute la carte. Si le sol ou l'architecture ne conviennent pas, corriger la méthode à ce stade.
+4. Regrouper les retouches indépendantes dans une seule passe. Réutiliser la composition validée et ne pas
+   enchaîner plusieurs grilles de détails à des résolutions différentes.
+5. Effectuer un seul contrôle ciblé de fin de lot ; aucune suite complète pour les images.
+6. Publier un aperçu concret et, si demandé, une PR de brouillon avec les points non validés explicitement
+   décochés. Ne pas annoncer le lot terminé tant que ses critères ne sont pas satisfaits.
