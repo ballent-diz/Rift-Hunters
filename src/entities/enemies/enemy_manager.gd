@@ -6,6 +6,8 @@ const SEPARATION_CHECKS := 10
 ## Rafraîchissement de la carte de flux (secondes) : un seul calcul pour tous les ennemis.
 const FLOW_REFRESH := 0.25
 
+## Nuit (NightDirector) : seuls les ennemis visibles peuvent être ciblés ; vide = tout est visible.
+var visibility: Callable
 var ctx: RunContext
 var list: Array[Enemy] = []
 var obstacles: Array[Enemy] = []
@@ -62,6 +64,8 @@ func _nearest_within(pos: Vector2, max_range: float, exclude: Dictionary) -> Ene
 	for item: Variant in _buffer:
 		var enemy: Enemy = item
 		if not enemy.alive or not enemy.is_target() or exclude.has(enemy.get_instance_id()):
+			continue
+		if visibility.is_valid() and not bool(visibility.call(enemy)):
 			continue
 		var d: float = enemy.position.distance_squared_to(pos)
 		if d < best_d:
@@ -131,6 +135,7 @@ func spawn_boss(data: BossData, pos: Vector2) -> Enemy:
 	enemy.visual = EntityVisual.new()
 	enemy.add_child(enemy.visual)
 	enemy.visual.setup(data.visual)
+	enemy.visual.scale = Vector2.ONE * data.visual_scale
 	enemy.visual.bob_amount = 0.03
 	add_child(enemy)
 	list.append(enemy)

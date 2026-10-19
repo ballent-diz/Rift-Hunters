@@ -56,7 +56,16 @@ extends Resource
 ## Règles propres à l'arène (effets installés au début de la partie).
 @export var rule_effects: Array[GameplayEffect] = []
 @export var rule_key: String = ""
-
+@export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
+## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
+@export_range(0.0, 0.95) var night: float = 0.0
+## Rayon de lumière autour du Chasseur (au-delà, ses tirs automatiques ne voient rien).
+@export var light_radius: float = 300.0
+## Rayon de lumière autour de chaque Écho.
+@export var echo_light_radius: float = 120.0
+## Clairières de lucioles : zones éclairées qui révèlent les ennemis (statut Révélé).
+@export var firefly_glades: Array[Vector2] = []
+@export var firefly_radius: float = 220.0
 
 ## L'arène se termine par une finale (cercle ou arène murée) plutôt que par un boss chronométré classique.
 func has_finale() -> bool:

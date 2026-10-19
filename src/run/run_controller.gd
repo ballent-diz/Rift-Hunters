@@ -41,7 +41,7 @@ func start(setup: RunSetup) -> void:
 	ctx = RunContext.new()
 	ctx.setup = setup
 	ctx.balance = GameDB.balance
-	ctx.arena = GameDB.arena(setup.arena_id)
+	ctx.arena = setup.arena_override if setup.arena_override else GameDB.arena(setup.arena_id)
 	ctx.difficulty = RunController.combine_difficulty(GameDB.difficulty(setup.difficulty_id), setup.modifier_ids)
 	ctx.rng.seed = setup.run_seed if setup.run_seed != 0 else randi()
 	ctx.root = self
@@ -180,6 +180,11 @@ func _build_world() -> void:
 	ctx.enemies.z_index = 2
 	ctx.enemies.setup(ctx)
 	ctx.world.add_child(ctx.enemies)
+	if ctx.arena.night > 0.0:
+		# Juste après les Corrompus : le voile les couvre, pas les Échos, le Chasseur ni les dangers.
+		ctx.night = NightDirector.new()
+		ctx.world.add_child(ctx.night)
+		ctx.night.setup(ctx)
 	ctx.allies = AllyManager.new()
 	ctx.allies.z_index = 3
 	ctx.allies.setup(ctx)
@@ -273,6 +278,8 @@ func _physics_process(delta: float) -> void:
 		ctx.zones.step(delta)
 	if ctx.rifts:
 		ctx.rifts.step(delta)
+	if ctx.night:
+		ctx.night.step(delta)
 	spawner.step(delta)
 	event_director.step(delta)
 	ctx.player.step(delta)

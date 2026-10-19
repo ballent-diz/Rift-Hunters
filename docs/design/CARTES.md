@@ -98,6 +98,31 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 | 24 | Fermeture de failles | B8 Statues qui s'éveillent + B10 |
 | 25 | Vagues + Dévoreur final | Combinaison des briques du jeu |
 
+## Réalisé
+
+### Brique B2 « nuit et lucioles » (19 octobre 2026)
+
+- Réglages dans `ArenaData` (groupe « Nuit et lucioles ») : `night` (opacité du voile, 0 = jour), `light_radius`
+  (lumière du Chasseur), `echo_light_radius`, `firefly_glades` (centres des clairières) et `firefly_radius`.
+- `src/run/night_director.gd` : voile dessiné dans le monde (shader `assets/shaders/night_veil.gdshader`), percé de
+  halos autour du Chasseur, des Échos, du boss et des clairières (16 lumières au plus) ; lucioles animées au-dessus.
+- **On ne cible que ce qu'on voit** : tirs automatiques, Échos et sorts à cible automatique ne visent que les ennemis
+  éclairés, Révélés ou le boss. Les sorts visés au curseur et les zones touchent tout le monde.
+- Les clairières **révèlent** les ennemis qui y passent (statut Révélé, +12 % de dégâts subis) : Lueurine et ses
+  lucioles prennent tout leur sens de nuit.
+- Les télégraphes de danger sont dessinés au-dessus du voile (et désormais au-dessus des Corrompus sur toutes les
+  cartes) : aucun danger caché.
+- Essai sans carte dédiée : `--night` sur `tests/smoke/autoplay.tscn` et `tools/screenshot.tscn` (clairières placées
+  aux points clés de la carte choisie, `tools/test_arena.gd`).
+
+### Gardien de fin de carte
+
+- `BossData.guardian` et `BossData.visual_scale` : boss de carte en une phase, sur le sprite d'une élite agrandi,
+  avec barre verte « Gardien · nom » et annonce « Le gardien … s'éveille ! ».
+- Premier gardien : **Sentinelle des Racines** (`data/bosses/root_sentinel.tres`), menhir habité par les racines,
+  pour le Bois des Lucioles : griffes, ruée tellurique, séisme à deux anneaux, appel de Corrompus du sous-bois.
+- Essai : `--boss=root_sentinel` (avec `--boss-at=20` sur la Plaine fracturée).
+
 ## Ordre de réalisation
 
 1. Chapitre 1, carte 3 (Bois des Lucioles) : image (Codex), collisions peintes (propriétaire), zones, brique B2 et

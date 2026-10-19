@@ -38,6 +38,8 @@ var finale: ArenaFinale
 var zones: ZoneDirector
 ## Mode « fermeture de failles » (null sinon).
 var rifts: RiftDirector
+## Nuit et lucioles, brique B2 (null de jour).
+var night: NightDirector
 
 
 func minutes() -> float:

@@ -62,7 +62,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 |---|---|---|---|---|
 | B1 | Données chapitre / carte, déblocage en avançant, objectifs par carte, récompenses dégressives, Normal / Cauchemar par carte (suppression de la Tension), migration de sauvegarde | Claude | A1 | Fait (17/10) — chapitre 1 : Ruines des Cascades puis Hautes Terres d'Orage, voir [design/CAMPAGNE.md](design/CAMPAGNE.md) |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | Code fait (17/10) : chapitres en cartes, résumé et départ toujours visibles ; habillage à affiner (Codex) |
-| B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; prochaine carte : Bois des Lucioles |
+| B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; brique B2 « nuit et lucioles » et premier gardien faits (19 oct.) ; prochaine carte : Bois des Lucioles (image : Codex) |
 
 ### Étape C — Sorts et builds
 

@@ -1,6 +1,6 @@
 class_name BossData
 extends Resource
-## Dévoreur (boss).
+## Dévoreur (boss de fin de chapitre) ou gardien (boss de carte, plus court : docs/design/CARTES.md).
 
 @export var id: StringName = &""
 @export var name_key: String = ""
@@ -14,3 +14,7 @@ extends Resource
 @export var shard_reward: int = 200
 @export var essence_reward: int = 10
 @export var visual: VisualData
+## Gardien : boss de carte en une phase, souvent sur le sprite d'une élite agrandi (annonce et barre propres).
+@export var guardian: bool = false
+## Agrandissement du sprite (un gardien réutilise le sprite d'une élite).
+@export var visual_scale: float = 1.0
