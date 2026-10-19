@@ -58,7 +58,7 @@ func test_boss_patterns_exist_in_code() -> void:
 		methods.append(method["name"])
 	for id: StringName in GameDB.bosses:
 		var boss: BossData = GameDB.bosses[id]
-		check(boss.phases.size() >= 2, "%s : plusieurs phases" % id)
+		check(boss.phases.size() >= (1 if boss.guardian else 2), "%s : plusieurs phases (une pour un gardien)" % id)
 		for phase: BossPhaseData in boss.phases:
 			for pattern: BossPatternData in phase.patterns:
 				check(methods.has("_pattern_" + String(pattern.kind)),

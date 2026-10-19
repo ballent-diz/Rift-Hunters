@@ -12,7 +12,7 @@ func _init(p_ctx: RunContext) -> void:
 
 
 func step(delta: float) -> void:
-	if not ctx.arena.zones.is_empty() or not ctx.arena.rift_points.is_empty() \
+	if not ctx.arena.zones.is_empty() or not ctx.arena.rift_points.is_empty() or ctx.arena.altar_waves > 0 \
 			or ctx.arena.has_finale() and ctx.time >= ctx.arena.boss_time:
 		_active.clear()
 		return

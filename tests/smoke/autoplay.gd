@@ -3,6 +3,8 @@ extends Node
 ## Vérifie que la boucle tient de bout en bout (vagues, niveaux, coffres, boss, fin de partie).
 ## Usage : godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- [--starter=mossback]
 ##         [--difficulty=normal] [--seed=1] [--god] [--max-minutes=12] [--boss-at=60]
+##         [--night] (nuit d'essai, brique B2) [--boss=root_sentinel] (autre boss ou gardien) [--altar] (défense d'autel d'essai)
+##         [--shallows] (gués d'essai) [--rivers] (crues et courant d'essai, carte 5)
 
 var _run: RunController
 var _frames: int = 0
@@ -24,8 +26,12 @@ func _ready() -> void:
 	setup.difficulty_id = &"normal"
 	var god: bool = false
 	var boss_at: float = -1.0
+	var features: Array[String] = []
+	var boss_id: StringName = &""
 	for arg: String in OS.get_cmdline_user_args():
 		var parts: PackedStringArray = arg.trim_prefix("--").split("=")
+		if parts[0] in TestArena.FEATURES:
+			features.append(parts[0])
 		match parts[0]:
 			"starter":
 				setup.starter_id = StringName(parts[1])
@@ -41,11 +47,14 @@ func _ready() -> void:
 				boss_at = float(parts[1])
 			"arena":
 				setup.arena_id = StringName(parts[1])
+			"boss":
+				boss_id = StringName(parts[1])
 			"meta":
 				setup.meta_effects = _meta_profile(parts[1])
 			"modifiers":
 				for id: String in parts[1].split(",", false):
 					setup.modifier_ids.append(StringName(id))
+	setup.arena_override = TestArena.build(setup.arena_id, boss_id, features)
 	_run = load("res://scenes/run.tscn").instantiate()
 	_run.skip_profile = true
 	_run.start(setup)

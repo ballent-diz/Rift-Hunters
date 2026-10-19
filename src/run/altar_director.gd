@@ -1,0 +1,213 @@
+class_name AltarDirector
+extends Node2D
+## Mode « défense d'autel » (docs/design/CARTES.md, carte 4 du chapitre 1) : un sceau ancien à protéger pendant
+## plusieurs vagues qui arrivent de plusieurs côtés. Une partie des Corrompus de corps à corps (les pillards) marche
+## vers l'autel et l'abîme à son contact. Entre deux vagues, l'autel se répare et un coffre tombe ; après la dernière,
+## le sceau se referme (son onde purifie les Corrompus restants) et le gardien de la carte s'éveille
+## (ArenaData.boss_id) ; le sceau refermé ne craint plus rien. Autel détruit
+## pendant les vagues : l'expédition est perdue.
+## Dessine aussi l'autel provisoire (visuel définitif : Codex).
+
+enum Phase { START, WAVE, PAUSE, BOSS }
+
+const START_DELAY := 4.0
+## Part des PV de l'autel rendue au début de chaque pause.
+const REPAIR_RATIO := 0.15
+## Distance d'apparition autour de l'autel quand la carte ne donne pas de points d'arrivée.
+const SPAWN_DISTANCE := 950.0
+## Au-delà de cette distance, une flèche ramène le Chasseur vers l'autel.
+const ROUTE_DISTANCE := 340.0
+## Pillards qui frappent l'autel en même temps au plus (les autres se pressent derrière).
+const MAX_ATTACKERS := 6
+const STONE := Color(0.42, 0.44, 0.5)
+const RUNE := Color(0.72, 0.5, 1.0)
+
+var ctx: RunContext
+var hp: float = 0.0
+var max_hp: float = 0.0
+var phase: Phase = Phase.START
+## Vague en cours (0 à waves() - 1).
+var wave_index: int = 0
+var destroyed: bool = false
+## Navigation vers l'autel (pillards et flèche de route), calculée une fois : l'autel ne bouge pas.
+var guide: FlowField
+var _timer: float = START_DELAY
+var _budget: float = 0.0
+var _elite_spawned: bool = false
+var _flash: float = 0.0
+var _time: float = 0.0
+
+
+func setup(p_ctx: RunContext) -> void:
+	ctx = p_ctx
+	name = "Altar"
+	z_index = -1
+	position = ctx.obstacles.push_out(ctx.arena.altar_point, ctx.arena.altar_radius)
+	max_hp = ctx.arena.altar_hp
+	hp = max_hp
+	guide = FlowField.new()
+	guide.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)
+	guide.apply_walls(ctx.obstacles)
+	guide.update(position)
+	_start.call_deferred()
+
+
+func _start() -> void:
+	ctx.events.event_started.emit(TranslationServer.translate("ALTAR_INTRO") % waves())
+
+
+func waves() -> int:
+	return ctx.arena.altar_waves
+
+
+## Secondes restantes avant la prochaine étape (début de vague ou fin de vague).
+func time_left() -> float:
+	return maxf(_timer, 0.0)
+
+
+func step(delta: float) -> void:
+	_time += delta
+	_flash = maxf(_flash - delta, 0.0)
+	queue_redraw()
+	if destroyed or phase == Phase.BOSS:
+		return
+	_suffer_contacts(delta)
+	match phase:
+		Phase.START, Phase.PAUSE:
+			_timer -= delta
+			if _timer <= 0.0:
+				_begin_wave()
+		Phase.WAVE:
+			_timer -= delta
+			_spawn(delta)
+			if _timer <= 0.0:
+				_end_wave()
+
+
+func _begin_wave() -> void:
+	phase = Phase.WAVE
+	_timer = ctx.arena.altar_wave_duration
+	_budget = 0.0
+	_elite_spawned = false
+	ctx.events.event_started.emit(TranslationServer.translate("ALTAR_WAVE") % [wave_index + 1, waves()])
+
+
+func _end_wave() -> void:
+	ctx.stats.add(&"altar_waves")
+	if wave_index + 1 >= waves():
+		# Le sceau se referme : plus rien ne l'abîme, et son onde purifie les Corrompus restants (leur XP tombe) ;
+		# le combat du gardien commence sur un terrain dégagé.
+		phase = Phase.BOSS
+		var purge: DamageInfo = DamageInfo.make(1e9, DamageInfo.SourceKind.PLAYER, &"altar", [DamageInfo.TAG_EXPLOSION])
+		for enemy: Enemy in ctx.enemies.list.duplicate():
+			if enemy.alive and not enemy.is_boss and not enemy.is_obstacle:
+				ctx.combat.deal_damage(enemy, purge)
+		ctx.fx.ring(position, 1400.0, Color(RUNE, 0.6), 0.6)
+		ctx.fx.burst(position, ctx.arena.altar_radius * 2.5, Color(RUNE, 0.6))
+		ctx.events.event_started.emit("ALTAR_SEALED")
+		ctx.spawner.spawn_boss()
+		return
+	wave_index += 1
+	phase = Phase.PAUSE
+	_timer = ctx.arena.altar_wave_pause
+	hp = minf(max_hp, hp + max_hp * REPAIR_RATIO)
+	ctx.fx.burst(position, ctx.arena.altar_radius * 2.0, Color(RUNE, 0.5))
+	ctx.events.chest_collected.emit()
+	ctx.events.event_started.emit(TranslationServer.translate("ALTAR_WAVE_HELD") % [wave_index, waves()])
+
+
+## Corrompus au contact : chacun inflige une part de ses dégâts de contact (altar_damage_mult) au rythme des coups au
+## Chasseur, MAX_ATTACKERS au plus à la fois.
+func _suffer_contacts(delta: float) -> void:
+	var reach: float = ctx.arena.altar_radius
+	var rate: float = delta / maxf(ctx.balance.contact_damage_interval, 0.05) * ctx.arena.altar_damage_mult
+	var attackers: int = 0
+	for enemy: Enemy in ctx.enemies.query_radius(position, reach + 40.0):
+		if attackers >= MAX_ATTACKERS:
+			break
+		if not enemy.alive or enemy.is_boss or enemy.is_obstacle:
+			continue
+		if enemy.position.distance_to(position) > reach + enemy.radius:
+			continue
+		hp -= enemy.contact_damage * rate
+		attackers += 1
+		_flash = 0.2
+	if hp <= 0.0:
+		hp = 0.0
+		destroyed = true
+		ctx.fx.burst(position, ctx.arena.altar_radius * 3.0, Color(1.0, 0.3, 0.5, 0.7))
+		ctx.events.event_started.emit("ALTAR_DESTROYED")
+
+
+func _spawn(delta: float) -> void:
+	var wave: WavePhaseData = ctx.spawner.current_wave()
+	if wave == null:
+		return
+	var rate: float = ctx.arena.altar_spawn_rate * (1.0 + 0.2 * wave_index) * ctx.difficulty.spawn_rate_mult
+	_budget = minf(_budget + rate * delta, 8.0)
+	var alive: int = ctx.enemies.count()
+	while _budget >= 1.0 and alive < ctx.spawner.current_cap():
+		_budget -= 1.0
+		var data: EnemyData = ctx.spawner.pick_enemy(wave)
+		if data:
+			_spawn_enemy(data)
+			alive += 1
+	# À partir de la deuxième vague, une élite à mi-vague.
+	if wave_index >= 1 and not _elite_spawned and _timer <= ctx.arena.altar_wave_duration * 0.5:
+		_elite_spawned = true
+		var elite: Enemy = ctx.spawner.spawn_elite(&"", spawn_position())
+		if elite:
+			_make_raider(elite)
+
+
+func _spawn_enemy(data: EnemyData) -> void:
+	var enemy: Enemy = ctx.enemies.spawn(data, spawn_position())
+	if enemy and data.brain == EnemyData.Brain.CHASER and ctx.rng.randf() < ctx.arena.altar_raider_share:
+		_make_raider(enemy)
+
+
+## Pillard : marche vers l'autel (navigation propre) au lieu de chasser le Chasseur.
+func _make_raider(enemy: Enemy) -> void:
+	enemy.taunt_target = self
+	enemy.taunt_time = INF
+	enemy.goal_flow = guide
+
+
+## Point d'arrivée : un des points de la carte, ou un cercle autour de l'autel ; jamais sur le Chasseur.
+func spawn_position() -> Vector2:
+	var points: Array[Vector2] = ctx.arena.altar_spawn_points
+	for attempt: int in 8:
+		var pos: Vector2
+		if points.is_empty():
+			pos = position + Vector2.from_angle(ctx.rng.randf() * TAU) * SPAWN_DISTANCE
+		else:
+			pos = points[ctx.rng.randi() % points.size()] + Vector2.from_angle(ctx.rng.randf() * TAU) * 80.0
+		pos = ctx.obstacles.push_out(pos.clamp(ctx.arena_rect().position, ctx.arena_rect().end), 20.0)
+		if pos.distance_to(ctx.player.global_position) > 300.0:
+			return pos
+	return position + Vector2.from_angle(ctx.rng.randf() * TAU) * SPAWN_DISTANCE
+
+
+## Flèche de route : vers l'autel quand le Chasseur s'en éloigne (rien pendant le combat du gardien).
+func objective_direction(pos: Vector2) -> Vector2:
+	if phase == Phase.BOSS or pos.distance_to(position) < ROUTE_DISTANCE:
+		return Vector2.ZERO
+	return guide.direction(pos, (position - pos).normalized())
+
+
+func _draw() -> void:
+	var r: float = ctx.arena.altar_radius if ctx else 70.0
+	var pulse: float = 0.5 + 0.5 * sin(_time * 2.2)
+	draw_circle(Vector2.ZERO, r * 1.25, Color(0.0, 0.0, 0.0, 0.3))
+	draw_circle(Vector2.ZERO, r, STONE.darkened(0.35))
+	draw_circle(Vector2.ZERO, r * 0.78, STONE)
+	for i: int in 6:
+		var a: float = TAU * i / 6.0 + _time * 0.3
+		draw_circle(Vector2.from_angle(a) * r * 0.58, 5.0, Color(RUNE, 0.6 + 0.4 * pulse))
+	var core: Color = Color(1.0, 0.45, 0.55) if _flash > 0.0 else RUNE
+	draw_circle(Vector2.ZERO, r * 0.28, Color(core, 0.75 + 0.25 * pulse))
+	if destroyed:
+		return
+	# Jauge de l'autel : arc qui se vide avec ses PV.
+	var ratio: float = clampf(hp / maxf(max_hp, 1.0), 0.0, 1.0)
+	draw_arc(Vector2.ZERO, r + 10.0, -PI / 2.0, -PI / 2.0 + TAU * ratio, 64, Color(0.6, 1.0, 0.75, 0.9), 5.0, true)

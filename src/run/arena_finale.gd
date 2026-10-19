@@ -46,6 +46,7 @@ func start_travel() -> void:
 func step(delta: float) -> void:
 	_exit_flash = maxf(0.0, _exit_flash - delta)
 	if state == State.WAVES and ctx.arena.zones.is_empty() and ctx.arena.rift_points.is_empty() \
+			and ctx.arena.altar_waves <= 0 \
 			and ctx.time >= ctx.arena.boss_time:
 		state = State.CLEARING
 		ctx.events.event_started.emit("FINALE_CLEAR")
