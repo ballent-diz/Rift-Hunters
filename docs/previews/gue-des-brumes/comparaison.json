@@ -1,0 +1,142 @@
+[
+  {
+    "id": "plaine",
+    "label": "Plaine fracturée",
+    "crop": "res://docs/previews/gue-des-brumes/plaine-sol.png",
+    "capture": "res://docs/previews/gue-des-brumes/plaine.png",
+    "world_size": [
+      1254,
+      1254
+    ],
+    "center_percent": [
+      50.0,
+      22.0
+    ],
+    "camera_zoom": 1.3333,
+    "viewport": [
+      1280,
+      720
+    ],
+    "detail_strength": 0,
+    "source": "assets/environments/fractured_plain_map/map.webp",
+    "source_crop": [
+      196,
+      8,
+      1476,
+      728
+    ],
+    "mode": "Aperçu Godot, sprites réels, aucune logique de partie ni collision"
+  },
+  {
+    "id": "cascades",
+    "label": "Ruines des Cascades",
+    "crop": "res://docs/previews/gue-des-brumes/cascades-sol.png",
+    "capture": "res://docs/previews/gue-des-brumes/cascades.png",
+    "world_size": [
+      5016,
+      1672
+    ],
+    "center_percent": [
+      14.000000000000002,
+      45.0
+    ],
+    "camera_zoom": 1.3333,
+    "viewport": [
+      1280,
+      720
+    ],
+    "detail_strength": 0.32,
+    "source": "assets/environments/cascade_ruins/map.webp",
+    "source_crop": [
+      500,
+      1085,
+      2660,
+      2300
+    ],
+    "mode": "Aperçu Godot, sprites réels, aucune logique de partie ni collision"
+  },
+  {
+    "id": "hautes-terres",
+    "label": "Hautes Terres d’Orage",
+    "crop": "res://docs/previews/gue-des-brumes/hautes-terres-sol.png",
+    "capture": "res://docs/previews/gue-des-brumes/hautes-terres.png",
+    "world_size": [
+      5016,
+      5016
+    ],
+    "center_percent": [
+      44.0,
+      43.0
+    ],
+    "camera_zoom": 1.3333,
+    "viewport": [
+      1280,
+      720
+    ],
+    "detail_strength": 0.32,
+    "source": "assets/environments/storm_highlands/map_1.webp",
+    "source_crop": [
+      124,
+      4245,
+      2284,
+      5460
+    ],
+    "mode": "Aperçu Godot, sprites réels, aucune logique de partie ni collision"
+  },
+  {
+    "id": "bois",
+    "label": "Bois des Lucioles",
+    "crop": "res://docs/previews/gue-des-brumes/bois-sol.png",
+    "capture": "res://docs/previews/gue-des-brumes/bois.png",
+    "world_size": [
+      5016,
+      3344
+    ],
+    "center_percent": [
+      45.0,
+      30.0
+    ],
+    "camera_zoom": 1.3333,
+    "viewport": [
+      1280,
+      720
+    ],
+    "detail_strength": 0,
+    "source": "assets/concepts/incoming/map.mist_ford/source/references/firefly_woods.webp",
+    "source_crop": [
+      2221,
+      916,
+      3422,
+      1592
+    ],
+    "mode": "Aperçu Godot, sprites réels, aucune logique de partie ni collision"
+  },
+  {
+    "id": "gue",
+    "label": "Le Gué des Brumes",
+    "crop": "res://docs/previews/gue-des-brumes/gue-sol.png",
+    "capture": "res://docs/previews/gue-des-brumes/gue.png",
+    "world_size": [
+      5016,
+      3344
+    ],
+    "center_percent": [
+      50.0,
+      46.0
+    ],
+    "camera_zoom": 1.3333,
+    "viewport": [
+      1280,
+      720
+    ],
+    "detail_strength": 0,
+    "source": "assets/environments/mist_ford/map.webp",
+    "source_crop": [
+      2484,
+      1553,
+      3660,
+      2215
+    ],
+    "mode": "Aperçu Godot, sprites réels, aucune logique de partie ni collision"
+  }
+]
