@@ -18,6 +18,8 @@ var vsync: bool = true
 ## Accessibilité : supprime les flashs et pulsations (photosensibilité).
 var reduce_flashes: bool = false
 var show_fps: bool = false
+## Mini-carte : 0 = masquée, 1 = petite, 2 = moyenne, 3 = grande.
+var minimap_size: int = 2
 ## Sorts du Chasseur : maintenir la touche affiche la zone, la relâcher lance (sinon lancement immédiat).
 var spell_preview: bool = false
 ## Touches personnalisées du clavier : {action: [touches physiques]} (actions absentes : touches par défaut).
@@ -47,6 +49,7 @@ func load_settings() -> void:
 	vsync = bool(data.get("vsync", vsync))
 	reduce_flashes = bool(data.get("reduce_flashes", reduce_flashes))
 	show_fps = bool(data.get("show_fps", show_fps))
+	minimap_size = clampi(int(data.get("minimap_size", minimap_size)), 0, 3)
 	spell_preview = bool(data.get("spell_preview", spell_preview))
 	bindings = {}
 	var saved: Variant = data.get("bindings", {})
@@ -73,6 +76,7 @@ func save_settings() -> Error:
 		"vsync": vsync,
 		"reduce_flashes": reduce_flashes,
 		"show_fps": show_fps,
+		"minimap_size": minimap_size,
 		"spell_preview": spell_preview,
 		"bindings": bindings,
 	}

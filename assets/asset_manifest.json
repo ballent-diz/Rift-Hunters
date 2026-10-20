@@ -2539,7 +2539,8 @@
 			"outside_tint": "#06120c99",
 			"decals": [],
 			"menu_preview": "res://assets/ui/expedition/fractured_plain.png",
-			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd",
+			"minimap": "res://assets/environments/fractured_plain_map/minimap.webp"
 		},
 		"environment.three_rifts": {
 			"status": "final",
@@ -2561,7 +2562,8 @@
 			"generated_by": "tools/art/build_three_rifts.py",
 			"ambient": {
 				"amount": 0
-			}
+			},
+			"minimap": "res://assets/environments/three_rifts/minimap.webp"
 		},
 		"environment.cascade_ruins": {
 			"status": "final",
@@ -2586,7 +2588,8 @@
 			},
 			"generated_by": "tools/art/collision_mask.py",
 			"menu_preview": "res://assets/ui/expedition/three_rifts.png",
-			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd",
+			"minimap": "res://assets/environments/cascade_ruins/minimap.webp"
 		},
 		"boss.astravorn": {
 			"anchor": [
@@ -2949,7 +2952,8 @@
 			},
 			"generated_by": "tools/art/collision_mask.py",
 			"menu_preview": "res://assets/ui/expedition/storm_highlands.png",
-			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd",
+			"minimap": "res://assets/environments/storm_highlands/minimap.webp"
 		},
 		"ui.hunter_tree.node.passive.locked": {
 			"status": "final",
@@ -10186,6 +10190,26 @@
 			},
 			"visual_only": true,
 			"duration": 1.6
+		},
+		"environment.firefly_woods": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/firefly_woods/map.webp",
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/firefly_woods/field.png",
+			"field_step": 2.0,
+			"arena_size": 5016,
+			"start": [
+				-1930,
+				840
+			],
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"generated_by": "tools/art/collision_mask.py",
+			"note": "Agrandissement provisoire de map_source.png (Real-ESRGAN anime 6B, x4) : qualité insuffisante, à remplacer par une carte détaillée de même plan.",
+			"minimap": "res://assets/environments/firefly_woods/minimap.webp"
 		}
 	}
 }

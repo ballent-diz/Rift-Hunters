@@ -50,9 +50,15 @@ res://tools/screenshot.tscn -- --out=<dossier> --times=20,60` (`--menu=main|refu
   référencé sans mettre à jour le manifeste puis relancer les tests `assets`.
 - Images de travail (planches IA, maps) : `assets/concepts/incoming/<identifiant>/` — mode d'emploi dans
   `assets/concepts/incoming/README.md`. Ce dossier est ignoré par Godot (`.gdignore`).
-- Pipeline graphique : `tools/art/` (`import_sheet.py` pour les planches, `build_map.py` + `upscale.py` pour les
-  maps dessinées). Règles graphiques : `docs/ART_BIBLE.md`.
+- Pipeline graphique : `tools/art/` (`import_sheet.py` pour les planches, `map_regions.py` +
+  `check_map_quality.py` pour les maps dessinées). Règles graphiques : `docs/ART_BIBLE.md`.
 
 ## Génération et intégration de cartes
+
+**Qualité obligatoire : [docs/maps/QUALITE_DES_CARTES.md](docs/maps/QUALITE_DES_CARTES.md)**. Chaque carte a la qualité
+des Ruines des Cascades et des Hautes Terres, ni plus ni moins, quelle que soit sa taille : composition validée par le
+propriétaire puis plan figé (aucune recomposition), une région redessinée par carré de 1672 unités
+(`tools/art/map_regions.py`), et une livraison accompagnée du rapport **conforme** de `tools/art/check_map_quality.py`.
+Un agrandissement de la composition (Real-ESRGAN ou autre) n'est jamais une carte finale.
 
 Lire [docs/MAP_GUIDELINES.md](docs/MAP_GUIDELINES.md) avant toute génération ou intégration de map. Ce document conserve les critères du propriétaire : espace de manœuvre, décors variés et à l’échelle du personnage, routes sans collisions, raccords invisibles et rendu net à l’écran.

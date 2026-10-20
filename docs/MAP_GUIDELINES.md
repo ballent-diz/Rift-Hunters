@@ -2,6 +2,8 @@
 
 Générer une carte : [maps/GENERER_UNE_CARTE.md](maps/GENERER_UNE_CARTE.md) ; collisions détourées à la main et placement
 des zones à la souris : [maps/DE_L_IMAGE_AU_NIVEAU.md](maps/DE_L_IMAGE_AU_NIVEAU.md).
+**Qualité chiffrée et parcours obligatoire : [maps/QUALITE_DES_CARTES.md](maps/QUALITE_DES_CARTES.md)** (même finesse
+et même échelle de détail que les Ruines et les Hautes Terres pour toutes les cartes, contrôle automatique).
 
 Critères demandés par le propriétaire le 13 octobre 2026. Ils priment sur les anciennes recettes de maps lorsqu’elles donnent un rendu flou, grossièrement pixelisé ou trop encombré.
 

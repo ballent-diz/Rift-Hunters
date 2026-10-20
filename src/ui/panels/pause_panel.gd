@@ -54,6 +54,10 @@ func _build() -> void:
 		Settings.reduce_flashes = not Settings.reduce_flashes
 		Settings.save_settings()
 		_build(), 320))
+	_box.add_child(UiKit.button(tr("OPTIONS_MINIMAP") % tr("MINIMAP_SIZE_%d" % Settings.minimap_size), func() -> void:
+		Settings.minimap_size = (Settings.minimap_size + 1) % 4
+		Settings.save_settings()
+		_build(), 320))
 	_box.add_child(UiKit.button(tr("PAUSE_ABANDON"), func() -> void:
 		close()
 		abandon_requested.emit(), 320))

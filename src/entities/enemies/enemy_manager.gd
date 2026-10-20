@@ -154,6 +154,7 @@ func step(delta: float) -> void:
 	var arena: Rect2 = ctx.arena_rect()
 	var contact_interval: float = ctx.balance.contact_damage_interval
 	var parity: int = _frame % 2
+	var drifting: bool = ctx.flood != null or (ctx.terrain != null and not ctx.arena.currents.is_empty())
 	if ctx.flow != null:
 		_flow_timer -= delta
 		if _flow_timer <= 0.0:
@@ -181,7 +182,7 @@ func step(delta: float) -> void:
 			if i % 2 == parity:
 				_separate(enemy)
 		var pos: Vector2 = enemy.position
-		if not enemy.is_boss:
+		if drifting and not enemy.is_boss:
 			# Courants et crues : les Corrompus lourds (résistance au recul) dérivent moins.
 			pos += ctx.terrain_drift(pos) * (1.0 - enemy.data_knockback_resist() * 0.5) * delta
 		if enemy.push_velocity.length_squared() > 1.0:

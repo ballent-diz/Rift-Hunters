@@ -4,6 +4,12 @@ Pour le propriétaire (génération des images) et Codex (intégration). Complè
 (critères de qualité, à relire) ; la suite, de l'image au niveau jouable, est dans
 [DE_L_IMAGE_AU_NIVEAU.md](DE_L_IMAGE_AU_NIVEAU.md).
 
+> **Qualité imposée : [QUALITE_DES_CARTES.md](QUALITE_DES_CARTES.md)** (fait foi). Toute carte a la finesse et l'échelle
+> de détail des Ruines des Cascades et des Hautes Terres, par unité du monde : composition validée (plan figé), puis
+> une région redessinée par carré de 1672 unités (`tools/art/map_regions.py`), puis contrôle chiffré
+> (`tools/art/check_map_quality.py`, verdict « conforme » obligatoire). Un agrandissement de la composition n'est
+> jamais une carte finale.
+
 ## 1. Préparer le plan avant de générer
 
 Une carte de campagne est en mode « vagues par zone » ([../design/MODE_VAGUES_PAR_ZONE.md](../design/MODE_VAGUES_PAR_ZONE.md)).
@@ -47,9 +53,12 @@ détourées à la main d'après l'image : plus l'image est franche, plus le dét
   place (les petits cailloux sont permis : ils restent traversables).
 - **Bords de la carte** fermés par du décor (falaises, forêt, eau) : pas de route qui sort de l'image.
 
-## 4. Prompt type (en anglais, plus fiable pour les générateurs)
+## 4. Prompt type de la COMPOSITION (en anglais, plus fiable pour les générateurs)
 
-Remplacer les éléments entre crochets. Joindre l'image de référence de netteté (Plaine fracturée originale).
+Ce prompt produit la composition (étape 2 de [QUALITE_DES_CARTES.md](QUALITE_DES_CARTES.md)), pas la carte finale :
+la finesse vient ensuite des régions. Remplacer les éléments entre crochets. Joindre en image2 la référence d'échelle
+(`python3 tools/art/map_regions.py scale-reference --world WxH --out ref.png`) et ajouter le paragraphe « SCALE
+reference » de QUALITE_DES_CARTES.md (§ 5) ; joindre aussi les cartes déjà faites du chapitre (style).
 
 ```
 Top-down video game map for Rift Hunters, a 2D survivor-like. Full-bleed [3:1 wide panorama | 3:2 | square],
@@ -83,7 +92,25 @@ locale en gardant le reste identique (voir les prompts « vertical » et « deta
 - [ ] Arène du boss ronde, vide et grande ; entrées larges.
 - [ ] Rien au milieu des routes ; bords de carte fermés ; coupures volontaires évidentes.
 - [ ] Pas de raccord visible, pas d'objet flottant, échelle cohérente avec le Chasseur.
-- [ ] Netteté comparable à la Plaine fracturée au même zoom.
+- [ ] Échelle des arbres, rochers, ponts et chemins égale à la référence d'échelle (`scale-reference`).
+- [ ] Après les régions : `tools/art/check_map_quality.py` **conforme** (densité, finesse homogène, fidélité au plan),
+  rapport joint à la fiche de livraison.
 
 Si un point échoue, régénérer ou retoucher localement **avant** l'intégration : corriger une image coûte moins
 cher que corriger des collisions.
+
+## Cadence optimisée — décision du propriétaire du 19 octobre 2026
+
+Éviter les reprises tardives de toute une carte :
+
+1. Fixer le plan, les surfaces ouvertes et l'échelle avec les références avant la génération.
+2. Densité fixée par [QUALITE_DES_CARTES.md](QUALITE_DES_CARTES.md) : une région par carré de 1672 unités, au moins
+   0,75 pixel de vrai détail par unité, 2,25 pixels par unité livrés. La résolution demandée dans un prompt n'est pas
+   une garantie : `map_regions.py assemble` signale une région trop petite.
+3. Contrôler un petit secteur représentatif au zoom réel, avec le Chasseur et un Écho, **avant** de détailler
+   toute la carte. Si le sol ou l'architecture ne conviennent pas, corriger la méthode à ce stade.
+4. Regrouper les retouches indépendantes dans une seule passe. Réutiliser la composition validée et ne pas
+   enchaîner plusieurs grilles de détails à des résolutions différentes.
+5. Effectuer un seul contrôle ciblé de fin de lot ; aucune suite complète pour les images.
+6. Publier un aperçu concret et, si demandé, une PR de brouillon avec les points non validés explicitement
+   décochés. Ne pas annoncer le lot terminé tant que ses critères ne sont pas satisfaits.

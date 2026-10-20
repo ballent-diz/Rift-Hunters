@@ -10,6 +10,7 @@ const SPELL_SLOT := 64.0
 const SPELL_GAP := 34.0
 
 var ctx: RunContext
+var minimap := Minimap.new()
 var _font: Font
 var _banner_text: String = ""
 var _banner_time: float = 0.0
@@ -33,6 +34,8 @@ func setup(p_ctx: RunContext) -> void:
 	_spell_icon_layer.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
 	_spell_icon_layer.draw.connect(func() -> void: _draw_spells(_spell_icon_layer, size.y))
 	add_child(_spell_icon_layer)
+	add_child(minimap)
+	minimap.setup(ctx)
 	ctx.events.event_started.connect(func(key: String) -> void: banner(tr(key)))
 	ctx.events.synergy_activated.connect(func(id: StringName) -> void:
 		banner(tr("HUD_SYNERGY_ACTIVATED") % tr(GameDB.synergies[id].name_key)))
@@ -139,8 +142,11 @@ func _draw() -> void:
 	var kills: int = int(ctx.stats.get_value(&"kills"))
 	_text(Vector2(w - 220, 40), tr("HUD_KILLS") % kills, 18, Color.WHITE, HORIZONTAL_ALIGNMENT_RIGHT, 200)
 	_text(Vector2(w - 220, 62), tr("HUD_RELICS") % ctx.build.relics.size(), 15, UiKit.GOLD, HORIZONTAL_ALIGNMENT_RIGHT, 200)
-	# Synergies actives
+	# Synergies actives (sous la mini-carte)
 	var y: float = 96.0
+	var map_frame: Rect2 = minimap.frame_rect()
+	if map_frame.size.y > 0.0:
+		y = map_frame.end.y + 28.0
 	for synergy_id: StringName in ctx.build.active_synergies:
 		var synergy: SynergyData = GameDB.synergies[synergy_id]
 		_text(Vector2(w - 320, y), "◆ " + tr(synergy.name_key), 15, synergy.color, HORIZONTAL_ALIGNMENT_RIGHT, 300)
