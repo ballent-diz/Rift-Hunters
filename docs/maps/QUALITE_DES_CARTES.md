@@ -13,6 +13,8 @@ Ce document fait foi pour Codex, ChatGPT et Claude. Le plan et les dimensions so
   redessinée par régions : image floue, aplats, pavés grands comme un Écho.
 - Pour la carte 3, une passe par régions a **recomposé** le plan validé : un passage est devenu inaccessible.
 - La doc ne donnait que des minimums de disposition et un contrôle « à l'œil » de la netteté.
+- PR #39 : une « recomposition à l'échelle » à 1536 pixels n'a presque rien changé (objets de même taille,
+  mesuré). Ce n'est pas la composition qui fixe l'échelle des objets, c'est la passe de régions (§ 2).
 
 ## 2. La recette des cartes de référence
 
@@ -24,6 +26,14 @@ Les Ruines et les Hautes Terres ont été faites ainsi (job.json de `map.three_r
 3. **Assemblage** des régions (recouvrements fondus), retouche des raccords si besoin.
 4. **Présentation** : agrandissement ×3 jusqu'à **2,25 pixels par unité** (densité affichée en jeu), en tuiles
    verticales de 1672 unités de large (3762 pixels).
+
+**L'échelle des objets est fixée par les régions (étape 2 ci-dessus), pas par la composition.** Le générateur dessine un arbre, une pierre ou un pavé à
+peu près toujours à la même taille en pixels. Redessinée à 1,3 unité par pixel, une région reçoit donc des objets à la
+taille des Ruines, quelle que soit la grossièreté de la composition. Preuve ([planche](../previews/echelle-hautes-terres.png) : carte finale, composition, Ruines, à 1 pixel par
+unité) : la composition des Hautes Terres faisait
+4 unités par pixel (pavés d'environ 45 unités) ; leur carte finale a des pavés d'environ 20 unités, comme les Ruines.
+Condition : le prompt de région doit autoriser à remplacer un objet trop gros par plusieurs objets plus petits sur
+la même emprise (c'est le cas de `PROMPT_REGION.txt`). La composition, elle, ne fixe que le plan.
 
 Le nombre de régions ne dépend que de la surface :
 
@@ -49,38 +59,39 @@ sur les Ruines et les Hautes Terres (`tools/art/map_quality_reference.json`, 63 
 | Fidélité au plan validé (corrélation des formes) | 1,00 | ≥ 0,85 (une recomposition : 0,6) |
 
 Trop peu de détails = flou ou détail trop gros ; trop = détail trop fin (bruit, objets miniatures).
-**Échelle des objets** : elle se juge avec les extraits des Ruines au même zoom que fournit
-`tools/art/map_regions.py` (arbres, rochers, ponts, pavés à la même taille à l'écran). Repères au zoom du jeu :
-le Chasseur fait environ 60 pixels de haut à l'écran, un pavé 25 à 40, un arbre isolé 130 à 200.
+**Échelle des objets** (arbres, rochers, blocs, pavés) : aucune mesure automatique fiable n'a été trouvée (les
+comptages de formes à 8 à 32 unités ne séparent pas les Ruines des plans trop gros). Elle se contrôle donc sur la
+planche `python3 tools/art/map_regions.py compare` : extraits de 560 × 420 unités au même zoom (carte livrée,
+composition, Ruines), **obligatoire dans la PR**. Repères à 1 pixel par unité : pavé 15 à 25, bloc de falaise 20 à 30,
+sapin 100 à 140 de haut. Au zoom du jeu, le Chasseur fait environ 60 pixels de haut à l'écran.
 
 ## 4. Le parcours, étape par étape
 
 | Étape | Qui | Commande / livrable | Contrôle |
 |---|---|---|---|
-| 1. Référence d'échelle | Codex ou propriétaire | `python3 tools/art/map_regions.py scale-reference --world WxH --out ref.png` | — |
-| 2. Composition (1536 px de large) | générateur | prompt de composition (§ 5), joindre `ref.png` et les cartes du chapitre | plan validé par le propriétaire ; échelle des objets égale à `ref.png` |
-| 3. Collisions | propriétaire | peinture sur la composition validée | DE_L_IMAGE_AU_NIVEAU.md |
-| 4. Découpage | Codex | `python3 tools/art/map_regions.py split composition.png --world WxH --out <dossier>` | — |
-| 5. Régions | générateur | une génération par `regions/rY_X_input.png`, prompt `PROMPT_REGION.txt`, joindre `reference_scale.png` ; enregistrer `regions/rY_X.png` | chaque sortie ≥ 1494 pixels de côté |
-| 6. Assemblage | Codex | `python3 tools/art/map_regions.py assemble <dossier> --out assets/environments/<id>/map` | — |
-| 7. Contrôle | Codex | `python3 tools/art/check_map_quality.py --images <tuiles> --world WxH --composition composition.png --json qualite.json` | **conforme**, sinon refaire les régions des secteurs signalés |
+| 1. Composition (1536 px de large) | générateur | prompt de composition (GENERER_UNE_CARTE.md § 4), joindre les cartes du chapitre | plan validé par le propriétaire (circulation, zones, passages) |
+| 2. Collisions | propriétaire | peinture sur la composition validée | DE_L_IMAGE_AU_NIVEAU.md |
+| 3. Découpage | Codex | `python3 tools/art/map_regions.py split composition.png --world WxH --out <dossier>` | — |
+| 4. Régions | générateur | une génération par `regions/rY_X_input.png`, prompt `PROMPT_REGION.txt`, joindre `reference_scale.png` ; enregistrer `regions/rY_X.png` | chaque sortie ≥ 1494 pixels de côté |
+| 5. Assemblage | Codex | `python3 tools/art/map_regions.py assemble <dossier> --out assets/environments/<id>/map` | — |
+| 6. Contrôle | Codex | `python3 tools/art/check_map_quality.py --images <tuiles> --world WxH --composition composition.png --json qualite.json` | **conforme**, sinon refaire les régions des secteurs signalés |
+| 7. Échelle | Codex | `python3 tools/art/map_regions.py compare --images <tuiles> --world WxH --composition composition.png --out echelle.png` | planche jointe à la PR : objets à la taille des Ruines (le propriétaire juge) |
 | 8. Intégration | Claude | manifeste (`status: final`), collisions, mini-carte, niveau | `tools/run_tests.sh` (étape `map_quality`) |
 
 Une carte « final » utilisée par une arène qui ne passe pas le contrôle fait échouer `tools/run_tests.sh`.
+`map_regions.py scale-reference` (extrait des Ruines à l'échelle d'une composition) reste disponible pour illustrer
+l'échelle, mais n'est pas une étape : la composition ne fixe pas la taille finale des objets.
 
 ## 5. Prompts
 
-**Composition** (étape 2) : le prompt type de [GENERER_UNE_CARTE.md](GENERER_UNE_CARTE.md) (§ 4), en ajoutant :
+**Composition** (étape 1) : le prompt type de [GENERER_UNE_CARTE.md](GENERER_UNE_CARTE.md) (§ 4). Il fixe le plan
+(chemins, largeurs, clairières, passages) ; inutile d'y chercher la taille finale des objets.
 
-```
-Image2 is a SCALE reference: an extract of the Waterfall Ruins map at EXACTLY the same scale as the map you draw
-(same number of world units per pixel). Every tree, rock, ruin, bridge, stair, road and clearing must have the same
-size relative to the image as in image2. Do not draw oversized trees, giant paving stones or huge rocks.
-```
-
-**Région** (étape 5) : `PROMPT_REGION.txt`, écrit par `map_regions.py split`. Il impose : plan figé (rien d'ajouté,
-retiré ou déplacé, mêmes largeurs de chemins), détail neuf (pas d'agrandissement), même taille à l'écran que la
-référence jointe, bords inchangés pour les recouvrements.
+**Région** (étape 4) : `PROMPT_REGION.txt`, écrit par `map_regions.py split`. Il impose : plan figé (contours,
+largeurs, emprises des massifs et des repères, rien sur le sol praticable), détail neuf (pas d'agrandissement), et
+**l'échelle de la référence jointe** : un objet trop gros est remplacé par plusieurs objets à la bonne taille sur la
+même emprise (arbre géant → bosquet, rocher géant → éboulis, grande dalle → pavés). Bords inchangés pour les
+recouvrements.
 
 **Raccord** (si une couture reste visible) : prompts « vertical » et « horizontal » de
 `assets/concepts/incoming/map.storm_highlands/job.json` (« LOCAL SEAM REPAIR ONLY »), sur un recadrage étroit du

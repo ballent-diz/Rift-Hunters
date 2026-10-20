@@ -32,7 +32,7 @@ python3 tools/art/build.py monster.ashblade              # sprites pixel art pro
 python3 tools/art/import_sheet.py <dossier>/job.json     # importer des images générées (statut final)
 python3 tools/art/build_env.py fractured_plain           # décor d'arène depuis un pack (assets/third_party)
 python3 tools/art/collision_mask.py export|build three_rifts   # collisions détourées à la main (docs/maps/)
-python3 tools/art/map_regions.py split|assemble|scale-reference ...   # passe de détail par régions (docs/maps/QUALITE_DES_CARTES.md)
+python3 tools/art/map_regions.py split|assemble|compare ...   # passe de détail par régions (docs/maps/QUALITE_DES_CARTES.md)
 python3 tools/art/check_map_quality.py environment.<id>  # qualité d'une carte (même finesse que les Ruines)
 python3 tools/art/build_minimap.py all                   # fonds de mini-carte (après un changement de carte ou de collisions)
 python3 tools/audio/detect_bpm.py                        # mesurer le tempo des musiques (manifeste audio)

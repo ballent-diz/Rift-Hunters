@@ -56,9 +56,8 @@ détourées à la main d'après l'image : plus l'image est franche, plus le dét
 ## 4. Prompt type de la COMPOSITION (en anglais, plus fiable pour les générateurs)
 
 Ce prompt produit la composition (étape 2 de [QUALITE_DES_CARTES.md](QUALITE_DES_CARTES.md)), pas la carte finale :
-la finesse vient ensuite des régions. Remplacer les éléments entre crochets. Joindre en image2 la référence d'échelle
-(`python3 tools/art/map_regions.py scale-reference --world WxH --out ref.png`) et ajouter le paragraphe « SCALE
-reference » de QUALITE_DES_CARTES.md (§ 5) ; joindre aussi les cartes déjà faites du chapitre (style).
+la finesse ET la taille des objets viennent ensuite des régions (preuve dans QUALITE_DES_CARTES.md § 2). Remplacer
+les éléments entre crochets. Joindre les cartes déjà faites du chapitre (style).
 
 ```
 Top-down video game map for Rift Hunters, a 2D survivor-like. Full-bleed [3:1 wide panorama | 3:2 | square],
@@ -92,7 +91,7 @@ locale en gardant le reste identique (voir les prompts « vertical » et « deta
 - [ ] Arène du boss ronde, vide et grande ; entrées larges.
 - [ ] Rien au milieu des routes ; bords de carte fermés ; coupures volontaires évidentes.
 - [ ] Pas de raccord visible, pas d'objet flottant, échelle cohérente avec le Chasseur.
-- [ ] Échelle des arbres, rochers, ponts et chemins égale à la référence d'échelle (`scale-reference`).
+- [ ] Après les régions : planche `map_regions.py compare` jointe, objets à la taille des Ruines.
 - [ ] Après les régions : `tools/art/check_map_quality.py` **conforme** (densité, finesse homogène, fidélité au plan),
   rapport joint à la fiche de livraison.
 

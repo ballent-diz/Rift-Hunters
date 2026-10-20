@@ -6,6 +6,7 @@
   (générer chaque région : <dossier>/regions/rY_X_input.png -> <dossier>/regions/rY_X.png, prompt PROMPT_REGION.txt,
    référence de finesse et d'échelle reference_scale.png jointe à CHAQUE génération)
   python3 tools/art/map_regions.py assemble <dossier> --out assets/environments/<décor>/map
+  python3 tools/art/map_regions.py compare --images <tuiles> --world WxH --composition <plan> --out echelle.png
 
 Principe (docs/maps/QUALITE_DES_CARTES.md) : la composition validée par le propriétaire (plan figé) est découpée en
 régions de 1672 × 1672 unités au plus, plus une marge de recouvrement. Chaque région est redessinée par le
@@ -46,10 +47,15 @@ map at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf clu
 output must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;
 the hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving
 or blobs, subdivide them into many small stones of image2's size; never enlarge details.
-LOCK exact composition, camera, terrain outlines, path widths, water edges, cliff lines, landmark footprints and road
-endpoints: overlaid on image1 your result must match it shape for shape. Do NOT add, remove or move any tree, rock,
-wall, building, fence, bridge, stair or monument; do NOT narrow or widen any road, ford or clearing. Open ground stays
-empty and flat: add ONLY flat fine surface texture (short grass strokes, earth grain, small paving joints and cracks).
+LOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,
+rock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar
+base) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any
+road, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface
+texture (short grass strokes, earth grain, small paving joints and cracks).
+SCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree
+becomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and
+fine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with
+smaller, more numerous components (stones, planks, tiles, branches).
 Rebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and
 branches, timber with fine grain and joinery, water with fine ripples and foam.
 Preserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.
@@ -118,6 +124,35 @@ def scale_reference(world, width_px, out):
     w = min(small.size[0], round(width_px * 0.5))
     small.crop((0, 0, w, small.size[1])).save(out)
     print(f"référence d'échelle de composition : {out} ({w} × {small.size[1]} pixels, {units_per_px:.2f} unités/pixel)")
+
+
+def compare(tiles, world, composition, out, points):
+    """Contrôle visuel d'échelle : extraits de 560 × 420 unités, au même zoom (1 pixel par unité), de la carte livrée,
+    de sa composition et des Ruines. Arbres, rochers, pavés et blocs doivent avoir la même taille que dans les Ruines."""
+    span = (560, 420)
+
+    def extract(paths, size, x, y):
+        imgs = [Image.open(p).convert("RGB") for p in paths]
+        unit_w = size[0] / len(imgs)
+        i = min(int(x // unit_w), len(imgs) - 1)
+        img = imgs[i]
+        s = img.size[0] / unit_w
+        left = (x - i * unit_w) * s
+        box = (round(left), round(y * s), round(left + span[0] * s), round(y * s + span[1] * s))
+        return img.crop(box).resize(span, Image.Resampling.LANCZOS)
+
+    ruins = [ROOT / f"assets/environments/cascade_ruins/{n}" for n in ("map.webp", "map_1.webp", "map_2.webp")]
+    rows = []
+    for x, y in points:
+        rows.append([extract(tiles, world, x, y), extract([composition], world, x, y) if composition else None,
+                     extract(ruins, (5016, 1672), 1700, 1000)])
+    sheet = Image.new("RGB", (3 * (span[0] + 10), len(rows) * (span[1] + 10)), (20, 20, 30))
+    for r, row in enumerate(rows):
+        for c, img in enumerate(row):
+            if img:
+                sheet.paste(img, (c * (span[0] + 10), r * (span[1] + 10)))
+    sheet.save(out)
+    print(f"comparaison : {out} (colonnes : carte livrée, composition, Ruines ; 1 pixel = 1 unité)")
 
 
 def _weights(size, crop, core):
@@ -193,6 +228,12 @@ def main():
     r.add_argument("--world", required=True, help="taille du monde en unités, ex. 5016x3344")
     r.add_argument("--width", type=int, default=1536, help="largeur en pixels de la composition à générer")
     r.add_argument("--out", required=True)
+    c = sub.add_parser("compare")
+    c.add_argument("--images", nargs="+", required=True, help="tuiles de la carte, de gauche à droite")
+    c.add_argument("--world", required=True)
+    c.add_argument("--composition")
+    c.add_argument("--at", nargs="+", default=[], help="coins haut gauche des extraits en unités, ex. 1200,800")
+    c.add_argument("--out", required=True)
     a = sub.add_parser("assemble")
     a.add_argument("folder")
     a.add_argument("--out", required=True, help="préfixe des tuiles, ex. assets/environments/mist_ford/map")
@@ -200,6 +241,11 @@ def main():
     if args.command == "split":
         world = tuple(int(v) for v in args.world.lower().split("x"))
         split(Path(args.composition), world, Path(args.out))
+    elif args.command == "compare":
+        world = tuple(int(v) for v in args.world.lower().split("x"))
+        points = [tuple(float(v) for v in p.split(",")) for p in args.at] or \
+            [(world[0] * 0.2, world[1] * 0.3), (world[0] * 0.45, world[1] * 0.45), (world[0] * 0.7, world[1] * 0.6)]
+        compare([Path(p) for p in args.images], world, args.composition, Path(args.out), points)
     elif args.command == "scale-reference":
         world = tuple(int(v) for v in args.world.lower().split("x"))
         scale_reference(world, args.width, Path(args.out))
