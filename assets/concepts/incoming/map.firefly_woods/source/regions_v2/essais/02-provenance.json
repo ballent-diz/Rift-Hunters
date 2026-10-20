@@ -1,0 +1,11 @@
+{
+  "generator": "built-in image_gen",
+  "original_generated_path": "C:\\Users\\petit\\.codex\\generated_images\\01a1597c-afd3-7862-a83f-001ae20d9c8f\\exec-1cd7013d-6fc7-48cb-b9c4-3c6b27a824ec.png",
+  "prompt": "PROMPT_REGION.txt + newline + PROMPT_RETOUCHE.txt (textes intégraux)",
+  "sha256": {
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-regions/assets/concepts/incoming/map.firefly_woods/source/regions_v2/regions/r2_3.png": "f324a244bd2e18c41abed559d081463a250075ea1de63499a01f13085c910b79",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-regions/assets/concepts/incoming/map.firefly_woods/source/regions_v2/reference_scale.png": "46a74013731b07d36a868d027ec25a3e319f55109e4e3bf3411ae2ac612e0b4d",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/regions-work/bois-bottom-retouche-agent/PROMPT.txt": "6a2a27b5206922ef1dd8b055593b8a3d318cf9aabc8eb6418173eb8dce12edbb",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/regions-work/bois-bottom-retouche-agent/r2_3.png": "daf71df05c04ba2932c9a59dcb6af9391c30d05aea0a7077bb231b1e90a27365"
+  }
+}

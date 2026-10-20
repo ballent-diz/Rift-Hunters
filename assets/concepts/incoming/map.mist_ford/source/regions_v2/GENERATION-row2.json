@@ -1,0 +1,54 @@
+{
+  "generator": "built-in image_gen",
+  "api_used": false,
+  "grid": [
+    4,
+    3
+  ],
+  "regions": [
+    {
+      "name": "r2_0.png",
+      "native_size": [
+        1320,
+        1191
+      ],
+      "sha256": "4615f8bd405c932618ef4813ac2279561ec48d3b01e54888373334a6b4915e4f",
+      "source_crop": "assets/concepts/incoming/map.mist_ford/source/regions_v2/regions/r2_0_input.png",
+      "reference": "assets/concepts/incoming/map.mist_ford/source/regions_v2/reference_scale.png",
+      "prompt": "PROMPT_REGION.txt"
+    },
+    {
+      "name": "r2_1.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "e2f5059d89bbf315a781830204df1d606ab0ad8d0cdfec794c6e1143cfa15e64",
+      "source_crop": "assets/concepts/incoming/map.mist_ford/source/regions_v2/regions/r2_1_input.png",
+      "reference": "assets/concepts/incoming/map.mist_ford/source/regions_v2/reference_scale.png",
+      "prompt": "PROMPT_REGION.txt"
+    },
+    {
+      "name": "r2_2.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "e597d4360b94d371fbabb47278feef02212d8e6217b55e36f9043ecb1bf15eb0",
+      "source_crop": "assets/concepts/incoming/map.mist_ford/source/regions_v2/regions/r2_2_input.png",
+      "reference": "assets/concepts/incoming/map.mist_ford/source/regions_v2/reference_scale.png",
+      "prompt": "PROMPT_REGION.txt"
+    },
+    {
+      "name": "r2_3.png",
+      "native_size": [
+        1321,
+        1191
+      ],
+      "sha256": "5481af25911b2bcff9573403e634f1da9c4bf7f0f7c8422026ccc564c774576c",
+      "source_crop": "assets/concepts/incoming/map.mist_ford/source/regions_v2/regions/r2_3_input.png",
+      "reference": "assets/concepts/incoming/map.mist_ford/source/regions_v2/reference_scale.png",
+      "prompt": "PROMPT_REGION.txt"
+    }
+  ]
+}

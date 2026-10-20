@@ -1,0 +1,56 @@
+[
+  {
+    "carte": "firefly_woods",
+    "region": "r1_1",
+    "assemble": true,
+    "mesures_regionales": {
+      "avant": {
+        "part_lisse": 0.14050674438476562,
+        "details_fins": 328.88174057006836,
+        "details_moyens": 108.53290557861328
+      },
+      "apres": {
+        "part_lisse": 0.12669754028320312,
+        "details_fins": 328.6886215209961,
+        "details_moyens": 111.04345321655273
+      }
+    },
+    "note": "Ces mesures locales ne sont pas les statistiques globales du rapport de conformité."
+  },
+  {
+    "carte": "firefly_woods",
+    "region": "r2_3",
+    "assemble": false,
+    "mesures_regionales": {
+      "avant": {
+        "part_lisse": 0.2686309814453125,
+        "details_fins": 269.2079544067383,
+        "details_moyens": 95.78704833984375
+      },
+      "apres": {
+        "part_lisse": 0.2264251708984375,
+        "details_fins": 286.0093116760254,
+        "details_moyens": 102.73933410644531
+      }
+    },
+    "note": "Ces mesures locales ne sont pas les statistiques globales du rapport de conformité."
+  },
+  {
+    "carte": "mist_ford",
+    "region": "r1_1",
+    "assemble": false,
+    "mesures_regionales": {
+      "avant": {
+        "part_lisse": 0.22480392456054688,
+        "details_fins": 295.27902603149414,
+        "details_moyens": 96.55952453613281
+      },
+      "apres": {
+        "part_lisse": 0.209259033203125,
+        "details_fins": 326.5643119812012,
+        "details_moyens": 102.35309600830078
+      }
+    },
+    "note": "Ces mesures locales ne sont pas les statistiques globales du rapport de conformité."
+  }
+]

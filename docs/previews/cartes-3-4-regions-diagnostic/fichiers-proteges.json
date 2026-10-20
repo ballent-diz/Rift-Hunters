@@ -1,0 +1,10 @@
+{
+  "identiques": true,
+  "sha256": {
+    "assets/concepts/incoming/map.firefly_woods/source/map_source.png": "409ef03d16d36603d37ffa9947cb4658a63d835a55f09b41da44bd7df91b0ee9",
+    "assets/concepts/incoming/map.mist_ford/source/map_connected.png": "915fdbfd241ba6942d7d6748ef3350799a2fb7f1a2571ee8954a7db1d91c454a",
+    "assets/concepts/incoming/map.firefly_woods/collision/collision.png": "563464b104619336b8313b810e0f73e319986ad48df1617f2065be82944e49ef",
+    "assets/concepts/incoming/map.firefly_woods/collision/painted.webp": "5b178abc42bea8afdf0e933a72e1b64b83dc8e4fc4c809a2c143b09994af8e5a",
+    "assets/environments/firefly_woods/field.png": "40ca2717436642bc4a8bf990453ed9243d006fc83d4bd80e3b1d4dee4e469cdb"
+  }
+}
