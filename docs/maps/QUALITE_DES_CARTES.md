@@ -35,14 +35,16 @@ unité) : la composition des Hautes Terres faisait
 Condition : le prompt de région doit autoriser à remplacer un objet trop gros par plusieurs objets plus petits sur
 la même emprise (c'est le cas de `PROMPT_REGION.txt`). La composition, elle, ne fixe que le plan.
 
-Le nombre de régions ne dépend que de la surface :
+Le nombre de régions ne dépend que de la surface. `map_regions.py` ajoute 160 unités de recouvrement de chaque côté et
+garde cœur + marges dans 1672 unités : une sortie de générateur de 1254 pixels (le maximum courant) donne ainsi au
+moins 0,75 pixel par unité, comme les régions des Hautes Terres (faites sans recouvrement, d'où leur nombre plus bas) :
 
 | Carte (unités) | Régions | Tuiles livrées |
 |---|---|---|
-| 5016 × 1672 (3:1, Ruines) | 3 | 3 × (3762 × 3762) |
-| 5016 × 3344 (3:2) | 6 | 3 × (3762 × 7524) |
-| 5016 × 5016 (1:1, Hautes Terres) | 9 | 3 × (3762 × 11286) |
-| Autre taille W × H | ⌈W / 1672⌉ × ⌈H / 1672⌉ | ⌈W / 1672⌉ tuiles de (2,25 W / n) × 2,25 H |
+| 5016 × 1672 (3:1, Ruines) | 4 × 2 = 8 | 3 × (3762 × 3762) |
+| 5016 × 3344 (3:2) | 4 × 3 = 12 | 3 × (3762 × 7524) |
+| 5016 × 5016 (1:1, Hautes Terres) | 4 × 4 = 16 | 3 × (3762 × 11286) |
+| Autre taille W × H | ⌈W / 1352⌉ × ⌈H / 1352⌉ | ⌈W / 1672⌉ tuiles de (2,25 W / n) × 2,25 H |
 
 ## 3. Les chiffres qui définissent la qualité
 
@@ -72,7 +74,7 @@ sapin 100 à 140 de haut. Au zoom du jeu, le Chasseur fait environ 60 pixels de 
 | 1. Composition (1536 px de large) | générateur | prompt de composition (GENERER_UNE_CARTE.md § 4), joindre les cartes du chapitre | plan validé par le propriétaire (circulation, zones, passages) |
 | 2. Collisions | propriétaire | peinture sur la composition validée | DE_L_IMAGE_AU_NIVEAU.md |
 | 3. Découpage | Codex | `python3 tools/art/map_regions.py split composition.png --world WxH --out <dossier>` | — |
-| 4. Régions | générateur | une génération par `regions/rY_X_input.png`, prompt `PROMPT_REGION.txt`, joindre `reference_scale.png` ; enregistrer `regions/rY_X.png` | chaque sortie ≥ 1494 pixels de côté |
+| 4. Régions | générateur | une génération par `regions/rY_X_input.png`, prompt `PROMPT_REGION.txt`, joindre `reference_scale.png` ; enregistrer `regions/rY_X.png` | chaque sortie ≥ 1254 pixels de côté |
 | 5. Assemblage | Codex | `python3 tools/art/map_regions.py assemble <dossier> --out assets/environments/<id>/map` | — |
 | 6. Contrôle | Codex | `python3 tools/art/check_map_quality.py --images <tuiles> --world WxH --composition composition.png --json qualite.json` | **conforme**, sinon refaire les régions des secteurs signalés |
 | 7. Échelle | Codex | `python3 tools/art/map_regions.py compare --images <tuiles> --world WxH --composition composition.png --out echelle.png` | planche jointe à la PR : objets à la taille des Ruines (le propriétaire juge) |

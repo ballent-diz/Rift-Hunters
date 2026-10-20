@@ -9,11 +9,11 @@
   python3 tools/art/map_regions.py compare --images <tuiles> --world WxH --composition <plan> --out echelle.png
 
 Principe (docs/maps/QUALITE_DES_CARTES.md) : la composition validée par le propriétaire (plan figé) est découpée en
-régions de 1672 × 1672 unités au plus, plus une marge de recouvrement. Chaque région est redessinée par le
+régions dont cœur et marges de recouvrement tiennent dans 1672 × 1672 unités. Chaque région est redessinée par le
 générateur avec du VRAI détail, à 0,75 pixel par unité au moins (1254 pixels pour 1672 unités, comme les Hautes
 Terres). L'assemblage fond les recouvrements, agrandit ×3 (2,25 pixels par unité, densité du jeu) et découpe en
 tuiles verticales de même taille (map.webp, map_1.webp...). Le nombre de régions dépend seulement de la surface :
-une carte 3:2 de 5016 × 3344 unités en compte 6, une carte 1:1 de 5016 × 5016 en compte 9.
+une carte 3:2 de 5016 × 3344 unités en compte 12, une carte 1:1 de 5016 × 5016 en compte 16.
 Contrôle ensuite : python3 tools/art/check_map_quality.py --images <tuiles> --world WxH --composition <plan>.
 Nécessite numpy et Pillow.
 """
@@ -32,6 +32,9 @@ DETAIL_DENSITY = 0.75
 # Densité affichée en jeu (tuiles livrées).
 GAME_DENSITY = 2.25
 REGION = 1672.0
+# Sortie minimale d'un générateur (Hautes Terres : 1254 pixels par région). Cœur + marges d'une région tiennent dans
+# REGION unités : une sortie de 1254 pixels garde alors au moins 0,75 pixel par unité.
+MIN_OUTPUT = 1254
 MARGIN = 160.0
 # Côté de l'image envoyée au générateur (et minimum attendu en retour).
 INPUT_SIDE = 1536
@@ -71,7 +74,8 @@ def split(composition, world, out):
     (out / "regions").mkdir(exist_ok=True)
     comp = Image.open(composition).convert("RGB")
     base = comp.resize((round(world[0] * DETAIL_DENSITY), round(world[1] * DETAIL_DENSITY)), Image.Resampling.LANCZOS)
-    nx, ny = math.ceil(world[0] / REGION), math.ceil(world[1] / REGION)
+    core_max = REGION - 2 * MARGIN
+    nx, ny = math.ceil(world[0] / core_max), math.ceil(world[1] / core_max)
     core = (world[0] / nx, world[1] / ny)
     regions = []
     for y in range(ny):
@@ -88,8 +92,7 @@ def split(composition, world, out):
             regions.append({"name": name, "core": [round(v, 1) for v in c], "crop": [round(v, 1) for v in r],
                             "input_size": list(crop.size)})
     _scale_reference(out, regions[0])
-    min_side = math.ceil(REGION + 2 * MARGIN) * DETAIL_DENSITY
-    (out / "PROMPT_REGION.txt").write_text(PROMPT.format(min_side=round(min_side)), encoding="utf-8")
+    (out / "PROMPT_REGION.txt").write_text(PROMPT.format(min_side=MIN_OUTPUT), encoding="utf-8")
     plan = {"composition": str(composition), "world": list(world), "detail_density": DETAIL_DENSITY,
             "game_density": GAME_DENSITY, "grid": [nx, ny], "regions": regions}
     (out / "regions.json").write_text(json.dumps(plan, indent="\t", ensure_ascii=False) + "\n", encoding="utf-8")
@@ -185,7 +188,7 @@ def assemble(folder, out_prefix):
         box = [round(v * DETAIL_DENSITY) for v in crop]
         dims = (box[2] - box[0], box[3] - box[1])
         img = Image.open(path).convert("RGB")
-        if max(img.size) < max(region["input_size"]) * 0.8:
+        if max(img.size) < MIN_OUTPUT:
             print(f"attention : {path.name} fait {img.size}, trop petit pour le détail visé")
         pixels = np.asarray(img.resize(dims, Image.Resampling.LANCZOS)).astype(np.float64)
         weight = _weights(dims, crop, region["core"])[..., None]
