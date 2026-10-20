@@ -2,7 +2,7 @@ extends Node
 ## Captures d'écran d'une partie jouée par le bot (nécessite un affichage, ex. xvfb-run).
 ## Usage : xvfb-run -a godot --path . --fixed-fps 60 res://tools/screenshot.tscn -- --out=/chemin --times=20,150
 ##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr]
-##         [--night] [--boss=root_sentinel] [--altar] [--shallows] [--rivers]
+##         [--night] [--boss=root_sentinel] [--altar] [--shallows] [--rivers] [--map] (grande carte ouverte)
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -123,6 +123,8 @@ func _ready() -> void:
 		_run.ctx.arena = _run.ctx.arena.duplicate()
 		_run.ctx.arena.boss_time = boss_at
 	_run.ctx.player.god_mode = true
+	if OS.get_cmdline_user_args().has("--map"):
+		_run.hud.minimap.toggle()
 
 
 func _physics_process(_delta: float) -> void:

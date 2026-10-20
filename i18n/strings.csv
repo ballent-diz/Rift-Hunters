@@ -562,6 +562,13 @@ TIP_BOSS,"Le Dévoreur arrive vers 7 min. Combinez Fracture, Marques et synergie
 OPTIONS_REDUCE_FLASHES,Réduire les flashs : %s,Reduce flashes: %s
 OPTIONS_VSYNC,Synchronisation verticale,Vertical sync
 OPTIONS_SHOW_FPS,Afficher les images par seconde,Show frames per second
+ACTION_TOGGLE_MAP,Carte,Map
+OPTIONS_MINIMAP,Mini-carte : %s,Minimap: %s
+MINIMAP_SIZE_0,masquée,hidden
+MINIMAP_SIZE_1,petite,small
+MINIMAP_SIZE_2,moyenne,medium
+MINIMAP_SIZE_3,grande,large
+MAP_CLOSE_HINT,%s : fermer la carte,%s: close the map
 OPTIONS_CONTROLS,Manette : stick gauche déplacement · stick droit visée · A/RB Ruée · RT/LT sorts 1 et 2 · croix haut/droite sorts 3 et 4 · X/Y/B Techniques · LB focus · Start pause,Gamepad: left stick move · right stick aim · A/RB Dash · RT/LT spells 1 and 2 · D-pad up/right spells 3 and 4 · X/Y/B Techniques · LB focus · Start pause
 MENU_CREDITS,Crédits,Credits
 CREDITS_BACK,Retour,Back

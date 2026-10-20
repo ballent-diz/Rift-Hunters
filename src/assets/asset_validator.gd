@@ -80,6 +80,8 @@ static func validate_environment(id: String, e: Dictionary) -> Dictionary:
 		for path: String in e.get("map_tiles", []):
 			if not ResourceLoader.exists(path):
 				messages.append("panneau de map absent : " + path)
+		if e.has("minimap") and not ResourceLoader.exists(str(e["minimap"])):
+			messages.append("fond de mini-carte absent (tools/art/build_minimap.py)")
 		if float(e.get("arena_size", 0.0)) <= 0.0:
 			messages.append("arena_size manquant")
 		var map_status: String = "OK" if messages.is_empty() else ("ERROR" if str(e.get("status", "")) == "final" else "PLACEHOLDER")
