@@ -29,7 +29,8 @@ Les Ruines et les Hautes Terres ont été faites ainsi (job.json de `map.three_r
 
 **L'échelle des objets est fixée par les régions (étape 2 ci-dessus), pas par la composition.** Le générateur dessine un arbre, une pierre ou un pavé à
 peu près toujours à la même taille en pixels. Redessinée à 1,3 unité par pixel, une région reçoit donc des objets à la
-taille des Ruines, quelle que soit la grossièreté de la composition. Preuve : la composition des Hautes Terres faisait
+taille des Ruines, quelle que soit la grossièreté de la composition. Preuve ([planche](../previews/echelle-hautes-terres.png) : carte finale, composition, Ruines, à 1 pixel par
+unité) : la composition des Hautes Terres faisait
 4 unités par pixel (pavés d'environ 45 unités) ; leur carte finale a des pavés d'environ 20 unités, comme les Ruines.
 Condition : le prompt de région doit autoriser à remplacer un objet trop gros par plusieurs objets plus petits sur
 la même emprise (c'est le cas de `PROMPT_REGION.txt`). La composition, elle, ne fixe que le plan.
