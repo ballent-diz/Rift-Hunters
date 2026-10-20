@@ -1,0 +1,298 @@
+{
+	"world": [
+		5016,
+		3344
+	],
+	"checks": [
+		{
+			"name": "densité (pixels par unité)",
+			"value": 0.306,
+			"min": 2.183,
+			"max": 2.317,
+			"ok": false
+		},
+		{
+			"name": "part lisse (médiane)",
+			"value": 0.407,
+			"min": 0.0,
+			"max": 0.27,
+			"ok": false
+		},
+		{
+			"name": "détails fins / 100×100 u (médiane)",
+			"value": 71.454,
+			"min": 329.944,
+			"max": 446.395,
+			"ok": false
+		},
+		{
+			"name": "détails moyens / 100×100 u (médiane)",
+			"value": 62.571,
+			"min": 90.94,
+			"max": 123.036,
+			"ok": false
+		},
+		{
+			"name": "secteurs conformes (part)",
+			"value": 0.0,
+			"min": 0.85,
+			"max": 1.0,
+			"ok": false
+		},
+		{
+			"name": "fidélité au plan validé (corrélation)",
+			"value": 0.986,
+			"min": 0.85,
+			"max": 1.0,
+			"ok": true
+		}
+	],
+	"sectors_out": [
+		{
+			"x": 0,
+			"y": 0,
+			"smooth": 0.404,
+			"fine": 76,
+			"medium": 64
+		},
+		{
+			"x": 800,
+			"y": 0,
+			"smooth": 0.285,
+			"fine": 92,
+			"medium": 70
+		},
+		{
+			"x": 1600,
+			"y": 0,
+			"smooth": 0.508,
+			"fine": 60,
+			"medium": 61
+		},
+		{
+			"x": 2400,
+			"y": 0,
+			"smooth": 0.394,
+			"fine": 85,
+			"medium": 66
+		},
+		{
+			"x": 3200,
+			"y": 0,
+			"smooth": 0.455,
+			"fine": 65,
+			"medium": 60
+		},
+		{
+			"x": 4000,
+			"y": 0,
+			"smooth": 0.454,
+			"fine": 65,
+			"medium": 60
+		},
+		{
+			"x": 4800,
+			"y": 0,
+			"smooth": 0.393,
+			"fine": 73,
+			"medium": 62
+		},
+		{
+			"x": 0,
+			"y": 800,
+			"smooth": 0.49,
+			"fine": 73,
+			"medium": 68
+		},
+		{
+			"x": 800,
+			"y": 800,
+			"smooth": 0.407,
+			"fine": 83,
+			"medium": 66
+		},
+		{
+			"x": 1600,
+			"y": 800,
+			"smooth": 0.473,
+			"fine": 83,
+			"medium": 78
+		},
+		{
+			"x": 2400,
+			"y": 800,
+			"smooth": 0.453,
+			"fine": 63,
+			"medium": 71
+		},
+		{
+			"x": 3200,
+			"y": 800,
+			"smooth": 0.526,
+			"fine": 60,
+			"medium": 58
+		},
+		{
+			"x": 4000,
+			"y": 800,
+			"smooth": 0.389,
+			"fine": 81,
+			"medium": 67
+		},
+		{
+			"x": 4800,
+			"y": 800,
+			"smooth": 0.459,
+			"fine": 61,
+			"medium": 55
+		},
+		{
+			"x": 0,
+			"y": 1600,
+			"smooth": 0.454,
+			"fine": 70,
+			"medium": 63
+		},
+		{
+			"x": 800,
+			"y": 1600,
+			"smooth": 0.331,
+			"fine": 76,
+			"medium": 65
+		},
+		{
+			"x": 1600,
+			"y": 1600,
+			"smooth": 0.42,
+			"fine": 76,
+			"medium": 65
+		},
+		{
+			"x": 2400,
+			"y": 1600,
+			"smooth": 0.31,
+			"fine": 90,
+			"medium": 66
+		},
+		{
+			"x": 3200,
+			"y": 1600,
+			"smooth": 0.313,
+			"fine": 96,
+			"medium": 62
+		},
+		{
+			"x": 4000,
+			"y": 1600,
+			"smooth": 0.458,
+			"fine": 70,
+			"medium": 66
+		},
+		{
+			"x": 4800,
+			"y": 1600,
+			"smooth": 0.449,
+			"fine": 62,
+			"medium": 56
+		},
+		{
+			"x": 0,
+			"y": 2400,
+			"smooth": 0.43,
+			"fine": 71,
+			"medium": 61
+		},
+		{
+			"x": 800,
+			"y": 2400,
+			"smooth": 0.374,
+			"fine": 80,
+			"medium": 63
+		},
+		{
+			"x": 1600,
+			"y": 2400,
+			"smooth": 0.333,
+			"fine": 79,
+			"medium": 66
+		},
+		{
+			"x": 2400,
+			"y": 2400,
+			"smooth": 0.472,
+			"fine": 71,
+			"medium": 66
+		},
+		{
+			"x": 3200,
+			"y": 2400,
+			"smooth": 0.26,
+			"fine": 85,
+			"medium": 63
+		},
+		{
+			"x": 4000,
+			"y": 2400,
+			"smooth": 0.37,
+			"fine": 80,
+			"medium": 68
+		},
+		{
+			"x": 4800,
+			"y": 2400,
+			"smooth": 0.433,
+			"fine": 71,
+			"medium": 57
+		},
+		{
+			"x": 0,
+			"y": 3200,
+			"smooth": 0.423,
+			"fine": 82,
+			"medium": 54
+		},
+		{
+			"x": 800,
+			"y": 3200,
+			"smooth": 0.365,
+			"fine": 69,
+			"medium": 61
+		},
+		{
+			"x": 1600,
+			"y": 3200,
+			"smooth": 0.406,
+			"fine": 66,
+			"medium": 57
+		},
+		{
+			"x": 2400,
+			"y": 3200,
+			"smooth": 0.379,
+			"fine": 71,
+			"medium": 61
+		},
+		{
+			"x": 3200,
+			"y": 3200,
+			"smooth": 0.374,
+			"fine": 67,
+			"medium": 55
+		},
+		{
+			"x": 4000,
+			"y": 3200,
+			"smooth": 0.393,
+			"fine": 68,
+			"medium": 54
+		},
+		{
+			"x": 4800,
+			"y": 3200,
+			"smooth": 0.507,
+			"fine": 56,
+			"medium": 57
+		}
+	],
+	"ok": false
+}
