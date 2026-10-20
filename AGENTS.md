@@ -1,16 +1,16 @@
 # Rift Hunters — consignes pour les agents (Codex, Claude…)
 
 Survivor-like 2D original (Godot 4.3, GDScript typé). Détails d'architecture : `docs/ARCHITECTURE.md`.
-Les mêmes règles s'appliquent à tous les agents ; `CLAUDE.md` en est la version complète (commandes, pièges connus).
+Les règles ci-dessous s'appliquent à tous les agents ; `CLAUDE.md` en est la version complète pour Claude
+(commandes, pièges connus, plus l'annonce du niveau d'effort, propre à Claude). Codex n'annonce pas de niveau
+d'effort et n'attend pas de feu vert pour commencer une tâche demandée.
 
 ## Règles du projet (demandées par le propriétaire)
 
-1. **Effort avant chaque tâche** : annoncer le niveau d'effort conseillé (low / medium / high / xhigh / max) et
-   attendre le feu vert, sauf si l'utilisateur a explicitement autorisé à enchaîner plusieurs tâches.
-2. **Bilingue FR/EN** : tout texte visible par le joueur passe par une clé de `i18n/strings.csv` avec les colonnes
+1. **Bilingue FR/EN** : tout texte visible par le joueur passe par une clé de `i18n/strings.csv` avec les colonnes
    `fr` ET `en` remplies. Jamais de texte en dur. Le test `test_localization` échoue sinon.
-3. **Langue de travail : français** (docs, commits, échanges). Identifiants de code en anglais.
-4. **Vérification proportionnée** : `tools/run_tests.sh` pour les changements de code qui le justifient.
+2. **Langue de travail : français** (docs, commits, échanges). Identifiants de code en anglais.
+3. **Vérification proportionnée** : `tools/run_tests.sh` pour les changements de code qui le justifient.
    Pour les lots visuels de Codex, décision du propriétaire du 14 octobre : contrôles ciblés de chargement et
    d’erreurs évidentes une fois en fin de lot, captures, puis essais en jeu par le propriétaire. Ne pas relancer
    systématiquement toute la suite à chaque retouche ; conserver les tests existants.
