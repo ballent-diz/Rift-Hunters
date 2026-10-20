@@ -44,6 +44,10 @@ if [[ "$MODE" == "all" || "$MODE" == "art" ]]; then
 	# Outils pixel art (Python : numpy + Pillow). Ignoré si ces modules manquent.
 	if python3 -c "import numpy, PIL" > /dev/null 2>&1; then
 		run_step art python3 tools/art/test_import.py
+		# Cartes dessinées « final » : même finesse et même échelle de détail que les Ruines (docs/maps/QUALITE_DES_CARTES.md).
+		if python3 -c "import scipy" > /dev/null 2>&1; then
+			run_step map_quality python3 tools/art/check_map_quality.py --all-final
+		fi
 	fi
 fi
 if [[ "$MODE" == "all" || "$MODE" == "smoke" ]]; then

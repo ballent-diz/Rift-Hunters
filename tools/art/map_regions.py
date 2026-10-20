@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Passe de détail d'une carte dessinée, par régions : la recette qui a produit les Ruines et les Hautes Terres.
 
+  python3 tools/art/map_regions.py scale-reference --world 5016x3344 --out ref_composition.png   # avant la composition
   python3 tools/art/map_regions.py split <composition.png> --world 5016x3344 --out <dossier>
   (générer chaque région : <dossier>/regions/rY_X_input.png -> <dossier>/regions/rY_X.png, prompt PROMPT_REGION.txt,
    référence de finesse et d'échelle reference_scale.png jointe à CHAQUE génération)
@@ -106,6 +107,19 @@ def _scale_reference(out, region):
     crop.save(out / "reference_scale.png")
 
 
+def scale_reference(world, width_px, out):
+    """Référence d'échelle pour l'étape de COMPOSITION : les Ruines au même nombre d'unités par pixel que la future
+    composition (largeur `width_px` pour `world[0]` unités). Arbres, rochers, ponts et chemins de la composition doivent
+    y avoir la même taille que dans cet extrait."""
+    ref = Image.open(SCALE_REFERENCE).convert("RGB")
+    units_per_px = world[0] / width_px
+    scale = ref.size[0] / 5016.0 * units_per_px
+    small = ref.resize((round(ref.size[0] / scale), round(ref.size[1] / scale)), Image.Resampling.LANCZOS)
+    w = min(small.size[0], round(width_px * 0.5))
+    small.crop((0, 0, w, small.size[1])).save(out)
+    print(f"référence d'échelle de composition : {out} ({w} × {small.size[1]} pixels, {units_per_px:.2f} unités/pixel)")
+
+
 def _weights(size, crop, core):
     """Poids de fondu : 1 au cœur de la région, décroissant vers 0 dans la marge (sauf au bord de la carte)."""
     w, h = size
@@ -147,7 +161,8 @@ def assemble(folder, out_prefix):
     detailed = Image.fromarray(np.clip(acc / np.maximum(total, 1e-9), 0, 255).astype(np.uint8))
     detailed.save(folder / "map_detailed.png")
     game = (round(world[0] * GAME_DENSITY), round(world[1] * GAME_DENSITY))
-    tiles = max(1, math.ceil(game[0] / min(MAX_TILE_PX, round(REGION * GAME_DENSITY * 3))))
+    # Tuiles verticales d'environ 1672 unités de large (3762 pixels), comme les Ruines et les Hautes Terres.
+    tiles = max(1, math.ceil(world[0] / REGION))
     if game[1] > MAX_TILE_PX:
         sys.exit(f"carte trop haute pour une tuile ({game[1]} pixels > {MAX_TILE_PX})")
     tile_w = game[0] // tiles
@@ -158,7 +173,8 @@ def assemble(folder, out_prefix):
         path = Path(f"{out_prefix}.webp" if i == 0 else f"{out_prefix}_{i}.webp")
         full.crop((i * tile_w, 0, (i + 1) * tile_w, game[1])).save(path, lossless=True, method=4)
         paths.append(path)
-    rel = ["res://" + str(p.resolve().relative_to(ROOT)).replace("\\", "/") for p in paths]
+    rel = [("res://" + p.resolve().relative_to(ROOT).as_posix()) if p.resolve().is_relative_to(ROOT) else str(p)
+           for p in paths]
     print(f"carte détaillée : {folder / 'map_detailed.png'} ({size[0]} × {size[1]})")
     print("tuiles du jeu :", ", ".join(str(p) for p in paths), f"({tile_w} × {game[1]} chacune)")
     print("manifeste :", json.dumps({"map": rel[0], "map_tiles": rel if len(rel) > 1 else [], "arena_size": world[0]}))
@@ -173,6 +189,10 @@ def main():
     s.add_argument("composition")
     s.add_argument("--world", required=True, help="taille du monde en unités, ex. 5016x3344")
     s.add_argument("--out", required=True)
+    r = sub.add_parser("scale-reference")
+    r.add_argument("--world", required=True, help="taille du monde en unités, ex. 5016x3344")
+    r.add_argument("--width", type=int, default=1536, help="largeur en pixels de la composition à générer")
+    r.add_argument("--out", required=True)
     a = sub.add_parser("assemble")
     a.add_argument("folder")
     a.add_argument("--out", required=True, help="préfixe des tuiles, ex. assets/environments/mist_ford/map")
@@ -180,6 +200,9 @@ def main():
     if args.command == "split":
         world = tuple(int(v) for v in args.world.lower().split("x"))
         split(Path(args.composition), world, Path(args.out))
+    elif args.command == "scale-reference":
+        world = tuple(int(v) for v in args.world.lower().split("x"))
+        scale_reference(world, args.width, Path(args.out))
     else:
         assemble(Path(args.folder), Path(args.out))
 

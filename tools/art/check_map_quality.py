@@ -5,6 +5,7 @@
   python3 tools/art/check_map_quality.py environment.firefly_woods --composition <plan_validé.png> [--json rapport.json]
   python3 tools/art/check_map_quality.py --images a.webp b.webp c.webp --world 5016x3344   # avant le manifeste
   python3 tools/art/check_map_quality.py --calibrate      # recalcule la référence (Ruines + Hautes Terres)
+  python3 tools/art/check_map_quality.py --all-final      # cartes « final » utilisées par une arène (tools/run_tests.sh)
 
 La qualité est définie PAR UNITÉ DU MONDE : une carte peut avoir n'importe quelle taille, mais chaque unité doit avoir
 la même densité de pixels et le même détail que les Ruines des Cascades et les Hautes Terres d'Orage.
@@ -22,6 +23,7 @@ Code de sortie 1 si un critère échoue. Nécessite numpy, Pillow et scipy.
 """
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -203,10 +205,29 @@ def main():
     parser.add_argument("--composition", help="composition validée par le propriétaire (contrôle de dérive du plan)")
     parser.add_argument("--json", help="écrit le rapport dans ce fichier (fiche de livraison)")
     parser.add_argument("--calibrate", action="store_true")
+    parser.add_argument("--all-final", action="store_true", help="contrôle chaque carte « final » du manifeste")
     args = parser.parse_args()
     if args.calibrate:
         calibrate()
         return 0
+    if args.all_final:
+        entries = json.loads(MANIFEST.read_text(encoding="utf-8"))["entries"]
+        # Seulement les décors réellement utilisés par une arène (une ancienne entrée remplacée n'est pas livrée).
+        used = set()
+        for tres in (ROOT / "data" / "arenas").glob("*.tres"):
+            match = re.search(r'^environment_id = &"([^"]+)"', tres.read_text(encoding="utf-8"), re.M)
+            if match:
+                used.add(match.group(1))
+        failed = []
+        for env_id, e in entries.items():
+            if env_id in used and e.get("kind") == "map" and e.get("status") == "final":
+                print(f"== {env_id}")
+                paths, w = entry_images(env_id)
+                if not check(paths, w, None, None)["ok"]:
+                    failed.append(env_id)
+        if failed:
+            print("cartes non conformes :", ", ".join(failed))
+        return 1 if failed else 0
     if args.images:
         if not args.world:
             parser.error("--world est obligatoire avec --images")
