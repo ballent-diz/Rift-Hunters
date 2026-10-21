@@ -10214,6 +10214,53 @@
 				"res://assets/environments/firefly_woods/map_1.webp",
 				"res://assets/environments/firefly_woods/map_2.webp"
 			]
+		},
+		"object.altar_seal": {
+			"status": "final",
+			"sheet": "res://assets/sprites/objects/altar_seal/sheet.png",
+			"icon": "res://assets/ui/icons/objects/altar_seal.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				200
+			],
+			"scale": 1.0,
+			"generated_by": "tools/art/bake_altar_seal.gd",
+			"animations": {
+				"intact": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"damaged": {
+					"row": 1,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"sealed": {
+					"row": 2,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"hit": {
+					"row": 3,
+					"frames": 4,
+					"fps": 16,
+					"loop": false
+				},
+				"seal_wave": {
+					"row": 4,
+					"frames": 8,
+					"fps": 12,
+					"loop": false
+				}
+			}
 		}
 	}
 }
