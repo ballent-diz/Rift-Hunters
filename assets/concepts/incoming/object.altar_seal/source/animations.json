@@ -1,0 +1,55 @@
+{
+	"anchor": [
+		128,
+		200
+	],
+	"animations": {
+		"damaged": {
+			"fps": 8,
+			"frames": 8,
+			"loop": true,
+			"row": 1
+		},
+		"hit": {
+			"fps": 16,
+			"frames": 4,
+			"loop": false,
+			"row": 3
+		},
+		"intact": {
+			"fps": 8,
+			"frames": 8,
+			"loop": true,
+			"row": 0
+		},
+		"seal_wave": {
+			"fps": 12,
+			"frames": 8,
+			"loop": false,
+			"row": 4
+		},
+		"sealed": {
+			"fps": 8,
+			"frames": 8,
+			"loop": true,
+			"row": 2
+		}
+	},
+	"cell": [
+		256,
+		256
+	],
+	"center": [
+		128,
+		164
+	],
+	"core": [
+		128,
+		82
+	],
+	"grid": [
+		8,
+		5
+	],
+	"renderer": "Intel(R) Iris(R) Xe Graphics"
+}
