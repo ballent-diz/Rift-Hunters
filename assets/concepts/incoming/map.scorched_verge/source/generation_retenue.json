@@ -1,0 +1,17 @@
+{
+  "method": "imagegen built-in",
+  "attempt": 1,
+  "output": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/source-work/scorched_clean.png",
+  "sha256": "ed5ef4a2fb2449b8857a18a9cf5d539c2bf349020a0c46fa0b29694b8d5352ad",
+  "input": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/source-work/scorched_native.png",
+  "input_sha256": "99630f2c9689e41eac669f01522d6e9ca19ea383715f8b6a26fbf37439f8674e",
+  "prompt": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/source-work/SCORCHED_RETOUCHE_EXACT.txt",
+  "prompt_sha256": "65b974dccce3b6f3829b851f092919ca1b8d7e91d56ca881b288983659e3dcf2",
+  "generator_path": "C:\\Users\\petit\\.codex\\generated_images\\01a1597a-76a2-7cb2-835c-f94dc75c6a70\\exec-ca7be6bb-53c9-4708-980b-5840a2101562.png",
+  "scope": "Extinction des feux décoratifs et veines de falaise hors des dix plaques de dégâts conservées",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGB"
+}

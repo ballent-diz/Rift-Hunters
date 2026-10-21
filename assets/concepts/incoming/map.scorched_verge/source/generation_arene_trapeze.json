@@ -1,0 +1,9 @@
+{
+  "generator": "imagegen intégré",
+  "stage": "retouche arène avant régions",
+  "prompt": "PROMPT_ARENE_TRAPEZE.txt",
+  "source": "composition_arene_polygonale.png",
+  "output": "../composition.png",
+  "generated_path": "C:\\Users\\petit\\.codex\\generated_images\\01a13525-0b52-7092-be0f-70c3aae5676c\\exec-78fc923f-3b06-468a-af5c-390cf0e773b6.png",
+  "constraints": "trapèze, deux rochers, autres zones et dix plaques conservées"
+}

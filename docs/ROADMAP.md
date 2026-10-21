@@ -167,3 +167,13 @@ Propositions livrées pour revue (Codex, 21 octobre) : deux compositions ; base 
 ### Source des Cascades — passe de détail
 
 Visuels livrés (Codex, 21 octobre) : 16 régions et retouches de matière, export final contrôlé conforme ; 100 % des secteurs, fidélité 0,986, aucune case résiduelle à référence initiale figée. Plan à quatre parties, trois ponts et deux rochers-abris conservé ; collisions du propriétaire et intégration Claude à suivre.
+
+### Lisière calcinée — carte 6, Terres dévastées
+
+Composition livrée pour validation (Codex, 21 octobre) : lisière brûlée et masque de dix plaques contrôlé. Arène polygonale à deux rochers-abris ; circulation à confirmer par le propriétaire. Arrêt avant régions, collisions et gameplay. Voir docs/maps/LISIERE_CALCINEE.md.
+
+### Passe de détail des cartes 5 et 6
+
+Visuels livrés (Codex, 21 octobre) : 16 régions pour Source des Cascades, 12 pour Lisière calcinée. Arènes distinctes, deux abris espacés chacune ; rapports qualité conformes et comparaisons d’échelle livrés. Collisions du propriétaire et intégration Claude à venir.
+
+Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs, fidélité 0,978), planche d’échelle et carte de netteté livrées. Deux secteurs de gorge fumante restent signalés. Collisions du propriétaire et intégration Claude à venir.
