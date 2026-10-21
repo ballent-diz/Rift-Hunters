@@ -9,7 +9,7 @@ P=R/'docs/previews/source-des-cascades'
 P.mkdir(exist_ok=True)
 font=ImageFont.truetype(str(R/'assets/fonts/inter/Inter-Variable.ttf'),24)
 metadata={}
-for name,raw in [('A','variant_A_connected_native.png'),('B','variant_B_native.png')]:
+for name,raw in [('A','variant_A_arena_cover_native.png'),('B','variant_B_native.png')]:
  im=Image.open(S/raw).convert('RGB')
  metadata[name]={'native_size':list(im.size),'composition_size':[1536,1536],'source':raw,'process':'Normalisation du canevas de composition uniquement ; aucun détail final revendiqué.'}
  comp=im.resize((1536,1536),Image.Resampling.LANCZOS);comp.save(S/('composition_'+name+'.png'))

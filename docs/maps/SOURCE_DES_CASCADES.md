@@ -26,7 +26,7 @@ Le graphe visuel est **P1 → P2 → P3 → P4** ; il comporte exactement trois 
 | P1 | 49,79 | Grande prairie et lit peu profond |
 | P2 | 78,44 | Terrasse orientale |
 | P3 | 24,36 | Terrasse occidentale |
-| P4 | 62,15 | Arène vide sous la grande cascade |
+| P4 | 62,15 | Cour polygonale avec deux rochers-abris sous la grande cascade |
 | Pont P1–P2 | 69,59 | Pont sud-est conservé |
 | Pont P2–P3 | 57,37 | Nouveau pont horizontal, unique connexion entre ces parties |
 | Pont P3–P4 | 40,19 | Nouveau pont diagonal, unique entrée dans l'arène ; extrémités vers (34,25) et (47,11) |
@@ -74,7 +74,7 @@ Les pixels du canevas servent à établir les proportions, pas à garantir la ne
 | Route principale | 200 u / 4 % | Prairies et approches largement ouvertes | Lecture visuelle favorable, mesure finale à confirmer |
 | Pont / passage | 120 u / 2,5 % | P1–P2 ~4–5 %, P2–P3 ~2,5–3 %, P3–P4 ~3–4 % | Central proche du minimum |
 | Clairière | 750 u / 15 % | Trois grandes surfaces libres | Lecture favorable, relevé précis après choix |
-| Arène | 900 u / 18 % | Environ 38 % de largeur projetée, 14–17 % de profondeur projetée | Profondeur et cercle de combat à confirmer |
+| Arène | 900 u / 18 % | Environ 38 % de largeur projetée, 14–17 % de profondeur projetée | Profondeur et espace de combat à confirmer |
 | Sol praticable | ≥ 50 % | Non certifié sur composition, inclut les deux lits | À confirmer par le propriétaire |
 | Lits de crue | 2–3, largeur ≥ 5 % | Deux lits identifiables | Relevé final attendu |
 | Courants | 1–2 praticables avec route sèche | Non confirmés | Préparation incomplète |
@@ -84,7 +84,7 @@ Les pixels du canevas servent à établir les proportions, pas à garantir la ne
 - [x] Format 1:1, image entière, aucun texte, personnage ou interface dans les compositions.
 - [x] Trois grands espaces de combat ; ponts courts et lisibles.
 - [x] A : quatre parties dans l'ordre demandé, trois ponts, anciens raccourcis fermés.
-- [x] Arène vide et grande en largeur ; pierres et ruines en bordure.
+- [x] Arène polygonale irrégulière, sans cercle, avec exactement deux grands rochers-abris ; entrée et voies de circulation dégagées.
 - [x] Aucune pièce de pont flottante repérée ; appuis et tabliers continus.
 - [ ] Confirmer la largeur libre du pont central, la profondeur d'arène et le pourcentage de sol praticable.
 - [ ] Fermer ou valider l'ouverture visuelle du départ au bord sud.
@@ -93,3 +93,9 @@ Les pixels du canevas servent à établir les proportions, pas à garantir la ne
 - [ ] Après validation seulement : régions, planche d'échelle, contrôle qualité conforme et contrôle de netteté.
 
 Arrêt à cette étape. Aucun manifeste runtime, `src/`, `data/`, masque ou collision n'est modifié.
+
+## Retouche de l’arène — 21 octobre
+
+À la demande du propriétaire, A remplace la place circulaire par une cour polygonale irrégulière, pavée sans anneaux concentriques. Deux gros rochers moussus, vers (55 %, 14 %) et (71 %, 18 %), fournissent les futurs abris contre les attaques du boss. Ils sont décalés et séparés par une large voie libre. Les quatre parties, les trois ponts et les accès fermés sont conservés visuellement.
+
+Source native : `variant_A_arena_cover_native.png` ; prompt exact : `PROMPT_ARENE_ABRIS.txt`, générateur intégré imagegen. Cette livraison reste une composition : les collisions des rochers et leur blocage des projectiles ne sont pas implémentés ; le propriétaire puis Claude les raccorderont.

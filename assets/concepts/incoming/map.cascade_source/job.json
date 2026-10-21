@@ -41,8 +41,8 @@
   "next_step": "Le propriétaire choisit une variante et peint les collisions. La passe de régions viendra ensuite.",
   "owner_selected_base": "A",
   "owner_approved_final": false,
-  "latest_correction_prompt": "source/PROMPT_CONNEXIONS.txt",
-  "selected_source": "source/variant_A_connected_native.png",
+  "latest_correction_prompt": "source/PROMPT_ARENE_ABRIS.txt",
+  "selected_source": "source/variant_A_arena_cover_native.png",
   "original_native_sizes": {
     "A": [
       1254,
@@ -72,5 +72,20 @@
     "Préparation B6 à confirmer",
     "Collisions du propriétaire",
     "Régions après validation seulement"
-  ]
+  ],
+  "arena": {
+    "shape": "cour polygonale irrégulière, non circulaire",
+    "cover_boulders": 2,
+    "cover_centres_percent": [
+      [
+        55,
+        14
+      ],
+      [
+        71,
+        18
+      ]
+    ],
+    "collisions": "à peindre par le propriétaire ; aucun changement de gameplay"
+  }
 }
