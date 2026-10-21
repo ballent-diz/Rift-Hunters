@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="ShopItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/data/shop_item_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"starting_relic_choice"
+flat = 1.0
+pct = 0.0
+
+[resource]
+script = ExtResource("1")
+id = &"relic_cache"
+name_key = "SHOP_RELIC_CACHE_NAME"
+desc_key = "SHOP_RELIC_CACHE_DESC"
+kind = &"consumable"
+price = 220
+requires_arena = &"storm_highlands"
+effects = [SubResource("effect_1")]
+survival_only = true
+start_levels = 0
+color = Color(1, 0.82, 0.4, 1)
+order = 3

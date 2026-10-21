@@ -44,7 +44,8 @@ func open() -> void:
 
 
 func _refresh() -> void:
-	_title.text = tr("LEVELUP_BANISH_TITLE") if _banish_mode else tr("LEVELUP_TITLE") % ctx.player.level
+	var heading: String = tr("MILESTONE_TITLE") if ctx.milestones() else tr("LEVELUP_TITLE") % ctx.player.level
+	_title.text = tr("LEVELUP_BANISH_TITLE") if _banish_mode else heading
 	if not _banish_mode and ctx.player.pending_levels > 1:
 		_title.text += "  ·  " + tr("LEVELUP_REMAINING") % (ctx.player.pending_levels - 1)
 	UiKit.clear(_cards)
@@ -62,6 +63,8 @@ func _refresh() -> void:
 				ctx.setup.palettes.get(offer.monster_id, []), evolution)
 		elif offer.upgrade:
 			ItemArt.add_to_card(card, "upgrade", offer.upgrade.id, accent)
+		elif offer.relic:
+			ItemArt.add_to_card(card, "relic", offer.relic.id, accent)
 		else:
 			ItemArt.add_to_card(card, "offer", &"heal" if offer.kind == UpgradeOffer.Kind.HEAL else &"shards", accent)
 	MenuSkin.finish(_cards)

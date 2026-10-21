@@ -33,8 +33,8 @@ func test_tree_and_upgrades_fit_720p_in_both_languages() -> void:
 	host.add_child(viewport)
 	var screen: Refuge = load(Router.REFUGE).instantiate()
 	viewport.add_child(screen)
-	screen.tabs.current_tab = 1
-	var tab: RefugeTab = screen.tabs.get_child(1)
+	screen.tabs.current_tab = 2
+	var tab: RefugeTab = screen.tabs.get_child(2)
 	tab._focused_branch = &"blade"
 	for locale: String in ["fr", "en"]:
 		TranslationServer.set_locale(locale)
@@ -79,8 +79,8 @@ func test_learning_activation_build_and_equipment_buttons() -> void:
 	host.add_child(viewport)
 	var screen: Refuge = load(Router.REFUGE).instantiate()
 	viewport.add_child(screen)
-	screen.tabs.current_tab = 1
-	var tab: RefugeTab = screen.tabs.get_child(1)
+	screen.tabs.current_tab = 2
+	var tab: RefugeTab = screen.tabs.get_child(2)
 	var data: SkillNodeData = GameDB.skill_node(&"blade_honed_edge")
 	var node: Button = tab.find_child(str(data.id), true, false)
 	node.pressed.emit()
@@ -130,8 +130,8 @@ func test_each_path_fits_without_scrolling() -> void:
 	host.add_child(viewport)
 	var screen: Refuge = load(Router.REFUGE).instantiate()
 	viewport.add_child(screen)
-	screen.tabs.current_tab = 1
-	var tab: RefugeTab = screen.tabs.get_child(1)
+	screen.tabs.current_tab = 2
+	var tab: RefugeTab = screen.tabs.get_child(2)
 	for branch: StringName in HunterTreeSkin.PATHS:
 		tab._focused_branch = branch
 		screen.refresh_current()

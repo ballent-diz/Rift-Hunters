@@ -20,7 +20,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 		return
 	var hover: Vector2 = ally.follow_point() + Vector2(0, -18 + sin(ctx.time * 2.5 + ally.slot_index) * 8.0)
 	ally.move_toward_point(hover, ally.data.move_speed, delta)
-	ally.visual.set_facing_left(ally.velocity.x < -1.0)
+	ally.visual.face_velocity(ally.velocity.x)
 	ally.visual.tick(delta, true, ally.velocity.length())
 	if ally.attack_cd > 0.0:
 		return
@@ -34,7 +34,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	m["t"] = 0.0
 	m["from"] = from
 	m["to"] = ctx.obstacles.push_out(to, Ally.BODY_RADIUS)
-	ally.visual.set_facing_left(dir.x < 0.0)
+	ally.visual.set_facing_left(dir.x < 0.0, true)
 	ally.visual.play_action(&"attack")
 	ctx.allies.vfx.attack(ally, from, m["to"], 0.4)
 

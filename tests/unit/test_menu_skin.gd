@@ -22,16 +22,16 @@ func test_refuge_keeps_all_tabs_and_hides_unknown_portraits() -> void:
 	_refuge = REFUGE_SCENE.instantiate()
 	host.add_child(_refuge)
 	await host.get_tree().process_frame
-	check_eq(_refuge.tabs.get_tab_count(), 8, "les huit onglets (dont Échos)")
+	check_eq(_refuge.tabs.get_tab_count(), 9, "les neuf onglets (dont Échos et Boutique)")
 	for i: int in 7:
 		_refuge.tabs.current_tab = i
 		await host.get_tree().process_frame
 		await host.get_tree().process_frame
 		check(_refuge.tabs.get_child(i).get_child_count() > 0, "onglet construit : %d" % i)
 		check(_refuge.tabs.position.x + _refuge.tabs.size.x <= _refuge.size.x + 1, "onglet sans débordement : %d" % i)
-	_refuge.tabs.current_tab = 3
+	_refuge.tabs.current_tab = 4
 	await host.get_tree().process_frame
-	var bestiary: RefugeTab = _refuge.tabs.get_child(3)
+	var bestiary: RefugeTab = _refuge.tabs.get_child(4)
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
 		bestiary._show("monster:" + String(id))
 		var known: bool = Profile.profile.is_monster_unlocked(GameDB.monster(id))
@@ -99,7 +99,7 @@ func test_refuge_tab_keeps_scroll_after_rebuild() -> void:
 	_refuge.tabs.current_tab = 0
 	await host.get_tree().process_frame
 	await host.get_tree().process_frame
-	for index: int in [0, 5]:
+	for index: int in [0, 6]:
 		_refuge.tabs.current_tab = index
 		await host.get_tree().process_frame
 		await host.get_tree().process_frame

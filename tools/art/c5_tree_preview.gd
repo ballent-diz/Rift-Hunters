@@ -23,8 +23,8 @@ func _ready() -> void:
 	display.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_screen = load(Router.REFUGE).instantiate()
 	_viewport.add_child(_screen)
-	_screen.tabs.current_tab = 1
-	_tab = _screen.tabs.get_child(1)
+	_screen.tabs.current_tab = 2
+	_tab = _screen.tabs.get_child(2)
 	TranslationServer.set_locale("fr")
 	await _capture("01-depart-fr")
 	_prepare_build()
@@ -37,8 +37,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_screen = load(Router.REFUGE).instantiate()
 	_viewport.add_child(_screen)
-	_screen.tabs.current_tab = 1
-	_tab = _screen.tabs.get_child(1)
+	_screen.tabs.current_tab = 2
+	_tab = _screen.tabs.get_child(2)
 	_tab._show_upgrades = true
 	_tab._selected = &"research_fourth_option"
 	await _capture("04-refuge-en")
@@ -47,8 +47,8 @@ func _ready() -> void:
 	await get_tree().process_frame
 	_screen = load(Router.REFUGE).instantiate()
 	_viewport.add_child(_screen)
-	_screen.tabs.current_tab = 1
-	_tab = _screen.tabs.get_child(1)
+	_screen.tabs.current_tab = 2
+	_tab = _screen.tabs.get_child(2)
 	_tab._focused_branch = &"prism"
 	await _capture("05-prisme-fr")
 	await _capture_full_branch()

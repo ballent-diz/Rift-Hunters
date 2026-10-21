@@ -64,6 +64,15 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | Code fait (17/10) : chapitres en cartes, résumé et départ toujours visibles ; habillage à affiner (Codex) |
 | B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; briques B1, B2, B3, B6, gardien et défense d'autel faits (19 oct.). Carte 3 « Bois des Lucioles » jouable dans la campagne (21 oct., qualité conforme). Carte 4 « Gué des Brumes » jouable dans la campagne (21 oct.), sceau de Codex en jeu. Carte 5 : composition (Codex). |
 
+### Étape M — Deux modes de jeu (décision du 21 octobre 2026, [design/MODES.md](design/MODES.md))
+
+| Lot | Contenu | Qui | Dépend de | État |
+|---|---|---|---|---|
+| M1 | Séparation des modes : campagne par jalons (pas d'XP, un choix par jalon : mutations, Échos, reliques ; jalon renforcé), survie avec les montées de niveau | Claude | — | Fait (21 oct.) : bot comme avant sur les 4 cartes |
+| M2 | Campagne de survie (5 étapes sur les cartes existantes, vagues à la suite) + carte bonus géante à vagues infinies débloquée à la fin | Claude | M1 | Fait (21 oct.) : « Épreuves de survie » (piste à part) et « Faille sans fin » ; carte géante dessinée à prévoir (Codex) |
+| M2b | Collection d'Échos étalée sur 3 chapitres (16 Échos, les moins forts d'abord ; capture garantie sur une carte, récompenses, boutique), [design/COLLECTION_ECHOS.md](design/COLLECTION_ECHOS.md) | Claude | M2 | Fait (21 oct.) ; Échos de boutique en vente avec M3 |
+| M3 | Boutique unique (éclats) : Consommables, Survie, Apparences | Claude (+ Codex pour les apparences) | M1 | Fait (21 oct.) : onglet Boutique (Échos en vente, 3 consommables à emporter, 3 avantages de survie) ; apparences à venir (images de Codex) |
+
 ### Étape C — Sorts et builds
 
 | Lot | Contenu | Qui | Dépend de | État |

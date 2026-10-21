@@ -80,8 +80,10 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 	enemy.position = ctx.obstacles.push_out(pos, data.radius)
 	enemy.spawn_time = ctx.time
 	var minutes: float = ctx.minutes()
-	var hp_mult: float = (1.0 + ctx.balance.enemy_hp_growth_per_min * minutes) * ctx.difficulty.enemy_hp_mult
-	var dmg_mult: float = (1.0 + ctx.balance.enemy_damage_growth_per_min * minutes) * ctx.difficulty.enemy_damage_mult
+	var hp_mult: float = (1.0 + ctx.balance.enemy_hp_growth_per_min * minutes) * ctx.difficulty.enemy_hp_mult \
+		* ctx.arena.enemy_hp_mult
+	var dmg_mult: float = (1.0 + ctx.balance.enemy_damage_growth_per_min * minutes) * ctx.difficulty.enemy_damage_mult \
+		* ctx.arena.enemy_damage_mult
 	var speed_mult: float = ctx.difficulty.enemy_speed_mult
 	enemy.base_defense = data.defense
 	enemy.radius = data.radius
@@ -200,7 +202,7 @@ func step(delta: float) -> void:
 				if not misses(enemy):
 					ctx.combat.damage_player(enemy.contact_damage, enemy.data.id if enemy.data else &"boss")
 		if view.has_point(pos):
-			enemy.visual.set_facing_left(enemy.velocity.x < -1.0)
+			enemy.visual.face_velocity(enemy.velocity.x)
 			enemy.visual.tick(delta, enemy.velocity.length_squared() > 4.0, enemy.velocity.length())
 	if _dirty_removal:
 		_remove_dead()
@@ -420,11 +422,15 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 		ctx.stats.add(StringName("boss_%s_killed" % enemy.boss_data.id))
 		ctx.events.boss_defeated.emit(enemy)
 		return
+	# Campagne (jalons) : pas d'XP à ramasser.
+	var drops_xp: bool = not ctx.milestones()
 	if enemy.is_obstacle:
-		ctx.pickups.spawn_xp(pos, enemy.xp_value)
+		if drops_xp:
+			ctx.pickups.spawn_xp(pos, enemy.xp_value)
 		return
 	ctx.stats.add(StringName("kills_" + enemy.data.id))
-	ctx.pickups.spawn_xp(pos, enemy.xp_value)
+	if drops_xp:
+		ctx.pickups.spawn_xp(pos, enemy.xp_value)
 	ctx.stats.add(&"shards_earned_raw", ctx.balance.shards_per_kill)
 	var heal_chance: float = ctx.balance.heal_drop_chance
 	if ctx.player.hp < ctx.player.max_hp * ctx.balance.heal_low_hp_ratio:
@@ -434,6 +440,8 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 	if enemy.is_elite:
 		ctx.stats.add(&"elites_killed")
 		ctx.stats.add(&"shards_earned_raw", ctx.balance.shards_per_elite)
+		if ctx.arena.milestone_on_elite:
+			ctx.events.milestone_reached.emit()
 		ctx.stats.add(&"essence_earned_raw", ctx.balance.essence_per_elite + ctx.player.stats.get_value(StatKeys.ESSENCE_GAIN))
 		ctx.pickups.spawn_chest(pos)
 		_maybe_spawn_capture(pos)
@@ -454,17 +462,23 @@ func _on_affix_death(enemy: Enemy, affix: EliteAffixData, _info: DamageInfo) -> 
 					spawn(child, enemy.position + Vector2.RIGHT.rotated(TAU * i / 3.0) * 20.0)
 
 
-## Rite de lien : un Écho errant peut apparaître à la mort d'une élite (capture en restant à son contact).
+## Rite de lien : un Écho errant peut apparaître à la mort d'une élite (capture en restant à son contact). L'Écho à
+## découvrir sur cette carte apparaît à coup sûr (EchoCollection) ; sinon, seuls des Échos déjà possédés (recrutés
+## pour la partie).
 func _maybe_spawn_capture(pos: Vector2) -> void:
+	var target: StringName = EchoCollection.capture_target(ctx)
+	if target != &"" and not ctx.pickups.has_capture(target):
+		ctx.pickups.spawn_capture(pos + Vector2(30, 0), target)
+		return
 	if ctx.rng.randf() > ctx.balance.capture_chance:
 		return
 	var candidates: Array[StringName] = []
 	var weights: Array[float] = []
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
-		if ctx.has_monster(id) or ctx.build.captures.has(id):
+		if ctx.has_monster(id) or ctx.build.captures.has(id) or not UpgradeOffers.is_monster_unlocked(ctx, GameDB.monsters[id]):
 			continue
 		candidates.append(id)
-		weights.append(1.0 if ctx.setup.unlocked_monsters.has(id) else ctx.balance.capture_locked_weight)
+		weights.append(1.0)
 	if candidates.is_empty():
 		return
 	var total: float = 0.0

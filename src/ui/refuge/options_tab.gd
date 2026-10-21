@@ -1,5 +1,9 @@
 extends RefugeTab
-## Options : langue, volumes, plein écran, lisibilité. Informations de sauvegarde.
+## Options : langue, volumes, plein écran, lisibilité. Informations de sauvegarde, nouvelle partie.
+
+## Premier clic sur « Nouvelle partie » : attend la confirmation.
+var _confirm_reset: bool = false
+
 
 func title_key() -> String:
 	return "TAB_OPTIONS"
@@ -50,6 +54,15 @@ func refresh() -> void:
 			EchoTree.unlock_all_echoes_for_testing(profile())
 			refuge.commit(), 420))
 		box.add_child(UiKit.wrapped(tr("OPTIONS_TEST_DEV_HINT"), 13, UiKit.MUTED))
+	# Nouvelle partie : deux clics (le second confirme), la progression est effacée.
+	var reset: Button = UiKit.button(tr("OPTIONS_RESET_CONFIRM") if _confirm_reset else tr("OPTIONS_RESET_PROFILE"),
+		_reset_profile, 420)
+	reset.name = "ResetProfile"
+	box.add_child(reset)
+	if _confirm_reset:
+		box.add_child(UiKit.button(tr("OPTIONS_RESET_CANCEL"), func() -> void:
+			_confirm_reset = false
+			refresh(), 420))
 	box.add_child(UiKit.wrapped(tr("OPTIONS_SAVE_INFO") % [ProjectSettings.globalize_path(Profile.path),
 		SaveMigrations.CURRENT_VERSION], 13, UiKit.MUTED))
 
@@ -84,3 +97,13 @@ func _toggle(text: String, value: bool, setter: Callable) -> CheckButton:
 		Settings.apply()
 		Settings.save_settings())
 	return check
+
+
+func _reset_profile() -> void:
+	if not _confirm_reset:
+		_confirm_reset = true
+		refresh()
+		return
+	_confirm_reset = false
+	Profile.reset_profile()
+	refuge.commit()

@@ -28,8 +28,8 @@ func _ready() -> void:
 		TranslationServer.set_locale("en" if branch == &"research" else "fr")
 		var screen: Refuge = load(Router.REFUGE).instantiate()
 		_viewport.add_child(screen)
-		screen.tabs.current_tab = 1
-		var tab: RefugeTab = screen.tabs.get_child(1)
+		screen.tabs.current_tab = 2
+		var tab: RefugeTab = screen.tabs.get_child(2)
 		tab._focused_branch = branch if branch != &"research" else &"blade"
 		tab._show_upgrades = branch == &"research"
 		var selected := {&"blade": &"blade_honed_edge", &"prism": &"spec_pyromancer",

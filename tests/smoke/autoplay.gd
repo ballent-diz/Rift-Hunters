@@ -100,6 +100,8 @@ func _physics_process(_delta: float) -> void:
 			print("    zone %d phase %d vague %d · finale %d · position %s" % [ctx.zones.zone_index, ctx.zones.phase,
 				ctx.zones.wave_index, ctx.finale.state if ctx.finale else -1, ctx.player.global_position.round()])
 	if _frames > _max_frames:
+		# Mesures en invulnérable (--god --max-minutes) : les dégâts par source servent au classement des Échos.
+		print("Dégâts par source : ", _run.build_result()["stats"]["damage_by_source"])
 		printerr("ÉCHEC : la partie n'est pas terminée après le délai maximal")
 		get_tree().quit(2)
 

@@ -110,6 +110,7 @@ func _on_enemy_killed(enemy: Enemy, _info: DamageInfo) -> void:
 		return
 	closed += 1
 	ctx.stats.add(&"rifts_closed")
+	ctx.events.milestone_reached.emit()
 	ctx.fx.burst(enemy.position, 160.0, Color(0.75, 0.45, 1.0, 0.7))
 	ctx.player.heal(ctx.player.max_hp * HEAL_RATIO)
 	ctx.events.chest_collected.emit()

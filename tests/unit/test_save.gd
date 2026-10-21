@@ -99,7 +99,7 @@ func test_migration_v2_to_v3_campaign() -> void:
 		"hunter": {"active_build": 0, "builds": [], "maps_won": ["three_rifts"]}}
 	var migrated: Dictionary = SaveMigrations.migrate(old)
 	check_eq(migrated["error"], "", "migration réussie")
-	check_eq(int(migrated["to"]), 3, "version 3")
+	check_eq(int(migrated["to"]), SaveMigrations.CURRENT_VERSION, "version actuelle")
 	var profile := ProfileData.new(migrated["data"])
 	check_eq(Campaign.wins(profile, &"three_rifts"), 1, "carte gagnée comptée en Normal")
 	check(profile.is_arena_unlocked(GameDB.arena(&"storm_highlands")), "arène déjà choisie : reste débloquée")

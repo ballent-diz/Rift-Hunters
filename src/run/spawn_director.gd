@@ -9,6 +9,8 @@ var ctx: RunContext
 var boss_spawned: bool = false
 var _budget: float = 0.0
 var _next_elite_time: float = 0.0
+## Vagues infinies : dernière vague annoncée.
+var _endless_wave: int = 0
 
 
 func _init(p_ctx: RunContext) -> void:
@@ -33,6 +35,13 @@ func step(delta: float) -> void:
 	if wave == null:
 		return
 	var rate: float = wave.spawn_rate * ctx.difficulty.spawn_rate_mult * (0.35 if boss_spawned else 1.0)
+	if ctx.arena.endless:
+		rate *= 1.0 + ctx.arena.endless_spawn_growth * (ctx.endless_wave() - 1)
+		if ctx.endless_wave() > _endless_wave:
+			_endless_wave = ctx.endless_wave()
+			ctx.stats.set_max(&"endless_wave", float(_endless_wave))
+			if _endless_wave > 1:
+				ctx.events.event_started.emit(TranslationServer.translate("ENDLESS_WAVE_BANNER") % _endless_wave)
 	var cap: int = current_cap()
 	_budget = minf(_budget + rate * delta, 6.0)
 	var alive: int = ctx.enemies.count()
@@ -45,7 +54,7 @@ func step(delta: float) -> void:
 	if not boss_spawned and ctx.time >= _next_elite_time:
 		_next_elite_time += ctx.arena.elite_interval * ctx.difficulty.elite_interval_mult
 		spawn_elite()
-	if not boss_spawned and ctx.time >= ctx.arena.boss_time:
+	if not boss_spawned and not ctx.arena.endless and ctx.time >= ctx.arena.boss_time:
 		spawn_boss()
 
 

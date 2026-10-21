@@ -193,6 +193,9 @@ accent = Color(1.0, 0.92, 0.6, 1.0)
 
 [resource]
 script = ExtResource("10")
+unlocked_by_default = false
+discovery = &"capture"
+discovery_arena = &"three_rifts"
 id = &"grovestag"
 name_key = "MONSTER_GROVESTAG_NAME"
 desc_key = "MONSTER_GROVESTAG_DESC"
@@ -212,5 +215,4 @@ technique = ExtResource("3")
 evolutions = [SubResource("evolution_5"), SubResource("evolution_8")]
 variant = SubResource("evolution_10")
 mastery = SubResource("mastery_20")
-unlocked_by_default = false
 visual = SubResource("visual_21")

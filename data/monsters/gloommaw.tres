@@ -220,6 +220,9 @@ accent = Color(0.95, 0.9, 0.95, 1.0)
 
 [resource]
 script = ExtResource("1")
+unlocked_by_default = false
+discovery = &"capture"
+discovery_arena = &"chapter3_map5"
 id = &"gloommaw"
 name_key = "MONSTER_GLOOMMAW_NAME"
 desc_key = "MONSTER_GLOOMMAW_DESC"
@@ -239,5 +242,4 @@ technique = SubResource("technique_data_3")
 evolutions = [SubResource("evolution_data_4"), SubResource("evolution_data_7")]
 variant = SubResource("evolution_data_10")
 mastery = SubResource("mastery_data_12")
-unlocked_by_default = false
 visual = SubResource("visual_data_22")

@@ -17,6 +17,8 @@ signal team_changed
 signal synergy_activated(synergy_id: StringName)
 signal synergy_proc(synergy_id: StringName)
 signal level_up(level: int)
+## Jalon de campagne franchi (fin de vague, faille fermée, vague d'autel tenue) : un choix (ArenaData.progression).
+signal milestone_reached
 signal upgrade_taken(id: StringName)
 signal relic_gained(id: StringName)
 signal evolution_taken(monster_id: StringName, evolution_id: StringName)

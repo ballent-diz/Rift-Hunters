@@ -33,5 +33,8 @@ var spell_ids: Array[StringName] = []
 var spell_variants: Dictionary = {}
 ## Second sort équipé par Écho (arbres des Échos) : {monster_id: TechniqueData}.
 var echo_techniques: Dictionary = {}
+## Boutique : niveaux gagnés au départ (objets de survie) et objets emportés (rapport, HUD).
+var start_levels: int = 0
+var shop_items: Array[StringName] = []
 ## Conseils de première partie affichés dans le HUD.
 var show_tutorial: bool = false

@@ -29,6 +29,13 @@ enum Role { ASSASSIN, GUARDIAN, SUPPORT, CONTROLLER, BRUISER, MARKSMAN }
 @export var variant: EvolutionData
 @export var mastery: MasteryData
 @export var unlocked_by_default: bool = true
+## Découverte (EchoCollection, docs/design/COLLECTION_ECHOS.md) : « start » (dès le départ), « capture » (Écho errant garanti
+## sur discovery_arena), « victory » (victoire sur discovery_arena), « stars » (tous les objectifs Normal du chapitre
+## discovery_chapter), « shop » (boutique, shop_price éclats, en vente après une victoire sur discovery_arena).
+@export var discovery: StringName = &"capture"
+@export var discovery_arena: StringName = &""
+@export var discovery_chapter: StringName = &""
+@export var shop_price: int = 0
 @export_group("Visuel")
 @export var visual: VisualData
 
