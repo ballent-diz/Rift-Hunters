@@ -171,6 +171,18 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
   autre habillage.
 - Essai : `--rivers` (deux lits qui se croisent et un courant sur la Plaine fracturée, première crue à 15 s).
 
+### Carte 3 « Bois des Lucioles » en jeu (21 octobre 2026)
+
+- Plan : composition peinte et validée par le propriétaire (`map_source.png`), collisions peintes dessus.
+- Image : 12 régions générées par Codex, assemblées par `tools/art/map_regions.py` (netteté native calibrée) ;
+  contrôle `check_map_quality.py` conforme (détails fins 333, secteurs 97 %, fidélité au plan 0,99).
+- Niveau (`data/arenas/firefly_woods.tres`) : 3 zones (Prairie du Sous-bois, Clairière du Sanctuaire, Plateau de
+  Mousse) séparées par 3 barrières (chemin nord, tête ouest du pont, entrée de la clairière du gardien) ; arène du
+  gardien murée ; nuit 0,82 et 6 clairières de lucioles ; gardien : Sentinelle des Racines. Carte 3 du chapitre 1.
+- Traque : quand le dernier Corrompu d'une vague est loin (> 700 unités), la flèche de route mène à lui.
+- Bot (graine 3) : Cendrelame 6 min 19, Lueurine 6 min 20, Solgriffe 7 min 00, Mousseroc 6 min 21 à 7 min 46
+  (graines 3, 5, 7), après remplacement de l'élite Gardien-menhir de la dernière vague par la Gardienne de cristal.
+
 ## Ordre de réalisation
 
 1. Chapitre 1, carte 3 (Bois des Lucioles) : image (Codex), collisions peintes (propriétaire), zones, brique B2 et
