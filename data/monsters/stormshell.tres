@@ -238,8 +238,8 @@ accent = Color(1.0, 1.0, 0.8, 1.0)
 [resource]
 script = ExtResource("11")
 unlocked_by_default = false
-discovery = &"capture"
-discovery_arena = &"chapter3_map3"
+discovery = &"victory"
+discovery_arena = &"survival_ford"
 id = &"stormshell"
 name_key = "MONSTER_STORMSHELL_NAME"
 desc_key = "MONSTER_STORMSHELL_DESC"

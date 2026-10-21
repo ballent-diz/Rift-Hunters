@@ -25,3 +25,33 @@ titre. Sauvegarde v4 : Mousseroc, offert au départ jusqu'ici, reste acquis aux 
 
 Classement de force mesuré au bot (chaque Écho en Écho de départ, Plaine fracturée, 2 graines) : les moins forts
 arrivent en premier. Voir le tableau ci-dessous, rempli d'après ce classement.
+
+Classement mesuré (21 octobre 2026) : 5 minutes en invulnérable, dégâts totaux de l'équipe, du moins fort au plus
+fort : Scoriade, Lueurine, Sylvécaille, Sporelune, Lucivelle, Égidor, Spectrâtre, Pyraile, Gravelune, Ronceline,
+Solgriffe, Cendrelame, Fulgurine, Mirelle, Mousseroc, Gueule-d'ombre. Les quinze premiers sont à ±10 % ;
+Gueule-d'ombre (exécutions) est hors classement, gardé pour la toute fin. Les dégâts comptés sont désormais plafonnés
+aux PV retirés (une dévoration comptait PV × 10 + 9999).
+
+| Chapitre | Écho | Source |
+|---|---|---|
+| — | Cendrelame | départ |
+| 1 | Sylvécaille | capture : Ruines des Cascades (carte 1) |
+| 1 | Scoriade | boutique, 600 éclats, après les Hautes Terres d'Orage (carte 2) |
+| 1 | Lueurine | capture : Bois des Lucioles (carte 3) |
+| 1 | Sporelune | capture : Source des Cascades (carte 5, à venir) |
+| 2 | Lucivelle | boutique, 900 éclats, après la Source des Cascades |
+| 2 | Pyraile | capture : carte 7 (à venir) |
+| 2 | Égidor | victoire : Épreuve du Gué (fin des épreuves de survie) |
+| 2 | Spectrâtre | capture : carte 9 (à venir) |
+| 2 | Gravelune | victoire : carte 10 (Dévoreur du chapitre 2, à venir) |
+| 3 | Ronceline | capture : carte 11 (à venir) |
+| 3 | Solgriffe | étoiles : toutes celles du chapitre 2 |
+| 3 | Fulgurine | boutique, 1200 éclats, après la carte 10 |
+| 3 | Mirelle | capture : carte 13 (à venir) |
+| 3 | Mousseroc | boutique, 1600 éclats, après la carte 13 |
+| 3 | Gueule-d'ombre | capture : carte 15 (finale du chapitre 3, à venir) — le dernier |
+
+Identifiants des cartes à venir : `cascade_source` (carte 5), `chapter2_map2` (7), `chapter2_map4` (9),
+`chapter2_map5` (10), `chapter3_map1` (11), `chapter3_map3` (13), `chapter3_map5` (15), chapitre `chapter2` ; à
+renommer avec les vrais identifiants quand ces cartes arrivent. Bot (Cendrelame seul au départ, bonus d'arbre
+« veteran ») : campagne 11 victoires sur 12 sur les cartes 1 à 4.

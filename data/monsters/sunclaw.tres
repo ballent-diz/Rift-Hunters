@@ -219,8 +219,8 @@ accent = Color(1.0, 1.0, 0.9, 1.0)
 [resource]
 script = ExtResource("11")
 unlocked_by_default = false
-discovery = &"victory"
-discovery_arena = &"survival_ford"
+discovery = &"stars"
+discovery_chapter = &"chapter2"
 id = &"sunclaw"
 name_key = "MONSTER_SUNCLAW_NAME"
 desc_key = "MONSTER_SUNCLAW_DESC"

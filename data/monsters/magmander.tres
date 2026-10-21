@@ -260,8 +260,9 @@ accent = Color(1.0, 0.7, 0.3, 1.0)
 [resource]
 script = ExtResource("11")
 unlocked_by_default = false
-discovery = &"capture"
-discovery_arena = &"chapter2_map4"
+discovery = &"shop"
+discovery_arena = &"storm_highlands"
+shop_price = 600
 id = &"magmander"
 name_key = "MONSTER_MAGMANDER_NAME"
 desc_key = "MONSTER_MAGMANDER_DESC"

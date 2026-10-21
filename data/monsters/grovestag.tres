@@ -194,9 +194,8 @@ accent = Color(1.0, 0.92, 0.6, 1.0)
 [resource]
 script = ExtResource("10")
 unlocked_by_default = false
-discovery = &"shop"
-discovery_arena = &"cascade_source"
-shop_price = 900
+discovery = &"capture"
+discovery_arena = &"three_rifts"
 id = &"grovestag"
 name_key = "MONSTER_GROVESTAG_NAME"
 desc_key = "MONSTER_GROVESTAG_DESC"

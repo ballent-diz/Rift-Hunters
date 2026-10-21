@@ -234,8 +234,9 @@ accent = Color(0.6, 1.0, 0.7, 1.0)
 [resource]
 script = ExtResource("1")
 unlocked_by_default = false
-discovery = &"capture"
-discovery_arena = &"three_rifts"
+discovery = &"shop"
+discovery_arena = &"chapter3_map3"
+shop_price = 1600
 id = &"mossback"
 name_key = "MONSTER_MOSSBACK_NAME"
 desc_key = "MONSTER_MOSSBACK_DESC"
