@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ShopItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/data/shop_item_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"rerolls"
+flat = 2.0
+pct = 0.0
+
+[resource]
+script = ExtResource("1")
+id = &"reroll_stone"
+name_key = "SHOP_REROLL_STONE_NAME"
+desc_key = "SHOP_REROLL_STONE_DESC"
+kind = &"consumable"
+price = 90
+requires_arena = &""
+effects = [SubResource("effect_1")]
+start_levels = 0
+color = Color(0.6, 0.85, 1, 1)
+order = 2

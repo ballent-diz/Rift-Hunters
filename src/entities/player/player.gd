@@ -252,6 +252,14 @@ func gain_xp(amount: float) -> void:
 		needed = ctx.balance.xp_to_next(level)
 
 
+## Un niveau sans XP (jalon de campagne) : un choix de plus.
+func grant_level() -> void:
+	level += 1
+	pending_levels += 1
+	ctx.stats.set_max(&"max_level", level)
+	ctx.events.level_up.emit(level)
+
+
 func xp_ratio() -> float:
 	return xp / float(ctx.balance.xp_to_next(level))
 

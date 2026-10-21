@@ -20,6 +20,7 @@ PAUSE_RESUME,Reprendre,Resume
 PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
 PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit · Manette prise en charge,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click · Gamepad supported
 HUD_LEVEL,Niv. %d,Lv. %d
+HUD_MILESTONES,Jalons : %d,Milestones: %d
 HUD_CHOICES_RESERVED,%d choix en réserve [%s],%d choice(s) stored [%s]
 HUD_DASH_READY,Ruée prête [Espace],Dash ready [Space]
 HUD_DASH_CD,Ruée : %.1fs,Dash: %.1fs
@@ -35,6 +36,7 @@ HUD_EVOLUTION,Évolution : %s,Evolution: %s
 BOSS_HEART_EXPOSED,CŒUR EXPOSÉ ×2,HEART EXPOSED ×2
 BOSS_INVULNERABLE,Invulnérable,Invulnerable
 LEVELUP_TITLE,Niveau %d !,Level %d!
+MILESTONE_TITLE,Jalon franchi : un choix !,Milestone reached: make a choice!
 LEVELUP_REMAINING,encore %d en réserve,%d more stored
 LEVELUP_BANISH_TITLE,Choisissez une carte à bannir,Choose a card to banish
 LEVELUP_REROLL,Relancer (%d),Reroll (%d)
@@ -544,7 +546,7 @@ OBJ_CAPTOR_DESC,Capturez 5 Échos errants (cumul).,Capture 5 wandering Echoes (t
 OBJ_RISK_TAKER_NAME,Goût du risque,Risk Taker
 OBJ_RISK_TAKER_DESC,Refermez une Faille avec au moins 2 Pactes de risque.,Seal a Rift with at least 2 Risk Pacts.
 RESEARCH_RIFT_CONDUCTORS_NAME,Conducteurs de faille,Rift Conductors
-RESEARCH_RIFT_CONDUCTORS_DESC,Permet de lier Fulgurine.,Lets you bind Voltwisp.
+RESEARCH_RIFT_CONDUCTORS_DESC,Étude des courants de faille. Titre : Conducteur de faille.,Study of rift currents. Title: Rift Conductor.
 CAPTURE_APPEARS,Un Écho errant ! Restez à son contact.,A wandering Echo! Stay close to it.
 CAPTURE_JOINED,%s rejoint votre équipe !,%s joins your team!
 CAPTURE_SENT_TO_REFUGE,%s est lié et vous attend au Refuge.,%s is bound and awaits you at the Refuge.
@@ -1443,3 +1445,58 @@ ALTAR_STATUS,Sceau %d / %d,Seal %d / %d
 ALTAR_STATUS_WAVE,Vague %d / %d · encore %d s,Wave %d / %d · %d s left
 ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
 FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."
+ARENA_SURVIVAL_RUINS_NAME,Épreuve des Ruines,Ruins Trial
+ARENA_SURVIVAL_RUINS_DESC,"Les Ruines des Cascades grandes ouvertes : des vagues sans répit, puis la Sentinelle des Racines.","The Waterfall Ruins wide open: relentless waves, then the Root Sentinel."
+ARENA_SURVIVAL_HIGHLANDS_NAME,Épreuve des Hautes Terres,Highlands Trial
+ARENA_SURVIVAL_HIGHLANDS_DESC,"Les Hautes Terres d'Orage sans faille à fermer : tenez jusqu'à Astravorn.","The Storm Highlands with no rift to close: hold out until Astravorn."
+ARENA_SURVIVAL_WOODS_NAME,Épreuve du Bois,Woods Trial
+ARENA_SURVIVAL_WOODS_DESC,"La nuit du Bois des Lucioles, envahie par la meute des Hautes Terres. La Chimère des Brumes rôde.","The night of the Firefly Woods, overrun by the Highland pack. The Mist Chimera prowls."
+ARENA_SURVIVAL_FORD_NAME,Épreuve du Gué,Ford Trial
+ARENA_SURVIVAL_FORD_DESC,"Dernière épreuve : les gués ralentissent tout le monde, les Corrompus sont plus coriaces, et Nébulorax attend.","Final trial: the fords slow everyone, the Hollowed are tougher, and Nebulorax awaits."
+ARENA_ENDLESS_RIFT_NAME,Faille sans fin,Endless Rift
+ARENA_ENDLESS_RIFT_DESC,"Carte bonus : les vagues ne s'arrêtent jamais et grossissent chaque minute. Jusqu'où tiendrez-vous ?","Bonus map: the waves never stop and grow every minute. How far can you go?"
+CHAPTER_SURVIVAL_TRIALS_NAME,Épreuves de survie,Survival Trials
+CHAPTER_SURVIVAL_TRIALS_DESC,"Le mode d'origine : montées de niveau et build refait à chaque partie, des vagues à la suite jusqu'au boss. Finissez les cinq épreuves pour ouvrir la Faille sans fin.","The original mode: level-ups and a fresh build every run, waves back to back until the boss. Clear all five trials to open the Endless Rift."
+ENDLESS_WAVE_BANNER,Vague %d !,Wave %d!
+ENDLESS_STATUS,Vague %d · record %d,Wave %d · best %d
+RESULT_ENDLESS,Vague %d atteinte,Reached wave %d
+EXPEDITION_MODE_CAMPAIGN,Campagne,Campaign
+EXPEDITION_MODE_SURVIVAL,Survie,Survival
+EXPEDITION_MODE_CAMPAIGN_HINT,"Campagne principale : choix aux jalons, la puissance vient de vos arbres et de vos Échos.","Main campaign: choices at milestones, power comes from your trees and Echoes."
+EXPEDITION_MODE_SURVIVAL_HINT,"Épreuves de survie : XP et montées de niveau, un nouveau build à chaque partie.","Survival trials: XP and level-ups, a fresh build every run."
+ECHO_SOURCE_START,Disponible dès le départ.,Available from the start.
+ECHO_SOURCE_CAPTURE,"À découvrir : %s. Un Écho errant apparaît à la mort d'une élite ; capturez-le (Rite de lien).","To discover: %s. A wandering Echo appears when an elite dies; capture it (Bond Rite)."
+ECHO_SOURCE_VICTORY,Récompense : terminer %s.,Reward: clear %s.
+ECHO_SOURCE_STARS,Récompense : toutes les étoiles du chapitre %s.,Reward: every star of the chapter %s.
+ECHO_SOURCE_SHOP,"Boutique : %d éclats, en vente après %s.","Shop: %d shards, on sale after %s."
+ECHO_SOURCE_LATER,une carte à venir,a map yet to come
+REPORT_ECHO_EARNED,Nouvel Écho obtenu : %s !,New Echo obtained: %s!
+BESTIARY_ECHOES_COLLECTION,Échos · %d / %d,Echoes · %d / %d
+UNLOCK_TITLE_RIFT_CONDUCTOR,Titre : Conducteur de faille,Title: Rift Conductor
+TAB_SHOP,Boutique,Shop
+SHOP_INTRO,"Dépensez vos éclats : Échos, consommables à emporter en expédition, avantages des épreuves de survie.","Spend your shards: Echoes, consumables to bring on expeditions, survival trial perks."
+SHOP_SECTION_ECHOES,Échos,Echoes
+SHOP_SECTION_CONSUMABLES,Consommables (une unité par expédition),Consumables (one per expedition)
+SHOP_SECTION_SURVIVAL,Épreuves de survie (acquis pour toujours),Survival trials (yours for good)
+SHOP_SECTION_LOOKS,Apparences,Looks
+SHOP_LOOKS_SOON,"Bientôt : couleurs et tenues du Chasseur et des Échos.","Coming soon: colors and outfits for the Hunter and Echoes."
+SHOP_BUY,Acheter · %d éclats,Buy · %d shards
+SHOP_OWNED,Acquis,Owned
+SHOP_STOCK,En stock : %d,In stock: %d
+SHOP_PACK,Emporter à la prochaine expédition,Bring on the next expedition
+SHOP_PACKED,✓ Emporté,✓ Packed
+SHOP_LOCKED_AFTER,En vente après : %s,On sale after: %s
+SHOP_NO_ECHO,"Aucun Écho en vente pour l'instant : avancez dans la campagne.","No Echo on sale yet: progress through the campaign."
+SHOP_VIGOR_FLASK_NAME,Fiole de vigueur,Vigor Flask
+SHOP_VIGOR_FLASK_DESC,PV max +30 % pendant une expédition.,Max HP +30% for one expedition.
+SHOP_REROLL_STONE_NAME,Pierre de relance,Reroll Stone
+SHOP_REROLL_STONE_DESC,2 relances de choix en plus pendant une expédition.,2 extra choice rerolls for one expedition.
+SHOP_RELIC_CACHE_NAME,Coffret de relique,Relic Cache
+SHOP_RELIC_CACHE_DESC,Choisissez une relique dès le début d'une expédition.,Pick a relic at the start of an expedition.
+SHOP_SURVIVAL_DRILL_NAME,Entraînement de survie,Survival Drill
+SHOP_SURVIVAL_DRILL_DESC,Épreuves de survie : commencez au niveau 2 (un choix immédiat).,Survival trials: start at level 2 (one immediate choice).
+SHOP_SURVIVAL_MAGNET_NAME,Aimant de faille,Rift Magnet
+SHOP_SURVIVAL_MAGNET_DESC,Épreuves de survie : rayon de ramassage +40 %.,Survival trials: pickup radius +40%.
+SHOP_SURVIVAL_INSTINCT_NAME,Instinct du survivant,Survivor's Instinct
+SHOP_SURVIVAL_INSTINCT_DESC,Épreuves de survie : une carte de plus à chaque montée de niveau.,Survival trials: one more card at every level-up.
+EXPEDITION_PACKED,Emporté : %s,Packed: %s

@@ -234,6 +234,9 @@ accent = Color(0.95, 0.9, 0.7, 1.0)
 
 [resource]
 script = ExtResource("11")
+unlocked_by_default = false
+discovery = &"victory"
+discovery_arena = &"chapter2_map5"
 id = &"gravishell"
 name_key = "MONSTER_GRAVISHELL_NAME"
 desc_key = "MONSTER_GRAVISHELL_DESC"
@@ -253,5 +256,4 @@ technique = ExtResource("4")
 evolutions = [SubResource("evolution_7"), SubResource("evolution_12")]
 variant = SubResource("evolution_15")
 mastery = SubResource("mastery_25")
-unlocked_by_default = false
 visual = SubResource("visual_26")

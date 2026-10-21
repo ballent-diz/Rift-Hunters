@@ -110,3 +110,23 @@ raccord, puis réinsertion et nouveau contrôle.
 - **Recomposer** une carte après validation du plan (le contrôle de fidélité le détecte).
 - Modifier `collision.png` ou la peinture du propriétaire pour faire coïncider une image qui a dérivé.
 - Déclarer une carte terminée sans le rapport `check_map_quality.py` **conforme**, joint à la fiche de livraison.
+
+## Zones floues : détection et correction (21 octobre 2026)
+
+Une carte peut être conforme en moyenne et floue par endroits (régions générées moins finement : le propriétaire
+l'a constaté sur les Ruines des Cascades).
+
+- **Détection** : `python3 tools/art/sharpness_map.py <environment.id> --out <dossier>` découpe la carte en cases de
+  160 unités, mesure la part d'énergie des très petits détails (spectre de la case, indépendant du contenu) et la
+  compare aux cases les plus nettes de la même carte. Sorties : carte de chaleur (cases floues en rouge) et liste des
+  cases. Mesure relative : à utiliser sur une carte **avant** correction ; après, les zones corrigées deviennent la
+  référence.
+- **Correction** : `python3 tools/art/deblur_map.py <environment.id>` (Real-ESRGAN realesr-general-x4v3, en local,
+  sans carte graphique, débruitage faible pour garder la texture de l'herbe) : seules les cases floues sont traitées
+  (réduites de moitié, agrandies ×4, ramenées à leur taille), fondues dans la carte sans couture. Les contours
+  redeviennent nets sans changer formes ni couleurs ; une zone dont les objets sont dessinés trop gros le reste
+  (régénérer la région si besoin).
+- Appliqué le 21 octobre 2026 : Ruines (68 % de la carte), Bois (35 %), Gué (≈ 33 %), Hautes Terres (5 %). Contrôle
+  `check_map_quality.py` toujours conforme ; mini-cartes régénérées.
+- Pour une nouvelle carte : lancer `sharpness_map.py` après l'assemblage des régions ; s'il reste des cases floues,
+  `deblur_map.py` puis `check_map_quality.py`.

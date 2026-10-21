@@ -11,6 +11,7 @@ const TAB_SCRIPTS: Array[String] = [
 	"res://src/ui/refuge/objectives_tab.gd",
 	"res://src/ui/refuge/stats_tab.gd",
 	"res://src/ui/refuge/options_tab.gd",
+	"res://src/ui/refuge/shop_tab.gd",
 ]
 
 var tabs: TabContainer

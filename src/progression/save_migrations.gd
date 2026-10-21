@@ -3,7 +3,7 @@ extends RefCounted
 ## Migrations de format de sauvegarde. Chaque étape transforme la version N en N+1 (fonction pure).
 ## Règle : ne jamais supprimer une donnée inconnue, seulement la déplacer ou la renommer.
 
-const CURRENT_VERSION := 3
+const CURRENT_VERSION := 4
 
 
 ## Retourne {data, from, to, error}. error non vide si la migration est impossible.
@@ -22,6 +22,8 @@ static func migrate(data: Dictionary) -> Dictionary:
 				current = _v1_to_v2(current)
 			2:
 				current = _v2_to_v3(current)
+			3:
+				current = _v3_to_v4(current)
 			_:
 				result["error"] = "no_migration_from_%d" % version
 				return result
@@ -60,6 +62,19 @@ static func _v1_to_v2(old: Dictionary) -> Dictionary:
 	if not (data.get("hunter") is Dictionary):
 		data["hunter"] = {"active_build": 0, "builds": [], "maps_won": []}
 	data["format_version"] = 2
+	return data
+
+
+## v3 → v4 : collection d'Échos étalée sur trois chapitres (docs/design/COLLECTION_ECHOS.md). Mousseroc, offert au départ
+## jusqu'ici, reste acquis aux joueurs existants ; les autres Échos déjà débloqués le restent aussi.
+static func _v3_to_v4(old: Dictionary) -> Dictionary:
+	var data: Dictionary = old.duplicate(true)
+	var unlocks: Dictionary = data.get("unlocks") if data.get("unlocks") is Dictionary else {}
+	var monsters: Array = unlocks.get("monsters") if unlocks.get("monsters") is Array else []
+	if not monsters.has("mossback"):
+		monsters.append("mossback")
+	unlocks["monsters"] = monsters
+	data["unlocks"] = unlocks
 	return data
 
 

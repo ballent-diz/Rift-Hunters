@@ -145,12 +145,13 @@ func test_save_v1_migrates_to_tree_v2() -> void:
 	check_eq(HunterTree.loadout(p)["spells"][0], &"cleaving_slash", "sorts de départ équipés")
 
 
-func test_glimmerwing_locked_then_unlocked_by_objective() -> void:
+## Collection d'Échos (docs/design/COLLECTION_ECHOS.md) : les objectifs ne débloquent plus d'Écho, ils donnent des éclats.
+func test_first_steps_rewards_shards_not_an_echo() -> void:
 	check(not _setup_from(profile).unlocked_monsters.has(&"glimmerwing"), "Lucivelle verrouillée au départ")
 	var report: Dictionary = MetaProgression.apply_run_result(profile, _result({}, {"time_survived": 200.0}))
 	check(Objectives.is_completed(profile, &"first_steps"), "Premiers pas accompli")
-	check(profile.has_unlock("monsters", &"glimmerwing"), "Lucivelle débloquée")
-	check(_setup_from(profile).unlocked_monsters.has(&"glimmerwing"), "disponible dans les expéditions")
+	check(not profile.has_unlock("monsters", &"glimmerwing"), "Lucivelle s'achète à la boutique")
+	check(GameDB.objective(&"first_steps").reward_shards > 0, "récompense en éclats")
 	check(not (report["lines"] as PackedStringArray).is_empty(), "rapport de fin de partie renseigné")
 
 

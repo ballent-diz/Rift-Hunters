@@ -233,6 +233,10 @@ accent = Color(0.6, 1.0, 0.7, 1.0)
 
 [resource]
 script = ExtResource("1")
+unlocked_by_default = false
+discovery = &"shop"
+discovery_arena = &"chapter3_map3"
+shop_price = 1600
 id = &"mossback"
 name_key = "MONSTER_MOSSBACK_NAME"
 desc_key = "MONSTER_MOSSBACK_DESC"
@@ -252,5 +256,4 @@ technique = SubResource("technique_data_4")
 evolutions = [SubResource("evolution_data_6"), SubResource("evolution_data_10")]
 variant = SubResource("evolution_data_14")
 mastery = SubResource("mastery_data_15")
-unlocked_by_default = true
 visual = SubResource("visual_data_25")

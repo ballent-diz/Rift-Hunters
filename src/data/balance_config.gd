@@ -47,6 +47,10 @@ extends Resource
 ## forts (coffre, zone nettoyée, faille refermée, arrivée du boss) ou à la demande. Quand la réserve atteint ce
 ## nombre, elle s'ouvre en entier d'elle-même.
 @export var level_reserve_cap: int = 5
+## Jalons de campagne (ArenaData.progression = « milestones ») : chaque jalon soigne et donne des dégâts acquis
+## jusqu'à la fin de la partie, en plus du choix (ils remplacent les petites caractéristiques des niveaux).
+@export var milestone_heal_ratio: float = 0.3
+@export var milestone_damage_pct: float = 0.06
 @export_group("Ennemis")
 ## Croissance des PV ennemis par minute (+0.12 = +12 %/min).
 @export var enemy_hp_growth_per_min: float = 0.12

@@ -96,8 +96,10 @@ func _draw() -> void:
 	_draw_vignette(w, h, player)
 	# Barre d'XP (haut, pulse sur le tempo de la musique) + niveau
 	var pulse: float = 0.0 if Settings.reduce_flashes else _beat
-	_bar(Rect2(0, 0, w, 10 + 3.0 * pulse), player.xp_ratio(), Color(0.35, 0.85, 1.0).lightened(0.3 * pulse))
-	var level_text: String = tr("HUD_LEVEL") % player.level
+	# Campagne (jalons) : pas d'XP, le compteur donne les choix obtenus.
+	if not ctx.milestones():
+		_bar(Rect2(0, 0, w, 10 + 3.0 * pulse), player.xp_ratio(), Color(0.35, 0.85, 1.0).lightened(0.3 * pulse))
+	var level_text: String = tr("HUD_MILESTONES") % (player.level - 1) if ctx.milestones() else tr("HUD_LEVEL") % player.level
 	_text(Vector2(16, 40), level_text, 22, UiKit.ACCENT)
 	if player.pending_levels > 0:
 		# Choix de niveau en réserve (sans pause) : rappel et touche pour les ouvrir.
@@ -134,6 +136,10 @@ func _draw() -> void:
 			HORIZONTAL_ALIGNMENT_CENTER, w)
 	elif ctx.altar and ctx.altar.phase != AltarDirector.Phase.BOSS:
 		_draw_altar_status(w)
+	elif ctx.arena.endless:
+		var best: int = int((Profile.profile.data["records"] as Dictionary).get("endless_best_wave", 0))
+		_text(Vector2(0, 66), tr("ENDLESS_STATUS") % [ctx.endless_wave(), best], 14, UiKit.GOLD,
+			HORIZONTAL_ALIGNMENT_CENTER, w)
 	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
 		var boss_name: String = tr(GameDB.boss(ctx.arena.boss_id).name_key)

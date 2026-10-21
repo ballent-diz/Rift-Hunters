@@ -42,6 +42,7 @@ static func apply_run_result(profile: ProfileData, result: Dictionary) -> Dictio
 	var campaign: Dictionary = Campaign.apply_result(profile, result)
 	rewards["shards"] = int(rewards["shards"]) + int(campaign["shards"])
 	lines.append_array(campaign["lines"])
+	lines.append_array(EchoCollection.apply_result(profile, result))
 	if victory:
 		# Première victoire sur une carte (puis en Cauchemar) : +1 Point de Chasseur.
 		var key: String = ("nightmare:" if mode == Campaign.NIGHTMARE else "") + String(arena_id)
@@ -72,6 +73,8 @@ static func _update_records(profile: ProfileData, result: Dictionary, victory: b
 	records["best_time"] = maxf(float(records["best_time"]), float(result.get("time", 0.0)))
 	records["best_level"] = maxi(int(records["best_level"]), int(result.get("level", 0)))
 	records["best_kills"] = maxi(int(records["best_kills"]), int(result.get("kills", 0)))
+	# Carte bonus à vagues infinies : meilleure vague atteinte.
+	records["endless_best_wave"] = maxi(int(records.get("endless_best_wave", 0)), int(result.get("endless_wave", 0)))
 	if victory:
 		records["highest_tension_won"] = maxi(int(records["highest_tension_won"]), int(result.get("difficulty_level", 0)))
 

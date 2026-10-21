@@ -105,6 +105,13 @@ func start(setup: RunSetup) -> void:
 	ctx.events.level_up.connect(func(level: int) -> void:
 		Audio.play_sfx(&"level_up")
 		ctx.fx.text(ctx.player.global_position + Vector2(0, -60), tr("LEVELUP_TITLE") % level, UiKit.ACCENT))
+	ctx.events.milestone_reached.connect(func() -> void:
+		if ctx.milestones():
+			ctx.stats.add(&"milestones")
+			ctx.player.stats.add_modifier(StatKeys.DAMAGE, 0.0, ctx.balance.milestone_damage_pct)
+			ctx.player.heal(ctx.player.max_hp * ctx.balance.milestone_heal_ratio)
+			ctx.player.grant_level()
+			release_choices = true)
 	ctx.events.event_started.connect(func(key: String) -> void:
 		if key == "FINALE_OPENING":
 			release_choices = true)
@@ -128,6 +135,11 @@ func start(setup: RunSetup) -> void:
 		Audio.play_sfx(&"player_hurt"))
 	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0:
 		chest_panel.open.call_deferred(true)
+	# Boutique (objets de survie) : niveaux gagnés au départ, choisis tout de suite.
+	for i: int in setup.start_levels:
+		ctx.player.grant_level()
+	if setup.start_levels > 0:
+		release_choices = true
 
 
 ## Copie de la Tension combinée aux modificateurs de partie (multiplicateurs et bonus de récompense).
@@ -419,6 +431,7 @@ func build_result() -> Dictionary:
 		"time": ctx.time,
 		"level": ctx.player.level,
 		"kills": int(ctx.stats.get_value(&"kills")),
+		"endless_wave": ctx.endless_wave() if ctx.arena.endless else 0,
 		"arena": String(ctx.arena.id),
 		"difficulty": String(ctx.difficulty.id),
 		"difficulty_level": ctx.difficulty.level,

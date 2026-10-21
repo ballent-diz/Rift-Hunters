@@ -221,6 +221,7 @@ func _nearest_remaining() -> Vector2:
 
 
 func _end_wave() -> void:
+	ctx.events.milestone_reached.emit()
 	hunting = false
 	_hunt_goal = Vector2.INF
 	wave_index += 1

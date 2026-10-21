@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ShopItemData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://src/data/shop_item_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/combat/effects/stat_modifier_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="effect_1"]
+script = ExtResource("2")
+target = 0
+stat = &"pickup_radius"
+flat = 0.0
+pct = 0.4
+
+[resource]
+script = ExtResource("1")
+id = &"survival_magnet"
+name_key = "SHOP_SURVIVAL_MAGNET_NAME"
+desc_key = "SHOP_SURVIVAL_MAGNET_DESC"
+kind = &"survival"
+price = 600
+requires_arena = &"survival_ruins"
+effects = [SubResource("effect_1")]
+start_levels = 0
+color = Color(0.5, 0.9, 1, 1)
+order = 2

@@ -203,6 +203,7 @@ func _begin_wave() -> void:
 
 func _end_wave() -> void:
 	ctx.stats.add(&"altar_waves")
+	ctx.events.milestone_reached.emit()
 	if wave_index + 1 >= waves():
 		# Le sceau se brise : son onde purifie les Corrompus restants (leur XP tombe) et le gardien en sort ; le
 		# combat commence sur un terrain dégagé.

@@ -1,6 +1,7 @@
 extends RefugeTab
-## Préparation de l'expédition (lots B1-B2) : à gauche, l'Écho de départ puis les chapitres et leurs cartes ;
-## à droite, le résumé de la carte choisie (objectifs, difficulté, pactes) et le départ, toujours visibles.
+## Préparation de l'expédition (lots B1-B2, M2) : à gauche, l'Écho de départ, le choix Campagne / Survie, puis les
+## chapitres de cette piste et leurs cartes ; à droite, le résumé de la carte choisie (objectifs, difficulté, pactes)
+## et le départ, toujours visibles.
 
 const TILE_SIZE := Vector2(248, 178)
 
@@ -24,13 +25,43 @@ func refresh() -> void:
 	box.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	box.add_theme_constant_override("separation", 12)
 	scroll.add_child(box)
+	# Le mode de jeu d'abord : il décide des cartes proposées.
+	var track := StringName(p.preference("expedition_mode", String(Campaign.MAIN)))
+	box.add_child(_mode_switch(track))
 	_add_starters(box, p)
 	box.add_child(UiKit.title(tr("EXPEDITION_MAPS"), 20, MenuSkin.PAPER))
-	var arena: ArenaData = _current_arena(p)
-	for chapter: ChapterData in GameDB.chapters_in_order():
+	var arena: ArenaData = _current_arena(p, track)
+	for chapter: ChapterData in Campaign.chapters_of(track):
 		box.add_child(_chapter_panel(p, chapter, arena))
-	box.add_child(_survival_panel(p, arena))
+	if track == Campaign.SURVIVAL and _has_loose_arenas():
+		box.add_child(_survival_panel(p, arena))
 	root.add_child(_summary(p, arena))
+
+
+## Campagne principale (jalons) ou épreuves de survie (montées de niveau) : docs/design/MODES.md.
+func _mode_switch(track: StringName) -> VBoxContainer:
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 4)
+	var row := HBoxContainer.new()
+	row.add_theme_constant_override("separation", 6)
+	box.add_child(row)
+	for mode: StringName in [Campaign.MAIN, Campaign.SURVIVAL]:
+		var key: String = "EXPEDITION_MODE_CAMPAIGN" if mode == Campaign.MAIN else "EXPEDITION_MODE_SURVIVAL"
+		var b: Button = HunterTreeSkin.button(tr(key), _set_pref.bind("expedition_mode", String(mode)), mode == track)
+		b.name = "Mode_" + String(mode)
+		b.custom_minimum_size = Vector2(180, 38)
+		row.add_child(b)
+	var hint: String = "EXPEDITION_MODE_CAMPAIGN_HINT" if track == Campaign.MAIN else "EXPEDITION_MODE_SURVIVAL_HINT"
+	box.add_child(UiKit.wrapped(tr(hint), 13, UiKit.MUTED))
+	return box
+
+
+## Arènes hors de tout chapitre (essais) : affichées avec les épreuves de survie.
+func _has_loose_arenas() -> bool:
+	for arena: ArenaData in Profile.unlocked_arenas():
+		if not Campaign.is_campaign_map(arena.id):
+			return true
+	return false
 
 
 # --- Écho de départ
@@ -102,7 +133,7 @@ func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Butt
 		var locked: Label = UiKit.caption(tr("EXPEDITION_LOCKED"), 10, UiKit.MUTED)
 		locked.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		box.add_child(locked)
-		tile.tooltip_text = _unlock_hint("monster:" + String(monster.id))
+		tile.tooltip_text = EchoCollection.source_text(monster)
 	for child: Node in box.get_children():
 		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return tile
@@ -110,14 +141,18 @@ func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Butt
 
 # --- Cartes
 
-func _current_arena(p: ProfileData) -> ArenaData:
+## Carte choisie dans la piste affichée ; sinon la dernière débloquée de cette piste (retenue pour le départ).
+func _current_arena(p: ProfileData, track: StringName) -> ArenaData:
 	var arena: ArenaData = GameDB.arena(StringName(p.preference("arena", "three_rifts")))
-	if arena == null or not p.is_arena_unlocked(arena):
+	var loose: bool = arena != null and not Campaign.is_campaign_map(arena.id)
+	var in_track: bool = arena != null and (Campaign.track_of(arena.id) == track if not loose else track == Campaign.SURVIVAL)
+	if arena == null or not p.is_arena_unlocked(arena) or not in_track:
 		arena = Profile.unlocked_arenas()[0]
-		for map: CampaignMapData in Campaign.maps_in_order():
+		for map: CampaignMapData in Campaign.maps_in_order(track):
 			var candidate: ArenaData = GameDB.arena(map.arena_id)
 			if candidate and p.is_arena_unlocked(candidate):
 				arena = candidate
+		p.set_preference("arena", String(arena.id))
 	return arena
 
 
@@ -138,7 +173,7 @@ func _chapter_panel(p: ProfileData, chapter: ChapterData, current: ArenaData) ->
 	var heading := VBoxContainer.new()
 	heading.add_theme_constant_override("separation", 2)
 	banner.add_child(heading)
-	heading.add_child(UiKit.caption(tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order, 11, chapter.color))
+	heading.add_child(UiKit.caption(_chapter_caption(chapter), 11, chapter.color))
 	heading.add_child(UiKit.title(tr(chapter.name_key), 20, MenuSkin.PAPER))
 	box.add_child(banner)
 	box.add_child(UiKit.wrapped(tr(chapter.desc_key), 13, UiKit.MUTED))
@@ -146,7 +181,7 @@ func _chapter_panel(p: ProfileData, chapter: ChapterData, current: ArenaData) ->
 	row.add_theme_constant_override("h_separation", 10)
 	row.add_theme_constant_override("v_separation", 10)
 	box.add_child(row)
-	var maps: Array[CampaignMapData] = Campaign.maps_in_order()
+	var maps: Array[CampaignMapData] = Campaign.maps_in_order(chapter.track)
 	for map: CampaignMapData in chapter.maps:
 		var arena: ArenaData = GameDB.arena(map.arena_id)
 		if arena == null:
@@ -245,6 +280,12 @@ func _stars(done: int, total: int) -> Control:
 	return stars
 
 
+func _chapter_caption(chapter: ChapterData) -> String:
+	if chapter.track == Campaign.SURVIVAL:
+		return tr("EXPEDITION_MODE_SURVIVAL")
+	return tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order
+
+
 func _tile_style(tile: Button, accent: Color, selected: bool) -> void:
 	var normal: StyleBoxFlat = MenuSkin.frame(Color(0.2, 0.06, 0.12) if selected else Color(0.07, 0.055, 0.12),
 		MenuSkin.LANTERN if selected else Color(accent, 0.55))
@@ -280,7 +321,7 @@ func _summary(p: ProfileData, arena: ArenaData) -> PanelContainer:
 	scroll.add_child(box)
 	box.add_child(_map_preview(arena, 104))
 	var chapter: ChapterData = Campaign.chapter_of(arena.id)
-	box.add_child(UiKit.caption(tr("EXPEDITION_CHAPTER_NUMBER") % chapter.order + " · " + tr(chapter.name_key) if chapter
+	box.add_child(UiKit.caption(_chapter_caption(chapter) + " · " + tr(chapter.name_key) if chapter
 		else tr("EXPEDITION_SURVIVAL_TAG"), 11, chapter.color if chapter else MenuSkin.LANTERN))
 	var title: Label = UiKit.title(tr(arena.name_key), 22, MenuSkin.PAPER)
 	title.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -296,6 +337,13 @@ func _summary(p: ProfileData, arena: ArenaData) -> PanelContainer:
 			box.add_child(UiKit.wrapped(("★  " if ok else "☆  ") + Campaign.objective_text(objective), 13,
 				UiKit.GOLD if ok else MenuSkin.PAPER))
 	_add_modifiers(box, difficulty)
+	var packed: PackedStringArray = []
+	for raw: Variant in p.data["shop"]["packed"]:
+		var item: ShopItemData = GameDB.shop_items.get(StringName(str(raw)))
+		if item:
+			packed.append(tr(item.name_key))
+	if not packed.is_empty():
+		box.add_child(UiKit.wrapped(tr("EXPEDITION_PACKED") % ", ".join(packed), 13, UiKit.GOLD))
 	var starter: MonsterData = GameDB.monster(StringName(p.preference("starter", "mossback")))
 	if starter:
 		outer.add_child(UiKit.label(tr("EXPEDITION_WITH") % tr(starter.name_key), 13, UiKit.MUTED))
@@ -365,14 +413,6 @@ func _toggle_modifier(id: String) -> void:
 	else:
 		chosen.append(id)
 	_set_pref("modifiers", ",".join(chosen))
-
-
-func _unlock_hint(entry: String) -> String:
-	for id: StringName in GameDB.sorted_ids(GameDB.objectives):
-		var objective: ObjectiveData = GameDB.objectives[id]
-		if objective.reward_unlocks.has(entry):
-			return tr("EXPEDITION_UNLOCK_BY") % tr(objective.desc_key)
-	return tr("EXPEDITION_LOCKED")
 
 
 func _select_starter(id: StringName) -> void:
