@@ -44,11 +44,14 @@ on refait un build complet à chaque partie.
   | 1 | Plaine fracturée | Nébulorax | 7 min | ×1 | violette |
   | 2 | Épreuve des Ruines | Sentinelle des Racines | 7 min 30 | PV ×1,1 | violette |
   | 3 | Épreuve des Hautes Terres | Astravorn | 8 min | PV ×1,2, dégâts ×1,05 | violette |
-  | 4 | Épreuve du Bois (nuit) | Chimère des Brumes | 8 min 30 | PV ×1,3, dégâts ×1,1 | Hautes Terres |
-  | 5 | Épreuve du Gué (gués) | Nébulorax | 9 min | PV ×1,45, dégâts ×1,15 | Hautes Terres |
+  | 4 | Épreuve du Bois (nuit) | Chimère des Brumes | 8 min 30 | PV ×0,8, dégâts ×0,75 | Hautes Terres |
+  | 5 | Épreuve du Gué (gués) | Nébulorax | 9 min | PV ×0,9, dégâts ×0,8 | Hautes Terres |
 
   Toute la carte est ouverte (ni zones ni barrières) ; `ArenaData.enemy_hp_mult` / `enemy_damage_mult` règlent la
-  force par carte. Objectifs : terminer, peu de dégâts, élites. Première victoire : éclats et Point de Chasseur, comme
+  force par carte. La famille des Hautes Terres est bien plus forte de base (PV ×2, dégâts ×1,5 pour le monstre de
+  base) : ses deux épreuves sont compensées sous ×1 ; la difficulté monte par la famille, la nuit, les gués et la
+  durée. Bot (bonus d'arbre « veteran ») : Plaine 2/4, Ruines 3/4, Hautes Terres 2/4, Bois 5/6, Gué 4/6 ; Faille
+  sans fin : vague 7 vers 6 min. Objectifs : terminer, peu de dégâts, élites. Première victoire : éclats et Point de Chasseur, comme
   en campagne.
 - **Faille sans fin** (carte bonus, `endless_rift`), ouverte en finissant les cinq épreuves : décor des Hautes Terres
   (le plus grand, 5016 × 5016, en attendant une carte géante dessinée), familles mêlées, **pas de boss** ; une vague

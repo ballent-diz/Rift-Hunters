@@ -10,8 +10,8 @@ start_time = 0.0
 end_time = 60.0
 enemies = [&"heath_runner"]
 weights = [1.0]
-spawn_rate = 1.3
-max_alive = 60
+spawn_rate = 0.9
+max_alive = 45
 
 [sub_resource type="Resource" id="wave_2"]
 script = ExtResource("2")
@@ -19,8 +19,8 @@ start_time = 60.0
 end_time = 150.0
 enemies = [&"heath_runner", &"ash_newt"]
 weights = [3.0, 1.0]
-spawn_rate = 2.0
-max_alive = 100
+spawn_rate = 1.6
+max_alive = 85
 
 [sub_resource type="Resource" id="wave_3"]
 script = ExtResource("2")
@@ -110,8 +110,8 @@ environment_id = &"environment.mist_ford"
 ground_color = Color(0.1, 0.11, 0.17, 1.0)
 ground_detail_color = Color(0.15, 0.16, 0.24, 1.0)
 unlocked_by_default = false
-enemy_hp_mult = 1.45
-enemy_damage_mult = 1.15
+enemy_hp_mult = 0.9
+enemy_damage_mult = 0.8
 waves = [SubResource("wave_1"), SubResource("wave_2"), SubResource("wave_3"), SubResource("wave_4"), SubResource("wave_5")]
 events = [SubResource("event_1"), SubResource("event_2"), SubResource("event_3"), SubResource("event_4")]
 slow_zones = Array[Rect2]([Rect2(-192, -952, 344, 384), Rect2(-1184, -232, 584, 232), Rect2(624, -248, 584, 240), Rect2(-144, 240, 344, 552)])

@@ -34,11 +34,11 @@ func test_trials_are_a_separate_track_with_levels() -> void:
 	check_eq(maps.back().arena_id, &"endless_rift", "la Faille sans fin ferme la piste")
 	for map: CampaignMapData in maps:
 		check_eq(GameDB.arena(map.arena_id).progression, &"levels", "%s : montées de niveau" % map.arena_id)
-	var hp: float = 0.0
+	var boss_time: float = 0.0
 	for map: CampaignMapData in maps.slice(0, 5):
 		var arena: ArenaData = GameDB.arena(map.arena_id)
-		check(arena.enemy_hp_mult >= hp, "%s : de plus en plus dure" % map.arena_id)
-		hp = arena.enemy_hp_mult
+		check(arena.boss_time > boss_time, "%s : de plus en plus longue" % map.arena_id)
+		boss_time = arena.boss_time
 	check(GameDB.arena(&"endless_rift").endless, "carte bonus à vagues infinies")
 	check_eq(Campaign.final_map().arena_id, Campaign.maps_in_order().back().arena_id, "le jeu finit en campagne")
 
