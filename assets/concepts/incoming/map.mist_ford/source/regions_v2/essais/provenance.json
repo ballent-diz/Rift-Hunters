@@ -1,0 +1,13 @@
+{
+  "method": "imagegen built-in",
+  "attempt": 1,
+  "output": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/regions-work/gue-retouche-agent/r1_1.png",
+  "sha256": "5bdd5f7d3bf715b6f093bd774da2e8f8f04e206f691f286f8482d48d57f0f411",
+  "input": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-regions/assets/concepts/incoming/map.mist_ford/source/regions_v2/regions/r1_1.png",
+  "input_sha256": "e9fbe9166b90f224870aa1537a23ac2617d443b5009ca410289fe1ea7bd9cb1e",
+  "reference": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-regions/assets/concepts/incoming/map.mist_ford/source/regions_v2/reference_scale.png",
+  "reference_sha256": "46a74013731b07d36a868d027ec25a3e319f55109e4e3bf3411ae2ac612e0b4d",
+  "prompt": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/regions-work/gue-retouche-agent/PROMPT_COMBINE.txt",
+  "prompt_sha256": "6a2a27b5206922ef1dd8b055593b8a3d318cf9aabc8eb6418173eb8dce12edbb",
+  "original_generation": "C:\\Users\\petit\\.codex\\generated_images\\01a1597a-76a2-7cb2-835c-f94dc75c6a70\\exec-f9f23e62-a636-4d3d-8c73-6ff88d48bd26.png"
+}

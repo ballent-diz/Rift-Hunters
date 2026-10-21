@@ -1,76 +1,63 @@
 {
   "id": "map.firefly_woods",
   "status": "wip",
-  "mode": "built-in image_gen",
+  "mode": "built-in image_gen, sans API",
+  "source": "source/map_source.png",
+  "selected_source": "source/map_source.png",
   "world_size": [
     5016,
     3344
   ],
-  "format": "6 cases, 3:2",
-  "source": "source/map_source.png",
-  "composition": "source/map_composition.png",
-  "detailed_source": "source/map_detailed.png",
-  "working_image": "collision/reference.webp",
-  "assembly": [
-    "tools/art/prepare_firefly_woods.py",
-    "tools/art/finish_firefly_woods.py"
+  "source_size": [
+    1536,
+    1024
   ],
+  "detail_source": "source/regions_v2/map_detailed.png",
+  "detail_density": 0.75,
+  "presentation_density": 2.25,
+  "presentation_size": [
+    11286,
+    7524
+  ],
+  "map_tiles": [
+    "assets/environments/firefly_woods/map.webp",
+    "assets/environments/firefly_woods/map_1.webp",
+    "assets/environments/firefly_woods/map_2.webp"
+  ],
+  "tile_size": [
+    3762,
+    7524
+  ],
+  "regions": {
+    "grid": [
+      4,
+      3
+    ],
+    "metadata": "source/regions_v2/regions.json",
+    "input": "source/regions_v2/regions/rY_X_input.png",
+    "output": "source/regions_v2/regions/rY_X.png",
+    "reference": "source/regions_v2/reference_scale.png",
+    "minimum_native_long_side": 1254
+  },
   "prompts": {
-    "master": "Use case: stylized-concept. Asset: one complete, continuous high-definition 3:2 overhead 2D game map for Rift Hunters, named Firefly Woods. Generate a NEW landscape, not a collage, no text or characters.\nMANDATORY REFERENCES: Image 1 fractured_plain_map is the STRICT sharpness, micro-detail and environmental SCALE reference. Image 2 cascade_ruins and image 3 storm_highlands are the SAME CHAPTER material/style references. These files may depict strips of larger maps: borrow their visual language, NOT their shape. Final image must be one full-bleed 3:2 landscape. Maximum possible native resolution and genuine fine detail, aiming for 5016x3344 pixels.\nCOMMON CHAPTER IDENTITY: temperate humid valley, the same finely outlined weathered grey mossy stone blocks, old paving, broken columns and arches, pines and deciduous trees, clear blue streams and small waterfalls, occasional golden grasses. Small rare violet rift runes only. Uniform steep overhead 3/4 game camera, top-left lighting, NO horizon or perspective vanishing point. Every architectural detail uses the same small scale as image1; a human would be only 0.64% of image width. Small finely drawn stones, paving blocks, fern fronds and leaf clusters, not giant simplified toy masonry.\nNEW FOREST IDENTITY: ancient deep woods, immense gnarled hollow trees, fern and moss undergrowth at the edges, luminous yellow-green mushrooms, shallow streams, ruined grey shrines embraced by roots. Moss greens and twilight teal with warm yellow-green fireflies. Readable late-afternoon daylight: NOT a black night scene, NO dark overlay painted into the image. The game will add darkness later.\nCOMPOSITION AND NAVIGATION (coordinates in percentages, x from left, y from top):\nClosed forest/cliff border around the whole map, no path exits the frame.\nStart in SW at (12,85): small open grey stone plaza leading into zone 1.\nZone 1 is a huge open ground region in the SW and west-center, at (23,70), with a main clearing at least 17% image width. At (20,66) a narrow shallow stream crosses the ground through an EXTRA-WIDE flat stone-and-gravel ford; no waterfall or deep trench across the ford.\nFrom zone 1 to zone 2 at (38,49), a SHORT clear stone road between TWO enormous hollow trunks planted on its opposing edges. Road gap at least 4% image width, open and unobstructed; this is a clean chokepoint for a future barrier. Dense trees/rock along the sides separate the two zones.\nZone 2 around (46,32): a large elevated OPEN clearing, at least 18% image width, with a SMALL ruined stone sanctuary on its NORTHERN EDGE, NOT in the open center. Grey mossy columns, stones and roots stay on the perimeter. Two broad exits/lanes wrap around the open clearing and converge onto the eastern bridge approach, no inaccessible stairs.\nA narrow winding river runs mostly north-south around x=64%, separating zone 2 and zone 3. Exactly ONE robust wide intact wooden bridge at (65,51), aligned west-east with a continuous plank deck, solid anchored piers and railings. Deck width at least 3.5% image width; very broad level landings on both banks, no floating wood or supports, no missing deck, no water across the approaches.\nZone 3 on the eastern side, around (81,62), a HUGE flat unobstructed moss plateau, connected by a very wide moss-earth approach to the guardian clearing north of it.\nGuardian clearing at (82,24): a ROUND EMPTY FLAT moss-and-old-stone clearing at least 19% image width in DIAMETER, physically round on the overhead ground, broad east-west and north-south space. An ancient massive hollow world-tree rooted at the NORTHERN EDGE around (82,9), not growing inside the clearing. One or two very wide land entrances from south; peripheral roots, no roots or obstacles across the fighting ground. A FEW small violet runes on the floor. NO luminous ring, NO concentric glowing magic circles.\nSIX FIREFLY CLEARINGS at approximately (17,76), (29,61), (44,27), (49,43), (77,69), (86,48). Each has noticeably lighter flat moss/earth in the center and small luminous yellow-green mushrooms/stones clustered ONLY AROUND ITS EDGE. Open center, no central pedestal, no big bright circle. The last two belong to the NE plateau zone3. Their glow is subtle and localized.\nSPACE REQUIREMENT: at least 58-62 percent of the WHOLE image must be flat open unobstructed WALKABLE LAND, including clear moss meadows OFF the roads. The deep-forest feeling comes from majestic dense tree/fern/cliff clusters at the map edges and zone boundaries, NOT clutter in combat spaces. Main roads at least 4% image width, bends wider, every bridge/passage at least 2.5%. Clearings permit a party to circle dozens of enemies in several directions. No isolated trees, boulders, pillars, fences, big mushrooms or rubble in roads, bridge decks or clearing centers. Fine flat soil, moss and tiny paving texture is allowed and should be crisp.\nFINISH: match the first reference's intricate crisp graphic fantasy game art, precise stone joints, fine bark and leaf clusters, small-scale natural texture, angular rocks, sparkling small water ripples. Rich controlled colors, sharp edges without crunchy pixels. NOT blurry, NOT smeared watercolor, NOT smooth plastic rounded cartoon forms, NOT photorealistic. Do not enlarge stone blocks or leaves to compensate for the map size. Seamless organic landscape with coherent rivers and land elevations. No tile grid, pasted panels, labels, frames, UI, characters, text, compass, watermark or black empty margins.\n",
-    "composition": "Edit target Image1 is the new Firefly Woods game map, not an approved final. Images2/3/4 are respectively the mandatory Plain sharpness+scale reference, Cascade Ruins chapter-style reference and Storm Highlands chapter-style reference. Correct ONLY the landscape composition and scale/density of small surface details, preserving the excellent existing chapter graphic style, wet grey mossy rocks, water, gnarled hollow trees and lush natural colors. One coherent full-bleed 3:2 overhead map, no text/UI/characters. Maximum native fine detail.\nESSENTIAL COMPOSITION CORRECTION: the current image has TOO MUCH forest/cliff obstruction. CLEAR AWAY half of the internal bulky scenery. Aim for 65 percent OPEN, FLAT UNOBSTRUCTED WALKABLE GROUND across the full image. Create whole moss meadow areas, NOT only dirt roads. Trees, shrines, roots, mushroom clumps and rocks ONLY on thin outer borders or narrow zone-separation ridges. Remove most of the central tree/rock islands and lower-left ruined enclosure. Keep a SMALL paved starting place at (12%,85%) integrated into open ground, with NO walls on its approaches.\nKeep the river near x=64% and ONE wide solid anchored west-east bridge at (65%,51%). Make the bridge deck 5% image width north-south, at least 2 hunter-party widths in-world. Main road clear width >=5%, moss combat meadow widths >=19%. Keep the river narrow except tiny scenic waterfalls, so water does not consume the play area.\nZone1 giant open southwest moss/earth meadow (8%-41% x, 52%-91% y). Two FIREFLY CLEARINGS within it (17%,76%) and (29%,61%): light pale moss surface, yellow-green glowing mushrooms/stones forming BROKEN PERIMETER CLUSTERS ONLY, totally empty centers, about10%width each. A wide shallow STONE FORD at (20%,66%) across a thin tributary visibly joins the southwest floor. The ford is continuous flat gravel, not a pool, cliff, staircase or bridge.\nZone1-to-zone2 chokepoint at (38%,49%), SHORT 5%-wide STONE ROAD, between two rooted enormous hollow trunks, one on either side; keep both trunks OUTSIDE the road. Behind them thin dense green ridge separates two open regions.\nZone2 giant north-central meadow (29%-59% x, 13%-43% y). Small ruined grey sanctuary stays on the extreme northern edge, NO violet portal inside it, only sparse subtle violet old runes. TWO visible wide lanes from this meadow converge on the west bank bridge landing, one south and one southeast. Two LIGHT FIREFLY CLEARINGS with broken yellow-green mushroom/stones peripheral clusters at (44%,27%) and (49%,43%), centers empty. No scattered obstacles.\nZone3 giant east moss plateau (71%-95% x, 41%-86% y), with TWO clearly visible LIGHT FIREFLY CLEARINGS at (77%,69%) and (86%,48%). Broad empty centers, luminous mushrooms at edges only. No lower-right shrine closing off a portion of this plateau: remove it, make open moss ground instead.\nThe GUARDIAN CLEARING below the north-east world tree at (82%,24%) must become VERY LARGE, EMPTY and ROUND ON THE GROUND, 21% image width in diameter (32% image height). Its outline is natural pale moss and small worn flat stone, NOT a magic glowing ring. Remove obstacles and giant roots from this entire clearing. World-tree at northern boundary only, trunk base above y=9%, exposed roots must hug its perimeter. One or two very broad flat entrances from the plateau south. Only a few SMALL violet runes on the ground, no portal, no monster, no boss yet.\nDAYLIGHT READABLE end-of-afternoon, soft cool teal/moss greens with yellow-green fireflies, NOT night-black. Same light top-left and uniform overhead angle. Render tiny paving/stone joints and fine leaf/soil/bark texture using Image2 as strict human scale. A normal paving stone is ONLY 8-14 WORLD units on a 5016-unit-wide map. Do not enlarge the stones, doors or mushrooms to fill space. No floating bridge pieces, no walls across paths, no trees or stones in clearing centers, no glowing magic circles, no pasted panel seams, no horizon, no plastic smooth cartoon or smeared watercolor. Exact 3:2 fullbleed.\n",
-    "detail": "Use case: precise-object-edit. Asset: a LOCAL DETAIL RESTORATION crop from ONE already composed continuous Rift Hunters Firefly Woods map, not a new scene.\nIMAGE ROLES: image1 is the edit target and EXACT GEOMETRY LOCK. image2 is the Plain strict micro-detail and human-scale reference. images3 and4 are Cascade Ruins and Storm Highlands chapter-style references. Preserve image1's exact crop, camera, lighting, terrain footprints, shapes, road widths, clearing positions, landmarks and every path connection at all four edges. Never invent new scenery. The surrounding map is unchanged.\nRestore at maximum native high definition with genuinely finer material detail. No enlarged coarse pixels or smooth interpolation. This crop spans only approximately 1800x1250 WORLD units, and the full map is5016x3344. An adult hunter in this crop is ONLY about32world units tall: ordinary paving cobbles should be8-14world units long, wooden deck planks narrow, stair risers3-4worldunits. Replace oversized paving stones/steps with many much smaller finely drawn joints INSIDE the same surface footprints. Keep all broad flat moss and earth areas OPEN and EMPTY: only flat small moss, soil grain, delicate sparse short grass strokes and tiny stone texture there. NO new trees, bushes, stones, ruins, fences or mushrooms on roads or clearing centers.\nFine precise bark fissures and tiny leaf/fern clusters on EXISTING peripheral trees, detailed finely jointed grey mossy masonry, fine wood grain and joinery on EXISTING bridge or shrine, natural clear blue water with fine ripples and waterfall foam. Same finely outlined fantasy graphic game art as the Plain, top-left light, moss greens/teal with subtle yellow-green fireflies, soft readable late afternoon. No photographic texture or plastic toy smoothness. No smeared watercolor, blur or heavy glow.\nMaintain the EXACT terrain silhouette and color distribution around the outer48pixels of this crop so it seamlessly fits the same larger map. No camera change, crop shift, extra ground decoration, new island, narrow passage or relocated obstacle. No visible tile seam, horizon, border, text, labels, characters, UI or watermark. Full bleed, same aspect ratio as image1, highest native resolution. Preserve all empty clearing centers and road widths. Small loose pebbles remain flat ground details, not obstacles.\n",
-    "local": "source/regions/*_PROMPT.txt",
-    "bridge": "source/PROMPT-bridge.txt",
-    "fine": "source/PROMPT-fine.txt"
+    "region": "source/regions_v2/PROMPT_REGION.txt",
+    "usage": "Texte officiel inchangé. Plan figé ; image1 input, image2 référence des Ruines."
   },
-  "references": [
-    {
-      "id": "environment.fractured_plain_map",
-      "path": "assets/environments/fractured_plain_map/map.webp",
-      "role": "netteté et échelle"
-    },
-    {
-      "id": "environment.cascade_ruins",
-      "path": "assets/environments/cascade_ruins/map.webp",
-      "role": "style du chapitre"
-    },
-    {
-      "id": "environment.storm_highlands",
-      "path": "assets/environments/storm_highlands/map.webp",
-      "role": "style du chapitre"
-    }
-  ],
-  "collision_handoff": {
-    "method": "rouge translucide sur la carte, DE_L_IMAGE_AU_NIVEAU §3 bis",
-    "owner_input": "collision/painted.webp",
-    "generated_mask": false,
-    "runtime_registered": false,
-    "note": "Ne pas créer de masque artificiel ni de fiche ArenaData : le propriétaire peint, Claude intègre les collisions, zones, B2 et gardien ensuite."
-  },
+  "assembly": "python3 tools/art/map_regions.py assemble assets/concepts/incoming/map.firefly_woods/source/regions_v2 --out assets/environments/firefly_woods/map",
+  "quality_report": "docs/previews/firefly_woods-regions-v2/qualite.json",
+  "scale_comparison": "docs/previews/firefly_woods-regions-v2/echelle.png",
+  "quality_status": "En cours ; ne pas considérer les images comme une livraison conforme.",
   "provenance": {
-    "tool": "image_gen intégré",
-    "originals_preserved": true,
-    "checksum_file": "source/SHA256SUMS.txt",
-    "design_reference": "origin/claude/utiliser-mon-git-oofk0o:docs/design/CARTES.md (absent de main au démarrage)"
+    "records": "source/regions_v2/PROVENANCE.json",
+    "sha256": "source/regions_v2/SHA256SUMS.txt",
+    "previous_recipe": "source/regions_v2/job_previous.json",
+    "old_regions_reused": false,
+    "third_party_assets": false
   },
-  "publication": {
-    "stage": "brouillon pour revue du propriétaire",
-    "native_image": "assets/environments/firefly_woods/map.webp",
-    "native_size": [
-      6270,
-      4180
-    ],
-    "working_size": [
-      5016,
-      3344
-    ],
-    "quality_status": "neuf régions détaillées ; finition supplémentaire du seul secteur fine/1_1. Netteté uniforme et échelle architecturale non validées.",
-    "remaining": [
-      "Valider netteté et échelle aux quatre références",
-      "Terminer les mesures de circulation",
-      "Peinture des collisions par le propriétaire puis intégration par Claude"
-    ],
-    "native_sha256": "40b84562d489004bf3df3a6f48b5c6b4ef639fbc97914a5a1e06f89ef775a2d0",
-    "working_sha256": "66097e31584c8ecd0fa44f98b31044f90947c935bfc86aabf3e4306f14d01e40"
+  "collision_handoff": {
+    "protected_files": "collision.png, painted.webp et field.png restent inchangés.",
+    "owner_paints": true,
+    "integration_owner": "Claude",
+    "bridge_access": "Aucune retouche locale : demande abandonnée."
   }
 }
