@@ -1,0 +1,47 @@
+{
+  "id": "map.scorched_verge",
+  "status": "wip",
+  "stage": "composition à valider avant régions",
+  "world_size": [
+    5016,
+    3344
+  ],
+  "composition_size": [
+    1536,
+    1024
+  ],
+  "composition": "composition.png",
+  "hazards": "hazards.png",
+  "hazard_annotations": "source/hazard_annotations.json",
+  "mode": "imagegen intégré, sans API",
+  "prompts": [
+    "source/PROMPT.txt",
+    "source/PROMPT_RETOUCHE.txt",
+    "source/PROMPT_SECURITE_PALISSADE.txt",
+    "source/PROMPT_ARENE_ABRIS.txt"
+  ],
+  "references": [
+    "assets/environments/cascade_ruins/map.webp",
+    "assets/environments/storm_highlands/map.webp"
+  ],
+  "owner_approved": false,
+  "regions_generated": false,
+  "collisions_generated": false,
+  "gameplay_modified": false,
+  "arena": {
+    "shape": "polygone irrégulier",
+    "cover_boulders": 2,
+    "centres_percent": [
+      [
+        78.5,
+        15.5
+      ],
+      [
+        88.5,
+        23
+      ]
+    ],
+    "clearance": "contrôle visuel favorable ; collisions et navigation à confirmer par le propriétaire"
+  },
+  "hazard_count": 10
+}

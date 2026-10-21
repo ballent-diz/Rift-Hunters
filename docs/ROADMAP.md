@@ -150,3 +150,8 @@ C5 — Reprise des animations des 16 Échos : Livré (Codex), 19 octobre, après
 ### Sceau ancien — visuel du mode défense d’autel
 
 Livré (Codex, 21 octobre) : objet peint animé, cinq animations précalculées par Godot, icône 64 px, sources et aperçus dans docs/previews/altar-seal/. Contrôle assets : 313 valides, 0 erreur ; aucune modification de gameplay. En attente de raccordement par Claude.
+
+
+### Lisière calcinée — carte 6, Terres dévastées
+
+Composition livrée pour validation (Codex, 21 octobre) : lisière brûlée et masque de dix plaques contrôlé. Arène polygonale à deux rochers-abris ; circulation à confirmer par le propriétaire. Arrêt avant régions, collisions et gameplay. Voir docs/maps/LISIERE_CALCINEE.md.
