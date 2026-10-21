@@ -6,6 +6,7 @@ Mode d'emploi complet : docs/maps/DE_L_IMAGE_AU_NIVEAU.md
   python3 tools/art/collision_mask.py export three_rifts   # prépare le dossier de travail (à faire une fois)
   python3 tools/art/collision_mask.py build three_rifts    # masque -> field.png + manifeste + aperçu
   python3 tools/art/collision_mask.py overlay three_rifts carte_peinte.png   # carte peinte en rouge -> masque
+  python3 tools/art/collision_mask.py overlay mist_ford carte_peinte.png --no-water   # gués : l'eau n'est pas bloquée d'office
 
 Dossier de travail : assets/concepts/incoming/map.<arène>/collision/
   reference.jpg : la carte complète, 1 pixel = 1 unité du monde (fond pour peindre, non versionné) ;
@@ -121,7 +122,7 @@ def water_mask(pixels, min_size=150):
     return np.isin(labels, 1 + np.nonzero(sizes >= min_size)[0])
 
 
-def overlay(arena_id, image_path):
+def overlay(arena_id, image_path, water=True):
     world, env_id = arena_info(arena_id)
     entry = json.loads(MANIFEST.read_text(encoding="utf-8"))["entries"][env_id]
     folder = work_dir(arena_id)
@@ -143,7 +144,9 @@ def overlay(arena_id, image_path):
         np.maximum(ndimage.uniform_filter(known, window), 1e-6)
     blocked = np.where(notes, share >= 0.8, blocked)
     # L'eau n'est jamais praticable, même là où la peinture s'arrête (bord de carte, cascades).
-    blocked |= water_mask(np.asarray(reference).astype(float))
+    # (--no-water : carte à gués, où une partie de l'eau est praticable ; le propriétaire peint alors l'eau profonde.)
+    if water:
+        blocked |= water_mask(np.asarray(reference).astype(float))
     blocked = ndimage.binary_closing(ndimage.binary_opening(blocked), iterations=2)
     # Le bord de la carte n'est jamais praticable (la peinture s'arrête souvent un pixel avant).
     blocked[:3, :] = blocked[-3:, :] = True
@@ -204,8 +207,8 @@ def build(arena_id):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) == 4 and sys.argv[1] == "overlay":
-        overlay(sys.argv[2], sys.argv[3])
+    if len(sys.argv) in (4, 5) and sys.argv[1] == "overlay":
+        overlay(sys.argv[2], sys.argv[3], water="--no-water" not in sys.argv[4:])
     elif len(sys.argv) == 3 and sys.argv[1] in ("export", "build"):
         {"export": export, "build": build}[sys.argv[1]](sys.argv[2])
     else:

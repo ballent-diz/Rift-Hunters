@@ -205,8 +205,8 @@ static func _unlock_lines(profile: ProfileData, before: Array[StringName]) -> Pa
 	return lines
 
 
-## Mode test du propriétaire : toutes les cartes et le Cauchemar.
+## Mode test du propriétaire : toutes les cartes (campagne et hors campagne) et le Cauchemar.
 static func unlock_all_for_testing(profile: ProfileData) -> void:
-	for map: CampaignMapData in maps_in_order():
-		profile.unlock("arena:" + String(map.arena_id))
+	for id: StringName in GameDB.arenas:
+		profile.unlock("arena:" + String(id))
 	profile.data["campaign"]["nightmare_unlocked"] = true

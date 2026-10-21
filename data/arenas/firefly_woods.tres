@@ -128,34 +128,34 @@ script = ExtResource("4")
 enemies = Array[StringName]([&"skitterling", &"lunger", &"husk", &"spitter"])
 weights = Array[float]([3.0, 1.2, 1.4, 1.2])
 count = 120
-elites = Array[StringName]([&"menhir_warden", &"broodmother", &"shade_stalker"])
+elites = Array[StringName]([&"crystal_warden", &"broodmother", &"shade_stalker"])
 spawn_rate = 4.2
 max_alive = 120
 
 [sub_resource type="Resource" id="level_zone_1"]
 script = ExtResource("5")
 name_key = "ZONE_FIREFLY_WOODS_1_NAME"
-anchor = Vector2(-878, 334)
+anchor = Vector2(-702, 267)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2"), SubResource("zone_wave_3")])
-exit_walls = Array[Rect2]([])
+exit_walls = Array[Rect2]([Rect2(16, -276, 264, 45)])
 heal_ratio = 0.25
 reward_chest = true
 
 [sub_resource type="Resource" id="level_zone_2"]
 script = ExtResource("5")
 name_key = "ZONE_FIREFLY_WOODS_2_NAME"
-anchor = Vector2(-326, -920)
+anchor = Vector2(-261, -736)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_4"), SubResource("zone_wave_5"), SubResource("zone_wave_6")])
-exit_walls = Array[Rect2]([])
+exit_walls = Array[Rect2]([Rect2(232, -224, 48, 192)])
 heal_ratio = 0.25
 reward_chest = true
 
 [sub_resource type="Resource" id="level_zone_3"]
 script = ExtResource("5")
 name_key = "ZONE_FIREFLY_WOODS_3_NAME"
-anchor = Vector2(1505, 334)
+anchor = Vector2(1204, 267)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_7"), SubResource("zone_wave_8"), SubResource("zone_wave_9")])
-exit_walls = Array[Rect2]([])
+exit_walls = Array[Rect2]([Rect2(1096, -316, 256, 45)])
 heal_ratio = 0.25
 reward_chest = true
 
@@ -164,12 +164,12 @@ script = ExtResource("1")
 id = &"firefly_woods"
 name_key = "ARENA_FIREFLY_WOODS_NAME"
 desc_key = "ARENA_FIREFLY_WOODS_DESC"
-size = Vector2(5016, 3344)
+size = Vector2(4013, 2675)
 navigation_cell_size = 48.0
 boss_time = 420.0
 boss_id = &"root_sentinel"
-finale_center = Vector2(1555, -920)
-finale_walls = Array[Rect2]([])
+finale_center = Vector2(1244, -736)
+finale_walls = Array[Rect2]([Rect2(1096, -316, 256, 45)])
 finale_travel_key = "FINALE_TRAVEL_GUARDIAN"
 elite_first_time = 90.0
 elite_interval = 60.0
@@ -177,12 +177,12 @@ elite_enemy_ids = Array[StringName]([&"shade_stalker", &"menhir_warden", &"brood
 environment_id = &"environment.firefly_woods"
 ground_color = Color(0.1, 0.11, 0.17, 1.0)
 ground_detail_color = Color(0.15, 0.16, 0.24, 1.0)
-unlocked_by_default = false
+unlocked_by_default = true
 xp_mult = 1.5
 zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
 waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5")]
 night = 0.82
 light_radius = 320.0
 echo_light_radius = 130.0
-firefly_glades = Array[Vector2]([Vector2(-1831, 309), Vector2(-125, 385), Vector2(-1756, -1145), Vector2(-326, -920), Vector2(2057, -167), Vector2(1505, 660)])
+firefly_glades = Array[Vector2]([Vector2(-1465, 247), Vector2(-100, 308), Vector2(-1405, -916), Vector2(-261, -736), Vector2(1646, -134), Vector2(1204, 528)])
 firefly_radius = 240.0

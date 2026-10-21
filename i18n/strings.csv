@@ -621,6 +621,8 @@ ZONE_THREE_RIFTS_1_NAME,Le Gué des Ruines,The Ruins Ford
 ZONE_THREE_RIFTS_2_NAME,La Cour des Cascades,The Cascade Courtyard
 ARENA_FIREFLY_WOODS_NAME,Bois des Lucioles,Firefly Woods
 ARENA_FIREFLY_WOODS_DESC,"La nuit tombe sur la forêt : avancez de clairière en clairière, puis réveillez le gardien de l'arbre-monde.","Night falls on the forest: advance from glade to glade, then awaken the guardian of the world tree."
+ARENA_MIST_FORD_NAME,Gué des Brumes,Misty Ford
+ARENA_MIST_FORD_DESC,"Défendez le sceau ancien au cœur du delta : les vagues arrivent par les gués, où tout le monde patauge.","Defend the ancient seal at the heart of the delta: waves cross the fords, where everyone wades slowly."
 ZONE_FIREFLY_WOODS_1_NAME,La Prairie du Sous-bois,The Underwood Meadow
 ZONE_FIREFLY_WOODS_2_NAME,La Clairière du Sanctuaire,The Shrine Glade
 ZONE_FIREFLY_WOODS_3_NAME,Le Plateau de Mousse,The Moss Plateau
@@ -941,10 +943,8 @@ TREE_SKIN_TREE,Arbre du Chasseur,Hunter tree
 TREE_SKIN_REFUGE,Améliorations du refuge,Refuge upgrades
 TREE_SKIN_EMPTY,Emplacement libre,Empty slot
 TREE_SKIN_NEED_SHARDS,Éclats insuffisants,Not enough Shards
-OPTIONS_TEST_MODE,Mode test : apprendre tout l'arbre du Chasseur,Test mode: learn the whole Hunter tree
-OPTIONS_TEST_MODE_HINT,"Outil de développement (visible seulement depuis Godot) : tous les nœuds appris, paliers ouverts, 200 Points de Chasseur en plus. Activez et équipez ensuite les sorts dans l'arbre.","Development tool (only visible from Godot): every node learned, tiers open, 200 extra Hunter Points. Then activate and equip spells in the tree."
-OPTIONS_TEST_ECHOES,Mode test : débloquer tous les Échos,Test mode: unlock every Echo
-OPTIONS_TEST_ECHOES_HINT,"Outil de développement (visible seulement depuis Godot) : les 16 Échos sont débloqués et apparaissent au bestiaire, sans avoir à capturer d'Écho errant.","Development tool (only visible from Godot): all 16 Echoes are unlocked and listed in the bestiary, without capturing wandering Echoes."
+OPTIONS_TEST_DEV,Test dev,Dev test
+OPTIONS_TEST_DEV_HINT,"Outil de développement (visible seulement depuis Godot) : tout l'arbre du Chasseur appris (200 Points de Chasseur en plus), les 16 Échos débloqués, toutes les cartes et le Cauchemar ouverts, 10 000 éclats. Activez et équipez ensuite les sorts dans l'arbre.","Development tool (only visible from Godot): the whole Hunter tree learned (200 extra Hunter Points), all 16 Echoes unlocked, every map and Nightmare open, 10,000 shards. Then activate and equip spells in the tree."
 TREE_SKIN_OVERVIEW,Vue d’ensemble,Overview
 
 C5_PASSIVES,I · PASSIFS,I · PASSIVES
@@ -1424,6 +1424,15 @@ BOSS_ROOT_SENTINEL_NAME,Sentinelle des Racines,Root Sentinel
 BOSS_ROOT_SENTINEL_TITLE,Gardien du Bois des Lucioles,Guardian of the Firefly Woods
 BOSS_ROOT_SENTINEL_PHASE1,Veille des racines,Root vigil
 BESTIARY_BOSS_LORE_ROOT_SENTINEL,"Un vieux menhir que les racines ont fini par habiter. La Faille l'a réveillé : il charge, fait trembler le sol et appelle les Corrompus du sous-bois.","An old menhir the roots finally made their home. The Rift woke it: it charges, shakes the ground and calls the Hollowed of the undergrowth."
+BOSS_MIST_CHIMERA_NAME,Chimère des Brumes,Mist Chimera
+BOSS_MIST_CHIMERA_TITLE,Ce que le sceau retenait,What the Seal Held Back
+BOSS_MIST_CHIMERA_PHASE1,Chasse dans la brume,Hunt in the mist
+BOSS_PATTERN_MIST_CLAW,Griffes de givre,Frost Claws
+BOSS_PATTERN_BLINK,Pas de brume,Mist Step
+BOSS_PATTERN_SUMMIT_LEAP,Bond des cimes,Summit Leap
+BOSS_PATTERN_STORM_ROAR,Rugissement d'orage,Storm Roar
+BESTIARY_BOSS_LORE_MIST_CHIMERA,"La première bête des Hautes Terres que la Faille ait touchée. Le sceau du Gué la tenait endormie ; brisé, il la libère. Elle se fond dans la brume et surgit là où on ne l'attend pas.","The first Highland beast the Rift ever touched. The Ford's seal kept it asleep; once broken, it sets her free. She melts into the mist and strikes where no one expects."
+ALTAR_SHATTERED,Le sceau se brise… ce qu'il retenait s'éveille !,The seal shatters… what it held back awakens!
 BESTIARY_BOSS_LORE_ASTRAVORN,"Le souverain de l'orage qui règne sur les Hautes Terres. Il frappe de ses griffes, lance des vagues d'ombre et absorbe l'énergie de ses ennemis.","The storm sovereign who rules the Highlands. It strikes with its claws, casts waves of shadow and absorbs its foes' energy."
 NIGHT_INTRO,La nuit tombe : restez près des lucioles pour voir vos ennemis.,Night falls: stay near the fireflies to see your enemies.
 ALTAR_INTRO,Protégez le sceau ancien pendant %d vagues !,Protect the ancient seal for %d waves!
@@ -1433,5 +1442,4 @@ ALTAR_DESTROYED,Le sceau est brisé…,The seal is broken…
 ALTAR_STATUS,Sceau %d / %d,Seal %d / %d
 ALTAR_STATUS_WAVE,Vague %d / %d · encore %d s,Wave %d / %d · %d s left
 ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
-ALTAR_SEALED,Le sceau se referme… quelque chose s'éveille !,The seal closes… something awakens!
 FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."

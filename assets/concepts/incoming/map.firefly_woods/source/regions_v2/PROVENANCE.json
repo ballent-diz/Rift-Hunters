@@ -1,0 +1,140 @@
+{
+  "generator": "image_gen intégré, sans API ni source tierce",
+  "grid": [
+    4,
+    3
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "plan": "assets/concepts/incoming/map.firefly_woods/source/map_source.png",
+  "prompt": "PROMPT_REGION.txt",
+  "prompt_usage": "Texte officiel inchangé ; image1 = région input, image2 = reference_scale.png.",
+  "detail_density": 0.75,
+  "presentation_density": 2.25,
+  "regions": [
+    {
+      "region": "r0_0",
+      "input": "regions/r0_0_input.png",
+      "output": "regions/r0_0.png",
+      "native_size": [
+        1320,
+        1191
+      ],
+      "sha256": "cddda1362fb210e18b87b04929c623982de229c25c97bba7c9f2b95b4daf8955"
+    },
+    {
+      "region": "r0_1",
+      "input": "regions/r0_1_input.png",
+      "output": "regions/r0_1.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "449a9a959243700899bd8d6ae28cb68d8932bd5633e09263cd60ab65536f930e"
+    },
+    {
+      "region": "r0_2",
+      "input": "regions/r0_2_input.png",
+      "output": "regions/r0_2.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "4b9f7d0740784b936760419a6b4985f780d92aba7044cfb574655eb911d48932"
+    },
+    {
+      "region": "r0_3",
+      "input": "regions/r0_3_input.png",
+      "output": "regions/r0_3.png",
+      "native_size": [
+        1321,
+        1191
+      ],
+      "sha256": "515777e3c6ae75de43ab439c0dbe50fe1b23394c7f94e4241ec399ced8aa4c74"
+    },
+    {
+      "region": "r1_0",
+      "input": "regions/r1_0_input.png",
+      "output": "regions/r1_0.png",
+      "native_size": [
+        1245,
+        1263
+      ],
+      "sha256": "cb1331752708a40621b4558ad0feaad465c2cb08e12e26319f86351d642afbaa"
+    },
+    {
+      "region": "r1_1",
+      "input": "regions/r1_1_input.png",
+      "output": "regions/r1_1.png",
+      "native_size": [
+        1314,
+        1197
+      ],
+      "sha256": "9e6ddc8b11e79e88c5b23aac5944f21ab2b487a04f8faa4e7980a36ed83ee20b"
+    },
+    {
+      "region": "r1_2",
+      "input": "regions/r1_2_input.png",
+      "output": "regions/r1_2.png",
+      "native_size": [
+        1313,
+        1198
+      ],
+      "sha256": "d7d270c35bbe6621a921aa893635e0473d26bb1b0c3a0c7d4b4802ab3aea66a0"
+    },
+    {
+      "region": "r1_3",
+      "input": "regions/r1_3_input.png",
+      "output": "regions/r1_3.png",
+      "native_size": [
+        1245,
+        1263
+      ],
+      "sha256": "607142ef200fcf8f4bbd71cb887f528f35462b73fdcc86144ad9a7295336daad"
+    },
+    {
+      "region": "r2_0",
+      "input": "regions/r2_0_input.png",
+      "output": "regions/r2_0.png",
+      "native_size": [
+        1321,
+        1191
+      ],
+      "sha256": "746374cb14e18d518aefb8294662e69d9e57d682a04c6e280d084501b15f66ac"
+    },
+    {
+      "region": "r2_1",
+      "input": "regions/r2_1_input.png",
+      "output": "regions/r2_1.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "fd75e59136e88ddf8034c18952a7a030755c8e093293a4e8d582a33675f4abc2"
+    },
+    {
+      "region": "r2_2",
+      "input": "regions/r2_2_input.png",
+      "output": "regions/r2_2.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "012b82735d72531290b130b9291ec57a481c4945e5dfa7d920404f90010f3e5c"
+    },
+    {
+      "region": "r2_3",
+      "input": "regions/r2_3_input.png",
+      "output": "regions/r2_3.png",
+      "native_size": [
+        1321,
+        1191
+      ],
+      "sha256": "f324a244bd2e18c41abed559d081463a250075ea1de63499a01f13085c910b79"
+    }
+  ],
+  "processing": "Assemblage officiel avec fondus de recouvrement, puis présentation ×3. Aucun détail ajouté par filtre ou bruit.",
+  "bridge_access": "Aucune correction locale : demande abandonnée par le propriétaire."
+}

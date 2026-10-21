@@ -8,7 +8,7 @@
 script = ExtResource("2")
 start_time = 0.0
 end_time = 60.0
-enemies = [&"heath_runner"]
+enemies = [&"skitterling"]
 weights = [1.0]
 spawn_rate = 1.3
 max_alive = 60
@@ -17,7 +17,7 @@ max_alive = 60
 script = ExtResource("2")
 start_time = 60.0
 end_time = 150.0
-enemies = [&"heath_runner", &"ash_newt"]
+enemies = [&"skitterling", &"spitter"]
 weights = [3.0, 1.0]
 spawn_rate = 2.0
 max_alive = 100
@@ -26,7 +26,7 @@ max_alive = 100
 script = ExtResource("2")
 start_time = 150.0
 end_time = 240.0
-enemies = [&"heath_runner", &"ash_newt", &"slate_scarab"]
+enemies = [&"skitterling", &"spitter", &"husk"]
 weights = [3.0, 1.0, 1.0]
 spawn_rate = 2.6
 max_alive = 140
@@ -35,7 +35,7 @@ max_alive = 140
 script = ExtResource("2")
 start_time = 240.0
 end_time = 330.0
-enemies = [&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy", &"heath_runner"]
+enemies = [&"skitterling", &"spitter", &"husk", &"lunger", &"skitterling"]
 weights = [3.0, 1.0, 1.0, 1.0, 0.4]
 spawn_rate = 3.2
 max_alive = 190
@@ -44,7 +44,7 @@ max_alive = 190
 script = ExtResource("2")
 start_time = 330.0
 end_time = 9999.0
-enemies = [&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy", &"heath_runner", &"slate_scarab"]
+enemies = [&"skitterling", &"spitter", &"husk", &"lunger", &"skitterling", &"husk"]
 weights = [3.0, 1.2, 1.4, 1.2, 0.6, 0.4]
 spawn_rate = 4.0
 max_alive = 240
@@ -55,7 +55,7 @@ time = 120.0
 kind = &"swarm_ring"
 name_key = "EVENT_SWARM_RING"
 params = {
-"enemy": "heath_runner",
+"enemy": "skitterling",
 "count": 36,
 "radius": 420.0
 }
@@ -80,7 +80,7 @@ time = 300.0
 kind = &"swarm_ring"
 name_key = "EVENT_SWARM_RING"
 params = {
-"enemy": "heath_runner",
+"enemy": "skitterling",
 "count": 48,
 "radius": 440.0
 }
@@ -116,4 +116,4 @@ unlocked_by_default = true
 waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5")]
 events = [SubResource("run_event_data_6"), SubResource("run_event_data_7"), SubResource("run_event_data_8"), SubResource("run_event_data_9")]
 
-elite_enemy_ids = Array[StringName]([&"menhir_warden", &"storm_knight", &"peak_chimera"])
+elite_enemy_ids = Array[StringName]([&"crystal_warden", &"shade_stalker", &"broodmother"])
