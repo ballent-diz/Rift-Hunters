@@ -5,6 +5,9 @@ extends RefCounted
 const WEIGHT_RECRUIT := 1.6
 const WEIGHT_EMPOWER := 1.0
 const WEIGHT_EVOLVE := 4.0
+## Jalons de campagne : reliques proposées à chaque choix (en plus des mutations et des Échos).
+const MILESTONE_RELICS := 2
+const WEIGHT_RELIC := 1.2
 
 
 static func is_upgrade_unlocked(ctx: RunContext, upgrade: UpgradeData) -> bool:
@@ -46,6 +49,9 @@ static func candidates(ctx: RunContext) -> Array[UpgradeOffer]:
 			continue
 		if not _requires_ok(ctx, upgrade.requires_any_monster):
 			continue
+		# Campagne : pas de petites caractéristiques (l'arbre du Chasseur les donne), seulement les mutations.
+		if ctx.milestones() and upgrade.kind != UpgradeData.Kind.MUTATION:
+			continue
 		var offer := UpgradeOffer.new()
 		offer.kind = UpgradeOffer.Kind.MUTATION if upgrade.kind == UpgradeData.Kind.MUTATION else UpgradeOffer.Kind.STAT
 		offer.key = offer_key
@@ -65,6 +71,11 @@ static func candidates(ctx: RunContext) -> Array[UpgradeOffer]:
 			result.append(_dynamic(UpgradeOffer.Kind.EMPOWER, "empower:" + String(id), id, null, WEIGHT_EMPOWER))
 		for evo: EvolutionData in ctx.allies.available_evolutions(ally):
 			result.append(_dynamic(UpgradeOffer.Kind.EVOLVE, "evolve:" + String(evo.id), id, evo, WEIGHT_EVOLVE))
+	if ctx.milestones():
+		for relic: RelicData in relic_choices(ctx, MILESTONE_RELICS):
+			var offer: UpgradeOffer = _dynamic(UpgradeOffer.Kind.RELIC, "relic:" + String(relic.id), &"", null, WEIGHT_RELIC)
+			offer.relic = relic
+			result.append(offer)
 	return result
 
 
@@ -121,6 +132,8 @@ static func apply(ctx: RunContext, offer: UpgradeOffer) -> void:
 			ctx.player.heal(ctx.player.max_hp * 0.3)
 		UpgradeOffer.Kind.SHARDS:
 			ctx.stats.add(&"shards_earned_raw", 15.0)
+		UpgradeOffer.Kind.RELIC:
+			apply_relic(ctx, offer.relic)
 	ctx.stats.add(&"upgrades_taken")
 
 

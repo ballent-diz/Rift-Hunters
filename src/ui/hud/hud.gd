@@ -96,8 +96,10 @@ func _draw() -> void:
 	_draw_vignette(w, h, player)
 	# Barre d'XP (haut, pulse sur le tempo de la musique) + niveau
 	var pulse: float = 0.0 if Settings.reduce_flashes else _beat
-	_bar(Rect2(0, 0, w, 10 + 3.0 * pulse), player.xp_ratio(), Color(0.35, 0.85, 1.0).lightened(0.3 * pulse))
-	var level_text: String = tr("HUD_LEVEL") % player.level
+	# Campagne (jalons) : pas d'XP, le compteur donne les choix obtenus.
+	if not ctx.milestones():
+		_bar(Rect2(0, 0, w, 10 + 3.0 * pulse), player.xp_ratio(), Color(0.35, 0.85, 1.0).lightened(0.3 * pulse))
+	var level_text: String = tr("HUD_MILESTONES") % (player.level - 1) if ctx.milestones() else tr("HUD_LEVEL") % player.level
 	_text(Vector2(16, 40), level_text, 22, UiKit.ACCENT)
 	if player.pending_levels > 0:
 		# Choix de niveau en réserve (sans pause) : rappel et touche pour les ouvrir.

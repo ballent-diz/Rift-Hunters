@@ -420,11 +420,15 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 		ctx.stats.add(StringName("boss_%s_killed" % enemy.boss_data.id))
 		ctx.events.boss_defeated.emit(enemy)
 		return
+	# Campagne (jalons) : pas d'XP à ramasser.
+	var drops_xp: bool = not ctx.milestones()
 	if enemy.is_obstacle:
-		ctx.pickups.spawn_xp(pos, enemy.xp_value)
+		if drops_xp:
+			ctx.pickups.spawn_xp(pos, enemy.xp_value)
 		return
 	ctx.stats.add(StringName("kills_" + enemy.data.id))
-	ctx.pickups.spawn_xp(pos, enemy.xp_value)
+	if drops_xp:
+		ctx.pickups.spawn_xp(pos, enemy.xp_value)
 	ctx.stats.add(&"shards_earned_raw", ctx.balance.shards_per_kill)
 	var heal_chance: float = ctx.balance.heal_drop_chance
 	if ctx.player.hp < ctx.player.max_hp * ctx.balance.heal_low_hp_ratio:
@@ -434,6 +438,8 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 	if enemy.is_elite:
 		ctx.stats.add(&"elites_killed")
 		ctx.stats.add(&"shards_earned_raw", ctx.balance.shards_per_elite)
+		if ctx.arena.milestone_on_elite:
+			ctx.events.milestone_reached.emit()
 		ctx.stats.add(&"essence_earned_raw", ctx.balance.essence_per_elite + ctx.player.stats.get_value(StatKeys.ESSENCE_GAIN))
 		ctx.pickups.spawn_chest(pos)
 		_maybe_spawn_capture(pos)

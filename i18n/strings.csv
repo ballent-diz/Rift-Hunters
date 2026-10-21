@@ -20,6 +20,7 @@ PAUSE_RESUME,Reprendre,Resume
 PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
 PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit · Manette prise en charge,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click · Gamepad supported
 HUD_LEVEL,Niv. %d,Lv. %d
+HUD_MILESTONES,Jalons : %d,Milestones: %d
 HUD_CHOICES_RESERVED,%d choix en réserve [%s],%d choice(s) stored [%s]
 HUD_DASH_READY,Ruée prête [Espace],Dash ready [Space]
 HUD_DASH_CD,Ruée : %.1fs,Dash: %.1fs
@@ -35,6 +36,7 @@ HUD_EVOLUTION,Évolution : %s,Evolution: %s
 BOSS_HEART_EXPOSED,CŒUR EXPOSÉ ×2,HEART EXPOSED ×2
 BOSS_INVULNERABLE,Invulnérable,Invulnerable
 LEVELUP_TITLE,Niveau %d !,Level %d!
+MILESTONE_TITLE,Jalon franchi : un choix !,Milestone reached: make a choice!
 LEVELUP_REMAINING,encore %d en réserve,%d more stored
 LEVELUP_BANISH_TITLE,Choisissez une carte à bannir,Choose a card to banish
 LEVELUP_REROLL,Relancer (%d),Reroll (%d)

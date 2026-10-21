@@ -179,6 +179,7 @@ ground_color = Color(0.1, 0.11, 0.17, 1.0)
 ground_detail_color = Color(0.15, 0.16, 0.24, 1.0)
 unlocked_by_default = true
 xp_mult = 1.5
+progression = &"milestones"
 zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
 waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5")]
 night = 0.82

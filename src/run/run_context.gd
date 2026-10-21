@@ -48,6 +48,11 @@ var flood: FloodDirector
 var night: NightDirector
 
 
+## Campagne : choix aux jalons, sans XP (ArenaData.progression).
+func milestones() -> bool:
+	return arena.progression == &"milestones"
+
+
 func minutes() -> float:
 	return time / 60.0
 

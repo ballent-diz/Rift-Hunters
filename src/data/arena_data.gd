@@ -38,6 +38,12 @@ extends Resource
 @export var zones: Array[LevelZoneData] = []
 ## Multiplicateur d'XP des Corrompus (mode zones : nombre fini d'ennemis, il faut garder le rythme des niveaux).
 @export var xp_mult: float = 1.0
+## Progression pendant la partie : « levels » (mode survie : XP et montées de niveau) ou « milestones » (campagne :
+## pas d'XP ; un choix à chaque jalon — fin de vague, faille fermée, vague d'autel tenue —, sans les petites
+## caractéristiques, déjà dans l'arbre du Chasseur ; docs/design/MODES.md).
+@export var progression: StringName = &"levels"
+## Jalons : une élite tuée en est un aussi (cartes à peu de vagues, comme la fermeture de failles).
+@export var milestone_on_elite: bool = false
 @export var events: Array[RunEventData] = []
 @export var elite_first_time: float = 90.0
 @export var elite_interval: float = 60.0

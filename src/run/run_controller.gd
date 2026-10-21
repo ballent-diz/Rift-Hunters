@@ -105,6 +105,13 @@ func start(setup: RunSetup) -> void:
 	ctx.events.level_up.connect(func(level: int) -> void:
 		Audio.play_sfx(&"level_up")
 		ctx.fx.text(ctx.player.global_position + Vector2(0, -60), tr("LEVELUP_TITLE") % level, UiKit.ACCENT))
+	ctx.events.milestone_reached.connect(func() -> void:
+		if ctx.milestones():
+			ctx.stats.add(&"milestones")
+			ctx.player.stats.add_modifier(StatKeys.DAMAGE, 0.0, ctx.balance.milestone_damage_pct)
+			ctx.player.heal(ctx.player.max_hp * ctx.balance.milestone_heal_ratio)
+			ctx.player.grant_level()
+			release_choices = true)
 	ctx.events.event_started.connect(func(key: String) -> void:
 		if key == "FINALE_OPENING":
 			release_choices = true)
