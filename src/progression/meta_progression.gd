@@ -72,6 +72,8 @@ static func _update_records(profile: ProfileData, result: Dictionary, victory: b
 	records["best_time"] = maxf(float(records["best_time"]), float(result.get("time", 0.0)))
 	records["best_level"] = maxi(int(records["best_level"]), int(result.get("level", 0)))
 	records["best_kills"] = maxi(int(records["best_kills"]), int(result.get("kills", 0)))
+	# Carte bonus à vagues infinies : meilleure vague atteinte.
+	records["endless_best_wave"] = maxi(int(records.get("endless_best_wave", 0)), int(result.get("endless_wave", 0)))
 	if victory:
 		records["highest_tension_won"] = maxi(int(records["highest_tension_won"]), int(result.get("difficulty_level", 0)))
 

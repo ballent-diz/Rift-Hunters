@@ -80,8 +80,10 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 	enemy.position = ctx.obstacles.push_out(pos, data.radius)
 	enemy.spawn_time = ctx.time
 	var minutes: float = ctx.minutes()
-	var hp_mult: float = (1.0 + ctx.balance.enemy_hp_growth_per_min * minutes) * ctx.difficulty.enemy_hp_mult
-	var dmg_mult: float = (1.0 + ctx.balance.enemy_damage_growth_per_min * minutes) * ctx.difficulty.enemy_damage_mult
+	var hp_mult: float = (1.0 + ctx.balance.enemy_hp_growth_per_min * minutes) * ctx.difficulty.enemy_hp_mult \
+		* ctx.arena.enemy_hp_mult
+	var dmg_mult: float = (1.0 + ctx.balance.enemy_damage_growth_per_min * minutes) * ctx.difficulty.enemy_damage_mult \
+		* ctx.arena.enemy_damage_mult
 	var speed_mult: float = ctx.difficulty.enemy_speed_mult
 	enemy.base_defense = data.defense
 	enemy.radius = data.radius

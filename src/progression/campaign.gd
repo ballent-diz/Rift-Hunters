@@ -7,21 +7,39 @@ extends RefCounted
 
 const NORMAL := &"normal"
 const NIGHTMARE := &"nightmare"
+## Pistes (ChapterData.track) : campagne principale et épreuves de survie.
+const MAIN := &"main"
+const SURVIVAL := &"survival"
 
 
 # --- Structure
 
-static func maps_in_order() -> Array[CampaignMapData]:
+static func maps_in_order(track: StringName = MAIN) -> Array[CampaignMapData]:
 	var maps: Array[CampaignMapData] = []
-	for chapter: ChapterData in GameDB.chapters_in_order():
+	for chapter: ChapterData in chapters_of(track):
 		maps.append_array(chapter.maps)
 	return maps
 
 
+static func chapters_of(track: StringName) -> Array[ChapterData]:
+	var list: Array[ChapterData] = []
+	for chapter: ChapterData in GameDB.chapters_in_order():
+		if chapter.track == track:
+			list.append(chapter)
+	return list
+
+
+## Piste de la carte (MAIN si elle n'est dans aucun chapitre).
+static func track_of(arena_id: StringName) -> StringName:
+	var chapter: ChapterData = chapter_of(arena_id)
+	return chapter.track if chapter else MAIN
+
+
 static func map_data(arena_id: StringName) -> CampaignMapData:
-	for map: CampaignMapData in maps_in_order():
-		if map.arena_id == arena_id:
-			return map
+	for chapter: ChapterData in GameDB.chapters_in_order():
+		for map: CampaignMapData in chapter.maps:
+			if map.arena_id == arena_id:
+				return map
 	return null
 
 
@@ -37,7 +55,7 @@ static func is_campaign_map(arena_id: StringName) -> bool:
 	return map_data(arena_id) != null
 
 
-## Dernière carte du dernier chapitre : la gagner, c'est finir le jeu.
+## Dernière carte du dernier chapitre de la campagne principale : la gagner, c'est finir le jeu.
 static func final_map() -> CampaignMapData:
 	var maps: Array[CampaignMapData] = maps_in_order()
 	return maps.back() if not maps.is_empty() else null
@@ -103,7 +121,7 @@ static func best_pact(profile: ProfileData, arena_id: StringName) -> int:
 static func is_map_unlocked(profile: ProfileData, arena: ArenaData) -> bool:
 	if profile.has_unlock("arenas", arena.id):
 		return true
-	var maps: Array[CampaignMapData] = maps_in_order()
+	var maps: Array[CampaignMapData] = maps_in_order(track_of(arena.id))
 	for i: int in maps.size():
 		if maps[i].arena_id == arena.id:
 			return i == 0 or wins(profile, maps[i - 1].arena_id) > 0
@@ -186,7 +204,7 @@ static func apply_result(profile: ProfileData, result: Dictionary) -> Dictionary
 
 static func _unlocked_maps(profile: ProfileData) -> Array[StringName]:
 	var ids: Array[StringName] = []
-	for map: CampaignMapData in maps_in_order():
+	for map: CampaignMapData in maps_in_order(MAIN) + maps_in_order(SURVIVAL):
 		var arena: ArenaData = GameDB.arena(map.arena_id)
 		if arena and is_map_unlocked(profile, arena):
 			ids.append(map.arena_id)

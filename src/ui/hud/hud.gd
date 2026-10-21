@@ -136,6 +136,10 @@ func _draw() -> void:
 			HORIZONTAL_ALIGNMENT_CENTER, w)
 	elif ctx.altar and ctx.altar.phase != AltarDirector.Phase.BOSS:
 		_draw_altar_status(w)
+	elif ctx.arena.endless:
+		var best: int = int((Profile.profile.data["records"] as Dictionary).get("endless_best_wave", 0))
+		_text(Vector2(0, 66), tr("ENDLESS_STATUS") % [ctx.endless_wave(), best], 14, UiKit.GOLD,
+			HORIZONTAL_ALIGNMENT_CENTER, w)
 	elif ctx.boss == null:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
 		var boss_name: String = tr(GameDB.boss(ctx.arena.boss_id).name_key)

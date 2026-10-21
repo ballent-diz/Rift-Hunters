@@ -35,10 +35,25 @@ Réglage `ArenaData.progression = &"milestones"` (cartes du chapitre 1).
 Réglage `ArenaData.progression = &"levels"` (par défaut) : XP, niveaux, trois cartes au choix, réserve de choix ;
 on refait un build complet à chaque partie.
 
-- **Campagne de survie** (lot 2) : un chapitre de 5 étapes sur les cartes existantes, des vagues à la suite, de plus
-  en plus longues et dures ; choix « Campagne / Survie » au refuge ; progression, objectifs et records à part.
-- **Carte bonus** débloquée à la fin de la campagne de survie : très grande, vagues infinies (score = vague
-  atteinte).
+- **Épreuves de survie** (lot M2, `data/chapters/survival_trials.tres`, `ChapterData.track = &"survival"`) : une
+  piste à part, qui se débloque carte après carte sans toucher à la campagne principale. Refuge → Expédition :
+  boutons « Campagne / Survie ».
+
+  | Étape | Carte (décor) | Boss | Arrivée | Force des Corrompus | Famille |
+  |---|---|---|---|---|---|
+  | 1 | Plaine fracturée | Nébulorax | 7 min | ×1 | violette |
+  | 2 | Épreuve des Ruines | Sentinelle des Racines | 7 min 30 | PV ×1,1 | violette |
+  | 3 | Épreuve des Hautes Terres | Astravorn | 8 min | PV ×1,2, dégâts ×1,05 | violette |
+  | 4 | Épreuve du Bois (nuit) | Chimère des Brumes | 8 min 30 | PV ×1,3, dégâts ×1,1 | Hautes Terres |
+  | 5 | Épreuve du Gué (gués) | Nébulorax | 9 min | PV ×1,45, dégâts ×1,15 | Hautes Terres |
+
+  Toute la carte est ouverte (ni zones ni barrières) ; `ArenaData.enemy_hp_mult` / `enemy_damage_mult` règlent la
+  force par carte. Objectifs : terminer, peu de dégâts, élites. Première victoire : éclats et Point de Chasseur, comme
+  en campagne.
+- **Faille sans fin** (carte bonus, `endless_rift`), ouverte en finissant les cinq épreuves : décor des Hautes Terres
+  (le plus grand, 5016 × 5016, en attendant une carte géante dessinée), familles mêlées, **pas de boss** ; une vague
+  par minute (`endless_wave_duration`), +12 % d'apparitions par vague (`endless_spawn_growth`) en plus de la
+  croissance normale des PV. Score = vague atteinte, record au profil (`records.endless_best_wave`), affiché en jeu.
 
 ## Boutique (lot 3)
 

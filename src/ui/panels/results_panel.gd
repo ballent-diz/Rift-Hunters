@@ -20,8 +20,13 @@ func show_result(result: Dictionary, rewards: Dictionary) -> void:
 	visible = true
 	UiKit.clear(_box)
 	var victory: bool = result.get("victory", false)
-	_box.add_child(UiKit.title(tr("RESULT_VICTORY") if victory else tr("RESULT_DEFEAT"), 44,
-		UiKit.GOLD if victory else UiKit.DANGER, HORIZONTAL_ALIGNMENT_CENTER))
+	var endless_wave: int = int(result.get("endless_wave", 0))
+	if endless_wave > 0:
+		# Vagues infinies : pas de victoire possible, le score est la vague atteinte.
+		_box.add_child(UiKit.title(tr("RESULT_ENDLESS") % endless_wave, 44, UiKit.GOLD, HORIZONTAL_ALIGNMENT_CENTER))
+	else:
+		_box.add_child(UiKit.title(tr("RESULT_VICTORY") if victory else tr("RESULT_DEFEAT"), 44,
+			UiKit.GOLD if victory else UiKit.DANGER, HORIZONTAL_ALIGNMENT_CENTER))
 	var time: float = result.get("time", 0.0)
 	var summary: String = tr("RESULT_SUMMARY") % [int(time) / 60, int(time) % 60, int(result.get("level", 1)),
 		int(result.get("kills", 0))]

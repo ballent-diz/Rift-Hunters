@@ -1445,3 +1445,22 @@ ALTAR_STATUS,Sceau %d / %d,Seal %d / %d
 ALTAR_STATUS_WAVE,Vague %d / %d · encore %d s,Wave %d / %d · %d s left
 ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
 FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."
+ARENA_SURVIVAL_RUINS_NAME,Épreuve des Ruines,Ruins Trial
+ARENA_SURVIVAL_RUINS_DESC,"Les Ruines des Cascades grandes ouvertes : des vagues sans répit, puis la Sentinelle des Racines.","The Waterfall Ruins wide open: relentless waves, then the Root Sentinel."
+ARENA_SURVIVAL_HIGHLANDS_NAME,Épreuve des Hautes Terres,Highlands Trial
+ARENA_SURVIVAL_HIGHLANDS_DESC,"Les Hautes Terres d'Orage sans faille à fermer : tenez jusqu'à Astravorn.","The Storm Highlands with no rift to close: hold out until Astravorn."
+ARENA_SURVIVAL_WOODS_NAME,Épreuve du Bois,Woods Trial
+ARENA_SURVIVAL_WOODS_DESC,"La nuit du Bois des Lucioles, envahie par la meute des Hautes Terres. La Chimère des Brumes rôde.","The night of the Firefly Woods, overrun by the Highland pack. The Mist Chimera prowls."
+ARENA_SURVIVAL_FORD_NAME,Épreuve du Gué,Ford Trial
+ARENA_SURVIVAL_FORD_DESC,"Dernière épreuve : les gués ralentissent tout le monde, les Corrompus sont plus coriaces, et Nébulorax attend.","Final trial: the fords slow everyone, the Hollowed are tougher, and Nebulorax awaits."
+ARENA_ENDLESS_RIFT_NAME,Faille sans fin,Endless Rift
+ARENA_ENDLESS_RIFT_DESC,"Carte bonus : les vagues ne s'arrêtent jamais et grossissent chaque minute. Jusqu'où tiendrez-vous ?","Bonus map: the waves never stop and grow every minute. How far can you go?"
+CHAPTER_SURVIVAL_TRIALS_NAME,Épreuves de survie,Survival Trials
+CHAPTER_SURVIVAL_TRIALS_DESC,"Le mode d'origine : montées de niveau et build refait à chaque partie, des vagues à la suite jusqu'au boss. Finissez les cinq épreuves pour ouvrir la Faille sans fin.","The original mode: level-ups and a fresh build every run, waves back to back until the boss. Clear all five trials to open the Endless Rift."
+ENDLESS_WAVE_BANNER,Vague %d !,Wave %d!
+ENDLESS_STATUS,Vague %d · record %d,Wave %d · best %d
+RESULT_ENDLESS,Vague %d atteinte,Reached wave %d
+EXPEDITION_MODE_CAMPAIGN,Campagne,Campaign
+EXPEDITION_MODE_SURVIVAL,Survie,Survival
+EXPEDITION_MODE_CAMPAIGN_HINT,"Campagne principale : choix aux jalons, la puissance vient de vos arbres et de vos Échos.","Main campaign: choices at milestones, power comes from your trees and Echoes."
+EXPEDITION_MODE_SURVIVAL_HINT,"Épreuves de survie : XP et montées de niveau, un nouveau build à chaque partie.","Survival trials: XP and level-ups, a fresh build every run."

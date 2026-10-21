@@ -10,3 +10,6 @@ extends Resource
 ## Couleur d'ambiance (titres et cartes du refuge).
 @export var color: Color = Color(0.55, 0.75, 0.95)
 @export var maps: Array[CampaignMapData] = []
+## Piste : « main » (campagne principale, par jalons) ou « survival » (épreuves de survie, montées de niveau ;
+## docs/design/MODES.md). Chaque piste se débloque carte après carte, indépendamment de l'autre.
+@export var track: StringName = &"main"

@@ -426,6 +426,7 @@ func build_result() -> Dictionary:
 		"time": ctx.time,
 		"level": ctx.player.level,
 		"kills": int(ctx.stats.get_value(&"kills")),
+		"endless_wave": ctx.endless_wave() if ctx.arena.endless else 0,
 		"arena": String(ctx.arena.id),
 		"difficulty": String(ctx.difficulty.id),
 		"difficulty_level": ctx.difficulty.level,

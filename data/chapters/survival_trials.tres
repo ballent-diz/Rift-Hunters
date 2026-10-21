@@ -1,0 +1,192 @@
+[gd_resource type="Resource" script_class="ChapterData" load_steps=25 format=3]
+
+[ext_resource type="Script" path="res://src/data/chapter_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/campaign_map_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/map_objective_data.gd" id="3"]
+
+[sub_resource type="Resource" id="map_1_obj_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 75
+
+[sub_resource type="Resource" id="map_1_obj_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 350.0
+compare = 1
+reward_shards = 100
+
+[sub_resource type="Resource" id="map_1_obj_3"]
+script = ExtResource("3")
+id = &"hunter"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 5.0
+compare = 0
+reward_shards = 100
+
+[sub_resource type="Resource" id="map_1"]
+script = ExtResource("2")
+arena_id = &"fractured_plain"
+first_victory_shards = 140
+nightmare_first_victory_shards = 260
+objectives = Array[ExtResource("3")]([SubResource("map_1_obj_1"), SubResource("map_1_obj_2"), SubResource("map_1_obj_3")])
+
+[sub_resource type="Resource" id="map_2_obj_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 90
+
+[sub_resource type="Resource" id="map_2_obj_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 400.0
+compare = 1
+reward_shards = 120
+
+[sub_resource type="Resource" id="map_2_obj_3"]
+script = ExtResource("3")
+id = &"hunter"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 6.0
+compare = 0
+reward_shards = 120
+
+[sub_resource type="Resource" id="map_2"]
+script = ExtResource("2")
+arena_id = &"survival_ruins"
+first_victory_shards = 180
+nightmare_first_victory_shards = 320
+objectives = Array[ExtResource("3")]([SubResource("map_2_obj_1"), SubResource("map_2_obj_2"), SubResource("map_2_obj_3")])
+
+[sub_resource type="Resource" id="map_3_obj_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 105
+
+[sub_resource type="Resource" id="map_3_obj_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 450.0
+compare = 1
+reward_shards = 140
+
+[sub_resource type="Resource" id="map_3_obj_3"]
+script = ExtResource("3")
+id = &"hunter"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 7.0
+compare = 0
+reward_shards = 140
+
+[sub_resource type="Resource" id="map_3"]
+script = ExtResource("2")
+arena_id = &"survival_highlands"
+first_victory_shards = 220
+nightmare_first_victory_shards = 380
+objectives = Array[ExtResource("3")]([SubResource("map_3_obj_1"), SubResource("map_3_obj_2"), SubResource("map_3_obj_3")])
+
+[sub_resource type="Resource" id="map_4_obj_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 120
+
+[sub_resource type="Resource" id="map_4_obj_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 500.0
+compare = 1
+reward_shards = 160
+
+[sub_resource type="Resource" id="map_4_obj_3"]
+script = ExtResource("3")
+id = &"hunter"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 8.0
+compare = 0
+reward_shards = 160
+
+[sub_resource type="Resource" id="map_4"]
+script = ExtResource("2")
+arena_id = &"survival_woods"
+first_victory_shards = 260
+nightmare_first_victory_shards = 440
+objectives = Array[ExtResource("3")]([SubResource("map_4_obj_1"), SubResource("map_4_obj_2"), SubResource("map_4_obj_3")])
+
+[sub_resource type="Resource" id="map_5_obj_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 135
+
+[sub_resource type="Resource" id="map_5_obj_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 550.0
+compare = 1
+reward_shards = 180
+
+[sub_resource type="Resource" id="map_5_obj_3"]
+script = ExtResource("3")
+id = &"hunter"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 9.0
+compare = 0
+reward_shards = 180
+
+[sub_resource type="Resource" id="map_5"]
+script = ExtResource("2")
+arena_id = &"survival_ford"
+first_victory_shards = 300
+nightmare_first_victory_shards = 500
+objectives = Array[ExtResource("3")]([SubResource("map_5_obj_1"), SubResource("map_5_obj_2"), SubResource("map_5_obj_3")])
+
+[sub_resource type="Resource" id="map_6"]
+script = ExtResource("2")
+arena_id = &"endless_rift"
+first_victory_shards = 340
+nightmare_first_victory_shards = 560
+objectives = Array[ExtResource("3")]([])
+
+[resource]
+script = ExtResource("1")
+id = &"survival_trials"
+order = 1
+name_key = "CHAPTER_SURVIVAL_TRIALS_NAME"
+desc_key = "CHAPTER_SURVIVAL_TRIALS_DESC"
+color = Color(0.95, 0.62, 0.35, 1)
+track = &"survival"
+maps = Array[ExtResource("2")]([SubResource("map_1"), SubResource("map_2"), SubResource("map_3"), SubResource("map_4"), SubResource("map_5"), SubResource("map_6")])

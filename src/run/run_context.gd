@@ -53,6 +53,11 @@ func milestones() -> bool:
 	return arena.progression == &"milestones"
 
 
+## Vague en cours d'une carte à vagues infinies (1, 2, 3…).
+func endless_wave() -> int:
+	return int(time / maxf(arena.endless_wave_duration, 1.0)) + 1
+
+
 func minutes() -> float:
 	return time / 60.0
 

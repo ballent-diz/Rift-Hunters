@@ -1,0 +1,110 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/run_event_data.gd" id="3"]
+
+[sub_resource type="Resource" id="wave_1"]
+script = ExtResource("2")
+start_time = 0.0
+end_time = 60.0
+enemies = [&"skitterling", &"heath_runner"]
+weights = [1.0, 1.0]
+spawn_rate = 1.6
+max_alive = 80
+
+[sub_resource type="Resource" id="wave_2"]
+script = ExtResource("2")
+start_time = 60.0
+end_time = 180.0
+enemies = [&"skitterling", &"heath_runner", &"lunger", &"ash_newt"]
+weights = [2.0, 2.0, 1.0, 1.0]
+spawn_rate = 2.4
+max_alive = 130
+
+[sub_resource type="Resource" id="wave_3"]
+script = ExtResource("2")
+start_time = 180.0
+end_time = 300.0
+enemies = [&"skitterling", &"heath_runner", &"husk", &"slate_scarab", &"spitter", &"silver_harpy"]
+weights = [2.0, 2.0, 1.0, 1.0, 1.0, 1.0]
+spawn_rate = 3.0
+max_alive = 180
+
+[sub_resource type="Resource" id="wave_4"]
+script = ExtResource("2")
+start_time = 300.0
+end_time = 99999.0
+enemies = [&"skitterling", &"heath_runner", &"husk", &"slate_scarab", &"spitter", &"silver_harpy", &"shade_stalker", &"storm_knight", &"broodmother", &"menhir_warden"]
+weights = [2.0, 2.0, 1.2, 1.2, 1.0, 1.0, 0.4, 0.3, 0.3, 0.3]
+spawn_rate = 3.6
+max_alive = 240
+
+[sub_resource type="Resource" id="event_1"]
+script = ExtResource("3")
+time = 120.0
+kind = &"swarm_ring"
+name_key = "EVENT_SWARM_RING"
+params = {
+"enemy": "heath_runner",
+"count": 36,
+"radius": 420.0
+}
+
+[sub_resource type="Resource" id="event_2"]
+script = ExtResource("3")
+time = 210.0
+kind = &"unstable_rift"
+name_key = "EVENT_UNSTABLE_RIFT"
+params = {
+"duration": 30.0,
+"interval": 2.2,
+"zones": 3,
+"radius": 70.0,
+"damage": 14.0,
+"delay": 1.1
+}
+
+[sub_resource type="Resource" id="event_3"]
+script = ExtResource("3")
+time = 300.0
+kind = &"swarm_ring"
+name_key = "EVENT_SWARM_RING"
+params = {
+"enemy": "heath_runner",
+"count": 48,
+"radius": 440.0
+}
+
+[sub_resource type="Resource" id="event_4"]
+script = ExtResource("3")
+time = 375.0
+kind = &"elite_hunt"
+name_key = "EVENT_ELITE_HUNT"
+params = {
+"count": 2
+}
+
+[resource]
+script = ExtResource("1")
+id = &"endless_rift"
+name_key = "ARENA_ENDLESS_RIFT_NAME"
+desc_key = "ARENA_ENDLESS_RIFT_DESC"
+size = Vector2(5016, 5016)
+navigation_cell_size = 64.0
+boss_time = 99999.0
+boss_id = &"nebulorax"
+elite_first_time = 90.0
+elite_interval = 60.0
+elite_enemy_ids = Array[StringName]([&"crystal_warden", &"shade_stalker", &"broodmother", &"storm_knight", &"menhir_warden", &"peak_chimera"])
+environment_id = &"environment.storm_highlands"
+ground_color = Color(0.1, 0.11, 0.17, 1.0)
+ground_detail_color = Color(0.15, 0.16, 0.24, 1.0)
+unlocked_by_default = false
+enemy_hp_mult = 1.0
+enemy_damage_mult = 1.0
+waves = [SubResource("wave_1"), SubResource("wave_2"), SubResource("wave_3"), SubResource("wave_4")]
+events = [SubResource("event_1"), SubResource("event_2"), SubResource("event_3"), SubResource("event_4")]
+endless = true
+endless_wave_duration = 60.0
+endless_spawn_growth = 0.12
