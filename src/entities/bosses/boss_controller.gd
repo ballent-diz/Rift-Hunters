@@ -7,7 +7,7 @@ extends RefCounted
 const PATTERN_ANIMATIONS := {
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
-	&"charge": &"attack", &"quake": &"attack",
+	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
 }
 
 var ctx: RunContext
@@ -269,3 +269,24 @@ func _pattern_quake(pattern: BossPatternData) -> void:
 				float(pattern.params.get("thickness", 18.0)), _damage(pattern), true, data.id, [], 0.0, [], pattern.telegraph)
 		)
 	busy_time = pattern.telegraph + 0.3
+
+
+## Pas de brume : le boss se dissout dans la brume et réapparaît près du Chasseur ; frappe télégraphiée à l'arrivée.
+## Il traverse ainsi toute la carte (gardien du sceau du Gué des Brumes).
+func _pattern_blink(pattern: BossPatternData) -> void:
+	var distance: float = float(pattern.params.get("distance", 220.0))
+	var radius: float = float(pattern.params.get("radius", 130.0))
+	var rect: Rect2 = ctx.arena_rect().grow(-boss.radius - 40.0)
+	var target: Vector2 = ctx.player.global_position + Vector2.RIGHT.rotated(ctx.rng.randf() * TAU) * distance
+	target = ctx.obstacles.push_out(target.clamp(rect.position, rect.end), boss.radius)
+	var mist := Color(0.75, 0.82, 1.0, 0.6)
+	ctx.fx.burst(boss.position, boss.radius * 1.6, mist)
+	ctx.hazards.add_circle(target, radius, pattern.telegraph, _damage(pattern), true, data.id)
+	boss.visual.visible = false
+	boss.invulnerable_time = pattern.telegraph * 0.8
+	busy_time = pattern.telegraph + 0.4
+	schedule(pattern.telegraph * 0.8, func() -> void:
+		boss.position = target
+		boss.visual.visible = true
+		ctx.fx.burst(target, boss.radius * 1.6, mist)
+	)

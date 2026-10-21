@@ -15,6 +15,8 @@ var walls: Array[Rect2] = []
 var wall_enabled: Array[bool] = []
 ## Incrémenté à chaque ouverture / fermeture de barrière (la navigation se met à jour).
 var walls_version: int = 0
+## Cercles retirés en cours de partie (sceau brisé) : la navigation rouvre leurs cases.
+var released: Array[Vector3] = []
 var _grid: Dictionary = {}
 ## Carte de distance (arène dessinée) : distance signée au bord infranchissable, en unités du monde.
 var _field: Image
@@ -57,19 +59,37 @@ func _field_normal(pos: Vector2) -> Vector2:
 	return grad.normalized() if grad.length_squared() > 1e-6 else Vector2.ZERO
 
 
-func add(center: Vector2, radius: float) -> void:
+## Ajoute un cercle infranchissable ; renvoie son indice (pour le retirer plus tard).
+func add(center: Vector2, radius: float) -> int:
 	var circle := Vector3(center.x, center.y, radius)
 	var index: int = circles.size()
 	circles.append(circle)
-	var lo := Vector2i(floori((center.x - radius) / CELL), floori((center.y - radius) / CELL))
-	var hi := Vector2i(floori((center.x + radius) / CELL), floori((center.y + radius) / CELL))
+	for key: Vector2i in _cells_of(circle):
+		if not _grid.has(key):
+			var list: Array[int] = []
+			_grid[key] = list
+		(_grid[key] as Array[int]).append(index)
+	return index
+
+
+## Retire un cercle (obstacle détruit en cours de partie) : plus personne n'en est repoussé, et les cartes de flux
+## rouvrent ses cases à leur prochain apply_walls (walls_version change).
+func remove(index: int) -> void:
+	for key: Vector2i in _cells_of(circles[index]):
+		if _grid.has(key):
+			(_grid[key] as Array[int]).erase(index)
+	released.append(circles[index])
+	walls_version += 1
+
+
+func _cells_of(circle: Vector3) -> Array[Vector2i]:
+	var cells: Array[Vector2i] = []
+	var lo := Vector2i(floori((circle.x - circle.z) / CELL), floori((circle.y - circle.z) / CELL))
+	var hi := Vector2i(floori((circle.x + circle.z) / CELL), floori((circle.y + circle.z) / CELL))
 	for cx: int in range(lo.x, hi.x + 1):
 		for cy: int in range(lo.y, hi.y + 1):
-			var key := Vector2i(cx, cy)
-			if not _grid.has(key):
-				var list: Array[int] = []
-				_grid[key] = list
-			(_grid[key] as Array[int]).append(index)
+			cells.append(Vector2i(cx, cy))
+	return cells
 
 
 func is_empty() -> bool:

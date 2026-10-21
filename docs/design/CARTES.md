@@ -13,6 +13,12 @@ Statut : **proposition du 18 octobre 2026, à valider carte par carte par le pro
 - **Production tenable** : une famille de monstres par chapitre, plus 1 ou 2 créatures liées au décor de chaque
   carte ; un **Dévoreur** (nouveau boss) en dernière carte du chapitre ; ailleurs, un **gardien** (élite renforcée
   qui réutilise un sprite, avec ses propres attaques) ou le boss d'une carte précédente.
+- **Familles du chapitre 1** (décision du propriétaire, 21 octobre 2026) : la famille violette de la Faille (grouillard,
+  bondisseur, carapace, cracheur ; élites rôdeur d'ombre, couveuse, gardienne de cristal) sur les cartes 1 à 3 ; la
+  famille des Hautes Terres (coureur des landes, triton de cendre, scarabée d'ardoise, harpie argentée ; élites
+  chevalier fulgurant, gardien des menhirs, chimère des sommets) en **finale du chapitre**, cartes 4 et 5. Le sceau
+  du Gué retenait la première bête des Hautes Terres : le briser ouvre la finale. La carte 2 (Hautes Terres) garde son
+  décor et son boss Astravorn, avec les hordes violettes.
 
 ## Règles des particularités
 
@@ -122,6 +128,10 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 - Premier gardien : **Sentinelle des Racines** (`data/bosses/root_sentinel.tres`), menhir habité par les racines,
   pour le Bois des Lucioles : griffes, ruée tellurique, séisme à deux anneaux, appel de Corrompus du sous-bois.
 - Essai : `--boss=root_sentinel` (avec `--boss-at=20` sur la Plaine fracturée).
+- Deuxième gardien : **Chimère des Brumes** (`data/bosses/mist_chimera.tres`), ce que le sceau du Gué retenait, sur
+  le sprite de la chimère des sommets agrandi : griffes de givre, **pas de brume** (motif `blink` : elle se dissout et
+  surgit près du Chasseur, frappe télégraphiée à l'arrivée ; elle parcourt ainsi toute la carte), bond des cimes,
+  rugissement d'orage (anneaux à trois brèches), appel de la meute des Hautes Terres.
 
 ### Mode « défense d'autel » (carte 4)
 
@@ -132,10 +142,11 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 - `src/run/altar_director.gd` : vagues de durée fixe ; une partie des Corrompus de corps à corps (les **pillards**) suit
   sa propre route vers l'autel et l'abîme à son contact (6 à la fois au plus). Entre deux vagues, le sceau se répare
   (+15 %) et un coffre tombe (il ouvre aussi les choix de niveau en réserve). Après la dernière vague, **le sceau se
-  referme** : son onde purifie les Corrompus restants, il ne craint plus rien, et le gardien de la carte s'éveille.
+  brise** : son onde purifie les Corrompus restants, le gardien de la carte en sort, et le sceau disparaît avec sa
+  collision (`ObstacleField.remove`, la navigation rouvre ses cases) : le combat s'étend à toute la carte.
   Autel détruit pendant les vagues : défaite.
 - HUD : barre du sceau, vague en cours ou à venir et secondes restantes ; flèche vers l'autel si le Chasseur s'en
-  éloigne. Visuel : sceau ancien peint par Codex (`object.altar_seal`) — intact, fendu sous 50 % de PV, scellé pendant le gardien, éclat à chaque coup, onde à la fermeture ; barre de vie juste au-dessus du sceau. Le sceau
+  éloigne. Visuel : sceau ancien peint par Codex (`object.altar_seal`) — intact, fendu sous 50 % de PV, éclat à chaque coup, onde qui s'efface quand il se brise ; barre de vie juste au-dessus du sceau. Le sceau
   entier est **solide** (personne ne le traverse) ; les pillards le frappent depuis son bord. Feuille agrandie ×2
   (`tools/art/upscale_sheet.py object.altar_seal 2`, à relancer après une nouvelle cuisson) pour avoir la finesse du
   décor peint ; teinte accordée aux cartes et ombre portée vers le bas à droite.
@@ -200,8 +211,8 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
   praticables (`collision_mask.py overlay mist_ford … --no-water`).
 - Niveau (`data/arenas/mist_ford.tres`) : défense d'autel, sceau sur le cercle peint du centre (-1, -163), 5 vagues
   de 50 s, sceau à 4000 PV (2400 avant qu'il devienne solide : son bord plus large l'expose davantage), 1,2 apparition par seconde, 6 arrivées en bord de carte ; 4 gués en terrain lent (B1, déjà
-  peints : `slow_zones_painted`) ; XP × 1,4 ; gardien : Sentinelle des Racines (Nébulorax, boss de fin de carte,
-  était trop fort au niveau atteint). Carte 4 du chapitre 1.
+  peints : `slow_zones_painted`) ; XP × 1,4 ; hordes et élites de la famille des Hautes Terres ; gardien : Chimère des
+  Brumes, qui sort du sceau brisé. Carte 4 du chapitre 1.
 - Bot : 8 victoires sur 8 (4 Échos, graines 3, 5, 7), 5 min 03 à 5 min 56, niveau 17 à 18. Après la mise à
   l'échelle et le sceau solide : 8 sur 8 (Mousseroc et Cendrelame, graines 1 à 4), 5 min 04 à 5 min 20 ; Bois 4 sur 4.
 

@@ -53,7 +53,7 @@ damage = 0.0
 telegraph = 1.0
 params = {
 "count": 6,
-"enemies": ["heath_runner", "heath_runner", "silver_harpy"]
+"enemies": ["skitterling", "skitterling", "lunger"]
 }
 
 [sub_resource type="Resource" id="boss_pattern_data_6"]
@@ -117,7 +117,7 @@ damage = 0.0
 telegraph = 1.0
 params = {
 "count": 8,
-"enemies": ["heath_runner", "lunger"]
+"enemies": ["skitterling", "lunger"]
 }
 
 [sub_resource type="Resource" id="boss_pattern_data_11"]

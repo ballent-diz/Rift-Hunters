@@ -3,11 +3,11 @@ extends Node2D
 ## Mode « défense d'autel » (docs/design/CARTES.md, carte 4 du chapitre 1) : un sceau ancien à protéger pendant
 ## plusieurs vagues qui arrivent de plusieurs côtés. Une partie des Corrompus de corps à corps (les pillards) marche
 ## vers l'autel et l'abîme à son contact. Entre deux vagues, l'autel se répare et un coffre tombe ; après la dernière,
-## le sceau se referme (son onde purifie les Corrompus restants) et le gardien de la carte s'éveille
-## (ArenaData.boss_id) ; le sceau refermé ne craint plus rien. Autel détruit
-## pendant les vagues : l'expédition est perdue.
-## Visuel : « object.altar_seal » (Codex) — intact, endommagé sous DAMAGED_RATIO de PV, scellé pendant le gardien,
-## éclat quand il est frappé, onde de fermeture ; disque provisoire dessiné si la feuille manque.
+## le sceau se brise (son onde purifie les Corrompus restants) et libère le gardien de la carte (ArenaData.boss_id),
+## qui en sort ; le sceau disparaît avec sa collision et le combat s'étend à toute la carte. Autel détruit pendant
+## les vagues : l'expédition est perdue.
+## Visuel : « object.altar_seal » (Codex) — intact, endommagé sous DAMAGED_RATIO de PV, éclat quand il est frappé,
+## onde quand il se brise ; disque provisoire dessiné si la feuille manque.
 
 enum Phase { START, WAVE, PAUSE, BOSS }
 
@@ -44,6 +44,8 @@ var phase: Phase = Phase.START
 ## Vague en cours (0 à waves() - 1).
 var wave_index: int = 0
 var destroyed: bool = false
+## Sceau brisé (après la dernière vague) : plus d'image, plus de collision.
+var shattered: bool = false
 ## Navigation vers l'autel (pillards et flèche de route), calculée une fois : l'autel ne bouge pas.
 var guide: FlowField
 var _timer: float = START_DELAY
@@ -59,6 +61,7 @@ var _bar: Node2D
 ## Emprise solide du sceau (centre relatif et rayon) : personne ne le traverse.
 var _body_center := Vector2.ZERO
 var _body_radius: float = 0.0
+var _body_index: int = -1
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -113,7 +116,24 @@ func _build_body() -> void:
 		var anchor_y: float = Assets.anchor(VISUAL_ID).y
 		_body_center = Vector2(0.0, ((SEAL_TOP + SEAL_BOTTOM) * 0.5 - anchor_y) * s)
 		_body_radius = maxf(SEAL_HALF_WIDTH, (SEAL_BOTTOM - SEAL_TOP) * 0.5) * s
-	ctx.obstacles.add(position + _body_center, _body_radius)
+	_body_index = ctx.obstacles.add(position + _body_center, _body_radius)
+
+
+## Le sceau disparaît (l'onde joue une dernière fois par-dessus) et libère la place : collision retirée, navigation
+## rouverte.
+func _shatter() -> void:
+	shattered = true
+	if _body_index >= 0:
+		ctx.obstacles.remove(_body_index)
+		_body_index = -1
+		if ctx.flow:
+			ctx.flow.apply_walls(ctx.obstacles)
+	if _seal:
+		_seal.visible = false
+		_play_burst(&"seal_wave")
+		# L'image de l'onde porte encore le sceau : elle s'efface pendant l'animation.
+		create_tween().tween_property(_burst, "modulate:a", 0.0, 0.7)
+	queue_redraw()
 
 
 ## État affiché du sceau (intact, endommagé, scellé).
@@ -184,8 +204,8 @@ func _begin_wave() -> void:
 func _end_wave() -> void:
 	ctx.stats.add(&"altar_waves")
 	if wave_index + 1 >= waves():
-		# Le sceau se referme : plus rien ne l'abîme, et son onde purifie les Corrompus restants (leur XP tombe) ;
-		# le combat du gardien commence sur un terrain dégagé.
+		# Le sceau se brise : son onde purifie les Corrompus restants (leur XP tombe) et le gardien en sort ; le
+		# combat commence sur un terrain dégagé.
 		phase = Phase.BOSS
 		var purge: DamageInfo = DamageInfo.make(1e9, DamageInfo.SourceKind.PLAYER, &"altar", [DamageInfo.TAG_EXPLOSION])
 		for enemy: Enemy in ctx.enemies.list.duplicate():
@@ -193,9 +213,9 @@ func _end_wave() -> void:
 				ctx.combat.deal_damage(enemy, purge)
 		ctx.fx.ring(position, 1400.0, Color(RUNE, 0.6), 0.6)
 		ctx.fx.burst(position, ctx.arena.altar_radius * 2.5, Color(RUNE, 0.6))
-		_play_burst(&"seal_wave")
-		ctx.events.event_started.emit("ALTAR_SEALED")
-		ctx.spawner.spawn_boss()
+		_shatter()
+		ctx.events.event_started.emit("ALTAR_SHATTERED")
+		ctx.spawner.spawn_boss(position + _body_center)
 		return
 	wave_index += 1
 	phase = Phase.PAUSE
@@ -289,6 +309,8 @@ func objective_direction(pos: Vector2) -> Vector2:
 
 
 func _draw() -> void:
+	if shattered:
+		return
 	var r: float = ctx.arena.altar_radius if ctx else 70.0
 	if _seal:
 		_draw_ground_shadow()

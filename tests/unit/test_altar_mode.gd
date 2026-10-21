@@ -92,6 +92,10 @@ func test_held_waves_repair_reward_then_guardian() -> void:
 	check_eq(chests[0], ctx.altar.waves() - 1, "un coffre par vague repoussée")
 	check_eq(ctx.altar.phase, AltarDirector.Phase.BOSS, "après la dernière vague : le gardien")
 	check(ctx.boss != null and ctx.boss.boss_data.guardian, "le gardien de la carte s'éveille")
+	check(ctx.altar.shattered and not ctx.altar._seal.visible, "le sceau se brise et disparaît")
+	var seal_center: Vector2 = ctx.altar.position + ctx.altar._body_center
+	check(not ctx.obstacles.blocks(seal_center, 10.0, false), "plus de collision : toute la carte est libre")
+	check(ctx.boss.position.distance_to(seal_center) < 1.0, "le gardien sort du sceau brisé")
 	var hp: float = ctx.altar.hp
 	var raider: Enemy = ctx.enemies.spawn(GameDB.enemy(&"husk"), ctx.altar.position)
 	ctx.enemies.rebuild_grid()
