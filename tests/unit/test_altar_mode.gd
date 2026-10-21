@@ -102,3 +102,18 @@ func test_held_waves_repair_reward_then_guardian() -> void:
 			check(enemy.is_boss, "l'onde du sceau a purifié les Corrompus restants")
 	check_eq(ctx.objective_direction(ctx.player.global_position + Vector2(2000, 0)), Vector2.ZERO,
 		"pas de flèche vers l'autel pendant le combat du gardien")
+
+
+func test_seal_visual_follows_the_altar_state() -> void:
+	var altar: AltarDirector = run.ctx.altar
+	check(altar._seal != null, "sprite du sceau chargé (object.altar_seal)")
+	altar.step(0.01)
+	check_eq(altar._seal.animation, &"intact", "intact au départ")
+	altar.hp = altar.max_hp * (AltarDirector.DAMAGED_RATIO - 0.05)
+	altar.step(0.01)
+	check_eq(altar._seal.animation, &"damaged", "fendu sous la moitié de ses PV")
+	altar._play_burst(&"hit")
+	check(altar._burst.visible and altar._burst.animation == &"hit", "éclat quand il est frappé")
+	altar.phase = AltarDirector.Phase.BOSS
+	altar.step(0.01)
+	check_eq(altar._seal.animation, &"sealed", "scellé pendant le combat du gardien")

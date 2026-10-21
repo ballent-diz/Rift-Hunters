@@ -135,7 +135,7 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
   referme** : son onde purifie les Corrompus restants, il ne craint plus rien, et le gardien de la carte s'éveille.
   Autel détruit pendant les vagues : défaite.
 - HUD : barre du sceau, vague en cours ou à venir et secondes restantes ; flèche vers l'autel si le Chasseur s'en
-  éloigne. Visuel de l'autel provisoire (disque de pierre et runes) : à remplacer par Codex.
+  éloigne. Visuel : sceau ancien peint par Codex (`object.altar_seal`) — intact, fendu sous 50 % de PV, scellé pendant le gardien, éclat à chaque coup, onde à la fermeture ; jauge en arc autour du socle.
 - Essai : `--altar` sur la Plaine fracturée (sceau au centre, 5 vagues, Sentinelle des Racines à la fin). Bot
   (graine 3) : 4 victoires sur 4 (Mousseroc, Cendrelame, Lueurine, Solgriffe) en 4 min 17 à 4 min 39.
 

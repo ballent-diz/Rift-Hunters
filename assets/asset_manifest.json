@@ -10225,7 +10225,7 @@
 			],
 			"anchor": [
 				128,
-				200
+				105
 			],
 			"scale": 1.0,
 			"generated_by": "tools/art/bake_altar_seal.gd",

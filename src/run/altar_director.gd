@@ -6,7 +6,8 @@ extends Node2D
 ## le sceau se referme (son onde purifie les Corrompus restants) et le gardien de la carte s'éveille
 ## (ArenaData.boss_id) ; le sceau refermé ne craint plus rien. Autel détruit
 ## pendant les vagues : l'expédition est perdue.
-## Dessine aussi l'autel provisoire (visuel définitif : Codex).
+## Visuel : « object.altar_seal » (Codex) — intact, endommagé sous DAMAGED_RATIO de PV, scellé pendant le gardien,
+## éclat quand il est frappé, onde de fermeture ; disque provisoire dessiné si la feuille manque.
 
 enum Phase { START, WAVE, PAUSE, BOSS }
 
@@ -19,6 +20,9 @@ const SPAWN_DISTANCE := 950.0
 const ROUTE_DISTANCE := 340.0
 ## Pillards qui frappent l'autel en même temps au plus (les autres se pressent derrière).
 const MAX_ATTACKERS := 6
+## Sous cette part de PV, le sceau s'affiche fendu (fissures violettes).
+const DAMAGED_RATIO := 0.5
+const VISUAL_ID := &"object.altar_seal"
 const STONE := Color(0.42, 0.44, 0.5)
 const RUNE := Color(0.72, 0.5, 1.0)
 
@@ -36,6 +40,9 @@ var _budget: float = 0.0
 var _elite_spawned: bool = false
 var _flash: float = 0.0
 var _time: float = 0.0
+## Sprite du sceau (état) et surcouche des effets ponctuels (éclat, onde) ; null sans feuille.
+var _seal: AnimatedSprite2D
+var _burst: AnimatedSprite2D
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -49,7 +56,50 @@ func setup(p_ctx: RunContext) -> void:
 	guide.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)
 	guide.apply_walls(ctx.obstacles)
 	guide.update(position)
+	_build_visual()
 	_start.call_deferred()
+
+
+func _build_visual() -> void:
+	var frames: SpriteFrames = Assets.get_sprite_frames(VISUAL_ID)
+	if frames == null:
+		return
+	var offset: Vector2 = -Assets.anchor(VISUAL_ID)
+	var scale_factor: float = Assets.pixel_scale(VISUAL_ID)
+	for i: int in 2:
+		var sprite := AnimatedSprite2D.new()
+		sprite.sprite_frames = frames
+		sprite.centered = false
+		sprite.offset = offset
+		sprite.scale = Vector2.ONE * scale_factor
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR
+		add_child(sprite)
+		if i == 0:
+			_seal = sprite
+		else:
+			_burst = sprite
+	_seal.play(&"intact")
+	_burst.visible = false
+	_burst.animation_finished.connect(func() -> void: _burst.visible = false)
+
+
+## État affiché du sceau (intact, endommagé, scellé).
+func visual_state() -> StringName:
+	if phase == Phase.BOSS:
+		return &"sealed"
+	if destroyed or hp < max_hp * DAMAGED_RATIO:
+		return &"damaged"
+	return &"intact"
+
+
+func _play_burst(anim: StringName) -> void:
+	if _burst == null or (_burst.visible and _burst.animation == &"seal_wave"):
+		return
+	if anim == &"hit" and _burst.visible:
+		return
+	_burst.visible = true
+	_burst.play(anim)
+	_burst.frame = 0
 
 
 func _start() -> void:
@@ -68,6 +118,10 @@ func time_left() -> float:
 func step(delta: float) -> void:
 	_time += delta
 	_flash = maxf(_flash - delta, 0.0)
+	if _seal and _seal.animation != visual_state():
+		_seal.play(visual_state())
+	if _seal and destroyed:
+		_seal.modulate = Color(0.55, 0.5, 0.6)
 	queue_redraw()
 	if destroyed or phase == Phase.BOSS:
 		return
@@ -104,6 +158,7 @@ func _end_wave() -> void:
 				ctx.combat.deal_damage(enemy, purge)
 		ctx.fx.ring(position, 1400.0, Color(RUNE, 0.6), 0.6)
 		ctx.fx.burst(position, ctx.arena.altar_radius * 2.5, Color(RUNE, 0.6))
+		_play_burst(&"seal_wave")
 		ctx.events.event_started.emit("ALTAR_SEALED")
 		ctx.spawner.spawn_boss()
 		return
@@ -131,6 +186,8 @@ func _suffer_contacts(delta: float) -> void:
 			continue
 		hp -= enemy.contact_damage * rate
 		attackers += 1
+		if _flash <= 0.0:
+			_play_burst(&"hit")
 		_flash = 0.2
 	if hp <= 0.0:
 		hp = 0.0
@@ -197,6 +254,9 @@ func objective_direction(pos: Vector2) -> Vector2:
 
 func _draw() -> void:
 	var r: float = ctx.arena.altar_radius if ctx else 70.0
+	if _seal:
+		_draw_gauge(r)
+		return
 	var pulse: float = 0.5 + 0.5 * sin(_time * 2.2)
 	draw_circle(Vector2.ZERO, r * 1.25, Color(0.0, 0.0, 0.0, 0.3))
 	draw_circle(Vector2.ZERO, r, STONE.darkened(0.35))
@@ -206,8 +266,14 @@ func _draw() -> void:
 		draw_circle(Vector2.from_angle(a) * r * 0.58, 5.0, Color(RUNE, 0.6 + 0.4 * pulse))
 	var core: Color = Color(1.0, 0.45, 0.55) if _flash > 0.0 else RUNE
 	draw_circle(Vector2.ZERO, r * 0.28, Color(core, 0.75 + 0.25 * pulse))
-	if destroyed:
+	_draw_gauge(r)
+
+
+## Jauge de l'autel : arc au sol qui se vide avec ses PV (rien une fois détruit ou scellé).
+func _draw_gauge(r: float) -> void:
+	if destroyed or phase == Phase.BOSS:
 		return
-	# Jauge de l'autel : arc qui se vide avec ses PV.
 	var ratio: float = clampf(hp / maxf(max_hp, 1.0), 0.0, 1.0)
-	draw_arc(Vector2.ZERO, r + 10.0, -PI / 2.0, -PI / 2.0 + TAU * ratio, 64, Color(0.6, 1.0, 0.75, 0.9), 5.0, true)
+	var color := Color(0.6, 1.0, 0.75, 0.9) if ratio >= DAMAGED_RATIO else Color(1.0, 0.55, 0.75, 0.9)
+	# Autour du socle peint (≈ 1,6 fois l'emprise de collision), sans le recouvrir.
+	draw_arc(Vector2.ZERO, r * 1.7, -PI / 2.0, -PI / 2.0 + TAU * ratio, 64, color, 5.0, true)
