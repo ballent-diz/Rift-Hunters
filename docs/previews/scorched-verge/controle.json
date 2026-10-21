@@ -1,0 +1,25 @@
+{
+  "image_size": [
+    1536,
+    1024
+  ],
+  "world_size": [
+    5016,
+    3344
+  ],
+  "component_count": 10,
+  "spawn_minimum_distance_world": 311.3,
+  "colors_exact": true,
+  "hazard_diameters_world": [
+    231.9,
+    251.5,
+    209.0,
+    261.2,
+    215.5,
+    274.3,
+    163.3,
+    205.7,
+    205.7,
+    215.5
+  ]
+}

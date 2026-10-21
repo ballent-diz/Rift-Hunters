@@ -1,0 +1,25 @@
+{
+  "method": "imagegen built-in",
+  "attempt": 1,
+  "output": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/source-work/scorched_native.png",
+  "sha256": "99630f2c9689e41eac669f01522d6e9ca19ea383715f8b6a26fbf37439f8674e",
+  "prompt": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/source-work/SCORCHED_PROMPT_EXACT.txt",
+  "prompt_sha256": "464aa454b83dcd67b3265861ebae9d8429634df63cee19b55f4e6c6dbf0e3755",
+  "references": [
+    {
+      "path": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-source/assets/concepts/incoming/map.cascade_source/source/references/ruines.png",
+      "sha256": "0d62b8f460041b9eb068935429f6201aad2188d04a6c806ad790adfedd467292"
+    },
+    {
+      "path": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-source/assets/concepts/incoming/map.cascade_source/source/references/hautes_terres.png",
+      "sha256": "477da64412028f6fd7e1a1aa882a8949726606e1d74eb22554968b93efc501c3"
+    }
+  ],
+  "generator_path": "C:\\Users\\petit\\.codex\\generated_images\\01a1597a-76a2-7cb2-835c-f94dc75c6a70\\exec-b490f4d2-e982-4562-9454-e323f6e152fc.png",
+  "stage": "composition, non validée",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGB"
+}
