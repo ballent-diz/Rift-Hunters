@@ -1,0 +1,7 @@
+{
+  "initial_reference": 0.0007798306760378182,
+  "relative_threshold": 0.6,
+  "remaining": 0,
+  "cells": [],
+  "note": "Comparaison à la référence initiale figée ; le percentile recalculé après correction devient plus élevé, conformément à la note de QUALITE_DES_CARTES.md."
+}

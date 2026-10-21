@@ -1,0 +1,9 @@
+{
+  "blurry": 434,
+  "valid": 620,
+  "share": 0.7,
+  "reference": 0.0014546146849170327,
+  "method": "sharpness_map.py de main, inchang\u00e9",
+  "initial_reference": 0.0007798306760378182,
+  "fixed_reference_remaining": 0
+}

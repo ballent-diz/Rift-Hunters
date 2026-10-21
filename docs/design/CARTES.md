@@ -64,15 +64,17 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 | 4. Gué des Brumes | Défense d'autel (nouveau mode) | 6 cases | **B1 Gués** : l'eau peu profonde ralentit tout le monde ; y attirer les hordes | Gardien |
 | 5. Source des Cascades | Vagues par zone, plus dure | 9 cases | **B3 Crues** télégraphiées et courant qui pousse, + **B6** courants à suivre | **Dévoreur du chapitre** |
 
-### Chapitre 2 — piste : les Terres colorées (images annoncées par le propriétaire)
+### Chapitre 2 — Les Terres dévastées (identité validée par le propriétaire, 21 octobre)
 
 | Carte | Mode | Particularité |
 |---|---|---|
-| 6 | Vagues par zone | B5 Cristaux à faire éclater |
+| 6. Lisière calcinée | Vagues par zone, 6 cases, gardien | Plaques de sol brûlant praticables ; détours sûrs, aucun danger au départ |
 | 7 | Variante (escorte ou zone qui se resserre) | B4 Ponts qui s'effondrent |
 | 8 | Vagues par zone | B8 Nids qui pondent |
 | 9 | Fermeture de failles | B9 Gravité basse |
-| 10 | Vagues + Dévoreur | B2 Tempête de couleurs + B5 |
+| 10 | Vagues + Dévoreur | Finale volcanique ; pluie de cendres, particularités à confirmer |
+
+Identité visuelle des cartes 6–10 : région ravagée par la Faille. Carte 6 : steppe et village brûlés, cendre, ocre et charbon ; orange vif exclusivement sur les plaques dangereuses. Cartes 7–9 : roche nue, cendres, fissures rougeoyantes et fumée croissantes. Carte 10 : lave, roche noire et ciel de cendres. Même caméra et finesse que le chapitre 1. Voir [Lisière calcinée](../maps/LISIERE_CALCINEE.md). Les autres modes du tableau restent des propositions.
 
 ### Chapitre 3 — piste : les Forges volcaniques
 
