@@ -26,7 +26,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	if target:
 		goal = target.global_position + (ally.global_position - target.global_position).normalized() * 50.0
 	ally.move_toward_point(goal, ally.data.move_speed, delta)
-	ally.visual.set_facing_left(ally.velocity.x < -1.0)
+	ally.visual.face_velocity(ally.velocity.x)
 	ally.visual.tick(delta, ally.velocity.length() > 5.0, ally.velocity.length())
 
 
@@ -37,7 +37,7 @@ func _leap(ally: Ally, target: Enemy) -> void:
 	m["from"] = ally.global_position
 	m["to"] = target.global_position
 	m["target"] = target
-	ally.visual.set_facing_left(target.global_position.x < ally.global_position.x)
+	ally.visual.set_facing_left(target.global_position.x < ally.global_position.x, true)
 	ally.visual.play_action(&"attack")
 	ally.ctx.allies.vfx.attack(ally, ally.global_position, target.global_position, 0.35)
 

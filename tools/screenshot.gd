@@ -108,11 +108,11 @@ func _ready() -> void:
 				if selection.begins_with("relic:"):
 					Profile.profile.discover("relics", selection.get_slice(":", 1))
 				screen.tabs.current_tab = clampi(tab, 0, screen.tabs.get_tab_count() - 1)
-				if selection != "" and tab == 3:
-					(screen.tabs.get_child(3) as RefugeTab)._show(selection)
-				if selection.begins_with("echo:") and tab == 2:
+				if selection != "" and tab == 4:
+					(screen.tabs.get_child(4) as RefugeTab)._show(selection)
+				if selection.begins_with("echo:") and tab == 3:
 					# Onglet Échos : l'Écho et le nœud affichés (ex. echo:sunclaw:sunclaw_spell_alt).
-					var echoes: RefugeTab = screen.tabs.get_child(2)
+					var echoes: RefugeTab = screen.tabs.get_child(3)
 					echoes.set("_monster", StringName(selection.get_slice(":", 1)))
 					echoes.set("_selected", StringName(selection.get_slice(":", 2)))
 					echoes.refresh()

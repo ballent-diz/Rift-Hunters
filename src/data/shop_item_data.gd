@@ -15,6 +15,8 @@ extends Resource
 @export var requires_arena: StringName = &""
 ## Effets installés au début de la partie.
 @export var effects: Array[GameplayEffect] = []
+## Consommable réservé aux épreuves de survie : pas emporté (ni consommé) sur une carte de campagne.
+@export var survival_only: bool = false
 ## Niveaux gagnés au départ (mode survie) : autant de choix immédiats.
 @export var start_levels: int = 0
 @export var color: Color = Color(1.0, 0.8, 0.4)

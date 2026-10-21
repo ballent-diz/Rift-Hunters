@@ -133,7 +133,8 @@ func start(setup: RunSetup) -> void:
 	ctx.events.player_hurt.connect(func(_amount: float) -> void:
 		_shake = maxf(_shake, 0.25)
 		Audio.play_sfx(&"player_hurt"))
-	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0:
+	# Relique au départ (arbre, boutique) : mode survie seulement ; la campagne n'en donne qu'aux jalons et coffres.
+	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0 and not ctx.milestones():
 		chest_panel.open.call_deferred(true)
 	# Boutique (objets de survie) : niveaux gagnés au départ, choisis tout de suite.
 	for i: int in setup.start_levels:

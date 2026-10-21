@@ -74,3 +74,39 @@ func test_shop_echo_goes_on_sale_after_its_map() -> void:
 	check(Shop.buy_echo(profile, echo), "acheté")
 	check(profile.is_monster_unlocked(echo), "débloqué")
 	check_eq(profile.shards(), 10000 - echo.shop_price, "prix payé")
+
+
+func test_relic_cache_is_kept_for_survival() -> void:
+	_win(&"storm_highlands")
+	Shop.buy(profile, GameDB.shop_items[&"relic_cache"])
+	Shop.toggle_packed(profile, &"relic_cache")
+	var campaign: Dictionary = Shop.prepare_run(profile, GameDB.arena(&"three_rifts"))
+	check(not (campaign["items"] as Array).has(&"relic_cache"), "pas utilisé en campagne")
+	check_eq(Shop.stock(profile, &"relic_cache"), 1, "ni consommé")
+	var survival: Dictionary = Shop.prepare_run(profile, GameDB.arena(&"fractured_plain"))
+	check((survival["items"] as Array).has(&"relic_cache"), "utilisé en survie")
+
+
+func test_no_starting_relic_in_the_campaign() -> void:
+	for arena_id: StringName in [&"three_rifts", &"fractured_plain"]:
+		var setup := RunSetup.new()
+		setup.arena_id = arena_id
+		setup.starter_id = &"ashblade"
+		# Sans bot : il choisirait la relique aussitôt et le panneau se refermerait.
+		setup.autopilot = false
+		setup.meta_effects.assign(GameDB.shop_items[&"relic_cache"].effects)
+		run = load(Router.RUN).instantiate()
+		run.skip_profile = true
+		run.start(setup)
+		host.add_child(run)
+		run.set_physics_process(false)
+		await host.get_tree().process_frame
+		var survival: bool = arena_id == &"fractured_plain"
+		check_eq(run.chest_panel.visible, survival, "%s : relique au départ seulement en survie" % arena_id)
+		get_tree_paused_reset()
+		RunFixture.dispose(run)
+		run = null
+
+
+func get_tree_paused_reset() -> void:
+	host.get_tree().paused = false

@@ -25,7 +25,7 @@ func _ready() -> void:
 	await _rebuild(0)
 	await _capture("04-expedition-mode-test")
 	await _rebuild(2)
-	var tab: RefugeTab = _screen.tabs.get_child(2)
+	var tab: RefugeTab = _screen.tabs.get_child(3)
 	tab._monster = &"ashblade"
 	tab._selected = &"ashblade_spell_alt"
 	_screen.refresh_current()

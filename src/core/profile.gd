@@ -66,6 +66,13 @@ func save() -> Error:
 	return error
 
 
+## Nouvelle partie : profil vierge sauvegardé (les réglages, à part, sont conservés).
+func reset_profile() -> Error:
+	profile = ProfileData.new()
+	last_report = {}
+	return save()
+
+
 ## Message d'état de la sauvegarde à afficher au joueur (vide si tout va bien).
 func status_message() -> String:
 	match load_state:
