@@ -10,4 +10,4 @@ desc_key = "RESEARCH_RIFT_CONDUCTORS_DESC"
 order = 5
 cost_essence = 12
 prerequisites = [&"corrupted_study"]
-unlocks = ["monster:voltwisp"]
+unlocks = ["title:rift_conductor"]

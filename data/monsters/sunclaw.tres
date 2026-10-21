@@ -218,6 +218,9 @@ accent = Color(1.0, 1.0, 0.9, 1.0)
 
 [resource]
 script = ExtResource("11")
+unlocked_by_default = false
+discovery = &"stars"
+discovery_chapter = &"chapter2"
 id = &"sunclaw"
 name_key = "MONSTER_SUNCLAW_NAME"
 desc_key = "MONSTER_SUNCLAW_DESC"
@@ -237,5 +240,4 @@ technique = ExtResource("4")
 evolutions = [SubResource("evolution_7"), SubResource("evolution_11")]
 variant = SubResource("evolution_14")
 mastery = SubResource("mastery_24")
-unlocked_by_default = false
 visual = SubResource("visual_25")

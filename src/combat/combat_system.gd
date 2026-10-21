@@ -59,11 +59,13 @@ func deal_damage(enemy: Enemy, info: DamageInfo) -> float:
 	var amount: float = compute_damage(enemy, info)
 	if amount <= 0.0:
 		return 0.0
+	# Comptés et affichés : les PV réellement retirés (une exécution, comme la dévoration, vise très au-delà).
+	var dealt: float = minf(amount, enemy.hp)
 	var died: bool = enemy.apply_damage(amount)
-	ctx.stats.record_damage(info.source_id, amount)
+	ctx.stats.record_damage(info.source_id, dealt)
 	if info.knockback > 0.0 and not enemy.is_boss:
 		enemy.push(info.direction * info.knockback * (1.0 - enemy.data_knockback_resist()))
-	ctx.fx.damage_number(enemy.global_position, amount, info)
+	ctx.fx.damage_number(enemy.global_position, dealt, info)
 	for application: StatusApplication in info.statuses:
 		if application.chance >= 1.0 or ctx.rng.randf() <= application.chance:
 			ctx.status_system.apply(enemy, application.status_id, application.stacks, info.source_id)

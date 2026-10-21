@@ -224,6 +224,9 @@ accent = Color(1.0, 1.0, 1.0, 1.0)
 
 [resource]
 script = ExtResource("1")
+unlocked_by_default = false
+discovery = &"capture"
+discovery_arena = &"chapter3_map3"
 id = &"mirrorling"
 name_key = "MONSTER_MIRRORLING_NAME"
 desc_key = "MONSTER_MIRRORLING_DESC"
@@ -243,5 +246,4 @@ technique = SubResource("technique_data_3")
 evolutions = [SubResource("evolution_data_4"), SubResource("evolution_data_7")]
 variant = SubResource("evolution_data_11")
 mastery = SubResource("mastery_data_13")
-unlocked_by_default = false
 visual = SubResource("visual_data_23")

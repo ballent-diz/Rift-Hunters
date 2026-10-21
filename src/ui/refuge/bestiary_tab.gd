@@ -33,7 +33,8 @@ func refresh() -> void:
 	_detail.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	detail_box.add_child(_detail)
 	var p: ProfileData = profile()
-	list.add_child(UiKit.title(tr("BESTIARY_ECHOES"), 16, UiKit.ACCENT))
+	list.add_child(UiKit.title(tr("BESTIARY_ECHOES_COLLECTION") % [EchoCollection.owned_count(p), GameDB.monsters.size()],
+		16, UiKit.ACCENT))
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
 		var known: bool = p.is_discovered("monsters", id) or p.is_monster_unlocked(GameDB.monster(id))
 		_entry(list, "monster:" + String(id), tr(GameDB.monster(id).name_key) if known else "???")
@@ -115,7 +116,7 @@ static func affinity_names(affinities: Array) -> String:
 func _monster_text(m: MonsterData) -> String:
 	var p: ProfileData = profile()
 	if not (p.is_discovered("monsters", m.id) or p.is_monster_unlocked(m)):
-		return tr("BESTIARY_UNKNOWN")
+		return tr("BESTIARY_UNKNOWN") + "\n\n" + EchoCollection.source_text(m)
 	var lines: PackedStringArray = []
 	var title: String = " ★ " + tr("MASTERY_REWARD_TITLE_NAME") if Mastery.has_title(p, m) else ""
 	lines.append("[b]%s[/b] — %s%s" % [tr(m.name_key), tr("ROLE_%d" % m.role), title])

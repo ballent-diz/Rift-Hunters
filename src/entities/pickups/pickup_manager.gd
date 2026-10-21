@@ -44,6 +44,14 @@ func spawn_capture(pos: Vector2, monster_id: StringName) -> void:
 	ctx.fx.text(pos + Vector2(0, -30), tr("CAPTURE_APPEARS"), Color(0.8, 1.0, 0.9))
 
 
+## Un Écho errant de cet Écho attend déjà d'être capturé.
+func has_capture(monster_id: StringName) -> bool:
+	for item: Dictionary in items:
+		if item["kind"] == Kind.CAPTURE and item["monster"] == monster_id:
+			return true
+	return false
+
+
 func nearest_position(pos: Vector2, max_range: float) -> Vector2:
 	var best := Vector2.INF
 	var best_d: float = max_range * max_range

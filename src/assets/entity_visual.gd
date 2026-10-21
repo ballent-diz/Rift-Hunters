@@ -2,6 +2,9 @@ class_name EntityVisual
 extends Node2D
 ## Affichage d'une entité : sprite animé si l'asset existe, sinon placeholder animé par le code.
 
+const FLIP_HOLD := 0.22
+const FACING_MIN_SPEED := 14.0
+
 var bob_amount: float = 0.06
 var bob_speed: float = 9.0
 ## Rayon de l'ombre au sol (0 = pas d'ombre).
@@ -17,6 +20,8 @@ var _tint := Color.WHITE
 ## Caches : on n'écrit dans le sprite que ce qui change (appelé chaque frame pour des centaines d'ennemis).
 var _current: StringName = &""
 var _facing_left: bool = false
+## Anti-scintillement : après un retournement, le sprite garde son sens un court instant (FLIP_HOLD).
+var _flip_hold: float = 0.0
 ## Marche (feuille animée) : distance parcourue par cycle de l'animation « move » (unités du monde) ; l'animation
 ## suit la vitesse réelle pour que les pattes « accrochent » le sol.
 var _stride: float = 0.0
@@ -112,10 +117,19 @@ func _on_action_finished() -> void:
 	play(&"move" if _moving else &"idle")
 
 
-func set_facing_left(left: bool) -> void:
-	if left == _facing_left:
+## Sens d'après la vitesse horizontale : ignoré sous FACING_MIN_SPEED (déplacement presque vertical, petits
+## ajustements autour du Chasseur), sinon le sprite se retournerait à chaque image.
+func face_velocity(vx: float) -> void:
+	if absf(vx) >= FACING_MIN_SPEED:
+		set_facing_left(vx < 0.0)
+
+
+## `force` : retournement immédiat (Chasseur piloté par le joueur).
+func set_facing_left(left: bool, force: bool = false) -> void:
+	if left == _facing_left or (_flip_hold > 0.0 and not force):
 		return
 	_facing_left = left
+	_flip_hold = FLIP_HOLD
 	if _sprite:
 		_sprite.flip_h = left
 	elif _anim:
@@ -134,6 +148,7 @@ func flash() -> void:
 ## Appelé par le manager chaque frame (pas de _process par entité). `speed` : vitesse réelle (unités/s),
 ## négative si inconnue (animation à sa cadence nominale).
 func tick(delta: float, moving: bool, speed: float = -1.0) -> void:
+	_flip_hold = maxf(_flip_hold - delta, 0.0)
 	if _flash > 0.0:
 		_flash = maxf(_flash - delta, 0.0)
 		_apply_modulate()

@@ -4,6 +4,7 @@ extends Node
 ##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr]
 ##         [--night] [--boss=root_sentinel] [--altar] [--shallows] [--rivers] [--map] (grande carte ouverte)
 ##         [--at=-2,-120] (Chasseur immobile placé à ce point, pour cadrer un endroit précis)
+##         [--pref=expedition_mode:survival] (préférence du profil avant la capture d'un menu)
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -54,6 +55,8 @@ func _ready() -> void:
 				item_ids = parts[1].split(",", false)
 			"selection":
 				selection = parts[1]
+			"pref":
+				Profile.profile.set_preference(parts[1].get_slice(":", 0), parts[1].get_slice(":", 1))
 			"at":
 				var xy: PackedStringArray = parts[1].split(",")
 				at = Vector2(float(xy[0]), float(xy[1]))
@@ -105,11 +108,11 @@ func _ready() -> void:
 				if selection.begins_with("relic:"):
 					Profile.profile.discover("relics", selection.get_slice(":", 1))
 				screen.tabs.current_tab = clampi(tab, 0, screen.tabs.get_tab_count() - 1)
-				if selection != "" and tab == 3:
-					(screen.tabs.get_child(3) as RefugeTab)._show(selection)
-				if selection.begins_with("echo:") and tab == 2:
+				if selection != "" and tab == 4:
+					(screen.tabs.get_child(4) as RefugeTab)._show(selection)
+				if selection.begins_with("echo:") and tab == 3:
 					# Onglet Échos : l'Écho et le nœud affichés (ex. echo:sunclaw:sunclaw_spell_alt).
-					var echoes: RefugeTab = screen.tabs.get_child(2)
+					var echoes: RefugeTab = screen.tabs.get_child(3)
 					echoes.set("_monster", StringName(selection.get_slice(":", 1)))
 					echoes.set("_selected", StringName(selection.get_slice(":", 2)))
 					echoes.refresh()

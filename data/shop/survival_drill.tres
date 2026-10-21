@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="ShopItemData" load_steps=1 format=3]
+
+[ext_resource type="Script" path="res://src/data/shop_item_data.gd" id="1"]
+
+
+[resource]
+script = ExtResource("1")
+id = &"survival_drill"
+name_key = "SHOP_SURVIVAL_DRILL_NAME"
+desc_key = "SHOP_SURVIVAL_DRILL_DESC"
+kind = &"survival"
+price = 400
+requires_arena = &"fractured_plain"
+effects = []
+start_levels = 1
+color = Color(0.95, 0.62, 0.35, 1)
+order = 1

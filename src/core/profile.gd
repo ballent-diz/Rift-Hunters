@@ -66,6 +66,13 @@ func save() -> Error:
 	return error
 
 
+## Nouvelle partie : profil vierge sauvegardé (les réglages, à part, sont conservés).
+func reset_profile() -> Error:
+	profile = ProfileData.new()
+	last_report = {}
+	return save()
+
+
 ## Message d'état de la sauvegarde à afficher au joueur (vide si tout va bien).
 func status_message() -> String:
 	match load_state:
@@ -136,6 +143,11 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 		setup.info_unlocks.append(str(info))
 	setup.show_tutorial = not bool(profile.data["flags"].get("tutorial_done", false))
 	setup.meta_effects = HunterTree.effects_for(profile)
+	# Boutique : consommables emportés (une unité consommée par départ) et objets de survie acquis.
+	var shop: Dictionary = Shop.prepare_run(profile, GameDB.arena(setup.arena_id))
+	setup.meta_effects.append_array(shop["effects"])
+	setup.start_levels = int(shop["start_levels"])
+	setup.shop_items.assign(shop["items"])
 	var loadout: Dictionary = HunterTree.loadout(profile)
 	setup.spell_ids = loadout["spells"]
 	setup.spell_variants = loadout["variants"]

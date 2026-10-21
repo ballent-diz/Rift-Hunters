@@ -25,6 +25,7 @@ var spells: Dictionary = {}
 var echo_nodes: Dictionary = {}
 var techniques: Dictionary = {}
 var chapters: Dictionary = {}
+var shop_items: Dictionary = {}
 var load_errors: PackedStringArray = []
 
 
@@ -57,6 +58,7 @@ func load_all() -> void:
 	echo_nodes = _load_dir("progression/echo_tree")
 	techniques = _load_dir("techniques")
 	chapters = _load_dir("chapters")
+	shop_items = _load_dir("shop")
 	for error: String in load_errors:
 		push_error("GameDB : " + error)
 

@@ -19,7 +19,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	if target:
 		goal = target.global_position
 	ally.move_toward_point(goal, ally.data.move_speed, delta)
-	ally.visual.set_facing_left(ally.velocity.x < -1.0)
+	ally.visual.face_velocity(ally.velocity.x)
 	ally.visual.tick(delta, ally.velocity.length() > 5.0, ally.velocity.length())
 	if ally.attack_cd <= 0.0 and not ctx.enemies.query_radius(ally.global_position, ally.attack.radius * 0.8).is_empty():
 		m["windup"] = float(params.get("windup", 0.25))

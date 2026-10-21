@@ -208,6 +208,8 @@ accent = Color(1.0, 0.75, 0.3, 1.0)
 
 [resource]
 script = ExtResource("1")
+unlocked_by_default = true
+discovery = &"start"
 id = &"ashblade"
 name_key = "MONSTER_ASHBLADE_NAME"
 desc_key = "MONSTER_ASHBLADE_DESC"
@@ -227,5 +229,4 @@ technique = SubResource("technique_data_3")
 evolutions = [SubResource("evolution_data_4"), SubResource("evolution_data_8")]
 variant = SubResource("evolution_data_12")
 mastery = SubResource("mastery_data_13")
-unlocked_by_default = true
 visual = SubResource("visual_data_23")

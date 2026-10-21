@@ -24,7 +24,7 @@ func test_chapters_are_valid() -> void:
 	var chapters: Array[ChapterData] = GameDB.chapters_in_order()
 	check(not chapters.is_empty(), "au moins un chapitre")
 	var first_chapter: Array[StringName] = []
-	for map: CampaignMapData in chapters[0].maps:
+	for map: CampaignMapData in Campaign.chapters_of(Campaign.MAIN)[0].maps:
 		first_chapter.append(map.arena_id)
 	check_eq(first_chapter.slice(0, 2), [&"three_rifts", &"storm_highlands"] as Array[StringName],
 		"chapitre 1 : Ruines des Cascades puis Hautes Terres d'Orage")
@@ -35,11 +35,14 @@ func test_chapters_are_valid() -> void:
 			check(GameDB.arena(map.arena_id) != null, "%s : arène connue" % map.arena_id)
 			check(not seen.has(map.arena_id), "%s : une seule fois dans la campagne" % map.arena_id)
 			seen.append(map.arena_id)
-			check_eq(map.objectives.size(), 3, "%s : 3 objectifs Normal" % map.arena_id)
-			check_eq(map.nightmare_objectives.size(), 3, "%s : 3 objectifs Cauchemar" % map.arena_id)
+			var endless: bool = GameDB.arena(map.arena_id).endless
+			check_eq(map.objectives.size(), 0 if endless else 3, "%s : 3 objectifs Normal" % map.arena_id)
+			if chapter.track == Campaign.MAIN:
+				check_eq(map.nightmare_objectives.size(), 3, "%s : 3 objectifs Cauchemar" % map.arena_id)
 			for objective: MapObjectiveData in map.objectives + map.nightmare_objectives:
 				check(Campaign.objective_text(objective) != "", "%s/%s : texte" % [map.arena_id, objective.id])
-	check(not Campaign.is_campaign_map(&"fractured_plain"), "la Plaine fracturée reste hors campagne (Survie)")
+	check_eq(Campaign.track_of(&"fractured_plain"), Campaign.SURVIVAL, "la Plaine fracturée ouvre les épreuves de survie")
+	check(not Campaign.maps_in_order().has(Campaign.map_data(&"fractured_plain")), "hors de la campagne principale")
 
 
 func test_maps_unlock_by_progressing() -> void:
