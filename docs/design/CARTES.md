@@ -135,7 +135,10 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
   referme** : son onde purifie les Corrompus restants, il ne craint plus rien, et le gardien de la carte s'éveille.
   Autel détruit pendant les vagues : défaite.
 - HUD : barre du sceau, vague en cours ou à venir et secondes restantes ; flèche vers l'autel si le Chasseur s'en
-  éloigne. Visuel : sceau ancien peint par Codex (`object.altar_seal`) — intact, fendu sous 50 % de PV, scellé pendant le gardien, éclat à chaque coup, onde à la fermeture ; jauge en arc autour du socle.
+  éloigne. Visuel : sceau ancien peint par Codex (`object.altar_seal`) — intact, fendu sous 50 % de PV, scellé pendant le gardien, éclat à chaque coup, onde à la fermeture ; barre de vie juste au-dessus du sceau. Le sceau
+  entier est **solide** (personne ne le traverse) ; les pillards le frappent depuis son bord. Feuille agrandie ×2
+  (`tools/art/upscale_sheet.py object.altar_seal 2`, à relancer après une nouvelle cuisson) pour avoir la finesse du
+  décor peint ; teinte accordée aux cartes et ombre portée vers le bas à droite.
 - Essai : `--altar` sur la Plaine fracturée (sceau au centre, 5 vagues, Sentinelle des Racines à la fin). Bot
   (graine 3) : 4 victoires sur 4 (Mousseroc, Cendrelame, Lueurine, Solgriffe) en 4 min 17 à 4 min 39.
 
@@ -171,6 +174,13 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
   autre habillage.
 - Essai : `--rivers` (deux lits qui se croisent et un courant sur la Plaine fracturée, première crue à 15 s).
 
+### Échelle des cartes 3 et 4 (21 octobre 2026)
+
+- Pavés, rochers et socles des cartes 3 et 4 étaient environ 1,5 fois trop gros pour le Chasseur (comparés aux Ruines
+  au même zoom). Les deux mondes sont réduits ×0,8 par `tools/art/rescale_arena.py <arène> 0.8` : tuiles
+  rééchantillonnées (toujours 2,25 pixels par unité), manifeste et positions du `.tres` mis à l'échelle. Taille :
+  4013 × 2675 unités. Contrôle de qualité toujours conforme (détails fins 421 pour le Bois, 433 pour le Gué).
+
 ### Carte 3 « Bois des Lucioles » en jeu (21 octobre 2026)
 
 - Plan : composition peinte et validée par le propriétaire (`map_source.png`), collisions peintes dessus.
@@ -188,11 +198,12 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 - Image : 12 régions de Codex assemblées (`map_regions.py`), contrôle conforme (détails fins 353, fidélité 0,99).
 - Collisions peintes par le propriétaire sur la carte détaillée ; l'eau profonde est peinte, les gués restent
   praticables (`collision_mask.py overlay mist_ford … --no-water`).
-- Niveau (`data/arenas/mist_ford.tres`) : défense d'autel, sceau sur le socle de l'île centrale (0, -205), 5 vagues de
-  50 s, sceau à 2400 PV, 1,2 apparition par seconde, 6 arrivées en bord de carte ; 4 gués en terrain lent (B1, déjà
+- Niveau (`data/arenas/mist_ford.tres`) : défense d'autel, sceau sur le cercle peint du centre (-1, -163), 5 vagues
+  de 50 s, sceau à 4000 PV (2400 avant qu'il devienne solide : son bord plus large l'expose davantage), 1,2 apparition par seconde, 6 arrivées en bord de carte ; 4 gués en terrain lent (B1, déjà
   peints : `slow_zones_painted`) ; XP × 1,4 ; gardien : Sentinelle des Racines (Nébulorax, boss de fin de carte,
   était trop fort au niveau atteint). Carte 4 du chapitre 1.
-- Bot : 8 victoires sur 8 (4 Échos, graines 3, 5, 7), 5 min 03 à 5 min 56, niveau 17 à 18.
+- Bot : 8 victoires sur 8 (4 Échos, graines 3, 5, 7), 5 min 03 à 5 min 56, niveau 17 à 18. Après la mise à
+  l'échelle et le sceau solide : 8 sur 8 (Mousseroc et Cendrelame, graines 1 à 4), 5 min 04 à 5 min 20 ; Bois 4 sur 4.
 
 ## Ordre de réalisation
 

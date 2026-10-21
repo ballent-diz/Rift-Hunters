@@ -23,8 +23,17 @@ const MAX_ATTACKERS := 6
 ## Sous cette part de PV, le sceau s'affiche fendu (fissures violettes).
 const DAMAGED_RATIO := 0.5
 const VISUAL_ID := &"object.altar_seal"
-## Demi-largeur du socle peint dans sa cellule (pixels) : la jauge suit son contour.
-const SEAL_HALF_WIDTH := 110.0
+## Demi-largeur du sceau dans sa cellule (pixels de la feuille, cellule de 512).
+const SEAL_HALF_WIDTH := 220.0
+## Haut et bas du sceau dans sa cellule : la barre de vie se place juste au-dessus, la collision couvre le tout.
+const SEAL_TOP := 6.0
+const SEAL_BOTTOM := 400.0
+## Les Corrompus frappent le sceau à cette distance de son bord (le repoussement du décor les tient un peu à l'écart).
+const CONTACT_MARGIN := 40.0
+## Intégration au décor : teinte accordée aux cartes peintes (un peu moins saturée et plus chaude), ombre portée vers
+## le bas à droite (lumière haut-gauche, ART_BIBLE) et assombrissement au contact du sol.
+const SEAL_TINT := Color(0.93, 0.91, 0.86)
+const SHADOW_OFFSET := Vector2(10.0, 12.0)
 const STONE := Color(0.42, 0.44, 0.5)
 const RUNE := Color(0.72, 0.5, 1.0)
 
@@ -45,6 +54,11 @@ var _time: float = 0.0
 ## Sprite du sceau (état) et surcouche des effets ponctuels (éclat, onde) ; null sans feuille.
 var _seal: AnimatedSprite2D
 var _burst: AnimatedSprite2D
+## Barre de vie au-dessus du sceau (dessinée par-dessus le sprite).
+var _bar: Node2D
+## Emprise solide du sceau (centre relatif et rayon) : personne ne le traverse.
+var _body_center := Vector2.ZERO
+var _body_radius: float = 0.0
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -59,6 +73,7 @@ func setup(p_ctx: RunContext) -> void:
 	guide.apply_walls(ctx.obstacles)
 	guide.update(position)
 	_build_visual()
+	_build_body()
 	_start.call_deferred()
 
 
@@ -80,9 +95,25 @@ func _build_visual() -> void:
 			_seal = sprite
 		else:
 			_burst = sprite
+	_seal.modulate = SEAL_TINT
 	_seal.play(&"intact")
+	_bar = Node2D.new()
+	_bar.z_index = 1
+	add_child(_bar)
+	_bar.draw.connect(_draw_health_bar)
 	_burst.visible = false
 	_burst.animation_finished.connect(func() -> void: _burst.visible = false)
+
+
+## Le sceau entier est un obstacle (après la navigation des pillards, qui marchent droit sur lui).
+func _build_body() -> void:
+	_body_radius = ctx.arena.altar_radius
+	if _seal:
+		var s: float = Assets.pixel_scale(VISUAL_ID)
+		var anchor_y: float = Assets.anchor(VISUAL_ID).y
+		_body_center = Vector2(0.0, ((SEAL_TOP + SEAL_BOTTOM) * 0.5 - anchor_y) * s)
+		_body_radius = maxf(SEAL_HALF_WIDTH, (SEAL_BOTTOM - SEAL_TOP) * 0.5) * s
+	ctx.obstacles.add(position + _body_center, _body_radius)
 
 
 ## État affiché du sceau (intact, endommagé, scellé).
@@ -123,8 +154,10 @@ func step(delta: float) -> void:
 	if _seal and _seal.animation != visual_state():
 		_seal.play(visual_state())
 	if _seal and destroyed:
-		_seal.modulate = Color(0.55, 0.5, 0.6)
+		_seal.modulate = SEAL_TINT * Color(0.6, 0.55, 0.65)
 	queue_redraw()
+	if _bar:
+		_bar.queue_redraw()
 	if destroyed or phase == Phase.BOSS:
 		return
 	_suffer_contacts(delta)
@@ -176,15 +209,16 @@ func _end_wave() -> void:
 ## Corrompus au contact : chacun inflige une part de ses dégâts de contact (altar_damage_mult) au rythme des coups au
 ## Chasseur, MAX_ATTACKERS au plus à la fois.
 func _suffer_contacts(delta: float) -> void:
-	var reach: float = ctx.arena.altar_radius
+	var reach: float = _body_radius + CONTACT_MARGIN
 	var rate: float = delta / maxf(ctx.balance.contact_damage_interval, 0.05) * ctx.arena.altar_damage_mult
 	var attackers: int = 0
-	for enemy: Enemy in ctx.enemies.query_radius(position, reach + 40.0):
+	var center: Vector2 = position + _body_center
+	for enemy: Enemy in ctx.enemies.query_radius(center, reach + 40.0):
 		if attackers >= MAX_ATTACKERS:
 			break
 		if not enemy.alive or enemy.is_boss or enemy.is_obstacle:
 			continue
-		if enemy.position.distance_to(position) > reach + enemy.radius:
+		if enemy.position.distance_to(center) > reach + enemy.radius:
 			continue
 		hp -= enemy.contact_damage * rate
 		attackers += 1
@@ -257,7 +291,7 @@ func objective_direction(pos: Vector2) -> Vector2:
 func _draw() -> void:
 	var r: float = ctx.arena.altar_radius if ctx else 70.0
 	if _seal:
-		_draw_gauge(r)
+		_draw_ground_shadow()
 		return
 	var pulse: float = 0.5 + 0.5 * sin(_time * 2.2)
 	draw_circle(Vector2.ZERO, r * 1.25, Color(0.0, 0.0, 0.0, 0.3))
@@ -271,7 +305,32 @@ func _draw() -> void:
 	_draw_gauge(r)
 
 
-## Jauge de l'autel : arc au sol qui se vide avec ses PV (rien une fois détruit ou scellé).
+## Ombre portée et contact au sol, dessinés sous le sprite (le nœud dessine avant ses enfants).
+func _draw_ground_shadow() -> void:
+	var radius: float = SEAL_HALF_WIDTH * Assets.pixel_scale(VISUAL_ID)
+	for i: int in 4:
+		var t: float = i / 4.0
+		draw_circle(_body_center + SHADOW_OFFSET * (1.0 - t * 0.5), radius * (1.08 - t * 0.12), Color(0.0, 0.0, 0.04, 0.07 + 0.03 * i))
+
+
+## Barre de vie juste au-dessus du sceau (rien une fois détruit ou scellé).
+func _draw_health_bar() -> void:
+	if destroyed or phase == Phase.BOSS:
+		return
+	var scale_factor: float = Assets.pixel_scale(VISUAL_ID)
+	var width: float = SEAL_HALF_WIDTH * scale_factor * 1.2
+	var top: float = (SEAL_TOP - Assets.anchor(VISUAL_ID).y) * scale_factor - 18.0
+	var rect := Rect2(Vector2(-width * 0.5, top), Vector2(width, 9.0))
+	var ratio: float = clampf(hp / maxf(max_hp, 1.0), 0.0, 1.0)
+	var fill := Color(0.45, 0.9, 0.6) if ratio >= DAMAGED_RATIO else Color(0.95, 0.4, 0.55)
+	if _flash > 0.0:
+		fill = fill.lightened(0.5)
+	_bar.draw_rect(rect.grow(2.0), Color(0.02, 0.02, 0.05, 0.85))
+	_bar.draw_rect(rect, Color(0.12, 0.1, 0.16))
+	_bar.draw_rect(Rect2(rect.position, Vector2(width * ratio, rect.size.y)), fill)
+
+
+## Jauge de l'autel (disque provisoire, sans feuille) : arc au sol qui se vide avec ses PV (rien une fois détruit ou scellé).
 func _draw_gauge(r: float) -> void:
 	if destroyed or phase == Phase.BOSS:
 		return

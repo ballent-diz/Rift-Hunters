@@ -9,6 +9,7 @@ func before_each() -> void:
 	setup.arena_id = &"fractured_plain"
 	setup.starter_id = &"mossback"
 	setup.autopilot = true
+	setup.run_seed = 3
 	setup.arena_override = TestArena.build(&"fractured_plain", &"", ["altar"])
 	run = load(Router.RUN).instantiate()
 	run.skip_profile = true
@@ -117,3 +118,21 @@ func test_seal_visual_follows_the_altar_state() -> void:
 	altar.phase = AltarDirector.Phase.BOSS
 	altar.step(0.01)
 	check_eq(altar._seal.animation, &"sealed", "scellé pendant le combat du gardien")
+
+
+func test_whole_seal_is_solid_and_still_attackable() -> void:
+	var ctx: RunContext = run.ctx
+	var altar: AltarDirector = ctx.altar
+	var center: Vector2 = altar.position + altar._body_center
+	var s: float = Assets.pixel_scale(AltarDirector.VISUAL_ID)
+	var top: Vector2 = altar.position + Vector2(0.0, (AltarDirector.SEAL_TOP - Assets.anchor(AltarDirector.VISUAL_ID).y) * s)
+	for pos: Vector2 in [center, top + Vector2(0, 8), center + Vector2(altar._body_radius - 6.0, 0)]:
+		check(ctx.obstacles.blocks(pos, 1.0, false), "le sceau est solide en %s" % pos)
+	var pushed: Vector2 = ctx.obstacles.push_out(center + Vector2(10, 0), ctx.player.radius)
+	check(pushed.distance_to(center) >= altar._body_radius, "le Chasseur est repoussé hors du sceau")
+	var hp: float = altar.hp
+	ctx.enemies.spawn(GameDB.enemy(&"husk"), pushed)
+	ctx.enemies.rebuild_grid()
+	altar.phase = AltarDirector.Phase.WAVE
+	altar._suffer_contacts(1.0)
+	check(altar.hp < hp, "un Corrompu collé au bord du sceau le frappe")
