@@ -151,3 +151,32 @@ func test_last_enemies_are_hunted_and_never_block() -> void:
 	for enemy: Enemy in keep:
 		check(enemy.position.distance_to(run.ctx.player.global_position) < ZoneDirector.SPAWN_MIN + 260.0,
 			"un Corrompu coincé réapparaît près du Chasseur")
+
+
+func test_route_leads_to_the_last_enemies_when_far() -> void:
+	var ctx: RunContext = run.ctx
+	var zones: ZoneDirector = ctx.zones
+	zones.step(ZoneDirector.START_DELAY + 0.1)
+	for i: int in 400:
+		zones.step(0.25)
+		if zones._queue.is_empty():
+			break
+		if ctx.enemies.count() >= zones.zone().waves[0].max_alive:
+			_kill_all()
+	var last: Enemy = null
+	for enemy: Enemy in ctx.enemies.list:
+		if last == null:
+			last = enemy
+		elif enemy.alive:
+			ctx.combat.deal_damage(enemy, RunFixture.info(1e9))
+	ctx.combat.flush_queue()
+	ctx.enemies.step(0.0)
+	check(last != null, "un dernier Corrompu")
+	last.position = ctx.player.global_position + Vector2(ZoneDirector.HUNT_ROUTE_DISTANCE + 300.0, 0)
+	zones.step(1.1)
+	check(zones.hunting, "traque")
+	check(zones.objective() != Vector2.INF, "loin du dernier Corrompu : un objectif de route")
+	check(zones.objective().distance_to(last.position) < 1.0, "la route mène au dernier Corrompu")
+	last.position = ctx.player.global_position + Vector2(100, 0)
+	zones.step(1.1)
+	check_eq(zones.objective(), Vector2.INF, "à portée : plus de flèche")

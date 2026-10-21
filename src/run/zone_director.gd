@@ -14,6 +14,8 @@ const WAVE_PAUSE := 3.0
 const HUNT_SHARE := 0.15
 const HUNT_MIN := 4
 const HUNT_SPEED := 1.6
+## Traque : au-delà de cette distance du dernier Corrompu, la flèche de route mène à lui (cible mise à jour chaque seconde).
+const HUNT_ROUTE_DISTANCE := 700.0
 ## Sécurité : si plus aucun Corrompu ne meurt pendant ce délai, les restants réapparaissent près du Chasseur.
 const STALL_TIME := 20.0
 ## Distance d'apparition au Chasseur : hors de l'écran autant que possible, jamais sur lui.
@@ -37,6 +39,8 @@ var _elites: Array[StringName] = []
 var _budget: float = 0.0
 var _wave_total: int = 0
 var _stall: float = 0.0
+var _hunt_goal := Vector2.INF
+var _hunt_timer: float = 0.0
 var _last_remaining: int = -1
 var _zone_cells: Array[PackedInt32Array] = []
 var _walls: Array[Array] = []
@@ -120,6 +124,9 @@ func objective() -> Vector2:
 		return zone().anchor
 	if phase == Phase.DONE and ctx.finale and ctx.finale.state == ArenaFinale.State.TRAVEL:
 		return ctx.arena.finale_center
+	if hunting and _hunt_goal != Vector2.INF \
+			and ctx.player.global_position.distance_to(_hunt_goal) > HUNT_ROUTE_DISTANCE:
+		return _hunt_goal
 	return Vector2.INF
 
 
@@ -182,6 +189,10 @@ func _watch_wave(delta: float) -> void:
 	hunting = spawned_all and left <= maxi(HUNT_MIN, ceili(_wave_total * HUNT_SHARE))
 	if not spawned_all:
 		return
+	_hunt_timer -= delta
+	if _hunt_timer <= 0.0:
+		_hunt_timer = 1.0
+		_hunt_goal = _nearest_remaining()
 	if left == _last_remaining:
 		_stall += delta
 	else:
@@ -195,8 +206,23 @@ func _watch_wave(delta: float) -> void:
 				ctx.fx.ring(enemy.position, enemy.radius * 1.8, Color(0.75, 0.45, 1.0, 0.9), 0.4)
 
 
+## Corrompu restant le plus proche du Chasseur (INF s'il n'y en a pas).
+func _nearest_remaining() -> Vector2:
+	var best := Vector2.INF
+	var best_d: float = INF
+	var from: Vector2 = ctx.player.global_position
+	for enemy: Enemy in ctx.enemies.list:
+		if enemy.alive and not enemy.is_boss and not enemy.is_obstacle:
+			var d: float = from.distance_squared_to(enemy.position)
+			if d < best_d:
+				best_d = d
+				best = enemy.position
+	return best
+
+
 func _end_wave() -> void:
 	hunting = false
+	_hunt_goal = Vector2.INF
 	wave_index += 1
 	if wave_index < zone().waves.size():
 		phase = Phase.PAUSE
