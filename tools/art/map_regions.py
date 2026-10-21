@@ -15,7 +15,7 @@ Terres). L'assemblage fond les recouvrements, agrandit ×3 (2,25 pixels par unit
 tuiles verticales de même taille (map.webp, map_1.webp...). Le nombre de régions dépend seulement de la surface :
 une carte 3:2 de 5016 × 3344 unités en compte 12, une carte 1:1 de 5016 × 5016 en compte 16.
 Contrôle ensuite : python3 tools/art/check_map_quality.py --images <tuiles> --world WxH --composition <plan>.
-Nécessite numpy et Pillow.
+Nécessite numpy, Pillow et scipy.
 """
 import argparse
 import json
@@ -24,7 +24,8 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageFilter
+from scipy import ndimage
 
 ROOT = Path(__file__).resolve().parents[2]
 # Vrai détail généré, en pixels par unité du monde (Ruines et Hautes Terres : 1254 pixels pour 1672 unités).
@@ -35,6 +36,9 @@ REGION = 1672.0
 # Sortie minimale d'un générateur (Hautes Terres : 1254 pixels par région). Cœur + marges d'une région tiennent dans
 # REGION unités : une sortie de 1254 pixels garde alors au moins 0,75 pixel par unité.
 MIN_OUTPUT = 1254
+# Netteté native visée (petits détails pour 10 000 pixels, régions natives des Ruines et Hautes Terres : 379 à 395).
+NATIVE_FINE = 380.0
+SHARPEN_STEPS = (0, 20, 40, 60, 80, 100, 120)
 MARGIN = 160.0
 # Côté de l'image envoyée au générateur (et minimum attendu en retour).
 INPUT_SIDE = 1536
@@ -135,14 +139,16 @@ def compare(tiles, world, composition, out, points):
     span = (560, 420)
 
     def extract(paths, size, x, y):
+        # Tuiles recollées côte à côte : un extrait peut chevaucher deux tuiles.
         imgs = [Image.open(p).convert("RGB") for p in paths]
-        unit_w = size[0] / len(imgs)
-        i = min(int(x // unit_w), len(imgs) - 1)
-        img = imgs[i]
-        s = img.size[0] / unit_w
-        left = (x - i * unit_w) * s
-        box = (round(left), round(y * s), round(left + span[0] * s), round(y * s + span[1] * s))
-        return img.crop(box).resize(span, Image.Resampling.LANCZOS)
+        full = Image.new("RGB", (sum(i.size[0] for i in imgs), imgs[0].size[1]))
+        offset = 0
+        for img in imgs:
+            full.paste(img, (offset, 0))
+            offset += img.size[0]
+        s = full.size[0] / size[0]
+        box = (round(x * s), round(y * s), round((x + span[0]) * s), round((y + span[1]) * s))
+        return full.crop(box).resize(span, Image.Resampling.LANCZOS)
 
     ruins = [ROOT / f"assets/environments/cascade_ruins/{n}" for n in ("map.webp", "map_1.webp", "map_2.webp")]
     rows = []
@@ -156,6 +162,26 @@ def compare(tiles, world, composition, out, points):
                 sheet.paste(img, (c * (span[0] + 10), r * (span[1] + 10)))
     sheet.save(out)
     print(f"comparaison : {out} (colonnes : carte livrée, composition, Ruines ; 1 pixel = 1 unité)")
+
+
+def _fine_details(img):
+    """Petits détails (≈ 1 pixel) pour 10 000 pixels, à la résolution native d'une région."""
+    a = np.asarray(img.convert("L")).astype(np.float32) / 255.0
+    lap = -ndimage.gaussian_laplace(a, 1.0)
+    peaks = (lap == ndimage.maximum_filter(lap, size=3)) & (lap > 0.02)
+    return float(peaks.sum()) / a.size * 1e4
+
+
+def match_sharpness(img):
+    """Netteté native calibrée : les régions natives des Ruines et des Hautes Terres ont 379 à 395 petits détails pour
+    10 000 pixels. Une région plus douce (fréquent selon le générateur) reçoit le plus petit renforcement de netteté
+    (masque flou, rayon 1 pixel) qui l'amène à NATIVE_FINE, plafonné à 120 % ; une région déjà nette n'est pas
+    touchée. Renvoie l'image et le renforcement appliqué (%)."""
+    for percent in SHARPEN_STEPS:
+        out = img if percent == 0 else img.filter(ImageFilter.UnsharpMask(radius=1.0, percent=percent, threshold=2))
+        if _fine_details(out) >= NATIVE_FINE or percent == SHARPEN_STEPS[-1]:
+            return out, percent
+    return img, 0
 
 
 def _weights(size, crop, core):
@@ -187,7 +213,9 @@ def assemble(folder, out_prefix):
         crop = region["crop"]
         box = [round(v * DETAIL_DENSITY) for v in crop]
         dims = (box[2] - box[0], box[3] - box[1])
-        img = Image.open(path).convert("RGB")
+        img, percent = match_sharpness(Image.open(path).convert("RGB"))
+        if percent:
+            print(f"{path.name} : netteté renforcée de {percent} %")
         if max(img.size) < MIN_OUTPUT:
             print(f"attention : {path.name} fait {img.size}, trop petit pour le détail visé")
         pixels = np.asarray(img.resize(dims, Image.Resampling.LANCZOS)).astype(np.float64)
