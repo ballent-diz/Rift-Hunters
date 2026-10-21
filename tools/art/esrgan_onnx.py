@@ -1,4 +1,11 @@
-"""Convertit RealESRGAN_x4plus.pth (RRDBNet) en ONNX sans PyTorch."""
+"""Convertit un modèle Real-ESRGAN (.pth) en ONNX sans PyTorch : RRDBNet (x4plus) ou SRVGGNetCompact
+(realesr-general-x4v3, plus léger et qui garde mieux les textures).
+
+  python3 tools/art/esrgan_onnx.py <modele.pth> <sortie.onnx> [<modele_sans_debruitage.pth> <force 0-1>]
+
+Avec deux modèles general-x4v3 (normal et « wdn »), leurs poids sont mélangés comme dans Real-ESRGAN (force du
+débruitage : 0 garde toute la texture, 1 lisse le plus).
+"""
 import pickle
 import sys
 import zipfile
@@ -38,7 +45,40 @@ def load_pth(path):
     return obj.get("params_ema") or obj.get("params") or obj
 
 
+def build_compact(weights, out):
+    """SRVGGNetCompact : conv + PReLU répétés, dernière conv vers 3 × 16 canaux, pixel shuffle ×4, + entrée agrandie."""
+    nodes, inits = [], []
+    ids = sorted({int(k.split(".")[1]) for k in weights})
+    x = "input"
+    for i in ids:
+        key = f"body.{i}"
+        y = f"n{i}"
+        if weights[key + ".weight"].ndim == 4:
+            inits += [numpy_helper.from_array(weights[key + ".weight"], key + ".weight"),
+                      numpy_helper.from_array(weights[key + ".bias"], key + ".bias")]
+            nodes.append(helper.make_node("Conv", [x, key + ".weight", key + ".bias"], [y], pads=[1, 1, 1, 1]))
+        else:
+            inits.append(numpy_helper.from_array(weights[key + ".weight"].reshape(-1, 1, 1), key + ".weight"))
+            nodes.append(helper.make_node("PRelu", [x, key + ".weight"], [y]))
+        x = y
+    nodes.append(helper.make_node("DepthToSpace", [x], ["shuffled"], blocksize=4, mode="CRD"))
+    inits.append(numpy_helper.from_array(np.array([1, 1, 4, 4], dtype=np.float32), "scales"))
+    nodes.append(helper.make_node("Resize", ["input", "", "scales"], ["base"], mode="nearest"))
+    nodes.append(helper.make_node("Add", ["shuffled", "base"], ["output"]))
+    graph = helper.make_graph(nodes, "srvgg", [helper.make_tensor_value_info("input", TensorProto.FLOAT,
+                              [1, 3, None, None])], [helper.make_tensor_value_info("output", TensorProto.FLOAT,
+                              [1, 3, None, None])], inits)
+    onnx.save(helper.make_model(graph, opset_imports=[helper.make_opsetid("", 13)], ir_version=8), out)
+
+
+def mix(a, b, strength):
+    return {k: (strength * a[k] + (1.0 - strength) * b[k]).astype(np.float32) for k in a}
+
+
 def build(weights, out):
+    if "conv_first.weight" not in weights:
+        build_compact(weights, out)
+        return
     nodes, inits = [], []
     counter = [0]
 
@@ -107,4 +147,7 @@ def build(weights, out):
 
 
 if __name__ == "__main__":
-    build(load_pth(sys.argv[1]), sys.argv[2])
+    w = load_pth(sys.argv[1])
+    if len(sys.argv) > 4:
+        w = mix(w, load_pth(sys.argv[3]), float(sys.argv[4]))
+    build(w, sys.argv[2])

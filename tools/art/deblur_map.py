@@ -4,13 +4,15 @@
   python3 tools/art/deblur_map.py environment.cascade_ruins [--preview <dossier>]
 
 1. tools/art/sharpness_map.py repère les cases floues (comparées aux cases nettes de la même carte) ;
-2. chaque bloc touché est réduit de moitié, agrandi ×4 par Real-ESRGAN (x4plus), puis ramené à sa taille : les
-   contours redeviennent nets sans changer les formes ni les couleurs (la réduction au quart invente des formes) ;
+2. chaque bloc touché est réduit de moitié, agrandi ×4 par Real-ESRGAN (realesr-general-x4v3, débruitage faible :
+   DENOISE), puis ramené à sa taille : les contours redeviennent nets sans changer les formes ni les couleurs, et
+   l'herbe garde sa texture (x4plus la lissait en aplats « plastique » ; la réduction au quart invente des formes) ;
 3. le résultat est fondu dans la carte par un masque adouci (pas de couture), seules les zones floues changent.
 Limite : une zone dont les objets sont dessinés trop gros (pavés deux fois plus grands) reste trop grosse ; seule une
 région régénérée (tools/art/map_regions.py) corrige l'échelle.
-Modèle : RealESRGAN_x4plus.pth (licence BSD-3, github.com/xinntao/Real-ESRGAN) téléchargé une fois dans
-~/.cache/rift_hunters/ et converti en ONNX par tools/art/esrgan_onnx.py (pas besoin de PyTorch).
+Modèles : realesr-general-x4v3 et sa version sans débruitage (licence BSD-3, github.com/xinntao/Real-ESRGAN),
+téléchargés une fois dans ~/.cache/rift_hunters/, mélangés et convertis en ONNX par tools/art/esrgan_onnx.py (pas
+besoin de PyTorch). Environ 1 seconde par bloc de 512 pixels sur le processeur.
 Relancer ensuite build_minimap.py, check_map_quality.py et sharpness_map.py.
 Nécessite numpy, Pillow, scipy, onnx et onnxruntime.
 """
@@ -32,7 +34,10 @@ import sharpness_map  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "assets" / "asset_manifest.json"
 CACHE = Path.home() / ".cache" / "rift_hunters"
-MODEL_URL = "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth"
+MODEL_URL = "https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/"
+MODELS = ("realesr-general-x4v3.pth", "realesr-general-wdn-x4v3.pth")
+# Force du débruitage (0 : toute la texture, 1 : lissé) ; 0,2 garde le grain de l'herbe et de la terre.
+DENOISE = 0.2
 # Bloc traité d'un coup (pixels de la carte) et recouvrement entre blocs (bords du réseau ignorés).
 BLOCK = 512
 OVERLAP = 32
@@ -43,13 +48,16 @@ Image.MAX_IMAGE_PIXELS = None
 
 def session():
     CACHE.mkdir(parents=True, exist_ok=True)
-    onnx_path = CACHE / "realesrgan_x4plus.onnx"
+    onnx_path = CACHE / f"realesr_general_x4v3_{DENOISE}.onnx"
     if not onnx_path.exists():
-        pth = CACHE / "RealESRGAN_x4plus.pth"
-        if not pth.exists():
-            print("Téléchargement du modèle Real-ESRGAN…")
-            urllib.request.urlretrieve(MODEL_URL, pth)
-        esrgan_onnx.build(esrgan_onnx.load_pth(pth), str(onnx_path))
+        weights = []
+        for name in MODELS:
+            pth = CACHE / name
+            if not pth.exists():
+                print("Téléchargement du modèle", name)
+                urllib.request.urlretrieve(MODEL_URL + name, pth)
+            weights.append(esrgan_onnx.load_pth(pth))
+        esrgan_onnx.build(esrgan_onnx.mix(weights[0], weights[1], DENOISE), str(onnx_path))
     return ort.InferenceSession(str(onnx_path), providers=["CPUExecutionProvider"])
 
 
