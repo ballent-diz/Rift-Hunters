@@ -462,17 +462,23 @@ func _on_affix_death(enemy: Enemy, affix: EliteAffixData, _info: DamageInfo) -> 
 					spawn(child, enemy.position + Vector2.RIGHT.rotated(TAU * i / 3.0) * 20.0)
 
 
-## Rite de lien : un Écho errant peut apparaître à la mort d'une élite (capture en restant à son contact).
+## Rite de lien : un Écho errant peut apparaître à la mort d'une élite (capture en restant à son contact). L'Écho à
+## découvrir sur cette carte apparaît à coup sûr (EchoCollection) ; sinon, seuls des Échos déjà possédés (recrutés
+## pour la partie).
 func _maybe_spawn_capture(pos: Vector2) -> void:
+	var target: StringName = EchoCollection.capture_target(ctx)
+	if target != &"" and not ctx.pickups.has_capture(target):
+		ctx.pickups.spawn_capture(pos + Vector2(30, 0), target)
+		return
 	if ctx.rng.randf() > ctx.balance.capture_chance:
 		return
 	var candidates: Array[StringName] = []
 	var weights: Array[float] = []
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
-		if ctx.has_monster(id) or ctx.build.captures.has(id):
+		if ctx.has_monster(id) or ctx.build.captures.has(id) or not UpgradeOffers.is_monster_unlocked(ctx, GameDB.monsters[id]):
 			continue
 		candidates.append(id)
-		weights.append(1.0 if ctx.setup.unlocked_monsters.has(id) else ctx.balance.capture_locked_weight)
+		weights.append(1.0)
 	if candidates.is_empty():
 		return
 	var total: float = 0.0

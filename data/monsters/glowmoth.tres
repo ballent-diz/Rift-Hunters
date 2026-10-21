@@ -228,6 +228,9 @@ accent = Color(1.0, 1.0, 0.8, 1.0)
 
 [resource]
 script = ExtResource("10")
+unlocked_by_default = false
+discovery = &"capture"
+discovery_arena = &"firefly_woods"
 id = &"glowmoth"
 name_key = "MONSTER_GLOWMOTH_NAME"
 desc_key = "MONSTER_GLOWMOTH_DESC"
@@ -247,5 +250,4 @@ technique = ExtResource("4")
 evolutions = [SubResource("evolution_8"), SubResource("evolution_12")]
 variant = SubResource("evolution_15")
 mastery = SubResource("mastery_25")
-unlocked_by_default = false
 visual = SubResource("visual_26")

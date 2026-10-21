@@ -546,7 +546,7 @@ OBJ_CAPTOR_DESC,Capturez 5 Échos errants (cumul).,Capture 5 wandering Echoes (t
 OBJ_RISK_TAKER_NAME,Goût du risque,Risk Taker
 OBJ_RISK_TAKER_DESC,Refermez une Faille avec au moins 2 Pactes de risque.,Seal a Rift with at least 2 Risk Pacts.
 RESEARCH_RIFT_CONDUCTORS_NAME,Conducteurs de faille,Rift Conductors
-RESEARCH_RIFT_CONDUCTORS_DESC,Permet de lier Fulgurine.,Lets you bind Voltwisp.
+RESEARCH_RIFT_CONDUCTORS_DESC,Étude des courants de faille. Titre : Conducteur de faille.,Study of rift currents. Title: Rift Conductor.
 CAPTURE_APPEARS,Un Écho errant ! Restez à son contact.,A wandering Echo! Stay close to it.
 CAPTURE_JOINED,%s rejoint votre équipe !,%s joins your team!
 CAPTURE_SENT_TO_REFUGE,%s est lié et vous attend au Refuge.,%s is bound and awaits you at the Refuge.
@@ -1464,3 +1464,12 @@ EXPEDITION_MODE_CAMPAIGN,Campagne,Campaign
 EXPEDITION_MODE_SURVIVAL,Survie,Survival
 EXPEDITION_MODE_CAMPAIGN_HINT,"Campagne principale : choix aux jalons, la puissance vient de vos arbres et de vos Échos.","Main campaign: choices at milestones, power comes from your trees and Echoes."
 EXPEDITION_MODE_SURVIVAL_HINT,"Épreuves de survie : XP et montées de niveau, un nouveau build à chaque partie.","Survival trials: XP and level-ups, a fresh build every run."
+ECHO_SOURCE_START,Disponible dès le départ.,Available from the start.
+ECHO_SOURCE_CAPTURE,"À découvrir : %s. Un Écho errant apparaît à la mort d'une élite ; capturez-le (Rite de lien).","To discover: %s. A wandering Echo appears when an elite dies; capture it (Bond Rite)."
+ECHO_SOURCE_VICTORY,Récompense : terminer %s.,Reward: clear %s.
+ECHO_SOURCE_STARS,Récompense : toutes les étoiles du chapitre %s.,Reward: every star of the chapter %s.
+ECHO_SOURCE_SHOP,"Boutique : %d éclats, en vente après %s.","Shop: %d shards, on sale after %s."
+ECHO_SOURCE_LATER,une carte à venir,a map yet to come
+REPORT_ECHO_EARNED,Nouvel Écho obtenu : %s !,New Echo obtained: %s!
+BESTIARY_ECHOES_COLLECTION,Échos · %d / %d,Echoes · %d / %d
+UNLOCK_TITLE_RIFT_CONDUCTOR,Titre : Conducteur de faille,Title: Rift Conductor

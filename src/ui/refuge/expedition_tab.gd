@@ -133,7 +133,7 @@ func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Butt
 		var locked: Label = UiKit.caption(tr("EXPEDITION_LOCKED"), 10, UiKit.MUTED)
 		locked.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		box.add_child(locked)
-		tile.tooltip_text = _unlock_hint("monster:" + String(monster.id))
+		tile.tooltip_text = EchoCollection.source_text(monster)
 	for child: Node in box.get_children():
 		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return tile
@@ -406,14 +406,6 @@ func _toggle_modifier(id: String) -> void:
 	else:
 		chosen.append(id)
 	_set_pref("modifiers", ",".join(chosen))
-
-
-func _unlock_hint(entry: String) -> String:
-	for id: StringName in GameDB.sorted_ids(GameDB.objectives):
-		var objective: ObjectiveData = GameDB.objectives[id]
-		if objective.reward_unlocks.has(entry):
-			return tr("EXPEDITION_UNLOCK_BY") % tr(objective.desc_key)
-	return tr("EXPEDITION_LOCKED")
 
 
 func _select_starter(id: StringName) -> void:

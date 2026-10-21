@@ -285,6 +285,10 @@ accent = Color(0.95, 0.85, 0.4, 1.0)
 
 [resource]
 script = ExtResource("1")
+unlocked_by_default = false
+discovery = &"shop"
+discovery_arena = &"chapter2_map5"
+shop_price = 1200
 id = &"thornweave"
 name_key = "MONSTER_THORNWEAVE_NAME"
 desc_key = "MONSTER_THORNWEAVE_DESC"
@@ -304,5 +308,4 @@ technique = SubResource("technique_data_5")
 evolutions = [SubResource("evolution_data_8"), SubResource("evolution_data_13")]
 variant = SubResource("evolution_data_18")
 mastery = SubResource("mastery_data_22")
-unlocked_by_default = false
 visual = SubResource("visual_data_32")

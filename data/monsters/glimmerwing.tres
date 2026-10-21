@@ -289,6 +289,10 @@ accent = Color(1.0, 1.0, 0.8, 1.0)
 
 [resource]
 script = ExtResource("1")
+unlocked_by_default = false
+discovery = &"shop"
+discovery_arena = &"storm_highlands"
+shop_price = 600
 id = &"glimmerwing"
 name_key = "MONSTER_GLIMMERWING_NAME"
 desc_key = "MONSTER_GLIMMERWING_DESC"
@@ -308,5 +312,4 @@ technique = SubResource("technique_data_4")
 evolutions = [SubResource("evolution_data_5"), SubResource("evolution_data_9"), SubResource("evolution_data_15")]
 variant = SubResource("evolution_data_20")
 mastery = SubResource("mastery_data_23")
-unlocked_by_default = false
 visual = SubResource("visual_data_33")

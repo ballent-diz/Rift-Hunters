@@ -42,6 +42,7 @@ static func apply_run_result(profile: ProfileData, result: Dictionary) -> Dictio
 	var campaign: Dictionary = Campaign.apply_result(profile, result)
 	rewards["shards"] = int(rewards["shards"]) + int(campaign["shards"])
 	lines.append_array(campaign["lines"])
+	lines.append_array(EchoCollection.apply_result(profile, result))
 	if victory:
 		# Première victoire sur une carte (puis en Cauchemar) : +1 Point de Chasseur.
 		var key: String = ("nightmare:" if mode == Campaign.NIGHTMARE else "") + String(arena_id)

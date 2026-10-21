@@ -259,6 +259,9 @@ accent = Color(1.0, 0.7, 0.3, 1.0)
 
 [resource]
 script = ExtResource("11")
+unlocked_by_default = false
+discovery = &"capture"
+discovery_arena = &"chapter2_map4"
 id = &"magmander"
 name_key = "MONSTER_MAGMANDER_NAME"
 desc_key = "MONSTER_MAGMANDER_DESC"
@@ -278,5 +281,4 @@ technique = ExtResource("4")
 evolutions = [SubResource("evolution_9"), SubResource("evolution_14")]
 variant = SubResource("evolution_18")
 mastery = SubResource("mastery_28")
-unlocked_by_default = false
 visual = SubResource("visual_29")

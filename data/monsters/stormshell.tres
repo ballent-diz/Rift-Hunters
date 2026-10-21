@@ -237,6 +237,9 @@ accent = Color(1.0, 1.0, 0.8, 1.0)
 
 [resource]
 script = ExtResource("11")
+unlocked_by_default = false
+discovery = &"capture"
+discovery_arena = &"chapter3_map3"
 id = &"stormshell"
 name_key = "MONSTER_STORMSHELL_NAME"
 desc_key = "MONSTER_STORMSHELL_DESC"
@@ -256,5 +259,4 @@ technique = ExtResource("4")
 evolutions = [SubResource("evolution_7"), SubResource("evolution_11")]
 variant = SubResource("evolution_14")
 mastery = SubResource("mastery_24")
-unlocked_by_default = false
 visual = SubResource("visual_25")
