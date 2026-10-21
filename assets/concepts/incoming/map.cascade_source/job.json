@@ -1,0 +1,76 @@
+{
+  "id": "map.cascade_source",
+  "status": "wip",
+  "stage": "composition uniquement ; choix du propriétaire attendu",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition_size": [
+    1536,
+    1536
+  ],
+  "variants": [
+    "A",
+    "B"
+  ],
+  "selected_variant": null,
+  "source_directory": "source/",
+  "sources": {
+    "A": "source/variant_A_native.png",
+    "B": "source/variant_B_native.png"
+  },
+  "compositions": {
+    "A": "source/composition_A.png",
+    "B": "source/composition_B.png"
+  },
+  "prompts": {
+    "A": "source/PROMPT_A.txt",
+    "B": "source/PROMPT_B.txt"
+  },
+  "references": [
+    "assets/environments/cascade_ruins/map.webp",
+    "assets/environments/storm_highlands/map.webp",
+    "assets/concepts/incoming/map.firefly_woods/source/map_source.png"
+  ],
+  "mode": "image_gen intégré, sans API",
+  "runtime_registered": false,
+  "regions_generated": false,
+  "collisions_generated": false,
+  "gameplay_modified": false,
+  "next_step": "Le propriétaire choisit une variante et peint les collisions. La passe de régions viendra ensuite.",
+  "owner_selected_base": "A",
+  "owner_approved_final": false,
+  "latest_correction_prompt": "source/PROMPT_CONNEXIONS.txt",
+  "selected_source": "source/variant_A_connected_native.png",
+  "original_native_sizes": {
+    "A": [
+      1254,
+      1254
+    ],
+    "B": [
+      1254,
+      1254
+    ]
+  },
+  "connection_graph": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "pending": [
+    "Validation du plan, des mesures et du bord sud",
+    "Préparation B6 à confirmer",
+    "Collisions du propriétaire",
+    "Régions après validation seulement"
+  ]
+}

@@ -145,3 +145,8 @@ C5-ter — Livré (Codex), 18 octobre : 32 scènes autonomes des sept Échos d�
 C5-icônes — Livré (Codex), 18 octobre : 30 illustrations du Chasseur (18 passifs et 12 améliorations du refuge), après C5-ter en PR #32. Icônes 512 px avec mipmaps, planche 112/48 px, cinq captures 720p et contrôle des 78 nœuds ; 231 tests et tools/run_tests.sh complet verts. Seul changement src/ : ICON_ALIASES de HunterTreeSkin. Validation artistique du propriétaire à suivre.
 
 C5 — Reprise des animations des 16 Échos : Livré (Codex), 19 octobre, après PR #32 et #33. Rubans pleins, palettes corrigées, projectiles et impacts plus visibles, détail réduit en saturation ; 16 captures et 48 GIF 720p, exports silencieux. Contrats des 77 scènes, import, manifeste et lint ciblés verts ; mesures à 90 Corrompus/24 effets. Aucun changement de gameplay. Fiche : docs/art/ANIMATIONS_ECHOS_VISIBILITE.md ; validation artistique du propriétaire à suivre.
+
+
+### Source des Cascades — compositions
+
+Propositions livrées pour revue (Codex, 21 octobre) : deux compositions ; base A retouchée à la demande du propriétaire avec quatre parties et trois ponts uniques. Fiche docs/maps/SOURCE_DES_CASCADES.md ; mesures et courants à valider. Aucune région ni collision produite.

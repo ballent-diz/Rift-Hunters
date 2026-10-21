@@ -1,0 +1,44 @@
+[
+  {
+    "source": "assets/environments/cascade_ruins/map.webp",
+    "sha256_original": "735844204139d4d31c6ff9606ce2e8330202425e99512496044c6ebc859375bd",
+    "original_size": [
+      3762,
+      3762
+    ],
+    "input_copy": "references/ruines.png",
+    "input_size": [
+      1536,
+      1536
+    ],
+    "processing": "Réduction technique pour le poids de la référence, aucun changement de paysage."
+  },
+  {
+    "source": "assets/environments/storm_highlands/map.webp",
+    "sha256_original": "89c2ead2ac49d1b0ff0c80b43ac88e2592b3d47b893169da1aed55bcbe2cbc1c",
+    "original_size": [
+      3762,
+      11286
+    ],
+    "input_copy": "references/hautes_terres.png",
+    "input_size": [
+      512,
+      1536
+    ],
+    "processing": "Réduction technique pour le poids de la référence, aucun changement de paysage."
+  },
+  {
+    "source": "assets/concepts/incoming/map.firefly_woods/source/map_source.png",
+    "sha256_original": "409ef03d16d36603d37ffa9947cb4658a63d835a55f09b41da44bd7df91b0ee9",
+    "original_size": [
+      1536,
+      1024
+    ],
+    "input_copy": "references/bois.png",
+    "input_size": [
+      1536,
+      1024
+    ],
+    "processing": "Réduction technique pour le poids de la référence, aucun changement de paysage."
+  }
+]
