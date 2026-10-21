@@ -215,6 +215,9 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
   Brumes, qui sort du sceau brisé. Carte 4 du chapitre 1.
 - Bot : 8 victoires sur 8 (4 Échos, graines 3, 5, 7), 5 min 03 à 5 min 56, niveau 17 à 18. Après la mise à
   l'échelle et le sceau solide : 8 sur 8 (Mousseroc et Cendrelame, graines 1 à 4), 5 min 04 à 5 min 20 ; Bois 4 sur 4.
+  Avec les Hautes Terres et la Chimère des Brumes : 7 sur 8 (graines 1 à 4), 5 min 05 à 5 min 19.
+- Carte 2 avec les hordes violettes : 2 victoires sur 8 au bot (sans bonus d'arbre), contre 0 sur 8 avec ses
+  monstres d'origine : la carte était déjà la plus dure pour le bot ; son équilibrage reste à revoir à part.
 
 ## Ordre de réalisation
 
