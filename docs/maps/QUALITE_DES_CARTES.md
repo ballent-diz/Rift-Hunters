@@ -23,7 +23,11 @@ Les Ruines et les Hautes Terres ont été faites ainsi (job.json de `map.three_r
 1. **Composition** de toute la carte, validée par le propriétaire : c'est le **plan figé**.
 2. **Régions** : la composition est découpée en carrés d'environ **1672 × 1672 unités** ; chacun est redessiné par le
    générateur avec du vrai détail, à **0,75 pixel par unité** au moins (1254 pixels pour 1672 unités).
-3. **Assemblage** des régions (recouvrements fondus), retouche des raccords si besoin.
+3. **Assemblage** des régions (recouvrements fondus), retouche des raccords si besoin. `map_regions.py assemble`
+   calibre la **netteté native** de chaque région : les régions des Ruines et des Hautes Terres ont 379 à 395 petits
+   détails pour 10 000 pixels ; une région plus douce (le générateur de Codex sort souvent ≈ 290) reçoit le plus petit
+   renforcement de netteté (rayon 1 pixel, ≤ 120 %) qui l'y amène. Constaté sur les cartes 3 et 4 (21 octobre) : même
+   détail moyen que les références, seul le pixel était moins net ; après calibrage, les deux cartes sont conformes.
 4. **Présentation** : agrandissement ×3 jusqu'à **2,25 pixels par unité** (densité affichée en jeu), en tuiles
    verticales de 1672 unités de large (3762 pixels).
 
