@@ -1,0 +1,34 @@
+{
+  "tool": "image_gen built-in",
+  "generated_original": "C:/Users/petit/.codex/generated_images/01a1597a-e7f7-75e0-9811-7479b56bb6c0/exec-85d330b0-a6e9-4b6e-b77e-5260ea7783ee.png",
+  "intent": "Retouche matériaux r1_1 ; essai autonome sans intégration",
+  "inputs": [
+    "regions/r1_1.png",
+    "reference_scale.png"
+  ],
+  "prompt": "PROMPT_REGION.txt + '\\n' + PROMPT_RETOUCHE.txt",
+  "native_size": [
+    1314,
+    1197
+  ],
+  "regional_before": {
+    "smooth": 0.14050674438476562,
+    "fine": 328.88174057006836,
+    "medium": 108.53290557861328
+  },
+  "regional_after": {
+    "smooth": 0.12669754028320312,
+    "fine": 328.6886215209961,
+    "medium": 111.04345321655273
+  },
+  "sha256": [
+    {
+      "file": "r1_1.png",
+      "sha256": "9e6ddc8b11e79e88c5b23aac5944f21ab2b487a04f8faa4e7980a36ed83ee20b"
+    },
+    {
+      "file": "PROMPT_EXACT.txt",
+      "sha256": "6a2a27b5206922ef1dd8b055593b8a3d318cf9aabc8eb6418173eb8dce12edbb"
+    }
+  ]
+}
