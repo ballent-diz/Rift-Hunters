@@ -377,7 +377,7 @@ NODE_EXPLORE_SEALED_CHESTS_DESC,Les coffres proposent 4 reliques.,Chests offer 4
 NODE_EXPLORE_ESSENCE_SENSE_NAME,Flair de l'Essence,Essence Sense
 NODE_EXPLORE_ESSENCE_SENSE_DESC,+1 Essence par élite vaincue.,+1 Essence per elite defeated.
 NODE_EXPLORE_STARTING_RELIC_NAME,Relique de départ,Starting Relic
-NODE_EXPLORE_STARTING_RELIC_DESC,Commencez chaque expédition en choisissant une relique.,Start each expedition by choosing a relic.
+NODE_EXPLORE_STARTING_RELIC_DESC,Épreuves de survie : commencez en choisissant une relique.,Survival trials: start by choosing a relic.
 NODE_SPEC_PRISMATIC_RESONANCE_NAME,Résonance prismatique,Prismatic Resonance
 NODE_SPEC_PRISMATIC_RESONANCE_DESC,"Marques : cumul maximal +1, durée +2 s.","Marks: max stacks +1, duration +2 s."
 NODE_SPEC_DEEP_BREACH_NAME,Brèche profonde,Deep Breach
@@ -1492,7 +1492,7 @@ SHOP_VIGOR_FLASK_DESC,PV max +30 % pendant une expédition.,Max HP +30% for one 
 SHOP_REROLL_STONE_NAME,Pierre de relance,Reroll Stone
 SHOP_REROLL_STONE_DESC,2 relances de choix en plus pendant une expédition.,2 extra choice rerolls for one expedition.
 SHOP_RELIC_CACHE_NAME,Coffret de relique,Relic Cache
-SHOP_RELIC_CACHE_DESC,Choisissez une relique dès le début d'une expédition.,Pick a relic at the start of an expedition.
+SHOP_RELIC_CACHE_DESC,Épreuves de survie : choisissez une relique dès le départ (pas utilisé en campagne).,Survival trials: pick a relic right at the start (not used in the campaign).
 SHOP_SURVIVAL_DRILL_NAME,Entraînement de survie,Survival Drill
 SHOP_SURVIVAL_DRILL_DESC,Épreuves de survie : commencez au niveau 2 (un choix immédiat).,Survival trials: start at level 2 (one immediate choice).
 SHOP_SURVIVAL_MAGNET_NAME,Aimant de faille,Rift Magnet
@@ -1500,3 +1500,6 @@ SHOP_SURVIVAL_MAGNET_DESC,Épreuves de survie : rayon de ramassage +40 %.,Surviv
 SHOP_SURVIVAL_INSTINCT_NAME,Instinct du survivant,Survivor's Instinct
 SHOP_SURVIVAL_INSTINCT_DESC,Épreuves de survie : une carte de plus à chaque montée de niveau.,Survival trials: one more card at every level-up.
 EXPEDITION_PACKED,Emporté : %s,Packed: %s
+OPTIONS_RESET_PROFILE,Nouvelle partie (effacer la progression),New game (erase progress)
+OPTIONS_RESET_CONFIRM,"Confirmer : tout effacer (Échos, cartes, arbre, éclats) ?","Confirm: erase everything (Echoes, maps, tree, shards)?"
+OPTIONS_RESET_CANCEL,Annuler,Cancel

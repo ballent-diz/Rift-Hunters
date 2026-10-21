@@ -19,6 +19,7 @@ kind = &"consumable"
 price = 220
 requires_arena = &"storm_highlands"
 effects = [SubResource("effect_1")]
+survival_only = true
 start_levels = 0
 color = Color(1, 0.82, 0.4, 1)
 order = 3

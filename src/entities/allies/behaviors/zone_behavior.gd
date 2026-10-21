@@ -6,7 +6,7 @@ extends AllyBehavior
 func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	ally.attack_cd -= delta * ally.attack_speed_mult()
 	ally.move_toward_point(ally.follow_point(), ally.data.move_speed, delta)
-	ally.visual.set_facing_left(ally.velocity.x < -1.0)
+	ally.visual.face_velocity(ally.velocity.x)
 	ally.visual.tick(delta, ally.velocity.length() > 5.0, ally.velocity.length())
 	if ally.attack_cd > 0.0:
 		return

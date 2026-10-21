@@ -82,17 +82,20 @@ static func prepare_run(profile: ProfileData, arena: ArenaData) -> Dictionary:
 	var items: Array[StringName] = []
 	var start_levels: int = 0
 	var state: Dictionary = _state(profile)
+	var survival: bool = arena != null and arena.progression == &"levels"
 	for raw: Variant in (state["packed"] as Array).duplicate():
 		var item: ShopItemData = GameDB.shop_items.get(StringName(str(raw)))
 		if item == null or stock(profile, item.id) <= 0:
 			(state["packed"] as Array).erase(raw)
+			continue
+		if item.survival_only and not survival:
 			continue
 		state["stock"][String(item.id)] = stock(profile, item.id) - 1
 		if stock(profile, item.id) <= 0:
 			(state["packed"] as Array).erase(raw)
 		effects.append_array(item.effects)
 		items.append(item.id)
-	if arena and arena.progression == &"levels":
+	if survival:
 		for item: ShopItemData in items_of(SURVIVAL):
 			if owns(profile, item.id):
 				effects.append_array(item.effects)

@@ -142,7 +142,7 @@ func step(delta: float) -> void:
 	# Jamais à travers une barrière de zone ou d'arène : le pas qui y entrerait est annulé.
 	if ctx.obstacles.crosses_wall(before, position, radius):
 		position = before
-	visual.set_facing_left(facing.x < -0.1)
+	visual.set_facing_left(facing.x < -0.1, true)
 	visual.tick(delta, velocity.length() > 5.0, velocity.length())
 	visual.modulate.a = 0.45 if (_iframes > 0.0 and int(_iframes * 20.0) % 2 == 0) else 1.0
 	_update_weapon(delta)

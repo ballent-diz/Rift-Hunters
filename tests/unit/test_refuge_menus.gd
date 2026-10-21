@@ -36,9 +36,9 @@ func _settle() -> void:
 
 
 func test_echo_tab_learn_activate_and_equip() -> void:
-	_screen.tabs.current_tab = 2
+	_screen.tabs.current_tab = 3
 	await _settle()
-	var tab: RefugeTab = _screen.tabs.get_child(2)
+	var tab: RefugeTab = _screen.tabs.get_child(3)
 	(tab.find_child("Echo_mossback", true, false) as Button).pressed.emit()
 	var might: Button = tab.find_child("mossback_might", true, false)
 	check(might != null, "nœud Puissance affiché")
@@ -128,7 +128,7 @@ func test_expedition_art_keeps_departure_visible_in_both_languages() -> void:
 func test_options_dev_button_unlocks_everything() -> void:
 	if not OS.is_debug_build():
 		return
-	var options: RefugeTab = _screen.tabs.get_child(7)
+	var options: RefugeTab = _screen.tabs.get_child(8)
 	options.refresh()
 	var button: Button = null
 	for node: Node in options.find_children("*", "Button", true, false):
@@ -144,7 +144,7 @@ func test_options_dev_button_unlocks_everything() -> void:
 		check(Profile.profile.is_arena_unlocked(GameDB.arenas[id]), "carte %s débloquée" % id)
 	check(Campaign.is_nightmare_unlocked(Profile.profile), "Cauchemar ouvert")
 	check(HunterTree.points_total(Profile.profile) >= 200, "arbre du Chasseur et points de test")
-	var echoes: RefugeTab = _screen.tabs.get_child(2)
+	var echoes: RefugeTab = _screen.tabs.get_child(3)
 	echoes.refresh()
 	var list: Array[Node] = echoes.find_children("Echo_sunclaw", "Button", true, false)
 	check(not list.is_empty() and (list[0] as Button).tooltip_text != tr("ECHO_TREE_LOCKED"),
@@ -153,9 +153,9 @@ func test_options_dev_button_unlocks_everything() -> void:
 
 ## Un clic qui reconstruit l'onglet (choisir un Écho, apprendre un nœud) ne fait pas remonter la liste.
 func test_clicks_keep_the_scroll_position() -> void:
-	_screen.tabs.current_tab = 2
+	_screen.tabs.current_tab = 3
 	await _settle()
-	var tab: RefugeTab = _screen.tabs.get_child(2)
+	var tab: RefugeTab = _screen.tabs.get_child(3)
 	# Un Écho déjà choisi : la mise en page ne change plus de hauteur d'un clic à l'autre.
 	(tab.find_child("Echo_glowmoth", true, false) as Button).pressed.emit()
 	await _settle()

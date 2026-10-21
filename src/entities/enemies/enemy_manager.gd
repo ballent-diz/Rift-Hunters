@@ -202,7 +202,7 @@ func step(delta: float) -> void:
 				if not misses(enemy):
 					ctx.combat.damage_player(enemy.contact_damage, enemy.data.id if enemy.data else &"boss")
 		if view.has_point(pos):
-			enemy.visual.set_facing_left(enemy.velocity.x < -1.0)
+			enemy.visual.face_velocity(enemy.velocity.x)
 			enemy.visual.tick(delta, enemy.velocity.length_squared() > 4.0, enemy.velocity.length())
 	if _dirty_removal:
 		_remove_dead()

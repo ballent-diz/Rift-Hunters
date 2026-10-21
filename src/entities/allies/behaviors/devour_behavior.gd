@@ -9,7 +9,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 	var target: Enemy = _weakest_nearby(ally, ctx)
 	var goal: Vector2 = target.global_position if target else ally.follow_point()
 	ally.move_toward_point(goal, ally.data.move_speed, delta)
-	ally.visual.set_facing_left(ally.velocity.x < -1.0)
+	ally.visual.face_velocity(ally.velocity.x)
 	ally.visual.tick(delta, ally.velocity.length() > 5.0, ally.velocity.length())
 	if target == null or ally.attack_cd > 0.0:
 		return

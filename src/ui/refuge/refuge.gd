@@ -4,6 +4,7 @@ extends Control
 
 const TAB_SCRIPTS: Array[String] = [
 	"res://src/ui/refuge/expedition_tab.gd",
+	"res://src/ui/refuge/shop_tab.gd",
 	"res://src/ui/refuge/tree_tab.gd",
 	"res://src/ui/refuge/echo_tab.gd",
 	"res://src/ui/refuge/bestiary_tab.gd",
@@ -11,7 +12,6 @@ const TAB_SCRIPTS: Array[String] = [
 	"res://src/ui/refuge/objectives_tab.gd",
 	"res://src/ui/refuge/stats_tab.gd",
 	"res://src/ui/refuge/options_tab.gd",
-	"res://src/ui/refuge/shop_tab.gd",
 ]
 
 var tabs: TabContainer
