@@ -58,7 +58,21 @@ on refait un build complet à chaque partie.
   par minute (`endless_wave_duration`), +12 % d'apparitions par vague (`endless_spawn_growth`) en plus de la
   croissance normale des PV. Score = vague atteinte, record au profil (`records.endless_best_wave`), affiché en jeu.
 
-## Boutique (lot 3)
+## Boutique (lot M3, réalisé le 21 octobre 2026)
+
+Refuge → onglet Boutique (`src/ui/refuge/shop_tab.gd`, règles dans `src/progression/shop.gd`, objets dans
+`data/shop/*.tres`, état dans `profile.data["shop"]`) :
+- **Échos en vente** (MonsterData `discovery = &"shop"`, docs/design/COLLECTION_ECHOS.md), triés par prix ;
+- **consommables** (stock ; « Emporter » : une unité consommée à chaque départ tant qu'il en reste) : Fiole de
+  vigueur (PV max +30 %, 120), Pierre de relance (+2 relances, 90), Coffret de relique (relique au départ, 220, après
+  les Hautes Terres) ; le résumé de l'Expédition affiche ce qui est emporté ;
+- **avantages des épreuves de survie** (acquis une fois, actifs seulement sur les cartes à montées de niveau) :
+  Entraînement de survie (niveau 2 au départ, 400, après la Plaine), Aimant de faille (ramassage +40 %, 600, après
+  l'Épreuve des Ruines), Instinct du survivant (une carte de plus à chaque niveau, 900, après l'Épreuve des Hautes
+  Terres) ;
+- **apparences** : à venir (images de Codex).
+
+### Proposition d'origine
 
 Une seule boutique et une seule monnaie (les éclats, gagnés dans les deux modes), en onglets :
 - Consommables (potion, relique de départ, relance d'un choix), utilisables dans les deux modes ;

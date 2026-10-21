@@ -1473,3 +1473,30 @@ ECHO_SOURCE_LATER,une carte à venir,a map yet to come
 REPORT_ECHO_EARNED,Nouvel Écho obtenu : %s !,New Echo obtained: %s!
 BESTIARY_ECHOES_COLLECTION,Échos · %d / %d,Echoes · %d / %d
 UNLOCK_TITLE_RIFT_CONDUCTOR,Titre : Conducteur de faille,Title: Rift Conductor
+TAB_SHOP,Boutique,Shop
+SHOP_INTRO,"Dépensez vos éclats : Échos, consommables à emporter en expédition, avantages des épreuves de survie.","Spend your shards: Echoes, consumables to bring on expeditions, survival trial perks."
+SHOP_SECTION_ECHOES,Échos,Echoes
+SHOP_SECTION_CONSUMABLES,Consommables (une unité par expédition),Consumables (one per expedition)
+SHOP_SECTION_SURVIVAL,Épreuves de survie (acquis pour toujours),Survival trials (yours for good)
+SHOP_SECTION_LOOKS,Apparences,Looks
+SHOP_LOOKS_SOON,"Bientôt : couleurs et tenues du Chasseur et des Échos.","Coming soon: colors and outfits for the Hunter and Echoes."
+SHOP_BUY,Acheter · %d éclats,Buy · %d shards
+SHOP_OWNED,Acquis,Owned
+SHOP_STOCK,En stock : %d,In stock: %d
+SHOP_PACK,Emporter à la prochaine expédition,Bring on the next expedition
+SHOP_PACKED,✓ Emporté,✓ Packed
+SHOP_LOCKED_AFTER,En vente après : %s,On sale after: %s
+SHOP_NO_ECHO,"Aucun Écho en vente pour l'instant : avancez dans la campagne.","No Echo on sale yet: progress through the campaign."
+SHOP_VIGOR_FLASK_NAME,Fiole de vigueur,Vigor Flask
+SHOP_VIGOR_FLASK_DESC,PV max +30 % pendant une expédition.,Max HP +30% for one expedition.
+SHOP_REROLL_STONE_NAME,Pierre de relance,Reroll Stone
+SHOP_REROLL_STONE_DESC,2 relances de choix en plus pendant une expédition.,2 extra choice rerolls for one expedition.
+SHOP_RELIC_CACHE_NAME,Coffret de relique,Relic Cache
+SHOP_RELIC_CACHE_DESC,Choisissez une relique dès le début d'une expédition.,Pick a relic at the start of an expedition.
+SHOP_SURVIVAL_DRILL_NAME,Entraînement de survie,Survival Drill
+SHOP_SURVIVAL_DRILL_DESC,Épreuves de survie : commencez au niveau 2 (un choix immédiat).,Survival trials: start at level 2 (one immediate choice).
+SHOP_SURVIVAL_MAGNET_NAME,Aimant de faille,Rift Magnet
+SHOP_SURVIVAL_MAGNET_DESC,Épreuves de survie : rayon de ramassage +40 %.,Survival trials: pickup radius +40%.
+SHOP_SURVIVAL_INSTINCT_NAME,Instinct du survivant,Survivor's Instinct
+SHOP_SURVIVAL_INSTINCT_DESC,Épreuves de survie : une carte de plus à chaque montée de niveau.,Survival trials: one more card at every level-up.
+EXPEDITION_PACKED,Emporté : %s,Packed: %s

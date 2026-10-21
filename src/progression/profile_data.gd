@@ -23,6 +23,7 @@ static func default_data() -> Dictionary:
 		"mastery": {},
 		"objectives": {"completed": [], "best": {}},
 		"lifetime": {},
+		"shop": {"stock": {}, "owned": [], "packed": []},
 		"records": {"best_time": 0.0, "best_level": 0, "best_kills": 0, "highest_tension_won": -1,
 			"endless_best_wave": 0},
 		"runs": {"played": 0, "won": 0},

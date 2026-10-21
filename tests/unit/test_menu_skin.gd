@@ -22,7 +22,7 @@ func test_refuge_keeps_all_tabs_and_hides_unknown_portraits() -> void:
 	_refuge = REFUGE_SCENE.instantiate()
 	host.add_child(_refuge)
 	await host.get_tree().process_frame
-	check_eq(_refuge.tabs.get_tab_count(), 8, "les huit onglets (dont Échos)")
+	check_eq(_refuge.tabs.get_tab_count(), 9, "les neuf onglets (dont Échos et Boutique)")
 	for i: int in 7:
 		_refuge.tabs.current_tab = i
 		await host.get_tree().process_frame

@@ -135,6 +135,11 @@ func start(setup: RunSetup) -> void:
 		Audio.play_sfx(&"player_hurt"))
 	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0:
 		chest_panel.open.call_deferred(true)
+	# Boutique (objets de survie) : niveaux gagnés au départ, choisis tout de suite.
+	for i: int in setup.start_levels:
+		ctx.player.grant_level()
+	if setup.start_levels > 0:
+		release_choices = true
 
 
 ## Copie de la Tension combinée aux modificateurs de partie (multiplicateurs et bonus de récompense).

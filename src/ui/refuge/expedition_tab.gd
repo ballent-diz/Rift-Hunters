@@ -337,6 +337,13 @@ func _summary(p: ProfileData, arena: ArenaData) -> PanelContainer:
 			box.add_child(UiKit.wrapped(("★  " if ok else "☆  ") + Campaign.objective_text(objective), 13,
 				UiKit.GOLD if ok else MenuSkin.PAPER))
 	_add_modifiers(box, difficulty)
+	var packed: PackedStringArray = []
+	for raw: Variant in p.data["shop"]["packed"]:
+		var item: ShopItemData = GameDB.shop_items.get(StringName(str(raw)))
+		if item:
+			packed.append(tr(item.name_key))
+	if not packed.is_empty():
+		box.add_child(UiKit.wrapped(tr("EXPEDITION_PACKED") % ", ".join(packed), 13, UiKit.GOLD))
 	var starter: MonsterData = GameDB.monster(StringName(p.preference("starter", "mossback")))
 	if starter:
 		outer.add_child(UiKit.label(tr("EXPEDITION_WITH") % tr(starter.name_key), 13, UiKit.MUTED))
