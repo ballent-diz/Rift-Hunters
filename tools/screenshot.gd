@@ -3,6 +3,7 @@ extends Node
 ## Usage : xvfb-run -a godot --path . --fixed-fps 60 res://tools/screenshot.tscn -- --out=/chemin --times=20,150
 ##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr]
 ##         [--night] [--boss=root_sentinel] [--altar] [--shallows] [--rivers] [--map] (grande carte ouverte)
+##         [--at=-2,-120] (Chasseur immobile placé à ce point, pour cadrer un endroit précis)
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -21,6 +22,7 @@ func _ready() -> void:
 	var tab: int = 0
 	var item_ids: PackedStringArray = []
 	var selection: String = ""
+	var at := Vector2.INF
 	for arg: String in OS.get_cmdline_user_args():
 		var parts: PackedStringArray = arg.trim_prefix("--").split("=")
 		if parts[0] in TestArena.FEATURES:
@@ -52,6 +54,10 @@ func _ready() -> void:
 				item_ids = parts[1].split(",", false)
 			"selection":
 				selection = parts[1]
+			"at":
+				var xy: PackedStringArray = parts[1].split(",")
+				at = Vector2(float(xy[0]), float(xy[1]))
+				setup.autopilot = false
 	DirAccess.make_dir_recursive_absolute(_out)
 	if menu != "":
 		if menu in ["pause", "levelup", "chest", "results"]:
@@ -123,6 +129,8 @@ func _ready() -> void:
 		_run.ctx.arena = _run.ctx.arena.duplicate()
 		_run.ctx.arena.boss_time = boss_at
 	_run.ctx.player.god_mode = true
+	if at != Vector2.INF:
+		_run.ctx.player.global_position = at
 	if OS.get_cmdline_user_args().has("--map"):
 		_run.hud.minimap.toggle()
 

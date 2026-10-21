@@ -90,3 +90,27 @@ func test_guardian_spawns_as_a_map_boss() -> void:
 	var info: DamageInfo = RunFixture.info(1e9)
 	ctx.combat.deal_damage(ctx.boss, info)
 	check(not ctx.boss.alive, "le gardien peut être vaincu")
+
+
+func test_mist_chimera_steps_through_the_mist() -> void:
+	var ctx: RunContext = _start(&"fractured_plain", false, &"mist_chimera")
+	ctx.time = ctx.arena.boss_time
+	run.spawner.step(0.1)
+	check(ctx.boss != null and ctx.boss.boss_data.id == &"mist_chimera", "la Chimère des Brumes apparaît")
+	ctx.boss.position = ctx.player.global_position + Vector2(1500, 0)
+	var blink: BossPatternData = null
+	for pattern: BossPatternData in ctx.boss.boss_data.phases[0].patterns:
+		if pattern.kind == &"blink":
+			blink = pattern
+	run.boss_controller._pattern_blink(blink)
+	check(not ctx.boss.visual.visible and ctx.boss.invulnerable_time > 0.0, "dissoute dans la brume, intouchable")
+	for i: int in 30:
+		ctx.time += 0.05
+		run.boss_controller.step(0.05)
+	check(ctx.boss.visual.visible, "elle réapparaît")
+	check(ctx.boss.position.distance_to(ctx.player.global_position) < 400.0, "près du Chasseur, depuis l'autre bout")
+	for i: int in 300:
+		ctx.time += 0.05
+		run.boss_controller.step(0.05)
+		ctx.hazards.step(0.05)
+	check(ctx.boss.alive, "le gardien attaque sans erreur pendant 15 s")

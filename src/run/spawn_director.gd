@@ -110,7 +110,8 @@ func spawn_elite(enemy_id: StringName = &"", at: Vector2 = Vector2.INF) -> Enemy
 	return ctx.enemies.spawn(data, spawn_position() if at == Vector2.INF else at, chosen)
 
 
-func spawn_boss() -> void:
+## `at` : point d'apparition imposé (le gardien du sceau sort du sceau brisé) ; sinon près du Chasseur.
+func spawn_boss(at: Vector2 = Vector2.INF) -> void:
 	boss_spawned = true
 	var data: BossData = GameDB.boss(ctx.arena.boss_id)
 	if data == null:
@@ -119,6 +120,8 @@ func spawn_boss() -> void:
 	var player_pos: Vector2 = ctx.player.global_position
 	var rect: Rect2 = ctx.arena_rect().grow(-data.radius - 60.0)
 	var pos: Vector2 = (player_pos + Vector2.RIGHT.rotated(ctx.rng.randf() * TAU) * 380.0).clamp(rect.position, rect.end)
+	if at != Vector2.INF:
+		pos = at
 	var boss: Enemy = ctx.enemies.spawn_boss(data, pos)
 	ctx.boss = boss
 	ctx.events.boss_spawned.emit(boss)

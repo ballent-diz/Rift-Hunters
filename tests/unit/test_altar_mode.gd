@@ -9,6 +9,7 @@ func before_each() -> void:
 	setup.arena_id = &"fractured_plain"
 	setup.starter_id = &"mossback"
 	setup.autopilot = true
+	setup.run_seed = 3
 	setup.arena_override = TestArena.build(&"fractured_plain", &"", ["altar"])
 	run = load(Router.RUN).instantiate()
 	run.skip_profile = true
@@ -91,6 +92,10 @@ func test_held_waves_repair_reward_then_guardian() -> void:
 	check_eq(chests[0], ctx.altar.waves() - 1, "un coffre par vague repoussée")
 	check_eq(ctx.altar.phase, AltarDirector.Phase.BOSS, "après la dernière vague : le gardien")
 	check(ctx.boss != null and ctx.boss.boss_data.guardian, "le gardien de la carte s'éveille")
+	check(ctx.altar.shattered and not ctx.altar._seal.visible, "le sceau se brise et disparaît")
+	var seal_center: Vector2 = ctx.altar.position + ctx.altar._body_center
+	check(not ctx.obstacles.blocks(seal_center, 10.0, false), "plus de collision : toute la carte est libre")
+	check(ctx.boss.position.distance_to(seal_center) < 1.0, "le gardien sort du sceau brisé")
 	var hp: float = ctx.altar.hp
 	var raider: Enemy = ctx.enemies.spawn(GameDB.enemy(&"husk"), ctx.altar.position)
 	ctx.enemies.rebuild_grid()
@@ -102,3 +107,36 @@ func test_held_waves_repair_reward_then_guardian() -> void:
 			check(enemy.is_boss, "l'onde du sceau a purifié les Corrompus restants")
 	check_eq(ctx.objective_direction(ctx.player.global_position + Vector2(2000, 0)), Vector2.ZERO,
 		"pas de flèche vers l'autel pendant le combat du gardien")
+
+
+func test_seal_visual_follows_the_altar_state() -> void:
+	var altar: AltarDirector = run.ctx.altar
+	check(altar._seal != null, "sprite du sceau chargé (object.altar_seal)")
+	altar.step(0.01)
+	check_eq(altar._seal.animation, &"intact", "intact au départ")
+	altar.hp = altar.max_hp * (AltarDirector.DAMAGED_RATIO - 0.05)
+	altar.step(0.01)
+	check_eq(altar._seal.animation, &"damaged", "fendu sous la moitié de ses PV")
+	altar._play_burst(&"hit")
+	check(altar._burst.visible and altar._burst.animation == &"hit", "éclat quand il est frappé")
+	altar.phase = AltarDirector.Phase.BOSS
+	altar.step(0.01)
+	check_eq(altar._seal.animation, &"sealed", "scellé pendant le combat du gardien")
+
+
+func test_whole_seal_is_solid_and_still_attackable() -> void:
+	var ctx: RunContext = run.ctx
+	var altar: AltarDirector = ctx.altar
+	var center: Vector2 = altar.position + altar._body_center
+	var s: float = Assets.pixel_scale(AltarDirector.VISUAL_ID)
+	var top: Vector2 = altar.position + Vector2(0.0, (AltarDirector.SEAL_TOP - Assets.anchor(AltarDirector.VISUAL_ID).y) * s)
+	for pos: Vector2 in [center, top + Vector2(0, 8), center + Vector2(altar._body_radius - 6.0, 0)]:
+		check(ctx.obstacles.blocks(pos, 1.0, false), "le sceau est solide en %s" % pos)
+	var pushed: Vector2 = ctx.obstacles.push_out(center + Vector2(10, 0), ctx.player.radius)
+	check(pushed.distance_to(center) >= altar._body_radius, "le Chasseur est repoussé hors du sceau")
+	var hp: float = altar.hp
+	ctx.enemies.spawn(GameDB.enemy(&"husk"), pushed)
+	ctx.enemies.rebuild_grid()
+	altar.phase = AltarDirector.Phase.WAVE
+	altar._suffer_contacts(1.0)
+	check(altar.hp < hp, "un Corrompu collé au bord du sceau le frappe")

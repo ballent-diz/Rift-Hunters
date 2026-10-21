@@ -10197,11 +10197,11 @@
 			"map": "res://assets/environments/firefly_woods/map.webp",
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/firefly_woods/field.png",
-			"field_step": 2.0,
-			"arena_size": 5016,
+			"field_step": 1.6,
+			"arena_size": 4013,
 			"start": [
-				-1930,
-				840
+				-1544,
+				672
 			],
 			"filter": "linear",
 			"ambient": {
@@ -10220,14 +10220,14 @@
 			"sheet": "res://assets/sprites/objects/altar_seal/sheet.png",
 			"icon": "res://assets/ui/icons/objects/altar_seal.png",
 			"cell": [
-				256,
-				256
+				512,
+				512
 			],
 			"anchor": [
-				128,
-				200
+				256,
+				218
 			],
-			"scale": 1.0,
+			"scale": 0.525,
 			"generated_by": "tools/art/bake_altar_seal.gd",
 			"animations": {
 				"intact": {
@@ -10261,6 +10261,30 @@
 					"loop": false
 				}
 			}
+		},
+		"environment.mist_ford": {
+			"status": "final",
+			"kind": "map",
+			"map": "res://assets/environments/mist_ford/map.webp",
+			"map_tiles": [
+				"res://assets/environments/mist_ford/map.webp",
+				"res://assets/environments/mist_ford/map_1.webp",
+				"res://assets/environments/mist_ford/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/mist_ford/field.png",
+			"field_step": 1.6,
+			"arena_size": 4013,
+			"start": [
+				0,
+				48
+			],
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/mist_ford/minimap.webp"
 		}
 	}
 }

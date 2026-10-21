@@ -27,6 +27,8 @@ var _walkable := PackedByteArray()
 ## Cases praticables sans les barrières (référence pour les rouvrir).
 var _base_walkable := PackedByteArray()
 var _walls_version: int = -1
+## Cercles retirés déjà reportés (ObstacleField.released).
+var _released_seen: int = 0
 var _dist := PackedInt32Array()
 var _target_cell := Vector2i(-1, -1)
 
@@ -53,6 +55,9 @@ func apply_walls(obstacles: ObstacleField) -> void:
 	if obstacles.walls_version == _walls_version:
 		return
 	_walls_version = obstacles.walls_version
+	while _released_seen < obstacles.released.size():
+		_reopen(obstacles, obstacles.released[_released_seen])
+		_released_seen += 1
 	_walkable = _base_walkable.duplicate()
 	for i: int in obstacles.walls.size():
 		if not obstacles.wall_enabled[i]:
@@ -65,6 +70,16 @@ func apply_walls(obstacles: ObstacleField) -> void:
 				if r.has_point(cell_center(Vector2i(x, y))):
 					_walkable[y * size.x + x] = 0
 	_target_cell = Vector2i(-1, -1)
+
+
+## Obstacle retiré : ses cases sont réévaluées (elles peuvent toucher un autre obstacle).
+func _reopen(obstacles: ObstacleField, circle: Vector3) -> void:
+	var reach: float = circle.z + CLEARANCE
+	var lo: Vector2i = cell_of(Vector2(circle.x - reach, circle.y - reach))
+	var hi: Vector2i = cell_of(Vector2(circle.x + reach, circle.y + reach))
+	for y: int in range(maxi(lo.y, 0), mini(hi.y, size.y - 1) + 1):
+		for x: int in range(maxi(lo.x, 0), mini(hi.x, size.x - 1) + 1):
+			_base_walkable[y * size.x + x] = 0 if obstacles.blocks(cell_center(Vector2i(x, y)), CLEARANCE, false) else 1
 
 
 ## Régions connexes (4-voisinage) contenant chaque graine : `labels[case]` = indice de la graine, -1 sinon.
