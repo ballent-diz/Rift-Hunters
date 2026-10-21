@@ -213,12 +213,14 @@ def assemble(folder, out_prefix):
         crop = region["crop"]
         box = [round(v * DETAIL_DENSITY) for v in crop]
         dims = (box[2] - box[0], box[3] - box[1])
-        img, percent = match_sharpness(Image.open(path).convert("RGB"))
+        source = Image.open(path).convert("RGB")
+        if max(source.size) < MIN_OUTPUT:
+            print(f"attention : {path.name} fait {source.size}, trop petit pour le détail visé")
+        # Calibrer à la densité native réelle : le rééchantillonnage réduit sinon les détails mesurés.
+        img, percent = match_sharpness(source.resize(dims, Image.Resampling.LANCZOS))
         if percent:
             print(f"{path.name} : netteté renforcée de {percent} %")
-        if max(img.size) < MIN_OUTPUT:
-            print(f"attention : {path.name} fait {img.size}, trop petit pour le détail visé")
-        pixels = np.asarray(img.resize(dims, Image.Resampling.LANCZOS)).astype(np.float64)
+        pixels = np.asarray(img).astype(np.float64)
         weight = _weights(dims, crop, region["core"])[..., None]
         acc[box[1]:box[3], box[0]:box[2]] += pixels * weight
         total[box[1]:box[3], box[0]:box[2]] += weight

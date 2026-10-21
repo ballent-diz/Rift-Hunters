@@ -155,3 +155,9 @@ Livré (Codex, 21 octobre) : objet peint animé, cinq animations précalculées 
 ### Lisière calcinée — carte 6, Terres dévastées
 
 Composition livrée pour validation (Codex, 21 octobre) : lisière brûlée et masque de dix plaques contrôlé. Arène polygonale à deux rochers-abris ; circulation à confirmer par le propriétaire. Arrêt avant régions, collisions et gameplay. Voir docs/maps/LISIERE_CALCINEE.md.
+
+### Passe de détail des cartes 5 et 6
+
+En cours (Codex, 21 octobre) : 16 régions pour Source des Cascades, 12 pour Lisière calcinée. À la demande du propriétaire, l’arène de la carte 6 est une cour en trapèze, distincte de la cour irrégulière de la carte 5 ; deux abris espacés et circulation dégagée. Contrôles qualité et échelle attendus avant livraison finale.
+
+Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs, fidélité 0,978), planche d’échelle et carte de netteté livrées. Deux secteurs de gorge fumante restent signalés. Collisions du propriétaire et intégration Claude à venir.

@@ -1,6 +1,6 @@
 # Lisière calcinée — carte 6
 
-Composition à valider, avant toute passe de régions. Monde : **5016 × 3344 unités**, image **1536 × 1024**. Aucun niveau jouable ni collision produit.
+Passe de détail demandée par le propriétaire le 21 octobre, sur la composition retouchée. Monde : **5016 × 3344 unités**, image **1536 × 1024**. Aucun niveau jouable ni collision produit.
 
 ![Carte entière](../previews/scorched-verge/composition.png)
 
@@ -21,11 +21,11 @@ Coordonnées approximatives en pourcentage, origine en haut à gauche.
 | Passage 2 | 65,49 | Pont de pierre au-dessus de la gorge |
 | Zone 3 | 80,58 | Cour du fortin |
 | Accès arène | 83,31 | Large escalier |
-| Arène | 84,18 | Terrasse polygonale sous la faille violette |
+| Arène | 84,18 | Grande cour en trapèze sous la faille violette |
 | Rocher-abri 1 | 78.5,15.5 | Couverture, décalée vers le fond |
 | Rocher-abri 2 | 88.5,23 | Couverture, décalée vers le premier plan |
 
-L’arène ne présente plus de forme circulaire : terrasse aux angles irréguliers, deux gros rochers espacés et entrée libre. Le reste du plan et les dix plaques sont conservés. Les rochers sont uniquement dessinés : leur collision et leur capacité à bloquer les attaques restent à raccorder par le propriétaire et Claude. Circulation favorable visuellement, à confirmer sur les collisions peintes.
+L’arène ne présente plus de forme circulaire : cour en trapèze aux quatre côtés droits, deux gros rochers espacés et entrée libre. Le reste du plan et les dix plaques sont conservés. Les rochers sont uniquement dessinés : leur collision et leur capacité à bloquer les attaques restent à raccorder par le propriétaire et Claude. Circulation favorable visuellement, à confirmer sur les collisions peintes.
 
 ## Plaques de dégâts
 
@@ -66,7 +66,7 @@ Distance minimale du départ proposé aux plaques : **311.3 unités**, supérieu
 - [x] Trois grands espaces, pont et accès lisibles.
 - [x] Identité cendre/ocre/charbon, orange réservé aux dix dangers.
 - [x] Départ proposé dégagé, masque technique bicolore contrôlé.
-- [x] Arène non circulaire, deux rochers-abris, entrée et couloirs dégagés visuellement.
+- [x] Arène en trapèze, distincte de la carte 5, deux rochers-abris, entrée et couloirs dégagés visuellement.
 - [ ] Validation du propriétaire : plan, circulation, détours sûrs et proportion praticable.
 - [ ] Collisions peintes par le propriétaire.
 - [ ] Après validation seulement : régions redessinées, assemblage, comparaison d’échelle, rapport qualité conforme et carte de netteté.
@@ -74,3 +74,15 @@ Distance minimale du départ proposé aux plaques : **311.3 unités**, supérieu
 ## Sources
 
 Images originales, références, prompts exacts et SHA256 dans assets/concepts/incoming/map.scorched_verge/source/. Retouche finale : PROMPT_ARENE_ABRIS.txt. Génération par imagegen intégré. Contrôle ciblé dans docs/previews/scorched-verge/controle.json et aperçu des plaques dans plaques-annotees.png. Aucun changement de src/, data/ ni du manifeste runtime. Le script sharpness_map.py demandé pour la livraison détaillée est absent du main de référence a0946bf ; à vérifier avant cette future étape.
+
+## Passe de détail du 21 octobre
+
+Le propriétaire a demandé la mise au niveau des cartes validées. Découpage officiel : 12 régions (4 × 3), références d’échelle des Ruines jointes à chaque appel ; plan et dix plaques conservés. Les deux rochers-abris restent deux obstacles uniques, exception explicite à la subdivision des grosses masses de décor. Sources et prompts exacts dans source/regions_v1/. Contrôles qualité, échelle et netteté à joindre après assemblage. Les collisions et le gameplay restent hors de ce lot.
+
+## Livraison détaillée — contrôle du 21 octobre
+
+Trois tuiles de 3762 × 7524 pixels, soit 11286 × 7524 pixels et 2,25 pixels par unité. Contrôle officiel **CONFORME** : part lisse 0,213 ; détails fins 357,270 ; moyens 102,353 ; secteurs conformes 94,3 % ; fidélité au plan 0,978. Aucun seuil modifié. Renforcement de netteté natif plafonné à 120 % par le pipeline officiel, régions brutes conservées.
+
+[Carte entière](../previews/scorched-verge/carte-detaillee.png), [comparaison à même zoom](../previews/scorched-verge/echelle.png), [rapport](../previews/scorched-verge/qualite.json), [carte de netteté](../previews/scorched-verge/nettete.png). La carte de netteté signale deux secteurs dans la gorge fumante : (2400,0) et (2400,3200). Le contrôle global est conforme mais le critère absolu « aucune case » n’est donc pas rempli. La fumée reste volontairement douce ; ces deux secteurs sont signalés, sans modification des seuils.
+
+Import Godot final sans erreur après création du cache des polices et traductions. Images de décor seules : entrée du manifeste différée car le validateur exige un field de collisions ; aucun field inventé. Les collisions, zones, PV, dégâts au sol et gardien ne sont pas intégrés par ce lot.
