@@ -1,0 +1,55 @@
+{
+  "id": "map.mist_ford",
+  "status": "final",
+  "mode": "built-in image_gen",
+  "validation_proprietaire": "Carte et accÃ¨s corrigÃ©s validÃ©s le 20 octobre 2026",
+  "source": "source/map_source.png",
+  "selected_source": "source/map_connected.png",
+  "source_size": [
+    1536,
+    1024
+  ],
+  "world_size": [
+    5016,
+    3344
+  ],
+  "working_image": "collision/carte_a_peindre.png",
+  "working_size": [
+    5016,
+    3344
+  ],
+  "presentation": "res://assets/environments/mist_ford/map.webp",
+  "presentation_size": [
+    6144,
+    4096
+  ],
+  "prompts": {
+    "master": "source/PROMPT.txt",
+    "connectivity": "source/PROMPT-connectivity.txt"
+  },
+  "references": [
+    "assets/environments/fractured_plain_map/map.webp",
+    "assets/environments/cascade_ruins/map.webp",
+    "assets/environments/storm_highlands/map.webp",
+    "source/references/firefly_woods.webp (PR #36, commit 794620e)"
+  ],
+  "upscale": {
+    "tool": "Real-ESRGAN ncnn Vulkan 20220424",
+    "model": "realesr-animevideov3",
+    "factor": 4,
+    "tile": 128,
+    "command": "realesrgan-ncnn-vulkan -i map_connected.png -o map_upscaled.png -n realesr-animevideov3 -s 4 -t 128 -j 1:1:1",
+    "source": "https://github.com/xinntao/Real-ESRGAN/releases/tag/v0.2.5.0",
+    "note": "Restauration apprise des contours et textures, puis conversion WebP sans perte. La rÃ©solution source reste 1536 Ã— 1024 ; aucune nouvelle composition gÃ©nÃ©rÃ©e."
+  },
+  "preparation": "tools/art/prepare_mist_ford.py",
+  "collision_handoff": {
+    "owner_paints": true,
+    "rectangles_generated": false,
+    "mask_generated": false,
+    "runtime_registered": false,
+    "note": "Le propriÃ©taire gÃ¨re seul les collisions et les rectangles. Claude raccorde ensuite l'autel, les guÃ©s, les vagues et le gardien. L'eau profonde bloque ; les guÃ©s restent ouverts."
+  },
+  "native_sha256": "e7fd306a0ae0706158e1f29d42a4bf718bff51592395b3d5bb148c9ba865e680",
+  "working_sha256": "9ef55b13271581dc9ae1ffef759a528e43c45137cc8bb7247391fbe181250108"
+}

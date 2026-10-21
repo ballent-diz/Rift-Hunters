@@ -1,0 +1,54 @@
+{
+  "method": "imagegen built-in",
+  "scope": "Gué des Brumes : rangée centrale seulement",
+  "prompt": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\regions-work\\gue-agent\\PROMPT_REGION.txt",
+  "prompt_sha256": "29179b9cc4387ae2c039029a4a909bc4113ef35fc1fa9a336be70dd6389bbb81",
+  "reference": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-regions\\assets\\concepts\\incoming\\map.mist_ford\\source\\regions_v2\\reference_scale.png",
+  "reference_sha256": "46a74013731b07d36a868d027ec25a3e319f55109e4e3bf3411ae2ac612e0b4d",
+  "outputs": [
+    {
+      "id": "r1_0",
+      "path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\regions-work\\gue-agent\\regions\\r1_0.png",
+      "dimensions": [
+        1244,
+        1264
+      ],
+      "sha256": "363abc5e2958259a5db2bb666a07c3d09fd3261a60aceb9b20c0e8e64f00885e",
+      "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-regions\\assets\\concepts\\incoming\\map.mist_ford\\source\\regions_v2\\regions\\r1_0_input.png",
+      "input_sha256": "0a5ad4c8821ef85a9e4e22ed7a9065932c251107f3e7dfbe10486a87fea4f3c7"
+    },
+    {
+      "id": "r1_1",
+      "path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\regions-work\\gue-agent\\regions\\r1_1.png",
+      "dimensions": [
+        1314,
+        1197
+      ],
+      "sha256": "e9fbe9166b90f224870aa1537a23ac2617d443b5009ca410289fe1ea7bd9cb1e",
+      "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-regions\\assets\\concepts\\incoming\\map.mist_ford\\source\\regions_v2\\regions\\r1_1_input.png",
+      "input_sha256": "72b140da647dc021a86fae34d80d72da4d46f0db46de1affbf1245c26b0d4416"
+    },
+    {
+      "id": "r1_2",
+      "path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\regions-work\\gue-agent\\regions\\r1_2.png",
+      "dimensions": [
+        1314,
+        1197
+      ],
+      "sha256": "634b59070a805e3946d0b93887642a4f3de227af3b6258f0564b66a157bb0cf4",
+      "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-regions\\assets\\concepts\\incoming\\map.mist_ford\\source\\regions_v2\\regions\\r1_2_input.png",
+      "input_sha256": "bb674193cbfdd29860fbab0f33bb0d852851f3f4ad4ed1445ba8ca48be46758b"
+    },
+    {
+      "id": "r1_3",
+      "path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\regions-work\\gue-agent\\regions\\r1_3.png",
+      "dimensions": [
+        1245,
+        1263
+      ],
+      "sha256": "37849ca9d8e10f44c77d0337746001a2de017bcce13d98b32a3d6f197b634301",
+      "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-regions\\assets\\concepts\\incoming\\map.mist_ford\\source\\regions_v2\\regions\\r1_3_input.png",
+      "input_sha256": "9159efe676986f925931bb754e61a101bd8679fdb71a0b76493b010130acd31a"
+    }
+  ]
+}
