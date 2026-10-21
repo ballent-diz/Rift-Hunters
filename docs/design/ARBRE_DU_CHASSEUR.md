@@ -166,8 +166,8 @@ d'exploration et de recherche déjà achetés sont **conservés** comme amélior
   `tests/unit/test_hunter_spells_c2b.gd` (chaque sort, chaque variante et chaque talent en mêlée).
 - **Animations de Codex raccordées (16 octobre 2026)** : `src/entities/player/hunter_spell_vfx.gd` joue les scènes
   `assets/vfx/hunter/` (manifeste `vfx.hunter.*`) pour les 12 sorts et leurs variantes ; les dessins provisoires ne
-  servent plus qu'en secours. **Mode test** (Refuge → Options, visible seulement depuis Godot) : tout l'arbre appris,
-  paliers ouverts, 200 Points de Chasseur, pour essayer chaque sort.
+  servent plus qu'en secours. Bouton **Test dev** (Refuge → Options, visible seulement depuis Godot) : tout l'arbre
+  appris, paliers ouverts, 200 Points de Chasseur, tous les Échos, toutes les cartes et le Cauchemar ouverts.
 - Ajustements de réalisation : les Échos n'ont pas de points de vie, donc *Égide* renforce le bouclier du Chasseur
   (+5 % par Écho), *Garde de meute* fait contre-attaquer les Échos proches, *Sanctuaire* soigne le Chasseur (12 %) ;
   *Contre-taille* se déclenche en esquivant un coup pendant la Ruée ; *Mur de faille* est perpendiculaire à la

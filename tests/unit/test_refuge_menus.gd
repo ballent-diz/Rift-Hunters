@@ -115,22 +115,27 @@ func test_expedition_art_keeps_departure_visible_in_both_languages() -> void:
 	TranslationServer.set_locale(previous_locale)
 
 
-## Outil de développement (jeu lancé depuis Godot) : le bouton des Options débloque tous les Échos.
-func test_options_test_button_unlocks_every_echo() -> void:
+## Outil de développement (jeu lancé depuis Godot) : le bouton « Test dev » des Options débloque tout (arbre, Échos,
+## cartes, Cauchemar).
+func test_options_dev_button_unlocks_everything() -> void:
 	if not OS.is_debug_build():
 		return
 	var options: RefugeTab = _screen.tabs.get_child(7)
 	options.refresh()
 	var button: Button = null
 	for node: Node in options.find_children("*", "Button", true, false):
-		if (node as Button).text == tr("OPTIONS_TEST_ECHOES"):
+		if (node as Button).text == tr("OPTIONS_TEST_DEV"):
 			button = node
-	check(button != null, "bouton « débloquer tous les Échos » présent")
+	check(button != null, "bouton « Test dev » présent")
 	if button == null:
 		return
 	button.pressed.emit()
 	for id: StringName in GameDB.monsters:
 		check(Profile.profile.is_monster_unlocked(GameDB.monsters[id]), "%s débloqué depuis les Options" % id)
+	for id: StringName in GameDB.arenas:
+		check(Profile.profile.is_arena_unlocked(GameDB.arenas[id]), "carte %s débloquée" % id)
+	check(Campaign.is_nightmare_unlocked(Profile.profile), "Cauchemar ouvert")
+	check(HunterTree.points_total(Profile.profile) >= 200, "arbre du Chasseur et points de test")
 	var echoes: RefugeTab = _screen.tabs.get_child(2)
 	echoes.refresh()
 	var list: Array[Node] = echoes.find_children("Echo_sunclaw", "Button", true, false)
