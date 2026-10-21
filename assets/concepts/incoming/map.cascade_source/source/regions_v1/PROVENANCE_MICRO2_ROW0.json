@@ -1,0 +1,41 @@
+{
+  "mode": "built-in image_gen",
+  "pass": "MICRO2",
+  "prompt_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\PROMPT_MICRO2_ROW0.txt",
+  "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\nMATERIAL MICRODETAIL PASS: The composition is already correct, keep EVERY contour and object footprint fixed. Need visibly denser small crisp details, NOT a subtle sharpening. Draw many tiny individual serrated leaves and needles with crisp veins and dark twig breaks inside the same foliage silhouettes; rough finely stippled mineral grains and hairline cracks on every stone; delicate tiny irregular dirt granules and grass blade strokes on flat ground, at the fine-scale density of image2. Avoid broad smooth shading and plastic leaf blobs, avoid halos and artificial uniform noise. Keep existing palette, edges, waterlines and paths identical. Preserve bridges and exactly two unique boss-cover boulders if visible; never split or add obstacles.\n",
+  "reference_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\reference_scale.png",
+  "outputs": [
+    {
+      "region": "r0_0",
+      "native_original": "C:\\Users\\petit\\.codex\\generated_images\\01a15f98-e601-73c3-a09b-f73705ee2722\\exec-1e655096-e44f-4a0d-8b79-ec7443514eb5.png",
+      "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\regions\\r0_0.png",
+      "sha256": "C926158A4F3AD75FE1D53EFA89D230D556020C3BE84C652EBC7B8CE37C96D1CA",
+      "pre_edit_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\trials\\pre_micro2\\regions\\r0_0.png",
+      "pre_edit_sha256": "6E291A155A833BA64DDC4291553B636A0FCF480A6FB11032A0F1CCB80E4A23B0"
+    },
+    {
+      "region": "r0_1",
+      "native_original": "C:\\Users\\petit\\.codex\\generated_images\\01a15f98-e601-73c3-a09b-f73705ee2722\\exec-459b32c8-3cd5-46bf-b0bf-81eaf862db6a.png",
+      "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\regions\\r0_1.png",
+      "sha256": "00478D8902EF2241214225D229ECC3B5E41B62C824B055DC916F43F240E23EAB",
+      "pre_edit_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\trials\\pre_micro2\\regions\\r0_1.png",
+      "pre_edit_sha256": "4F1A6E2425F31671D34955DCAEF203E4BF03299C41DB992626C57D8EE36FA6B3"
+    },
+    {
+      "region": "r0_2",
+      "native_original": "C:\\Users\\petit\\.codex\\generated_images\\01a15f98-e601-73c3-a09b-f73705ee2722\\exec-278db862-47c3-444c-a808-b4d77d1f4dcc.png",
+      "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\regions\\r0_2.png",
+      "sha256": "D0DDD7BB5643D56DBDE56BF749383AA9E0AB906655A3A295ED5AD2820AF86755",
+      "pre_edit_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\trials\\pre_micro2\\regions\\r0_2.png",
+      "pre_edit_sha256": "3BD313AF20297B7FDC620B4E31112707079F8E09487176CB1491C5E173838A4E"
+    },
+    {
+      "region": "r0_3",
+      "native_original": "C:\\Users\\petit\\.codex\\generated_images\\01a15f98-e601-73c3-a09b-f73705ee2722\\exec-0c7b0847-c7d5-482b-8c54-9458cecd745a.png",
+      "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\regions\\r0_3.png",
+      "sha256": "5E7B620B3F316CE9D35EB39C2E895E4E4ECFDEE1E5945F1AC08DB7FC9A8848ED",
+      "pre_edit_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\detail-work\\cascade_source\\trials\\pre_micro2\\regions\\r0_3.png",
+      "pre_edit_sha256": "0DE5FFF6F4C5E7EAA482C3D5F7DD74EA0019BA4BB4F0F266804C8D7760AEC634"
+    }
+  ]
+}

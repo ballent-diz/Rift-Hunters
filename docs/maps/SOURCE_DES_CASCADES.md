@@ -1,6 +1,6 @@
 # Source des Cascades — carte 5 du Val des Cascades
 
-**Composition seulement, en attente de validation du propriétaire.** Deux propositions sont conservées ; le propriétaire a choisi la base A pour corriger les connexions. Aucune région détaillée, collision, donnée de niveau ou intégration jouable n'est produite.
+**Carte détaillée à partir de A, demandée par le propriétaire le 21 octobre.** Deux propositions sont conservées ; le propriétaire a choisi la base A pour corriger les connexions. Les collisions, données de niveau et intégration jouable restent à produire par le propriétaire et Claude.
 
 ## Images
 
@@ -92,10 +92,39 @@ Les pixels du canevas servent à établir les proportions, pas à garantir la ne
 - [ ] Validation du plan par le propriétaire, puis peinture de ses collisions.
 - [ ] Après validation seulement : régions, planche d'échelle, contrôle qualité conforme et contrôle de netteté.
 
-Arrêt à cette étape. Aucun manifeste runtime, `src/`, `data/`, masque ou collision n'est modifié.
+Aucun manifeste runtime, `src/`, `data/`, masque ou collision n’est modifié. La passe de détail a ensuite été autorisée par le propriétaire.
 
 ## Retouche de l’arène — 21 octobre
 
 À la demande du propriétaire, A remplace la place circulaire par une cour polygonale irrégulière, pavée sans anneaux concentriques. Deux gros rochers moussus, vers (55 %, 14 %) et (71 %, 18 %), fournissent les futurs abris contre les attaques du boss. Ils sont décalés et séparés par une large voie libre. Les quatre parties, les trois ponts et les accès fermés sont conservés visuellement.
 
 Source native : `variant_A_arena_cover_native.png` ; prompt exact : `PROMPT_ARENE_ABRIS.txt`, générateur intégré imagegen. Cette livraison reste une composition : les collisions des rochers et leur blocage des projectiles ne sont pas implémentés ; le propriétaire puis Claude les raccorderont.
+
+## Passe de détail — 21 octobre
+
+16 régions générées (4 × 4), source et référence d’échelle des Ruines jointes à chaque appel. Deux rochers-abris restent deux obstacles uniques. Les premiers bruts restent archivés dans source/regions_v1/trials/. Les prompts de retouche sont conservés intégralement, sans remplacer le prompt officiel.
+
+| Essai | Lisse | Fins | Moyens | Secteurs conformes | Fidélité |
+|---|---:|---:|---:|---:|---:|
+| Régions initiales | 0,234 | 295,086 | 95,401 | 83,7 % | 0,995 |
+| Retouche des quatre régions r3 | 0,226 | 295,086 | 95,787 | 91,8 % | 0,990 |
+| Calibrage après rééchantillonnage | 0,211 | 303,583 | 96,173 | 95,9 % | 0,991 |
+| Microdétails r0, r1, r2 | 0,192 | 333,710 | 103,126 | 95,9 % | 0,987 |
+
+Les deux dernières lignes sont des contrôles de l’image native à 0,75 px/unité : leur échec de densité est normal ; le verdict de livraison doit porter sur les tuiles exportées à 2,25 px/unité. Aucun seuil de qualité modifié. Le réglage de netteté conserve son plafond de 120 % et s’applique désormais après rééchantillonnage à la densité native réelle. Une option --native-only permet de vérifier les matières avant l’encodage coûteux des tuiles WebP.
+
+Deux secteurs de lisière boisée restent sous les critères sectoriels à (0,4800) et (4000,4800) ; la conformité globale exige 85 % des secteurs et est contrôlée séparément. Les essais et leurs chiffres sont livrés pour diagnostiquer ces limites sans les masquer.
+
+## Cadence retenue pour les prochaines cartes
+
+Contrôler l’aperçu natif avant chaque encodage des grandes tuiles (--native-only). Après les régions, employer le détecteur de cases de 160 unités de main et sa correction locale deblur_map.py, plutôt que multiplier les générations lorsque seul le piqué des matières manque. Conserver les régions brutes, les essais et les chiffres avant/après. La correction locale ne remplace jamais une passe de régions ni une correction d’échelle ou de plan.
+
+## Livraison finale — tuiles exportées
+
+Trois tuiles de 3762 × 11286 pixels, ensemble 11286 × 11286, **2,25 pixels par unité**. Après correction locale, le traitement préserve le grain réellement peint des régions (rayon 2 pixels, amplitude limitée à ±12 par canal, aucun bruit ajouté). Export WebP sans perte, compression méthode 0 pour réduire le temps d’encodage sans modifier les pixels.
+
+Contrôle officiel des trois tuiles : **CONFORME**. Lisse 0,170 ; fins 372,720 ; moyens 108,147 ; secteurs conformes **100 %** ; fidélité **0,986**. Les seuils du contrôle sont inchangés.
+
+Détection fine : 530 cases initiales sur 961. Après correction et préservation du grain : **0 case résiduelle à référence initiale figée**, seuil 0,6 inchangé. Le percentile recalculé devient beaucoup plus haut et signale 529 cases : ce résultat relatif ne se compare pas directement au précédent, conformément à la note du guide de qualité. Scores bruts et deux résultats conservés dans uniformite/.
+
+[Carte entière](../previews/source-des-cascades/carte-detaillee.png), [échelle](../previews/source-des-cascades/echelle.png), [rapport final](../previews/source-des-cascades/qualite.json). Import Godot final sans erreur. Manifeste différé jusqu’au field peint par le propriétaire : le validateur exige ce field, aucun masque inventé.

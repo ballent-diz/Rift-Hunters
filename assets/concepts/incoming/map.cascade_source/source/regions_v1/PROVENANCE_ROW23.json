@@ -1,0 +1,38 @@
+[
+  {
+    "region": "r2_0",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a1597a-e7f7-75e0-9811-7479b56bb6c0\\exec-f586a77a-f737-4576-8a4c-403fa6a94f12.png",
+    "width": 1188,
+    "height": 1324,
+    "sha256": "a449280879be05239577237780640083cc0342c7b3715e5df0d5c6fe80e213ce",
+    "tool": "built-in image_gen",
+    "prompt": "PROMPT_ROW23_EXACT.txt"
+  },
+  {
+    "region": "r2_1",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a1597a-e7f7-75e0-9811-7479b56bb6c0\\exec-ced6028f-100f-4c70-ba20-9c11a1e8722e.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "f165902f03fc7ba9235322c0d76fc43f0092966e0f2b9473b9acce936ccdb5c2",
+    "tool": "built-in image_gen",
+    "prompt": "PROMPT_ROW23_EXACT.txt"
+  },
+  {
+    "region": "r2_2",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a1597a-e7f7-75e0-9811-7479b56bb6c0\\exec-925bfd8f-79b4-49b6-ab18-43fd1e3ac076.png",
+    "width": 1254,
+    "height": 1254,
+    "sha256": "859b035a0b9463f987350b216b54a6ec41b95123967f8b5745c488dc32abb795",
+    "tool": "built-in image_gen",
+    "prompt": "PROMPT_ROW23_EXACT.txt"
+  },
+  {
+    "region": "r2_3",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a1597a-e7f7-75e0-9811-7479b56bb6c0\\exec-44bfb9cc-bf25-497e-96d0-ffb86e181c72.png",
+    "width": 1188,
+    "height": 1324,
+    "sha256": "fb6815df438a0e784f6faecb0936b3d41ee3506404a86189ecca15adfb6c1814",
+    "tool": "built-in image_gen",
+    "prompt": "PROMPT_ROW23_EXACT.txt"
+  }
+]

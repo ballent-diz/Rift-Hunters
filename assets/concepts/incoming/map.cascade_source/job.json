@@ -1,7 +1,7 @@
 {
   "id": "map.cascade_source",
   "status": "wip",
-  "stage": "composition uniquement ; choix du propriétaire attendu",
+  "stage": "images détaillées prêtes pour collisions",
   "world_size": [
     5016,
     5016
@@ -14,7 +14,7 @@
     "A",
     "B"
   ],
-  "selected_variant": null,
+  "selected_variant": "A",
   "source_directory": "source/",
   "sources": {
     "A": "source/variant_A_native.png",
@@ -35,10 +35,10 @@
   ],
   "mode": "image_gen intégré, sans API",
   "runtime_registered": false,
-  "regions_generated": false,
+  "regions_generated": true,
   "collisions_generated": false,
   "gameplay_modified": false,
-  "next_step": "Le propriétaire choisit une variante et peint les collisions. La passe de régions viendra ensuite.",
+  "next_step": "Contrôle final des images puis collisions peintes par le propriétaire, intégration par Claude.",
   "owner_selected_base": "A",
   "owner_approved_final": false,
   "latest_correction_prompt": "source/PROMPT_ARENE_ABRIS.txt",
@@ -87,5 +87,11 @@
       ]
     ],
     "collisions": "à peindre par le propriétaire ; aucun changement de gameplay"
-  }
+  },
+  "regions_count": 16,
+  "regions_directory": "source/regions_v1",
+  "detail_requested": true,
+  "quality_conform": true,
+  "quality_report": "docs/previews/source-des-cascades/qualite.json",
+  "texture_preservation": "tools/art/preserve_map_texture.py"
 }

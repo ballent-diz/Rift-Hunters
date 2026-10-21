@@ -163,3 +163,7 @@ Livré (Codex, 21 octobre) : objet peint animé, cinq animations précalculées 
 ### Source des Cascades — compositions
 
 Propositions livrées pour revue (Codex, 21 octobre) : deux compositions ; base A retouchée à la demande du propriétaire avec quatre parties et trois ponts uniques. Fiche docs/maps/SOURCE_DES_CASCADES.md ; mesures et courants à valider. Aucune région ni collision produite.
+
+### Source des Cascades — passe de détail
+
+Visuels livrés (Codex, 21 octobre) : 16 régions et retouches de matière, export final contrôlé conforme ; 100 % des secteurs, fidélité 0,986, aucune case résiduelle à référence initiale figée. Plan à quatre parties, trois ponts et deux rochers-abris conservé ; collisions du propriétaire et intégration Claude à suivre.
