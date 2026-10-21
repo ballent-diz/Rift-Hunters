@@ -1,0 +1,140 @@
+{
+  "generator": "image_gen intégré, sans API ni source tierce",
+  "grid": [
+    4,
+    3
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "plan": "assets/concepts/incoming/map.mist_ford/source/map_connected.png",
+  "prompt": "PROMPT_REGION.txt",
+  "prompt_usage": "Texte officiel inchangé ; image1 = région input, image2 = reference_scale.png.",
+  "detail_density": 0.75,
+  "presentation_density": 2.25,
+  "regions": [
+    {
+      "region": "r0_0",
+      "input": "regions/r0_0_input.png",
+      "output": "regions/r0_0.png",
+      "native_size": [
+        1320,
+        1191
+      ],
+      "sha256": "1550df52f4d01da7e0a12f46587a4b897a1aa8e5f740861833fcacdd7cbad615"
+    },
+    {
+      "region": "r0_1",
+      "input": "regions/r0_1_input.png",
+      "output": "regions/r0_1.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "a7d85a9c25c54586fa0aee407ea49a933083d6153a1ee122bbe86c1e8ddc830f"
+    },
+    {
+      "region": "r0_2",
+      "input": "regions/r0_2_input.png",
+      "output": "regions/r0_2.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "571a0a6e535559dbec5086c54e591c91a7069d9beee428f1f4db47d6ecdd9e13"
+    },
+    {
+      "region": "r0_3",
+      "input": "regions/r0_3_input.png",
+      "output": "regions/r0_3.png",
+      "native_size": [
+        1320,
+        1191
+      ],
+      "sha256": "788c5004a4230da7dd315257f7ce30dc163230ad0429ac780aaa39c478a53f2e"
+    },
+    {
+      "region": "r1_0",
+      "input": "regions/r1_0_input.png",
+      "output": "regions/r1_0.png",
+      "native_size": [
+        1244,
+        1264
+      ],
+      "sha256": "363abc5e2958259a5db2bb666a07c3d09fd3261a60aceb9b20c0e8e64f00885e"
+    },
+    {
+      "region": "r1_1",
+      "input": "regions/r1_1_input.png",
+      "output": "regions/r1_1.png",
+      "native_size": [
+        1314,
+        1197
+      ],
+      "sha256": "e9fbe9166b90f224870aa1537a23ac2617d443b5009ca410289fe1ea7bd9cb1e"
+    },
+    {
+      "region": "r1_2",
+      "input": "regions/r1_2_input.png",
+      "output": "regions/r1_2.png",
+      "native_size": [
+        1314,
+        1197
+      ],
+      "sha256": "634b59070a805e3946d0b93887642a4f3de227af3b6258f0564b66a157bb0cf4"
+    },
+    {
+      "region": "r1_3",
+      "input": "regions/r1_3_input.png",
+      "output": "regions/r1_3.png",
+      "native_size": [
+        1245,
+        1263
+      ],
+      "sha256": "37849ca9d8e10f44c77d0337746001a2de017bcce13d98b32a3d6f197b634301"
+    },
+    {
+      "region": "r2_0",
+      "input": "regions/r2_0_input.png",
+      "output": "regions/r2_0.png",
+      "native_size": [
+        1320,
+        1191
+      ],
+      "sha256": "4615f8bd405c932618ef4813ac2279561ec48d3b01e54888373334a6b4915e4f"
+    },
+    {
+      "region": "r2_1",
+      "input": "regions/r2_1_input.png",
+      "output": "regions/r2_1.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "e2f5059d89bbf315a781830204df1d606ab0ad8d0cdfec794c6e1143cfa15e64"
+    },
+    {
+      "region": "r2_2",
+      "input": "regions/r2_2_input.png",
+      "output": "regions/r2_2.png",
+      "native_size": [
+        1394,
+        1128
+      ],
+      "sha256": "e597d4360b94d371fbabb47278feef02212d8e6217b55e36f9043ecb1bf15eb0"
+    },
+    {
+      "region": "r2_3",
+      "input": "regions/r2_3_input.png",
+      "output": "regions/r2_3.png",
+      "native_size": [
+        1321,
+        1191
+      ],
+      "sha256": "5481af25911b2bcff9573403e634f1da9c4bf7f0f7c8422026ccc564c774576c"
+    }
+  ],
+  "processing": "Assemblage officiel avec fondus de recouvrement, puis présentation ×3. Aucun détail ajouté par filtre ou bruit.",
+  "bridge_access": "Aucune correction locale : demande abandonnée par le propriétaire."
+}

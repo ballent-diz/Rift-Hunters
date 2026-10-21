@@ -621,6 +621,8 @@ ZONE_THREE_RIFTS_1_NAME,Le Gué des Ruines,The Ruins Ford
 ZONE_THREE_RIFTS_2_NAME,La Cour des Cascades,The Cascade Courtyard
 ARENA_FIREFLY_WOODS_NAME,Bois des Lucioles,Firefly Woods
 ARENA_FIREFLY_WOODS_DESC,"La nuit tombe sur la forêt : avancez de clairière en clairière, puis réveillez le gardien de l'arbre-monde.","Night falls on the forest: advance from glade to glade, then awaken the guardian of the world tree."
+ARENA_MIST_FORD_NAME,Gué des Brumes,Misty Ford
+ARENA_MIST_FORD_DESC,"Défendez le sceau ancien au cœur du delta : les vagues arrivent par les gués, où tout le monde patauge.","Defend the ancient seal at the heart of the delta: waves cross the fords, where everyone wades slowly."
 ZONE_FIREFLY_WOODS_1_NAME,La Prairie du Sous-bois,The Underwood Meadow
 ZONE_FIREFLY_WOODS_2_NAME,La Clairière du Sanctuaire,The Shrine Glade
 ZONE_FIREFLY_WOODS_3_NAME,Le Plateau de Mousse,The Moss Plateau

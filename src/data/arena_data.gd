@@ -76,6 +76,8 @@ extends Resource
 ## Zones de terrain lent (gués, boue...) : tout le monde y est ralenti, la Ruée garde sa vitesse.
 @export var slow_zones: Array[Rect2] = []
 @export_range(0.1, 1.0) var slow_zone_mult: float = 0.6
+## Gués déjà peints sur la carte : pas de teinte ni d'ondulations dessinées par-dessus.
+@export var slow_zones_painted: bool = false
 @export_group("Courants (brique B6, docs/design/CARTES.md)")
 ## Courants permanents : le Chasseur et les Corrompus y dérivent dans le sens du courant (pas pendant la Ruée ;
 ## boss et Échos épargnés). Le suivre fait gagner du temps, le remonter en fait perdre.

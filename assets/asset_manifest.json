@@ -10227,7 +10227,7 @@
 				128,
 				105
 			],
-			"scale": 1.0,
+			"scale": 0.7,
 			"generated_by": "tools/art/bake_altar_seal.gd",
 			"animations": {
 				"intact": {
@@ -10261,6 +10261,30 @@
 					"loop": false
 				}
 			}
+		},
+		"environment.mist_ford": {
+			"status": "final",
+			"kind": "map",
+			"map": "res://assets/environments/mist_ford/map.webp",
+			"map_tiles": [
+				"res://assets/environments/mist_ford/map.webp",
+				"res://assets/environments/mist_ford/map_1.webp",
+				"res://assets/environments/mist_ford/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/mist_ford/field.png",
+			"field_step": 2.0,
+			"arena_size": 5016,
+			"start": [
+				0,
+				60
+			],
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/mist_ford/minimap.webp"
 		}
 	}
 }

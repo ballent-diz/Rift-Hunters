@@ -183,6 +183,17 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 - Bot (graine 3) : Cendrelame 6 min 19, Lueurine 6 min 20, Solgriffe 7 min 00, Mousseroc 6 min 21 à 7 min 46
   (graines 3, 5, 7), après remplacement de l'élite Gardien-menhir de la dernière vague par la Gardienne de cristal.
 
+### Carte 4 « Gué des Brumes » en jeu (21 octobre 2026)
+
+- Image : 12 régions de Codex assemblées (`map_regions.py`), contrôle conforme (détails fins 353, fidélité 0,99).
+- Collisions peintes par le propriétaire sur la carte détaillée ; l'eau profonde est peinte, les gués restent
+  praticables (`collision_mask.py overlay mist_ford … --no-water`).
+- Niveau (`data/arenas/mist_ford.tres`) : défense d'autel, sceau sur le socle de l'île centrale (0, -205), 5 vagues de
+  50 s, sceau à 2400 PV, 1,2 apparition par seconde, 6 arrivées en bord de carte ; 4 gués en terrain lent (B1, déjà
+  peints : `slow_zones_painted`) ; XP × 1,4 ; gardien : Sentinelle des Racines (Nébulorax, boss de fin de carte,
+  était trop fort au niveau atteint). Carte 4 du chapitre 1.
+- Bot : 8 victoires sur 8 (4 Échos, graines 3, 5, 7), 5 min 03 à 5 min 56, niveau 17 à 18.
+
 ## Ordre de réalisation
 
 1. Chapitre 1, carte 3 (Bois des Lucioles) : image (Codex), collisions peintes (propriétaire), zones, brique B2 et

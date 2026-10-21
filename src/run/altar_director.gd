@@ -23,6 +23,8 @@ const MAX_ATTACKERS := 6
 ## Sous cette part de PV, le sceau s'affiche fendu (fissures violettes).
 const DAMAGED_RATIO := 0.5
 const VISUAL_ID := &"object.altar_seal"
+## Demi-largeur du socle peint dans sa cellule (pixels) : la jauge suit son contour.
+const SEAL_HALF_WIDTH := 110.0
 const STONE := Color(0.42, 0.44, 0.5)
 const RUNE := Color(0.72, 0.5, 1.0)
 
@@ -275,5 +277,6 @@ func _draw_gauge(r: float) -> void:
 		return
 	var ratio: float = clampf(hp / maxf(max_hp, 1.0), 0.0, 1.0)
 	var color := Color(0.6, 1.0, 0.75, 0.9) if ratio >= DAMAGED_RATIO else Color(1.0, 0.55, 0.75, 0.9)
-	# Autour du socle peint (≈ 1,6 fois l'emprise de collision), sans le recouvrir.
-	draw_arc(Vector2.ZERO, r * 1.7, -PI / 2.0, -PI / 2.0 + TAU * ratio, 64, color, 5.0, true)
+	# Sur le contour du socle peint (ou de l'emprise si le sceau n'a pas de feuille).
+	var radius: float = SEAL_HALF_WIDTH * Assets.pixel_scale(VISUAL_ID) + 2.0 if _seal else r + 10.0
+	draw_arc(Vector2.ZERO, radius, -PI / 2.0, -PI / 2.0 + TAU * ratio, 64, color, 5.0, true)

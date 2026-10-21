@@ -62,7 +62,7 @@ func _draw() -> void:
 	view = view.grow(64.0)
 	for i: int in ctx.arena.slow_zones.size():
 		var rect: Rect2 = ctx.arena.slow_zones[i]
-		if not rect.intersects(view):
+		if ctx.arena.slow_zones_painted or not rect.intersects(view):
 			continue
 		draw_rect(rect, Color(0.3, 0.6, 0.85, 0.22))
 		draw_rect(rect, Color(RIPPLE, 0.35), false, 2.0)
