@@ -1,0 +1,22 @@
+{
+  "name": "Pyrevorn — phase1 techniques",
+  "rows": [
+    "magma_breath",
+    "crater_rain",
+    "brood_call"
+  ],
+  "grid": [
+    6,
+    3
+  ],
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Style references1-3 define strict Rift Hunters angular dark fantasy crisp fine pixel clusters, jagged faceted shading and selective dark outline. Reference4 is PYREVORN sheet A, the EXACT character to preserve: one immense low wide heavy quadrupedal volcanic beast, mountainous barrel torso, short load-bearing limbs, massive front claws, one huge crater on back, two broad folded basalt wings, ONE armored dragon head with four orange eyes in two stacked pairs and ONE white-hot forehead eye. Preserve EXACT armor design, head shape, silhouette, face, wings and proportions from image4, not a new dragon and not humanoid. Black basalt, brown rock, orange/yellow molten fissures, yellow-white incandescence. NO purple/magenta. Face RIGHT slight overhead three-quarter camera, upper-left light. SMALL isolated figures occupy ONLY CENTRAL50% WIDTH and CENTRAL55% HEIGHT of each square cell, with HUGE transparent gutters at least20% all sides. Equal square cells on landscape 2:1 canvas. Whole body and ultra-short emitted effects must fit together entirely within each cell, no overlap, no touching cell borders. Ground baseline consistent. Truly transparent RGBA background alpha0. No ground shadow, no halo, no text/labels/grid/panels/scenery/circles/telegraphs. Not smooth painterly or cute cartoon. SHEET B phase1 special attacks, armor mostly intact. ROW1 MAGMA BREATH six successive poses: brace; pull single head back with throat hot; open jaws and emit tiny liquid-fire cone; strongest SHORT mouth-emitted magma cone; cone ends with tiny smoke puff; close jaws and recover. Cone must be shorter than HEAD LENGTH, points right, never reach cell edge. Do not copy earlier long breath mistakes. ROW2 CRATER RAIN six poses: crouch; arch the massive torso; back crater spits 2-3 small incandescent rocks directly upward; rocks hover just over crater within body silhouette footprint; rocks fall back close as crater dims; recover baseline. Rocks and smoke very compact all inside center of own cell, no distant debris. ROW3 BROOD CALL six poses: brace low; lift head inhale; roar jaws wide; pound one front claw into ground while roaring; claw settles with tiny direct contact sparks; close mouth and recover. NO summoned creatures, NO larvae, no magic circle, no ground area. Clearly distinct anticipation/action/recovery.",
+  "refs": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/pyrevorn/sheet_a_reference.png"
+  ],
+  "source": "sheet_b.png",
+  "original": "C:/Users/petit/.codex/generated_images/01a163b2-00b9-7a03-8900-f3a95890f096/exec-73d2e6da-fab9-4ee3-bcc3-e58bedf0b7ae.png",
+  "mode": "builtin-imagegen"
+}

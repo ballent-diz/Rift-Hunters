@@ -1,0 +1,94 @@
+{
+  "id": "lava_lurker",
+  "fr": "Rôdeur de lave",
+  "en": "Lava Lurker",
+  "tier": "normal",
+  "height": 40,
+  "description": "sleek salamander-like predator of cooling black rock with molten orange belly, long tail, wide jaws, white-hot eyes",
+  "mode": "builtin-imagegen",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images 1 husk, 2 lunger, 3 Nebulorax define strict Rift Hunters art direction ONLY: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. Do not copy references anatomy or palette. NOT smooth painterly fantasy and NOT cute cartoon. Create a sleek elongated SALAMANDER with four short splayed amphibian legs, long flexible tapering tail, smooth cooling-black-rock skin with subtle angular cracks, exposed orange molten belly and wide blunt jaws. Low serpentine profile, no beetle shell, no armored husk, no large dorsal spikes. Distinct original species. Palette strictly black basalt, warm brown rock, vivid orange and yellow lava; corruption is WHITE-YELLOW incandescent eyes and fissures. Absolutely NO violet, purple or magenta. Upper-left light. All poses same character and proportions, face RIGHT with slight overhead three-quarter view. ROW1: six successive walking poses of salamander gait, alternating splayed legs and visibly swaying long tail, seamless loop. ROW2: six successive bite attack poses: head recoils, jaws open, neck extends, jaws snap forward, neck recoils, returns ready. ROW3 Plunge technique, exactly six progressive poses: 1 head angled down into a SMALL localized molten-rock well immediately under its head; 2 head and front half disappear inside the same small well, tail raised; 3 almost entire body submerged with only tail tip visible; 4 head bursts back out jaws wide open with a small lava splash; 5 upper body emerges jaws open amid attached lava spray; 6 entire salamander lands in recovered low stance. The small molten well is a bodily burrowing effect only, not a large circle or telegraph. Equal square cells, landscape 2:1 sheet. Every figure fits entirely within its cell, generous empty gutters and at least 20 percent margin on every side of each cell, absolutely no overlaps, same character size and stable ground baseline. No death row. No background glow, no ground shadow, no backdrop, no grid or panels, no scenery, no text or labels or watermark. Effects only attached to body or directly emitted from it. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo.\n",
+  "references": [
+    "assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "visual_id": "enemy.lava_lurker",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    238
+  ],
+  "scale": 0.5,
+  "target_height": 80,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "resample": "lanczos",
+  "anchor_mode": "mass",
+  "isolate": true,
+  "hover": 0,
+  "icon_size": 128,
+  "preview_zoom": 2,
+  "animations": [
+    {
+      "name": "move",
+      "source": "move.png",
+      "sheet_source": "source/sheet.png",
+      "source_row": 0,
+      "source_scale": 1.0,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "attack.png",
+      "sheet_source": "source/sheet.png",
+      "source_row": 1,
+      "source_scale": 1.0,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "plunge",
+      "source": "plunge.png",
+      "sheet_source": "source/sheet.png",
+      "source_row": 2,
+      "source_scale": 1.0,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  },
+  "empty_animations": [
+    {
+      "name": "death",
+      "fps": 12,
+      "loop": false
+    }
+  ]
+}

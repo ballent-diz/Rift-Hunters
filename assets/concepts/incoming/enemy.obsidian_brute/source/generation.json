@@ -1,0 +1,17 @@
+{
+  "id": "obsidian_brute",
+  "fr": "Brute d'obsidienne",
+  "en": "Obsidian Brute",
+  "tier": "normal",
+  "height": 42,
+  "description": "heavy quadruped covered in sharp glossy obsidian shards, lava visible between plates, low head, white-hot eyes",
+  "rows": 2,
+  "mode": "builtin-imagegen",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 2 rows, 12 distinct complete poses. Reference images 1 husk, 2 lunger, 3 Nebulorax define strict Rift Hunters art direction ONLY: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. Do not copy references anatomy or palette. NOT smooth painterly fantasy and NOT cute cartoon. Create a massively heavy FOUR-LEGGED quadrupedal beast: broad shoulder hump, short thick weight-bearing limbs, very low wedge head, broad squared muzzle, body covered in irregular glossy black obsidian shards with sharp glassy reflective planes and lava visible between plates. Strong heavy quadruped silhouette, not humanoid, never bipedal, not golem, not beetle or husk, no long salamander tail. Distinct original species. Palette strictly black basalt, warm brown rock, vivid orange and yellow lava; corruption is WHITE-YELLOW incandescent eyes and fissures. Absolutely NO violet, purple or magenta. Upper-left light. All poses same character and proportions, face RIGHT with slight overhead three-quarter view. ROW1: six successive heavy lumbering quadruped walking gait poses, alternate thick forelegs and hindlegs, visible shoulder weight shift, seamless loop. ROW2: six successive head-and-shoulder ram attack poses: brace all four feet; lower head; thrust massive shoulders and head forward; strongest ramming extension with front legs spread; recoil weight back; recover low ready stance. Equal square cells, landscape 3:1 sheet. Every figure fits entirely within its cell, generous empty gutters and at least 20 percent margin on every side of each cell, absolutely no overlaps, same character size and stable ground baseline. No death row. No background glow, no ground shadow, no backdrop, no grid or panels, no scenery, no text or labels or watermark. Effects only attached to body or directly emitted from it. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo.",
+  "source": "C:/Users/petit/.codex/generated_images/01a163b1-2e02-7ab3-b068-aaa9b8f4de61/exec-44ec6acc-76e9-4608-a492-edb3e9448eda.png"
+}

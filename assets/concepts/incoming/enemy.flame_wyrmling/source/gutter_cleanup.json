@@ -1,0 +1,17 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 25
+  },
+  "attack": {
+    "removed_neighbor_pixels": 3035
+  },
+  "death": {
+    "removed_neighbor_pixels": 1088
+  },
+  "flame_breath": {
+    "removed_neighbor_pixels": 2
+  },
+  "dive": {
+    "removed_neighbor_pixels": 0
+  }
+}

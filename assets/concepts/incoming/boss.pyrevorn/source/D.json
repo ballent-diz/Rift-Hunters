@@ -1,0 +1,26 @@
+{
+  "id": "pyrevorn",
+  "fr": "Pyrevorn",
+  "en": "Pyrevorn",
+  "tier": "boss",
+  "sheet": "D",
+  "phase": 2,
+  "rows": [
+    "phase2_idle",
+    "skyfall",
+    "rift_eye"
+  ],
+  "grid": [
+    6,
+    3
+  ],
+  "mode": "builtin-imagegen",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Images 1-3 define Rift Hunters pixel-art STYLE ONLY. Image4 is strict PYREVORN identity: preserve the exact enormous broad barrel torso of this walking volcano, four short massive load-bearing clawed legs, low wedge head with four orange eyes in two stacked pairs plus one WHITE forehead eye, enormous dorsal crater and two basalt wings. This is the SAME Pyrevorn in phase2, partially shed slab armor exposing more molten lava and continuously erupting dorsal crater. Preserve its monumental heavy volcanic quadruped proportions: never turn it into a thin young wyvern. Wings are articulated massive basalt frames with molten orange membranes, folded along flanks normally, open for flight. Black basalt warm brown rock orange yellow lava white-hot corruption; absolutely NO violet purple magenta. Crisp fine pixel clusters, angular faceted dark fantasy shading, selective outline, not painterly, not cute. Upper-left light. Face RIGHT with slightly overhead three-quarter view. ROW1 phase2_idle: six distinct breathing poses, chest expands/contracts, folded wings shift, dorsal crater continuously emits a COMPACT eruption attached directly to crater, seamless loop. ROW2 skyfall: six distinct whole-body poses, first three ascent wings unfolding, then spread and beating, then fully spread at higher position; last three descent wings tuck, then fold tight with claws reaching down, then whole body crouches in landing impact with a SMALL attached lava splash. Keep entire head feet wings and crater INSIDE each cell even at top of ascent. Vary vertical body position visibly inside cell, NEVER crop offscreen: runtime handles offscreen motion. ROW3 rift_eye: forehead WHITE eye charges gradually over poses1-3, poses4-5 discharge a VERY SHORT thin white beam only ONE EYE-LENGTH emerging from forehead, pose6 recovery. The beam must be a tiny eye-sized emission, absolutely no long ray or projectile across cell; runtime creates the real beam. Same creature and drawing scale throughout. Equal square cells, landscape2:1. CRITICAL layout: every entire creature INCLUDING WINGS AND ERUPTION occupies ONLY the central50% of its cell. Huge empty transparent gutters, MINIMUM20% entirely transparent margin ALL FOUR SIDES of every cell. All18 complete poses separated, never touch neighbors, atlas not connected scene. No ground shadow, halo, rings, telegraphs, scenery, grid, labels, panels, words or watermark. Output true transparent RGBA zero alpha outside sprites. One head and one crater, preserve four orange eyes plus single white forehead eye.",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/pyrevorn/sheet_a.png"
+  ],
+  "original": "C:/Users/petit/.codex/generated_images/01a163b1-2e02-7ab3-b068-aaa9b8f4de61/exec-4b1f1ee1-8499-4adf-b6ae-ebb723357e95.png"
+}

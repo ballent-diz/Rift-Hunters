@@ -1,0 +1,11 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 856
+  },
+  "attack": {
+    "removed_neighbor_pixels": 0
+  },
+  "plunge": {
+    "removed_neighbor_pixels": 158
+  }
+}

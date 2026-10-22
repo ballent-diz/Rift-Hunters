@@ -1,0 +1,17 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 0
+  },
+  "attack": {
+    "removed_neighbor_pixels": 1017
+  },
+  "death": {
+    "removed_neighbor_pixels": 57
+  },
+  "eruption": {
+    "removed_neighbor_pixels": 0
+  },
+  "open_crater": {
+    "removed_neighbor_pixels": 0
+  }
+}
