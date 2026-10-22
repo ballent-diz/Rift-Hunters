@@ -79,6 +79,10 @@ d'écran en 1080p** : le détail dessiné est le détail vu. Toutes les entités
 | `enemy` | move 6@10, attack 4@12 (si elle attaque), death 6@12 |
 | `boss` | idle 6@8, move 8@8, attack 6@12, death 8@10 + celles de sa fiche concept |
 
+**À partir du chapitre 2** (le chapitre 1 garde ses planches) : normaux = déplacement + attaque (6 × 2, mort par effet
+commun) ; élites = planche A déplacement / attaque / mort + planches de techniques ; boss = 4 planches et plus.
+Règles complètes, mécaniques et montée en puissance : [design/MONSTRES.md](design/MONSTRES.md).
+
 - Toutes les frames : même créature, mêmes proportions, même palette, mêmes pieds sur la même ligne.
 - Boucles (`idle`, `move`) : la dernière frame s'enchaîne sur la première sans saut.
 - Attaques : anticipation (1–2 frames) → frappe (1–2 frames, la plus lisible) → retour.

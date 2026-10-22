@@ -13,6 +13,8 @@ Statut : **proposition du 18 octobre 2026, à valider carte par carte par le pro
 - **Production tenable** : une famille de monstres par chapitre, plus 1 ou 2 créatures liées au décor de chaque
   carte ; un **Dévoreur** (nouveau boss) en dernière carte du chapitre ; ailleurs, un **gardien** (élite renforcée
   qui réutilise un sprite, avec ses propres attaques) ou le boss d'une carte précédente.
+- **Monstres** (22 octobre 2026) : à partir du chapitre 2, normaux simples, élites et boss à techniques propres, et
+  nouvelles mécaniques introduites de façon continue, carte après carte : [MONSTRES.md](MONSTRES.md).
 - **Familles du chapitre 1** (décision du propriétaire, 21 octobre 2026) : la famille violette de la Faille (grouillard,
   bondisseur, carapace, cracheur ; élites rôdeur d'ombre, couveuse, gardienne de cristal) sur les cartes 1 à 3 ; la
   famille des Hautes Terres (coureur des landes, triton de cendre, scarabée d'ardoise, harpie argentée ; élites
