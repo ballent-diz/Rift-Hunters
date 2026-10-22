@@ -223,7 +223,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event is InputEventMagnifyGesture:
 		_zoom_by((event as InputEventMagnifyGesture).factor)
 	elif event is InputEventPanGesture:
-		_camera.position += (event as InputEventPanGesture).delta * 20.0 / _camera.zoom.x
+dddddddddddddddd		_camera.position += (event as InputEventPanGesture).delta * 20.0 / _camera.zoom.x
 	elif event is InputEventMouseMotion:
 		var m := event as InputEventMouseMotion
 		if _panning:
