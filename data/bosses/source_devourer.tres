@@ -1,0 +1,211 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=17 format=3]
+
+[ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/boss_phase_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/boss_pattern_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"boss.source_devourer"
+shape = 8
+size = 170.0
+primary = Color(0.45, 0.47, 0.41, 1.0)
+secondary = Color(0.44, 0.53, 0.32, 1.0)
+accent = Color(0.6, 0.39, 0.79, 1.0)
+
+[sub_resource type="Resource" id="pattern_1"]
+script = ExtResource("4")
+kind = &"sweep"
+name_key = "BOSS_PATTERN_DEVOURER_CLAW"
+weight = 3.0
+cooldown = 3.5
+damage = 20.0
+telegraph = 0.7
+params = {
+"anim": "attack",
+"vfx": "claw",
+"radius": 170.0,
+"half_angle": 50.0,
+"range": 260.0
+}
+
+[sub_resource type="Resource" id="pattern_2"]
+script = ExtResource("4")
+kind = &"slam"
+name_key = "BOSS_PATTERN_HEAVY_SLAM"
+weight = 2.0
+cooldown = 7.0
+damage = 24.0
+telegraph = 1.0
+params = {
+"anim": "heavy_slam",
+"vfx": "heavy_slam",
+"fists": 2,
+"radius": 130.0,
+"spread": 120.0
+}
+
+[sub_resource type="Resource" id="pattern_3"]
+script = ExtResource("4")
+kind = &"breath"
+name_key = "BOSS_PATTERN_RIFT_BREATH"
+weight = 2.0
+cooldown = 8.0
+damage = 8.0
+telegraph = 0.9
+params = {
+"anim": "rift_breath",
+"vfx": "rift_breath",
+"length": 520.0,
+"width": 80.0,
+"duration": 1.0
+}
+
+[sub_resource type="Resource" id="pattern_4"]
+script = ExtResource("4")
+kind = &"sweep"
+name_key = "BOSS_PATTERN_ROOT_SWEEP"
+weight = 2.0
+cooldown = 6.0
+damage = 18.0
+telegraph = 0.9
+params = {
+"anim": "root_sweep",
+"vfx": "root_sweep",
+"radius": 240.0,
+"half_angle": 60.0,
+"range": 320.0
+}
+
+[sub_resource type="Resource" id="pattern_5"]
+script = ExtResource("4")
+kind = &"summon"
+name_key = "BOSS_PATTERN_SUMMON"
+weight = 1.0
+cooldown = 14.0
+damage = 0.0
+telegraph = 1.0
+params = {
+"anim": "summon",
+"vfx": "summon",
+"count": 4,
+"max_active": 8,
+"enemies": ["heath_runner", "ash_newt"]
+}
+
+[sub_resource type="Resource" id="pattern_11"]
+script = ExtResource("4")
+kind = &"sweep"
+name_key = "BOSS_PATTERN_DEVOURER_CLAW"
+weight = 3.0
+cooldown = 3.0
+damage = 22.0
+telegraph = 0.6
+params = {
+"anim": "phase2_attack",
+"vfx": "phase2_claw",
+"radius": 190.0,
+"half_angle": 55.0,
+"range": 280.0
+}
+
+[sub_resource type="Resource" id="pattern_12"]
+script = ExtResource("4")
+kind = &"slam"
+name_key = "BOSS_PATTERN_HEAVY_SLAM"
+weight = 2.0
+cooldown = 6.0
+damage = 26.0
+telegraph = 0.9
+params = {
+"anim": "phase2_slam",
+"vfx": "phase2_slam",
+"fists": 2,
+"radius": 160.0,
+"spread": 140.0
+}
+
+[sub_resource type="Resource" id="pattern_13"]
+script = ExtResource("4")
+kind = &"breath"
+name_key = "BOSS_PATTERN_RIFT_BREATH"
+weight = 2.0
+cooldown = 7.0
+damage = 9.0
+telegraph = 0.8
+params = {
+"anim": "phase2_breath",
+"vfx": "phase2_breath",
+"length": 680.0,
+"width": 64.0,
+"duration": 1.3
+}
+
+[sub_resource type="Resource" id="pattern_14"]
+script = ExtResource("4")
+kind = &"sweep"
+name_key = "BOSS_PATTERN_ROOT_SWEEP"
+weight = 1.5
+cooldown = 6.0
+damage = 20.0
+telegraph = 0.8
+params = {
+"anim": "root_sweep",
+"vfx": "root_sweep",
+"radius": 260.0,
+"half_angle": 65.0,
+"range": 340.0
+}
+
+[sub_resource type="Resource" id="pattern_15"]
+script = ExtResource("4")
+kind = &"summon"
+name_key = "BOSS_PATTERN_SUMMON"
+weight = 1.0
+cooldown = 14.0
+damage = 0.0
+telegraph = 1.0
+params = {
+"anim": "summon",
+"vfx": "summon",
+"count": 5,
+"max_active": 10,
+"enemies": ["heath_runner", "slate_scarab"]
+}
+
+[sub_resource type="Resource" id="phase_1"]
+script = ExtResource("3")
+hp_threshold = 1.0
+name_key = "BOSS_SOURCE_DEVOURER_PHASE1"
+move_speed_mult = 1.0
+pattern_interval = 2.0
+patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3"), SubResource("pattern_4"), SubResource("pattern_5")]
+
+[sub_resource type="Resource" id="phase_2"]
+script = ExtResource("3")
+hp_threshold = 0.5
+name_key = "BOSS_SOURCE_DEVOURER_PHASE2"
+move_speed_mult = 1.2
+pattern_interval = 1.6
+transition_time = 2.0
+patterns = [SubResource("pattern_11"), SubResource("pattern_12"), SubResource("pattern_13"), SubResource("pattern_14"), SubResource("pattern_15")]
+
+[resource]
+script = ExtResource("1")
+id = &"source_devourer"
+name_key = "BOSS_SOURCE_DEVOURER_NAME"
+title_key = "BOSS_SOURCE_DEVOURER_TITLE"
+max_hp = 6500.0
+damage = 22.0
+defense = 30.0
+move_speed = 48.0
+radius = 80.0
+shard_reward = 150
+essence_reward = 14
+visual = SubResource("visual_data_1")
+phases = [SubResource("phase_1"), SubResource("phase_2")]
+vfx_dir = "res://assets/vfx/bosses/source_devourer"
+mouth_offset = Vector2(74, -120)
+hurt_ratio = 0.06
+intro_animation = &"roar"

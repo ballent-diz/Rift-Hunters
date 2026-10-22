@@ -1,9 +1,9 @@
 class_name HazardManager
 extends Node2D
-## Zones télégraphiées et effets au sol : cercles, anneaux, rayons, puits de gravité.
+## Zones télégraphiées et effets au sol : cercles, secteurs, anneaux, rayons, puits de gravité.
 ## Les zones hostiles se télégraphient TOUJOURS avant de frapper (lisibilité).
 
-enum Kind { CIRCLE, RING, BEAM, WELL, ZONE }
+enum Kind { CIRCLE, RING, BEAM, WELL, ZONE, CONE }
 
 const DANGER := Color(1.0, 0.25, 0.6)
 const FRIENDLY := Color(0.5, 0.9, 1.0)
@@ -28,6 +28,14 @@ func add_circle(pos: Vector2, radius: float, delay: float, damage: float, hostil
 		statuses: Array[StatusApplication] = []) -> void:
 	hazards.append({"kind": Kind.CIRCLE, "pos": pos, "radius": radius, "delay": delay, "total": delay,
 		"damage": damage, "hostile": hostile, "source": source_id, "statuses": statuses, "life": delay + 0.25})
+
+
+## Secteur (griffes, balayage) : frappe une fois après « delay » secondes. half_angle en radians.
+func add_cone(pos: Vector2, direction: Vector2, radius: float, half_angle: float, delay: float, damage: float,
+		source_id: StringName) -> void:
+	hazards.append({"kind": Kind.CONE, "pos": pos, "dir": direction.normalized(), "radius": radius,
+		"half_angle": half_angle, "delay": delay, "total": delay, "damage": damage, "hostile": true,
+		"source": source_id, "life": delay + 0.25})
 
 
 ## Anneau qui s'étend. gaps : angles (rad) des brèches sûres, gap_width : demi-largeur angulaire.
@@ -81,6 +89,9 @@ func danger_vector(pos: Vector2) -> Vector2:
 				var offset: Vector2 = pos - h["pos"]
 				if offset.length() < float(h["radius"]) + 30.0:
 					result += offset.normalized()
+			Kind.CONE:
+				if in_cone(h, pos, 30.0):
+					result += (pos - (h["pos"] as Vector2)).normalized()
 			Kind.BEAM:
 				var to_pos: Vector2 = pos - h["pos"]
 				var along: float = to_pos.dot(h["dir"])
@@ -101,6 +112,8 @@ func step(delta: float) -> void:
 		match h["kind"]:
 			Kind.CIRCLE:
 				keep = _step_circle(h, delta)
+			Kind.CONE:
+				keep = _step_cone(h, delta)
 			Kind.RING:
 				keep = _step_ring(h, delta)
 			Kind.BEAM:
@@ -129,6 +142,26 @@ func _step_circle(h: Dictionary, delta: float) -> bool:
 		if float(h["delay"]) <= 0.0:
 			_strike_area(h, h["pos"], float(h["radius"]))
 	return float(h["life"]) > 0.0
+
+
+func _step_cone(h: Dictionary, delta: float) -> bool:
+	if float(h["delay"]) > 0.0:
+		h["delay"] = float(h["delay"]) - delta
+		if float(h["delay"]) <= 0.0:
+			var player: Player = ctx.player
+			if in_cone(h, player.global_position, player.radius * 0.5):
+				ctx.combat.damage_player(float(h["damage"]), h["source"])
+	return float(h["life"]) > 0.0
+
+
+## Point dans le secteur (marge : tolérance en unités, rayon du corps).
+func in_cone(h: Dictionary, pos: Vector2, margin: float) -> bool:
+	var offset: Vector2 = pos - (h["pos"] as Vector2)
+	if offset.length() > float(h["radius"]) + margin:
+		return false
+	if offset.length() < margin:
+		return true
+	return absf((h["dir"] as Vector2).angle_to(offset)) <= float(h["half_angle"])
 
 
 func _step_ring(h: Dictionary, delta: float) -> bool:
@@ -277,14 +310,21 @@ func _draw_hazard(canvas: CanvasItem, h: Dictionary) -> void:
 				canvas.draw_circle(h["pos"], float(h["radius"]), Color(color, 0.12 * soft))
 				canvas.draw_circle(h["pos"], float(h["radius"]) * progress, Color(color, 0.22 * soft))
 				canvas.draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(color, 0.9 * soft), 2.5 * soft)
+		Kind.CONE:
+			if float(h["delay"]) > 0.0:
+				var progress: float = 1.0 - float(h["delay"]) / maxf(float(h["total"]), 0.01)
+				var soft: float = 0.35 if _painted(h) else 1.0
+				_draw_sector(canvas, h, float(h["radius"]), Color(DANGER, 0.12 * soft))
+				_draw_sector(canvas, h, float(h["radius"]) * progress, Color(DANGER, 0.22 * soft))
 		Kind.RING:
 			_draw_ring(canvas, h)
 		Kind.BEAM:
 			var end: Vector2 = (h["pos"] as Vector2) + (h["dir"] as Vector2) * float(h["length"])
 			if float(h["delay"]) > 0.0:
-				canvas.draw_line(h["pos"], end, Color(DANGER, 0.35), float(h["width"]))
-				canvas.draw_line(h["pos"], end, Color(DANGER, 0.9), 2.0)
-			else:
+				var soft: float = 0.35 if _painted(h) else 1.0
+				canvas.draw_line(h["pos"], end, Color(DANGER, 0.35 * soft), float(h["width"]))
+				canvas.draw_line(h["pos"], end, Color(DANGER, 0.9 * soft), 2.0)
+			elif not _painted(h):
 				canvas.draw_line(h["pos"], end, Color(0.55, 0.1, 0.9, 0.85), float(h["width"]))
 				canvas.draw_line(h["pos"], end, Color(1.0, 0.8, 1.0), float(h["width"]) * 0.35)
 		Kind.ZONE:
@@ -302,8 +342,27 @@ func _draw_hazard(canvas: CanvasItem, h: Dictionary) -> void:
 			canvas.draw_arc(h["pos"], float(h["radius"]), 0.0, TAU, 48, Color(0.6, 1.0, 0.7, 0.5 * soft), 1.5)
 
 
+## Effet peint (Codex) qui porte déjà le visuel : le repère du jeu reste discret. « painted » : posé par le boss.
 func _painted(h: Dictionary) -> bool:
-	return ctx.allies != null and ctx.allies.vfx.has_effects(h.get("source", &""))
+	return bool(h.get("painted", false)) or (ctx.allies != null and ctx.allies.vfx.has_effects(h.get("source", &"")))
+
+
+## Dernière zone ajoutée : habillée par un effet peint.
+func mark_last_painted() -> void:
+	if not hazards.is_empty():
+		hazards[-1]["painted"] = true
+
+
+func _draw_sector(canvas: CanvasItem, h: Dictionary, radius: float, color: Color) -> void:
+	var center: Vector2 = h["pos"]
+	var base: float = (h["dir"] as Vector2).angle()
+	var half: float = h["half_angle"]
+	var points := PackedVector2Array([center])
+	for s: int in 17:
+		points.append(center + Vector2.RIGHT.rotated(base - half + 2.0 * half * s / 16.0) * radius)
+	canvas.draw_colored_polygon(points, color)
+	points.append(center)
+	canvas.draw_polyline(points, Color(color, 0.9), 2.0)
 
 
 func _draw_ring(canvas: CanvasItem, h: Dictionary) -> void:

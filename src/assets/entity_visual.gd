@@ -9,6 +9,8 @@ var bob_amount: float = 0.06
 var bob_speed: float = 9.0
 ## Rayon de l'ombre au sol (0 = pas d'ombre).
 var shadow_radius: float = 0.0
+## Animation de repos (un boss passe à « phase2_idle » après sa transformation).
+var idle_animation: StringName = &"idle"
 var _sprite: Sprite2D
 var _anim: AnimatedSprite2D
 var _action: StringName = &""
@@ -114,7 +116,7 @@ func _on_action_finished() -> void:
 	if _action == &"death":
 		return  # reste sur la dernière image (corps au sol)
 	_action = &""
-	play(&"move" if _moving else &"idle")
+	play(&"move" if _moving else idle_animation)
 
 
 ## Sens d'après la vitesse horizontale : ignoré sous FACING_MIN_SPEED (déplacement presque vertical, petits
@@ -159,7 +161,7 @@ func tick(delta: float, moving: bool, speed: float = -1.0) -> void:
 	elif _anim:
 		_moving = moving
 		if _action == &"":
-			play(&"move" if moving else &"idle")
+			play(&"move" if moving else idle_animation)
 		_gait(delta, moving and _action == &"", speed)
 
 

@@ -612,6 +612,14 @@ BOSS_ASTRAVORN_PHASE2,Tempête déchaînée,Unbound storm
 ARENA_STORM_HIGHLANDS_NAME,Hautes Terres d’Orage,Storm Highlands
 ARENA_STORM_HIGHLANDS_DESC,"Refermez les quatre failles des landes, puis affrontez Astravorn sur la place centrale.","Seal the four rifts across the moors, then face Astravorn in the central square."
 BOSS_ASTRAVORN_PHASE1,Veilleur des Hautes Terres,Watcher of the Highlands
+BOSS_SOURCE_DEVOURER_NAME,Dévoreur des Sources,Devourer of the Sources
+BOSS_SOURCE_DEVOURER_TITLE,Cœur de Faille sous la cascade,Rift Heart beneath the Falls
+BOSS_SOURCE_DEVOURER_PHASE1,Titan des racines,Titan of Roots
+BOSS_SOURCE_DEVOURER_PHASE2,Faille à vif,Rift Laid Bare
+BOSS_PATTERN_DEVOURER_CLAW,Griffes de pierre,Stone Claws
+BOSS_PATTERN_HEAVY_SLAM,Double écrasement,Double Slam
+BOSS_PATTERN_RIFT_BREATH,Souffle de Faille,Rift Breath
+BOSS_PATTERN_ROOT_SWEEP,Balayage de racines,Root Sweep
 HUD_NAMED_BOSS_IN,%s arrive dans %d:%02d,%s arrives in %d:%02d
 HUD_ZONE_WAVE,Zone %d · Vague %d/%d · %d restants,Zone %d · Wave %d/%d · %d left
 HUD_ZONE_NEXT_WAVE,Zone %d · Vague %d/%d dans %d s,Zone %d · Wave %d/%d in %d s
