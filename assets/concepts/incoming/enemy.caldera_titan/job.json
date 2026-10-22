@@ -1,0 +1,117 @@
+{
+  "id": "caldera_titan",
+  "fr": "Titan de caldeira",
+  "en": "Caldera Titan",
+  "tier": "elite",
+  "height": 50,
+  "description": "towering humanoid of stacked basalt boulders with an open lava-filled chest crater, huge fists, white-hot eyes",
+  "mode": "builtin-imagegen",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Input images 1-3 are STYLE references only: strict Rift Hunters angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. New ORIGINAL species, do not copy reference anatomy. Palette exclusively black basalt, brown rock, vivid orange and yellow lava, incandescent yellow-white eyes and subtle corruption fissures. NO purple or magenta. Upper-left lighting. Face RIGHT, slight overhead three-quarter camera. Consistent identity, proportions and scale. Equal SQUARE cells on a landscape 2:1 canvas, generous 20% empty margins in EVERY cell. Each entire body and every short body-emitted effect fits inside its cell, no overlaps or clipping, no grid lines. Same ground baseline per row except specifically airborne poses; no ground shadow, no halo, no backdrop, no scenery, no circles, no text, no labels. Truly transparent RGBA zero alpha background. Crisp pixel art, not smooth illustration. Create towering humanoid of stacked basalt boulders with an open lava-filled chest crater, huge fists, white-hot eyes. Exactly two eyes, giant broad shoulders, huge angular rock fists, short neck, two thick rock legs, distinctive circular chest crater. ROW1 movement: 6 successive heavy alternating walking gait poses, clear leg and arm changes returning to first gait. ROW2 basic attack: ready, pull right fist back, coil torso, heavy forward rock punch, recoil, recover. ROW3 definitive death: stagger with chest dimming, knee buckles, kneel, full body falls onto ground, stone body breaks apart, final low pile of cold broken rock remnants with no standing living body.\n",
+  "references": [
+    "assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "visual_id": "enemy.caldera_titan",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    238
+  ],
+  "scale": 0.5,
+  "target_height": 100,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "resample": "lanczos",
+  "anchor_mode": "mass",
+  "isolate": true,
+  "hover": 0,
+  "icon_size": 128,
+  "preview_zoom": 2,
+  "animations": [
+    {
+      "name": "move",
+      "source": "move.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 0,
+      "source_scale": 1.0,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "attack.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 1,
+      "source_scale": 1.0,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "death",
+      "source": "death.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 2,
+      "source_scale": 1.0,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "eruption",
+      "source": "eruption.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 0,
+      "source_scale": 0.8609865470852018,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "open_crater",
+      "source": "open_crater.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 1,
+      "source_scale": 0.8609865470852018,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  }
+}

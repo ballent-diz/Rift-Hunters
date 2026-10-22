@@ -1,0 +1,47 @@
+{
+  "id": "flame_wyrmling",
+  "fr": "Wyvernette de flammes",
+  "en": "Flame Wyrmling",
+  "tier": "elite",
+  "height": 48,
+  "description": "young two-legged wyvern with black scales, molten wing membranes, ember crest, long whip tail; single head; white-hot eyes",
+  "mode": "builtin-imagegen",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "sheets": {
+    "a": {
+      "source": "sheet_a.png",
+      "grid": [
+        6,
+        3
+      ],
+      "rows": [
+        "move",
+        "attack",
+        "death"
+      ],
+      "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Input images 1-3 are STYLE references only: strict Rift Hunters angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. New ORIGINAL species, do not copy reference anatomy. Palette exclusively black basalt, brown rock, vivid orange and yellow lava, incandescent yellow-white eyes and subtle corruption fissures. NO purple or magenta. Upper-left lighting. Face RIGHT, slight overhead three-quarter camera. Consistent identity, proportions and scale. Equal SQUARE cells on a landscape 2:1 canvas, generous 20% empty margins in EVERY cell. Each entire body and every short body-emitted effect fits inside its cell, no overlaps or clipping, no grid lines. Same ground baseline per row except specifically airborne poses; no ground shadow, no halo, no backdrop, no scenery, no circles, no text, no labels. Truly transparent RGBA zero alpha background. Crisp pixel art, not smooth illustration. Create young two-legged wyvern with black scales, molten wing membranes, ember crest, long whip tail; single head; white-hot eyes. Exactly ONE head, two hind legs, two bat wings, no forelegs. Slender hooked muzzle, ember crest, folded orange membrane wings and whip tail create unmistakable wyvern silhouette, not a husk or beetle. Small whole sprite centered in each square, body no larger than 60% cell width and height, margin minimum 20% on all sides. ROW1 six successive alternating bipedal walking gait poses, wings flexing and tail counterbalancing. ROW2 basic bite attack: poised, neck draws back, jaws open, head lunges forward for bite, withdraw, recover. ROW3 conclusive death: staggers, legs buckle wings droop, collapses sideward, lies flat with wings broken, body crumbles into dark fragments, final small cold rocky remains with no living creature."
+    },
+    "b": {
+      "source": "sheet_b.png",
+      "grid": [
+        6,
+        2
+      ],
+      "rows": [
+        "flame_breath",
+        "dive"
+      ],
+      "references": [
+        "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+        "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+        "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png",
+        "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/flame_wyrmling/sheet_a.png"
+      ],
+      "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 2 rows, 12 distinct complete poses. Input images 1-3 are STYLE references only: strict Rift Hunters angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. New ORIGINAL species, do not copy reference anatomy. Palette exclusively black basalt, brown rock, vivid orange and yellow lava, incandescent yellow-white eyes and subtle corruption fissures. NO purple or magenta. Upper-left lighting. Face RIGHT, slight overhead three-quarter camera. Consistent identity, proportions and scale. Equal SQUARE cells on a landscape 3:1 canvas, generous 20% empty margins in EVERY cell. Each entire body and every short body-emitted effect fits inside its cell, no overlaps or clipping, no grid lines. Same ground baseline per row except specifically airborne poses; no ground shadow, no halo, no backdrop, no scenery, no circles, no text, no labels. Truly transparent RGBA zero alpha background. Crisp pixel art, not smooth illustration. Create young two-legged wyvern with black scales, molten wing membranes, ember crest, long whip tail; single head; white-hot eyes. Image 4 = exact sheet A character identity and proportions. Exactly ONE head, two hind legs, two wings and NO forelegs. Keep same scale as sheet A, small character centered with 20% empty margins, whole sprite at most central 60% of cell. ROW1 FLAME BREATH 6 poses: neck pulled back; throat turns white-hot; mouth opens emitting short narrow orange flame; short broad flame cone emitted from mouth; cone dwindles into tiny black smoke puff at mouth; return. Flame length at most quarter body length; keep all flames and smoke entirely within own cell. NO disconnected flame and no long beam. ROW2 DIVE 6 poses: wings beat and body lifts slightly; wings beat again and body higher; third ascending pose highest within cell with top margin intact; angle nose downward claws extended in early dive; steeper downward dive with both talons leading; lower finishing dive talons foremost, ready to land. First THREE ascent poses then THREE dive poses. All flight poses remain fully in their own cell. No ground shadows. CRITICAL LAYOUT AND ANATOMY: use SMALL isolated sprites only 45% of each square cell width and height. Huge transparent gutters. Do not fill canvas with giant figures. Every frame has ONE skull and ONE mouth, absolutely no duplicated heads, necks or motion ghost limbs. Breath cone stays shorter than skull length. Never touch neighbouring cell. Ascent first three frames must show SAME SINGLE HEAD body progressively higher.\n"
+    }
+  }
+}

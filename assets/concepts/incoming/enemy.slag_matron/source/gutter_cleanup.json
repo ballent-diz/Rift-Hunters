@@ -1,0 +1,17 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 18
+  },
+  "attack": {
+    "removed_neighbor_pixels": 1412
+  },
+  "death": {
+    "removed_neighbor_pixels": 58
+  },
+  "brood": {
+    "removed_neighbor_pixels": 56
+  },
+  "slag_molt": {
+    "removed_neighbor_pixels": 1030
+  }
+}

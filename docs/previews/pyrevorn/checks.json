@@ -1,0 +1,19 @@
+{
+  "assets": {
+    "total": 345,
+    "valid": 345,
+    "placeholders": 0,
+    "errors": 0
+  },
+  "import_pipeline": "PASS",
+  "resolution": [
+    1280,
+    720
+  ],
+  "pyrevorn_drawn_animations": 11,
+  "pyrevorn_poses": 66,
+  "src_or_data_modified": false,
+  "gameplay_integration": "Claude",
+  "magma_owner_approved": true,
+  "pyrevorn_owner_approved": false
+}

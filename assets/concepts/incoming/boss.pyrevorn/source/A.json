@@ -1,0 +1,23 @@
+{
+  "id": "pyrevorn",
+  "fr": "Pyrevorn",
+  "en": "Pyrevorn",
+  "tier": "boss",
+  "description": "colossal winged volcanic beast, half dragon half living volcano, cracked basalt armor over a glowing magma body, a smoking crater on its back, four burning eyes plus one white-hot rift eye in the forehead, massive claws",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline, incandescent yellow-white corruption fissures. NOT smooth painterly fantasy and NOT cute cartoon. Create original PYREVORN, chapter-ending Devourer: colossal winged volcanic beast, half dragon half living volcano, cracked basalt armor over glowing magma body, huge smoking crater growing from its mountainous back, four small burning orange eyes in two stacked pairs plus ONE white-hot rift eye in forehead, massive claws. Much more monumental than a young wyvern: immensely broad heavy barrel torso like a walking volcanic caldera, short powerful load-bearing limbs, enormous slab-like basalt shoulder armor and broad folded wings of basalt with orange molten fissures. Not a slender dragon, no thin wyvern silhouette, no humanoid golem. The crater is unmistakable and dominates the back. Phase1 mostly intact dark armor, lava visible only through cracks; smoldering brown-black rock, vibrant lava orange, yellow-white eyes. No purple or magenta. Original anatomy, references guide pixel art technique only. Upper-left light, subtle hot lower-right rim. Face RIGHT, slight overhead three-quarter camera, same creature proportions and drawing scale everywhere. ROW1 idle: six breathing cycle poses, chest and shoulders slowly rise/fall, compact smoke emitted directly from crater, wings settle. ROW2 movement: six successive heavy four-legged gait poses, front and rear paws visibly alternate while great body shifts, crater and wings remain stable. ROW3 Claws: brace, draw both huge front claws back, raise one then both forelimbs, powerful sweeping claw strike forward to RIGHT, recoil, recover. Equal square cells, landscape2:1, six evenly spaced columns; each monster body and wings occupy at most central60% of its cell, with minimum20% completely transparent margin on all sides. Every pose entirely isolated, no overlap with neighboring pose. This is an animation atlas, not a connected composition. No panels, words, grid lines, background glow, ground shadow, backdrop or environment. Output genuinely transparent RGBA alpha0 outside sprites. Fine dense pixel clusters appropriate to a large final boss, not enlarged crude pixels. Absolutely preserve four orange eyes plus the single white forehead eye and one back crater, one head.",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "rows": [
+    "idle",
+    "move",
+    "claws"
+  ],
+  "grid": [
+    6,
+    3
+  ],
+  "original": "Generated images are saved to C:\\Users\\petit\\.codex\\generated_images\\01a13525-0b52-7092-be0f-70c3aae5676c as C:\\Users\\petit\\.codex\\generated_images\\01a13525-0b52-7092-be0f-70c3aae5676c\\exec-7031ef25-4014-4d09-bf41-9a3ed9fd7a8f.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+}

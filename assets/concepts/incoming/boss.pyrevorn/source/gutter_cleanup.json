@@ -1,0 +1,35 @@
+{
+  "idle": {
+    "removed_neighbor_pixels": 0
+  },
+  "move": {
+    "removed_neighbor_pixels": 435
+  },
+  "claws": {
+    "removed_neighbor_pixels": 23
+  },
+  "magma_breath": {
+    "removed_neighbor_pixels": 28
+  },
+  "crater_rain": {
+    "removed_neighbor_pixels": 0
+  },
+  "brood_call": {
+    "removed_neighbor_pixels": 0
+  },
+  "transform": {
+    "removed_neighbor_pixels": 0
+  },
+  "death": {
+    "removed_neighbor_pixels": 0
+  },
+  "phase2_idle": {
+    "removed_neighbor_pixels": 0
+  },
+  "skyfall": {
+    "removed_neighbor_pixels": 0
+  },
+  "rift_eye": {
+    "removed_neighbor_pixels": 5
+  }
+}

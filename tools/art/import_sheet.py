@@ -338,6 +338,15 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             if not job.get("preserve_alpha", False):
                 arr[:, :, 3] = np.where(alpha, 255, 0)
             cell = place_in_cell(arr, (cw, ch), (ax, ay), int(job.get("hover", 0)), job.get("anchor_mode", "feet"))
+            offsets = anim.get("frame_offsets", [])
+            if i < len(offsets):
+                dx, dy = map(int, offsets[i])
+                shifted = np.zeros_like(cell)
+                x0, x1 = max(0, dx), min(cw, cw + dx)
+                y0, y1 = max(0, dy), min(ch, ch + dy)
+                if x0 < x1 and y0 < y1:
+                    shifted[y0:y1, x0:x1] = cell[y0-dy:y1-dy, x0-dx:x1-dx]
+                cell = shifted
             if job.get("outline", True):
                 cell = add_outline(cell)
             sheet[row * ch:(row + 1) * ch, i * cw:(i + 1) * cw] = cell

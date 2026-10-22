@@ -1,0 +1,17 @@
+{
+  "id": "pyrevorn",
+  "animation": "skyfall",
+  "grid": [
+    6,
+    1
+  ],
+  "mode": "builtin-imagegen",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION STRIP, exactly SIX columns and ONE row, SIX isolated full-body poses of PYREVORN skyfall attack. Reference images1-3 Rift Hunters pixel-art style only. Reference image4 strict SAME Pyrevorn identity: enormous squat volcanic quadruped, broad barrel torso, massive short legs and claws, low wedge head, dorsal volcanic crater, two basalt wings with orange molten membranes, four orange eyes plus ONE WHITE forehead eye. Phase2: several charcoal armor plates MISSING FROM CHEST exposing a broad orange molten chest; keep same monumental silhouette. NOT slender wyvern. Critical layout: ultra-wide horizontal strip, SIX EQUAL SQUARE CELLS in one row, landscape6:1. Every pose centered in its own cell, BODY only35percent cell width; fully outstretched wings maximum70percent cell width; all appendages and crater fully fit. Enormous completely transparent gaps between figures, at least15percent empty transparent margin every side INCLUDING widest wing pose. Keep all6 figures separate and fully visible, no cropped wings/claws/head, no overlaps. Pose1 crouch begins wing opening. Pose2 lift with two wings spreading fully. Pose3 airborne at higher position fully open wings. Pose4 begin descent wings partly fold. Pose5 downward dive wings tightly folded claws forward. Pose6 heavy landing crouch folded wings. Visible continuous progressive motion, whole body remains inside own cell. Same drawing scale and anatomy all6 poses. No extended effects, no flying debris, no impact splash, no long smoke: only tiny compact crater flame confined to body silhouette. Face RIGHT slight overhead3/4, upper-left light. Crisp fine pixel clusters, angular faceted black basalt warm brown shading and selective outline, orange yellow lava white hot eye; NO violet purple magenta. True transparent RGBA zeroalpha outside creatures. No ground shadow, halo, ground, rings, telegraphs, backdrop, text, labels, grid or panels. This is six tiny isolated game sprites with huge empty spaces, NOT a continuous composition.",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/pyrevorn/sheet_a.png"
+  ],
+  "original": "C:/Users/petit/.codex/generated_images/01a163b1-2e02-7ab3-b068-aaa9b8f4de61/exec-12560609-3cad-433f-b635-e191f4ef9d48.png"
+}

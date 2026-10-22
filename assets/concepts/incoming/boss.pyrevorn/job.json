@@ -1,0 +1,226 @@
+{
+  "id": "pyrevorn",
+  "fr": "Pyrevorn",
+  "en": "Pyrevorn",
+  "tier": "boss",
+  "visual_id": "boss.pyrevorn",
+  "cell": [
+    512,
+    512
+  ],
+  "anchor": [
+    256,
+    480
+  ],
+  "scale": 1.0,
+  "target_height": 150,
+  "status": "wip",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "resample": "lanczos",
+  "anchor_mode": "mass",
+  "isolate": true,
+  "icon_size": 256,
+  "preview_zoom": 1,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "idle.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 0,
+      "source_scale": 1.0392156862745099,
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "move",
+      "source": "move.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 1,
+      "source_scale": 1.0392156862745099,
+      "frames": 6,
+      "fps": 9,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "claws",
+      "source": "claws.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 2,
+      "source_scale": 1.0392156862745099,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "magma_breath",
+      "source": "magma_breath.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 0,
+      "source_scale": 1.0984455958549222,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "crater_rain",
+      "source": "crater_rain.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 1,
+      "source_scale": 1.0984455958549222,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "brood_call",
+      "source": "brood_call.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 2,
+      "source_scale": 1.0984455958549222,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "transform",
+      "source": "transform.png",
+      "sheet_source": "source/sheet_c.png",
+      "source_row": 0,
+      "source_scale": 0.9217391304347826,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "death",
+      "source": "death.png",
+      "sheet_source": "source/sheet_c.png",
+      "source_row": 1,
+      "source_scale": 0.9217391304347826,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "phase2_idle",
+      "source": "phase2_idle.png",
+      "sheet_source": "source/sheet_d.png",
+      "source_row": 0,
+      "source_scale": 0.9380530973451328,
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "skyfall",
+      "source": "skyfall.png",
+      "sheet_source": "source/skyfall_repair.png",
+      "source_row": 0,
+      "source_scale": 0.9814814814814815,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          -60
+        ],
+        [
+          0,
+          -140
+        ],
+        [
+          0,
+          -170
+        ],
+        [
+          0,
+          -70
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "rift_eye",
+      "source": "rift_eye.png",
+      "sheet_source": "source/sheet_d.png",
+      "source_row": 2,
+      "source_scale": 0.9380530973451328,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    }
+  ],
+  "aliases": {
+    "attack": "claws"
+  },
+  "mode": "builtin-imagegen",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline, incandescent yellow-white corruption fissures. NOT smooth painterly fantasy and NOT cute cartoon. Create original PYREVORN, chapter-ending Devourer: colossal winged volcanic beast, half dragon half living volcano, cracked basalt armor over glowing magma body, huge smoking crater growing from its mountainous back, four small burning orange eyes in two stacked pairs plus ONE white-hot rift eye in forehead, massive claws. Much more monumental than a young wyvern: immensely broad heavy barrel torso like a walking volcanic caldera, short powerful load-bearing limbs, enormous slab-like basalt shoulder armor and broad folded wings of basalt with orange molten fissures. Not a slender dragon, no thin wyvern silhouette, no humanoid golem. The crater is unmistakable and dominates the back. Phase1 mostly intact dark armor, lava visible only through cracks; smoldering brown-black rock, vibrant lava orange, yellow-white eyes. No purple or magenta. Original anatomy, references guide pixel art technique only. Upper-left light, subtle hot lower-right rim. Face RIGHT, slight overhead three-quarter camera, same creature proportions and drawing scale everywhere. ROW1 idle: six breathing cycle poses, chest and shoulders slowly rise/fall, compact smoke emitted directly from crater, wings settle. ROW2 movement: six successive heavy four-legged gait poses, front and rear paws visibly alternate while great body shifts, crater and wings remain stable. ROW3 Claws: brace, draw both huge front claws back, raise one then both forelimbs, powerful sweeping claw strike forward to RIGHT, recoil, recover. Equal square cells, landscape2:1, six evenly spaced columns; each monster body and wings occupy at most central60% of its cell, with minimum20% completely transparent margin on all sides. Every pose entirely isolated, no overlap with neighboring pose. This is an animation atlas, not a connected composition. No panels, words, grid lines, background glow, ground shadow, backdrop or environment. Output genuinely transparent RGBA alpha0 outside sprites. Fine dense pixel clusters appropriate to a large final boss, not enlarged crude pixels. Absolutely preserve four orange eyes plus the single white forehead eye and one back crater, one head.\n",
+  "description": "Dévoreur volcanique quadrupède, ailes de basalte, cratère dorsal, quatre yeux orange et œil blanc."
+}
