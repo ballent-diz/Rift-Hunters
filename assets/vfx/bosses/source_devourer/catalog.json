@@ -1,0 +1,156 @@
+[
+  {
+    "id": "claw",
+    "scene": "res://assets/vfx/bosses/source_devourer/claw.tscn",
+    "sprite_animation": "attack",
+    "radius": 150,
+    "travel_distance": 230,
+    "width": 50,
+    "duration": 0.65,
+    "shape": "cone",
+    "phase2": false
+  },
+  {
+    "id": "heavy_slam",
+    "scene": "res://assets/vfx/bosses/source_devourer/heavy_slam.tscn",
+    "sprite_animation": "heavy_slam",
+    "radius": 170,
+    "travel_distance": 0,
+    "width": 60,
+    "duration": 0.9,
+    "shape": "area",
+    "phase2": false
+  },
+  {
+    "id": "rift_breath",
+    "scene": "res://assets/vfx/bosses/source_devourer/rift_breath.tscn",
+    "sprite_animation": "rift_breath",
+    "radius": 150,
+    "travel_distance": 480,
+    "width": 80,
+    "duration": 1.3,
+    "shape": "line",
+    "phase2": false
+  },
+  {
+    "id": "summon",
+    "scene": "res://assets/vfx/bosses/source_devourer/summon.tscn",
+    "sprite_animation": "summon",
+    "radius": 70,
+    "travel_distance": 0,
+    "width": 50,
+    "duration": 1.1,
+    "shape": "area",
+    "phase2": false
+  },
+  {
+    "id": "root_sweep",
+    "scene": "res://assets/vfx/bosses/source_devourer/root_sweep.tscn",
+    "sprite_animation": "root_sweep",
+    "radius": 230,
+    "travel_distance": 0,
+    "width": 40,
+    "duration": 1.1,
+    "shape": "cone",
+    "phase2": false
+  },
+  {
+    "id": "transform",
+    "scene": "res://assets/vfx/bosses/source_devourer/transform.tscn",
+    "sprite_animation": "transform",
+    "radius": 210,
+    "travel_distance": 0,
+    "width": 60,
+    "duration": 2,
+    "shape": "area",
+    "phase2": false
+  },
+  {
+    "id": "roar",
+    "scene": "res://assets/vfx/bosses/source_devourer/roar.tscn",
+    "sprite_animation": "roar",
+    "radius": 180,
+    "travel_distance": 0,
+    "width": 50,
+    "duration": 1.2,
+    "shape": "cone",
+    "phase2": false
+  },
+  {
+    "id": "hurt",
+    "scene": "res://assets/vfx/bosses/source_devourer/hurt.tscn",
+    "sprite_animation": "hurt",
+    "radius": 55,
+    "travel_distance": 0,
+    "width": 35,
+    "duration": 0.35,
+    "shape": "area",
+    "phase2": false
+  },
+  {
+    "id": "death",
+    "scene": "res://assets/vfx/bosses/source_devourer/death.tscn",
+    "sprite_animation": "death",
+    "radius": 240,
+    "travel_distance": 0,
+    "width": 50,
+    "duration": 2,
+    "shape": "area",
+    "phase2": false
+  },
+  {
+    "id": "phase2_claw",
+    "scene": "res://assets/vfx/bosses/source_devourer/phase2_claw.tscn",
+    "sprite_animation": "phase2_attack",
+    "radius": 180,
+    "travel_distance": 260,
+    "width": 70,
+    "duration": 0.75,
+    "shape": "cone",
+    "phase2": true
+  },
+  {
+    "id": "phase2_breath",
+    "scene": "res://assets/vfx/bosses/source_devourer/phase2_breath.tscn",
+    "sprite_animation": "phase2_breath",
+    "radius": 180,
+    "travel_distance": 620,
+    "width": 64,
+    "duration": 1.6,
+    "shape": "line",
+    "phase2": true
+  },
+  {
+    "id": "phase2_slam",
+    "scene": "res://assets/vfx/bosses/source_devourer/phase2_slam.tscn",
+    "sprite_animation": "phase2_slam",
+    "radius": 230,
+    "travel_distance": 0,
+    "width": 70,
+    "duration": 1.15,
+    "shape": "area",
+    "phase2": true
+  },
+  {
+    "id": "rift_fragment",
+    "scene": "res://assets/vfx/bosses/source_devourer/rift_fragment.tscn",
+    "sprite_animation": null,
+    "radius": 50,
+    "travel_distance": 0,
+    "width": 32,
+    "duration": 1,
+    "shape": "line",
+    "phase2": false
+  },
+  {
+    "id": "indicator",
+    "scene": "res://assets/vfx/bosses/source_devourer/indicator.tscn",
+    "sprite_animation": null,
+    "radius": 150,
+    "travel_distance": 400,
+    "width": 70,
+    "duration": 0.8,
+    "shape": "area",
+    "phase2": false
+  }
+]
