@@ -78,6 +78,19 @@ Conseils pour les images :
 | `aliases` | animations manquantes réutilisant une autre ligne, ex. `{"technique": "attack"}` |
 | `empty_animations` | poses runtime transparentes, sans source dessinée, ex. `[{"name":"death","fps":12,"loop":false}]` pour masquer le corps pendant une disparition commune |
 
+### Planches à plusieurs rangées (monstres à partir du chapitre 2)
+
+Une planche de 6 colonnes sur 2 ou 3 rangées sert plusieurs animations : chaque entrée reprend la même `source` avec
+`"grid": [6, <rangées>]` et la `"row"` lue (0 en haut). Un monstre peut avoir plusieurs planches (élites et boss).
+Contenu des planches selon le rang : [docs/design/MONSTRES.md](../../../docs/design/MONSTRES.md).
+
+```json
+{"name": "move",   "source": "planche_A.png", "grid": [6, 3], "row": 0, "frames": 6, "fps": 10, "loop": true},
+{"name": "attack", "source": "planche_A.png", "grid": [6, 3], "row": 1, "frames": 6, "fps": 12, "loop": false},
+{"name": "death",  "source": "planche_A.png", "grid": [6, 3], "row": 2, "frames": 6, "fps": 12, "loop": false},
+{"name": "leap",   "source": "planche_B.png", "grid": [6, 2], "row": 0, "frames": 6, "fps": 12, "loop": false}
+```
+
 ## 3. Lancer l'import
 
 ```bash
