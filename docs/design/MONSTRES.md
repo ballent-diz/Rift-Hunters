@@ -16,6 +16,9 @@ Cadre : [CARTES.md](CARTES.md) (familles par chapitre, briques de terrain), [../
 - **Rien n'est dessiné pour rien** : chaque rangée d'une planche correspond à une animation jouée en jeu. Une
   animation prévue sans mécanique codée n'est pas commandée.
 
+Piste en attente : donner le Saut et le Tunnel (E1, E2) à quatre élites du chapitre 1, décision reportée au test
+complet du chapitre 1 (voir `docs/ROADMAP.md`, « À décider lors du test complet du chapitre 1 »).
+
 ## Planches par rang
 
 Toujours **6 colonnes** ; une planche fait **2 ou 3 rangées au maximum** (le générateur d'images est plus fiable). Un
