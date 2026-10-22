@@ -88,3 +88,6 @@ l’équilibrage ni du comportement en combat, qui seront raccordés par Claude.
 Les quatre planches de Pyrevorn sont livrées après validation de cette famille ; voir [PYREVORN_SPRITES.md](PYREVORN_SPRITES.md).
 Elles feront l’objet de leur propre contrôle d’échelle et d’animation ; elles ne sont pas
 comptées dans les 322 entrées du contrôle ci-dessus.
+
+Contrôle final commun après récupération de main et ajout de Pyrevorn : **345/345**, zéro
+placeholder et zéro erreur. Les compteurs 322 ci-dessus correspondent au contrôle de famille initial.

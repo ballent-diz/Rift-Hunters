@@ -1,11 +1,11 @@
 # Rift Hunters — feuille de route
 
-## Sprites des Enfants du magma et Pyrevorn — en cours (Codex)
+## Sprites des Enfants du magma et Pyrevorn — livré pour revue (Codex)
 
 Branche `codex/monstres-magma`, depuis main à jour. Les sept Calcinés (PR #55), puis les sept
 Enfants du magma ont été validés par le propriétaire le 22 octobre 2026. La famille magma est
 importée : quatre normaux (dont la Plongée du Rôdeur) et trois élites avec deux techniques chacune.
-Contrôle ciblé : 322/322 visuels chargés, sans remplacement provisoire ; import Godot et contrôle
+Contrôle ciblé final après fusion de main : 345/345 visuels chargés, sans remplacement provisoire ; import Godot et contrôle
 du pipeline réussis. Voir [art/ENFANTS_DU_MAGMA.md](art/ENFANTS_DU_MAGMA.md).
 
 Pyrevorn : quatre planches livrées, onze animations (66 poses), import et captures Godot réalisés.

@@ -1,0 +1,14 @@
+{
+  "A": {
+    "prompt": "PROMPT_A_PADDING.txt",
+    "output": "exec-1ccb919b-d518-412d-aa39-515d4a4c889b.png"
+  },
+  "D": {
+    "prompt": "PROMPT_D_PADDING.txt",
+    "output": "exec-984a1c4e-b8df-4b7d-bb04-65143c9c71e8.png"
+  },
+  "skyfall": {
+    "prompt": "skyfall_repair_prompt.txt",
+    "metadata": "skyfall_repair.json"
+  }
+}

@@ -65,3 +65,7 @@ Reproduction : `package_pyrevorn.py <sources>`, puis `clean_sprite_gutters.py <j
 - Les captures attestent le chargement et l’apparence ; le combat reste à raccorder et à tester par Claude.
 - Le banc de capture hérite des avertissements de libération à sa fermeture (43 ressources),
   sans erreur de chargement des sprites. Cette limite est distincte du contrôle `assets`.
+
+Contrôle final `tools/run_tests.sh assets` : **345/345**, aucun placeholder, aucune erreur.
+`tools/art/test_import.py` : réussi. Les répertoires d’aperçus sont exclus de l’import Godot
+par `.gdignore` : les WebP animés de documentation ne sont pas des textures du jeu.
