@@ -1,0 +1,10 @@
+{
+  "tool": "tools/art/deblur_map.py de main",
+  "model": "realesr-general-x4v3 + realesr-general-wdn-x4v3",
+  "denoise": 0.2,
+  "scope": "cases floues seulement, masque fondu",
+  "method": "réduction moitié, x4, retour à la taille originale",
+  "source": "https://github.com/xinntao/Real-ESRGAN",
+  "license": "BSD-3-Clause",
+  "api": false
+}

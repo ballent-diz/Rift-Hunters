@@ -73,7 +73,7 @@ Distance minimale du départ proposé aux plaques : **311.3 unités**, supérieu
 
 ## Sources
 
-Images originales, références, prompts exacts et SHA256 dans assets/concepts/incoming/map.scorched_verge/source/. Retouche finale : PROMPT_ARENE_ABRIS.txt. Génération par imagegen intégré. Contrôle ciblé dans docs/previews/scorched-verge/controle.json et aperçu des plaques dans plaques-annotees.png. Aucun changement de src/, data/ ni du manifeste runtime. Le script sharpness_map.py demandé pour la livraison détaillée est absent du main de référence a0946bf ; à vérifier avant cette future étape.
+Images originales, références, prompts exacts et SHA256 dans assets/concepts/incoming/map.scorched_verge/source/. Retouche finale : PROMPT_ARENE_ABRIS.txt. Génération par imagegen intégré. Contrôle ciblé dans docs/previews/scorched-verge/controle.json et aperçu des plaques dans plaques-annotees.png. Aucun changement de src/, data/ ni du manifeste runtime. Le script sharpness_map.py de Claude est désormais présent dans main ; il est conservé sans changement.
 
 ## Passe de détail du 21 octobre
 
@@ -86,3 +86,11 @@ Trois tuiles de 3762 × 7524 pixels, soit 11286 × 7524 pixels et 2,25 pixels pa
 [Carte entière](../previews/scorched-verge/carte-detaillee.png), [comparaison à même zoom](../previews/scorched-verge/echelle.png), [rapport](../previews/scorched-verge/qualite.json), [carte de netteté](../previews/scorched-verge/nettete.png). La carte de netteté signale deux secteurs dans la gorge fumante : (2400,0) et (2400,3200). Le contrôle global est conforme mais le critère absolu « aucune case » n’est donc pas rempli. La fumée reste volontairement douce ; ces deux secteurs sont signalés, sans modification des seuils.
 
 Import Godot final sans erreur après création du cache des polices et traductions. Images de décor seules : entrée du manifeste différée car le validateur exige un field de collisions ; aucun field inventé. Les collisions, zones, PV, dégâts au sol et gardien ne sont pas intégrés par ce lot.
+
+## Correction locale après fusion de la PR #52
+
+Traitement de netteté identique à celui des cartes validées de main : Real-ESRGAN general-x4v3, débruitage 0,2, uniquement dans les cases identifiées avant correction. Les dimensions, chemins et obstacles sont inchangés. Contrôle global après correction : **CONFORME**, lisse 0,234 ; fins 345,683 ; moyens 101,194 ; secteurs 94,3 % ; fidélité 0,978.
+
+Le détecteur fin identifie initialement 104 cases sur 620. Après correction : **0 case résiduelle par rapport à cette référence initiale figée**, avec le même seuil 0,6. Le percentile recalculé après traitement monte et signale 434 cases (70 %) ; ce résultat relatif ne se compare pas directement à l’initial, comme l’explique QUALITE_DES_CARTES.md. Les deux résultats et les scores bruts sont conservés dans uniformite/. Aucun seuil modifié.
+
+Les deux secteurs de gorge fumante restent hors de la bande de densité de détails du contrôle global, malgré une netteté locale restaurée : ce sont deux mesures différentes. Le rapport global demeure conforme. La correction est livrée dans une nouvelle branche depuis main, la PR #52 étant fusionnée.

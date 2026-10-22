@@ -1,7 +1,7 @@
 {
   "id": "map.scorched_verge",
   "status": "wip",
-  "stage": "carte détaillée, images seules ; collisions à peindre",
+  "stage": "images détaillées, netteté locale corrigée ; collisions à peindre",
   "world_size": [
     5016,
     3344
@@ -25,7 +25,7 @@
     "assets/environments/cascade_ruins/map.webp",
     "assets/environments/storm_highlands/map.webp"
   ],
-  "owner_approved": false,
+  "owner_approved": true,
   "regions_generated": true,
   "collisions_generated": false,
   "gameplay_modified": false,
@@ -49,5 +49,7 @@
   "regions_directory": "source/regions_v1",
   "regions_count": 12,
   "quality_report": "docs/previews/scorched-verge/qualite.json",
-  "quality_conform": true
+  "quality_conform": true,
+  "owner_approval": "21 octobre : composition avec arène en trapèze et publication des régions détaillées explicitement validées",
+  "fixed_reference_remaining_blurry": 0
 }
