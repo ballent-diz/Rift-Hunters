@@ -10285,6 +10285,442 @@
 			},
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/mist_ford/minimap.webp"
+		},
+		"enemy.cinder_crawler": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/enemy.cinder_crawler/job.json",
+			"sheet": "res://assets/sprites/enemies/cinder_crawler/cinder_crawler_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/cinder_crawler.png"
+		},
+		"enemy.ash_hound": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/enemy.ash_hound/job.json",
+			"sheet": "res://assets/sprites/enemies/ash_hound/ash_hound_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"leap": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/ash_hound.png"
+		},
+		"enemy.char_golem": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/enemy.char_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/char_golem/char_golem_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/char_golem.png"
+		},
+		"enemy.smoke_wisp": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/enemy.smoke_wisp/job.json",
+			"sheet": "res://assets/sprites/enemies/smoke_wisp/smoke_wisp_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/smoke_wisp.png"
+		},
+		"enemy.pyre_brute": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/enemy.pyre_brute/job.json",
+			"sheet": "res://assets/sprites/enemies/pyre_brute/pyre_brute_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"pyre_slam": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blazing_rage": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/pyre_brute.png"
+		},
+		"enemy.ashen_widow": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/enemy.ashen_widow/job.json",
+			"sheet": "res://assets/sprites/enemies/ashen_widow/ashen_widow_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"lay_eggs": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"soot_web": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/ashen_widow.png"
+		},
+		"enemy.cinder_knight": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/enemy.cinder_knight/job.json",
+			"sheet": "res://assets/sprites/enemies/cinder_knight/cinder_knight_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"charge": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spinning_slash": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/cinder_knight.png"
+		},
+		"boss.source_devourer": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/boss.source_devourer/job.json",
+			"sheet": "res://assets/sprites/bosses/source_devourer/source_devourer_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				480
+			],
+			"scale": 1,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 8,
+					"loop": false
+				},
+				"idle": {
+					"row": 3,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"roar": {
+					"row": 4,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"heavy_slam": {
+					"row": 5,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"rift_breath": {
+					"row": 6,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"summon": {
+					"row": 7,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"root_sweep": {
+					"row": 8,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"transform": {
+					"row": 9,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"phase2_idle": {
+					"row": 10,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"phase2_attack": {
+					"row": 11,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"phase2_breath": {
+					"row": 12,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"phase2_slam": {
+					"row": 13,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"hurt": {
+					"row": 14,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/source_devourer.png"
 		}
 	}
 }

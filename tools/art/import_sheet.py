@@ -315,7 +315,10 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
         palette_img = strip.quantize(colors=colors + 1, method=Image.Quantize.FASTOCTREE)
     rows_out = []
     sheet_cols = max(len(frs) for _, frs in scaled)
-    sheet = np.zeros((ch * len(scaled), cw * sheet_cols, 4), dtype=np.uint8)
+    # Une pose transparente peut masquer le sprite pendant un effet commun de disparition.
+    # Elle ne requiert aucune rangée dessinée dans les sources du propriétaire.
+    empty_animations = job.get("empty_animations", [])
+    sheet = np.zeros((ch * (len(scaled) + len(empty_animations)), cw * sheet_cols, 4), dtype=np.uint8)
     entry_anims = {}
     for row, (anim, frames) in enumerate(scaled):
         rendered = []
@@ -334,6 +337,9 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             rendered.append(cell)
         entry_anims[anim["name"]] = {"row": row, "frames": len(frames), "fps": anim.get("fps", 10), "loop": anim.get("loop", True)}
         rows_out.append((anim["name"], rendered))
+    for index, anim in enumerate(empty_animations):
+        entry_anims[anim["name"]] = {"row": len(scaled) + index, "frames": 1,
+                                    "fps": anim.get("fps", 12), "loop": anim.get("loop", False)}
     for missing, existing in job.get("aliases", {}).items():
         if existing in entry_anims and missing not in entry_anims:
             entry_anims[missing] = dict(entry_anims[existing])

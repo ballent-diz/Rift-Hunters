@@ -1,0 +1,30 @@
+{
+  "prompt": "Use case: identity-preserve. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 complete distinct poses, landscape 2:1. Image 1 is the APPROVED Devourer of the Cascade Sources sprite sheet: mandatory STRICT character identity reference. Reproduce EXACT same monster, head, huge deep vertical mouth, jagged stone teeth, tiny violet eyes above it, asymmetric broken stone crest, mossy grey stone plates, black trailing roots, TWO massive long forearms and small hind limbs, violet rift core inside mouth. Same proportions, scale, shading and pixel density as image 1. Images 2–4 are ONLY supporting Rift Hunters rendering technique references: do not borrow their anatomy, armor shape, wings, color coverage or green background. Fine dense crisp pixel clusters, angular dark fantasy, faceted grey rock, selective dark contours, sparse moss green and restrained violet cracks. Not painterly, not smooth illustration, no cartoon simplification. Light from upper left; faint violet rim on lower right. All poses face RIGHT, slightly overhead three-quarter view. One identical creature per square cell, centered, stable scale and same ground baseline, at least 10 percent transparent margin inside each cell so no overlap. EXACT 6 equal columns, 3 equal rows. Every sprite fully visible. 6 genuinely progressive frames per animation from anticipation through action to recovery; no 6 static copies. True RGBA alpha zero outside the sprite; ABSENT backdrop, no black fill, no checkerboard painted into image, no halo, no ground shadow, no text, no borders, no panels, no environment, no ground disc, no telegraph, no hazard circle. All effects attached to or emitted directly from body, remain inside own cell.\nSHEET B, phase 1, keep original intact armor and root silhouette. ROW 1 idle: six subtle breathing poses, shoulders and mouth gently rise/open, violet throat core brightens then dims, roots settle; continuous seamless cycle, grounded long forearms. ROW 2 roar: crouch with lowered head, chest expands, lift head and open vertical maw very wide revealing deep violet core, maximum roar with throat vibration, lower head, recover original stance. Do not emit a projectile. ROW 3 heavy_slam: brace and lower body, raise BOTH enormous forearms, highest anticipation with elbows up, slam both huge fists straight down in front, recoil with small stone fragments directly from fists, settle into ready stance. Strong clear changing arm silhouette. No ground effects.",
+  "referenced_image_paths": [
+    "C:/Users/petit/.codex/generated_images/01a13525-0b52-7092-be0f-70c3aae5676c/exec-0c2dde92-c307-418d-8e28-d8ccb1f86fc6.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "transparent_background": true,
+  "mode": "built-in",
+  "animations": [
+    {
+      "name": "idle",
+      "row": 0,
+      "frames": 6
+    },
+    {
+      "name": "roar",
+      "row": 1,
+      "frames": 6
+    },
+    {
+      "name": "heavy_slam",
+      "row": 2,
+      "frames": 6
+    }
+  ],
+  "source": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/source_devourer/sheet_b.png",
+  "original_output": "Generated images are saved to C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5 as C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5\\exec-c3b06fff-d51e-4e73-9bec-731071b844b0.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+}

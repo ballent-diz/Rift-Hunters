@@ -1,0 +1,31 @@
+{
+  "prompt": "undefined\nSHEET C, phase 1, original intact armor and root silhouette. ROW 1 rift_breath: head retracts and maw closes, throat core charges bright violet, maw opens and narrow jagged violet energy stream starts to RIGHT, stream at peak emanating directly from mouth, stream tapers to short wisps, recover baseline stance. Body is slightly smaller in each cell to keep entire emitted stream INSIDE same cell with transparent margins, keep same scale across ALL 18 frames. ROW 2 summon: forearms brace, back roots rise, head and chest lift while mouth opens, powerful upward roar with several small violet motes emerging immediately around jaws and roots, motes fade while head lowers, return stance. Do not draw summoned minions, portals or circles. ROW 3 root_sweep: rear black root mass coils behind, roots rise and bend sideways, body twists while roots lash toward RIGHT, maximum curved sweeping root extension attached to rear/body, roots recoil, original ready stance. No detached root pile. Six visibly different connected animation poses per row, not static duplicates. Same strict creature identity.",
+  "referenced_image_paths": [
+    "C:/Users/petit/.codex/generated_images/01a13525-0b52-7092-be0f-70c3aae5676c/exec-0c2dde92-c307-418d-8e28-d8ccb1f86fc6.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "transparent_background": true,
+  "mode": "built-in",
+  "animations": [
+    {
+      "name": "rift_breath",
+      "row": 0,
+      "frames": 6
+    },
+    {
+      "name": "summon",
+      "row": 1,
+      "frames": 6
+    },
+    {
+      "name": "root_sweep",
+      "row": 2,
+      "frames": 6
+    }
+  ],
+  "source": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/source_devourer/sheet_c.png",
+  "original_output": "Generated images are saved to C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5 as C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5\\exec-3745b7c9-34c3-4a49-9eff-485be80cf685.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "qa_notes": "Identity consistent; emitted breath/root sweep extend close to or across cell borders; inspect grid crop before import."
+}

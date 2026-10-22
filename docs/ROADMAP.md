@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Sprites du chapitre 2 — Calcinés livrés pour validation (Codex)
+
+Branche `codex/monstres-chapitre-2` : les sept Calcinés, dont le Bond et six techniques d’élites,
+avec import, GIF et contrôle d’échelle dans Godot. Validation du propriétaire avant les Enfants
+du magma et Pyrevorn, conformément à la révision du 22 octobre. Complément : Dévoreur des Sources
+du chapitre 1, apparence validée et quinze animations préparées. Aucun changement de gameplay.
+Voir [art/MONSTRES_CHAPITRE2.md](art/MONSTRES_CHAPITRE2.md).
+
 Point d'entrée de toutes les décisions de conception validées par le propriétaire du projet.
 Chaque sujet a son document détaillé dans `docs/design/`. **Avant de travailler sur le gameplay,
 lire ce fichier puis le document concerné.** Les décisions « validées » ne se remettent pas en cause

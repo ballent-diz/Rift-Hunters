@@ -1,0 +1,17 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 557
+  },
+  "attack": {
+    "removed_neighbor_pixels": 5107
+  },
+  "death": {
+    "removed_neighbor_pixels": 1110
+  },
+  "pyre_slam": {
+    "removed_neighbor_pixels": 1002
+  },
+  "blazing_rage": {
+    "removed_neighbor_pixels": 529
+  }
+}

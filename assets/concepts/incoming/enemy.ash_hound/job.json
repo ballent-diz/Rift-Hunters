@@ -1,0 +1,90 @@
+{
+  "id": "ash_hound",
+  "fr": "Chien de suie",
+  "en": "Soot Hound",
+  "tier": "normal",
+  "height": 38,
+  "description": "gaunt soot-black hound with charred ribcage plates, smoldering dark-red mane of embers, long jaw, pale ghostly eyes",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline, spectral white-grey corruption fissures. NOT smooth painterly fantasy and NOT cute cartoon. Input images 1, 2 and 3 are STYLE REFERENCES ONLY: reproduce their crisp angular material treatment, do not copy their anatomy or violet-magenta palette. Create original gaunt soot-black hound with charred ribcage plates, smoldering dark-red mane of embers, long jaw, pale ghostly eyes. Distinct species, do not copy references anatomy. Ash grey and charcoal base, sparing burnt ochre highlights, rare dark-red embers, corruption white-grey spectral cold ember eyes and fissures; no violet or magenta. Upper-left light. All poses same character, face RIGHT with slight overhead three-quarter view. A strongly gaunt canine silhouette: concave starving belly, visibly separate charred ribs, four thin long dog legs, elongated dog muzzle, low sparse ridge of dark burgundy ember bristles, narrow trailing tail, no horns and no broad armored back. ROW1: six successive move gait poses, four dog legs visibly changing contact and swing. ROW2: six successive bite attack poses from low anticipation through long-jaw snap to recovery. ROW3: six successive Bond leap technique poses: crouches and gathers body (columns 1-2), airborne with forelegs stretched forward toward RIGHT (columns 3-4), lands raking ground with claws and a small body-generated ash spray (columns 5-6). The jump changes vertical position within its cell; all other poses share the ground baseline. Equal square cells, landscape 2:1 sheet, exactly six evenly spaced columns, each figure fits entirely within its cell with large empty gutters, same character size and ground baseline throughout. No death row. No background glow, no ground shadow, no backdrop or panels, absolutely no words. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo.",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "visual_id": "enemy.ash_hound",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    238
+  ],
+  "scale": 0.5,
+  "target_height": 76,
+  "status": "wip",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "resample": "lanczos",
+  "anchor_mode": "mass",
+  "isolate": true,
+  "hover": 0,
+  "animations": [
+    {
+      "name": "move",
+      "source": "move.png",
+      "sheet_source": "source/sheet.png",
+      "source_row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "attack.png",
+      "sheet_source": "source/sheet.png",
+      "source_row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "leap",
+      "source": "leap.png",
+      "sheet_source": "source/sheet.png",
+      "source_row": 2,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  },
+  "icon_size": 128,
+  "preview_zoom": 2,
+  "empty_animations": [
+    {
+      "name": "death",
+      "fps": 12,
+      "loop": false
+    }
+  ]
+}
