@@ -54,82 +54,82 @@ max_alive = 240
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt"])
 weights = Array[float]([3.0, 1.2])
-count = 40
+count = 28
 elites = Array[StringName]([])
-spawn_rate = 1.8
-max_alive = 35
+spawn_rate = 1.6
+max_alive = 30
 
 [sub_resource type="Resource" id="zone_wave_2"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab"])
 weights = Array[float]([3.0, 1.2, 1.4])
-count = 55
+count = 38
 elites = Array[StringName]([])
-spawn_rate = 2.2
-max_alive = 45
+spawn_rate = 1.9
+max_alive = 38
 
 [sub_resource type="Resource" id="zone_wave_3"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab"])
 weights = Array[float]([3.0, 1.2, 1.4])
-count = 65
+count = 45
 elites = Array[StringName]([&"storm_knight"])
-spawn_rate = 2.5
-max_alive = 55
+spawn_rate = 2.2
+max_alive = 45
 
 [sub_resource type="Resource" id="zone_wave_4"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab"])
 weights = Array[float]([3.0, 1.2, 1.4])
-count = 60
+count = 42
 elites = Array[StringName]([&"storm_knight"])
-spawn_rate = 3.0
-max_alive = 65
+spawn_rate = 2.5
+max_alive = 50
 
 [sub_resource type="Resource" id="zone_wave_5"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
 weights = Array[float]([3.0, 1.2, 1.4, 1.2])
-count = 75
+count = 52
 elites = Array[StringName]([&"menhir_warden"])
-spawn_rate = 3.3
-max_alive = 80
+spawn_rate = 2.8
+max_alive = 60
 
 [sub_resource type="Resource" id="zone_wave_6"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
 weights = Array[float]([3.0, 1.2, 1.4, 1.2])
-count = 90
+count = 60
 elites = Array[StringName]([&"storm_knight", &"menhir_warden"])
-spawn_rate = 3.6
-max_alive = 90
+spawn_rate = 3.0
+max_alive = 68
 
 [sub_resource type="Resource" id="zone_wave_7"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
 weights = Array[float]([3.0, 1.2, 1.4, 1.2])
-count = 90
+count = 62
 elites = Array[StringName]([&"peak_chimera", &"storm_knight"])
-spawn_rate = 3.8
-max_alive = 100
+spawn_rate = 3.2
+max_alive = 75
 
 [sub_resource type="Resource" id="zone_wave_8"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
 weights = Array[float]([3.0, 1.2, 1.4, 1.2])
-count = 105
+count = 72
 elites = Array[StringName]([&"menhir_warden", &"storm_knight"])
-spawn_rate = 4.1
-max_alive = 110
+spawn_rate = 3.4
+max_alive = 82
 
 [sub_resource type="Resource" id="zone_wave_9"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
 weights = Array[float]([3.0, 1.2, 1.4, 1.2])
-count = 125
+count = 85
 elites = Array[StringName]([&"peak_chimera", &"menhir_warden", &"storm_knight"])
-spawn_rate = 4.4
-max_alive = 125
+spawn_rate = 3.6
+max_alive = 90
 
 [sub_resource type="Resource" id="level_zone_1"]
 script = ExtResource("5")
