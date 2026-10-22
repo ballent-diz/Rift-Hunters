@@ -26,6 +26,7 @@ job.json :
   "animations": [
     {"name": "idle", "source": "idle.png", "frames": 6 (0 = détection automatique), "fps": 8, "loop": true,
      "layout": "auto" | "row" | "grid", "grid": [6, 1],
+     "row": 1,                              planche à plusieurs rangées (avec "grid": [6, 3]) : rangée lue, 0 en haut
      "ranges": [[x0, x1], ...]}            plages x explicites (une par image ; images irrégulières, projectile à exclure)
   ],
   "aliases": {"technique": "attack"}       animations manquantes réutilisant une autre ligne (optionnel)
@@ -160,7 +161,13 @@ def _touches(mask):
     return out
 
 
-def split_frames(img: Image.Image, count: int, layout: str, grid=None) -> list:
+def split_frames(img: Image.Image, count: int, layout: str, grid=None, row=None) -> list:
+    if row is not None and grid:
+        # Une seule rangée d'une planche à plusieurs rangées (docs/design/MONSTRES.md).
+        cols, rows = grid
+        ch = img.height / rows
+        img = img.crop((0, int(row * ch), img.width, int((row + 1) * ch)))
+        grid = (cols, 1)
     arr = np.array(img)
     alpha = arr[:, :, 3] > 0
     if layout == "grid" or (layout == "auto" and grid):
@@ -280,7 +287,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
         if anim.get("ranges"):
             frames = [img.crop((int(a), 0, int(b), img.height)) for a, b in anim["ranges"]]
         else:
-            frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"))
+            frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"), anim.get("row"))
         if anim.get("isolate", job.get("isolate", False)):
             frames = [isolate_frame(fr) for fr in frames]
         frames = [crop_alpha(fr) for fr in frames]

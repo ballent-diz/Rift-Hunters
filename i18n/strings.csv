@@ -629,6 +629,12 @@ ZONE_FIREFLY_WOODS_1_NAME,La Prairie du Sous-bois,The Underwood Meadow
 ZONE_FIREFLY_WOODS_2_NAME,La Clairière du Sanctuaire,The Shrine Glade
 ZONE_FIREFLY_WOODS_3_NAME,Le Plateau de Mousse,The Moss Plateau
 FINALE_TRAVEL_GUARDIAN,"Les bois sont nettoyés : rejoignez l'arbre-monde, au nord-est.","The woods are cleared: reach the world tree to the north-east."
+ARENA_CASCADE_SOURCE_NAME,Source des Cascades,Cascade Source
+ARENA_CASCADE_SOURCE_DESC,"Remontez le val jusqu'à sa source : trois terrasses reliées par des ponts, et des lits de rivière qui débordent sans prévenir.","Climb the vale to its source: three terraces linked by bridges, and riverbeds that flood without warning."
+ZONE_CASCADE_SOURCE_1_NAME,La Prairie du Lit,The Riverbed Meadow
+ZONE_CASCADE_SOURCE_2_NAME,La Terrasse de l'Est,The Eastern Terrace
+ZONE_CASCADE_SOURCE_3_NAME,La Terrasse de l'Ouest,The Western Terrace
+FINALE_TRAVEL_SOURCE,"Les terrasses sont nettoyées : franchissez le dernier pont, vers la cour sous la grande cascade.","The terraces are cleared: cross the last bridge to the court below the great waterfall."
 SPELL_CLEAVING_SLASH_NAME,Taille fendante,Cleaving Slash
 SPELL_CLEAVING_SLASH_DESC,Arc de lame vers le curseur : gros dégâts et Fracture aux ennemis touchés.,Blade arc toward the cursor: heavy damage and Fracture on enemies hit.
 SPELL_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
