@@ -11,6 +11,13 @@ Suite demandée : quatorze scènes VFX Godot du Dévoreur (dont télégraphes), 
 et prompt pour Claude ; captures et aperçus dans `docs/previews/devourer-vfx/`.
 Voir [art/MONSTRES_CHAPITRE2.md](art/MONSTRES_CHAPITRE2.md).
 
+## Reprise de session (Claude, 22 octobre 2026)
+
+Fait : attaque de mêlée jouée au contact et mort visible des ennemis (24 corps au plus, fondu), test
+`test_enemy_animations`. Carte 6 : décor, collisions et mini-carte prêts. Prochain lot proposé : intégrer la carte 6
+(fiches des 7 Calcinés et leurs mécaniques, arène en zones avec sols brûlants, gardien ; effort high), puis régler le
+Dévoreur après l'essai du propriétaire.
+
 ## Dévoreur des Sources en jeu (Claude, 22 octobre 2026)
 
 Boss de la Source des Cascades (carte 5, finale du chapitre 1), `data/bosses/source_devourer.tres`. Phase 1 :

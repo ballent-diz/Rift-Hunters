@@ -5,6 +5,10 @@ extends Node2D
 const SEPARATION_CHECKS := 10
 ## Rafraîchissement de la carte de flux (secondes) : un seul calcul pour tous les ennemis.
 const FLOW_REFRESH := 0.25
+## Corps qui jouent leur animation de mort (hors simulation) : plafond pour les grandes hordes, durée et fondu.
+const MAX_CORPSES := 24
+const CORPSE_HOLD := 0.35
+const CORPSE_FADE := 0.25
 
 ## Nuit (NightDirector) : seuls les ennemis visibles peuvent être ciblés ; vide = tout est visible.
 var visibility: Callable
@@ -19,6 +23,8 @@ var _overlay: Node2D
 var _dirty_removal: bool = false
 var _frame: int = 0
 var _flow_timer: float = 0.0
+## Corps en cours de mort : {"enemy": Enemy, "left": secondes restantes}.
+var _corpses: Array[Dictionary] = []
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -201,11 +207,15 @@ func step(delta: float) -> void:
 				enemy.touch_cooldown = contact_interval
 				if not misses(enemy):
 					ctx.combat.damage_player(enemy.contact_damage, enemy.data.id if enemy.data else &"boss")
+				# Coup au contact visible (ennemis de mêlée) : la rangée d'attaque de la feuille.
+				if not enemy.is_boss and view.has_point(pos):
+					enemy.visual.play_action(&"attack")
 		if view.has_point(pos):
 			enemy.visual.face_velocity(enemy.velocity.x)
 			enemy.visual.tick(delta, enemy.velocity.length_squared() > 4.0, enemy.velocity.length())
 	if _dirty_removal:
 		_remove_dead()
+	_step_corpses(delta)
 	rebuild_grid()
 	queue_redraw()
 	_overlay.queue_redraw()
@@ -505,8 +515,37 @@ func _remove_dead() -> void:
 		else:
 			if enemy.is_obstacle:
 				obstacles.erase(enemy)
-			enemy.queue_free()
+			if not _keep_corpse(enemy):
+				enemy.queue_free()
 	list = kept
+
+
+## Mort visible : le corps quitte la simulation et joue sa rangée de mort, s'il est à l'écran et sous le plafond.
+func _keep_corpse(enemy: Enemy) -> bool:
+	if enemy.is_obstacle or _corpses.size() >= MAX_CORPSES or not enemy.visual.has_animation(&"death"):
+		return false
+	if not _view_rect().has_point(enemy.position):
+		return false
+	enemy.visual.play_action(&"death")
+	var frames: SpriteFrames = enemy.visual.sprite_frames()
+	var length: float = frames.get_frame_count(&"death") / maxf(frames.get_animation_speed(&"death"), 1.0)
+	_corpses.append({"enemy": enemy, "left": length + CORPSE_HOLD + CORPSE_FADE})
+	return true
+
+
+func _step_corpses(delta: float) -> void:
+	var i: int = _corpses.size() - 1
+	while i >= 0:
+		var corpse: Dictionary = _corpses[i]
+		var enemy: Enemy = corpse["enemy"]
+		corpse["left"] = float(corpse["left"]) - delta
+		if not is_instance_valid(enemy) or float(corpse["left"]) <= 0.0:
+			if is_instance_valid(enemy):
+				enemy.queue_free()
+			_corpses.remove_at(i)
+		elif float(corpse["left"]) < CORPSE_FADE:
+			enemy.modulate.a = float(corpse["left"]) / CORPSE_FADE
+		i -= 1
 
 
 func clear_all() -> void:
