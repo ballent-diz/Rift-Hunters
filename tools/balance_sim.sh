@@ -13,7 +13,7 @@ OUT="${TMPDIR:-/tmp}/rift_hunters_balance.txt"
 : > "$OUT"
 run_one() {
 	local log
-	log=$(timeout 900 godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter="$1" --arena="$2" \
+	log=$(timeout ${SIM_TIMEOUT:-900} godot --headless --fixed-fps 60 --path . res://tests/smoke/autoplay.tscn -- --starter="$1" --arena="$2" \
 		--difficulty="$3" --seed="$4" ${MODS:+--modifiers=$MODS} ${META:+--meta=$META} 2>&1)
 	local errors
 	errors=$(echo "$log" | grep -c "SCRIPT ERROR")
