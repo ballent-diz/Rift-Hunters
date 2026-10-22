@@ -11527,6 +11527,30 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/bosses/pyrevorn.png"
+		},
+		"environment.scorched_verge": {
+			"status": "final",
+			"kind": "map",
+			"map": "res://assets/environments/scorched_verge/map.webp",
+			"map_tiles": [
+				"res://assets/environments/scorched_verge/map.webp",
+				"res://assets/environments/scorched_verge/map_1.webp",
+				"res://assets/environments/scorched_verge/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/scorched_verge/field.png",
+			"field_step": 2.0,
+			"arena_size": 5016,
+			"start": [
+				-1696,
+				172
+			],
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/scorched_verge/minimap.webp"
 		}
 	}
 }

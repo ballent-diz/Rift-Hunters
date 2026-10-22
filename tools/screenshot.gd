@@ -4,6 +4,7 @@ extends Node
 ##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr]
 ##         [--night] [--boss=root_sentinel] [--altar] [--shallows] [--rivers] [--map] (grande carte ouverte)
 ##         [--at=-2,-120] (Chasseur immobile placé à ce point, pour cadrer un endroit précis)
+##         [--finale] (mode zones : zones nettoyées d'office, Chasseur à l'entrée de l'arène finale)
 ##         [--pref=expedition_mode:survival] (préférence du profil avant la capture d'un menu)
 
 var _run: RunController
@@ -136,6 +137,10 @@ func _ready() -> void:
 		_run.ctx.player.global_position = at
 	if OS.get_cmdline_user_args().has("--map"):
 		_run.hud.minimap.toggle()
+	if OS.get_cmdline_user_args().has("--finale") and _run.ctx.zones:
+		while _run.ctx.zones.zone_index < _run.ctx.zones.zone_count():
+			_run.ctx.zones._clear_zone()
+		_run.ctx.player.global_position = _run.ctx.arena.finale_center + Vector2(0, 160)
 
 
 func _physics_process(_delta: float) -> void:
