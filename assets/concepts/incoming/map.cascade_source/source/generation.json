@@ -1,0 +1,26 @@
+{
+  "A": {
+    "native_size": [
+      1254,
+      1254
+    ],
+    "composition_size": [
+      1536,
+      1536
+    ],
+    "source": "variant_A_arena_cover_native.png",
+    "process": "Normalisation du canevas de composition uniquement ; aucun détail final revendiqué."
+  },
+  "B": {
+    "native_size": [
+      1254,
+      1254
+    ],
+    "composition_size": [
+      1536,
+      1536
+    ],
+    "source": "variant_B_native.png",
+    "process": "Normalisation du canevas de composition uniquement ; aucun détail final revendiqué."
+  }
+}

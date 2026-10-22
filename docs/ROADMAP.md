@@ -160,6 +160,13 @@ C5 — Reprise des animations des 16 Échos : Livré (Codex), 19 octobre, après
 
 Livré (Codex, 21 octobre) : objet peint animé, cinq animations précalculées par Godot, icône 64 px, sources et aperçus dans docs/previews/altar-seal/. Contrôle assets : 313 valides, 0 erreur ; aucune modification de gameplay. En attente de raccordement par Claude.
 
+### Source des Cascades — compositions
+
+Propositions livrées pour revue (Codex, 21 octobre) : deux compositions ; base A retouchée à la demande du propriétaire avec quatre parties et trois ponts uniques. Fiche docs/maps/SOURCE_DES_CASCADES.md ; mesures et courants à valider. Aucune région ni collision produite.
+
+### Source des Cascades — passe de détail
+
+Visuels livrés (Codex, 21 octobre) : 16 régions et retouches de matière, export final contrôlé conforme ; 100 % des secteurs, fidélité 0,986, aucune case résiduelle à référence initiale figée. Plan à quatre parties, trois ponts et deux rochers-abris conservé ; collisions du propriétaire et intégration Claude à suivre.
 
 ### Lisière calcinée — carte 6, Terres dévastées
 
@@ -167,6 +174,6 @@ Composition livrée pour validation (Codex, 21 octobre) : lisière brûlée et m
 
 ### Passe de détail des cartes 5 et 6
 
-En cours (Codex, 21 octobre) : 16 régions pour Source des Cascades, 12 pour Lisière calcinée. À la demande du propriétaire, l’arène de la carte 6 est une cour en trapèze, distincte de la cour irrégulière de la carte 5 ; deux abris espacés et circulation dégagée. Contrôles qualité et échelle attendus avant livraison finale.
+Visuels livrés (Codex, 21 octobre) : 16 régions pour Source des Cascades, 12 pour Lisière calcinée. Arènes distinctes, deux abris espacés chacune ; rapports qualité conformes et comparaisons d’échelle livrés. Collisions du propriétaire et intégration Claude à venir.
 
 Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs, fidélité 0,978), planche d’échelle et carte de netteté livrées. Deux secteurs de gorge fumante restent signalés. Collisions du propriétaire et intégration Claude à venir.

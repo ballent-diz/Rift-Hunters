@@ -198,7 +198,7 @@ def _weights(size, crop, core):
     return ramp(ys, core[1], core[3], crop[1], crop[3])[:, None] * ramp(xs, core[0], core[2], crop[0], crop[2])[None, :]
 
 
-def assemble(folder, out_prefix):
+def assemble(folder, out_prefix, native_only=False):
     plan = json.loads((folder / "regions.json").read_text(encoding="utf-8"))
     world = plan["world"]
     size = (round(world[0] * DETAIL_DENSITY), round(world[1] * DETAIL_DENSITY))
@@ -228,6 +228,9 @@ def assemble(folder, out_prefix):
         sys.exit("régions manquantes : " + ", ".join(missing))
     detailed = Image.fromarray(np.clip(acc / np.maximum(total, 1e-9), 0, 255).astype(np.uint8))
     detailed.save(folder / "map_detailed.png")
+    if native_only:
+        print(f"Aperçu natif seul : {folder / 'map_detailed.png'} ; tuiles non encodées.")
+        return
     game = (round(world[0] * GAME_DENSITY), round(world[1] * GAME_DENSITY))
     # Tuiles verticales d'environ 1672 unités de large (3762 pixels), comme les Ruines et les Hautes Terres.
     tiles = max(1, math.ceil(world[0] / REGION))
@@ -270,6 +273,7 @@ def main():
     a = sub.add_parser("assemble")
     a.add_argument("folder")
     a.add_argument("--out", required=True, help="préfixe des tuiles, ex. assets/environments/mist_ford/map")
+    a.add_argument("--native-only", action="store_true", help="arrête après l’aperçu natif pour vérifier avant encodage")
     args = parser.parse_args()
     if args.command == "split":
         world = tuple(int(v) for v in args.world.lower().split("x"))
@@ -283,7 +287,7 @@ def main():
         world = tuple(int(v) for v in args.world.lower().split("x"))
         scale_reference(world, args.width, Path(args.out))
     else:
-        assemble(Path(args.folder), Path(args.out))
+        assemble(Path(args.folder), Path(args.out), args.native_only)
 
 
 if __name__ == "__main__":
