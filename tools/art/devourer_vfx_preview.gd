@@ -1,5 +1,5 @@
 extends Node
-## Captures des ressources autonomes dans une vraie partie gelée, sans branchement de combat.
+## Captures des ressources autonomes dans une vraie partie gelÃ©e, sans branchement de combat.
 const OUT := "res://docs/previews/devourer-vfx/"
 var _run: RunController
 var _frames: String
@@ -9,7 +9,7 @@ var _viewport: SubViewport
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().set_auto_accept_quit(false)
-	get_window().visible = false
+	get_window().mode = Window.MODE_MINIMIZED
 	AudioServer.set_bus_mute(0, true)
 	Profile.read_only = true
 	DirAccess.make_dir_recursive_absolute(OUT)
@@ -139,4 +139,4 @@ func _benchmark(center: Vector2) -> void:
 	file.store_string(JSON.stringify({"enemies": 90, "effects": 8, "samples": 60, "warmup_frames": 40,
 		"median_frame_ms": times[30], "p95_frame_ms": times[57],
 		"renderer": RenderingServer.get_video_adapter_name(),
-		"measurement": "Partie gelée ; présentation et dessin, pas le coût de l’IA ni des collisions."}, "\t"))
+		"measurement": "Partie gelÃ©e ; prÃ©sentation et dessin, pas le coÃ»t de lâ€™IA ni des collisions."}, "\t"))

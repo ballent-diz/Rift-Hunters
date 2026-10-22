@@ -89,7 +89,8 @@ communes sont Carapace, Jumper et Nébulorax. La corruption principale des Calci
 quelques braises ont été rendues plus chaudes que le rouge sombre demandé, surtout sur la Brute :
 ce point reste soumis à la validation du propriétaire, sans déclarer ces essais définitifs.
 
-Les entrées restent `wip` jusqu’à la validation des planches et des animations. L’import ne crée
+Les sept Calcinés sont désormais `final`, après validation du propriétaire. Le Dévoreur et ses
+nouveaux effets restent `wip` pour validation des animations supplémentaires. L’import ne crée
 aucun `.tres` ni ne modifie `src/`. Les symboles et noms de capture sont des annotations d’atelier,
 pas des textes d’interface livrés au joueur.
 

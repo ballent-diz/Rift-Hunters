@@ -10311,7 +10311,7 @@
 			"minimap": "res://assets/environments/cascade_source/minimap.webp"
 		},
 		"enemy.cinder_crawler": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.cinder_crawler/job.json",
 			"sheet": "res://assets/sprites/enemies/cinder_crawler/cinder_crawler_sheet.png",
 			"cell": [
@@ -10352,7 +10352,7 @@
 			"icon": "res://assets/ui/icons/enemies/cinder_crawler.png"
 		},
 		"enemy.ash_hound": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.ash_hound/job.json",
 			"sheet": "res://assets/sprites/enemies/ash_hound/ash_hound_sheet.png",
 			"cell": [
@@ -10399,7 +10399,7 @@
 			"icon": "res://assets/ui/icons/enemies/ash_hound.png"
 		},
 		"enemy.char_golem": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.char_golem/job.json",
 			"sheet": "res://assets/sprites/enemies/char_golem/char_golem_sheet.png",
 			"cell": [
@@ -10440,7 +10440,7 @@
 			"icon": "res://assets/ui/icons/enemies/char_golem.png"
 		},
 		"enemy.smoke_wisp": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.smoke_wisp/job.json",
 			"sheet": "res://assets/sprites/enemies/smoke_wisp/smoke_wisp_sheet.png",
 			"cell": [
@@ -10481,7 +10481,7 @@
 			"icon": "res://assets/ui/icons/enemies/smoke_wisp.png"
 		},
 		"enemy.pyre_brute": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.pyre_brute/job.json",
 			"sheet": "res://assets/sprites/enemies/pyre_brute/pyre_brute_sheet.png",
 			"cell": [
@@ -10534,7 +10534,7 @@
 			"icon": "res://assets/ui/icons/enemies/pyre_brute.png"
 		},
 		"enemy.ashen_widow": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.ashen_widow/job.json",
 			"sheet": "res://assets/sprites/enemies/ashen_widow/ashen_widow_sheet.png",
 			"cell": [
@@ -10587,7 +10587,7 @@
 			"icon": "res://assets/ui/icons/enemies/ashen_widow.png"
 		},
 		"enemy.cinder_knight": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.cinder_knight/job.json",
 			"sheet": "res://assets/sprites/enemies/cinder_knight/cinder_knight_sheet.png",
 			"cell": [
