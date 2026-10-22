@@ -1,0 +1,17 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 15
+  },
+  "attack": {
+    "removed_neighbor_pixels": 2162
+  },
+  "death": {
+    "removed_neighbor_pixels": 865
+  },
+  "lay_eggs": {
+    "removed_neighbor_pixels": 492
+  },
+  "soot_web": {
+    "removed_neighbor_pixels": 828
+  }
+}

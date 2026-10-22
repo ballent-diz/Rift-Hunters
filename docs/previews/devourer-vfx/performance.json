@@ -1,0 +1,10 @@
+{
+	"effects": 8,
+	"enemies": 90,
+	"measurement": "Partie gelée ; présentation et dessin, pas le coût de l’IA ni des collisions.",
+	"median_frame_ms": 19.162,
+	"p95_frame_ms": 28.008,
+	"renderer": "Intel(R) Iris(R) Xe Graphics",
+	"samples": 60,
+	"warmup_frames": 40
+}

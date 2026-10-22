@@ -1,0 +1,8 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 0
+  },
+  "attack": {
+    "removed_neighbor_pixels": 2260
+  }
+}

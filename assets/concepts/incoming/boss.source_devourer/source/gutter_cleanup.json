@@ -1,0 +1,47 @@
+{
+  "move": {
+    "removed_neighbor_pixels": 591
+  },
+  "attack": {
+    "removed_neighbor_pixels": 3350
+  },
+  "death": {
+    "removed_neighbor_pixels": 1242
+  },
+  "idle": {
+    "removed_neighbor_pixels": 1050
+  },
+  "roar": {
+    "removed_neighbor_pixels": 6143
+  },
+  "heavy_slam": {
+    "removed_neighbor_pixels": 2848
+  },
+  "rift_breath": {
+    "removed_neighbor_pixels": 0
+  },
+  "summon": {
+    "removed_neighbor_pixels": 61
+  },
+  "root_sweep": {
+    "removed_neighbor_pixels": 0
+  },
+  "transform": {
+    "removed_neighbor_pixels": 1145
+  },
+  "phase2_idle": {
+    "removed_neighbor_pixels": 3961
+  },
+  "phase2_attack": {
+    "removed_neighbor_pixels": 3165
+  },
+  "phase2_breath": {
+    "removed_neighbor_pixels": 0
+  },
+  "phase2_slam": {
+    "removed_neighbor_pixels": 544
+  },
+  "hurt": {
+    "removed_neighbor_pixels": 1867
+  }
+}

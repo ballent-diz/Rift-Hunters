@@ -1,0 +1,28 @@
+{
+  "prompt": "Use case: precise-object-edit. Repair this animation sheet ONLY for sprite slicing. Preserve EXACT same stone moss root Devourer identity, texture, palette and 6 columns by 3 rows. Every frame must be fully contained in its own square cell and separated by a wide completely transparent gutter. Keep monster small enough to occupy central 60% of each cell, leaving 20% empty margin. Row1 six breath poses: no extended beam, only a VERY SHORT violet mouth jet never longer than one stone tooth. Row2 six summon poses exactly same intent. Row3 six root-sweep poses: SHORT CURLED roots close to body, never extending beyond cell or contacting neighboring figure. No grid lines, no background, no drawn guides, no shadow, no halo, no text. Truly transparent RGBA. Same apparent body scale in all frames. This is an animation atlas with eighteen completely isolated miniature creatures, NOT a sequence connected by effects.\n",
+  "referenced_image_paths": [
+    "..\\chapter2-generation\\source_devourer\\sheet_c_rejected.png"
+  ],
+  "transparent_background": true,
+  "mode": "built-in",
+  "animations": [
+    {
+      "name": "rift_breath",
+      "row": 0,
+      "frames": 6
+    },
+    {
+      "name": "summon",
+      "row": 1,
+      "frames": 6
+    },
+    {
+      "name": "root_sweep",
+      "row": 2,
+      "frames": 6
+    }
+  ],
+  "source": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/source_devourer/sheet_c.png",
+  "original_output": "Generated images are saved to C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5 as C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5\\exec-3745b7c9-34c3-4a49-9eff-485be80cf685.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "qa_notes": "Retouche des débordements, effets raccourcis dans chaque cellule."
+}

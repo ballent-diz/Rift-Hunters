@@ -76,6 +76,7 @@ Conseils pour les images :
 | `hover` | créatures volantes : pixels entre le bas du corps et l'ancre |
 | `animations` | une entrée par image ; la 1re sert de référence d'échelle |
 | `aliases` | animations manquantes réutilisant une autre ligne, ex. `{"technique": "attack"}` |
+| `empty_animations` | poses runtime transparentes, sans source dessinée, ex. `[{"name":"death","fps":12,"loop":false}]` pour masquer le corps pendant une disparition commune |
 
 ### Planches à plusieurs rangées (monstres à partir du chapitre 2)
 

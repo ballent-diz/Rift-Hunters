@@ -1,0 +1,29 @@
+{
+  "prompt": "Use case: identity-preserve. CORRECT SPACING AND EFFECT LENGTH of image 2 only. Image1 strict approved Devourer identity; image2 rejected SHEET E to remake. Create GAME SPRITE ANIMATION SHEET exactly6columns x3rows =18 complete isolated sprites, landscape2:1. CRITICAL SAFE AREA: each square cell has a central60% box (20% to80% horizontally and vertically). EVERY visible pixel of body, roots and effects must stay INSIDE central60% box. Leave huge EMPTY TRANSPARENT GUTTERS on ALL sides. Render creature SMALL relative to each cell, same body scale across18 frames. Effects end at least20% before any cell edge. NO touch or overlap with adjacent cells. Spacing takes priority over dramatic effects.\nSame exact monster as image1, mossy grey stone titan, black roots, huge long forearms, broken stone crest, deep vertical maw with violet core, tiny violet eyes. Phase2 only slightly separated shoulder/chest plates exposing narrow brighter violet seams, roots deployed but compact. Same face and proportions. Crisp detailed angular dark fantasy pixel art. RIGHT facing slight overhead3/4, upper-left lighting. NO new monster, wings, lava. Transparent RGBA alpha0 background, no halo, shadow, floor effects, text, grid lines, panels.\nRow1 phase2_breath: low brace, throat charge, jaw opens with tiny violet spark, peak VERY SHORT mouth-flame jet only one tooth-length outside jaw, dying mouth spark, recover. NO beam, NO trail, no detached projectile. Jet is shorter than the width of one monster fist. The bright mouth core and head motion carry the animation.\nRow2 phase2_slam: low brace, both giant forearms begin lifting, maximum overhead windup, both fists slam downward in front, recoil with 2tiny fragments from fists, ready stance. All raised fists stay within central60% safe box. Strong different arm poses.\nRow3 hurt: ready, head recoils with mouth open, torso twists away, low stagger, push back up, recover. Nonfatal reaction. Exact same monster in18 distinct progressive frames, no copies. Whole monster INCLUDING roots and tiny effects stays inside central60% of each cell with wide empty margins.",
+  "referenced_image_paths": [
+    "C:/Users/petit/.codex/generated_images/01a13525-0b52-7092-be0f-70c3aae5676c/exec-0c2dde92-c307-418d-8e28-d8ccb1f86fc6.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/source_devourer/sheet_e_rejected.png"
+  ],
+  "transparent_background": true,
+  "mode": "built-in",
+  "animations": [
+    {
+      "name": "phase2_breath",
+      "row": 0,
+      "frames": 6
+    },
+    {
+      "name": "phase2_slam",
+      "row": 1,
+      "frames": 6
+    },
+    {
+      "name": "hurt",
+      "row": 2,
+      "frames": 6
+    }
+  ],
+  "source": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/source_devourer/sheet_e.png",
+  "original_output": "Generated images are saved to C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5 as C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5\\exec-d246a135-ff21-4d27-b5f3-afcdc678607b.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "qa_notes": "Corrected short mouth jet; all18 frames visibly isolated. Original rejected sheet and prompt retained as *_rejected."
+}
