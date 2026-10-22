@@ -2,8 +2,8 @@
 
 ## Livraison et validation
 
-Les sept Calcinés sont livrés pour validation du propriétaire, conformément à sa révision du
-22 octobre 2026. Les Enfants du magma et Pyrevorn attendent cette validation. Les règles,
+Les sept Calcinés ont été validés par le propriétaire le 22 octobre 2026, conformément à sa révision.
+Les Enfants du magma peuvent être réalisés ; Pyrevorn suivra après cette deuxième famille. Les règles,
 statistiques, données de monstres, textes de jeu et raccordements restent à Claude.
 
 Le Dévoreur des Sources du chapitre 1 est un complément demandé pendant ce lot : son apparence

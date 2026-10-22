@@ -1,7 +1,8 @@
 # Rift Hunters — feuille de route
 
-## Sprites du chapitre 2 — Calcinés livrés pour validation (Codex)
+## Sprites du chapitre 2 — Calcinés validés (Codex)
 
+Validation des sept Calcinés par le propriétaire le 22 octobre 2026. Famille magma à suivre.
 Branche `codex/monstres-chapitre-2` : les sept Calcinés, dont le Bond et six techniques d’élites,
 avec import, GIF et contrôle d’échelle dans Godot. Validation du propriétaire avant les Enfants
 du magma et Pyrevorn, conformément à la révision du 22 octobre. Complément : Dévoreur des Sources
