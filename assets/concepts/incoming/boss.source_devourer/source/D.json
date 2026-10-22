@@ -1,0 +1,31 @@
+{
+  "prompt": "Use case: identity-preserve. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 complete distinct poses, landscape 2:1. Image 1 is the APPROVED Devourer of the Cascade Sources sprite sheet: mandatory STRICT character identity reference. Reproduce EXACT same monster, head, huge deep vertical mouth, jagged stone teeth, tiny violet eyes above it, asymmetric broken stone crest, mossy grey stone plates, black trailing roots, TWO massive long forearms and small hind limbs, violet rift core inside mouth. Same proportions, scale, shading and pixel density as image 1. Images 2–4 are ONLY supporting Rift Hunters rendering technique references: do not borrow their anatomy, armor shape, wings, color coverage or green background. Fine dense crisp pixel clusters, angular dark fantasy, faceted grey rock, selective dark contours, sparse moss green and restrained violet cracks. Not painterly, not smooth illustration, no cartoon simplification. Light from upper left; faint violet rim on lower right. All poses face RIGHT, slightly overhead three-quarter view. One identical creature per square cell, centered, stable scale and same ground baseline, at least 10 percent transparent margin inside each cell so no overlap. EXACT 6 equal columns, 3 equal rows. Every sprite fully visible. 6 genuinely progressive frames per animation from anticipation through action to recovery; no 6 static copies. True RGBA alpha zero outside the sprite; ABSENT backdrop, no black fill, no checkerboard painted into image, no halo, no ground shadow, no text, no borders, no panels, no environment, no ground disc, no telegraph, no hazard circle. All effects attached to or emitted directly from body, remain inside own cell.\nSHEET D. Phase 2 is SAME CREATURE, NOT a redesign, no new monster, NO new horns, NO wings, NO lava. Same grey mossy stone face/crest, vertical maw and giant forearms. Only stone plates loosen/open at shoulder/chest seams, bright violet mouth core more exposed, black roots deploy wider. ROW 1 transform: original phase 1 crouch, roots tense and stone seams widen, shoulder/chest plates lift a little still attached, core grows brighter while root bundles extend upward, plate openings settle and roots spread, final phase2 ready stance. This is armor opening, not the creature dying or shattering. ROW 2 phase2_idle: six looped breathing poses in same phase2 stance, opened mossy grey armor plates reveal stronger narrow violet seams, violet mouth core pulses, roots flex subtly then return. ROW 3 phase2_attack: phase2 crouch, one massive forearm rises with strong anticipation, torso leans forward with raised fist, powerful forward-down claw strike toward RIGHT, recoil, recover phase2 ready stance. Maintain believable anatomy and same original hulking silhouette in every frame. No background effects.",
+  "referenced_image_paths": [
+    "C:/Users/petit/.codex/generated_images/01a13525-0b52-7092-be0f-70c3aae5676c/exec-0c2dde92-c307-418d-8e28-d8ccb1f86fc6.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "transparent_background": true,
+  "mode": "built-in",
+  "animations": [
+    {
+      "name": "transform",
+      "row": 0,
+      "frames": 6
+    },
+    {
+      "name": "phase2_idle",
+      "row": 1,
+      "frames": 6
+    },
+    {
+      "name": "phase2_attack",
+      "row": 2,
+      "frames": 6
+    }
+  ],
+  "source": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/source_devourer/sheet_d.png",
+  "original_output": "Generated images are saved to C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5 as C:\\Users\\petit\\.codex\\generated_images\\01a16285-3a8b-7f31-b301-f0d67c67acf5\\exec-413e3abc-8eb7-416e-a39f-770e61eec9e5.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link.",
+  "qa_notes": "Identity consistent with original; phase2 expressed by wider violet seams/open shoulders and deployed roots."
+}

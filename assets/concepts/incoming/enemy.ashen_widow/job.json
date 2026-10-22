@@ -1,0 +1,111 @@
+{
+  "id": "ashen_widow",
+  "fr": "Veuve de cendre",
+  "en": "Ashen Widow",
+  "tier": "elite",
+  "height": 46,
+  "description": "Veuve de cendre",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images 1-3 define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. NOT smooth painterly fantasy and NOT cute cartoon. Original distinct species, do not copy reference anatomy, spikes, shells or heads. Charcoal, ash-grey and burnt ochre palette with very sparse dark-red embers; corruption is spectral grey-white pale eyes and fine cold fissures, absolutely no primary magenta. Upper-left light. All poses same character, face RIGHT with slight overhead three-quarter view. Equal square cells, landscape 2:1 sheet, each figure fits entirely within its cell with generous empty gutters, consistent scale and ground baseline. Every frame is a visibly different meaningful animation pose, never duplicate standing sprites. No background glow, no ground shadow, no backdrop or panels, absolutely no words, no labels, no grid lines. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo. Effects only attached to or emitted directly from body, never danger circles or detached floor zones. Create original Ashen Widow: a true large EIGHT-legged ash spider, eight long thin jointed hairy grey legs with delicate pointed feet, small low cephalothorax and compact pale ghostly eye cluster facing RIGHT, enormous soft swollen charcoal abdomen trailing behind to LEFT, bulging with three distinct faintly luminous cold-grey egg-sac membranes. Shaggy grey abdominal hairs and cracked ash crust; rounded swollen sac silhouette and graceful skeletal spider limbs, no overlapping beetle armor, no horns, no reptile jaw. Clearly a spider rather than a crab or scarab. ROW1 six successive creeping movement gait poses: alternating leg groups reach, plant, support and push; abdomen bobs slightly, keep eight legs and same body. ROW2 six successive biting attack poses: lowers body, retracts forelegs and fangs, two forelegs lift, lunges small cephalothorax and fangs to RIGHT, recoils, returns to creeping stance. ROW3 six death poses: legs buckle, body tilts, spider collapses sideways, limbs curl inward around abdomen, ash shell breaks and disintegrates, small ash remains. Keep individual long limbs clearly readable and fully inside each square cell.",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "visual_id": "enemy.ashen_widow",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    238
+  ],
+  "scale": 0.5,
+  "target_height": 92,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "resample": "lanczos",
+  "anchor_mode": "mass",
+  "isolate": true,
+  "hover": 0,
+  "animations": [
+    {
+      "name": "move",
+      "source": "move.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "attack.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "death",
+      "source": "death.png",
+      "sheet_source": "source/sheet_a.png",
+      "source_row": 2,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "lay_eggs",
+      "source": "lay_eggs.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 0,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "soot_web",
+      "source": "soot_web.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  },
+  "icon_size": 128,
+  "preview_zoom": 2
+}

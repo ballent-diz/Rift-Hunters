@@ -1,0 +1,74 @@
+{
+  "id": "cinder_crawler",
+  "fr": "Rampe-cendre",
+  "en": "Cinder Crawler",
+  "tier": "normal",
+  "height": 30,
+  "description": "small six-legged ash tick with charcoal shell plates, flaking grey ash, tiny dim ember cracks, pale ghostly eyes",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline, spectral white-grey corruption fissures. NOT smooth painterly fantasy and NOT cute cartoon. Create original small six-legged ash tick with charcoal shell plates, flaking grey ash, tiny dim ember cracks, pale ghostly eyes. Distinct species, do not copy references anatomy. Ash-grey, charcoal and burnt ochre base. Cold pale spectral eyes and thin white-grey seams. Rare tiny dull dark-red embers only. No violet or magenta main accents. Six legs, three on each side; lean low ash-tick silhouette. Upper-left light, very subtle lower-right rim. All poses same character, face RIGHT with slight overhead three-quarter view. ROW1: six successive move gait poses, limbs moving. ROW2: six successive attack poses from anticipation to strike then recovery. ROW3: six death sequence poses from stagger to collapsed to disintegrated remnants. Equal square cells, landscape 2:1 sheet, each figure fits entirely within its cell with large empty gutters, same size and ground baseline. No background glow, no ground shadow, no backdrop or panels, absolutely no words. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo. Preserve the same anatomy and shell plates across every frame; death remnants remain within their own cells.\nSILHOUETTE CORRECTION requested by the owner: the previous attempt looked too much like the existing armored beetles. Redesign as a long extremely FLAT ash tick, paper-thin layered charcoal flakes like burnt leaves along a slender elongated segmented abdomen, six very long wiry bent legs stretched sideways with a low creeping stance, small pointed mouthparts and two tiny pale slit eyes. No domed beetle shell, no round boulder body, no horns, no broad armored shoulders, no large pincers. Visual identity: a ragged skeletal ash insect, length roughly three times body height; swift skittering movement, attack a sudden forward low stab, death body crumbles into a low trail of grey flakes. References guide pixel shading and lighting ONLY, never their anatomy. All 18 poses keep this same long flat anatomy.",
+  "visual_id": "enemy.cinder_crawler",
+  "source": "source/sheet.png",
+  "mode": "builtin-imagegen",
+  "references": [
+    "assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "assets/concepts/incoming/boss.nebulorax/source/NÃ©bulorax.png"
+  ],
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    238
+  ],
+  "scale": 0.5,
+  "target_height": 60,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "anchor_mode": "mass",
+  "resample": "lanczos",
+  "hover": 0,
+  "animations": [
+    {
+      "name": "move",
+      "source": "move.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "attack.png",
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  },
+  "preview_zoom": 2,
+  "isolate": true,
+  "icon_size": 128,
+  "empty_animations": [
+    {
+      "name": "death",
+      "fps": 12,
+      "loop": false
+    }
+  ]
+}

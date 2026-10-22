@@ -1,0 +1,47 @@
+{
+  "id": "pyre_brute",
+  "height": 49,
+  "fr": "Brute du bûcher",
+  "en": "Pyre Brute",
+  "tier": "elite",
+  "mode": "builtin-imagegen",
+  "references": [
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "sheet_a": {
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a1627f-ab61-7932-9d3c-5fa218c6bbe7\\exec-2e80e24d-6969-4194-8a80-7aa37bbddf4a.png",
+    "saved": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/pyre_brute/sheet_a.png",
+    "grid": [
+      6,
+      3
+    ],
+    "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Reference images 1-3 define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. NOT smooth painterly fantasy and NOT cute cartoon. Original distinct species, do not copy reference anatomy, spikes, shells or heads. Charcoal, ash-grey and burnt ochre palette with very sparse dark-red embers; corruption is spectral grey-white pale eyes and fine cold fissures, absolutely no primary magenta. Upper-left light. All poses same character, face RIGHT with slight overhead three-quarter view. Equal square cells, landscape 2:1 sheet, each figure fits entirely within its cell with generous empty gutters, consistent scale and ground baseline. Every frame is a visibly different meaningful animation pose, never duplicate standing sprites. No background glow, no ground shadow, no backdrop or panels, absolutely no words, no labels, no grid lines. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo. Effects only attached to or emitted directly from body, never danger circles or detached floor zones. Create original Pyre Brute: huge hunched humanoid beast, charred bark skin with knotty wooden fists, short trunk-like legs, tiny recessed pale ghostly eyes beneath a heavy wooden brow, huge bundled burning log pyre carried horizontally on its back. Strong recognizable lumbering silhouette dominated by the strapped log burden, asymmetrical bark slabs and immense forearms; no armored beetle traits, no horns, no dragon anatomy. Low dark-red flame tips emerge directly from the wood, no smoke cloud obscuring silhouette. ROW1: six successive heavy movement gait poses, distinctly alternating planted feet, rocking shoulders and swinging fists. ROW2: six successive basic fist attack poses: crouched windup, fist drawn back, torso twist, powerful forward punch to RIGHT, recoil, ready recovery. The pyre stays on its back throughout the basic attack. ROW3: six death sequence poses: stagger backwards, buckling knees, falling onto side, sprawled on ground with broken logs, disintegrating bark and ash, small exhausted remains on baseline. Frame1-6 of each row must follow coherent temporal progression.",
+    "rows": [
+      "move",
+      "attack",
+      "death"
+    ]
+  },
+  "sheet_b": {
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a1627f-ab61-7932-9d3c-5fa218c6bbe7\\exec-630e7be5-1494-4868-9a62-efa79c414020.png",
+    "saved": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/pyre_brute/sheet_b.png",
+    "grid": [
+      6,
+      2
+    ],
+    "references": [
+      "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.husk/source/carapace.png",
+      "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/enemy.lunger/source/jumper.png",
+      "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/Rift-Hunters-scorched/assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png",
+      "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/chapter2-generation/pyre_brute/sheet_a.png"
+    ],
+    "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 2 rows, 12 distinct complete poses. Reference images 1-3 define strict Rift Hunters art direction: angular dark fantasy monsters, crisp fine pixel clusters, jagged faceted shading, selective dark outline. NOT smooth painterly fantasy and NOT cute cartoon. Original distinct species, do not copy reference anatomy, spikes, shells or heads. Charcoal, ash-grey and burnt ochre palette with very sparse dark-red embers; corruption is spectral grey-white pale eyes and fine cold fissures, absolutely no primary magenta. Upper-left light. All poses same character, face RIGHT with slight overhead three-quarter view. Equal square cells, landscape 3:1 sheet, each figure fits entirely within its cell with generous empty gutters, consistent scale and ground baseline. Every frame is a visibly different meaningful animation pose, never duplicate standing sprites. No background glow, no ground shadow, no backdrop or panels, absolutely no words, no labels, no grid lines. Output truly transparent RGBA, zero-alpha outside sprite; crisp clean cutout with no atmospheric halo. Effects only attached to or emitted directly from body, never danger circles or detached floor zones. Create original Pyre Brute: huge hunched humanoid beast, charred bark skin with knotty wooden fists, short trunk-like legs, tiny recessed pale ghostly eyes beneath a heavy wooden brow, huge bundled burning log pyre carried horizontally on its back. Strong recognizable lumbering silhouette dominated by the strapped log burden, asymmetrical bark slabs and immense forearms; no armored beetle traits, no horns, no dragon anatomy. Low dark-red flame tips emerge directly from the wood, no smoke cloud obscuring silhouette. Reference image 4 is the EXACT same Pyre Brute from its animation sheet A: preserve identity, bark facial mask, strapped horizontal logs, proportions, palette, character scale and framing. Create new technique poses only. ROW1 SIX FRAMES, Bûcher écrasé / Pyre Slam: 1 both hands grasp log pyre from back, 2 pulls bundle upward while bracing, 3 holds entire bundle high overhead, 4 forcefully slams bundle to ground on RIGHT with a compact directly-emitted spray of red embers, 5 lifts torso retrieving bundle, 6 restores bundle on back and recovers. ROW2 SIX FRAMES, Rage du brasier / Blazing Rage: 1 fist drawn toward chest, 2 strikes own chest, 3 second forceful chest strike, 4 body cracks kindle brighter and flames surge directly from back pyre, 5 lowered threatening stance with knees deeply bent and fists apart, 6 remains low and menacing as attached flames subside. No persistent floor fire zone.",
+    "rows": [
+      "pyre_slam",
+      "blazing_rage"
+    ]
+  },
+  "inspection": "Six columns with readable progressive poses and generous separation; identity consistent A/B; white eyes. Embers rendered brighter/oranger than requested dark-red accents."
+}

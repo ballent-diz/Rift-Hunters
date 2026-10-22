@@ -79,6 +79,7 @@ Conseils pour les images :
 | `empty_animations` | poses runtime transparentes, sans source dessinée, ex. `[{"name":"death","fps":12,"loop":false}]` pour masquer le corps pendant une disparition commune |
 | `frame_offsets` (par animation) | décalages graphiques `[x,y]` après ancrage, un par pose ; préserve une montée/piqué dans la cellule sans déplacer l’entité |
 
+
 ### Planches à plusieurs rangées (monstres à partir du chapitre 2)
 
 Une planche de 6 colonnes sur 2 ou 3 rangées sert plusieurs animations : chaque entrée reprend la même `source` avec

@@ -12,6 +12,17 @@ Pyrevorn : quatre planches livrées, onze animations (66 poses), import et captu
 Voir [art/PYREVORN_SPRITES.md](art/PYREVORN_SPRITES.md). Apparence du boss à valider ; famille magma validée.
 Aucun changement de gameplay ; comportements et données restent à Claude.
 
+## Sprites du chapitre 2 — Calcinés validés (Codex)
+
+Validation des sept Calcinés par le propriétaire le 22 octobre 2026. Famille magma à suivre.
+Branche `codex/monstres-chapitre-2` : les sept Calcinés, dont le Bond et six techniques d’élites,
+avec import, GIF et contrôle d’échelle dans Godot. Validation du propriétaire avant les Enfants
+du magma et Pyrevorn, conformément à la révision du 22 octobre. Complément : Dévoreur des Sources
+du chapitre 1, apparence validée et quinze animations préparées. Aucun changement de gameplay.
+Suite demandée : quatorze scènes VFX Godot du Dévoreur (dont télégraphes), contrat de raccordement
+et prompt pour Claude ; captures et aperçus dans `docs/previews/devourer-vfx/`.
+Voir [art/MONSTRES_CHAPITRE2.md](art/MONSTRES_CHAPITRE2.md).
+
 Point d'entrée de toutes les décisions de conception validées par le propriétaire du projet.
 Chaque sujet a son document détaillé dans `docs/design/`. **Avant de travailler sur le gameplay,
 lire ce fichier puis le document concerné.** Les décisions « validées » ne se remettent pas en cause

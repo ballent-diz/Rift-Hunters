@@ -1,0 +1,250 @@
+{
+  "id": "source_devourer",
+  "fr": "Dévoreur des Sources",
+  "en": "Devourer of the Sources",
+  "tier": "boss",
+  "height": 200,
+  "description": "colossal mossy grey stone and black-root titan, huge forearms, gaping stone-toothed maw and violet rift core",
+  "prompt": "Use case: stylized-concept. GAME SPRITE ANIMATION SHEET, exactly 6 columns and 3 rows, 18 distinct complete poses. Input references define ONLY the strict Rift Hunters art technique: angular dark fantasy, crisp fine pixel clusters, jagged faceted shading, selective dark outline. NOT smooth painterly fantasy and NOT cute cartoon. Create the original colossal Devourer of the Cascade Sources, a chapter-ending monster far larger and more ominous than any guardian. A broad hunched amphibious titan made of mossy ancient grey stone and black tangled roots, TWO enormous forearms planted like buttresses, small rear hind limbs, heavy trailing root mass. Its head is a huge deep vertically gaping maw with jagged stone teeth, hollow throat contains a bright violet rift core; very small cold violet eyes far apart above the mouth. Cracked monumental slate plates, root tendons binding joints, sparse moss at shoulders; water-worn chiseled surfaces. Distinct original anatomy: NO insect, NO scarab shell, NO dragon wings, NO feline or humanoid knight. Clear hulking long-arm silhouette, asymmetric broken stone crest. Moss green, cold grey stone, charcoal roots, limited vivid violet corruption only in the mouth/core and narrow cracks. No magenta haze or glowing background. Upper-left light, discreet lower-right violet rim. All poses same creature face RIGHT, slight overhead three-quarter view, same proportions and scale. ROW1: six moving lumbering poses, alternating huge forearms and shifting root mass. ROW2: six primary attack poses: crouch, jaw opens, raised forearm, massive downward claw strike to the right, recoil, recovery. ROW3: six death poses: staggers, violet core fractures, arm collapses, body breaks downward, inert shattered stone and roots, dead dark rubble. Exactly 6 equal square cells per row, 3 rows, 2:1 landscape. All poses fully inside cells, large transparent gutters, stable ground baseline. No text, no panels, no ground shadow. Truly transparent RGBA zero-alpha outside sprite, no halo. Render dense fine pixel detail appropriate to a large 150-to-220 world-unit-tall final boss, not a magnified tiny enemy.",
+  "mode": "builtin-imagegen",
+  "references": [
+    "assets/concepts/incoming/enemy.husk/source/carapace.png",
+    "assets/concepts/incoming/enemy.lunger/source/jumper.png",
+    "assets/concepts/incoming/boss.nebulorax/source/Nébulorax.png"
+  ],
+  "source": "source/sheet.png",
+  "visual_id": "boss.source_devourer",
+  "cell": [
+    512,
+    512
+  ],
+  "anchor": [
+    256,
+    480
+  ],
+  "scale": 1,
+  "target_height": 200,
+  "status": "wip",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 56,
+  "outline": true,
+  "resample": "lanczos",
+  "anchor_mode": "mass",
+  "animations": [
+    {
+      "name": "move",
+      "source": "move.png",
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "attack.png",
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "death",
+      "source": "death.png",
+      "frames": 6,
+      "fps": 8,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "idle",
+      "source": "idle.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 0,
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "roar",
+      "source": "roar.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 1,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "heavy_slam",
+      "source": "heavy_slam.png",
+      "sheet_source": "source/sheet_b.png",
+      "source_row": 2,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "rift_breath",
+      "source": "rift_breath.png",
+      "sheet_source": "source/sheet_c.png",
+      "source_row": 0,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "source_scale": 1.23
+    },
+    {
+      "name": "summon",
+      "source": "summon.png",
+      "sheet_source": "source/sheet_c.png",
+      "source_row": 1,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "source_scale": 1.23
+    },
+    {
+      "name": "root_sweep",
+      "source": "root_sweep.png",
+      "sheet_source": "source/sheet_c.png",
+      "source_row": 2,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "source_scale": 1.23
+    },
+    {
+      "name": "transform",
+      "source": "transform.png",
+      "sheet_source": "source/sheet_d.png",
+      "source_row": 0,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "phase2_idle",
+      "source": "phase2_idle.png",
+      "sheet_source": "source/sheet_d.png",
+      "source_row": 1,
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "phase2_attack",
+      "source": "phase2_attack.png",
+      "sheet_source": "source/sheet_d.png",
+      "source_row": 2,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "phase2_breath",
+      "source": "phase2_breath.png",
+      "sheet_source": "source/sheet_e.png",
+      "source_row": 0,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "source_scale": 1.23
+    },
+    {
+      "name": "phase2_slam",
+      "source": "phase2_slam.png",
+      "sheet_source": "source/sheet_e.png",
+      "source_row": 1,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "source_scale": 1.23
+    },
+    {
+      "name": "hurt",
+      "source": "hurt.png",
+      "sheet_source": "source/sheet_e.png",
+      "source_row": 2,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "source_scale": 1.23
+    }
+  ],
+  "aliases": {},
+  "isolate": true,
+  "icon_size": 256,
+  "preview_zoom": 1
+}
