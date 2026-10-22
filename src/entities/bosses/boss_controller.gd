@@ -1,14 +1,21 @@
 class_name BossController
 extends RefCounted
 ## Pilote un Dévoreur : phases, choix d'attaques pondéré, mécaniques (absorption, cœur exposé, cristaux).
-## Chaque attaque est une méthode _pattern_<kind> paramétrée par BossPatternData.
+## Chaque attaque est une méthode _pattern_<kind> paramétrée par BossPatternData. params["anim"] choisit l'animation du
+## sprite, params["vfx"] l'effet peint (BossData.vfx_dir) : le dessin suit le combat, il ne décide jamais des dégâts.
 
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
+	&"sweep": &"attack", &"slam": &"heavy_slam", &"breath": &"rift_breath",
 }
+## Effets décoratifs simultanés au plus (les télégraphes ne comptent pas : ils ne sont jamais supprimés).
+const MAX_EFFECTS := 8
+## Repères de contact des effets peints (part de leur durée) : griffes et souffles, frappes au sol.
+const CONTACT_STRIKE := 0.12
+const CONTACT_SLAM := 0.3
 
 var ctx: RunContext
 var boss: Enemy
@@ -25,6 +32,14 @@ var _fight_time: float = 0.0
 var _charge_time: float = 0.0
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
+var _effects: Array[Node2D] = []
+var _indicators: Array[Node2D] = []
+var _summons: Array[Enemy] = []
+var _scenes: Dictionary = {}
+var _hurt_hp: float = 0.0
+var _hurt_window: float = 0.0
+var _hurt_cooldown: float = 0.0
+var _ended: bool = false
 
 
 func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
@@ -32,6 +47,11 @@ func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
 	boss = p_boss
 	data = boss.boss_data
 	_next_pattern_time = ctx.time + 2.5
+	_hurt_hp = boss.hp
+	if data.intro_animation != &"" and boss.visual.has_animation(data.intro_animation):
+		boss.visual.play_action(data.intro_animation)
+		_vfx(String(data.intro_animation), _mouth(), Vector2.RIGHT)
+		busy_time = 1.4
 
 
 func phase() -> BossPhaseData:
@@ -51,6 +71,10 @@ func schedule(delay: float, action: Callable) -> void:
 
 func step(delta: float) -> void:
 	if not boss.alive:
+		if not _ended:
+			_ended = true
+			_clear_indicators()
+			_vfx("death", boss.position, Vector2.RIGHT, {}, -1.0, true)
 		return
 	_run_scheduled()
 	_fight_time += delta
@@ -67,6 +91,7 @@ func step(delta: float) -> void:
 		if absorb_time <= 0.0:
 			_release_absorbed()
 	_check_phase()
+	_check_hurt(delta)
 	busy_time = maxf(busy_time - delta, 0.0)
 	var to_player: Vector2 = ctx.player.global_position - boss.position
 	if _charge_time > 0.0:
@@ -83,15 +108,16 @@ func step(delta: float) -> void:
 			boss.velocity = Vector2.ZERO
 	else:
 		boss.velocity = Vector2.ZERO
-	boss.visual.set_facing_left(to_player.x < 0.0)
+	if busy_time <= 0.0:
+		boss.visual.set_facing_left(to_player.x < 0.0)
 	boss.visual.tick(delta, boss.velocity.length() > 2.0, boss.velocity.length())
 	if busy_time <= 0.0 and absorb_time <= 0.0 and boss.invulnerable_time <= 0.0 and ctx.time >= _next_pattern_time:
 		var pattern: BossPatternData = _choose_pattern(to_player.length())
 		if pattern:
-			_ready_at[pattern.kind] = ctx.time + pattern.cooldown
+			_ready_at[pattern] = ctx.time + pattern.cooldown
 			Audio.play_sfx(&"boss_telegraph")
 			call("_pattern_" + String(pattern.kind), pattern)
-			boss.visual.play_action(PATTERN_ANIMATIONS.get(pattern.kind, &"attack"))
+			boss.visual.play_action(StringName(pattern.params.get("anim", PATTERN_ANIMATIONS.get(pattern.kind, &"attack"))))
 			ctx.stats.add(&"boss_patterns")
 		_next_pattern_time = ctx.time + phase().pattern_interval * (0.7 if enraged else 1.0)
 
@@ -126,16 +152,39 @@ func _check_phase() -> void:
 		[ctx.rng.randf() * TAU], 0.5, [], p.transition_time * 0.5)
 	ctx.fx.burst(boss.position, boss.radius * 2.0, Color(0.8, 0.3, 1.0, 0.5))
 	boss.visual.play_action(&"transform")
+	_clear_indicators()
+	_vfx("transform", boss.position, Vector2.RIGHT, {}, -1.0, true)
+	var phase_idle := StringName("phase%d_idle" % (phase_index + 1))
+	if boss.visual.has_animation(phase_idle):
+		boss.visual.idle_animation = phase_idle
 	ctx.events.boss_phase_changed.emit(phase_index)
+
+
+## Réaction aux gros coups (part des PV perdue en une seconde) : jamais au milieu d'une attaque.
+func _check_hurt(delta: float) -> void:
+	if data.hurt_ratio <= 0.0:
+		return
+	_hurt_cooldown = maxf(_hurt_cooldown - delta, 0.0)
+	_hurt_window += delta
+	if _hurt_window < 1.0:
+		return
+	var lost: float = (_hurt_hp - boss.hp) / boss.max_hp
+	_hurt_window = 0.0
+	_hurt_hp = boss.hp
+	if lost >= data.hurt_ratio and busy_time <= 0.0 and _hurt_cooldown <= 0.0:
+		_hurt_cooldown = 6.0
+		boss.visual.play_action(&"hurt")
+		_vfx("hurt", boss.position + Vector2(0.0, -boss.radius * 0.5), Vector2.RIGHT)
 
 
 func _choose_pattern(distance: float) -> BossPatternData:
 	var options: Array[BossPatternData] = []
 	var total: float = 0.0
 	for pattern: BossPatternData in phase().patterns:
-		if ctx.time < float(_ready_at.get(pattern.kind, 0.0)):
+		if ctx.time < float(_ready_at.get(pattern, 0.0)):
 			continue
-		if pattern.kind == &"claw" and distance > float(pattern.params.get("range", 200.0)):
+		var in_reach: bool = pattern.kind == &"claw" or pattern.params.has("range")
+		if in_reach and distance > float(pattern.params.get("range", 200.0)):
 			continue
 		options.append(pattern)
 		total += pattern.weight
@@ -177,20 +226,31 @@ func _pattern_shadow_wave(pattern: BossPatternData) -> void:
 
 
 ## Invocation : portails télégraphiés puis apparition de Corrompus.
+## Points praticables seulement (hors rochers et falaises) ; plafond d'invocations actives (max_active).
 func _pattern_summon(pattern: BossPatternData) -> void:
 	var enemy_ids: Array = pattern.params.get("enemies", ["skitterling"])
+	_summons.assign(_summons.filter(func(e: Enemy) -> bool: return is_instance_valid(e) and e.alive))
 	var count: int = mini(int(pattern.params.get("count", 6)), ctx.spawner.current_cap() - ctx.enemies.count())
-	if count <= 0:
-		return
-	for i: int in count:
+	count = mini(count, int(pattern.params.get("max_active", 999)) - _summons.size())
+	var points := PackedVector2Array()
+	for i: int in maxi(count, 0):
 		var pos: Vector2 = boss.position + Vector2.RIGHT.rotated(TAU * i / count + ctx.rng.randf()) * (boss.radius + 70.0)
+		pos = ctx.obstacles.push_out(pos, 20.0)
+		if ctx.obstacles.distance(pos) < 20.0:
+			continue
+		points.append(pos - boss.position)
 		ctx.fx.ring(pos, 22.0, Color(0.8, 0.3, 1.0, 0.8), pattern.telegraph)
 		var id: StringName = StringName(enemy_ids[i % enemy_ids.size()])
 		schedule(pattern.telegraph, func() -> void:
 			var enemy: EnemyData = GameDB.enemy(id)
 			if enemy:
-				ctx.enemies.spawn(enemy, pos)
+				_summons.append(ctx.enemies.spawn(enemy, pos))
 		)
+	if points.is_empty():
+		return
+	var fx: Node2D = _vfx(String(pattern.params.get("vfx", "")), boss.position, Vector2.RIGHT)
+	if fx:
+		fx.call("set_secondary_offsets", points)
 	busy_time = pattern.telegraph + 0.2
 
 
@@ -290,3 +350,127 @@ func _pattern_blink(pattern: BossPatternData) -> void:
 		boss.visual.visible = true
 		ctx.fx.burst(target, boss.radius * 1.6, mist)
 	)
+
+
+## Secteur devant le boss (griffes, balayage de racines) : télégraphe en secteur, frappe unique.
+func _pattern_sweep(pattern: BossPatternData) -> void:
+	var dir: Vector2 = (ctx.player.global_position - boss.position).normalized()
+	var radius: float = float(pattern.params.get("radius", 180.0))
+	var half_deg: float = float(pattern.params.get("half_angle", 45.0))
+	var origin: Vector2 = boss.position + dir * boss.radius * 0.3
+	ctx.hazards.add_cone(origin, dir, radius, deg_to_rad(half_deg), pattern.telegraph, _damage(pattern), data.id)
+	var props := {"radius": radius, "half_angle_degrees": half_deg}
+	_telegraph(pattern, "cone", origin, dir, props)
+	schedule(pattern.telegraph, func() -> void:
+		_vfx(String(pattern.params.get("vfx", "")), origin, dir, props, CONTACT_STRIKE))
+	busy_time = pattern.telegraph + float(pattern.params.get("recovery", 0.5))
+
+
+## Écrasement : un impact par poing devant le boss (fists), zones télégraphiées.
+func _pattern_slam(pattern: BossPatternData) -> void:
+	var dir: Vector2 = (ctx.player.global_position - boss.position).normalized()
+	var radius: float = float(pattern.params.get("radius", 150.0))
+	var reach: float = float(pattern.params.get("reach", boss.radius + radius * 0.6))
+	var spread: float = float(pattern.params.get("spread", 0.0))
+	var fists: int = int(pattern.params.get("fists", 1))
+	var area: Rect2 = ctx.arena_rect().grow(-radius * 0.5)
+	for f: int in fists:
+		var side: float = 0.0 if fists == 1 else (f / float(fists - 1) - 0.5) * 2.0
+		var pos: Vector2 = (boss.position + dir * reach + dir.orthogonal() * spread * side).clamp(area.position, area.end)
+		ctx.hazards.add_circle(pos, radius, pattern.telegraph, _damage(pattern), true, data.id)
+		var props := {"radius": radius}
+		_telegraph(pattern, "area", pos, dir, props)
+		schedule(pattern.telegraph, func() -> void:
+			_vfx(String(pattern.params.get("vfx", "")), pos, dir, props, CONTACT_SLAM))
+	busy_time = pattern.telegraph + float(pattern.params.get("recovery", 0.6))
+
+
+## Souffle : ligne depuis la gueule, verrouillée au lancement et arrêtée au premier obstacle réel (rochers-abris).
+func _pattern_breath(pattern: BossPatternData) -> void:
+	var dir: Vector2 = (ctx.player.global_position - boss.position).normalized()
+	boss.visual.set_facing_left(dir.x < 0.0, true)
+	var mouth: Vector2 = _mouth()
+	var length: float = clear_length(mouth, dir, float(pattern.params.get("length", 480.0)))
+	var width: float = float(pattern.params.get("width", 80.0))
+	var duration: float = float(pattern.params.get("duration", 1.0))
+	ctx.hazards.add_beam(mouth, dir, length, width, pattern.telegraph, duration, _damage(pattern), data.id)
+	var props := {"travel_distance": length, "width": width}
+	_telegraph(pattern, "line", mouth, dir, props)
+	schedule(pattern.telegraph, func() -> void:
+		var fx_props := props.duplicate()
+		fx_props["visual_duration"] = duration + 0.3
+		_vfx(String(pattern.params.get("vfx", "")), mouth, dir, fx_props, CONTACT_STRIKE))
+	busy_time = pattern.telegraph + duration + float(pattern.params.get("recovery", 0.4))
+
+
+## Longueur dégagée d'une ligne : distance jusqu'au premier point infranchissable de la carte (pas de 12 unités).
+func clear_length(origin: Vector2, dir: Vector2, length: float) -> float:
+	var travelled: float = 0.0
+	while travelled < length:
+		if ctx.obstacles.distance(origin + dir * travelled) < 0.0:
+			return travelled
+		travelled += 12.0
+	return length
+
+
+func _mouth() -> Vector2:
+	var offset: Vector2 = data.mouth_offset
+	if ctx.player.global_position.x < boss.position.x:
+		offset.x = -offset.x
+	return boss.position + offset
+
+
+## Télégraphe peint (indicator.tscn) de la géométrie exacte de l'attaque, retiré à la frappe, au changement de phase
+## ou à la mort. Le repère du jeu reste dessiné, plus discret.
+func _telegraph(pattern: BossPatternData, shape: String, pos: Vector2, dir: Vector2, props: Dictionary) -> void:
+	if data.vfx_dir == "" or pattern.params.get("vfx", "") == "":
+		return
+	ctx.hazards.mark_last_painted()
+	var indicator_props := props.duplicate()
+	indicator_props["target_shape"] = StringName(shape)
+	indicator_props["loop_visual"] = true
+	indicator_props["visual_duration"] = maxf(pattern.telegraph, 0.3)
+	var fx: Node2D = _vfx("indicator", pos, dir, indicator_props, -1.0, true)
+	if fx == null:
+		return
+	_indicators.append(fx)
+	schedule(pattern.telegraph, func() -> void:
+		if is_instance_valid(fx):
+			fx.call("release")
+		_indicators.erase(fx))
+
+
+func _clear_indicators() -> void:
+	for fx: Node2D in _indicators:
+		if is_instance_valid(fx):
+			fx.queue_free()
+	_indicators.clear()
+
+
+## Effet peint du boss (scène autonome) : position et géométrie fournies par le combat. contact >= 0 : démarre au repère
+## de contact (frappe déjà confirmée). required : télégraphes, mort, transformation (jamais supprimés par le plafond).
+func _vfx(scene_name: String, pos: Vector2, dir: Vector2, props: Dictionary = {}, contact: float = -1.0,
+		required: bool = false) -> Node2D:
+	if data.vfx_dir == "" or scene_name == "":
+		return null
+	_effects.assign(_effects.filter(func(fx: Node2D) -> bool: return is_instance_valid(fx)))
+	if not required and _effects.size() >= MAX_EFFECTS:
+		return null
+	var path: String = data.vfx_dir.path_join(scene_name + ".tscn")
+	if not _scenes.has(path):
+		_scenes[path] = load(path) if ResourceLoader.exists(path) else null
+	if _scenes[path] == null:
+		return null
+	var fx: Node2D = (_scenes[path] as PackedScene).instantiate()
+	for key: String in props:
+		fx.set(key, props[key])
+	fx.set("phase2", phase_index > 0)
+	fx.position = pos
+	ctx.world.add_child(fx)
+	if contact >= 0.0:
+		fx.call("play_from", float(fx.call("duration")) * contact, dir)
+	else:
+		fx.call("play", dir)
+	if not required:
+		_effects.append(fx)
+	return fx

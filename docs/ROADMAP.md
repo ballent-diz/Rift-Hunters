@@ -11,6 +11,24 @@ Suite demandée : quatorze scènes VFX Godot du Dévoreur (dont télégraphes), 
 et prompt pour Claude ; captures et aperçus dans `docs/previews/devourer-vfx/`.
 Voir [art/MONSTRES_CHAPITRE2.md](art/MONSTRES_CHAPITRE2.md).
 
+## Reprise de session (Claude, 22 octobre 2026)
+
+Fait : attaque de mêlée jouée au contact et mort visible des ennemis (24 corps au plus, fondu), test
+`test_enemy_animations`. Carte 6 : décor, collisions et mini-carte prêts. Prochain lot proposé : intégrer la carte 6
+(fiches des 7 Calcinés et leurs mécaniques, arène en zones avec sols brûlants, gardien ; effort high), puis régler le
+Dévoreur après l'essai du propriétaire.
+
+## Dévoreur des Sources en jeu (Claude, 22 octobre 2026)
+
+Boss de la Source des Cascades (carte 5, finale du chapitre 1), `data/bosses/source_devourer.tres`. Phase 1 :
+griffes et balayage de racines (secteurs), double écrasement, souffle de Faille, appel de Corrompus ; phase 2 à
+mi-vie (seuil en données) avec les variantes renforcées. Le souffle s'arrête au premier obstacle réel : les deux
+rochers-abris de la cour protègent. Les effets peints de Codex suivent le combat (télégraphe `indicator.tscn`,
+impact au repère de contact, 8 effets décoratifs au plus) ; seuls les dangers du jeu font des dégâts. Invocations
+sur sol praticable, plafonnées. Rugissement d'entrée, réaction aux gros coups, repos de phase 2. `rift_fragment`
+non utilisé (aucune attaque à fragments). Tests : `test_source_devourer`. Captures : option `--finale` de
+`tools/screenshot.gd`.
+
 Point d'entrée de toutes les décisions de conception validées par le propriétaire du projet.
 Chaque sujet a son document détaillé dans `docs/design/`. **Avant de travailler sur le gameplay,
 lire ce fichier puis le document concerné.** Les décisions « validées » ne se remettent pas en cause
