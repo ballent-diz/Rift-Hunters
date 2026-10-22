@@ -1,0 +1,185 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=23 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/zone_wave_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/level_zone_data.gd" id="5"]
+
+[sub_resource type="Resource" id="wave_phase_data_1"]
+script = ExtResource("2")
+start_time = 0.0
+end_time = 60.0
+enemies = [&"heath_runner"]
+weights = [3.0]
+spawn_rate = 1.3
+max_alive = 60
+
+[sub_resource type="Resource" id="wave_phase_data_2"]
+script = ExtResource("2")
+start_time = 60.0
+end_time = 150.0
+enemies = [&"heath_runner", &"ash_newt"]
+weights = [3.0, 1.2]
+spawn_rate = 2.0
+max_alive = 100
+
+[sub_resource type="Resource" id="wave_phase_data_3"]
+script = ExtResource("2")
+start_time = 150.0
+end_time = 240.0
+enemies = [&"heath_runner", &"ash_newt", &"slate_scarab"]
+weights = [3.0, 1.2, 1.4]
+spawn_rate = 2.6
+max_alive = 140
+
+[sub_resource type="Resource" id="wave_phase_data_4"]
+script = ExtResource("2")
+start_time = 240.0
+end_time = 330.0
+enemies = [&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy", &"storm_knight"]
+weights = [3.0, 1.2, 1.4, 1.2, 0.5]
+spawn_rate = 3.2
+max_alive = 190
+
+[sub_resource type="Resource" id="wave_phase_data_5"]
+script = ExtResource("2")
+start_time = 330.0
+end_time = 9999.0
+enemies = [&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy", &"storm_knight", &"menhir_warden"]
+weights = [3.0, 1.2, 1.4, 1.2, 0.5, 0.4]
+spawn_rate = 4.0
+max_alive = 240
+
+[sub_resource type="Resource" id="zone_wave_1"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt"])
+weights = Array[float]([3.0, 1.2])
+count = 40
+elites = Array[StringName]([])
+spawn_rate = 1.8
+max_alive = 35
+
+[sub_resource type="Resource" id="zone_wave_2"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab"])
+weights = Array[float]([3.0, 1.2, 1.4])
+count = 55
+elites = Array[StringName]([])
+spawn_rate = 2.2
+max_alive = 45
+
+[sub_resource type="Resource" id="zone_wave_3"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab"])
+weights = Array[float]([3.0, 1.2, 1.4])
+count = 65
+elites = Array[StringName]([&"storm_knight"])
+spawn_rate = 2.5
+max_alive = 55
+
+[sub_resource type="Resource" id="zone_wave_4"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab"])
+weights = Array[float]([3.0, 1.2, 1.4])
+count = 60
+elites = Array[StringName]([&"storm_knight"])
+spawn_rate = 3.0
+max_alive = 65
+
+[sub_resource type="Resource" id="zone_wave_5"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 75
+elites = Array[StringName]([&"menhir_warden"])
+spawn_rate = 3.3
+max_alive = 80
+
+[sub_resource type="Resource" id="zone_wave_6"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 90
+elites = Array[StringName]([&"storm_knight", &"menhir_warden"])
+spawn_rate = 3.6
+max_alive = 90
+
+[sub_resource type="Resource" id="zone_wave_7"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 90
+elites = Array[StringName]([&"peak_chimera", &"storm_knight"])
+spawn_rate = 3.8
+max_alive = 100
+
+[sub_resource type="Resource" id="zone_wave_8"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 105
+elites = Array[StringName]([&"menhir_warden", &"storm_knight"])
+spawn_rate = 4.1
+max_alive = 110
+
+[sub_resource type="Resource" id="zone_wave_9"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"heath_runner", &"ash_newt", &"slate_scarab", &"silver_harpy"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.2])
+count = 125
+elites = Array[StringName]([&"peak_chimera", &"menhir_warden", &"storm_knight"])
+spawn_rate = 4.4
+max_alive = 125
+
+[sub_resource type="Resource" id="level_zone_1"]
+script = ExtResource("5")
+name_key = "ZONE_CASCADE_SOURCE_1_NAME"
+anchor = Vector2(-167, 1254)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2"), SubResource("zone_wave_3")])
+exit_walls = Array[Rect2]([Rect2(869, 355, 293, 293)])
+heal_ratio = 0.25
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_2"]
+script = ExtResource("5")
+name_key = "ZONE_CASCADE_SOURCE_2_NAME"
+anchor = Vector2(1630, -334)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_4"), SubResource("zone_wave_5"), SubResource("zone_wave_6")])
+exit_walls = Array[Rect2]([Rect2(376, -815, 75, 334)])
+heal_ratio = 0.25
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_3"]
+script = ExtResource("5")
+name_key = "ZONE_CASCADE_SOURCE_3_NAME"
+anchor = Vector2(-1254, -711)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_7"), SubResource("zone_wave_8"), SubResource("zone_wave_9")])
+exit_walls = Array[Rect2]([Rect2(-606, -1726, 293, 293)])
+heal_ratio = 0.25
+reward_chest = true
+
+[resource]
+script = ExtResource("1")
+id = &"cascade_source"
+name_key = "ARENA_CASCADE_SOURCE_NAME"
+desc_key = "ARENA_CASCADE_SOURCE_DESC"
+size = Vector2(5016, 5016)
+navigation_cell_size = 48.0
+boss_time = 420.0
+boss_id = &"astravorn"
+finale_center = Vector2(669, -1839)
+finale_walls = Array[Rect2]([Rect2(-606, -1726, 293, 293)])
+finale_travel_key = "FINALE_TRAVEL_SOURCE"
+elite_first_time = 90.0
+elite_interval = 60.0
+elite_enemy_ids = Array[StringName]([&"storm_knight", &"menhir_warden", &"peak_chimera"])
+environment_id = &"environment.cascade_source"
+ground_color = Color(0.1, 0.11, 0.17, 1.0)
+ground_detail_color = Color(0.15, 0.16, 0.24, 1.0)
+unlocked_by_default = true
+xp_mult = 1.5
+progression = &"milestones"
+zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
+waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5")]
+flood_lanes = Array[Rect2]([Rect2(-1693, 752, 1379, 334), Rect2(-418, 940, 2048, 334), Rect2(-2111, -1735, 1087, 439)])
+flood_dirs = Array[Vector2]([Vector2(1, 0), Vector2(1, 0), Vector2(1, 0)])
