@@ -127,14 +127,14 @@
       "id": "B06",
       "zone": 2,
       "center_percent": [
-        28,
-        58
+        27,
+        62
       ],
       "center_world": [
-        1404.48,
-        1939.52
+        1354.32,
+        2073.28
       ],
-      "min_distance_start_and_passages_world": 584.96
+      "min_distance_start_and_passages_world": 576.54
     },
     {
       "id": "B07",
@@ -153,14 +153,14 @@
       "id": "B08",
       "zone": 2,
       "center_percent": [
-        26,
+        16,
         84
       ],
       "center_world": [
-        1304.16,
+        802.56,
         2808.96
       ],
-      "min_distance_start_and_passages_world": 827.94
+      "min_distance_start_and_passages_world": 1241.34
     },
     {
       "id": "B09",

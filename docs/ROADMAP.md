@@ -1,11 +1,13 @@
 # Rift Hunters — feuille de route
 
-## B3 — Évents de cendre, carte 7 — en cours (Codex)
+## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 
 Branche `codex/carte-events-de-cendre`, depuis main à jour. Nouvelle composition en U, sans
 arène ni pont, et sprite séparé `object.ember_pod`. Les Gorges de cendre sont abandonnées :
 aucune reprise de leur plan ou de leurs images. Arrêt avant les régions pour validation du
-propriétaire. Aucun changement dans `src/`, `data/` ou les collisions.
+propriétaire. Quatre groupes de rochers ajoutés à sa demande, douze positions de bulbes proposées.
+Sprite peint du bulbe importé (trois animations, 18 poses), GIF et contrôle ciblé Godot 4.3 réussis.
+Les régions et collisions restent à faire. Aucun changement dans `src/`, `data/` ou les collisions.
 
 ## Sprites des Enfants du magma et Pyrevorn — livré pour revue (Codex)
 
