@@ -1821,7 +1821,7 @@
 					"collision": [
 						[
 							0,
-							-14.080000000000002,
+							-14.08,
 							25.6
 						]
 					]
@@ -1865,7 +1865,7 @@
 					"collision": [
 						[
 							0,
-							-6.930000000000001,
+							-6.93,
 							12.6
 						]
 					]
@@ -1887,8 +1887,8 @@
 					"collision": [
 						[
 							0,
-							-13.420000000000002,
-							24.400000000000002
+							-13.42,
+							24.4
 						]
 					]
 				},
@@ -1909,7 +1909,7 @@
 					"collision": [
 						[
 							0,
-							-3.8720000000000003,
+							-3.872,
 							7.04
 						]
 					]
@@ -1931,7 +1931,7 @@
 					"collision": [
 						[
 							0,
-							-3.5200000000000005,
+							-3.52,
 							6.4
 						]
 					]
@@ -1953,7 +1953,7 @@
 					"collision": [
 						[
 							0,
-							-3.5200000000000005,
+							-3.52,
 							6.4
 						]
 					]
@@ -1997,7 +1997,7 @@
 					"collision": [
 						[
 							0,
-							-3.8720000000000003,
+							-3.872,
 							7.04
 						]
 					]
@@ -2019,7 +2019,7 @@
 					"collision": [
 						[
 							0,
-							-3.8720000000000003,
+							-3.872,
 							7.04
 						]
 					]
@@ -2041,7 +2041,7 @@
 					"collision": [
 						[
 							0,
-							-3.9600000000000004,
+							-3.96,
 							7.2
 						]
 					]
@@ -2063,7 +2063,7 @@
 					"collision": [
 						[
 							0,
-							-3.9600000000000004,
+							-3.96,
 							7.2
 						]
 					]
@@ -2085,7 +2085,7 @@
 					"collision": [
 						[
 							0,
-							-6.688000000000001,
+							-6.688,
 							12.16
 						]
 					]
@@ -2107,7 +2107,7 @@
 					"collision": [
 						[
 							0,
-							-11.088000000000001,
+							-11.088,
 							20.16
 						]
 					]
@@ -2576,7 +2576,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cascade_ruins/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
 				-2181,
@@ -2940,7 +2940,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/storm_highlands/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
 				-1605,
@@ -3202,8 +3202,8 @@
 			},
 			"content_rect": [
 				25.92,
-				28.799999999999997,
-				44.160000000000004,
+				28.8,
+				44.16,
 				40.32
 			]
 		},
@@ -3230,8 +3230,8 @@
 			},
 			"content_rect": [
 				25.92,
-				28.799999999999997,
-				44.160000000000004,
+				28.8,
+				44.16,
 				40.32
 			]
 		},
@@ -3258,8 +3258,8 @@
 			},
 			"content_rect": [
 				25.92,
-				28.799999999999997,
-				44.160000000000004,
+				28.8,
+				44.16,
 				40.32
 			]
 		},
@@ -3286,8 +3286,8 @@
 			},
 			"content_rect": [
 				25.92,
-				28.799999999999997,
-				44.160000000000004,
+				28.8,
+				44.16,
 				40.32
 			]
 		},
@@ -4010,7 +4010,7 @@
 			},
 			"variants": {
 				"base": {
-					"duration_seconds": 0.9768421052631578,
+					"duration_seconds": 0.976842105263158,
 					"range": 700,
 					"speed": 950,
 					"half_width": 14,
@@ -4022,7 +4022,7 @@
 					]
 				},
 				"fan": {
-					"duration_seconds": 0.9768421052631578,
+					"duration_seconds": 0.976842105263158,
 					"range": 700,
 					"speed": 950,
 					"rays": 3,
@@ -4039,7 +4039,7 @@
 					]
 				},
 				"overcharge": {
-					"duration_seconds": 0.9768421052631578,
+					"duration_seconds": 0.976842105263158,
 					"range": 700,
 					"speed": 950,
 					"half_width": 21,
@@ -4698,8 +4698,8 @@
 			},
 			"content_rect": [
 				25.92,
-				28.799999999999997,
-				44.160000000000004,
+				28.8,
+				44.16,
 				40.32
 			]
 		},
@@ -6607,7 +6607,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"generated_by": "tools/art/prepare_barrier_energy.py",
 			"animations": {
 				"idle": {
@@ -6712,7 +6712,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.cinderwing.indicator": {
 			"status": "wip",
@@ -6832,7 +6832,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.magmander.indicator": {
 			"status": "wip",
@@ -6952,7 +6952,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.hollowflame.indicator": {
 			"status": "wip",
@@ -7072,7 +7072,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.moonspore.indicator": {
 			"status": "wip",
@@ -7192,7 +7192,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.gravishell.indicator": {
 			"status": "wip",
@@ -7312,7 +7312,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.grovestag.indicator": {
 			"status": "wip",
@@ -7432,7 +7432,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.sunclaw.indicator": {
 			"status": "wip",
@@ -7552,7 +7552,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.glowmoth.indicator": {
 			"status": "wip",
@@ -7672,7 +7672,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.stormshell.indicator": {
 			"status": "wip",
@@ -9781,7 +9781,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 4.0
+			"duration": 4
 		},
 		"vfx.echo.thornweave.briar_wall": {
 			"status": "wip",
@@ -9805,7 +9805,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 4.0
+			"duration": 4
 		},
 		"vfx.echo.thornweave.bloom": {
 			"status": "wip",
@@ -10141,7 +10141,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 2.0
+			"duration": 2
 		},
 		"vfx.echo.mirrorling.mirror_shards": {
 			"status": "wip",
@@ -10213,7 +10213,9 @@
 				"res://assets/environments/firefly_woods/map.webp",
 				"res://assets/environments/firefly_woods/map_1.webp",
 				"res://assets/environments/firefly_woods/map_2.webp"
-			]
+			],
+			"menu_preview": "res://assets/ui/expedition/firefly_woods.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"object.altar_seal": {
 			"status": "final",
@@ -10284,7 +10286,9 @@
 				"amount": 0
 			},
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/mist_ford/minimap.webp"
+			"minimap": "res://assets/environments/mist_ford/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/mist_ford.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.cascade_source": {
 			"status": "final",
@@ -10297,7 +10301,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cascade_source/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
 				8,
@@ -10308,7 +10312,9 @@
 				"amount": 0
 			},
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/cascade_source/minimap.webp"
+			"minimap": "res://assets/environments/cascade_source/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/cascade_source.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"enemy.cinder_crawler": {
 			"status": "final",
@@ -10759,7 +10765,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10785,7 +10791,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10811,7 +10817,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10837,7 +10843,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10863,7 +10869,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10889,7 +10895,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10915,7 +10921,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10941,7 +10947,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10967,7 +10973,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -10993,7 +10999,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -11019,7 +11025,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -11045,7 +11051,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -11071,7 +11077,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -11097,7 +11103,7 @@
 				128,
 				128
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -11451,7 +11457,7 @@
 				256,
 				480
 			],
-			"scale": 1.0,
+			"scale": 1,
 			"animations": {
 				"idle": {
 					"row": 0,
@@ -11539,7 +11545,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/scorched_verge/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
 				-1696,
@@ -11550,7 +11556,9 @@
 				"amount": 0
 			},
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/scorched_verge/minimap.webp"
+			"minimap": "res://assets/environments/scorched_verge/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/scorched_verge.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"object.ember_pod": {
 			"status": "wip",
