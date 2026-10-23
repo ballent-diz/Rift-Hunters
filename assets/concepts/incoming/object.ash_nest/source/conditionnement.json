@@ -1,0 +1,40 @@
+{
+  "alpha_cutoff_working_strips_only": 16,
+  "grid": [
+    6,
+    3
+  ],
+  "raw_dimensions": [
+    1774,
+    887
+  ],
+  "reference_bounds": [
+    [
+      279,
+      153
+    ],
+    [
+      279,
+      153
+    ],
+    [
+      279,
+      153
+    ],
+    [
+      279,
+      153
+    ],
+    [
+      278,
+      153
+    ],
+    [
+      280,
+      153
+    ]
+  ],
+  "target_height_art": 99,
+  "target_width_art": 180,
+  "creative_repainting": false
+}

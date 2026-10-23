@@ -1,0 +1,282 @@
+{
+  "size": [
+    1774,
+    887
+  ],
+  "pixel_format": "Format32bppArgb",
+  "alpha_zero_pixels": 959449,
+  "alpha_full_pixels": 479,
+  "alpha_partial_pixels": 613610,
+  "cells": [
+    {
+      "row": 0,
+      "column": 0,
+      "alpha_bbox": [
+        0,
+        58,
+        295,
+        294
+      ],
+      "edge_alpha_pixels": 62,
+      "cell_size": [
+        295,
+        295
+      ]
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "alpha_bbox": [
+        0,
+        9,
+        296,
+        292
+      ],
+      "edge_alpha_pixels": 38,
+      "cell_size": [
+        296,
+        295
+      ]
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "alpha_bbox": [
+        0,
+        39,
+        296,
+        290
+      ],
+      "edge_alpha_pixels": 75,
+      "cell_size": [
+        296,
+        295
+      ]
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "alpha_bbox": [
+        0,
+        23,
+        295,
+        295
+      ],
+      "edge_alpha_pixels": 85,
+      "cell_size": [
+        295,
+        295
+      ]
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "alpha_bbox": [
+        0,
+        11,
+        296,
+        295
+      ],
+      "edge_alpha_pixels": 31,
+      "cell_size": [
+        296,
+        295
+      ]
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "alpha_bbox": [
+        0,
+        23,
+        296,
+        286
+      ],
+      "edge_alpha_pixels": 53,
+      "cell_size": [
+        296,
+        295
+      ]
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "alpha_bbox": [
+        0,
+        0,
+        295,
+        284
+      ],
+      "edge_alpha_pixels": 41,
+      "cell_size": [
+        295,
+        296
+      ]
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "alpha_bbox": [
+        0,
+        2,
+        296,
+        296
+      ],
+      "edge_alpha_pixels": 72,
+      "cell_size": [
+        296,
+        296
+      ]
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "alpha_bbox": [
+        0,
+        14,
+        296,
+        294
+      ],
+      "edge_alpha_pixels": 126,
+      "cell_size": [
+        296,
+        296
+      ]
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "alpha_bbox": [
+        0,
+        0,
+        295,
+        296
+      ],
+      "edge_alpha_pixels": 139,
+      "cell_size": [
+        295,
+        296
+      ]
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "alpha_bbox": [
+        0,
+        0,
+        296,
+        296
+      ],
+      "edge_alpha_pixels": 129,
+      "cell_size": [
+        296,
+        296
+      ]
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "alpha_bbox": [
+        0,
+        6,
+        296,
+        294
+      ],
+      "edge_alpha_pixels": 79,
+      "cell_size": [
+        296,
+        296
+      ]
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "alpha_bbox": [
+        0,
+        17,
+        295,
+        296
+      ],
+      "edge_alpha_pixels": 67,
+      "cell_size": [
+        295,
+        296
+      ]
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "alpha_bbox": [
+        0,
+        27,
+        296,
+        280
+      ],
+      "edge_alpha_pixels": 91,
+      "cell_size": [
+        296,
+        296
+      ]
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "alpha_bbox": [
+        0,
+        1,
+        296,
+        274
+      ],
+      "edge_alpha_pixels": 112,
+      "cell_size": [
+        296,
+        296
+      ]
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "alpha_bbox": [
+        0,
+        0,
+        295,
+        274
+      ],
+      "edge_alpha_pixels": 115,
+      "cell_size": [
+        295,
+        296
+      ]
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "alpha_bbox": [
+        0,
+        0,
+        296,
+        296
+      ],
+      "edge_alpha_pixels": 122,
+      "cell_size": [
+        296,
+        296
+      ]
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "alpha_bbox": [
+        0,
+        3,
+        296,
+        272
+      ],
+      "edge_alpha_pixels": 80,
+      "cell_size": [
+        296,
+        296
+      ]
+    }
+  ]
+}

@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## B3 — Tanières de suie, carte 8 — composition et objets livrés pour revue (Codex)
+
+Branche `codex/carte-tanieres-de-suie` depuis main à jour. Composition carrée en zigzag,
+nef effondrée en diagonale, nid et œuf de cendre séparés. Arrêt avant les régions pour
+validation du propriétaire. Nid (18 poses) et œuf (12 poses) importés, GIF et contrôle ciblé
+Godot 4.3 réussis. Carte non jouable à ce stade ; régions et peinture des collisions à suivre.
+Aucun changement dans `src/`, `data/` ou les collisions.
+
 ## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 
 Branche `codex/carte-events-de-cendre`, depuis main à jour. Nouvelle composition en U, sans

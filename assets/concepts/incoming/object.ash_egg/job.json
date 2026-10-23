@@ -1,15 +1,51 @@
 {
   "visual_id": "object.ash_egg",
-  "status": "wip",
-  "note": "Sprite provisoire dessiné par script (Claude) ; à remplacer par une planche de Codex.",
-  "cell": [128, 128],
-  "anchor": [64, 118],
+  "status": "final",
+  "mode": "image_gen intégré puis pipeline commun",
+  "cell": [
+    128,
+    128
+  ],
+  "anchor": [
+    64,
+    118
+  ],
   "scale": 0.5,
   "target_height": 44,
   "background": "alpha",
-  "colors": 0,
-  "outline": false,
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "isolate": true,
+  "anchor_mode": "mass",
+  "resample": "lanczos",
+  "icon_size": 64,
+  "preview_zoom": 2,
   "animations": [
-    {"name": "idle", "source": "source/sheet.png", "layout": "grid", "grid": [6, 1], "frames": 6, "fps": 6, "loop": true}
-  ]
+    {
+      "name": "idle",
+      "source": "idle.png",
+      "frames": 6,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "fps": 6,
+      "loop": true
+    },
+    {
+      "name": "hatch",
+      "source": "hatch.png",
+      "frames": 6,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "fps": 12,
+      "loop": false
+    }
+  ],
+  "aliases": {}
 }

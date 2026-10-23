@@ -1,0 +1,26 @@
+{
+  "id": "map.soot_dens",
+  "status": "wip",
+  "stage": "composition",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition": "composition.png",
+  "original_dimensions": [
+    1254,
+    1254
+  ],
+  "delivery_dimensions": [
+    1536,
+    1536
+  ],
+  "format_normalization_only": true,
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_PASSAGES_NEF.txt"
+  ],
+  "regions_started": false,
+  "owner_approved": false,
+  "runtime_integrated": false
+}
