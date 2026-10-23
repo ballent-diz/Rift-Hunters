@@ -1,0 +1,64 @@
+{
+  "phase": "composition_provisoire",
+  "composition_dimensions": [
+    1536,
+    512
+  ],
+  "world": [
+    5016,
+    1672
+  ],
+  "mask_colors": [
+    [
+      0,
+      255,
+      255
+    ],
+    [
+      255,
+      0,
+      255
+    ],
+    [
+      0,
+      0,
+      255
+    ],
+    [
+      255,
+      255,
+      0
+    ],
+    [
+      0,
+      255,
+      0
+    ],
+    [
+      255,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "mask_colors_count": 7,
+  "beds": 6,
+  "mean_dimensions_met_count": 6,
+  "texture_finale": false,
+  "owner_approved": false,
+  "regions_started": false,
+  "runtime_integrated": false,
+  "control": "PNG dÃ©codÃ©s, dimensions et palette stricte contrÃ´lÃ©es; superposition inspectÃ©e visuellement. Pas une certification de collisions ou de qualitÃ© finale.",
+  "godot": {
+    "version": "4.3",
+    "scope": "projet isolé : les images de composition restent sous .gdignore dans le dépôt",
+    "import_exit_code": 0,
+    "load_exit_code": 0,
+    "textures_loaded": 2,
+    "errors": 0
+  }
+}

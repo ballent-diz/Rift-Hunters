@@ -1,0 +1,2536 @@
+{
+  "source": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/ember-flows-work/map9_lits_widen_v3.png",
+  "source_dimensions": [
+    2172,
+    724
+  ],
+  "world_dimensions": [
+    5016,
+    1672
+  ],
+  "mask_dimensions": [
+    1536,
+    512
+  ],
+  "coordinates_original_working_display": [
+    2048,
+    683
+  ],
+  "requested_length_world": [
+    500,
+    1000
+  ],
+  "requested_width_world": [
+    150,
+    250
+  ],
+  "method": "Manual v3 visible-ground envelopes clipped at ends by half-planes perpendicular to local curve tangent; no polygon enlargement in v4. Length=sum of curve segment lengths. Mean equivalent width=polygon area/axis length. Additional widths measured by perpendicular line/polygon intersections every 5% of axis. Geometry recomputed in exact source pixel coordinates with x=2172/2048,y=724/683 before world scaling5016/2172.",
+  "reservations": [
+    "Masks designate ACTIVE PORTIONS of six continuous visible cooled-crust ground bands, not their full physical extents.",
+    "V4 clipping only removes ground from V3 polygons; no mask is expanded into terrain outside V3.",
+    "All six pass the brief's 500–1000 length and 150–250 mean equivalent width in world units; local perpendicular widths vary, so mean-width compliance is not a claim that every cross-section reaches150.",
+    "Cyan retained interval selected at fixed ~800 world length to discard the narrow terminal tips and maximize enclosed ground area; mean equivalent width exceeds150, local samples remain provided.",
+    "These are provisional manually traced ground boundaries, subject to visual review for slope and cliffs. Future lighting/effects masks must remain separate from these ground masks."
+  ],
+  "regions": [
+    {
+      "id": "gauche_ouest_amont",
+      "c": "#FF0000",
+      "p": [
+        [
+          318,
+          2
+        ],
+        [
+          383,
+          1
+        ],
+        [
+          408,
+          27
+        ],
+        [
+          435,
+          54
+        ],
+        [
+          476,
+          75
+        ],
+        [
+          504,
+          96
+        ],
+        [
+          516,
+          121
+        ],
+        [
+          511,
+          150
+        ],
+        [
+          487,
+          171
+        ],
+        [
+          466,
+          191
+        ],
+        [
+          452,
+          205
+        ],
+        [
+          423,
+          207
+        ],
+        [
+          399,
+          204
+        ],
+        [
+          399,
+          183
+        ],
+        [
+          413,
+          159
+        ],
+        [
+          430,
+          139
+        ],
+        [
+          448,
+          122
+        ],
+        [
+          444,
+          105
+        ],
+        [
+          393,
+          89
+        ],
+        [
+          370,
+          72
+        ],
+        [
+          348,
+          50
+        ],
+        [
+          333,
+          27
+        ]
+      ],
+      "a": [
+        [
+          369,
+          8
+        ],
+        [
+          397,
+          43
+        ],
+        [
+          430,
+          72
+        ],
+        [
+          474,
+          103
+        ],
+        [
+          481,
+          129
+        ],
+        [
+          458,
+          156
+        ],
+        [
+          431,
+          188
+        ]
+      ],
+      "dir": "sud puis sud-ouest",
+      "polygon_source_px": [
+        [
+          337.25390625,
+          2.1200585651537334
+        ],
+        [
+          406.189453125,
+          1.0600292825768667
+        ],
+        [
+          432.703125,
+          28.6207906295754
+        ],
+        [
+          461.337890625,
+          57.2415812591508
+        ],
+        [
+          504.8203125,
+          79.50219619326501
+        ],
+        [
+          534.515625,
+          101.7628111273792
+        ],
+        [
+          547.2421875,
+          128.26354319180086
+        ],
+        [
+          541.939453125,
+          159.00439238653001
+        ],
+        [
+          516.486328125,
+          181.2650073206442
+        ],
+        [
+          494.21484375,
+          202.46559297218153
+        ],
+        [
+          479.3671875,
+          217.30600292825767
+        ],
+        [
+          448.611328125,
+          219.4260614934114
+        ],
+        [
+          423.158203125,
+          216.2459736456808
+        ],
+        [
+          423.158203125,
+          193.9853587115666
+        ],
+        [
+          438.005859375,
+          168.5446559297218
+        ],
+        [
+          456.03515625,
+          147.34407027818446
+        ],
+        [
+          475.125,
+          129.32357247437773
+        ],
+        [
+          470.8828125,
+          111.30307467057101
+        ],
+        [
+          416.794921875,
+          94.34260614934114
+        ],
+        [
+          392.40234375,
+          76.3221083455344
+        ],
+        [
+          369.0703125,
+          53.00146412884333
+        ],
+        [
+          353.162109375,
+          28.6207906295754
+        ]
+      ],
+      "axis_source_px": [
+        [
+          391.341796875,
+          8.480234260614933
+        ],
+        [
+          421.037109375,
+          45.581259150805266
+        ],
+        [
+          456.03515625,
+          76.3221083455344
+        ],
+        [
+          502.69921875,
+          109.18301610541727
+        ],
+        [
+          510.123046875,
+          136.7437774524158
+        ],
+        [
+          485.73046875,
+          165.3645680819912
+        ],
+        [
+          457.095703125,
+          199.28550512445094
+        ]
+      ],
+      "length_project_units": 261.72,
+      "length_world_units": 604.41,
+      "mean_equivalent_width_project_units": 69.76,
+      "mean_equivalent_width_world_units": 161.11,
+      "area_project_units_squared": 18257.74,
+      "requested_dimensions_met_project": false,
+      "requested_dimensions_met_world": true,
+      "perpendicular_width_samples": [
+        {
+          "axis_fraction": 0.05,
+          "width_source_px": 61.56,
+          "width_world_units": 142.17
+        },
+        {
+          "axis_fraction": 0.1,
+          "width_source_px": 62.92,
+          "width_world_units": 145.3
+        },
+        {
+          "axis_fraction": 0.15,
+          "width_source_px": 62.66,
+          "width_world_units": 144.7
+        },
+        {
+          "axis_fraction": 0.2,
+          "width_source_px": 61.46,
+          "width_world_units": 141.92
+        },
+        {
+          "axis_fraction": 0.25,
+          "width_source_px": 59.5,
+          "width_world_units": 137.42
+        },
+        {
+          "axis_fraction": 0.3,
+          "width_source_px": 56.83,
+          "width_world_units": 131.25
+        },
+        {
+          "axis_fraction": 0.35,
+          "width_source_px": 52.13,
+          "width_world_units": 120.39
+        },
+        {
+          "axis_fraction": 0.4,
+          "width_source_px": 48.08,
+          "width_world_units": 111.04
+        },
+        {
+          "axis_fraction": 0.45,
+          "width_source_px": 45.75,
+          "width_world_units": 105.64
+        },
+        {
+          "axis_fraction": 0.5,
+          "width_source_px": 48.81,
+          "width_world_units": 112.73
+        },
+        {
+          "axis_fraction": 0.55,
+          "width_source_px": 153.12,
+          "width_world_units": 353.62
+        },
+        {
+          "axis_fraction": 0.6,
+          "width_source_px": 65.2,
+          "width_world_units": 150.56
+        },
+        {
+          "axis_fraction": 0.65,
+          "width_source_px": 80.23,
+          "width_world_units": 185.29
+        },
+        {
+          "axis_fraction": 0.7,
+          "width_source_px": 249.45,
+          "width_world_units": 576.07
+        },
+        {
+          "axis_fraction": 0.75,
+          "width_source_px": 67.78,
+          "width_world_units": 156.53
+        },
+        {
+          "axis_fraction": 0.8,
+          "width_source_px": 66.56,
+          "width_world_units": 153.71
+        },
+        {
+          "axis_fraction": 0.85,
+          "width_source_px": 66.64,
+          "width_world_units": 153.9
+        },
+        {
+          "axis_fraction": 0.9,
+          "width_source_px": 65.29,
+          "width_world_units": 150.77
+        },
+        {
+          "axis_fraction": 0.95,
+          "width_source_px": 64.11,
+          "width_world_units": 148.06
+        }
+      ],
+      "perpendicular_width_world_range": [
+        105.64,
+        576.07
+      ],
+      "area_world_units_squared": 97373.89,
+      "perpendicular_width_world_mean": 174.79,
+      "active_mask_scope": "Selected active portion of the continuous visible cooled crust ground band. This mask does not claim to cover its whole visible length. Ground allocation only; separate from future effects masks."
+    },
+    {
+      "id": "gauche_est",
+      "c": "#00FF00",
+      "p": [
+        [
+          813.5956190190759,
+          337.8105873705666
+        ],
+        [
+          804,
+          361
+        ],
+        [
+          787,
+          391
+        ],
+        [
+          773,
+          425
+        ],
+        [
+          755,
+          455
+        ],
+        [
+          737,
+          487
+        ],
+        [
+          722,
+          525
+        ],
+        [
+          704,
+          554
+        ],
+        [
+          688,
+          578
+        ],
+        [
+          661,
+          607
+        ],
+        [
+          643,
+          631
+        ],
+        [
+          623,
+          651
+        ],
+        [
+          622.1870004555572,
+          651.984157343273
+        ],
+        [
+          581.077770586872,
+          621.8373887729039
+        ],
+        [
+          592,
+          599
+        ],
+        [
+          606,
+          574
+        ],
+        [
+          623,
+          549
+        ],
+        [
+          636,
+          519
+        ],
+        [
+          650,
+          488
+        ],
+        [
+          660,
+          456
+        ],
+        [
+          672,
+          427
+        ],
+        [
+          684,
+          397
+        ],
+        [
+          700,
+          371
+        ],
+        [
+          718,
+          346
+        ],
+        [
+          738,
+          319
+        ],
+        [
+          748.6080510827964,
+          296.1518899755156
+        ]
+      ],
+      "a": [
+        [
+          777.2036063376607,
+          314.4823741132492
+        ],
+        [
+          757,
+          346
+        ],
+        [
+          731,
+          390
+        ],
+        [
+          711,
+          439
+        ],
+        [
+          685,
+          491
+        ],
+        [
+          660,
+          542
+        ],
+        [
+          628,
+          587
+        ],
+        [
+          601,
+          624
+        ],
+        [
+          595.0642806170011,
+          632.0941627949985
+        ]
+      ],
+      "dir": "sud-ouest",
+      "polygon_source_px": [
+        [
+          862.8562912643715,
+          358.0891145772917
+        ],
+        [
+          852.6796875,
+          382.67057101024886
+        ],
+        [
+          834.650390625,
+          414.4714494875549
+        ],
+        [
+          819.802734375,
+          450.51244509516835
+        ],
+        [
+          800.712890625,
+          482.31332357247436
+        ],
+        [
+          781.623046875,
+          516.2342606149341
+        ],
+        [
+          765.71484375,
+          556.515373352855
+        ],
+        [
+          746.625,
+          587.2562225475841
+        ],
+        [
+          729.65625,
+          612.696925329429
+        ],
+        [
+          701.021484375,
+          643.437774524158
+        ],
+        [
+          681.931640625,
+          668.8784773060029
+        ],
+        [
+          660.720703125,
+          690.0790629575403
+        ],
+        [
+          659.8584789987647,
+          691.1222985600726
+        ],
+        [
+          616.2602137278741,
+          659.1658411004134
+        ],
+        [
+          627.84375,
+          634.9575402635431
+        ],
+        [
+          642.69140625,
+          608.4568081991215
+        ],
+        [
+          660.720703125,
+          581.9560761346999
+        ],
+        [
+          674.5078125,
+          550.1551976573938
+        ],
+        [
+          689.35546875,
+          517.2942898975109
+        ],
+        [
+          699.9609375,
+          483.3733528550512
+        ],
+        [
+          712.6875,
+          452.6325036603221
+        ],
+        [
+          725.4140625,
+          420.83162518301606
+        ],
+        [
+          742.3828125,
+          393.27086383601755
+        ],
+        [
+          761.47265625,
+          366.77013177159586
+        ],
+        [
+          782.68359375,
+          338.1493411420205
+        ],
+        [
+          793.9339291757001,
+          313.92967546452894
+        ]
+      ],
+      "axis_source_px": [
+        [
+          824.2608559401363,
+          333.36052541433736
+        ],
+        [
+          802.833984375,
+          366.77013177159586
+        ],
+        [
+          775.259765625,
+          413.411420204978
+        ],
+        [
+          754.048828125,
+          465.3528550512445
+        ],
+        [
+          726.474609375,
+          520.4743777452416
+        ],
+        [
+          699.9609375,
+          574.5358711566618
+        ],
+        [
+          666.0234375,
+          622.2371888726208
+        ],
+        [
+          637.388671875,
+          661.4582723279648
+        ],
+        [
+          631.0935632324837,
+          670.0383219086075
+        ]
+      ],
+      "length_project_units": 389.57,
+      "length_world_units": 899.67,
+      "mean_equivalent_width_project_units": 81.95,
+      "mean_equivalent_width_world_units": 189.25,
+      "area_project_units_squared": 31924.86,
+      "requested_dimensions_met_project": false,
+      "requested_dimensions_met_world": true,
+      "perpendicular_width_samples": [
+        {
+          "axis_fraction": 0.05,
+          "width_source_px": 82.71,
+          "width_world_units": 191
+        },
+        {
+          "axis_fraction": 0.1,
+          "width_source_px": 84.5,
+          "width_world_units": 195.14
+        },
+        {
+          "axis_fraction": 0.15,
+          "width_source_px": 86.92,
+          "width_world_units": 200.73
+        },
+        {
+          "axis_fraction": 0.2,
+          "width_source_px": 90.75,
+          "width_world_units": 209.57
+        },
+        {
+          "axis_fraction": 0.25,
+          "width_source_px": 94.97,
+          "width_world_units": 219.32
+        },
+        {
+          "axis_fraction": 0.3,
+          "width_source_px": 97.31,
+          "width_world_units": 224.72
+        },
+        {
+          "axis_fraction": 0.35,
+          "width_source_px": 94.64,
+          "width_world_units": 218.56
+        },
+        {
+          "axis_fraction": 0.4,
+          "width_source_px": 91.55,
+          "width_world_units": 211.42
+        },
+        {
+          "axis_fraction": 0.45,
+          "width_source_px": 89.19,
+          "width_world_units": 205.97
+        },
+        {
+          "axis_fraction": 0.5,
+          "width_source_px": 88.03,
+          "width_world_units": 203.3
+        },
+        {
+          "axis_fraction": 0.55,
+          "width_source_px": 86.5,
+          "width_world_units": 199.77
+        },
+        {
+          "axis_fraction": 0.6,
+          "width_source_px": 84.85,
+          "width_world_units": 195.95
+        },
+        {
+          "axis_fraction": 0.65,
+          "width_source_px": 82.28,
+          "width_world_units": 190.03
+        },
+        {
+          "axis_fraction": 0.7,
+          "width_source_px": 79.53,
+          "width_world_units": 183.66
+        },
+        {
+          "axis_fraction": 0.75,
+          "width_source_px": 74.93,
+          "width_world_units": 173.04
+        },
+        {
+          "axis_fraction": 0.8,
+          "width_source_px": 70.33,
+          "width_world_units": 162.41
+        },
+        {
+          "axis_fraction": 0.85,
+          "width_source_px": 67.74,
+          "width_world_units": 156.45
+        },
+        {
+          "axis_fraction": 0.9,
+          "width_source_px": 65.3,
+          "width_world_units": 150.81
+        },
+        {
+          "axis_fraction": 0.95,
+          "width_source_px": 60.61,
+          "width_world_units": 139.96
+        }
+      ],
+      "perpendicular_width_world_range": [
+        139.96,
+        224.72
+      ],
+      "trim": {
+        "from_start_world": 112.0906603151943,
+        "from_end_world": 112.0906603151943,
+        "target_active_length_world": 900,
+        "method": "Intersection of original provisional polygon with two half-planes whose boundaries are perpendicular to local axis tangent. Cyan offset selected by maximizing retained polygon area at fixed target length."
+      },
+      "area_world_units_squared": 170264.65,
+      "perpendicular_width_world_mean": 191.15,
+      "active_mask_scope": "Selected active portion of the continuous visible cooled crust ground band. This mask does not claim to cover its whole visible length. Ground allocation only; separate from future effects masks."
+    },
+    {
+      "id": "centre_ouest_amont",
+      "c": "#0000FF",
+      "p": [
+        [
+          879,
+          2
+        ],
+        [
+          946,
+          1
+        ],
+        [
+          974,
+          22
+        ],
+        [
+          987,
+          47
+        ],
+        [
+          1006,
+          68
+        ],
+        [
+          1028,
+          91
+        ],
+        [
+          1046,
+          116
+        ],
+        [
+          1063,
+          143
+        ],
+        [
+          1085,
+          164
+        ],
+        [
+          1087,
+          191
+        ],
+        [
+          1109,
+          214
+        ],
+        [
+          1121,
+          233
+        ],
+        [
+          1109,
+          251
+        ],
+        [
+          1062,
+          248
+        ],
+        [
+          1039,
+          229
+        ],
+        [
+          1020,
+          213
+        ],
+        [
+          998,
+          195
+        ],
+        [
+          984,
+          176
+        ],
+        [
+          970,
+          151
+        ],
+        [
+          960,
+          127
+        ],
+        [
+          943,
+          105
+        ],
+        [
+          928,
+          85
+        ],
+        [
+          912,
+          64
+        ],
+        [
+          898,
+          41
+        ]
+      ],
+      "a": [
+        [
+          926,
+          8
+        ],
+        [
+          951,
+          46
+        ],
+        [
+          981,
+          85
+        ],
+        [
+          1006,
+          126
+        ],
+        [
+          1026,
+          169
+        ],
+        [
+          1060,
+          203
+        ],
+        [
+          1102,
+          237
+        ]
+      ],
+      "dir": "sud-est",
+      "polygon_source_px": [
+        [
+          932.220703125,
+          2.1200585651537334
+        ],
+        [
+          1003.27734375,
+          1.0600292825768667
+        ],
+        [
+          1032.97265625,
+          23.32064421669107
+        ],
+        [
+          1046.759765625,
+          49.821376281112734
+        ],
+        [
+          1066.91015625,
+          72.08199121522694
+        ],
+        [
+          1090.2421875,
+          96.46266471449486
+        ],
+        [
+          1109.33203125,
+          122.96339677891653
+        ],
+        [
+          1127.361328125,
+          151.58418740849194
+        ],
+        [
+          1150.693359375,
+          173.84480234260613
+        ],
+        [
+          1152.814453125,
+          202.46559297218153
+        ],
+        [
+          1176.146484375,
+          226.84626647144947
+        ],
+        [
+          1188.873046875,
+          246.98682284040993
+        ],
+        [
+          1176.146484375,
+          266.06734992679355
+        ],
+        [
+          1126.30078125,
+          262.88726207906296
+        ],
+        [
+          1101.908203125,
+          242.74670571010247
+        ],
+        [
+          1081.7578125,
+          225.7862371888726
+        ],
+        [
+          1058.42578125,
+          206.705710102489
+        ],
+        [
+          1043.578125,
+          186.56515373352855
+        ],
+        [
+          1028.73046875,
+          160.06442166910688
+        ],
+        [
+          1018.125,
+          134.62371888726207
+        ],
+        [
+          1000.095703125,
+          111.30307467057101
+        ],
+        [
+          984.1875,
+          90.10248901903367
+        ],
+        [
+          967.21875,
+          67.84187408491947
+        ],
+        [
+          952.37109375,
+          43.46120058565153
+        ]
+      ],
+      "axis_source_px": [
+        [
+          982.06640625,
+          8.480234260614933
+        ],
+        [
+          1008.580078125,
+          48.76134699853587
+        ],
+        [
+          1040.396484375,
+          90.10248901903367
+        ],
+        [
+          1066.91015625,
+          133.5636896046852
+        ],
+        [
+          1088.12109375,
+          179.14494875549047
+        ],
+        [
+          1124.1796875,
+          215.18594436310394
+        ],
+        [
+          1168.72265625,
+          251.2269399707174
+        ]
+      ],
+      "length_project_units": 309.86,
+      "length_world_units": 715.58,
+      "mean_equivalent_width_project_units": 80.42,
+      "mean_equivalent_width_world_units": 185.72,
+      "area_project_units_squared": 24918.69,
+      "requested_dimensions_met_project": false,
+      "requested_dimensions_met_world": true,
+      "perpendicular_width_samples": [
+        {
+          "axis_fraction": 0.05,
+          "width_source_px": 69.53,
+          "width_world_units": 160.58
+        },
+        {
+          "axis_fraction": 0.1,
+          "width_source_px": 75.65,
+          "width_world_units": 174.71
+        },
+        {
+          "axis_fraction": 0.15,
+          "width_source_px": 78.43,
+          "width_world_units": 181.11
+        },
+        {
+          "axis_fraction": 0.2,
+          "width_source_px": 75.98,
+          "width_world_units": 175.48
+        },
+        {
+          "axis_fraction": 0.25,
+          "width_source_px": 74.7,
+          "width_world_units": 172.52
+        },
+        {
+          "axis_fraction": 0.3,
+          "width_source_px": 76.12,
+          "width_world_units": 175.8
+        },
+        {
+          "axis_fraction": 0.35,
+          "width_source_px": 78.36,
+          "width_world_units": 180.97
+        },
+        {
+          "axis_fraction": 0.4,
+          "width_source_px": 80.04,
+          "width_world_units": 184.84
+        },
+        {
+          "axis_fraction": 0.45,
+          "width_source_px": 83.97,
+          "width_world_units": 193.92
+        },
+        {
+          "axis_fraction": 0.5,
+          "width_source_px": 87.67,
+          "width_world_units": 202.45
+        },
+        {
+          "axis_fraction": 0.55,
+          "width_source_px": 89.27,
+          "width_world_units": 206.15
+        },
+        {
+          "axis_fraction": 0.6,
+          "width_source_px": 90.07,
+          "width_world_units": 208.01
+        },
+        {
+          "axis_fraction": 0.65,
+          "width_source_px": 91.55,
+          "width_world_units": 211.42
+        },
+        {
+          "axis_fraction": 0.7,
+          "width_source_px": 86.2,
+          "width_world_units": 199.07
+        },
+        {
+          "axis_fraction": 0.75,
+          "width_source_px": 85.04,
+          "width_world_units": 196.4
+        },
+        {
+          "axis_fraction": 0.8,
+          "width_source_px": 78.94,
+          "width_world_units": 182.3
+        },
+        {
+          "axis_fraction": 0.85,
+          "width_source_px": 67.1,
+          "width_world_units": 154.97
+        },
+        {
+          "axis_fraction": 0.9,
+          "width_source_px": 62.06,
+          "width_world_units": 143.31
+        },
+        {
+          "axis_fraction": 0.95,
+          "width_source_px": 52.93,
+          "width_world_units": 122.25
+        }
+      ],
+      "perpendicular_width_world_range": [
+        122.25,
+        211.42
+      ],
+      "area_world_units_squared": 132898.68,
+      "perpendicular_width_world_mean": 180.33,
+      "active_mask_scope": "Selected active portion of the continuous visible cooled crust ground band. This mask does not claim to cover its whole visible length. Ground allocation only; separate from future effects masks."
+    },
+    {
+      "id": "centre_est",
+      "c": "#FFFF00",
+      "p": [
+        [
+          1287.8833277059778,
+          213.42352146726276
+        ],
+        [
+          1289,
+          215
+        ],
+        [
+          1300,
+          243
+        ],
+        [
+          1305,
+          274
+        ],
+        [
+          1316,
+          302
+        ],
+        [
+          1321,
+          338
+        ],
+        [
+          1322,
+          369
+        ],
+        [
+          1313,
+          401
+        ],
+        [
+          1301,
+          430
+        ],
+        [
+          1296,
+          461
+        ],
+        [
+          1299,
+          491
+        ],
+        [
+          1304,
+          520
+        ],
+        [
+          1298,
+          551
+        ],
+        [
+          1283,
+          582
+        ],
+        [
+          1268.10208196814,
+          602.1121893430109
+        ],
+        [
+          1213.3776436014555,
+          577.0953032325265
+        ],
+        [
+          1221,
+          557
+        ],
+        [
+          1228,
+          533
+        ],
+        [
+          1223,
+          506
+        ],
+        [
+          1218,
+          479
+        ],
+        [
+          1216,
+          453
+        ],
+        [
+          1223,
+          422
+        ],
+        [
+          1234,
+          392
+        ],
+        [
+          1243,
+          365
+        ],
+        [
+          1240,
+          334
+        ],
+        [
+          1234,
+          309
+        ],
+        [
+          1225,
+          285
+        ],
+        [
+          1214,
+          261
+        ],
+        [
+          1207.025983322478,
+          237.08908567706754
+        ]
+      ],
+      "a": [
+        [
+          1237.3772995898926,
+          228.20577359879988
+        ],
+        [
+          1242,
+          244
+        ],
+        [
+          1254,
+          286
+        ],
+        [
+          1266,
+          333
+        ],
+        [
+          1266,
+          368
+        ],
+        [
+          1252,
+          414
+        ],
+        [
+          1243,
+          454
+        ],
+        [
+          1246,
+          496
+        ],
+        [
+          1250,
+          530
+        ],
+        [
+          1236,
+          574
+        ],
+        [
+          1230.9191809262375,
+          585.1142917238554
+        ]
+      ],
+      "dir": "sud puis sud-ouest",
+      "polygon_source_px": [
+        [
+          1365.8606385631756,
+          226.23518234597105
+        ],
+        [
+          1367.044921875,
+          227.90629575402633
+        ],
+        [
+          1378.7109375,
+          257.5871156661786
+        ],
+        [
+          1384.013671875,
+          290.44802342606147
+        ],
+        [
+          1395.6796875,
+          320.12884333821376
+        ],
+        [
+          1400.982421875,
+          358.28989751098095
+        ],
+        [
+          1402.04296875,
+          391.1508052708638
+        ],
+        [
+          1392.498046875,
+          425.0717423133235
+        ],
+        [
+          1379.771484375,
+          455.81259150805266
+        ],
+        [
+          1374.46875,
+          488.67349926793554
+        ],
+        [
+          1377.650390625,
+          520.4743777452416
+        ],
+        [
+          1382.953125,
+          551.2152269399706
+        ],
+        [
+          1376.58984375,
+          584.0761346998536
+        ],
+        [
+          1360.681640625,
+          616.9370424597364
+        ],
+        [
+          1344.8817002123048,
+          638.2565521000583
+        ],
+        [
+          1286.8438681163873,
+          611.7379202640544
+        ],
+        [
+          1294.927734375,
+          590.4363103953148
+        ],
+        [
+          1302.3515625,
+          564.9956076134699
+        ],
+        [
+          1297.048828125,
+          536.3748169838946
+        ],
+        [
+          1291.74609375,
+          507.75402635431914
+        ],
+        [
+          1289.625,
+          480.19326500732063
+        ],
+        [
+          1297.048828125,
+          447.33235724743776
+        ],
+        [
+          1308.71484375,
+          415.53147877013174
+        ],
+        [
+          1318.259765625,
+          386.9106881405563
+        ],
+        [
+          1315.078125,
+          354.0497803806735
+        ],
+        [
+          1308.71484375,
+          327.5490483162518
+        ],
+        [
+          1299.169921875,
+          302.108345534407
+        ],
+        [
+          1287.50390625,
+          276.6676427525622
+        ],
+        [
+          1280.1076346564562,
+          251.3213733970672
+        ]
+      ],
+      "axis_source_px": [
+        [
+          1312.2966282759994,
+          241.9048024678347
+        ],
+        [
+          1317.19921875,
+          258.64714494875545
+        ],
+        [
+          1329.92578125,
+          303.1683748169839
+        ],
+        [
+          1342.65234375,
+          352.98975109809663
+        ],
+        [
+          1342.65234375,
+          390.09077598828696
+        ],
+        [
+          1327.8046875,
+          438.8521229868228
+        ],
+        [
+          1318.259765625,
+          481.2532942898975
+        ],
+        [
+          1321.44140625,
+          525.7745241581259
+        ],
+        [
+          1325.68359375,
+          561.8155197657394
+        ],
+        [
+          1310.8359375,
+          608.4568081991215
+        ],
+        [
+          1305.4474907088807,
+          620.2382828815099
+        ]
+      ],
+      "length_project_units": 389.53,
+      "length_world_units": 899.59,
+      "mean_equivalent_width_project_units": 84.94,
+      "mean_equivalent_width_world_units": 196.17,
+      "area_project_units_squared": 33088.79,
+      "requested_dimensions_met_project": false,
+      "requested_dimensions_met_world": true,
+      "perpendicular_width_samples": [
+        {
+          "axis_fraction": 0.05,
+          "width_source_px": 91.64,
+          "width_world_units": 211.64
+        },
+        {
+          "axis_fraction": 0.1,
+          "width_source_px": 90.39,
+          "width_world_units": 208.73
+        },
+        {
+          "axis_fraction": 0.15,
+          "width_source_px": 85.39,
+          "width_world_units": 197.21
+        },
+        {
+          "axis_fraction": 0.2,
+          "width_source_px": 84.24,
+          "width_world_units": 194.54
+        },
+        {
+          "axis_fraction": 0.25,
+          "width_source_px": 86.21,
+          "width_world_units": 199.1
+        },
+        {
+          "axis_fraction": 0.3,
+          "width_source_px": 85.34,
+          "width_world_units": 197.09
+        },
+        {
+          "axis_fraction": 0.35,
+          "width_source_px": 84.47,
+          "width_world_units": 195.07
+        },
+        {
+          "axis_fraction": 0.4,
+          "width_source_px": 82.02,
+          "width_world_units": 189.42
+        },
+        {
+          "axis_fraction": 0.45,
+          "width_source_px": 82.24,
+          "width_world_units": 189.92
+        },
+        {
+          "axis_fraction": 0.5,
+          "width_source_px": 81.1,
+          "width_world_units": 187.3
+        },
+        {
+          "axis_fraction": 0.55,
+          "width_source_px": 82.4,
+          "width_world_units": 190.29
+        },
+        {
+          "axis_fraction": 0.6,
+          "width_source_px": 84.14,
+          "width_world_units": 194.3
+        },
+        {
+          "axis_fraction": 0.65,
+          "width_source_px": 85.13,
+          "width_world_units": 196.6
+        },
+        {
+          "axis_fraction": 0.7,
+          "width_source_px": 84.13,
+          "width_world_units": 194.28
+        },
+        {
+          "axis_fraction": 0.75,
+          "width_source_px": 82.37,
+          "width_world_units": 190.23
+        },
+        {
+          "axis_fraction": 0.8,
+          "width_source_px": 82.09,
+          "width_world_units": 189.59
+        },
+        {
+          "axis_fraction": 0.85,
+          "width_source_px": 79.81,
+          "width_world_units": 184.31
+        },
+        {
+          "axis_fraction": 0.9,
+          "width_source_px": 73.75,
+          "width_world_units": 170.32
+        },
+        {
+          "axis_fraction": 0.95,
+          "width_source_px": 70.84,
+          "width_world_units": 163.59
+        }
+      ],
+      "perpendicular_width_world_range": [
+        163.59,
+        211.64
+      ],
+      "trim": {
+        "from_start_world": 64.32431710552636,
+        "from_end_world": 64.32431710552636,
+        "target_active_length_world": 900,
+        "method": "Intersection of original provisional polygon with two half-planes whose boundaries are perpendicular to local axis tangent. Cyan offset selected by maximizing retained polygon area at fixed target length."
+      },
+      "area_world_units_squared": 176472.21,
+      "perpendicular_width_world_mean": 191.76,
+      "active_mask_scope": "Selected active portion of the continuous visible cooled crust ground band. This mask does not claim to cover its whole visible length. Ground allocation only; separate from future effects masks."
+    },
+    {
+      "id": "droite_ouest",
+      "c": "#FF00FF",
+      "p": [
+        [
+          1360,
+          175
+        ],
+        [
+          1383,
+          173
+        ],
+        [
+          1394,
+          197
+        ],
+        [
+          1400,
+          222
+        ],
+        [
+          1415,
+          243
+        ],
+        [
+          1434,
+          261
+        ],
+        [
+          1457,
+          280
+        ],
+        [
+          1480,
+          301
+        ],
+        [
+          1507,
+          323
+        ],
+        [
+          1528,
+          346
+        ],
+        [
+          1545,
+          370
+        ],
+        [
+          1538,
+          393
+        ],
+        [
+          1522,
+          415
+        ],
+        [
+          1508,
+          437
+        ],
+        [
+          1493,
+          459
+        ],
+        [
+          1487,
+          480
+        ],
+        [
+          1497,
+          503
+        ],
+        [
+          1508,
+          520
+        ],
+        [
+          1492,
+          535
+        ],
+        [
+          1465,
+          522
+        ],
+        [
+          1422,
+          501
+        ],
+        [
+          1404,
+          479
+        ],
+        [
+          1403,
+          451
+        ],
+        [
+          1413,
+          423
+        ],
+        [
+          1430,
+          399
+        ],
+        [
+          1446,
+          376
+        ],
+        [
+          1463,
+          354
+        ],
+        [
+          1449,
+          337
+        ],
+        [
+          1427,
+          320
+        ],
+        [
+          1405,
+          303
+        ],
+        [
+          1383,
+          282
+        ],
+        [
+          1367,
+          260
+        ],
+        [
+          1352,
+          234
+        ],
+        [
+          1341,
+          209
+        ]
+      ],
+      "a": [
+        [
+          1376,
+          186
+        ],
+        [
+          1387,
+          223
+        ],
+        [
+          1414,
+          262
+        ],
+        [
+          1452,
+          300
+        ],
+        [
+          1491,
+          333
+        ],
+        [
+          1513,
+          369
+        ],
+        [
+          1489,
+          412
+        ],
+        [
+          1461,
+          455
+        ],
+        [
+          1465,
+          487
+        ],
+        [
+          1490,
+          520
+        ]
+      ],
+      "dir": "sud-est puis sud-ouest puis sud-est",
+      "polygon_source_px": [
+        [
+          1442.34375,
+          185.50512445095168
+        ],
+        [
+          1466.736328125,
+          183.38506588579793
+        ],
+        [
+          1478.40234375,
+          208.82576866764273
+        ],
+        [
+          1484.765625,
+          235.3265007320644
+        ],
+        [
+          1500.673828125,
+          257.5871156661786
+        ],
+        [
+          1520.82421875,
+          276.6676427525622
+        ],
+        [
+          1545.216796875,
+          296.80819912152265
+        ],
+        [
+          1569.609375,
+          319.0688140556369
+        ],
+        [
+          1598.244140625,
+          342.38945827232794
+        ],
+        [
+          1620.515625,
+          366.77013177159586
+        ],
+        [
+          1638.544921875,
+          392.2108345534407
+        ],
+        [
+          1631.12109375,
+          416.5915080527086
+        ],
+        [
+          1614.15234375,
+          439.91215226939966
+        ],
+        [
+          1599.3046875,
+          463.23279648609076
+        ],
+        [
+          1583.396484375,
+          486.5534407027818
+        ],
+        [
+          1577.033203125,
+          508.814055636896
+        ],
+        [
+          1587.638671875,
+          533.1947291361639
+        ],
+        [
+          1599.3046875,
+          551.2152269399706
+        ],
+        [
+          1582.3359375,
+          567.1156661786237
+        ],
+        [
+          1553.701171875,
+          553.3352855051244
+        ],
+        [
+          1508.09765625,
+          531.0746705710102
+        ],
+        [
+          1489.0078125,
+          507.75402635431914
+        ],
+        [
+          1487.947265625,
+          478.07320644216685
+        ],
+        [
+          1498.552734375,
+          448.3923865300146
+        ],
+        [
+          1516.58203125,
+          422.9516837481698
+        ],
+        [
+          1533.55078125,
+          398.57101024890187
+        ],
+        [
+          1551.580078125,
+          375.2503660322108
+        ],
+        [
+          1536.732421875,
+          357.2298682284041
+        ],
+        [
+          1513.400390625,
+          339.20937042459735
+        ],
+        [
+          1490.068359375,
+          321.1888726207906
+        ],
+        [
+          1466.736328125,
+          298.92825768667643
+        ],
+        [
+          1449.767578125,
+          275.6076134699853
+        ],
+        [
+          1433.859375,
+          248.0468521229868
+        ],
+        [
+          1422.193359375,
+          221.54612005856512
+        ]
+      ],
+      "axis_source_px": [
+        [
+          1459.3125,
+          197.1654465592972
+        ],
+        [
+          1470.978515625,
+          236.38653001464127
+        ],
+        [
+          1499.61328125,
+          277.72767203513905
+        ],
+        [
+          1539.9140625,
+          318.00878477306003
+        ],
+        [
+          1581.275390625,
+          352.98975109809663
+        ],
+        [
+          1604.607421875,
+          391.1508052708638
+        ],
+        [
+          1579.154296875,
+          436.73206442166907
+        ],
+        [
+          1549.458984375,
+          482.31332357247436
+        ],
+        [
+          1553.701171875,
+          516.2342606149341
+        ],
+        [
+          1580.21484375,
+          551.2152269399706
+        ]
+      ],
+      "length_project_units": 431.77,
+      "length_world_units": 997.14,
+      "mean_equivalent_width_project_units": 68.99,
+      "mean_equivalent_width_world_units": 159.32,
+      "area_project_units_squared": 29786.53,
+      "requested_dimensions_met_project": false,
+      "requested_dimensions_met_world": true,
+      "perpendicular_width_samples": [
+        {
+          "axis_fraction": 0.05,
+          "width_source_px": 56.13,
+          "width_world_units": 129.62
+        },
+        {
+          "axis_fraction": 0.1,
+          "width_source_px": 52.06,
+          "width_world_units": 120.23
+        },
+        {
+          "axis_fraction": 0.15,
+          "width_source_px": 51.87,
+          "width_world_units": 119.79
+        },
+        {
+          "axis_fraction": 0.2,
+          "width_source_px": 53.85,
+          "width_world_units": 124.36
+        },
+        {
+          "axis_fraction": 0.25,
+          "width_source_px": 53.64,
+          "width_world_units": 123.87
+        },
+        {
+          "axis_fraction": 0.3,
+          "width_source_px": 53.68,
+          "width_world_units": 123.98
+        },
+        {
+          "axis_fraction": 0.35,
+          "width_source_px": 52.03,
+          "width_world_units": 120.15
+        },
+        {
+          "axis_fraction": 0.4,
+          "width_source_px": 50.68,
+          "width_world_units": 117.05
+        },
+        {
+          "axis_fraction": 0.45,
+          "width_source_px": 60.37,
+          "width_world_units": 139.43
+        },
+        {
+          "axis_fraction": 0.5,
+          "width_source_px": 85.94,
+          "width_world_units": 198.46
+        },
+        {
+          "axis_fraction": 0.55,
+          "width_source_px": 139.54,
+          "width_world_units": 322.26
+        },
+        {
+          "axis_fraction": 0.6,
+          "width_source_px": 89.28,
+          "width_world_units": 206.18
+        },
+        {
+          "axis_fraction": 0.65,
+          "width_source_px": 89.92,
+          "width_world_units": 207.66
+        },
+        {
+          "axis_fraction": 0.7,
+          "width_source_px": 90.61,
+          "width_world_units": 209.26
+        },
+        {
+          "axis_fraction": 0.75,
+          "width_source_px": 91.09,
+          "width_world_units": 210.37
+        },
+        {
+          "axis_fraction": 0.8,
+          "width_source_px": 93.68,
+          "width_world_units": 216.35
+        },
+        {
+          "axis_fraction": 0.85,
+          "width_source_px": 93.81,
+          "width_world_units": 216.65
+        },
+        {
+          "axis_fraction": 0.9,
+          "width_source_px": 70.02,
+          "width_world_units": 161.7
+        },
+        {
+          "axis_fraction": 0.95,
+          "width_source_px": 45.73,
+          "width_world_units": 105.61
+        }
+      ],
+      "perpendicular_width_world_range": [
+        105.61,
+        322.26
+      ],
+      "area_world_units_squared": 158860.26,
+      "perpendicular_width_world_mean": 167,
+      "active_mask_scope": "Selected active portion of the continuous visible cooled crust ground band. This mask does not claim to cover its whole visible length. Ground allocation only; separate from future effects masks."
+    },
+    {
+      "id": "droite_est",
+      "c": "#00FFFF",
+      "p": [
+        [
+          1575.0365501100266,
+          127.68554575263302
+        ],
+        [
+          1594,
+          145
+        ],
+        [
+          1611,
+          172
+        ],
+        [
+          1626,
+          200
+        ],
+        [
+          1644,
+          226
+        ],
+        [
+          1662,
+          250
+        ],
+        [
+          1682,
+          268
+        ],
+        [
+          1702,
+          289
+        ],
+        [
+          1722,
+          314
+        ],
+        [
+          1735,
+          344
+        ],
+        [
+          1749,
+          367
+        ],
+        [
+          1751,
+          391
+        ],
+        [
+          1741,
+          416
+        ],
+        [
+          1722,
+          439
+        ],
+        [
+          1715.1054981875195,
+          444.44302774669507
+        ],
+        [
+          1678.9016014609642,
+          408.23913102013984
+        ],
+        [
+          1686,
+          397
+        ],
+        [
+          1687,
+          379
+        ],
+        [
+          1675,
+          360
+        ],
+        [
+          1661,
+          338
+        ],
+        [
+          1647,
+          317
+        ],
+        [
+          1630,
+          299
+        ],
+        [
+          1610,
+          279
+        ],
+        [
+          1592,
+          259
+        ],
+        [
+          1579,
+          237
+        ],
+        [
+          1568,
+          214
+        ],
+        [
+          1556,
+          192
+        ],
+        [
+          1543,
+          172
+        ],
+        [
+          1531.850912982148,
+          155.2763694732221
+        ]
+      ],
+      "a": [
+        [
+          1545.6142284336352,
+          146.48314015699424
+        ],
+        [
+          1560,
+          169
+        ],
+        [
+          1583,
+          215
+        ],
+        [
+          1611,
+          256
+        ],
+        [
+          1648,
+          294
+        ],
+        [
+          1682,
+          341
+        ],
+        [
+          1706,
+          381
+        ],
+        [
+          1693,
+          413
+        ],
+        [
+          1688.3312352204123,
+          417.6687647795878
+        ]
+      ],
+      "dir": "sud-est puis sud-ouest",
+      "polygon_source_px": [
+        [
+          1670.4000912299696,
+          135.35041745959927
+        ],
+        [
+          1690.51171875,
+          153.70424597364567
+        ],
+        [
+          1708.541015625,
+          182.32503660322106
+        ],
+        [
+          1724.44921875,
+          212.00585651537332
+        ],
+        [
+          1743.5390625,
+          239.56661786237186
+        ],
+        [
+          1762.62890625,
+          265.0073206442167
+        ],
+        [
+          1783.83984375,
+          284.0878477306003
+        ],
+        [
+          1805.05078125,
+          306.3484626647145
+        ],
+        [
+          1826.26171875,
+          332.8491947291361
+        ],
+        [
+          1840.048828125,
+          364.65007320644213
+        ],
+        [
+          1854.896484375,
+          389.0307467057101
+        ],
+        [
+          1857.017578125,
+          414.4714494875549
+        ],
+        [
+          1846.412109375,
+          440.9721815519765
+        ],
+        [
+          1826.26171875,
+          465.3528550512445
+        ],
+        [
+          1818.949776398092,
+          471.12262384861964
+        ],
+        [
+          1780.553846861921,
+          432.7454331750823
+        ],
+        [
+          1788.08203125,
+          420.83162518301606
+        ],
+        [
+          1789.142578125,
+          401.75109809663246
+        ],
+        [
+          1776.416015625,
+          381.610541727672
+        ],
+        [
+          1761.568359375,
+          358.28989751098095
+        ],
+        [
+          1746.720703125,
+          336.02928257686676
+        ],
+        [
+          1728.69140625,
+          316.94875549048317
+        ],
+        [
+          1707.48046875,
+          295.7481698389458
+        ],
+        [
+          1688.390625,
+          274.54758418740846
+        ],
+        [
+          1674.603515625,
+          251.2269399707174
+        ],
+        [
+          1662.9375,
+          226.84626647144947
+        ],
+        [
+          1650.2109375,
+          203.5256222547584
+        ],
+        [
+          1636.423828125,
+          182.32503660322106
+        ],
+        [
+          1624.599698729114,
+          164.5974985338401
+        ]
+      ],
+      "axis_source_px": [
+        [
+          1639.196339920828,
+          155.27641797022522
+        ],
+        [
+          1654.453125,
+          179.14494875549047
+        ],
+        [
+          1678.845703125,
+          227.90629575402633
+        ],
+        [
+          1708.541015625,
+          271.36749633967787
+        ],
+        [
+          1747.78125,
+          311.6486090775988
+        ],
+        [
+          1783.83984375,
+          361.46998535871154
+        ],
+        [
+          1809.29296875,
+          403.8711566617862
+        ],
+        [
+          1795.505859375,
+          437.79209370424593
+        ],
+        [
+          1790.5544154778981,
+          442.7411210840725
+        ]
+      ],
+      "length_project_units": 346.29,
+      "length_world_units": 799.73,
+      "mean_equivalent_width_project_units": 66.21,
+      "mean_equivalent_width_world_units": 152.91,
+      "area_project_units_squared": 22929.57,
+      "requested_dimensions_met_project": false,
+      "requested_dimensions_met_world": true,
+      "perpendicular_width_samples": [
+        {
+          "axis_fraction": 0.05,
+          "width_source_px": 58.65,
+          "width_world_units": 135.44
+        },
+        {
+          "axis_fraction": 0.1,
+          "width_source_px": 61.15,
+          "width_world_units": 141.21
+        },
+        {
+          "axis_fraction": 0.15,
+          "width_source_px": 61.18,
+          "width_world_units": 141.29
+        },
+        {
+          "axis_fraction": 0.2,
+          "width_source_px": 61.29,
+          "width_world_units": 141.55
+        },
+        {
+          "axis_fraction": 0.25,
+          "width_source_px": 62.21,
+          "width_world_units": 143.67
+        },
+        {
+          "axis_fraction": 0.3,
+          "width_source_px": 63.61,
+          "width_world_units": 146.9
+        },
+        {
+          "axis_fraction": 0.35,
+          "width_source_px": 64.86,
+          "width_world_units": 149.78
+        },
+        {
+          "axis_fraction": 0.4,
+          "width_source_px": 64.31,
+          "width_world_units": 148.53
+        },
+        {
+          "axis_fraction": 0.45,
+          "width_source_px": 62.57,
+          "width_world_units": 144.49
+        },
+        {
+          "axis_fraction": 0.5,
+          "width_source_px": 60.97,
+          "width_world_units": 140.8
+        },
+        {
+          "axis_fraction": 0.55,
+          "width_source_px": 62.12,
+          "width_world_units": 143.45
+        },
+        {
+          "axis_fraction": 0.6,
+          "width_source_px": 63.26,
+          "width_world_units": 146.1
+        },
+        {
+          "axis_fraction": 0.65,
+          "width_source_px": 65.4,
+          "width_world_units": 151.03
+        },
+        {
+          "axis_fraction": 0.7,
+          "width_source_px": 67,
+          "width_world_units": 154.74
+        },
+        {
+          "axis_fraction": 0.75,
+          "width_source_px": 66.8,
+          "width_world_units": 154.26
+        },
+        {
+          "axis_fraction": 0.8,
+          "width_source_px": 64.09,
+          "width_world_units": 148
+        },
+        {
+          "axis_fraction": 0.85,
+          "width_source_px": 65.42,
+          "width_world_units": 151.08
+        },
+        {
+          "axis_fraction": 0.9,
+          "width_source_px": 66.61,
+          "width_world_units": 153.82
+        },
+        {
+          "axis_fraction": 0.95,
+          "width_source_px": 60.23,
+          "width_world_units": 139.09
+        }
+      ],
+      "perpendicular_width_world_range": [
+        135.44,
+        154.74
+      ],
+      "trim": {
+        "from_start_world": 39.1875,
+        "from_end_world": 236.6801549147386,
+        "target_active_length_world": 800,
+        "method": "Intersection of original provisional polygon with two half-planes whose boundaries are perpendicular to local axis tangent. Cyan offset selected by maximizing retained polygon area at fixed target length."
+      },
+      "area_world_units_squared": 122290.09,
+      "perpendicular_width_world_mean": 146.06,
+      "active_mask_scope": "Selected active portion of the continuous visible cooled crust ground band. This mask does not claim to cover its whole visible length. Ground allocation only; separate from future effects masks."
+    }
+  ],
+  "status": "provisional_active_ground_masks_v4"
+}

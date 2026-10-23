@@ -1,0 +1,26 @@
+{
+  "id": "map.ember_flows",
+  "status": "wip",
+  "stage": "composition",
+  "owner_approved": false,
+  "world": [
+    5016,
+    1672
+  ],
+  "composition": [
+    1536,
+    512
+  ],
+  "source": "source/composition_brute_finale.png",
+  "normalization": "RÃ©duction de format uniquement; aucune texture finale ni passe de rÃ©gions.",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_LITS_ILE.txt",
+    "source/PROMPT_LITS_LONGS.txt",
+    "source/PROMPT_ELARGISSEMENT.txt"
+  ],
+  "flows": "flows.png",
+  "flows_status": "provisoire, Ã  confirmer avec le propriÃ©taire avant rÃ©gions et collisions",
+  "regions_started": false,
+  "gameplay_changed": false
+}

@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## B3 — Coulées de braise, carte 9 — composition livrée pour revue (Codex)
+
+Branche `codex/carte-coulees-de-braise` depuis main à jour. Composition panoramique de droite
+à gauche, chenaux de lave et masque provisoire des lits de débordement. Arrêt pour validation
+avant les régions. Aucun changement de src/, data/ ou des collisions.
+
 ## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 
 Branche `codex/carte-events-de-cendre`, depuis main à jour. Nouvelle composition en U, sans
