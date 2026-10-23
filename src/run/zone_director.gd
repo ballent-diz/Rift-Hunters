@@ -193,7 +193,9 @@ func _watch_wave(delta: float) -> void:
 	if _hunt_timer <= 0.0:
 		_hunt_timer = 1.0
 		_hunt_goal = _nearest_remaining()
-	if left == _last_remaining:
+	# Traque bornée : après STALL_TIME secondes de traque (ou sans élimination), les derniers Corrompus sont ramenés
+	# près du Chasseur, même s'ils tombent un à un (une fin de vague ne traîne jamais).
+	if left == _last_remaining or hunting:
 		_stall += delta
 	else:
 		_stall = 0.0
