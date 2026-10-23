@@ -64,6 +64,9 @@ seulement une punition.
 
 ## Montée en puissance
 
+Vue d'ensemble de tous les leviers (terrain, monstres, hordes…), règle des abris et courbe mesurée au bot :
+[DIFFICULTE.md](DIFFICULTE.md).
+
 ### D'un chapitre à l'autre
 
 | Chapitre | Normaux avec technique | Élites | Boss | Nouvelles mécaniques |
