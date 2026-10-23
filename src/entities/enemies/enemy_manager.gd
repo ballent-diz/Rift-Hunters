@@ -27,6 +27,10 @@ var _flow_timer: float = 0.0
 var _corpses: Array[Dictionary] = []
 ## Plaques brûlantes à poser à l'impact d'une technique : {"time", "pos", "radius", "duration"}.
 var _pending_plates: Array[Dictionary] = []
+## Actions différées des techniques : {"time", "enemy", "action": Callable} (ignorées si l'ennemi est mort).
+var _pending_actions: Array[Dictionary] = []
+## Œufs pondus (Veuve de cendre) : {"egg": Enemy, "time": éclosion, "count", "spawn": EnemyData}.
+var _eggs: Array[Dictionary] = []
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -219,6 +223,8 @@ func step(delta: float) -> void:
 		_remove_dead()
 	_step_corpses(delta)
 	_step_pending_plates()
+	_step_pending_actions()
+	_step_eggs()
 	rebuild_grid()
 	queue_redraw()
 	_overlay.queue_redraw()
@@ -687,6 +693,9 @@ func _technique_leap(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Ve
 	var radius: float = float(technique.params.get("radius", 70.0))
 	var damage: float = technique.damage * enemy.contact_damage / maxf(enemy.data.damage, 0.001)
 	ctx.hazards.add_circle(target, radius, technique.telegraph + flight, damage, true, enemy.data.id)
+	# Piqué (E9, Wyvernette) : intouchable pendant l'envol, seule son ombre reste au sol.
+	if technique.params.get("airborne", false):
+		enemy.invulnerable_time = technique.telegraph + flight
 	enemy.motion = {"kind": &"leap", "from": enemy.position, "to": target, "wait": technique.telegraph, "t": 0.0,
 		"duration": flight, "height": float(technique.params.get("height", 60.0))}
 	enemy.technique_busy = technique.telegraph + flight + float(technique.params.get("recovery", 0.3))
@@ -725,6 +734,9 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 		&"charge":
 			enemy.velocity = (motion["dir"] as Vector2) * float(motion["speed"])
 			enemy.position += enemy.velocity * delta
+		&"burrow":
+			_step_burrow(enemy, motion, delta)
+			return
 	if k < 1.0:
 		return
 	enemy.visual.position.y = 0.0
@@ -734,6 +746,173 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 			true, enemy.data.id)
 		enemy.visual.play_action(motion["spin_anim"])
 	enemy.motion = {}
+
+
+func _later(enemy: Enemy, delay: float, action: Callable) -> void:
+	_pending_actions.append({"time": ctx.time + delay, "enemy": enemy, "action": action})
+
+
+func _scaled(enemy: Enemy, amount: float) -> float:
+	return amount * enemy.contact_damage / maxf(enemy.data.damage, 0.001)
+
+
+## Ponte (E4, Veuve de cendre) : œufs à casser avant leur éclosion en petits Corrompus.
+func _technique_lay_eggs(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
+	var egg_data: EnemyData = GameDB.enemy(StringName(technique.params.get("egg", "ash_egg")))
+	var spawn: EnemyData = GameDB.enemy(StringName(technique.params.get("hatch", "cinder_crawler")))
+	if egg_data == null or spawn == null:
+		return false
+	var count: int = int(technique.params.get("count", 3))
+	var offset: float = ctx.rng.randf() * TAU
+	for i: int in count:
+		var pos: Vector2 = enemy.position + Vector2.RIGHT.rotated(offset + TAU * i / count) * enemy.radius * 2.2
+		var egg: Enemy = spawn(egg_data, pos)
+		_eggs.append({"egg": egg, "time": ctx.time + float(technique.params.get("hatch_time", 5.0)),
+			"count": int(technique.params.get("hatch_count", 2)), "spawn": spawn})
+	enemy.technique_busy = technique.telegraph
+	return true
+
+
+func _step_eggs() -> void:
+	var i: int = _eggs.size() - 1
+	while i >= 0:
+		var entry: Dictionary = _eggs[i]
+		var egg: Enemy = entry["egg"]
+		if not is_instance_valid(egg) or not egg.alive:
+			_eggs.remove_at(i)
+		elif ctx.time >= float(entry["time"]):
+			egg.alive = false
+			_dirty_removal = true
+			ctx.fx.burst(egg.position, 30.0, Color(0.85, 0.8, 0.7, 0.5))
+			for n: int in int(entry["count"]):
+				spawn(entry["spawn"], egg.position + Vector2.RIGHT.rotated(TAU * n / int(entry["count"])) * 14.0)
+			_eggs.remove_at(i)
+		i -= 1
+
+
+## Toile de suie (E5) : projectile qui entrave fortement le Chasseur touché.
+func _technique_web(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
+	var dir: Vector2 = (player_pos - enemy.position).normalized()
+	enemy.technique_busy = technique.telegraph
+	_later(enemy, technique.telegraph, func() -> void:
+		var shot: Projectile = ctx.projectiles.spawn_hostile(enemy.position + dir * enemy.radius, dir,
+			float(technique.params.get("speed", 260.0)), _scaled(enemy, technique.damage), enemy.data.id,
+			float(technique.params.get("radius", 14.0)), 3.0)
+		shot.hinder_time = float(technique.params.get("hinder_time", 2.0))
+		shot.hinder_mult = float(technique.params.get("hinder_mult", 0.45)))
+	return true
+
+
+## Plongée (E2, Rôdeur de lave) : s'enfouit (intouchable, invisible), avance sous terre en laissant une traînée,
+## puis ressort sous le Chasseur après une alerte au sol.
+func _technique_burrow(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
+	var travel: float = float(technique.params.get("travel", 1.2))
+	var emerge: float = float(technique.params.get("emerge", 0.55))
+	enemy.motion = {"kind": &"burrow", "wait": technique.telegraph, "t": 0.0, "duration": travel,
+		"speed": float(technique.params.get("speed", 280.0)), "emerge": emerge, "trail": 0.0,
+		"radius": float(technique.params.get("radius", 80.0)), "damage": _scaled(enemy, technique.damage),
+		"surfaced": false}
+	enemy.technique_busy = technique.telegraph + travel + emerge + 0.2
+	enemy.invulnerable_time = enemy.technique_busy
+	return true
+
+
+func _step_burrow(enemy: Enemy, motion: Dictionary, delta: float) -> void:
+	enemy.visual.visible = false
+	var to_player: Vector2 = ctx.player.global_position - enemy.position
+	if float(motion["t"]) < float(motion["duration"]):
+		enemy.position += to_player.limit_length(float(motion["speed"]) * delta)
+		motion["trail"] = float(motion["trail"]) - delta
+		if float(motion["trail"]) <= 0.0:
+			motion["trail"] = 0.12
+			ctx.fx.debris(enemy.position, Color(0.55, 0.3, 0.15), 2)
+		return
+	if not motion["surfaced"]:
+		motion["surfaced"] = true
+		ctx.hazards.add_circle(enemy.position, motion["radius"], motion["emerge"], motion["damage"], true, enemy.data.id)
+		_later(enemy, float(motion["emerge"]), func() -> void:
+			enemy.visual.visible = true
+			enemy.visual.play_action(&"attack")
+			ctx.fx.burst(enemy.position, float(motion["radius"]), Color(1.0, 0.5, 0.15, 0.45))
+			enemy.motion = {})
+
+
+## Éruption (E3, Titan de caldeira) : geysers télégraphiés sous et autour du Chasseur ; ensuite le cratère s'ouvre
+## (E8) : armure retirée et dégâts subis augmentés pendant une fenêtre, immobile.
+func _technique_eruption(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
+	var radius: float = float(technique.params.get("radius", 90.0))
+	var count: int = int(technique.params.get("count", 4))
+	for i: int in count:
+		var offset := Vector2.ZERO if i == 0 else Vector2.RIGHT.rotated(ctx.rng.randf() * TAU) * ctx.rng.randf_range(90.0, 220.0)
+		ctx.hazards.add_circle(player_pos + offset, radius, technique.telegraph, _scaled(enemy, technique.damage), true,
+			enemy.data.id)
+	var window: float = float(technique.params.get("crater_window", 0.0))
+	enemy.technique_busy = technique.telegraph + window
+	if window > 0.0:
+		_later(enemy, technique.telegraph, func() -> void:
+			var defense: float = enemy.base_defense
+			enemy.base_defense = float(technique.params.get("crater_defense", 0.0))
+			enemy.extra_damage_taken = float(technique.params.get("crater_damage_taken", 1.5))
+			enemy.visual.play_action(&"open_crater")
+			ctx.fx.text(enemy.position + Vector2(0, -enemy.radius - 24.0), tr("ENEMY_WEAK_POINT"), Color(1.0, 0.75, 0.4))
+			_later(enemy, window, func() -> void:
+				enemy.base_defense = defense
+				enemy.extra_damage_taken = 1.0))
+	return true
+
+
+## Souffle (E10, Wyvernette) : cône de feu devant elle, télégraphié.
+func _technique_breath(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
+	var dir: Vector2 = (player_pos - enemy.position).normalized()
+	ctx.hazards.add_cone(enemy.position, dir, float(technique.params.get("radius", 240.0)),
+		deg_to_rad(float(technique.params.get("half_angle", 30.0))), technique.telegraph, _scaled(enemy, technique.damage),
+		enemy.data.id)
+	enemy.visual.set_facing_left(dir.x < 0.0, true)
+	enemy.technique_busy = technique.telegraph + float(technique.params.get("recovery", 0.3))
+	return true
+
+
+## Couvée (E11, Matrone des scories) : petits Corrompus recrachés autour d'elle après une alerte.
+func _technique_brood(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
+	var spawn_data: EnemyData = GameDB.enemy(StringName(technique.params.get("spawn", "magma_mite")))
+	var amount: int = mini(int(technique.params.get("count", 3)), ctx.spawner.current_cap() - count())
+	if spawn_data == null or amount <= 0:
+		return false
+	for i: int in amount:
+		var pos: Vector2 = ctx.obstacles.push_out(enemy.position + Vector2.RIGHT.rotated(TAU * i / amount) * enemy.radius * 2.5,
+			spawn_data.radius)
+		ctx.fx.ring(pos, 18.0, Color(1.0, 0.55, 0.2, 0.8), technique.telegraph)
+		_later(enemy, technique.telegraph, func() -> void: spawn(spawn_data, pos))
+	enemy.technique_busy = technique.telegraph
+	return true
+
+
+## Mue (E12, Matrone des scories) : sous le seuil, la croûte tombe (défense perdue), elle accélère et laisse une
+## flaque de scories qui entrave le Chasseur. Une seule fois.
+func _technique_molt(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
+	if enemy.raged or enemy.hp / enemy.max_hp > float(technique.params.get("threshold", 0.5)):
+		return false
+	enemy.raged = true
+	enemy.base_defense = float(technique.params.get("defense", 0.0))
+	enemy.move_speed *= float(technique.params.get("speed_mult", 1.4))
+	if ctx.burn:
+		ctx.burn.add_plate(enemy.position, float(technique.params.get("slag_radius", 110.0)),
+			float(technique.params.get("slag_time", 8.0)), false, float(technique.params.get("slag_hinder", 0.6)))
+	ctx.fx.debris(enemy.position, Color(0.3, 0.25, 0.22), 14)
+	enemy.technique_busy = technique.telegraph
+	return true
+
+
+func _step_pending_actions() -> void:
+	var i: int = _pending_actions.size() - 1
+	while i >= 0:
+		var entry: Dictionary = _pending_actions[i]
+		if ctx.time >= float(entry["time"]):
+			_pending_actions.remove_at(i)
+			var enemy: Enemy = entry["enemy"]
+			if is_instance_valid(enemy) and enemy.alive:
+				(entry["action"] as Callable).call()
+		i -= 1
 
 
 func _step_pending_plates() -> void:

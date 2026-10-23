@@ -10,7 +10,8 @@ const EMBER := Color(1.0, 0.45, 0.12)
 const MAX_TEMPORARY := 12
 
 var ctx: RunContext
-## {"pos": Vector2, "radius": float, "left": float (INF : plaque de la carte), "total": float}
+## {"pos": Vector2, "radius": float, "left": float (INF : plaque de la carte), "total": float, "burns": bool,
+##  "hinder": float (multiplicateur de vitesse du Chasseur dessus ; 1 = aucun)}
 var plates: Array[Dictionary] = []
 var _tick: float = 0.0
 var _time: float = 0.0
@@ -25,16 +26,18 @@ func setup(p_ctx: RunContext) -> void:
 	name = "Burn"
 	z_index = -3
 	for plate: Vector3 in ctx.arena.burn_plates:
-		plates.append({"pos": Vector2(plate.x, plate.y), "radius": plate.z, "left": INF, "total": INF})
+		plates.append({"pos": Vector2(plate.x, plate.y), "radius": plate.z, "left": INF, "total": INF, "burns": true,
+			"hinder": 1.0})
 
 
-## Plaque temporaire (technique d'un Corrompu) : brûle pendant duration secondes.
-func add_plate(pos: Vector2, radius: float, duration: float) -> void:
+## Plaque temporaire (technique d'un Corrompu) pendant duration secondes : brûle (burns) et/ou entrave le Chasseur
+## (hinder < 1 : flaque de scories de la Matrone).
+func add_plate(pos: Vector2, radius: float, duration: float, burns: bool = true, hinder: float = 1.0) -> void:
 	var temporary: Array[Dictionary] = []
 	temporary.assign(plates.filter(func(p: Dictionary) -> bool: return float(p["left"]) != INF))
 	if temporary.size() >= MAX_TEMPORARY:
 		plates.erase(temporary[0])
-	plates.append({"pos": pos, "radius": radius, "left": duration, "total": duration})
+	plates.append({"pos": pos, "radius": radius, "left": duration, "total": duration, "burns": burns, "hinder": hinder})
 
 
 ## Plaque sous ce point (marge : rayon du corps), ou {}.
@@ -48,6 +51,8 @@ func plate_at(pos: Vector2, margin: float = 0.0) -> Dictionary:
 ## Évitement pour le bot : sortir de la plaque par le chemin le plus court.
 func danger(pos: Vector2) -> Vector2:
 	var plate: Dictionary = plate_at(pos, 24.0)
+	if not plate.is_empty() and not plate["burns"]:
+		return Vector2.ZERO
 	if plate.is_empty():
 		return Vector2.ZERO
 	var away: Vector2 = pos - (plate["pos"] as Vector2)
@@ -74,9 +79,17 @@ func step(delta: float) -> void:
 
 func _burn() -> void:
 	var player: Player = ctx.player
-	if not plate_at(player.global_position, player.radius * 0.3).is_empty():
-		ctx.combat.damage_player(ctx.arena.burn_damage * ctx.difficulty.enemy_damage_mult, &"burn")
 	for plate: Dictionary in plates:
+		if player.global_position.distance_to(plate["pos"]) > float(plate["radius"]) + player.radius * 0.3:
+			continue
+		if float(plate["hinder"]) < 1.0:
+			player.hinder(ctx.arena.burn_tick + 0.1, plate["hinder"])
+		if plate["burns"]:
+			ctx.combat.damage_player(ctx.arena.burn_damage * ctx.difficulty.enemy_damage_mult, &"burn")
+			break
+	for plate: Dictionary in plates:
+		if not plate["burns"]:
+			continue
 		for enemy: Enemy in ctx.enemies.query_radius(plate["pos"], float(plate["radius"])):
 			if not enemy.alive or enemy.is_boss or enemy.is_obstacle:
 				continue
@@ -94,6 +107,10 @@ func _draw() -> void:
 			draw_arc(plate["pos"], radius, 0.0, TAU, 48, Color(EMBER, 0.18 + 0.2 * pulse), 2.0)
 			continue
 		var fade: float = clampf(float(plate["left"]) / 0.6, 0.0, 1.0)
+		if not plate["burns"]:
+			draw_circle(plate["pos"], radius, Color(0.12, 0.09, 0.08, 0.55 * fade))
+			draw_arc(plate["pos"], radius, 0.0, TAU, 40, Color(0.55, 0.35, 0.2, 0.6 * fade), 2.0)
+			continue
 		draw_circle(plate["pos"], radius, Color(0.25, 0.08, 0.03, 0.45 * fade))
 		draw_circle(plate["pos"], radius * (0.55 + 0.1 * pulse), Color(EMBER, 0.28 * fade))
 		draw_arc(plate["pos"], radius, 0.0, TAU, 48, Color(EMBER, 0.75 * fade), 2.5)

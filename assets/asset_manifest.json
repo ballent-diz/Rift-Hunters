@@ -11586,6 +11586,29 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/objects/ember_pod.png"
+		},
+		"object.ash_egg": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.ash_egg/job.json",
+			"sheet": "res://assets/sprites/objects/ash_egg/ash_egg_sheet.png",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				118
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/ash_egg.png"
 		}
 	}
 }
