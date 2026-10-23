@@ -11565,12 +11565,12 @@
 			"imported_from": "assets/concepts/incoming/object.ember_pod/job.json",
 			"sheet": "res://assets/sprites/objects/ember_pod/ember_pod_sheet.png",
 			"cell": [
-				128,
-				128
+				256,
+				256
 			],
 			"anchor": [
-				64,
-				118
+				128,
+				238
 			],
 			"scale": 0.5,
 			"animations": {
@@ -11583,13 +11583,13 @@
 				"primed": {
 					"row": 1,
 					"frames": 6,
-					"fps": 14,
+					"fps": 12,
 					"loop": true
 				},
 				"burst": {
 					"row": 2,
 					"frames": 6,
-					"fps": 10,
+					"fps": 12,
 					"loop": false
 				}
 			},

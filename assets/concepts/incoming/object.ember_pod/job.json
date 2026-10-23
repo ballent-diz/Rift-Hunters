@@ -1,17 +1,63 @@
 {
   "visual_id": "object.ember_pod",
   "status": "wip",
-  "note": "Sprite provisoire dessiné par script (Claude) en attendant la planche de Codex (prompt carte 7, partie B).",
-  "cell": [128, 128],
-  "anchor": [64, 118],
+  "mode": "image_gen intégré",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    238
+  ],
   "scale": 0.5,
   "target_height": 56,
   "background": "alpha",
-  "colors": 0,
-  "outline": false,
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "isolate": true,
+  "anchor_mode": "mass",
+  "resample": "lanczos",
+  "icon_size": 64,
+  "preview_zoom": 2,
   "animations": [
-    {"name": "idle", "source": "source/sheet.png", "layout": "grid", "grid": [6, 3], "row": 0, "frames": 6, "fps": 6, "loop": true},
-    {"name": "primed", "source": "source/sheet.png", "layout": "grid", "grid": [6, 3], "row": 1, "frames": 6, "fps": 14, "loop": true},
-    {"name": "burst", "source": "source/sheet.png", "layout": "grid", "grid": [6, 3], "row": 2, "frames": 6, "fps": 10, "loop": false}
-  ]
+    {
+      "name": "idle",
+      "source": "idle.png",
+      "frames": 6,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "fps": 6,
+      "loop": true
+    },
+    {
+      "name": "primed",
+      "source": "primed.png",
+      "frames": 6,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "burst",
+      "source": "burst.png",
+      "frames": 6,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ],
+      "fps": 12,
+      "loop": false
+    }
+  ],
+  "aliases": {}
 }

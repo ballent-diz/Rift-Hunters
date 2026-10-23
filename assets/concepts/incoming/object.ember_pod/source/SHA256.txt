@@ -1,0 +1,2 @@
+ffcde7ebab64b6e240bec413e62ff6aab0d8766643e805b8b65a06866b23da5b  references/altar_seal_material_reference.png
+ee5a22c84cdd91f11df0e000750abd78469cf8ab4b6a2164c572a20d30e8dded  sheet.png

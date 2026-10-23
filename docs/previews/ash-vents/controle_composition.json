@@ -1,0 +1,20 @@
+{
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "pod_count": 12,
+  "pods_per_zone": [
+    4,
+    4,
+    4
+  ],
+  "minimum_proposed_pod_distance_world": 501.6,
+  "obstacles_added": 4,
+  "src_data_modified": false,
+  "final_quality_claimed": false
+}

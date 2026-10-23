@@ -1,0 +1,13 @@
+{
+	"animations": [
+		"burst",
+		"idle",
+		"primed"
+	],
+	"engine": "4.3-stable (official)",
+	"errors": 0,
+	"icon_loaded": true,
+	"poses": 18,
+	"scope": "Import isolé des deux nouvelles textures, aucune partie simulée",
+	"texture_loaded": true
+}
