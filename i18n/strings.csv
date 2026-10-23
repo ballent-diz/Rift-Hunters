@@ -643,6 +643,27 @@ ZONE_CASCADE_SOURCE_1_NAME,La Prairie du Lit,The Riverbed Meadow
 ZONE_CASCADE_SOURCE_2_NAME,La Terrasse de l'Est,The Eastern Terrace
 ZONE_CASCADE_SOURCE_3_NAME,La Terrasse de l'Ouest,The Western Terrace
 FINALE_TRAVEL_SOURCE,"Les terrasses sont nettoyées : franchissez le dernier pont, vers la cour sous la grande cascade.","The terraces are cleared: cross the last bridge to the court below the great waterfall."
+ARENA_SCORCHED_VERGE_NAME,Lisière calcinée,Scorched Verge
+ARENA_SCORCHED_VERGE_DESC,"Un village brûlé, une plaine de cendres et un fortin noirci : les plaques de braise blessent tout ce qui s’y tient, Corrompus compris.","A burned village, an ash plain and a blackened fort: ember patches hurt anything standing on them, Corrupted included."
+ZONE_SCORCHED_VERGE_1_NAME,Le Village brûlé,The Burned Village
+ZONE_SCORCHED_VERGE_2_NAME,La Plaine de cendres,The Ash Plain
+ZONE_SCORCHED_VERGE_3_NAME,La Cour du fortin,The Fort Courtyard
+FINALE_TRAVEL_FORT,"Le fortin est nettoyé : montez le grand escalier, le gardien attend dans la cour haute.","The fort is cleared: climb the great stairs, the guardian waits in the upper court."
+ENEMY_CINDER_CRAWLER_NAME,Rampe-cendre,Cinder Crawler
+ENEMY_CINDER_CRAWLER_DESC,Tique de cendre des Terres dévastées : rapide et nombreuse.,An ash tick of the Devastated Lands: fast and numerous.
+ENEMY_CHAR_GOLEM_NAME,Golem de charbon,Char Golem
+ENEMY_CHAR_GOLEM_DESC,"Lent et massif, difficile à repousser.","Slow and massive, hard to push back."
+ENEMY_SMOKE_WISP_NAME,Feu-fumée,Smoke Wisp
+ENEMY_SMOKE_WISP_DESC,Esprit de fumée qui lance des braises à distance.,A smoke spirit that hurls embers from afar.
+ENEMY_PYRE_BRUTE_NAME,Brute du bûcher,Pyre Brute
+ENEMY_PYRE_BRUTE_DESC,"Abat son bûcher pour embraser le sol ; entre en rage quand il faiblit.","Slams its pyre to set the ground ablaze; flies into a rage when weakened."
+BOSS_PYRE_GUARDIAN_NAME,Gardien du bûcher,Pyre Warden
+BOSS_PYRE_GUARDIAN_TITLE,Brasier du fortin,Blaze of the Fort
+BOSS_PYRE_GUARDIAN_PHASE1,Bûcher dressé,Pyre Raised
+BOSS_PYRE_GUARDIAN_PHASE2,Brasier déchaîné,Unbound Blaze
+BOSS_PATTERN_PYRE_SWIPE,Revers de braise,Ember Backhand
+BOSS_PATTERN_PYRE_SLAM,Bûcher écrasé,Pyre Slam
+BOSS_PATTERN_PYRE_CHARGE,Ruée embrasée,Blazing Rush
 SPELL_CLEAVING_SLASH_NAME,Taille fendante,Cleaving Slash
 SPELL_CLEAVING_SLASH_DESC,Arc de lame vers le curseur : gros dégâts et Fracture aux ennemis touchés.,Blade arc toward the cursor: heavy damage and Fracture on enemies hit.
 SPELL_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
@@ -1108,6 +1129,8 @@ EXPEDITION_MAP_LOCKED,Terminez la carte précédente pour débloquer celle-ci.,C
 EXPEDITION_MODIFIER_NIGHTMARE,Réservé au Cauchemar.,Nightmare only.
 CHAPTER_CASCADE_RUINS_NAME,Le Val des Cascades,Waterfall Vale
 CHAPTER_CASCADE_RUINS_DESC,Des ruines noyées d’eau vive aux landes battues par l’orage : là où les premières failles se sont ouvertes.,From ruins drowned in rushing water to storm-lashed moors: where the first rifts opened.
+CHAPTER_DEVASTATED_LANDS_NAME,Les Terres dévastées,The Devastated Lands
+CHAPTER_DEVASTATED_LANDS_DESC,"Au-delà du val, la Faille a tout brûlé : steppes calcinées, villages noircis, puis la roche nue jusqu’au volcan.","Beyond the vale, the Rift burned everything: scorched steppes, blackened villages, then bare rock all the way to the volcano."
 MAP_OBJ_CLEAR_DESC,Terminer la carte,Clear the map
 MAP_OBJ_DAMAGE_DESC,Terminer en subissant au plus %d dégâts,Clear it taking at most %d damage
 MAP_OBJ_BOSS_TIME_DESC,Vaincre le Dévoreur en moins de %s,Defeat the Devourer in under %s

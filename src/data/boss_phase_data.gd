@@ -12,3 +12,5 @@ extends Resource
 @export var patterns: Array[BossPatternData] = []
 ## Défense imposée pendant la phase (−1 = défense du boss). Ex. armure brisée.
 @export var defense_override: float = -1.0
+## Animation de la transformation à l'entrée de la phase (rage du gardien du bûcher, etc.).
+@export var transition_animation: StringName = &"transform"

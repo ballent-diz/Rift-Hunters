@@ -70,8 +70,8 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 
 | Carte | Mode | Particularité |
 |---|---|---|
-| 6. Lisière calcinée | Vagues par zone, 6 cases, gardien | Plaques de sol brûlant praticables ; détours sûrs, aucun danger au départ |
-| 7 | Variante (escorte ou zone qui se resserre) | B4 Ponts qui s'effondrent |
+| 6. Lisière calcinée | Vagues par zone, 6 cases, gardien du bûcher | **Sol brûlant** (10 plaques praticables qui blessent tout le monde, plaques temporaires de la Brute du bûcher) ; en jeu depuis le 23 octobre |
+| 7. Gorges de cendre | Vagues par zone, 9 cases, gardien | **B4 Ponts fragiles** : raccourcis au-dessus des gorges qui s'effondrent après alerte (ce qui est dessus tombe) ; détour sûr toujours présent ; prompt Codex du 23 octobre |
 | 8 | Vagues par zone | B8 Nids qui pondent |
 | 9 | Fermeture de failles | B9 Gravité basse |
 | 10 | Vagues + Dévoreur | Finale volcanique ; pluie de cendres, particularités à confirmer |

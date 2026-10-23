@@ -44,6 +44,7 @@ var altar: AltarDirector
 var terrain: TerrainDirector
 ## Crues, brique B3 (null sans lit de crue).
 var flood: FloodDirector
+var burn: BurnDirector
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 
@@ -101,4 +102,6 @@ func danger_vector(pos: Vector2) -> Vector2:
 	var result: Vector2 = hazards.danger_vector(pos)
 	if flood:
 		result += flood.danger(pos)
+	if burn:
+		result += burn.danger(pos)
 	return result

@@ -25,6 +25,8 @@ var _frame: int = 0
 var _flow_timer: float = 0.0
 ## Corps en cours de mort : {"enemy": Enemy, "left": secondes restantes}.
 var _corpses: Array[Dictionary] = []
+## Plaques brûlantes à poser à l'impact d'une technique : {"time", "pos", "radius", "duration"}.
+var _pending_plates: Array[Dictionary] = []
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -216,6 +218,7 @@ func step(delta: float) -> void:
 	if _dirty_removal:
 		_remove_dead()
 	_step_corpses(delta)
+	_step_pending_plates()
 	rebuild_grid()
 	queue_redraw()
 	_overlay.queue_redraw()
@@ -244,6 +247,8 @@ func _apply_dot(enemy: Enemy, dot: Array) -> void:
 
 
 func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
+	if not enemy.data.techniques.is_empty() and _tick_techniques(enemy, delta, player_pos):
+		return
 	var target_pos: Vector2 = player_pos
 	if enemy.taunt_time > 0.0 and is_instance_valid(enemy.taunt_target):
 		enemy.taunt_time -= delta
@@ -526,8 +531,11 @@ func _keep_corpse(enemy: Enemy) -> bool:
 		return false
 	if not _view_rect().has_point(enemy.position):
 		return false
-	enemy.visual.play_action(&"death")
+	# Pose de mort transparente (normaux du chapitre 2) : les éclats teintés de on_enemy_died suffisent.
 	var frames: SpriteFrames = enemy.visual.sprite_frames()
+	if frames.get_frame_count(&"death") < 2:
+		return false
+	enemy.visual.play_action(&"death")
 	var length: float = frames.get_frame_count(&"death") / maxf(frames.get_animation_speed(&"death"), 1.0)
 	_corpses.append({"enemy": enemy, "left": length + CORPSE_HOLD + CORPSE_FADE})
 	return true
@@ -615,3 +623,64 @@ func _draw_overlay() -> void:
 			x += 8.0
 		if enemy.statuses.has(&"warded"):
 			_overlay.draw_arc(top + Vector2(x, 0), 4.0, 0.0, TAU, 12, Color(0.55, 0.75, 1.0), 2.0)
+
+
+## Techniques propres (EnemyTechniqueData, docs/design/MONSTRES.md) : immobile pendant l'exécution. Vrai tant qu'il est
+## occupé (le cerveau ne bouge pas l'ennemi).
+func _tick_techniques(enemy: Enemy, delta: float, player_pos: Vector2) -> bool:
+	if enemy.technique_busy > 0.0:
+		enemy.technique_busy -= delta
+		enemy.velocity = Vector2.ZERO
+		return true
+	if ctx.time - enemy.spawn_time < 2.0:
+		return false
+	var dist: float = enemy.position.distance_to(player_pos)
+	for technique: EnemyTechniqueData in enemy.data.techniques:
+		if ctx.time < float(enemy.technique_ready.get(technique, 0.0)):
+			continue
+		if technique.kind != &"rage" and (dist < technique.min_range or dist > technique.max_range):
+			continue
+		if not call("_technique_" + String(technique.kind), enemy, technique, player_pos):
+			continue
+		enemy.technique_ready[technique] = ctx.time + technique.cooldown
+		enemy.visual.play_action(technique.anim)
+		return enemy.technique_busy > 0.0
+	return false
+
+
+## Bûcher écrasé (E3) : impact télégraphié vers le Chasseur, puis plaque de sol brûlant temporaire.
+func _technique_burn_slam(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
+	if ctx.burn == null:
+		return false
+	var target: Vector2 = enemy.position + (player_pos - enemy.position).limit_length(technique.max_range)
+	var radius: float = float(technique.params.get("radius", 110.0))
+	var damage: float = technique.damage * enemy.contact_damage / maxf(enemy.data.damage, 0.001)
+	ctx.hazards.add_circle(target, radius, technique.telegraph, damage, true, enemy.data.id)
+	enemy.technique_busy = technique.telegraph + float(technique.params.get("recovery", 0.4))
+	enemy.visual.set_facing_left(target.x < enemy.position.x, true)
+	_pending_plates.append({"time": ctx.time + technique.telegraph, "pos": target,
+		"radius": float(technique.params.get("burn_radius", radius)), "duration": float(technique.params.get("burn_time", 6.0))})
+	return true
+
+
+## Rage (E7) : sous le seuil de PV, plus rapide et plus dangereux, une seule fois.
+func _technique_rage(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
+	if enemy.raged or enemy.hp / enemy.max_hp > float(technique.params.get("threshold", 0.5)):
+		return false
+	enemy.raged = true
+	enemy.move_speed *= float(technique.params.get("speed_mult", 1.35))
+	enemy.contact_damage *= float(technique.params.get("damage_mult", 1.3))
+	enemy.visual.set_tint(enemy.visual.tint() * Color(1.0, 0.65, 0.5))
+	enemy.technique_busy = technique.telegraph
+	ctx.fx.burst(enemy.position, enemy.radius * 2.5, Color(1.0, 0.45, 0.1, 0.5))
+	return true
+
+
+func _step_pending_plates() -> void:
+	var i: int = _pending_plates.size() - 1
+	while i >= 0:
+		var plate: Dictionary = _pending_plates[i]
+		if ctx.time >= float(plate["time"]):
+			ctx.burn.add_plate(plate["pos"], plate["radius"], plate["duration"])
+			_pending_plates.remove_at(i)
+		i -= 1

@@ -30,6 +30,10 @@ var spawn_time: float = 0.0
 ## Rayon d'absorption des projectiles alliés (boss), 0 = inactif.
 var absorb_radius: float = 0.0
 var absorbed_count: int = 0
+## Techniques (EnemyTechniqueData) : prochaine disponibilité par technique, immobilisation pendant l'exécution, rage.
+var technique_ready: Dictionary = {}
+var technique_busy: float = 0.0
+var raged: bool = false
 
 
 func is_invulnerable() -> bool:

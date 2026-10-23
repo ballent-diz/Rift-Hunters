@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="ChapterData" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://src/data/chapter_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/campaign_map_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/map_objective_data.gd" id="3"]
+
+[sub_resource type="Resource" id="map_1_normal_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 100
+
+[sub_resource type="Resource" id="map_1_normal_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 700.0
+compare = 1
+reward_shards = 130
+
+[sub_resource type="Resource" id="map_1_normal_3"]
+script = ExtResource("3")
+id = &"swift"
+desc_key = "MAP_OBJ_BOSS_TIME_DESC"
+stat_key = &"boss_fight_time"
+threshold = 120.0
+compare = 1
+duration = true
+reward_shards = 130
+
+[sub_resource type="Resource" id="map_1_nightmare_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 190
+
+[sub_resource type="Resource" id="map_1_nightmare_2"]
+script = ExtResource("3")
+id = &"elites"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 10.0
+compare = 0
+reward_shards = 220
+
+[sub_resource type="Resource" id="map_1_nightmare_3"]
+script = ExtResource("3")
+id = &"pact"
+desc_key = "MAP_OBJ_PACTS_DESC"
+stat_key = &"modifiers_count"
+threshold = 3.0
+compare = 0
+reward_shards = 260
+
+[sub_resource type="Resource" id="map_1"]
+script = ExtResource("2")
+arena_id = &"scorched_verge"
+first_victory_shards = 380
+nightmare_first_victory_shards = 520
+objectives = Array[ExtResource("3")]([SubResource("map_1_normal_1"), SubResource("map_1_normal_2"), SubResource("map_1_normal_3")])
+nightmare_objectives = Array[ExtResource("3")]([SubResource("map_1_nightmare_1"), SubResource("map_1_nightmare_2"), SubResource("map_1_nightmare_3")])
+
+[resource]
+script = ExtResource("1")
+id = &"devastated_lands"
+order = 2
+name_key = "CHAPTER_DEVASTATED_LANDS_NAME"
+desc_key = "CHAPTER_DEVASTATED_LANDS_DESC"
+color = Color(0.86, 0.5, 0.3, 1)
+maps = Array[ExtResource("2")]([SubResource("map_1")])

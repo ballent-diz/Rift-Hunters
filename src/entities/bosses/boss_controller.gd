@@ -151,7 +151,7 @@ func _check_phase() -> void:
 	ctx.hazards.add_ring(boss.position, 520.0, 700.0, 30.0, 10.0 * ctx.difficulty.enemy_damage_mult, true, data.id,
 		[ctx.rng.randf() * TAU], 0.5, [], p.transition_time * 0.5)
 	ctx.fx.burst(boss.position, boss.radius * 2.0, Color(0.8, 0.3, 1.0, 0.5))
-	boss.visual.play_action(&"transform")
+	boss.visual.play_action(p.transition_animation)
 	_clear_indicators()
 	_vfx("transform", boss.position, Vector2.RIGHT, {}, -1.0, true)
 	var phase_idle := StringName("phase%d_idle" % (phase_index + 1))
@@ -381,7 +381,10 @@ func _pattern_slam(pattern: BossPatternData) -> void:
 		var props := {"radius": radius}
 		_telegraph(pattern, "area", pos, dir, props)
 		schedule(pattern.telegraph, func() -> void:
-			_vfx(String(pattern.params.get("vfx", "")), pos, dir, props, CONTACT_SLAM))
+			_vfx(String(pattern.params.get("vfx", "")), pos, dir, props, CONTACT_SLAM)
+			# Bûcher écrasé du gardien : l'impact laisse une plaque de sol brûlant (burn_time secondes).
+			if pattern.params.has("burn_time") and ctx.burn:
+				ctx.burn.add_plate(pos, float(pattern.params.get("burn_radius", radius)), float(pattern.params["burn_time"])))
 	busy_time = pattern.telegraph + float(pattern.params.get("recovery", 0.6))
 
 

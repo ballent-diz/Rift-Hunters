@@ -23,3 +23,5 @@ enum Brain { CHASER, RANGED, CHARGER, STATIC, SUMMONER, BLINKER, WARDEN }
 ## Attaque spéciale (projectile du Cracheur, charge du Bondisseur).
 @export var attack: AttackData
 @export var visual: VisualData
+## Techniques propres (élites : docs/design/MONSTRES.md), en plus du cerveau.
+@export var techniques: Array[EnemyTechniqueData] = []

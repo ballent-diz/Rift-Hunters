@@ -205,6 +205,10 @@ func _build_world() -> void:
 		ctx.flood = FloodDirector.new()
 		ctx.world.add_child(ctx.flood)
 		ctx.flood.setup(ctx)
+	# Sol brûlant : plaques de la carte ou laissées par des Corrompus (toujours prêt, coût nul sans plaque).
+	ctx.burn = BurnDirector.new()
+	ctx.world.add_child(ctx.burn)
+	ctx.burn.setup(ctx)
 	if ctx.arena.night > 0.0:
 		# Juste après les Corrompus : le voile les couvre, pas les Échos, le Chasseur ni les dangers.
 		ctx.night = NightDirector.new()
@@ -309,6 +313,7 @@ func _physics_process(delta: float) -> void:
 		ctx.terrain.step(delta)
 	if ctx.flood:
 		ctx.flood.step(delta)
+	ctx.burn.step(delta)
 	if ctx.night:
 		ctx.night.step(delta)
 	spawner.step(delta)
