@@ -31,6 +31,9 @@ var _leap_from := Vector2.ZERO
 var _leap_to := Vector2.ZERO
 var _leap_land: Callable
 var _redraw_state: int = -1
+## Entrave (toile de suie, scories) : vitesse multipliée par _hinder_mult pendant _hinder_time secondes.
+var _hinder_time: float = 0.0
+var _hinder_mult: float = 1.0
 
 
 func setup(p_ctx: RunContext, p_brain: PlayerBrain) -> void:
@@ -108,7 +111,19 @@ func start_leap(to: Vector2, duration: float, on_land: Callable) -> void:
 	visual.play_action(&"dash")
 
 
+## Ralentit le Chasseur (la Ruée garde sa vitesse) ; le plus fort ralentissement en cours l'emporte.
+func hinder(duration: float, mult: float) -> void:
+	if _hinder_time <= 0.0 or mult <= _hinder_mult:
+		_hinder_mult = mult
+	_hinder_time = maxf(_hinder_time, duration)
+
+
+func is_hindered() -> bool:
+	return _hinder_time > 0.0
+
+
 func step(delta: float) -> void:
+	_hinder_time = maxf(_hinder_time - delta, 0.0)
 	if not alive:
 		return
 	_iframes = maxf(_iframes - delta, 0.0)
@@ -131,7 +146,8 @@ func step(delta: float) -> void:
 		if _dash_time <= 0.0:
 			ctx.events.player_dashed.emit(_dash_from, global_position)
 	else:
-		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() * ctx.terrain_speed(position)
+		var hinder: float = _hinder_mult if _hinder_time > 0.0 else 1.0
+		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() * ctx.terrain_speed(position) * hinder
 		# Courants et crues emportent le Chasseur (pas pendant la Ruée).
 		position += (velocity + ctx.terrain_drift(position)) * delta
 		if brain.wants_dash() and dash_cooldown_left <= 0.0:
@@ -178,7 +194,7 @@ func _update_weapon(delta: float) -> void:
 	if _bolt_timer > 0.0:
 		return
 	var bolt: AttackData = ctx.balance.bolt
-	var target: Enemy = ctx.enemies.find_nearest(global_position, stats.get_value(StatKeys.BOLT_RANGE))
+	var target: Enemy = ctx.enemies.find_nearest_visible(global_position, stats.get_value(StatKeys.BOLT_RANGE))
 	if target == null:
 		_bolt_timer = 0.0
 		return

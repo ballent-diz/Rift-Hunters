@@ -35,6 +35,7 @@ func _acquire() -> Projectile:
 	p.chain = 0
 	p.pierce_left = 0
 	p.homing = 0.0
+	p.ghost = false
 	return p
 
 
@@ -54,6 +55,7 @@ func spawn_friendly(pos: Vector2, dir: Vector2, speed: float, info: DamageInfo, 
 	p.life = float(options.get("life", 1.5))
 	p.color = options.get("color", Color.WHITE)
 	p.target = options.get("target", null)
+	p.ghost = bool(options.get("ghost", false))
 	friendly.append(p)
 	ctx.stats.add(&"projectiles_fired")
 	return p
@@ -66,6 +68,8 @@ func spawn_hostile(pos: Vector2, dir: Vector2, speed: float, damage: float, sour
 	p.position = pos
 	p.velocity = dir.normalized() * speed
 	p.hostile_damage = damage
+	p.hinder_time = 0.0
+	p.hinder_mult = 1.0
 	p.source_id = source_id
 	p.radius = radius
 	p.life = life
@@ -108,6 +112,8 @@ func _step_friendly(p: Projectile, delta: float, rect: Rect2) -> bool:
 	p.position += p.velocity * delta
 	p.life -= delta
 	if p.life <= 0.0 or not rect.has_point(p.position):
+		return false
+	if _hits_decor(p):
 		return false
 	if ctx.spells:
 		ctx.spells.affect_projectile(p)
@@ -171,14 +177,27 @@ func _step_hostile(p: Projectile, delta: float, rect: Rect2) -> bool:
 	p.life -= delta
 	if p.life <= 0.0 or not rect.has_point(p.position):
 		return false
+	if _hits_decor(p):
+		return false
 	if ctx.spells and ctx.spells.blocks_projectile(p.position):
 		ctx.fx.spark(p.position, Color(0.75, 0.45, 1.0), 6.0)
 		return false
 	var player: Player = ctx.player
 	if player.alive and p.position.distance_to(player.position) < p.radius + player.radius * 0.8:
 		if player.can_be_hurt() or player.parry_time > 0.0:
+			var hurt: bool = player.can_be_hurt() and player.parry_time <= 0.0
 			ctx.combat.damage_player(p.hostile_damage, p.source_id)
+			if hurt and p.hinder_time > 0.0:
+				player.hinder(p.hinder_time, p.hinder_mult)
 			return false
+	return true
+
+
+## Personne ne tire à travers le décor (règle de tous les chapitres) : le tir s'arrête sur un rocher, un mur, une falaise.
+func _hits_decor(p: Projectile) -> bool:
+	if p.ghost or not ctx.obstacles.blocks_shot(p.position):
+		return false
+	ctx.fx.spark(p.position, p.color if p.friendly else Color(1.0, 0.6, 0.35), 6.0)
 	return true
 
 

@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.ember_spitter"
+shape = 6
+size = 36.0
+primary = Color(0.12, 0.1, 0.1, 1.0)
+secondary = Color(0.35, 0.18, 0.1, 1.0)
+accent = Color(1.0, 0.6, 0.15, 1.0)
+
+[sub_resource type="Resource" id="attack_data_2"]
+script = ExtResource("3")
+damage = 12.0
+cooldown = 2.3
+attack_range = 450.0
+projectile_speed = 200.0
+params = {
+"keep_distance": 280.0,
+"windup": 0.4
+}
+
+[resource]
+script = ExtResource("1")
+id = &"ember_spitter"
+name_key = "ENEMY_EMBER_SPITTER_NAME"
+desc_key = "ENEMY_EMBER_SPITTER_DESC"
+brain = 1
+max_hp = 30.0
+damage = 7.0
+defense = 6.0
+move_speed = 64.0
+radius = 16.0
+xp_value = 3
+knockback_resist = 0.0
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_2")

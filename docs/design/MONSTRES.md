@@ -64,6 +64,9 @@ seulement une punition.
 
 ## Montée en puissance
 
+Vue d'ensemble de tous les leviers (terrain, monstres, hordes…), règle des abris et courbe mesurée au bot :
+[DIFFICULTE.md](DIFFICULTE.md).
+
 ### D'un chapitre à l'autre
 
 | Chapitre | Normaux avec technique | Élites | Boss | Nouvelles mécaniques |
@@ -103,3 +106,11 @@ la Faille : rayon qui balaie, E13).
 Ordre d'introduction : carte 6 Brute du bûcher (sol brûlant, en écho aux plaques de la carte) ; carte 7 Chevalier
 calciné et Chien de suie ; carte 8 Veuve de cendre (avec les nids de la carte) ; carte 9 Enfants du magma, Titan et
 Rôdeur ; carte 10 Wyvernette, Matrone et Pyrevorn.
+
+## État du code (23 octobre 2026)
+
+Techniques en données (`EnemyTechniqueData`, méthodes `_technique_<kind>` d'`EnemyManager`) : `burn_slam` (E3),
+`rage` (E7), `leap` (E1, et E9 avec `airborne`), `charge` (E6, taille tournoyante en fin de ruée), `lay_eggs` (E4,
+œufs `ash_egg` à casser), `web` (E5, tir qui entrave le Chasseur), `burrow` (E2), `eruption` (E3 et E8 : cratère
+ouvert), `breath` (E10, cône), `brood` (E11), `molt` (E12, flaque de scories qui entrave). Les 7 Calcinés et les
+7 Enfants du magma ont leur fiche (`data/enemies/`). Le rayon de Pyrevorn (E13) viendra avec le boss.

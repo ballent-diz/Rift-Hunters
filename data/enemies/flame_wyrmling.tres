@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.flame_wyrmling"
+shape = 3
+size = 48.0
+primary = Color(0.12, 0.1, 0.1, 1.0)
+secondary = Color(0.35, 0.18, 0.1, 1.0)
+accent = Color(1.0, 0.6, 0.15, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"breath"
+anim = &"flame_breath"
+cooldown = 5.0
+min_range = 0.0
+max_range = 230.0
+telegraph = 0.7
+damage = 20.0
+params = {
+"radius": 240.0,
+"half_angle": 30.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"leap"
+anim = &"dive"
+cooldown = 8.0
+min_range = 200.0
+max_range = 520.0
+telegraph = 0.5
+damage = 22.0
+params = {
+"flight": 0.9,
+"radius": 95.0,
+"height": 220.0,
+"airborne": true
+}
+
+[resource]
+script = ExtResource("1")
+id = &"flame_wyrmling"
+name_key = "ENEMY_FLAME_WYRMLING_NAME"
+desc_key = "ENEMY_FLAME_WYRMLING_DESC"
+brain = 0
+max_hp = 150.0
+damage = 18.0
+defense = 18.0
+move_speed = 92.0
+radius = 24.0
+xp_value = 7
+knockback_resist = 0.5
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

@@ -406,14 +406,9 @@ func _pattern_breath(pattern: BossPatternData) -> void:
 	busy_time = pattern.telegraph + duration + float(pattern.params.get("recovery", 0.4))
 
 
-## Longueur dégagée d'une ligne : distance jusqu'au premier point infranchissable de la carte (pas de 12 unités).
+## Longueur dégagée d'une ligne : jusqu'au premier décor qui arrête les tirs (rochers-abris).
 func clear_length(origin: Vector2, dir: Vector2, length: float) -> float:
-	var travelled: float = 0.0
-	while travelled < length:
-		if ctx.obstacles.distance(origin + dir * travelled) < 0.0:
-			return travelled
-		travelled += 12.0
-	return length
+	return ctx.obstacles.clear_distance(origin, dir, length)
 
 
 func _mouth() -> Vector2:

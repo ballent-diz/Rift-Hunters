@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.cinder_knight"
+shape = 4
+size = 50.0
+primary = Color(0.22, 0.18, 0.16, 1.0)
+secondary = Color(0.4, 0.3, 0.22, 1.0)
+accent = Color(1.0, 0.5, 0.2, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"charge"
+anim = &"charge"
+cooldown = 7.0
+min_range = 160.0
+max_range = 520.0
+telegraph = 0.8
+damage = 0.0
+params = {
+"speed": 560.0,
+"duration": 0.6,
+"spin_radius": 120.0,
+"spin_telegraph": 0.45,
+"spin_damage": 18.0,
+"spin_anim": "spinning_slash"
+}
+
+[resource]
+script = ExtResource("1")
+id = &"cinder_knight"
+name_key = "ENEMY_CINDER_KNIGHT_NAME"
+desc_key = "ENEMY_CINDER_KNIGHT_DESC"
+brain = 0
+max_hp = 160.0
+damage = 18.0
+defense = 22.0
+move_speed = 70.0
+radius = 24.0
+xp_value = 6
+knockback_resist = 0.7
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1")])

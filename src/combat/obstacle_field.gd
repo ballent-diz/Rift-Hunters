@@ -9,6 +9,8 @@ const CELL := 128.0
 const SLIDE := 0.6
 
 ## Cercles : Vector3(x, y, rayon).
+## Pas des tests de ligne de vue (tirs, souffles, ciblage), en unités du monde.
+const SIGHT_STEP := 12.0
 var circles: Array[Vector3] = []
 ## Barrières temporaires (mode vagues par zone) : rectangles infranchissables qu'on ouvre en cours de partie.
 var walls: Array[Rect2] = []
@@ -257,6 +259,27 @@ func blocks(pos: Vector2, radius: float, include_walls: bool = true) -> bool:
 				if Vector2(pos.x - c.x, pos.y - c.y).length() < c.z + radius:
 					return true
 	return false
+
+
+## Décor qui arrête les tirs et les souffles (rochers, murs, falaises, eau) ; les barrières de zone n'en font pas partie.
+func blocks_shot(pos: Vector2) -> bool:
+	return blocks(pos, 0.0, false)
+
+
+## Distance dégagée le long d'une ligne avant le premier décor qui arrête les tirs (pas de SIGHT_STEP unités).
+func clear_distance(origin: Vector2, dir: Vector2, length: float) -> float:
+	var travelled: float = SIGHT_STEP
+	while travelled < length:
+		if blocks_shot(origin + dir * travelled):
+			return travelled
+		travelled += SIGHT_STEP
+	return length
+
+
+## Ligne de vue entre deux points (aucun décor bloquant entre eux).
+func line_clear(from: Vector2, to: Vector2) -> bool:
+	var span: Vector2 = to - from
+	return clear_distance(from, span.normalized(), span.length()) >= span.length()
 
 
 ## Cercles à moins de `reach` (bord à bord) d'une position. Portée limitée à une case autour.
