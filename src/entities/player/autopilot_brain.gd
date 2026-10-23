@@ -106,7 +106,10 @@ func _cover_pull(pos: Vector2) -> Vector2:
 		_cover_check = ctx.time + COVER_RECHECK
 		_cover = Vector2.INF
 		var source: Vector2 = _threat_source(pos)
-		if source != Vector2.INF and ctx.rng.randf() < COVER_REACTION and ctx.obstacles.line_clear(source, pos):
+		# Pendant la traque des derniers Corrompus, un joueur moyen fonce sur eux au lieu de se cacher.
+		var hunting: bool = ctx.zones != null and ctx.zones.hunting
+		if not hunting and source != Vector2.INF and ctx.rng.randf() < COVER_REACTION \
+				and ctx.obstacles.line_clear(source, pos):
 			_cover = _find_cover(pos, source)
 	if _cover == Vector2.INF or pos.distance_to(_cover) < 12.0:
 		return Vector2.ZERO

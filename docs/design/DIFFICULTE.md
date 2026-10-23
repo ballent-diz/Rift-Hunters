@@ -53,6 +53,10 @@ mesure au bot (`tools/balance_sim.sh`, `META=veteran`) :
 - **durée** qui augmente doucement d'une carte à l'autre (environ 6 à 9 minutes au chapitre 1, 9 à 12 au chapitre 2) ;
 - **dégâts subis** en hausse progressive.
 
+**Chaque nouvelle carte** (décision du propriétaire, 23 octobre 2026) : une passe courte avec le bot « joueur moyen »
+sur cette carte seulement (2 Échos de départ × 1 à 2 graines, `SIM_TIMEOUT=2400`), avant la pull request. Les cartes
+déjà livrées ne sont pas remesurées d'office : le propriétaire les règle pendant ses propres tests.
+
 Une carte qui sort de la courbe est corrigée par ses propres réglages (`enemy_hp_mult`, `enemy_damage_mult`, vagues)
 avant de toucher aux monstres eux-mêmes.
 
