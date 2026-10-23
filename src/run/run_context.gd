@@ -45,6 +45,7 @@ var terrain: TerrainDirector
 ## Crues, brique B3 (null sans lit de crue).
 var flood: FloodDirector
 var burn: BurnDirector
+var pods: PodDirector
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 

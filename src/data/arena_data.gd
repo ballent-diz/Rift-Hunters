@@ -127,6 +127,17 @@ extends Resource
 @export var burn_damage: float = 4.0
 @export var burn_tick: float = 0.5
 @export_range(0.0, 1.0) var burn_enemy_ratio: float = 0.06
+@export_group("Bulbes de braise (brique B5, carte 7, docs/design/CARTES.md)")
+## Emplacements des bulbes (unités du monde). Un coup allié les amorce ; ils éclatent après pod_prime secondes.
+@export var ember_pods: Array[Vector2] = []
+@export var pod_radius: float = 170.0
+@export var pod_prime: float = 1.5
+## Dégâts aux Corrompus : forfait + part des PV max (moitié pour les élites, forfait seul pour les boss).
+@export var pod_damage: float = 30.0
+@export_range(0.0, 1.0) var pod_damage_ratio: float = 0.35
+## Le Chasseur trop proche est touché aussi (télégraphe : il a le temps de s'écarter).
+@export var pod_player_damage: float = 12.0
+@export var pod_regrow: float = 25.0
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0

@@ -657,6 +657,12 @@ ENEMY_SMOKE_WISP_NAME,Feu-fumée,Smoke Wisp
 ENEMY_SMOKE_WISP_DESC,Esprit de fumée qui lance des braises à distance.,A smoke spirit that hurls embers from afar.
 ENEMY_PYRE_BRUTE_NAME,Brute du bûcher,Pyre Brute
 ENEMY_PYRE_BRUTE_DESC,"Abat son bûcher pour embraser le sol ; entre en rage quand il faiblit.","Slams its pyre to set the ground ablaze; flies into a rage when weakened."
+ENEMY_EMBER_POD_NAME,Bulbe de braise,Ember Pod
+ENEMY_EMBER_POD_DESC,"Frappez-le : il s’embrase puis éclate et ravage les Corrompus autour. Ne restez pas trop près.","Strike it: it ignites, then bursts and ravages the Corrupted around it. Don’t stand too close."
+ENEMY_ASH_HOUND_NAME,Chien de suie,Soot Hound
+ENEMY_ASH_HOUND_DESC,"Bondit par-dessus la horde sur votre position : ne fuyez pas en ligne droite.","Leaps over the horde onto your position: don’t flee in a straight line."
+ENEMY_CINDER_KNIGHT_NAME,Chevalier calciné,Cinder Knight
+ENEMY_CINDER_KNIGHT_DESC,"Charge en ligne puis tournoie à l’arrivée : sortez de l’axe, puis de la zone.","Charges in a line, then spins on arrival: step out of the line, then out of the circle."
 BOSS_PYRE_GUARDIAN_NAME,Gardien du bûcher,Pyre Warden
 BOSS_PYRE_GUARDIAN_TITLE,Brasier du fortin,Blaze of the Fort
 BOSS_PYRE_GUARDIAN_PHASE1,Bûcher dressé,Pyre Raised

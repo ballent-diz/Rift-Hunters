@@ -56,6 +56,11 @@ func compute_damage(enemy: Enemy, info: DamageInfo) -> float:
 func deal_damage(enemy: Enemy, info: DamageInfo) -> float:
 	if enemy == null or not enemy.is_alive() or enemy.is_invulnerable():
 		return 0.0
+	# Bulbe de braise : un coup du Chasseur ou d'un Écho l'amorce (aucun dégât, aucune élimination comptée).
+	if enemy.data != null and enemy.data.pod:
+		if info.is_friendly() and ctx.pods:
+			ctx.pods.prime(enemy)
+		return 0.0
 	var amount: float = compute_damage(enemy, info)
 	if amount <= 0.0:
 		return 0.0

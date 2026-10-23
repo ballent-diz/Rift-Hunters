@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.ash_hound"
+shape = 2
+size = 38.0
+primary = Color(0.15, 0.13, 0.13, 1.0)
+secondary = Color(0.3, 0.22, 0.2, 1.0)
+accent = Color(0.8, 0.25, 0.15, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"leap"
+anim = &"leap"
+cooldown = 5.0
+min_range = 150.0
+max_range = 360.0
+telegraph = 0.35
+damage = 12.0
+params = {
+"flight": 0.45,
+"radius": 70.0,
+"height": 60.0
+}
+
+[resource]
+script = ExtResource("1")
+id = &"ash_hound"
+name_key = "ENEMY_ASH_HOUND_NAME"
+desc_key = "ENEMY_ASH_HOUND_DESC"
+brain = 0
+max_hp = 30.0
+damage = 10.0
+defense = 6.0
+move_speed = 104.0
+radius = 15.0
+xp_value = 3
+knockback_resist = 0.0
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1")])

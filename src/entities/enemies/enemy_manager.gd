@@ -631,6 +631,8 @@ func _tick_techniques(enemy: Enemy, delta: float, player_pos: Vector2) -> bool:
 	if enemy.technique_busy > 0.0:
 		enemy.technique_busy -= delta
 		enemy.velocity = Vector2.ZERO
+		if not enemy.motion.is_empty():
+			_step_motion(enemy, delta)
 		return true
 	if ctx.time - enemy.spawn_time < 2.0:
 		return false
@@ -674,6 +676,64 @@ func _technique_rage(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: V
 	enemy.technique_busy = technique.telegraph
 	ctx.fx.burst(enemy.position, enemy.radius * 2.5, Color(1.0, 0.45, 0.1, 0.5))
 	return true
+
+
+## Bond (E1) : accroupi (telegraph), puis saut en arc au-dessus des foules vers la position du Chasseur ; l'impact
+## frappe la zone d'atterrissage, annoncée dès le départ.
+func _technique_leap(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
+	var target: Vector2 = enemy.position + (player_pos - enemy.position).limit_length(technique.max_range)
+	target = ctx.obstacles.push_out(target, enemy.radius)
+	var flight: float = float(technique.params.get("flight", 0.45))
+	var radius: float = float(technique.params.get("radius", 70.0))
+	var damage: float = technique.damage * enemy.contact_damage / maxf(enemy.data.damage, 0.001)
+	ctx.hazards.add_circle(target, radius, technique.telegraph + flight, damage, true, enemy.data.id)
+	enemy.motion = {"kind": &"leap", "from": enemy.position, "to": target, "wait": technique.telegraph, "t": 0.0,
+		"duration": flight, "height": float(technique.params.get("height", 60.0))}
+	enemy.technique_busy = technique.telegraph + flight + float(technique.params.get("recovery", 0.3))
+	enemy.visual.set_facing_left(target.x < enemy.position.x, true)
+	return true
+
+
+## Charge (E6) : ligne télégraphiée, ruée (dégâts de contact), puis taille tournoyante à l'arrivée (spin_*).
+func _technique_charge(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
+	var dir: Vector2 = (player_pos - enemy.position).normalized()
+	var speed: float = float(technique.params.get("speed", 560.0))
+	var duration: float = float(technique.params.get("duration", 0.6))
+	ctx.fx.danger_line(enemy.position, enemy.position + dir * speed * duration, enemy.radius * 1.6, technique.telegraph)
+	var spin_telegraph: float = float(technique.params.get("spin_telegraph", 0.0))
+	var scale: float = enemy.contact_damage / maxf(enemy.data.damage, 0.001)
+	enemy.motion = {"kind": &"charge", "dir": dir, "speed": speed, "wait": technique.telegraph, "t": 0.0,
+		"duration": duration, "spin_radius": float(technique.params.get("spin_radius", 0.0)),
+		"spin_telegraph": spin_telegraph, "spin_damage": float(technique.params.get("spin_damage", 0.0)) * scale,
+		"spin_anim": StringName(technique.params.get("spin_anim", ""))}
+	enemy.technique_busy = technique.telegraph + duration + spin_telegraph + float(technique.params.get("recovery", 0.3))
+	enemy.visual.set_facing_left(dir.x < 0.0, true)
+	return true
+
+
+func _step_motion(enemy: Enemy, delta: float) -> void:
+	var motion: Dictionary = enemy.motion
+	if float(motion["wait"]) > 0.0:
+		motion["wait"] = float(motion["wait"]) - delta
+		return
+	motion["t"] = float(motion["t"]) + delta
+	var k: float = clampf(float(motion["t"]) / maxf(float(motion["duration"]), 0.01), 0.0, 1.0)
+	match motion["kind"]:
+		&"leap":
+			enemy.position = (motion["from"] as Vector2).lerp(motion["to"], k)
+			enemy.visual.position.y = -sin(PI * k) * float(motion["height"])
+		&"charge":
+			enemy.velocity = (motion["dir"] as Vector2) * float(motion["speed"])
+			enemy.position += enemy.velocity * delta
+	if k < 1.0:
+		return
+	enemy.visual.position.y = 0.0
+	enemy.velocity = Vector2.ZERO
+	if motion["kind"] == &"charge" and float(motion["spin_radius"]) > 0.0:
+		ctx.hazards.add_circle(enemy.position, motion["spin_radius"], motion["spin_telegraph"], motion["spin_damage"],
+			true, enemy.data.id)
+		enemy.visual.play_action(motion["spin_anim"])
+	enemy.motion = {}
 
 
 func _step_pending_plates() -> void:

@@ -34,6 +34,10 @@ var absorbed_count: int = 0
 var technique_ready: Dictionary = {}
 var technique_busy: float = 0.0
 var raged: bool = false
+## Structure en sommeil (bulbe vide qui repousse) : ni ciblée ni touchée.
+var dormant: bool = false
+## Déplacement d'une technique (bond, charge) en cours : voir EnemyManager._step_motion.
+var motion: Dictionary = {}
 
 
 func is_invulnerable() -> bool:
@@ -46,7 +50,7 @@ func push(impulse: Vector2) -> void:
 
 ## Cible des attaques automatiques : tout Corrompu sauf les obstacles, à l'exception des structures (failles).
 func is_target() -> bool:
-	return not is_obstacle or (data != null and data.structure)
+	return not dormant and (not is_obstacle or (data != null and data.structure))
 
 
 func data_knockback_resist() -> float:
