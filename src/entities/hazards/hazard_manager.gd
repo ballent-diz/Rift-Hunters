@@ -50,6 +50,8 @@ func add_ring(center: Vector2, speed: float, max_radius: float, thickness: float
 ## Rayon : télégraphe pendant delay, puis actif pendant duration (dégâts par tick).
 func add_beam(origin: Vector2, direction: Vector2, length: float, width: float, delay: float, duration: float,
 		damage: float, source_id: StringName) -> void:
+	# Le rayon s'arrête au premier décor qui arrête les tirs (abris).
+	length = ctx.obstacles.clear_distance(origin, direction.normalized(), length)
 	hazards.append({"kind": Kind.BEAM, "pos": origin, "dir": direction.normalized(), "length": length,
 		"width": width, "delay": delay, "total": delay, "duration": duration, "damage": damage, "source": source_id,
 		"tick": 0.0, "life": delay + duration})
@@ -149,7 +151,9 @@ func _step_cone(h: Dictionary, delta: float) -> bool:
 		h["delay"] = float(h["delay"]) - delta
 		if float(h["delay"]) <= 0.0:
 			var player: Player = ctx.player
-			if in_cone(h, player.global_position, player.radius * 0.5):
+			# Souffle : un abri entre la source et le Chasseur le protège.
+			if in_cone(h, player.global_position, player.radius * 0.5) and ctx.obstacles.line_clear(h["pos"],
+					player.global_position):
 				ctx.combat.damage_player(float(h["damage"]), h["source"])
 	return float(h["life"]) > 0.0
 

@@ -68,6 +68,21 @@ func find_nearest(pos: Vector2, max_range: float, exclude: Dictionary = {}) -> E
 	return null
 
 
+## Cible la plus proche en vue (sans décor entre les deux) : les tirs ne traversent pas le décor, ni ceux du Chasseur
+## ni ceux des Échos. À défaut, la plus proche tout court.
+func find_nearest_visible(pos: Vector2, max_range: float) -> Enemy:
+	var best: Enemy = null
+	var best_d: float = INF
+	for enemy: Enemy in query_radius(pos, max_range):
+		if not enemy.alive or not enemy.is_target():
+			continue
+		var d: float = enemy.position.distance_squared_to(pos)
+		if d < best_d and d <= max_range * max_range and ctx.obstacles.line_clear(pos, enemy.position):
+			best_d = d
+			best = enemy
+	return best if best else find_nearest(pos, max_range)
+
+
 func _nearest_within(pos: Vector2, max_range: float, exclude: Dictionary) -> Enemy:
 	var best: Enemy = null
 	var best_d: float = max_range * max_range

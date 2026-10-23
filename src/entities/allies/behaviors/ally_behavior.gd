@@ -14,7 +14,7 @@ static func pick_target(ally: Ally, ctx: RunContext, search_range: float) -> Ene
 		if focused:
 			return focused
 	var origin: Vector2 = ally.global_position
-	var target: Enemy = ctx.enemies.find_nearest(origin, search_range)
+	var target: Enemy = ctx.enemies.find_nearest_visible(origin, search_range)
 	if target and target.global_position.distance_to(ctx.player.global_position) > 420.0:
 		return null
 	return target

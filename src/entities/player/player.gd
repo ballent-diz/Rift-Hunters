@@ -194,7 +194,7 @@ func _update_weapon(delta: float) -> void:
 	if _bolt_timer > 0.0:
 		return
 	var bolt: AttackData = ctx.balance.bolt
-	var target: Enemy = ctx.enemies.find_nearest(global_position, stats.get_value(StatKeys.BOLT_RANGE))
+	var target: Enemy = ctx.enemies.find_nearest_visible(global_position, stats.get_value(StatKeys.BOLT_RANGE))
 	if target == null:
 		_bolt_timer = 0.0
 		return
