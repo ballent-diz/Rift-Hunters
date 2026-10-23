@@ -11551,6 +11551,41 @@
 			},
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/scorched_verge/minimap.webp"
+		},
+		"object.ember_pod": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.ember_pod/job.json",
+			"sheet": "res://assets/sprites/objects/ember_pod/ember_pod_sheet.png",
+			"cell": [
+				128,
+				128
+			],
+			"anchor": [
+				64,
+				118
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				},
+				"primed": {
+					"row": 1,
+					"frames": 6,
+					"fps": 14,
+					"loop": true
+				},
+				"burst": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/ember_pod.png"
 		}
 	}
 }
