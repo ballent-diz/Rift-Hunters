@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## B3 — Cœur du volcan, carte 10 — composition proposée pour revue (Codex)
+
+Branche `codex/carte-coeur-du-volcan` depuis main à jour. Composition en spirale, caldeira
+en croissant élargie par retouche locale et masque provisoire de trois lits de débordement. Voir docs/maps/COEUR_DU_VOLCAN.md : écarts des repères et largeur autour des aiguilles à valider. Arrêt pour validation avant
+les régions. Aucun changement de src/, data/ ou des collisions.
+
 ## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 
 Branche `codex/carte-events-de-cendre`, depuis main à jour. Nouvelle composition en U, sans

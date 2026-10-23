@@ -1,0 +1,258 @@
+{
+  "stage": "composition_provisoire",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition_size": [
+    1536,
+    1536
+  ],
+  "background": "#000000",
+  "purpose": "Lits refroidis praticables seulement ; jamais collisions ni lave liquide.",
+  "beds": [
+    {
+      "id": "F01",
+      "name": "ouest",
+      "color": "#00FFFF",
+      "center_pct": [
+        17.03,
+        47.59
+      ],
+      "centerline_length_world": 648.9,
+      "mean_width_world": 194.8,
+      "flow_direction": "sud-sud-est",
+      "polygon_composition_px": [
+        [
+          227,
+          619
+        ],
+        [
+          254,
+          625
+        ],
+        [
+          276,
+          671
+        ],
+        [
+          292,
+          720
+        ],
+        [
+          306,
+          773
+        ],
+        [
+          310,
+          827
+        ],
+        [
+          288,
+          849
+        ],
+        [
+          266,
+          832
+        ],
+        [
+          250,
+          785
+        ],
+        [
+          236,
+          741
+        ],
+        [
+          222,
+          690
+        ],
+        [
+          213,
+          642
+        ]
+      ],
+      "centerline_source_px": [
+        [
+          194,
+          519
+        ],
+        [
+          211,
+          566
+        ],
+        [
+          226,
+          615
+        ],
+        [
+          237,
+          675
+        ]
+      ],
+      "method": "Détourage manuel provisoire intérieur de la croûte ; longueur de polyligne, largeur moyenne aire/longueur, pas une largeur minimale garantie."
+    },
+    {
+      "id": "F02",
+      "name": "nord",
+      "color": "#00FF00",
+      "center_pct": [
+        49.57,
+        11.87
+      ],
+      "centerline_length_world": 563.5,
+      "mean_width_world": 156.1,
+      "flow_direction": "est-sud-est",
+      "polygon_composition_px": [
+        [
+          688,
+          147
+        ],
+        [
+          723,
+          146
+        ],
+        [
+          772,
+          159
+        ],
+        [
+          817,
+          173
+        ],
+        [
+          844,
+          184
+        ],
+        [
+          864,
+          202
+        ],
+        [
+          837,
+          219
+        ],
+        [
+          799,
+          218
+        ],
+        [
+          752,
+          205
+        ],
+        [
+          710,
+          192
+        ],
+        [
+          674,
+          179
+        ],
+        [
+          659,
+          164
+        ]
+      ],
+      "centerline_source_px": [
+        [
+          549,
+          131
+        ],
+        [
+          594,
+          139
+        ],
+        [
+          640,
+          153
+        ],
+        [
+          686,
+          163
+        ]
+      ],
+      "method": "Détourage manuel provisoire intérieur de la croûte ; longueur de polyligne, largeur moyenne aire/longueur, pas une largeur minimale garantie."
+    },
+    {
+      "id": "F03",
+      "name": "est",
+      "color": "#FF00FF",
+      "center_pct": [
+        87.9,
+        32.98
+      ],
+      "centerline_length_world": 565.7,
+      "mean_width_world": 219.3,
+      "flow_direction": "sud-sud-est",
+      "polygon_composition_px": [
+        [
+          1325,
+          401
+        ],
+        [
+          1350,
+          405
+        ],
+        [
+          1367,
+          443
+        ],
+        [
+          1380,
+          489
+        ],
+        [
+          1391,
+          541
+        ],
+        [
+          1394,
+          579
+        ],
+        [
+          1373,
+          610
+        ],
+        [
+          1350,
+          603
+        ],
+        [
+          1333,
+          567
+        ],
+        [
+          1322,
+          524
+        ],
+        [
+          1308,
+          479
+        ],
+        [
+          1308,
+          437
+        ]
+      ],
+      "centerline_source_px": [
+        [
+          1085,
+          343
+        ],
+        [
+          1095,
+          385
+        ],
+        [
+          1108,
+          432
+        ],
+        [
+          1120,
+          480
+        ]
+      ],
+      "method": "Détourage manuel provisoire intérieur de la croûte ; longueur de polyligne, largeur moyenne aire/longueur, pas une largeur minimale garantie."
+    }
+  ]
+}

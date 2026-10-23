@@ -1,0 +1,288 @@
+{
+  "stage": "composition_only",
+  "native_size": [
+    1254,
+    1254
+  ],
+  "composition_size": [
+    1536,
+    1536
+  ],
+  "color_count": 4,
+  "expected_color_count": 4,
+  "valid_pure_mask_colors": true,
+  "beds": [
+    {
+      "id": "F01",
+      "name": "ouest",
+      "color": "#00FFFF",
+      "center_pct": [
+        17.03,
+        47.59
+      ],
+      "centerline_length_world": 648.9,
+      "mean_width_world": 194.8,
+      "flow_direction": "sud-sud-est",
+      "polygon_composition_px": [
+        [
+          227,
+          619
+        ],
+        [
+          254,
+          625
+        ],
+        [
+          276,
+          671
+        ],
+        [
+          292,
+          720
+        ],
+        [
+          306,
+          773
+        ],
+        [
+          310,
+          827
+        ],
+        [
+          288,
+          849
+        ],
+        [
+          266,
+          832
+        ],
+        [
+          250,
+          785
+        ],
+        [
+          236,
+          741
+        ],
+        [
+          222,
+          690
+        ],
+        [
+          213,
+          642
+        ]
+      ],
+      "centerline_source_px": [
+        [
+          194,
+          519
+        ],
+        [
+          211,
+          566
+        ],
+        [
+          226,
+          615
+        ],
+        [
+          237,
+          675
+        ]
+      ],
+      "method": "Détourage manuel provisoire intérieur de la croûte ; longueur de polyligne, largeur moyenne aire/longueur, pas une largeur minimale garantie."
+    },
+    {
+      "id": "F02",
+      "name": "nord",
+      "color": "#00FF00",
+      "center_pct": [
+        49.57,
+        11.87
+      ],
+      "centerline_length_world": 563.5,
+      "mean_width_world": 156.1,
+      "flow_direction": "est-sud-est",
+      "polygon_composition_px": [
+        [
+          688,
+          147
+        ],
+        [
+          723,
+          146
+        ],
+        [
+          772,
+          159
+        ],
+        [
+          817,
+          173
+        ],
+        [
+          844,
+          184
+        ],
+        [
+          864,
+          202
+        ],
+        [
+          837,
+          219
+        ],
+        [
+          799,
+          218
+        ],
+        [
+          752,
+          205
+        ],
+        [
+          710,
+          192
+        ],
+        [
+          674,
+          179
+        ],
+        [
+          659,
+          164
+        ]
+      ],
+      "centerline_source_px": [
+        [
+          549,
+          131
+        ],
+        [
+          594,
+          139
+        ],
+        [
+          640,
+          153
+        ],
+        [
+          686,
+          163
+        ]
+      ],
+      "method": "Détourage manuel provisoire intérieur de la croûte ; longueur de polyligne, largeur moyenne aire/longueur, pas une largeur minimale garantie."
+    },
+    {
+      "id": "F03",
+      "name": "est",
+      "color": "#FF00FF",
+      "center_pct": [
+        87.9,
+        32.98
+      ],
+      "centerline_length_world": 565.7,
+      "mean_width_world": 219.3,
+      "flow_direction": "sud-sud-est",
+      "polygon_composition_px": [
+        [
+          1325,
+          401
+        ],
+        [
+          1350,
+          405
+        ],
+        [
+          1367,
+          443
+        ],
+        [
+          1380,
+          489
+        ],
+        [
+          1391,
+          541
+        ],
+        [
+          1394,
+          579
+        ],
+        [
+          1373,
+          610
+        ],
+        [
+          1350,
+          603
+        ],
+        [
+          1333,
+          567
+        ],
+        [
+          1322,
+          524
+        ],
+        [
+          1308,
+          479
+        ],
+        [
+          1308,
+          437
+        ]
+      ],
+      "centerline_source_px": [
+        [
+          1085,
+          343
+        ],
+        [
+          1095,
+          385
+        ],
+        [
+          1108,
+          432
+        ],
+        [
+          1120,
+          480
+        ]
+      ],
+      "method": "Détourage manuel provisoire intérieur de la croûte ; longueur de polyligne, largeur moyenne aire/longueur, pas une largeur minimale garantie."
+    }
+  ],
+  "owner_approved": false,
+  "regions_started": false,
+  "collision_authored": false,
+  "reserves": [
+    "Largeur minimale autour des aiguilles non certifiée : validation sur collisions avant régions.",
+    "Surface praticable globale ≥50% à confirmer par peinture : pas de masque de collisions produit.",
+    "Repères géographiques générés légèrement déplacés ; positions observées dans la fiche.",
+    "Aucun rapport de qualité finale : image de composition, pas carte jouable."
+  ],
+  "mask_pixels_on_bright_lava_rgb_filter": 0,
+  "bright_lava_filter": {
+    "r_min": 231,
+    "g_min": 51,
+    "g_max": 209,
+    "b_max": 79,
+    "limits": "Repérage indicatif, validation visuelle effectuée sur superposition."
+  },
+  "godot_4_3": {
+    "isolated_import_exit": 0,
+    "load_exit": 0,
+    "textures_loaded": 2,
+    "dimensions": [
+      1536,
+      1536
+    ],
+    "errors": 0,
+    "scope": "Projet isolé : les sources incoming sont ignorées par Godot, aucun niveau ni src modifié."
+  },
+  "sha256_sources_validated": true
+}

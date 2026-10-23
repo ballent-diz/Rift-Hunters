@@ -1,0 +1,26 @@
+{
+  "id": "map.volcano_heart",
+  "status": "wip",
+  "stage": "composition",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition": "composition.png",
+  "flows": "flows.png",
+  "flows_data": "flows.json",
+  "owner_approved": false,
+  "regions_started": false,
+  "source": "source/composition_retouche_originale.png",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_RETOUCHE.txt"
+  ],
+  "style_references": [
+    "source/references/ruines.png",
+    "source/references/lisiere.png",
+    "source/references/coulees.png"
+  ],
+  "next_step": "Validation propriétaire puis peinture des collisions ; seulement ensuite régions et qualité conforme.",
+  "transformation": "1254 × 1254 vers 1536 × 1536 pour format de COMPOSITION uniquement ; aucun détail final prétendu."
+}
