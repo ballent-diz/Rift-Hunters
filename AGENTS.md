@@ -52,6 +52,9 @@ res://tools/screenshot.tscn -- --out=<dossier> --times=20,60` (`--menu=main|refu
   `assets/concepts/incoming/README.md`. Ce dossier est ignoré par Godot (`.gdignore`).
 - Pipeline graphique : `tools/art/` (`import_sheet.py` pour les planches, `map_regions.py` +
   `check_map_quality.py` pour les maps dessinées). Règles graphiques : `docs/ART_BIBLE.md`.
+- **Cartes** : chaque carte suit le plan de SON prompt ; les cartes précédentes sont des références de style, jamais de
+  plan. Pas d'arène ronde ou carrée par défaut, arène facultative, pas d'abris non demandés
+  (`docs/maps/GENERER_UNE_CARTE.md` § 1 bis).
 - **Avant toute planche de monstre, d'élite ou de boss** (chapitre 2 et suivants) : lire `docs/design/MONSTRES.md`.
   Il fixe les rangées à dessiner selon le rang (normaux : déplacement + attaque ; élites et boss : planches de
   techniques), la limite de 3 rangées par planche et les mécaniques associées. Ne pas ajouter de rangée hors de cette

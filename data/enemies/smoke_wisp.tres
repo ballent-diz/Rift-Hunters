@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.smoke_wisp"
+shape = 6
+size = 36.0
+primary = Color(0.5, 0.5, 0.52, 1.0)
+secondary = Color(0.68, 0.66, 0.66, 1.0)
+accent = Color(0.95, 0.6, 0.35, 1.0)
+
+[sub_resource type="Resource" id="attack_data_2"]
+script = ExtResource("3")
+damage = 10.0
+cooldown = 2.4
+attack_range = 440.0
+projectile_speed = 180.0
+params = {
+"keep_distance": 270.0,
+"windup": 0.4
+}
+
+[resource]
+script = ExtResource("1")
+id = &"smoke_wisp"
+name_key = "ENEMY_SMOKE_WISP_NAME"
+desc_key = "ENEMY_SMOKE_WISP_DESC"
+brain = 1
+max_hp = 26.0
+damage = 6.0
+defense = 4.0
+move_speed = 66.0
+radius = 16.0
+xp_value = 3
+knockback_resist = 0.0
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_2")

@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.pyre_brute"
+shape = 4
+size = 49.0
+primary = Color(0.3, 0.2, 0.15, 1.0)
+secondary = Color(0.5, 0.3, 0.18, 1.0)
+accent = Color(1.0, 0.55, 0.2, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"burn_slam"
+anim = &"pyre_slam"
+cooldown = 7.0
+min_range = 90.0
+max_range = 300.0
+telegraph = 1.0
+damage = 16.0
+params = {
+"radius": 120.0,
+"burn_radius": 115.0,
+"burn_time": 7.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"rage"
+anim = &"blazing_rage"
+cooldown = 999.0
+telegraph = 0.7
+params = {
+"threshold": 0.5,
+"speed_mult": 1.35,
+"damage_mult": 1.3
+}
+
+[resource]
+script = ExtResource("1")
+id = &"pyre_brute"
+name_key = "ENEMY_PYRE_BRUTE_NAME"
+desc_key = "ENEMY_PYRE_BRUTE_DESC"
+brain = 0
+max_hp = 140.0
+damage = 18.0
+defense = 18.0
+move_speed = 64.0
+radius = 24.0
+xp_value = 6
+knockback_resist = 0.7
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

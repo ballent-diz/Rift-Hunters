@@ -120,6 +120,13 @@ extends Resource
 @export var flood_damage: float = 6.0
 ## Part des PV max d'un Corrompu emportée toutes les 0,5 s dans la crue (boss épargnés).
 @export var flood_enemy_ratio: float = 0.12
+@export_group("Sol brûlant (carte 6, docs/design/CARTES.md)")
+## Plaques brûlantes peintes sur la carte : (x, y, rayon) en unités du monde. Praticables, elles blessent tout le monde.
+@export var burn_plates: Array[Vector3] = []
+## Dégâts au Chasseur par coup (toutes les burn_tick secondes) ; part des PV max retirée aux Corrompus.
+@export var burn_damage: float = 4.0
+@export var burn_tick: float = 0.5
+@export_range(0.0, 1.0) var burn_enemy_ratio: float = 0.06
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0

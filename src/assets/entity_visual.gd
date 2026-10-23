@@ -142,6 +142,10 @@ func set_facing_left(left: bool, force: bool = false) -> void:
 		_anim.flip_h = left
 
 
+func tint() -> Color:
+	return _tint
+
+
 func set_tint(color: Color) -> void:
 	_tint = color
 	_apply_modulate()

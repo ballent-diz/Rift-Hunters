@@ -1,0 +1,187 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=23 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/zone_wave_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/level_zone_data.gd" id="5"]
+
+[sub_resource type="Resource" id="wave_phase_data_1"]
+script = ExtResource("2")
+start_time = 0.0
+end_time = 60.0
+enemies = [&"cinder_crawler"]
+weights = [3.0]
+spawn_rate = 1.3
+max_alive = 60
+
+[sub_resource type="Resource" id="wave_phase_data_2"]
+script = ExtResource("2")
+start_time = 60.0
+end_time = 150.0
+enemies = [&"cinder_crawler", &"smoke_wisp"]
+weights = [3.0, 1.2]
+spawn_rate = 2.0
+max_alive = 100
+
+[sub_resource type="Resource" id="wave_phase_data_3"]
+script = ExtResource("2")
+start_time = 150.0
+end_time = 240.0
+enemies = [&"cinder_crawler", &"smoke_wisp", &"char_golem"]
+weights = [3.0, 1.2, 1.0]
+spawn_rate = 2.6
+max_alive = 140
+
+[sub_resource type="Resource" id="wave_phase_data_4"]
+script = ExtResource("2")
+start_time = 240.0
+end_time = 330.0
+enemies = [&"cinder_crawler", &"smoke_wisp", &"char_golem"]
+weights = [3.0, 1.2, 1.0]
+spawn_rate = 3.2
+max_alive = 190
+
+[sub_resource type="Resource" id="wave_phase_data_5"]
+script = ExtResource("2")
+start_time = 330.0
+end_time = 9999.0
+enemies = [&"cinder_crawler", &"smoke_wisp", &"char_golem"]
+weights = [3.0, 1.2, 1.0]
+spawn_rate = 4.0
+max_alive = 240
+
+[sub_resource type="Resource" id="zone_wave_1"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler"])
+weights = Array[float]([3.0])
+count = 30
+elites = Array[StringName]([])
+spawn_rate = 1.6
+max_alive = 30
+
+[sub_resource type="Resource" id="zone_wave_2"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp"])
+weights = Array[float]([3.0, 1.2])
+count = 40
+elites = Array[StringName]([])
+spawn_rate = 1.9
+max_alive = 38
+
+[sub_resource type="Resource" id="zone_wave_3"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 48
+elites = Array[StringName]([&"pyre_brute"])
+spawn_rate = 2.2
+max_alive = 45
+
+[sub_resource type="Resource" id="zone_wave_4"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 45
+elites = Array[StringName]([])
+spawn_rate = 2.5
+max_alive = 50
+
+[sub_resource type="Resource" id="zone_wave_5"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 55
+elites = Array[StringName]([&"pyre_brute"])
+spawn_rate = 2.8
+max_alive = 60
+
+[sub_resource type="Resource" id="zone_wave_6"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 62
+elites = Array[StringName]([&"pyre_brute"])
+spawn_rate = 3.0
+max_alive = 68
+
+[sub_resource type="Resource" id="zone_wave_7"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 65
+elites = Array[StringName]([&"pyre_brute"])
+spawn_rate = 3.2
+max_alive = 75
+
+[sub_resource type="Resource" id="zone_wave_8"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 75
+elites = Array[StringName]([&"pyre_brute"])
+spawn_rate = 3.4
+max_alive = 82
+
+[sub_resource type="Resource" id="zone_wave_9"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 88
+elites = Array[StringName]([&"pyre_brute", &"pyre_brute"])
+spawn_rate = 3.6
+max_alive = 90
+
+[sub_resource type="Resource" id="level_zone_1"]
+script = ExtResource("5")
+name_key = "ZONE_SCORCHED_VERGE_1_NAME"
+anchor = Vector2(-1756, 0)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2"), SubResource("zone_wave_3")])
+exit_walls = Array[Rect2]([Rect2(-953, -669, 60, 2341)])
+heal_ratio = 0.25
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_2"]
+script = ExtResource("5")
+name_key = "ZONE_SCORCHED_VERGE_2_NAME"
+anchor = Vector2(-100, 167)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_4"), SubResource("zone_wave_5"), SubResource("zone_wave_6")])
+exit_walls = Array[Rect2]([Rect2(702, -334, 60, 502)])
+heal_ratio = 0.25
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_3"]
+script = ExtResource("5")
+name_key = "ZONE_SCORCHED_VERGE_3_NAME"
+anchor = Vector2(1605, 267)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_7"), SubResource("zone_wave_8"), SubResource("zone_wave_9")])
+exit_walls = Array[Rect2]([Rect2(1354, -602, 552, 50)])
+heal_ratio = 0.25
+reward_chest = true
+
+[resource]
+script = ExtResource("1")
+id = &"scorched_verge"
+name_key = "ARENA_SCORCHED_VERGE_NAME"
+desc_key = "ARENA_SCORCHED_VERGE_DESC"
+size = Vector2(5016, 3344)
+navigation_cell_size = 48.0
+boss_time = 420.0
+boss_id = &"pyre_guardian"
+finale_center = Vector2(1655, -1271)
+finale_walls = Array[Rect2]([Rect2(1354, -602, 552, 50)])
+finale_travel_key = "FINALE_TRAVEL_FORT"
+elite_first_time = 90.0
+elite_interval = 60.0
+elite_enemy_ids = Array[StringName]([&"pyre_brute"])
+environment_id = &"environment.scorched_verge"
+ground_color = Color(0.1, 0.11, 0.17, 1.0)
+ground_detail_color = Color(0.15, 0.16, 0.24, 1.0)
+unlocked_by_default = true
+xp_mult = 1.5
+progression = &"milestones"
+zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
+waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5")]
+burn_plates = Array[Vector3]([Vector3(-1431, -594, 93), Vector3(-1757, -170, 101), Vector3(-1496, 451, 84), Vector3(-287, -676, 104), Vector3(7, -170, 86), Vector3(-287, 581, 110), Vector3(268, 320, 65), Vector3(1656, -202, 82), Vector3(1410, 75, 82), Vector3(1933, 565, 86)])
+burn_damage = 4.0
+burn_tick = 0.5
+burn_enemy_ratio = 0.06

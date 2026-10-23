@@ -21,9 +21,29 @@ Faire un croquis rapide (même à main levée) avant le prompt :
 - **Zones** : 2 à 3 grandes aires de combat qui se suivent, chacune avec au moins une grande clairière.
 - **Passages entre les zones** : de vrais goulets (route, escalier, pont), nets et assez courts pour qu'une barrière
   les ferme ; jamais une frontière floue de plusieurs centaines d'unités.
-- **Arène du boss** : au bout du parcours, une grande place ronde et vide, d'au moins 900 unités de diamètre
-  (≈ 18 % de la largeur sur une carte 3:1), avec une ou deux entrées larges.
+- **Fin de carte** : voir § 1 bis. Une arène séparée n'est **pas obligatoire** ; si la carte en a une, sa forme est
+  propre à cette carte (jamais un cercle, jamais un carré ou un trapèze par habitude). Espace libre d'au moins 900 unités
+  de large pour le combat, une ou deux entrées larges.
 - **Coupures volontaires** (pont cassé, rivière) : clairement infranchissables, avec un détour large et visible.
+
+## 1 bis. Variété : chaque carte a son propre agencement (décision du propriétaire, 23 octobre 2026)
+
+Les générations précédentes ont répété le même schéma (arène ronde ou carrée au bout, deux piliers ou rochers d'abri).
+C'est interdit : **le prompt d'une carte donne son plan ; les cartes déjà faites ne servent que de référence de style,
+jamais de modèle de plan.**
+
+- **Changer au moins trois de ces points** par rapport à la carte précédente du chapitre : format, sens du parcours
+  (gauche-droite, bas-haut, diagonale, boucle, spirale), forme des zones (cuvette, vallée longue, croissant, terrasses,
+  île, intérieur en ruine), nature des passages (pont, rampe, brèche, tunnel, gué, escalier), fin de carte.
+- **Fin de carte**, au choix du plan (varier d'une carte à l'autre) :
+  - **pas d'arène** : le gardien apparaît dans la dernière zone et le jeu dessine lui-même le cercle d'énergie du
+    combat (`ArenaData.finale_radii`) ; la dernière zone doit simplement offrir un grand espace libre ;
+  - **arène de forme libre** : croissant, longue corniche, cratère, fourche en Y, salle en ruine, île au milieu d'un
+    danger, terrasses étagées, plateau allongé… **Jamais ronde, jamais carrée ni trapézoïdale par défaut.**
+- **Abris dans le combat final** : seulement si le plan de la carte les demande (0 à 3), de natures différentes d'une
+  carte à l'autre. Les deux rochers-abris des cartes 5 et 6 étaient propres à ces cartes : ce n'est pas une règle.
+- **Mécanique de carte** : son support graphique doit être simple à dessiner et à contrôler. Si elle repose sur des
+  objets (bulbes, totems, nids…), ce sont des **sprites séparés** placés par le jeu, pas des éléments peints dans la carte.
 
 ## 2. Mesures qui comptent (en unités du monde et en part de l'image)
 
@@ -64,8 +84,8 @@ Top-down video game map for Rift Hunters, a 2D survivor-like. Full-bleed [3:1 wi
 maximum resolution, no borders, no text, no UI, no characters.
 Theme: [chapter landscape, e.g. misty pine highlands with stone ruins and rivers].
 Layout from [left to right | top to bottom]: [start area: description], [zone 1: description],
-[passage: wide stone stairs / bridge / road gap], [zone 2: description], [passage], [boss arena: large round
-empty flat stone plaza with violet rift runes, at least 18% of image width, one or two very wide entrances].
+[passage: wide stone stairs / bridge / road gap], [zone 2: description], [passage], [final fight: the shape chosen
+in THIS map's plan (§ 1 bis) — or no arena, the last zone simply keeps a huge open area].
 At least 55% of the image is flat, open, unobstructed walkable ground (earth, short grass, paving).
 Main roads at least 4% of image width; every bridge, stair and passage at least 2.5% of image width.
 Each zone contains a HUGE open clearing for fighting hordes. Trees, rocks, ruins and buildings are grouped on the
@@ -88,7 +108,8 @@ locale en gardant le reste identique (voir les prompts « vertical » et « deta
 - [ ] Format exact (3:1, 3:2 ou 1:1), sans bord ni texte ni personnage.
 - [ ] Chaque zone a une grande clairière ; routes et passages assez larges (tableau ci-dessus, à l'œil sur la largeur).
 - [ ] Passages entre zones nets et courts (une barrière peut les fermer).
-- [ ] Arène du boss ronde, vide et grande ; entrées larges.
+- [ ] Fin de carte conforme au plan de cette carte (§ 1 bis) : pas de cercle ni de carré par défaut, pas d'abris non demandés,
+  agencement différent de la carte précédente.
 - [ ] Rien au milieu des routes ; bords de carte fermés ; coupures volontaires évidentes.
 - [ ] Pas de raccord visible, pas d'objet flottant, échelle cohérente avec le Chasseur.
 - [ ] Après les régions : planche `map_regions.py compare` jointe, objets à la taille des Ruines.
