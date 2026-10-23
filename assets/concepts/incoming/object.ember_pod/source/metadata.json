@@ -1,0 +1,32 @@
+{
+  "asset_id": "object.ember_pod",
+  "generator": "built-in image_gen",
+  "generation_count": 1,
+  "generated_original": "C:/Users/petit/.codex/generated_images/01a167b2-e920-7691-b629-39050052af35/exec-df883324-22bd-4de2-a611-4b9cf9454b20.png",
+  "sheet": "sheet.png",
+  "preserved_original": "sortie_originale.png",
+  "prompt": "prompt.txt",
+  "reference": "references/altar_seal_material_reference.png",
+  "reference_role": "Material and light only; original bulb subject",
+  "design_sources": ["Rift-Hunters-ash-vents/docs/ART_BIBLE.md", "Rift-Hunters-ash-vents/docs/design/MONSTRES.md"],
+  "grid": {"columns": 6, "rows": 3, "poses": 18},
+  "animations": [
+    {"row": 0, "name": "idle", "frames": 6, "loop": true},
+    {"row": 1, "name": "primed", "frames": 6, "loop": true},
+    {"row": 2, "name": "burst_spent", "frames": 6, "loop": false, "description": "Two compact burst poses, then four spent husk poses; final empty dormant husk"}
+  ],
+  "size_intent": {"game_units": 28, "art_pixels": 56},
+  "dimensions": {"width": 1774, "height": 887},
+  "validation": {
+    "visual_grid_6_by_3": true,
+    "transparent_alpha": true,
+    "zero_alpha_pixels": 785536,
+    "partial_alpha_pixels": 787383,
+    "opaque_alpha_pixels": 619,
+    "corner_alpha": [0, 0, 0, 0],
+    "dominant_subject_alpha": [252, 253, 251],
+    "notes": "Preserved generator alpha unchanged. Fractional cell dimensions (295.667) require future import slicing; no import performed. Visual review confirms 18 isolated states, compact fragments, no floor, circles or cast shadows. Margins are narrower than prompt central-65-percent request; silhouettes remain isolated. Crisp sculpted material style is retained; final pixel-grid normalization belongs to future import."
+  },
+  "repository_modified": false,
+  "gameplay_modified": false
+}

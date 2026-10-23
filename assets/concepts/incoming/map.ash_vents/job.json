@@ -1,0 +1,25 @@
+{
+  "id": "map.ash_vents",
+  "status": "wip",
+  "stage": "composition",
+  "world_size": [
+    5016,
+    3344
+  ],
+  "composition": "composition.png",
+  "owner_approved_base_composition": true,
+  "owner_requested_four_obstacles": true,
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_OBSTACLES.txt"
+  ],
+  "references_role": "Matières et caméra uniquement, aucun plan repris",
+  "references": [
+    "source/references/ruines.png",
+    "source/references/hautes_terres.png",
+    "source/references/lisiere.png"
+  ],
+  "proposed_positions": "proposed_positions.json",
+  "regions_started": false,
+  "runtime_integrated": false
+}

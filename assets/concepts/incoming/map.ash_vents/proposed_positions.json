@@ -1,0 +1,219 @@
+{
+  "world_size": [
+    5016,
+    3344
+  ],
+  "start_percent": [
+    88,
+    84
+  ],
+  "passages_observed_percent": [
+    [
+      38,
+      67
+    ],
+    [
+      18,
+      18
+    ]
+  ],
+  "passages_brief_percent": [
+    [
+      46,
+      74
+    ],
+    [
+      18,
+      32
+    ]
+  ],
+  "obstacles_observed": [
+    {
+      "id": "O1",
+      "center_percent": [
+        70.5,
+        67.5
+      ]
+    },
+    {
+      "id": "O2",
+      "center_percent": [
+        60,
+        80
+      ]
+    },
+    {
+      "id": "O3",
+      "center_percent": [
+        21.5,
+        57
+      ]
+    },
+    {
+      "id": "O4",
+      "center_percent": [
+        60,
+        20
+      ]
+    }
+  ],
+  "pods": [
+    {
+      "id": "B01",
+      "zone": 1,
+      "center_percent": [
+        59,
+        64
+      ],
+      "center_world": [
+        2959.44,
+        2140.16
+      ],
+      "min_distance_start_and_passages_world": 732.82
+    },
+    {
+      "id": "B02",
+      "zone": 1,
+      "center_percent": [
+        77,
+        63
+      ],
+      "center_world": [
+        3862.32,
+        2106.72
+      ],
+      "min_distance_start_and_passages_world": 893.07
+    },
+    {
+      "id": "B03",
+      "zone": 1,
+      "center_percent": [
+        68,
+        85
+      ],
+      "center_world": [
+        3410.88,
+        2842.4
+      ],
+      "min_distance_start_and_passages_world": 1003.76
+    },
+    {
+      "id": "B04",
+      "zone": 1,
+      "center_percent": [
+        82,
+        72
+      ],
+      "center_world": [
+        4113.12,
+        2407.68
+      ],
+      "min_distance_start_and_passages_world": 501.6
+    },
+    {
+      "id": "B05",
+      "zone": 2,
+      "center_percent": [
+        17,
+        49
+      ],
+      "center_world": [
+        852.72,
+        1638.56
+      ],
+      "min_distance_start_and_passages_world": 570.69
+    },
+    {
+      "id": "B06",
+      "zone": 2,
+      "center_percent": [
+        28,
+        58
+      ],
+      "center_world": [
+        1404.48,
+        1939.52
+      ],
+      "min_distance_start_and_passages_world": 584.96
+    },
+    {
+      "id": "B07",
+      "zone": 2,
+      "center_percent": [
+        14,
+        75
+      ],
+      "center_world": [
+        702.24,
+        2508.0
+      ],
+      "min_distance_start_and_passages_world": 1233.21
+    },
+    {
+      "id": "B08",
+      "zone": 2,
+      "center_percent": [
+        26,
+        84
+      ],
+      "center_world": [
+        1304.16,
+        2808.96
+      ],
+      "min_distance_start_and_passages_world": 827.94
+    },
+    {
+      "id": "B09",
+      "zone": 3,
+      "center_percent": [
+        42,
+        17
+      ],
+      "center_world": [
+        2106.72,
+        568.48
+      ],
+      "min_distance_start_and_passages_world": 1204.3
+    },
+    {
+      "id": "B10",
+      "zone": 3,
+      "center_percent": [
+        55,
+        29
+      ],
+      "center_world": [
+        2758.8,
+        969.76
+      ],
+      "min_distance_start_and_passages_world": 1530.31
+    },
+    {
+      "id": "B11",
+      "zone": 3,
+      "center_percent": [
+        72,
+        18
+      ],
+      "center_world": [
+        3611.52,
+        601.92
+      ],
+      "min_distance_start_and_passages_world": 2282.02
+    },
+    {
+      "id": "B12",
+      "zone": 3,
+      "center_percent": [
+        87,
+        24
+      ],
+      "center_world": [
+        4363.92,
+        802.56
+      ],
+      "min_distance_start_and_passages_world": 2007.03
+    }
+  ],
+  "collision_mask": false
+}
