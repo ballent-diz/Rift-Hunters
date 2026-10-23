@@ -7,6 +7,9 @@ var position := Vector2.ZERO
 var velocity := Vector2.ZERO
 var info: DamageInfo
 var hostile_damage: float = 0.0
+## Tir ennemi entravant (toile de suie) : durée et multiplicateur de vitesse du Chasseur touché.
+var hinder_time: float = 0.0
+var hinder_mult: float = 1.0
 var source_id: StringName = &""
 var pierce_left: int = 0
 var split: int = 0

@@ -66,6 +66,8 @@ func spawn_hostile(pos: Vector2, dir: Vector2, speed: float, damage: float, sour
 	p.position = pos
 	p.velocity = dir.normalized() * speed
 	p.hostile_damage = damage
+	p.hinder_time = 0.0
+	p.hinder_mult = 1.0
 	p.source_id = source_id
 	p.radius = radius
 	p.life = life
@@ -177,7 +179,10 @@ func _step_hostile(p: Projectile, delta: float, rect: Rect2) -> bool:
 	var player: Player = ctx.player
 	if player.alive and p.position.distance_to(player.position) < p.radius + player.radius * 0.8:
 		if player.can_be_hurt() or player.parry_time > 0.0:
+			var hurt: bool = player.can_be_hurt() and player.parry_time <= 0.0
 			ctx.combat.damage_player(p.hostile_damage, p.source_id)
+			if hurt and p.hinder_time > 0.0:
+				player.hinder(p.hinder_time, p.hinder_mult)
 			return false
 	return true
 

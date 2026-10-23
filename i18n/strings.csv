@@ -663,6 +663,25 @@ ENEMY_ASH_HOUND_NAME,Chien de suie,Soot Hound
 ENEMY_ASH_HOUND_DESC,"Bondit par-dessus la horde sur votre position : ne fuyez pas en ligne droite.","Leaps over the horde onto your position: don’t flee in a straight line."
 ENEMY_CINDER_KNIGHT_NAME,Chevalier calciné,Cinder Knight
 ENEMY_CINDER_KNIGHT_DESC,"Charge en ligne puis tournoie à l’arrivée : sortez de l’axe, puis de la zone.","Charges in a line, then spins on arrival: step out of the line, then out of the circle."
+ENEMY_ASHEN_WIDOW_NAME,Veuve de cendre,Ashen Widow
+ENEMY_ASHEN_WIDOW_DESC,"Pond des œufs à briser avant l’éclosion et crache une toile qui entrave.","Lays eggs to break before they hatch and spits a web that hinders you."
+ENEMY_ASH_EGG_NAME,Œuf de cendre,Ash Egg
+ENEMY_ASH_EGG_DESC,"Brisez-le vite : il éclot en Rampe-cendres.","Break it quickly: it hatches into Cinder Crawlers."
+ENEMY_MAGMA_MITE_NAME,Acarien de magma,Magma Mite
+ENEMY_MAGMA_MITE_DESC,"Petit, rapide et en essaim.","Small, fast and swarming."
+ENEMY_LAVA_LURKER_NAME,Rôdeur de lave,Lava Lurker
+ENEMY_LAVA_LURKER_DESC,"Plonge sous le sol et ressort sous vos pieds : restez en mouvement.","Dives underground and bursts out beneath you: keep moving."
+ENEMY_OBSIDIAN_BRUTE_NAME,Brute d’obsidienne,Obsidian Brute
+ENEMY_OBSIDIAN_BRUTE_DESC,"Lourde et cuirassée d’éclats.","Heavy and armored in shards."
+ENEMY_EMBER_SPITTER_NAME,Cracheur de braise,Ember Spitter
+ENEMY_EMBER_SPITTER_DESC,"Crache des braises à distance.","Spits embers from afar."
+ENEMY_CALDERA_TITAN_NAME,Titan de caldeira,Caldera Titan
+ENEMY_CALDERA_TITAN_DESC,"Fait jaillir des geysers, puis ouvre son cratère : frappez-le à ce moment-là.","Raises geysers, then opens its crater: strike it then."
+ENEMY_FLAME_WYRMLING_NAME,Wyvernette de flammes,Flame Wyrmling
+ENEMY_FLAME_WYRMLING_DESC,"Souffle un cône de feu et pique du ciel sur un point marqué.","Breathes a cone of fire and dives from the sky onto a marked spot."
+ENEMY_SLAG_MATRON_NAME,Matrone des scories,Slag Matron
+ENEMY_SLAG_MATRON_DESC,"Recrache des acariens ; à mi-vie, sa croûte tombe et laisse des scories qui entravent.","Spits out mites; at half health her crust falls, leaving slag that hinders you."
+ENEMY_WEAK_POINT,Point faible !,Weak point!
 BOSS_PYRE_GUARDIAN_NAME,Gardien du bûcher,Pyre Warden
 BOSS_PYRE_GUARDIAN_TITLE,Brasier du fortin,Blaze of the Fort
 BOSS_PYRE_GUARDIAN_PHASE1,Bûcher dressé,Pyre Raised

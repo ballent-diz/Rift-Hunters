@@ -100,3 +100,102 @@ func test_cinder_knight_charges_then_spins() -> void:
 	_step(ctx, 1.5)
 	check(knight.position.distance_to(start) > 200.0, "la ruée parcourt la ligne")
 	check(ctx.hazards.hazards.size() > hazards or knight.visual._current == &"spinning_slash", "taille tournoyante à l'arrivée")
+
+
+func _elite(ctx: RunContext, id: StringName, offset: Vector2) -> Enemy:
+	ctx.time = maxf(ctx.time, 10.0)
+	var enemy: Enemy = ctx.enemies.spawn(GameDB.enemy(id), ctx.player.global_position + offset)
+	enemy.spawn_time = 0.0
+	return enemy
+
+
+func _technique(enemy: Enemy, kind: StringName) -> EnemyTechniqueData:
+	for technique: EnemyTechniqueData in enemy.data.techniques:
+		if technique.kind == kind:
+			return technique
+	return null
+
+
+func test_ashen_widow_eggs_hatch_unless_broken() -> void:
+	var ctx: RunContext = _start()
+	var widow: Enemy = _elite(ctx, &"ashen_widow", Vector2(500, 0))
+	check(ctx.enemies._technique_lay_eggs(widow, _technique(widow, &"lay_eggs"), ctx.player.global_position), "ponte")
+	check_eq(ctx.enemies._eggs.size(), 3, "trois œufs")
+	var broken: Enemy = ctx.enemies._eggs[0]["egg"]
+	check(broken.is_target(), "un œuf se cible et se casse")
+	ctx.combat.deal_damage(broken, RunFixture.info(999.0))
+	var crawlers: int = _count(ctx, &"cinder_crawler")
+	_step(ctx, 5.5)
+	check_eq(_count(ctx, &"cinder_crawler") - crawlers, 4, "les deux œufs restants éclosent (2 chacun)")
+
+
+func _count(ctx: RunContext, id: StringName) -> int:
+	var n: int = 0
+	for enemy: Enemy in ctx.enemies.list:
+		n += 1 if enemy.alive and enemy.data and enemy.data.id == id else 0
+	return n
+
+
+func test_soot_web_hinders_the_hunter() -> void:
+	var ctx: RunContext = _start()
+	var widow: Enemy = _elite(ctx, &"ashen_widow", Vector2(250, 0))
+	ctx.enemies._technique_web(widow, _technique(widow, &"web"), ctx.player.global_position)
+	for i: int in 40:
+		ctx.time += 0.05
+		ctx.enemies.step(0.05)
+		ctx.projectiles.step(0.05)
+	check(ctx.player.is_hindered(), "toile : le Chasseur est entravé")
+
+
+func test_lava_lurker_burrows_and_surfaces_under_the_hunter() -> void:
+	var ctx: RunContext = _start()
+	var lurker: Enemy = _elite(ctx, &"lava_lurker", Vector2(400, 0))
+	ctx.enemies.step(0.05)
+	check_eq(lurker.motion.get("kind", &""), &"burrow", "plongée lancée")
+	_step(ctx, 1.0)
+	check(not lurker.visual.visible and lurker.is_invulnerable(), "sous terre : invisible et intouchable")
+	_step(ctx, 1.6)
+	check(lurker.visual.visible, "ressorti")
+	check(lurker.position.distance_to(ctx.player.global_position) < 120.0, "sous le Chasseur")
+
+
+func test_caldera_titan_opens_its_crater_after_eruption() -> void:
+	var ctx: RunContext = _start()
+	var titan: Enemy = _elite(ctx, &"caldera_titan", Vector2(300, 0))
+	var technique: EnemyTechniqueData = _technique(titan, &"eruption")
+	var hazards: int = ctx.hazards.hazards.size()
+	ctx.enemies._technique_eruption(titan, technique, ctx.player.global_position)
+	check_eq(ctx.hazards.hazards.size() - hazards, int(technique.params["count"]), "geysers télégraphiés")
+	var armored: float = titan.get_defense()
+	_step(ctx, technique.telegraph + 0.1)
+	check(titan.get_defense() < armored and titan.extra_damage_taken > 1.0, "cratère ouvert : point faible")
+	_step(ctx, float(technique.params["crater_window"]))
+	check_eq(titan.extra_damage_taken, 1.0, "le cratère se referme")
+
+
+func test_flame_wyrmling_breathes_and_dives_untouchable() -> void:
+	var ctx: RunContext = _start()
+	var wyrm: Enemy = _elite(ctx, &"flame_wyrmling", Vector2(150, 0))
+	var before: int = ctx.hazards.hazards.size()
+	ctx.enemies._technique_breath(wyrm, _technique(wyrm, &"breath"), ctx.player.global_position)
+	check_eq(ctx.hazards.hazards.back()["kind"], HazardManager.Kind.CONE, "souffle en cône")
+	check(ctx.hazards.hazards.size() > before, "télégraphié")
+	wyrm.technique_busy = 0.0
+	ctx.enemies._technique_leap(wyrm, _technique(wyrm, &"leap"), ctx.player.global_position)
+	check(wyrm.is_invulnerable(), "piqué : intouchable en l'air")
+
+
+func test_slag_matron_broods_then_molts() -> void:
+	var ctx: RunContext = _start()
+	var matron: Enemy = _elite(ctx, &"slag_matron", Vector2(300, 0))
+	var mites: int = _count(ctx, &"magma_mite")
+	ctx.enemies._technique_brood(matron, _technique(matron, &"brood"), ctx.player.global_position)
+	_step(ctx, 1.0)
+	check(_count(ctx, &"magma_mite") > mites, "couvée : acariens recrachés")
+	matron.hp = matron.max_hp * 0.4
+	var defense: float = matron.base_defense
+	check(ctx.enemies._technique_molt(matron, _technique(matron, &"molt"), ctx.player.global_position), "mue")
+	check(matron.base_defense < defense, "croûte tombée")
+	ctx.player.global_position = matron.position
+	ctx.burn.step(0.6)
+	check(ctx.player.is_hindered(), "les scories entravent le Chasseur")
