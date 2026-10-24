@@ -66,6 +66,9 @@ func start(setup: RunSetup) -> void:
 	ctx.stats.set_value(&"modifiers_count", float(setup.modifier_ids.size()))
 	if setup.starter_id != &"":
 		ctx.allies.add_monster(setup.starter_id, setup.starter_rank, setup.starter_variant)
+	for id: StringName in setup.companion_ids:
+		if ctx.allies.has_free_slot():
+			ctx.allies.add_monster(id, int(setup.companion_ranks.get(id, 1)), bool(setup.companion_variants.get(id, false)))
 	spawner = SpawnDirector.new(ctx)
 	ctx.spawner = spawner
 	if ctx.arena.has_finale():
@@ -104,7 +107,9 @@ func start(setup: RunSetup) -> void:
 	ctx.events.synergy_proc.connect(func(_id: StringName) -> void: ctx.stats.add(&"synergy_procs"))
 	ctx.events.level_up.connect(func(level: int) -> void:
 		Audio.play_sfx(&"level_up")
-		ctx.fx.text(ctx.player.global_position + Vector2(0, -60), tr("LEVELUP_TITLE") % level, UiKit.ACCENT))
+		# Campagne : pas de niveaux, seulement des jalons.
+		var text: String = tr("MILESTONE_FLOAT") if ctx.milestones() else tr("LEVELUP_TITLE") % level
+		ctx.fx.text(ctx.player.global_position + Vector2(0, -60), text, UiKit.ACCENT))
 	ctx.events.milestone_reached.connect(func() -> void:
 		if ctx.milestones():
 			ctx.stats.add(&"milestones")
@@ -127,6 +132,8 @@ func start(setup: RunSetup) -> void:
 	Audio.play_context("run")
 	ctx.events.boss_defeated.connect(_on_boss_defeated)
 	ctx.events.chest_collected.connect(func() -> void:
+		if not ctx.balance.feature_enabled(&"chests"):
+			return
 		_pending_chests += 1
 		release_choices = true
 		Audio.play_sfx(&"chest_open"))
@@ -134,7 +141,8 @@ func start(setup: RunSetup) -> void:
 		_shake = maxf(_shake, 0.25)
 		Audio.play_sfx(&"player_hurt"))
 	# Relique au départ (arbre, boutique) : mode survie seulement ; la campagne n'en donne qu'aux jalons et coffres.
-	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0 and not ctx.milestones():
+	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0 and not ctx.milestones() \
+			and ctx.balance.feature_enabled(&"relics"):
 		chest_panel.open.call_deferred(true)
 	# Boutique (objets de survie) : niveaux gagnés au départ, choisis tout de suite.
 	for i: int in setup.start_levels:
@@ -448,6 +456,7 @@ func build_result() -> Dictionary:
 		"victory": ctx.victory,
 		"time": ctx.time,
 		"level": ctx.player.level,
+		"milestones": ctx.milestones(),
 		"kills": int(ctx.stats.get_value(&"kills")),
 		"endless_wave": ctx.endless_wave() if ctx.arena.endless else 0,
 		"arena": String(ctx.arena.id),

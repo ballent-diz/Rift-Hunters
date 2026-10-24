@@ -44,8 +44,9 @@ func refresh() -> void:
 	for id: StringName in GameDB.sorted_ids(GameDB.bosses):
 		var boss_known: bool = p.lifetime("bosses_killed") > 0 or p.data["records"]["best_time"] >= 420.0
 		_entry(list, "boss:" + String(id), tr(GameDB.boss(id).name_key) if boss_known else "???")
-	list.add_child(UiKit.title(tr("BESTIARY_RELICS"), 16, UiKit.ACCENT))
-	for id: StringName in GameDB.sorted_ids(GameDB.relics):
+	if GameDB.balance.feature_enabled(&"relics"):
+		list.add_child(UiKit.title(tr("BESTIARY_RELICS"), 16, UiKit.ACCENT))
+	for id: StringName in GameDB.sorted_ids(GameDB.relics) if GameDB.balance.feature_enabled(&"relics") else []:
 		_entry(list, "relic:" + String(id), tr(GameDB.relic(id).name_key) if p.is_discovered("relics", id) else "???")
 	list.add_child(UiKit.title(tr("BESTIARY_SYNERGIES"), 16, UiKit.ACCENT))
 	for id: StringName in GameDB.sorted_ids(GameDB.synergies):
@@ -129,8 +130,9 @@ func _monster_text(m: MonsterData) -> String:
 	lines.append(tr("BESTIARY_STATS") % [int(m.attack.damage), rate, int(m.get_range())])
 	lines.append("[color=#ffd966]%s[/color] : %s" % [tr(m.passive_name_key), tr(m.passive_desc_key)])
 	lines.append("[color=#8ce6ff]%s[/color] : %s" % [tr(m.technique.name_key), tr(m.technique.desc_key)])
-	lines.append("\n[b]%s[/b]" % tr("BESTIARY_EVOLUTIONS"))
-	for evo: EvolutionData in m.evolutions:
+	if GameDB.balance.feature_enabled(&"evolutions"):
+		lines.append("\n[b]%s[/b]" % tr("BESTIARY_EVOLUTIONS"))
+	for evo: EvolutionData in m.evolutions if GameDB.balance.feature_enabled(&"evolutions") else []:
 		if evo.secret and not p.is_discovered("evolutions", evo.id):
 			lines.append("• ??? — [i]%s[/i]" % tr(evo.hint_key))
 		else:

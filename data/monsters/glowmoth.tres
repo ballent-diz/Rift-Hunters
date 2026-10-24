@@ -229,7 +229,7 @@ accent = Color(1.0, 1.0, 0.8, 1.0)
 [resource]
 script = ExtResource("10")
 unlocked_by_default = false
-discovery = &"capture"
+discovery = &"victory"
 discovery_arena = &"firefly_woods"
 id = &"glowmoth"
 name_key = "MONSTER_GLOWMOTH_NAME"

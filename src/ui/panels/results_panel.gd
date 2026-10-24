@@ -28,8 +28,10 @@ func show_result(result: Dictionary, rewards: Dictionary) -> void:
 		_box.add_child(UiKit.title(tr("RESULT_VICTORY") if victory else tr("RESULT_DEFEAT"), 44,
 			UiKit.GOLD if victory else UiKit.DANGER, HORIZONTAL_ALIGNMENT_CENTER))
 	var time: float = result.get("time", 0.0)
-	var summary: String = tr("RESULT_SUMMARY") % [int(time) / 60, int(time) % 60, int(result.get("level", 1)),
-		int(result.get("kills", 0))]
+	# Campagne : des jalons, pas de niveaux.
+	var milestones: bool = bool(result.get("milestones", false))
+	var summary: String = tr("RESULT_SUMMARY_CAMPAIGN" if milestones else "RESULT_SUMMARY") % [int(time) / 60, int(time) % 60,
+		int(result.get("level", 1)) - (1 if milestones else 0), int(result.get("kills", 0))]
 	_box.add_child(UiKit.label(summary, 20, UiKit.TEXT, HORIZONTAL_ALIGNMENT_CENTER))
 	var columns := HBoxContainer.new()
 	columns.add_theme_constant_override("separation", 40)

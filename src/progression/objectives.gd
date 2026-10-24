@@ -23,6 +23,15 @@ static func is_completed(profile: ProfileData, id: StringName) -> bool:
 	return (profile.data["objectives"]["completed"] as Array).has(String(id))
 
 
+## Objectifs en jeu (ceux d'une fonctionnalité mise de côté sont masqués).
+static func active_ids() -> Array[StringName]:
+	var ids: Array[StringName] = []
+	for id: StringName in GameDB.sorted_ids(GameDB.objectives):
+		if GameDB.balance.feature_enabled((GameDB.objectives[id] as ObjectiveData).feature):
+			ids.append(id)
+	return ids
+
+
 ## Meilleure valeur connue pour l'affichage de la progression.
 static func progress(profile: ProfileData, objective: ObjectiveData) -> float:
 	if objective.scope == ObjectiveData.Scope.LIFETIME:
@@ -34,7 +43,7 @@ static func progress(profile: ProfileData, objective: ObjectiveData) -> float:
 static func evaluate(profile: ProfileData, result: Dictionary) -> PackedStringArray:
 	var lines: PackedStringArray = []
 	var counters: Dictionary = result.get("stats", {}).get("counters", {})
-	for id: StringName in GameDB.sorted_ids(GameDB.objectives):
+	for id: StringName in active_ids():
 		var objective: ObjectiveData = GameDB.objectives[id]
 		if is_completed(profile, id):
 			continue

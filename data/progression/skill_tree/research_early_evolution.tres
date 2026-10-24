@@ -13,6 +13,7 @@ pct = 0.0
 [resource]
 script = ExtResource("1")
 id = &"research_early_evolution"
+feature = &"evolutions"
 branch = &"research"
 tier = 3
 name_key = "NODE_RESEARCH_EARLY_EVOLUTION_NAME"

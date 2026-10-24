@@ -2,9 +2,18 @@ class_name Hud
 extends Control
 ## Interface de combat dessinée en un passage : PV, XP, temps, équipe et Techniques, synergies, boss, bannières.
 
+## Recharges des Techniques sous le Chasseur : taille d'une case, écart et décalage sous ses pieds (pixels écran).
+const COOLDOWN_SIZE := 34.0
+const COOLDOWN_GAP := 6.0
+const COOLDOWN_OFFSET := 30.0
 ## Conseils de première partie : [instant (s), clé de traduction].
 const TUTORIAL_TIPS := [[2.0, "TIP_MOVE"], [9.0, "TIP_AUTO_ATTACK"], [16.0, "TIP_SPELLS"], [25.0, "TIP_TECHNIQUES"],
-	[36.0, "TIP_FOCUS"], [50.0, "TIP_DASH"], [70.0, "TIP_CHESTS"], [100.0, "TIP_BOSS"]]
+	[36.0, "TIP_DASH"], [50.0, "TIP_COOLDOWNS"], [70.0, "TIP_BOSS"]]
+## Touches citées par une astuce (libellés selon la disposition du clavier).
+const TIP_KEYS := {
+	"TIP_MOVE": [&"move_up", &"move_left", &"move_down", &"move_right"],
+	"TIP_TECHNIQUES": [&"technique_1", &"technique_2", &"technique_3"],
+}
 ## Barre des sorts du Chasseur (bas gauche) : taille d'un emplacement et écart.
 const SPELL_SLOT := 64.0
 const SPELL_GAP := 34.0
@@ -64,8 +73,11 @@ func _process(delta: float) -> void:
 	_tip_time = maxf(_tip_time - delta, 0.0)
 	if ctx and not _tips.is_empty() and ctx.time >= float(_tips[0][0]):
 		_tip_text = tr(str(_tips[0][1]))
-		if str(_tips[0][1]) == "TIP_SPELLS":
-			_tip_text = _tip_text % [InputSetup.key_label(&"spell_1"), InputSetup.key_label(&"spell_2")]
+		var labels: Array = []
+		for action: StringName in TIP_KEYS.get(str(_tips[0][1]), []):
+			labels.append(InputSetup.key_label(action))
+		if not labels.is_empty():
+			_tip_text = _tip_text % labels
 		_tip_time = 7.0
 		_tips.pop_front()
 	_spell_icon_layer.queue_redraw()
@@ -147,7 +159,9 @@ func _draw() -> void:
 			HORIZONTAL_ALIGNMENT_CENTER, w)
 	var kills: int = int(ctx.stats.get_value(&"kills"))
 	_text(Vector2(w - 220, 40), tr("HUD_KILLS") % kills, 18, Color.WHITE, HORIZONTAL_ALIGNMENT_RIGHT, 200)
-	_text(Vector2(w - 220, 62), tr("HUD_RELICS") % ctx.build.relics.size(), 15, UiKit.GOLD, HORIZONTAL_ALIGNMENT_RIGHT, 200)
+	if ctx.balance.feature_enabled(&"relics"):
+		_text(Vector2(w - 220, 62), tr("HUD_RELICS") % ctx.build.relics.size(), 15, UiKit.GOLD, HORIZONTAL_ALIGNMENT_RIGHT,
+			200)
 	# Synergies actives (sous la mini-carte)
 	var y: float = 96.0
 	var map_frame: Rect2 = minimap.frame_rect()
@@ -158,6 +172,7 @@ func _draw() -> void:
 		_text(Vector2(w - 320, y), "◆ " + tr(synergy.name_key), 15, synergy.color, HORIZONTAL_ALIGNMENT_RIGHT, 300)
 		y += 20.0
 	_draw_team(w, h)
+	_draw_echo_cooldowns()
 	_draw_boss(w)
 	if _banner_time > 0.0:
 		var alpha: float = clampf(_banner_time, 0.0, 1.0)
@@ -210,14 +225,14 @@ func _draw_team(w: float, h: float) -> void:
 		if tech:
 			var cd: float = ally.technique_cd
 			var ready: bool = cd <= 0.0
-			var key_text: String = "[%d] " % (i + 1)
+			var key_text: String = "[%s] " % InputSetup.key_label(HumanBrain.TECHNIQUE_ACTIONS[i])
 			var label: String = key_text + (tr(tech.name_key) if ready else "%.1fs" % cd)
 			_text(rect.position + Vector2(68, 60), label, 14, UiKit.GOLD if ready else UiKit.MUTED)
 			if not ready:
 				var ratio: float = cd / maxf(ally.technique_cooldown(), 0.01)
 				draw_rect(Rect2(rect.position + Vector2(0, 70), Vector2(card_w * (1.0 - ratio), 2)), UiKit.GOLD)
 		x += card_w + 12.0
-	if ctx.allies.has_free_slot():
+	if ctx.allies.has_free_slot() and not ctx.milestones():
 		var free: int = ctx.allies.team_slots() - team.size()
 		_text(Vector2(0, h - 96), tr("HUD_FREE_SLOT") % free, 13, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 
@@ -268,6 +283,41 @@ func _spell_icon(spell: SpellData) -> Texture2D:
 		var node: SkillNodeData = HunterTree.spell_node(spell.id)
 		_icons[key] = HunterTreeSkin.icon(node) if node else null
 	return _icons[key]
+
+
+## Recharges des Techniques sous le Chasseur (demande du propriétaire, 24 octobre 2026) : un petit carré par Écho,
+## icône + secondes restantes, pour suivre les recharges sans quitter l'action des yeux. Discret : semi-transparent,
+## et la case prête s'allume brièvement puis reste sobre.
+func _draw_echo_cooldowns() -> void:
+	var team: Array[Ally] = ctx.allies.team
+	if team.is_empty() or not ctx.player.alive:
+		return
+	var feet: Vector2 = ctx.player.get_global_transform_with_canvas().origin + Vector2(0, COOLDOWN_OFFSET)
+	var total: float = COOLDOWN_SIZE * team.size() + COOLDOWN_GAP * (team.size() - 1)
+	var x: float = feet.x - total * 0.5
+	for i: int in team.size():
+		var ally: Ally = team[i]
+		if ally.technique == null:
+			x += COOLDOWN_SIZE + COOLDOWN_GAP
+			continue
+		var rect := Rect2(x, feet.y, COOLDOWN_SIZE, COOLDOWN_SIZE)
+		var cd: float = ally.technique_cd
+		var ready: bool = cd <= 0.0
+		draw_rect(rect, Color(0.05, 0.06, 0.1, 0.55))
+		var icon: Texture2D = _icon_for(ally)
+		if icon:
+			draw_texture_rect(icon, rect.grow(-2.0), false, Color(1, 1, 1, 0.95 if ready else 0.4))
+		if ready:
+			draw_rect(rect, Color(UiKit.GOLD, 0.9), false, 2.0)
+		else:
+			var left: float = clampf(cd / maxf(ally.technique_cooldown(), 0.01), 0.0, 1.0)
+			draw_rect(Rect2(rect.position, Vector2(COOLDOWN_SIZE, COOLDOWN_SIZE * left)), Color(0, 0, 0, 0.45))
+			draw_rect(rect, Color(ally.data.visual.primary.lightened(0.3), 0.6), false, 1.0)
+			_text(rect.position + Vector2(0, COOLDOWN_SIZE * 0.5 + 7), str(ceili(cd)), 18, Color.WHITE,
+				HORIZONTAL_ALIGNMENT_CENTER, COOLDOWN_SIZE)
+		_text(rect.position + Vector2(2, 11), InputSetup.key_label(HumanBrain.TECHNIQUE_ACTIONS[i]), 10,
+			UiKit.GOLD if ready else UiKit.MUTED)
+		x += COOLDOWN_SIZE + COOLDOWN_GAP
 
 
 func _icon_for(ally: Ally) -> Texture2D:

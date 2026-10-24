@@ -21,3 +21,5 @@ extends Resource
 @export var start_levels: int = 0
 @export var color: Color = Color(1.0, 0.8, 0.4)
 @export var order: int = 0
+## Fonctionnalité dont dépend ce contenu (BalanceConfig.disabled_features) : masqué quand elle est mise de côté.
+@export var feature: StringName = &""

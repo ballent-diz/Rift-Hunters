@@ -47,11 +47,13 @@ func test_locked_upgrade_not_offered() -> void:
 func test_recruit_requires_free_slot() -> void:
 	check(_keys(UpgradeOffers.candidates(run.ctx)).has("recruit:mossback"), "Pacte proposé avec un emplacement libre")
 	run.ctx.allies.add_monster(&"mossback")
-	var keys: Array[String] = _keys(UpgradeOffers.candidates(run.ctx))
-	check(not keys.has("recruit:glimmerwing"), "plus de Pacte quand l'équipe est pleine (2 emplacements)")
+	run.ctx.allies.add_monster(&"glimmerwing")
+	for key: String in _keys(UpgradeOffers.candidates(run.ctx)):
+		check(not key.begins_with("recruit:"), "plus de Pacte quand l'équipe est pleine (3 emplacements)")
 
 
 func test_evolution_offered_at_rank_three() -> void:
+	enable_features([&"evolutions"])
 	var keys: Array[String] = _keys(UpgradeOffers.candidates(run.ctx))
 	check(not keys.has("evolve:eclipse_blade"), "pas d'évolution au rang 1")
 	run.ctx.allies.empower(&"ashblade")
@@ -81,6 +83,7 @@ func test_pyrefang_becomes_area_and_burns() -> void:
 
 
 func test_secret_evolution_conditions() -> void:
+	enable_features([&"evolutions", &"relics"])
 	run.ctx.player.stats.add_modifier(StatKeys.TEAM_SLOTS, 1.0)
 	run.ctx.allies.add_monster(&"glimmerwing", 3)
 	var ally: Ally = run.ctx.allies.get_ally(&"glimmerwing")

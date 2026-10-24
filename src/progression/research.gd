@@ -35,6 +35,7 @@ static func perform(profile: ProfileData, item: ResearchData) -> bool:
 static func sorted() -> Array[ResearchData]:
 	var list: Array[ResearchData] = []
 	for id: StringName in GameDB.research:
-		list.append(GameDB.research[id])
+		if GameDB.balance.feature_enabled((GameDB.research[id] as ResearchData).feature):
+			list.append(GameDB.research[id])
 	list.sort_custom(func(a: ResearchData, b: ResearchData) -> bool: return a.order < b.order)
 	return list
