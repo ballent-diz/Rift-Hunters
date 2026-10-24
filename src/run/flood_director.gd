@@ -10,6 +10,9 @@ enum State { CALM, WARNING, FLOOD }
 const TICK := 0.5
 const WATER := Color(0.25, 0.52, 0.85)
 const FOAM := Color(0.85, 0.95, 1.0)
+## Habillage « lave » (carte 9) : débordement de lave sur la croûte refroidie.
+const LAVA := Color(1.0, 0.42, 0.08)
+const LAVA_GLOW := Color(1.0, 0.85, 0.35)
 
 var ctx: RunContext
 var state: State = State.CALM
@@ -72,6 +75,7 @@ func step(delta: float) -> void:
 			if _timer <= 0.0:
 				state = State.CALM
 				_timer = ctx.arena.flood_interval
+				_afterburn()
 	queue_redraw()
 	_telegraph.queue_redraw()
 
@@ -82,7 +86,7 @@ func _warn() -> void:
 	_next = (_next + 1) % ctx.arena.flood_lanes.size()
 	_timer = ctx.arena.flood_warning
 	if floods == 0:
-		ctx.events.event_started.emit("FLOOD_INTRO")
+		ctx.events.event_started.emit("LAVA_INTRO" if is_lava() else "FLOOD_INTRO")
 
 
 func _surge() -> void:
@@ -97,14 +101,37 @@ func _surge() -> void:
 func _strike() -> void:
 	var rect: Rect2 = lane_rect()
 	if rect.has_point(ctx.player.global_position):
-		ctx.combat.damage_player(ctx.arena.flood_damage * ctx.difficulty.enemy_damage_mult, &"flood")
+		ctx.combat.damage_player(ctx.arena.flood_damage * ctx.difficulty.enemy_damage_mult, source_id())
 	var reach: float = rect.size.length() * 0.5
 	for enemy: Enemy in ctx.enemies.query_radius(rect.get_center(), reach):
 		if not enemy.alive or enemy.is_boss or enemy.is_obstacle or not rect.has_point(enemy.position):
 			continue
 		var info := DamageInfo.make(enemy.max_hp * ctx.arena.flood_enemy_ratio, DamageInfo.SourceKind.ENVIRONMENT,
-			&"flood")
+			source_id())
 		ctx.combat.deal_damage(enemy, info)
+
+
+func is_lava() -> bool:
+	return ctx.arena.flood_style == &"lava"
+
+
+func source_id() -> StringName:
+	return &"lava" if is_lava() else &"flood"
+
+
+## Lave : en se retirant, le débordement laisse des plaques brûlantes le long du lit (sol brûlant, BurnDirector).
+func _afterburn() -> void:
+	if ctx.arena.flood_afterburn <= 0.0 or ctx.burn == null:
+		return
+	var rect: Rect2 = lane_rect()
+	var radius: float = minf(rect.size.x, rect.size.y) * 0.5
+	var along: Vector2 = Vector2.RIGHT if rect.size.x >= rect.size.y else Vector2.DOWN
+	var length: float = maxf(rect.size.x, rect.size.y)
+	var count: int = maxi(1, int(length / (radius * 1.6)))
+	for i: int in count:
+		var t: float = (i + 0.5) / count
+		ctx.burn.add_plate(rect.position + rect.size * 0.5 + along * (t - 0.5) * length, radius,
+			ctx.arena.flood_afterburn)
 
 
 ## Poussée du flot à cette position (px/s ; zéro hors de la crue).
@@ -132,9 +159,11 @@ func _draw() -> void:
 	if ctx == null or lane < 0 or _rise <= 0.0 or not lane_rect().intersects(_view()):
 		return
 	var rect: Rect2 = lane_rect()
-	draw_rect(rect, Color(WATER, 0.6 * _rise))
+	var lava: bool = is_lava()
+	draw_rect(rect, Color(LAVA if lava else WATER, (0.75 if lava else 0.6) * _rise))
 	if state == State.FLOOD:
-		TerrainDirector.draw_flow(self, rect, lane_dir(), _time * ctx.arena.flood_push, Color(FOAM, 0.75 * _rise))
+		var speed: float = 60.0 if lava else ctx.arena.flood_push
+		TerrainDirector.draw_flow(self, rect, lane_dir(), _time * speed, Color(LAVA_GLOW if lava else FOAM, 0.75 * _rise))
 
 
 func _draw_telegraph() -> void:

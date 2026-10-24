@@ -53,6 +53,7 @@ func test_survival_still_drops_xp() -> void:
 
 
 func test_milestone_grants_a_choice_without_small_stats() -> void:
+	enable_features([&"relics"])
 	var ctx: RunContext = _start(&"three_rifts")
 	ctx.events.milestone_reached.emit()
 	check_eq(ctx.player.pending_levels, 1, "un jalon : un choix")

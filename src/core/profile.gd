@@ -113,7 +113,7 @@ func unlocked_arenas() -> Array[ArenaData]:
 func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSetup:
 	var setup := RunSetup.new()
 	var unlocked: Array[StringName] = unlocked_monsters()
-	setup.starter_id = starter_id if starter_id != &"" else StringName(profile.preference("starter", "mossback"))
+	setup.starter_id = starter_id if starter_id != &"" else (team()[0] if not team().is_empty() else &"")
 	if not unlocked.has(setup.starter_id) and not unlocked.is_empty():
 		setup.starter_id = unlocked[0]
 	setup.arena_id = previous.arena_id if previous else StringName(profile.preference("arena", "three_rifts"))
@@ -166,9 +166,40 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	var starter: MonsterData = GameDB.monster(setup.starter_id)
 	if starter:
 		setup.starter_rank = Mastery.start_rank(profile, starter)
-		setup.starter_variant = Mastery.variant_unlocked(profile, starter) \
-			and bool(profile.mastery_entry(setup.starter_id).get("use_variant", false))
+		setup.starter_variant = _uses_variant(starter)
+	for id: StringName in team():
+		if id == setup.starter_id or setup.companion_ids.size() + 1 >= GameDB.balance.max_team_slots:
+			continue
+		setup.companion_ids.append(id)
+		setup.companion_ranks[id] = Mastery.start_rank(profile, GameDB.monster(id))
+		setup.companion_variants[id] = _uses_variant(GameDB.monster(id))
 	return setup
+
+
+func _uses_variant(monster: MonsterData) -> bool:
+	return Mastery.variant_unlocked(profile, monster) and bool(profile.mastery_entry(monster.id).get("use_variant", false))
+
+
+## Équipe choisie au refuge (préférence « team »), Échos débloqués seulement, l'Écho de tête en premier.
+func team() -> Array[StringName]:
+	var unlocked: Array[StringName] = unlocked_monsters()
+	var ids: Array[StringName] = []
+	for raw: String in str(profile.preference("team", profile.preference("starter", ""))).split(",", false):
+		var id := StringName(raw)
+		if unlocked.has(id) and not ids.has(id) and ids.size() < GameDB.balance.max_team_slots:
+			ids.append(id)
+	if ids.is_empty() and not unlocked.is_empty():
+		ids.append(unlocked[0])
+	return ids
+
+
+func set_team(ids: Array[StringName]) -> void:
+	var parts: PackedStringArray = []
+	for id: StringName in ids:
+		parts.append(String(id))
+	profile.set_preference("team", ",".join(parts))
+	if not ids.is_empty():
+		profile.set_preference("starter", String(ids[0]))
 
 
 func apply_run_result(result: Dictionary) -> Dictionary:

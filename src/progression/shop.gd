@@ -12,7 +12,7 @@ static func items_of(kind: StringName) -> Array[ShopItemData]:
 	var list: Array[ShopItemData] = []
 	for id: StringName in GameDB.sorted_ids(GameDB.shop_items):
 		var item: ShopItemData = GameDB.shop_items[id]
-		if item.kind == kind:
+		if item.kind == kind and GameDB.balance.feature_enabled(item.feature):
 			list.append(item)
 	list.sort_custom(func(a: ShopItemData, b: ShopItemData) -> bool: return a.order < b.order)
 	return list

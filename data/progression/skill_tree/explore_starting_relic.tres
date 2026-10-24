@@ -13,6 +13,7 @@ pct = 0.0
 [resource]
 script = ExtResource("1")
 id = &"explore_starting_relic"
+feature = &"relics"
 branch = &"exploration"
 tier = 3
 name_key = "NODE_EXPLORE_STARTING_RELIC_NAME"
