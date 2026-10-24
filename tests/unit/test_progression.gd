@@ -243,7 +243,7 @@ func test_team_chosen_at_the_refuge() -> void:
 	var setup: RunSetup = _setup_from(profile)
 	check_eq(setup.starter_id, &"mossback", "le premier mène l'équipe")
 	check_eq(setup.companion_ids, [&"ashblade", &"glimmerwing"] as Array[StringName], "3 Échos au plus, débloqués")
-	var run: RunController = load("res://scenes/run.tscn").instantiate()
+	var run: RunController = load(Router.RUN).instantiate()
 	run.skip_profile = true
 	setup.autopilot = true
 	run.start(setup)
