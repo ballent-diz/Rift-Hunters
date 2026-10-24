@@ -15,8 +15,8 @@
 [sub_resource type="Resource" id="attack_data_1"]
 script = ExtResource("2")
 name_key = "ATTACK_ASHBLADE"
-damage = 16.0
-cooldown = 1.05
+damage = 13.0
+cooldown = 1.15
 attack_range = 200.0
 knockback = 30.0
 
@@ -24,7 +24,7 @@ knockback = 30.0
 script = ExtResource("3")
 source_filter = &"owner"
 target_status = &"fracture"
-bonus_pct = 0.6
+bonus_pct = 0.4
 
 [sub_resource type="Resource" id="technique_data_3"]
 script = ExtResource("4")
@@ -32,10 +32,10 @@ id = &"ash_dance"
 technique_kind = &"ash_dance"
 name_key = "TECHNIQUE_ASH_DANCE_NAME"
 desc_key = "TECHNIQUE_ASH_DANCE_DESC"
-cooldown = 12.0
-damage = 30.0
+cooldown = 13.0
+damage = 24.0
 radius = 220.0
-count = 6
+count = 5
 
 [sub_resource type="Resource" id="attack_data_5"]
 script = ExtResource("2")

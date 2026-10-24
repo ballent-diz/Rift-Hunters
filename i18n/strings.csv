@@ -85,7 +85,7 @@ STATUS_BURN_DESC,"Dégâts sur la durée, se cumule 3 fois.","Damage over time, 
 STATUS_SLOW_NAME,Entrave,Hinder
 STATUS_SLOW_DESC,Vitesse −40 %.,Speed −40%.
 MONSTER_ASHBLADE_NAME,Cendrelame,Ashblade
-MONSTER_ASHBLADE_DESC,Assassin. Bondit sur ses proies et exécute les ennemis Fracturés (+60 % de dégâts).,Assassin. Leaps on prey and executes Fractured enemies (+60% damage).
+MONSTER_ASHBLADE_DESC,Assassin. Bondit sur ses proies et exécute les ennemis Fracturés (+40 % de dégâts).,Assassin. Leaps on prey and executes Fractured enemies (+40% damage).
 MONSTER_ASHBLADE_LORE,"Né d'une coulée d'obsidienne qui refusait de refroidir, il chasse en silence ce qui saigne déjà.","Born from an obsidian flow that refused to cool, it silently hunts whatever already bleeds."
 MONSTER_MOSSBACK_NAME,Mousseroc,Mossback
 MONSTER_MOSSBACK_DESC,Gardien. Frappe le sol pour Fracturer les ennemis. Technique : Puits de gravité.,Guardian. Pounds the ground to Fracture enemies. Technique: Gravity Well.
@@ -97,13 +97,13 @@ ATTACK_ASHBLADE,Taille,Slash
 ATTACK_MOSSBACK,Fracas,Crash
 ATTACK_GLIMMERWING,Éclat prismatique,Prism Shard
 PASSIVE_ASHBLADE_NAME,Exécuteur,Executioner
-PASSIVE_ASHBLADE_DESC,+60 % de dégâts contre les ennemis Fracturés.,+60% damage against Fractured enemies.
+PASSIVE_ASHBLADE_DESC,+40 % de dégâts contre les ennemis Fracturés.,+40% damage against Fractured enemies.
 PASSIVE_MOSSBACK_NAME,Rempart,Bulwark
 PASSIVE_MOSSBACK_DESC,Le Chasseur subit 10 % de dégâts en moins près de Mousseroc.,The Hunter takes 10% less damage near Mossback.
 PASSIVE_GLIMMERWING_NAME,Lumière apaisante,Soothing Light
 PASSIVE_GLIMMERWING_DESC,"Toutes les 25 Marques posées, soigne le Chasseur de 3 PV.","Every 25 Marks applied, heals the Hunter for 3 HP."
 TECHNIQUE_ASH_DANCE_NAME,Danse des cendres,Ash Dance
-TECHNIQUE_ASH_DANCE_DESC,Enchaîne 6 frappes sur les ennemis autour du point visé.,Chains 6 strikes on enemies around the aimed point.
+TECHNIQUE_ASH_DANCE_DESC,Enchaîne 5 frappes sur les ennemis autour du point visé.,Chains 5 strikes on enemies around the aimed point.
 TECHNIQUE_GRAVITY_WELL_NAME,Puits de gravité,Gravity Well
 TECHNIQUE_GRAVITY_WELL_DESC,Aspire les ennemis vers l'avant pendant 3 s puis implose (Fracture).,"Pulls enemies forward for 3 s, then implodes (Fracture)."
 TECHNIQUE_PRISM_FLARE_NAME,Embrasement,Prismatic Flare
