@@ -4,7 +4,8 @@
 
 Branche `codex/carte-coeur-du-volcan` depuis main à jour. Composition en spirale, caldeira
 en croissant élargie par retouche locale et masque provisoire de trois lits de débordement. Voir docs/maps/COEUR_DU_VOLCAN.md : écarts des repères et largeur autour des aiguilles à valider. Arrêt pour validation avant
-les régions. Aucun changement de src/, data/ ou des collisions.
+les régions. Version raccordée et centre élargi validée le 24 octobre.
+Aucun changement de src/, data/ ou des collisions.
 
 ## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 

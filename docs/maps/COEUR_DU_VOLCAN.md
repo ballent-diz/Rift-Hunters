@@ -3,7 +3,8 @@
 Chapitre 2, « Les Terres dévastées ». Monde prévu : **5016 × 5016 unités**.
 Composition **1536 × 1536**, issue d'une génération native 1254 × 1254 remise au format de
 composition. **Ce fichier n'est pas une carte finale agrandie ni un niveau jouable.**
-Arrêt pour validation du propriétaire avant peinture des collisions et régions.
+Version avec raccord nord-ouest et centre élargi validée le 24 octobre 2026 (« on garde celle la »).
+Le plan est figé ; peinture des collisions et régions restent à réaliser.
 
 ![Carte entière](../previews/volcano-heart/composition.png)
 
@@ -31,7 +32,7 @@ Le brief complet et ses coordonnées initiales sont conservés dans `source/BRIE
 | Zone 1 | 22,70 | 22,70 | Replat extérieur ouest |
 | Zone 2 | 30,25 | 30,12 | La terrasse nord-ouest est plus au nord que demandé ; 30,25 tombe près de la lave |
 | Zone 3 | 76,30 | 76,21 | Large replat extérieur nord-est ; descente sur le flanc est |
-| Passage P1 | environ 18,49 au prompt | environ 17,32 | Col ouest ; limite de zone à choisir lors des collisions |
+| Passage P1 | environ 18,49 au prompt | environ 21,23 | Rampe ancrée entre les plateaux ouest et nord-ouest, sans mur aux sorties |
 | Passage P2 | environ 50,18 au prompt | environ 51,17 | Passage nord sur le replat |
 | Passage P3 | environ 77,48 au prompt | environ 78,48 | Raccord unique du parcours extérieur au croissant |
 | Caldeira A | 55,52 | environ 58,55 | Lac intérieur infranchissable et sol en croissant |
@@ -72,15 +73,17 @@ polylignes, méthode et chiffres sont fournis dans `flows.json`.
 | Route principale | ≥200 unités | Grands replats visibles, à mesurer sur les collisions |
 | Passages | ≥120 unités | Cols/raccord est visibles ; gabarit exact à confirmer |
 | Zones de combat | ≥750 unités | Grandes terrasses ouest, nord et est ; pas de masque de surface certifié |
-| Caldeira | Croissant ≥500 de large, arc ≥1800 | Arc principal estimé >3000 unités ; trois sections centrales estimées ≈515–585, mais les pointes sont plus étroites |
+| Caldeira | Croissant ≥500 de large, arc ≥1800 | Arc principal estimé >3000 unités ; croissant encore élargi sur la version validée ; largeur locale exacte à mesurer sur les collisions |
 | Contournement des aiguilles | Assez d'espace pour boss/équipe | Retouche d'élargissement faite ; largeur minimale autour des obstacles **non certifiée**, à valider avant régions |
 | Sol praticable | ≥50% | Non certifié sans peinture ; aucune statistique inventée |
 | Abris | ≥120, espacement ≥350 | Quatre blocs extérieurs et deux aiguilles, visuellement séparés ; collisions à détourer |
 | Lits | 150–250 de large ; 500–1000 de long | Longueurs et largeurs moyennes des trois masques dans les intervalles, hors pointes |
 | Qualité finale | Régions + rapport conforme | Non applicable à la composition ; reste à faire après validation |
 
-La retouche locale unique a réduit les trois lits et élargi le sol du croissant en
-prenant sur le lac intérieur, sans ajouter une seconde entrée.
+La version choisie conserve les lits de la référence initiale, ajoute une rampe au
+nord-ouest reliant deux plateaux et élargit le croissant en prenant sur le lac.
+Les masques restent des portions provisoires de ces bandes plus longues ; aucune
+prétention de couvrir leur emprise complète. Le pont inutile au sud-ouest est rejeté.
 
 ![Avant / après](../previews/volcano-heart/avant_apres.png)
 
@@ -91,7 +94,7 @@ prenant sur le lac intérieur, sans ajouter une seconde entrée.
 - [x] Lave et falaises lisibles ; bords fermés ; pas d'objet flottant visible.
 - [x] Trois lits refroidis et masque provisoire à quatre couleurs au total.
 - [x] Deux aiguilles demandées et quatre abris extérieurs.
-- [ ] Validation des écarts de positions et des cols par le propriétaire.
+- [x] Version retenue par le propriétaire le 24 octobre, source et SHA256 conservés.
 - [ ] Validation des largeurs minimales et du contournement des aiguilles.
 - [ ] Surface praticable ≥50% confirmée sur la peinture.
 - [ ] Collisions du propriétaire puis régions, comparaison d'échelle, qualité conforme et netteté finale.
@@ -100,8 +103,8 @@ prenant sur le lac intérieur, sans ajouter une seconde entrée.
 
 Sources, références de style, prompts exacts et SHA256 :
 `assets/concepts/incoming/map.volcano_heart/source/`. Le `job.json` reste `wip`,
-`owner_approved=false`, `regions_started=false`. Aucun manifeste d'environnement final
-ni `field` n'est créé : Claude intègrera le terrain après validation et collisions.
+`owner_approved=true`, `regions_started=false`. Aucun manifeste d'environnement final
+ni `field` n'est créé : Claude intègrera le terrain après peinture des collisions.
 La pluie de roches, les alertes au sol, dégâts, vagues et Pyrevorn sont entièrement
 à coder côté Claude ; aucun impact, cercle ou boss n'est peint dans la composition.
 Contrôle ciblé de chargement des deux PNG, structure/couleurs du masque et sources

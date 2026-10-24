@@ -256,7 +256,7 @@
       "method": "Détourage manuel provisoire intérieur de la croûte ; longueur de polyligne, largeur moyenne aire/longueur, pas une largeur minimale garantie."
     }
   ],
-  "owner_approved": false,
+  "owner_approved": true,
   "regions_started": false,
   "collision_authored": false,
   "reserves": [
@@ -284,5 +284,8 @@
     "errors": 0,
     "scope": "Projet isolé : les sources incoming sont ignorées par Godot, aucun niveau ni src modifié."
   },
-  "sha256_sources_validated": true
+  "sha256_sources_validated": true,
+  "approved_source_sha256": "dfb6f3d7873bde75581c5d0cbc4d908850a46e0a9efc8ec1dc99fcde627d6338",
+  "connection": "Rampe au nord-ouest, deux extrémités sur sol libre vérifiées visuellement.",
+  "central_floor": "Croissant élargi, deux aiguilles avec sol dégagé; collisions non peintes."
 }

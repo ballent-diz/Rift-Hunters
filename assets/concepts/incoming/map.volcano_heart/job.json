@@ -9,18 +9,22 @@
   "composition": "composition.png",
   "flows": "flows.png",
   "flows_data": "flows.json",
-  "owner_approved": false,
+  "owner_approved": true,
   "regions_started": false,
-  "source": "source/composition_retouche_originale.png",
+  "source": "source/composition_validee.png",
   "prompts": [
     "source/PROMPT_COMPOSITION.txt",
-    "source/PROMPT_RETOUCHE.txt"
+    "source/PROMPT_RETOUCHE.txt",
+    "source/PROMPT_RACCORD_CENTRE.txt"
   ],
   "style_references": [
     "source/references/ruines.png",
     "source/references/lisiere.png",
     "source/references/coulees.png"
   ],
-  "next_step": "Validation propriétaire puis peinture des collisions ; seulement ensuite régions et qualité conforme.",
-  "transformation": "1254 × 1254 vers 1536 × 1536 pour format de COMPOSITION uniquement ; aucun détail final prétendu."
+  "next_step": "Plan validé : détails par régions après la carte 7. Ne pas recomposer ni modifier les collisions.",
+  "transformation": "1254 × 1254 vers 1536 × 1536 pour format de COMPOSITION uniquement ; aucun détail final prétendu.",
+  "owner_approval_date": "2026-10-24",
+  "plan_locked": true,
+  "approved_source_sha256": "dfb6f3d7873bde75581c5d0cbc4d908850a46e0a9efc8ec1dc99fcde627d6338"
 }

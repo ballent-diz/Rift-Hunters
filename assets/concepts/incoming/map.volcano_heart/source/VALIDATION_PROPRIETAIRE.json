@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-24",
+  "request": "on garde celle la",
+  "source": "composition_validee.png",
+  "sha256": "dfb6f3d7873bde75581c5d0cbc4d908850a46e0a9efc8ec1dc99fcde627d6338",
+  "bridge_observed_percent": [
+    21,
+    23
+  ],
+  "central_floor": "élargi en prenant sur le lac de lave",
+  "plan_locked": true
+}
