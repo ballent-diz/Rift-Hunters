@@ -1,0 +1,115 @@
+{
+  "tool": "imagegen intégré",
+  "prompt": "PROMPT_REGION.txt exact pour les douze premières générations",
+  "palette_repair": "PROMPT_RETOUCHE_PALETTE.txt pour r1_2 uniquement",
+  "regions": [
+    {
+      "id": "r0_0",
+      "file": "regions/r0_0.png",
+      "dimensions": [
+        1321,
+        1191
+      ],
+      "sha256": "2a3f9e90a25dfa4c6dd1d5d444477859bcd86c8b4e14d6acb62d7b504d41dde4"
+    },
+    {
+      "id": "r0_1",
+      "file": "regions/r0_1.png",
+      "dimensions": [
+        1394,
+        1128
+      ],
+      "sha256": "93028167aa8bc361ea81b0c6174047979b4875a7c10b87b0489d8180edc7a1bb"
+    },
+    {
+      "id": "r0_2",
+      "file": "regions/r0_2.png",
+      "dimensions": [
+        1394,
+        1128
+      ],
+      "sha256": "3e695ac150192b7c8a5aa8e8a1eddd5481e0c51ae6bee5f5641cb7bf4a39436d"
+    },
+    {
+      "id": "r0_3",
+      "file": "regions/r0_3.png",
+      "dimensions": [
+        1321,
+        1191
+      ],
+      "sha256": "f034f6470b3e3dcb30b64eadfdadf7891782914a26dde2129aa99f71b0fc4004"
+    },
+    {
+      "id": "r1_0",
+      "file": "regions/r1_0.png",
+      "dimensions": [
+        1244,
+        1264
+      ],
+      "sha256": "a5cf4948ca911d61504a18951da0b37bfc31d63cea6bf58f22c0839cc1964e7f"
+    },
+    {
+      "id": "r1_1",
+      "file": "regions/r1_1.png",
+      "dimensions": [
+        1315,
+        1197
+      ],
+      "sha256": "45843c63e94e0d935577344556f2728c57f6465531aa06ace15cab9a9a6d9df3"
+    },
+    {
+      "id": "r1_2",
+      "file": "regions/r1_2.png",
+      "dimensions": [
+        1314,
+        1197
+      ],
+      "sha256": "c025a7454818702c10d59db126a5b14b01866f128868efd5007a7a766b5971c1"
+    },
+    {
+      "id": "r1_3",
+      "file": "regions/r1_3.png",
+      "dimensions": [
+        1243,
+        1265
+      ],
+      "sha256": "22a2ef759bec812b53bd6b80ae701156b3e2276afb93a15706f23c1352f071aa"
+    },
+    {
+      "id": "r2_0",
+      "file": "regions/r2_0.png",
+      "dimensions": [
+        1321,
+        1191
+      ],
+      "sha256": "79648445f22e008f3d54c0f3bfcd09907291f447386dd5f976c0628ded2b2b47"
+    },
+    {
+      "id": "r2_1",
+      "file": "regions/r2_1.png",
+      "dimensions": [
+        1394,
+        1128
+      ],
+      "sha256": "f0a11755ffb46ef12892cb5498e14fd529bad4064dacb11eb267903951fcc064"
+    },
+    {
+      "id": "r2_2",
+      "file": "regions/r2_2.png",
+      "dimensions": [
+        1394,
+        1128
+      ],
+      "sha256": "26f39dc57d04823f1739cc5c98af52a131c46d049030d67c91b06d865ae145ea"
+    },
+    {
+      "id": "r2_3",
+      "file": "regions/r2_3.png",
+      "dimensions": [
+        1321,
+        1191
+      ],
+      "sha256": "a17758aebeacee65e38f81136a6eeb79fcf9f0b877a1a241ea44a5cdda8a2346"
+    }
+  ]
+}

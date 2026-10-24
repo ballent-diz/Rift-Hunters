@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## B3 — Carte 7, Évents de cendre : détails livrés pour revue (Codex)
+
+Branche codex/carte-events-detail depuis main à jour. Plan validé conservé, douze régions, trois tuiles assemblées, contrôle qualité CONFORME et planche d’échelle. Réserve de netteté locale documentée ; pas de qualification finale ni niveau jouable. Aucun changement de collisions ou de gameplay.
+
+
 ## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 
 Branche `codex/carte-events-de-cendre`, depuis main à jour. Nouvelle composition en U, sans
