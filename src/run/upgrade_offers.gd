@@ -58,7 +58,8 @@ static func candidates(ctx: RunContext) -> Array[UpgradeOffer]:
 		offer.upgrade = upgrade
 		offer.weight = upgrade.weight * (mutation_weight if upgrade.kind == UpgradeData.Kind.MUTATION else 1.0)
 		result.append(offer)
-	if ctx.allies.has_free_slot():
+	# Campagne : l'équipe se compose au refuge, les jalons ne recrutent pas.
+	if ctx.allies.has_free_slot() and not ctx.milestones():
 		for id: StringName in GameDB.sorted_ids(GameDB.monsters):
 			var monster: MonsterData = GameDB.monsters[id]
 			var key: String = "recruit:" + String(id)

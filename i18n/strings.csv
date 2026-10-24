@@ -243,6 +243,8 @@ SAVE_RESTORED_BACKUP,Votre sauvegarde était endommagée : la copie de secours a
 SAVE_CORRUPTED,Votre sauvegarde est illisible et aucune copie de secours n'existe. Le fichier a été conservé à part ; un nouveau profil a été créé.,Your save is unreadable and no backup exists. The file was kept aside; a new profile was created.
 SAVE_NEWER_VERSION,Cette sauvegarde provient d'une version plus récente du jeu : elle ne sera pas modifiée.,This save comes from a newer version of the game: it will not be modified.
 EXPEDITION_STARTER,Écho de départ,Starting Echo
+EXPEDITION_TEAM,Équipe d'Échos (%d/%d),Echo team (%d/%d)
+EXPEDITION_TEAM_HINT,Cliquez sur un Écho pour l'ajouter à l'équipe ou l'en retirer. Le premier mène l'équipe. Chaque carte gagnée débloque un nouvel Écho.,Click an Echo to add it to the team or remove it. The first one leads the team. Each map won unlocks a new Echo.
 EXPEDITION_MASTERY,Maîtrise : niveau %d,Mastery: level %d
 EXPEDITION_LOCKED,Verrouillé,Locked
 EXPEDITION_UNLOCK_BY,Pour le débloquer : %s,To unlock: %s
@@ -1189,7 +1191,7 @@ EXPEDITION_MAP_NEW,Nouvelle,New
 EXPEDITION_MAP_LOCKED_BY,Terminez « %s »,Clear “%s”
 EXPEDITION_SURVIVAL_TAG,Survie,Survival
 EXPEDITION_SURVIVAL_NOTE,Épreuve d'endurance pour le score : tenez jusqu'au Dévoreur.,Endurance trial for score: hold out until the Devourer.
-EXPEDITION_WITH,Écho de départ : %s,Starting Echo: %s
+EXPEDITION_WITH,Équipe : %s,Team: %s
 FINALE_TRAVEL_PLAZA,Les failles sont refermées : rejoignez la place centrale.,The rifts are sealed: reach the central square.
 RIFTS_INTRO,Refermez les %d failles : détruisez-les pour arrêter les Corrompus.,Seal the %d rifts: destroy them to stop the Corrupted.
 RIFTS_PROGRESS,Failles refermées : %d / %d,Rifts sealed: %d / %d

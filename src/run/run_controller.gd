@@ -66,6 +66,9 @@ func start(setup: RunSetup) -> void:
 	ctx.stats.set_value(&"modifiers_count", float(setup.modifier_ids.size()))
 	if setup.starter_id != &"":
 		ctx.allies.add_monster(setup.starter_id, setup.starter_rank, setup.starter_variant)
+	for id: StringName in setup.companion_ids:
+		if ctx.allies.has_free_slot():
+			ctx.allies.add_monster(id, int(setup.companion_ranks.get(id, 1)), bool(setup.companion_variants.get(id, false)))
 	spawner = SpawnDirector.new(ctx)
 	ctx.spawner = spawner
 	if ctx.arena.has_finale():

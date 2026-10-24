@@ -221,7 +221,7 @@ accent = Color(0.95, 0.9, 0.95, 1.0)
 [resource]
 script = ExtResource("1")
 unlocked_by_default = false
-discovery = &"capture"
+discovery = &"victory"
 discovery_arena = &"chapter3_map5"
 id = &"gloommaw"
 name_key = "MONSTER_GLOOMMAW_NAME"

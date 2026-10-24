@@ -51,12 +51,14 @@ func test_only_ashblade_at_start_and_every_echo_has_a_source() -> void:
 		"boutique et récompenses")
 
 
-func test_map_echo_is_a_guaranteed_capture_then_owned_for_good() -> void:
+## Décision du 24 octobre 2026 : plus de capture en partie, l'Écho de la carte est la récompense de la victoire.
+func test_map_echo_is_the_victory_reward() -> void:
 	var target: MonsterData = null
-	for monster: MonsterData in _of(EchoCollection.CAPTURE):
+	for monster: MonsterData in _of(EchoCollection.VICTORY):
 		if monster.discovery_arena == &"three_rifts":
 			target = monster
-	check(target != null, "un Écho à découvrir sur la première carte")
+	check(target != null, "un Écho récompense la première carte")
+	check(_of(EchoCollection.CAPTURE).is_empty(), "plus aucun Écho à capturer")
 	var setup := RunSetup.new()
 	setup.arena_id = &"three_rifts"
 	setup.starter_id = &"ashblade"
@@ -67,16 +69,15 @@ func test_map_echo_is_a_guaranteed_capture_then_owned_for_good() -> void:
 	run.start(setup)
 	host.add_child(run)
 	run.set_physics_process(false)
-	var ctx: RunContext = run.ctx
-	check_eq(EchoCollection.capture_target(ctx), target.id, "Écho de la carte à découvrir")
-	ctx.enemies._maybe_spawn_capture(ctx.player.global_position + Vector2(200, 0))
-	check(ctx.pickups.has_capture(target.id), "son Écho errant apparaît à coup sûr")
-	ctx.pickups._complete_capture(target.id)
-	check(ctx.build.captures.has(target.id), "capturé")
+	check_eq(EchoCollection.capture_target(run.ctx), &"", "rien n'apparaît pendant la partie")
 	var result: Dictionary = run.build_result()
 	result["stats"] = {"counters": {}}
+	result["victory"] = false
 	MetaProgression.apply_run_result(profile, result)
-	check(profile.is_monster_unlocked(target), "débloqué pour toujours")
+	check(not profile.is_monster_unlocked(target), "pas sans victoire")
+	result["victory"] = true
+	MetaProgression.apply_run_result(profile, result)
+	check(profile.is_monster_unlocked(target), "débloqué à la victoire, pour toujours")
 
 
 func test_wandering_echoes_are_only_owned_ones_elsewhere() -> void:

@@ -234,3 +234,20 @@ func _setup_from(p: ProfileData, starter: StringName = &"") -> RunSetup:
 	var setup: RunSetup = Profile.make_run_setup(starter)
 	Profile.profile = original
 	return setup
+
+
+func test_team_chosen_at_the_refuge() -> void:
+	for id: String in ["mossback", "glimmerwing", "thornweave"]:
+		profile.unlock("monster:" + id)
+	profile.set_preference("team", "mossback,ashblade,glimmerwing,thornweave,voltwisp")
+	var setup: RunSetup = _setup_from(profile)
+	check_eq(setup.starter_id, &"mossback", "le premier mène l'équipe")
+	check_eq(setup.companion_ids, [&"ashblade", &"glimmerwing"] as Array[StringName], "3 Échos au plus, débloqués")
+	var run: RunController = load("res://scenes/run.tscn").instantiate()
+	run.skip_profile = true
+	setup.autopilot = true
+	run.start(setup)
+	host.add_child(run)
+	run.set_physics_process(false)
+	check_eq(run.ctx.allies.team_size(), 3, "l'équipe entière part")
+	RunFixture.dispose(run)

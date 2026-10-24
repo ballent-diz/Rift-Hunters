@@ -70,9 +70,10 @@ extends Resource
 @export var boss_enrage_damage_mult: float = 1.6
 @export var boss_enrage_speed_mult: float = 1.4
 @export_group("Fonctionnalités")
-## Fonctionnalités mises de côté (décision du propriétaire, 24 octobre 2026) : &"relics", &"chests", &"evolutions".
+## Fonctionnalités mises de côté (décision du propriétaire, 24 octobre 2026) : &"relics", &"chests", &"evolutions",
+## &"team_seal" (3e emplacement d'Écho par l'arbre : l'équipe de 3 est désormais ouverte d'office).
 ## Le contenu reste en données ; retirer l'identifiant de la liste le remet en jeu.
-@export var disabled_features: Array[StringName] = [&"relics", &"chests", &"evolutions"]
+@export var disabled_features: Array[StringName] = [&"relics", &"chests", &"evolutions", &"team_seal"]
 @export_group("Récompenses")
 @export var shards_per_minute: float = 8.0
 @export var shards_per_elite: float = 6.0

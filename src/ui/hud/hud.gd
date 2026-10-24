@@ -227,7 +227,7 @@ func _draw_team(w: float, h: float) -> void:
 				var ratio: float = cd / maxf(ally.technique_cooldown(), 0.01)
 				draw_rect(Rect2(rect.position + Vector2(0, 70), Vector2(card_w * (1.0 - ratio), 2)), UiKit.GOLD)
 		x += card_w + 12.0
-	if ctx.allies.has_free_slot():
+	if ctx.allies.has_free_slot() and not ctx.milestones():
 		var free: int = ctx.allies.team_slots() - team.size()
 		_text(Vector2(0, h - 96), tr("HUD_FREE_SLOT") % free, 13, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 
