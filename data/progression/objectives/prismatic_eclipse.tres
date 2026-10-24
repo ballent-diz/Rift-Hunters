@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1")
 id = &"prismatic_eclipse"
+feature = &"evolutions"
 category = 4
 name_key = "OBJ_PRISMATIC_ECLIPSE_NAME"
 desc_key = "OBJ_PRISMATIC_ECLIPSE_DESC"

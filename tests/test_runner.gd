@@ -27,9 +27,11 @@ func _ready() -> void:
 			total += 1
 			suite.current_test = "%s::%s" % [file.get_basename(), method_name]
 			var before: int = suite.failures.size()
+			var features: Array[StringName] = GameDB.balance.disabled_features.duplicate()
 			suite.before_each()
 			await suite.call(method_name)
 			suite.after_each()
+			GameDB.balance.disabled_features = features
 			# Laisse le moteur libérer les scènes créées par le test (queue_free) avant le suivant.
 			await get_tree().process_frame
 			await get_tree().process_frame

@@ -230,7 +230,7 @@ accent = Color(0.9, 0.95, 1.0, 1.0)
 [resource]
 script = ExtResource("11")
 unlocked_by_default = false
-discovery = &"capture"
+discovery = &"victory"
 discovery_arena = &"chapter2_map4"
 id = &"hollowflame"
 name_key = "MONSTER_HOLLOWFLAME_NAME"

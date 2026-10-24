@@ -197,9 +197,10 @@ static func activate(profile: ProfileData, node: SkillNodeData) -> bool:
 	_set_active(profile, node, active_rank(profile, node) + 1)
 	if node.kind == SkillNodeData.Kind.SPELL and slot_of(profile, node.spell_id) < 0:
 		var spells: Array = active_build(profile)["spells"]
-		var free: int = spells.find("")
-		if free >= 0:
-			spells[free] = String(node.spell_id)
+		for free: int in spells.size():
+			if spells[free] == "" and slot_unlocked(profile, free):
+				spells[free] = String(node.spell_id)
+				break
 	return true
 
 
@@ -232,10 +233,22 @@ static func slot_of(profile: ProfileData, spell_id: StringName) -> int:
 	return (active_build(profile)["spells"] as Array).find(String(spell_id))
 
 
-## Équipe un sort actif sur un emplacement (échange avec l'emplacement qu'il occupait).
+## Carte à gagner pour ouvrir l'emplacement (&"" : ouvert d'office).
+static func slot_unlock_arena(slot: int) -> StringName:
+	var arenas: Array[StringName] = GameDB.balance.spell_slot_unlock_arenas
+	return arenas[slot] if slot < arenas.size() else &""
+
+
+static func slot_unlocked(profile: ProfileData, slot: int) -> bool:
+	var arena_id: StringName = slot_unlock_arena(slot)
+	return arena_id == &"" or Campaign.wins(profile, arena_id) > 0
+
+
+## Équipe un sort actif sur un emplacement ouvert (échange avec l'emplacement qu'il occupait).
 static func equip(profile: ProfileData, spell_id: StringName, slot: int) -> bool:
 	var node: SkillNodeData = spell_node(spell_id)
-	if node == null or active_rank(profile, node) == 0 or slot < 0 or slot >= SPELL_SLOTS:
+	if node == null or active_rank(profile, node) == 0 or slot < 0 or slot >= SPELL_SLOTS \
+			or not slot_unlocked(profile, slot):
 		return false
 	var spells: Array = active_build(profile)["spells"]
 	var previous: int = spells.find(String(spell_id))
@@ -250,9 +263,10 @@ static func equip(profile: ProfileData, spell_id: StringName, slot: int) -> bool
 ## Sorts équipés (dans l'ordre des touches) et variantes actives {sort: variante}.
 static func loadout(profile: ProfileData) -> Dictionary:
 	var spells: Array[StringName] = []
-	for raw: Variant in active_build(profile)["spells"]:
-		var spell_id := StringName(str(raw))
-		var node: SkillNodeData = spell_node(spell_id) if spell_id != &"" else null
+	var equipped: Array = active_build(profile)["spells"]
+	for i: int in equipped.size():
+		var spell_id := StringName(str(equipped[i]))
+		var node: SkillNodeData = spell_node(spell_id) if spell_id != &"" and slot_unlocked(profile, i) else null
 		spells.append(spell_id if node and active_rank(profile, node) > 0 else &"")
 	var variants: Dictionary = {}
 	for id: StringName in GameDB.skill_nodes:

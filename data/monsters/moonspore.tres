@@ -222,7 +222,7 @@ accent = Color(0.85, 1.0, 0.95, 1.0)
 [resource]
 script = ExtResource("11")
 unlocked_by_default = false
-discovery = &"capture"
+discovery = &"victory"
 discovery_arena = &"cascade_source"
 id = &"moonspore"
 name_key = "MONSTER_MOONSPORE_NAME"

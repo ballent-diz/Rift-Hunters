@@ -13,6 +13,7 @@ pct = 0.0
 [resource]
 script = ExtResource("1")
 id = &"relic_cache"
+feature = &"relics"
 name_key = "SHOP_RELIC_CACHE_NAME"
 desc_key = "SHOP_RELIC_CACHE_DESC"
 kind = &"consumable"
