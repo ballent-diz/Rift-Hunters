@@ -1,10 +1,11 @@
 # Rift Hunters — feuille de route
 
-## B3 — Tanières de suie, carte 8 — composition et objets livrés pour revue (Codex)
+## B3 — Tanières de suie, carte 8 — composition validée, détail à faire (Codex)
 
 Branche `codex/carte-tanieres-de-suie` depuis main à jour. Composition carrée en zigzag,
-nef effondrée en diagonale, nid et œuf de cendre séparés. Arrêt avant les régions pour
-validation du propriétaire. Nid (18 poses) et œuf (12 poses) importés, GIF et contrôle ciblé
+nef effondrée en diagonale, nid et œuf de cendre séparés. Composition validée le
+24 octobre 2026 : plan figé, régions détaillées encore à faire. Les sprites restent inchangés ;
+la validation de composition ne vaut pas validation de ces objets. Nid (18 poses) et œuf (12 poses) importés, GIF et contrôle ciblé
 Godot 4.3 réussis. Carte non jouable à ce stade ; régions et peinture des collisions à suivre.
 Aucun changement dans `src/`, `data/` ou les collisions.
 

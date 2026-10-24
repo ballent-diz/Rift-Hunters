@@ -1,7 +1,7 @@
 # Tanières de suie — carte 8
 
-Chapitre 2, composition carrée pour un monde de **5016 × 5016 unités**. Proposition à valider
-avant toute passe de régions. Aucun niveau, collision ou réglage de combat créé par ce lot.
+Chapitre 2, composition carrée pour un monde de **5016 × 5016 unités**. Composition validée par le propriétaire le **24 octobre 2026** ; plan figé.
+La passe de détail par régions et la peinture des collisions restent à réaliser. Aucun niveau, collision ou réglage de combat créé par ce lot.
 
 ![Composition entière](../previews/soot-dens/composition.png)
 
@@ -25,7 +25,9 @@ font partie des ruines ; seuls les deux tronçons couchés occupent le sol inté
 
 Coordonnées en pourcentage, origine en haut à gauche. La composition générée s'écarte de certaines
 coordonnées du brief : les positions observées et les cibles sont toutes conservées dans `plan.json`.
-Elles restent à valider par le propriétaire, sans modification d'un plan déjà approuvé.
+Le propriétaire a validé cette composition le 24 octobre 2026 : conserver désormais les positions
+observées et les accès de cette image. Cette validation porte sur la composition seule ; elle ne
+vaut pas validation des sprites du nid et de l’œuf, qui restent inchangés.
 
 | Repère | Image proposée X,Y % | Cible initiale X,Y % |
 |---|---|---|
