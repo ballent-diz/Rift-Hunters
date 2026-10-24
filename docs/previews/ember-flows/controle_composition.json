@@ -49,10 +49,10 @@
   "beds": 6,
   "mean_dimensions_met_count": 6,
   "texture_finale": false,
-  "owner_approved": false,
+  "owner_approved": true,
   "regions_started": false,
   "runtime_integrated": false,
-  "control": "PNG dÃ©codÃ©s, dimensions et palette stricte contrÃ´lÃ©es; superposition inspectÃ©e visuellement. Pas une certification de collisions ou de qualitÃ© finale.",
+  "control": "Image approuvée comparée par SHA256 à la pièce jointe; rendu de composition réduit uniquement. Les contrôles de masque précédents concernent un essai archivé.",
   "godot": {
     "version": "4.3",
     "scope": "projet isolé : les images de composition restent sous .gdignore dans le dépôt",
@@ -60,5 +60,8 @@
     "load_exit_code": 0,
     "textures_loaded": 2,
     "errors": 0
-  }
+  },
+  "approved_source_sha256": "7555c32adb5b913405278944875761c186e2712427c8076a2971c180ae11bf16",
+  "active_mask_available": false,
+  "mask_control_historical": true
 }

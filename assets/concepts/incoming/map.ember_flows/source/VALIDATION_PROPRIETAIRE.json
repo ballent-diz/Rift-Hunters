@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-24",
+  "request": "on garde aussi celle la telle quel",
+  "scope": "Composition jointe, conservée sans retouche; aucune validation implicite des masques issus des autres essais.",
+  "source": "composition_validee.png",
+  "sha256": "7555c32adb5b913405278944875761c186e2712427c8076a2971c180ae11bf16",
+  "native_dimensions": [
+    2172,
+    724
+  ],
+  "plan_locked": true,
+  "regions_started": false
+}

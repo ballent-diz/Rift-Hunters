@@ -1,8 +1,8 @@
 # Coulées de braise — composition de la carte 9
 
 Chapitre 2, monde **5016 × 1672**, panorama **1536 × 512**. Cette PR livre une
-**proposition à valider**, pas une texture finale ni un niveau jouable. Les régions,
-la netteté au zoom du jeu et les collisions viendront après validation du plan.
+**composition validée le 24 octobre 2026, à conserver telle quelle**, pas une texture finale ni un niveau jouable. Les régions,
+la netteté au zoom du jeu et les collisions restent à réaliser sur ce plan désormais figé.
 
 ![Composition entière](../previews/ember-flows/composition.png)
 
@@ -33,32 +33,26 @@ donc plusieurs traversées permanentes ; le masque de débordement n'inclut aucu
 Quatre blocs-abris sont visibles vers (18,16), (42,73), (63,26), (88,62), loin
 des tabliers. Leur échelle précise sera vérifiée à la passe de régions.
 
-## Lits de débordement : masque provisoire
+## Plan validé et masques à préparer
 
-`assets/concepts/incoming/map.ember_flows/flows.png` est un masque RGB sans
-anticrénelage : noir = aucun lit, une couleur pure par lit. Il couvre des portions
-de croûte noire praticable ; ni la lave orange, ni les ponts, ni les collisions générales.
-Les polygones, axes, couleurs, sens et mesures sont conservés dans `flows.json` et
-dans le rapport de contrôle joint. Le tableau mesure les portions actives sélectionnées, pas les bandes entières de roche noire.
+Le propriétaire a choisi l'image jointe le 24 octobre : elle correspond exactement
+à `source/retouche_ile.png`, pas à la dernière version aux bandes élargies.
+`source/composition_validee.png` conserve ses octets sans aucune retouche.
+`VALIDATION_PROPRIETAIRE.json` enregistre son SHA256 et la demande « on garde aussi
+celle la telle quel ». La composition de travail est seulement réduite à 1536 × 512.
 
-| Lit | Couleur RGB | Centre X,Y % | Longueur monde | Largeur moyenne monde | Sens |
-|---|---|---|---|---|---|
-| gauche_ouest_amont | #FF0000 | 20.8, 16.3 | 604 | 161 | sud puis sud-ouest |
-| gauche_est | #00FF00 | 33.7, 71.1 | 900 | 189 | sud-ouest |
-| centre_ouest_amont | #0000FF | 49.1, 19.4 | 716 | 186 | sud-est |
-| centre_est | #FFFF00 | 61.7, 59.1 | 900 | 196 | sud puis sud-ouest |
-| droite_ouest | #FF00FF | 70.5, 52.0 | 997 | 159 | sud-est puis sud-ouest puis sud-est |
-| droite_est | #00FFFF | 80.6, 42.4 | 800 | 153 | sud-est puis sud-ouest |
-
-![Masque superposé](../previews/ember-flows/flows_overlay.png)
-
-**Réserve ouverte :** les six portions actives atteignent 500–1000 unités de long et 150–250 de large en moyenne. La largeur moyenne est l'aire divisée par la longueur de l'axe, pas une largeur minimale : certaines sections du lit cyan descendent vers 135 unités. Les pointes étroites des longues bandes ont été exclues du masque par des coupes perpendiculaires, sans changer l'image. Les bandes de croûte noire continuent donc au-delà des portions actives : les alertes du jeu devront rendre cette limite lisible. Les dimensions locales et les repères déplacés restent à valider avant régions. Quatre générations, prompts et mesures avant/après sont conservés.
+Les masques et chiffres de l'autre version ne décrivent pas cette image. Ils sont
+archivés dans `source/essai_non_retenu/` et ne sont plus désignés par le job.
+Le masque des six lits doit être retracé sur ce plan sans élargir ou déplacer les
+bandes dans l'image. Les anciennes mesures restent historiques, pas certifiées ici.
+Les coordonnées de failles ci-dessus sont des propositions d'intégration : aucun
+objet de gameplay ni aucune collision n'est ajouté par cette validation visuelle.
 
 ## Sources et contrôles
 
 Les sources brutes 2172 × 724, trois essais précédents, les quatre prompts exacts,
 les références de style et leurs SHA256 sont dans `source/`. `composition.png`
-est une réduction de format de la dernière source ; aucun agrandissement n'est
+est une réduction de format de la source choisie par le propriétaire ; aucun agrandissement n'est
 présenté comme une carte détaillée. Les références ne servent pas de plan.
 
 Contrôle ciblé : lecture des PNG, dimensions, couleurs du masque, composantes,
@@ -67,8 +61,9 @@ Les ressources restent dans `incoming/` sous `.gdignore`, sans entrée de décor
 jouable au manifeste tant que le propriétaire n'a pas validé et peint ses collisions.
 
 - [x] Composition entière et provenance conservées.
-- [x] Masque provisoire séparé du décor et des collisions.
+- [ ] Masque provisoire à retracer sur la version choisie ; essai antérieur archivé.
 - [x] Chenaux traversés par plusieurs ponts, espace final sans arène imposée.
-- [ ] Validation des repères décalés et des dimensions des lits par le propriétaire.
+- [x] Composition choisie par le propriétaire, sans retouche ; plan figé.
+- [ ] Mesures des lits et repères d’intégration à vérifier sur cette version.
 - [ ] Régions, rapport de qualité conforme, chaleur de netteté et captures au zoom réel.
 - [ ] Collisions peintes et intégration du mode par Claude.

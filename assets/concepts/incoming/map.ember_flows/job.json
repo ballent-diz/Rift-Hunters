@@ -2,7 +2,7 @@
   "id": "map.ember_flows",
   "status": "wip",
   "stage": "composition",
-  "owner_approved": false,
+  "owner_approved": true,
   "world": [
     5016,
     1672
@@ -11,7 +11,7 @@
     1536,
     512
   ],
-  "source": "source/composition_brute_finale.png",
+  "source": "source/composition_validee.png",
   "normalization": "RÃ©duction de format uniquement; aucune texture finale ni passe de rÃ©gions.",
   "prompts": [
     "source/PROMPT_COMPOSITION.txt",
@@ -19,8 +19,11 @@
     "source/PROMPT_LITS_LONGS.txt",
     "source/PROMPT_ELARGISSEMENT.txt"
   ],
-  "flows": "flows.png",
-  "flows_status": "provisoire, Ã  confirmer avec le propriÃ©taire avant rÃ©gions et collisions",
+  "flows": null,
+  "flows_status": "À retracer sur le plan validé. Ancien masque conservé dans source/essai_non_retenu/. La validation porte sur cette image sans retouche.",
   "regions_started": false,
-  "gameplay_changed": false
+  "gameplay_changed": false,
+  "owner_approval_date": "2026-10-24",
+  "plan_locked": true,
+  "approved_source_sha256": "7555c32adb5b913405278944875761c186e2712427c8076a2971c180ae11bf16"
 }
