@@ -73,8 +73,8 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 | 6. Lisière calcinée | Vagues par zone, 6 cases, gardien du bûcher | **Sol brûlant** (10 plaques praticables qui blessent tout le monde, plaques temporaires de la Brute du bûcher) ; en jeu depuis le 23 octobre |
 | 7. Évents de cendre | Vagues par zone, parcours en U, **sans arène** (gardien dans la dernière zone) | **B5 Bulbes de braise** : sprites placés par le jeu ; une attaque les amorce, ils éclatent au milieu des hordes (le Chasseur trop proche est touché) puis repoussent ; prompt Codex du 23 octobre (les ponts fragiles sont abandonnés) |
 | 8 | Vagues par zone | B8 Nids qui pondent |
-| 9 | Fermeture de failles | B9 Gravité basse |
-| 10 | Vagues + Dévoreur | Finale volcanique ; pluie de cendres, particularités à confirmer |
+| 9. Coulées de braise | Fermeture de failles, 3:1 de droite à gauche, sans arène | **Débordements de lave** (`flood_style = lava`) : lits de croûte praticable qui débordent après alerte, dégâts forts, plaques brûlantes après coup ; détour sûr toujours présent |
+| 10. Cœur du volcan | Vagues par zone + Pyrevorn, spirale vers la caldeira | **Pluie de roches magmatiques** (`RockfallDirector`) + 2 à 3 débordements de lave ; chutes annoncées, cadence qui monte par zone et contre le boss |
 
 Identité visuelle des cartes 6–10 : région ravagée par la Faille. Carte 6 : steppe et village brûlés, cendre, ocre et charbon ; orange vif exclusivement sur les plaques dangereuses. Cartes 7–9 : roche nue, cendres, fissures rougeoyantes et fumée croissantes. Carte 10 : lave, roche noire et ciel de cendres. Même caméra et finesse que le chapitre 1. Voir [Lisière calcinée](../maps/LISIERE_CALCINEE.md). Les autres modes du tableau restent des propositions.
 
