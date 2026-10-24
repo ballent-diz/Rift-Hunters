@@ -17,6 +17,11 @@ var meta_effects: Array[GameplayEffect] = []
 var monster_meta_effects: Dictionary = {}
 ## Rang de départ de l'Écho initial.
 var starter_rank: int = 1
+## Équipe choisie au refuge (décision du 24 octobre 2026) : Échos qui partent avec l'Écho de tête, dans l'ordre.
+var companion_ids: Array[StringName] = []
+## Rang de départ et variante de chaque compagnon : {monster_id: int} et {monster_id: bool}.
+var companion_ranks: Dictionary = {}
+var companion_variants: Dictionary = {}
 ## Couleurs alternatives (maîtrise) : {monster_id: [primary, secondary]}.
 var palettes: Dictionary = {}
 ## Contenu débloqué disponible pendant la partie.

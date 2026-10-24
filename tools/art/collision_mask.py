@@ -122,6 +122,24 @@ def water_mask(pixels, min_size=150):
     return np.isin(labels, 1 + np.nonzero(sizes >= min_size)[0])
 
 
+# Taches bloquées isolées plus petites que ceci (unités²) : bruit du décor (fleurs, braises rouges prises pour de la
+# peinture), jamais un vrai obstacle. Un rocher-abri fait plusieurs dizaines de milliers d'unités².
+MIN_BLOCKED_ISLAND = 6000
+
+
+def small_blocked_islands(blocked):
+    """Taches bloquées entourées de praticable et plus petites que MIN_BLOCKED_ISLAND (1 pixel = 1 unité)."""
+    labels, count = ndimage.label(blocked)
+    if not count:
+        return np.zeros_like(blocked)
+    border = np.unique(np.concatenate([labels[0], labels[-1], labels[:, 0], labels[:, -1]]))
+    sizes = ndimage.sum(np.ones_like(labels), labels, range(1, count + 1))
+    small = np.zeros(count + 1, bool)
+    small[1:] = sizes < MIN_BLOCKED_ISLAND
+    small[border] = False
+    return small[labels]
+
+
 def overlay(arena_id, image_path, water=True):
     world, env_id = arena_info(arena_id)
     entry = json.loads(MANIFEST.read_text(encoding="utf-8"))["entries"][env_id]
@@ -158,6 +176,7 @@ def overlay(arena_id, image_path, water=True):
     soft = ndimage.gaussian_filter((~blocked).astype(float), 0.8)
     big = Image.fromarray((soft * 255).astype(np.uint8)).resize(world, Image.Resampling.BILINEAR)
     walk = np.asarray(big) >= 128
+    walk |= small_blocked_islands(~walk)
     labels, count = ndimage.label(walk)
     if count > 1:
         walk = labels == 1 + int(np.argmax(ndimage.sum(np.ones_like(labels), labels, range(1, count + 1))))

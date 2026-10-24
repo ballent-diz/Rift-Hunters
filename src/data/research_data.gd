@@ -10,3 +10,5 @@ extends Resource
 @export var prerequisites: Array[StringName] = []
 ## Déblocages « type:id » (voir ObjectiveData.reward_unlocks).
 @export var unlocks: Array[String] = []
+## Fonctionnalité dont dépend ce contenu (BalanceConfig.disabled_features) : masqué quand elle est mise de côté.
+@export var feature: StringName = &""

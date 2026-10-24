@@ -23,3 +23,5 @@ enum Scope { RUN, LIFETIME }
 @export var reward_essence: int = 0
 ## Déblocages « type:id » : monster:lucivelle, relic:ember_heart, difficulty:tension_1, title:...
 @export var reward_unlocks: Array[String] = []
+## Fonctionnalité dont dépend ce contenu (BalanceConfig.disabled_features) : masqué quand elle est mise de côté.
+@export var feature: StringName = &""

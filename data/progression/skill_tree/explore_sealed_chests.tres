@@ -13,6 +13,7 @@ pct = 0.0
 [resource]
 script = ExtResource("1")
 id = &"explore_sealed_chests"
+feature = &"relics"
 branch = &"exploration"
 tier = 1
 name_key = "NODE_EXPLORE_SEALED_CHESTS_NAME"

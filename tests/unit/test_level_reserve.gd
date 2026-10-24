@@ -30,6 +30,7 @@ func test_level_up_is_stored_without_pause() -> void:
 
 
 func test_milestone_opens_all_stored_choices() -> void:
+	enable_features([&"chests", &"relics"])
 	_level_up(2)
 	run.ctx.events.chest_collected.emit()
 	run._open_modals()

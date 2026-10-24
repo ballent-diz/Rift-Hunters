@@ -13,6 +13,7 @@ pct = 0.0
 [resource]
 script = ExtResource("1")
 id = &"echoes_third_seal"
+feature = &"team_seal"
 branch = &"research"
 tier = 2
 name_key = "NODE_ECHOES_THIRD_SEAL_NAME"

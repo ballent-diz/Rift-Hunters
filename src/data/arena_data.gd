@@ -120,6 +120,10 @@ extends Resource
 @export var flood_damage: float = 6.0
 ## Part des PV max d'un Corrompu emportée toutes les 0,5 s dans la crue (boss épargnés).
 @export var flood_enemy_ratio: float = 0.12
+## Habillage : &"water" (crues) ou &"lava" (débordements de lave, carte 9 : pas de poussée, dégâts forts).
+@export var flood_style: StringName = &"water"
+## Lave : plaques brûlantes laissées dans le lit après le débordement (secondes ; 0 = aucune).
+@export var flood_afterburn: float = 0.0
 @export_group("Sol brûlant (carte 6, docs/design/CARTES.md)")
 ## Plaques brûlantes peintes sur la carte : (x, y, rayon) en unités du monde. Praticables, elles blessent tout le monde.
 @export var burn_plates: Array[Vector3] = []
@@ -138,6 +142,19 @@ extends Resource
 ## Le Chasseur trop proche est touché aussi (télégraphe : il a le temps de s'écarter).
 @export var pod_player_damage: float = 12.0
 @export var pod_regrow: float = 25.0
+@export_group("Pluie de roches magmatiques (carte 10, docs/design/CARTES.md)")
+## Une chute toutes les rockfall_interval secondes (0 = aucune) ; plus fréquente à chaque zone nettoyée et contre le boss.
+@export var rockfall_interval: float = 0.0
+@export var rockfall_radius: float = 90.0
+@export var rockfall_warning: float = 1.4
+@export var rockfall_damage: float = 14.0
+## Part des PV max retirée aux Corrompus touchés (forfait seul pour les boss).
+@export_range(0.0, 1.0) var rockfall_enemy_ratio: float = 0.2
+## Plaque brûlante laissée à l'impact (secondes ; 0 = aucune).
+@export var rockfall_burn_time: float = 4.0
+## Intervalle multiplié par ce facteur à chaque zone nettoyée, et par rockfall_boss_mult pendant le combat final.
+@export_range(0.3, 1.0) var rockfall_zone_mult: float = 0.85
+@export_range(0.3, 1.0) var rockfall_boss_mult: float = 0.6
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0

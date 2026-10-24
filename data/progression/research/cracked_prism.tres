@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1")
 id = &"cracked_prism"
+feature = &"relics"
 name_key = "RESEARCH_CRACKED_PRISM_NAME"
 desc_key = "RESEARCH_CRACKED_PRISM_DESC"
 order = 3

@@ -122,7 +122,7 @@ func _upgrades(p: ProfileData) -> VBoxContainer:
 	scroll.add_child(grid)
 	for raw: StringName in GameDB.sorted_ids(GameDB.skill_nodes):
 		var node: SkillNodeData = GameDB.skill_nodes[raw]
-		if not node.is_utility():
+		if not node.is_utility() or not GameDB.balance.feature_enabled(node.feature):
 			continue
 		var b: Button = HunterTreeSkin.button("%s\n%s" % [tr(node.name_key), HunterTreeSkin.state_text(p, node)],
 			func() -> void: _select(node.id), node.id == _selected)
@@ -212,7 +212,33 @@ func _actions(card: SkillCard, p: ProfileData, node: SkillNodeData) -> void:
 				refuge.commit(), true)
 
 
-## Barre des sorts équipés (Q, E, R, F…) : cliquer un emplacement y équipe le sort sélectionné s'il est actif.
+## Emplacement encore fermé : la carte à gagner pour l'ouvrir.
+func _locked_slot(slot: int) -> Button:
+	var arena: ArenaData = GameDB.arena(HunterTree.slot_unlock_arena(slot))
+	var where: String = tr(arena.name_key) if arena else "?"
+	# L'emplacement s'ouvre en arrivant sur la carte qui suit celle à gagner : [niveau, chapitre] de cette carte.
+	var places: Array[Vector2i] = []
+	var found: int = -1
+	var chapters: Array[ChapterData] = Campaign.chapters_of(Campaign.MAIN)
+	for c: int in chapters.size():
+		for m: int in chapters[c].maps.size():
+			if arena and chapters[c].maps[m].arena_id == arena.id:
+				found = places.size()
+			places.append(Vector2i(m + 1, c + 1))
+	var place: Vector2i = places[mini(found + 1, places.size() - 1)] if found >= 0 else Vector2i.ZERO
+	var b: Button = HunterTreeSkin.button(tr("TREE_SLOT_LOCKED_SHORT") % [place.x, place.y], func() -> void: pass)
+	b.name = "SpellSlot%d" % slot
+	b.disabled = true
+	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	b.custom_minimum_size.y = 42
+	b.add_theme_stylebox_override("disabled", HunterTreeSkin.panel("slot_empty", 4))
+	b.tooltip_text = tr("TREE_SLOT_LOCKED") % where
+	b.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
+	b.clip_text = true
+	return b
+
+
+## Barre des sorts équipés (→ ↑ ← ↓) : cliquer un emplacement y équipe le sort sélectionné s'il est actif.
 func _spell_bar(p: ProfileData) -> HBoxContainer:
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 8)
@@ -225,6 +251,9 @@ func _spell_bar(p: ProfileData) -> HBoxContainer:
 	var can_equip: bool = selected != null and selected.kind == SkillNodeData.Kind.SPELL \
 		and HunterTree.active_rank(p, selected) > 0
 	for i: int in HunterTree.SPELL_SLOTS:
+		if not HunterTree.slot_unlocked(p, i):
+			row.add_child(_locked_slot(i))
+			continue
 		var spell: SpellData = GameDB.spells.get(StringName(str(spells[i])))
 		var data: SkillNodeData = HunterTree.spell_node(spell.id) if spell else null
 		var b: Button = HunterTreeSkin.button("", func() -> void:

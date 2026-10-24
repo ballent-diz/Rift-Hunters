@@ -41,6 +41,7 @@ func test_kill_drops_xp_and_counts() -> void:
 
 
 func test_elite_drops_chest() -> void:
+	enable_features([&"chests"])
 	var affixes: Array[EliteAffixData] = [GameDB.affix(&"hasted")]
 	var elite: Enemy = run.ctx.enemies.spawn(GameDB.enemy(&"skitterling"), Vector2(200, 0), affixes)
 	check(elite.is_elite and elite.max_hp > GameDB.enemy(&"skitterling").max_hp * 2.0, "élite renforcée")
@@ -93,3 +94,18 @@ func test_burn_ticks() -> void:
 	for i: int in 60:
 		run.ctx.enemies.step(1.0 / 60.0)
 	check(enemy.hp < hp, "la Brûlure inflige des dégâts sur la durée")
+
+
+func test_no_drop_but_heal_by_default() -> void:
+	check(not run.ctx.balance.feature_enabled(&"chests"), "coffres mis de côté")
+	check(not run.ctx.balance.feature_enabled(&"relics"), "reliques mises de côté")
+	check(not run.ctx.balance.feature_enabled(&"evolutions"), "évolutions mises de côté")
+	var affixes: Array[EliteAffixData] = [GameDB.affix(&"hasted")]
+	var elite: Enemy = run.ctx.enemies.spawn(GameDB.enemy(&"skitterling"), Vector2(200, 0), affixes)
+	run.ctx.combat.deal_damage(elite, RunFixture.info(99999.0))
+	for item: Dictionary in run.ctx.pickups.items:
+		check(item["kind"] != PickupManager.Kind.CHEST, "aucun coffre")
+	for offer: UpgradeOffer in UpgradeOffers.candidates(run.ctx):
+		check(offer.kind != UpgradeOffer.Kind.RELIC and offer.kind != UpgradeOffer.Kind.EVOLVE, "ni relique ni évolution offerte")
+	check(not Shop.items_of(Shop.CONSUMABLE).has(GameDB.shop_items[&"relic_cache"]), "cache de reliques retirée de la boutique")
+	check(not Objectives.active_ids().has(&"collector"), "objectif des reliques masqué")
