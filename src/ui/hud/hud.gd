@@ -2,6 +2,10 @@ class_name Hud
 extends Control
 ## Interface de combat dessinée en un passage : PV, XP, temps, équipe et Techniques, synergies, boss, bannières.
 
+## Recharges des Techniques sous le Chasseur : taille d'une case, écart et décalage sous ses pieds (pixels écran).
+const COOLDOWN_SIZE := 34.0
+const COOLDOWN_GAP := 6.0
+const COOLDOWN_OFFSET := 30.0
 ## Conseils de première partie : [instant (s), clé de traduction].
 const TUTORIAL_TIPS := [[2.0, "TIP_MOVE"], [9.0, "TIP_AUTO_ATTACK"], [16.0, "TIP_SPELLS"], [25.0, "TIP_TECHNIQUES"],
 	[36.0, "TIP_DASH"], [50.0, "TIP_COOLDOWNS"], [70.0, "TIP_BOSS"]]
@@ -168,6 +172,7 @@ func _draw() -> void:
 		_text(Vector2(w - 320, y), "◆ " + tr(synergy.name_key), 15, synergy.color, HORIZONTAL_ALIGNMENT_RIGHT, 300)
 		y += 20.0
 	_draw_team(w, h)
+	_draw_echo_cooldowns()
 	_draw_boss(w)
 	if _banner_time > 0.0:
 		var alpha: float = clampf(_banner_time, 0.0, 1.0)
@@ -220,7 +225,7 @@ func _draw_team(w: float, h: float) -> void:
 		if tech:
 			var cd: float = ally.technique_cd
 			var ready: bool = cd <= 0.0
-			var key_text: String = "[%d] " % (i + 1)
+			var key_text: String = "[%s] " % InputSetup.key_label(HumanBrain.TECHNIQUE_ACTIONS[i])
 			var label: String = key_text + (tr(tech.name_key) if ready else "%.1fs" % cd)
 			_text(rect.position + Vector2(68, 60), label, 14, UiKit.GOLD if ready else UiKit.MUTED)
 			if not ready:
@@ -278,6 +283,41 @@ func _spell_icon(spell: SpellData) -> Texture2D:
 		var node: SkillNodeData = HunterTree.spell_node(spell.id)
 		_icons[key] = HunterTreeSkin.icon(node) if node else null
 	return _icons[key]
+
+
+## Recharges des Techniques sous le Chasseur (demande du propriétaire, 24 octobre 2026) : un petit carré par Écho,
+## icône + secondes restantes, pour suivre les recharges sans quitter l'action des yeux. Discret : semi-transparent,
+## et la case prête s'allume brièvement puis reste sobre.
+func _draw_echo_cooldowns() -> void:
+	var team: Array[Ally] = ctx.allies.team
+	if team.is_empty() or not ctx.player.alive:
+		return
+	var feet: Vector2 = ctx.player.get_global_transform_with_canvas().origin + Vector2(0, COOLDOWN_OFFSET)
+	var total: float = COOLDOWN_SIZE * team.size() + COOLDOWN_GAP * (team.size() - 1)
+	var x: float = feet.x - total * 0.5
+	for i: int in team.size():
+		var ally: Ally = team[i]
+		if ally.technique == null:
+			x += COOLDOWN_SIZE + COOLDOWN_GAP
+			continue
+		var rect := Rect2(x, feet.y, COOLDOWN_SIZE, COOLDOWN_SIZE)
+		var cd: float = ally.technique_cd
+		var ready: bool = cd <= 0.0
+		draw_rect(rect, Color(0.05, 0.06, 0.1, 0.55))
+		var icon: Texture2D = _icon_for(ally)
+		if icon:
+			draw_texture_rect(icon, rect.grow(-2.0), false, Color(1, 1, 1, 0.95 if ready else 0.4))
+		if ready:
+			draw_rect(rect, Color(UiKit.GOLD, 0.9), false, 2.0)
+		else:
+			var left: float = clampf(cd / maxf(ally.technique_cooldown(), 0.01), 0.0, 1.0)
+			draw_rect(Rect2(rect.position, Vector2(COOLDOWN_SIZE, COOLDOWN_SIZE * left)), Color(0, 0, 0, 0.45))
+			draw_rect(rect, Color(ally.data.visual.primary.lightened(0.3), 0.6), false, 1.0)
+			_text(rect.position + Vector2(0, COOLDOWN_SIZE * 0.5 + 7), str(ceili(cd)), 18, Color.WHITE,
+				HORIZONTAL_ALIGNMENT_CENTER, COOLDOWN_SIZE)
+		_text(rect.position + Vector2(2, 11), InputSetup.key_label(HumanBrain.TECHNIQUE_ACTIONS[i]), 10,
+			UiKit.GOLD if ready else UiKit.MUTED)
+		x += COOLDOWN_SIZE + COOLDOWN_GAP
 
 
 func _icon_for(ally: Ally) -> Texture2D:
