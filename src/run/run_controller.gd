@@ -209,6 +209,10 @@ func _build_world() -> void:
 	ctx.burn = BurnDirector.new()
 	ctx.world.add_child(ctx.burn)
 	ctx.burn.setup(ctx)
+	if RockfallDirector.uses_rockfall(ctx.arena):
+		ctx.rockfall = RockfallDirector.new()
+		ctx.world.add_child(ctx.rockfall)
+		ctx.rockfall.setup(ctx)
 	if PodDirector.uses_pods(ctx.arena):
 		ctx.pods = PodDirector.new()
 		ctx.world.add_child(ctx.pods)
@@ -320,6 +324,8 @@ func _physics_process(delta: float) -> void:
 	ctx.burn.step(delta)
 	if ctx.pods:
 		ctx.pods.step(delta)
+	if ctx.rockfall:
+		ctx.rockfall.step(delta)
 	if ctx.night:
 		ctx.night.step(delta)
 	spawner.step(delta)

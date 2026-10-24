@@ -2685,7 +2685,7 @@
 				128
 			],
 			"icon": "res://assets/sprites/storm_highlands/ash_newt/icon.png",
-			"scale": 0.5,
+			"scale": 0.7,
 			"sheet": "res://assets/sprites/storm_highlands/ash_newt/sheet.png",
 			"status": "final"
 		},
@@ -2725,7 +2725,7 @@
 				128
 			],
 			"icon": "res://assets/sprites/storm_highlands/heath_runner/icon.png",
-			"scale": 0.5,
+			"scale": 0.6,
 			"sheet": "res://assets/sprites/storm_highlands/heath_runner/sheet.png",
 			"status": "final"
 		},
@@ -2765,7 +2765,7 @@
 				128
 			],
 			"icon": "res://assets/sprites/storm_highlands/menhir_warden/icon.png",
-			"scale": 0.5,
+			"scale": 0.55,
 			"sheet": "res://assets/sprites/storm_highlands/menhir_warden/sheet.png",
 			"status": "final"
 		},
@@ -2805,7 +2805,7 @@
 				128
 			],
 			"icon": "res://assets/sprites/storm_highlands/peak_chimera/icon.png",
-			"scale": 0.5,
+			"scale": 0.55,
 			"sheet": "res://assets/sprites/storm_highlands/peak_chimera/sheet.png",
 			"status": "final"
 		},
@@ -2845,7 +2845,7 @@
 				128
 			],
 			"icon": "res://assets/sprites/storm_highlands/silver_harpy/icon.png",
-			"scale": 0.5,
+			"scale": 0.55,
 			"sheet": "res://assets/sprites/storm_highlands/silver_harpy/sheet.png",
 			"status": "final"
 		},
@@ -2885,7 +2885,7 @@
 				128
 			],
 			"icon": "res://assets/sprites/storm_highlands/slate_scarab/icon.png",
-			"scale": 0.5,
+			"scale": 0.65,
 			"sheet": "res://assets/sprites/storm_highlands/slate_scarab/sheet.png",
 			"status": "final"
 		},
@@ -2925,7 +2925,7 @@
 				128
 			],
 			"icon": "res://assets/sprites/storm_highlands/storm_knight/icon.png",
-			"scale": 0.5,
+			"scale": 0.55,
 			"sheet": "res://assets/sprites/storm_highlands/storm_knight/sheet.png",
 			"status": "final"
 		},
@@ -10301,7 +10301,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cascade_source/field.png",
-			"field_step": 2,
+			"field_step": 2.0,
 			"arena_size": 5016,
 			"start": [
 				8,
@@ -11545,7 +11545,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/scorched_verge/field.png",
-			"field_step": 2,
+			"field_step": 2.0,
 			"arena_size": 5016,
 			"start": [
 				-1696,
