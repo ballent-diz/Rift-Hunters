@@ -216,12 +216,17 @@ func _actions(card: SkillCard, p: ProfileData, node: SkillNodeData) -> void:
 func _locked_slot(slot: int) -> Button:
 	var arena: ArenaData = GameDB.arena(HunterTree.slot_unlock_arena(slot))
 	var where: String = tr(arena.name_key) if arena else "?"
-	var number: int = 0
-	for map: CampaignMapData in Campaign.maps_in_order():
-		number += 1
-		if arena and map.arena_id == arena.id:
-			break
-	var b: Button = HunterTreeSkin.button(tr("TREE_SLOT_LOCKED_SHORT") % number, func() -> void: pass)
+	# L'emplacement s'ouvre en arrivant sur la carte qui suit celle à gagner : [niveau, chapitre] de cette carte.
+	var places: Array[Vector2i] = []
+	var found: int = -1
+	var chapters: Array[ChapterData] = Campaign.chapters_of(Campaign.MAIN)
+	for c: int in chapters.size():
+		for m: int in chapters[c].maps.size():
+			if arena and chapters[c].maps[m].arena_id == arena.id:
+				found = places.size()
+			places.append(Vector2i(m + 1, c + 1))
+	var place: Vector2i = places[mini(found + 1, places.size() - 1)] if found >= 0 else Vector2i.ZERO
+	var b: Button = HunterTreeSkin.button(tr("TREE_SLOT_LOCKED_SHORT") % [place.x, place.y], func() -> void: pass)
 	b.name = "SpellSlot%d" % slot
 	b.disabled = true
 	b.size_flags_horizontal = Control.SIZE_EXPAND_FILL
