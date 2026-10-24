@@ -251,3 +251,25 @@ func test_team_chosen_at_the_refuge() -> void:
 	run.set_physics_process(false)
 	check_eq(run.ctx.allies.team_size(), 3, "l'équipe entière part")
 	RunFixture.dispose(run)
+
+
+func test_spell_slots_open_with_the_campaign() -> void:
+	profile.add_currency("shards", 99999)
+	profile.data["runs"]["won"] = 5
+	var leap: SkillNodeData = _node(&"blade_rift_leap")
+	HunterTree.learn(profile, leap)
+	HunterTree.activate(profile, leap)
+	check(not HunterTree.slot_unlocked(profile, 2), "3e emplacement fermé au départ")
+	check_eq(HunterTree.slot_of(profile, &"rift_leap"), -1, "le 3e sort ne se range pas dans un emplacement fermé")
+	check(not HunterTree.equip(profile, &"rift_leap", 2), "on ne peut pas l'y équiper")
+	_win(&"storm_highlands")
+	check(HunterTree.slot_unlocked(profile, 2), "ouvert après la carte 2 (arrivée sur la carte 3)")
+	check(not HunterTree.slot_unlocked(profile, 3), "4e encore fermé")
+	check(HunterTree.equip(profile, &"rift_leap", 2), "3e sort équipé")
+	check_eq(HunterTree.loadout(profile)["spells"][2], &"rift_leap", "il part en partie")
+	_win(&"cascade_source")
+	check(HunterTree.slot_unlocked(profile, 3), "4e ouvert à la fin du chapitre 1")
+
+
+func _win(arena_id: StringName) -> void:
+	Campaign._mode_entry(profile, arena_id, Campaign.NORMAL)["wins"] = 1

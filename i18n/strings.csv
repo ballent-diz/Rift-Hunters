@@ -832,6 +832,8 @@ TREE_BUILD,Build %d,Build %d
 TREE_SPELL_SLOTS,Sorts équipés :,Equipped spells:
 TREE_SLOT_EMPTY,—,—
 TREE_EQUIP_HINT,"Sélectionnez un sort actif dans l'arbre, puis cliquez sur un emplacement pour l'y équiper.","Select an active spell in the tree, then click a slot to equip it there."
+TREE_SLOT_LOCKED,Emplacement fermé : gagnez la carte « %s » pour l'ouvrir.,"Locked slot: win the map ""%s"" to open it."
+TREE_SLOT_LOCKED_SHORT,Fermé · gagnez la carte %d,Locked · win map %d
 TREE_TIER,Niveau %s,Tier %s
 TREE_GATE_SHORT,%d victoire(s),%d win(s)
 TREE_GATE,Requiert %d victoire(s) contre un boss (actuellement %d),Requires %d boss victory(ies) (currently %d)

@@ -74,6 +74,9 @@ extends Resource
 ## &"team_seal" (3e emplacement d'Écho par l'arbre : l'équipe de 3 est désormais ouverte d'office).
 ## Le contenu reste en données ; retirer l'identifiant de la liste le remet en jeu.
 @export var disabled_features: Array[StringName] = [&"relics", &"chests", &"evolutions", &"team_seal"]
+## Emplacements de sorts du Chasseur (décision du 24 octobre 2026) : carte à gagner pour ouvrir chaque emplacement,
+## &"" s'il est ouvert d'office. 3e à l'arrivée sur la carte 3, 4e à la fin du chapitre 1.
+@export var spell_slot_unlock_arenas: Array[StringName] = [&"", &"", &"storm_highlands", &"cascade_source"]
 @export_group("Récompenses")
 @export var shards_per_minute: float = 8.0
 @export var shards_per_elite: float = 6.0
