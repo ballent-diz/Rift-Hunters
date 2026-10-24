@@ -37,6 +37,7 @@ BOSS_HEART_EXPOSED,CŒUR EXPOSÉ ×2,HEART EXPOSED ×2
 BOSS_INVULNERABLE,Invulnérable,Invulnerable
 LEVELUP_TITLE,Niveau %d !,Level %d!
 MILESTONE_TITLE,Jalon franchi : un choix !,Milestone reached: make a choice!
+MILESTONE_FLOAT,Jalon franchi !,Milestone reached!
 LEVELUP_REMAINING,encore %d en réserve,%d more stored
 LEVELUP_BANISH_TITLE,Choisissez une carte à bannir,Choose a card to banish
 LEVELUP_REROLL,Relancer (%d),Reroll (%d)
@@ -66,6 +67,7 @@ RELIC_RARITY_3,Relique légendaire,Legendary relic
 RESULT_VICTORY,Faille refermée !,Rift sealed!
 RESULT_DEFEAT,Expédition perdue,Expedition lost
 RESULT_SUMMARY,Temps %d:%02d · Niveau %d · %d éliminations,Time %d:%02d · Level %d · %d kills
+RESULT_SUMMARY_CAMPAIGN,Temps %d:%02d · %d jalons · %d éliminations,Time %d:%02d · %d milestones · %d kills
 RESULT_DAMAGE_TITLE,Dégâts infligés,Damage dealt
 RESULT_ELITES,Élites vaincues : %d,Elites defeated: %d
 RESULT_DAMAGE_TAKEN,Dégâts subis : %d,Damage taken: %d

@@ -107,7 +107,9 @@ func start(setup: RunSetup) -> void:
 	ctx.events.synergy_proc.connect(func(_id: StringName) -> void: ctx.stats.add(&"synergy_procs"))
 	ctx.events.level_up.connect(func(level: int) -> void:
 		Audio.play_sfx(&"level_up")
-		ctx.fx.text(ctx.player.global_position + Vector2(0, -60), tr("LEVELUP_TITLE") % level, UiKit.ACCENT))
+		# Campagne : pas de niveaux, seulement des jalons.
+		var text: String = tr("MILESTONE_FLOAT") if ctx.milestones() else tr("LEVELUP_TITLE") % level
+		ctx.fx.text(ctx.player.global_position + Vector2(0, -60), text, UiKit.ACCENT))
 	ctx.events.milestone_reached.connect(func() -> void:
 		if ctx.milestones():
 			ctx.stats.add(&"milestones")
@@ -454,6 +456,7 @@ func build_result() -> Dictionary:
 		"victory": ctx.victory,
 		"time": ctx.time,
 		"level": ctx.player.level,
+		"milestones": ctx.milestones(),
 		"kills": int(ctx.stats.get_value(&"kills")),
 		"endless_wave": ctx.endless_wave() if ctx.arena.endless else 0,
 		"arena": String(ctx.arena.id),
