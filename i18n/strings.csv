@@ -18,7 +18,7 @@ OPTIONS_SCREEN_SHAKE,Secousses de l'écran : %s,Screen shake: %s
 PAUSE_TITLE,Pause,Paused
 PAUSE_RESUME,Reprendre,Resume
 PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
-PAUSE_CONTROLS,Déplacement : ZQSD/WASD ou flèches · Ruée : Espace · Techniques : 1 2 3 · Focus : clic droit · Manette prise en charge,Move: WASD or arrows · Dash: Space · Techniques: 1 2 3 · Focus: right click · Gamepad supported
+PAUSE_CONTROLS,Déplacement : ZQSD · Sorts du Chasseur : flèches · Techniques des Échos : A E F · Ruée : Espace · Manette prise en charge,Move: WASD · Hunter spells: arrow keys · Echo Techniques: Q E F · Dash: Space · Gamepad supported
 HUD_LEVEL,Niv. %d,Lv. %d
 HUD_MILESTONES,Jalons : %d,Milestones: %d
 HUD_CHOICES_RESERVED,%d choix en réserve [%s],%d choice(s) stored [%s]
@@ -37,6 +37,7 @@ BOSS_HEART_EXPOSED,CŒUR EXPOSÉ ×2,HEART EXPOSED ×2
 BOSS_INVULNERABLE,Invulnérable,Invulnerable
 LEVELUP_TITLE,Niveau %d !,Level %d!
 MILESTONE_TITLE,Jalon franchi : un choix !,Milestone reached: make a choice!
+MILESTONE_FLOAT,Jalon franchi !,Milestone reached!
 LEVELUP_REMAINING,encore %d en réserve,%d more stored
 LEVELUP_BANISH_TITLE,Choisissez une carte à bannir,Choose a card to banish
 LEVELUP_REROLL,Relancer (%d),Reroll (%d)
@@ -66,6 +67,7 @@ RELIC_RARITY_3,Relique légendaire,Legendary relic
 RESULT_VICTORY,Faille refermée !,Rift sealed!
 RESULT_DEFEAT,Expédition perdue,Expedition lost
 RESULT_SUMMARY,Temps %d:%02d · Niveau %d · %d éliminations,Time %d:%02d · Level %d · %d kills
+RESULT_SUMMARY_CAMPAIGN,Temps %d:%02d · %d jalons · %d éliminations,Time %d:%02d · %d milestones · %d kills
 RESULT_DAMAGE_TITLE,Dégâts infligés,Damage dealt
 RESULT_ELITES,Élites vaincues : %d,Elites defeated: %d
 RESULT_DAMAGE_TAKEN,Dégâts subis : %d,Damage taken: %d
@@ -85,7 +87,7 @@ STATUS_BURN_DESC,"Dégâts sur la durée, se cumule 3 fois.","Damage over time, 
 STATUS_SLOW_NAME,Entrave,Hinder
 STATUS_SLOW_DESC,Vitesse −40 %.,Speed −40%.
 MONSTER_ASHBLADE_NAME,Cendrelame,Ashblade
-MONSTER_ASHBLADE_DESC,Assassin. Bondit sur ses proies et exécute les ennemis Fracturés (+60 % de dégâts).,Assassin. Leaps on prey and executes Fractured enemies (+60% damage).
+MONSTER_ASHBLADE_DESC,Assassin. Bondit sur ses proies et exécute les ennemis Fracturés (+40 % de dégâts).,Assassin. Leaps on prey and executes Fractured enemies (+40% damage).
 MONSTER_ASHBLADE_LORE,"Né d'une coulée d'obsidienne qui refusait de refroidir, il chasse en silence ce qui saigne déjà.","Born from an obsidian flow that refused to cool, it silently hunts whatever already bleeds."
 MONSTER_MOSSBACK_NAME,Mousseroc,Mossback
 MONSTER_MOSSBACK_DESC,Gardien. Frappe le sol pour Fracturer les ennemis. Technique : Puits de gravité.,Guardian. Pounds the ground to Fracture enemies. Technique: Gravity Well.
@@ -97,15 +99,15 @@ ATTACK_ASHBLADE,Taille,Slash
 ATTACK_MOSSBACK,Fracas,Crash
 ATTACK_GLIMMERWING,Éclat prismatique,Prism Shard
 PASSIVE_ASHBLADE_NAME,Exécuteur,Executioner
-PASSIVE_ASHBLADE_DESC,+60 % de dégâts contre les ennemis Fracturés.,+60% damage against Fractured enemies.
+PASSIVE_ASHBLADE_DESC,+40 % de dégâts contre les ennemis Fracturés.,+40% damage against Fractured enemies.
 PASSIVE_MOSSBACK_NAME,Rempart,Bulwark
 PASSIVE_MOSSBACK_DESC,Le Chasseur subit 10 % de dégâts en moins près de Mousseroc.,The Hunter takes 10% less damage near Mossback.
 PASSIVE_GLIMMERWING_NAME,Lumière apaisante,Soothing Light
 PASSIVE_GLIMMERWING_DESC,"Toutes les 25 Marques posées, soigne le Chasseur de 3 PV.","Every 25 Marks applied, heals the Hunter for 3 HP."
 TECHNIQUE_ASH_DANCE_NAME,Danse des cendres,Ash Dance
-TECHNIQUE_ASH_DANCE_DESC,Enchaîne 6 frappes sur les ennemis autour du curseur.,Chains 6 strikes on enemies around the cursor.
+TECHNIQUE_ASH_DANCE_DESC,Enchaîne 5 frappes sur les ennemis autour du point visé.,Chains 5 strikes on enemies around the aimed point.
 TECHNIQUE_GRAVITY_WELL_NAME,Puits de gravité,Gravity Well
-TECHNIQUE_GRAVITY_WELL_DESC,Aspire les ennemis vers le curseur pendant 3 s puis implose (Fracture).,"Pulls enemies toward the cursor for 3 s, then implodes (Fracture)."
+TECHNIQUE_GRAVITY_WELL_DESC,Aspire les ennemis vers l'avant pendant 3 s puis implose (Fracture).,"Pulls enemies forward for 3 s, then implodes (Fracture)."
 TECHNIQUE_PRISM_FLARE_NAME,Embrasement,Prismatic Flare
 TECHNIQUE_PRISM_FLARE_DESC,Fait détoner toutes les Marques : dégâts selon les cumuls.,Detonates every Mark: damage scales with stacks.
 EVOLUTION_ECLIPSE_BLADE_NAME,Lame-Éclipse,Eclipse Blade
@@ -243,6 +245,8 @@ SAVE_RESTORED_BACKUP,Votre sauvegarde était endommagée : la copie de secours a
 SAVE_CORRUPTED,Votre sauvegarde est illisible et aucune copie de secours n'existe. Le fichier a été conservé à part ; un nouveau profil a été créé.,Your save is unreadable and no backup exists. The file was kept aside; a new profile was created.
 SAVE_NEWER_VERSION,Cette sauvegarde provient d'une version plus récente du jeu : elle ne sera pas modifiée.,This save comes from a newer version of the game: it will not be modified.
 EXPEDITION_STARTER,Écho de départ,Starting Echo
+EXPEDITION_TEAM,Équipe d'Échos (%d/%d),Echo team (%d/%d)
+EXPEDITION_TEAM_HINT,Cliquez sur un Écho pour l'ajouter à l'équipe ou l'en retirer. Le premier mène l'équipe. Chaque carte gagnée débloque un nouvel Écho.,Click an Echo to add it to the team or remove it. The first one leads the team. Each map won unlocks a new Echo.
 EXPEDITION_MASTERY,Maîtrise : niveau %d,Mastery: level %d
 EXPEDITION_LOCKED,Verrouillé,Locked
 EXPEDITION_UNLOCK_BY,Pour le débloquer : %s,To unlock: %s
@@ -457,7 +461,7 @@ PASSIVE_GLOOMMAW_DESC,+15 % de dégâts contre les ennemis sous 50 % de PV.,+15%
 PASSIVE_MIRRORLING_NAME,Reflet protecteur,Guarding Reflection
 PASSIVE_MIRRORLING_DESC,Le Chasseur subit 5 % de dégâts en moins.,The Hunter takes 5% less damage.
 TECHNIQUE_BRIAR_WALL_NAME,Mur de ronces,Briar Wall
-TECHNIQUE_BRIAR_WALL_DESC,Fait pousser un mur de ronces vers le curseur : tout ce qui le traverse est enraciné.,Grows a wall of thorns toward the cursor: anything crossing it is rooted.
+TECHNIQUE_BRIAR_WALL_DESC,Fait pousser un mur de ronces vers l'avant : tout ce qui le traverse est enraciné.,Grows a wall of thorns forward: anything crossing it is rooted.
 TECHNIQUE_ION_STORM_NAME,Tempête ionique,Ion Storm
 TECHNIQUE_ION_STORM_DESC,La foudre frappe 8 ennemis proches (élites en priorité) et les Électrise.,Lightning strikes 8 nearby enemies (elites first) and Charges them.
 TECHNIQUE_FEAST_NAME,Festin,Feast
@@ -554,13 +558,11 @@ REPORT_CAPTURE_UNLOCK,Écho capturé et débloqué : %s,Echo captured and unlock
 EXPEDITION_MODIFIERS,Pactes de risque,Risk Pacts
 EXPEDITION_MODIFIERS_BONUS,Bonus de récompenses : +%d %%,Reward bonus: +%d%%
 BOSS_ENRAGED,Le Dévoreur entre en rage !,The Devourer is enraged!
-TIP_MOVE,Déplacez-vous avec ZQSD/WASD ou les flèches (stick gauche à la manette).,Move with WASD or the arrow keys (left stick on a gamepad).
+TIP_MOVE,Déplacez-vous avec %s%s%s%s (stick gauche à la manette).,Move with %s%s%s%s (left stick on a gamepad).
 TIP_AUTO_ATTACK,Votre Trait de Faille et vos Échos attaquent seuls : concentrez-vous sur le placement.,Your Rift Bolt and your Echoes attack on their own: focus on positioning.
-TIP_TECHNIQUES,"Touches 1, 2, 3 : déclenchez la Technique de chaque Écho (elle vise le curseur).","Keys 1, 2, 3: trigger each Echo's Technique (it aims at the cursor)."
-TIP_FOCUS,Clic droit : ordonnez à vos Échos de cibler une zone pendant 5 s.,Right click: order your Echoes to target an area for 5 s.
+TIP_TECHNIQUES,"Touches %s, %s, %s : la Technique de chaque Écho, lancée devant le Chasseur.","Keys %s, %s, %s: each Echo's Technique, cast in front of the Hunter."
 TIP_DASH,Espace : Ruée invulnérable. Traversez les attaques télégraphiées en rose.,Space: invulnerable Dash. Pass through pink telegraphed attacks.
-TIP_CHESTS,"Les élites lâchent des coffres : relique ou Éclats, à vous de choisir.","Elites drop chests: relic or Shards, your choice."
-TIP_BOSS,"Le Dévoreur arrive vers 7 min. Combinez Fracture, Marques et synergies pour le vaincre.","The Devourer arrives around 7 min. Combine Fracture, Marks and synergies to defeat it."
+TIP_BOSS,Un gardien ou un Dévoreur attend au bout de chaque carte : gardez votre Ruée pour ses grosses attaques.,A guardian or a Devourer waits at the end of every map: keep your Dash for its big attacks.
 OPTIONS_REDUCE_FLASHES,Réduire les flashs : %s,Reduce flashes: %s
 OPTIONS_VSYNC,Synchronisation verticale,Vertical sync
 OPTIONS_SHOW_FPS,Afficher les images par seconde,Show frames per second
@@ -690,10 +692,11 @@ BOSS_PATTERN_PYRE_SWIPE,Revers de braise,Ember Backhand
 BOSS_PATTERN_PYRE_SLAM,Bûcher écrasé,Pyre Slam
 BOSS_PATTERN_PYRE_CHARGE,Ruée embrasée,Blazing Rush
 SPELL_CLEAVING_SLASH_NAME,Taille fendante,Cleaving Slash
-SPELL_CLEAVING_SLASH_DESC,Arc de lame vers le curseur : gros dégâts et Fracture aux ennemis touchés.,Blade arc toward the cursor: heavy damage and Fracture on enemies hit.
+SPELL_CLEAVING_SLASH_DESC,Arc de lame vers l'avant : gros dégâts et Fracture aux ennemis touchés.,Blade arc forward: heavy damage and Fracture on enemies hit.
 SPELL_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
-SPELL_PRISMATIC_LANCE_DESC,Trait lourd vers le curseur qui traverse tous les ennemis et pose 2 Marques.,Heavy bolt toward the cursor that pierces every enemy and applies 2 Marks.
-TIP_SPELLS,"Touches %s et %s : sorts du Chasseur, lancés vers le curseur.","Keys %s and %s: Hunter spells, cast toward the cursor."
+SPELL_PRISMATIC_LANCE_DESC,Trait lourd vers l'avant qui traverse tous les ennemis et pose 2 Marques.,Heavy bolt forward that pierces every enemy and applies 2 Marks.
+TIP_SPELLS,"Flèches : les sorts du Chasseur, lancés dans la direction où il regarde.","Arrow keys: the Hunter's spells, cast in the Hunter's facing direction."
+TIP_COOLDOWNS,Les petits carrés près du Chasseur montrent la recharge de chaque Technique d'Écho.,The small squares near the Hunter show each Echo Technique's cooldown.
 OPTIONS_KEYS_TITLE,Touches du clavier,Keyboard keys
 OPTIONS_SPELL_PREVIEW,"Sorts : maintenir pour voir la zone, relâcher pour lancer","Spells: hold to preview the area, release to cast"
 OPTIONS_RESET_KEYS,Touches par défaut,Default keys
@@ -716,7 +719,7 @@ NODE_TRUNK_VIGOR_DESC,+10 PV max par rang.,+10 max HP per rank.
 NODE_BLADE_HONED_EDGE_NAME,Fil aiguisé,Honed Edge
 NODE_BLADE_HONED_EDGE_DESC,Dégâts des sorts +8 % par rang.,Spell damage +8% per rank.
 NODE_BLADE_CLEAVING_SLASH_NAME,Taille fendante,Cleaving Slash
-NODE_BLADE_CLEAVING_SLASH_DESC,"Sort : arc de lame vers le curseur, gros dégâts et Fracture.","Spell: blade arc toward the cursor, heavy damage and Fracture."
+NODE_BLADE_CLEAVING_SLASH_DESC,"Sort : arc de lame vers l'avant, gros dégâts et Fracture.","Spell: blade arc forward, heavy damage and Fracture."
 NODE_BLADE_SLICING_DASH_NAME,Ruée tranchante,Slicing Dash
 NODE_BLADE_SLICING_DASH_DESC,La Ruée blesse les ennemis traversés.,Dashing wounds the enemies you pass through.
 NODE_BLADE_SLASH_WHIRLWIND_NAME,Tourbillon,Whirlwind
@@ -724,7 +727,7 @@ NODE_BLADE_SLASH_WHIRLWIND_DESC,Taille fendante devient un cercle complet autour
 NODE_BLADE_SLASH_THRUST_NAME,Estoc,Thrust
 NODE_BLADE_SLASH_THRUST_DESC,Taille fendante devient une ligne longue et étroite (portée 320) qui perce tout.,Cleaving Slash becomes a long narrow line (reach 320) that pierces everything.
 NODE_BLADE_RIFT_LEAP_NAME,Bond de faille,Rift Leap
-NODE_BLADE_RIFT_LEAP_DESC,"Sort : bond jusqu'au curseur, invulnérable pendant le saut, onde de choc à l'arrivée.","Spell: leap to the cursor, invulnerable while airborne, shockwave on landing."
+NODE_BLADE_RIFT_LEAP_DESC,"Sort : bond jusqu'au point visé, invulnérable pendant le saut, onde de choc à l'arrivée.","Spell: leap to the aimed point, invulnerable while airborne, shockwave on landing."
 NODE_BLADE_LEAP_RETURN_NAME,Retour,Return
 NODE_BLADE_LEAP_RETURN_DESC,Bond de faille : le réutiliser dans les 3 s ramène au point de départ.,Rift Leap: recast within 3 s to return to the starting point.
 NODE_BLADE_LEAP_IMPACT_NAME,Impact,Impact
@@ -734,13 +737,13 @@ NODE_BLADE_PARRY_DESC,"Sort : garde de 0,4 s ; un coup paré déclenche une cont
 NODE_BLADE_COUNTER_CUT_NAME,Contre-taille,Counter Cut
 NODE_BLADE_COUNTER_CUT_DESC,Esquiver un coup pendant la Ruée recharge le prochain sort de Lame et lui donne +50 % de dégâts.,Dodging a hit while dashing recharges your next Blade spell and gives it +50% damage.
 NODE_BLADE_PARRY_MIRROR_NAME,Miroir,Mirror
-NODE_BLADE_PARRY_MIRROR_DESC,Parade : les projectiles parés repartent vers le curseur.,Parry: parried projectiles fly back toward the cursor.
+NODE_BLADE_PARRY_MIRROR_DESC,Parade : les projectiles parés repartent vers l'avant.,Parry: parried projectiles fly back forward.
 NODE_BLADE_PARRY_PACK_GUARD_NAME,Garde de meute,Pack Guard
 NODE_BLADE_PARRY_PACK_GUARD_DESC,Parade : les Échos proches contre-attaquent aussi.,Parry: nearby Echoes counterattack too.
 NODE_BLADE_MASTER_NAME,Maître-lame,Blade Master
 NODE_BLADE_MASTER_DESC,Clé de voûte : chaque sort de Lame réduit de 1 s la recharge des autres sorts.,Keystone: each Blade spell reduces the other spells' cooldowns by 1 s.
 NODE_PRISM_PRISMATIC_LANCE_NAME,Lance prismatique,Prismatic Lance
-NODE_PRISM_PRISMATIC_LANCE_DESC,Sort : trait lourd vers le curseur qui traverse tout et pose 2 Marques.,Spell: heavy bolt toward the cursor that pierces everything and applies 2 Marks.
+NODE_PRISM_PRISMATIC_LANCE_DESC,Sort : trait lourd vers l'avant qui traverse tout et pose 2 Marques.,Spell: heavy bolt forward that pierces everything and applies 2 Marks.
 NODE_PRISM_PROPAGATION_NAME,Propagation,Propagation
 NODE_PRISM_PROPAGATION_DESC,Un ennemi marqué qui meurt transmet ses Marques au plus proche.,A marked enemy that dies passes its Marks to the nearest enemy.
 NODE_PRISM_LANCE_FAN_NAME,Éventail,Fan
@@ -748,13 +751,13 @@ NODE_PRISM_LANCE_FAN_DESC,Lance prismatique : 3 lances en cône (dégâts −20 
 NODE_PRISM_LANCE_OVERCHARGE_NAME,Surcharge,Overcharge
 NODE_PRISM_LANCE_OVERCHARGE_DESC,"Lance prismatique : maintenir la touche charge la lance jusqu'à ×2,5 dégâts (1,2 s).",Prismatic Lance: hold the key to charge up to ×2.5 damage (1.2 s).
 NODE_PRISM_RUPTURE_NAME,Rupture,Rupture
-NODE_PRISM_RUPTURE_DESC,Sort : fait détoner toutes les Marques dans une zone au curseur.,Spell: detonates every Mark in an area at the cursor.
+NODE_PRISM_RUPTURE_DESC,Sort : fait détoner toutes les Marques dans une zone au point visé.,Spell: detonates every Mark in an area at the aimed point.
 NODE_PRISM_RUPTURE_REACTION_NAME,Réaction,Reaction
 NODE_PRISM_RUPTURE_REACTION_DESC,Rupture : chaque détonation pose 1 Marque à côté (chaîne).,Rupture: each detonation applies 1 Mark nearby (chain).
 NODE_PRISM_RUPTURE_BLAZE_NAME,Brasier,Blaze
 NODE_PRISM_RUPTURE_BLAZE_DESC,Rupture : les détonations laissent de la Brûlure au sol 3 s.,Rupture: detonations leave Burn on the ground for 3 s.
 NODE_PRISM_REFRACTING_CRYSTAL_NAME,Cristal réfracteur,Refracting Crystal
-NODE_PRISM_REFRACTING_CRYSTAL_DESC,Sort : cristal au curseur ; chaque tir qui le traverse se divise en 3 et marque.,Spell: crystal at the cursor; every shot passing through splits into 3 and marks.
+NODE_PRISM_REFRACTING_CRYSTAL_DESC,Sort : cristal au point visé ; chaque tir qui le traverse se divise en 3 et marque.,Spell: crystal at the aimed point; every shot passing through splits into 3 and marks.
 NODE_PRISM_SPLIT_BOLT_NAME,Trait scindé,Split Bolt
 NODE_PRISM_SPLIT_BOLT_DESC,Le Trait de Faille se divise en 2 en touchant un ennemi marqué.,The Rift Bolt splits in 2 when it hits a marked enemy.
 NODE_PRISM_CRYSTAL_DOUBLE_NAME,Prisme double,Double Prism
@@ -766,7 +769,7 @@ NODE_PRISM_LIVING_PRISM_DESC,Clé de voûte : le Trait de Faille pose une Marque
 NODE_ABYSS_DEPTHS_NAME,Profondeurs,Depths
 NODE_ABYSS_DEPTHS_DESC,"Fracture : durée +0,5 s par rang.",Fracture: duration +0.5 s per rank.
 NODE_ABYSS_SINGULARITY_NAME,Singularité,Singularity
-NODE_ABYSS_SINGULARITY_DESC,Sort : sphère au curseur qui attire les ennemis 3 s puis implose.,"Spell: sphere at the cursor that pulls enemies for 3 s, then implodes."
+NODE_ABYSS_SINGULARITY_DESC,Sort : sphère au point visé qui attire les ennemis 3 s puis implose.,"Spell: sphere at the aimed point that pulls enemies for 3 s, then implodes."
 NODE_ABYSS_VOID_WAKE_NAME,Sillage du vide,Void Wake
 NODE_ABYSS_VOID_WAKE_DESC,La Ruée laisse une traînée qui Entrave 2 s.,Dashing leaves a trail that Slows for 2 s.
 NODE_ABYSS_SINGULARITY_HORIZON_NAME,Horizon,Horizon
@@ -790,7 +793,7 @@ NODE_ABYSS_RIFTS_EXILE_DESC,"Failles jumelles : les ennemis aspirés ressortent 
 NODE_ABYSS_VOID_MASTER_NAME,Maître du vide,Void Master
 NODE_ABYSS_VOID_MASTER_DESC,Clé de voûte : les ennemis sous Racines ou Entrave subissent +25 % de dégâts.,Keystone: Rooted or Slowed enemies take +25% damage.
 NODE_BOND_PACK_CALL_NAME,Appel de meute,Pack Call
-NODE_BOND_PACK_CALL_DESC,Sort : les Échos bondissent vers le curseur et frappent ensemble.,Spell: your Echoes leap toward the cursor and strike together.
+NODE_BOND_PACK_CALL_DESC,Sort : les Échos bondissent vers l'avant et frappent ensemble.,Spell: your Echoes leap forward and strike together.
 NODE_BOND_CLOSE_GUARD_NAME,Garde rapprochée,Close Guard
 NODE_BOND_CLOSE_GUARD_DESC,"Quand le Chasseur est touché, l'Écho le plus proche bondit sur l'ennemi le plus proche (toutes les 3 s).","When the Hunter is hit, the nearest Echo leaps at the nearest enemy (every 3 s)."
 NODE_BOND_CALL_RALLY_NAME,Ralliement,Rally
@@ -829,6 +832,8 @@ TREE_BUILD,Build %d,Build %d
 TREE_SPELL_SLOTS,Sorts équipés :,Equipped spells:
 TREE_SLOT_EMPTY,—,—
 TREE_EQUIP_HINT,"Sélectionnez un sort actif dans l'arbre, puis cliquez sur un emplacement pour l'y équiper.","Select an active spell in the tree, then click a slot to equip it there."
+TREE_SLOT_LOCKED,Emplacement fermé : il s'ouvre après la victoire sur « %s ».,"Locked slot: it opens after winning ""%s""."
+TREE_SLOT_LOCKED_SHORT,Débloqué au niveau %d · chapitre %d,Unlocks at stage %d · chapter %d
 TREE_TIER,Niveau %s,Tier %s
 TREE_GATE_SHORT,%d victoire(s),%d win(s)
 TREE_GATE,Requiert %d victoire(s) contre un boss (actuellement %d),Requires %d boss victory(ies) (currently %d)
@@ -856,25 +861,25 @@ TREE_ERR_NEEDS_SPELL,Activez d'abord le sort.,Activate the spell first.
 TREE_ERR_POINTS,Pas assez de Points de Chasseur (gagnez une nouvelle carte ou réussissez des objectifs).,Not enough Hunter Points (win a new map or complete objectives).
 REPORT_HUNTER_POINT,Première victoire sur cette carte : +1 Point de Chasseur !,First victory on this map: +1 Hunter Point!
 SPELL_RIFT_LEAP_NAME,Bond de faille,Rift Leap
-SPELL_RIFT_LEAP_DESC,"Bond jusqu'au curseur, invulnérable pendant le saut, onde de choc à l'arrivée. Ne franchit ni l'eau, ni les falaises, ni les barrières.","Leap to the cursor, invulnerable while airborne, shockwave on landing. Cannot cross water, cliffs or barriers."
+SPELL_RIFT_LEAP_DESC,"Bond jusqu'au point visé, invulnérable pendant le saut, onde de choc à l'arrivée. Ne franchit ni l'eau, ni les falaises, ni les barrières.","Leap to the aimed point, invulnerable while airborne, shockwave on landing. Cannot cross water, cliffs or barriers."
 SPELL_PARRY_NAME,Parade,Parry
 SPELL_PARRY_DESC,"Garde de 0,4 s : un coup paré n'inflige rien, déclenche une contre-attaque ×4, étourdit et recharge la Parade.","0.4 s guard: a parried hit deals nothing, triggers a ×4 counterattack, stuns and recharges Parry."
 SPELL_RUPTURE_NAME,Rupture,Rupture
-SPELL_RUPTURE_DESC,Fait détoner toutes les Marques dans une zone au curseur.,Detonates every Mark in an area at the cursor.
+SPELL_RUPTURE_DESC,Fait détoner toutes les Marques dans une zone au point visé.,Detonates every Mark in an area at the aimed point.
 SPELL_REFRACTING_CRYSTAL_NAME,Cristal réfracteur,Refracting Crystal
-SPELL_REFRACTING_CRYSTAL_DESC,Cristal au curseur (8 s) : chaque Trait ou Lance qui le traverse se divise en 3 et pose une Marque.,Crystal at the cursor (8 s): every Bolt or Lance passing through splits into 3 and applies a Mark.
+SPELL_REFRACTING_CRYSTAL_DESC,Cristal au point visé (8 s) : chaque Trait ou Lance qui le traverse se divise en 3 et pose une Marque.,Crystal at the aimed point (8 s): every Bolt or Lance passing through splits into 3 and applies a Mark.
 SPELL_SINGULARITY_NAME,Singularité,Singularity
-SPELL_SINGULARITY_DESC,Sphère au curseur qui attire les ennemis 3 s puis implose.,"Sphere at the cursor that pulls enemies for 3 s, then implodes."
+SPELL_SINGULARITY_DESC,Sphère au point visé qui attire les ennemis 3 s puis implose.,"Sphere at the aimed point that pulls enemies for 3 s, then implodes."
 SPELL_RIFT_WALL_NAME,Mur de faille,Rift Wall
-SPELL_RIFT_WALL_DESC,"Mur au curseur, perpendiculaire à la visée (4 s) : bloque les ennemis et leurs projectiles.","Wall at the cursor, perpendicular to your aim (4 s): blocks enemies and their projectiles."
+SPELL_RIFT_WALL_DESC,"Mur au point visé, perpendiculaire à la visée (4 s) : bloque les ennemis et leurs projectiles.","Wall at the aimed point, perpendicular to your aim (4 s): blocks enemies and their projectiles."
 SPELL_TWIN_RIFTS_NAME,Failles jumelles,Twin Rifts
 SPELL_TWIN_RIFTS_DESC,"1er appui : entrée ; 2e appui : sortie (6 s). Tirs, Échos et Chasseur en Ruée passent de l'une à l'autre ; les ennemis qui les touchent sont Fracturés.","1st press: entrance; 2nd press: exit (6 s). Shots, Echoes and the dashing Hunter travel between them; enemies touching them are Fractured."
 SPELL_PACK_CALL_NAME,Appel de meute,Pack Call
-SPELL_PACK_CALL_DESC,Les Échos bondissent vers le curseur et frappent ensemble (+25 % par Écho au-delà du premier).,Your Echoes leap to the cursor and strike together (+25% per Echo beyond the first).
+SPELL_PACK_CALL_DESC,Les Échos bondissent vers l'avant et frappent ensemble (+25 % par Écho au-delà du premier).,Your Echoes leap to the aimed point and strike together (+25% per Echo beyond the first).
 SPELL_AEGIS_NAME,Égide de faille,Rift Aegis
 SPELL_AEGIS_DESC,Bouclier de 25 % des PV max (+5 % par Écho) pendant 4 s.,Shield worth 25% of max HP (+5% per Echo) for 4 s.
 SPELL_SWAP_NAME,Permutation,Swap
-SPELL_SWAP_DESC,"Échange de place avec l'Écho le plus proche du curseur, qui provoque les ennemis proches 2 s. À l'instant d'un coup : esquive et recharges divisées par 2.","Swap places with the Echo nearest the cursor, which taunts nearby enemies for 2 s. Right before a hit: dodge and halve your cooldowns."
+SPELL_SWAP_DESC,"Échange de place avec l'Écho le plus proche du point visé, qui provoque les ennemis proches 2 s. À l'instant d'un coup : esquive et recharges divisées par 2.","Swap places with the Echo nearest the aimed point, which taunts nearby enemies for 2 s. Right before a hit: dodge and halve your cooldowns."
 C5_CLEAVING_SLASH,Taille fendante,Cleaving Slash
 C5_RIFT_LEAP,Bond de faille,Rift Leap
 C5_PARRY,Parade,Parry
@@ -1054,7 +1059,7 @@ AFFINITY_GUARDIAN_NAME,Gardien,Guardian
 BESTIARY_AFFINITIES,Affinités : %s,Affinities: %s
 BESTIARY_SYNERGY_AFFINITY,%d Échos : %s,%d Echoes: %s
 TECHNIQUE_CINDER_DASH_NAME,Lame de cendres,Cinder Blade
-TECHNIQUE_CINDER_DASH_DESC,Fonce jusqu'au curseur en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the cursor, slashing everything in its path and inflicting Burn."
+TECHNIQUE_CINDER_DASH_DESC,Fonce jusqu'au point visé en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the aimed point, slashing everything in its path and inflicting Burn."
 ECHO_NODE_ASHBLADE_MIGHT_NAME,Puissance,Might
 ECHO_NODE_ASHBLADE_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
 ECHO_NODE_ASHBLADE_FOCUS_NAME,Concentration,Focus
@@ -1062,11 +1067,11 @@ ECHO_NODE_ASHBLADE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,Th
 ECHO_NODE_ASHBLADE_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_ASHBLADE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_ASHBLADE_SPELL_ALT_NAME,Lame de cendres,Cinder Blade
-ECHO_NODE_ASHBLADE_SPELL_ALT_DESC,Fonce jusqu'au curseur en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the cursor, slashing everything in its path and inflicting Burn."
+ECHO_NODE_ASHBLADE_SPELL_ALT_DESC,Fonce jusqu'au point visé en tranchant tout sur son passage et inflige Brûlure.,"Dashes to the aimed point, slashing everything in its path and inflicting Burn."
 ECHO_NODE_ASHBLADE_SIGNATURE_NAME,Frénésie,Frenzy
 ECHO_NODE_ASHBLADE_SIGNATURE_DESC,Vitesse d'attaque de Cendrelame +20 %.,Ashblade attack speed +20%.
 TECHNIQUE_STONE_TAUNT_NAME,Rempart de mousse,Moss Rampart
-TECHNIQUE_STONE_TAUNT_DESC,Provoque et ralentit les ennemis autour du curseur pendant 3 s.,Taunts and slows enemies around the cursor for 3 s.
+TECHNIQUE_STONE_TAUNT_DESC,Provoque et ralentit les ennemis autour du point visé pendant 3 s.,Taunts and slows enemies around the aimed point for 3 s.
 ECHO_NODE_MOSSBACK_MIGHT_NAME,Puissance,Might
 ECHO_NODE_MOSSBACK_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
 ECHO_NODE_MOSSBACK_FOCUS_NAME,Concentration,Focus
@@ -1074,11 +1079,11 @@ ECHO_NODE_MOSSBACK_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,Th
 ECHO_NODE_MOSSBACK_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_MOSSBACK_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_MOSSBACK_SPELL_ALT_NAME,Rempart de mousse,Moss Rampart
-ECHO_NODE_MOSSBACK_SPELL_ALT_DESC,Provoque et ralentit les ennemis autour du curseur pendant 3 s.,Taunts and slows enemies around the cursor for 3 s.
+ECHO_NODE_MOSSBACK_SPELL_ALT_DESC,Provoque et ralentit les ennemis autour du point visé pendant 3 s.,Taunts and slows enemies around the aimed point for 3 s.
 ECHO_NODE_MOSSBACK_SIGNATURE_NAME,Écorce,Bark
 ECHO_NODE_MOSSBACK_SIGNATURE_DESC,Dégâts subis par le Chasseur −6 %.,Damage taken by the Hunter −6%.
 TECHNIQUE_SPARK_RAIN_NAME,Pluie d'étincelles,Spark Rain
-TECHNIQUE_SPARK_RAIN_DESC,Pose 2 Marques sur les ennemis autour du curseur.,Applies 2 Marks to enemies around the cursor.
+TECHNIQUE_SPARK_RAIN_DESC,Pose 2 Marques sur les ennemis autour du point visé.,Applies 2 Marks to enemies around the aimed point.
 ECHO_NODE_GLIMMERWING_MIGHT_NAME,Puissance,Might
 ECHO_NODE_GLIMMERWING_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
 ECHO_NODE_GLIMMERWING_FOCUS_NAME,Concentration,Focus
@@ -1086,11 +1091,11 @@ ECHO_NODE_GLIMMERWING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.
 ECHO_NODE_GLIMMERWING_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_GLIMMERWING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_GLIMMERWING_SPELL_ALT_NAME,Pluie d'étincelles,Spark Rain
-ECHO_NODE_GLIMMERWING_SPELL_ALT_DESC,Pose 2 Marques sur les ennemis autour du curseur.,Applies 2 Marks to enemies around the cursor.
+ECHO_NODE_GLIMMERWING_SPELL_ALT_DESC,Pose 2 Marques sur les ennemis autour du point visé.,Applies 2 Marks to enemies around the aimed point.
 ECHO_NODE_GLIMMERWING_SIGNATURE_NAME,Prisme,Prism
 ECHO_NODE_GLIMMERWING_SIGNATURE_DESC,Marques : cumul maximal +1.,Marks: max stacks +1.
 TECHNIQUE_BLOOM_NAME,Floraison,Bloom
-TECHNIQUE_BLOOM_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du curseur.,Heals the Hunter for 10% of max HP and roots enemies around the cursor.
+TECHNIQUE_BLOOM_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du point visé.,Heals the Hunter for 10% of max HP and roots enemies around the aimed point.
 ECHO_NODE_THORNWEAVE_MIGHT_NAME,Puissance,Might
 ECHO_NODE_THORNWEAVE_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
 ECHO_NODE_THORNWEAVE_FOCUS_NAME,Concentration,Focus
@@ -1098,11 +1103,11 @@ ECHO_NODE_THORNWEAVE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,
 ECHO_NODE_THORNWEAVE_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_THORNWEAVE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_THORNWEAVE_SPELL_ALT_NAME,Floraison,Bloom
-ECHO_NODE_THORNWEAVE_SPELL_ALT_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du curseur.,Heals the Hunter for 10% of max HP and roots enemies around the cursor.
+ECHO_NODE_THORNWEAVE_SPELL_ALT_DESC,Soigne le Chasseur de 10 % des PV max et enracine les ennemis autour du point visé.,Heals the Hunter for 10% of max HP and roots enemies around the aimed point.
 ECHO_NODE_THORNWEAVE_SIGNATURE_NAME,Sève,Sap
 ECHO_NODE_THORNWEAVE_SIGNATURE_DESC,"Régénération du Chasseur +0,4 PV/s.",Hunter regeneration +0.4 HP/s.
 TECHNIQUE_CHAIN_ARC_NAME,Arc chaîné,Chain Arc
-TECHNIQUE_CHAIN_ARC_DESC,Éclair qui part de l'ennemi le plus proche du curseur et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the cursor and bounces through 6 enemies, electrifying them."
+TECHNIQUE_CHAIN_ARC_DESC,Éclair qui part de l'ennemi le plus proche du point visé et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the aimed point and bounces through 6 enemies, electrifying them."
 ECHO_NODE_VOLTWISP_MIGHT_NAME,Puissance,Might
 ECHO_NODE_VOLTWISP_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
 ECHO_NODE_VOLTWISP_FOCUS_NAME,Concentration,Focus
@@ -1110,11 +1115,11 @@ ECHO_NODE_VOLTWISP_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,Th
 ECHO_NODE_VOLTWISP_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_VOLTWISP_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_VOLTWISP_SPELL_ALT_NAME,Arc chaîné,Chain Arc
-ECHO_NODE_VOLTWISP_SPELL_ALT_DESC,Éclair qui part de l'ennemi le plus proche du curseur et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the cursor and bounces through 6 enemies, electrifying them."
+ECHO_NODE_VOLTWISP_SPELL_ALT_DESC,Éclair qui part de l'ennemi le plus proche du point visé et rebondit sur 6 ennemis en les électrisant.,"Lightning that starts from the enemy nearest the aimed point and bounces through 6 enemies, electrifying them."
 ECHO_NODE_VOLTWISP_SIGNATURE_NAME,Portée,Reach
 ECHO_NODE_VOLTWISP_SIGNATURE_DESC,Portée d'attaque de Fulgurine +20 %.,Voltwisp attack range +20%.
 TECHNIQUE_MAW_PIT_NAME,Gouffre,Maw Pit
-TECHNIQUE_MAW_PIT_DESC,"Petit puits du Vide au curseur qui aspire les ennemis, les mord et les Fracture.","A small Void well at the cursor that pulls enemies in, bites and Fractures them."
+TECHNIQUE_MAW_PIT_DESC,"Petit puits du Vide au point visé qui aspire les ennemis, les mord et les Fracture.","A small Void well at the aimed point that pulls enemies in, bites and Fractures them."
 ECHO_NODE_GLOOMMAW_MIGHT_NAME,Puissance,Might
 ECHO_NODE_GLOOMMAW_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
 ECHO_NODE_GLOOMMAW_FOCUS_NAME,Concentration,Focus
@@ -1122,11 +1127,11 @@ ECHO_NODE_GLOOMMAW_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,Th
 ECHO_NODE_GLOOMMAW_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_GLOOMMAW_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_GLOOMMAW_SPELL_ALT_NAME,Gouffre,Maw Pit
-ECHO_NODE_GLOOMMAW_SPELL_ALT_DESC,"Petit puits du Vide au curseur qui aspire les ennemis, les mord et les Fracture.","A small Void well at the cursor that pulls enemies in, bites and Fractures them."
+ECHO_NODE_GLOOMMAW_SPELL_ALT_DESC,"Petit puits du Vide au point visé qui aspire les ennemis, les mord et les Fracture.","A small Void well at the aimed point that pulls enemies in, bites and Fractures them."
 ECHO_NODE_GLOOMMAW_SIGNATURE_NAME,Appétit,Appetite
 ECHO_NODE_GLOOMMAW_SIGNATURE_DESC,Dégâts contre les élites et le boss +10 %.,Damage against elites and the boss +10%.
 TECHNIQUE_MIRROR_SHARDS_NAME,Éclats miroirs,Mirror Shards
-TECHNIQUE_MIRROR_SHARDS_DESC,Projette 5 éclats en éventail vers le curseur.,Throws 5 shards in a fan toward the cursor.
+TECHNIQUE_MIRROR_SHARDS_DESC,Projette 5 éclats en éventail vers l'avant.,Throws 5 shards in a fan forward.
 ECHO_NODE_MIRRORLING_MIGHT_NAME,Puissance,Might
 ECHO_NODE_MIRRORLING_MIGHT_DESC,Dégâts de cet Écho +8 % par rang.,This Echo's damage +8% per rank.
 ECHO_NODE_MIRRORLING_FOCUS_NAME,Concentration,Focus
@@ -1134,11 +1139,11 @@ ECHO_NODE_MIRRORLING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,
 ECHO_NODE_MIRRORLING_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_MIRRORLING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_MIRRORLING_SPELL_ALT_NAME,Éclats miroirs,Mirror Shards
-ECHO_NODE_MIRRORLING_SPELL_ALT_DESC,Projette 5 éclats en éventail vers le curseur.,Throws 5 shards in a fan toward the cursor.
+ECHO_NODE_MIRRORLING_SPELL_ALT_DESC,Projette 5 éclats en éventail vers l'avant.,Throws 5 shards in a fan forward.
 ECHO_NODE_MIRRORLING_SIGNATURE_NAME,Reflet,Reflection
 ECHO_NODE_MIRRORLING_SIGNATURE_DESC,+15 PV max.,+15 max HP.
 TAB_ECHOES,Échos,Echoes
-ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (1 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (1, 2, 3). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (1 + mastery level). One spell equipped per Echo, cast with its key (1, 2, 3). Activations are saved in the Hunter's active build."
+ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (1 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (1 + mastery level). One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Activations are saved in the Hunter's active build."
 ECHO_TREE_POINTS,Points d'Écho : %d / %d,Echo Points: %d / %d
 ECHO_TREE_EQUIPPED,Sort équipé : %s,Equipped spell: %s
 ECHO_TREE_LOCKED,Écho pas encore débloqué.,Echo not unlocked yet.
@@ -1177,7 +1182,7 @@ TREE_SECTION_TRANSFORMS,Transformants,Transforming
 TREE_SECTION_KEYSTONE,Clé de voûte,Keystone
 TREE_EQUIP_READY,Cliquez sur un emplacement en bas pour équiper ce sort.,Click a slot below to equip this spell.
 ECHO_TREE_OR,ou,or
-ECHO_TREE_HINT,"Un seul sort équipé par Écho, lancé avec sa touche (1, 2, 3). Les choix sont enregistrés dans le build actif du Chasseur.","One spell equipped per Echo, cast with its key (1, 2, 3). Choices are saved in the Hunter's active build."
+ECHO_TREE_HINT,"Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les choix sont enregistrés dans le build actif du Chasseur.","One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Choices are saved in the Hunter's active build."
 ECHO_TREE_POINTS_HINT,Points d'Écho : 1 + niveau de maîtrise de cet Écho.,Echo Points: 1 + this Echo's mastery level.
 ECHO_TREE_ONE_SPELL,Un seul des deux sorts peut être équipé.,Only one of the two spells can be equipped.
 ECHO_TREE_NEEDS_PASSIVE,Requiert un rang de Puissance ou de Concentration.,Requires a rank of Might or Focus.
@@ -1190,7 +1195,7 @@ EXPEDITION_MAP_NEW,Nouvelle,New
 EXPEDITION_MAP_LOCKED_BY,Terminez « %s »,Clear “%s”
 EXPEDITION_SURVIVAL_TAG,Survie,Survival
 EXPEDITION_SURVIVAL_NOTE,Épreuve d'endurance pour le score : tenez jusqu'au Dévoreur.,Endurance trial for score: hold out until the Devourer.
-EXPEDITION_WITH,Écho de départ : %s,Starting Echo: %s
+EXPEDITION_WITH,Équipe : %s,Team: %s
 FINALE_TRAVEL_PLAZA,Les failles sont refermées : rejoignez la place centrale.,The rifts are sealed: reach the central square.
 RIFTS_INTRO,Refermez les %d failles : détruisez-les pour arrêter les Corrompus.,Seal the %d rifts: destroy them to stop the Corrupted.
 RIFTS_PROGRESS,Failles refermées : %d / %d,Rifts sealed: %d / %d
@@ -1206,37 +1211,37 @@ STATUS_HOLLOW_DESC,Implose à sa mort (Spectrâtre).,Implodes on death (Hollowfl
 STATUS_REVEAL_NAME,Révélé,Revealed
 STATUS_REVEAL_DESC,Dégâts subis +12 %.,Damage taken +12%.
 TECHNIQUE_ASH_RAIN_NAME,Pluie de cendres,Ash Rain
-TECHNIQUE_ASH_RAIN_DESC,Huit plumes de braise s'abattent autour du curseur et brûlent.,Eight ember feathers rain around the cursor and burn.
+TECHNIQUE_ASH_RAIN_DESC,Huit plumes de braise s'abattent autour du point visé et brûlent.,Eight ember feathers rain around the aimed point and burn.
 TECHNIQUE_THUNDER_DIVE_NAME,Piqué foudroyant,Thunder Dive
-TECHNIQUE_THUNDER_DIVE_DESC,"Pyraile pique jusqu'au curseur, frappe la ligne et foudroie l'arrivée (Électrise).","Cinderwing dives to the cursor, striking the line and blasting the landing (Charges)."
+TECHNIQUE_THUNDER_DIVE_DESC,"Pyraile pique jusqu'au point visé, frappe la ligne et foudroie l'arrivée (Électrise).","Cinderwing dives to the aimed point, striking the line and blasting the landing (Charges)."
 TECHNIQUE_LAVA_FLOW_NAME,Coulée,Lava Flow
-TECHNIQUE_LAVA_FLOW_DESC,Une ligne de lave part du Chasseur vers le curseur : brûle et ralentit 4 s.,A line of lava runs from the Hunter toward the cursor: burns and slows for 4 s.
+TECHNIQUE_LAVA_FLOW_DESC,Une ligne de lave part du Chasseur vers l'avant : brûle et ralentit 4 s.,A line of lava runs from the Hunter forward: burns and slows for 4 s.
 TECHNIQUE_GEYSER_NAME,Geyser,Geyser
-TECHNIQUE_GEYSER_DESC,"Le sol entre en éruption au curseur après un instant, puis bouillonne 2,5 s.","The ground erupts at the cursor after a moment, then simmers for 2.5 s."
+TECHNIQUE_GEYSER_DESC,"Le sol entre en éruption au point visé après un instant, puis bouillonne 2,5 s.","The ground erupts at the aimed point after a moment, then simmers for 2.5 s."
 TECHNIQUE_IMPLOSION_NAME,Implosion,Implosion
-TECHNIQUE_IMPLOSION_DESC,Aspire les ennemis au curseur puis implose : Marque creuse et Fracture.,Pulls enemies at the cursor then implodes: Hollow Mark and Fracture.
+TECHNIQUE_IMPLOSION_DESC,Aspire les ennemis au point visé puis implose : Marque creuse et Fracture.,Pulls enemies at the aimed point then implodes: Hollow Mark and Fracture.
 TECHNIQUE_WANDERING_FLAME_NAME,Flamme errante,Wandering Flame
-TECHNIQUE_WANDERING_FLAME_DESC,"Une flamme vers le curseur qui rebondit sur 6 ennemis (Marque creuse, Brûlure).","A flame toward the cursor that bounces through 6 enemies (Hollow Mark, Burn)."
+TECHNIQUE_WANDERING_FLAME_DESC,"Une flamme vers l'avant qui rebondit sur 6 ennemis (Marque creuse, Brûlure).","A flame forward that bounces through 6 enemies (Hollow Mark, Burn)."
 TECHNIQUE_SPORE_CLOUD_NAME,Nuée de spores,Spore Cloud
-TECHNIQUE_SPORE_CLOUD_DESC,Un nuage de spores au curseur empoisonne pendant 5 s.,A spore cloud at the cursor poisons for 5 s.
+TECHNIQUE_SPORE_CLOUD_DESC,Un nuage de spores au point visé empoisonne pendant 5 s.,A spore cloud at the aimed point poisons for 5 s.
 TECHNIQUE_BUD_TRAP_NAME,Bourgeon,Bud Trap
-TECHNIQUE_BUD_TRAP_DESC,"Un bourgeon pousse au curseur et éclate : 3 Poisons, Racines, puis spores 3 s.","A bud sprouts at the cursor and bursts: 3 Poisons, Roots, then spores for 3 s."
+TECHNIQUE_BUD_TRAP_DESC,"Un bourgeon pousse au point visé et éclate : 3 Poisons, Racines, puis spores 3 s.","A bud sprouts at the aimed point and bursts: 3 Poisons, Roots, then spores for 3 s."
 TECHNIQUE_SINGULARITY_NAME,Singularité,Singularity
-TECHNIQUE_SINGULARITY_DESC,"Un puits de gravité au curseur aspire 2,5 s, Fracture et ralentit.","A gravity well at the cursor pulls for 2.5 s, Fractures and slows."
+TECHNIQUE_SINGULARITY_DESC,"Un puits de gravité au point visé aspire 2,5 s, Fracture et ralentit.","A gravity well at the aimed point pulls for 2.5 s, Fractures and slows."
 TECHNIQUE_METEOR_NAME,Météore,Meteor
-TECHNIQUE_METEOR_DESC,"Un éclat de lune s'écrase au curseur après 0,7 s et ralentit.",A moon shard crashes at the cursor after 0.7 s and slows.
+TECHNIQUE_METEOR_DESC,"Un éclat de lune s'écrase au point visé après 0,7 s et ralentit.",A moon shard crashes at the aimed point after 0.7 s and slows.
 TECHNIQUE_HEALING_GROVE_NAME,Bosquet,Healing Grove
-TECHNIQUE_HEALING_GROVE_DESC,Un bosquet au curseur soigne le Chasseur qui s'y tient (12 % en 5 s) et ralentit.,A grove at the cursor heals the Hunter standing in it (12% over 5 s) and slows.
+TECHNIQUE_HEALING_GROVE_DESC,Un bosquet au point visé soigne le Chasseur qui s'y tient (12 % en 5 s) et ralentit.,A grove at the aimed point heals the Hunter standing in it (12% over 5 s) and slows.
 TECHNIQUE_PROTECTIVE_THORNS_NAME,Ronces protectrices,Protective Thorns
 TECHNIQUE_PROTECTIVE_THORNS_DESC,Bouclier de 20 % des PV max ; des ronces enracinent autour du Chasseur 4 s.,Shield of 20% max HP; thorns root enemies around the Hunter for 4 s.
 TECHNIQUE_SOLAR_FLARE_NAME,Éclat solaire,Solar Flare
-TECHNIQUE_SOLAR_FLARE_DESC,Un éventail de lumière vers le curseur : dégâts et Aveuglement.,A fan of light toward the cursor: damage and Blindness.
+TECHNIQUE_SOLAR_FLARE_DESC,Un éventail de lumière vers l'avant : dégâts et Aveuglement.,A fan of light forward: damage and Blindness.
 TECHNIQUE_RADIANT_LEAP_NAME,Bond lumineux,Radiant Leap
-TECHNIQUE_RADIANT_LEAP_DESC,Solgriffe bondit jusqu'au curseur et aveugle autour de son arrivée.,Sunclaw leaps to the cursor and blinds around its landing.
+TECHNIQUE_RADIANT_LEAP_DESC,Solgriffe bondit jusqu'au point visé et aveugle autour de son arrivée.,Sunclaw leaps to the aimed point and blinds around its landing.
 TECHNIQUE_FIREFLY_SWARM_NAME,Essaim de lucioles,Firefly Swarm
-TECHNIQUE_FIREFLY_SWARM_DESC,Des lucioles au curseur révèlent les ennemis 5 s ; Chasseur et Échos +15 % de vitesse.,Fireflies at the cursor reveal enemies for 5 s; Hunter and Echoes +15% speed.
+TECHNIQUE_FIREFLY_SWARM_DESC,Des lucioles au point visé révèlent les ennemis 5 s ; Chasseur et Échos +15 % de vitesse.,Fireflies at the aimed point reveal enemies for 5 s; Hunter and Echoes +15% speed.
 TECHNIQUE_WING_DUST_NAME,Poudre d'ailes,Wing Dust
-TECHNIQUE_WING_DUST_DESC,Un nuage de poudre vers le curseur : ralentit et révèle.,A cloud of dust toward the cursor: slows and reveals.
+TECHNIQUE_WING_DUST_DESC,Un nuage de poudre vers l'avant : ralentit et révèle.,A cloud of dust forward: slows and reveals.
 TECHNIQUE_CONDUCTIVE_DOME_NAME,Dôme conducteur,Conductive Dome
 TECHNIQUE_CONDUCTIVE_DOME_DESC,Bouclier de 25 % des PV max ; le dôme Électrise les ennemis autour du Chasseur 4 s.,Shield of 25% max HP; the dome Charges enemies around the Hunter for 4 s.
 TECHNIQUE_DISCHARGE_NAME,Décharge,Discharge
@@ -1263,7 +1268,7 @@ ECHO_NODE_CINDERWING_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,
 ECHO_NODE_CINDERWING_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_CINDERWING_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_CINDERWING_SPELL_ALT_NAME,Piqué foudroyant,Thunder Dive
-ECHO_NODE_CINDERWING_SPELL_ALT_DESC,"Pyraile pique jusqu'au curseur, frappe la ligne et foudroie l'arrivée (Électrise).","Cinderwing dives to the cursor, striking the line and blasting the landing (Charges)."
+ECHO_NODE_CINDERWING_SPELL_ALT_DESC,"Pyraile pique jusqu'au point visé, frappe la ligne et foudroie l'arrivée (Électrise).","Cinderwing dives to the aimed point, striking the line and blasting the landing (Charges)."
 ECHO_NODE_CINDERWING_SIGNATURE_NAME,Ailes d'orage,Storm Wings
 ECHO_NODE_CINDERWING_SIGNATURE_DESC,Les coups de Pyraile ont 30 % de chances d'Électriser.,Cinderwing's hits have a 30% chance to Charge.
 EVOLUTION_VOLCANYX_NAME,Volcandre,Volcanyx
@@ -1288,7 +1293,7 @@ ECHO_NODE_MAGMANDER_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,T
 ECHO_NODE_MAGMANDER_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_MAGMANDER_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_MAGMANDER_SPELL_ALT_NAME,Geyser,Geyser
-ECHO_NODE_MAGMANDER_SPELL_ALT_DESC,"Le sol entre en éruption au curseur après un instant, puis bouillonne 2,5 s.","The ground erupts at the cursor after a moment, then simmers for 2.5 s."
+ECHO_NODE_MAGMANDER_SPELL_ALT_DESC,"Le sol entre en éruption au point visé après un instant, puis bouillonne 2,5 s.","The ground erupts at the aimed point after a moment, then simmers for 2.5 s."
 ECHO_NODE_MAGMANDER_SIGNATURE_NAME,Fournaise,Furnace
 ECHO_NODE_MAGMANDER_SIGNATURE_DESC,Dégâts de Brûlure +25 % (toute l'équipe).,Burn damage +25% (whole team).
 EVOLUTION_HEARTHVOID_NAME,Âtrenoir,Hearthvoid
@@ -1313,7 +1318,7 @@ ECHO_NODE_HOLLOWFLAME_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.
 ECHO_NODE_HOLLOWFLAME_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_HOLLOWFLAME_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_HOLLOWFLAME_SPELL_ALT_NAME,Flamme errante,Wandering Flame
-ECHO_NODE_HOLLOWFLAME_SPELL_ALT_DESC,"Une flamme vers le curseur qui rebondit sur 6 ennemis (Marque creuse, Brûlure).","A flame toward the cursor that bounces through 6 enemies (Hollow Mark, Burn)."
+ECHO_NODE_HOLLOWFLAME_SPELL_ALT_DESC,"Une flamme vers l'avant qui rebondit sur 6 ennemis (Marque creuse, Brûlure).","A flame forward that bounces through 6 enemies (Hollow Mark, Burn)."
 ECHO_NODE_HOLLOWFLAME_SIGNATURE_NAME,Vide dévorant,Devouring Void
 ECHO_NODE_HOLLOWFLAME_SIGNATURE_DESC,Toute l'équipe inflige +12 % de dégâts aux ennemis sous Marque creuse.,The whole team deals +12% damage to enemies with a Hollow Mark.
 EVOLUTION_MOONMOLD_NAME,Moisilune,Moonmold
@@ -1338,7 +1343,7 @@ ECHO_NODE_MOONSPORE_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,T
 ECHO_NODE_MOONSPORE_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_MOONSPORE_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_MOONSPORE_SPELL_ALT_NAME,Bourgeon,Bud Trap
-ECHO_NODE_MOONSPORE_SPELL_ALT_DESC,"Un bourgeon pousse au curseur et éclate : 3 Poisons, Racines, puis spores 3 s.","A bud sprouts at the cursor and bursts: 3 Poisons, Roots, then spores for 3 s."
+ECHO_NODE_MOONSPORE_SPELL_ALT_DESC,"Un bourgeon pousse au point visé et éclate : 3 Poisons, Racines, puis spores 3 s.","A bud sprouts at the aimed point and bursts: 3 Poisons, Roots, then spores for 3 s."
 ECHO_NODE_MOONSPORE_SIGNATURE_NAME,Moisissure,Mildew
 ECHO_NODE_MOONSPORE_SIGNATURE_DESC,Toute l'équipe inflige +10 % de dégâts aux ennemis empoisonnés.,The whole team deals +10% damage to Poisoned enemies.
 EVOLUTION_MOONARCH_NAME,Lunarche,Moonarch
@@ -1363,7 +1368,7 @@ ECHO_NODE_GRAVISHELL_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,
 ECHO_NODE_GRAVISHELL_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_GRAVISHELL_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_GRAVISHELL_SPELL_ALT_NAME,Météore,Meteor
-ECHO_NODE_GRAVISHELL_SPELL_ALT_DESC,"Un éclat de lune s'écrase au curseur après 0,7 s et ralentit.",A moon shard crashes at the cursor after 0.7 s and slows.
+ECHO_NODE_GRAVISHELL_SPELL_ALT_DESC,"Un éclat de lune s'écrase au point visé après 0,7 s et ralentit.",A moon shard crashes at the aimed point after 0.7 s and slows.
 ECHO_NODE_GRAVISHELL_SIGNATURE_NAME,Orbite,Orbit
 ECHO_NODE_GRAVISHELL_SIGNATURE_DESC,+25 PV max pour le Chasseur.,+25 max HP for the Hunter.
 EVOLUTION_SYLVAN_STAG_NAME,Cerf-sylve,Sylvan Stag
@@ -1413,7 +1418,7 @@ ECHO_NODE_SUNCLAW_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,Thi
 ECHO_NODE_SUNCLAW_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_SUNCLAW_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_SUNCLAW_SPELL_ALT_NAME,Bond lumineux,Radiant Leap
-ECHO_NODE_SUNCLAW_SPELL_ALT_DESC,Solgriffe bondit jusqu'au curseur et aveugle autour de son arrivée.,Sunclaw leaps to the cursor and blinds around its landing.
+ECHO_NODE_SUNCLAW_SPELL_ALT_DESC,Solgriffe bondit jusqu'au point visé et aveugle autour de son arrivée.,Sunclaw leaps to the aimed point and blinds around its landing.
 ECHO_NODE_SUNCLAW_SIGNATURE_NAME,Rayon marqueur,Marking Ray
 ECHO_NODE_SUNCLAW_SIGNATURE_DESC,Les coups de Solgriffe ont 30 % de chances de poser une Marque.,Sunclaw's hits have a 30% chance to apply a Mark.
 EVOLUTION_AURORA_MOTH_NAME,Phalène d'aurore,Aurora Moth
@@ -1438,7 +1443,7 @@ ECHO_NODE_GLOWMOTH_FOCUS_DESC,Recharge du sort de cet Écho −10 % par rang.,Th
 ECHO_NODE_GLOWMOTH_SPELL_BASE_NAME,Sort d'origine,Original spell
 ECHO_NODE_GLOWMOTH_SPELL_BASE_DESC,La Technique d'origine de l'Écho.,The Echo's original Technique.
 ECHO_NODE_GLOWMOTH_SPELL_ALT_NAME,Poudre d'ailes,Wing Dust
-ECHO_NODE_GLOWMOTH_SPELL_ALT_DESC,Un nuage de poudre vers le curseur : ralentit et révèle.,A cloud of dust toward the cursor: slows and reveals.
+ECHO_NODE_GLOWMOTH_SPELL_ALT_DESC,Un nuage de poudre vers l'avant : ralentit et révèle.,A cloud of dust forward: slows and reveals.
 ECHO_NODE_GLOWMOTH_SIGNATURE_NAME,Battement,Wingbeat
 ECHO_NODE_GLOWMOTH_SIGNATURE_DESC,Recharge de la Ruée −15 %.,Dash cooldown −15%.
 EVOLUTION_THUNDERAEGIS_NAME,Égide-tonnerre,Thunderaegis
@@ -1507,6 +1512,7 @@ ALTAR_STATUS,Sceau %d / %d,Seal %d / %d
 ALTAR_STATUS_WAVE,Vague %d / %d · encore %d s,Wave %d / %d · %d s left
 ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
 FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."
+LAVA_INTRO,"La lave déborde : sortez de la croûte qui rougeoie, ou attirez-y les Corrompus.","Lava is overflowing: get off the glowing crust, or lure the Corrupted onto it."
 ARENA_SURVIVAL_RUINS_NAME,Épreuve des Ruines,Ruins Trial
 ARENA_SURVIVAL_RUINS_DESC,"Les Ruines des Cascades grandes ouvertes : des vagues sans répit, puis la Sentinelle des Racines.","The Waterfall Ruins wide open: relentless waves, then the Root Sentinel."
 ARENA_SURVIVAL_HIGHLANDS_NAME,Épreuve des Hautes Terres,Highlands Trial

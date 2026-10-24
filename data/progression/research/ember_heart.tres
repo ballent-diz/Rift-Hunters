@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1")
 id = &"ember_heart"
+feature = &"relics"
 name_key = "RESEARCH_EMBER_HEART_NAME"
 desc_key = "RESEARCH_EMBER_HEART_DESC"
 order = 2

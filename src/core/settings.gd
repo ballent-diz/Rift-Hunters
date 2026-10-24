@@ -53,6 +53,8 @@ func load_settings() -> void:
 	spell_preview = bool(data.get("spell_preview", spell_preview))
 	bindings = {}
 	var saved: Variant = data.get("bindings", {})
+	if int(data.get("bindings_version", 1)) < InputSetup.BINDINGS_VERSION:
+		saved = {}
 	if saved is Dictionary:
 		for action: Variant in saved:
 			if InputSetup.REBINDABLE.has(StringName(str(action))) and saved[action] is Array:
@@ -79,6 +81,7 @@ func save_settings() -> Error:
 		"minimap_size": minimap_size,
 		"spell_preview": spell_preview,
 		"bindings": bindings,
+		"bindings_version": InputSetup.BINDINGS_VERSION,
 	}
 	return SafeJsonStore.new(path).save_data(data)
 

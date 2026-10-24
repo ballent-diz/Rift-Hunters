@@ -88,6 +88,7 @@ func test_relic_cache_is_kept_for_survival() -> void:
 
 
 func test_no_starting_relic_in_the_campaign() -> void:
+	enable_features([&"relics"])
 	for arena_id: StringName in [&"three_rifts", &"fractured_plain"]:
 		var setup := RunSetup.new()
 		setup.arena_id = arena_id

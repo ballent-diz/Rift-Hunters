@@ -16,6 +16,12 @@ func after_each() -> void:
 	pass
 
 
+## Remet en jeu des fonctionnalités mises de côté (BalanceConfig.disabled_features) le temps du test.
+func enable_features(ids: Array[StringName]) -> void:
+	for id: StringName in ids:
+		GameDB.balance.disabled_features.erase(id)
+
+
 func check(condition: bool, message: String) -> void:
 	if not condition:
 		failures.append("%s : %s" % [current_test, message])

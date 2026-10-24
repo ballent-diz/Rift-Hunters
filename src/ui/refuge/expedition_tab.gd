@@ -1,5 +1,5 @@
 extends RefugeTab
-## Préparation de l'expédition (lots B1-B2, M2) : à gauche, l'Écho de départ, le choix Campagne / Survie, puis les
+## Préparation de l'expédition (lots B1-B2, M2) : à gauche, l'équipe d'Échos, le choix Campagne / Survie, puis les
 ## chapitres de cette piste et leurs cartes ; à droite, le résumé de la carte choisie (objectifs, difficulté, pactes)
 ## et le départ, toujours visibles.
 
@@ -64,35 +64,38 @@ func _has_loose_arenas() -> bool:
 	return false
 
 
-# --- Écho de départ
+# --- Équipe d'Échos
 
+## Équipe choisie au refuge (décision du 24 octobre 2026) : jusqu'à 3 Échos parmi ceux débloqués, le premier mène.
 func _add_starters(box: VBoxContainer, p: ProfileData) -> void:
-	box.add_child(UiKit.title(tr("EXPEDITION_STARTER"), 20, MenuSkin.PAPER))
+	var team: Array[StringName] = Profile.team()
+	box.add_child(UiKit.title(tr("EXPEDITION_TEAM") % [team.size(), GameDB.balance.max_team_slots], 20, MenuSkin.PAPER))
+	box.add_child(UiKit.wrapped(tr("EXPEDITION_TEAM_HINT"), 13, UiKit.MUTED))
 	var row := HFlowContainer.new()
 	row.add_theme_constant_override("h_separation", 8)
 	row.add_theme_constant_override("v_separation", 8)
 	box.add_child(row)
-	var selected := StringName(p.preference("starter", "mossback"))
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
-		row.add_child(_starter_tile(p, GameDB.monster(id), id == selected))
-	var starter: MonsterData = GameDB.monster(selected)
-	if starter == null:
-		return
-	var options := HBoxContainer.new()
-	options.add_theme_constant_override("separation", 10)
-	var entry: Dictionary = p.mastery_entry(selected)
-	if Mastery.variant_unlocked(p, starter):
-		var on: bool = bool(entry.get("use_variant", false))
-		var variant: Button = UiKit.button(tr(starter.variant.name_key) + (" ✓" if on else ""), _toggle.bind(selected,
-			"use_variant"), 0)
-		variant.tooltip_text = tr(starter.variant.desc_key)
-		options.add_child(variant)
-	if not Mastery.palette(p, starter).is_empty():
-		var palette_on: bool = bool(entry.get("use_palette", false))
-		options.add_child(UiKit.button(tr("EXPEDITION_PALETTE") + (" ✓" if palette_on else ""), _toggle.bind(selected,
-			"use_palette"), 0))
-	if options.get_child_count() > 0:
-		box.add_child(options)
+		row.add_child(_starter_tile(p, GameDB.monster(id), team.has(id)))
+	for id: StringName in team:
+		var monster: MonsterData = GameDB.monster(id)
+		var options := HBoxContainer.new()
+		options.add_theme_constant_override("separation", 10)
+		var entry: Dictionary = p.mastery_entry(id)
+		if Mastery.variant_unlocked(p, monster):
+			var on: bool = bool(entry.get("use_variant", false))
+			var variant: Button = UiKit.button(tr(monster.variant.name_key) + (" ✓" if on else ""), _toggle.bind(id,
+				"use_variant"), 0)
+			variant.tooltip_text = tr(monster.variant.desc_key)
+			options.add_child(variant)
+		if not Mastery.palette(p, monster).is_empty():
+			var palette_on: bool = bool(entry.get("use_palette", false))
+			options.add_child(UiKit.button(tr("EXPEDITION_PALETTE") + (" ✓" if palette_on else ""), _toggle.bind(id,
+				"use_palette"), 0))
+		if options.get_child_count() > 0:
+			options.add_child(UiKit.label(tr(monster.name_key), 13, MenuSkin.PAPER))
+			options.move_child(options.get_child(options.get_child_count() - 1), 0)
+			box.add_child(options)
 
 
 func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Button:
@@ -344,9 +347,11 @@ func _summary(p: ProfileData, arena: ArenaData) -> PanelContainer:
 			packed.append(tr(item.name_key))
 	if not packed.is_empty():
 		box.add_child(UiKit.wrapped(tr("EXPEDITION_PACKED") % ", ".join(packed), 13, UiKit.GOLD))
-	var starter: MonsterData = GameDB.monster(StringName(p.preference("starter", "mossback")))
-	if starter:
-		outer.add_child(UiKit.label(tr("EXPEDITION_WITH") % tr(starter.name_key), 13, UiKit.MUTED))
+	var names: PackedStringArray = []
+	for id: StringName in Profile.team():
+		names.append(tr(GameDB.monster(id).name_key))
+	if not names.is_empty():
+		outer.add_child(UiKit.label(tr("EXPEDITION_WITH") % ", ".join(names), 13, UiKit.MUTED))
 	var go: Button = UiKit.button(tr("EXPEDITION_DEPART"), _depart, 0)
 	go.name = "DepartButton"
 	go.custom_minimum_size.y = 56
@@ -415,8 +420,16 @@ func _toggle_modifier(id: String) -> void:
 	_set_pref("modifiers", ",".join(chosen))
 
 
+## Ajoute l'Écho à l'équipe (s'il reste une place) ou l'en retire (il en reste toujours un).
 func _select_starter(id: StringName) -> void:
-	_set_pref("starter", String(id))
+	var team: Array[StringName] = Profile.team()
+	if team.has(id):
+		if team.size() > 1:
+			team.erase(id)
+	elif team.size() < GameDB.balance.max_team_slots:
+		team.append(id)
+	Profile.set_team(team)
+	refuge.commit()
 
 
 func _set_pref(key: String, value: String) -> void:
@@ -432,7 +445,7 @@ func _toggle(id: StringName, key: String) -> void:
 
 func _depart() -> void:
 	Audio.play_sfx(&"ui_click")
-	Router.start_run(Profile.make_run_setup(StringName(profile().preference("starter", "mossback"))))
+	Router.start_run(Profile.make_run_setup(&""))
 
 ## Aperçu léger du décor réel, référencé dans le manifeste ; aucune texture de niveau chargée ici.
 func _map_preview(arena: ArenaData, height: float) -> TextureRect:

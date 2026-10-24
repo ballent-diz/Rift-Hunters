@@ -34,6 +34,8 @@ enum Kind { UTILITY, PASSIVE, SPELL, VARIANT, TRANSFORM, KEYSTONE }
 ## false : nœud prévu mais pas encore réalisé (affiché « à venir », ni apprenable ni activable).
 @export var implemented: bool = true
 @export var effects: Array[GameplayEffect] = []
+## Fonctionnalité dont dépend ce contenu (BalanceConfig.disabled_features) : masqué quand elle est mise de côté.
+@export var feature: StringName = &""
 
 
 func max_rank() -> int:

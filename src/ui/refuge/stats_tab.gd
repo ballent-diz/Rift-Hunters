@@ -3,6 +3,7 @@ extends RefugeTab
 
 const LIFETIME_KEYS: Array[String] = ["runs", "victories", "kills", "elites_killed", "bosses_killed", "time_survived",
 	"techniques_cast", "evolutions", "relics_taken", "synergy_procs", "marks_detonated", "dashes", "damage_taken"]
+const FEATURE_OF: Dictionary = {"evolutions": &"evolutions", "relics_taken": &"relics"}
 
 
 func title_key() -> String:
@@ -32,6 +33,8 @@ func refresh() -> void:
 	grid.add_theme_constant_override("h_separation", 40)
 	box.add_child(grid)
 	for key: String in LIFETIME_KEYS:
+		if not GameDB.balance.feature_enabled(FEATURE_OF.get(key, &"")):
+			continue
 		grid.add_child(UiKit.label(tr("STAT_" + key.to_upper()), 16, UiKit.MUTED))
 		var value: float = p.lifetime(key)
 		var text: String = "%dh %02dm" % [int(value) / 3600, (int(value) % 3600) / 60] if key == "time_survived" else str(int(value))

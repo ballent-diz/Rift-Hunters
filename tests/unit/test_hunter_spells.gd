@@ -81,15 +81,30 @@ func test_bindings_rebind_and_swap() -> void:
 	var saved: Dictionary = Settings.bindings.duplicate(true)
 	var path: String = Settings.path
 	Settings.path = "user://test_settings_spells.json"
-	Settings.bind_key(&"spell_1", KEY_E)
-	check(InputSetup.keys_of(&"spell_1").has(KEY_E), "Sort 1 sur la touche physique E")
-	check(InputSetup.keys_of(&"spell_2").has(KEY_Q), "Sort 2 récupère l'ancienne touche (échange)")
+	Settings.bind_key(&"spell_1", KEY_UP)
+	check(InputSetup.keys_of(&"spell_1").has(KEY_UP), "Sort 1 sur la flèche du haut")
+	check(InputSetup.keys_of(&"spell_2").has(KEY_RIGHT), "Sort 2 récupère l'ancienne touche (échange)")
 	Settings.reset_bindings()
-	check_eq(InputSetup.keys_of(&"spell_1"), [KEY_Q] as Array[int], "touches par défaut rétablies")
+	check_eq(InputSetup.keys_of(&"spell_1"), [KEY_RIGHT] as Array[int], "touches par défaut rétablies")
+	check(not InputSetup.keys_of(&"move_left").has(KEY_LEFT), "les flèches ne déplacent plus le Chasseur")
+	check(InputSetup.keys_of(&"technique_1").has(KEY_Q), "Écho 1 : touche physique Q (A en AZERTY)")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(Settings.path))
 	Settings.path = path
 	Settings.bindings = saved
 	Settings.apply()
+
+
+func test_keyboard_aim_follows_facing() -> void:
+	var player: Player = run.ctx.player
+	player.facing = Vector2.LEFT
+	var origin: Vector2 = player.global_position
+	var aim: Vector2 = HumanBrain.facing_aim(run.ctx, origin)
+	check(aim.x < origin.x - 100.0 and absf(aim.y - origin.y) < 1.0, "sans ennemi : droit devant le Chasseur")
+	var behind: Enemy = RunFixture.spawn(run, &"husk", Vector2(150, 0))
+	var ahead: Enemy = RunFixture.spawn(run, &"husk", Vector2(-200, 40))
+	aim = HumanBrain.facing_aim(run.ctx, origin)
+	check(aim.distance_to(ahead.global_position) < 1.0, "vise l'ennemi devant, pas celui derrière")
+	check(behind.alive, "ennemi derrière ignoré")
 
 
 func _set_variant(slot: int, variant: StringName) -> void:

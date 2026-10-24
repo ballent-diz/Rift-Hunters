@@ -479,7 +479,8 @@ func on_enemy_died(enemy: Enemy, info: DamageInfo) -> void:
 		if ctx.arena.milestone_on_elite:
 			ctx.events.milestone_reached.emit()
 		ctx.stats.add(&"essence_earned_raw", ctx.balance.essence_per_elite + ctx.player.stats.get_value(StatKeys.ESSENCE_GAIN))
-		ctx.pickups.spawn_chest(pos)
+		if ctx.balance.feature_enabled(&"chests"):
+			ctx.pickups.spawn_chest(pos)
 		_maybe_spawn_capture(pos)
 		for affix: EliteAffixData in enemy.affixes:
 			_on_affix_death(enemy, affix, info)

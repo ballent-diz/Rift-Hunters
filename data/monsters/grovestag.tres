@@ -194,7 +194,7 @@ accent = Color(1.0, 0.92, 0.6, 1.0)
 [resource]
 script = ExtResource("10")
 unlocked_by_default = false
-discovery = &"capture"
+discovery = &"victory"
 discovery_arena = &"three_rifts"
 id = &"grovestag"
 name_key = "MONSTER_GROVESTAG_NAME"

@@ -46,6 +46,7 @@ var terrain: TerrainDirector
 var flood: FloodDirector
 var burn: BurnDirector
 var pods: PodDirector
+var rockfall: RockfallDirector
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 

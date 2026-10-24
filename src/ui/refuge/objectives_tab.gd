@@ -8,12 +8,16 @@ func title_key() -> String:
 func refresh() -> void:
 	var box: VBoxContainer = scroll_box(6)
 	var p: ProfileData = profile()
-	var total: int = GameDB.objectives.size()
-	var done: int = (p.data["objectives"]["completed"] as Array).size()
+	var ids: Array[StringName] = Objectives.active_ids()
+	var total: int = ids.size()
+	var done: int = 0
+	for id: StringName in ids:
+		if Objectives.is_completed(p, id):
+			done += 1
 	box.add_child(UiKit.title(tr("OBJECTIVES_PROGRESS") % [done, total], 20, MenuSkin.PAPER))
 	for category: int in ObjectiveData.Category.values():
 		var header_added: bool = false
-		for id: StringName in GameDB.sorted_ids(GameDB.objectives):
+		for id: StringName in ids:
 			var objective: ObjectiveData = GameDB.objectives[id]
 			if objective.category != category:
 				continue

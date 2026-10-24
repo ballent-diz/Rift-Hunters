@@ -124,7 +124,7 @@ func evolve(id: StringName, evolution: EvolutionData) -> void:
 ## Évolutions proposables pour un Écho (rang atteint, conditions de combinaison remplies).
 func available_evolutions(ally: Ally) -> Array[EvolutionData]:
 	var result: Array[EvolutionData] = []
-	if ally.evolution != null:
+	if ally.evolution != null or not ctx.balance.feature_enabled(&"evolutions"):
 		return result
 	var required_offset: int = ctx.player.stats.get_int(StatKeys.EVOLUTION_RANK) - 3
 	for evo: EvolutionData in ally.data.evolutions:
