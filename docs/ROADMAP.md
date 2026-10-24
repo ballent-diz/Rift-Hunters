@@ -1,5 +1,16 @@
 # Rift Hunters — feuille de route
 
+## Décisions du propriétaire du 24 octobre 2026 (Claude, en jeu)
+
+- **Plus aucun drop en partie** hors soins : coffres, reliques et évolutions mis de côté
+  (`BalanceConfig.disabled_features`, le contenu reste en données et peut revenir). Plus de capture d'Écho en partie.
+- **Collection d'Échos** : on part avec un seul Écho ; chaque carte gagnée en débloque un (récompense de fin de carte) ;
+  l'équipe, 3 au plus, se compose au refuge parmi les Échos débloqués. Les jalons de campagne ne recrutent plus.
+- **Les deux mains au clavier** : sorts du Chasseur sur les flèches, Techniques des Échos sur A, E, F (AZERTY), visée
+  dans la direction du Chasseur. Recharges des Techniques affichées sous le Chasseur.
+- Vitesse de base du Chasseur 150 → 180. Cendrelame affaiblie au départ. Campagne : jalons seulement, pas de niveau.
+- Le boss de la carte 1 (Nébulorax) est gardé.
+
 ## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 
 Branche `codex/carte-events-de-cendre`, depuis main à jour. Nouvelle composition en U, sans
