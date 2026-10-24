@@ -26,5 +26,7 @@ knockback = 40.0
 
 [resource]
 script = ExtResource("1")
+capture_chance = 0.0
+player_move_speed = 180.0
 player_visual = SubResource("visual_data_1")
 bolt = SubResource("attack_data_2")

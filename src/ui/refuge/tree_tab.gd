@@ -122,7 +122,7 @@ func _upgrades(p: ProfileData) -> VBoxContainer:
 	scroll.add_child(grid)
 	for raw: StringName in GameDB.sorted_ids(GameDB.skill_nodes):
 		var node: SkillNodeData = GameDB.skill_nodes[raw]
-		if not node.is_utility():
+		if not node.is_utility() or not GameDB.balance.feature_enabled(node.feature):
 			continue
 		var b: Button = HunterTreeSkin.button("%s\n%s" % [tr(node.name_key), HunterTreeSkin.state_text(p, node)],
 			func() -> void: _select(node.id), node.id == _selected)

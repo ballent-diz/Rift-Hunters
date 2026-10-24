@@ -147,7 +147,9 @@ func _draw() -> void:
 			HORIZONTAL_ALIGNMENT_CENTER, w)
 	var kills: int = int(ctx.stats.get_value(&"kills"))
 	_text(Vector2(w - 220, 40), tr("HUD_KILLS") % kills, 18, Color.WHITE, HORIZONTAL_ALIGNMENT_RIGHT, 200)
-	_text(Vector2(w - 220, 62), tr("HUD_RELICS") % ctx.build.relics.size(), 15, UiKit.GOLD, HORIZONTAL_ALIGNMENT_RIGHT, 200)
+	if ctx.balance.feature_enabled(&"relics"):
+		_text(Vector2(w - 220, 62), tr("HUD_RELICS") % ctx.build.relics.size(), 15, UiKit.GOLD, HORIZONTAL_ALIGNMENT_RIGHT,
+			200)
 	# Synergies actives (sous la mini-carte)
 	var y: float = 96.0
 	var map_frame: Rect2 = minimap.frame_rect()

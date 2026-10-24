@@ -69,6 +69,10 @@ extends Resource
 @export var boss_enrage_time: float = 180.0
 @export var boss_enrage_damage_mult: float = 1.6
 @export var boss_enrage_speed_mult: float = 1.4
+@export_group("Fonctionnalités")
+## Fonctionnalités mises de côté (décision du propriétaire, 24 octobre 2026) : &"relics", &"chests", &"evolutions".
+## Le contenu reste en données ; retirer l'identifiant de la liste le remet en jeu.
+@export var disabled_features: Array[StringName] = [&"relics", &"chests", &"evolutions"]
 @export_group("Récompenses")
 @export var shards_per_minute: float = 8.0
 @export var shards_per_elite: float = 6.0
@@ -96,3 +100,7 @@ extends Resource
 
 func xp_to_next(level: int) -> int:
 	return int(ceil(xp_base * pow(float(level), xp_exponent))) + 1
+
+
+func feature_enabled(id: StringName) -> bool:
+	return id == &"" or not disabled_features.has(id)

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1")
 id = &"evolver"
+feature = &"evolutions"
 category = 3
 name_key = "OBJ_EVOLVER_NAME"
 desc_key = "OBJ_EVOLVER_DESC"

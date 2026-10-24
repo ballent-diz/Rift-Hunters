@@ -127,6 +127,8 @@ func start(setup: RunSetup) -> void:
 	Audio.play_context("run")
 	ctx.events.boss_defeated.connect(_on_boss_defeated)
 	ctx.events.chest_collected.connect(func() -> void:
+		if not ctx.balance.feature_enabled(&"chests"):
+			return
 		_pending_chests += 1
 		release_choices = true
 		Audio.play_sfx(&"chest_open"))
@@ -134,7 +136,8 @@ func start(setup: RunSetup) -> void:
 		_shake = maxf(_shake, 0.25)
 		Audio.play_sfx(&"player_hurt"))
 	# Relique au départ (arbre, boutique) : mode survie seulement ; la campagne n'en donne qu'aux jalons et coffres.
-	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0 and not ctx.milestones():
+	if ctx.player.stats.get_int(StatKeys.STARTING_RELIC_CHOICE) > 0 and not ctx.milestones() \
+			and ctx.balance.feature_enabled(&"relics"):
 		chest_panel.open.call_deferred(true)
 	# Boutique (objets de survie) : niveaux gagnés au départ, choisis tout de suite.
 	for i: int in setup.start_levels:

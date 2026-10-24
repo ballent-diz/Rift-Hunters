@@ -71,7 +71,7 @@ static func candidates(ctx: RunContext) -> Array[UpgradeOffer]:
 			result.append(_dynamic(UpgradeOffer.Kind.EMPOWER, "empower:" + String(id), id, null, WEIGHT_EMPOWER))
 		for evo: EvolutionData in ctx.allies.available_evolutions(ally):
 			result.append(_dynamic(UpgradeOffer.Kind.EVOLVE, "evolve:" + String(evo.id), id, evo, WEIGHT_EVOLVE))
-	if ctx.milestones():
+	if ctx.milestones() and ctx.balance.feature_enabled(&"relics"):
 		for relic: RelicData in relic_choices(ctx, MILESTONE_RELICS):
 			var offer: UpgradeOffer = _dynamic(UpgradeOffer.Kind.RELIC, "relic:" + String(relic.id), &"", null, WEIGHT_RELIC)
 			offer.relic = relic
