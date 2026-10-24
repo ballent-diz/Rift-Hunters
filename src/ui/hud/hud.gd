@@ -4,7 +4,12 @@ extends Control
 
 ## Conseils de première partie : [instant (s), clé de traduction].
 const TUTORIAL_TIPS := [[2.0, "TIP_MOVE"], [9.0, "TIP_AUTO_ATTACK"], [16.0, "TIP_SPELLS"], [25.0, "TIP_TECHNIQUES"],
-	[36.0, "TIP_FOCUS"], [50.0, "TIP_DASH"], [70.0, "TIP_CHESTS"], [100.0, "TIP_BOSS"]]
+	[36.0, "TIP_DASH"], [50.0, "TIP_COOLDOWNS"], [70.0, "TIP_BOSS"]]
+## Touches citées par une astuce (libellés selon la disposition du clavier).
+const TIP_KEYS := {
+	"TIP_MOVE": [&"move_up", &"move_left", &"move_down", &"move_right"],
+	"TIP_TECHNIQUES": [&"technique_1", &"technique_2", &"technique_3"],
+}
 ## Barre des sorts du Chasseur (bas gauche) : taille d'un emplacement et écart.
 const SPELL_SLOT := 64.0
 const SPELL_GAP := 34.0
@@ -64,8 +69,11 @@ func _process(delta: float) -> void:
 	_tip_time = maxf(_tip_time - delta, 0.0)
 	if ctx and not _tips.is_empty() and ctx.time >= float(_tips[0][0]):
 		_tip_text = tr(str(_tips[0][1]))
-		if str(_tips[0][1]) == "TIP_SPELLS":
-			_tip_text = _tip_text % [InputSetup.key_label(&"spell_1"), InputSetup.key_label(&"spell_2")]
+		var labels: Array = []
+		for action: StringName in TIP_KEYS.get(str(_tips[0][1]), []):
+			labels.append(InputSetup.key_label(action))
+		if not labels.is_empty():
+			_tip_text = _tip_text % labels
 		_tip_time = 7.0
 		_tips.pop_front()
 	_spell_icon_layer.queue_redraw()

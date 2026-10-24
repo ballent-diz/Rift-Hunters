@@ -3,20 +3,23 @@ extends RefCounted
 ## Actions d'entrée créées au démarrage (touches physiques : AZERTY et QWERTY). Les touches du clavier sont
 ## reconfigurables (Settings.bindings) ; la manette garde sa disposition.
 
+## Version des touches par défaut : des touches enregistrées avec une version plus ancienne sont oubliées.
+const BINDINGS_VERSION := 2
 const ACTIONS := {
-	&"move_up": [KEY_W, KEY_UP],
-	&"move_down": [KEY_S, KEY_DOWN],
-	&"move_left": [KEY_A, KEY_LEFT],
-	&"move_right": [KEY_D, KEY_RIGHT],
+	# Les deux mains au clavier (décision du 24 octobre 2026) : ZQSD pour marcher, flèches pour les sorts du
+	# Chasseur, A, E, F pour les Échos (touches physiques Q, E, F en AZERTY).
+	&"move_up": [KEY_W],
+	&"move_down": [KEY_S],
+	&"move_left": [KEY_A],
+	&"move_right": [KEY_D],
 	&"dash": [KEY_SPACE, KEY_SHIFT],
-	# Sorts du Chasseur : A, E, R, F en AZERTY (touches physiques Q, E, R, F).
-	&"spell_1": [KEY_Q],
-	&"spell_2": [KEY_E],
-	&"spell_3": [KEY_R],
-	&"spell_4": [KEY_F],
-	&"technique_1": [KEY_1, KEY_KP_1],
-	&"technique_2": [KEY_2, KEY_KP_2],
-	&"technique_3": [KEY_3, KEY_KP_3],
+	&"spell_1": [KEY_RIGHT],
+	&"spell_2": [KEY_UP],
+	&"spell_3": [KEY_LEFT],
+	&"spell_4": [KEY_DOWN],
+	&"technique_1": [KEY_Q, KEY_1],
+	&"technique_2": [KEY_E, KEY_2],
+	&"technique_3": [KEY_F, KEY_3],
 	&"open_choices": [KEY_TAB],
 	&"toggle_map": [KEY_M],
 	&"pause": [KEY_ESCAPE, KEY_P],
@@ -27,6 +30,9 @@ const ACTIONS := {
 const REBINDABLE: Array[StringName] = [&"move_up", &"move_down", &"move_left", &"move_right", &"dash",
 	&"spell_1", &"spell_2", &"spell_3", &"spell_4", &"technique_1", &"technique_2", &"technique_3",
 	&"open_choices", &"toggle_map"]
+
+## Libellés courts des flèches (sorts du Chasseur).
+const ARROWS := {KEY_RIGHT: "→", KEY_UP: "↑", KEY_LEFT: "←", KEY_DOWN: "↓"}
 
 const JOY_BUTTONS := {
 	&"dash": [JOY_BUTTON_A, JOY_BUTTON_RIGHT_SHOULDER],
@@ -113,6 +119,8 @@ static func key_label(action: StringName) -> String:
 	if keys.is_empty():
 		return "—"
 	var label: Key = keys[0] as Key
+	if ARROWS.has(label):
+		return ARROWS[label]
 	if DisplayServer.get_name() != "headless":
 		var mapped: Key = DisplayServer.keyboard_get_keycode_from_physical(label)
 		label = mapped if mapped != KEY_NONE else label

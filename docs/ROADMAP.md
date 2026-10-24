@@ -75,7 +75,7 @@ mais juste et la rejouabilité de **Hades**. Une **campagne courte en chapitres*
 | Vagues par zone | Zones fermées par des barrières qui tombent quand les vagues sont nettoyées, puis arène du boss | [design/MODE_VAGUES_PAR_ZONE.md](design/MODE_VAGUES_PAR_ZONE.md) |
 | Ruines des Cascades | Zone 1 : 3 vagues ; zone 2 : 5 vagues avec élites dès la 1re ; arène : Nébulorax (+ Échos et invocations) | idem |
 | Attaque de base | Automatique | [design/COMPETENCES_ET_BUILDS.md](design/COMPETENCES_ET_BUILDS.md) |
-| Sorts et touches | Visée au curseur, la touche lance immédiatement ; ZQSD ; sorts du Chasseur A, E, R, F ; sorts des Échos 1, 2, 3… ; reconfigurables | idem |
+| Sorts et touches | **Révisé le 24 oct.** : les deux mains au clavier, plus de visée à la souris ; sorts et Techniques partent dans la direction du Chasseur (ennemi le plus proche dans le cône devant lui) ; ZQSD ; sorts du Chasseur → ↑ ← ↓ ; Techniques des Échos A, E, F ; reconfigurables | idem |
 | Build (permanent) | Arbre du Chasseur + un arbre par Écho (passifs + compétences), points limités, réversible ; plusieurs builds enregistrés, choisis avant le départ | idem |
 | Arbre du Chasseur v2 (16 oct.) | Apprendre (Éclats) / activer (points) ; 4 voies, 12 sorts dont défensifs et techniques, 4 équipés ; passifs transformants ; ≈ 10 500 Éclats, gains −30 % | [design/ARBRE_DU_CHASSEUR.md](design/ARBRE_DU_CHASSEUR.md) |
 | Montées de niveau | Conservées et distinctes du build : renforcent temporairement le build pendant l'expédition, avec raretés | idem |

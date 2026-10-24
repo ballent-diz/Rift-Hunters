@@ -1,9 +1,13 @@
 class_name HumanBrain
 extends PlayerBrain
-## Commandes clavier + souris.
+## Commandes au clavier (ou à la manette). La souris ne sert plus à viser.
 
 const TECHNIQUE_ACTIONS: Array[StringName] = [&"technique_1", &"technique_2", &"technique_3"]
 const SPELL_ACTIONS: Array[StringName] = [&"spell_1", &"spell_2", &"spell_3", &"spell_4"]
+const AIM_DISTANCE := 260.0
+const AIM_RANGE := 520.0
+## Cosinus du demi-angle du cône de visée (environ 37°).
+const AIM_CONE := 0.8
 
 
 func move_vector() -> Vector2:
@@ -50,12 +54,26 @@ func focus_requested() -> bool:
 	return Input.is_action_just_pressed(&"focus_order")
 
 
+## Les deux mains au clavier (décision du 24 octobre 2026) : sorts et Techniques partent dans la direction du
+## Chasseur, vers l'ennemi le plus proche dans le cône devant lui, sinon à AIM_DISTANCE devant.
 func aim_point() -> Vector2:
-	if not Settings.using_gamepad:
-		return ctx.player.get_global_mouse_position()
-	var stick := Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
 	var origin: Vector2 = ctx.player.global_position
-	if stick.length() > 0.3:
-		return origin + stick.normalized() * 260.0
-	var target: Enemy = ctx.enemies.find_nearest(origin, 450.0)
-	return target.global_position if target else origin + ctx.player.facing * 200.0
+	if Settings.using_gamepad:
+		var stick := Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+		if stick.length() > 0.3:
+			return origin + stick.normalized() * AIM_DISTANCE
+	return facing_aim(ctx, origin)
+
+
+static func facing_aim(p_ctx: RunContext, origin: Vector2) -> Vector2:
+	var facing: Vector2 = p_ctx.player.facing
+	var best: Enemy = null
+	var best_distance: float = AIM_RANGE
+	for enemy: Enemy in p_ctx.enemies.query_radius(origin, AIM_RANGE):
+		var offset: Vector2 = enemy.global_position - origin
+		var distance: float = offset.length()
+		if distance < best_distance and distance > 1.0 and offset.dot(facing) / distance >= AIM_CONE \
+				and p_ctx.obstacles.line_clear(origin, enemy.global_position):
+			best = enemy
+			best_distance = distance
+	return best.global_position if best else origin + facing * AIM_DISTANCE
