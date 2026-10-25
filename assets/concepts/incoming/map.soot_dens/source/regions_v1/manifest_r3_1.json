@@ -1,0 +1,16 @@
+{
+  "region": "r3_1",
+  "source": "C:\\Users\\petit\\.codex\\generated_images\\01a17034-980a-7950-844e-30598575e65d\\exec-87107210-c297-4187-902e-200c7f0ab7ad.png",
+  "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\fine\\r3_1.png",
+  "dimensions": [
+    1323,
+    1189
+  ],
+  "sha256": "50965c8717b8a216e09b9053e83bfbf0eafe3cc60d55f14f18578289ad7004b6",
+  "prompt_file": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\PROMPT_TEXTURE_FINE.txt",
+  "prompt_sha256": "495e1cee3081675e85aabb25ad9d599e5a5caaa581fc352073e42a436488c352",
+  "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\regions\\r3_1.png",
+  "reference_scale": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\reference_scale.png",
+  "method": "image_gen intégré, prompt texture fine exact, une génération",
+  "inspection": "Palette neutre conservée, détail granulaire accentué, aucune verdure visible ni obstacle ajouté observé ; fidélité et qualité globales à contrôler par parent"
+}

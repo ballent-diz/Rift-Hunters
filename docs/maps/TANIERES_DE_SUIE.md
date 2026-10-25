@@ -1,7 +1,7 @@
 # Tanières de suie — carte 8
 
 Chapitre 2, composition carrée pour un monde de **5016 × 5016 unités**. Composition validée par le propriétaire le **24 octobre 2026** ; plan figé.
-La passe de détail par régions et la peinture des collisions restent à réaliser. Aucun niveau, collision ou réglage de combat créé par ce lot.
+La passe de détail de c8.png est livrée ci-dessous ; la peinture des collisions reste à réaliser. Aucun niveau, collision ou réglage de combat créé par ce lot.
 
 ![Composition entière](../previews/soot-dens/composition.png)
 
@@ -102,3 +102,60 @@ doit être redessinée par régions et passer les contrôles officiels, sans mod
 
 La passe du bot nécessite le niveau jouable, ses vagues et ses collisions : elle n'est pas exécutée
 sur une simple composition. Les [deux sprites d'objets](../art/NID_ET_OEUF_DE_CENDRE.md) sont indépendants du décor.
+
+
+## Détail de la sélection c8.png
+
+La pièce jointe `c8.png` remplace la composition retouchée utilisée dans la première
+livraison. Elle est conservée exactement dans `source/composition_validee_c8.png`
+(SHA256 `70fa4ac12c3a92e82ea6f3ba6a5893a05ab15b114a845ce6b0a3c7893950d823`).
+Le plan est figé ; les anciens repères de placement restent à vérifier sur cette
+image. Les collisions, règles et positions de gameplay ne sont pas modifiées.
+
+Seize régions ont été redessinées (4 × 4), puis assemblées avec les recouvrements
+du pipeline commun. Trois tuiles **3762 × 11286** livrées dans
+`assets/environments/soot_dens/`, soit **11286 × 11286** et 2,25 pixels par unité.
+La palette cendre/brun de la source est conservée : un ajout au prompt standard
+interdit d'emprunter la végétation verte et les ornements dorés de la référence.
+Le texte original est conservé dans `PROMPT_REGION_BASE.txt`, le texte complet
+utilisé dans `PROMPT_REGION.txt`. Les sources et leurs SHA256 sont joints.
+
+![Carte détaillée entière](../previews/soot-dens-detail/carte_entiere.png)
+
+[Planche d'échelle officielle](../previews/soot-dens-detail/echelle.png) ;
+[rapport de qualité](../previews/soot-dens-detail/qualite.json) ;
+[chargement Godot](../previews/soot-dens-detail/godot-chargement.log).
+Le contrôle Godot 4.3 isolé importe et charge les trois textures aux dimensions réelles.
+Ce n'est pas un test de circulation ou une capture de partie jouable. Les sprites
+de nid et d'œuf livrés précédemment sont conservés, sans nouvelles animations.
+
+Le diagnostic de netteté local reste un indicateur relatif joint à la livraison.
+Il n'est pas transformé en garantie d'absence de flou partout. Aucun traitement
+ESRGAN supplémentaire n'a été appliqué à cette carte. Les collisions peintes, le
+champ de navigation et l'intégration du niveau restent à faire par le propriétaire
+et Claude. Aucun champ `field` fictif ni entrée d'arène n'est créé.
+
+Mesures du contrôle final :
+
+- densité (pixels par unité) : 2.25 — OK
+- part lisse (médiane) : 0.169 — OK
+- détails fins / 100×100 u (médiane) : 336.8 — OK
+- détails moyens / 100×100 u (médiane) : 105.829 — OK
+- secteurs conformes (part) : 0.898 — OK
+- fidélité au plan validé (corrélation) : 0.984 — OK
+
+Verdict : **CONFORME**.
+
+
+## Historique des contrôles de détail
+
+| Étape | Lisse | Fins | Moyens | Secteurs | Fidélité | Verdict |
+|---|---:|---:|---:|---:|---:|---|
+| Régions palette corrigée | 0.154 | 317.101 | 104.671 | 0.898 | 0.99 | NON CONFORME |
+| Retouche fine (4 régions) | 0.154 | 320.578 | 105.443 | 0.898 | 0.986 | NON CONFORME |
+| Échelle des pavés (4 régions) | 0.174 | 323.668 | 104.284 | 0.898 | 0.986 | NON CONFORME |
+| Dernière passe (3 régions) | 0.169 | 336.8 | 105.829 | 0.898 | 0.984 | CONFORME |
+
+Les retouches conservent les contours et les passages. Les prompts exacts sont dans `source/regions_v1/` ; `GENERATIONS.json` associe chaque sortie finale à son prompt. Les images précédant les retouches sont archivées dans `essais_finesse`, `essais_echelle` et `essais_derniere_passe`. La dernière passe concerne `r0_3`, `r1_3` et `r3_0`. Aucun seuil ni outil de contrôle n’a été modifié.
+
+Cinq secteurs restent hors norme, principalement dans les crevasses brumeuses et les bords : voir les coordonnées de `qualite.json`. Le verdict global conforme n’est donc pas une garantie de netteté uniforme. La carte de chaleur jointe est le **diagnostic initial**, avant les retouches ; elle ne mesure pas les dernières sorties.

@@ -1,8 +1,8 @@
 # Rift Hunters — feuille de route
 
-## B3 — Carte 8, Tanières de suie : détails — en cours (Codex)
+## B3 — Carte 8, Tanières de suie : détails livrés pour revue (Codex)
 
-Plan exact c8.png fourni le 25 octobre ; seize régions, sans recomposition ni collisions. La carte 9 attend cette livraison.
+Plan exact c8.png fourni le 25 octobre ; seize régions assemblées en trois tuiles, rapport qualité et planche d’échelle joints ; sans recomposition ni collisions. Carte 9 après publication de cette livraison.
 
 
 ## Décisions du propriétaire du 24 octobre 2026 (Claude, en jeu)
@@ -16,11 +16,11 @@ Plan exact c8.png fourni le 25 octobre ; seize régions, sans recomposition ni c
 - Vitesse de base du Chasseur 150 → 180. Cendrelame affaiblie au départ. Campagne : jalons seulement, pas de niveau.
 - Le boss de la carte 1 (Nébulorax) est gardé.
 
-## B3 — Tanières de suie, carte 8 — composition validée, détail à faire (Codex)
+## B3 — Tanières de suie, carte 8 — composition et détail livrés pour revue (Codex)
 
 Branche `codex/carte-tanieres-de-suie` depuis main à jour. Composition carrée en zigzag,
 nef effondrée en diagonale, nid et œuf de cendre séparés. Composition validée le
-24 octobre 2026 : plan figé, régions détaillées encore à faire. Les sprites restent inchangés ;
+24 octobre 2026 : plan figé. Les seize régions de la sélection c8.png sont désormais assemblées ; contrôle global conforme, circulation non testée. Les sprites restent inchangés ;
 la validation de composition ne vaut pas validation de ces objets. Nid (18 poses) et œuf (12 poses) importés, GIF et contrôle ciblé
 Godot 4.3 réussis. Carte non jouable à ce stade ; régions et peinture des collisions à suivre.
 Aucun changement dans `src/`, `data/` ou les collisions.

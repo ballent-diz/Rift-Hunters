@@ -1,0 +1,14 @@
+{
+  "entries": {
+    "environment.soot_dens": {
+      "kind": "map",
+      "status": "wip",
+      "map_tiles": [
+        "res://assets/environments/soot_dens/map.webp",
+        "res://assets/environments/soot_dens/map_1.webp",
+        "res://assets/environments/soot_dens/map_2.webp"
+      ],
+      "arena_size": 5016
+    }
+  }
+}

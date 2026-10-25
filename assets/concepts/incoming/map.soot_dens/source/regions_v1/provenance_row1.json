@@ -1,0 +1,50 @@
+{
+  "generation": "imagegen intégré",
+  "prompt": "PROMPT_REGION.txt exact avec C8 PALETTE CORRECTION, depuis inputs originaux",
+  "regions": [
+    {
+      "region": "r1_0",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-c2dd04c1-09b4-4ee2-aaf5-a1c1341d237b.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row1\\r1_0.png",
+      "dimensions": [
+        1188,
+        1324
+      ],
+      "sha256": "a144577a8151ecc0df9afd76f37b48047f12423423b1c6fd9188a76d559d7dba",
+      "long_side_at_least_1254": true
+    },
+    {
+      "region": "r1_1",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-958939e4-b800-45cb-98f7-cfd831716f4c.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row1\\r1_1.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "b04b39c4ff055180c36931de5bca90bc0d06ccdc8b87ba083a373035ec40c860",
+      "long_side_at_least_1254": true
+    },
+    {
+      "region": "r1_2",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-9326fc14-7fc6-49b3-9f0e-785be24904a0.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row1\\r1_2.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "sha256": "f5cba0aa51d5955bd687e04abfdfed18a728e1045709f2ba7c3aa3b62d290a60",
+      "long_side_at_least_1254": true
+    },
+    {
+      "region": "r1_3",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-024c540e-691e-4785-9763-5c74b7536392.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row1\\r1_3.png",
+      "dimensions": [
+        1189,
+        1323
+      ],
+      "sha256": "15789fa4c27bdcb39796e89b155466dc896dd95c63b019f2813a6f00d5a3e83b",
+      "long_side_at_least_1254": true
+    }
+  ]
+}

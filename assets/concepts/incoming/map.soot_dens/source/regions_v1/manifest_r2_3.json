@@ -1,0 +1,13 @@
+{
+  "region": "r2_3",
+  "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-4be73365-5cba-44b1-b65a-04afb8c9031d.png",
+  "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\fine\\r2_3.png",
+  "dimensions": [
+    1188,
+    1324
+  ],
+  "sha256": "9e541c8154d43cc2e0277fad59fe95abda4629246b8880c77c31e7a869bf1e59",
+  "tool": "image_gen.imagegen",
+  "prompt": "PROMPT_TEXTURE_FINE.txt exact",
+  "inspection": "detail roche et joints accentue, palette cendre conservee, sans verdure; geometrie proche visuellement; controle global par parent"
+}

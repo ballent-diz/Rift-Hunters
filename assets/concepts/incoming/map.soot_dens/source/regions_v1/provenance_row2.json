@@ -1,0 +1,58 @@
+[
+  {
+    "region": "r2_0",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-b0dec887-485b-4820-ac80-54420abaa550.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row2\\r2_0.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "1225a6215e8c6c03dbb92ac4a12df22e0c743c920b7b07ad0633c15cc4855db2",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact + C8 PALETTE CORRECTION",
+    "generation": 2,
+    "inspection": "plan proche conserve; palette neutre cendre, sans verdure; quelques traces rouge sombre comme original; sortie brute sans retouche"
+  },
+  {
+    "region": "r2_1",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-99f527ee-c19e-42d4-8871-8ff506e2b624.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row2\\r2_1.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "9829216bdfee2e290e98bb2207ca739ea1617590cbb6adffb6fad83753571542",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact + C8 PALETTE CORRECTION",
+    "generation": 2,
+    "inspection": "plan proche conserve; palette neutre cendre, sans verdure; quelques traces rouge sombre comme original; sortie brute sans retouche"
+  },
+  {
+    "region": "r2_2",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-7b8004f5-1347-467c-bea9-b04506bc623c.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row2\\r2_2.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "1069bd60f32ede4e425597bd32fb3171e9759bed6c779be78954e4bf690ac044",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact + C8 PALETTE CORRECTION",
+    "generation": 2,
+    "inspection": "plan proche conserve; palette neutre cendre, sans verdure; quelques traces rouge sombre comme original; sortie brute sans retouche"
+  },
+  {
+    "region": "r2_3",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-756ab4a4-1b63-4e0f-ab5d-02ce02ead5ca.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row2\\r2_3.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "c00cf0922137ba9b7ffd7452a3df2e08793ef77db3d628342e253ccf21dff05b",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact + C8 PALETTE CORRECTION",
+    "generation": 2,
+    "inspection": "plan proche conserve; palette cendre sans verdure; reserve: fissures rouge-magenta un peu plus saturees que input, aucune retouche"
+  }
+]

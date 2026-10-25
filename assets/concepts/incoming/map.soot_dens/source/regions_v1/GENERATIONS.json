@@ -1,0 +1,237 @@
+[
+  {
+    "region": "r0_0",
+    "file": "regions/r0_0.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "4460d6e078b722268cc53c96b276bf977d2db629c2a8c9175ebc5d33fcd4acbd",
+    "prompt": "essais_echelle/r0_0_PROMPT.txt",
+    "references": [
+      "regions/r0_0_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_echelle/r0_0_avant.png"
+  },
+  {
+    "region": "r0_1",
+    "file": "regions/r0_1.png",
+    "dimensions": [
+      1324,
+      1188
+    ],
+    "sha256": "27c065ef6e635a46d0a60edca3fc2d987e413e5aa1d0c5f6adff7c7c7bc587e4",
+    "prompt": "PROMPT_REGION.txt (base + ajout palette C8)",
+    "references": [
+      "regions/r0_1_input.png",
+      "reference_scale.png"
+    ]
+  },
+  {
+    "region": "r0_2",
+    "file": "regions/r0_2.png",
+    "dimensions": [
+      1323,
+      1189
+    ],
+    "sha256": "bdf7b8bfdc51c8515941ebb6d6ee34bc5a1c829188a5659e78468ad697bcaa8a",
+    "prompt": "essais_echelle/r0_2_PROMPT.txt",
+    "references": [
+      "regions/r0_2_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_echelle/r0_2_avant.png"
+  },
+  {
+    "region": "r0_3",
+    "file": "regions/r0_3.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "2c009c7f71ec7000d044d530943c1a795ba6a88f1916b3aa9aa826c28fa90365",
+    "prompt": "essais_derniere_passe/r0_3_PROMPT.txt",
+    "references": [
+      "regions/r0_3_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_derniere_passe/r0_3_avant.png"
+  },
+  {
+    "region": "r1_0",
+    "file": "regions/r1_0.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "a144577a8151ecc0df9afd76f37b48047f12423423b1c6fd9188a76d559d7dba",
+    "prompt": "PROMPT_REGION.txt (base + ajout palette C8)",
+    "references": [
+      "regions/r1_0_input.png",
+      "reference_scale.png"
+    ]
+  },
+  {
+    "region": "r1_1",
+    "file": "regions/r1_1.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "b04b39c4ff055180c36931de5bca90bc0d06ccdc8b87ba083a373035ec40c860",
+    "prompt": "PROMPT_REGION.txt (base + ajout palette C8)",
+    "references": [
+      "regions/r1_1_input.png",
+      "reference_scale.png"
+    ]
+  },
+  {
+    "region": "r1_2",
+    "file": "regions/r1_2.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "f5cba0aa51d5955bd687e04abfdfed18a728e1045709f2ba7c3aa3b62d290a60",
+    "prompt": "PROMPT_REGION.txt (base + ajout palette C8)",
+    "references": [
+      "regions/r1_2_input.png",
+      "reference_scale.png"
+    ]
+  },
+  {
+    "region": "r1_3",
+    "file": "regions/r1_3.png",
+    "dimensions": [
+      1189,
+      1323
+    ],
+    "sha256": "f0b9143c37e095bd4517a68e45b1c7991ef67f47075e116bf5934abc45feeeff",
+    "prompt": "essais_derniere_passe/r1_3_PROMPT.txt",
+    "references": [
+      "regions/r1_3_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_derniere_passe/r1_3_avant.png"
+  },
+  {
+    "region": "r2_0",
+    "file": "regions/r2_0.png",
+    "dimensions": [
+      1189,
+      1323
+    ],
+    "sha256": "a0913af2345bf602997102e7fe624f5ce2b00eac0d0250210184be5b6f1edb1e",
+    "prompt": "essais_echelle/r2_0_PROMPT.txt",
+    "references": [
+      "regions/r2_0_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_echelle/r2_0_avant.png"
+  },
+  {
+    "region": "r2_1",
+    "file": "regions/r2_1.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "0854ab4cc0cd13670c97d69fd78053517a14821eb7b90bd7f9cdc69b83bfc440",
+    "prompt": "PROMPT_TEXTURE_FINE.txt",
+    "references": [
+      "regions/r2_1_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_finesse/r2_1_avant.png"
+  },
+  {
+    "region": "r2_2",
+    "file": "regions/r2_2.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "aa693c5beedf96cfcbf4d215a90d52dc6b64e32cf954c294ac2e27c8aef61ed1",
+    "prompt": "essais_echelle/r2_2_PROMPT.txt",
+    "references": [
+      "regions/r2_2_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_echelle/r2_2_avant.png"
+  },
+  {
+    "region": "r2_3",
+    "file": "regions/r2_3.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "9e541c8154d43cc2e0277fad59fe95abda4629246b8880c77c31e7a869bf1e59",
+    "prompt": "PROMPT_TEXTURE_FINE.txt",
+    "references": [
+      "regions/r2_3_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_finesse/r2_3_avant.png"
+  },
+  {
+    "region": "r3_0",
+    "file": "regions/r3_0.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "c3313b3c4de1b6b5074028559134db2bbc804001512eb417bcc34a95528ebc5c",
+    "prompt": "essais_derniere_passe/r3_0_PROMPT.txt",
+    "references": [
+      "regions/r3_0_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_derniere_passe/r3_0_avant.png"
+  },
+  {
+    "region": "r3_1",
+    "file": "regions/r3_1.png",
+    "dimensions": [
+      1323,
+      1189
+    ],
+    "sha256": "50965c8717b8a216e09b9053e83bfbf0eafe3cc60d55f14f18578289ad7004b6",
+    "prompt": "PROMPT_TEXTURE_FINE.txt",
+    "references": [
+      "regions/r3_1_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_finesse/r3_1_avant.png"
+  },
+  {
+    "region": "r3_2",
+    "file": "regions/r3_2.png",
+    "dimensions": [
+      1324,
+      1188
+    ],
+    "sha256": "e6085ccdb6da1f772f5dbd33168a683535f732138cd81710b8cea9c6cf25aae6",
+    "prompt": "PROMPT_TEXTURE_FINE.txt",
+    "references": [
+      "regions/r3_2_input.png",
+      "reference_scale.png"
+    ],
+    "previous": "essais_finesse/r3_2_avant.png"
+  },
+  {
+    "region": "r3_3",
+    "file": "regions/r3_3.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "c31d8d17841df1d78394fd97f7ec9b7a2fc819e6cfc854490e287eaa9cea7021",
+    "prompt": "PROMPT_REGION.txt (base + ajout palette C8)",
+    "references": [
+      "regions/r3_3_input.png",
+      "reference_scale.png"
+    ]
+  }
+]
