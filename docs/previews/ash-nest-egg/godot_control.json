@@ -1,0 +1,10 @@
+{
+	"engine": "4.3-stable (official)",
+	"errors": 0,
+	"objects": [
+		"object.ash_nest",
+		"object.ash_egg"
+	],
+	"poses": 30,
+	"scope": "Import ciblé, aucune simulation de partie"
+}

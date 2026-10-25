@@ -1,0 +1,76 @@
+{
+  "asset_id": "object.ash_nest",
+  "tool": "image_gen.imagegen (built-in)",
+  "generation_count": 1,
+  "status": "source_generated_requires_grid_conditioning",
+  "original_output": "C:/Users/petit/.codex/generated_images/01a16aac-1b6a-7b62-b528-51681f43a95e/exec-45178f1d-6489-4a63-9f01-d28f9f1611d9.png",
+  "sheet": "sheet.png",
+  "prompt": "prompt.txt",
+  "sha256": "92ce5bc5b458bae61dac889143c47cb4f1703e104387ccd8e159b189850a226e",
+  "references": [
+    {
+      "path": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/ash-vents-work/ember-pod/sheet.png",
+      "role": "painted rendering/material reference only; explicitly exclude shape",
+      "sha256": "ee5a22c84cdd91f11df0e000750abd78469cf8ab4b6a2164c572a20d30e8dded"
+    }
+  ],
+  "documents": [
+    "Rift-Hunters-ash-vents/docs/ART_BIBLE.md",
+    "Rift-Hunters-ash-vents/docs/art/MONSTRES_CHAPITRE2.md",
+    "Rift-Hunters-ash-vents/docs/design/MONSTRES.md"
+  ],
+  "dimensions": [
+    1774,
+    887
+  ],
+  "grid": [
+    6,
+    3
+  ],
+  "animations": [
+    {
+      "row": 0,
+      "name": "idle",
+      "frames": 6,
+      "loop": true
+    },
+    {
+      "row": 1,
+      "name": "spawn",
+      "frames": 6,
+      "loop": false
+    },
+    {
+      "row": 2,
+      "name": "death",
+      "frames": 6,
+      "loop": false
+    }
+  ],
+  "intended_runtime": {
+    "cell": [
+      256,
+      256
+    ],
+    "scale": 0.5,
+    "target_width_art": 180,
+    "target_width_game": 90
+  },
+  "inspection": {
+    "alpha_format": "Format32bppArgb",
+    "transparent_pixels": 959449,
+    "partial_alpha_pixels": 613610,
+    "opaque_pixels": 479,
+    "report": "inspection.json",
+    "visual": "18 distinct low horizontal ash/silk nests, pale eggs partly buried, dark red interiors; spawn opens without creature; death collapses to low egg-free grey heap. No text/grid, scenery or ground shadow.",
+    "problems": [
+      "Generated canvas is 1774x887 rather than 1536x768, not divisible exactly by 6x3.",
+      "Nests fill most cell width rather than target 180/256; horizontal margins insufficient.",
+      "Very low-alpha speckling reaches all conceptual cell borders; strict alpha>0 separation fails. No cleanup or regeneration performed.",
+      "Final corpse is low and egg-free, but retains some silk and crumpled rim; review final dead-state appearance."
+    ]
+  },
+  "repository_modified": false,
+  "imported": false,
+  "postprocessing": "None. Exact original PNG copied to sheet.png; alpha preserved."
+}

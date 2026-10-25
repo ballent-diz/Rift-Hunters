@@ -1,0 +1,66 @@
+[
+  {
+    "region": "r3_0",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a17034-980a-7950-844e-30598575e65d\\exec-62b70621-8e14-4c11-860c-7f728ec1c7b4.png",
+    "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row3\\r3_0.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "d7f68c39d12183b66749d47d5f3e7b912ffc177bb3cc53aaa6a83afead1ddd96",
+    "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\regions\\r3_0_input.png",
+    "scale_reference": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\reference_scale.png",
+    "prompt_file": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\PROMPT_REGION.txt",
+    "prompt_sha256": "c19184c0a210976af44f7c904d4d6b1466bdd82173e4e4ddd125659728bff435",
+    "method": "image_gen intégré ; prompt exact sans ajout ; une génération brute",
+    "inspection": "Palette cendre et brun, sans verdure ni ornement or ; plan conservé visuellement."
+  },
+  {
+    "region": "r3_1",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a17034-980a-7950-844e-30598575e65d\\exec-c7a388b8-60d2-4888-b486-6466c4c5194a.png",
+    "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row3\\r3_1.png",
+    "dimensions": [
+      1324,
+      1188
+    ],
+    "sha256": "6b3d5bc3b3827345c1ee40d7282f8f7e3bbc445197bc2d18187f5872ea9cb7e5",
+    "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\regions\\r3_1_input.png",
+    "scale_reference": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\reference_scale.png",
+    "prompt_file": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\PROMPT_REGION.txt",
+    "prompt_sha256": "c19184c0a210976af44f7c904d4d6b1466bdd82173e4e4ddd125659728bff435",
+    "method": "image_gen intégré ; prompt exact sans ajout ; une génération brute",
+    "inspection": "Palette cendre et brun, sans verdure ni ornement or ; plan conservé visuellement."
+  },
+  {
+    "region": "r3_2",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a17034-980a-7950-844e-30598575e65d\\exec-f8fc155b-34e0-40d2-8849-2cf5748d3cc0.png",
+    "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row3\\r3_2.png",
+    "dimensions": [
+      1324,
+      1188
+    ],
+    "sha256": "736a834ed04d93cd531a13c152d50e323ad83fa44c1843ee231e3dc166020b06",
+    "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\regions\\r3_2_input.png",
+    "scale_reference": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\reference_scale.png",
+    "prompt_file": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\PROMPT_REGION.txt",
+    "prompt_sha256": "c19184c0a210976af44f7c904d4d6b1466bdd82173e4e4ddd125659728bff435",
+    "method": "image_gen intégré ; prompt exact sans ajout ; une génération brute",
+    "inspection": "Palette cendre et brun, sans verdure ni ornement or ; plan conservé visuellement."
+  },
+  {
+    "region": "r3_3",
+    "source": "C:\\Users\\petit\\.codex\\generated_images\\01a17034-980a-7950-844e-30598575e65d\\exec-b6fcd57a-9827-4fe5-b958-1f21f646ef86.png",
+    "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\corrected\\row3\\r3_3.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "c31d8d17841df1d78394fd97f7ec9b7a2fc819e6cfc854490e287eaa9cea7021",
+    "input": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\regions\\r3_3_input.png",
+    "scale_reference": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\reference_scale.png",
+    "prompt_file": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c8-detail\\assets\\concepts\\incoming\\map.soot_dens\\source\\regions_v1\\PROMPT_REGION.txt",
+    "prompt_sha256": "c19184c0a210976af44f7c904d4d6b1466bdd82173e4e4ddd125659728bff435",
+    "method": "image_gen intégré ; prompt exact sans ajout ; une génération brute",
+    "inspection": "Palette cendre et brun, sans verdure ni ornement or ; plan conservé visuellement."
+  }
+]

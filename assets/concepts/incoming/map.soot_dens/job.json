@@ -1,0 +1,40 @@
+{
+  "id": "map.soot_dens",
+  "status": "wip",
+  "stage": "detail_pour_revue",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition": "composition.png",
+  "original_dimensions": [
+    1254,
+    1254
+  ],
+  "delivery_dimensions": [
+    1536,
+    1536
+  ],
+  "format_normalization_only": true,
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_PASSAGES_NEF.txt"
+  ],
+  "regions_started": true,
+  "owner_approved": true,
+  "runtime_integrated": false,
+  "owner_approved_date": "2026-10-25",
+  "plan_locked": true,
+  "source": "source/composition_validee_c8.png",
+  "owner_selection": "c8.png joint par le propriétaire, remplace la version retouchée pour ce lot",
+  "regions_count": 16,
+  "regions_folder": "source/regions_v1",
+  "quality_conforme": true,
+  "quality_report": "res://docs/previews/soot-dens-detail/qualite.json",
+  "delivered_tiles": [
+    "res://assets/environments/soot_dens/map.webp",
+    "res://assets/environments/soot_dens/map_1.webp",
+    "res://assets/environments/soot_dens/map_2.webp"
+  ],
+  "positions_status": "Anciennes propositions à vérifier sur le plan c8.png ; aucune collision créée."
+}

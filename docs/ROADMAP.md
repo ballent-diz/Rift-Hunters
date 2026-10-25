@@ -4,6 +4,9 @@
 
 Branche codex/carte-events-detail depuis main à jour. Plan validé conservé, douze régions, trois tuiles assemblées, contrôle qualité CONFORME et planche d’échelle. Réserve de netteté locale documentée ; pas de qualification finale ni niveau jouable. Aucun changement de collisions ou de gameplay.
 
+## B3 — Carte 8, Tanières de suie : détails livrés pour revue (Codex)
+
+Plan exact c8.png fourni le 25 octobre ; seize régions assemblées en trois tuiles, rapport qualité et planche d’échelle joints ; sans recomposition ni collisions. Carte 9 après publication de cette livraison.
 
 
 ## Décisions du propriétaire du 24 octobre 2026 (Claude, en jeu)
@@ -16,6 +19,15 @@ Branche codex/carte-events-detail depuis main à jour. Plan validé conservé, d
   dans la direction du Chasseur. Recharges des Techniques affichées sous le Chasseur.
 - Vitesse de base du Chasseur 150 → 180. Cendrelame affaiblie au départ. Campagne : jalons seulement, pas de niveau.
 - Le boss de la carte 1 (Nébulorax) est gardé.
+
+## B3 — Tanières de suie, carte 8 — composition et détail livrés pour revue (Codex)
+
+Branche `codex/carte-tanieres-de-suie` depuis main à jour. Composition carrée en zigzag,
+nef effondrée en diagonale, nid et œuf de cendre séparés. Composition validée le
+24 octobre 2026 : plan figé. Les seize régions de la sélection c8.png sont désormais assemblées ; contrôle global conforme, circulation non testée. Les sprites restent inchangés ;
+la validation de composition ne vaut pas validation de ces objets. Nid (18 poses) et œuf (12 poses) importés, GIF et contrôle ciblé
+Godot 4.3 réussis. Carte non jouable à ce stade ; régions et peinture des collisions à suivre.
+Aucun changement dans `src/`, `data/` ou les collisions.
 
 ## B3 — Évents de cendre, carte 7 — composition livrée pour revue (Codex)
 
