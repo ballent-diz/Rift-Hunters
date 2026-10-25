@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## B3 — Carte 8, Tanières de suie : détails — en cours (Codex)
+
+Plan exact c8.png fourni le 25 octobre ; seize régions, sans recomposition ni collisions. La carte 9 attend cette livraison.
+
+
 ## Décisions du propriétaire du 24 octobre 2026 (Claude, en jeu)
 
 - **Plus aucun drop en partie** hors soins : coffres, reliques et évolutions mis de côté
