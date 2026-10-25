@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## B3 — Carte 9 sélectionnée, volcan carré : détails — en cours (Codex)
+
+Après publication des cartes 7 et 8. Source exacte c9.png, seize régions 4 × 4 ; sans collisions ni code. Ancien identifiant graphique map.volcano_heart conservé ; aucun changement de numérotation dans les données.
+
+
 ## Décisions du propriétaire du 24 octobre 2026 (Claude, en jeu)
 
 - **Plus aucun drop en partie** hors soins : coffres, reliques et évolutions mis de côté
