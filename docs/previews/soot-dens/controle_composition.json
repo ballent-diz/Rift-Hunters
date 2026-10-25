@@ -1,0 +1,22 @@
+{
+  "raw_dimensions": [
+    1254,
+    1254
+  ],
+  "delivery_dimensions": [
+    1536,
+    1536
+  ],
+  "nests": 6,
+  "nests_per_zone": [
+    2,
+    2,
+    2
+  ],
+  "cover_blocks_zones": 4,
+  "fallen_columns_nave": 2,
+  "minimum_cover_spacing_world": 1560.6,
+  "minimum_nest_distance_world": 462.5,
+  "final_quality_claimed": false,
+  "src_data_modified": false
+}
