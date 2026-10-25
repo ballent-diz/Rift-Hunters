@@ -1,0 +1,14 @@
+{
+  "entries": {
+    "environment.ash_vents": {
+      "kind": "map",
+      "status": "wip",
+      "map_tiles": [
+        "res://assets/environments/ash_vents/map.webp",
+        "res://assets/environments/ash_vents/map_1.webp",
+        "res://assets/environments/ash_vents/map_2.webp"
+      ],
+      "arena_size": 5016
+    }
+  }
+}

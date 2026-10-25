@@ -1,0 +1,12 @@
+{
+  "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-8f5f77cd-9be7-405a-8d4f-bc0b2194eb51.png",
+  "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\retouche_palette\\r1_2.png",
+  "dimensions": [
+    1314,
+    1197
+  ],
+  "sha256": "c025a7454818702c10d59db126a5b14b01866f128868efd5007a7a766b5971c1",
+  "prompt_file": "PROMPT_RETOUCHE_PALETTE.txt",
+  "generation": "imagegen intégré",
+  "attempts": 1
+}
