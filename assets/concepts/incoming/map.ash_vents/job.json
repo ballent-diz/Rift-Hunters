@@ -1,7 +1,7 @@
 {
   "id": "map.ash_vents",
   "status": "wip",
-  "stage": "composition",
+  "stage": "detail_pour_revue",
   "world_size": [
     5016,
     3344
@@ -20,6 +20,19 @@
     "source/references/lisiere.png"
   ],
   "proposed_positions": "proposed_positions.json",
-  "regions_started": false,
-  "runtime_integrated": false
+  "regions_started": true,
+  "runtime_integrated": false,
+  "owner_approved": true,
+  "plan_locked": true,
+  "regions_folder": "source/regions_v1",
+  "regions_count": 12,
+  "composition_sha256": "f513922b33a9712ddb9badb5648880f9baa01ef15a5d1d42b874d02e30e6e063",
+  "quality_report": "res://docs/previews/ash-vents-detail/qualite.json",
+  "quality_conforme": true,
+  "local_sharpness_reserve": true,
+  "delivered_tiles": [
+    "res://assets/environments/ash_vents/map.webp",
+    "res://assets/environments/ash_vents/map_1.webp",
+    "res://assets/environments/ash_vents/map_2.webp"
+  ]
 }

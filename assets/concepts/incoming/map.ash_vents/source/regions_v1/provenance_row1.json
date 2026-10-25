@@ -1,0 +1,50 @@
+{
+  "generation": "imagegen intégré",
+  "prompt": "PROMPT_REGION.txt exact, sans ajout",
+  "regions": [
+    {
+      "region": "r1_0",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-f7fdbeb1-35f5-4316-8091-05771a6bbeea.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row1\\r1_0.png",
+      "dimensions": [
+        1244,
+        1264
+      ],
+      "sha256": "a5cf4948ca911d61504a18951da0b37bfc31d63cea6bf58f22c0839cc1964e7f",
+      "long_side_at_least_1254": true
+    },
+    {
+      "region": "r1_1",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-e876c005-8e26-46d4-8403-b03cc496b6ba.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row1\\r1_1.png",
+      "dimensions": [
+        1315,
+        1197
+      ],
+      "sha256": "45843c63e94e0d935577344556f2728c57f6465531aa06ace15cab9a9a6d9df3",
+      "long_side_at_least_1254": true
+    },
+    {
+      "region": "r1_2",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-7cdff688-224c-4866-af2a-244ff6167c2d.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row1\\r1_2.png",
+      "dimensions": [
+        1314,
+        1197
+      ],
+      "sha256": "cc8de1fb02ebd6dbdf659db50aa26b8b5b00d69eb236f8009f4a7ea6418ad524",
+      "long_side_at_least_1254": true
+    },
+    {
+      "region": "r1_3",
+      "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-57bdf8d1-50c1-4710-9d74-02ad2a39e21a.png",
+      "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row1\\r1_3.png",
+      "dimensions": [
+        1243,
+        1265
+      ],
+      "sha256": "22a2ef759bec812b53bd6b80ae701156b3e2276afb93a15706f23c1352f071aa",
+      "long_side_at_least_1254": true
+    }
+  ]
+}

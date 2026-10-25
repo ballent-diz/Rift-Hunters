@@ -1,0 +1,54 @@
+[
+  {
+    "region": "r2_0",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-964bc595-2ebd-4ef5-a9a3-f0672ae837ec.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row2\\r2_0.png",
+    "dimensions": [
+      1321,
+      1191
+    ],
+    "sha256": "79648445f22e008f3d54c0f3bfcd09907291f447386dd5f976c0628ded2b2b47",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact",
+    "inspection": "plan conserve visuellement, aucun obstacle nouveau repere; controle quantitatif et coutures a faire au montage"
+  },
+  {
+    "region": "r2_1",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-c87d5a76-fd34-46f1-a55a-d675554faf28.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row2\\r2_1.png",
+    "dimensions": [
+      1394,
+      1128
+    ],
+    "sha256": "f0a11755ffb46ef12892cb5498e14fd529bad4064dacb11eb267903951fcc064",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact",
+    "inspection": "plan conserve visuellement, aucun obstacle nouveau repere; controle quantitatif et coutures a faire au montage"
+  },
+  {
+    "region": "r2_2",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-364395db-a02e-4fbf-bf9a-f30a72ef7878.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row2\\r2_2.png",
+    "dimensions": [
+      1394,
+      1128
+    ],
+    "sha256": "26f39dc57d04823f1739cc5c98af52a131c46d049030d67c91b06d865ae145ea",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact",
+    "inspection": "plan conserve visuellement, aucun obstacle nouveau repere; controle quantitatif et coutures a faire au montage"
+  },
+  {
+    "region": "r2_3",
+    "native_path": "C:\\Users\\petit\\.codex\\generated_images\\01a16d86-78a0-7d00-be75-42ede624a18f\\exec-21430996-2c81-43f4-92ba-22bb8b65fc61.png",
+    "saved_path": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c7-work\\row2\\r2_3.png",
+    "dimensions": [
+      1321,
+      1191
+    ],
+    "sha256": "a17758aebeacee65e38f81136a6eeb79fcf9f0b877a1a241ea44a5cdda8a2346",
+    "tool": "image_gen.imagegen",
+    "prompt": "PROMPT_REGION.txt exact",
+    "inspection": "plan conserve visuellement, aucun obstacle nouveau repere; controle quantitatif et coutures a faire au montage"
+  }
+]

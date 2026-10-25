@@ -92,3 +92,45 @@ aux 400 exigées. Les distances ne sont pas une mesure de chemin navigable ou de
 
 Le décor livré n'est pas une texture finale de niveau. Claude intègre le niveau, ses collisions,
 les bulbes, les Calcinés et le gardien. Le [sprite du bulbe](../art/BULBE_DE_BRAISE.md) est livré séparément.
+
+
+## Passe de détail — livraison pour revue
+
+Douze régions (4 × 3) redessinées avec `map_regions.py`, chaque sortie brute au-dessus
+de 1254 pixels sur son grand côté, prompt exact et référence des Ruines joints.
+Assemblage canonique avec recouvrements fondus et calibrage de netteté natif (20 à
+120 % selon les régions). Trois tuiles **3762 × 7524** livrées dans
+`assets/environments/ash_vents/`, soit **11286 × 7524** et 2,25 pixels par unité.
+Le fichier de composition validé est inchangé. Aucune collision ou logique modifiée.
+
+![Carte détaillée entière](../previews/ash-vents-detail/carte_entiere.png)
+
+Le [rapport officiel](../previews/ash-vents-detail/qualite.json) est **CONFORME** :
+part lisse 0,209 ; détails fins 330,620 ; détails moyens 98,877 ; secteurs conformes
+94,3 % ; fidélité au plan 0,981. Les deux secteurs en bord droit (4800,0 et 4800,800)
+restent hors norme, notamment près des fumées ; ils sont listés sans être masqués.
+
+[Planche officielle d'échelle](../previews/ash-vents-detail/echelle.png) : carte
+détaillée, composition, Ruines. [Comparaison avec personnages](../previews/ash-vents-detail/comparaison_personnages.png) :
+montage technique à la même échelle, avec les sprites réels du Chasseur et de Mousseroc.
+Ce n'est pas une capture de partie jouable. La capture GPU Godot a échoué sur
+l'initialisation OpenGL de cette machine ; le chargement des textures est contrôlé séparément.
+
+### Réserves de netteté locale et essai écarté
+
+Le diagnostic relatif initial repère 136 cases plus douces sur 620 (21,9 %), malgré
+le contrôle global conforme. Sa carte de chaleur historique est jointe sous
+`diagnostic_initial_ash_vents_sharpness.png` et ne certifie pas l'absence de flou local.
+Un essai du `deblur_map.py` existant a diminué les détails fins à 325,212 (sous le seuil)
+et augmenté les alertes relatives. Il a été **écarté** : ses textures ne sont pas livrées.
+Rapport et métadonnées de cet essai restent joints pour traçabilité. Les tuiles livrées
+proviennent de l'assemblage canonique des régions, avec une seule retouche de palette
+de r1_2 pour remplacer les herbes vertes accidentelles par des herbes sèches.
+
+Cette livraison est prête pour revue visuelle, **pas qualifiée finale sans réserve**.
+Le propriétaire juge la netteté locale ; les collisions peintes et le niveau jouable
+restent à intégrer par Claude. Aucun champ de collisions ni entrée d'arène n'est inventé.
+Le manifeste d'analyse des rapports ne constitue pas une entrée runtime du jeu.
+
+Sources brutes, recadrages d'entrée, prompts, retouche et SHA256 :
+`assets/concepts/incoming/map.ash_vents/source/regions_v1/`.
