@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.spore_mother"
+shape = 18
+size = 60.0
+primary = Color(0.5, 0.42, 0.36, 1.0)
+secondary = Color(0.72, 0.65, 0.45, 1.0)
+accent = Color(0.7, 1.0, 0.45, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"mark"
+anim = &"spore_mark"
+cooldown = 10.0
+min_range = 0.0
+max_range = 560.0
+telegraph = 0.6
+damage = 26.0
+params = {
+"delay": 3.0,
+"radius": 110.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"burn_slam"
+anim = &"spore_carpet"
+cooldown = 9.0
+min_range = 0.0
+max_range = 420.0
+telegraph = 0.9
+damage = 12.0
+params = {
+"radius": 110.0,
+"burn_time": 5.0
+}
+
+[sub_resource type="Resource" id="technique_3"]
+script = ExtResource("4")
+kind = &"heal_aura"
+anim = &"pulse"
+cooldown = 6.0
+min_range = 0.0
+max_range = 9999.0
+telegraph = 0.0
+damage = 0.0
+params = {
+"radius": 240.0,
+"ratio": 0.12
+}
+
+[resource]
+script = ExtResource("1")
+id = &"spore_mother"
+name_key = "ENEMY_SPORE_MOTHER_NAME"
+desc_key = "ENEMY_SPORE_MOTHER_DESC"
+brain = 0
+max_hp = 160.0
+damage = 14.0
+defense = 14.0
+move_speed = 58.0
+radius = 26.0
+xp_value = 7
+knockback_resist = 0.6
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2"), SubResource("technique_3")])

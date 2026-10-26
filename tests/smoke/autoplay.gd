@@ -5,6 +5,7 @@ extends Node
 ##         [--difficulty=normal] [--seed=1] [--god] [--max-minutes=12] [--boss-at=60]
 ##         [--night] (nuit d'essai, brique B2) [--boss=root_sentinel] (autre boss ou gardien) [--altar] (défense d'autel d'essai)
 ##         [--shallows] (gués d'essai) [--rivers] (crues et courant d'essai, carte 5)
+##         [--team=mossback,glimmerwing] (compagnons de l'Écho de tête, équipe composée au refuge)
 
 var _run: RunController
 var _frames: int = 0
@@ -54,6 +55,10 @@ func _ready() -> void:
 			"modifiers":
 				for id: String in parts[1].split(",", false):
 					setup.modifier_ids.append(StringName(id))
+			"team":
+				# Équipe du refuge (compagnons de l'Écho de tête), ex. --team=mossback,glimmerwing
+				for id: String in parts[1].split(",", false):
+					setup.companion_ids.append(StringName(id))
 	setup.arena_override = TestArena.build(setup.arena_id, boss_id, features)
 	_run = load("res://scenes/run.tscn").instantiate()
 	_run.skip_profile = true

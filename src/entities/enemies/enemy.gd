@@ -40,6 +40,29 @@ var raged: bool = false
 var dormant: bool = false
 ## Déplacement d'une technique (bond, charge) en cours : voir EnemyManager._step_motion.
 var motion: Dictionary = {}
+## Bouclier d'un allié (E15) : aucun dégât tant que la source tient le bouclier.
+var shield_source: Enemy
+var shield_until: float = 0.0
+## Miroir renvoyeur : renvoie les tirs reçus de face jusqu'à reflect_until.
+var reflect_until: float = 0.0
+var reflect_dir := Vector2.RIGHT
+## Clone (E17) : copie fragile qui disparaît à clone_until.
+var is_clone: bool = false
+var clone_until: float = 0.0
+## Coups reçus récemment (téléportation quand on la frappe trop).
+var recent_hits: int = 0
+var _hit_window: float = -10.0
+
+
+func note_hit(time: float) -> void:
+	if time - _hit_window > 2.0:
+		_hit_window = time
+		recent_hits = 0
+	recent_hits += 1
+
+
+func is_shielded(time: float) -> bool:
+	return shield_until > time and is_instance_valid(shield_source) and shield_source.alive and shield_source != self
 
 
 func is_invulnerable() -> bool:

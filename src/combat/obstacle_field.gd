@@ -112,6 +112,11 @@ func set_wall_enabled(index: int, enabled: bool) -> void:
 		walls_version += 1
 
 
+## Volants : seules les barrières fermées (zones, arène, marée) les arrêtent, pas le décor.
+func push_out_walls(pos: Vector2, radius: float) -> Vector2:
+	return _push_out_walls(pos, radius) if not walls.is_empty() else pos
+
+
 ## Sort un cercle d'une barrière fermée par le bord le plus proche.
 func _push_out_walls(pos: Vector2, radius: float) -> Vector2:
 	for i: int in walls.size():

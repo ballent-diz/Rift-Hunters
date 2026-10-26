@@ -1,0 +1,79 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.marsh_maw"
+shape = 16
+size = 62.0
+primary = Color(0.22, 0.3, 0.24, 1.0)
+secondary = Color(0.35, 0.45, 0.32, 1.0)
+accent = Color(0.8, 0.5, 1.0, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"burrow"
+anim = &"dive"
+cooldown = 9.0
+min_range = 220.0
+max_range = 620.0
+telegraph = 0.6
+damage = 20.0
+params = {
+"travel": 1.2,
+"speed": 300.0,
+"emerge": 0.55,
+"radius": 95.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"charge"
+anim = &"belly_charge"
+cooldown = 8.0
+min_range = 160.0
+max_range = 520.0
+telegraph = 0.8
+damage = 0.0
+params = {
+"speed": 560.0,
+"duration": 0.6,
+"spin_radius": 130.0,
+"spin_telegraph": 0.45,
+"spin_damage": 20.0,
+"spin_anim": "tail_sweep"
+}
+
+[sub_resource type="Resource" id="technique_3"]
+script = ExtResource("4")
+kind = &"rage"
+anim = &"rage"
+cooldown = 999.0
+min_range = 0.0
+max_range = 9999.0
+telegraph = 0.7
+damage = 0.0
+params = {
+"threshold": 0.5,
+"speed_mult": 1.35,
+"damage_mult": 1.3
+}
+
+[resource]
+script = ExtResource("1")
+id = &"marsh_maw"
+name_key = "ENEMY_MARSH_MAW_NAME"
+desc_key = "ENEMY_MARSH_MAW_DESC"
+brain = 0
+max_hp = 200.0
+damage = 18.0
+defense = 22.0
+move_speed = 70.0
+radius = 28.0
+xp_value = 8
+knockback_resist = 0.8
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2"), SubResource("technique_3")])

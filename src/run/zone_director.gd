@@ -140,6 +140,10 @@ func objective() -> Vector2:
 		return zone().anchor
 	if phase == Phase.DONE and ctx.finale and ctx.finale.state == ArenaFinale.State.TRAVEL:
 		return ctx.arena.finale_center
+	# Gardien de palier loin du Chasseur : la flèche mène à lui.
+	if phase == Phase.GUARDIAN and _guardian != null and is_instance_valid(_guardian) and _guardian.alive \
+			and ctx.player.global_position.distance_to(_guardian.position) > HUNT_ROUTE_DISTANCE * 0.6:
+		return _guardian.position
 	if hunting and _hunt_goal != Vector2.INF \
 			and ctx.player.global_position.distance_to(_hunt_goal) > HUNT_ROUTE_DISTANCE:
 		return _hunt_goal

@@ -19,6 +19,12 @@ var hurt_flash: float = 0.0
 var god_mode: bool = false
 ## Parade (sort du Chasseur) : fenêtre restante pendant laquelle un coup reçu est paré.
 var parry_time: float = 0.0
+## Marque qui explose (E14, chapitre 3) : secondes restantes, dégâts et rayon de l'explosion ; la Ruée l'efface.
+var mark_time: float = 0.0
+var mark_total: float = 0.0
+var mark_damage: float = 0.0
+var mark_radius: float = 0.0
+var mark_source: StringName = &""
 var _iframes: float = 0.0
 var _dash_time: float = 0.0
 var _dash_dir := Vector2.ZERO
@@ -122,10 +128,44 @@ func is_hindered() -> bool:
 	return _hinder_time > 0.0
 
 
+func is_marked() -> bool:
+	return mark_time > 0.0
+
+
+## Spore-marque, marque de prisme : explose après `delay` secondes sur le Chasseur et les Échos proches.
+func mark(delay: float, damage: float, explosion_radius: float, source: StringName) -> void:
+	mark_time = delay
+	mark_total = delay
+	mark_damage = damage
+	mark_radius = explosion_radius
+	mark_source = source
+
+
+func _step_mark(delta: float) -> void:
+	if mark_time <= 0.0:
+		return
+	if is_dashing():
+		mark_time = 0.0
+		ctx.fx.burst(global_position, 40.0, Color(0.8, 1.0, 0.85, 0.6))
+		queue_redraw()
+		return
+	mark_time -= delta
+	queue_redraw()
+	if mark_time > 0.0:
+		return
+	ctx.fx.burst(global_position, mark_radius, Color(0.7, 1.0, 0.45, 0.6))
+	ctx.combat.damage_player(mark_damage, mark_source)
+	# Les Échos pris dans l'explosion sont sonnés : leurs attaques reprennent plus tard.
+	for ally: Ally in ctx.allies.team:
+		if ally.global_position.distance_to(global_position) <= mark_radius:
+			ally.attack_cd = maxf(ally.attack_cd, 1.5)
+
+
 func step(delta: float) -> void:
 	_hinder_time = maxf(_hinder_time - delta, 0.0)
 	if not alive:
 		return
+	_step_mark(delta)
 	_iframes = maxf(_iframes - delta, 0.0)
 	dash_cooldown_left = maxf(dash_cooldown_left - delta, 0.0)
 	var regen: float = stats.get_value(StatKeys.REGEN)
@@ -288,3 +328,9 @@ func _draw() -> void:
 		draw_arc(body, radius + 12.0, 0.0, TAU, 32, Color(1.0, 0.95, 0.6, 0.8), 2.5)
 	if parry_time > 0.0:
 		draw_arc(body, radius + 18.0, 0.0, TAU, 32, Color(1.0, 1.0, 1.0, 0.9), 3.5)
+	if mark_time > 0.0:
+		# Marque : cercle de l'explosion à venir et jauge du délai, qui clignote à la fin.
+		var left: float = mark_time / maxf(mark_total, 0.01)
+		var blink: float = 1.0 if left > 0.3 else 0.5 + 0.5 * sin(mark_time * 40.0)
+		draw_arc(Vector2.ZERO, mark_radius, 0.0, TAU, 48, Color(0.7, 1.0, 0.4, 0.55 * blink), 2.5)
+		draw_arc(body, radius + 10.0, -PI * 0.5, -PI * 0.5 + TAU * left, 32, Color(0.7, 1.0, 0.4, 0.95), 4.0)

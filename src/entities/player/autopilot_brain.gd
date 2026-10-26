@@ -166,7 +166,7 @@ func wants_dash() -> bool:
 
 
 func technique_pressed(_index: int) -> bool:
-	return ctx.enemies.count() > 8 or ctx.boss != null
+	return ctx.enemies.count() > 8 or ctx.boss != null or _guardian() != null
 
 
 ## Comme un joueur : Taille fendante (emplacement 0) au contact, Lance prismatique (1) dès qu'une cible est à portée.
@@ -191,7 +191,7 @@ func spell_pressed(slot: int) -> bool:
 func focus_requested() -> bool:
 	if ctx.allies.focus_time > 0.0:
 		return false
-	return (ctx.boss != null and ctx.boss.alive) or _weak_point() != null
+	return (ctx.boss != null and ctx.boss.alive) or _guardian() != null or _weak_point() != null
 
 
 ## Visée d'un joueur moyen : point faible exposé, œuf à casser, bulbe entouré de Corrompus, boss, puis ennemi en vue.
@@ -205,8 +205,16 @@ func aim_point() -> Vector2:
 		return target
 	if ctx.boss and ctx.boss.is_alive():
 		return ctx.boss.global_position
+	if _guardian() and _guardian().global_position.distance_to(pos) < 500.0:
+		return _guardian().global_position
 	var enemy: Enemy = ctx.enemies.find_nearest_visible(pos, 400.0)
 	return enemy.global_position if enemy else pos
+
+
+## Gardien de palier vivant (grande arène), sinon null.
+func _guardian() -> Enemy:
+	var guardian: Enemy = ctx.mini_boss
+	return guardian if guardian != null and is_instance_valid(guardian) and guardian.alive else null
 
 
 ## Ennemi au point faible exposé (cratère ouvert du Titan) à portée.

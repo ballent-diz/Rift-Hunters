@@ -1212,6 +1212,34 @@ RIFTS_PROGRESS,Failles refermées : %d / %d,Rifts sealed: %d / %d
 RIFT_CLOSED_BANNER,Faille refermée ! (%d / %d),Rift sealed! (%d / %d)
 ENEMY_RIFT_BREACH_NAME,Faille,Rift Breach
 ENEMY_RIFT_BREACH_DESC,Déchirure ouverte sur la Faille : des Corrompus en sortent tant qu'on ne l'a pas détruite.,A tear opened onto the Rift: Corrupted pour out of it until it is destroyed.
+ENEMY_MIRE_LEECH_NAME,Sangsue des vases,Mire Leech
+ENEMY_MIRE_LEECH_DESC,"Petite et nombreuse, elle ondule vers vous et mord.","Small and numerous, it ripples toward you and bites."
+ENEMY_BLOAT_TOAD_NAME,Crapaud-gonfle,Bloat Toad
+ENEMY_BLOAT_TOAD_DESC,Bondit sur vous ; sa gerbe de vase ralentit.,Leaps onto you; its splash of mud slows.
+ENEMY_RIFT_GNAT_NAME,Moustique de faille,Rift Gnat
+ENEMY_RIFT_GNAT_DESC,"Essaim volant : il survole le décor, les abris ne l'arrêtent pas.","Flying swarm: it flies over the scenery, cover does not stop it."
+ENEMY_CREEPING_ROOT_NAME,Racine rampante,Creeping Root
+ENEMY_CREEPING_ROOT_DESC,S'enfonce dans la vase et ressort sous vos pieds.,Sinks into the mud and bursts out beneath you.
+ENEMY_SPORE_MOTHER_NAME,Mère-spore,Spore Mother
+ENEMY_SPORE_MOTHER_DESC,Marque le Chasseur d'une spore qui explose (la Ruée l'efface) et soigne les Corrompus proches.,Marks the Hunter with a spore that explodes (Dash clears it) and heals nearby Corrupted.
+ENEMY_BARK_WARDEN_NAME,Gardien d'écorce,Bark Warden
+ENEMY_BARK_WARDEN_DESC,Immobilise avec ses racines et protège les Corrompus proches tant qu'il tient son bouclier.,Roots you in place and shields nearby Corrupted while it holds its barrier.
+ENEMY_MARSH_MAW_NAME,Gueule des marais,Marsh Maw
+ENEMY_MARSH_MAW_DESC,"Plonge sous l'eau, charge en glissant, puis s'enrage blessée.","Dives under the water, charges in a slide, then rages when wounded."
+ENEMY_WANDERING_SHARD_NAME,Éclat errant,Wandering Shard
+ENEMY_WANDERING_SHARD_DESC,Éclat de cristal volant qui tranche en tournoyant.,A flying crystal shard that slices as it spins.
+ENEMY_GLASS_SENTINEL_NAME,Sentinelle de verre,Glass Sentinel
+ENEMY_GLASS_SENTINEL_DESC,Tire de loin un trait de lumière.,Fires a bolt of light from afar.
+ENEMY_QUARTZ_GOLEM_NAME,Golem de quartz,Quartz Golem
+ENEMY_QUARTZ_GOLEM_DESC,"Lent et solide, il frappe fort.","Slow and sturdy, it hits hard."
+ENEMY_CREEPING_MIRROR_NAME,Miroir rampant,Creeping Mirror
+ENEMY_CREEPING_MIRROR_DESC,Disparaît et réapparaît sur votre flanc.,Vanishes and reappears at your flank.
+ENEMY_MIRROR_PRIESTESS_NAME,Prêtresse-miroir,Mirror Priestess
+ENEMY_MIRROR_PRIESTESS_DESC,"Crée des reflets qui imitent ses tirs, renvoie les vôtres et se téléporte si on la frappe trop.","Creates reflections that copy her shots, sends yours back, and teleports when struck too often."
+ENEMY_CRYSTAL_COLOSSUS_NAME,Colosse de cristal,Crystal Colossus
+ENEMY_CRYSTAL_COLOSSUS_DESC,"Balaie l'arène d'un rayon (cachez-vous derrière un abri), puis son cœur reste à nu.","Sweeps the arena with a beam (hide behind cover), then its heart is laid bare."
+ENEMY_REFLECTION_HUNTRESS_NAME,Chasseresse des reflets,Reflection Huntress
+ENEMY_REFLECTION_HUNTRESS_DESC,"Invisible de loin ; bondit trois fois autour de vous, puis pose une marque qui explose.","Invisible from afar; blinks three times around you, then sets a mark that explodes."
 STATUS_POISON_NAME,Poison,Poison
 STATUS_POISON_DESC,"Dégâts sur la durée, cumulables ; se propage à la mort (Sporelune).",Stacking damage over time; spreads on death (Moonspore).
 STATUS_BLIND_NAME,Aveuglé,Blinded

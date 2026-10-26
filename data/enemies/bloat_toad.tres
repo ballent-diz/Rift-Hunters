@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.bloat_toad"
+shape = 13
+size = 36.0
+primary = Color(0.34, 0.42, 0.22, 1.0)
+secondary = Color(0.55, 0.62, 0.3, 1.0)
+accent = Color(0.75, 0.5, 1.0, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"mud_leap"
+anim = &"leap"
+cooldown = 7.0
+min_range = 180.0
+max_range = 480.0
+telegraph = 0.55
+damage = 14.0
+params = {
+"flight": 0.5,
+"radius": 70.0,
+"height": 70.0,
+"slow_time": 1.5,
+"slow_mult": 0.5
+}
+
+[resource]
+script = ExtResource("1")
+id = &"bloat_toad"
+name_key = "ENEMY_BLOAT_TOAD_NAME"
+desc_key = "ENEMY_BLOAT_TOAD_DESC"
+brain = 0
+max_hp = 40.0
+damage = 9.0
+defense = 6.0
+move_speed = 64.0
+radius = 18.0
+xp_value = 2
+knockback_resist = 0.2
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1")])
