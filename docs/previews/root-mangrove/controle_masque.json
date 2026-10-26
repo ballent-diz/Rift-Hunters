@@ -1,0 +1,15 @@
+{
+  "dimensions": [
+    11286,
+    7524
+  ],
+  "mode": "1-bit, noir/blanc",
+  "components": 8,
+  "source_dimensions": [
+    1536,
+    1024
+  ],
+  "source_sha256": "4b69ba26f3eaa0a23ff37f0235b6584129829fa29fdd327dd5925edd128c46de",
+  "final_sha256": "d23afc2b92b42f08e72ad4e6ac518afc2eb95f3820e33ac9285a63c675c35c11",
+  "method": "Positions du masque provisoire figé ; adaptation au format final sans interpolation des valeurs. Pas un masque de collisions."
+}
