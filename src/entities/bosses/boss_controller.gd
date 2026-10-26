@@ -1,8 +1,10 @@
 class_name BossController
 extends RefCounted
 ## Pilote un Dévoreur : phases, choix d'attaques pondéré, mécaniques (absorption, cœur exposé, cristaux).
-## Chaque attaque est une méthode _pattern_<kind> paramétrée par BossPatternData. params["anim"] choisit l'animation du
-## sprite, params["vfx"] l'effet peint (BossData.vfx_dir) : le dessin suit le combat, il ne décide jamais des dégâts.
+## Chaque attaque est une méthode _pattern_<kind> paramétrée par BossPatternData. Les mécaniques qui durent au-delà
+## d'une attaque vivent dans des BossMechanics (BossSignatures : orbes, couronne, cratères ; GlauquemireMechanics).
+## params["anim"] choisit l'animation du sprite, params["vfx"] l'effet peint (BossData.vfx_dir) : le dessin suit le
+## combat, il ne décide jamais des dégâts.
 
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
@@ -11,6 +13,9 @@ const PATTERN_ANIMATIONS := {
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
 	&"sweep": &"attack", &"slam": &"heavy_slam", &"breath": &"rift_breath",
 	&"skyfall": &"skyfall", &"eye_beam": &"rift_eye",
+	&"source_orb": &"attack", &"star_crown": &"phase2_attack", &"crater_sequence": &"attack",
+	&"mud_wall": &"mud_spit", &"root_leash": &"root_lash", &"leech_feed": &"leech_call", &"prism_beam": &"prism_beam",
+	&"whirlpool": &"whirlpool", &"swallow": &"swallow",
 }
 ## Effets décoratifs simultanés au plus (les télégraphes ne comptent pas : ils ne sont jamais supprimés).
 const MAX_EFFECTS := 8
@@ -26,6 +31,8 @@ var heart_time: float = 0.0
 var absorb_time: float = 0.0
 var busy_time: float = 0.0
 var enraged: bool = false
+## Étourdi (orbe ou rayon renvoyé, Écho libéré) : secondes restantes.
+var stunned_time: float = 0.0
 var _next_pattern_time: float = 0.0
 var _ready_at: Dictionary = {}
 var _scheduled: Array[Dictionary] = []
@@ -41,6 +48,9 @@ var _hurt_hp: float = 0.0
 var _hurt_window: float = 0.0
 var _hurt_cooldown: float = 0.0
 var _ended: bool = false
+var _signatures: BossSignatures
+var _marsh: GlauquemireMechanics
+var _mechanics: Array[BossMechanics] = []
 
 
 func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
@@ -53,6 +63,8 @@ func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
 		boss.visual.play_action(data.intro_animation)
 		_vfx(String(data.intro_animation), _mouth(), Vector2.RIGHT)
 		busy_time = 1.4
+	if not phase().mechanics.is_empty():
+		marsh().on_phase(0, phase())
 
 
 func phase() -> BossPhaseData:
@@ -75,10 +87,15 @@ func step(delta: float) -> void:
 		if not _ended:
 			_ended = true
 			_clear_indicators()
+			for mechanics: BossMechanics in _mechanics:
+				mechanics.finish()
 			_vfx("death", boss.position, Vector2.RIGHT, {}, -1.0, true)
 		return
 	_run_scheduled()
 	_fight_time += delta
+	stunned_time = maxf(stunned_time - delta, 0.0)
+	for mechanics: BossMechanics in _mechanics:
+		mechanics.step(delta)
 	if not enraged and _fight_time >= ctx.balance.boss_enrage_time:
 		enraged = true
 		boss.contact_damage *= ctx.balance.boss_enrage_damage_mult
@@ -155,6 +172,8 @@ func _check_phase() -> void:
 	boss.visual.play_action(p.transition_animation)
 	_clear_indicators()
 	_vfx("transform", boss.position, Vector2.RIGHT, {}, -1.0, true)
+	if not p.mechanics.is_empty() or _marsh != null:
+		marsh().on_phase(phase_index, p)
 	var phase_idle := StringName("phase%d_idle" % (phase_index + 1))
 	if boss.visual.has_animation(phase_idle):
 		boss.visual.idle_animation = phase_idle
@@ -197,6 +216,37 @@ func _choose_pattern(distance: float) -> BossPatternData:
 		if roll <= 0.0:
 			return pattern
 	return options.back()
+
+
+## Étourdi : ni attaque ni déplacement ; les attaques déjà annoncées partent quand même.
+func stun(seconds: float) -> void:
+	stunned_time = maxf(stunned_time, seconds)
+	busy_time = maxf(busy_time, seconds)
+	_charge_time = 0.0
+	boss.visual.play_action(&"hurt")
+	ctx.fx.text(boss.position + Vector2(0, -boss.radius - 20.0), tr("BOSS_STUNNED"), Color(1.0, 0.95, 0.6))
+	ctx.stats.add(&"boss_stuns")
+
+
+func signatures() -> BossSignatures:
+	if _signatures == null:
+		_signatures = BossSignatures.new()
+		_add_mechanics(_signatures)
+	return _signatures
+
+
+func marsh() -> GlauquemireMechanics:
+	if _marsh == null:
+		_marsh = GlauquemireMechanics.new()
+		_add_mechanics(_marsh)
+	return _marsh
+
+
+func _add_mechanics(mechanics: BossMechanics) -> void:
+	mechanics.setup(ctx, self)
+	ctx.world.add_child(mechanics)
+	_mechanics.append(mechanics)
+	ctx.boss_mechanics.append(mechanics)
 
 
 func _damage(pattern: BossPatternData) -> float:
@@ -459,6 +509,43 @@ func _pattern_eye_beam(pattern: BossPatternData) -> void:
 			ctx.hazards.add_beam(from, beam_dir, clear_length(from, beam_dir, length), width, 0.05,
 				sweep_time / float(steps) + 0.05, _damage(pattern), data.id))
 	busy_time = pattern.telegraph + sweep_time + float(pattern.params.get("recovery", 0.6))
+
+
+## Mécaniques phares (BossSignatures) et attaques de Glauquemire (GlauquemireMechanics).
+func _pattern_source_orb(pattern: BossPatternData) -> void:
+	signatures().source_orb(pattern)
+
+
+func _pattern_star_crown(pattern: BossPatternData) -> void:
+	signatures().star_crown(pattern)
+
+
+func _pattern_crater_sequence(pattern: BossPatternData) -> void:
+	signatures().crater_sequence(pattern)
+
+
+func _pattern_mud_wall(pattern: BossPatternData) -> void:
+	marsh().mud_wall(pattern)
+
+
+func _pattern_root_leash(pattern: BossPatternData) -> void:
+	marsh().root_leash(pattern)
+
+
+func _pattern_leech_feed(pattern: BossPatternData) -> void:
+	marsh().leech_feed(pattern)
+
+
+func _pattern_prism_beam(pattern: BossPatternData) -> void:
+	marsh().prism_beam(pattern)
+
+
+func _pattern_whirlpool(pattern: BossPatternData) -> void:
+	marsh().whirlpool(pattern)
+
+
+func _pattern_swallow(pattern: BossPatternData) -> void:
+	marsh().swallow(pattern)
 
 
 ## Longueur dégagée d'une ligne : jusqu'au premier décor qui arrête les tirs (rochers-abris).

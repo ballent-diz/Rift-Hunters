@@ -53,6 +53,8 @@ var nests: NestDirector
 var mini_boss: Enemy
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
+## Mécaniques de boss en cours (orbes, couronne, cratères, miroirs…), créées par BossController.
+var boss_mechanics: Array[BossMechanics] = []
 
 
 ## Campagne : choix aux jalons, sans XP (ArenaData.progression).
@@ -114,4 +116,22 @@ func danger_vector(pos: Vector2) -> Vector2:
 		result += terrain.danger(pos)
 	if tide:
 		result += tide.danger(pos)
+	for mechanics: BossMechanics in boss_mechanics:
+		result += mechanics.danger(pos)
 	return result
+
+
+## Bot : déplacement imposé par une mécanique de boss (renvoyer un orbe, se placer derrière un miroir) ; zéro sinon.
+func boss_bot_move(pos: Vector2) -> Vector2:
+	for mechanics: BossMechanics in boss_mechanics:
+		var move: Vector2 = mechanics.bot_move(pos)
+		if move != Vector2.ZERO:
+			return move
+	return Vector2.ZERO
+
+
+func boss_bot_dash() -> bool:
+	for mechanics: BossMechanics in boss_mechanics:
+		if mechanics.bot_dash():
+			return true
+	return false

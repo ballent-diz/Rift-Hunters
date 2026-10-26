@@ -58,15 +58,22 @@ params = {
 
 [sub_resource type="Resource" id="boss_pattern_data_6"]
 script = ExtResource("4")
-kind = &"absorb"
-name_key = "BOSS_PATTERN_ABSORB"
+kind = &"star_crown"
+name_key = "BOSS_PATTERN_STAR_CROWN"
 weight = 1.5
 cooldown = 16.0
-damage = 12.0
-telegraph = 0.0
+damage = 14.0
+telegraph = 1.0
 params = {
-"duration": 4.0,
-"radius": 150.0
+"stars": 16,
+"gaps": 2,
+"gap_width": 2,
+"start_radius": 380.0,
+"end_radius": 160.0,
+"duration": 9.0,
+"spin": 0.8,
+"spin_end": 1.6,
+"outside_mult": 0.15
 }
 
 [sub_resource type="Resource" id="boss_phase_data_2"]
@@ -122,15 +129,22 @@ params = {
 
 [sub_resource type="Resource" id="boss_pattern_data_11"]
 script = ExtResource("4")
-kind = &"absorb"
-name_key = "BOSS_PATTERN_ABSORB"
-weight = 1.0
-cooldown = 18.0
-damage = 14.0
-telegraph = 0.0
+kind = &"star_crown"
+name_key = "BOSS_PATTERN_STAR_CROWN"
+weight = 1.5
+cooldown = 14.0
+damage = 16.0
+telegraph = 0.9
 params = {
-"duration": 3.5,
-"radius": 160.0
+"stars": 20,
+"gaps": 2,
+"gap_width": 2,
+"start_radius": 400.0,
+"end_radius": 140.0,
+"duration": 8.0,
+"spin": 1.0,
+"spin_end": 2.2,
+"outside_mult": 0.15
 }
 
 [sub_resource type="Resource" id="boss_pattern_data_12"]
@@ -171,3 +185,4 @@ shard_reward = 100
 essence_reward = 10
 visual = SubResource("visual_data_1")
 phases = [SubResource("boss_phase_data_2"), SubResource("boss_phase_data_7")]
+signature = &"star_crown"

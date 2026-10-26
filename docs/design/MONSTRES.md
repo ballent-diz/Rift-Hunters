@@ -80,6 +80,29 @@ Vue d'ensemble de tous les leviers (terrain, monstres, hordes…), règle des ab
 Les mécaniques déjà vues reviennent dans les chapitres suivants **sous un autre habillage ou dans d'autres
 combinaisons** (le bond du chien de suie devient le saut d'un loup des glaces qui gèle à l'atterrissage).
 
+### Mécanique phare de chaque boss (décision du propriétaire, 26 octobre 2026)
+
+Chaque boss apporte **au moins une mécanique que personne n'a eue avant lui** : sa mécanique phare
+(`BossData.signature`). Il peut reprendre quelques attaques déjà vues, jamais la mécanique phare d'un autre. Les
+Dévoreurs de fin de chapitre sont de plus en plus forts (PV, plus gros coup, phases). Le test
+`test_boss_signatures` le vérifie à chaque ajout de boss.
+
+Les mécaniques phares se répondent : le chapitre 1 apprend à **renvoyer** une attaque du boss contre lui, le
+chapitre 2 à **lire toute l'arène**, le chapitre 3 combine les deux (orienter l'arène pour retourner son arme).
+
+| Boss | Place | PV · plus gros coup · phases | Mécanique phare | Reprises |
+|---|---|---|---|---|
+| Nébulorax | carte 1 | 5 000 · 22 · 2 | **Absorption** : avale les tirs, les recrache, puis cœur exposé ×2 | — |
+| Astravorn | carte 2 | 5 600 · 22 · 2 | **Couronne d'astres** : anneau d'étoiles qui tourne avec des brèches, rétrécit et accélère ; de l'extérieur, les coups sont absorbés à 85 % ; à la fin, les étoiles partent vers l'extérieur | griffes, vague d'ombres, rayon du vide, invocations |
+| Dévoreur des Sources | carte 5, finale ch. 1 | 6 500 · 26 · 2 | **Orbes de source** : orbes lents qui suivent le Chasseur ; une Ruée dedans les renvoie sur le boss, l'orbe doré l'étourdit ; touchés sans Ruée : dégâts et ralenti | griffes, double écrasement, souffle arrêté par les rochers, invocations |
+| Pyrevorn | carte 10, finale ch. 2 | 9 000 · 30 · 2 (+ 2 mini-boss) | **Séquence des cratères** : grille de 3 × 3 cases ; des cases s'allument une à une puis entrent en éruption dans le même ordre, à peine annoncées ; retenir lesquelles et quand | griffes, pluie du cratère, couvée, envol et chute, Œil de la Faille |
+| Glauquemire | carte 15, finale ch. 3 | 12 500 · 34 · 3 | **Miroirs à orienter** : une Ruée contre un miroir le tourne dans le sens de la Ruée ; le rayon de prisme balaie l'arène et suit la flèche des miroirs ; renvoyé sur le boss, il brise sa carapace et l'étourdit | griffes, écrasement |
+
+Glauquemire a aussi sept autres mécaniques nouvelles (vase qui durcit en murs, racine-laisse, sangsues
+nourricières, carapace à facettes, tourbillon, anneau de marée, engloutissement d'un Écho) :
+[DEVOREUR_CHAPITRE3.md](DEVOREUR_CHAPITRE3.md). Les gardiens de carte (Chimère des brumes, Sentinelle des racines,
+Gardien du bûcher) recevront chacun leur mécanique phare plus tard.
+
 ### À l'intérieur d'un chapitre (5 cartes)
 
 - **Carte 1** : la nouvelle famille avec ses normaux simples et **une** élite ; ses mécaniques sont présentées seules.
@@ -101,7 +124,8 @@ Familles et descriptions complètes : prompt Codex du 22 octobre (conservé dans
 
 Dévoreur **Pyrevorn** (carte 10) : planche A (idle, déplacement, griffes), B phase 1 (souffle de magma, pluie du
 cratère, appel de la couvée), C (transformation, mort), D phase 2 (idle, envol et chute avec anneaux de lave, Œil de
-la Faille : rayon qui balaie, E13).
+la Faille : rayon qui balaie, E13). Depuis le 26 octobre, la séquence des cratères (sa mécanique phare) remplace le
+souffle, qui reste propre au Dévoreur des Sources ; l'animation `magma_breath` n'est plus jouée.
 
 Ordre d'introduction : carte 6 Brute du bûcher (sol brûlant, en écho aux plaques de la carte) ; carte 7 Chevalier
 calciné et Chien de suie ; carte 8 Veuve de cendre (avec les nids de la carte) ; carte 9 Enfants du magma, Titan et
@@ -123,6 +147,15 @@ Nouvelles mécaniques du chapitre 3 :
 | E16 | **Téléportation** : disparaît et réapparaît sur un flanc du Chasseur | ne pas rester immobile |
 | E17 | **Clones** : copies fragiles qui imitent ses tirs | trouver l'originale |
 | — | **Volants** : survolent le décor (les tirs aussi les atteignent) | ne pas compter sur les abris contre eux |
+
+## État du code (26 octobre 2026, mécaniques phares)
+
+`BossData.signature` ; mécaniques qui durent au-delà d'une attaque dans des `BossMechanics` créées par le
+`BossController` : `BossSignatures` (`source_orb`, `star_crown`, `crater_sequence`) et `GlauquemireMechanics`
+(`mud_wall`, `root_leash`, `leech_feed`, `prism_beam`, `whirlpool`, `swallow` ; mécaniques passives de phase
+`BossPhaseData.mechanics` : `facets`, `mirrors`, `tide_ring`, réglées par `mechanic_params`). Le bot les joue
+(Ruée dans les orbes, entrée dans la couronne, cases retenues sept fois sur dix, Ruée à travers un miroir).
+Glauquemire : `data/bosses/glauquemire.tres`, forme provisoire (manifeste : `planned`) en attendant Codex.
 
 ## État du code (26 octobre 2026)
 

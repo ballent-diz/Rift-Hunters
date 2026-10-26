@@ -1,6 +1,6 @@
 class_name AutopilotBrain
 extends PlayerBrain
-## Bot de test : esquive les ennemis, ramasse l'XP, utilise Ruée et Techniques.
+## Bot de test : esquive les ennemis, ramasse l'XP, utilise Ruée et Techniques, joue les mécaniques des boss.
 ## Sert aux smoke tests (partie complète sans intervention) et à l'équilibrage. Il joue comme un joueur MOYEN
 ## (docs/design/DIFFICULTE.md) : il connaît les mécaniques principales (abris contre les tirs et les souffles, bulbes
 ## de braise, œufs, point faible), sans réflexes parfaits (réaction aux tirs à distance une fois sur COVER_REACTION).
@@ -82,6 +82,11 @@ func _compute_move() -> Vector2:
 		var heading: Vector2 = route if route != Vector2.ZERO else _wander
 		slide = heading.normalized().orthogonal() * _slide * 1.4
 	var result: Vector2 = flee + seek + home + route + slide + _wander * 0.25
+	# Mécaniques de boss : foncer dans un orbe, entrer dans la couronne, se placer derrière un miroir.
+	var forced: Vector2 = ctx.boss_bot_move(pos)
+	if forced != Vector2.ZERO:
+		result = forced * 2.0 + flee * 0.6
+	_dash_wanted = _dash_wanted or ctx.boss_bot_dash()
 	return result.normalized() if result.length() > 0.05 else Vector2.ZERO
 
 

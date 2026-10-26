@@ -93,6 +93,11 @@ func is_dashing() -> bool:
 	return _dash_time > 0.0
 
 
+## Sens de la dernière Ruée (miroirs de Glauquemire).
+func dash_direction() -> Vector2:
+	return _dash_dir
+
+
 func is_leaping() -> bool:
 	return _leap_time > 0.0
 

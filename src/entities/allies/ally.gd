@@ -23,6 +23,8 @@ var technique_cd: float = 0.0
 ## Sort choisi dans l'arbre de l'Écho : une évolution ne le remplace pas.
 var technique_locked: bool = false
 var velocity := Vector2.ZERO
+## Englouti par Glauquemire : ni déplacement, ni attaque, ni sort jusqu'à sa libération.
+var swallowed: bool = false
 ## Mémoire du comportement (état, cible, minuteries).
 var memory: Dictionary = {}
 var visual: EntityVisual

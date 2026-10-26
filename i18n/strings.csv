@@ -1627,3 +1627,33 @@ EXPEDITION_PACKED,Emporté : %s,Packed: %s
 OPTIONS_RESET_PROFILE,Nouvelle partie (effacer la progression),New game (erase progress)
 OPTIONS_RESET_CONFIRM,"Confirmer : tout effacer (Échos, cartes, arbre, éclats) ?","Confirm: erase everything (Echoes, maps, tree, shards)?"
 OPTIONS_RESET_CANCEL,Annuler,Cancel
+BOSS_PATTERN_SOURCE_ORB,Orbes de source,Source orbs
+BOSS_PATTERN_STAR_CROWN,Couronne d'astres,Star crown
+BOSS_PATTERN_CRATER_SEQUENCE,Séquence des cratères,Crater sequence
+BOSS_PATTERN_GLAUQUEMIRE_CLAWS,Griffes des vases,Mire claws
+BOSS_PATTERN_MUD_WALL,Vase qui durcit,Hardening mud
+BOSS_PATTERN_ROOT_LEASH,Racine-laisse,Root leash
+BOSS_PATTERN_LEECH_FEED,Sangsues nourricières,Feeding leeches
+BOSS_PATTERN_PRISM_BEAM,Rayon de prisme,Prism beam
+BOSS_PATTERN_WHIRLPOOL,Tourbillon,Whirlpool
+BOSS_PATTERN_SWALLOW,Engloutissement,Engulf
+BOSS_ORB_INTRO,Orbe de source : une Ruée dedans le renvoie sur le Dévoreur. L'orbe doré l'étourdit.,Source orb: dash into it to send it back at the Devourer. The golden orb stuns it.
+BOSS_CROWN_INTRO,"Couronne d'astres : de l'extérieur, vos coups sont absorbés. Entrez par une brèche !","Star crown: from outside, your hits are absorbed. Get in through a gap!"
+BOSS_CRATER_INTRO,Retenez les cases qui s'allument : elles vont exploser dans le même ordre.,Remember the tiles that light up: they will erupt in the same order.
+BOSS_MUD_WALL_INTRO,La vase ralentit puis durcit en murs : ils arrêtent aussi son rayon.,"The mud slows you, then hardens into walls: they also stop its beam."
+BOSS_LEASH_INTRO,Racine-laisse : une Ruée la casse avant que le coup ne tombe.,Root leash: dash to break it before the blow lands.
+BOSS_LEECH_INTRO,Les sangsues soignent Glauquemire si elles l'atteignent : interceptez-les.,Leeches heal Glauquemire if they reach it: intercept them.
+BOSS_FACETS_INTRO,Carapace de cristal : chaque face amortit les coups. Brisez-en une ou frappez par un flanc ouvert.,Crystal carapace: each face dampens hits. Break one or strike an open flank.
+BOSS_MIRROR_INTRO,Miroirs : une Ruée contre un miroir le tourne dans le sens de la Ruée. Renvoyez le rayon sur le boss !,Mirrors: dashing into a mirror turns it the way you dash. Send the beam back at the boss!
+BOSS_WHIRLPOOL_INTRO,Tourbillon : marchez contre le courant ou utilisez la Ruée avant qu'il ne se referme.,Whirlpool: walk against the current or dash before it collapses.
+BOSS_TIDE_RING_INTRO,La marée monte : chaque coup au Dévoreur fait reculer l'eau.,The tide is rising: every hit on the Devourer pushes the water back.
+BOSS_SWALLOW_INTRO,Un Écho est englouti : frappez le Dévoreur pour le libérer à temps !,An Echo was swallowed: strike the Devourer to free it in time!
+BOSS_STUNNED,ÉTOURDI,STUNNED
+BOSS_PRISM_RETURNED,CARAPACE BRISÉE ×2,CARAPACE SHATTERED ×2
+BOSS_ECHO_FREED,Écho libéré !,Echo freed!
+BOSS_GLAUQUEMIRE_NAME,Glauquemire,Glauquemire
+BOSS_GLAUQUEMIRE_TITLE,Dévoreur des Marais engloutis,Devourer of the Sunken Marshes
+BOSS_GLAUQUEMIRE_PHASE1,Bête des vases,Mire Beast
+BOSS_GLAUQUEMIRE_PHASE2,Carapace de cristal,Crystal Carapace
+BOSS_GLAUQUEMIRE_PHASE3,Cœur de la marée,Heart of the Tide
+BOSS_PATTERN_MIRE_SLAM,Écrasement de vase,Mire slam

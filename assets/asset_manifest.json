@@ -12267,6 +12267,111 @@
 			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/volcano_heart/minimap.webp"
+		},
+		"boss.glauquemire": {
+			"status": "planned",
+			"note": "Dévoreur du chapitre 3 : sprites à livrer par Codex (docs/design/DEVOREUR_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				480
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"claws": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"mud_spit": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"root_lash": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"leech_call": {
+					"row": 5,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 6,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"phase2_idle": {
+					"row": 7,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"prism_beam": {
+					"row": 8,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"hurt": {
+					"row": 9,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"phase3_idle": {
+					"row": 10,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"whirlpool": {
+					"row": 11,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"swallow": {
+					"row": 12,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 13,
+					"frames": 6,
+					"fps": 8,
+					"loop": false
+				}
+			}
 		}
 	}
 }
