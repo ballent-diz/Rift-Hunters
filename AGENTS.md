@@ -60,6 +60,17 @@ res://tools/screenshot.tscn -- --out=<dossier> --times=20,60` (`--menu=main|refu
   techniques), la limite de 3 rangées par planche et les mécaniques associées. Ne pas ajouter de rangée hors de cette
   règle : une animation sans mécanique prévue ne sert pas en jeu. Le chapitre 1 garde ses planches.
 
+## Poids du dépôt (décision du 25 octobre 2026)
+
+Tout fichier poussé reste dans l'historique git **pour toujours** et sur chaque copie du projet (une copie pesait déjà
+environ 10 Go). Avant de pousser des images :
+- **Ne pousser que ce qui sert** : tuiles finales, masques, sources retenues et leur `job.json`. Les essais, retouches non
+  retenues et régions intermédiaires restent en local (ou dans un dossier hors dépôt), jamais dans git.
+- **Une seule version d'une source** : on remplace un fichier au lieu d'en ajouter une variante (`_v2`, `_retouche`...).
+- **Aperçus légers** (`docs/previews/`) : WebP ou PNG réduits (1600 px de large au plus), GIF de 3 Mo au plus,
+  pas de carte entière en pleine résolution.
+- Pour une PR d'images, indiquer son poids total dans la description ; au-delà de 150 Mo, demander l'accord du propriétaire.
+
 ## Génération et intégration de cartes
 
 **Qualité obligatoire : [docs/maps/QUALITE_DES_CARTES.md](docs/maps/QUALITE_DES_CARTES.md)**. Chaque carte a la qualité
