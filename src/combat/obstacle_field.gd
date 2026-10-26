@@ -112,6 +112,11 @@ func set_wall_enabled(index: int, enabled: bool) -> void:
 		walls_version += 1
 
 
+## Volants : seules les barrières fermées (zones, arène, marée) les arrêtent, pas le décor.
+func push_out_walls(pos: Vector2, radius: float) -> Vector2:
+	return _push_out_walls(pos, radius) if not walls.is_empty() else pos
+
+
 ## Sort un cercle d'une barrière fermée par le bord le plus proche.
 func _push_out_walls(pos: Vector2, radius: float) -> Vector2:
 	for i: int in walls.size():
@@ -223,6 +228,17 @@ func _push_out_field(pos: Vector2, radius: float) -> Vector2:
 		var depth: float = radius - d
 		result += normal * depth + normal.orthogonal() * depth * SLIDE * 0.5
 	return result
+
+
+## Point libre le plus proche (cercle de rayon `radius` hors du décor), joint en ligne droite sans traverser de
+## décor ; INF s'il n'y en a pas à moins de 48. Sert à sortir le Chasseur d'une fente en V du décor.
+func free_point_near(pos: Vector2, radius: float) -> Vector2:
+	for ring: float in [6.0, 12.0, 20.0, 30.0, 40.0, 48.0]:
+		for i: int in 16:
+			var point: Vector2 = pos + Vector2.RIGHT.rotated(TAU * i / 16.0) * ring
+			if not blocks(point, radius) and line_clear(pos, point):
+				return point
+	return Vector2.INF
 
 
 ## Poussée d'évitement (bot de test) : vers l'extérieur des obstacles à moins de `reach`.

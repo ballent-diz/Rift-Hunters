@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.creeping_root"
+shape = 14
+size = 40.0
+primary = Color(0.32, 0.24, 0.14, 1.0)
+secondary = Color(0.45, 0.55, 0.25, 1.0)
+accent = Color(0.75, 0.5, 1.0, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"burrow"
+anim = &"plunge"
+cooldown = 9.0
+min_range = 220.0
+max_range = 650.0
+telegraph = 0.6
+damage = 16.0
+params = {
+"travel": 1.4,
+"speed": 260.0,
+"emerge": 0.6,
+"radius": 85.0
+}
+
+[resource]
+script = ExtResource("1")
+id = &"creeping_root"
+name_key = "ENEMY_CREEPING_ROOT_NAME"
+desc_key = "ENEMY_CREEPING_ROOT_DESC"
+brain = 0
+max_hp = 70.0
+damage = 11.0
+defense = 12.0
+move_speed = 48.0
+radius = 20.0
+xp_value = 3
+knockback_resist = 0.6
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1")])

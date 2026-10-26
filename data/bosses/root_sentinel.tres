@@ -92,3 +92,4 @@ visual = SubResource("visual_data_1")
 phases = [SubResource("boss_phase_data_2")]
 guardian = true
 visual_scale = 2.0
+signature = &"quake"

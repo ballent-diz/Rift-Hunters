@@ -185,3 +185,7 @@ burn_plates = Array[Vector3]([Vector3(-1431, -594, 93), Vector3(-1757, -170, 101
 burn_damage = 4.0
 burn_tick = 0.5
 burn_enemy_ratio = 0.06
+enemy_hp_mult = 0.7
+enemy_damage_mult = 0.6
+boss_hp_mult = 1.2
+boss_damage_mult = 1.0

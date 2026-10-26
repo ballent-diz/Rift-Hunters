@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.bark_warden"
+shape = 20
+size = 66.0
+primary = Color(0.3, 0.24, 0.18, 1.0)
+secondary = Color(0.4, 0.5, 0.3, 1.0)
+accent = Color(0.6, 1.0, 0.6, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"web"
+anim = &"roots"
+cooldown = 6.0
+min_range = 150.0
+max_range = 460.0
+telegraph = 0.6
+damage = 8.0
+params = {
+"speed": 220.0,
+"radius": 18.0,
+"hinder_time": 1.6,
+"hinder_mult": 0.15
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"ally_shield"
+anim = &"bark_shield"
+cooldown = 12.0
+min_range = 0.0
+max_range = 700.0
+telegraph = 0.5
+damage = 0.0
+params = {
+"radius": 240.0,
+"duration": 4.0
+}
+
+[resource]
+script = ExtResource("1")
+id = &"bark_warden"
+name_key = "ENEMY_BARK_WARDEN_NAME"
+desc_key = "ENEMY_BARK_WARDEN_DESC"
+brain = 0
+max_hp = 260.0
+damage = 18.0
+defense = 30.0
+move_speed = 46.0
+radius = 30.0
+xp_value = 8
+knockback_resist = 0.9
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

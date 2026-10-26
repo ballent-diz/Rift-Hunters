@@ -56,6 +56,12 @@ func compute_damage(enemy: Enemy, info: DamageInfo) -> float:
 func deal_damage(enemy: Enemy, info: DamageInfo) -> float:
 	if enemy == null or not enemy.is_alive() or enemy.is_invulnerable():
 		return 0.0
+	if info.is_friendly():
+		enemy.note_hit(ctx.time)
+	# Bouclier d'écorce (E15) : protégé tant que son élite tient le bouclier.
+	if enemy.is_shielded(ctx.time):
+		ctx.fx.spark(enemy.global_position, Color(0.55, 0.95, 0.6), 10.0)
+		return 0.0
 	# Bulbe de braise : un coup du Chasseur ou d'un Écho l'amorce (aucun dégât, aucune élimination comptée).
 	if enemy.data != null and enemy.data.pod:
 		if info.is_friendly() and ctx.pods:

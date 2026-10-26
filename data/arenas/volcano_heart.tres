@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+
+[sub_resource type="Resource" id="wave_phase_data_1"]
+script = ExtResource("2")
+start_time = 0.0
+end_time = 150.0
+enemies = [&"magma_mite", &"lava_lurker", &"ember_spitter"]
+weights = [3.0, 1.4, 1.2]
+spawn_rate = 1.6
+max_alive = 70
+
+[sub_resource type="Resource" id="wave_phase_data_2"]
+script = ExtResource("2")
+start_time = 150.0
+end_time = 9999.0
+enemies = [&"magma_mite", &"obsidian_brute", &"ember_spitter"]
+weights = [3.0, 1.2, 1.5]
+spawn_rate = 2.4
+max_alive = 100
+
+[resource]
+script = ExtResource("1")
+id = &"volcano_heart"
+name_key = "ARENA_VOLCANO_HEART_NAME"
+desc_key = "ARENA_VOLCANO_HEART_DESC"
+size = Vector2(5016, 5016)
+navigation_cell_size = 48.0
+environment_id = &"environment.volcano_heart"
+unlocked_by_default = false
+progression = &"milestones"
+boss_time = 360.0
+boss_id = &"pyre_guardian"
+elite_first_time = 90.0
+elite_interval = 60.0
+elite_enemy_ids = Array[StringName]([&"caldera_titan"])
+waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2")]

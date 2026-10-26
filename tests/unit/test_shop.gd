@@ -63,17 +63,12 @@ func test_survival_perks_are_gated_owned_once_and_survival_only() -> void:
 	check_eq(int(Shop.prepare_run(profile, GameDB.arena(&"fractured_plain"))["start_levels"]), 1, "niveau 2 en survie")
 
 
-func test_shop_echo_goes_on_sale_after_its_map() -> void:
-	var echo: MonsterData = null
+## Décision du 26 octobre 2026 : les Échos se gagnent seulement sur les cartes, plus aucun en boutique.
+func test_no_echo_for_sale() -> void:
+	_win(&"storm_highlands")
+	_win(&"cascade_source")
 	for monster: MonsterData in GameDB.monsters.values():
-		if monster.discovery == EchoCollection.SHOP and GameDB.arena(monster.discovery_arena) != null:
-			echo = monster
-	check(echo != null, "un Écho en vente sur une carte jouable")
-	check(not Shop.buy_echo(profile, echo), "pas avant sa carte")
-	_win(echo.discovery_arena)
-	check(Shop.buy_echo(profile, echo), "acheté")
-	check(profile.is_monster_unlocked(echo), "débloqué")
-	check_eq(profile.shards(), 10000 - echo.shop_price, "prix payé")
+		check(not EchoCollection.is_for_sale(profile, monster), "%s : pas en vente" % monster.id)
 
 
 func test_relic_cache_is_kept_for_survival() -> void:
