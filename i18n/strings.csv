@@ -335,7 +335,7 @@ BRANCH_ECHOES_DESC,"Pactes, rangs et taille d'équipe.","Pacts, ranks and team s
 BRANCH_RESEARCH_NAME,Recherche et mutations,Research & Mutations
 BRANCH_RESEARCH_DESC,"Contrôle des choix : relances, bannissements, mutations.","Control your choices: rerolls, banishes, mutations."
 BRANCH_EXPLORATION_NAME,Exploration et récompenses,Exploration & Rewards
-BRANCH_EXPLORATION_DESC,"Éclats, Essence, coffres et reliques.","Shards, Essence, chests and relics."
+BRANCH_EXPLORATION_DESC,"Éclats, Essence et ramassage.","Shards, Essence and pickups."
 BRANCH_SPECIALIZATION_NAME,Spécialisation,Specialization
 BRANCH_SPECIALIZATION_DESC,"Renforce un style : Marques, Fracture, Brûlure ou gravité.","Strengthen a style: Marks, Fracture, Burn or gravity."
 NODE_COMBAT_TRAINING_NAME,Entraînement,Training
