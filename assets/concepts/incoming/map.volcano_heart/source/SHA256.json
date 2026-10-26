@@ -1,0 +1,13 @@
+{
+  ".gitattributes": "ae5bf1d660ab3713bbb31fe12eed0ff5ef54f81f405ba58de6f843d2db78a3e4",
+  "composition.png": "765cab02dcf7fb5f86792f198d0cabc6eb38bb4040fc24a055cc5dc160d1cd52",
+  "hazards.png": "ad953bbdbc89ef5adca0e1d9a773e5bd048286eae069a67b0f31340de46ac4d4",
+  "job.json": "bfb76f88f99e1afc853437c5e2139b4e11bc0952409410ffa3bbcbf474d89293",
+  "plan.json": "7e2f85a45cabcde2c7585e8621ff04ecddcf939ad8ba4b0ba10618eafc7e9e71",
+  "source/PROMPT_AJUSTEMENTS.txt": "c64b9e1e4eeeecdd68ac175e80ad6c375e62fc6f00e01a47e7afab8bb7c09557",
+  "source/PROMPT_CALIBRAGE_NAPPES.txt": "1303d8c16804cde2b3e24336a7c59894aa11f3972980c8f460062301ce65306a",
+  "source/PROMPT_COMPOSITION.txt": "d57256fd0cb5055fabcb67bc7138f3efa13d4d3b8c306bc8d6f1fcc2c5ffa379",
+  "source/PROMPT_FINITION.txt": "c3d48793b89ce2807a76c63af96f3318829857641334843accd5735b8a2dfb9f",
+  "source/PROMPT_REGION.txt": "95c14c70e15972b99e6b35577b964f68f3fabb880a28c09fe0ebdf21cbf5aeef",
+  "source/regions_manifest.json": "c52189e0c81b4624c52dc6485f1d45a5e3fcf48bbba31232c2e6b86f9cf80735"
+}

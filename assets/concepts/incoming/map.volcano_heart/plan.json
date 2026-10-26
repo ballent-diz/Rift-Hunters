@@ -1,0 +1,196 @@
+{
+  "world": [
+    5016,
+    5016
+  ],
+  "start_percent": [
+    50,
+    94
+  ],
+  "boss_percent": [
+    50,
+    50
+  ],
+  "central_clear_diameter_units": 1400,
+  "patches": [
+    {
+      "id": "H01",
+      "bbox_percent": [
+        21.549,
+        10.026,
+        29.427,
+        15.234
+      ],
+      "diameter_units": 395.1,
+      "center_percent": [
+        26.157,
+        12.728
+      ]
+    },
+    {
+      "id": "H02",
+      "bbox_percent": [
+        27.279,
+        13.932,
+        32.422,
+        19.336
+      ],
+      "diameter_units": 271.0,
+      "center_percent": [
+        30.084,
+        16.819
+      ]
+    },
+    {
+      "id": "H03",
+      "bbox_percent": [
+        58.724,
+        9.766,
+        64.453,
+        14.453
+      ],
+      "diameter_units": 287.4,
+      "center_percent": [
+        61.137,
+        12.117
+      ]
+    },
+    {
+      "id": "H04",
+      "bbox_percent": [
+        38.997,
+        19.076,
+        45.703,
+        24.219
+      ],
+      "diameter_units": 336.4,
+      "center_percent": [
+        42.873,
+        21.861
+      ]
+    },
+    {
+      "id": "H05",
+      "bbox_percent": [
+        78.776,
+        32.878,
+        83.724,
+        36.328
+      ],
+      "diameter_units": 248.2,
+      "center_percent": [
+        81.161,
+        34.483
+      ]
+    },
+    {
+      "id": "H06",
+      "bbox_percent": [
+        13.607,
+        56.641,
+        23.438,
+        65.69
+      ],
+      "diameter_units": 493.1,
+      "center_percent": [
+        18.256,
+        61.817
+      ]
+    },
+    {
+      "id": "H07",
+      "bbox_percent": [
+        81.12,
+        63.867,
+        86.719,
+        67.448
+      ],
+      "diameter_units": 280.8,
+      "center_percent": [
+        84.095,
+        65.54
+      ]
+    },
+    {
+      "id": "H08",
+      "bbox_percent": [
+        46.354,
+        71.81,
+        51.107,
+        76.042
+      ],
+      "diameter_units": 238.4,
+      "center_percent": [
+        49.008,
+        73.628
+      ]
+    }
+  ],
+  "hazard_rois_percent": [
+    [
+      18,
+      7,
+      35,
+      23
+    ],
+    [
+      53,
+      6,
+      69,
+      18
+    ],
+    [
+      35,
+      16,
+      49,
+      27
+    ],
+    [
+      74,
+      25,
+      89,
+      41
+    ],
+    [
+      8,
+      51,
+      25,
+      66
+    ],
+    [
+      73,
+      57,
+      92,
+      72
+    ],
+    [
+      41,
+      68,
+      57,
+      79
+    ]
+  ],
+  "solid_cover_count_visual": 16,
+  "cover_spires_percent": [
+    [
+      31,
+      44
+    ],
+    [
+      69,
+      56
+    ]
+  ],
+  "active_rim_vents_percent": [
+    [
+      5,
+      20
+    ],
+    [
+      92,
+      6
+    ]
+  ],
+  "walkable_share_visual_estimate": 0.6,
+  "collisions": "Non peintes ; estimation visuelle uniquement."
+}
