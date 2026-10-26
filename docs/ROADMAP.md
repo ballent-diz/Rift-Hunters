@@ -4,6 +4,42 @@
 
 Nouvelle map-arène multi-lobes, sans reprise de la spirale. Carte 9 renommée Le Seuil du Cataclysme (cataclysm_threshold) sur demande du propriétaire. Ensuite seulement : cartes 11 puis 12, puis sprites chapitre 3. Le propriétaire autorise désormais la poursuite sans attendre de réponses ; choix et contrôles documentés.
 
+## Suite du lot du 26 octobre (Claude) : mécanique phare par boss, Glauquemire, équilibrage des cartes 1 à 6
+
+- **Un Écho par carte** gagnée, les moins forts d'abord ([design/COLLECTION_ECHOS.md](design/COLLECTION_ECHOS.md)).
+- **Mécanique phare par boss**, gardiens compris (`BossData.signature`, `test_boss_signatures`) :
+  - Astravorn : couronne d'astres ;
+  - Sentinelle : séisme ;
+  - Chimère : voile de brume ;
+  - Dévoreur des Sources : orbes de source ;
+  - Gardien du bûcher : charge du bûcher ;
+  - Pyrevorn : séquence des cratères ;
+  - Glauquemire : miroirs à orienter.
+- **Glauquemire**, Dévoreur du chapitre 3 (3 phases, 8 mécaniques nouvelles) : forme provisoire, prompt de Codex dans
+  [design/DEVOREUR_CHAPITRE3.md](design/DEVOREUR_CHAPITRE3.md). Les cartes 13 à 15 sont conçues dans
+  [design/CARTES.md](design/CARTES.md). La lanterne de brume attend aussi son sprite.
+- **Équilibrage aux règles actuelles** (un Écho au départ, pas de drops) : cartes 1 à 6 mesurées au bot. Multiplicateurs
+  de boss par carte (`boss_hp_mult`, `boss_damage_mult`). Tableau dans [design/DIFFICULTE.md](design/DIFFICULTE.md).
+- **Navigation** :
+  - le bot (et les Corrompus) sortent des recoins plus étroits que la marge de la carte de flux : c'était le blocage de
+    la carte 6 ;
+  - le Chasseur coincé dans une fente du décor est replacé sur un point libre (carte 1) ;
+  - pendant une vague, la flèche ramène à la zone en cours (carte 5).
+- **Collisions pré-peintes des cartes 7 à 9** : à corriger par le propriétaire (`assets/concepts/incoming/map.<id>/collision/` ;
+  carte 9 : `map.cataclysm_threshold`).
+- **Restent à faire** :
+  - raccorder à `caldera_arena` le décor de la carte 10 livré par Codex (`volcano_heart`, PR 76) : manifeste,
+    collisions, navigation, nappes brûlantes ;
+  - collisions définitives des cartes 7 à 9, puis leurs propres gardiens (chacun avec sa mécanique phare) ;
+  - arènes des cartes 11 à 15 ;
+  - gardiens des cartes 7 à 9 : propositions dans [design/MONSTRES.md](design/MONSTRES.md), à valider.
+
+## Lot du 26 octobre (Claude) : grande arène, chapitre 3, nids
+
+Carte 10 en **grande arène** (`caldera_arena`, en attente du décor de Codex) : 3 paliers, Titan de caldeira et
+Wyvernette en gardiens (élites en version boss), Pyrevorn au palier 3, roches lancées depuis les cratères. Mécaniques des
+cartes 11 (vase qui colle) et 12 (marée). Mécaniques ennemies du chapitre 3 (E14 à E17, volants, furtifs) et 14 fiches
+à formes provisoires. Nids qui pondent (carte 8). Bot : option `--team` / `TEAM` pour partir avec une équipe composée.
 
 ## B3 — Carte 9 sélectionnée, volcan carré : détails livrés pour revue (Codex)
 

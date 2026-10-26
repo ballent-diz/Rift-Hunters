@@ -41,7 +41,7 @@ func test_chapter_two_follows_the_vale() -> void:
 	check(not Campaign.is_map_unlocked(profile, GameDB.arena(&"scorched_verge")), "verrouillée au départ")
 	Campaign._mode_entry(profile, &"cascade_source", Campaign.NORMAL)["wins"] = 1
 	check(Campaign.is_map_unlocked(profile, GameDB.arena(&"scorched_verge")), "ouverte après la Source des Cascades")
-	check_eq(GameDB.monster(&"sunclaw").discovery_chapter, &"devastated_lands", "Solaigle : étoiles du chapitre 2")
+	check_eq(GameDB.monster(&"stormshell").discovery_arena, &"scorched_verge", "Égidor : récompense de la carte 6")
 
 
 func test_plates_are_walkable_and_away_from_start() -> void:

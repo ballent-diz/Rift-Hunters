@@ -5,6 +5,7 @@ extends Node
 ##         [--difficulty=normal] [--seed=1] [--god] [--max-minutes=12] [--boss-at=60]
 ##         [--night] (nuit d'essai, brique B2) [--boss=root_sentinel] (autre boss ou gardien) [--altar] (défense d'autel d'essai)
 ##         [--shallows] (gués d'essai) [--rivers] (crues et courant d'essai, carte 5)
+##         [--team=mossback,glimmerwing] (compagnons de l'Écho de tête, équipe composée au refuge)
 
 var _run: RunController
 var _frames: int = 0
@@ -54,6 +55,10 @@ func _ready() -> void:
 			"modifiers":
 				for id: String in parts[1].split(",", false):
 					setup.modifier_ids.append(StringName(id))
+			"team":
+				# Équipe du refuge (compagnons de l'Écho de tête), ex. --team=mossback,glimmerwing
+				for id: String in parts[1].split(",", false):
+					setup.companion_ids.append(StringName(id))
 	setup.arena_override = TestArena.build(setup.arena_id, boss_id, features)
 	_run = load("res://scenes/run.tscn").instantiate()
 	_run.skip_profile = true
@@ -99,6 +104,14 @@ func _physics_process(_delta: float) -> void:
 		if ctx.zones:
 			print("    zone %d phase %d vague %d · finale %d · position %s" % [ctx.zones.zone_index, ctx.zones.phase,
 				ctx.zones.wave_index, ctx.finale.state if ctx.finale else -1, ctx.player.global_position.round()])
+			# Fin de vague qui traîne : qui reste, où, et le Chasseur peut-il le toucher ?
+			if ctx.zones.phase == ZoneDirector.Phase.WAVE and ctx.zones.remaining() <= 3:
+				for enemy: Enemy in ctx.enemies.list:
+					if enemy.alive and not enemy.is_boss and not enemy.is_obstacle:
+						print("      reste %s %s à %d, PV %d, vue %s, cible %s" % [enemy.data.id if enemy.data else &"?",
+							enemy.position.round(), int(enemy.position.distance_to(ctx.player.global_position)),
+							int(enemy.hp), ctx.obstacles.line_clear(ctx.player.global_position, enemy.position),
+							enemy.is_target()])
 	if _frames > _max_frames:
 		# Mesures en invulnérable (--god --max-minutes) : les dégâts par source servent au classement des Échos.
 		print("Dégâts par source : ", _run.build_result()["stats"]["damage_by_source"])
@@ -115,8 +128,15 @@ func _on_finished(result: Dictionary) -> void:
 		result["relics"], result["synergies"]])
 	print("Dégâts par source : ", result["stats"]["damage_by_source"])
 	print("Sorts lancés : ", int(_run.ctx.stats.get_value(&"spells_cast")))
+	# Mécaniques de boss jouées (orbes renvoyés, miroirs tournés, carapace brisée…).
+	var mechanics: Dictionary = {}
+	for key: String in counters:
+		if key.begins_with("boss_") and not key.ends_with("_killed") and key != "boss_spawned_at":
+			mechanics[key] = int(counters[key])
+	print("Mécaniques de boss : ", mechanics)
 	var boss_ratio: float = (_run.ctx.boss.hp / _run.ctx.boss.max_hp) if _run.ctx.boss else 1.0
-	var boss_time: float = float(result["time"]) - _run.ctx.arena.boss_time if _run.ctx.boss else 0.0
+	# Durée du combat depuis l'apparition réelle du boss (cartes à zones : le gardien vient à la fin des zones).
+	var boss_time: float = float(result["time"]) - _run.ctx.stats.get_value(&"boss_spawned_at") if _run.ctx.boss else 0.0
 	print("RESULT|%s|%s|%s|%d|%d|%d|%d|%d|%.2f|%d" % [_run.ctx.setup.starter_id, _run.ctx.arena.id, _run.ctx.setup.difficulty_id,
 		1 if result["victory"] else 0, int(result["time"]), result["level"], result["kills"], int(boss_time), boss_ratio,
 		int(counters.get("damage_taken", 0))])

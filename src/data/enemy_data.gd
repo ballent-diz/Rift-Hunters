@@ -27,3 +27,7 @@ enum Brain { CHASER, RANGED, CHARGER, STATIC, SUMMONER, BLINKER, WARDEN }
 @export var visual: VisualData
 ## Techniques propres (élites : docs/design/MONSTRES.md), en plus du cerveau.
 @export var techniques: Array[EnemyTechniqueData] = []
+## Volant (chapitre 3) : survole le décor (rochers, eau, vase), mais pas les barrières de zone.
+@export var flying: bool = false
+## Furtif : invisible et impossible à viser au-delà de cette distance du Chasseur (0 = toujours visible).
+@export var stealth_range: float = 0.0

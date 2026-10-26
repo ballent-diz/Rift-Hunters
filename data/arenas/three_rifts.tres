@@ -188,6 +188,10 @@ reward_chest = true
 
 [resource]
 script = ExtResource("1")
+boss_hp_mult = 0.5
+boss_damage_mult = 0.5
+enemy_damage_mult = 0.4
+enemy_hp_mult = 0.4
 id = &"three_rifts"
 name_key = "ARENA_THREE_RIFTS_NAME"
 desc_key = "ARENA_THREE_RIFTS_DESC"

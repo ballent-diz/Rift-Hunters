@@ -260,7 +260,7 @@ accent = Color(1.0, 0.7, 0.3, 1.0)
 [resource]
 script = ExtResource("11")
 unlocked_by_default = false
-discovery = &"shop"
+discovery = &"victory"
 discovery_arena = &"storm_highlands"
 shop_price = 600
 id = &"magmander"

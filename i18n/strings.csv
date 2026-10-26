@@ -335,7 +335,7 @@ BRANCH_ECHOES_DESC,"Pactes, rangs et taille d'équipe.","Pacts, ranks and team s
 BRANCH_RESEARCH_NAME,Recherche et mutations,Research & Mutations
 BRANCH_RESEARCH_DESC,"Contrôle des choix : relances, bannissements, mutations.","Control your choices: rerolls, banishes, mutations."
 BRANCH_EXPLORATION_NAME,Exploration et récompenses,Exploration & Rewards
-BRANCH_EXPLORATION_DESC,"Éclats, Essence, coffres et reliques.","Shards, Essence, chests and relics."
+BRANCH_EXPLORATION_DESC,"Éclats, Essence et ramassage.","Shards, Essence and pickups."
 BRANCH_SPECIALIZATION_NAME,Spécialisation,Specialization
 BRANCH_SPECIALIZATION_DESC,"Renforce un style : Marques, Fracture, Brûlure ou gravité.","Strengthen a style: Marks, Fracture, Burn or gravity."
 NODE_COMBAT_TRAINING_NAME,Entraînement,Training
@@ -621,6 +621,16 @@ BOSS_SOURCE_DEVOURER_PHASE2,Faille à vif,Rift Laid Bare
 BOSS_PATTERN_DEVOURER_CLAW,Griffes de pierre,Stone Claws
 BOSS_PATTERN_HEAVY_SLAM,Double écrasement,Double Slam
 BOSS_PATTERN_RIFT_BREATH,Souffle de Faille,Rift Breath
+BOSS_PYREVORN_NAME,Pyrevorn,Pyrevorn
+BOSS_PYREVORN_TITLE,Dévoreur du cœur du volcan,Devourer of the Volcano Heart
+BOSS_PYREVORN_PHASE1,Seigneur du cratère,Lord of the Crater
+BOSS_PYREVORN_PHASE2,Œil de la Faille,Eye of the Rift
+BOSS_PATTERN_PYREVORN_CLAWS,Griffes de basalte,Basalt Claws
+BOSS_PATTERN_MAGMA_BREATH,Souffle de magma,Magma Breath
+BOSS_PATTERN_CRATER_RAIN,Pluie du cratère,Crater Rain
+BOSS_PATTERN_BROOD_CALL,Appel de la couvée,Brood Call
+BOSS_PATTERN_SKYFALL,Envol et chute,Skyfall
+BOSS_PATTERN_RIFT_EYE,Œil de la Faille,Rift Eye
 BOSS_PATTERN_ROOT_SWEEP,Balayage de racines,Root Sweep
 HUD_NAMED_BOSS_IN,%s arrive dans %d:%02d,%s arrives in %d:%02d
 HUD_ZONE_WAVE,Zone %d · Vague %d/%d · %d restants,Zone %d · Wave %d/%d · %d left
@@ -1202,6 +1212,36 @@ RIFTS_PROGRESS,Failles refermées : %d / %d,Rifts sealed: %d / %d
 RIFT_CLOSED_BANNER,Faille refermée ! (%d / %d),Rift sealed! (%d / %d)
 ENEMY_RIFT_BREACH_NAME,Faille,Rift Breach
 ENEMY_RIFT_BREACH_DESC,Déchirure ouverte sur la Faille : des Corrompus en sortent tant qu'on ne l'a pas détruite.,A tear opened onto the Rift: Corrupted pour out of it until it is destroyed.
+ENEMY_MIRE_LEECH_NAME,Sangsue des vases,Mire Leech
+ENEMY_MIRE_LEECH_DESC,"Petite et nombreuse, elle ondule vers vous et mord.","Small and numerous, it ripples toward you and bites."
+ENEMY_BLOAT_TOAD_NAME,Crapaud-gonfle,Bloat Toad
+ENEMY_BLOAT_TOAD_DESC,Bondit sur vous ; sa gerbe de vase ralentit.,Leaps onto you; its splash of mud slows.
+ENEMY_RIFT_GNAT_NAME,Moustique de faille,Rift Gnat
+ENEMY_RIFT_GNAT_DESC,"Essaim volant : il survole le décor, les abris ne l'arrêtent pas.","Flying swarm: it flies over the scenery, cover does not stop it."
+ENEMY_CREEPING_ROOT_NAME,Racine rampante,Creeping Root
+ENEMY_CREEPING_ROOT_DESC,S'enfonce dans la vase et ressort sous vos pieds.,Sinks into the mud and bursts out beneath you.
+ENEMY_SPORE_MOTHER_NAME,Mère-spore,Spore Mother
+ENEMY_SPORE_MOTHER_DESC,Marque le Chasseur d'une spore qui explose (la Ruée l'efface) et soigne les Corrompus proches.,Marks the Hunter with a spore that explodes (Dash clears it) and heals nearby Corrupted.
+ENEMY_BARK_WARDEN_NAME,Gardien d'écorce,Bark Warden
+ENEMY_BARK_WARDEN_DESC,Immobilise avec ses racines et protège les Corrompus proches tant qu'il tient son bouclier.,Roots you in place and shields nearby Corrupted while it holds its barrier.
+ENEMY_MARSH_MAW_NAME,Gueule des marais,Marsh Maw
+ENEMY_MARSH_MAW_DESC,"Plonge sous l'eau, charge en glissant, puis s'enrage blessée.","Dives under the water, charges in a slide, then rages when wounded."
+ENEMY_WANDERING_SHARD_NAME,Éclat errant,Wandering Shard
+ENEMY_WANDERING_SHARD_DESC,Éclat de cristal volant qui tranche en tournoyant.,A flying crystal shard that slices as it spins.
+ENEMY_GLASS_SENTINEL_NAME,Sentinelle de verre,Glass Sentinel
+ENEMY_GLASS_SENTINEL_DESC,Tire de loin un trait de lumière.,Fires a bolt of light from afar.
+ENEMY_QUARTZ_GOLEM_NAME,Golem de quartz,Quartz Golem
+ENEMY_QUARTZ_GOLEM_DESC,"Lent et solide, il frappe fort.","Slow and sturdy, it hits hard."
+ENEMY_CREEPING_MIRROR_NAME,Miroir rampant,Creeping Mirror
+ENEMY_CREEPING_MIRROR_DESC,Disparaît et réapparaît sur votre flanc.,Vanishes and reappears at your flank.
+ENEMY_MIRROR_PRIESTESS_NAME,Prêtresse-miroir,Mirror Priestess
+ENEMY_MIRROR_PRIESTESS_DESC,"Crée des reflets qui imitent ses tirs, renvoie les vôtres et se téléporte si on la frappe trop.","Creates reflections that copy her shots, sends yours back, and teleports when struck too often."
+ENEMY_CRYSTAL_COLOSSUS_NAME,Colosse de cristal,Crystal Colossus
+ENEMY_CRYSTAL_COLOSSUS_DESC,"Balaie l'arène d'un rayon (cachez-vous derrière un abri), puis son cœur reste à nu.","Sweeps the arena with a beam (hide behind cover), then its heart is laid bare."
+ENEMY_REFLECTION_HUNTRESS_NAME,Chasseresse des reflets,Reflection Huntress
+ENEMY_REFLECTION_HUNTRESS_DESC,"Invisible de loin ; bondit trois fois autour de vous, puis pose une marque qui explose.","Invisible from afar; blinks three times around you, then sets a mark that explodes."
+ENEMY_ASH_NEST_NAME,Nid de cendre,Ash Nest
+ENEMY_ASH_NEST_DESC,Cocon de cendre et de soie qui pond des Rampe-cendres tant qu'il tient debout.,A cocoon of ash and silk that spawns Cinder Crawlers as long as it stands.
 STATUS_POISON_NAME,Poison,Poison
 STATUS_POISON_DESC,"Dégâts sur la durée, cumulables ; se propage à la mort (Sporelune).",Stacking damage over time; spreads on death (Moonspore).
 STATUS_BLIND_NAME,Aveuglé,Blinded
@@ -1513,6 +1553,22 @@ ALTAR_STATUS_WAVE,Vague %d / %d · encore %d s,Wave %d / %d · %d s left
 ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
 FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."
 LAVA_INTRO,"La lave déborde : sortez de la croûte qui rougeoie, ou attirez-y les Corrompus.","Lava is overflowing: get off the glowing crust, or lure the Corrupted onto it."
+TIDE_INTRO,"La marée monte : quittez les chaussées basses, elles vont être noyées.","The tide is rising: leave the low causeways, they are about to flood."
+GUARDIAN_INCOMING,Le sol tremble : un gardien arrive !,The ground shakes: a guardian is coming!
+GUARDIAN_ARRIVED,Gardien : %s,Guardian: %s
+ARENA_CALDERA_ARENA_NAME,Cœur du volcan,Volcano Heart
+ARENA_CALDERA_ARENA_DESC,"Une seule immense arène au fond du cratère : trois paliers de hordes, deux gardiens, puis Pyrevorn.","One huge arena at the bottom of the crater: three tiers of hordes, two guardians, then Pyrevorn."
+ARENA_ASH_VENTS_NAME,Évents de cendre,Ash Vents
+ARENA_ASH_VENTS_DESC,Roche nue et cheminées de cendre : des bulbes de braise poussent entre les colonnes de basalte.,Bare rock and ash chimneys: ember pods grow between the basalt columns.
+ARENA_SOOT_DENS_NAME,Tanières de suie,Soot Dens
+ARENA_SOOT_DENS_DESC,"Un monastère calciné accroché à la pente, où les Veuves de cendre font leurs nids.","A scorched monastery clinging to the slope, where the Ashen Widows build their nests."
+ARENA_CATACLYSM_THRESHOLD_NAME,Le Seuil du Cataclysme,The Cataclysm Threshold
+ARENA_CATACLYSM_THRESHOLD_DESC,Des rivières de lave serpentent entre les terrasses de basalte du volcan.,Rivers of lava wind between the volcano's basalt terraces.
+ZONE_CALDERA_1_NAME,Bord du cratère,Crater Rim
+ZONE_CALDERA_2_NAME,Fournaise,Furnace
+ZONE_CALDERA_3_NAME,Cœur du volcan,Volcano Heart
+MUD_INTRO,Vase ! Elle ralentit tout le monde et colle encore un instant : attirez-y les Corrompus.,Mud! It slows everyone and sticks for a moment: lure the Corrupted into it.
+NEST_INTRO,Un nid pond des Rampe-cendres : détruisez-le pour couper la source.,A nest is spawning Cinder Crawlers: destroy it to cut off the source.
 ARENA_SURVIVAL_RUINS_NAME,Épreuve des Ruines,Ruins Trial
 ARENA_SURVIVAL_RUINS_DESC,"Les Ruines des Cascades grandes ouvertes : des vagues sans répit, puis la Sentinelle des Racines.","The Waterfall Ruins wide open: relentless waves, then the Root Sentinel."
 ARENA_SURVIVAL_HIGHLANDS_NAME,Épreuve des Hautes Terres,Highlands Trial
@@ -1571,3 +1627,39 @@ EXPEDITION_PACKED,Emporté : %s,Packed: %s
 OPTIONS_RESET_PROFILE,Nouvelle partie (effacer la progression),New game (erase progress)
 OPTIONS_RESET_CONFIRM,"Confirmer : tout effacer (Échos, cartes, arbre, éclats) ?","Confirm: erase everything (Echoes, maps, tree, shards)?"
 OPTIONS_RESET_CANCEL,Annuler,Cancel
+BOSS_PATTERN_SOURCE_ORB,Orbes de source,Source orbs
+BOSS_PATTERN_STAR_CROWN,Couronne d'astres,Star crown
+BOSS_PATTERN_CRATER_SEQUENCE,Séquence des cratères,Crater sequence
+BOSS_PATTERN_GLAUQUEMIRE_CLAWS,Griffes des vases,Mire claws
+BOSS_PATTERN_MUD_WALL,Vase qui durcit,Hardening mud
+BOSS_PATTERN_ROOT_LEASH,Racine-laisse,Root leash
+BOSS_PATTERN_LEECH_FEED,Sangsues nourricières,Feeding leeches
+BOSS_PATTERN_PRISM_BEAM,Rayon de prisme,Prism beam
+BOSS_PATTERN_WHIRLPOOL,Tourbillon,Whirlpool
+BOSS_PATTERN_SWALLOW,Engloutissement,Engulf
+BOSS_ORB_INTRO,Orbe de source : une Ruée dedans le renvoie sur le Dévoreur. L'orbe doré l'étourdit.,Source orb: dash into it to send it back at the Devourer. The golden orb stuns it.
+BOSS_CROWN_INTRO,"Couronne d'astres : de l'extérieur, vos coups sont absorbés. Entrez par une brèche !","Star crown: from outside, your hits are absorbed. Get in through a gap!"
+BOSS_CRATER_INTRO,Retenez les cases qui s'allument : elles vont exploser dans le même ordre.,Remember the tiles that light up: they will erupt in the same order.
+BOSS_MUD_WALL_INTRO,La vase ralentit puis durcit en murs : ils arrêtent aussi son rayon.,"The mud slows you, then hardens into walls: they also stop its beam."
+BOSS_LEASH_INTRO,Racine-laisse : une Ruée la casse avant que le coup ne tombe.,Root leash: dash to break it before the blow lands.
+BOSS_LEECH_INTRO,Les sangsues soignent Glauquemire si elles l'atteignent : interceptez-les.,Leeches heal Glauquemire if they reach it: intercept them.
+BOSS_FACETS_INTRO,Carapace de cristal : chaque face amortit les coups. Brisez-en une ou frappez par un flanc ouvert.,Crystal carapace: each face dampens hits. Break one or strike an open flank.
+BOSS_MIRROR_INTRO,Miroirs : une Ruée contre un miroir le tourne dans le sens de la Ruée. Renvoyez le rayon sur le boss !,Mirrors: dashing into a mirror turns it the way you dash. Send the beam back at the boss!
+BOSS_WHIRLPOOL_INTRO,Tourbillon : marchez contre le courant ou utilisez la Ruée avant qu'il ne se referme.,Whirlpool: walk against the current or dash before it collapses.
+BOSS_TIDE_RING_INTRO,La marée monte : chaque coup au Dévoreur fait reculer l'eau.,The tide is rising: every hit on the Devourer pushes the water back.
+BOSS_SWALLOW_INTRO,Un Écho est englouti : frappez le Dévoreur pour le libérer à temps !,An Echo was swallowed: strike the Devourer to free it in time!
+BOSS_STUNNED,ÉTOURDI,STUNNED
+BOSS_PRISM_RETURNED,CARAPACE BRISÉE ×2,CARAPACE SHATTERED ×2
+BOSS_ECHO_FREED,Écho libéré !,Echo freed!
+BOSS_GLAUQUEMIRE_NAME,Glauquemire,Glauquemire
+BOSS_GLAUQUEMIRE_TITLE,Dévoreur des Marais engloutis,Devourer of the Sunken Marshes
+BOSS_GLAUQUEMIRE_PHASE1,Bête des vases,Mire Beast
+BOSS_GLAUQUEMIRE_PHASE2,Carapace de cristal,Crystal Carapace
+BOSS_GLAUQUEMIRE_PHASE3,Cœur de la marée,Heart of the Tide
+BOSS_PATTERN_MIRE_SLAM,Écrasement de vase,Mire slam
+ENEMY_MIST_LANTERN_NAME,Lanterne de brume,Mist Lantern
+ENEMY_MIST_LANTERN_DESC,"Tant qu'elle brûle, la Chimère des brumes reste intouchable.","While it burns, the Mist Chimera cannot be touched."
+BOSS_PATTERN_MIST_VEIL,Voile de brume,Mist veil
+BOSS_PATTERN_PYRE_RAM,Charge du bûcher,Pyre ram
+BOSS_VEIL_INTRO,Voile de brume : la Chimère est intouchable tant que ses lanternes brûlent. Brisez-les !,Mist veil: the Chimera cannot be touched while its lanterns burn. Break them!
+BOSS_RAM_INTRO,"Il fonce tout droit : mettez un rocher derrière vous et écartez-vous au dernier moment, il s'assomme.","It charges straight ahead: put a rock behind you and step aside at the last moment, it will knock itself out."

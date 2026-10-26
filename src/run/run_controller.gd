@@ -221,6 +221,14 @@ func _build_world() -> void:
 		ctx.rockfall = RockfallDirector.new()
 		ctx.world.add_child(ctx.rockfall)
 		ctx.rockfall.setup(ctx)
+	if NestDirector.uses_nests(ctx.arena):
+		ctx.nests = NestDirector.new()
+		ctx.world.add_child(ctx.nests)
+		ctx.nests.setup(ctx)
+	if TideDirector.uses_tide(ctx.arena):
+		ctx.tide = TideDirector.new()
+		ctx.world.add_child(ctx.tide)
+		ctx.tide.setup(ctx)
 	if PodDirector.uses_pods(ctx.arena):
 		ctx.pods = PodDirector.new()
 		ctx.world.add_child(ctx.pods)
@@ -334,6 +342,10 @@ func _physics_process(delta: float) -> void:
 		ctx.pods.step(delta)
 	if ctx.rockfall:
 		ctx.rockfall.step(delta)
+	if ctx.tide:
+		ctx.tide.step(delta)
+	if ctx.nests:
+		ctx.nests.step(delta)
 	if ctx.night:
 		ctx.night.step(delta)
 	spawner.step(delta)
