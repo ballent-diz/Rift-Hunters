@@ -106,6 +106,20 @@ nourricières, carapace à facettes, tourbillon, anneau de marée, engloutisseme
 [DEVOREUR_CHAPITRE3.md](DEVOREUR_CHAPITRE3.md). Les cartes 7 à 9 reprennent pour l'instant le Gardien du bûcher ; leurs
 gardiens propres, comme ceux du chapitre 3, devront chacun apporter leur mécanique phare.
 
+#### Gardiens des cartes 7 à 9 : propositions de Claude (26 octobre 2026, à valider)
+
+Chacun est l'élite que la carte met en avant, en version boss (sprite agrandi, comme le Gardien du bûcher) : pas de
+nouvelle planche, seulement ses effets. Aucune de ces mécaniques n'existe chez un autre boss.
+
+| Carte | Gardien | Mécanique phare proposée | Pour le joueur |
+|---|---|---|---|
+| 7. Évents de cendre | Chevalier calciné | **Cercle du duel** : il plante son épée et trace un cercle de feu (rayon 350) autour de lui et du Chasseur. Les Échos restent dehors 8 s ; dedans, le Chevalier prend 1,5 × les coups du Chasseur ; sortir du cercle brûle. Le reste du temps : charge, taille tournoyante | se battre seul, bien se placer avant le cercle |
+| 8. Tanières de suie | Reine-veuve (Veuve de cendre) | **Fils tendus** : elle tend des fils de soie entre les rochers et les nids. Toucher un fil colle sur place 1,2 s, et elle bondit sur la proie engluée. Une Ruée à travers un fil le coupe. Les fils bloquent aussi les Corrompus | lire les fils, garder sa Ruée, couper un passage |
+| 9. Volcan carré | Matrone des scories | Au choix du propriétaire. **Chaleur** : une jauge du Chasseur monte près d'elle et sur la lave, et redescend loin d'elle ou sur la croûte refroidie ; pleine, elle brûle. Il faut frapper puis s'écarter. Ou **Carapace à fendre** : elle est insensible tant que sa carapace tient ; une roche magmatique qui tombe sur elle la fend 10 s. Il faut l'attirer sous les ombres des roches | gérer la distance, ou se servir de la pluie de roches de la carte |
+
+Effort estimé : high pour les trois (code, données, tests, bot). À coder quand les collisions des cartes 7 à 9
+seront définitives.
+
 ### À l'intérieur d'un chapitre (5 cartes)
 
 - **Carte 1** : la nouvelle famille avec ses normaux simples et **une** élite ; ses mécaniques sont présentées seules.
