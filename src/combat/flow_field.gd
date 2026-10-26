@@ -204,6 +204,10 @@ func direction(pos: Vector2, direct: Vector2) -> Vector2:
 	if best_cell.x < 0:
 		return direct
 	var flow: Vector2 = (cell_center(best_cell) - pos).normalized()
+	# Sortie d'un recoin injoignable (plus étroit que la marge) : suivre la case de retour, jamais la ligne droite,
+	# qui viserait le coin de rocher au bout du recoin.
+	if here == UNREACHED:
+		return flow
 	return direct if flow.dot(direct) > STRAIGHT_DOT else flow
 
 

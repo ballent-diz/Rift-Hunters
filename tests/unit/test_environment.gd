@@ -245,6 +245,26 @@ func test_flow_field_goes_around_walls() -> void:
 	check(open.is_equal_approx((target - Vector2(400, 300)).normalized()), "terrain dégagé : ligne droite")
 
 
+## Lisière calcinée : le Chasseur (rayon 15) se glissait dans un recoin plus étroit que la marge de navigation, et la
+## ligne droite vers l'objectif le renvoyait contre le coin du rocher. Depuis un recoin, on suit la case de retour.
+func test_flow_field_leaves_a_dead_end_by_the_way_back() -> void:
+	var flow := FlowField.new()
+	flow.setup(ObstacleField.new(), Rect2(-400, -400, 800, 800))
+	var target := Vector2(300, -60)
+	flow.update(target)
+	var pos := Vector2(0, 0)
+	var cell: Vector2i = flow.cell_of(pos)
+	# Recoin : toutes les cases autour sont injoignables, sauf la sortie, en haut à gauche.
+	for dy: int in range(-4, 5):
+		for dx: int in range(-4, 5):
+			flow._dist[(cell.y + dy) * flow.size.x + cell.x + dx] = FlowField.UNREACHED
+	var exit := Vector2i(cell.x + 3, cell.y - 1)
+	flow._dist[exit.y * flow.size.x + exit.x] = 100
+	var direct: Vector2 = (target - pos).normalized()
+	var dir: Vector2 = flow.direction(pos, direct)
+	check(dir.is_equal_approx((flow.cell_center(exit) - pos).normalized()), "on rejoint la case de retour (%s)" % dir)
+
+
 func test_flow_field_cost_on_map() -> void:
 	var arena: ArenaData = GameDB.arena(&"fractured_plain")
 	var ground := ArenaGround.new()
