@@ -155,6 +155,11 @@ static func spell_node(spell_id: StringName) -> SkillNodeData:
 	return null
 
 
+## Nœuds actifs du même groupe exclusif, que l'activation de `node` remplacerait (affichés dans la fiche).
+static func rivals(profile: ProfileData, node: SkillNodeData) -> Array[SkillNodeData]:
+	return _rivals(profile, node)
+
+
 ## Nœuds actifs du même groupe exclusif (remplacés si on active `node`).
 static func _rivals(profile: ProfileData, node: SkillNodeData) -> Array[SkillNodeData]:
 	var rivals: Array[SkillNodeData] = []

@@ -8,6 +8,12 @@ const MUTED := Color("a69ba9")
 const NIGHT := Color("101326")
 const GOLD := Color("edc18d")
 const CYAN := Color("a5ebec")
+## Coût hors de portée (Éclats ou points manquants).
+const SHORT := Color("ef8f8f")
+## États présentés dans la légende, du plus fermé au plus engagé.
+const LEGEND: Array[String] = ["locked", "learnable", "learned", "active"]
+const LEGEND_KEYS := {"locked": "TREE_STATE_LOCKED", "learnable": "C5_LEARNABLE", "learned": "TREE_STATE_LEARNED",
+	"active": "TREE_LEGEND_ACTIVE"}
 const PATHS: Array[StringName] = [&"blade", &"prism", &"abyss", &"bond"]
 const ACCENTS := {&"trunk": PAPER, &"blade": GOLD, &"prism": Color("74dce7"),
 	&"abyss": Color("b7a7df"), &"bond": Color("a5d4b5")}
@@ -70,6 +76,11 @@ static func frame(node: SkillNodeData, current: String) -> Texture2D:
 		SkillNodeData.Kind.SPELL: kind = "spell"
 		SkillNodeData.Kind.TRANSFORM, SkillNodeData.Kind.VARIANT: kind = "transform"
 		SkillNodeData.Kind.KEYSTONE: kind = "keystone"
+	return load(ART + "node_%s_%s.svg" % [kind, current])
+
+
+## Cadre d'un état sans nœud particulier (légende, guide).
+static func state_frame(current: String, kind: String = "passive") -> Texture2D:
 	return load(ART + "node_%s_%s.svg" % [kind, current])
 
 
