@@ -58,7 +58,24 @@ sur cette carte seulement (2 Échos de départ × 1 à 2 graines, `SIM_TIMEOUT=2
 déjà livrées ne sont pas remesurées d'office : le propriétaire les règle pendant ses propres tests.
 
 Une carte qui sort de la courbe est corrigée par ses propres réglages (`enemy_hp_mult`, `enemy_damage_mult`, vagues)
-avant de toucher aux monstres eux-mêmes.
+avant de toucher aux monstres eux-mêmes. Les boss et gardiens ont leurs propres réglages (`boss_hp_mult`,
+`boss_damage_mult`), car ils ne suivent pas ceux des vagues.
+
+### Réglages mesurés (campagne Normal, règles du 26 octobre 2026 : un Écho au départ, pas de drops)
+
+Équipe du bot : Cendrelame et les Échos réellement débloqués à ce stade (un par carte gagnée), arbre « veteran » à
+partir de la carte 4.
+
+| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Équipe du bot | Bot |
+|---|---|---|---|---|
+| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 | Cendrelame seule | 5 victoires sur 6 |
+| 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 |
+| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | gagnée |
+| 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Sylvécaille, Lueurine | 2 sur 2 |
+| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | mesure en cours |
+| 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4, 7 à 8 min 30 |
+
+Les cartes 7 à 10 attendent leur décor et leurs collisions définitives.
 
 ## Ce que le bot sait faire (pour lire ses résultats)
 
