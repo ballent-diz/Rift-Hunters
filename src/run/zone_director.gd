@@ -106,7 +106,7 @@ func region_of(pos: Vector2) -> int:
 
 ## Corrompus encore à éliminer dans la vague (présents + à venir).
 func remaining() -> int:
-	return ctx.enemies.count() + _queue.size() + _elites.size()
+	return ctx.enemies.count_hostile() + _queue.size() + _elites.size()
 
 
 func seconds_left() -> float:

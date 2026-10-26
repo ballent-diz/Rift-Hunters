@@ -203,3 +203,11 @@ func technique_shard_fan(enemy: Enemy, technique: EnemyTechniqueData, player_pos
 			ctx.projectiles.spawn_hostile(enemy.position, dir.rotated(angle), float(technique.params.get("speed", 300.0)),
 				m._scaled(enemy, technique.damage), enemy.data.id, 9.0, 3.0))
 	return true
+
+
+## Clone qui se dissipe : retiré sans élimination comptée.
+func vanish(enemy: Enemy) -> void:
+	enemy.alive = false
+	enemy.hp = 0.0
+	m._dirty_removal = true
+	ctx.fx.burst(enemy.position, enemy.radius * 1.5, Color(0.7, 0.95, 1.0, 0.45))

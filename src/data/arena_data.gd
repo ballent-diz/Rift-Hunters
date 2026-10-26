@@ -148,6 +148,17 @@ extends Resource
 @export var burn_damage: float = 4.0
 @export var burn_tick: float = 0.5
 @export_range(0.0, 1.0) var burn_enemy_ratio: float = 0.06
+@export_group("Nids qui pondent (brique B8, carte 8, docs/design/CARTES.md)")
+## Emplacements des nids (structures qui bloquent le passage) ; ils pondent tant qu'ils tiennent debout.
+@export var nest_points: Array[Vector2] = []
+@export var nest_enemy: StringName = &"cinder_crawler"
+@export var nest_interval: float = 7.0
+@export var nest_batch: int = 2
+## Petits vivants au plus par nid.
+@export var nest_max_brood: int = 6
+@export var nest_hatch_time: float = 0.8
+## Un nid ne pond que si le Chasseur est à moins de cette distance (pas d'accumulation hors de vue).
+@export var nest_wake_range: float = 1100.0
 @export_group("Bulbes de braise (brique B5, carte 7, docs/design/CARTES.md)")
 ## Emplacements des bulbes (unités du monde). Un coup allié les amorce ; ils éclatent après pod_prime secondes.
 @export var ember_pods: Array[Vector2] = []

@@ -58,7 +58,7 @@ waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_w
 heal_ratio = 0.3
 reward_chest = false
 guardian_enemy = &"caldera_titan"
-guardian_hp_mult = 14.0
+guardian_hp_mult = 12.0
 guardian_scale = 1.7
 
 [sub_resource type="Resource" id="zone_wave_5"]
@@ -114,7 +114,7 @@ waves = Array[ExtResource("4")]([SubResource("zone_wave_5"), SubResource("zone_w
 heal_ratio = 0.3
 reward_chest = false
 guardian_enemy = &"flame_wyrmling"
-guardian_hp_mult = 16.0
+guardian_hp_mult = 14.0
 guardian_scale = 1.9
 
 [sub_resource type="Resource" id="zone_wave_10"]
@@ -187,8 +187,8 @@ ground_detail_color = Color(0.2, 0.11, 0.07, 1.0)
 unlocked_by_default = false
 xp_mult = 1.5
 progression = &"milestones"
-enemy_hp_mult = 1.0
-enemy_damage_mult = 1.0
+enemy_hp_mult = 0.9
+enemy_damage_mult = 0.85
 open_arena = true
 zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
 waves = [SubResource("wave_phase_data_1")]

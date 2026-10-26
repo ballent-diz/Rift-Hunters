@@ -48,6 +48,15 @@ func count() -> int:
 	return list.size()
 
 
+## Corrompus à éliminer pour finir une vague : ni structures (bulbes, nids), ni petits des nids.
+func count_hostile() -> int:
+	var total: int = 0
+	for enemy: Enemy in list:
+		if enemy.alive and not enemy.is_obstacle and not enemy.from_nest:
+			total += 1
+	return total
+
+
 ## Ennemis vivants dans un rayon (copie : sûre même si la liste change ensuite).
 func query_radius(pos: Vector2, query_radius_px: float) -> Array[Enemy]:
 	var result: Array[Enemy] = []
@@ -84,14 +93,6 @@ func find_nearest_visible(pos: Vector2, max_range: float) -> Enemy:
 			best_d = d
 			best = enemy
 	return best if best else find_nearest(pos, max_range)
-
-
-## Clone qui se dissipe : retiré sans élimination comptée.
-func _vanish(enemy: Enemy) -> void:
-	enemy.alive = false
-	enemy.hp = 0.0
-	_dirty_removal = true
-	ctx.fx.burst(enemy.position, enemy.radius * 1.5, Color(0.7, 0.95, 1.0, 0.45))
 
 
 func _nearest_within(pos: Vector2, max_range: float, exclude: Dictionary) -> Enemy:
@@ -235,7 +236,7 @@ func step(delta: float) -> void:
 		if enemy.is_obstacle:
 			continue
 		if enemy.is_clone and ctx.time >= enemy.clone_until:
-			_vanish(enemy)
+			marsh.vanish(enemy)
 			continue
 		if not enemy.is_boss:
 			_tick_brain(enemy, delta, player_pos)
