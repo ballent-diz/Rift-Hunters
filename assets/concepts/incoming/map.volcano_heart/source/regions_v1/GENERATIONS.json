@@ -1,0 +1,258 @@
+[
+  {
+    "region": "r0_0",
+    "file": "regions/r0_0.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "a22932efadf4f900093475c072f6c6b79b559053bc0e06eb78871aa01eed801b",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r0_0.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r0_0_input.png"
+  },
+  {
+    "region": "r0_1",
+    "file": "regions/r0_1.png",
+    "dimensions": [
+      1324,
+      1188
+    ],
+    "sha256": "d6eae080b82998617a3beb1b017d9605a2234ea78533e1396d98b959b4449bb2",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r0_1.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r0_1_input.png"
+  },
+  {
+    "region": "r0_2",
+    "file": "regions/r0_2.png",
+    "dimensions": [
+      1323,
+      1189
+    ],
+    "sha256": "2f7bec32cda0b869f044768dfa3aca2b1844a3dd8ff271e17e1108100459e7e1",
+    "prompt": "PROMPT_FINITION.txt",
+    "references": [
+      "essai_seconde_passe/r0_2.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r0_2_input.png"
+  },
+  {
+    "region": "r0_3",
+    "file": "regions/r0_3.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "4892c58b2bb555af303807d5a5bb70d1de91818a7f20e1b21fb7dd8eff4d6865",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r0_3.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r0_3_input.png"
+  },
+  {
+    "region": "r1_0",
+    "file": "regions/r1_0.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "2a6640c1924da37781118f62eff1daffdbeb088ac1be83eb1df9629241dea76e",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r1_0.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r1_0_input.png"
+  },
+  {
+    "region": "r1_1",
+    "file": "regions/r1_1.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "79eac5b1d48df10e10a7425790f7b03296a3151be546c5cd0007ee8c4982503d",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r1_1.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r1_1_input.png"
+  },
+  {
+    "region": "r1_2",
+    "file": "regions/r1_2.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "3fb9f2f8cc5bac3d7975e4232254eb92a5bf992d56db3459e2c5b3e2548c25bc",
+    "prompt": "PROMPT_FINITION.txt",
+    "references": [
+      "essai_seconde_passe/r1_2.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r1_2_input.png"
+  },
+  {
+    "region": "r1_3",
+    "file": "regions/r1_3.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "06cffd56d0471c0ab81eb204cb5490f2b2777c6e0479b27c7d7b80a6835ea03e",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r1_3.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r1_3_input.png"
+  },
+  {
+    "region": "r2_0",
+    "file": "regions/r2_0.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "5d02f6095a66b89db066b4d8a484eede82abd14324a750cf8beb06c90500cde4",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r2_0.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r2_0_input.png"
+  },
+  {
+    "region": "r2_1",
+    "file": "regions/r2_1.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "c9376b256fbc26b82f25bf434d436a5f9f965242c0337e8e7e12999d6fda5391",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r2_1.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r2_1_input.png"
+  },
+  {
+    "region": "r2_2",
+    "file": "regions/r2_2.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "8e1cb5dc709418c1fe7ba91806725ccb0f9dff784ce22cd9036899aec6cf3dea",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r2_2.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r2_2_input.png"
+  },
+  {
+    "region": "r2_3",
+    "file": "regions/r2_3.png",
+    "dimensions": [
+      1188,
+      1324
+    ],
+    "sha256": "2242fb758bd3839f64198aab3c1439d72cf29155bbfe8c218834c1b41a40857f",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r2_3.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r2_3_input.png"
+  },
+  {
+    "region": "r3_0",
+    "file": "regions/r3_0.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "e7f563c1b3a5f748dfd4e5636f15f9e8a9d3b6a55cc7d27f4c5dacacddeb7a71",
+    "prompt": "PROMPT_FINITION.txt",
+    "references": [
+      "essai_seconde_passe/r3_0.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r3_0_input.png"
+  },
+  {
+    "region": "r3_1",
+    "file": "regions/r3_1.png",
+    "dimensions": [
+      1323,
+      1189
+    ],
+    "sha256": "b9513b5702873e0b451e676b93e45ed0d4e2248edd0241ee6d3e3ce190c6b8c5",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r3_1.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r3_1_input.png"
+  },
+  {
+    "region": "r3_2",
+    "file": "regions/r3_2.png",
+    "dimensions": [
+      1323,
+      1189
+    ],
+    "sha256": "0083b924be641a6935c786cbc2ca4f265134dad0644b5adf2a112abebd2f8899",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r3_2.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r3_2_input.png"
+  },
+  {
+    "region": "r3_3",
+    "file": "regions/r3_3.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "sha256": "d9fc22556e033addffd044042478163f4216b8852134e713108dbc2a32464487",
+    "prompt": "PROMPT_RETOUCHE_MATIERES.txt",
+    "references": [
+      "essai_initial/r3_3.png",
+      "reference_scale.png"
+    ],
+    "initial_prompt": "PROMPT_REGION.txt",
+    "initial_input": "regions/r3_3_input.png"
+  }
+]

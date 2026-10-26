@@ -1,7 +1,7 @@
 {
   "id": "map.volcano_heart",
   "status": "wip",
-  "stage": "regions_en_cours",
+  "stage": "detail_pour_revue",
   "world_size": [
     5016,
     5016
@@ -10,17 +10,12 @@
   "owner_approved": true,
   "regions_started": true,
   "source": "source/composition_validee_c9.png",
-  "prompts": [
-    "source/PROMPT_COMPOSITION.txt",
-    "source/PROMPT_RETOUCHE.txt",
-    "source/PROMPT_RACCORD_CENTRE.txt"
-  ],
   "style_references": [
     "source/references/ruines.png",
     "source/references/lisiere.png",
     "source/references/coulees.png"
   ],
-  "next_step": "Plan validé : détails par régions après la carte 7. Ne pas recomposer ni modifier les collisions.",
+  "next_step": "Validation visuelle puis collisions peintes et intégration par Claude. Aucun masque de coulée ancien à réutiliser sur c9.png.",
   "transformation": "1254 × 1254 vers 1536 × 1536 pour format de COMPOSITION uniquement ; aucun détail final prétendu.",
   "owner_approval_date": "2026-10-24",
   "plan_locked": true,
@@ -28,5 +23,23 @@
   "regions_count": 16,
   "owner_selected_map_number": 9,
   "source_selection": "Pièce jointe c9.png : plan exact prioritaire sur les retouches antérieures.",
-  "runtime_integrated": false
+  "runtime_integrated": false,
+  "quality_conforme": true,
+  "quality_report": "res://docs/previews/volcano-heart-detail/qualite.json",
+  "regions_folder": "source/regions_v1",
+  "delivered_tiles": [
+    "res://assets/environments/volcano_heart/map.webp",
+    "res://assets/environments/volcano_heart/map_1.webp",
+    "res://assets/environments/volcano_heart/map_2.webp"
+  ],
+  "historical_prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_RETOUCHE.txt",
+    "source/PROMPT_RACCORD_CENTRE.txt"
+  ],
+  "prompts": [
+    "source/regions_v1/PROMPT_REGION.txt",
+    "source/regions_v1/PROMPT_RETOUCHE_MATIERES.txt",
+    "source/regions_v1/PROMPT_FINITION.txt"
+  ]
 }
