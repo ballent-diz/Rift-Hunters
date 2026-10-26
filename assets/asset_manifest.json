@@ -12204,6 +12204,69 @@
 					"loop": false
 				}
 			}
+		},
+		"environment.ash_vents": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/ash_vents/map.webp",
+			"map_tiles": [
+				"res://assets/environments/ash_vents/map.webp",
+				"res://assets/environments/ash_vents/map_1.webp",
+				"res://assets/environments/ash_vents/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/ash_vents/field.png",
+			"field_step": 2.0,
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/ash_vents/minimap.webp"
+		},
+		"environment.soot_dens": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/soot_dens/map.webp",
+			"map_tiles": [
+				"res://assets/environments/soot_dens/map.webp",
+				"res://assets/environments/soot_dens/map_1.webp",
+				"res://assets/environments/soot_dens/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/soot_dens/field.png",
+			"field_step": 2.0,
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/soot_dens/minimap.webp"
+		},
+		"environment.volcano_heart": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/volcano_heart/map.webp",
+			"map_tiles": [
+				"res://assets/environments/volcano_heart/map.webp",
+				"res://assets/environments/volcano_heart/map_1.webp",
+				"res://assets/environments/volcano_heart/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/volcano_heart/field.png",
+			"field_step": 2.0,
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/volcano_heart/minimap.webp"
 		}
 	}
 }
