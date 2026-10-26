@@ -2,7 +2,8 @@ class_name BossController
 extends RefCounted
 ## Pilote un Dévoreur : phases, choix d'attaques pondéré, mécaniques (absorption, cœur exposé, cristaux).
 ## Chaque attaque est une méthode _pattern_<kind> paramétrée par BossPatternData. Les mécaniques qui durent au-delà
-## d'une attaque vivent dans des BossMechanics (BossSignatures : orbes, couronne, cratères ; GlauquemireMechanics).
+## d'une attaque vivent dans des BossMechanics (BossSignatures : orbes, couronne, cratères ; GuardianSignatures : voile
+## de brume, charge du bûcher ; GlauquemireMechanics).
 ## params["anim"] choisit l'animation du sprite, params["vfx"] l'effet peint (BossData.vfx_dir) : le dessin suit le
 ## combat, il ne décide jamais des dégâts.
 
@@ -15,7 +16,7 @@ const PATTERN_ANIMATIONS := {
 	&"skyfall": &"skyfall", &"eye_beam": &"rift_eye",
 	&"source_orb": &"attack", &"star_crown": &"phase2_attack", &"crater_sequence": &"attack",
 	&"mud_wall": &"mud_spit", &"root_leash": &"root_lash", &"leech_feed": &"leech_call", &"prism_beam": &"prism_beam",
-	&"whirlpool": &"whirlpool", &"swallow": &"swallow",
+	&"whirlpool": &"whirlpool", &"swallow": &"swallow", &"mist_veil": &"attack", &"pyre_ram": &"attack",
 }
 ## Effets décoratifs simultanés au plus (les télégraphes ne comptent pas : ils ne sont jamais supprimés).
 const MAX_EFFECTS := 8
@@ -50,6 +51,7 @@ var _hurt_cooldown: float = 0.0
 var _ended: bool = false
 var _signatures: BossSignatures
 var _marsh: GlauquemireMechanics
+var _guardians: GuardianSignatures
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -233,6 +235,13 @@ func signatures() -> BossSignatures:
 		_signatures = BossSignatures.new()
 		_add_mechanics(_signatures)
 	return _signatures
+
+
+func guardians() -> GuardianSignatures:
+	if _guardians == null:
+		_guardians = GuardianSignatures.new()
+		_add_mechanics(_guardians)
+	return _guardians
 
 
 func marsh() -> GlauquemireMechanics:
@@ -511,7 +520,7 @@ func _pattern_eye_beam(pattern: BossPatternData) -> void:
 	busy_time = pattern.telegraph + sweep_time + float(pattern.params.get("recovery", 0.6))
 
 
-## Mécaniques phares (BossSignatures) et attaques de Glauquemire (GlauquemireMechanics).
+## Mécaniques phares (BossSignatures, GuardianSignatures) et attaques de Glauquemire (GlauquemireMechanics).
 func _pattern_source_orb(pattern: BossPatternData) -> void:
 	signatures().source_orb(pattern)
 
@@ -522,6 +531,14 @@ func _pattern_star_crown(pattern: BossPatternData) -> void:
 
 func _pattern_crater_sequence(pattern: BossPatternData) -> void:
 	signatures().crater_sequence(pattern)
+
+
+func _pattern_mist_veil(pattern: BossPatternData) -> void:
+	guardians().mist_veil(pattern)
+
+
+func _pattern_pyre_ram(pattern: BossPatternData) -> void:
+	guardians().pyre_ram(pattern)
 
 
 func _pattern_mud_wall(pattern: BossPatternData) -> void:

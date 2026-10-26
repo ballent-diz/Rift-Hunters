@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BossData" load_steps=14 format=3]
+[gd_resource type="Resource" script_class="BossData" load_steps=15 format=3]
 
 [ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
@@ -93,16 +93,17 @@ params = {
 
 [sub_resource type="Resource" id="pattern_13"]
 script = ExtResource("4")
-kind = &"charge"
-name_key = "BOSS_PATTERN_PYRE_CHARGE"
-weight = 1.5
+kind = &"pyre_ram"
+name_key = "BOSS_PATTERN_PYRE_RAM"
+weight = 2.0
 cooldown = 7.0
-damage = 18.0
+damage = 22.0
 telegraph = 0.9
 params = {
 "anim": "attack",
-"speed": 600.0,
-"duration": 0.7
+"speed": 700.0,
+"length": 950.0,
+"stun": 2.5
 }
 
 [sub_resource type="Resource" id="pattern_14"]
@@ -119,12 +120,27 @@ params = {
 "enemies": ["cinder_crawler", "char_golem"]
 }
 
+[sub_resource type="Resource" id="pattern_ram_1"]
+script = ExtResource("4")
+kind = &"pyre_ram"
+name_key = "BOSS_PATTERN_PYRE_RAM"
+weight = 2.0
+cooldown = 8.0
+damage = 20.0
+telegraph = 1.1
+params = {
+"anim": "attack",
+"speed": 640.0,
+"length": 900.0,
+"stun": 3.0
+}
+
 [sub_resource type="Resource" id="phase_1"]
 script = ExtResource("3")
 hp_threshold = 1.0
 name_key = "BOSS_PYRE_GUARDIAN_PHASE1"
 pattern_interval = 1.9
-patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3")]
+patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3"), SubResource("pattern_ram_1")]
 
 [sub_resource type="Resource" id="phase_2"]
 script = ExtResource("3")
@@ -152,3 +168,4 @@ visual = SubResource("visual_data_1")
 phases = [SubResource("phase_1"), SubResource("phase_2")]
 guardian = true
 visual_scale = 2.2
+signature = &"pyre_ram"

@@ -1657,3 +1657,9 @@ BOSS_GLAUQUEMIRE_PHASE1,Bête des vases,Mire Beast
 BOSS_GLAUQUEMIRE_PHASE2,Carapace de cristal,Crystal Carapace
 BOSS_GLAUQUEMIRE_PHASE3,Cœur de la marée,Heart of the Tide
 BOSS_PATTERN_MIRE_SLAM,Écrasement de vase,Mire slam
+ENEMY_MIST_LANTERN_NAME,Lanterne de brume,Mist Lantern
+ENEMY_MIST_LANTERN_DESC,"Tant qu'elle brûle, la Chimère des brumes reste intouchable.","While it burns, the Mist Chimera cannot be touched."
+BOSS_PATTERN_MIST_VEIL,Voile de brume,Mist veil
+BOSS_PATTERN_PYRE_RAM,Charge du bûcher,Pyre ram
+BOSS_VEIL_INTRO,Voile de brume : la Chimère est intouchable tant que ses lanternes brûlent. Brisez-les !,Mist veil: the Chimera cannot be touched while its lanterns burn. Break them!
+BOSS_RAM_INTRO,"Il fonce tout droit : mettez un rocher derrière vous et écartez-vous au dernier moment, il s'assomme.","It charges straight ahead: put a rock behind you and step aside at the last moment, it will knock itself out."

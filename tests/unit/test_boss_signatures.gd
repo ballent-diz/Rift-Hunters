@@ -1,6 +1,7 @@
 extends TestCase
-## Montée en puissance des boss (docs/design/MONSTRES.md) : chaque boss a une mécanique phare qu'aucun autre n'a, et les
-## Dévoreurs de fin de chapitre sont de plus en plus forts. Orbes de source, couronne d'astres, séquence des cratères.
+## Montée en puissance des boss (docs/design/MONSTRES.md) : chaque boss (gardiens compris) a une mécanique phare qu'aucun
+## autre n'a, et les Dévoreurs de fin de chapitre sont de plus en plus forts. Orbes de source, couronne d'astres,
+## séquence des cratères, voile de brume, charge du bûcher.
 
 const FINALES: Array[StringName] = [&"source_devourer", &"pyrevorn", &"glauquemire"]
 
@@ -53,8 +54,6 @@ func _kinds(data: BossData) -> Dictionary:
 func test_each_boss_has_its_own_signature() -> void:
 	for id: StringName in GameDB.bosses:
 		var data: BossData = GameDB.bosses[id]
-		if data.guardian:
-			continue
 		check(data.signature != &"", "%s : mécanique phare déclarée" % id)
 		check(_kinds(data).has(data.signature), "%s : sa mécanique phare fait partie de ses attaques" % id)
 		for other: StringName in GameDB.bosses:
@@ -180,3 +179,57 @@ func test_craters_erupt_in_the_shown_order() -> void:
 	ctx.player.global_position = signatures.crater_cells[int(signatures.crater_steps[0]["cell"])].get_center()
 	_tick(float(signatures.crater_steps[0]["erupt_at"]) - ctx.time + 0.1)
 	check(ctx.player.hp < hp, "la première case allumée explose")
+
+
+func test_veil_holds_until_every_lantern_breaks() -> void:
+	_fight(&"mist_chimera")
+	var pattern: BossPatternData = _pattern(&"mist_chimera", &"mist_veil")
+	brain._pattern_mist_veil(pattern)
+	_tick(pattern.telegraph + 0.05)
+	var guardians: GuardianSignatures = brain.guardians()
+	check(guardians.veiled(), "la Chimère se voile")
+	check_eq(guardians.lanterns_alive().size(), int(pattern.params["count"]), "ses lanternes s'allument")
+	check_eq(ctx.combat.deal_damage(boss, RunFixture.info(200.0)), 0.0, "sous le voile, aucun coup ne porte")
+	for lantern: Enemy in guardians.lanterns_alive():
+		ctx.combat.deal_damage(lantern, RunFixture.info(9999.0))
+	_tick(0.05)
+	check(not guardians.veiled(), "la dernière lanterne brisée lève le voile")
+	check(brain.stunned_time > 0.0 and brain.heart_time > 0.0, "la Chimère est sonnée et vulnérable")
+	check(ctx.combat.deal_damage(boss, RunFixture.info(200.0)) > 0.0, "les coups portent de nouveau")
+
+
+func test_veil_that_holds_heals_the_chimera() -> void:
+	_fight(&"mist_chimera")
+	var pattern: BossPatternData = _pattern(&"mist_chimera", &"mist_veil")
+	boss.hp = boss.max_hp * 0.5
+	brain._pattern_mist_veil(pattern)
+	_tick(pattern.telegraph + float(pattern.params["duration"]) + 0.1)
+	check(not brain.guardians().veiled(), "le voile tombe de lui-même")
+	check(brain.guardians().lanterns_alive().is_empty(), "les lanternes s'éteignent")
+	check(boss.hp > boss.max_hp * 0.5, "la Chimère se reforme en reprenant des PV")
+
+
+func test_ram_into_a_rock_knocks_the_guardian_out() -> void:
+	_fight(&"pyre_guardian", Vector2(-500, 0))
+	var rock: Vector2 = ctx.player.global_position + Vector2(140, 0)
+	ctx.obstacles.add(rock, 60.0)
+	ctx.player.global_position += Vector2(0, -150)
+	var pattern: BossPatternData = _pattern(&"pyre_guardian", &"pyre_ram")
+	brain._pattern_pyre_ram(pattern)
+	brain.guardians().ram["dir"] = Vector2.RIGHT
+	_tick(pattern.telegraph + 1.5)
+	check(brain.guardians().ram.is_empty(), "la charge s'arrête")
+	check(brain.stunned_time > 0.0 and brain.heart_time > 0.0, "le Gardien s'assomme contre le rocher")
+	check(boss.position.x < rock.x - 60.0, "il s'arrête devant le rocher")
+
+
+func test_ram_hits_and_throws_the_hunter_aside() -> void:
+	_fight(&"pyre_guardian", Vector2(-500, 0))
+	var pattern: BossPatternData = _pattern(&"pyre_guardian", &"pyre_ram")
+	brain._pattern_pyre_ram(pattern)
+	var hp: float = ctx.player.hp
+	var start: Vector2 = ctx.player.global_position
+	_tick(pattern.telegraph + 1.0)
+	check(ctx.player.hp < hp, "la charge blesse")
+	check(absf(ctx.player.global_position.y - start.y) > 40.0, "et projette le Chasseur sur le côté")
+	check_eq(brain.stunned_time, 0.0, "sans obstacle, il n'est pas assommé")

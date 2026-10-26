@@ -94,14 +94,17 @@ chapitre 2 à **lire toute l'arène**, le chapitre 3 combine les deux (orienter 
 |---|---|---|---|---|
 | Nébulorax | carte 1 | 5 000 · 22 · 2 | **Absorption** : avale les tirs, les recrache, puis cœur exposé ×2 | — |
 | Astravorn | carte 2 | 5 600 · 22 · 2 | **Couronne d'astres** : anneau d'étoiles qui tourne avec des brèches, rétrécit et accélère ; de l'extérieur, les coups sont absorbés à 85 % ; concentré, le boss n'attaque plus : entrer par une brèche et frapper ; à la fin, les étoiles partent vers l'extérieur | griffes, vague d'ombres, rayon du vide, invocations |
+| Sentinelle des racines (gardien) | carte 3 | 3 000 · 20 · 1 | **Séisme** : anneaux sans brèche, à franchir d'une Ruée (invulnérable pendant la Ruée) | griffes, charge, invocations |
+| Chimère des brumes (gardien) | carte 4 | 3 000 · 20 · 1 | **Voile de brume** : intouchable tant que brûlent ses 3 lanternes (fils de brume visibles) ; les briser toutes la fige (sonnée, dégâts ×2) ; un voile qui tient jusqu'au bout lui rend des PV | griffes, pas de brume, bond, rugissement, invocations |
 | Dévoreur des Sources | carte 5, finale ch. 1 | 6 500 · 26 · 2 | **Orbes de source** : orbes lents qui suivent le Chasseur ; une Ruée dedans les renvoie sur le boss, l'orbe doré l'étourdit ; touchés sans Ruée : dégâts et ralenti | griffes, double écrasement, souffle arrêté par les rochers, invocations |
+| Gardien du bûcher (gardien) | carte 6 | 3 600 · 22 · 2 | **Charge du bûcher** : il fonce tout droit, loin ; contre un rocher ou une barrière, il s'assomme (sonné, dégâts ×2) : placer un obstacle derrière soi et s'écarter au dernier moment | balayage, bûcher écrasé, invocations |
 | Pyrevorn | carte 10, finale ch. 2 | 9 000 · 30 · 2 (+ 2 mini-boss) | **Séquence des cratères** : grille de 3 × 3 cases ; des cases s'allument une à une puis entrent en éruption dans le même ordre, à peine annoncées ; retenir lesquelles et quand | griffes, pluie du cratère, couvée, envol et chute, Œil de la Faille |
 | Glauquemire | carte 15, finale ch. 3 | 12 500 · 34 · 3 | **Miroirs à orienter** : une Ruée contre un miroir le tourne dans le sens de la Ruée ; le rayon de prisme balaie l'arène et suit la flèche des miroirs ; renvoyé sur le boss, il brise sa carapace et l'étourdit | griffes, écrasement |
 
 Glauquemire a aussi sept autres mécaniques nouvelles (vase qui durcit en murs, racine-laisse, sangsues
 nourricières, carapace à facettes, tourbillon, anneau de marée, engloutissement d'un Écho) :
-[DEVOREUR_CHAPITRE3.md](DEVOREUR_CHAPITRE3.md). Les gardiens de carte (Chimère des brumes, Sentinelle des racines,
-Gardien du bûcher) recevront chacun leur mécanique phare plus tard.
+[DEVOREUR_CHAPITRE3.md](DEVOREUR_CHAPITRE3.md). Les cartes 7 à 9 reprennent pour l'instant le Gardien du bûcher ; leurs
+gardiens propres, comme ceux du chapitre 3, devront chacun apporter leur mécanique phare.
 
 ### À l'intérieur d'un chapitre (5 cartes)
 
@@ -151,7 +154,8 @@ Nouvelles mécaniques du chapitre 3 :
 ## État du code (26 octobre 2026, mécaniques phares)
 
 `BossData.signature` ; mécaniques qui durent au-delà d'une attaque dans des `BossMechanics` créées par le
-`BossController` : `BossSignatures` (`source_orb`, `star_crown`, `crater_sequence`) et `GlauquemireMechanics`
+`BossController` : `BossSignatures` (`source_orb`, `star_crown`, `crater_sequence`), `GuardianSignatures`
+(`mist_veil` avec les lanternes `mist_lantern`, `pyre_ram`) et `GlauquemireMechanics`
 (`mud_wall`, `root_leash`, `leech_feed`, `prism_beam`, `whirlpool`, `swallow` ; mécaniques passives de phase
 `BossPhaseData.mechanics` : `facets`, `mirrors`, `tide_ring`, réglées par `mechanic_params`). Le bot les joue
 (Ruée dans les orbes, entrée dans la couronne, cases retenues sept fois sur dix, Ruée à travers un miroir).
