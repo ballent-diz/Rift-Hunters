@@ -66,6 +66,10 @@ Le bot (`AutopilotBrain`) fuit les ennemis proches (plus fort devant les élites
 télégraphiées, les crues et le sol brûlant, esquive de côté les tirs et les charges, utilise la Ruée quand il est
 acculé ou menacé, s'écarte du décor, suit la route des zones, lance ses deux sorts dès qu'une cible est à portée (bouclier
 sous 60 % de PV), déclenche les Techniques des Échos dès qu'il y a plus de 8 ennemis et donne l'ordre de focus sur le
-boss. Il **ne** cherche **pas** les abris, ne vise pas les bulbes ou les œufs exprès, n'attire pas les hordes dans les
-dangers et ne gère pas finement ses placements : c'est un joueur prudent mais peu tactique. Ses taux de victoire sont
-donc un repère prudent ; un joueur qui exploite les abris et les mécaniques fait mieux.
+boss. Il cherche un abri contre les tirs et les souffles sept fois sur dix (`COVER_REACTION`), casse les
+œufs, amorce les bulbes entourés de Corrompus, vise les points faibles et les gardiens, et joue les mécaniques phares
+des boss (Ruée dans les orbes, entrée dans la couronne, cases des cratères retenues sept fois sur dix, lanternes
+brisées, pas de côté face à la charge, Ruée à travers un miroir). Il n'attire pas les hordes dans les dangers, ne place
+pas exprès un rocher derrière lui face à la charge du bûcher et ne gère pas finement ses placements : c'est un joueur
+prudent mais peu tactique. Ses taux de victoire sont donc un repère prudent ; un joueur qui exploite les abris et les
+mécaniques fait mieux.
