@@ -138,6 +138,10 @@ func step(delta: float) -> void:
 func objective() -> Vector2:
 	if phase == Phase.ENTER:
 		return zone().anchor
+	# Chasseur sorti de la zone en cours (fuite vers une zone déjà ouverte) : ses Corrompus restent derrière la
+	# barrière de sortie et la vague ne finirait jamais ; la flèche le ramène au combat.
+	if phase in [Phase.START, Phase.WAVE, Phase.PAUSE] and region_of(ctx.player.global_position) != zone_index:
+		return zone().anchor
 	if phase == Phase.DONE and ctx.finale and ctx.finale.state == ArenaFinale.State.TRAVEL:
 		return ctx.arena.finale_center
 	# Gardien de palier loin du Chasseur : la flèche mène à lui.
