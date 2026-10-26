@@ -124,6 +124,15 @@ Nouvelles mécaniques du chapitre 3 :
 | E17 | **Clones** : copies fragiles qui imitent ses tirs | trouver l'originale |
 | — | **Volants** : survolent le décor (les tirs aussi les atteignent) | ne pas compter sur les abris contre eux |
 
+## État du code (26 octobre 2026)
+
+Chapitre 3 : `MarshTechniques` (techniques appelées par `EnemyManager` quand il n'a pas `_technique_<kind>`) :
+`mark` (E14), `ally_shield` (E15), `blink` (E16, en chaîne ou en fuite avec `on_hits`), `clones` (E17), `heal_aura`,
+`reflect` (miroir renvoyeur), `mud_leap`, `sweep_beam` (rayon qui balaie puis cœur à nu), `shard_fan`. Volants
+(`EnemyData.flying`) et furtifs (`stealth_range`). Les 14 monstres ont leur fiche avec une forme provisoire (manifeste :
+statut `planned`) en attendant les sprites. Pyrevorn : `data/bosses/pyrevorn.tres`, attaques `skyfall` et `eye_beam`
+ajoutées au `BossController`. Gardiens de palier : élites en version boss (`EnemyManager.spawn_mini_boss`).
+
 ## État du code (23 octobre 2026)
 
 Techniques en données (`EnemyTechniqueData`, méthodes `_technique_<kind>` d'`EnemyManager`) : `burn_slam` (E3),

@@ -1,5 +1,12 @@
 # Rift Hunters — feuille de route
 
+## Lot du 26 octobre (Claude) : grande arène, chapitre 3, nids
+
+Carte 10 en **grande arène** (`caldera_arena`, en attente du décor de Codex) : 3 paliers, Titan de caldeira et
+Wyvernette en gardiens (élites en version boss), Pyrevorn au palier 3, roches lancées depuis les cratères. Mécaniques des
+cartes 11 (vase qui colle) et 12 (marée). Mécaniques ennemies du chapitre 3 (E14 à E17, volants, furtifs) et 14 fiches
+à formes provisoires. Nids qui pondent (carte 8). Bot : option `--team` / `TEAM` pour partir avec une équipe composée.
+
 ## B3 — Carte 9 sélectionnée, volcan carré : détails livrés pour revue (Codex)
 
 Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contrôle global conforme et chargement Godot 4.3 réussi. Rapport et planche d’échelle dans docs/previews/volcano-heart-detail/. Identifiant graphique historique map.volcano_heart conservé ; aucune modification de src/, data/ ou collision. Carte graphique livrée, intégration jouable à faire.
