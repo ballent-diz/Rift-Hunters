@@ -1,0 +1,14 @@
+{
+  "entries": {
+    "environment.volcano_heart": {
+      "kind": "map",
+      "status": "wip",
+      "map_tiles": [
+        "res://assets/environments/volcano_heart/map.webp",
+        "res://assets/environments/volcano_heart/map_1.webp",
+        "res://assets/environments/volcano_heart/map_2.webp"
+      ],
+      "arena_size": 5016
+    }
+  }
+}

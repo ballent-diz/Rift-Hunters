@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## B3 — Carte 9 sélectionnée, volcan carré : détails livrés pour revue (Codex)
+
+Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contrôle global conforme et chargement Godot 4.3 réussi. Rapport et planche d’échelle dans docs/previews/volcano-heart-detail/. Identifiant graphique historique map.volcano_heart conservé ; aucune modification de src/, data/ ou collision. Carte graphique livrée, intégration jouable à faire.
+
+
 ## B3 — Carte 7, Évents de cendre : détails livrés pour revue (Codex)
 
 Branche codex/carte-events-detail depuis main à jour. Plan validé conservé, douze régions, trois tuiles assemblées, contrôle qualité CONFORME et planche d’échelle. Réserve de netteté locale documentée ; pas de qualification finale ni niveau jouable. Aucun changement de collisions ou de gameplay.
