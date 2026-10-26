@@ -1,0 +1,64 @@
+{
+  "engine": "Godot 4.3 stable",
+  "test_scenes": 56,
+  "test_errors": 0,
+  "render_groups": [
+    {
+      "group": 0,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 1,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 2,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 3,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 4,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 5,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 6,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 7,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 8,
+      "exit_code": 0,
+      "errors": []
+    },
+    {
+      "group": 9,
+      "exit_code": 0,
+      "errors": []
+    }
+  ],
+  "render_size": [
+    1280,
+    720
+  ],
+  "renderer": "Mesa llvmpipe OpenGL 4.5",
+  "combat_integration_tested": false,
+  "performance_benchmark": false
+}

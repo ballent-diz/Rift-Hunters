@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## Sorts natifs des chapitres 3 et 4 — livré pour revue (Codex, 26 octobre 2026)
+
+Branche `codex/sorts-monstres-chapitres-3-4` : scènes de présentation Godot des Enlisés, des Reflets et de Glauquemire ; prototypes du chapitre 4. Aucun changement de gameplay. 56 scènes autonomes ; contrôle ciblé Godot 4.3 sans erreur et 10 aperçus rendus par Godot. Contrat : `docs/art/MARAIS_SORTS_GODOT.md`. Raccordement par Claude et validation artistique à suivre.
+
+
 ## Suite du lot du 26 octobre (Claude) : mécanique phare par boss, Glauquemire, équilibrage des cartes 1 à 6
 
 - **Un Écho par carte** gagnée, les moins forts d'abord ([design/COLLECTION_ECHOS.md](design/COLLECTION_ECHOS.md)).

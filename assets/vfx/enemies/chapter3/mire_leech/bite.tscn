@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/enemies/chapter3/enemy_effect.gd" id="1"]
+
+[node name="mire_leech_bite" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"claw"
+color = Color(0.247059, 0.682353, 0.666667, 1)
+accent = Color(0.768627, 0.933333, 0.886275, 1)
+radius = 36.0
+visual_duration = 0.35
+width = 7.0
+travel_distance = 240.0
+loop_visual = false
+target_shape = &"area"
