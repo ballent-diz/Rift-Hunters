@@ -2,6 +2,9 @@ class_name Player
 extends Combatant
 ## Le Chasseur : déplacement, Ruée, arme automatique (Trait de Faille), XP et niveaux.
 
+## Coincé dans le décor plus longtemps que ça : il rejoint le point libre le plus proche.
+const WEDGED_DELAY := 0.5
+
 var ctx: RunContext
 var stats := StatSheet.new()
 var brain: PlayerBrain
@@ -40,6 +43,7 @@ var _redraw_state: int = -1
 ## Entrave (toile de suie, scories) : vitesse multipliée par _hinder_mult pendant _hinder_time secondes.
 var _hinder_time: float = 0.0
 var _hinder_mult: float = 1.0
+var _wedged_time: float = 0.0
 
 
 func setup(p_ctx: RunContext, p_brain: PlayerBrain) -> void:
@@ -201,6 +205,7 @@ func step(delta: float) -> void:
 	if move.length() > 0.1:
 		facing = move.normalized()
 	_constrain()
+	_check_wedged(delta)
 	# Jamais à travers une barrière de zone ou d'arène : le pas qui y entrerait est annulé.
 	if ctx.obstacles.crosses_wall(before, position, radius):
 		position = before
@@ -212,6 +217,21 @@ func step(delta: float) -> void:
 	if state != _redraw_state:
 		_redraw_state = state
 		queue_redraw()
+
+
+## Coincé au fond d'une fente du décor (les deux parois se renvoient la poussée, Ruines des Cascades) : après un court
+## instant, il rejoint le point libre le plus proche.
+func _check_wedged(delta: float) -> void:
+	if ctx.obstacles.distance(position) >= radius - 1.0:
+		_wedged_time = 0.0
+		return
+	_wedged_time += delta
+	if _wedged_time < WEDGED_DELAY:
+		return
+	_wedged_time = 0.0
+	var free: Vector2 = ctx.obstacles.free_point_near(position, radius)
+	if free != Vector2.INF:
+		position = free
 
 
 func _start_dash(move: Vector2) -> void:

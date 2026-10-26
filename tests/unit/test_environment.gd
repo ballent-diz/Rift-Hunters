@@ -265,6 +265,20 @@ func test_flow_field_leaves_a_dead_end_by_the_way_back() -> void:
 	check(dir.is_equal_approx((flow.cell_center(exit) - pos).normalized()), "on rejoint la case de retour (%s)" % dir)
 
 
+## Ruines des Cascades : au fond d'une fente en V du décor, les deux parois se renvoyaient la poussée et le Chasseur
+## (rayon 15) restait collé à 13 du rocher, sans pouvoir repartir (bot figé 18 minutes). Il rejoint un point libre proche.
+func test_free_point_escapes_a_v_shaped_crevice() -> void:
+	var arena: ArenaData = GameDB.arena(&"three_rifts")
+	var ground := ArenaGround.new()
+	ground.setup(arena, 1)
+	var obstacles: ObstacleField = ground.obstacle_field()
+	var stuck := Vector2(-909, -804)
+	check(obstacles.distance(stuck) < 14.0, "le point de blocage chevauche bien le décor")
+	var freed: Vector2 = obstacles.free_point_near(stuck, 15.0)
+	check(freed != Vector2.INF and not obstacles.blocks(freed, 15.0), "un point libre tout proche")
+	check(freed.distance_to(stuck) <= 48.0 and obstacles.line_clear(stuck, freed), "joint sans traverser le décor")
+
+
 func test_flow_field_cost_on_map() -> void:
 	var arena: ArenaData = GameDB.arena(&"fractured_plain")
 	var ground := ArenaGround.new()

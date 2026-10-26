@@ -31,10 +31,13 @@ var _walls_version: int = -1
 var _released_seen: int = 0
 var _dist := PackedInt32Array()
 var _target_cell := Vector2i(-1, -1)
+## Décor (pour sortir d'un recoin en ligne droite dégagée).
+var _obstacles: ObstacleField
 
 
 ## Cases praticables d'après le champ d'obstacles (une fois par partie).
 func setup(obstacles: ObstacleField, rect: Rect2, p_cell_size: float = CELL) -> void:
+	_obstacles = obstacles
 	cell_size = clampf(p_cell_size,CELL,64.0)
 	origin = rect.position
 	size = Vector2i(ceili(rect.size.x / cell_size), ceili(rect.size.y / cell_size))
@@ -200,7 +203,11 @@ func direction(pos: Vector2, direct: Vector2) -> Vector2:
 			best = value
 			best_cell = c
 	if best_cell.x < 0 and here == UNREACHED:
-		best_cell = _nearest_reached(cell)
+		best_cell = _nearest_reached(cell, pos)
+		# Aucune case de retour en vue : s'éloigner du décor qui enserre le recoin.
+		if best_cell.x < 0 and _obstacles != null:
+			var away: Vector2 = _obstacles.repulsion(pos, 60.0)
+			return away.normalized() if away.length() > 0.01 else direct
 	if best_cell.x < 0:
 		return direct
 	var flow: Vector2 = (cell_center(best_cell) - pos).normalized()
@@ -211,17 +218,21 @@ func direction(pos: Vector2, direct: Vector2) -> Vector2:
 	return direct if flow.dot(direct) > STRAIGHT_DOT else flow
 
 
-## Case joignable la plus proche (sortir d'un recoin plus étroit que la marge de navigation).
-func _nearest_reached(cell: Vector2i) -> Vector2i:
+## Case joignable la plus proche, en ligne droite dégagée depuis `pos` (sortir d'un recoin plus étroit que la marge de
+## navigation sans viser à travers le rocher qui le ferme).
+func _nearest_reached(cell: Vector2i, pos: Vector2) -> Vector2i:
 	for radius: int in range(3, 9):
 		var best := Vector2i(-1, -1)
 		var best_d: float = INF
 		for dy: int in range(-radius, radius + 1):
 			for dx: int in range(-radius, radius + 1):
 				var c := Vector2i(cell.x + dx, cell.y + dy)
-				if _in_bounds(c) and _dist[c.y * size.x + c.x] < UNREACHED and Vector2(dx, dy).length() < best_d:
-					best_d = Vector2(dx, dy).length()
-					best = c
+				if not _in_bounds(c) or _dist[c.y * size.x + c.x] >= UNREACHED or Vector2(dx, dy).length() >= best_d:
+					continue
+				if _obstacles != null and not _obstacles.line_clear(pos, cell_center(c)):
+					continue
+				best_d = Vector2(dx, dy).length()
+				best = c
 		if best.x >= 0:
 			return best
 	return Vector2i(-1, -1)
