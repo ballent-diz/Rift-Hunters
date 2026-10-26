@@ -66,14 +66,22 @@ avant de toucher aux monstres eux-mêmes. Les boss et gardiens ont leurs propres
 Équipe du bot : Cendrelame et les Échos réellement débloqués à ce stade (un par carte gagnée), arbre « veteran » à
 partir de la carte 4.
 
-| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Équipe du bot | Bot |
-|---|---|---|---|---|
-| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 | Cendrelame seule | 5 victoires sur 6 |
-| 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 |
-| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | gagnée |
-| 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Sylvécaille, Lueurine | 2 sur 2 |
-| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 4 sur 4 (2 sur 4 à 0,65 · 0,6), 10 à 15 min : plus long que la cible |
-| 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4, 7 à 8 min 30 |
+| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Équipe du bot | Bot (4 graines) | Durée |
+|---|---|---|---|---|---|
+| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 | Cendrelame seule | 3 sur 4 | 6 à 7 min |
+| 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 | 3 min 30 à 5 min |
+| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | 4 sur 4 | 6 min 30 |
+| 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Sylvécaille, Lueurine | 4 sur 4 | 6 min |
+| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 3 sur 4 | 5 à 7 min |
+| 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4 | 3 min 30 à 6 min |
+
+Mesures du 26 octobre 2026, avec le bot corrigé :
+- il va chercher les derniers Corrompus ;
+- la flèche le ramène à la zone en cours ;
+- il sort des recoins et des fentes du décor.
+
+Avant ces corrections, des vagues traînaient de 2 à 4 minutes (jusqu'à 15 minutes pour la carte 5), et le bot restait
+parfois bloqué. Les cartes 3 et 4, à 4 sur 4, sont au bord haut de la cible : à surveiller en test.
 
 Les cartes 7 à 10 attendent leur décor et leurs collisions définitives.
 
@@ -81,7 +89,8 @@ Les cartes 7 à 10 attendent leur décor et leurs collisions définitives.
 
 Le bot (`AutopilotBrain`) fuit les ennemis proches (plus fort devant les élites et les boss), évite les zones
 télégraphiées, les crues et le sol brûlant, esquive de côté les tirs et les charges, utilise la Ruée quand il est
-acculé ou menacé, s'écarte du décor, suit la route des zones, lance ses deux sorts dès qu'une cible est à portée (bouclier
+acculé ou menacé, s'écarte du décor, suit la route des zones (et va chercher les derniers Corrompus pendant la
+traque, sans fuir les élites), lance ses deux sorts dès qu'une cible est à portée (bouclier
 sous 60 % de PV), déclenche les Techniques des Échos dès qu'il y a plus de 8 ennemis et donne l'ordre de focus sur le
 boss. Il cherche un abri contre les tirs et les souffles sept fois sur dix (`COVER_REACTION`), casse les
 œufs, amorce les bulbes entourés de Corrompus, vise les points faibles et les gardiens, et joue les mécaniques phares
