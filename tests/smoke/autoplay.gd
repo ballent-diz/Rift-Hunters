@@ -127,7 +127,8 @@ func _on_finished(result: Dictionary) -> void:
 			mechanics[key] = int(counters[key])
 	print("Mécaniques de boss : ", mechanics)
 	var boss_ratio: float = (_run.ctx.boss.hp / _run.ctx.boss.max_hp) if _run.ctx.boss else 1.0
-	var boss_time: float = float(result["time"]) - _run.ctx.arena.boss_time if _run.ctx.boss else 0.0
+	# Durée du combat depuis l'apparition réelle du boss (cartes à zones : le gardien vient à la fin des zones).
+	var boss_time: float = float(result["time"]) - _run.ctx.stats.get_value(&"boss_spawned_at") if _run.ctx.boss else 0.0
 	print("RESULT|%s|%s|%s|%d|%d|%d|%d|%d|%.2f|%d" % [_run.ctx.setup.starter_id, _run.ctx.arena.id, _run.ctx.setup.difficulty_id,
 		1 if result["victory"] else 0, int(result["time"]), result["level"], result["kills"], int(boss_time), boss_ratio,
 		int(counters.get("damage_taken", 0))])

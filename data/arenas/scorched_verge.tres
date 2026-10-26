@@ -188,4 +188,4 @@ burn_enemy_ratio = 0.06
 enemy_hp_mult = 0.7
 enemy_damage_mult = 0.6
 boss_hp_mult = 1.0
-boss_damage_mult = 0.9
+boss_damage_mult = 1.0
