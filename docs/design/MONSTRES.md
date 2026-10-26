@@ -107,6 +107,23 @@ Ordre d'introduction : carte 6 Brute du bûcher (sol brûlant, en écho aux plaq
 calciné et Chien de suie ; carte 8 Veuve de cendre (avec les nids de la carte) ; carte 9 Enfants du magma, Titan et
 Rôdeur ; carte 10 Wyvernette, Matrone et Pyrevorn.
 
+## Application au chapitre 3 « Les Marais engloutis » (prompt Codex du 26 octobre)
+
+| Famille | Normaux | Normaux à technique | Élites (technique 1 / technique 2 ; trait passif) |
+|---|---|---|---|
+| Enlisés (cartes 11 à 13) | Sangsue des vases, Crapaud-gonfle, Moustique de faille (**volant**), Racine rampante | Crapaud : Saut boueux (E1 + ralentit) ; Racine : Enfouissement (E2) | Mère-spore : Spore-marque (**E14**) / Tapis de spores (E3) ; aura de soin. Gardien d'écorce : Racines entravantes (E5) / Bouclier d'écorce (**E15**) ; armure qui se fend (E8). Gueule des marais : Plongée (E2) / Charge ventrale (E6) ; rage (E7) |
+| Reflets (cartes 14 et 15) | Éclat errant (**volant**), Sentinelle de verre, Golem de quartz, Miroir rampant | Miroir : Saut de reflet (**E16**) | Prêtresse-miroir : Reflets (**E17**) / Miroir renvoyeur ; téléportation quand on la frappe trop. Colosse de cristal : Rayon qui balaie (E13) / Gerbe d'éclats ; faiblesse après le rayon (E8). Chasseresse des reflets : Saut en chaîne (E16) / Marque de prisme (E14) ; invisible de loin |
+
+Nouvelles mécaniques du chapitre 3 :
+
+| # | Mécanique | Ce qu'elle demande au joueur |
+|---|---|---|
+| E14 | **Marque qui explose** : le Chasseur est marqué, la marque explose après un délai ; la Ruée l'efface | garder sa Ruée, s'écarter de ses Échos |
+| E15 | **Bouclier des alliés** : les Corrompus proches de l'élite ne prennent plus de dégâts tant qu'elle tient le bouclier | tuer ou interrompre l'élite d'abord |
+| E16 | **Téléportation** : disparaît et réapparaît sur un flanc du Chasseur | ne pas rester immobile |
+| E17 | **Clones** : copies fragiles qui imitent ses tirs | trouver l'originale |
+| — | **Volants** : survolent le décor (les tirs aussi les atteignent) | ne pas compter sur les abris contre eux |
+
 ## État du code (23 octobre 2026)
 
 Techniques en données (`EnemyTechniqueData`, méthodes `_technique_<kind>` d'`EnemyManager`) : `burn_slam` (E3),

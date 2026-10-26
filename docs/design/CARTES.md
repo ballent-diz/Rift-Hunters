@@ -73,20 +73,24 @@ herbes dorées en altitude ; touches violettes de la Faille. Famille : les Corro
 | 6. Lisière calcinée | Vagues par zone, 6 cases, gardien du bûcher | **Sol brûlant** (10 plaques praticables qui blessent tout le monde, plaques temporaires de la Brute du bûcher) ; en jeu depuis le 23 octobre |
 | 7. Évents de cendre | Vagues par zone, parcours en U, **sans arène** (gardien dans la dernière zone) | **B5 Bulbes de braise** : sprites placés par le jeu ; une attaque les amorce, ils éclatent au milieu des hordes (le Chasseur trop proche est touché) puis repoussent ; prompt Codex du 23 octobre (les ponts fragiles sont abandonnés) |
 | 8 | Vagues par zone | B8 Nids qui pondent |
-| 9. Coulées de braise | Fermeture de failles, 3:1 de droite à gauche, sans arène | **Débordements de lave** (`flood_style = lava`) : lits de croûte praticable qui débordent après alerte, dégâts forts, plaques brûlantes après coup ; détour sûr toujours présent |
-| 10. Cœur du volcan | Vagues par zone + Pyrevorn, spirale vers la caldeira | **Pluie de roches magmatiques** (`RockfallDirector`) + 2 à 3 débordements de lave ; chutes annoncées, cadence qui monte par zone et contre le boss |
+| 9. Volcan carré (`volcano_heart`, plan `c9.png` choisi par le propriétaire le 25 octobre) | à fixer à l'intégration | **Pluie de roches magmatiques** (`RockfallDirector`) et/ou débordements de lave (`flood_style = lava`) selon le plan ; décor détaillé livré (PR 74), collisions à peindre |
+| 10. Grande arène du volcan (décision du 26 octobre) | **Grande arène** : une seule très grande arène sans zones ni barrières, **3 paliers** de vagues de plus en plus denses ; fin du palier 1 : **Titan de caldeira** en mini-boss ; fin du palier 2 : **Wyvernette** en mini-boss ; palier 3 : **Pyrevorn** | Nombreux obstacles-abris, **sols brûlants** praticables (masque `hazards.png`), **projectiles volcaniques** lancés en arc depuis 2 à 3 cratères du pourtour et dont la cadence monte à chaque palier |
 
 Identité visuelle des cartes 6–10 : région ravagée par la Faille. Carte 6 : steppe et village brûlés, cendre, ocre et charbon ; orange vif exclusivement sur les plaques dangereuses. Cartes 7–9 : roche nue, cendres, fissures rougeoyantes et fumée croissantes. Carte 10 : lave, roche noire et ciel de cendres. Même caméra et finesse que le chapitre 1. Voir [Lisière calcinée](../maps/LISIERE_CALCINEE.md). Les autres modes du tableau restent des propositions.
 
-### Chapitre 3 — piste : les Forges volcaniques
+### Chapitre 3 — Les Marais engloutis (identité validée par le propriétaire, 26 octobre)
+
+Identité : jungle-marais noyée, mangroves et racines géantes, eaux turquoise, mousse émeraude, brume basse, ruines de
+temples en cristal-miroir cyan pâle. Aucune lave, aucun orange vif, aucune cendre. **Une mécanique de terrain nouvelle
+à chaque carte.** Familles : les Enlisés (cartes 11 à 13), les Reflets (cartes 14 et 15) : [MONSTRES.md](MONSTRES.md).
 
 | Carte | Mode | Particularité |
 |---|---|---|
-| 11 | Vagues par zone | B3 Coulées de lave |
-| 12 | Défense d'autel | B5 Tonneaux de poudre |
-| 13 | Vagues par zone | B1 Cendres chaudes qui brûlent |
-| 14 | Variante | B6 Wagonnets / rails |
-| 15 | Vagues + Dévoreur | B3 Éruptions + B8 Statues de lave |
+| 11. Mangrove des racines (`root_mangrove`) | Vagues par zone, 3:2, boucle autour d'un lagon, final sur l'île centrale (cercle d'énergie) | **Vase qui colle** (B1) : nappes praticables qui ralentissent fortement tout le monde et collent encore un instant après la sortie (masque `mud.png`) |
+| 12. Temple des marées (`tide_temple`) | Fermeture de failles, 2:3 vertical du bas vers le haut | **Marée** (B4) : alerte, puis les chaussées basses sont noyées et infranchissables, avant de redevenir des raccourcis ; un chemin long reste toujours praticable (masque `tide.png`) |
+| 13 | Vagues par zone | à définir (pistes : cristaux à faire éclater B5, lumière qui s'épuise B7) |
+| 14 | Variante | à définir (piste : téléporteurs de faille B6) |
+| 15 | Vagues + Dévoreur | combinaison des briques du chapitre |
 
 ### Chapitre 4 — piste : le Glacier silencieux
 
