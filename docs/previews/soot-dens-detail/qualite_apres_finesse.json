@@ -1,0 +1,88 @@
+{
+	"world": [
+		5016,
+		5016
+	],
+	"checks": [
+		{
+			"name": "densité (pixels par unité)",
+			"value": 2.25,
+			"min": 2.183,
+			"max": 2.317,
+			"ok": true
+		},
+		{
+			"name": "part lisse (médiane)",
+			"value": 0.154,
+			"min": 0.0,
+			"max": 0.27,
+			"ok": true
+		},
+		{
+			"name": "détails fins / 100×100 u (médiane)",
+			"value": 320.578,
+			"min": 329.944,
+			"max": 446.395,
+			"ok": false
+		},
+		{
+			"name": "détails moyens / 100×100 u (médiane)",
+			"value": 105.443,
+			"min": 90.94,
+			"max": 123.036,
+			"ok": true
+		},
+		{
+			"name": "secteurs conformes (part)",
+			"value": 0.898,
+			"min": 0.85,
+			"max": 1.0,
+			"ok": true
+		},
+		{
+			"name": "fidélité au plan validé (corrélation)",
+			"value": 0.986,
+			"min": 0.85,
+			"max": 1.0,
+			"ok": true
+		}
+	],
+	"sectors_out": [
+		{
+			"x": 4000,
+			"y": 0,
+			"smooth": 0.589,
+			"fine": 146,
+			"medium": 62
+		},
+		{
+			"x": 4800,
+			"y": 800,
+			"smooth": 0.511,
+			"fine": 168,
+			"medium": 63
+		},
+		{
+			"x": 4800,
+			"y": 3200,
+			"smooth": 0.865,
+			"fine": 50,
+			"medium": 49
+		},
+		{
+			"x": 2400,
+			"y": 4000,
+			"smooth": 0.542,
+			"fine": 161,
+			"medium": 72
+		},
+		{
+			"x": 2400,
+			"y": 4800,
+			"smooth": 0.53,
+			"fine": 218,
+			"medium": 80
+		}
+	],
+	"ok": false
+}

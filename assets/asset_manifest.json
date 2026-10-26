@@ -11596,7 +11596,7 @@
 			"icon": "res://assets/ui/icons/objects/ember_pod.png"
 		},
 		"object.ash_egg": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/object.ash_egg/job.json",
 			"sheet": "res://assets/sprites/objects/ash_egg/ash_egg_sheet.png",
 			"cell": [
@@ -11614,9 +11614,50 @@
 					"frames": 6,
 					"fps": 6,
 					"loop": true
+				},
+				"hatch": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
 				}
 			},
 			"icon": "res://assets/ui/icons/objects/ash_egg.png"
+		},
+		"object.ash_nest": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.ash_nest/job.json",
+			"sheet": "res://assets/sprites/objects/ash_nest/ash_nest_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				},
+				"spawn": {
+					"row": 1,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/ash_nest.png"
 		}
 	}
 }

@@ -1,0 +1,9 @@
+{
+  "region": "r3_2",
+  "source": "C:\\Users\\petit\\.codex\\generated_images\\01a16d7e-02d7-78e3-a882-90984707a8f4\\exec-117b4465-e817-418e-8988-303802380997.png",
+  "output": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\c8-work\\fine\\r3_2.png",
+  "sha256": "e6085ccdb6da1f772f5dbd33168a683535f732138cd81710b8cea9c6cf25aae6",
+  "prompt": "PROMPT_TEXTURE_FINE.txt exact",
+  "attempts": 1,
+  "tool": "imagegen intégré"
+}

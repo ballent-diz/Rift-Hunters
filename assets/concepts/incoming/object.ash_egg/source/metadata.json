@@ -1,0 +1,131 @@
+{
+  "asset_id": "object.ash_egg",
+  "generation_mode": "built-in image_gen",
+  "generation_count": 1,
+  "original_output": "C:/Users/petit/.codex/generated_images/01a16aae-1d19-7a50-8817-1a0ce0bd11ab/exec-84372e40-2ffa-4d9c-88a8-0957ac54946d.png",
+  "saved_output": "sheet.png",
+  "prompt_file": "prompt.txt",
+  "references": [
+    {
+      "path": "C:/Users/petit/.codex/.chatgpt-projects/g-p-6ace1ce7608881919aee541812ac7997/ash-vents-work/ember-pod/sheet.png",
+      "role": "painted material rendering and lighting only; explicitly excluded silhouette, basalt plates, roots, warm colors and layout"
+    },
+    {
+      "path": "Rift-Hunters-ash-vents/docs/ART_BIBLE.md",
+      "role": "art instructions"
+    },
+    {
+      "path": "Rift-Hunters-ash-vents/docs/design/MONSTRES.md",
+      "role": "animation and monster mechanics instructions"
+    }
+  ],
+  "dimensions": [
+    2172,
+    724
+  ],
+  "layout": {
+    "columns": 6,
+    "rows": 2,
+    "cell": [
+      362,
+      362
+    ],
+    "animations": [
+      "idle",
+      "hatch"
+    ]
+  },
+  "validation": {
+    "rgba": true,
+    "source_preserved": true,
+    "visual_pose_count": 12,
+    "final_pose_empty_shell": true,
+    "visible_neighbor_overlap": false,
+    "alpha_note": "Original generated alpha preserved. Most solid interior pixels alpha 252-253 rather than 255; 1-alpha fringe reaches some cell borders. At alpha>=8 all sprite content has margins in every cell.",
+    "alpha_8_bounds_per_cell": [
+      [
+        [
+          100,
+          63,
+          297,
+          334
+        ],
+        [
+          95,
+          62,
+          292,
+          335
+        ],
+        [
+          90,
+          61,
+          287,
+          333
+        ],
+        [
+          83,
+          60,
+          279,
+          333
+        ],
+        [
+          79,
+          60,
+          276,
+          334
+        ],
+        [
+          75,
+          62,
+          274,
+          334
+        ]
+      ],
+      [
+        [
+          100,
+          32,
+          291,
+          300
+        ],
+        [
+          93,
+          27,
+          291,
+          299
+        ],
+        [
+          88,
+          22,
+          293,
+          298
+        ],
+        [
+          69,
+          26,
+          305,
+          299
+        ],
+        [
+          32,
+          95,
+          323,
+          305
+        ],
+        [
+          30,
+          104,
+          313,
+          302
+        ]
+      ]
+    ],
+    "issues": [
+      "Idle centers drift left about 24 original pixels across row; cell centering should be normalized during import.",
+      "Row 1 visible base ~334 versus row 2 visible base ~300 in local cell coordinates; importer should anchor frames to a shared base.",
+      "Hatching row final fragments extend down to local y305, ~7 pixels below intact row-2 base.",
+      "Generated hand-painted shell uses moderately broad cracked areas, though smooth egg silhouette and no pointed basalt plates.",
+      "No regeneration or pixel editing performed, as one generation was requested."
+    ]
+  }
+}
