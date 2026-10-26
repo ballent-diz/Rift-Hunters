@@ -88,9 +88,9 @@ temples en cristal-miroir cyan pâle. Aucune lave, aucun orange vif, aucune cend
 |---|---|---|
 | 11. Mangrove des racines (`root_mangrove`) | Vagues par zone, 3:2, boucle autour d'un lagon, final sur l'île centrale (cercle d'énergie) | **Vase qui colle** (B1) : nappes praticables qui ralentissent fortement tout le monde et collent encore un instant après la sortie (masque `mud.png`) |
 | 12. Temple des marées (`tide_temple`) | Fermeture de failles, 2:3 vertical du bas vers le haut | **Marée** (B4) : alerte, puis les chaussées basses sont noyées et infranchissables, avant de redevenir des raccourcis ; un chemin long reste toujours praticable (masque `tide.png`) |
-| 13 | Vagues par zone | à définir (pistes : cristaux à faire éclater B5, lumière qui s'épuise B7) |
-| 14 | Variante | à définir (piste : téléporteurs de faille B6) |
-| 15 | Vagues + Dévoreur | combinaison des briques du chapitre |
+| 13. Jardins de cristal (`crystal_gardens`) | Vagues par zone, format 3:1 de gauche à droite | **Cristaux-miroirs à faire éclater** (B5) : un coup les charge ; ils éclatent en trois rayons de lumière qui transpercent les Corrompus sur leur ligne (le Chasseur dans l'axe est touché) puis repoussent. Les placer en ligne avec la horde est l'occasion tactique |
+| 14. Puits des reflets (`reflection_wells`) | Défense d'autel (variante), format 1:1 | **Miroirs-portails** (B6) : paires de portails ; y entrer ramène au portail jumeau (recharge de quelques secondes, les Corrompus les empruntent aussi). Raccourci pour revenir défendre l'autel, ou piège pour séparer la horde |
+| 15. Cœur des marais (`marsh_heart`) | Vagues par zone + **Glauquemire**, Dévoreur du chapitre 3 (3 phases), format 2:3 vertical | Combinaison du chapitre : vase, marée haute pendant le combat, cristaux-miroirs dans l'arène |
 
 ### Chapitre 4 — piste : le Glacier silencieux
 
