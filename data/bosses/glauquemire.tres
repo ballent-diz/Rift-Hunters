@@ -68,9 +68,9 @@ cooldown = 11.0
 damage = 32.0
 telegraph = 0.8
 params = {
-"length": 130.0,
+"length": 170.0,
 "duration": 3.0,
-"slam_radius": 180.0,
+"slam_radius": 150.0,
 "slam_delay": 2.4
 }
 

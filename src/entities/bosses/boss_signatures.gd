@@ -4,7 +4,8 @@ extends BossMechanics
 ## - Orbes de source (Dévoreur des Sources) : orbes lents qui suivent le Chasseur ; une Ruée dedans les renvoie vers le
 ##   boss, qui est touché et étourdi (un seul orbe doré étourdit dans une salve). Au contact sans Ruée : dégâts, ralenti.
 ## - Couronne d'astres (Astravorn) : anneau d'étoiles qui tourne autour du boss avec des brèches, rétrécit et accélère ;
-##   de l'extérieur, les coups sont presque tous absorbés. À la fin, les étoiles partent vers l'extérieur.
+##   de l'extérieur, les coups sont presque tous absorbés ; le boss, concentré, n'attaque plus. À la fin, les étoiles
+##   partent vers l'extérieur.
 ## - Séquence des cratères (Pyrevorn) : une grille de cases autour du Chasseur ; des cases s'allument une à une, puis
 ##   entrent en éruption dans le même ordre, à peine annoncées : retenir lesquelles et dans quel ordre.
 
@@ -123,7 +124,8 @@ func star_crown(pattern: BossPatternData) -> void:
 		"elapsed": 0.0, "damage": brain._damage(pattern), "outside": float(params.get("outside_mult", 0.15)),
 		"burst_speed": float(params.get("burst_speed", 210.0)), "spark": 0.0}
 	intro("BOSS_CROWN_INTRO")
-	brain.busy_time = pattern.telegraph + 0.3
+	# Le boss se concentre sur sa couronne : immobile et sans autre attaque, c'est la fenêtre pour entrer et frapper.
+	brain.busy_time = pattern.telegraph + float(crown["total"])
 
 
 func crown_active() -> bool:
