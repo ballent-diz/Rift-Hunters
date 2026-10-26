@@ -72,7 +72,7 @@ partir de la carte 4.
 | 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 |
 | 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | gagnée |
 | 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Sylvécaille, Lueurine | 2 sur 2 |
-| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | mesure en cours |
+| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 4 sur 4 (2 sur 4 à 0,65 · 0,6), 10 à 15 min : plus long que la cible |
 | 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4, 7 à 8 min 30 |
 
 Les cartes 7 à 10 attendent leur décor et leurs collisions définitives.
