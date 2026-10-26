@@ -33,6 +33,8 @@ extends Resource
 @export var rift_elite_interval: float = 40.0
 @export_group("")
 @export var waves: Array[WavePhaseData] = []
+## Grande arène : les zones sont des paliers qui partagent toute la carte (aucune barrière, pas de trajet entre elles).
+@export var open_arena: bool = false
 ## Mode « vagues par zone » (si non vide) : zones à nettoyer dans l'ordre, puis la finale (boss).
 ## Les vagues au chrono, les événements et le boss chronométré sont alors désactivés.
 @export var zones: Array[LevelZoneData] = []
@@ -170,6 +172,9 @@ extends Resource
 ## Intervalle multiplié par ce facteur à chaque zone nettoyée, et par rockfall_boss_mult pendant le combat final.
 @export_range(0.3, 1.0) var rockfall_zone_mult: float = 0.85
 @export_range(0.3, 1.0) var rockfall_boss_mult: float = 0.6
+## Cratères qui crachent les roches (grande arène) : chaque roche part en arc du cratère le plus proche de sa cible.
+## Vide : la roche tombe du ciel.
+@export var rockfall_vents: Array[Vector2] = []
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0

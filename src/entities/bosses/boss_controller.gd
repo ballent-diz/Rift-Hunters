@@ -10,6 +10,7 @@ const PATTERN_ANIMATIONS := {
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
 	&"sweep": &"attack", &"slam": &"heavy_slam", &"breath": &"rift_breath",
+	&"skyfall": &"skyfall", &"eye_beam": &"rift_eye",
 }
 ## Effets décoratifs simultanés au plus (les télégraphes ne comptent pas : ils ne sont jamais supprimés).
 const MAX_EFFECTS := 8
@@ -303,6 +304,11 @@ func _pattern_rock_rain(pattern: BossPatternData) -> void:
 				if i == 0:
 					offset = Vector2.ZERO
 				ctx.hazards.add_circle(center + offset, radius, pattern.telegraph, _damage(pattern), true, data.id)
+				# Pluie du cratère (Pyrevorn) : chaque impact laisse une plaque de sol brûlant.
+				if pattern.params.has("burn_time") and ctx.burn:
+					var spot: Vector2 = center + offset
+					schedule(pattern.telegraph, func() -> void:
+						ctx.burn.add_plate(spot, radius * 0.8, float(pattern.params["burn_time"])))
 		)
 	busy_time = 0.6
 
@@ -404,6 +410,54 @@ func _pattern_breath(pattern: BossPatternData) -> void:
 		fx_props["visual_duration"] = duration + 0.3
 		_vfx(String(pattern.params.get("vfx", "")), mouth, dir, fx_props, CONTACT_STRIKE))
 	busy_time = pattern.telegraph + duration + float(pattern.params.get("recovery", 0.4))
+
+
+## Envol et chute (E9) : le boss s'envole, intouchable ; son ombre suit le Chasseur puis se fige, et il retombe sur le
+## point marqué : impact, anneaux de lave à franchir (brèches ou Ruée) et sol brûlant.
+func _pattern_skyfall(pattern: BossPatternData) -> void:
+	var airborne: float = float(pattern.params.get("airborne", 1.6))
+	var radius: float = float(pattern.params.get("radius", 170.0))
+	boss.invulnerable_time = airborne + pattern.telegraph
+	busy_time = airborne + pattern.telegraph + float(pattern.params.get("recovery", 0.8))
+	ctx.fx.burst(boss.position, boss.radius * 1.4, Color(1.0, 0.5, 0.15, 0.5))
+	schedule(0.35, func() -> void: boss.visual.visible = false)
+	schedule(airborne, func() -> void:
+		var area: Rect2 = ctx.arena_rect().grow(-boss.radius - 40.0)
+		var target: Vector2 = ctx.obstacles.push_out(ctx.player.global_position.clamp(area.position, area.end), boss.radius)
+		ctx.hazards.add_circle(target, radius, pattern.telegraph, _damage(pattern), true, data.id)
+		schedule(pattern.telegraph, func() -> void:
+			boss.position = target
+			boss.visual.visible = true
+			boss.visual.play_action(&"skyfall")
+			ctx.fx.burst(target, radius * 1.2, Color(1.0, 0.45, 0.1, 0.6))
+			for w: int in int(pattern.params.get("rings", 2)):
+				schedule(w * 0.5, func() -> void:
+					ctx.hazards.add_ring(target, float(pattern.params.get("ring_speed", 260.0)), 900.0, 24.0,
+						_damage(pattern) * 0.5, true, data.id, [ctx.rng.randf() * TAU, ctx.rng.randf() * TAU], 0.45, [], 0.0))
+			if ctx.burn:
+				ctx.burn.add_plate(target, radius, float(pattern.params.get("burn_time", 6.0)))))
+
+
+## Œil de la Faille (E13) : rayon qui balaie un arc devant le boss, arrêté par le décor (se cacher derrière un abri).
+## Suite de tronçons courts qui tournent : on lit le sens du balayage et on se met à couvert.
+func _pattern_eye_beam(pattern: BossPatternData) -> void:
+	var dir: Vector2 = (ctx.player.global_position - boss.position).normalized()
+	var arc: float = deg_to_rad(float(pattern.params.get("arc", 120.0)))
+	var steps: int = int(pattern.params.get("steps", 10))
+	var sweep_time: float = float(pattern.params.get("sweep_time", 2.0))
+	var side: float = 1.0 if ctx.rng.randf() < 0.5 else -1.0
+	var length: float = float(pattern.params.get("length", 900.0))
+	var width: float = float(pattern.params.get("width", 40.0))
+	var start: Vector2 = dir.rotated(-arc * 0.5 * side)
+	var origin: Vector2 = _mouth()
+	ctx.fx.danger_line(origin, origin + start * length, width, pattern.telegraph)
+	for i: int in steps:
+		var beam_dir: Vector2 = start.rotated(arc * side * i / float(maxi(steps - 1, 1)))
+		schedule(pattern.telegraph + sweep_time * i / float(steps), func() -> void:
+			var from: Vector2 = _mouth()
+			ctx.hazards.add_beam(from, beam_dir, clear_length(from, beam_dir, length), width, 0.05,
+				sweep_time / float(steps) + 0.05, _damage(pattern), data.id))
+	busy_time = pattern.telegraph + sweep_time + float(pattern.params.get("recovery", 0.6))
 
 
 ## Longueur dégagée d'une ligne : jusqu'au premier décor qui arrête les tirs (rochers-abris).

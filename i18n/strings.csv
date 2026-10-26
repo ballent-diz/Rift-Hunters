@@ -621,6 +621,16 @@ BOSS_SOURCE_DEVOURER_PHASE2,Faille à vif,Rift Laid Bare
 BOSS_PATTERN_DEVOURER_CLAW,Griffes de pierre,Stone Claws
 BOSS_PATTERN_HEAVY_SLAM,Double écrasement,Double Slam
 BOSS_PATTERN_RIFT_BREATH,Souffle de Faille,Rift Breath
+BOSS_PYREVORN_NAME,Pyrevorn,Pyrevorn
+BOSS_PYREVORN_TITLE,Dévoreur du cœur du volcan,Devourer of the Volcano Heart
+BOSS_PYREVORN_PHASE1,Seigneur du cratère,Lord of the Crater
+BOSS_PYREVORN_PHASE2,Œil de la Faille,Eye of the Rift
+BOSS_PATTERN_PYREVORN_CLAWS,Griffes de basalte,Basalt Claws
+BOSS_PATTERN_MAGMA_BREATH,Souffle de magma,Magma Breath
+BOSS_PATTERN_CRATER_RAIN,Pluie du cratère,Crater Rain
+BOSS_PATTERN_BROOD_CALL,Appel de la couvée,Brood Call
+BOSS_PATTERN_SKYFALL,Envol et chute,Skyfall
+BOSS_PATTERN_RIFT_EYE,Œil de la Faille,Rift Eye
 BOSS_PATTERN_ROOT_SWEEP,Balayage de racines,Root Sweep
 HUD_NAMED_BOSS_IN,%s arrive dans %d:%02d,%s arrives in %d:%02d
 HUD_ZONE_WAVE,Zone %d · Vague %d/%d · %d restants,Zone %d · Wave %d/%d · %d left
@@ -1514,6 +1524,13 @@ ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
 FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."
 LAVA_INTRO,"La lave déborde : sortez de la croûte qui rougeoie, ou attirez-y les Corrompus.","Lava is overflowing: get off the glowing crust, or lure the Corrupted onto it."
 TIDE_INTRO,"La marée monte : quittez les chaussées basses, elles vont être noyées.","The tide is rising: leave the low causeways, they are about to flood."
+GUARDIAN_INCOMING,Le sol tremble : un gardien arrive !,The ground shakes: a guardian is coming!
+GUARDIAN_ARRIVED,Gardien : %s,Guardian: %s
+ARENA_CALDERA_ARENA_NAME,Cœur du volcan,Volcano Heart
+ARENA_CALDERA_ARENA_DESC,"Une seule immense arène au fond du cratère : trois paliers de hordes, deux gardiens, puis Pyrevorn.","One huge arena at the bottom of the crater: three tiers of hordes, two guardians, then Pyrevorn."
+ZONE_CALDERA_1_NAME,Bord du cratère,Crater Rim
+ZONE_CALDERA_2_NAME,Fournaise,Furnace
+ZONE_CALDERA_3_NAME,Cœur du volcan,Volcano Heart
 MUD_INTRO,Vase ! Elle ralentit tout le monde et colle encore un instant : attirez-y les Corrompus.,Mud! It slows everyone and sticks for a moment: lure the Corrupted into it.
 ARENA_SURVIVAL_RUINS_NAME,Épreuve des Ruines,Ruins Trial
 ARENA_SURVIVAL_RUINS_DESC,"Les Ruines des Cascades grandes ouvertes : des vagues sans répit, puis la Sentinelle des Racines.","The Waterfall Ruins wide open: relentless waves, then the Root Sentinel."

@@ -3,7 +3,7 @@ extends Node2D
 ## Pluie de roches magmatiques (carte 10, finale du chapitre 2, docs/design/CARTES.md) : des roches tombent au hasard
 ## autour du Chasseur. Chaque chute est annoncée (ombre qui grandit et cercle au sol), puis la roche s'écrase : dégâts à
 ## tout le monde, Corrompus compris, et petite plaque de sol brûlant. Plus fréquente à chaque zone nettoyée et pendant
-## le combat final.
+## le combat final. Avec des cratères (ArenaData.rockfall_vents), chaque roche part en arc du plus proche : éruption.
 
 const ROCK := Color(0.16, 0.11, 0.1)
 const MAGMA := Color(1.0, 0.5, 0.12)
@@ -61,7 +61,18 @@ func drop(pos: Vector2) -> void:
 	var warning: float = ctx.arena.rockfall_warning
 	ctx.hazards.add_circle(pos, ctx.arena.rockfall_radius, warning,
 		ctx.arena.rockfall_damage * ctx.difficulty.enemy_damage_mult, true, &"rockfall")
-	falling.append({"pos": pos, "left": warning, "total": warning})
+	falling.append({"pos": pos, "left": warning, "total": warning, "from": _vent_for(pos)})
+	if not ctx.arena.rockfall_vents.is_empty():
+		ctx.fx.burst(_vent_for(pos), 60.0, Color(MAGMA, 0.55))
+
+
+## Cratère d'où part la roche (le plus proche de la cible) ; INF sans cratère.
+func _vent_for(pos: Vector2) -> Vector2:
+	var best := Vector2.INF
+	for vent: Vector2 in ctx.arena.rockfall_vents:
+		if best == Vector2.INF or vent.distance_squared_to(pos) < best.distance_squared_to(pos):
+			best = vent
+	return best
 
 
 func _pick_target() -> Vector2:
@@ -100,6 +111,15 @@ func _draw() -> void:
 		var progress: float = 1.0 - float(rock["left"]) / maxf(float(rock["total"]), 0.01)
 		var radius: float = ctx.arena.rockfall_radius
 		draw_circle(pos, radius * (0.25 + 0.55 * progress), Color(0.0, 0.0, 0.0, 0.25 + 0.25 * progress))
+		var from: Vector2 = rock.get("from", Vector2.INF)
+		if from != Vector2.INF:
+			# Éruption : la roche suit un arc du cratère jusqu'à la cible pendant toute l'alerte.
+			var height: float = clampf(from.distance_to(pos) * 0.35, 160.0, 700.0)
+			var arc: Vector2 = from.lerp(pos, progress) + Vector2(0.0, -sin(PI * progress) * height)
+			draw_circle(arc, radius * 0.34, ROCK)
+			draw_circle(arc, radius * 0.2, MAGMA)
+			draw_circle(arc, radius * 0.5, Color(MAGMA, 0.18))
+			continue
 		var fall: float = clampf(float(rock["left"]) / 0.5, 0.0, 1.0)
 		if fall < 1.0:
 			var center: Vector2 = pos + Vector2(0.0, -fall * 420.0)

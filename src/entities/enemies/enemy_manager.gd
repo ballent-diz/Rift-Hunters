@@ -150,6 +150,24 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 	return enemy
 
 
+## Élite en version boss (gardien d'un palier) : mêmes techniques, bien plus de PV, plus grande et plus rapide à les
+## enchaîner. Sa mort ne finit pas la carte (ZoneDirector attend sa mort pour clore le palier).
+func spawn_mini_boss(data: EnemyData, pos: Vector2, hp_mult: float, size_mult: float) -> Enemy:
+	var enemy: Enemy = spawn(data, pos)
+	enemy.mini_boss = true
+	enemy.is_elite = true
+	enemy.max_hp *= hp_mult
+	enemy.hp = enemy.max_hp
+	enemy.contact_damage *= ctx.balance.mini_boss_damage_mult
+	enemy.radius *= size_mult
+	enemy.visual.scale = Vector2.ONE * size_mult
+	enemy.xp_value *= 10
+	ctx.mini_boss = enemy
+	ctx.fx.burst(pos, enemy.radius * 2.5, Color(1.0, 0.45, 0.15, 0.6))
+	ctx.events.elite_spawned.emit(enemy)
+	return enemy
+
+
 func spawn_boss(data: BossData, pos: Vector2) -> Enemy:
 	var enemy := Enemy.new()
 	enemy.boss_data = data
@@ -667,7 +685,8 @@ func _tick_techniques(enemy: Enemy, delta: float, player_pos: Vector2) -> bool:
 			continue
 		if not call("_technique_" + String(technique.kind), enemy, technique, player_pos):
 			continue
-		enemy.technique_ready[technique] = ctx.time + technique.cooldown
+		enemy.technique_ready[technique] = ctx.time + technique.cooldown \
+			* (ctx.balance.mini_boss_cooldown_mult if enemy.mini_boss else 1.0)
 		enemy.visual.play_action(technique.anim)
 		return enemy.technique_busy > 0.0
 	return false

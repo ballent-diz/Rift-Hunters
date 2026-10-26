@@ -48,6 +48,8 @@ var burn: BurnDirector
 var pods: PodDirector
 var rockfall: RockfallDirector
 var tide: TideDirector
+## Gardien de palier en cours (élite en version boss), pour la barre de boss.
+var mini_boss: Enemy
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 

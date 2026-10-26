@@ -8,6 +8,8 @@ var data: EnemyData
 var boss_data: BossData
 var is_elite: bool = false
 var is_boss: bool = false
+## Élite en version boss (gardien de palier de la grande arène) : barre de boss, ne finit pas la carte.
+var mini_boss: bool = false
 ## Obstacle immobile (posé au départ via ArenaData.start_obstacles) : bloque le passage.
 var is_obstacle: bool = false
 var affixes: Array[EliteAffixData] = []
@@ -54,7 +56,7 @@ func is_target() -> bool:
 
 
 func data_knockback_resist() -> float:
-	if is_boss or is_obstacle:
+	if is_boss or is_obstacle or mini_boss:
 		return 1.0
 	return data.knockback_resist if data else 0.0
 
