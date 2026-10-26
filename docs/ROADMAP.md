@@ -1,5 +1,30 @@
 # Rift Hunters — feuille de route
 
+## Suite du lot du 26 octobre (Claude) : mécanique phare par boss, Glauquemire, équilibrage des cartes 1 à 6
+
+- **Un Écho par carte** gagnée, les moins forts d'abord ([design/COLLECTION_ECHOS.md](design/COLLECTION_ECHOS.md)).
+- **Mécanique phare par boss**, gardiens compris (`BossData.signature`, `test_boss_signatures`) :
+  - Astravorn : couronne d'astres ;
+  - Sentinelle : séisme ;
+  - Chimère : voile de brume ;
+  - Dévoreur des Sources : orbes de source ;
+  - Gardien du bûcher : charge du bûcher ;
+  - Pyrevorn : séquence des cratères ;
+  - Glauquemire : miroirs à orienter.
+- **Glauquemire**, Dévoreur du chapitre 3 (3 phases, 8 mécaniques nouvelles) : forme provisoire, prompt de Codex dans
+  [design/DEVOREUR_CHAPITRE3.md](design/DEVOREUR_CHAPITRE3.md). Les cartes 13 à 15 sont conçues dans
+  [design/CARTES.md](design/CARTES.md). La lanterne de brume attend aussi son sprite.
+- **Équilibrage aux règles actuelles** (un Écho au départ, pas de drops) : cartes 1 à 6 mesurées au bot. Multiplicateurs
+  de boss par carte (`boss_hp_mult`, `boss_damage_mult`). Tableau dans [design/DIFFICULTE.md](design/DIFFICULTE.md).
+- **Navigation** : le bot (et les Corrompus) sortent des recoins plus étroits que la marge de la carte de flux. C'était
+  le blocage de la carte 6.
+- **Collisions pré-peintes des cartes 7 à 9** : à corriger par le propriétaire (`assets/concepts/incoming/map.<id>/collision/`).
+- **Restent à faire** :
+  - décor de la carte 10 ;
+  - collisions définitives des cartes 7 à 9, puis leurs propres gardiens (chacun avec sa mécanique phare) ;
+  - arènes des cartes 11 à 15 ;
+  - la carte 5 dure 10 à 15 minutes, plus que la cible du chapitre 1 : nombre de vagues à revoir en test.
+
 ## Lot du 26 octobre (Claude) : grande arène, chapitre 3, nids
 
 Carte 10 en **grande arène** (`caldera_arena`, en attente du décor de Codex) : 3 paliers, Titan de caldeira et
