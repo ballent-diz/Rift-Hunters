@@ -104,6 +104,14 @@ func _physics_process(_delta: float) -> void:
 		if ctx.zones:
 			print("    zone %d phase %d vague %d · finale %d · position %s" % [ctx.zones.zone_index, ctx.zones.phase,
 				ctx.zones.wave_index, ctx.finale.state if ctx.finale else -1, ctx.player.global_position.round()])
+			# Fin de vague qui traîne : qui reste, où, et le Chasseur peut-il le toucher ?
+			if ctx.zones.phase == ZoneDirector.Phase.WAVE and ctx.zones.remaining() <= 3:
+				for enemy: Enemy in ctx.enemies.list:
+					if enemy.alive and not enemy.is_boss and not enemy.is_obstacle:
+						print("      reste %s %s à %d, PV %d, vue %s, cible %s" % [enemy.data.id if enemy.data else &"?",
+							enemy.position.round(), int(enemy.position.distance_to(ctx.player.global_position)),
+							int(enemy.hp), ctx.obstacles.line_clear(ctx.player.global_position, enemy.position),
+							enemy.is_target()])
 	if _frames > _max_frames:
 		# Mesures en invulnérable (--god --max-minutes) : les dégâts par source servent au classement des Échos.
 		print("Dégâts par source : ", _run.build_result()["stats"]["damage_by_source"])
