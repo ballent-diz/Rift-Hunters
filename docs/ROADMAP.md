@@ -1,10 +1,5 @@
 # Rift Hunters — feuille de route
 
-## B3 — Carte 11, Mangrove des racines : visuels livrés pour revue (Codex)
-
-Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
-
-
 ## B3 — Carte 9 sélectionnée, volcan carré : détails livrés pour revue (Codex)
 
 Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contrôle global conforme et chargement Godot 4.3 réussi. Rapport et planche d’échelle dans docs/previews/volcano-heart-detail/. Identifiant graphique historique map.volcano_heart conservé ; aucune modification de src/, data/ ou collision. Carte graphique livrée, intégration jouable à faire.
@@ -275,3 +270,7 @@ Composition livrée pour validation (Codex, 21 octobre) : lisière brûlée et m
 Visuels livrés (Codex, 21 octobre) : 16 régions pour Source des Cascades, 12 pour Lisière calcinée. Arènes distinctes, deux abris espacés chacune ; rapports qualité conformes et comparaisons d’échelle livrés. Collisions du propriétaire et intégration Claude à venir.
 
 Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs, fidélité 0,978), planche d’échelle et carte de netteté livrées. Deux secteurs de gorge fumante restent signalés. Collisions du propriétaire et intégration Claude à venir.
+
+## B3 — Carte 11, Mangrove des racines : visuels livrés pour revue (Codex)
+
+Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
