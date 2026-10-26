@@ -1513,6 +1513,8 @@ ALTAR_STATUS_WAVE,Vague %d / %d · encore %d s,Wave %d / %d · %d s left
 ALTAR_STATUS_NEXT,Vague %d / %d dans %d s,Wave %d / %d in %d s
 FLOOD_INTRO,"Crue ! Quittez le lit de la rivière, ou attirez-y les Corrompus.","Flood! Leave the riverbed, or lure the Corrupted into it."
 LAVA_INTRO,"La lave déborde : sortez de la croûte qui rougeoie, ou attirez-y les Corrompus.","Lava is overflowing: get off the glowing crust, or lure the Corrupted onto it."
+TIDE_INTRO,"La marée monte : quittez les chaussées basses, elles vont être noyées.","The tide is rising: leave the low causeways, they are about to flood."
+MUD_INTRO,Vase ! Elle ralentit tout le monde et colle encore un instant : attirez-y les Corrompus.,Mud! It slows everyone and sticks for a moment: lure the Corrupted into it.
 ARENA_SURVIVAL_RUINS_NAME,Épreuve des Ruines,Ruins Trial
 ARENA_SURVIVAL_RUINS_DESC,"Les Ruines des Cascades grandes ouvertes : des vagues sans répit, puis la Sentinelle des Racines.","The Waterfall Ruins wide open: relentless waves, then the Root Sentinel."
 ARENA_SURVIVAL_HIGHLANDS_NAME,Épreuve des Hautes Terres,Highlands Trial

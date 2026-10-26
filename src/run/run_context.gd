@@ -47,6 +47,7 @@ var flood: FloodDirector
 var burn: BurnDirector
 var pods: PodDirector
 var rockfall: RockfallDirector
+var tide: TideDirector
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
 
@@ -85,8 +86,8 @@ func objective_direction(pos: Vector2) -> Vector2:
 
 
 ## Ralentissement du terrain à cette position (1 si la carte n'a pas de terrain lent).
-func terrain_speed(pos: Vector2) -> float:
-	return terrain.speed_mult(pos) if terrain else 1.0
+func terrain_speed(pos: Vector2, who: int = 0) -> float:
+	return terrain.speed_mult(pos, who) if terrain else 1.0
 
 
 ## Dérive des courants et des crues à cette position (px/s ; zéro ailleurs).
@@ -106,4 +107,8 @@ func danger_vector(pos: Vector2) -> Vector2:
 		result += flood.danger(pos)
 	if burn:
 		result += burn.danger(pos)
+	if terrain:
+		result += terrain.danger(pos)
+	if tide:
+		result += tide.danger(pos)
 	return result

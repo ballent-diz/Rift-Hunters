@@ -147,7 +147,8 @@ func step(delta: float) -> void:
 			ctx.events.player_dashed.emit(_dash_from, global_position)
 	else:
 		var hinder: float = _hinder_mult if _hinder_time > 0.0 else 1.0
-		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() * ctx.terrain_speed(position) * hinder
+		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() \
+			* ctx.terrain_speed(position, get_instance_id()) * hinder
 		# Courants et crues emportent le Chasseur (pas pendant la Ruée).
 		position += (velocity + ctx.terrain_drift(position)) * delta
 		if brain.wants_dash() and dash_cooldown_left <= 0.0:

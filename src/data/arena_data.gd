@@ -95,6 +95,21 @@ extends Resource
 @export_range(0.1, 1.0) var slow_zone_mult: float = 0.6
 ## Gués déjà peints sur la carte : pas de teinte ni d'ondulations dessinées par-dessus.
 @export var slow_zones_painted: bool = false
+@export_group("Vase qui colle (brique B1, chapitre 3)")
+## Nappes de vase praticables : tout le monde y est fortement ralenti, et la vase colle encore mud_stick secondes
+## après en être sorti (la vitesse revient progressivement). La Ruée garde sa vitesse.
+@export var mud_zones: Array[Rect2] = []
+@export_range(0.1, 1.0) var mud_mult: float = 0.45
+@export var mud_stick: float = 1.0
+## Vase déjà peinte sur la carte : pas de teinte dessinée par-dessus (les bulles restent).
+@export var mud_painted: bool = false
+@export_group("Marée (brique B4, chapitre 3)")
+## Chaussées basses : raccourcis à marée basse, noyées et infranchissables à marée haute (TideDirector).
+@export var tide_causeways: Array[Rect2] = []
+@export var tide_first: float = 25.0
+@export var tide_low: float = 20.0
+@export var tide_warning: float = 4.0
+@export var tide_high: float = 12.0
 @export_group("Courants (brique B6, docs/design/CARTES.md)")
 ## Courants permanents : le Chasseur et les Corrompus y dérivent dans le sens du courant (pas pendant la Ruée ;
 ## boss et Échos épargnés). Le suivre fait gagner du temps, le remonter en fait perdre.
