@@ -200,7 +200,8 @@ func _choose_pattern(distance: float) -> BossPatternData:
 
 
 func _damage(pattern: BossPatternData) -> float:
-	return pattern.damage * ctx.difficulty.enemy_damage_mult * (ctx.balance.boss_enrage_damage_mult if enraged else 1.0)
+	return pattern.damage * ctx.difficulty.enemy_damage_mult * ctx.arena.boss_damage_mult \
+		* (ctx.balance.boss_enrage_damage_mult if enraged else 1.0)
 
 
 ## Griffe du vide : frappe télégraphiée devant le boss.

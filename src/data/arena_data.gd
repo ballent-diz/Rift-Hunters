@@ -49,6 +49,10 @@ extends Resource
 ## Force des Corrompus propre à la carte (épreuves de survie de plus en plus dures), en plus de la difficulté.
 @export var enemy_hp_mult: float = 1.0
 @export var enemy_damage_mult: float = 1.0
+## Boss et gardien de la carte (Dévoreurs, gardiens) : leurs PV et leurs dégâts ne suivent pas enemy_hp_mult ;
+## ces réglages corrigent un boss trop fort ou trop faible pour sa place dans la campagne.
+@export var boss_hp_mult: float = 1.0
+@export var boss_damage_mult: float = 1.0
 @export_group("Vagues infinies (carte bonus, docs/design/MODES.md)")
 ## Pas de boss : les vagues s'enchaînent sans fin (une toutes les endless_wave_duration secondes) ; score = vague
 ## atteinte. La dernière tranche de `waves` se répète, plus dense à chaque vague.

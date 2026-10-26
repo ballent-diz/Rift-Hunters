@@ -185,11 +185,11 @@ func spawn_boss(data: BossData, pos: Vector2) -> Enemy:
 	enemy.boss_data = data
 	enemy.is_boss = true
 	enemy.position = pos
-	enemy.max_hp = data.max_hp * ctx.difficulty.enemy_hp_mult
+	enemy.max_hp = data.max_hp * ctx.difficulty.enemy_hp_mult * ctx.arena.boss_hp_mult
 	enemy.hp = enemy.max_hp
 	enemy.base_defense = data.defense
 	enemy.radius = data.radius
-	enemy.contact_damage = data.damage * ctx.difficulty.enemy_damage_mult
+	enemy.contact_damage = data.damage * ctx.difficulty.enemy_damage_mult * ctx.arena.boss_damage_mult
 	enemy.move_speed = data.move_speed
 	enemy.visual = EntityVisual.new()
 	enemy.add_child(enemy.visual)
