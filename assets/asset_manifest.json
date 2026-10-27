@@ -12243,7 +12243,7 @@
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
