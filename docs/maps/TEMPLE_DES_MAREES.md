@@ -95,4 +95,5 @@ La grille officielle de 160 unités signale **333 cases sur 620 (53.7%)** sous s
 
 Le traitement sélectif officiel Real-ESRGAN a été exécuté sur les cases signalées, mais écarté : finesse globale **330,234 → 308,218**, donc non conforme après traitement. La version originale est conservée. [Chiffres avant/après](../previews/tide-temple/essai_nettete.json). PR en brouillon, sans intégration runtime ; aucune revendication de carte finalisée.
 
-Poids des nouveaux fichiers uniques : **127.0 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).
+
+Poids des nouveaux fichiers uniques : **118.8 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).
