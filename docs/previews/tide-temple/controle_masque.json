@@ -9,7 +9,7 @@
     1024,
     1536
   ],
-  "source_sha256": "5b22ee2ce6234597680b21f72914d715ff9216a1f4a937754ad7d3bc2006cdf6",
-  "final_sha256": "9a8a3cdd9234ef2d90cb64aedc1f691a7318c581c626b61cec20a26c18b2188d",
-  "method": "Positions du masque provisoire figé ; adaptation au format final sans interpolation des valeurs. Pas un masque de collisions."
+  "source_sha256": "b532bd0a3821c04e1e8feb96ed1a021f85a7b20fc494bb52858b31274f86ccd2",
+  "final_sha256": "0bde6cd31f928acd974d08eb5824e701c1f44a258831b8319d60f7abd022b734",
+  "method": "Correction du masque de marée créé par Codex pour couvrir le tablier déjà peint ; aucun élargissement du dessin, aucune collision modifiée."
 }

@@ -31,7 +31,7 @@ Le tracé jaune du plan est schématique : il indique l’ordre des terrasses, p
 | T02 | 35.059, 46.81, 61.328, 53.646 | 826.7 | 173.5 |
 | T03 | 15.234, 39.518, 21.68, 47.526 | 389.6 | 186.4 |
 | T04 | 77.539, 33.594, 88.574, 39.714 | 336.9 | 166.9 |
-| T05 | 55.371, 7.031, 73.438, 14.583 | 576.9 | 128.0 |
+| T05 | 54.199, 6.576, 74.219, 15.56 | 590.3 | 210.0 |
 
 Mesures de l’emprise technique du masque, pas d’une navigation simulée : [détails](../previews/tide-temple/mesures_chaussees.json). Le masque couvre toute la largeur, joints compris, avec de petites marges extérieures dans l’eau déjà infranchissable ; aucune bande latérale volontairement laissée hors masque.
 
@@ -71,7 +71,7 @@ Douze régions (3 × 4), redessinées avec une référence des Ruines à chaque 
 | secteurs conformes (part) | 1.0 |
 | fidélité au plan validé (corrélation) | 0.984 |
 
-Verdict **global CONFORME**, seuils inchangés. La réserve de netteté locale ci-dessous empêche de qualifier la livraison de définitive. [Rapport](../previews/tide-temple/qualite.json) · [Échelle](../previews/tide-temple/echelle.webp) · [Carte entière](../previews/tide-temple/carte_entiere.webp). Les extraits de comparaison restent à 1 pixel = 1 unité, réorganisés sans redimensionnement.
+Verdict **global CONFORME**, seuils inchangés. Le diagnostic de netteté locale et son interprétation avant/après sont détaillés ci-dessous ; la validation artistique et la navigation restent manuelles. [Rapport](../previews/tide-temple/qualite.json) · [Échelle](../previews/tide-temple/echelle.webp) · [Carte entière](../previews/tide-temple/carte_entiere.webp). Les extraits de comparaison restent à 1 pixel = 1 unité, réorganisés sans redimensionnement.
 
 Import et chargement des textures et du masque contrôlés dans un projet Godot 4.3 isolé. Le [repère Chasseur/Mousseroc](../previews/tide-temple/secteur_echelle.webp) est un montage technique à l’échelle, pas une capture en partie.
 
@@ -82,27 +82,31 @@ Import et chargement des textures et du masque contrôlés dans un projet Godot 
 - [x] Identité du chapitre 3, bordures fermées, centres de combat ouverts.
 - [x] Masque de marée final, mesures et plan annoté.
 - [x] Douze régions, assemblage, qualité globale conforme et planche d’échelle.
-- [ ] Netteté locale conforme : réserve ouverte, statut wip.
+- [x] Correction des contours, contrôle sur la référence figée avant correction ; diagnostic relatif après correction conservé séparément.
 - [x] Contrôle ciblé de chargement Godot.
 - [ ] Validation manuelle des tailles, de la circulation et des détours par le propriétaire.
 - [ ] Collisions peintes, marée, quatre failles, gardien et niveau jouable intégrés par Claude.
 
 Aucun `src/`, `data/` ou masque existant modifié. Entrée du manifeste runtime différée, sans inventer de `field`. Sources retenues, prompts exacts et SHA256 dans `assets/concepts/incoming/map.tide_temple/`.
 
-## Restauration des contours et réserve locale
+## Restauration des contours et contrôle avant/après
 
-Une première correction sélective brute a été rejetée : finesse **330,234 → 308,218**, non conforme. Le traitement retenu conserve la matière peinte et transfère uniquement les contours reconstruits par le modèle officiel sur toute la carte : filtre de détail sigma 1,25, poids 0,75, mêmes blocs de 512 pixels et recouvrements de 32. Aucun bruit ajouté, aucune modification de seuil, aucun changement du plan. Recette, code exact et empreintes du modèle sont dans `source/RESTAURATION_CONTOURS.json` et `.py`.
+La correction sélective brute a été rejetée : finesse **330,234 → 308,218**, non conforme. La recette retenue conserve la matière et transfère uniquement les contours reconstruits par le modèle officiel sur toute la carte : filtre de détail sigma 1,25, poids 0,75, blocs de 512 pixels, recouvrements de 32. Aucun bruit ajouté, aucun changement du plan. Code exact, paramètres et empreintes du modèle dans `source/RESTAURATION_CONTOURS.json` et `.py`.
 
-Le contrôle global passe après restauration : **348,773 détails fins**, **100,808 moyens**, **100 % de secteurs conformes**, fidélité **0,984**. Les tuiles WebP sont sans perte : leurs pixels décodés ont été vérifiés identiques à ceux du candidat contrôlé. Import et chargement Godot revérifiés une seule fois après remplacement.
+Après restauration : contrôle global **CONFORME**, détails fins **348,773**, moyens **100,808**, secteurs conformes **100 %**, fidélité **0,984**. Les pixels des WebP sont identiques au candidat contrôlé. [Avant/après au même zoom](../previews/tide-temple/avant_apres_zoom.webp) · [Chiffres](../previews/tide-temple/restauration_contours.json).
 
-[Avant/après au même zoom](../previews/tide-temple/avant_apres_zoom.webp) · [Chiffres et provenance](../previews/tide-temple/restauration_contours.json).
+Le diagnostic relatif recalculé sur la carte corrigée signale encore **219/620 cases (35,3 %)**, contre 333 avant ; ce rapport **ne passe pas** son seuil de 5 %. Il reste joint, sans seuil modifié. Toutefois, `QUALITE_DES_CARTES.md` précise que la référence se mesure **avant correction**, car les zones corrigées deviennent ensuite la nouvelle référence. Le blocage fondé uniquement sur la référence recalculée après traitement était donc une interprétation trop stricte de ce diagnostic.
 
-Le diagnostic relatif de netteté s’améliore de **333 à 219 cases signalées sur 620 (53,7 % → 35,3 %)**. Il reste au-dessus du seuil de 5 % : **réserve maintenue, statut wip, PR en brouillon**. Les Ruines de référence signalent elles-mêmes 50 % dans ce diagnostic, mais cela ne suffit pas à déclarer le Temple conforme localement. Aucune affirmation « aucune case floue ».
+L’audit complémentaire conserve la référence initiale réelle **0,002278732368722558**, le même rapport **0,6** et le même seuil de part signalée **5 %** : **0 case sur 620** sous le seuil initial après correction. Ce n’est pas présenté comme un passage du contrôle relatif recalculé ; les deux résultats restent distincts. [Audit avant/après](../previews/tide-temple/audit_final.json) · [Carte de chaleur relative recalculée](../previews/tide-temple/tide_temple_sharpness.png).
 
-[Carte de chaleur](../previews/tide-temple/tide_temple_sharpness.png) · [Cases signalées](../previews/tide-temple/tide_temple_blurry.json) · [Rapport local](../previews/tide-temple/netteté_locale.json). Le comparatif spectral antérieur reste un historique de la version avant restauration.
+## T05 : correction du masque technique
 
-### Correction d’une mesure de chaussée
+La mesure initiale avait interverti les côtés longs et courts ; l’audit a ensuite montré que le masque ne couvrait que l’intérieur du tablier déjà peint. Le masque de marée créé par Codex couvre maintenant la largeur du tablier existant : longueur moyenne **590,3 unités**, largeur moyenne **210,0 unités**, dans l’objectif de 150–300. Les quatre autres chaussées restent inchangées, cinq composantes binaires conservées. Aucune modification de l’image, aucun élargissement de terrain ni changement de collision.
 
-La mesure initiale de T05 avait interverti les côtés longs et courts du polygone. Sa longueur correcte est **576,9 unités**, sa largeur moyenne **128,0 unités**, sous l’objectif de 150–300 : écart à examiner avec le propriétaire. Le dessin et le masque restent inchangés ; aucune adaptation de masque pour masquer cet écart. Les quatre autres largeurs moyennes vont de 166,9 à 186,4 unités.
+[Superposition avant/après T05](../previews/tide-temple/t05_correction.webp). Le masque reste une emprise de submersion, pas une certification de navigation ; son adéquation précise avec les collisions sera vérifiée à l’intégration.
 
-Poids des nouveaux fichiers uniques : **140.2 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).
+## État de livraison
+
+Passe de détail, assemblage, masque et contrôles visuels livrés pour revue. Aucune revendication de niveau jouable : collisions, marée, quatre failles et gardien restent à intégrer par Claude. La validation artistique, les tailles des abris et la circulation en jeu restent au propriétaire. Aucun outil ni seuil de référence modifié.
+
+Poids des nouveaux fichiers uniques : **140.4 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).

@@ -104,20 +104,20 @@
     ],
     [
       [
-        55.371,
-        8.008
+        54.199,
+        8.919
       ],
       [
-        59.668,
-        7.031
+        60.156,
+        6.576
       ],
       [
-        73.438,
-        12.174
+        74.219,
+        12.044
       ],
       [
-        71.289,
-        14.583
+        70.41,
+        15.56
       ]
     ]
   ],
@@ -130,5 +130,6 @@
     "Final"
   ],
   "topology": "Les cinq ponts hauts relient les six terrasses en continu. Les cinq chaussées basses sont des raccourcis supplémentaires.",
-  "collisions": "Non peintes. Validation visuelle, pas de navigation simulée."
+  "collisions": "Non peintes. Validation visuelle, pas de navigation simulée.",
+  "technical_mask_correction": "T05 : couvrir le tablier existant ; aucune modification du plan image."
 }

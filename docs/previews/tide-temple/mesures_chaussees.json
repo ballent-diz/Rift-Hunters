@@ -50,13 +50,13 @@
   {
     "id": "T05",
     "bbox_percent": [
-      55.371,
-      7.031,
-      73.438,
-      14.583
+      54.199,
+      6.576,
+      74.219,
+      15.56
     ],
-    "length_units": 576.9,
-    "average_width_units": 128.0,
+    "length_units": 590.3,
+    "average_width_units": 210.0,
     "definition": "Largeur moyenne de l’emprise technique du masque : aire divisée par longueur entre milieux des extrémités."
   }
 ]

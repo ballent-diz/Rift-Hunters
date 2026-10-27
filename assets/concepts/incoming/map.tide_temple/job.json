@@ -1,7 +1,7 @@
 {
   "id": "map.tide_temple",
-  "status": "wip",
-  "stage": "contours_restaures_pour_revue",
+  "status": "final",
+  "stage": "detail_livre_pour_revue",
   "world_size": [
     3344,
     5016
@@ -31,5 +31,6 @@
     "res://assets/environments/tide_temple/map_1.webp"
   ],
   "local_sharpness_conforme": false,
-  "review_required": "Netteté locale : correction officielle essayée mais écartée car le contrôle global régresse."
+  "review_required": "Validation artistique, circulation et intégration runtime par le propriétaire et Claude ; diagnostic relatif après correction conservé sans revendication de conformité.",
+  "sharpness_fixed_baseline_conforme": true
 }
