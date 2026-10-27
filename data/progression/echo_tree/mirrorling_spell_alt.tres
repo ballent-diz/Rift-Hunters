@@ -17,4 +17,5 @@ prerequisites_any = true
 exclusive_group = &"mirrorling_spell"
 spell_id = &"mirror_shards"
 learned_by_default = false
+required_mastery = 1
 effects = []

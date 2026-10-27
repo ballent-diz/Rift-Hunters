@@ -1,9 +1,12 @@
 # Rift Hunters — feuille de route
 
-## Sorts natifs des chapitres 3 et 4 — livré pour revue (Codex, 26 octobre 2026)
+## Sorts des monstres chapitres 3 et 4 — amélioration visuelle en cours (Codex, PR #78)
 
-Branche `codex/sorts-monstres-chapitres-3-4` : scènes de présentation Godot des Enlisés, des Reflets et de Glauquemire ; prototypes du chapitre 4. Aucun changement de gameplay. 56 scènes autonomes ; contrôle ciblé Godot 4.3 sans erreur et 10 aperçus rendus par Godot. Contrat : `docs/art/MARAIS_SORTS_GODOT.md`. Raccordement par Claude et validation artistique à suivre.
+56 scènes autonomes récupérées de Work ; matière, anticipation, frappe et dissipation en cours de reprise au niveau des effets du Chasseur. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
 
+## B3 — Carte 10, Cœur du volcan : visuels livrés pour revue (Codex)
+
+Nouvelle map-arène multi-lobes, sans reprise de la spirale. Carte 9 renommée Le Seuil du Cataclysme (cataclysm_threshold) sur demande du propriétaire. Ensuite seulement : cartes 11 puis 12, puis sprites chapitre 3. Le propriétaire autorise désormais la poursuite sans attendre de réponses ; choix et contrôles documentés.
 
 ## Suite du lot du 26 octobre (Claude) : mécanique phare par boss, Glauquemire, équilibrage des cartes 1 à 6
 
@@ -26,9 +29,11 @@ Branche `codex/sorts-monstres-chapitres-3-4` : scènes de présentation Godot de
     la carte 6 ;
   - le Chasseur coincé dans une fente du décor est replacé sur un point libre (carte 1) ;
   - pendant une vague, la flèche ramène à la zone en cours (carte 5).
-- **Collisions pré-peintes des cartes 7 à 9** : à corriger par le propriétaire (`assets/concepts/incoming/map.<id>/collision/`).
+- **Collisions pré-peintes des cartes 7 à 9** : à corriger par le propriétaire (`assets/concepts/incoming/map.<id>/collision/` ;
+  carte 9 : `map.cataclysm_threshold`).
 - **Restent à faire** :
-  - décor de la carte 10 ;
+  - raccorder à `caldera_arena` le décor de la carte 10 livré par Codex (`volcano_heart`, PR 76) : manifeste,
+    collisions, navigation, nappes brûlantes ;
   - collisions définitives des cartes 7 à 9, puis leurs propres gardiens (chacun avec sa mécanique phare) ;
   - arènes des cartes 11 à 15 ;
   - gardiens des cartes 7 à 9 : propositions dans [design/MONSTRES.md](design/MONSTRES.md), à valider.
@@ -42,7 +47,7 @@ cartes 11 (vase qui colle) et 12 (marée). Mécaniques ennemies du chapitre 3 (E
 
 ## B3 — Carte 9 sélectionnée, volcan carré : détails livrés pour revue (Codex)
 
-Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contrôle global conforme et chargement Godot 4.3 réussi. Rapport et planche d’échelle dans docs/previews/volcano-heart-detail/. Identifiant graphique historique map.volcano_heart conservé ; aucune modification de src/, data/ ou collision. Carte graphique livrée, intégration jouable à faire.
+Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contrôle global conforme et chargement Godot 4.3 réussi. Rapport et planche d’échelle dans docs/previews/cataclysm-threshold-detail/. Identifiant visuel cataclysm_threshold (Le Seuil du Cataclysme) ; aucune modification de src/, data/ ou collision. Carte graphique livrée, intégration jouable à faire.
 
 
 ## B3 — Carte 7, Évents de cendre : détails livrés pour revue (Codex)
@@ -310,3 +315,7 @@ Composition livrée pour validation (Codex, 21 octobre) : lisière brûlée et m
 Visuels livrés (Codex, 21 octobre) : 16 régions pour Source des Cascades, 12 pour Lisière calcinée. Arènes distinctes, deux abris espacés chacune ; rapports qualité conformes et comparaisons d’échelle livrés. Collisions du propriétaire et intégration Claude à venir.
 
 Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs, fidélité 0,978), planche d’échelle et carte de netteté livrées. Deux secteurs de gorge fumante restent signalés. Collisions du propriétaire et intégration Claude à venir.
+
+## B3 — Carte 11, Mangrove des racines : visuels livrés pour revue (Codex)
+
+Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.

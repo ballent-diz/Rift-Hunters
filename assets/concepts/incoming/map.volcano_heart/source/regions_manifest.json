@@ -1,0 +1,370 @@
+[
+  {
+    "region": "r0_0",
+    "crop_world": [
+      0.0,
+      0.0,
+      1414.0,
+      1414.0
+    ],
+    "core_world": [
+      0.0,
+      0.0,
+      1254.0,
+      1254.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "906ed8ae0c698cadf8069e56d75429211266829d506c59c1169937e2aa85382d",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "df54dbd7ab1a9e7e42f3bb4ecf6ffd9ed4fa35639a6372176b2076236975e12f",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_1",
+    "crop_world": [
+      1094.0,
+      0.0,
+      2668.0,
+      1414.0
+    ],
+    "core_world": [
+      1254.0,
+      0.0,
+      2508.0,
+      1254.0
+    ],
+    "size": [
+      1324,
+      1188
+    ],
+    "sha256": "36360d8eb8f9630f16ddeadbc88a197b8eb0107cb102a80f6067ab16376a587f",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "93f570b3983402abdd54450e7a531f259478ebe21c17a2609145159f3b2b7c9c",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_2",
+    "crop_world": [
+      2348.0,
+      0.0,
+      3922.0,
+      1414.0
+    ],
+    "core_world": [
+      2508.0,
+      0.0,
+      3762.0,
+      1254.0
+    ],
+    "size": [
+      1323,
+      1189
+    ],
+    "sha256": "c2558400093fd011595639b5f3170722564b51738fd2925cf5cde5620fce40bc",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "b7cafba2ca8522575723c6ce8133857a5dda1fc68e145d9456fea9f4aabfe81e",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_3",
+    "crop_world": [
+      3602.0,
+      0.0,
+      5016,
+      1414.0
+    ],
+    "core_world": [
+      3762.0,
+      0.0,
+      5016.0,
+      1254.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "d1fcee40b9e7b6853d2b2d1e57f14b51bc3d0eefbfda7d176b8c290618a83aed",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "4a4b7d080ef1e5496703d400bf80ff097910794530baa721a66593c1dbf779c8",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_0",
+    "crop_world": [
+      0.0,
+      1094.0,
+      1414.0,
+      2668.0
+    ],
+    "core_world": [
+      0.0,
+      1254.0,
+      1254.0,
+      2508.0
+    ],
+    "size": [
+      1188,
+      1324
+    ],
+    "sha256": "d5bb837ac2248e354d674cbe7cc6626179b20b064cc74dd4b170340474d426da",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "d6e1ce4d84b06a2b884e8704226000c5d9f41b8e66eb94f233f9a6fce8012cdd",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_1",
+    "crop_world": [
+      1094.0,
+      1094.0,
+      2668.0,
+      2668.0
+    ],
+    "core_world": [
+      1254.0,
+      1254.0,
+      2508.0,
+      2508.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "fc0f505d4fb503799c743acdfd270f775bef1b447006d2d185d7df8afeac998f",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "9e3c78b384b1840faf4518cf72b97b4422c8c7d7b019380d1dc0fc631119a2c7",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_2",
+    "crop_world": [
+      2348.0,
+      1094.0,
+      3922.0,
+      2668.0
+    ],
+    "core_world": [
+      2508.0,
+      1254.0,
+      3762.0,
+      2508.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "58d8754ed751e1aaaa963408b858251d95883a9fa4a6a5086d64a163a7ca1062",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "9d75bce866968d9080f672e090e1111aa54526785e549f2c0f777cae4d2a4fc1",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_3",
+    "crop_world": [
+      3602.0,
+      1094.0,
+      5016,
+      2668.0
+    ],
+    "core_world": [
+      3762.0,
+      1254.0,
+      5016.0,
+      2508.0
+    ],
+    "size": [
+      1188,
+      1324
+    ],
+    "sha256": "f0953bd7ebb889ef940bebd676db1a477ec63c46194ada4e09f1e62ebd3c64d7",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "9dfc39319c63dbaeba1024ef164e95a6d9d880962878d0378f85652d8cd1ca1c",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_0",
+    "crop_world": [
+      0.0,
+      2348.0,
+      1414.0,
+      3922.0
+    ],
+    "core_world": [
+      0.0,
+      2508.0,
+      1254.0,
+      3762.0
+    ],
+    "size": [
+      1188,
+      1324
+    ],
+    "sha256": "3e1a6a790757af7b3c278a89bbe20824c3199928496f5eb898703e2c7be9a268",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "08b9b52b80bb93392d39f250225c518633d5d3ba3d31d2459a65eb4cb0d93c3a",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_1",
+    "crop_world": [
+      1094.0,
+      2348.0,
+      2668.0,
+      3922.0
+    ],
+    "core_world": [
+      1254.0,
+      2508.0,
+      2508.0,
+      3762.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "56485799dd799a9c3d926ba147ecfceb409b6489bd919d83f36216b63ded308c",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "a7882813652d7cfdee217c3384ef87f5fb19976a90a3d9f38ebb6d6dcc05a27a",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_2",
+    "crop_world": [
+      2348.0,
+      2348.0,
+      3922.0,
+      3922.0
+    ],
+    "core_world": [
+      2508.0,
+      2508.0,
+      3762.0,
+      3762.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "9911314132ba6154b0c598bff31635a9d535eddd8c40ccd2e2bb8cb9dd315085",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "c4f57b364ca92688a6e7434ac8fdbdc22a10a0f649ba64c21e7bad723de25eb8",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_3",
+    "crop_world": [
+      3602.0,
+      2348.0,
+      5016,
+      3922.0
+    ],
+    "core_world": [
+      3762.0,
+      2508.0,
+      5016.0,
+      3762.0
+    ],
+    "size": [
+      1189,
+      1323
+    ],
+    "sha256": "c3f78abb428891d672f687f58dac5e6afa2cb6a7f0abb846b89172cc68af3019",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "f5e82069a2f263c6172922181ff50767a318d057e030afca7de4ed65db02a59b",
+    "stored_in_git": false
+  },
+  {
+    "region": "r3_0",
+    "crop_world": [
+      0.0,
+      3602.0,
+      1414.0,
+      5016
+    ],
+    "core_world": [
+      0.0,
+      3762.0,
+      1254.0,
+      5016.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "1c223ef992435d2121eb8b3beef7a5817a51c6cdc24f9898783de103a3239815",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "86a62c8885fb3e4aeebc61145575ed53b1861a4958d85ee7d3ddf6b786c61dcd",
+    "stored_in_git": false
+  },
+  {
+    "region": "r3_1",
+    "crop_world": [
+      1094.0,
+      3602.0,
+      2668.0,
+      5016
+    ],
+    "core_world": [
+      1254.0,
+      3762.0,
+      2508.0,
+      5016.0
+    ],
+    "size": [
+      1324,
+      1188
+    ],
+    "sha256": "1ae1d89b961954ade4b8eb707305ef3ecc0d2eb0d817633d1e7844c3930820c8",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "7d54987412ddd159209a3d22d8a9262775dd26abc3c1c21f9ec1ffa227ecd624",
+    "stored_in_git": false
+  },
+  {
+    "region": "r3_2",
+    "crop_world": [
+      2348.0,
+      3602.0,
+      3922.0,
+      5016
+    ],
+    "core_world": [
+      2508.0,
+      3762.0,
+      3762.0,
+      5016.0
+    ],
+    "size": [
+      1323,
+      1189
+    ],
+    "sha256": "caf7d9cc9dd7ae8ee6ac7466dbbe0ce822d865737f60f426bb8382f8e457fd2c",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "2cc8765dd7bbb54166b0796413d6458a17d09cb41bcd07954772a08105be3a8e",
+    "stored_in_git": false
+  },
+  {
+    "region": "r3_3",
+    "crop_world": [
+      3602.0,
+      3602.0,
+      5016,
+      5016
+    ],
+    "core_world": [
+      3762.0,
+      3762.0,
+      5016.0,
+      5016.0
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "sha256": "59d2ce8da05cd69828858c0e2c5738a3bfa493fdda359ff9ed46af37a50eacc5",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "parent_sha256": "06ae51c6669ae00d7d7ec21954d89a471b08a15b21c299d54513607ce12fae44",
+    "stored_in_git": false
+  }
+]

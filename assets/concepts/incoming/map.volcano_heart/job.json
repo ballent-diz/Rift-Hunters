@@ -1,45 +1,44 @@
 {
   "id": "map.volcano_heart",
-  "status": "wip",
-  "stage": "detail_pour_revue",
+  "status": "final",
+  "stage": "detail_livre",
   "world_size": [
     5016,
     5016
   ],
   "composition": "composition.png",
-  "owner_approved": true,
-  "regions_started": true,
-  "source": "source/composition_validee_c9.png",
-  "style_references": [
-    "source/references/ruines.png",
-    "source/references/lisiere.png",
-    "source/references/coulees.png"
+  "terrain_mask": "hazards.png",
+  "mask_values": {
+    "0": "hors nappe",
+    "255": "sol brûlant praticable"
+  },
+  "source": "composition.png",
+  "composition_sha256": "765cab02dcf7fb5f86792f198d0cabc6eb38bb4040fc24a055cc5dc160d1cd52",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_AJUSTEMENTS.txt",
+    "source/PROMPT_CALIBRAGE_NAPPES.txt"
   ],
-  "next_step": "Validation visuelle puis collisions peintes et intégration par Claude. Aucun masque de coulée ancien à réutiliser sur c9.png.",
-  "transformation": "1254 × 1254 vers 1536 × 1536 pour format de COMPOSITION uniquement ; aucun détail final prétendu.",
-  "owner_approval_date": "2026-10-24",
+  "owner_instruction": "26 octobre : avancer en continu, sans attendre de réponses ; décisions de composition prises par Codex.",
+  "owner_approved": false,
+  "autonomous_continuation_authorized": true,
   "plan_locked": true,
-  "approved_source_sha256": "49185f79e3ba8e65d354933aba9bd2f43af94bd4623041b1b2750ccea635fbac",
-  "regions_count": 16,
-  "owner_selected_map_number": 9,
-  "source_selection": "Pièce jointe c9.png : plan exact prioritaire sur les retouches antérieures.",
+  "regions_versioned": false,
   "runtime_integrated": false,
   "quality_conforme": true,
-  "quality_report": "res://docs/previews/volcano-heart-detail/qualite.json",
-  "regions_folder": "source/regions_v1",
+  "quality_report": "res://docs/previews/volcano-heart/qualite.json",
+  "terrain_mask_dimensions": [
+    11286,
+    11286
+  ],
   "delivered_tiles": [
     "res://assets/environments/volcano_heart/map.webp",
     "res://assets/environments/volcano_heart/map_1.webp",
     "res://assets/environments/volcano_heart/map_2.webp"
   ],
-  "historical_prompts": [
-    "source/PROMPT_COMPOSITION.txt",
-    "source/PROMPT_RETOUCHE.txt",
-    "source/PROMPT_RACCORD_CENTRE.txt"
+  "region_generation_prompts": [
+    "source/PROMPT_REGION.txt",
+    "source/PROMPT_FINITION.txt"
   ],
-  "prompts": [
-    "source/regions_v1/PROMPT_REGION.txt",
-    "source/regions_v1/PROMPT_RETOUCHE_MATIERES.txt",
-    "source/regions_v1/PROMPT_FINITION.txt"
-  ]
+  "weight_policy": "Régions et essais conservés hors Git ; sources retenues, tuiles, masque et aperçus seulement."
 }

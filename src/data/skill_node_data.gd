@@ -29,6 +29,8 @@ enum Kind { UTILITY, PASSIVE, SPELL, VARIANT, TRANSFORM, KEYSTONE }
 @export var variant_kind: StringName = &""
 ## Palier de campagne provisoire : victoires contre un boss nécessaires pour apprendre.
 @export var required_wins: int = 0
+## Arbres des Échos : niveau de maîtrise de l'Écho nécessaire pour apprendre (0 : ouvert d'office).
+@export var required_mastery: int = 0
 ## Connu dès le départ (sorts de départ).
 @export var learned_by_default: bool = false
 ## false : nœud prévu mais pas encore réalisé (affiché « à venir », ni apprenable ni activable).

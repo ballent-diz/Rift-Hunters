@@ -9,6 +9,11 @@ func title_key() -> String:
 	return ""
 
 
+## true : il y a quelque chose à faire ici (repère « ● » sur l'onglet).
+func needs_attention() -> bool:
+	return false
+
+
 func setup(p_refuge: Refuge) -> void:
 	refuge = p_refuge
 	add_theme_constant_override("margin_left", 16)

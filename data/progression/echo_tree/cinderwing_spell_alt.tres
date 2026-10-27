@@ -17,4 +17,5 @@ prerequisites_any = true
 exclusive_group = &"cinderwing_spell"
 spell_id = &"thunder_dive"
 learned_by_default = false
+required_mastery = 1
 effects = []

@@ -7,7 +7,7 @@ retouchables, tout est en données). Cadre : [COMPETENCES_ET_BUILDS.md](COMPETEN
 
 - Chaque Écho a **son propre arbre** de 5 nœuds, sur le modèle de l'arbre du Chasseur : **apprendre** coûte des
   Éclats (une fois pour toutes), **activer** coûte des **Points d'Écho**.
-- **Points d'Écho = 1 + niveau de maîtrise de l'Écho** (0 à 5, soit 1 à 6 points). Jouer un Écho le rend plus fort :
+- **Points d'Écho = 2 + niveau de maîtrise de l'Écho** (0 à 5, soit 2 à 7 points ; 1 + maîtrise avant la v2). Jouer un Écho le rend plus fort :
   la maîtrise existante prend tout son sens.
 - **Deux sorts par Écho, un seul équipé** (choix exclusif, gratuit en points) : sa Technique d'origine, connue
   d'office, et un **second sort** à apprendre. Le sort équipé se lance avec la touche de l'Écho (1, 2 ou 3 selon sa
@@ -49,3 +49,20 @@ demandent au moins un rang de Puissance ou de Concentration.
   avec l'arbre du Chasseur (`skill_card.gd`). Icônes des nœuds : symboles provisoires, à illustrer (Codex).
 - Les 9 nouveaux Échos (lot C7) ont leur arbre sur le même modèle : seconds sorts et signatures dans
   [ECHOS.md](ECHOS.md), section « Réalisation ». Icônes des nœuds : illustrations de Codex.
+
+## v2 — moteur et écran (lot E1, 27 octobre 2026)
+
+Validé par le propriétaire (« ok go ») : la proposition des arbres à 12 nœuds par Écho. Le lot E1 pose le moteur et
+l'écran, **sans nouveau contenu** (chaque Écho garde ses 5 nœuds ; variantes, Instinct, Éveil et Signature B arriveront
+par lots de 4 Échos, dans l'ordre de la collection).
+
+- **La maîtrise ouvre l'arbre** : `SkillNodeData.required_mastery` (statut « scellé » tant que la maîtrise de l'Écho
+  est trop basse). Second sort : maîtrise 1 ; Signature : maîtrise 3. Ce qui est déjà appris le reste.
+- **Points d'Écho = 2 + maîtrise.**
+- **Variantes** (`VARIANT`, prérequis = leur sort) : actives seulement avec leur sort équipé ; changer de sort retire
+  les variantes de l'ancien et rend leurs points. `EchoTree.chosen_variant()` donne la variante jouée en partie.
+- **Groupes exclusifs** (signatures A ou B, variantes A ou B) : activer l'un remplace l'autre (`EchoTree.rivals()`).
+- **Écran** (`echo_tab.gd`, `echo_tree_board.gd`) : bandeau des trois étapes, plateau lu de gauche à droite
+  (Fondations, Sort d'origine, Second sort, Apogée) avec sceaux « Maîtrise x/y », coûts sur les nœuds, pastilles Points
+  d'Écho libres et Maîtrise, fiche « Pour l'utiliser » en étapes, repère doré dans la liste sur les Échos qui ont des
+  points libres, page « Arbres des Échos » du guide (ouverte à la première visite de l'onglet).
