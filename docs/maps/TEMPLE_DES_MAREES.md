@@ -31,7 +31,7 @@ Le tracé jaune du plan est schématique : il indique l’ordre des terrasses, p
 | T02 | 35.059, 46.81, 61.328, 53.646 | 826.7 | 173.5 |
 | T03 | 15.234, 39.518, 21.68, 47.526 | 389.6 | 186.4 |
 | T04 | 77.539, 33.594, 88.574, 39.714 | 336.9 | 166.9 |
-| T05 | 55.371, 7.031, 73.438, 14.583 | 137.2 | 538.1 |
+| T05 | 55.371, 7.031, 73.438, 14.583 | 576.9 | 128.0 |
 
 Mesures de l’emprise technique du masque, pas d’une navigation simulée : [détails](../previews/tide-temple/mesures_chaussees.json). Le masque couvre toute la largeur, joints compris, avec de petites marges extérieures dans l’eau déjà infranchissable ; aucune bande latérale volontairement laissée hors masque.
 
@@ -65,9 +65,9 @@ Douze régions (3 × 4), redessinées avec une référence des Ruines à chaque 
 | Contrôle officiel | Résultat |
 |---|---:|
 | densité (pixels par unité) | 2.25 |
-| part lisse (médiane) | 0.208 |
-| détails fins / 100×100 u (médiane) | 330.234 |
-| détails moyens / 100×100 u (médiane) | 98.104 |
+| part lisse (médiane) | 0.2 |
+| détails fins / 100×100 u (médiane) | 348.773 |
+| détails moyens / 100×100 u (médiane) | 100.808 |
 | secteurs conformes (part) | 1.0 |
 | fidélité au plan validé (corrélation) | 0.984 |
 
@@ -89,13 +89,20 @@ Import et chargement des textures et du masque contrôlés dans un projet Godot 
 
 Aucun `src/`, `data/` ou masque existant modifié. Entrée du manifeste runtime différée, sans inventer de `field`. Sources retenues, prompts exacts et SHA256 dans `assets/concepts/incoming/map.tide_temple/`.
 
-## Diagnostic de netteté locale
+## Restauration des contours et réserve locale
 
-La grille officielle de 160 unités signale **333 cases sur 620 (53.7%)** sous sa référence relative. Ce diagnostic local est distinct du verdict global conforme : aucune affirmation « aucune case floue ». [Carte de chaleur](../previews/tide-temple/tide_temple_sharpness.png) · [Secteurs](../previews/tide-temple/tide_temple_blurry.json). Ces secteurs restent à examiner visuellement lors de la revue.
+Une première correction sélective brute a été rejetée : finesse **330,234 → 308,218**, non conforme. Le traitement retenu conserve la matière peinte et transfère uniquement les contours reconstruits par le modèle officiel sur toute la carte : filtre de détail sigma 1,25, poids 0,75, mêmes blocs de 512 pixels et recouvrements de 32. Aucun bruit ajouté, aucune modification de seuil, aucun changement du plan. Recette, code exact et empreintes du modèle sont dans `source/RESTAURATION_CONTOURS.json` et `.py`.
 
-Le traitement sélectif officiel Real-ESRGAN a été exécuté sur les cases signalées, mais écarté : finesse globale **330,234 → 308,218**, donc non conforme après traitement. La version originale est conservée. [Chiffres avant/après](../previews/tide-temple/essai_nettete.json). PR en brouillon, sans intégration runtime ; aucune revendication de carte finalisée.
+Le contrôle global passe après restauration : **348,773 détails fins**, **100,808 moyens**, **100 % de secteurs conformes**, fidélité **0,984**. Les tuiles WebP sont sans perte : leurs pixels décodés ont été vérifiés identiques à ceux du candidat contrôlé. Import et chargement Godot revérifiés une seule fois après remplacement.
 
+[Avant/après au même zoom](../previews/tide-temple/avant_apres_zoom.webp) · [Chiffres et provenance](../previews/tide-temple/restauration_contours.json).
 
-Poids des nouveaux fichiers uniques : **118.8 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).
+Le diagnostic relatif de netteté s’améliore de **333 à 219 cases signalées sur 620 (53,7 % → 35,3 %)**. Il reste au-dessus du seuil de 5 % : **réserve maintenue, statut wip, PR en brouillon**. Les Ruines de référence signalent elles-mêmes 50 % dans ce diagnostic, mais cela ne suffit pas à déclarer le Temple conforme localement. Aucune affirmation « aucune case floue ».
 
-Comparaison complémentaire avec les Ruines : le même diagnostic relatif signale 50 % des cases de la référence, contre 53,7 % du Temple. Ces pourcentages proches ne prouvent pas une qualité identique : le score spectral absolu médian est respectivement 0,05155 et 0,00123. Ce résultat renforce la nécessité de conserver la réserve, malgré le verdict global conforme. [Mesures comparatives](../previews/tide-temple/comparaison_nettete_reference.json). Aucun seuil modifié.
+[Carte de chaleur](../previews/tide-temple/tide_temple_sharpness.png) · [Cases signalées](../previews/tide-temple/tide_temple_blurry.json) · [Rapport local](../previews/tide-temple/netteté_locale.json). Le comparatif spectral antérieur reste un historique de la version avant restauration.
+
+### Correction d’une mesure de chaussée
+
+La mesure initiale de T05 avait interverti les côtés longs et courts du polygone. Sa longueur correcte est **576,9 unités**, sa largeur moyenne **128,0 unités**, sous l’objectif de 150–300 : écart à examiner avec le propriétaire. Le dessin et le masque restent inchangés ; aucune adaptation de masque pour masquer cet écart. Les quatre autres largeurs moyennes vont de 166,9 à 186,4 unités.
+
+Poids des nouveaux fichiers uniques : **140.2 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).

@@ -13,21 +13,21 @@
 		},
 		{
 			"name": "part lisse (médiane)",
-			"value": 0.208,
+			"value": 0.2,
 			"min": 0.0,
 			"max": 0.27,
 			"ok": true
 		},
 		{
 			"name": "détails fins / 100×100 u (médiane)",
-			"value": 330.234,
+			"value": 348.773,
 			"min": 329.944,
 			"max": 446.395,
 			"ok": true
 		},
 		{
 			"name": "détails moyens / 100×100 u (médiane)",
-			"value": 98.104,
+			"value": 100.808,
 			"min": 90.94,
 			"max": 123.036,
 			"ok": true

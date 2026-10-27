@@ -1,8 +1,7 @@
 {
   "valid_cells": 620,
-  "blurry_cells": 333,
-  "blurry_share": 0.5370967741935484,
+  "blurry_cells": 219,
+  "blurry_share": 0.3532258064516129,
   "threshold": 0.05,
-  "ok": false,
-  "method": "Analyse officielle sharpness_map.py, mêmes fonctions et seuils ; chargement direct des deux tuiles sans inventer une entrée runtime."
+  "ok": false
 }
