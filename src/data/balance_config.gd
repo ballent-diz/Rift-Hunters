@@ -71,12 +71,17 @@ extends Resource
 @export var boss_enrage_speed_mult: float = 1.4
 @export_group("Fonctionnalités")
 ## Fonctionnalités mises de côté (décision du propriétaire, 24 octobre 2026) : &"relics", &"chests", &"evolutions",
-## &"team_seal" (3e emplacement d'Écho par l'arbre : l'équipe de 3 est désormais ouverte d'office).
+## &"team_seal" (3e emplacement d'Écho par l'arbre : l'équipe de 3 est désormais ouverte d'office), &"captures" (Échos
+## errants capturés en partie : les Échos se gagnent à la victoire).
 ## Le contenu reste en données ; retirer l'identifiant de la liste le remet en jeu.
-@export var disabled_features: Array[StringName] = [&"relics", &"chests", &"evolutions", &"team_seal"]
+@export var disabled_features: Array[StringName] = [&"relics", &"chests", &"evolutions", &"team_seal", &"captures"]
 ## Emplacements de sorts du Chasseur (décision du 24 octobre 2026) : carte à gagner pour ouvrir chaque emplacement,
 ## &"" s'il est ouvert d'office. 3e à l'arrivée sur la carte 3, 4e à la fin du chapitre 1.
 @export var spell_slot_unlock_arenas: Array[StringName] = [&"", &"", &"storm_highlands", &"cascade_source"]
+@export_group("Mini-boss (gardiens de palier)")
+## Élite en version boss : dégâts de contact et de techniques, et recharge des techniques.
+@export var mini_boss_damage_mult: float = 1.5
+@export var mini_boss_cooldown_mult: float = 0.65
 @export_group("Récompenses")
 @export var shards_per_minute: float = 8.0
 @export var shards_per_elite: float = 6.0

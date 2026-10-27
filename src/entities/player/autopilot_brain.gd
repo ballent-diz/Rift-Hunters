@@ -1,6 +1,6 @@
 class_name AutopilotBrain
 extends PlayerBrain
-## Bot de test : esquive les ennemis, ramasse l'XP, utilise Ruée et Techniques.
+## Bot de test : esquive les ennemis, ramasse l'XP, utilise Ruée et Techniques, joue les mécaniques des boss.
 ## Sert aux smoke tests (partie complète sans intervention) et à l'équilibrage. Il joue comme un joueur MOYEN
 ## (docs/design/DIFFICULTE.md) : il connaît les mécaniques principales (abris contre les tirs et les souffles, bulbes
 ## de braise, œufs, point faible), sans réflexes parfaits (réaction aux tirs à distance une fois sur COVER_REACTION).
@@ -9,6 +9,8 @@ extends PlayerBrain
 const COVER_REACTION := 0.7
 const COVER_RECHECK := 0.5
 const COVER_SEARCH := 200.0
+## Traque des derniers Corrompus : distance de recherche (au-delà, la flèche de route mène à eux).
+const CHASE_SEARCH := 800.0
 
 var _dash_wanted: bool = false
 var _wander := Vector2.RIGHT
@@ -37,11 +39,13 @@ func _compute_move() -> Vector2:
 	var pos: Vector2 = player.global_position
 	var flee := Vector2.ZERO
 	var closest: float = INF
+	# Traque des derniers Corrompus : comme un joueur, il va les chercher au lieu de fuir les élites.
+	var hunting: bool = ctx.zones != null and ctx.zones.hunting
 	for enemy: Enemy in ctx.enemies.query_radius(pos, 230.0):
 		var offset: Vector2 = pos - enemy.global_position
 		var dist: float = maxf(offset.length(), 1.0)
 		closest = minf(closest, dist - enemy.radius)
-		var weight: float = (3.0 if enemy.is_boss or enemy.is_elite else 1.0) / (dist * dist)
+		var weight: float = (3.0 if (enemy.is_boss or enemy.is_elite) and not hunting else 1.0) / (dist * dist)
 		flee += offset.normalized() * weight * 4000.0
 	flee += ctx.danger_vector(pos) * 3.0
 	for obstacle: Enemy in ctx.enemies.obstacles:
@@ -81,8 +85,32 @@ func _compute_move() -> Vector2:
 		seek = Vector2.ZERO
 		var heading: Vector2 = route if route != Vector2.ZERO else _wander
 		slide = heading.normalized().orthogonal() * _slide * 1.4
-	var result: Vector2 = flee + seek + home + route + slide + _wander * 0.25
+	var result: Vector2 = flee + seek + home + route + slide + _wander * 0.25 + _chase(pos, hunting)
+	# Mécaniques de boss : foncer dans un orbe, entrer dans la couronne, se placer derrière un miroir.
+	var forced: Vector2 = ctx.boss_bot_move(pos)
+	if forced != Vector2.ZERO:
+		result = forced * 2.0 + flee * 0.6
+	_dash_wanted = _dash_wanted or ctx.boss_bot_dash()
 	return result.normalized() if result.length() > 0.05 else Vector2.ZERO
+
+
+## Traque : se rapprocher à portée de tir (et en vue) du dernier Corrompu le plus proche ; au-delà de la distance où
+## la flèche de route s'affiche, c'est la route qui guide.
+func _chase(pos: Vector2, hunting: bool) -> Vector2:
+	if not hunting:
+		return Vector2.ZERO
+	var prey: Enemy = null
+	for enemy: Enemy in ctx.enemies.query_radius(pos, CHASE_SEARCH):
+		if not enemy.alive or enemy.is_boss or enemy.is_obstacle or (enemy.data and enemy.data.structure):
+			continue
+		if prey == null or enemy.position.distance_to(pos) < prey.position.distance_to(pos):
+			prey = enemy
+	if prey == null:
+		return Vector2.ZERO
+	var reach: float = ctx.player.stats.get_value(StatKeys.BOLT_RANGE) * 0.7
+	if pos.distance_to(prey.position) <= reach and ctx.obstacles.line_clear(pos, prey.position):
+		return Vector2.ZERO
+	return (prey.position - pos).normalized() * 1.4
 
 
 ## Source de tir ou de souffle qui menace le Chasseur : souffle ou rayon en préparation, sinon le tireur le plus
@@ -166,7 +194,7 @@ func wants_dash() -> bool:
 
 
 func technique_pressed(_index: int) -> bool:
-	return ctx.enemies.count() > 8 or ctx.boss != null
+	return ctx.enemies.count() > 8 or ctx.boss != null or _guardian() != null
 
 
 ## Comme un joueur : Taille fendante (emplacement 0) au contact, Lance prismatique (1) dès qu'une cible est à portée.
@@ -191,7 +219,7 @@ func spell_pressed(slot: int) -> bool:
 func focus_requested() -> bool:
 	if ctx.allies.focus_time > 0.0:
 		return false
-	return (ctx.boss != null and ctx.boss.alive) or _weak_point() != null
+	return (ctx.boss != null and ctx.boss.alive) or _guardian() != null or _weak_point() != null
 
 
 ## Visée d'un joueur moyen : point faible exposé, œuf à casser, bulbe entouré de Corrompus, boss, puis ennemi en vue.
@@ -205,8 +233,16 @@ func aim_point() -> Vector2:
 		return target
 	if ctx.boss and ctx.boss.is_alive():
 		return ctx.boss.global_position
+	if _guardian() and _guardian().global_position.distance_to(pos) < 500.0:
+		return _guardian().global_position
 	var enemy: Enemy = ctx.enemies.find_nearest_visible(pos, 400.0)
 	return enemy.global_position if enemy else pos
+
+
+## Gardien de palier vivant (grande arène), sinon null.
+func _guardian() -> Enemy:
+	var guardian: Enemy = ctx.mini_boss
+	return guardian if guardian != null and is_instance_valid(guardian) and guardian.alive else null
 
 
 ## Ennemi au point faible exposé (cratère ouvert du Titan) à portée.

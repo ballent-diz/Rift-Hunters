@@ -138,6 +138,8 @@ func _step_friendly(p: Projectile, delta: float, rect: Rect2) -> bool:
 		if p.hit_ids.has(id):
 			continue
 		p.hit_ids[id] = true
+		if ctx.enemies.marsh.reflects(enemy, p.position, p.info.amount):
+			return false
 		var hit: DamageInfo = p.info.duplicate_info()
 		hit.direction = p.velocity.normalized()
 		ctx.combat.deal_damage(enemy, hit)

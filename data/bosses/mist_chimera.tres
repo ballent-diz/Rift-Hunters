@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BossData" load_steps=12 format=3]
+[gd_resource type="Resource" script_class="BossData" load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
@@ -82,13 +82,31 @@ params = {
 "enemies": ["heath_runner", "silver_harpy"]
 }
 
+[sub_resource type="Resource" id="pattern_veil"]
+script = ExtResource("4")
+kind = &"mist_veil"
+name_key = "BOSS_PATTERN_MIST_VEIL"
+weight = 2.0
+cooldown = 22.0
+damage = 0.0
+telegraph = 1.0
+params = {
+"lantern": "mist_lantern",
+"count": 3,
+"distance": 380.0,
+"duration": 12.0,
+"heal_ratio": 0.04,
+"stun": 2.5,
+"exposed": 4.0
+}
+
 [sub_resource type="Resource" id="phase_1"]
 script = ExtResource("3")
 hp_threshold = 1.0
 name_key = "BOSS_MIST_CHIMERA_PHASE1"
 move_speed_mult = 1.0
 pattern_interval = 1.8
-patterns = [SubResource("pattern_claw"), SubResource("pattern_blink"), SubResource("pattern_charge"), SubResource("pattern_roar"), SubResource("pattern_summon")]
+patterns = [SubResource("pattern_claw"), SubResource("pattern_blink"), SubResource("pattern_charge"), SubResource("pattern_roar"), SubResource("pattern_summon"), SubResource("pattern_veil")]
 
 [resource]
 script = ExtResource("1")
@@ -106,3 +124,4 @@ visual = SubResource("visual_data_1")
 phases = [SubResource("phase_1")]
 guardian = true
 visual_scale = 2.6
+signature = &"mist_veil"

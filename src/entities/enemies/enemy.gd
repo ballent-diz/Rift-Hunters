@@ -8,6 +8,8 @@ var data: EnemyData
 var boss_data: BossData
 var is_elite: bool = false
 var is_boss: bool = false
+## Élite en version boss (gardien de palier de la grande arène) : barre de boss, ne finit pas la carte.
+var mini_boss: bool = false
 ## Obstacle immobile (posé au départ via ArenaData.start_obstacles) : bloque le passage.
 var is_obstacle: bool = false
 var affixes: Array[EliteAffixData] = []
@@ -38,6 +40,31 @@ var raged: bool = false
 var dormant: bool = false
 ## Déplacement d'une technique (bond, charge) en cours : voir EnemyManager._step_motion.
 var motion: Dictionary = {}
+## Bouclier d'un allié (E15) : aucun dégât tant que la source tient le bouclier.
+var shield_source: Enemy
+var shield_until: float = 0.0
+## Miroir renvoyeur : renvoie les tirs reçus de face jusqu'à reflect_until.
+var reflect_until: float = 0.0
+var reflect_dir := Vector2.RIGHT
+## Clone (E17) : copie fragile qui disparaît à clone_until.
+var is_clone: bool = false
+## Né d'un nid (B8) : ne compte pas dans les vagues.
+var from_nest: bool = false
+var clone_until: float = 0.0
+## Coups reçus récemment (téléportation quand on la frappe trop).
+var recent_hits: int = 0
+var _hit_window: float = -10.0
+
+
+func note_hit(time: float) -> void:
+	if time - _hit_window > 2.0:
+		_hit_window = time
+		recent_hits = 0
+	recent_hits += 1
+
+
+func is_shielded(time: float) -> bool:
+	return shield_until > time and is_instance_valid(shield_source) and shield_source.alive and shield_source != self
 
 
 func is_invulnerable() -> bool:
@@ -54,7 +81,7 @@ func is_target() -> bool:
 
 
 func data_knockback_resist() -> float:
-	if is_boss or is_obstacle:
+	if is_boss or is_obstacle or mini_boss:
 		return 1.0
 	return data.knockback_resist if data else 0.0
 

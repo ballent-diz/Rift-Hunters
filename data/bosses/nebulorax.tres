@@ -171,3 +171,4 @@ shard_reward = 100
 essence_reward = 10
 visual = SubResource("visual_data_1")
 phases = [SubResource("boss_phase_data_2"), SubResource("boss_phase_data_7")]
+signature = &"absorb"

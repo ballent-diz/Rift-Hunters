@@ -161,6 +161,8 @@ reward_chest = true
 
 [resource]
 script = ExtResource("1")
+enemy_damage_mult = 0.8
+enemy_hp_mult = 0.85
 id = &"firefly_woods"
 name_key = "ARENA_FIREFLY_WOODS_NAME"
 desc_key = "ARENA_FIREFLY_WOODS_DESC"

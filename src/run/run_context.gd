@@ -47,8 +47,14 @@ var flood: FloodDirector
 var burn: BurnDirector
 var pods: PodDirector
 var rockfall: RockfallDirector
+var tide: TideDirector
+var nests: NestDirector
+## Gardien de palier en cours (élite en version boss), pour la barre de boss.
+var mini_boss: Enemy
 ## Nuit et lucioles, brique B2 (null de jour).
 var night: NightDirector
+## Mécaniques de boss en cours (orbes, couronne, cratères, miroirs…), créées par BossController.
+var boss_mechanics: Array[BossMechanics] = []
 
 
 ## Campagne : choix aux jalons, sans XP (ArenaData.progression).
@@ -85,8 +91,8 @@ func objective_direction(pos: Vector2) -> Vector2:
 
 
 ## Ralentissement du terrain à cette position (1 si la carte n'a pas de terrain lent).
-func terrain_speed(pos: Vector2) -> float:
-	return terrain.speed_mult(pos) if terrain else 1.0
+func terrain_speed(pos: Vector2, who: int = 0) -> float:
+	return terrain.speed_mult(pos, who) if terrain else 1.0
 
 
 ## Dérive des courants et des crues à cette position (px/s ; zéro ailleurs).
@@ -106,4 +112,26 @@ func danger_vector(pos: Vector2) -> Vector2:
 		result += flood.danger(pos)
 	if burn:
 		result += burn.danger(pos)
+	if terrain:
+		result += terrain.danger(pos)
+	if tide:
+		result += tide.danger(pos)
+	for mechanics: BossMechanics in boss_mechanics:
+		result += mechanics.danger(pos)
 	return result
+
+
+## Bot : déplacement imposé par une mécanique de boss (renvoyer un orbe, se placer derrière un miroir) ; zéro sinon.
+func boss_bot_move(pos: Vector2) -> Vector2:
+	for mechanics: BossMechanics in boss_mechanics:
+		var move: Vector2 = mechanics.bot_move(pos)
+		if move != Vector2.ZERO:
+			return move
+	return Vector2.ZERO
+
+
+func boss_bot_dash() -> bool:
+	for mechanics: BossMechanics in boss_mechanics:
+		if mechanics.bot_dash():
+			return true
+	return false

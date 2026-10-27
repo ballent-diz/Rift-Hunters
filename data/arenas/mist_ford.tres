@@ -51,6 +51,8 @@ max_alive = 240
 
 [resource]
 script = ExtResource("1")
+enemy_damage_mult = 0.75
+enemy_hp_mult = 0.75
 id = &"mist_ford"
 name_key = "ARENA_MIST_FORD_NAME"
 desc_key = "ARENA_MIST_FORD_DESC"
@@ -70,7 +72,7 @@ progression = &"milestones"
 waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4"), SubResource("wave_phase_data_5")]
 altar_waves = 5
 altar_wave_duration = 50.0
-altar_hp = 4000.0
+altar_hp = 5500.0
 altar_spawn_rate = 1.2
 altar_point = Vector2(-1, -163)
 altar_spawn_points = Array[Vector2]([Vector2(0, -1248), Vector2(-1864, -1040), Vector2(1904, -936), Vector2(-1726, 468), Vector2(1720, 480), Vector2(376, 1000)])

@@ -33,6 +33,8 @@ extends Resource
 @export var rift_elite_interval: float = 40.0
 @export_group("")
 @export var waves: Array[WavePhaseData] = []
+## Grande arène : les zones sont des paliers qui partagent toute la carte (aucune barrière, pas de trajet entre elles).
+@export var open_arena: bool = false
 ## Mode « vagues par zone » (si non vide) : zones à nettoyer dans l'ordre, puis la finale (boss).
 ## Les vagues au chrono, les événements et le boss chronométré sont alors désactivés.
 @export var zones: Array[LevelZoneData] = []
@@ -47,6 +49,10 @@ extends Resource
 ## Force des Corrompus propre à la carte (épreuves de survie de plus en plus dures), en plus de la difficulté.
 @export var enemy_hp_mult: float = 1.0
 @export var enemy_damage_mult: float = 1.0
+## Boss et gardien de la carte (Dévoreurs, gardiens) : leurs PV et leurs dégâts ne suivent pas enemy_hp_mult ;
+## ces réglages corrigent un boss trop fort ou trop faible pour sa place dans la campagne.
+@export var boss_hp_mult: float = 1.0
+@export var boss_damage_mult: float = 1.0
 @export_group("Vagues infinies (carte bonus, docs/design/MODES.md)")
 ## Pas de boss : les vagues s'enchaînent sans fin (une toutes les endless_wave_duration secondes) ; score = vague
 ## atteinte. La dernière tranche de `waves` se répète, plus dense à chaque vague.
@@ -95,6 +101,21 @@ extends Resource
 @export_range(0.1, 1.0) var slow_zone_mult: float = 0.6
 ## Gués déjà peints sur la carte : pas de teinte ni d'ondulations dessinées par-dessus.
 @export var slow_zones_painted: bool = false
+@export_group("Vase qui colle (brique B1, chapitre 3)")
+## Nappes de vase praticables : tout le monde y est fortement ralenti, et la vase colle encore mud_stick secondes
+## après en être sorti (la vitesse revient progressivement). La Ruée garde sa vitesse.
+@export var mud_zones: Array[Rect2] = []
+@export_range(0.1, 1.0) var mud_mult: float = 0.45
+@export var mud_stick: float = 1.0
+## Vase déjà peinte sur la carte : pas de teinte dessinée par-dessus (les bulles restent).
+@export var mud_painted: bool = false
+@export_group("Marée (brique B4, chapitre 3)")
+## Chaussées basses : raccourcis à marée basse, noyées et infranchissables à marée haute (TideDirector).
+@export var tide_causeways: Array[Rect2] = []
+@export var tide_first: float = 25.0
+@export var tide_low: float = 20.0
+@export var tide_warning: float = 4.0
+@export var tide_high: float = 12.0
 @export_group("Courants (brique B6, docs/design/CARTES.md)")
 ## Courants permanents : le Chasseur et les Corrompus y dérivent dans le sens du courant (pas pendant la Ruée ;
 ## boss et Échos épargnés). Le suivre fait gagner du temps, le remonter en fait perdre.
@@ -131,6 +152,17 @@ extends Resource
 @export var burn_damage: float = 4.0
 @export var burn_tick: float = 0.5
 @export_range(0.0, 1.0) var burn_enemy_ratio: float = 0.06
+@export_group("Nids qui pondent (brique B8, carte 8, docs/design/CARTES.md)")
+## Emplacements des nids (structures qui bloquent le passage) ; ils pondent tant qu'ils tiennent debout.
+@export var nest_points: Array[Vector2] = []
+@export var nest_enemy: StringName = &"cinder_crawler"
+@export var nest_interval: float = 7.0
+@export var nest_batch: int = 2
+## Petits vivants au plus par nid.
+@export var nest_max_brood: int = 6
+@export var nest_hatch_time: float = 0.8
+## Un nid ne pond que si le Chasseur est à moins de cette distance (pas d'accumulation hors de vue).
+@export var nest_wake_range: float = 1100.0
 @export_group("Bulbes de braise (brique B5, carte 7, docs/design/CARTES.md)")
 ## Emplacements des bulbes (unités du monde). Un coup allié les amorce ; ils éclatent après pod_prime secondes.
 @export var ember_pods: Array[Vector2] = []
@@ -155,6 +187,9 @@ extends Resource
 ## Intervalle multiplié par ce facteur à chaque zone nettoyée, et par rockfall_boss_mult pendant le combat final.
 @export_range(0.3, 1.0) var rockfall_zone_mult: float = 0.85
 @export_range(0.3, 1.0) var rockfall_boss_mult: float = 0.6
+## Cratères qui crachent les roches (grande arène) : chaque roche part en arc du cratère le plus proche de sa cible.
+## Vide : la roche tombe du ciel.
+@export var rockfall_vents: Array[Vector2] = []
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0

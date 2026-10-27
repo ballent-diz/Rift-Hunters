@@ -332,6 +332,7 @@ func _icon_for(ally: Ally) -> Texture2D:
 func _draw_boss(w: float) -> void:
 	var boss: Enemy = ctx.boss
 	if boss == null or not boss.alive:
+		_draw_mini_boss(w)
 		return
 	var rect := Rect2(w * 0.25, 84, w * 0.5, 16)
 	# Gardien de carte : barre verte et titre « Gardien », pour le distinguer d'un Dévoreur.
@@ -344,6 +345,17 @@ func _draw_boss(w: float) -> void:
 			HORIZONTAL_ALIGNMENT_RIGHT, 220)
 	elif boss.is_invulnerable():
 		_text(Vector2(rect.end.x - 220, rect.position.y - 4), tr("BOSS_INVULNERABLE"), 16, UiKit.MUTED, HORIZONTAL_ALIGNMENT_RIGHT, 220)
+
+
+## Gardien de palier (élite en version boss) : barre orange et titre « Gardien ».
+func _draw_mini_boss(w: float) -> void:
+	var guardian: Enemy = ctx.mini_boss
+	if guardian == null or not is_instance_valid(guardian) or not guardian.alive:
+		return
+	var rect := Rect2(w * 0.25, 84, w * 0.5, 16)
+	_bar(rect, guardian.hp / guardian.max_hp, Color(1.0, 0.55, 0.2))
+	_text(Vector2(rect.position.x, rect.position.y - 4), tr("HUD_GUARDIAN_LABEL") % guardian.display_name(), 18,
+		Color(1.0, 0.88, 0.75))
 
 
 ## Mode « défense d'autel » : PV de l'autel (barre) et vague en cours ou à venir.

@@ -290,7 +290,7 @@ accent = Color(1.0, 1.0, 0.8, 1.0)
 [resource]
 script = ExtResource("1")
 unlocked_by_default = false
-discovery = &"shop"
+discovery = &"victory"
 discovery_arena = &"cascade_source"
 shop_price = 900
 id = &"glimmerwing"

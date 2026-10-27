@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.wandering_shard"
+shape = 10
+size = 30.0
+primary = Color(0.6, 0.85, 0.9, 1.0)
+secondary = Color(0.8, 0.95, 1.0, 1.0)
+accent = Color(0.8, 0.6, 1.0, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"wandering_shard"
+name_key = "ENEMY_WANDERING_SHARD_NAME"
+desc_key = "ENEMY_WANDERING_SHARD_DESC"
+brain = 0
+max_hp = 12.0
+damage = 6.0
+defense = 4.0
+move_speed = 125.0
+radius = 11.0
+xp_value = 1
+knockback_resist = 0.0
+visual = SubResource("visual_data_1")
+flying = true

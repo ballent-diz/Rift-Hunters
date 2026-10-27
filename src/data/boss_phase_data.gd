@@ -14,3 +14,6 @@ extends Resource
 @export var defense_override: float = -1.0
 ## Animation de la transformation à l'entrée de la phase (rage du gardien du bûcher, etc.).
 @export var transition_animation: StringName = &"transform"
+## Mécaniques passives de la phase (Glauquemire : &"facets", &"mirrors", &"tide_ring"), réglées par mechanic_params.
+@export var mechanics: Array[StringName] = []
+@export var mechanic_params: Dictionary = {}

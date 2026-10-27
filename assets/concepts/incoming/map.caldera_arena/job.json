@@ -1,0 +1,44 @@
+{
+  "id": "map.caldera_arena",
+  "status": "final",
+  "stage": "detail_livre",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition": "composition.png",
+  "terrain_mask": "hazards.png",
+  "mask_values": {
+    "0": "hors nappe",
+    "255": "sol brûlant praticable"
+  },
+  "source": "composition.png",
+  "composition_sha256": "765cab02dcf7fb5f86792f198d0cabc6eb38bb4040fc24a055cc5dc160d1cd52",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_AJUSTEMENTS.txt",
+    "source/PROMPT_CALIBRAGE_NAPPES.txt"
+  ],
+  "owner_instruction": "26 octobre : avancer en continu, sans attendre de réponses ; décisions de composition prises par Codex.",
+  "owner_approved": false,
+  "autonomous_continuation_authorized": true,
+  "plan_locked": true,
+  "regions_versioned": false,
+  "runtime_integrated": false,
+  "quality_conforme": true,
+  "quality_report": "res://docs/previews/volcano-heart/qualite.json",
+  "terrain_mask_dimensions": [
+    11286,
+    11286
+  ],
+  "delivered_tiles": [
+    "res://assets/environments/caldera_arena/map.webp",
+    "res://assets/environments/caldera_arena/map_1.webp",
+    "res://assets/environments/caldera_arena/map_2.webp"
+  ],
+  "region_generation_prompts": [
+    "source/PROMPT_REGION.txt",
+    "source/PROMPT_FINITION.txt"
+  ],
+  "weight_policy": "Régions et essais conservés hors Git ; sources retenues, tuiles, masque et aperçus seulement."
+}

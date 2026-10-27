@@ -183,6 +183,8 @@ func step(delta: float) -> void:
 		ctx.fx.ring(focus_point, ctx.balance.focus_radius, Color(1.0, 0.9, 0.4, 0.6), 0.5)
 	for i: int in team.size():
 		var ally: Ally = team[i]
+		if ally.swallowed:
+			continue
 		ally.technique_cd = maxf(ally.technique_cd - delta, 0.0)
 		ally.behavior.tick(ally, ctx, delta)
 		if ally.technique_cd > 0.0:

@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1")
 id = &"captor"
+feature = &"captures"
 category = 3
 name_key = "OBJ_CAPTOR_NAME"
 desc_key = "OBJ_CAPTOR_DESC"

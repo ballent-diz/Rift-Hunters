@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.reflection_huntress"
+shape = 7
+size = 58.0
+primary = Color(0.2, 0.25, 0.32, 1.0)
+secondary = Color(0.45, 0.6, 0.75, 1.0)
+accent = Color(0.8, 0.6, 1.0, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"blink"
+anim = &"chain_leap"
+cooldown = 9.0
+min_range = 100.0
+max_range = 600.0
+telegraph = 0.45
+damage = 22.0
+params = {
+"hops": 3,
+"gap": 0.4,
+"distance": 150.0,
+"radius": 85.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"mark"
+anim = &"prism_mark"
+cooldown = 11.0
+min_range = 0.0
+max_range = 520.0
+telegraph = 0.5
+damage = 22.0
+params = {
+"delay": 2.5,
+"radius": 100.0
+}
+
+[resource]
+script = ExtResource("1")
+id = &"reflection_huntress"
+name_key = "ENEMY_REFLECTION_HUNTRESS_NAME"
+desc_key = "ENEMY_REFLECTION_HUNTRESS_DESC"
+brain = 0
+max_hp = 170.0
+damage = 17.0
+defense = 16.0
+move_speed = 95.0
+radius = 24.0
+xp_value = 8
+knockback_resist = 0.5
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])
+stealth_range = 320.0

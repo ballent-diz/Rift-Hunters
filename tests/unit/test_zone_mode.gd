@@ -180,3 +180,22 @@ func test_route_leads_to_the_last_enemies_when_far() -> void:
 	last.position = ctx.player.global_position + Vector2(100, 0)
 	zones.step(1.1)
 	check_eq(zones.objective(), Vector2.INF, "à portée : plus de flèche")
+
+
+## Source des Cascades : le Chasseur revenu dans une zone déjà ouverte laissait sa vague bloquée derrière la barrière de
+## sortie (bot errant 4 min 30). Pendant une vague, la flèche ramène à la zone en cours.
+func test_route_leads_back_to_the_current_zone() -> void:
+	var ctx: RunContext = run.ctx
+	var zones: ZoneDirector = ctx.zones
+	_clear_current_zone(zones)
+	check_eq(zones.zone_index, 1, "zone 2 atteinte")
+	ctx.player.global_position = ctx.arena.zones[1].anchor
+	for i: int in 40:
+		zones.step(0.25)
+		if zones.phase == ZoneDirector.Phase.WAVE:
+			break
+	check_eq(zones.phase, ZoneDirector.Phase.WAVE, "vague en cours dans la zone 2")
+	check_eq(zones.objective(), Vector2.INF, "dans la zone : pas de flèche")
+	ctx.player.global_position = ctx.arena.zones[0].anchor
+	check(zones.region_of(ctx.player.global_position) != 1, "revenu dans la zone 1")
+	check_eq(zones.objective(), ctx.arena.zones[1].anchor, "la flèche ramène à la zone 2")

@@ -47,8 +47,14 @@ func test_only_ashblade_at_start_and_every_echo_has_a_source() -> void:
 			arenas.append(monster.discovery_arena)
 		if monster.discovery == EchoCollection.SHOP:
 			check(monster.shop_price > 0, "%s : prix" % monster.id)
-	check(not _of(EchoCollection.SHOP).is_empty() and not _of(EchoCollection.VICTORY).is_empty(),
-		"boutique et récompenses")
+	# Décision du 26 octobre 2026 : chaque carte de campagne gagnée débloque exactement un Écho.
+	var rewarded: Array[StringName] = []
+	for monster: MonsterData in _of(EchoCollection.VICTORY):
+		check(not rewarded.has(monster.discovery_arena), "%s : un seul Écho par carte" % monster.id)
+		rewarded.append(monster.discovery_arena)
+	check_eq(rewarded.size(), 15, "quinze Échos à gagner, un par carte")
+	for map: CampaignMapData in Campaign.maps_in_order():
+		check(rewarded.has(map.arena_id), "%s : un Écho à la victoire" % map.arena_id)
 
 
 ## Décision du 24 octobre 2026 : plus de capture en partie, l'Écho de la carte est la récompense de la victoire.

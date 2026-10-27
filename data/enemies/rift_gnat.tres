@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.rift_gnat"
+shape = 3
+size = 30.0
+primary = Color(0.3, 0.35, 0.28, 1.0)
+secondary = Color(0.55, 0.75, 0.6, 1.0)
+accent = Color(0.8, 0.5, 1.0, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"rift_gnat"
+name_key = "ENEMY_RIFT_GNAT_NAME"
+desc_key = "ENEMY_RIFT_GNAT_DESC"
+brain = 0
+max_hp = 10.0
+damage = 5.0
+defense = 0.0
+move_speed = 135.0
+radius = 11.0
+xp_value = 1
+knockback_resist = 0.0
+visual = SubResource("visual_data_1")
+flying = true

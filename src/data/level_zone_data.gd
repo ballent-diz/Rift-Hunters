@@ -11,3 +11,10 @@ extends Resource
 ## Récompense à la sortie : part des PV max rendue, et un coffre.
 @export_range(0.0, 1.0, 0.05) var heal_ratio: float = 0.25
 @export var reward_chest: bool = true
+@export_group("Gardien de fin de palier (grande arène)")
+## Élite en version boss qui apparaît après la dernière vague ; le palier se termine à sa mort.
+@export var guardian_enemy: StringName = &""
+@export var guardian_hp_mult: float = 12.0
+@export var guardian_scale: float = 1.7
+## Boss (BossData) qui apparaît après la dernière vague : sa mort finit la carte (Dévoreur du chapitre).
+@export var guardian_boss: StringName = &""

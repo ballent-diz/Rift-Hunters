@@ -1,0 +1,14 @@
+Top-down video game map for Rift Hunters, a 2D survivor-like. ONE complete continuous full-bleed SQUARE composition,
+1536 x 1536 pixels, no borders, no text, no UI, no characters. COMPOSITION ONLY.
+STYLE REFERENCES ONLY (art language, NOT layout): image1 Waterfall Ruins, image2 Scorched Verge, image3 Ash Vents.
+Theme: VOLCANO HEART, finale of chapter 2: ONE HUGE VOLCANIC ARENA inside an irregular multi-lobed crater, NOT round,
+NOT square, closed by basalt cliffs and ash slopes. Black rock, dark basalt floor, ash, red glows on the rock.
+Broad entry ramp at the south (50,94). Fourteen to twenty rock formations spread across the arena: boulders,
+basalt spires and long cooled lava ridges of varied sizes, never aligned, never symmetrical, always leaving wide
+paths between them. Six to nine walkable patches of glowing cracked lava crust and shallow lava on the floor,
+none on the ramp, none in the center. Large clear open center at (50,50) with two offset rock spires as cover.
+Two or three active volcanic vents on the rim (outside the walkable floor) glowing bright orange.
+Bright orange ONLY in the vents and the lava patches. At least 55% flat walkable ground. Clear sharp boundaries
+between cliffs, obstacles and walkable floor. Uniform steep overhead game camera, top-left light.
+
+PLAN GUARDRAILS: a SINGLE continuous huge open floor, 65–70% of the entire image, with five asymmetric spacious outward lobes and short rocky inlets at the rim. NOT a spiral, not terraces, not separate rooms or islands, no inner lava moat, no bridges, no corridors, no inner walls. Floor is all one elevation with no bottleneck. The outer rim follows an irregular broad sprawling shape, never a smooth circle or rectangular courtyard. Keep an empty center disk 1400 world units across (28% of image width), no hazards there. The two offset cover spires stand OUTSIDE that central disk near its west and southeast edge. About 18 isolated solid cover formations total, footprints 120–250 world units (2.4–5% of image width), some long cooled ridges up to 600 units; leave at least 300 units (6% image width) between their edges and every other blocking surface. Avoid a neat ring, rows or symmetric pairs. About 7 distinct small flat hazard pools, sharp orange cracked crust, 200–500 units (4–10% image width) across, walkable level with the floor, distributed outside the center and away from the south ramp. The south ramp stops safely inside the image border at (50,94); no road exits the image. Tiny dark red embers elsewhere, never bright orange outside those 7 pools and 3 outer vents. Fine hand-painted fantasy game finish like the references, no photo realism, no coarse chunky pixel blocks.

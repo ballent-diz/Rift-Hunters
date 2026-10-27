@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BossData" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="BossData" load_steps=19 format=3]
 
 [ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
@@ -174,13 +174,50 @@ params = {
 "enemies": ["heath_runner", "slate_scarab"]
 }
 
+[sub_resource type="Resource" id="pattern_orb_1"]
+script = ExtResource("4")
+kind = &"source_orb"
+name_key = "BOSS_PATTERN_SOURCE_ORB"
+weight = 2.5
+cooldown = 9.0
+damage = 14.0
+telegraph = 0.8
+params = {
+"anim": "rift_breath",
+"count": 1,
+"golden": 0,
+"speed": 115.0,
+"life": 7.0,
+"stun": 2.5,
+"reflect_ratio": 0.03
+}
+
+[sub_resource type="Resource" id="pattern_orb_2"]
+script = ExtResource("4")
+kind = &"source_orb"
+name_key = "BOSS_PATTERN_SOURCE_ORB"
+weight = 2.5
+cooldown = 8.0
+damage = 16.0
+telegraph = 0.7
+params = {
+"anim": "rift_breath",
+"count": 3,
+"golden": 1,
+"spread": 0.6,
+"speed": 130.0,
+"life": 7.0,
+"stun": 3.0,
+"reflect_ratio": 0.025
+}
+
 [sub_resource type="Resource" id="phase_1"]
 script = ExtResource("3")
 hp_threshold = 1.0
 name_key = "BOSS_SOURCE_DEVOURER_PHASE1"
 move_speed_mult = 1.0
 pattern_interval = 2.0
-patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3"), SubResource("pattern_4"), SubResource("pattern_5")]
+patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3"), SubResource("pattern_4"), SubResource("pattern_5"), SubResource("pattern_orb_1")]
 
 [sub_resource type="Resource" id="phase_2"]
 script = ExtResource("3")
@@ -189,7 +226,7 @@ name_key = "BOSS_SOURCE_DEVOURER_PHASE2"
 move_speed_mult = 1.2
 pattern_interval = 1.6
 transition_time = 2.0
-patterns = [SubResource("pattern_11"), SubResource("pattern_12"), SubResource("pattern_13"), SubResource("pattern_14"), SubResource("pattern_15")]
+patterns = [SubResource("pattern_11"), SubResource("pattern_12"), SubResource("pattern_13"), SubResource("pattern_14"), SubResource("pattern_15"), SubResource("pattern_orb_2")]
 
 [resource]
 script = ExtResource("1")
@@ -209,3 +246,4 @@ vfx_dir = "res://assets/vfx/bosses/source_devourer"
 mouth_offset = Vector2(74, -120)
 hurt_ratio = 0.06
 intro_animation = &"roar"
+signature = &"source_orb"
