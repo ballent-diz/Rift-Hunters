@@ -1,0 +1,34 @@
+{
+  "id": "map.root_mangrove",
+  "status": "final",
+  "stage": "detail_livre",
+  "world_size": [
+    5016,
+    3344
+  ],
+  "composition": "composition.png",
+  "source": "composition.png",
+  "terrain_mask": "mud.png",
+  "mask_values": {
+    "0": "hors vase",
+    "255": "vase praticable ralentissante"
+  },
+  "owner_approved": false,
+  "autonomous_continuation_authorized": true,
+  "owner_instruction": "Poursuivre toutes les tâches sans poser de questions, composition choisie par Codex.",
+  "plan_locked": true,
+  "regions_versioned": false,
+  "runtime_integrated": false,
+  "composition_sha256": "92eac84d1ed64d8b056e8b15d0d242c8cdf3707f5a49e6b9de3e8afcdcf270da",
+  "quality_conforme": true,
+  "quality_report": "res://docs/previews/root-mangrove/qualite.json",
+  "terrain_mask_dimensions": [
+    11286,
+    7524
+  ],
+  "delivered_tiles": [
+    "res://assets/environments/root_mangrove/map.webp",
+    "res://assets/environments/root_mangrove/map_1.webp",
+    "res://assets/environments/root_mangrove/map_2.webp"
+  ]
+}
