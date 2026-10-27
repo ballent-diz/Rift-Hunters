@@ -1,8 +1,8 @@
 # Rift Hunters — feuille de route
 
-## Sorts des monstres chapitres 3 et 4 — amélioration visuelle en cours (Codex, PR #78)
+## Sorts des monstres chapitres 3 et 4 — effets améliorés livrés pour revue (Codex, PR #78)
 
-56 scènes autonomes récupérées de Work ; matière, anticipation, frappe et dissipation en cours de reprise au niveau des effets du Chasseur. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
+56 scènes autonomes récupérées de Work ; matière, frappe et dissipation reprises avec le vocabulaire peint du Chasseur. 56 scènes contrôlées, 19 groupes capturés dans Godot, mesure de rendu jointe. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
 
 ## B3 — Carte 10, Cœur du volcan : visuels livrés pour revue (Codex)
 

@@ -4,9 +4,10 @@ Livraison Codex du 26 octobre 2026 : **56 scènes autonomes**, statut `wip`, enr
 `assets/asset_manifest.json`. Le catalogue détaillé, avec propriétaire, chemin, dimensions et durée de
 démonstration, est `assets/vfx/enemies/chapter3/catalog.json`.
 
-Ces scènes produisent leur animation directement dans Godot 4.3 : rubans facettés, éclats,
+Ces scènes produisent leur animation directement dans Godot 4.3 : rubans peints, éclats,
 racines tressées, spores, boucliers, miroirs, rayons et eau. Elles réutilisent `painted_stroke.gd`
-et `effects_common.gd`. Aucun fichier image généré n'est utilisé comme animation de sort.
+et `effects_common.gd`. La reprise du 27 octobre emploie aussi la matière peinte du ruban du
+Chasseur : pas de nouvelle feuille d'animation ni de ressource tierce.
 Les planches raster livrées séparément sont des sources artistiques, pas une dépendance de ces scènes.
 
 ## Périmètre et état
@@ -35,6 +36,7 @@ et ne déclenche pas de dégâts ou de statut.
 
 | API | Usage |
 |---|---|
+| `surface` | Profil graphique `organic`, `crystal` ou `ice`, déjà configuré dans chaque scène ; aucun effet sur les règles |
 | `play(direction)` | Démarrer à une origine déjà placée ; axe local +X orienté vers la direction |
 | `play_from(seconds, direction)` | Reprendre à l'instant réel de l'événement confirmé |
 | `seek_visual(seconds)` | Figer un aperçu sans simuler le combat |
@@ -100,6 +102,8 @@ effect.set_path_local(local_points)
 
 Une scène = un Node2D ; aucun nœud par particule. Éclats bornés à 32, spores à 24,
 points secondaires à 8 et points de rayon à 64. `particle_budget = 0` supprime les éclats secondaires.
+Pour `blink` et `clones`, le plafond des éclats est partagé entre les positions secondaires,
+et non multiplié par leur nombre. Les rubans et formes principales restent visibles sans particules.
 Budget conseillé à l'intégration : 24 effets décoratifs simultanés, dont 8 de boss ; conserver
 les avertissements prioritaires. Le code de combat doit appliquer ce budget : cette livraison
 ne limite pas les mécaniques ou leurs dégâts. Aucun chiffre de FPS en combat n'est revendiqué.
@@ -109,7 +113,82 @@ Chargement de 56 scènes, parcours conservé, orientation, arrêt, réutilisatio
 Exécuté sous Godot 4.3 dans un projet isolé contenant ces scènes et leurs deux dépendances ;
 pas de test de campagne complète ou d'équilibrage.
 
-Aperçus natifs : `tools/art/marsh_vfx_showcase.gd`, 10 groupes, 16 images par groupe,
+Aperçus natifs : `tools/art/marsh_vfx_showcase.gd`, 19 groupes de trois effets maximum, 16 images par groupe,
 1280 × 720, convertis en WebP animés dans `docs/previews/marais-sorts/`. Ce sont de vrais
 rendus de Godot, pas les planches raster des effets. Validation artistique et raccordement
 au jeu restent à faire.
+
+## Reprise visuelle du 27 octobre
+
+- Même ruban peint que Taille fendante, converti en masque de luminance neutre à son premier
+  chargement pour préserver les palettes des monstres. Une texture partagée de 256 × 96,
+  avec mipmaps ; aucun traitement d'image dans la boucle de rendu.
+- Frappes et griffes : accent de contact immédiat, balayage accéléré, trois traînées peintes,
+  pointes claires et disparition progressive. Aucune temporisation de dégâts ajoutée.
+- Impacts : expansion vive, fragments qui ralentissent et retombent, intérieur sombre réduit
+  de 72 % à 20 % pour conserver le sol et les silhouettes visibles.
+- Projectiles : masse de vase et gouttes distinctes des aiguilles et éclats à trois faces.
+  Le corps reste attaché à l'origine fournie ; seul le sillage est animé.
+- Racines : croissance initiale sans réinitialisation brutale à chaque boucle, ramifications
+  et fils lumineux. Les liens suivent exclusivement le chemin confirmé.
+- Boucliers et miroirs : facettes et reflets mobiles ; aucun grand disque opaque ajouté.
+- Rayons : cœur étroit et reflets le long du trajet confirmé, sans tracer de nouveau segment.
+- Glauquemire : engloutissement convergeant vers la gueule, distinct de la rage montante et
+  des fentes du cœur exposé ; murs de vase plus volumétriques, écume sur tourbillon et marée.
+  L'anneau de marée représente cette mécanique d'eau, pas une nouvelle enceinte d'arène.
+- Les télégraphes corail gardent leur géométrie et leur dessin sans texture peinte.
+
+Les 56 scènes conservent les mêmes dimensions, durées, couleurs, points et signaux. Le profil
+de matière est le seul paramètre graphique ajouté. Les six scènes du chapitre 4 restent des
+prototypes ; aucune validation de leurs monstres ou mécaniques n'est présumée.
+
+Les nouveaux aperçus utilisent le sol de la Mangrove, le Chasseur et Mousseroc à l'échelle du
+manifeste, avec zoom 4/3. Ce sont des montages natifs Godot, clairement identifiés ; aucune
+partie, intelligence ennemie ou collision n'y est simulée. Les comparaisons avant/après
+reprennent la version initiale exacte de la PR, commit `1d41723`, aux mêmes phases.
+
+## Aperçus reproductibles et performance de la reprise
+
+`tools/art/run_context.py` prépare un projet isolé ; `context_showcase.gd` le dessine ;
+`render_groups.py` produit les 19 groupes sans réimporter un snapshot inchangé. Sous Windows,
+le projet de rendu utilise un nouveau dossier TEMP court pour éviter les limites de chemin
+du cache GLES3. Audio Dummy, aucune modification du profil ou des réglages du jeu.
+
+```sh
+python3 tools/art/run_context.py --project=after-project --output=controle --check-only --short-path
+python3 tools/art/render_groups.py --work-dir=<dossier-externe> --project=after-project --count=19
+```
+
+Employer le même `--work-dir` dans les deux commandes si la valeur par défaut est remplacée.
+Les séquences sont à phases normalisées pour l'observation ; ce ne sont pas des vidéos à
+vitesse réelle commune. Les durées runtime restent celles du catalogue.
+
+Les rubans peints et leur contour sont groupés en une commande par ruban ; tous les éclats
+d'une scène sont regroupés en un seul maillage. Le lien de racine et le cœur des rayons
+conservent une âme continue pour leur lisibilité. Le mur de vase a une silhouette irrégulière
+et des faces ombrées, sans les anciens rectangles superposés.
+
+Contrôle final : **56 scènes, zéro erreur** ; lint des scripts modifiés propre. Les dimensions,
+durées, couleurs, chemins et signaux du contrat restent inchangés. Les fichiers de gameplay
+`src/` et `data/` sont identiques à main.
+
+Mesure GLES3 sur Intel Iris Xe / i5-1135G7, 1280×720, zoom 4/3, 24 effets dont 8 de boss,
+90 sprites témoins Mousseroc, 30 images d'échauffement exclues puis 120 mesurées :
+
+| Mesure | AVANT | APRÈS |
+|---|---:|---:|
+| Intervalle médian (ms) | 21.37 | 21.847 |
+| 95e centile (ms) | 28.94 | 27.964 |
+| Appels de dessin médians | 1141 | 702 |
+
+Ce n'est **pas un benchmark de combat avec 90 Corrompus** : ni IA, collision ni dégâts.
+Le temps médian reste voisin de la référence, les appels de dessin baissent. L'essai
+intermédiaire à 30,926 ms a été écarté, puis l'essai trop fin à 17,321 ms a été corrigé pour
+retrouver la visibilité ; leurs images lourdes restent hors Git. Aucun gain de FPS en partie
+n'est revendiqué. [Mesures exactes](../previews/marais-sorts/performance.json).
+
+[Exemple animé](../previews/marais-sorts/groupe_11.webp) ·
+[Comparaison avant/après](../previews/marais-sorts/comparaison_11.webp) ·
+[Catalogue des captures](../previews/marais-sorts/controle.json).
+
+Poids des nouveaux fichiers uniques de la livraison courante : **84.2 Mo**. [Mesure](../previews/marais-sorts/poids.json).

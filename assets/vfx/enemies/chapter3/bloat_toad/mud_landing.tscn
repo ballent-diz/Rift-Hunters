@@ -5,6 +5,7 @@
 [node name="bloat_toad_mud_landing" type="Node2D"]
 script = ExtResource("1")
 effect_kind = &"splash"
+surface = "organic"
 color = Color(0.247059, 0.682353, 0.666667, 1)
 accent = Color(0.768627, 0.933333, 0.886275, 1)
 radius = 105.0

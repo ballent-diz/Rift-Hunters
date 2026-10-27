@@ -5,6 +5,7 @@
 [node name="spore_mother_heal_aura" type="Node2D"]
 script = ExtResource("1")
 effect_kind = &"heal"
+surface = "organic"
 color = Color(0.388235, 0.529412, 0.298039, 1)
 accent = Color(0.737255, 0.901961, 0.631373, 1)
 radius = 240.0
