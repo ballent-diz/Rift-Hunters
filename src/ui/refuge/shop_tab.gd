@@ -88,8 +88,11 @@ func _item_row(p: ProfileData, item: ShopItemData) -> PanelContainer:
 		var packed: bool = Shop.is_packed(p, item.id)
 		var pack: Button = HunterTreeSkin.button(tr("SHOP_PACKED") if packed else tr("SHOP_PACK"), _pack.bind(item.id), packed)
 		pack.name = "Pack_" + String(item.id)
-		pack.disabled = stock <= 0 and not packed
-		actions.add_child(pack)
+		# Sans stock, le bouton ne servirait à rien : on ne l'affiche pas.
+		if stock > 0 or packed:
+			actions.add_child(pack)
+		else:
+			pack.free()
 	return parts[0]
 
 

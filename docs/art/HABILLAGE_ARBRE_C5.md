@@ -61,9 +61,9 @@ Ne pas ajouter de fichiers .import sous incoming/ (dossier exclu de Godot).
 
 ## Validation et captures
 
-[Quatre captures de l’écran réel](../previews/c5/tree/README.md) : départ, build avancé,
-variante exclusive et améliorations du refuge en anglais. Profil de démonstration isolé,
-aucun changement de sauvegarde du joueur.
+[Captures de l’écran réel](../previews/c5/tree/README.md) (refonte du 26 octobre 2026) : guide de première
+visite, départ, milieu de campagne, variante, sort scellé, passif en anglais, améliorations du refuge, voie du
+Prisme. Profils de démonstration isolés, aucun changement de sauvegarde du joueur.
 
 Les tests de mise en page avec le moteur graphique couvrent les deux langues à 720p, les nœuds et les boutons d’action,
 ainsi que l’apprentissage, l’activation, le retrait, l’équipement sur F et le changement de build.

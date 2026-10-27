@@ -23,4 +23,5 @@ prerequisites_any = true
 exclusive_group = &""
 spell_id = &""
 learned_by_default = false
+required_mastery = 3
 effects = [SubResource("guard_aura_1")]

@@ -1153,7 +1153,7 @@ ECHO_NODE_MIRRORLING_SPELL_ALT_DESC,Projette 5 éclats en éventail vers l'avant
 ECHO_NODE_MIRRORLING_SIGNATURE_NAME,Reflet,Reflection
 ECHO_NODE_MIRRORLING_SIGNATURE_DESC,+15 PV max.,+15 max HP.
 TAB_ECHOES,Échos,Echoes
-ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (1 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (1 + mastery level). One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Activations are saved in the Hunter's active build."
+ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (2 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (2 + mastery level). One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Activations are saved in the Hunter's active build."
 ECHO_TREE_POINTS,Points d'Écho : %d / %d,Echo Points: %d / %d
 ECHO_TREE_EQUIPPED,Sort équipé : %s,Equipped spell: %s
 ECHO_TREE_LOCKED,Écho pas encore débloqué.,Echo not unlocked yet.
@@ -1193,7 +1193,7 @@ TREE_SECTION_KEYSTONE,Clé de voûte,Keystone
 TREE_EQUIP_READY,Cliquez sur un emplacement en bas pour équiper ce sort.,Click a slot below to equip this spell.
 ECHO_TREE_OR,ou,or
 ECHO_TREE_HINT,"Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les choix sont enregistrés dans le build actif du Chasseur.","One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Choices are saved in the Hunter's active build."
-ECHO_TREE_POINTS_HINT,Points d'Écho : 1 + niveau de maîtrise de cet Écho.,Echo Points: 1 + this Echo's mastery level.
+ECHO_TREE_POINTS_HINT,Points d'Écho : 2 + niveau de maîtrise de cet Écho.,Echo Points: 2 + this Echo's mastery level.
 ECHO_TREE_ONE_SPELL,Un seul des deux sorts peut être équipé.,Only one of the two spells can be equipped.
 ECHO_TREE_NEEDS_PASSIVE,Requiert un rang de Puissance ou de Concentration.,Requires a rank of Might or Focus.
 ECHO_TREE_EQUIP,Équiper ce sort,Equip this spell
@@ -1663,3 +1663,99 @@ BOSS_PATTERN_MIST_VEIL,Voile de brume,Mist veil
 BOSS_PATTERN_PYRE_RAM,Charge du bûcher,Pyre ram
 BOSS_VEIL_INTRO,Voile de brume : la Chimère est intouchable tant que ses lanternes brûlent. Brisez-les !,Mist veil: the Chimera cannot be touched while its lanterns burn. Break them!
 BOSS_RAM_INTRO,"Il fonce tout droit : mettez un rocher derrière vous et écartez-vous au dernier moment, il s'assomme.","It charges straight ahead: put a rock behind you and step aside at the last moment, it will knock itself out."
+TREE_STEP_LEARN,Apprendre,Learn
+TREE_STEP_LEARN_HINT,"avec les Éclats, pour toujours","with Shards, for good"
+TREE_STEP_ACTIVATE,Activer,Activate
+TREE_STEP_ACTIVATE_HINT,"dans le build, avec les Points","in your build, with Points"
+TREE_STEP_EQUIP,Équiper,Equip
+TREE_STEP_EQUIP_HINT,les sorts actifs sur vos touches,active spells on your keys
+TREE_LEGEND_ACTIVE,Actif,Active
+TREE_CHIP_SHARDS,Éclats · apprendre,Shards · learn
+TREE_CHIP_SHARDS_HINT,"Éclats de faille, gagnés en expédition. Ils servent à apprendre les nœuds : c'est définitif, pour tous vos builds.","Rift Shards, earned on expeditions. They are spent to learn nodes: it is permanent, for all your builds."
+TREE_CHIP_POINTS,Points libres · activer,Free points · activate
+TREE_CHIP_POINTS_HINT,"Points de Chasseur encore libres dans ce build / total. Activer un nœud en coûte, le retirer les rend. +1 à chaque nouvelle carte gagnée, +1 tous les 3 objectifs.","Hunter Points still free in this build / total. Activating a node costs some, removing it gives them back. +1 for each new map won, +1 every 3 objectives."
+TREE_BUILD_LABEL,Build,Build
+TREE_BUILD_HINT,Build %d : il garde ses propres activations et ses sorts équipés. Changer de build est gratuit.,Build %d: it keeps its own activations and equipped spells. Switching builds is free.
+TREE_GUIDE_BUTTON,Guide,Guide
+TREE_GUIDE_HINT,Revoir le guide de l'arbre,See the tree guide again
+TREE_COLUMN_TRUNK,Tronc commun,Common trunk
+TREE_COLUMN_TRUNK_SUB,Toutes les voies,Every path
+TREE_GATE_OPEN,Ouvert,Open
+TREE_GATE_BOSSES,Boss vaincus %d/%d,Bosses beaten %d/%d
+TREE_STEPS_TITLE,Pour l'utiliser,How to use it
+TREE_DONE_LEARNED,Appris pour toujours,Learned for good
+TREE_DONE_LEARNED_RANK,Rang %d/%d appris pour toujours,Rank %d/%d learned for good
+TREE_NEXT_LEARN,Coûte %d Éclats (vous en avez %d),Costs %d Shards (you have %d)
+TREE_NEXT_LEARN_RANK,Rang %d/%d : %d Éclats (vous en avez %d),Rank %d/%d: %d Shards (you have %d)
+TREE_BLOCK_SHARDS,Il manque %d Éclats (coût : %d),%d Shards short (cost: %d)
+TREE_BLOCK_GATE,Vaincre %d boss pour le débloquer (%d/%d),Beat %d boss(es) to unlock it (%d/%d)
+TREE_BLOCK_NEEDS_SPELL,Activez d'abord le sort « %s »,Activate the spell “%s” first
+TREE_BLOCK_POINTS,"Points insuffisants : %d requis, %d libre(s). Retirez un autre nœud ou gagnez de nouvelles cartes.","Not enough points: %d needed, %d free. Remove another node or win new maps."
+TREE_TITLE_ACTIVATE,Activer dans le Build %d,Activate in Build %d
+TREE_TODO_ACTIVATE,Ensuite : %d point(s) de Chasseur par rang,Then: %d Hunter Point(s) per rank
+TREE_DONE_ACTIVE,Actif : %d point(s) utilisé(s),Active: %d point(s) used
+TREE_NEXT_ACTIVATE,Coûte %d point(s) · il vous en reste %d,Costs %d point(s) · %d left
+TREE_REPLACES,Remplacera « %s » (choix exclusif),Will replace “%s” (exclusive choice)
+TREE_TITLE_EQUIP,Équiper sur une touche,Equip on a key
+TREE_TODO_EQUIP,"Ensuite : placez-le dans la barre des sorts, en bas",Then: place it in the spell bar below
+TREE_DONE_EQUIPPED,Équipé sur la touche %s,Equipped on key %s
+TREE_NEXT_EQUIP,Cliquez un emplacement en bas : le sort qui s'y trouve est remplacé,Click a slot below: the spell already there is replaced
+TREE_TITLE_EFFECT,En expédition,On expeditions
+TREE_EFFECT_AUTO,S'applique tout seul une fois actif,Applies on its own once active
+TREE_EFFECT_VARIANT,Modifie « %s » ; une seule variante par sort,Changes “%s”; one variant per spell
+TREE_EFFECT_KEYSTONE,Une seule clé de voûte active par build,Only one keystone active per build
+TREE_UTILITY_ALWAYS,"Toujours actif une fois appris, sans point","Always active once learned, no points needed"
+TREE_ACTION_LEARN,Apprendre · %d Éclats,Learn · %d Shards
+TREE_ACTION_ACTIVATE,Activer · %d pt,Activate · %d pt
+TREE_ACTION_EQUIP,Équiper sur la touche %s,Equip on key %s
+TREE_ACTION_REMOVE,Retirer du build,Remove from build
+TREE_SLOT_PICK,Équiper ici,Equip here
+TREE_GUIDE_PAGE,Guide de l'arbre · %d / %d,Tree guide · %d / %d
+TREE_GUIDE_SKIP,Passer,Skip
+TREE_GUIDE_PREV,Précédent,Back
+TREE_GUIDE_NEXT,Suivant,Next
+TREE_GUIDE_DONE,C'est parti !,Let's go!
+TREE_GUIDE_LATER,À gagner,To earn
+TREE_GUIDE_TITLE_1,"Votre arbre, votre build","Your tree, your build"
+TREE_GUIDE_BODY_1,"Le Chasseur progresse sur quatre voies et un tronc commun. Chaque voie se lit de gauche à droite : passifs, puis sorts, variantes et talents, jusqu'à la clé de voûte. Mélangez les voies comme vous voulez : c'est votre build.","The Hunter grows along four paths and a common trunk. Each path reads from left to right: passives, then spells, variants and talents, up to the keystone. Mix paths as you like: that is your build."
+TREE_GUIDE_TITLE_2,① Apprendre avec les Éclats,① Learn with Shards
+TREE_GUIDE_BODY_2,"Les Éclats ◆ se gagnent en expédition. Sélectionnez un nœud qui brille (Apprenable), puis « Apprendre » : il est à vous pour toujours, dans tous vos builds. Un cadenas indique ce qui manque : un nœud précédent ou des boss à vaincre.","Shards ◆ are earned on expeditions. Select a glowing node (Learnable), then “Learn”: it is yours for good, in every build. A padlock shows what is missing: an earlier node or bosses to beat."
+TREE_GUIDE_TITLE_3,② Activer avec les Points,② Activate with Points
+TREE_GUIDE_BODY_3,"Un nœud appris ne fait rien tant qu'il n'est pas activé dans votre build. L'activer coûte des Points de Chasseur ● (+1 par nouvelle carte gagnée, +1 tous les trois objectifs). Le retirer rend ses points : essayez, changez, c'est gratuit. Trois builds peuvent être enregistrés.","A learned node does nothing until it is activated in your build. Activating costs Hunter Points ● (+1 per new map won, +1 every three objectives). Removing it refunds its points: try, change, it is free. Three builds can be saved."
+TREE_GUIDE_TITLE_4,③ Équiper vos sorts,③ Equip your spells
+TREE_GUIDE_BODY_4,"Un sort actif se place sur une de vos touches de sort, dans la barre du bas : sélectionnez le sort, puis cliquez un emplacement. Vous commencez avec deux emplacements ; les deux autres s'ouvrent au fil de la campagne.","An active spell goes on one of your spell keys, in the bar at the bottom: select the spell, then click a slot. You start with two slots; the other two open up as the campaign goes on."
+TREE_GUIDE_TITLE_5,"Choisir, c'est construire",Choosing is building
+TREE_GUIDE_BODY_5,"Chaque sort a deux variantes, A ou B : une seule active à la fois. Une seule clé de voûte par build. Les niveaux III à V s'ouvrent en battant des boss. Vous ne pourrez pas tout activer : choisissez ce qui va ensemble.","Each spell has two variants, A or B: only one active at a time. Only one keystone per build. Tiers III to V open up by beating bosses. You cannot activate everything: pick what works together."
+TREE_COLUMN_PASSIVES,Passifs,Passives
+TREE_COLUMN_SPELL,Sort %d,Spell %d
+TREE_COLUMN_KEYSTONE,Clé de voûte,Keystone
+TREE_NOTE_VARIANTS,Variantes,Variants
+TREE_NOTE_VARIANTS_HINT,"Sous chaque sort : A ou B, une seule active à la fois.","Under each spell: A or B, only one active at a time."
+ECHO_COLUMN_BASE,Fondations,Foundations
+ECHO_COLUMN_ORIGIN,Sort d'origine,Original spell
+ECHO_COLUMN_SECOND,Second sort,Second spell
+ECHO_COLUMN_APEX,Apogée,Apex
+ECHO_GATE_MASTERY,Maîtrise %d/%d,Mastery %d/%d
+ECHO_STEP_LEARN_HINT,"avec les Éclats, pour toujours","with Shards, for good"
+ECHO_STEP_ACTIVATE_HINT,avec les Points d'Écho (2 + maîtrise),with Echo Points (2 + mastery)
+ECHO_STEP_EQUIP_HINT,"un seul sort par Écho, sur sa touche","one spell per Echo, on its key"
+ECHO_LIST_HINT,Maîtrise %d · Points d'Écho libres : %d / %d,Mastery %d · Free Echo Points: %d / %d
+ECHO_CHIP_POINTS,Points d'Écho libres,Free Echo Points
+ECHO_CHIP_MASTERY,Maîtrise,Mastery
+ECHO_CHIP_MASTERY_HINT,Jouer cet Écho et réussir ses défis fait monter sa maîtrise : chaque niveau donne un Point d'Écho et ouvre de nouveaux nœuds.,Playing this Echo and completing its challenges raises its mastery: each level grants an Echo Point and opens new nodes.
+ECHO_BLOCK_MASTERY,Atteignez la maîtrise %d avec cet Écho (actuelle : %d),Reach mastery %d with this Echo (current: %d)
+ECHO_TITLE_ACTIVATE,Activer pour %s (Build %d),Activate for %s (Build %d)
+ECHO_TITLE_EQUIP,Équiper sur %s (Build %d),Equip on %s (Build %d)
+ECHO_TODO_ACTIVATE,Ensuite : %d point(s) d'Écho par rang,Then: %d Echo Point(s) per rank
+ECHO_TODO_EQUIP,"Ensuite : l'équiper, sans coût en points","Then: equip it, at no point cost"
+ECHO_DONE_ACTIVE,Actif : %d point(s) d'Écho utilisé(s),Active: %d Echo Point(s) used
+ECHO_DONE_EQUIPPED,Équipé : il remplace l'autre sort de l'Écho,Equipped: it replaces the Echo's other spell
+ECHO_NEXT_ACTIVATE,Coûte %d point(s) d'Écho · il vous en reste %d,Costs %d Echo Point(s) · %d left
+ECHO_NEXT_EQUIP,Gratuit : remplace l'autre sort de l'Écho,Free: replaces the Echo's other spell
+ECHO_BLOCK_POINTS,"Points d'Écho insuffisants : %d requis, %d libre(s). Retirez un autre nœud ou montez la maîtrise de cet Écho.","Not enough Echo Points: %d needed, %d free. Remove another node or raise this Echo's mastery."
+ECHO_EFFECT_SPELL,"Lancé avec la touche de l'Écho, selon sa place dans l'équipe","Cast with the Echo's key, depending on its team slot"
+TREE_GUIDE_TITLE_6,Les arbres des Échos,Echo trees
+TREE_GUIDE_BODY_6,"Chaque Écho a son arbre, dans l'onglet Échos, qui se lit comme celui du Chasseur : apprendre avec les Éclats, activer avec les Points d'Écho (2 + niveau de maîtrise). Jouer un Écho fait monter sa maîtrise, qui ouvre ses colonnes suivantes. Un seul de ses deux sorts est équipé.","Each Echo has its own tree, in the Echoes tab, read like the Hunter's: learn with Shards, activate with Echo Points (2 + mastery level). Playing an Echo raises its mastery, which opens its next columns. Only one of its two spells is equipped."
+EXPEDITION_ECHO_AT_MAP,Carte %d,Map %d
+EXPEDITION_ECHO_LATER,À venir,Coming later
+REFUGE_TAB_SHORTCUTS,"Changer d'onglet : LB / RB, Page préc. / suiv. ou Ctrl+Tab","Switch tabs: LB / RB, Page Up / Down or Ctrl+Tab"
