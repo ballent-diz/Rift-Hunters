@@ -97,3 +97,5 @@ Le traitement sélectif officiel Real-ESRGAN a été exécuté sur les cases sig
 
 
 Poids des nouveaux fichiers uniques : **118.8 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).
+
+Comparaison complémentaire avec les Ruines : le même diagnostic relatif signale 50 % des cases de la référence, contre 53,7 % du Temple. Ces pourcentages proches ne prouvent pas une qualité identique : le score spectral absolu médian est respectivement 0,05155 et 0,00123. Ce résultat renforce la nécessité de conserver la réserve, malgré le verdict global conforme. [Mesures comparatives](../previews/tide-temple/comparaison_nettete_reference.json). Aucun seuil modifié.
