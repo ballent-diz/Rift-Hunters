@@ -1,0 +1,14 @@
+{
+  "ruines": {
+    "median": 0.051547788083553314,
+    "percentile80": 0.08599403500556946,
+    "relative_flag_share": 0.5
+  },
+  "temple": {
+    "median": 0.001234286930412054,
+    "percentile80": 0.002278732368722558,
+    "relative_flag_share": 0.5370967741935484,
+    "below_ruines_fixed_reference_share": 1.0
+  },
+  "method": "M\u00eame sharpness_map.cell_scores ; scores absolus et r\u00e9f\u00e9rences relatives par carte, sans changer les seuils."
+}

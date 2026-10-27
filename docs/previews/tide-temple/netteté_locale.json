@@ -1,0 +1,7 @@
+{
+  "valid_cells": 620,
+  "blurry_cells": 219,
+  "blurry_share": 0.3532258064516129,
+  "threshold": 0.05,
+  "ok": false
+}

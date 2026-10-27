@@ -1,0 +1,15 @@
+Top-down video game map for Rift Hunters, a 2D survivor-like. ONE complete continuous full-bleed VERTICAL 2:3 composition, 1024 x 1536 pixels, no borders, no text, no UI, no characters. COMPOSITION ONLY.
+STYLE REFERENCES ONLY (art language, NOT layout): image1 Waterfall Ruins, image2 Root Mangrove, image3 Mist Ford. Same sharp finely hand-painted fantasy game art, steep overhead camera, top-left light. No horizon, no photorealism, no coarse pixel grid, no smooth plastic.
+Theme: TIDE TEMPLE, chapter 3 THE SUNKEN MARSHES: a vast half-drowned temple of pale cyan MIRROR CRYSTAL and mossy grey stone in a jungle marsh, turquoise shallow water, dark deep pools, giant roots and vines on edge ruins, emerald ferns, pale flowers, restrained low mist and tiny violet rift accents. NO lava, NO orange, NO ash.
+The map is VERTICAL: a wide, continuously connected PERMANENT HIGH ROUTE snakes from BOTTOM to TOP, via broad raised stone walkways, short high staircases and large dry terraces, never straight. It remains connected even when ALL LOW CAUSEWAYS ARE UNDERWATER. Six wide LOW CAUSEWAY SHORTCUTS branch off this safe elevated route and reconnect at another place, making real bypass loops over water. No isolated platform, no mandatory flooded crossing.
+Route areas: temple forecourt safe start at (50%,93%); large west courtyard at (25%,75%); large east crystal terrace at (72%,58%); collapsed open-air hall at (30%,38%); broad north-east sacred basin terrace at (65%,20%); large north sanctuary forecourt at (45%,8%), NO walled arena. Centers open, nothing drawn for actual rifts or guardian, those will be game objects. At least 50% flat open walkable ground, large combat spaces not narrow tracks.
+Exactly SIX LOW CAUSEWAYS of wet flat irregular slabs barely above water, 150–300 world units wide (5–9% image width), all with physically connected dry land at BOTH ENDS:
+one shortcut between south forecourt and west courtyard;
+one between west courtyard and east terrace;
+one from east terrace northward;
+one across the collapsed hall side pool;
+one between open-air hall and sacred basin;
+one between sacred basin and sanctuary forecourt.
+The low slabs must be visibly DISTINCT from the high route: dark wet flat surfaces AT WATER LEVEL, no raised parapet, no stairs along their middle; turquoise shallow water at edges. Every shortcut has a LONGER ALTERNATIVE dry raised bridge/stair path nearby, visibly elevated by masonry side faces, never a dead end. Deep water is dark blue-green and clearly blocked.
+Inside EACH combat area: 3–5 large fallen mirror-crystal blocks or broken statues as cover, spaced at least350 world units apart, never on routes, placed irregularly around the open centers. Crystal masonry is pale cyan-grey reflective faceted material, not neon, not enormous magical glowing circles. Dense jungle, collapsed walls or deep water close the outer border; no path leaves image.
+Use finely drawn small worn paving stones, masonry blocks, fern clusters and roots like image1; water ripples and moss not blur. Compose the whole continuous environment coherently, no pasted rectangles or seams. No labels or symbols, no UI, no characters.
