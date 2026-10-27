@@ -219,7 +219,7 @@ func leech_feed(pattern: BossPatternData) -> void:
 	var params: Dictionary = pattern.params
 	var data: EnemyData = GameDB.enemy(StringName(params.get("enemy", "mire_leech")))
 	_leech_heal = float(params.get("heal_ratio", 0.02))
-	leeches.assign(leeches.filter(func(e: Enemy) -> bool: return is_instance_valid(e) and e.alive))
+	leeches.assign(leeches.filter(func(e: Variant) -> bool: return is_instance_valid(e) and (e as Enemy).alive))
 	var count: int = mini(int(params.get("count", 4)), int(params.get("max_active", 6)) - leeches.size())
 	var distance: float = float(params.get("distance", 430.0))
 	var offset: float = ctx.rng.randf() * TAU

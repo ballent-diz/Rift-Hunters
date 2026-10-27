@@ -290,7 +290,7 @@ func _pattern_shadow_wave(pattern: BossPatternData) -> void:
 ## Points praticables seulement (hors rochers et falaises) ; plafond d'invocations actives (max_active).
 func _pattern_summon(pattern: BossPatternData) -> void:
 	var enemy_ids: Array = pattern.params.get("enemies", ["skitterling"])
-	_summons.assign(_summons.filter(func(e: Enemy) -> bool: return is_instance_valid(e) and e.alive))
+	_summons.assign(_summons.filter(func(e: Variant) -> bool: return is_instance_valid(e) and (e as Enemy).alive))
 	var count: int = mini(int(pattern.params.get("count", 6)), ctx.spawner.current_cap() - ctx.enemies.count())
 	count = mini(count, int(pattern.params.get("max_active", 999)) - _summons.size())
 	var points := PackedVector2Array()
@@ -610,7 +610,7 @@ func _vfx(scene_name: String, pos: Vector2, dir: Vector2, props: Dictionary = {}
 		required: bool = false) -> Node2D:
 	if data.vfx_dir == "" or scene_name == "":
 		return null
-	_effects.assign(_effects.filter(func(fx: Node2D) -> bool: return is_instance_valid(fx)))
+	_effects.assign(_effects.filter(func(fx: Variant) -> bool: return is_instance_valid(fx)))
 	if not required and _effects.size() >= MAX_EFFECTS:
 		return null
 	var path: String = data.vfx_dir.path_join(scene_name + ".tscn")

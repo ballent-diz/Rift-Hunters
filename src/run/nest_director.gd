@@ -54,7 +54,7 @@ func step(delta: float) -> void:
 			continue
 		nest["timer"] = ctx.arena.nest_interval
 		var brood: Array[Enemy] = nest["brood"]
-		brood.assign(brood.filter(func(e: Enemy) -> bool: return is_instance_valid(e) and e.alive))
+		brood.assign(brood.filter(func(e: Variant) -> bool: return is_instance_valid(e) and (e as Enemy).alive))
 		var room: int = mini(ctx.arena.nest_batch, ctx.arena.nest_max_brood - brood.size())
 		if room > 0:
 			_lay(nest, room)
