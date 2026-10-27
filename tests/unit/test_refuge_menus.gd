@@ -194,3 +194,58 @@ func test_maximized_window_counts_as_windowed() -> void:
 		"fenêtre agrandie : mode fenêtré, aucun redimensionnement forcé")
 	check(not Settings.is_fullscreen_mode(DisplayServer.WINDOW_MODE_MINIMIZED), "fenêtre réduite : mode fenêtré")
 	check(Settings.is_fullscreen_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN), "plein écran exclusif")
+
+
+func test_tabs_switch_from_the_keyboard_and_show_what_needs_attention() -> void:
+	_screen.tabs.current_tab = 0
+	var key := InputEventKey.new()
+	key.keycode = KEY_PAGEDOWN
+	key.pressed = true
+	_screen._unhandled_input(key)
+	check_eq(_screen.tabs.current_tab, 1, "Page suivante : onglet suivant")
+	key.keycode = KEY_PAGEUP
+	_screen._unhandled_input(key)
+	_screen._unhandled_input(key)
+	check_eq(_screen.tabs.current_tab, _screen.tabs.get_tab_count() - 1, "Page précédente : boucle sur le dernier")
+	# 5000 Éclats : des nœuds du Chasseur à apprendre.
+	_screen.refresh_all()
+	check(_screen.tabs.get_tab_title(2).ends_with("●"), "repère sur l'arbre du Chasseur")
+	Profile.profile.add_currency("shards", -Profile.profile.shards())
+	HunterTree.deactivate(Profile.profile, GameDB.skill_node(&"blade_cleaving_slash"))
+	HunterTree.deactivate(Profile.profile, GameDB.skill_node(&"prism_prismatic_lance"))
+	_screen.refresh_all()
+	check(_screen.tabs.get_tab_title(2).ends_with("●"), "sorts de départ à réactiver : repère")
+	HunterTree.activate(Profile.profile, GameDB.skill_node(&"blade_cleaving_slash"))
+	HunterTree.activate(Profile.profile, GameDB.skill_node(&"prism_prismatic_lance"))
+	_screen.refresh_all()
+	check(not _screen.tabs.get_tab_title(2).ends_with("●"), "rien à faire sans Éclats ni points : pas de repère")
+
+
+func test_expedition_lists_owned_echoes_first_with_the_map_of_the_others() -> void:
+	_screen.tabs.current_tab = 0
+	await _settle()
+	var tab: RefugeTab = _screen.tabs.get_child(0)
+	var numbers: Array[int] = []
+	var owned_after_locked := false
+	var seen_locked := false
+	for tile: Node in tab.find_children("*", "Button", true, false):
+		var labels: Array[Node] = tile.find_children("*", "Label", true, false)
+		for label: Node in labels:
+			var text: String = (label as Label).text
+			if text.begins_with(tr("EXPEDITION_ECHO_AT_MAP").to_upper().get_slice("%", 0)):
+				seen_locked = true
+				numbers.append(int(text.get_slice(" ", text.get_slice_count(" ") - 1)))
+			elif seen_locked and text == tr("MONSTER_ASHBLADE_NAME"):
+				owned_after_locked = true
+	check(not numbers.is_empty(), "Échos à gagner : la carte qui les donne")
+	check(not owned_after_locked, "Échos débloqués avant ceux à gagner")
+	var sorted: Array[int] = numbers.duplicate()
+	sorted.sort()
+	check_eq(numbers, sorted, "Échos à gagner dans l'ordre des cartes")
+
+
+func test_objectives_show_progress_bars() -> void:
+	_screen.tabs.current_tab = 6
+	await _settle()
+	var tab: RefugeTab = _screen.tabs.get_child(6)
+	check(not tab.find_children("ObjectiveBar", "ProgressBar", true, false).is_empty(), "barres de progression")

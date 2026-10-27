@@ -75,7 +75,12 @@ func _add_starters(box: VBoxContainer, p: ProfileData) -> void:
 	row.add_theme_constant_override("h_separation", 8)
 	row.add_theme_constant_override("v_separation", 8)
 	box.add_child(row)
+	var owned: Array[StringName] = []
+	var later: Array[StringName] = []
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
+		(owned if p.is_monster_unlocked(GameDB.monster(id)) else later).append(id)
+	later.sort_custom(func(a: StringName, b: StringName) -> bool: return _map_number(a) < _map_number(b))
+	for id: StringName in owned + later:
 		row.add_child(_starter_tile(p, GameDB.monster(id), team.has(id)))
 	for id: StringName in team:
 		var monster: MonsterData = GameDB.monster(id)
@@ -129,17 +134,33 @@ func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Butt
 		tile.tooltip_text = tr(monster.desc_key) + "\n" + tr("EXPEDITION_MASTERY") % Mastery.level(p, monster)
 		tile.pressed.connect(_select_starter.bind(monster.id))
 	else:
-		var mystery: Label = UiKit.title("?", 32, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
+		# Échos à gagner : tuiles plus petites, l'équipe disponible reste au premier plan.
+		tile.custom_minimum_size = Vector2(76, 76)
+		var mystery: Label = UiKit.title("?", 24, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
 		mystery.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		mystery.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		box.add_child(mystery)
-		var locked: Label = UiKit.caption(tr("EXPEDITION_LOCKED"), 10, UiKit.MUTED)
+		var number: int = _map_number(monster.id)
+		var locked: Label = UiKit.caption(tr("EXPEDITION_ECHO_AT_MAP") % number if number < 99
+			else tr("EXPEDITION_ECHO_LATER"), 10, UiKit.MUTED)
 		locked.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		box.add_child(locked)
 		tile.tooltip_text = EchoCollection.source_text(monster)
 	for child: Node in box.get_children():
 		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return tile
+
+
+## Numéro de la carte de campagne qui donne cet Écho (99 : pas encore de carte).
+func _map_number(monster_id: StringName) -> int:
+	var monster: MonsterData = GameDB.monster(monster_id)
+	var number: int = 0
+	for chapter: ChapterData in Campaign.chapters_of(Campaign.MAIN):
+		for map: CampaignMapData in chapter.maps:
+			number += 1
+			if monster and map.arena_id == monster.discovery_arena:
+				return number
+	return 99
 
 
 # --- Cartes

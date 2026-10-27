@@ -1756,3 +1756,6 @@ ECHO_BLOCK_POINTS,"Points d'Écho insuffisants : %d requis, %d libre(s). Retirez
 ECHO_EFFECT_SPELL,"Lancé avec la touche de l'Écho, selon sa place dans l'équipe","Cast with the Echo's key, depending on its team slot"
 TREE_GUIDE_TITLE_6,Les arbres des Échos,Echo trees
 TREE_GUIDE_BODY_6,"Chaque Écho a son arbre, dans l'onglet Échos, qui se lit comme celui du Chasseur : apprendre avec les Éclats, activer avec les Points d'Écho (2 + niveau de maîtrise). Jouer un Écho fait monter sa maîtrise, qui ouvre ses colonnes suivantes. Un seul de ses deux sorts est équipé.","Each Echo has its own tree, in the Echoes tab, read like the Hunter's: learn with Shards, activate with Echo Points (2 + mastery level). Playing an Echo raises its mastery, which opens its next columns. Only one of its two spells is equipped."
+EXPEDITION_ECHO_AT_MAP,Carte %d,Map %d
+EXPEDITION_ECHO_LATER,À venir,Coming later
+REFUGE_TAB_SHORTCUTS,"Changer d'onglet : LB / RB, Page préc. / suiv. ou Ctrl+Tab","Switch tabs: LB / RB, Page Up / Down or Ctrl+Tab"
