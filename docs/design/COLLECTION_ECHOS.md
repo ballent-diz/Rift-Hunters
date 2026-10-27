@@ -47,7 +47,7 @@ boutique, d'étoiles ni de capture en partie pour les Échos ; l'équipe (3 au p
 | 6. Lisière calcinée | Égidor |
 | 7. Évents de cendre (`ash_vents`) | Pyraile |
 | 8. Tanières de suie (`soot_dens`) | Spectrâtre |
-| 9. Volcan carré (`volcano_heart`) | Gravelune |
+| 9. Le Seuil du Cataclysme (`cataclysm_threshold`) | Gravelune |
 | 10. Grande arène (`caldera_arena`) | Solgriffe |
 | 11. Mangrove des racines (`root_mangrove`) | Ronceline |
 | 12. Temple des marées (`tide_temple`) | Mirelle |

@@ -1,0 +1,2 @@
+# Conserver les octets exacts des sources pour les empreintes SHA256.
+source/** -text whitespace=cr-at-eol

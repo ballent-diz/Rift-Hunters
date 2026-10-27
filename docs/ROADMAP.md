@@ -1,5 +1,9 @@
 # Rift Hunters — feuille de route
 
+## B3 — Carte 10, Cœur du volcan : visuels livrés pour revue (Codex)
+
+Nouvelle map-arène multi-lobes, sans reprise de la spirale. Carte 9 renommée Le Seuil du Cataclysme (cataclysm_threshold) sur demande du propriétaire. Ensuite seulement : cartes 11 puis 12, puis sprites chapitre 3. Le propriétaire autorise désormais la poursuite sans attendre de réponses ; choix et contrôles documentés.
+
 ## Suite du lot du 26 octobre (Claude) : mécanique phare par boss, Glauquemire, équilibrage des cartes 1 à 6
 
 - **Un Écho par carte** gagnée, les moins forts d'abord ([design/COLLECTION_ECHOS.md](design/COLLECTION_ECHOS.md)).
@@ -21,9 +25,11 @@
     la carte 6 ;
   - le Chasseur coincé dans une fente du décor est replacé sur un point libre (carte 1) ;
   - pendant une vague, la flèche ramène à la zone en cours (carte 5).
-- **Collisions pré-peintes des cartes 7 à 9** : à corriger par le propriétaire (`assets/concepts/incoming/map.<id>/collision/`).
+- **Collisions pré-peintes des cartes 7 à 9** : à corriger par le propriétaire (`assets/concepts/incoming/map.<id>/collision/` ;
+  carte 9 : `map.cataclysm_threshold`).
 - **Restent à faire** :
-  - décor de la carte 10 ;
+  - raccorder à `caldera_arena` le décor de la carte 10 livré par Codex (`volcano_heart`, PR 76) : manifeste,
+    collisions, navigation, nappes brûlantes ;
   - collisions définitives des cartes 7 à 9, puis leurs propres gardiens (chacun avec sa mécanique phare) ;
   - arènes des cartes 11 à 15 ;
   - gardiens des cartes 7 à 9 : propositions dans [design/MONSTRES.md](design/MONSTRES.md), à valider.
@@ -37,7 +43,7 @@ cartes 11 (vase qui colle) et 12 (marée). Mécaniques ennemies du chapitre 3 (E
 
 ## B3 — Carte 9 sélectionnée, volcan carré : détails livrés pour revue (Codex)
 
-Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contrôle global conforme et chargement Godot 4.3 réussi. Rapport et planche d’échelle dans docs/previews/volcano-heart-detail/. Identifiant graphique historique map.volcano_heart conservé ; aucune modification de src/, data/ ou collision. Carte graphique livrée, intégration jouable à faire.
+Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contrôle global conforme et chargement Godot 4.3 réussi. Rapport et planche d’échelle dans docs/previews/cataclysm-threshold-detail/. Identifiant visuel cataclysm_threshold (Le Seuil du Cataclysme) ; aucune modification de src/, data/ ou collision. Carte graphique livrée, intégration jouable à faire.
 
 
 ## B3 — Carte 7, Évents de cendre : détails livrés pour revue (Codex)

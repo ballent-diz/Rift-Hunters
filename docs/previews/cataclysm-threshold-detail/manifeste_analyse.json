@@ -1,0 +1,14 @@
+{
+  "entries": {
+    "environment.cataclysm_threshold": {
+      "kind": "map",
+      "status": "wip",
+      "map_tiles": [
+        "res://assets/environments/cataclysm_threshold/map.webp",
+        "res://assets/environments/cataclysm_threshold/map_1.webp",
+        "res://assets/environments/cataclysm_threshold/map_2.webp"
+      ],
+      "arena_size": 5016
+    }
+  }
+}

@@ -1562,8 +1562,8 @@ ARENA_ASH_VENTS_NAME,Évents de cendre,Ash Vents
 ARENA_ASH_VENTS_DESC,Roche nue et cheminées de cendre : des bulbes de braise poussent entre les colonnes de basalte.,Bare rock and ash chimneys: ember pods grow between the basalt columns.
 ARENA_SOOT_DENS_NAME,Tanières de suie,Soot Dens
 ARENA_SOOT_DENS_DESC,"Un monastère calciné accroché à la pente, où les Veuves de cendre font leurs nids.","A scorched monastery clinging to the slope, where the Ashen Widows build their nests."
-ARENA_VOLCANO_HEART_NAME,Coulées de braise,Ember Flows
-ARENA_VOLCANO_HEART_DESC,Des rivières de lave serpentent entre les terrasses de basalte du volcan.,Rivers of lava wind between the volcano's basalt terraces.
+ARENA_CATACLYSM_THRESHOLD_NAME,Le Seuil du Cataclysme,The Cataclysm Threshold
+ARENA_CATACLYSM_THRESHOLD_DESC,Des rivières de lave serpentent entre les terrasses de basalte du volcan.,Rivers of lava wind between the volcano's basalt terraces.
 ZONE_CALDERA_1_NAME,Bord du cratère,Crater Rim
 ZONE_CALDERA_2_NAME,Fournaise,Furnace
 ZONE_CALDERA_3_NAME,Cœur du volcan,Volcano Heart

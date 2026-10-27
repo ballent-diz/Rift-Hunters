@@ -12247,27 +12247,6 @@
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
-		"environment.volcano_heart": {
-			"status": "wip",
-			"kind": "map",
-			"map": "res://assets/environments/volcano_heart/map.webp",
-			"map_tiles": [
-				"res://assets/environments/volcano_heart/map.webp",
-				"res://assets/environments/volcano_heart/map_1.webp",
-				"res://assets/environments/volcano_heart/map_2.webp"
-			],
-			"detail_strength": 0.32,
-			"field": "res://assets/environments/volcano_heart/field.png",
-			"field_step": 2.0,
-			"arena_size": 5016,
-			"filter": "linear",
-			"ambient": {
-				"amount": 0
-			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
-			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/volcano_heart/minimap.webp"
-		},
 		"boss.glauquemire": {
 			"status": "planned",
 			"note": "Dévoreur du chapitre 3 : sprites à livrer par Codex (docs/design/DEVOREUR_CHAPITRE3.md) ; forme provisoire en attendant.",
@@ -12399,6 +12378,27 @@
 					"loop": false
 				}
 			}
+		},
+		"environment.cataclysm_threshold": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/cataclysm_threshold/map.webp",
+			"map_tiles": [
+				"res://assets/environments/cataclysm_threshold/map.webp",
+				"res://assets/environments/cataclysm_threshold/map_1.webp",
+				"res://assets/environments/cataclysm_threshold/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/cataclysm_threshold/field.png",
+			"field_step": 2.0,
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/cataclysm_threshold/minimap.webp"
 		}
 	}
 }

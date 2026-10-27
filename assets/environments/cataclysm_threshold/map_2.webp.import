@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3wyu3bvkr4r0"
-path="res://.godot/imported/minimap.webp-f48eac8f677d6809d07e65d9da20bdce.ctex"
+uid="uid://7v68plrexbie"
+path="res://.godot/imported/map_2.webp-4ef8b64d739019ef077d140684f8b0af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/environments/volcano_heart/minimap.webp"
-dest_files=["res://.godot/imported/minimap.webp-f48eac8f677d6809d07e65d9da20bdce.ctex"]
+source_file="res://assets/environments/cataclysm_threshold/map_2.webp"
+dest_files=["res://.godot/imported/map_2.webp-4ef8b64d739019ef077d140684f8b0af.ctex"]
 
 [params]
 

@@ -23,12 +23,12 @@ max_alive = 100
 
 [resource]
 script = ExtResource("1")
-id = &"volcano_heart"
-name_key = "ARENA_VOLCANO_HEART_NAME"
-desc_key = "ARENA_VOLCANO_HEART_DESC"
+id = &"cataclysm_threshold"
+name_key = "ARENA_CATACLYSM_THRESHOLD_NAME"
+desc_key = "ARENA_CATACLYSM_THRESHOLD_DESC"
 size = Vector2(5016, 5016)
 navigation_cell_size = 48.0
-environment_id = &"environment.volcano_heart"
+environment_id = &"environment.cataclysm_threshold"
 unlocked_by_default = false
 progression = &"milestones"
 boss_time = 360.0
