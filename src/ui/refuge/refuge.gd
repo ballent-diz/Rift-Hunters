@@ -64,7 +64,8 @@ func _ready() -> void:
 
 func refresh_all() -> void:
 	for i: int in _tab_nodes.size():
-		tabs.set_tab_title(i, tr(_tab_nodes[i].title_key()))
+		tabs.set_tab_title(i, tr(_tab_nodes[i].title_key()) + ("  ●" if _tab_nodes[i].needs_attention() else ""))
+	tabs.get_tab_bar().tooltip_text = tr("REFUGE_TAB_SHORTCUTS")
 	_currencies.text = tr("REFUGE_CURRENCIES") % [Profile.profile.shards(), Profile.profile.essence()]
 	_warning.text = Profile.status_message()
 	_warning.visible = _warning.text != ""
@@ -75,6 +76,32 @@ func refresh_current() -> void:
 	if tabs.current_tab >= 0 and tabs.current_tab < _tab_nodes.size():
 		_tab_nodes[tabs.current_tab].refresh()
 		MenuSkin.finish(_tab_nodes[tabs.current_tab])
+
+
+## Changer d'onglet sans la souris : gâchettes LB / RB de la manette, Page précédente / suivante, Ctrl+Tab.
+func _unhandled_input(event: InputEvent) -> void:
+	var step: int = 0
+	if event is InputEventJoypadButton and event.pressed:
+		match (event as InputEventJoypadButton).button_index:
+			JOY_BUTTON_LEFT_SHOULDER: step = -1
+			JOY_BUTTON_RIGHT_SHOULDER: step = 1
+	elif event is InputEventKey and event.pressed and not event.echo:
+		var key: InputEventKey = event
+		match key.keycode:
+			KEY_PAGEUP: step = -1
+			KEY_PAGEDOWN: step = 1
+			KEY_TAB:
+				if key.ctrl_pressed:
+					step = -1 if key.shift_pressed else 1
+	if step != 0:
+		get_viewport().set_input_as_handled()
+		switch_tab(step)
+
+
+func switch_tab(step: int) -> void:
+	var count: int = tabs.get_tab_count()
+	tabs.current_tab = posmod(tabs.current_tab + step, count)
+	Audio.play_sfx(&"ui_click")
 
 
 ## Sauvegarde puis rafraîchit (après un achat, un réglage...).

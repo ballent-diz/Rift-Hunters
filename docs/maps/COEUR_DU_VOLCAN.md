@@ -1,40 +1,73 @@
-# Volcan carré — carte 9 sélectionnée
+# Cœur du volcan — carte 10
 
-Le propriétaire a désigné la pièce jointe `c9.png` comme **carte 9**, après la carte 8 de la forteresse. L’identifiant graphique historique `map.volcano_heart` est conservé ; ce lot ne change aucune donnée de campagne. Le plan exact de cette pièce jointe fait foi sur les retouches antérieures.
+Nouvelle map-arène pour la finale du chapitre 2, sans reprise de la spirale. Monde **5016 × 5016**, composition **1536 × 1536**. Une seule grande surface praticable, sans zones, barrières ou couloirs internes. Entrée sud (50,94), Pyrevorn au centre (50,50).
 
-Source conservée dans `source/composition_validee_c9.png`. Le fichier `composition.png` est uniquement sa remise au format de composition 1536 × 1536. Monde : **5016 × 5016 unités**.
+Le propriétaire a ensuite demandé d’avancer en continu sans pouvoir répondre : Codex choisit donc les compositions et poursuit sans attente. Il ne s’agit pas d’une validation visuelle explicite de chaque image par le propriétaire. Le plan ci-dessous est figé pour la passe de détail.
 
-Seize régions 4 × 4 redessinées puis assemblées avec recouvrements par le pipeline commun ; trois tuiles **3762 × 11286**, soit une carte **11286 × 11286** à **2,25 pixels par unité**. Ce n’est pas un agrandissement de la composition sans régions. Les silhouettes, passages et limites de lave restent fixés par la source.
+![Composition](../previews/volcano-heart/composition.webp)
 
-![Carte entière](../previews/volcano-heart-detail/carte_entiere.png)
+## Plan et circulation
 
-## Contrôle
+Cratère irrégulier, roche sombre et cendre ; 16 formations de couverture repérées visuellement, réparties et décalées. Deux aiguilles flanquent le centre vers (31,44) et (69,56). Zone centrale visée : diamètre 1400 unités. Rampe sud sans danger. Deux évents actifs en périphérie, hors du sol de combat. Les fissures décoratives de la bordure sont rouge sombre.
 
-[Rapport global](../previews/volcano-heart-detail/qualite.json), [planche d’échelle](../previews/volcano-heart-detail/echelle.png), [chargement Godot](../previews/volcano-heart-detail/godot-chargement.log).
+Les dimensions des abris, les dégagements de 300 unités et la part praticable ≥55 % sont des **estimations visuelles**, à confirmer par la peinture des collisions ; aucune validation de navigation n’est revendiquée. Les petits cailloux restent de la texture traversable.
 
-| Mesure | Valeur | Résultat |
-|---|---:|---|
-| densité (pixels par unité) | 2.25 | OK |
-| part lisse (médiane) | 0.225 | OK |
-| détails fins / 100×100 u (médiane) | 338.731 | OK |
-| détails moyens / 100×100 u (médiane) | 100.036 | OK |
-| secteurs conformes (part) | 0.918 | OK |
-| fidélité au plan validé (corrélation) | 0.977 | OK |
+## Nappes brûlantes praticables
 
-Verdict global : **CONFORME**.
+Masque `hazards.png` : **noir = rien, blanc = nappe praticable qui inflige des dégâts**. Huit nappes distinctes, sans nappe au centre ni sur la rampe. Les deux parties du groupe nord-ouest sont séparées. Le masque technique provient de la couleur orange dans des emprises contrôlées, avec suppression des petits reflets et remplissage de la croûte interne. Il ne décrit pas les collisions.
 
-La carte de chaleur est le diagnostic **initial**, avant la retouche des matières ; elle ne prétend pas mesurer la dernière sortie. Les secteurs hors norme du contrôle final restent listés dans le rapport. Le verdict global ne garantit pas une netteté uniforme sur la fumée et tous les bords.
+| Nappe | Centre X,Y % | Rectangle X1,Y1,X2,Y2 % | Diamètre maximal (u) |
+|---|---|---|---:|
+| H01 | [26.157, 12.728] | [21.549, 10.026, 29.427, 15.234] | 395.1 |
+| H02 | [30.084, 16.819] | [27.279, 13.932, 32.422, 19.336] | 271.0 |
+| H03 | [61.137, 12.117] | [58.724, 9.766, 64.453, 14.453] | 287.4 |
+| H04 | [42.873, 21.861] | [38.997, 19.076, 45.703, 24.219] | 336.4 |
+| H05 | [81.161, 34.483] | [78.776, 32.878, 83.724, 36.328] | 248.2 |
+| H06 | [18.256, 61.817] | [13.607, 56.641, 23.438, 65.69] | 493.1 |
+| H07 | [84.095, 65.54] | [81.12, 63.867, 86.719, 67.448] | 280.8 |
+| H08 | [49.008, 73.628] | [46.354, 71.81, 51.107, 76.042] | 238.4 |
 
-Les anciennes compositions et anciens masques de coulées sont des archives uniquement. Ils ne sont pas actifs dans le job, et ne doivent pas être réutilisés pour détourer la pièce jointe c9.png. Aucun masque de collision, champ de navigation, src/ ou donnée de gameplay n’est modifié. Carte graphique prête pour la suite de l’intégration, **pas encore jouable** ; circulation à valider après peinture par le propriétaire.
+![Masque superposé](../previews/volcano-heart/nappes.webp)
 
-## Traçabilité
+## Mesures et checklist
 
-Prompts exacts `PROMPT_REGION.txt` et `PROMPT_RETOUCHE_MATIERES.txt` ; sorties initiales dans `essai_initial`, sorties retenues dans `regions`, correspondance dans `GENERATIONS.json`, empreintes dans `SHA256.json`. Images générées avec l’outil intégré, aucune ressource tierce. Import et chargement ciblé des trois textures par Godot 4.3 réussis ; aucun test de gameplay revendiqué.
+- [x] Composition carrée, carte entière, sans texte, personnages ou interface.
+- [x] Une seule arène ouverte, agencement différent de la carte 9.
+- [x] Centre et rampe sans nappe ; huit nappes de 200 à 500 unités sur le masque final.
+- [x] Orange vif réservé aux nappes et aux deux évents périphériques.
+- [x] Abris décalés, aucun duo symétrique ; larges détours visibles.
+- [ ] Confirmation des largeurs, tailles d’abris et part praticable par collisions peintes.
+- [x] Passe de détail et rapport CONFORME.
+- [x] Planche d’échelle, masque final et contrôle de chargement.
 
-qualite_initiale.json : densité (pixels par unité) = 2.25, part lisse (médiane) = 0.248, détails fins / 100×100 u (médiane) = 283.113, détails moyens / 100×100 u (médiane) = 94.242, secteurs conformes (part) = 0.837, fidélité au plan validé (corrélation) = 0.99.
+## Livraison et poids
 
-qualite_seconde_passe.json : densité (pixels par unité) = 2.25, part lisse (médiane) = 0.225, détails fins / 100×100 u (médiane) = 324.44, détails moyens / 100×100 u (médiane) = 98.491, secteurs conformes (part) = 0.918, fidélité au plan validé (corrélation) = 0.979.
+Seuls la composition retenue, les tuiles finales, le masque, les prompts et petits rapports sont livrés. Les recadrages et régions intermédiaires restent hors dépôt. Aperçus limités à 1600 pixels. Poids total ajouté à indiquer avant la PR ; au-delà de 150 Mo, publication à suspendre selon AGENTS.md. Aucun src/, data/ ou réglage de gameplay modifié.
 
-qualite.json : densité (pixels par unité) = 2.25, part lisse (médiane) = 0.225, détails fins / 100×100 u (médiane) = 338.731, détails moyens / 100×100 u (médiane) = 100.036, secteurs conformes (part) = 0.918, fidélité au plan validé (corrélation) = 0.977.
+L’ancien visuel carré de la carte 9 est renommé **Le Seuil du Cataclysme**, identifiant `cataclysm_threshold`, en conservant ses pixels ; `volcano_heart` est réservé à cette nouvelle carte 10.
 
-La finition locale concerne uniquement `r0_2`, `r1_2` et `r3_0`, avec `PROMPT_FINITION.txt`. Leurs versions précédentes sont dans `essai_seconde_passe`. Les trois étapes donnent 283,113 → 324,440 → 338,731 détails fins, avec des seuils de contrôle inchangés.
+## Livraison détaillée
+
+Seize régions redessinées (4 × 4), assemblées selon le pipeline commun en trois tuiles **3762 × 11286** : carte totale **11286 × 11286**, soit **2,25 pixels par unité**. Les régions et essais restent hors dépôt ; leurs empreintes et dimensions sont conservées dans `source/regions_manifest.json`. Les seuils du contrôle n’ont pas été modifiés.
+
+![Carte entière](../previews/volcano-heart/carte_entiere.webp)
+
+| Contrôle | Résultat |
+|---|---:|
+| Densité | 2,25 px/u |
+| Part lisse | 0,233 |
+| Détails fins | 334,482 |
+| Détails moyens | 101,194 |
+| Secteurs conformes | 100 % |
+| Fidélité au plan | 0,950 |
+| Verdict | **CONFORME** |
+
+[Rapport complet](../previews/volcano-heart/qualite.json). [Planche d’échelle](../previews/volcano-heart/echelle.webp) issue de `map_regions.py compare`, réorganisée sur 1140 pixels de large sans redimensionner ses panneaux : **1 pixel = 1 unité**.
+
+Le masque final `hazards.png` est en **11286 × 11286**, noir/blanc 1 bit, avec **huit composantes**. Il reprend les positions du masque figé de la composition par adaptation sans interpolation des valeurs ; ce n’est pas un masque de collisions. Les deux évents périphériques n’y figurent pas. [Contrôle du masque](../previews/volcano-heart/controle_masque.json).
+
+Le contrôle ciblé dans Godot 4.3 a importé puis chargé les trois textures et le masque avec succès : [import](../previews/volcano-heart/godot-import.log), [chargement](../previews/volcano-heart/godot-chargement.log). Le [repère Chasseur/Mousseroc](../previews/volcano-heart/secteur_echelle.webp) est un **montage technique à l’échelle**, pas une capture de partie. Les collisions et la navigation ne sont pas encore validées en jeu.
+
+À raccorder par Claude : entrée du manifeste, champ de collisions peint par le propriétaire, niveau, Pyrevorn, dégâts des nappes et projectiles volcaniques. Aucun fichier `src/` ou `data/` modifié.
+
+Poids des nouveaux blobs uniques : **141,8 Mo**, renommages déjà présents dans main exclus. [Mesure détaillée](../previews/volcano-heart/poids.json).

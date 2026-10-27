@@ -1,0 +1,224 @@
+{
+  "world_size": [
+    5016,
+    3344
+  ],
+  "points_percent": {
+    "Depart": [
+      12,
+      80
+    ],
+    "Zone 1": [
+      16,
+      45
+    ],
+    "Racine-pont": [
+      25,
+      12
+    ],
+    "Zone 2": [
+      59,
+      18
+    ],
+    "Gue": [
+      84,
+      33
+    ],
+    "Zone 3": [
+      84,
+      72
+    ],
+    "Ile finale": [
+      49,
+      44
+    ],
+    "Acces unique": [
+      66,
+      64
+    ],
+    "Boucle sud": [
+      47,
+      85
+    ]
+  },
+  "loop": "Départ sud-ouest → rive ouest → racine-pont nord-ouest → rive nord → gué nord-est → rive est → retour par rive sud. Une racine-pont distincte relie uniquement la rive est à l’île.",
+  "components": [
+    {
+      "id": 1,
+      "area_pixels": 5452,
+      "area_percent": 0.34662882486979163,
+      "area_world_units_squared": 58141.7998046875,
+      "bbox_pixels_xyxy_exclusive": [
+        587,
+        105,
+        705,
+        175
+      ],
+      "bbox_percent_xyxy": [
+        38.21614583333333,
+        10.25390625,
+        45.8984375,
+        17.08984375
+      ],
+      "bbox_width_world_units": 385.34375,
+      "bbox_height_world_units": 228.59375,
+      "maximum_diameter_world_units": 393.8971913005386,
+      "equivalent_circle_diameter_world_units": 272.0816765484278
+    },
+    {
+      "id": 2,
+      "area_pixels": 6952,
+      "area_percent": 0.4419962565104167,
+      "area_world_units_squared": 74138.259765625,
+      "bbox_pixels_xyxy_exclusive": [
+        941,
+        109,
+        1086,
+        187
+      ],
+      "bbox_percent_xyxy": [
+        61.263020833333336,
+        10.64453125,
+        70.703125,
+        18.26171875
+      ],
+      "bbox_width_world_units": 473.515625,
+      "bbox_height_world_units": 254.71875,
+      "maximum_diameter_world_units": 474.6403667864788,
+      "equivalent_circle_diameter_world_units": 307.2389365159332
+    },
+    {
+      "id": 3,
+      "area_pixels": 6536,
+      "area_percent": 0.4155476888020833,
+      "area_world_units_squared": 69701.908203125,
+      "bbox_pixels_xyxy_exclusive": [
+        201,
+        266,
+        328,
+        349
+      ],
+      "bbox_percent_xyxy": [
+        13.0859375,
+        25.9765625,
+        21.354166666666664,
+        34.08203125
+      ],
+      "bbox_width_world_units": 414.734375,
+      "bbox_height_world_units": 271.046875,
+      "maximum_diameter_world_units": 418.01275615301574,
+      "equivalent_circle_diameter_world_units": 297.9047261587486
+    },
+    {
+      "id": 4,
+      "area_pixels": 7608,
+      "area_percent": 0.48370361328125,
+      "area_world_units_squared": 81134.044921875,
+      "bbox_pixels_xyxy_exclusive": [
+        89,
+        398,
+        235,
+        479
+      ],
+      "bbox_percent_xyxy": [
+        5.794270833333334,
+        38.8671875,
+        15.299479166666666,
+        46.77734375
+      ],
+      "bbox_width_world_units": 476.78125,
+      "bbox_height_world_units": 264.515625,
+      "maximum_diameter_world_units": 477.6862664861249,
+      "equivalent_circle_diameter_world_units": 321.4079563714165
+    },
+    {
+      "id": 5,
+      "area_pixels": 8773,
+      "area_percent": 0.5577723185221355,
+      "area_world_units_squared": 93557.96215820312,
+      "bbox_pixels_xyxy_exclusive": [
+        248,
+        508,
+        382,
+        604
+      ],
+      "bbox_percent_xyxy": [
+        16.145833333333336,
+        49.609375,
+        24.869791666666664,
+        58.984375
+      ],
+      "bbox_width_world_units": 437.59375,
+      "bbox_height_world_units": 313.5,
+      "maximum_diameter_world_units": 462.8670655924401,
+      "equivalent_circle_diameter_world_units": 345.1401123379607
+    },
+    {
+      "id": 6,
+      "area_pixels": 8035,
+      "area_percent": 0.510851542154948,
+      "area_world_units_squared": 85687.70385742188,
+      "bbox_pixels_xyxy_exclusive": [
+        1316,
+        555,
+        1457,
+        651
+      ],
+      "bbox_percent_xyxy": [
+        85.67708333333334,
+        54.19921875,
+        94.85677083333334,
+        63.57421875
+      ],
+      "bbox_width_world_units": 460.453125,
+      "bbox_height_world_units": 313.5,
+      "maximum_diameter_world_units": 460.55733528197254,
+      "equivalent_circle_diameter_world_units": 330.3043642594286
+    },
+    {
+      "id": 7,
+      "area_pixels": 8141,
+      "area_percent": 0.517590840657552,
+      "area_world_units_squared": 86818.12036132812,
+      "bbox_pixels_xyxy_exclusive": [
+        1103,
+        708,
+        1256,
+        797
+      ],
+      "bbox_percent_xyxy": [
+        71.80989583333334,
+        69.140625,
+        81.77083333333334,
+        77.83203125
+      ],
+      "bbox_width_world_units": 499.640625,
+      "bbox_height_world_units": 290.640625,
+      "maximum_diameter_world_units": 500.93026985190886,
+      "equivalent_circle_diameter_world_units": 332.4759600988017
+    },
+    {
+      "id": 8,
+      "area_pixels": 8288,
+      "area_percent": 0.5269368489583333,
+      "area_world_units_squared": 88385.7734375,
+      "bbox_pixels_xyxy_exclusive": [
+        1301,
+        758,
+        1426,
+        855
+      ],
+      "bbox_percent_xyxy": [
+        84.70052083333334,
+        74.0234375,
+        92.83854166666666,
+        83.49609375
+      ],
+      "bbox_width_world_units": 408.203125,
+      "bbox_height_world_units": 316.765625,
+      "maximum_diameter_world_units": 444.3770539355662,
+      "equivalent_circle_diameter_world_units": 335.4642483672854
+    }
+  ],
+  "collisions": "Non peintes. Repères et circulation contrôlés visuellement seulement."
+}

@@ -26,3 +26,5 @@ extends Resource
 @export_range(0.0, 1.0) var hurt_ratio: float = 0.0
 ## Animation et effet d'entrée (rugissement), sans dégâts.
 @export var intro_animation: StringName = &""
+## Mécanique phare (type d'attaque) : propre à ce boss, aucun autre ne l'utilise (docs/design/MONSTRES.md).
+@export var signature: StringName = &""

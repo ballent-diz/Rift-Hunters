@@ -17,4 +17,5 @@ prerequisites_any = true
 exclusive_group = &"mossback_spell"
 spell_id = &"stone_taunt"
 learned_by_default = false
+required_mastery = 1
 effects = []

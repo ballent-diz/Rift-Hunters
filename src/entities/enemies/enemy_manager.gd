@@ -18,6 +18,8 @@ var obstacles: Array[Enemy] = []
 var grid := SpatialGrid.new(64.0)
 ## Mode « vagues par zone » : les derniers Corrompus d'une vague accélèrent (traque).
 var hunt_speed_mult: float = 1.0
+## Techniques du chapitre 3 (fichier à part).
+var marsh: MarshTechniques
 var _buffer: Array = []
 var _overlay: Node2D
 var _dirty_removal: bool = false
@@ -35,6 +37,7 @@ var _eggs: Array[Dictionary] = []
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
+	marsh = MarshTechniques.new(ctx, self)
 	_overlay = Node2D.new()
 	_overlay.z_index = 6
 	_overlay.draw.connect(_draw_overlay)
@@ -43,6 +46,15 @@ func setup(p_ctx: RunContext) -> void:
 
 func count() -> int:
 	return list.size()
+
+
+## Corrompus à éliminer pour finir une vague : ni structures (bulbes, nids), ni petits des nids.
+func count_hostile() -> int:
+	var total: int = 0
+	for enemy: Enemy in list:
+		if enemy.alive and not enemy.is_obstacle and not enemy.from_nest:
+			total += 1
+	return total
 
 
 ## Ennemis vivants dans un rayon (copie : sûre même si la liste change ensuite).
@@ -74,7 +86,7 @@ func find_nearest_visible(pos: Vector2, max_range: float) -> Enemy:
 	var best: Enemy = null
 	var best_d: float = INF
 	for enemy: Enemy in query_radius(pos, max_range):
-		if not enemy.alive or not enemy.is_target():
+		if not enemy.alive or not enemy.is_target() or marsh.hidden(enemy):
 			continue
 		var d: float = enemy.position.distance_squared_to(pos)
 		if d < best_d and d <= max_range * max_range and ctx.obstacles.line_clear(pos, enemy.position):
@@ -90,7 +102,7 @@ func _nearest_within(pos: Vector2, max_range: float, exclude: Dictionary) -> Ene
 	grid.query(pos, max_range, _buffer)
 	for item: Variant in _buffer:
 		var enemy: Enemy = item
-		if not enemy.alive or not enemy.is_target() or exclude.has(enemy.get_instance_id()):
+		if not enemy.alive or not enemy.is_target() or exclude.has(enemy.get_instance_id()) or marsh.hidden(enemy):
 			continue
 		if visibility.is_valid() and not bool(visibility.call(enemy)):
 			continue
@@ -150,16 +162,34 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 	return enemy
 
 
+## Élite en version boss (gardien d'un palier) : mêmes techniques, bien plus de PV, plus grande et plus rapide à les
+## enchaîner. Sa mort ne finit pas la carte (ZoneDirector attend sa mort pour clore le palier).
+func spawn_mini_boss(data: EnemyData, pos: Vector2, hp_mult: float, size_mult: float) -> Enemy:
+	var enemy: Enemy = spawn(data, pos)
+	enemy.mini_boss = true
+	enemy.is_elite = true
+	enemy.max_hp *= hp_mult
+	enemy.hp = enemy.max_hp
+	enemy.contact_damage *= ctx.balance.mini_boss_damage_mult
+	enemy.radius *= size_mult
+	enemy.visual.scale = Vector2.ONE * size_mult
+	enemy.xp_value *= 10
+	ctx.mini_boss = enemy
+	ctx.fx.burst(pos, enemy.radius * 2.5, Color(1.0, 0.45, 0.15, 0.6))
+	ctx.events.elite_spawned.emit(enemy)
+	return enemy
+
+
 func spawn_boss(data: BossData, pos: Vector2) -> Enemy:
 	var enemy := Enemy.new()
 	enemy.boss_data = data
 	enemy.is_boss = true
 	enemy.position = pos
-	enemy.max_hp = data.max_hp * ctx.difficulty.enemy_hp_mult
+	enemy.max_hp = data.max_hp * ctx.difficulty.enemy_hp_mult * ctx.arena.boss_hp_mult
 	enemy.hp = enemy.max_hp
 	enemy.base_defense = data.defense
 	enemy.radius = data.radius
-	enemy.contact_damage = data.damage * ctx.difficulty.enemy_damage_mult
+	enemy.contact_damage = data.damage * ctx.difficulty.enemy_damage_mult * ctx.arena.boss_damage_mult
 	enemy.move_speed = data.move_speed
 	enemy.visual = EntityVisual.new()
 	enemy.add_child(enemy.visual)
@@ -205,20 +235,27 @@ func step(delta: float) -> void:
 				continue
 		if enemy.is_obstacle:
 			continue
+		if enemy.is_clone and ctx.time >= enemy.clone_until:
+			marsh.vanish(enemy)
+			continue
 		if not enemy.is_boss:
 			_tick_brain(enemy, delta, player_pos)
 			# Séparation : une moitié des ennemis par frame (alternance), correction complète.
 			if i % 2 == parity:
 				_separate(enemy)
 		var pos: Vector2 = enemy.position
-		if drifting and not enemy.is_boss:
+		var flying: bool = enemy.data != null and enemy.data.flying
+		if drifting and not enemy.is_boss and not flying:
 			# Courants et crues : les Corrompus lourds (résistance au recul) dérivent moins.
 			pos += ctx.terrain_drift(pos) * (1.0 - enemy.data_knockback_resist() * 0.5) * delta
 		if enemy.push_velocity.length_squared() > 1.0:
 			pos += enemy.push_velocity * delta
 			enemy.push_velocity *= maxf(1.0 - 8.0 * delta, 0.0)
 		var r: float = enemy.radius
-		if not enemy.is_boss:
+		if flying:
+			# Volants : au-dessus du décor, mais jamais à travers une barrière de zone.
+			pos = ctx.obstacles.push_out_walls(pos, r)
+		elif not enemy.is_boss:
 			pos = ctx.obstacles.push_out(pos, r)
 		pos = pos.clamp(arena.position + Vector2(r, r), arena.end - Vector2(r, r))
 		enemy.position = pos
@@ -231,6 +268,8 @@ func step(delta: float) -> void:
 				# Coup au contact visible (ennemis de mêlée) : la rangée d'attaque de la feuille.
 				if not enemy.is_boss and view.has_point(pos):
 					enemy.visual.play_action(&"attack")
+		if enemy.data and enemy.data.stealth_range > 0.0:
+			enemy.visual.modulate.a = marsh.stealth_alpha(enemy, player_pos)
 		if view.has_point(pos):
 			enemy.visual.face_velocity(enemy.velocity.x)
 			enemy.visual.tick(delta, enemy.velocity.length_squared() > 4.0, enemy.velocity.length())
@@ -268,7 +307,7 @@ func _apply_dot(enemy: Enemy, dot: Array) -> void:
 
 
 func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
-	if not enemy.data.techniques.is_empty() and _tick_techniques(enemy, delta, player_pos):
+	if not enemy.is_clone and not enemy.data.techniques.is_empty() and _tick_techniques(enemy, delta, player_pos):
 		return
 	var target_pos: Vector2 = player_pos
 	if enemy.taunt_time > 0.0 and is_instance_valid(enemy.taunt_target):
@@ -279,11 +318,14 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 	var dir: Vector2 = to_target / maxf(dist, 0.001)
 	# Déplacement : pente de la carte de flux vers le Chasseur (contourne le décor) ; visée : ligne droite (dir).
 	var nav: Vector2 = dir
-	if ctx.flow != null and target_pos == player_pos:
+	if enemy.data.flying:
+		pass  # en ligne droite, au-dessus du décor
+	elif ctx.flow != null and target_pos == player_pos:
 		nav = ctx.flow.direction(enemy.position, dir)
 	elif enemy.goal_flow != null and target_pos != player_pos:
 		nav = enemy.goal_flow.direction(enemy.position, dir)
-	var speed: float = enemy.move_speed * enemy.statuses.speed_mult() * hunt_speed_mult * ctx.terrain_speed(enemy.position)
+	var speed: float = enemy.move_speed * enemy.statuses.speed_mult() * hunt_speed_mult \
+		* (1.0 if enemy.data.flying else ctx.terrain_speed(enemy.position, enemy.get_instance_id()))
 	match enemy.data.brain:
 		EnemyData.Brain.CHASER:
 			enemy.velocity = nav * speed
@@ -592,8 +634,12 @@ func _view_rect() -> Rect2:
 
 
 func _draw() -> void:
+	var now: float = ctx.time
 	# Halos sous les élites et le boss (lisibilité de la menace).
 	for enemy: Enemy in list:
+		if not enemy.alive:
+			continue
+		marsh.draw_traits(self, enemy, now)
 		if enemy.alive and (enemy.is_elite or enemy.is_boss):
 			var color := Color(1.0, 0.35, 0.8, 0.55) if enemy.is_boss else Color(1.0, 0.75, 0.25, 0.6)
 			draw_arc(enemy.position + Vector2(0, enemy.radius * 0.3), enemy.radius + 6.0, 0.0, TAU, 40, color, 3.0)
@@ -664,9 +710,10 @@ func _tick_techniques(enemy: Enemy, delta: float, player_pos: Vector2) -> bool:
 			continue
 		if technique.kind != &"rage" and (dist < technique.min_range or dist > technique.max_range):
 			continue
-		if not call("_technique_" + String(technique.kind), enemy, technique, player_pos):
+		if not _run_technique(enemy, technique, player_pos):
 			continue
-		enemy.technique_ready[technique] = ctx.time + technique.cooldown
+		enemy.technique_ready[technique] = ctx.time + technique.cooldown \
+			* (ctx.balance.mini_boss_cooldown_mult if enemy.mini_boss else 1.0)
 		enemy.visual.play_action(technique.anim)
 		return enemy.technique_busy > 0.0
 	return false
@@ -762,6 +809,14 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 			true, enemy.data.id)
 		enemy.visual.play_action(motion["spin_anim"])
 	enemy.motion = {}
+
+
+## Technique propre au gestionnaire (_technique_<kind>) ou au chapitre 3 (MarshTechniques.technique_<kind>).
+func _run_technique(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
+	var method: String = "_technique_" + String(technique.kind)
+	if has_method(method):
+		return call(method, enemy, technique, player_pos)
+	return marsh.call("technique_" + String(technique.kind), enemy, technique, player_pos)
 
 
 func _later(enemy: Enemy, delay: float, action: Callable) -> void:
@@ -939,3 +994,4 @@ func _step_pending_plates() -> void:
 			ctx.burn.add_plate(plate["pos"], plate["radius"], plate["duration"])
 			_pending_plates.remove_at(i)
 		i -= 1
+

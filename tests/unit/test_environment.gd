@@ -245,6 +245,40 @@ func test_flow_field_goes_around_walls() -> void:
 	check(open.is_equal_approx((target - Vector2(400, 300)).normalized()), "terrain dégagé : ligne droite")
 
 
+## Lisière calcinée : le Chasseur (rayon 15) se glissait dans un recoin plus étroit que la marge de navigation, et la
+## ligne droite vers l'objectif le renvoyait contre le coin du rocher. Depuis un recoin, on suit la case de retour.
+func test_flow_field_leaves_a_dead_end_by_the_way_back() -> void:
+	var flow := FlowField.new()
+	flow.setup(ObstacleField.new(), Rect2(-400, -400, 800, 800))
+	var target := Vector2(300, -60)
+	flow.update(target)
+	var pos := Vector2(0, 0)
+	var cell: Vector2i = flow.cell_of(pos)
+	# Recoin : toutes les cases autour sont injoignables, sauf la sortie, en haut à gauche.
+	for dy: int in range(-4, 5):
+		for dx: int in range(-4, 5):
+			flow._dist[(cell.y + dy) * flow.size.x + cell.x + dx] = FlowField.UNREACHED
+	var exit := Vector2i(cell.x + 3, cell.y - 1)
+	flow._dist[exit.y * flow.size.x + exit.x] = 100
+	var direct: Vector2 = (target - pos).normalized()
+	var dir: Vector2 = flow.direction(pos, direct)
+	check(dir.is_equal_approx((flow.cell_center(exit) - pos).normalized()), "on rejoint la case de retour (%s)" % dir)
+
+
+## Ruines des Cascades : au fond d'une fente en V du décor, les deux parois se renvoyaient la poussée et le Chasseur
+## (rayon 15) restait collé à 13 du rocher, sans pouvoir repartir (bot figé 18 minutes). Il rejoint un point libre proche.
+func test_free_point_escapes_a_v_shaped_crevice() -> void:
+	var arena: ArenaData = GameDB.arena(&"three_rifts")
+	var ground := ArenaGround.new()
+	ground.setup(arena, 1)
+	var obstacles: ObstacleField = ground.obstacle_field()
+	var stuck := Vector2(-909, -804)
+	check(obstacles.distance(stuck) < 14.0, "le point de blocage chevauche bien le décor")
+	var freed: Vector2 = obstacles.free_point_near(stuck, 15.0)
+	check(freed != Vector2.INF and not obstacles.blocks(freed, 15.0), "un point libre tout proche")
+	check(freed.distance_to(stuck) <= 48.0 and obstacles.line_clear(stuck, freed), "joint sans traverser le décor")
+
+
 func test_flow_field_cost_on_map() -> void:
 	var arena: ArenaData = GameDB.arena(&"fractured_plain")
 	var ground := ArenaGround.new()

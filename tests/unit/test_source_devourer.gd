@@ -63,9 +63,12 @@ func test_data_animations_and_effects_exist() -> void:
 	for phase: BossPhaseData in data.phases:
 		for pattern: BossPatternData in phase.patterns:
 			check(anims.has(String(pattern.params.get("anim", ""))), "%s : animation" % pattern.name_key)
+			check(tr(pattern.name_key) != pattern.name_key, "%s : traduit" % pattern.name_key)
+			# Mécanique phare (orbes de source) : dessinée par le jeu, sans effet peint.
+			if pattern.kind == data.signature:
+				continue
 			var scene: String = data.vfx_dir.path_join(String(pattern.params.get("vfx", "")) + ".tscn")
 			check(ResourceLoader.exists(scene), "%s : effet %s" % [pattern.name_key, scene])
-			check(tr(pattern.name_key) != pattern.name_key, "%s : traduit" % pattern.name_key)
 	for anim: String in ["roar", "transform", "phase2_idle", "hurt", "death"]:
 		check(anims.has(anim), "animation " + anim)
 

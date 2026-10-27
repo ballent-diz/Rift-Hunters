@@ -1,0 +1,266 @@
+[
+  {
+    "region": "r0_0",
+    "crop_world": [
+      0.0,
+      0.0,
+      1414.0,
+      1274.7
+    ],
+    "core_world": [
+      0.0,
+      0.0,
+      1254.0,
+      1114.7
+    ],
+    "size": [
+      1321,
+      1191
+    ],
+    "sha256": "54576fca7a981a4c29f10bb9f5a31af4909c1343d184d77842bfc1c3e6f81c18",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_1",
+    "crop_world": [
+      1094.0,
+      0.0,
+      2668.0,
+      1274.7
+    ],
+    "core_world": [
+      1254.0,
+      0.0,
+      2508.0,
+      1114.7
+    ],
+    "size": [
+      1394,
+      1128
+    ],
+    "sha256": "4c2b94b003caaa50cda3d5094489f80c1dff3a5a99650b67ed450302365645ff",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_2",
+    "crop_world": [
+      2348.0,
+      0.0,
+      3922.0,
+      1274.7
+    ],
+    "core_world": [
+      2508.0,
+      0.0,
+      3762.0,
+      1114.7
+    ],
+    "size": [
+      1394,
+      1128
+    ],
+    "sha256": "fbfda2927eeb97eaeafc7197646deee2dea188d27a48d8cdbd8ef92d596905b4",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_3",
+    "crop_world": [
+      3602.0,
+      0.0,
+      5016,
+      1274.7
+    ],
+    "core_world": [
+      3762.0,
+      0.0,
+      5016.0,
+      1114.7
+    ],
+    "size": [
+      1321,
+      1191
+    ],
+    "sha256": "8ab832e2a25ea441cbbecda1a71226e20caa0ab84050f9aaeff526880b37269d",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_0",
+    "crop_world": [
+      0.0,
+      954.7,
+      1414.0,
+      2389.3
+    ],
+    "core_world": [
+      0.0,
+      1114.7,
+      1254.0,
+      2229.3
+    ],
+    "size": [
+      1244,
+      1264
+    ],
+    "sha256": "07509cd5ad632625e1035746b377f743b8e1c75aebda2b638d850806be659d0d",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_1",
+    "crop_world": [
+      1094.0,
+      954.7,
+      2668.0,
+      2389.3
+    ],
+    "core_world": [
+      1254.0,
+      1114.7,
+      2508.0,
+      2229.3
+    ],
+    "size": [
+      1314,
+      1197
+    ],
+    "sha256": "9ad1656ae9655eb74d09a065066cbaba2fc51184ad566e868ac4774d63815e95",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_2",
+    "crop_world": [
+      2348.0,
+      954.7,
+      3922.0,
+      2389.3
+    ],
+    "core_world": [
+      2508.0,
+      1114.7,
+      3762.0,
+      2229.3
+    ],
+    "size": [
+      1314,
+      1197
+    ],
+    "sha256": "92bada50dfd96252707f5a0b76221ea014233626e6779a9c580e07ae58605a56",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_3",
+    "crop_world": [
+      3602.0,
+      954.7,
+      5016,
+      2389.3
+    ],
+    "core_world": [
+      3762.0,
+      1114.7,
+      5016.0,
+      2229.3
+    ],
+    "size": [
+      1245,
+      1263
+    ],
+    "sha256": "9c872991d9e8e931d58ded0cce9c121373f72deabe6d99aaff794d5bd16d1b97",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_0",
+    "crop_world": [
+      0.0,
+      2069.3,
+      1414.0,
+      3344
+    ],
+    "core_world": [
+      0.0,
+      2229.3,
+      1254.0,
+      3344.0
+    ],
+    "size": [
+      1321,
+      1191
+    ],
+    "sha256": "f8f884f02d238f0b0fc7314a044321c684a114bc6cbd0f7b8268355844b69510",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_1",
+    "crop_world": [
+      1094.0,
+      2069.3,
+      2668.0,
+      3344
+    ],
+    "core_world": [
+      1254.0,
+      2229.3,
+      2508.0,
+      3344.0
+    ],
+    "size": [
+      1394,
+      1128
+    ],
+    "sha256": "db73fe525b1220fc74c4d516ce360a48a6c203b1cab2e718d12884071c81adc5",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_2",
+    "crop_world": [
+      2348.0,
+      2069.3,
+      3922.0,
+      3344
+    ],
+    "core_world": [
+      2508.0,
+      2229.3,
+      3762.0,
+      3344.0
+    ],
+    "size": [
+      1393,
+      1129
+    ],
+    "sha256": "c07f72e7f4093cc8184f9c40f4b1d59803d1c58e5476f08119096c630b5ed581",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_3",
+    "crop_world": [
+      3602.0,
+      2069.3,
+      5016,
+      3344
+    ],
+    "core_world": [
+      3762.0,
+      2229.3,
+      5016.0,
+      3344.0
+    ],
+    "size": [
+      1321,
+      1191
+    ],
+    "sha256": "57f6f955abe78317cf91b7cf7c0e536717099f41f85eb93ba2911c019caf08c1",
+    "prompt": "source/PROMPT_REGION.txt",
+    "stored_in_git": false
+  }
+]

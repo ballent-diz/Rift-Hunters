@@ -5,6 +5,14 @@ func title_key() -> String:
 	return "TAB_LAB"
 
 
+## Une recherche payable tout de suite.
+func needs_attention() -> bool:
+	for item: ResearchData in Research.sorted():
+		if Research.can_research(profile(), item):
+			return true
+	return false
+
+
 func refresh() -> void:
 	var box: VBoxContainer = scroll_box(10)
 	var p: ProfileData = profile()

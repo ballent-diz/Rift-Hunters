@@ -15,6 +15,13 @@ func refresh() -> void:
 		if Objectives.is_completed(p, id):
 			done += 1
 	box.add_child(UiKit.title(tr("OBJECTIVES_PROGRESS") % [done, total], 20, MenuSkin.PAPER))
+	# En cours d'abord (les plus avancés en tête), accomplis en fin de liste.
+	ids.sort_custom(func(a: StringName, b: StringName) -> bool:
+		var done_a: bool = Objectives.is_completed(p, a)
+		var done_b: bool = Objectives.is_completed(p, b)
+		if done_a != done_b:
+			return not done_a
+		return _ratio(p, GameDB.objectives[a]) > _ratio(p, GameDB.objectives[b]))
 	for category: int in ObjectiveData.Category.values():
 		var header_added: bool = false
 		for id: StringName in ids:
@@ -42,9 +49,37 @@ func _row(p: ProfileData, objective: ObjectiveData) -> PanelContainer:
 	texts.add_child(UiKit.wrapped("???" if hidden else tr(objective.desc_key), 14))
 	if not completed and not hidden:
 		var value: float = Objectives.progress(p, objective)
-		texts.add_child(UiKit.label(tr("OBJECTIVE_PROGRESS") % [_fmt(value), _fmt(objective.threshold)], 13, UiKit.MUTED))
+		var line := HBoxContainer.new()
+		line.add_theme_constant_override("separation", 10)
+		texts.add_child(line)
+		var bar := ProgressBar.new()
+		bar.name = "ObjectiveBar"
+		bar.show_percentage = false
+		bar.custom_minimum_size = Vector2(220, 8)
+		bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+		bar.max_value = maxf(objective.threshold, 1.0)
+		bar.value = minf(value, bar.max_value)
+		bar.add_theme_stylebox_override("background", _bar_style(Color(0.12, 0.1, 0.18)))
+		bar.add_theme_stylebox_override("fill", _bar_style(UiKit.GOLD.darkened(0.15)))
+		line.add_child(bar)
+		line.add_child(UiKit.label(tr("OBJECTIVE_PROGRESS") % [_fmt(value), _fmt(objective.threshold)], 13, UiKit.MUTED))
 	h.add_child(UiKit.wrapped("???" if hidden else _reward_text(objective), 14, UiKit.ACCENT))
+	if completed:
+		panel.modulate = Color(1, 1, 1, 0.6)
 	return panel
+
+
+static func _ratio(p: ProfileData, objective: ObjectiveData) -> float:
+	if objective.hidden:
+		return -1.0
+	return Objectives.progress(p, objective) / maxf(objective.threshold, 1.0)
+
+
+static func _bar_style(color: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = color
+	style.set_corner_radius_all(3)
+	return style
 
 
 func _reward_text(objective: ObjectiveData) -> String:

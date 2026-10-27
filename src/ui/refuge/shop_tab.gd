@@ -10,16 +10,20 @@ func refresh() -> void:
 	var box: VBoxContainer = scroll_box(10)
 	var p: ProfileData = profile()
 	box.add_child(UiKit.wrapped(tr("SHOP_INTRO"), 15))
-	box.add_child(UiKit.title(tr("SHOP_SECTION_ECHOES"), 20, MenuSkin.PAPER))
 	var for_sale: Array[MonsterData] = []
+	var any_shop_echo: bool = false
 	for monster: MonsterData in GameDB.monsters.values():
+		any_shop_echo = any_shop_echo or monster.discovery == EchoCollection.SHOP
 		if monster.discovery == EchoCollection.SHOP and not p.is_monster_unlocked(monster):
 			for_sale.append(monster)
-	for_sale.sort_custom(func(a: MonsterData, b: MonsterData) -> bool: return a.shop_price < b.shop_price)
-	for monster: MonsterData in for_sale:
-		box.add_child(_echo_row(p, monster))
-	if for_sale.is_empty():
-		box.add_child(UiKit.wrapped(tr("SHOP_NO_ECHO"), 14, UiKit.MUTED))
+	# Les Échos se gagnent sur les cartes (26 octobre 2026) : la section n'apparaît que si un Écho est vendu.
+	if any_shop_echo:
+		box.add_child(UiKit.title(tr("SHOP_SECTION_ECHOES"), 20, MenuSkin.PAPER))
+		for_sale.sort_custom(func(a: MonsterData, b: MonsterData) -> bool: return a.shop_price < b.shop_price)
+		for monster: MonsterData in for_sale:
+			box.add_child(_echo_row(p, monster))
+		if for_sale.is_empty():
+			box.add_child(UiKit.wrapped(tr("SHOP_NO_ECHO"), 14, UiKit.MUTED))
 	box.add_child(UiKit.title(tr("SHOP_SECTION_CONSUMABLES"), 20, MenuSkin.PAPER))
 	for item: ShopItemData in Shop.items_of(Shop.CONSUMABLE):
 		box.add_child(_item_row(p, item))
@@ -84,8 +88,11 @@ func _item_row(p: ProfileData, item: ShopItemData) -> PanelContainer:
 		var packed: bool = Shop.is_packed(p, item.id)
 		var pack: Button = HunterTreeSkin.button(tr("SHOP_PACKED") if packed else tr("SHOP_PACK"), _pack.bind(item.id), packed)
 		pack.name = "Pack_" + String(item.id)
-		pack.disabled = stock <= 0 and not packed
-		actions.add_child(pack)
+		# Sans stock, le bouton ne servirait à rien : on ne l'affiche pas.
+		if stock > 0 or packed:
+			actions.add_child(pack)
+		else:
+			pack.free()
 	return parts[0]
 
 

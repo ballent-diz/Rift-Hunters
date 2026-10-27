@@ -2,6 +2,9 @@ class_name Player
 extends Combatant
 ## Le Chasseur : déplacement, Ruée, arme automatique (Trait de Faille), XP et niveaux.
 
+## Coincé dans le décor plus longtemps que ça : il rejoint le point libre le plus proche.
+const WEDGED_DELAY := 0.5
+
 var ctx: RunContext
 var stats := StatSheet.new()
 var brain: PlayerBrain
@@ -19,6 +22,12 @@ var hurt_flash: float = 0.0
 var god_mode: bool = false
 ## Parade (sort du Chasseur) : fenêtre restante pendant laquelle un coup reçu est paré.
 var parry_time: float = 0.0
+## Marque qui explose (E14, chapitre 3) : secondes restantes, dégâts et rayon de l'explosion ; la Ruée l'efface.
+var mark_time: float = 0.0
+var mark_total: float = 0.0
+var mark_damage: float = 0.0
+var mark_radius: float = 0.0
+var mark_source: StringName = &""
 var _iframes: float = 0.0
 var _dash_time: float = 0.0
 var _dash_dir := Vector2.ZERO
@@ -34,6 +43,7 @@ var _redraw_state: int = -1
 ## Entrave (toile de suie, scories) : vitesse multipliée par _hinder_mult pendant _hinder_time secondes.
 var _hinder_time: float = 0.0
 var _hinder_mult: float = 1.0
+var _wedged_time: float = 0.0
 
 
 func setup(p_ctx: RunContext, p_brain: PlayerBrain) -> void:
@@ -87,6 +97,11 @@ func is_dashing() -> bool:
 	return _dash_time > 0.0
 
 
+## Sens de la dernière Ruée (miroirs de Glauquemire).
+func dash_direction() -> Vector2:
+	return _dash_dir
+
+
 func is_leaping() -> bool:
 	return _leap_time > 0.0
 
@@ -122,10 +137,44 @@ func is_hindered() -> bool:
 	return _hinder_time > 0.0
 
 
+func is_marked() -> bool:
+	return mark_time > 0.0
+
+
+## Spore-marque, marque de prisme : explose après `delay` secondes sur le Chasseur et les Échos proches.
+func mark(delay: float, damage: float, explosion_radius: float, source: StringName) -> void:
+	mark_time = delay
+	mark_total = delay
+	mark_damage = damage
+	mark_radius = explosion_radius
+	mark_source = source
+
+
+func _step_mark(delta: float) -> void:
+	if mark_time <= 0.0:
+		return
+	if is_dashing():
+		mark_time = 0.0
+		ctx.fx.burst(global_position, 40.0, Color(0.8, 1.0, 0.85, 0.6))
+		queue_redraw()
+		return
+	mark_time -= delta
+	queue_redraw()
+	if mark_time > 0.0:
+		return
+	ctx.fx.burst(global_position, mark_radius, Color(0.7, 1.0, 0.45, 0.6))
+	ctx.combat.damage_player(mark_damage, mark_source)
+	# Les Échos pris dans l'explosion sont sonnés : leurs attaques reprennent plus tard.
+	for ally: Ally in ctx.allies.team:
+		if ally.global_position.distance_to(global_position) <= mark_radius:
+			ally.attack_cd = maxf(ally.attack_cd, 1.5)
+
+
 func step(delta: float) -> void:
 	_hinder_time = maxf(_hinder_time - delta, 0.0)
 	if not alive:
 		return
+	_step_mark(delta)
 	_iframes = maxf(_iframes - delta, 0.0)
 	dash_cooldown_left = maxf(dash_cooldown_left - delta, 0.0)
 	var regen: float = stats.get_value(StatKeys.REGEN)
@@ -147,7 +196,8 @@ func step(delta: float) -> void:
 			ctx.events.player_dashed.emit(_dash_from, global_position)
 	else:
 		var hinder: float = _hinder_mult if _hinder_time > 0.0 else 1.0
-		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() * ctx.terrain_speed(position) * hinder
+		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() \
+			* ctx.terrain_speed(position, get_instance_id()) * hinder
 		# Courants et crues emportent le Chasseur (pas pendant la Ruée).
 		position += (velocity + ctx.terrain_drift(position)) * delta
 		if brain.wants_dash() and dash_cooldown_left <= 0.0:
@@ -155,6 +205,7 @@ func step(delta: float) -> void:
 	if move.length() > 0.1:
 		facing = move.normalized()
 	_constrain()
+	_check_wedged(delta)
 	# Jamais à travers une barrière de zone ou d'arène : le pas qui y entrerait est annulé.
 	if ctx.obstacles.crosses_wall(before, position, radius):
 		position = before
@@ -166,6 +217,21 @@ func step(delta: float) -> void:
 	if state != _redraw_state:
 		_redraw_state = state
 		queue_redraw()
+
+
+## Coincé au fond d'une fente du décor (les deux parois se renvoient la poussée, Ruines des Cascades) : après un court
+## instant, il rejoint le point libre le plus proche.
+func _check_wedged(delta: float) -> void:
+	if ctx.obstacles.distance(position) >= radius - 1.0:
+		_wedged_time = 0.0
+		return
+	_wedged_time += delta
+	if _wedged_time < WEDGED_DELAY:
+		return
+	_wedged_time = 0.0
+	var free: Vector2 = ctx.obstacles.free_point_near(position, radius)
+	if free != Vector2.INF:
+		position = free
 
 
 func _start_dash(move: Vector2) -> void:
@@ -287,3 +353,9 @@ func _draw() -> void:
 		draw_arc(body, radius + 12.0, 0.0, TAU, 32, Color(1.0, 0.95, 0.6, 0.8), 2.5)
 	if parry_time > 0.0:
 		draw_arc(body, radius + 18.0, 0.0, TAU, 32, Color(1.0, 1.0, 1.0, 0.9), 3.5)
+	if mark_time > 0.0:
+		# Marque : cercle de l'explosion à venir et jauge du délai, qui clignote à la fin.
+		var left: float = mark_time / maxf(mark_total, 0.01)
+		var blink: float = 1.0 if left > 0.3 else 0.5 + 0.5 * sin(mark_time * 40.0)
+		draw_arc(Vector2.ZERO, mark_radius, 0.0, TAU, 48, Color(0.7, 1.0, 0.4, 0.55 * blink), 2.5)
+		draw_arc(body, radius + 10.0, -PI * 0.5, -PI * 0.5 + TAU * left, 32, Color(0.7, 1.0, 0.4, 0.95), 4.0)

@@ -168,6 +168,20 @@ d'exploration et de recherche déjà achetés sont **conservés** comme amélior
   `assets/vfx/hunter/` (manifeste `vfx.hunter.*`) pour les 12 sorts et leurs variantes ; les dessins provisoires ne
   servent plus qu'en secours. Bouton **Test dev** (Refuge → Options, visible seulement depuis Godot) : tout l'arbre
   appris, paliers ouverts, 200 Points de Chasseur, tous les Échos, toutes les cartes et le Cauchemar ouverts.
+- **Écran lisible d'un coup d'œil (26 octobre 2026)**, onglet `src/ui/refuge/tree_tab.gd` :
+  - en-tête : voies, améliorations du refuge, **Éclats · apprendre** et **Points libres · activer** (avec leur
+    rôle en infobulle), builds 1 à 3, bouton **Guide** ;
+  - bandeau permanent des trois étapes : ① apprendre (Éclats, pour toujours) › ② activer (Points, dans le build) ›
+    ③ équiper (sorts sur les touches) ;
+  - plateau `hunter_tree_board.gd` lu de gauche à droite : tronc commun, passifs, sort 1, 2 et 3 avec leurs
+    variantes A/B juste dessous, clé de voûte ; talents transformants en bas. Chaque colonne dit si elle est ouverte
+    ou combien de boss vaincre (« Boss vaincus 1/3 ») ; cases scellées voilées, sceau sur l'embranchement quand
+    les variantes s'ouvrent plus tard que leur sort ; coût en Éclats sur les nœuds à apprendre (rouge s'il manque
+    des Éclats) ; halo cyan (apprenable) ou doré (actif) ; légende des états dans une case libre ;
+  - fiche : effet, puis « Pour l'utiliser » en 3 étapes cochées (fait, à faire maintenant, bloqué et pourquoi,
+    plus tard) ; l'action conseillée vient en premier (apprendre → activer → équiper) ;
+  - guide de première visite `tree_guide.gd` (5 pages illustrées par les vrais éléments de l'écran), mémorisé dans
+    le profil (`preferences.tree_guide_seen`), rouvert par le bouton Guide. Captures : `docs/previews/c5/tree/`.
 - Ajustements de réalisation : les Échos n'ont pas de points de vie, donc *Égide* renforce le bouclier du Chasseur
   (+5 % par Écho), *Garde de meute* fait contre-attaquer les Échos proches, *Sanctuaire* soigne le Chasseur (12 %) ;
   *Contre-taille* se déclenche en esquivant un coup pendant la Ruée ; *Mur de faille* est perpendiculaire à la

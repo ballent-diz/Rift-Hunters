@@ -32,26 +32,28 @@ Solgriffe, Cendrelame, Fulgurine, Mirelle, Mousseroc, Gueule-d'ombre. Les quinze
 Gueule-d'ombre (exécutions) est hors classement, gardé pour la toute fin. Les dégâts comptés sont désormais plafonnés
 aux PV retirés (une dévoration comptait PV × 10 + 9999).
 
-| Chapitre | Écho | Source |
-|---|---|---|
-| — | Cendrelame | départ |
-| 1 | Sylvécaille | capture : Ruines des Cascades (carte 1) |
-| 1 | Scoriade | boutique, 600 éclats, après les Hautes Terres d'Orage (carte 2) |
-| 1 | Lueurine | capture : Bois des Lucioles (carte 3) |
-| 1 | Sporelune | capture : Source des Cascades (carte 5, à venir) |
-| 2 | Lucivelle | boutique, 900 éclats, après la Source des Cascades |
-| 2 | Pyraile | capture : carte 7 (à venir) |
-| 2 | Égidor | victoire : Épreuve du Gué (fin des épreuves de survie) |
-| 2 | Spectrâtre | capture : carte 9 (à venir) |
-| 2 | Gravelune | victoire : carte 10 (Dévoreur du chapitre 2, à venir) |
-| 3 | Ronceline | capture : carte 11 (à venir) |
-| 3 | Solgriffe | étoiles : toutes celles du chapitre 2 |
-| 3 | Fulgurine | boutique, 1200 éclats, après la carte 10 |
-| 3 | Mirelle | capture : carte 13 (à venir) |
-| 3 | Mousseroc | boutique, 1600 éclats, après la carte 13 |
-| 3 | Gueule-d'ombre | capture : carte 15 (finale du chapitre 3, à venir) — le dernier |
+**Révision du 26 octobre 2026 (décision du propriétaire)** : chaque carte de campagne gagnée débloque **exactement un
+Écho**, dans l'ordre de force mesuré (les moins forts d'abord, à quelques échanges près pour coller au décor). Plus de
+boutique, d'étoiles ni de capture en partie pour les Échos ; l'équipe (3 au plus) se compose au refuge.
 
-Identifiants des cartes à venir : `cascade_source` (carte 5), `chapter2_map2` (7), `chapter2_map4` (9),
-`chapter2_map5` (10), `chapter3_map1` (11), `chapter3_map3` (13), `chapter3_map5` (15), chapitre `chapter2` ; à
-renommer avec les vrais identifiants quand ces cartes arrivent. Bot (Cendrelame seul au départ, bonus d'arbre
+| Carte | Écho gagné à la victoire |
+|---|---|
+| — (départ) | Cendrelame |
+| 1. Ruines des Cascades | Sylvécaille |
+| 2. Hautes Terres d'Orage | Scoriade |
+| 3. Bois des Lucioles | Lueurine |
+| 4. Gué des Brumes | Sporelune |
+| 5. Source des Cascades | Lucivelle |
+| 6. Lisière calcinée | Égidor |
+| 7. Évents de cendre (`ash_vents`) | Pyraile |
+| 8. Tanières de suie (`soot_dens`) | Spectrâtre |
+| 9. Le Seuil du Cataclysme (`cataclysm_threshold`) | Gravelune |
+| 10. Grande arène (`caldera_arena`) | Solgriffe |
+| 11. Mangrove des racines (`root_mangrove`) | Ronceline |
+| 12. Temple des marées (`tide_temple`) | Mirelle |
+| 13 (`chapter3_map3`) | Fulgurine |
+| 14 (`chapter3_map4`) | Mousseroc |
+| 15 (`chapter3_map5`, finale du chapitre 3) | Gueule-d'ombre — le dernier |
+
+Identifiants des cartes 13 à 15 à renommer quand elles arrivent. Bot (Cendrelame seul au départ, bonus d'arbre
 « veteran ») : campagne 11 victoires sur 12 sur les cartes 1 à 4.
