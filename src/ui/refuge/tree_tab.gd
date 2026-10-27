@@ -8,9 +8,6 @@ extends RefugeTab
 
 ## Préférence du profil : guide déjà vu.
 const GUIDE_SEEN := "tree_guide_seen"
-const STEP_KEYS: Array[String] = ["TREE_STEP_LEARN", "TREE_STEP_ACTIVATE", "TREE_STEP_EQUIP"]
-const STEP_HINT_KEYS: Array[String] = ["TREE_STEP_LEARN_HINT", "TREE_STEP_ACTIVATE_HINT", "TREE_STEP_EQUIP_HINT"]
-const STEP_NUMBERS: Array[String] = ["①", "②", "③"]
 
 var _selected: StringName = &"blade_cleaving_slash"
 var _show_upgrades := false
@@ -23,6 +20,20 @@ func title_key() -> String:
 	return "TAB_TREE"
 
 
+## Un nœud à apprendre (Éclats suffisants) ou un nœud appris à activer (points libres).
+func needs_attention() -> bool:
+	var p: ProfileData = profile()
+	for node: SkillNodeData in GameDB.skill_nodes.values():
+		if not node.implemented or not GameDB.balance.feature_enabled(node.feature):
+			continue
+		if HunterTree.status(p, node) == HunterTree.Status.LEARNABLE:
+			return true
+		if not node.is_utility() and HunterTree.learned_rank(p, node) > HunterTree.active_rank(p, node) \
+				and HunterTree.activation_error(p, node) == "" and HunterTree.rivals(p, node).is_empty():
+			return true
+	return false
+
+
 func refresh() -> void:
 	UiKit.clear(self)
 	var p: ProfileData = profile()
@@ -32,7 +43,8 @@ func refresh() -> void:
 	root.add_theme_constant_override("separation", 8)
 	add_child(root)
 	root.add_child(_header(p))
-	root.add_child(_steps_strip())
+	root.add_child(HunterTreeSkin.steps_strip(["TREE_STEP_LEARN_HINT", "TREE_STEP_ACTIVATE_HINT",
+		"TREE_STEP_EQUIP_HINT"]))
 	var split := HBoxContainer.new()
 	split.add_theme_constant_override("separation", 12)
 	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -108,10 +120,10 @@ func _header(p: ProfileData) -> HBoxContainer:
 	var spacer := Control.new()
 	spacer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	row.add_child(spacer)
-	row.add_child(_chip("ShardsChip", "◆", HunterTreeSkin.CYAN, tr("TREE_CHIP_SHARDS"), str(p.shards()),
+	row.add_child(HunterTreeSkin.chip("ShardsChip", "◆", HunterTreeSkin.CYAN, tr("TREE_CHIP_SHARDS"), str(p.shards()),
 		tr("TREE_CHIP_SHARDS_HINT")))
 	var left: int = HunterTree.points_left(p)
-	row.add_child(_chip("PointsChip", "●", HunterTreeSkin.GOLD if left > 0 else HunterTreeSkin.MUTED,
+	row.add_child(HunterTreeSkin.chip("PointsChip", "●", HunterTreeSkin.GOLD if left > 0 else HunterTreeSkin.MUTED,
 		tr("TREE_CHIP_POINTS"), "%d / %d" % [left, HunterTree.points_total(p)], tr("TREE_CHIP_POINTS_HINT")))
 	var build_label: Label = UiKit.caption(tr("TREE_BUILD_LABEL"), 10, HunterTreeSkin.MUTED)
 	build_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
@@ -132,66 +144,6 @@ func _header(p: ProfileData) -> HBoxContainer:
 	guide.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	guide.tooltip_text = tr("TREE_GUIDE_HINT")
 	row.add_child(guide)
-	return row
-
-
-## Pastille de ressource : symbole, rubrique (à quoi elle sert), valeur.
-func _chip(chip_name: String, glyph: String, color: Color, caption_text: String, value: String, hint: String) -> PanelContainer:
-	var chip := PanelContainer.new()
-	chip.name = chip_name
-	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.05, 0.045, 0.1, 0.95)
-	style.border_color = color.darkened(0.4)
-	style.set_border_width_all(1)
-	style.border_width_bottom = 2
-	style.set_corner_radius_all(3)
-	style.content_margin_left = 10
-	style.content_margin_right = 12
-	style.content_margin_top = 3
-	style.content_margin_bottom = 3
-	chip.add_theme_stylebox_override("panel", style)
-	chip.tooltip_text = hint
-	chip.mouse_filter = Control.MOUSE_FILTER_STOP
-	var row := HBoxContainer.new()
-	row.add_theme_constant_override("separation", 8)
-	row.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	chip.add_child(row)
-	var icon: Label = UiKit.label(glyph, 18, color)
-	icon.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	row.add_child(icon)
-	var text := VBoxContainer.new()
-	text.add_theme_constant_override("separation", -3)
-	row.add_child(text)
-	text.add_child(UiKit.caption(caption_text, 9, HunterTreeSkin.MUTED))
-	var amount: Label = UiKit.label(value, 15, color)
-	amount.add_theme_font_override("font", UiKit.font(&"numbers"))
-	text.add_child(amount)
-	for child: Node in chip.find_children("*", "Control", true, false):
-		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
-	return chip
-
-
-## Les trois étapes d'un build, toujours sous les yeux (la légende des états est sur le plateau).
-func _steps_strip() -> HBoxContainer:
-	var row := HBoxContainer.new()
-	row.name = "TreeSteps"
-	row.add_theme_constant_override("separation", 6)
-	var colors: Array[Color] = [HunterTreeSkin.CYAN, HunterTreeSkin.GOLD, HunterTreeSkin.PAPER]
-	for i: int in STEP_KEYS.size():
-		var step := HBoxContainer.new()
-		step.add_theme_constant_override("separation", 6)
-		step.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		if i > 0:
-			step.add_child(UiKit.label("›", 16, HunterTreeSkin.MUTED))
-		step.add_child(UiKit.label(STEP_NUMBERS[i], 15, colors[i]))
-		var title: Label = UiKit.caption(tr(STEP_KEYS[i]), 12, colors[i])
-		title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		step.add_child(title)
-		var hint: Label = HunterTreeSkin.trimmed(tr(STEP_HINT_KEYS[i]), 13, HunterTreeSkin.MUTED)
-		hint.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-		hint.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-		step.add_child(hint)
-		row.add_child(step)
 	return row
 
 

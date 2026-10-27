@@ -1153,7 +1153,7 @@ ECHO_NODE_MIRRORLING_SPELL_ALT_DESC,Projette 5 éclats en éventail vers l'avant
 ECHO_NODE_MIRRORLING_SIGNATURE_NAME,Reflet,Reflection
 ECHO_NODE_MIRRORLING_SIGNATURE_DESC,+15 PV max.,+15 max HP.
 TAB_ECHOES,Échos,Echoes
-ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (1 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (1 + mastery level). One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Activations are saved in the Hunter's active build."
+ECHO_TREE_INTRO,"Chaque Écho a son arbre : apprenez avec vos Éclats, activez avec les Points d'Écho (2 + niveau de maîtrise). Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les activations sont enregistrées dans le build actif du Chasseur.","Each Echo has its own tree: learn with your Shards, activate with Echo Points (2 + mastery level). One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Activations are saved in the Hunter's active build."
 ECHO_TREE_POINTS,Points d'Écho : %d / %d,Echo Points: %d / %d
 ECHO_TREE_EQUIPPED,Sort équipé : %s,Equipped spell: %s
 ECHO_TREE_LOCKED,Écho pas encore débloqué.,Echo not unlocked yet.
@@ -1193,7 +1193,7 @@ TREE_SECTION_KEYSTONE,Clé de voûte,Keystone
 TREE_EQUIP_READY,Cliquez sur un emplacement en bas pour équiper ce sort.,Click a slot below to equip this spell.
 ECHO_TREE_OR,ou,or
 ECHO_TREE_HINT,"Un seul sort équipé par Écho, lancé avec sa touche (A, E, F). Les choix sont enregistrés dans le build actif du Chasseur.","One spell equipped per Echo, cast with its key (Q, E, F on QWERTY; A, E, F on AZERTY). Choices are saved in the Hunter's active build."
-ECHO_TREE_POINTS_HINT,Points d'Écho : 1 + niveau de maîtrise de cet Écho.,Echo Points: 1 + this Echo's mastery level.
+ECHO_TREE_POINTS_HINT,Points d'Écho : 2 + niveau de maîtrise de cet Écho.,Echo Points: 2 + this Echo's mastery level.
 ECHO_TREE_ONE_SPELL,Un seul des deux sorts peut être équipé.,Only one of the two spells can be equipped.
 ECHO_TREE_NEEDS_PASSIVE,Requiert un rang de Puissance ou de Concentration.,Requires a rank of Might or Focus.
 ECHO_TREE_EQUIP,Équiper ce sort,Equip this spell
@@ -1731,3 +1731,28 @@ TREE_COLUMN_SPELL,Sort %d,Spell %d
 TREE_COLUMN_KEYSTONE,Clé de voûte,Keystone
 TREE_NOTE_VARIANTS,Variantes,Variants
 TREE_NOTE_VARIANTS_HINT,"Sous chaque sort : A ou B, une seule active à la fois.","Under each spell: A or B, only one active at a time."
+ECHO_COLUMN_BASE,Fondations,Foundations
+ECHO_COLUMN_ORIGIN,Sort d'origine,Original spell
+ECHO_COLUMN_SECOND,Second sort,Second spell
+ECHO_COLUMN_APEX,Apogée,Apex
+ECHO_GATE_MASTERY,Maîtrise %d/%d,Mastery %d/%d
+ECHO_STEP_LEARN_HINT,"avec les Éclats, pour toujours","with Shards, for good"
+ECHO_STEP_ACTIVATE_HINT,avec les Points d'Écho (2 + maîtrise),with Echo Points (2 + mastery)
+ECHO_STEP_EQUIP_HINT,"un seul sort par Écho, sur sa touche","one spell per Echo, on its key"
+ECHO_LIST_HINT,Maîtrise %d · Points d'Écho libres : %d / %d,Mastery %d · Free Echo Points: %d / %d
+ECHO_CHIP_POINTS,Points d'Écho libres,Free Echo Points
+ECHO_CHIP_MASTERY,Maîtrise,Mastery
+ECHO_CHIP_MASTERY_HINT,Jouer cet Écho et réussir ses défis fait monter sa maîtrise : chaque niveau donne un Point d'Écho et ouvre de nouveaux nœuds.,Playing this Echo and completing its challenges raises its mastery: each level grants an Echo Point and opens new nodes.
+ECHO_BLOCK_MASTERY,Atteignez la maîtrise %d avec cet Écho (actuelle : %d),Reach mastery %d with this Echo (current: %d)
+ECHO_TITLE_ACTIVATE,Activer pour %s (Build %d),Activate for %s (Build %d)
+ECHO_TITLE_EQUIP,Équiper sur %s (Build %d),Equip on %s (Build %d)
+ECHO_TODO_ACTIVATE,Ensuite : %d point(s) d'Écho par rang,Then: %d Echo Point(s) per rank
+ECHO_TODO_EQUIP,"Ensuite : l'équiper, sans coût en points","Then: equip it, at no point cost"
+ECHO_DONE_ACTIVE,Actif : %d point(s) d'Écho utilisé(s),Active: %d Echo Point(s) used
+ECHO_DONE_EQUIPPED,Équipé : il remplace l'autre sort de l'Écho,Equipped: it replaces the Echo's other spell
+ECHO_NEXT_ACTIVATE,Coûte %d point(s) d'Écho · il vous en reste %d,Costs %d Echo Point(s) · %d left
+ECHO_NEXT_EQUIP,Gratuit : remplace l'autre sort de l'Écho,Free: replaces the Echo's other spell
+ECHO_BLOCK_POINTS,"Points d'Écho insuffisants : %d requis, %d libre(s). Retirez un autre nœud ou montez la maîtrise de cet Écho.","Not enough Echo Points: %d needed, %d free. Remove another node or raise this Echo's mastery."
+ECHO_EFFECT_SPELL,"Lancé avec la touche de l'Écho, selon sa place dans l'équipe","Cast with the Echo's key, depending on its team slot"
+TREE_GUIDE_TITLE_6,Les arbres des Échos,Echo trees
+TREE_GUIDE_BODY_6,"Chaque Écho a son arbre, dans l'onglet Échos, qui se lit comme celui du Chasseur : apprendre avec les Éclats, activer avec les Points d'Écho (2 + niveau de maîtrise). Jouer un Écho fait monter sa maîtrise, qui ouvre ses colonnes suivantes. Un seul de ses deux sorts est équipé.","Each Echo has its own tree, in the Echoes tab, read like the Hunter's: learn with Shards, activate with Echo Points (2 + mastery level). Playing an Echo raises its mastery, which opens its next columns. Only one of its two spells is equipped."

@@ -17,4 +17,5 @@ prerequisites_any = true
 exclusive_group = &"sunclaw_spell"
 spell_id = &"radiant_leap"
 learned_by_default = false
+required_mastery = 1
 effects = []

@@ -250,11 +250,11 @@ func _draw() -> void:
 			var subtitle: Label = _subtitles[c]
 			var width: float = subtitle.get_theme_font("font").get_string_size(subtitle.text, HORIZONTAL_ALIGNMENT_LEFT,
 				-1, subtitle.get_theme_font_size("font_size")).x
-			_lock(Vector2(rect.get_center().x - width * 0.5 - 9, 25))
+			HunterTreeSkin.draw_lock(self, Vector2(rect.get_center().x - width * 0.5 - 9, 25))
 	# Cases scellées : voile et hachures.
 	for cell: Vector2i in _gates:
 		if not _open(_gates[cell]):
-			_veil(cell_rect(cell).grow_individual(-2, 0, -2, 0))
+			HunterTreeSkin.draw_veil(self, cell_rect(cell).grow_individual(-2, 0, -2, 0))
 	# Le tronc commun à part : un trait à la couleur de la voie marque son départ.
 	var start: float = _columns[1].position.x
 	draw_line(Vector2(start, 6), Vector2(start, size.y - 6), Color(ink, 0.45), 2.0)
@@ -269,25 +269,6 @@ func _draw() -> void:
 		for prereq: StringName in button.data.prerequisites:
 			if _buttons.has(prereq):
 				_link(_buttons[prereq], button)
-
-
-## Case scellée : voile assombri et hachures.
-func _veil(rect: Rect2) -> void:
-	draw_rect(rect, Color(0.01, 0.01, 0.03, 0.42))
-	var y: float = rect.position.y - rect.size.x
-	while y < rect.end.y:
-		var a := Vector2(rect.position.x, y)
-		var b := Vector2(rect.end.x, y + rect.size.x)
-		# Hachure coupée aux bords de la case.
-		var from: Vector2 = a if a.y >= rect.position.y else a + (b - a) * ((rect.position.y - a.y) / (b.y - a.y))
-		var to: Vector2 = b if b.y <= rect.end.y else a + (b - a) * ((rect.end.y - a.y) / (b.y - a.y))
-		draw_line(from, to, Color(1, 1, 1, 0.025), 2.0)
-		y += 14.0
-
-
-func _lock(center: Vector2) -> void:
-	draw_rect(Rect2(center - Vector2(5, 1), Vector2(10, 8)), HunterTreeSkin.SHORT)
-	draw_arc(center - Vector2(0, 1), 3.5, PI, TAU, 10, HunterTreeSkin.SHORT, 1.6, true)
 
 
 ## Liens : ce qui débloque quoi. Allumés quand le prérequis est appris, dorés quand les deux sont actifs,
@@ -338,7 +319,7 @@ func _seal(center: Vector2, gate: int) -> void:
 	var box := Rect2(center - Vector2(width * 0.5, 8), Vector2(width, 16))
 	draw_rect(box, HunterTreeSkin.NIGHT)
 	draw_rect(box, Color(HunterTreeSkin.SHORT, 0.7), false, 1.0)
-	_lock(box.position + Vector2(9, 7))
+	HunterTreeSkin.draw_lock(self, box.position + Vector2(9, 7))
 	draw_string(font, box.position + Vector2(18, 12), text, HORIZONTAL_ALIGNMENT_LEFT, -1, 10, HunterTreeSkin.SHORT)
 
 

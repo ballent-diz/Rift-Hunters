@@ -17,4 +17,5 @@ prerequisites_any = true
 exclusive_group = &"gloommaw_spell"
 spell_id = &"maw_pit"
 learned_by_default = false
+required_mastery = 1
 effects = []

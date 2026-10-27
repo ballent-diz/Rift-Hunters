@@ -2,12 +2,15 @@ class_name TreeGuide
 extends Control
 ## Guide de l'arbre du Chasseur, ouvert à la première visite de l'onglet puis par le bouton « Guide » : cinq pages
 ## courtes (les voies, apprendre, activer, équiper, choisir). Illustrations provisoires faites des vrais éléments de
-## l'écran (cadres d'état, icônes de sorts, touches), en attendant des visuels dédiés. Aucune règle de jeu.
+## l'écran (cadres d'état, icônes de sorts, touches), en attendant des visuels dédiés. La 6e page présente les arbres
+## des Échos (l'onglet Échos ouvre le guide sur elle). Aucune règle de jeu.
 
 signal page_changed(page: int)
 signal closed
 
-const PAGES := 5
+const PAGES := 6
+## Page des arbres des Échos.
+const ECHO_PAGE := 5
 const WIDTH := 760.0
 
 var page: int = 0
@@ -136,6 +139,11 @@ func _illustration() -> Control:
 			gap.custom_minimum_size.x = 24
 			row.add_child(gap)
 			row.add_child(_sample(&"blade_master", "learnable", tr("TREE_KIND_KEYSTONE")))
+		5:
+			_chain(row, [_echo_sample(&"ashblade_spell_base", "active"), _echo_sample(&"ashblade_spell_alt", "learned")],
+				tr("ECHO_TREE_OR"))
+			row.add_child(_chip("★", MenuSkin.PAPER, tr("ECHO_CHIP_MASTERY")))
+			row.add_child(_chip("●", HunterTreeSkin.GOLD, tr("ECHO_CHIP_POINTS")))
 	return row
 
 
@@ -157,6 +165,20 @@ func _sample(id: StringName, state: String, caption_text: String, tag_text: Stri
 	node.name = "GuideSample"
 	node.tag = tag_text
 	node.custom_minimum_size = Vector2(96, 108)
+	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	node.focus_mode = Control.FOCUS_NONE
+	return node
+
+
+## Nœud d'un arbre d'Écho, figé dans un état donné.
+func _echo_sample(id: StringName, state: String) -> HunterTreeNode:
+	var data: SkillNodeData = EchoTree.node(id)
+	var monster: MonsterData = GameDB.monster(data.branch)
+	var node := HunterTreeNode.new()
+	node.configure(data, state, 0, false, EchoTreeBoard.node_icon(data), EchoTreeBoard.display_name(data, monster),
+		MenuSkin.PAPER)
+	node.name = "GuideSample"
+	node.custom_minimum_size = Vector2(110, 108)
 	node.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	node.focus_mode = Control.FOCUS_NONE
 	return node

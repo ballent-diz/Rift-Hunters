@@ -17,4 +17,5 @@ prerequisites_any = true
 exclusive_group = &"hollowflame_spell"
 spell_id = &"wandering_flame"
 learned_by_default = false
+required_mastery = 1
 effects = []

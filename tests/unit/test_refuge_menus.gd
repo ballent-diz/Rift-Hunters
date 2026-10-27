@@ -36,6 +36,8 @@ func _settle() -> void:
 
 
 func test_echo_tab_learn_activate_and_equip() -> void:
+	# Maîtrise 1 : le second sort s'ouvre (arbres des Échos v2).
+	Profile.profile.mastery_entry(&"mossback")["xp"] = 20
 	_screen.tabs.current_tab = 3
 	await _settle()
 	var tab: RefugeTab = _screen.tabs.get_child(3)
@@ -55,6 +57,8 @@ func test_echo_tab_learn_activate_and_equip() -> void:
 	check(EchoTree.chosen_technique(Profile.profile, &"mossback") != null, "second sort équipé")
 	var board: EchoTreeBoard = tab.find_child("EchoBoard", true, false)
 	check_eq(board._buttons.size(), 5, "cinq nœuds dans l'arbre de l'Écho")
+	check(tab.find_child("TreeGuide", false, false) != null, "guide des Échos à la première visite")
+	check(tab.find_child("MasteryChip", true, false) != null, "maîtrise affichée")
 
 
 func test_expedition_tab_chapters_summary_and_departure() -> void:
