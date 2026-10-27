@@ -1,0 +1,62 @@
+[
+  {
+    "id": "T01",
+    "bbox_percent": [
+      18.848,
+      66.797,
+      31.738,
+      77.93
+    ],
+    "length_units": 563.0,
+    "average_width_units": 167.3,
+    "definition": "Largeur moyenne de l’emprise technique du masque : aire divisée par longueur entre milieux des extrémités."
+  },
+  {
+    "id": "T02",
+    "bbox_percent": [
+      35.059,
+      46.81,
+      61.328,
+      53.646
+    ],
+    "length_units": 826.7,
+    "average_width_units": 173.5,
+    "definition": "Largeur moyenne de l’emprise technique du masque : aire divisée par longueur entre milieux des extrémités."
+  },
+  {
+    "id": "T03",
+    "bbox_percent": [
+      15.234,
+      39.518,
+      21.68,
+      47.526
+    ],
+    "length_units": 389.6,
+    "average_width_units": 186.4,
+    "definition": "Largeur moyenne de l’emprise technique du masque : aire divisée par longueur entre milieux des extrémités."
+  },
+  {
+    "id": "T04",
+    "bbox_percent": [
+      77.539,
+      33.594,
+      88.574,
+      39.714
+    ],
+    "length_units": 336.9,
+    "average_width_units": 166.9,
+    "definition": "Largeur moyenne de l’emprise technique du masque : aire divisée par longueur entre milieux des extrémités."
+  },
+  {
+    "id": "T05",
+    "bbox_percent": [
+      55.371,
+      7.031,
+      73.438,
+      14.583
+    ],
+    "length_units": 137.2,
+    "average_width_units": 538.1,
+    "definition": "Largeur moyenne de l’emprise technique du masque : aire divisée par longueur entre milieux des extrémités."
+  }
+]

@@ -1,0 +1,266 @@
+[
+  {
+    "region": "r0_0",
+    "crop_world": [
+      0.0,
+      0.0,
+      1274.7,
+      1414.0
+    ],
+    "core_world": [
+      0.0,
+      0.0,
+      1114.7,
+      1254.0
+    ],
+    "size": [
+      1190,
+      1322
+    ],
+    "sha256": "9ae21a78878297690e62f2708ec46fb33cbb1c65c1ad38a09e781d4670daf211",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_1",
+    "crop_world": [
+      954.7,
+      0.0,
+      2389.3,
+      1414.0
+    ],
+    "core_world": [
+      1114.7,
+      0.0,
+      2229.3,
+      1254.0
+    ],
+    "size": [
+      1263,
+      1246
+    ],
+    "sha256": "9ea23a29b9b3ba84c1b6aaa8d6abdd3d1d823167174ac6f16e071db23b79b88b",
+    "prompt": "source/PROMPT_PAVAGE_NORD.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r0_2",
+    "crop_world": [
+      2069.3,
+      0.0,
+      3344,
+      1414.0
+    ],
+    "core_world": [
+      2229.3,
+      0.0,
+      3344.0,
+      1254.0
+    ],
+    "size": [
+      1191,
+      1321
+    ],
+    "sha256": "b30a8667e172c319a6c5c2a426cbeb73eb51a4590ee59b2662c816b7a5091c78",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_0",
+    "crop_world": [
+      0.0,
+      1094.0,
+      1274.7,
+      2668.0
+    ],
+    "core_world": [
+      0.0,
+      1254.0,
+      1114.7,
+      2508.0
+    ],
+    "size": [
+      1128,
+      1394
+    ],
+    "sha256": "0b82f0b91e795d47bed58706c145c620f10d3d996f2e19a0d9d7cfe96e93a0b8",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_1",
+    "crop_world": [
+      954.7,
+      1094.0,
+      2389.3,
+      2668.0
+    ],
+    "core_world": [
+      1114.7,
+      1254.0,
+      2229.3,
+      2508.0
+    ],
+    "size": [
+      1198,
+      1313
+    ],
+    "sha256": "6f18a4e73f6f18ae63fcb3536126ec49d672bacd227b0cd0aed7aa37b6d98bb1",
+    "prompt": "source/PROMPT_MICROFINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r1_2",
+    "crop_world": [
+      2069.3,
+      1094.0,
+      3344,
+      2668.0
+    ],
+    "core_world": [
+      2229.3,
+      1254.0,
+      3344.0,
+      2508.0
+    ],
+    "size": [
+      1128,
+      1394
+    ],
+    "sha256": "95de2ef6c39a6c8c4a1309ba4ea343967110a8d5b40ef34339cfe8f85f39061f",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_0",
+    "crop_world": [
+      0.0,
+      2348.0,
+      1274.7,
+      3922.0
+    ],
+    "core_world": [
+      0.0,
+      2508.0,
+      1114.7,
+      3762.0
+    ],
+    "size": [
+      1128,
+      1394
+    ],
+    "sha256": "6eefa058530815dc85a18a84d36de959c24ce20c2851a7cd1b4858e9015b1441",
+    "prompt": "source/PROMPT_FINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_1",
+    "crop_world": [
+      954.7,
+      2348.0,
+      2389.3,
+      3922.0
+    ],
+    "core_world": [
+      1114.7,
+      2508.0,
+      2229.3,
+      3762.0
+    ],
+    "size": [
+      1198,
+      1313
+    ],
+    "sha256": "7654b0fcd5a2b7019f56528c0a617d1e267b7015c6d2927e80c9b7f1cf0ed131",
+    "prompt": "source/PROMPT_MICROFINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r2_2",
+    "crop_world": [
+      2069.3,
+      2348.0,
+      3344,
+      3922.0
+    ],
+    "core_world": [
+      2229.3,
+      2508.0,
+      3344.0,
+      3762.0
+    ],
+    "size": [
+      1128,
+      1394
+    ],
+    "sha256": "ec2cbb0f09d4667c1f62c242ee62cda540b29199126ebcce7ec8de85d6f1b0fb",
+    "prompt": "source/PROMPT_MICROFINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r3_0",
+    "crop_world": [
+      0.0,
+      3602.0,
+      1274.7,
+      5016
+    ],
+    "core_world": [
+      0.0,
+      3762.0,
+      1114.7,
+      5016.0
+    ],
+    "size": [
+      1191,
+      1321
+    ],
+    "sha256": "2c2af807a8aebc95cd04fab0a0534dc880e60901a491b72feb35dcc0320ff749",
+    "prompt": "source/PROMPT_MICROFINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r3_1",
+    "crop_world": [
+      954.7,
+      3602.0,
+      2389.3,
+      5016
+    ],
+    "core_world": [
+      1114.7,
+      3762.0,
+      2229.3,
+      5016.0
+    ],
+    "size": [
+      1265,
+      1243
+    ],
+    "sha256": "22390b087098ddd9ff0270f37c67242d2fb3e5197ae2435e4eda6461ce7d9eea",
+    "prompt": "source/PROMPT_MICROFINITION.txt",
+    "stored_in_git": false
+  },
+  {
+    "region": "r3_2",
+    "crop_world": [
+      2069.3,
+      3602.0,
+      3344,
+      5016
+    ],
+    "core_world": [
+      2229.3,
+      3762.0,
+      3344.0,
+      5016.0
+    ],
+    "size": [
+      1189,
+      1323
+    ],
+    "sha256": "8c37e3d7e601e70a72eeb4a56cf2656ac3d01a0439bea2bd36301338b1c0c519",
+    "prompt": "source/PROMPT_MICROFINITION.txt",
+    "stored_in_git": false
+  }
+]

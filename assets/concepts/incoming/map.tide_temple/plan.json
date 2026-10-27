@@ -1,0 +1,134 @@
+{
+  "world_size": [
+    3344,
+    5016
+  ],
+  "points_percent": {
+    "Depart": [
+      50,
+      85
+    ],
+    "Faille 1": [
+      20,
+      56
+    ],
+    "Faille 2": [
+      79,
+      46
+    ],
+    "Faille 3": [
+      22,
+      29
+    ],
+    "Faille 4": [
+      80,
+      20
+    ],
+    "Final": [
+      42,
+      5
+    ]
+  },
+  "low_causeway_polygons_percent": [
+    [
+      [
+        18.848,
+        67.448
+      ],
+      [
+        23.633,
+        66.797
+      ],
+      [
+        31.738,
+        75.846
+      ],
+      [
+        27.344,
+        77.93
+      ]
+    ],
+    [
+      [
+        35.059,
+        50.13
+      ],
+      [
+        58.887,
+        46.81
+      ],
+      [
+        61.328,
+        49.74
+      ],
+      [
+        36.914,
+        53.646
+      ]
+    ],
+    [
+      [
+        15.82,
+        39.779
+      ],
+      [
+        21.68,
+        39.518
+      ],
+      [
+        20.605,
+        47.266
+      ],
+      [
+        15.234,
+        47.526
+      ]
+    ],
+    [
+      [
+        83.203,
+        33.594
+      ],
+      [
+        88.574,
+        34.115
+      ],
+      [
+        83.105,
+        39.714
+      ],
+      [
+        77.539,
+        39.193
+      ]
+    ],
+    [
+      [
+        55.371,
+        8.008
+      ],
+      [
+        59.668,
+        7.031
+      ],
+      [
+        73.438,
+        12.174
+      ],
+      [
+        71.289,
+        14.583
+      ]
+    ]
+  ],
+  "safe_high_route": [
+    "Depart",
+    "Faille 1",
+    "Faille 2",
+    "Faille 3",
+    "Faille 4",
+    "Final"
+  ],
+  "topology": "Les cinq ponts hauts relient les six terrasses en continu. Les cinq chaussées basses sont des raccourcis supplémentaires.",
+  "collisions": "Non peintes. Validation visuelle, pas de navigation simulée."
+}

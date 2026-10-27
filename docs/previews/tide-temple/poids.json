@@ -1,0 +1,7 @@
+{
+  "new_unique_blob_bytes": 126974789,
+  "new_unique_blob_Mo": 126.975,
+  "limit_bytes": 150000000,
+  "under_limit": true,
+  "method": "Somme des blobs uniques de l’index absents de origin/main, hors rapport de poids (<1 Ko) et mention de la fiche."
+}
