@@ -1,5 +1,6 @@
 # Rift Hunters — feuille de route
 
+
 ## Sorts des monstres chapitres 3 et 4 — effets améliorés livrés pour revue (Codex, PR #78)
 
 56 scènes autonomes récupérées de Work ; matière, frappe et dissipation reprises avec le vocabulaire peint du Chasseur. 56 scènes contrôlées, 19 groupes capturés dans Godot, mesure de rendu jointe. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
@@ -21,7 +22,7 @@ Nouvelle map-arène multi-lobes, sans reprise de la spirale. Carte 9 renommée L
   - Glauquemire : miroirs à orienter.
 - **Glauquemire**, Dévoreur du chapitre 3 (3 phases, 8 mécaniques nouvelles) : forme provisoire, prompt de Codex dans
   [design/DEVOREUR_CHAPITRE3.md](design/DEVOREUR_CHAPITRE3.md). Les cartes 13 à 15 sont conçues dans
-  [design/CARTES.md](design/CARTES.md). La lanterne de brume attend aussi son sprite.
+  [design/CARTES.md](design/CARTES.md). Glauquemire et lanterne de brume — **Livré (Codex), 28 octobre** : six planches de corps, trois phases, 14 animations ; lanterne allumée/extinction/éteinte. Import Godot, assets et art verts, captures 720p. Aucun gameplay. Raccords Claude et réserves dans `docs/art/GLAUQUEMIRE_SPRITES.md`.
 - **Équilibrage aux règles actuelles** (un Écho au départ, pas de drops) : cartes 1 à 6 mesurées au bot. Multiplicateurs
   de boss par carte (`boss_hp_mult`, `boss_damage_mult`). Tableau dans [design/DIFFICULTE.md](design/DIFFICULTE.md).
 - **Navigation** :

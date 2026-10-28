@@ -12248,8 +12248,9 @@
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
 		"boss.glauquemire": {
-			"status": "planned",
-			"note": "Dévoreur du chapitre 3 : sprites à livrer par Codex (docs/design/DEVOREUR_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.glauquemire/job.json",
+			"sheet": "res://assets/sprites/bosses/glauquemire/glauquemire_sheet.png",
 			"cell": [
 				512,
 				512
@@ -12273,12 +12274,6 @@
 					"loop": true
 				},
 				"claws": {
-					"row": 2,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"attack": {
 					"row": 2,
 					"frames": 6,
 					"fps": 12,
@@ -12349,12 +12344,20 @@
 					"frames": 6,
 					"fps": 8,
 					"loop": false
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/bosses/glauquemire.png"
 		},
 		"object.mist_lantern": {
-			"status": "planned",
-			"note": "Lanterne du voile de brume (Chimère des brumes) : sprite à venir ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.mist_lantern/job.json",
+			"sheet": "res://assets/sprites/objects/mist_lantern/mist_lantern_sheet.png",
 			"cell": [
 				128,
 				128
@@ -12365,6 +12368,24 @@
 			],
 			"scale": 0.5,
 			"animations": {
+				"lit_idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"extinguish": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"unlit_idle": {
+					"row": 2,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
@@ -12377,7 +12398,8 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/objects/mist_lantern.png"
 		},
 		"environment.cataclysm_threshold": {
 			"status": "wip",
