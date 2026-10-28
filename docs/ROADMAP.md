@@ -323,3 +323,7 @@ Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs
 ## B3 — Carte 11, Mangrove des racines : visuels livrés pour revue (Codex)
 
 Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
+
+## Carte 14 — Puits des reflets : composition livrée pour validation (Codex)
+
+Composition carrée commencée après 13 h Europe/Paris le 28 octobre, plan fourni : boucle extérieure, place centrale en croix, deux ponts nord/sud seulement, puits est/ouest et quatre emplacements de portail vides. Aucune collision ni mécanique.
