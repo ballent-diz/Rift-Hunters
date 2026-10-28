@@ -1,0 +1,7 @@
+{
+  "source_branch": "codex/carte-puits-des-reflets",
+  "base_main": "2da0104dee5483bbd48036bb6768c51ce37bdf66",
+  "runtime_changes_by_map": [],
+  "method": "Projet complet préparé depuis le même main ; seuls le manifeste et les deux outils d’import de la précédente livraison sont restaurés à main. Cache Godot conservé, sources runtime de main inchangées. Les atlas non référencés de la livraison précédente restent hors manifeste.",
+  "new_map": "Composition sous incoming avec .gdignore, pas d’intégration runtime ni de contrôle de détail final à ce stade."
+}
