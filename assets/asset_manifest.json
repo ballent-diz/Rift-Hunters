@@ -3980,7 +3980,7 @@
 					]
 				}
 			},
-			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision.",
+			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dÃ©gÃ¢t ni collision.",
 			"textures": [
 				"res://assets/vfx/hunter/cleaving_slash/textures/blade-ribbon.png",
 				"res://assets/vfx/hunter/cleaving_slash/textures/blade-impact.png"
@@ -4062,7 +4062,7 @@
 					]
 				}
 			},
-			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dégât ni collision."
+			"notes": "sheet = affiche statique du catalogue ; scene = animation autonome. Aucun dÃ©gÃ¢t ni collision."
 		},
 		"vfx.hunter.cleaving_slash.ribbon": {
 			"status": "wip",
@@ -4163,11 +4163,11 @@
 				740,
 				440
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": null,
-			"contract": "Le combat déplace le Chasseur. La scène relie départ et arrivée ; Impact agrandit seulement l’onde visuelle.",
+			"contract": "Le combat dÃ©place le Chasseur. La scÃ¨ne relie dÃ©part et arrivÃ©e ; Impact agrandit seulement lâ€™onde visuelle.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.parry": {
 			"status": "wip",
@@ -4213,11 +4213,11 @@
 				480,
 				240
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": null,
-			"contract": "Garde visible 0,4 s. trigger_pulse est réservé à une parade confirmée. Garde de meute reçoit les positions réelles des alliés.",
+			"contract": "Garde visible 0,4 s. trigger_pulse est rÃ©servÃ© Ã  une parade confirmÃ©e. Garde de meute reÃ§oit les positions rÃ©elles des alliÃ©s.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.rupture": {
 			"status": "wip",
@@ -4263,11 +4263,11 @@
 				520,
 				520
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": null,
-			"contract": "Réaction reçoit les positions réelles des Marques secondaires ; Brasier ajoute une persistance visuelle de trois secondes.",
+			"contract": "RÃ©action reÃ§oit les positions rÃ©elles des Marques secondaires ; Brasier ajoute une persistance visuelle de trois secondes.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.refractor_crystal": {
 			"status": "wip",
@@ -4313,11 +4313,11 @@
 				420,
 				200
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": 8,
-			"contract": "trigger_pulse suit une vraie traversée de projectile. Destination = second cristal pour Prisme double, cible pour Foyer.",
+			"contract": "trigger_pulse suit une vraie traversÃ©e de projectile. Destination = second cristal pour Prisme double, cible pour Foyer.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.singularity": {
 			"status": "wip",
@@ -4363,11 +4363,11 @@
 				660,
 				660
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": null,
-			"contract": "Rayon visuel proposé 220 ; Horizon ×1,4 ; Effondrement à 1,5 s. Aucune attraction ou collision appliquée.",
+			"contract": "Rayon visuel proposÃ© 220 ; Horizon Ã—1,4 ; Effondrement Ã  1,5 s. Aucune attraction ou collision appliquÃ©e.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.rift_wall": {
 			"status": "wip",
@@ -4413,11 +4413,11 @@
 				140,
 				320
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": 4,
-			"contract": "Direction = normale du mur. Largeur 260. Chaînes reçoit les points réels d’entrave ; trigger_pulse souligne un contact confirmé.",
+			"contract": "Direction = normale du mur. Largeur 260. ChaÃ®nes reÃ§oit les points rÃ©els dâ€™entrave ; trigger_pulse souligne un contact confirmÃ©.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.twin_rifts": {
 			"status": "wip",
@@ -4463,11 +4463,11 @@
 				370,
 				130
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": 4,
-			"contract": "Durée active visuelle de référence 4 s, à remplacer par C1. Les portails et transferts réels sont gérés par le combat.",
+			"contract": "DurÃ©e active visuelle de rÃ©fÃ©rence 4 s, Ã  remplacer par C1. Les portails et transferts rÃ©els sont gÃ©rÃ©s par le combat.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.pack_call": {
 			"status": "wip",
@@ -4513,11 +4513,11 @@
 				420,
 				200
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": null,
-			"contract": "Jusqu’à trois positions et palettes d’Échos réels ; aucun sprite de créature inventé. Le combat anime leurs vrais modèles.",
+			"contract": "Jusquâ€™Ã  trois positions et palettes dâ€™Ã‰chos rÃ©els ; aucun sprite de crÃ©ature inventÃ©. Le combat anime leurs vrais modÃ¨les.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.rift_aegis": {
 			"status": "wip",
@@ -4563,11 +4563,11 @@
 				390,
 				390
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": 4,
-			"contract": "Bouclier autour du Chasseur et des alliés fournis. Riposte attend un trigger_pulse confirmé ; aucune protection ou guérison appliquée.",
+			"contract": "Bouclier autour du Chasseur et des alliÃ©s fournis. Riposte attend un trigger_pulse confirmÃ© ; aucune protection ou guÃ©rison appliquÃ©e.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"vfx.hunter.swap": {
 			"status": "wip",
@@ -4613,11 +4613,11 @@
 				440,
 				200
 			],
-			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent l’étendre.",
+			"bounds_policy": "Enveloppe indicative ; les positions secondaires et la destination peuvent lâ€™Ã©tendre.",
 			"active_duration": null,
-			"contract": "Deux positions réelles ; échange uniquement illustré. Relais attend le signal du vrai sort de l’Écho. Sanctuaire est un accent visuel.",
+			"contract": "Deux positions rÃ©elles ; Ã©change uniquement illustrÃ©. Relais attend le signal du vrai sort de lâ€™Ã‰cho. Sanctuaire est un accent visuel.",
 			"runtime_palette": "res://assets/vfx/hunter/cel_paint.gdshader",
-			"notes": "sheet = texture de travail réutilisée au rendu, pas une icône ni une planche animée. Charger scene."
+			"notes": "sheet = texture de travail rÃ©utilisÃ©e au rendu, pas une icÃ´ne ni une planche animÃ©e. Charger scene."
 		},
 		"ui.hunter_tree.node.passive.upcoming": {
 			"status": "final",
@@ -10207,7 +10207,7 @@
 			"ambient": {
 				"amount": 0
 			},
-			"generated_by": "tools/art/map_regions.py (régions Codex, assemblage et netteté calibrée)",
+			"generated_by": "tools/art/map_regions.py (rÃ©gions Codex, assemblage et nettetÃ© calibrÃ©e)",
 			"minimap": "res://assets/environments/firefly_woods/minimap.webp",
 			"map_tiles": [
 				"res://assets/environments/firefly_woods/map.webp",
@@ -10776,7 +10776,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.heavy_slam": {
 			"status": "wip",
@@ -10802,7 +10802,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.9,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.rift_breath": {
 			"status": "wip",
@@ -10828,7 +10828,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.3,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.summon": {
 			"status": "wip",
@@ -10854,7 +10854,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.1,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.root_sweep": {
 			"status": "wip",
@@ -10880,7 +10880,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.1,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.transform": {
 			"status": "wip",
@@ -10906,7 +10906,7 @@
 			},
 			"visual_only": true,
 			"duration": 2,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.roar": {
 			"status": "wip",
@@ -10932,7 +10932,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.hurt": {
 			"status": "wip",
@@ -10958,7 +10958,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.35,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.death": {
 			"status": "wip",
@@ -10984,7 +10984,7 @@
 			},
 			"visual_only": true,
 			"duration": 2,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.phase2_claw": {
 			"status": "wip",
@@ -11010,7 +11010,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.75,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.phase2_breath": {
 			"status": "wip",
@@ -11036,7 +11036,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.6,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.phase2_slam": {
 			"status": "wip",
@@ -11062,7 +11062,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.15,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.rift_fragment": {
 			"status": "wip",
@@ -11088,7 +11088,7 @@
 			},
 			"visual_only": true,
 			"duration": 1,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"vfx.boss.source_devourer.indicator": {
 			"status": "wip",
@@ -11114,7 +11114,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.8,
-			"notes": "Icône du boss pour le catalogue ; la scène Godot produit l’effet animé autonome."
+			"notes": "IcÃ´ne du boss pour le catalogue ; la scÃ¨ne Godot produit lâ€™effet animÃ© autonome."
 		},
 		"enemy.magma_mite": {
 			"status": "final",
@@ -11660,8 +11660,9 @@
 			"icon": "res://assets/ui/icons/objects/ash_nest.png"
 		},
 		"enemy.mire_leech": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.mire_leech/job.json",
+			"sheet": "res://assets/sprites/enemies/mire_leech/mire_leech_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11684,23 +11685,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/mire_leech.png"
 		},
 		"enemy.bloat_toad": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.bloat_toad/job.json",
+			"sheet": "res://assets/sprites/enemies/bloat_toad/bloat_toad_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11723,23 +11726,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"leap": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/bloat_toad.png"
 		},
 		"enemy.rift_gnat": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rift_gnat/job.json",
+			"sheet": "res://assets/sprites/enemies/rift_gnat/rift_gnat_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11762,23 +11773,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/rift_gnat.png"
 		},
 		"enemy.creeping_root": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.creeping_root/job.json",
+			"sheet": "res://assets/sprites/enemies/creeping_root/creeping_root_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11801,23 +11814,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"plunge": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/creeping_root.png"
 		},
 		"enemy.spore_mother": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.spore_mother/job.json",
+			"sheet": "res://assets/sprites/enemies/spore_mother/spore_mother_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11840,23 +11861,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spore_mark": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spore_carpet": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"pulse": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/spore_mother.png"
 		},
 		"enemy.bark_warden": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.bark_warden/job.json",
+			"sheet": "res://assets/sprites/enemies/bark_warden/bark_warden_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11879,23 +11920,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"roots": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"bark_shield": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"armor_break": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/bark_warden.png"
 		},
 		"enemy.marsh_maw": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.marsh_maw/job.json",
+			"sheet": "res://assets/sprites/enemies/marsh_maw/marsh_maw_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11918,23 +11979,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"dive": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"belly_charge": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
-					"row": 2,
-					"frames": 1,
+				"rage": {
+					"row": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/marsh_maw.png"
 		},
 		"enemy.wandering_shard": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.wandering_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/wandering_shard/wandering_shard_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11957,23 +12038,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/wandering_shard.png"
 		},
 		"enemy.glass_sentinel": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.glass_sentinel/job.json",
+			"sheet": "res://assets/sprites/enemies/glass_sentinel/glass_sentinel_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11996,23 +12079,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/glass_sentinel.png"
 		},
 		"enemy.quartz_golem": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.quartz_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/quartz_golem/quartz_golem_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12035,23 +12120,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/quartz_golem.png"
 		},
 		"enemy.creeping_mirror": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.creeping_mirror/job.json",
+			"sheet": "res://assets/sprites/enemies/creeping_mirror/creeping_mirror_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12074,23 +12161,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"blink": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/creeping_mirror.png"
 		},
 		"enemy.mirror_priestess": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.mirror_priestess/job.json",
+			"sheet": "res://assets/sprites/enemies/mirror_priestess/mirror_priestess_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12113,23 +12208,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"reflections": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"mirror_guard": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blink": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/mirror_priestess.png"
 		},
 		"enemy.crystal_colossus": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.crystal_colossus/job.json",
+			"sheet": "res://assets/sprites/enemies/crystal_colossus/crystal_colossus_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12152,23 +12267,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"beam": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"shard_burst": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"exposed_core": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/crystal_colossus.png"
 		},
 		"enemy.reflection_huntress": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.reflection_huntress/job.json",
+			"sheet": "res://assets/sprites/enemies/reflection_huntress/reflection_huntress_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12191,19 +12326,44 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"chain_leap": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"prism_mark": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"reveal": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
-					"row": 2,
-					"frames": 1,
+				"stealth": {
+					"row": 5,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/reflection_huntress.png"
 		},
 		"environment.ash_vents": {
 			"status": "wip",
@@ -12222,7 +12382,7 @@
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions provisoires calculÃ©es par Claude (falaises, lave, bord) ; Ã  corriger par le propriÃ©taire.",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/ash_vents/minimap.webp"
 		},
@@ -12243,13 +12403,13 @@
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions provisoires calculÃ©es par Claude (falaises, lave, bord) ; Ã  corriger par le propriÃ©taire.",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
 		"boss.glauquemire": {
 			"status": "planned",
-			"note": "Dévoreur du chapitre 3 : sprites à livrer par Codex (docs/design/DEVOREUR_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"note": "DÃ©voreur du chapitre 3 : sprites Ã  livrer par Codex (docs/design/DEVOREUR_CHAPITRE3.md) ; forme provisoire en attendant.",
 			"cell": [
 				512,
 				512
@@ -12354,7 +12514,7 @@
 		},
 		"object.mist_lantern": {
 			"status": "planned",
-			"note": "Lanterne du voile de brume (Chimère des brumes) : sprite à venir ; forme provisoire en attendant.",
+			"note": "Lanterne du voile de brume (ChimÃ¨re des brumes) : sprite Ã  venir ; forme provisoire en attendant.",
 			"cell": [
 				128,
 				128
@@ -12396,7 +12556,7 @@
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions provisoires calculÃ©es par Claude (falaises, lave, bord) ; Ã  corriger par le propriÃ©taire.",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/cataclysm_threshold/minimap.webp"
 		},
@@ -12424,7 +12584,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.spore_mother.spore_mark": {
 			"status": "wip",
@@ -12450,7 +12610,7 @@
 			},
 			"visual_only": true,
 			"duration": 3.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.slam": {
 			"status": "wip",
@@ -12476,7 +12636,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.8,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.mud_impact": {
 			"status": "wip",
@@ -12502,7 +12662,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.75,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.bark_warden.armor_break": {
 			"status": "wip",
@@ -12528,7 +12688,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.6,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.spore_mother.spore_carpet": {
 			"status": "wip",
@@ -12554,7 +12714,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.5,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.mirror_priestess.clones": {
 			"status": "wip",
@@ -12580,7 +12740,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.bark_warden.bark_shield": {
 			"status": "wip",
@@ -12606,7 +12766,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.tide_ring": {
 			"status": "wip",
@@ -12632,7 +12792,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.5,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.ice_scarab.snap": {
 			"status": "wip",
@@ -12658,7 +12818,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude. Proposition chapitre 4, sans mÃ©canique validÃ©e."
 		},
 		"vfx.enemy.quartz_golem.impact": {
 			"status": "wip",
@@ -12684,7 +12844,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.55,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.marsh_maw.plunge": {
 			"status": "wip",
@@ -12710,7 +12870,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.7,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.mud_wall": {
 			"status": "wip",
@@ -12736,7 +12896,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.frost_wolf.bite": {
 			"status": "wip",
@@ -12762,7 +12922,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude. Proposition chapitre 4, sans mÃ©canique validÃ©e."
 		},
 		"vfx.enemy.ice_worm.burrow": {
 			"status": "wip",
@@ -12788,7 +12948,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.7,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude. Proposition chapitre 4, sans mÃ©canique validÃ©e."
 		},
 		"vfx.enemy.crystal_colossus.sweep_beam": {
 			"status": "wip",
@@ -12814,7 +12974,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.frost_wolf.frost_landing": {
 			"status": "wip",
@@ -12840,7 +13000,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.7,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude. Proposition chapitre 4, sans mÃ©canique validÃ©e."
 		},
 		"vfx.enemy.reflection_huntress.chain_blink": {
 			"status": "wip",
@@ -12866,7 +13026,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.42,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.swallow": {
 			"status": "wip",
@@ -12892,7 +13052,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.leech_feed": {
 			"status": "wip",
@@ -12918,7 +13078,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.crystal_colossus.shard_fan": {
 			"status": "wip",
@@ -12944,7 +13104,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.prism_beam": {
 			"status": "wip",
@@ -12970,7 +13130,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.marsh_maw.rage": {
 			"status": "wip",
@@ -12996,7 +13156,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.shared.indicator_line": {
 			"status": "wip",
@@ -13022,7 +13182,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.bark_warden.binding_roots": {
 			"status": "wip",
@@ -13048,7 +13208,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.7,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.creeping_mirror.snap": {
 			"status": "wip",
@@ -13074,7 +13234,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.35,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.mirror_priestess.reflecting_mirror": {
 			"status": "wip",
@@ -13100,7 +13260,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.mirror_priestess.evasive_blink": {
 			"status": "wip",
@@ -13126,7 +13286,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.45,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.wandering_shard.projectile": {
 			"status": "wip",
@@ -13152,7 +13312,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.6,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.reflection_huntress.prism_explosion": {
 			"status": "wip",
@@ -13178,7 +13338,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.6,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.creeping_mirror.reflection_jump": {
 			"status": "wip",
@@ -13204,7 +13364,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.45,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.creeping_root.burrow": {
 			"status": "wip",
@@ -13230,7 +13390,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.creeping_root.lash": {
 			"status": "wip",
@@ -13256,7 +13416,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.45,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.reflection_huntress.reveal": {
 			"status": "wip",
@@ -13282,7 +13442,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.bloat_toad.mud_landing": {
 			"status": "wip",
@@ -13308,7 +13468,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.mirror": {
 			"status": "wip",
@@ -13334,7 +13494,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.facet_break": {
 			"status": "wip",
@@ -13360,7 +13520,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.75,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.echo_release": {
 			"status": "wip",
@@ -13386,7 +13546,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.6,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.phase_transition": {
 			"status": "wip",
@@ -13412,7 +13572,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.marsh_maw.belly_charge": {
 			"status": "wip",
@@ -13438,7 +13598,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.55,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.reflection_huntress.prism_mark": {
 			"status": "wip",
@@ -13464,7 +13624,7 @@
 			},
 			"visual_only": true,
 			"duration": 3.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.spore_mother.mark_explosion": {
 			"status": "wip",
@@ -13490,7 +13650,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.claws": {
 			"status": "wip",
@@ -13516,7 +13676,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.65,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.glass_sentinel.slash": {
 			"status": "wip",
@@ -13542,7 +13702,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.spore_mother.heal_aura": {
 			"status": "wip",
@@ -13568,7 +13728,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.facets": {
 			"status": "wip",
@@ -13594,7 +13754,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.2,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.snow_bat.ice_needle": {
 			"status": "wip",
@@ -13620,7 +13780,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.8,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude. Proposition chapitre 4, sans mÃ©canique validÃ©e."
 		},
 		"vfx.enemy.crystal_colossus.exposed_core": {
 			"status": "wip",
@@ -13646,7 +13806,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.rift_gnat.needle": {
 			"status": "wip",
@@ -13672,7 +13832,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.6,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.mire_leech.bite": {
 			"status": "wip",
@@ -13698,7 +13858,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.35,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.root_leash": {
 			"status": "wip",
@@ -13724,7 +13884,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.heart_pulse": {
 			"status": "wip",
@@ -13750,7 +13910,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.ice_worm.bite": {
 			"status": "wip",
@@ -13776,7 +13936,7 @@
 			},
 			"visual_only": true,
 			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude. Proposition chapitre 4, sans mÃ©canique validÃ©e."
 		},
 		"vfx.enemy.bloat_toad.projectile": {
 			"status": "wip",
@@ -13802,7 +13962,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.enemy.shared.indicator_sector": {
 			"status": "wip",
@@ -13828,7 +13988,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.0,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		},
 		"vfx.boss.glauquemire.whirlpool": {
 			"status": "wip",
@@ -13854,7 +14014,7 @@
 			},
 			"visual_only": true,
 			"duration": 1.6,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+			"notes": "Animation native Godot ; raccordement combat rÃ©servÃ© Ã  Claude."
 		}
 	}
 }

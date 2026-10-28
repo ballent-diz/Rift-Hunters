@@ -1,0 +1,62 @@
+{
+  "visual_id": "enemy.rift_gnat",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    238
+  ],
+  "scale": 0.5,
+  "target_height": 60,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "anchor_mode": "mass",
+  "resample": "lanczos",
+  "hover": 14,
+  "isolate": true,
+  "preview_zoom": 1,
+  "icon_size": 128,
+  "animations": [
+    {
+      "name": "move",
+      "source": "source/sheet_a.png",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "source_scale": 1.0
+    },
+    {
+      "name": "attack",
+      "source": "source/sheet_a.png",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 1.0
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  },
+  "empty_animations": [
+    {
+      "name": "death",
+      "fps": 12,
+      "loop": false
+    }
+  ]
+}

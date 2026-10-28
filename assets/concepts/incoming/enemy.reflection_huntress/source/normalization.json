@@ -1,0 +1,10 @@
+{
+  "body_reference_height_source": 145.5,
+  "source_scale": {
+    "A": 1.0,
+    "B": 0.853372,
+    "C": 0.723881
+  },
+  "method": "Facteur fixe par planche, commun à toutes ses poses. Sources intactes.",
+  "spore_a": null
+}

@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## Journée visuelle du 28 octobre — Monstres du chapitre 3 : en cours (Codex)
+
+Import des 14 créatures du marais et du cristal, sans gameplay. Recherche des sources Work en priorité ; génération de remplacement autorisée si ces sources ne sont pas accessibles. Branche `codex/monstres-chapitre-3`. Effets PR #78 déjà fusionnés : ne pas les redessiner.
+
+
 ## Sorts des monstres chapitres 3 et 4 — effets améliorés livrés pour revue (Codex, PR #78)
 
 56 scènes autonomes récupérées de Work ; matière, frappe et dissipation reprises avec le vocabulaire peint du Chasseur. 56 scènes contrôlées, 19 groupes capturés dans Godot, mesure de rendu jointe. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
