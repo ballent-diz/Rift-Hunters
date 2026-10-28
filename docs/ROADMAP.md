@@ -1,8 +1,8 @@
 # Rift Hunters — feuille de route
 
-## Journée visuelle du 28 octobre — Monstres du chapitre 3 : en cours (Codex)
+## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
 
-Import des 14 créatures du marais et du cristal, sans gameplay. Recherche des sources Work en priorité ; génération de remplacement autorisée si ces sources ne sont pas accessibles. Branche `codex/monstres-chapitre-3`. Effets PR #78 déjà fusionnés : ne pas les redessiner.
+14 créatures importées, 25 sources, 54 animations peintes (324 poses), deux bancs Godot 720p animés. Sources Work indisponibles au téléchargement : remplacements générés selon l’autorisation du 28 octobre. Import Godot, suites assets et art (qualité cartes incluse) verts. Aucun gameplay. Réserve artistique : Enlisés sombres sur terre. Effets PR #78 déjà fusionnés : lot 2 couvert, raccords Claude à vérifier sans redessiner les effets.
 
 
 ## Sorts des monstres chapitres 3 et 4 — effets améliorés livrés pour revue (Codex, PR #78)

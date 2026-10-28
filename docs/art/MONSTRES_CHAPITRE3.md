@@ -2,7 +2,7 @@
 
 Fiche de livraison, établie le 28 octobre 2026 à partir des 14 `job.json` et des fiches `data/enemies/*.tres` du checkout `Rift-Hunters-c3-sprites`, lus sans modification. Les noms français et anglais ci-dessous reprennent les clés `ENEMY_*_NAME` de `i18n/strings.csv` dans `origin/main`, consulté avec `git show`.
 
-Le lot comprend **14 monstres, 25 planches retenues, 54 animations peintes et 324 poses**. Ces nombres excluent les alias et les frames vides de mort commune. L’audit de découpage communiqué par l’agent principal indique qu’aucune frame ne touche un bord de cellule. Les résultats de chargement et des suites restent à renseigner après les contrôles finaux ; ce document n’en déclare aucun réussi par anticipation.
+Le lot comprend **14 monstres, 25 planches retenues, 54 animations peintes et 324 poses**. Ces nombres excluent les alias et les frames vides de mort commune. L’audit de découpage communiqué par l’agent principal indique qu’aucune frame ne touche un bord de cellule. Les contrôles finaux sont terminés : import Godot, assets et art verts ; résultats et limites détaillés en fin de fiche.
 
 ## Format et taille en jeu
 
@@ -66,12 +66,20 @@ Les jobs observés sont au statut **`wip`**. Le passage à **`final`** est rése
 
 | Contrôle | Résultat et preuve |
 |---|---|
-| Import Godot headless du snapshot final | À renseigner : commande, code de sortie, log, erreurs éventuelles |
-| `tools/run_tests.sh assets` | À renseigner : code, nombre d’assets, placeholders, erreurs, log |
-| `tools/run_tests.sh art` | À renseigner : test d’import et test `source_scale`, code et log |
-| Qualité des cartes appelée par la suite art | À renseigner : exécution effective de `map_quality`, résultat et réserves |
+| Import Godot headless du snapshot final | Voir les résultats finaux : commande, code de sortie, log, erreurs éventuelles |
+| `tools/run_tests.sh assets` | Voir les résultats finaux : code, nombre d’assets, placeholders, erreurs, log |
+| `tools/run_tests.sh art` | Voir les résultats finaux : test d’import et test `source_scale`, code et log |
+| Qualité des cartes appelée par la suite art | Voir les résultats finaux : exécution effective de `map_quality`, résultat et réserves |
 | Audit des cellules | Audit principal annoncé : aucune frame ne touche un bord ; joindre le rapport final |
-| Bancs visuels Godot et captures | À renseigner : chemins des captures, monstres et animations couverts, réserves |
-| Statut de livraison | À renseigner après contrôles : `wip` ou `final` |
+| Bancs visuels Godot et captures | Voir les résultats finaux : chemins des captures, monstres et animations couverts, réserves |
+| Statut de livraison | Résultats finaux : `wip` ou `final` |
 
 Les captures prévues proviennent de **bancs visuels Godot**. Elles démontrent le chargement, le cadrage, les tailles relatives et les animations observées ; elles ne constituent pas un essai en combat ni une validation de l’ensemble des comportements. L’essai de gameplay par le propriétaire et le raccord des effets par Claude restent distincts.
+
+## Contrôles finaux du 28 octobre
+
+Import Godot headless propre : aucune erreur. `tools/run_tests.sh assets` : 424 entrées examinées, 422 valides, 2 placeholders, **0 erreur**. `tools/run_tests.sh art` : test de l’import (dont le cadrage entre planches) vert et contrôle réel de toutes les cartes finales **conforme**. Journaux dans `docs/previews/monstres-ch3/`. Aucun seuil modifié. Une première tentative a saturé le disque ; seuls des caches Godot régénérables d’anciens lots ont été nettoyés avant la tentative finale réussie.
+
+Les deux bancs natifs 1280×720 ont été inspectés, au zoom 4/3 et à la densité de sol 2,25. Zéro région hors feuille ni contact avec le bord des cellules. WebP de six secondes : 2,47 et 2,42 Mo. La palette des Enlisés reste sombre sur terre : réserve de lisibilité à revoir lors de l’essai en combat ; les Reflets contrastent davantage. Le témoin Mousseroc est exactement l’asset actuel de main (aspect orange préexistant). Aucune capture n’est présentée comme une partie.
+
+État livré : entrées des 14 sprites `final`. Raccords aux techniques existantes nommés dans le catalogue, effets PR78 conservés ; aucun changement de règle, de collision, de portée ou de cadence.

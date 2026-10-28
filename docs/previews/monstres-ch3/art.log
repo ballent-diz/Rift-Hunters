@@ -1,0 +1,60 @@
+Aperçu : (2166, 554)
+Import OK : fond retiré, frames découpées, échelle et palette communes, ancrage aux pieds.
+✅ art
+== environment.cascade_ruins
+Monde 5016 × 1672 unités, 14 secteurs
+  OK   densité (pixels par unité) : 2.250 (attendu 2.183 à 2.317)
+  OK   part lisse (médiane) : 0.258 (attendu 0.000 à 0.270)
+  OK   détails fins / 100×100 u (médiane) : 360.360 (attendu 329.944 à 446.395)
+  OK   détails moyens / 100×100 u (médiane) : 106.795 (attendu 90.940 à 123.036)
+  OK   secteurs conformes (part) : 0.929 (attendu 0.850 à 1.000)
+  secteurs hors norme (coin haut gauche en unités depuis le coin de la carte ; lisse / fins / moyens) :
+    (4000, 0) : 0.38 / 223 / 79
+VERDICT : conforme
+== environment.storm_highlands
+Monde 5016 × 5016 unités, 49 secteurs
+  OK   densité (pixels par unité) : 2.250 (attendu 2.183 à 2.317)
+  OK   part lisse (médiane) : 0.190 (attendu 0.000 à 0.270)
+  OK   détails fins / 100×100 u (médiane) : 375.423 (attendu 329.944 à 446.395)
+  OK   détails moyens / 100×100 u (médiane) : 103.898 (attendu 90.940 à 123.036)
+  OK   secteurs conformes (part) : 0.959 (attendu 0.850 à 1.000)
+  secteurs hors norme (coin haut gauche en unités depuis le coin de la carte ; lisse / fins / moyens) :
+    (0, 4800) : 0.40 / 282 / 63
+    (4800, 4800) : 0.63 / 149 / 61
+VERDICT : conforme
+== environment.firefly_woods
+Monde 4013 × 2675 unités, 20 secteurs
+  OK   densité (pixels par unité) : 2.250 (attendu 2.183 à 2.317)
+  OK   part lisse (médiane) : 0.131 (attendu 0.000 à 0.270)
+  OK   détails fins / 100×100 u (médiane) : 418.489 (attendu 329.944 à 446.395)
+  OK   détails moyens / 100×100 u (médiane) : 110.464 (attendu 90.940 à 123.036)
+  OK   secteurs conformes (part) : 1.000 (attendu 0.850 à 1.000)
+VERDICT : conforme
+== environment.mist_ford
+Monde 4013 × 2675 unités, 20 secteurs
+  OK   densité (pixels par unité) : 2.250 (attendu 2.183 à 2.317)
+  OK   part lisse (médiane) : 0.097 (attendu 0.000 à 0.270)
+  OK   détails fins / 100×100 u (médiane) : 412.889 (attendu 329.944 à 446.395)
+  OK   détails moyens / 100×100 u (médiane) : 115.871 (attendu 90.940 à 123.036)
+  OK   secteurs conformes (part) : 1.000 (attendu 0.850 à 1.000)
+VERDICT : conforme
+== environment.cascade_source
+Monde 5016 × 5016 unités, 49 secteurs
+  OK   densité (pixels par unité) : 2.250 (attendu 2.183 à 2.317)
+  OK   part lisse (médiane) : 0.170 (attendu 0.000 à 0.270)
+  OK   détails fins / 100×100 u (médiane) : 372.720 (attendu 329.944 à 446.395)
+  OK   détails moyens / 100×100 u (médiane) : 108.147 (attendu 90.940 à 123.036)
+  OK   secteurs conformes (part) : 1.000 (attendu 0.850 à 1.000)
+VERDICT : conforme
+== environment.scorched_verge
+Monde 5016 × 3344 unités, 35 secteurs
+  OK   densité (pixels par unité) : 2.250 (attendu 2.183 à 2.317)
+  OK   part lisse (médiane) : 0.234 (attendu 0.000 à 0.270)
+  OK   détails fins / 100×100 u (médiane) : 345.683 (attendu 329.944 à 446.395)
+  OK   détails moyens / 100×100 u (médiane) : 101.194 (attendu 90.940 à 123.036)
+  OK   secteurs conformes (part) : 0.943 (attendu 0.850 à 1.000)
+  secteurs hors norme (coin haut gauche en unités depuis le coin de la carte ; lisse / fins / moyens) :
+    (2400, 0) : 0.42 / 219 / 88
+    (2400, 3200) : 0.76 / 128 / 34
+VERDICT : conforme
+✅ map_quality
