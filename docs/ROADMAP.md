@@ -1,5 +1,9 @@
 # Rift Hunters — feuille de route
 
+## B3 — Carte 13, Jardins de cristal : composition livrée pour validation (Codex)
+
+Branche codex/carte-crystal-gardens depuis main a jour. Panorama 3:1, grandes terrasses libres, arche de cristal puis chaussee de pierres ; terrasse finale en croissant sans arene. Composition uniquement, sans collisions ni gameplay.
+
 ## Sorts des monstres chapitres 3 et 4 — effets améliorés livrés pour revue (Codex, PR #78)
 
 56 scènes autonomes récupérées de Work ; matière, frappe et dissipation reprises avec le vocabulaire peint du Chasseur. 56 scènes contrôlées, 19 groupes capturés dans Godot, mesure de rendu jointe. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.

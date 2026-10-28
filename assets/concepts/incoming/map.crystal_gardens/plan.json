@@ -1,0 +1,37 @@
+{
+  "world_size": [
+    5016,
+    1672
+  ],
+  "format": "3:1",
+  "points_percent": {
+    "Départ": [
+      8,
+      49
+    ],
+    "Jardin ouvert": [
+      24,
+      48
+    ],
+    "Arche de cristal": [
+      46,
+      42
+    ],
+    "Avenue ouverte": [
+      62,
+      48
+    ],
+    "Chaussée de pierres": [
+      75,
+      53
+    ],
+    "Terrasse finale": [
+      88,
+      50
+    ]
+  },
+  "walkable_share_target": 0.55,
+  "walkable_share_measured": null,
+  "navigation_verified": false,
+  "note": "Plan de composition, pas de masque de collisions. Les positions sont indicatives ; propriétaire peint ensuite."
+}
