@@ -1,0 +1,68 @@
+[
+  {
+    "id": "jade",
+    "tool": "built-in image_gen.imagegen",
+    "intent": "edit",
+    "reference": "reference_poses.png",
+    "original": "C:\\Users\\petit\\.codex\\generated_images\\01a1819d-377e-7013-8a3c-8ea58b8434d5\\exec-92600267-fd4e-454d-a9c9-0ce1569fa33e.png",
+    "source": "jade_source.png",
+    "prompt_file": "jade.prompt.txt",
+    "transparent_background": true,
+    "grid": [
+      3,
+      2
+    ],
+    "poses": [
+      "idle",
+      "move_1",
+      "move_4",
+      "attack",
+      "hurt",
+      "death"
+    ]
+  },
+  {
+    "id": "ivory",
+    "tool": "built-in image_gen.imagegen",
+    "intent": "edit",
+    "reference": "reference_poses.png",
+    "original": "C:\\Users\\petit\\.codex\\generated_images\\01a1819d-377e-7013-8a3c-8ea58b8434d5\\exec-ef5f2607-973c-4715-a9b7-9017ad59ad7c.png",
+    "source": "ivory_source.png",
+    "prompt_file": "ivory.prompt.txt",
+    "transparent_background": true,
+    "grid": [
+      3,
+      2
+    ],
+    "poses": [
+      "idle",
+      "move_1",
+      "move_4",
+      "attack",
+      "hurt",
+      "death"
+    ]
+  },
+  {
+    "id": "storm",
+    "tool": "built-in image_gen.imagegen",
+    "intent": "edit",
+    "reference": "reference_poses.png",
+    "original": "C:\\Users\\petit\\.codex\\generated_images\\01a1819d-377e-7013-8a3c-8ea58b8434d5\\exec-28330fef-8288-47f8-9d9d-5ac349933339.png",
+    "source": "storm_source.png",
+    "prompt_file": "storm.prompt.txt",
+    "transparent_background": true,
+    "grid": [
+      3,
+      2
+    ],
+    "poses": [
+      "idle",
+      "move_1",
+      "move_4",
+      "attack",
+      "hurt",
+      "death"
+    ]
+  }
+]
