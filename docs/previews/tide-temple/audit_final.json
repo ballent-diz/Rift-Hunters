@@ -1,0 +1,37 @@
+{
+  "polygon_source_pixels": [
+    [
+      555,
+      137
+    ],
+    [
+      616,
+      101
+    ],
+    [
+      760,
+      185
+    ],
+    [
+      721,
+      239
+    ]
+  ],
+  "length_units": 590.2927707297297,
+  "average_width_units": 210.01877516475204,
+  "components": 5,
+  "terrain_image_changed": false,
+  "other_causeways_unchanged": true,
+  "method": "Correction du masque de marée créé par Codex pour couvrir le tablier déjà peint ; aucun élargissement du dessin, aucune collision modifiée.",
+  "sharpness_fixed_baseline": {
+    "reference_before_correction": 0.002278732368722558,
+    "ratio": 0.6,
+    "threshold_absolute": 0.0013672394212335347,
+    "valid_cells": 620,
+    "flagged_cells": 0,
+    "flagged_share": 0.0,
+    "limit": 0.05,
+    "ok": true,
+    "interpretation": "Référence figée AVANT correction, conformément à QUALITE_DES_CARTES.md ; le diagnostic relatif recalculé après correction est conservé séparément et non déclaré conforme."
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "method": "Matière originale conservée ; transfert des contours reconstruits par le modèle officiel, pas de bruit ajouté. Traitement uniforme de toute la carte après passe de régions.",
+  "model": "realesr_general_x4v3_0.2.onnx",
+  "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+  "DENOISE": 0.2,
+  "block": 512,
+  "overlap": 32,
+  "detail_filter_sigma": 1.25,
+  "detail_weight": 0.75,
+  "source_sha256": [
+    "5657a4bcc27546acac7eb23dff0c2fff83a30459abd98587ad6036eb802d8cdd",
+    "0f8c10ce9a1ad077c4c41743da2009bdcd394fb9aae49193946d3201333a69d7"
+  ],
+  "output_sha256": "ef2a9e8cfb4f8725618c9c532163bfdaa7a9d688457e0e0792bd64e5f238b6d0"
+}

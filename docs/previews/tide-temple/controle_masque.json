@@ -1,0 +1,15 @@
+{
+  "dimensions": [
+    7524,
+    11286
+  ],
+  "mode": "1-bit, noir/blanc",
+  "components": 5,
+  "source_dimensions": [
+    1024,
+    1536
+  ],
+  "source_sha256": "b532bd0a3821c04e1e8feb96ed1a021f85a7b20fc494bb52858b31274f86ccd2",
+  "final_sha256": "0bde6cd31f928acd974d08eb5824e701c1f44a258831b8319d60f7abd022b734",
+  "method": "Correction du masque de marée créé par Codex pour couvrir le tablier déjà peint ; aucun élargissement du dessin, aucune collision modifiée."
+}

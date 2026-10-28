@@ -1,0 +1,12 @@
+Revise this TIDE TEMPLE composition for actual playability, retaining its exact sharp Rift Hunters hand-painted marsh/crystal style, vertical2:3 camera and six staggered major areas. This is BEFORE the plan is locked.
+The current image makes low crossings mandatory and leaves the southern forecourt isolated at high tide. FIX THIS:
+Draw one unmistakeable CONTINUOUS DRY HIGH PATH joining ALL six large terraces from bottom to top. Starting at the southern forecourt (50,84), a wide pale-stone raised arch bridge goes NORTH-WEST to the west courtyard (24,65). From that west courtyard another high raised stone bridge with broad stairs runs NORTH-EAST to the east terrace (75,51). From east terrace, the existing high bridge leads NORTH-WEST to the open-air hall (25,34). From that hall a high raised bridge leads NORTH-EAST to the sacred basin terrace (78,19). From that terrace a high raised bridge goes NORTH-WEST to the sanctuary forecourt (43,9). EVERY high bridge has continuous flat DRY deck, stone side walls, masonry supports physically anchored to both terraces, NO broken gaps, NO water on its deck. Route never depends on wet stepping stones.
+Then paint exactly SIX visibly LOWER wet slab causeways, dark flat continuous pavement at waterline, all 150–300worldunits wide, each a REAL OPTIONAL SHORTCUT with a higher longer alternative already connected:
+1 lower west forecourt↔west courtyard around (22,76);
+2 west courtyard↔east terrace around (48,60);
+3 west courtyard↔open-air hall around (20,48);
+4 open-air hall↔east terrace around (49,30);
+5 open-air hall↔sacred basin around (61,24);
+6 sacred basin↔north sanctuary around (57,15).
+They are additional crossings SEPARATE from high bridges. Do NOT replace raised bridges with flat causeways. Keep deep water between causeways/bridges so high vs low reads clearly. No causeway ends in water.
+Enlarge the six dry combat terraces so dry flat playable land is AT LEAST 50% of the whole picture, while keeping water channels legible. Centers wide open for dodging. Remove ornamental circles/sockets from start and final, no magical circles, no game objects. Ruins and 3–5 large cover blocks per area around edges with wide gaps, never across paths. Tiny pebbles are flat texture. Close outer map border with jungle or ruins, NO route leaves image. No lava, orange or ash. No text, symbols, characters, UI, labels. Preserve pale cyan mirror-crystal masonry, emerald vegetation and turquoise/dark water, no photorealism.

@@ -1,0 +1,36 @@
+{
+  "id": "map.tide_temple",
+  "status": "final",
+  "stage": "detail_livre_pour_revue",
+  "world_size": [
+    3344,
+    5016
+  ],
+  "source": "composition.png",
+  "composition": "composition.png",
+  "terrain_mask": "tide.png",
+  "mask_values": {
+    "0": "hors chaussée basse",
+    "255": "chaussée submergée à marée haute"
+  },
+  "owner_approved": false,
+  "autonomous_continuation_authorized": true,
+  "owner_instruction": "Poursuivre toutes les tâches sans questions ; composition choisie par Codex.",
+  "plan_locked": true,
+  "regions_versioned": false,
+  "runtime_integrated": false,
+  "composition_sha256": "2fc330153c9a58e011b4baa9633802dd0f8024f2fd8f7a21cbd4b64761d70f3a",
+  "quality_conforme": true,
+  "quality_report": "res://docs/previews/tide-temple/qualite.json",
+  "terrain_mask_dimensions": [
+    7524,
+    11286
+  ],
+  "delivered_tiles": [
+    "res://assets/environments/tide_temple/map.webp",
+    "res://assets/environments/tide_temple/map_1.webp"
+  ],
+  "local_sharpness_conforme": false,
+  "review_required": "Validation artistique, circulation et intégration runtime par le propriétaire et Claude ; diagnostic relatif après correction conservé sans revendication de conformité.",
+  "sharpness_fixed_baseline_conforme": true
+}

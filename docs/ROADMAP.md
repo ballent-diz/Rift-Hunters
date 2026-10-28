@@ -54,6 +54,10 @@ Source exacte c9.png. Seize régions 4 × 4, trois tuiles 3762 × 11286 ; contr�
 
 Branche codex/carte-events-detail depuis main à jour. Plan validé conservé, douze régions, trois tuiles assemblées, contrôle qualité CONFORME et planche d’échelle. Réserve de netteté locale documentée ; pas de qualification finale ni niveau jouable. Aucun changement de collisions ou de gameplay.
 
+## B3 — Carte 12, Temple des marées : détails et masque livrés pour revue (Codex)
+
+Branche codex/carte-tide-temple depuis main. Carte verticale, quatre espaces de faille, chaussées basses et itinéraires hauts permanents. Cartes 10 et 11 publiées dans les PR #76 et #77 ; sprites chapitre 3 déjà créés dans Work ; reprise des effets Godot PR #78 après cette carte. Poursuite autonome autorisée.
+
 ## B3 — Carte 8, Tanières de suie : détails livrés pour revue (Codex)
 
 Plan exact c8.png fourni le 25 octobre ; seize régions assemblées en trois tuiles, rapport qualité et planche d’échelle joints ; sans recomposition ni collisions. Carte 9 après publication de cette livraison.

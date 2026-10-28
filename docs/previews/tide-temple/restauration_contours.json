@@ -1,0 +1,142 @@
+{
+  "before_global": {
+    "world": [
+      3344,
+      5016
+    ],
+    "checks": [
+      {
+        "name": "densité (pixels par unité)",
+        "value": 2.25,
+        "min": 2.183,
+        "max": 2.317,
+        "ok": true
+      },
+      {
+        "name": "part lisse (médiane)",
+        "value": 0.208,
+        "min": 0.0,
+        "max": 0.27,
+        "ok": true
+      },
+      {
+        "name": "détails fins / 100×100 u (médiane)",
+        "value": 330.234,
+        "min": 329.944,
+        "max": 446.395,
+        "ok": true
+      },
+      {
+        "name": "détails moyens / 100×100 u (médiane)",
+        "value": 98.104,
+        "min": 90.94,
+        "max": 123.036,
+        "ok": true
+      },
+      {
+        "name": "secteurs conformes (part)",
+        "value": 1.0,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      },
+      {
+        "name": "fidélité au plan validé (corrélation)",
+        "value": 0.984,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      }
+    ],
+    "sectors_out": [],
+    "ok": true
+  },
+  "after_global": {
+    "world": [
+      3344,
+      5016
+    ],
+    "checks": [
+      {
+        "name": "densité (pixels par unité)",
+        "value": 2.25,
+        "min": 2.183,
+        "max": 2.317,
+        "ok": true
+      },
+      {
+        "name": "part lisse (médiane)",
+        "value": 0.2,
+        "min": 0.0,
+        "max": 0.27,
+        "ok": true
+      },
+      {
+        "name": "détails fins / 100×100 u (médiane)",
+        "value": 348.773,
+        "min": 329.944,
+        "max": 446.395,
+        "ok": true
+      },
+      {
+        "name": "détails moyens / 100×100 u (médiane)",
+        "value": 100.808,
+        "min": 90.94,
+        "max": 123.036,
+        "ok": true
+      },
+      {
+        "name": "secteurs conformes (part)",
+        "value": 1.0,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      },
+      {
+        "name": "fidélité au plan validé (corrélation)",
+        "value": 0.984,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      }
+    ],
+    "sectors_out": [],
+    "ok": true
+  },
+  "before_local": {
+    "valid_cells": 620,
+    "blurry_cells": 333,
+    "blurry_share": 0.5370967741935484,
+    "threshold": 0.05,
+    "ok": false,
+    "method": "Analyse officielle sharpness_map.py, mêmes fonctions et seuils ; chargement direct des deux tuiles sans inventer une entrée runtime."
+  },
+  "after_local": {
+    "valid_cells": 620,
+    "blurry_cells": 219,
+    "blurry_share": 0.3532258064516129,
+    "threshold": 0.05,
+    "ok": false
+  },
+  "after_absolute": {
+    "median": 0.021075215190649033,
+    "percentile80": 0.029393713921308517
+  },
+  "recipe": {
+    "method": "Matière originale conservée ; transfert des contours reconstruits par le modèle officiel, pas de bruit ajouté. Traitement uniforme de toute la carte après passe de régions.",
+    "model": "realesr_general_x4v3_0.2.onnx",
+    "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+    "DENOISE": 0.2,
+    "block": 512,
+    "overlap": 32,
+    "detail_filter_sigma": 1.25,
+    "detail_weight": 0.75,
+    "source_sha256": [
+      "5657a4bcc27546acac7eb23dff0c2fff83a30459abd98587ad6036eb802d8cdd",
+      "0f8c10ce9a1ad077c4c41743da2009bdcd394fb9aae49193946d3201333a69d7"
+    ],
+    "output_sha256": "ef2a9e8cfb4f8725618c9c532163bfdaa7a9d688457e0e0792bd64e5f238b6d0"
+  },
+  "retained": true,
+  "note": "La netteté locale reste sous le seuil officiel ; statut wip et PR en brouillon maintenus."
+}
