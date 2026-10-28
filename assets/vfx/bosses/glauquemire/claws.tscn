@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/enemies/chapter3/enemy_effect.gd" id="1"]
+
+[node name="glauquemire_claws" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"claw"
+surface = "organic"
+color = Color(0.388235, 0.529412, 0.298039, 1)
+accent = Color(0.737255, 0.901961, 0.631373, 1)
+radius = 160.0
+visual_duration = 0.65
+width = 22.0
+travel_distance = 240.0
+loop_visual = false
+target_shape = &"area"

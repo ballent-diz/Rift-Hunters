@@ -1,0 +1,247 @@
+{
+  "engine": "Godot 4.3",
+  "renderer": "gl_compatibility / GLES3",
+  "resolution": [
+    1280,
+    720
+  ],
+  "zoom": 1.3333333333333333,
+  "scenes": 56,
+  "load_errors": 0,
+  "captures": [
+    {
+      "group": 0,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.mire_leech.bite",
+        "vfx.enemy.bloat_toad.projectile",
+        "vfx.enemy.bloat_toad.mud_landing"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 1,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.rift_gnat.needle",
+        "vfx.enemy.creeping_root.lash",
+        "vfx.enemy.creeping_root.burrow"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 2,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.wandering_shard.projectile",
+        "vfx.enemy.glass_sentinel.slash",
+        "vfx.enemy.quartz_golem.impact"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 3,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.creeping_mirror.snap",
+        "vfx.enemy.creeping_mirror.reflection_jump",
+        "vfx.enemy.spore_mother.spore_mark"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 4,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.spore_mother.mark_explosion",
+        "vfx.enemy.spore_mother.spore_carpet",
+        "vfx.enemy.spore_mother.heal_aura"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 5,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.bark_warden.binding_roots",
+        "vfx.enemy.bark_warden.bark_shield",
+        "vfx.enemy.bark_warden.armor_break"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 6,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.marsh_maw.plunge",
+        "vfx.enemy.marsh_maw.belly_charge",
+        "vfx.enemy.marsh_maw.rage"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 7,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.mirror_priestess.clones",
+        "vfx.enemy.mirror_priestess.reflecting_mirror",
+        "vfx.enemy.mirror_priestess.evasive_blink"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 8,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.crystal_colossus.sweep_beam",
+        "vfx.enemy.crystal_colossus.shard_fan",
+        "vfx.enemy.crystal_colossus.exposed_core"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 9,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.reflection_huntress.chain_blink",
+        "vfx.enemy.reflection_huntress.prism_mark",
+        "vfx.enemy.reflection_huntress.prism_explosion"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 10,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.reflection_huntress.reveal",
+        "vfx.boss.glauquemire.claws",
+        "vfx.boss.glauquemire.slam"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 11,
+      "frames": 16,
+      "entries": [
+        "vfx.boss.glauquemire.mud_impact",
+        "vfx.boss.glauquemire.mud_wall",
+        "vfx.boss.glauquemire.root_leash"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 12,
+      "frames": 16,
+      "entries": [
+        "vfx.boss.glauquemire.leech_feed",
+        "vfx.boss.glauquemire.facets",
+        "vfx.boss.glauquemire.facet_break"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 13,
+      "frames": 16,
+      "entries": [
+        "vfx.boss.glauquemire.mirror",
+        "vfx.boss.glauquemire.prism_beam",
+        "vfx.boss.glauquemire.whirlpool"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 14,
+      "frames": 16,
+      "entries": [
+        "vfx.boss.glauquemire.tide_ring",
+        "vfx.boss.glauquemire.swallow",
+        "vfx.boss.glauquemire.echo_release"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 15,
+      "frames": 16,
+      "entries": [
+        "vfx.boss.glauquemire.phase_transition",
+        "vfx.boss.glauquemire.heart_pulse",
+        "vfx.enemy.frost_wolf.bite"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 16,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.frost_wolf.frost_landing",
+        "vfx.enemy.ice_scarab.snap",
+        "vfx.enemy.snow_bat.ice_needle"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 17,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.ice_worm.bite",
+        "vfx.enemy.ice_worm.burrow",
+        "vfx.enemy.shared.indicator_area"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    },
+    {
+      "group": 18,
+      "frames": 16,
+      "entries": [
+        "vfx.enemy.shared.indicator_line",
+        "vfx.enemy.shared.indicator_sector"
+      ],
+      "poster_frame": 7,
+      "phase": 0.4388888888888889
+    }
+  ],
+  "focus": [
+    {
+      "index": 34,
+      "key": "vfx.boss.glauquemire.mud_wall",
+      "file": "focus_glauquemire_mud_wall.webp"
+    },
+    {
+      "index": 40,
+      "key": "vfx.boss.glauquemire.prism_beam",
+      "file": "focus_glauquemire_prism_beam.webp"
+    },
+    {
+      "index": 41,
+      "key": "vfx.boss.glauquemire.whirlpool",
+      "file": "focus_glauquemire_whirlpool.webp"
+    },
+    {
+      "index": 43,
+      "key": "vfx.boss.glauquemire.swallow",
+      "file": "focus_glauquemire_swallow.webp"
+    }
+  ],
+  "timing": "Phases normalisées pour comparer les formes, pas une vidéo à vitesse réelle commune. Durées runtime inchangées dans les scènes.",
+  "combat_simulated": false,
+  "renderer_sha256_lf": "c4c335b808ca741b88ff460191aefed977b997c6b0edfc62b7effc2a2fad230a",
+  "brush_helper_sha256_lf": "a64dc88f02b73ebc2d066b5f84f0e327ba582c64479e35ed63d97ba59c035a0f"
+}
