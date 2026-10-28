@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
+
+14 créatures importées, 25 sources, 54 animations peintes (324 poses), deux bancs Godot 720p animés. Sources Work indisponibles au téléchargement : remplacements générés selon l’autorisation du 28 octobre. Import Godot, suites assets et art (qualité cartes incluse) verts. Aucun gameplay. Réserve artistique : Enlisés sombres sur terre. Effets PR #78 déjà fusionnés : lot 2 couvert, raccords Claude à vérifier sans redessiner les effets.
+
+
 ## Sorts des monstres chapitres 3 et 4 — effets améliorés livrés pour revue (Codex, PR #78)
 
 56 scènes autonomes récupérées de Work ; matière, frappe et dissipation reprises avec le vocabulaire peint du Chasseur. 56 scènes contrôlées, 19 groupes capturés dans Godot, mesure de rendu jointe. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
