@@ -1,0 +1,6 @@
+Use case: precise-object-edit
+Input image1 is EDIT TARGET sheet E (6columns3rows). Input image2 is sheet A, identity and generous spacing reference.
+Preserve ALL eighteen poses and anatomy of image1, same cracked armor, ivory lotus, chest heart, attached tiny water strands and right-facing camera. Make ONLY these targeted changes:
+1. The open mouth in bottom row column3 currently has purple inside. Replace ALL purple in mouth/throat with dark swamp green-black; teeth ivory. Purple must exist ONLY in the small chest heart on all 18 sprites. No purple anywhere else, including mouth, eyes, roots, armor.
+2. Uniformly give the entire eighteen-sprite sheet more transparent room: reduce EVERY whole sprite by the SAME 15% global amount in its own cell, no per-pose fitting, so whole snout and tail stay away from cell boundaries. Keep six equal columns and three rows, centered sprites, same baseline per row, spacious alpha margins left/right and below.
+Actual transparent background, no new objects, no ground shadows, labels, grid, ground rings or detached effects. Do not change animation ordering.
