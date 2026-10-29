@@ -110,3 +110,26 @@ La mesure initiale avait interverti les côtés longs et courts ; l’audit a en
 Passe de détail, assemblage, masque et contrôles visuels livrés pour revue. Aucune revendication de niveau jouable : collisions, marée, quatre failles et gardien restent à intégrer par Claude. La validation artistique, les tailles des abris et la circulation en jeu restent au propriétaire. Aucun outil ni seuil de référence modifié.
 
 Poids des nouveaux fichiers uniques : **140.4 Mo**, sous la limite 150 Mo. [Mesure](../previews/tide-temple/poids.json).
+
+## Intégration en jeu (Claude, 29 octobre 2026)
+
+Arène `data/arenas/tide_temple.tres`, fermeture de failles, collisions peintes par le propriétaire.
+
+- **Marée** sur les trois chaussées sombres qui relient des terrasses : T01 (départ ↔ cour ouest), T03 (cour ouest ↔
+  salle nord-ouest), T04 (terrasse est ↔ bassin). Leur emprise de `tide.png` est rendue praticable dans `collision.png`
+  (marée basse) ; à marée haute, 26 rectangles qui suivent leur forme les ferment (`tide_causeways`).
+- **T02 et T05**, les chaussées en brique, sont encadrées de murs et de piliers et ne débouchent sur aucune terrasse :
+  elles restent bloquées, comme le propriétaire les a peintes.
+- **Raccord du pont haut nord au bassin** élargi à 90 unités entre le pilier du garde-corps et le grand pilier
+  (la peinture n'y laissait qu'environ 16 unités) : sans lui, le bassin était isolé à marée haute.
+- Le chemin haut relie toujours tout, marée haute comme basse (`test_map_passages::test_tide_temple_high_road_stays_open_at_high_tide`).
+- **Failles** sur les quatre terrasses du plan, au point le plus dégagé de chacune : cour ouest (-988, 312), terrasse
+  est (1044, -64), salle nord-ouest (-1060, -1112) et bassin sacré (1196, -1368). Le parvis du sanctuaire (environ
+  650 × 150 unités, jamais plus de 120 unités de dégagement) est trop étroit pour une faille ou un combat de gardien :
+  il reste un décor. La **finale** est un cercle d'énergie dans le bassin sacré, une fois sa faille refermée
+  (centre (1196, -1368), rayons 300 × 240).
+- **Densité** réduite par rapport à une carte ouverte (terrasses et ponts de 200 à 300 unités) : 45 à 120 Corrompus
+  en vie selon la phase, 0,6 par seconde et par faille ouverte.
+- **Flèche de route** : elle suit le chemin haut permanent (les chaussées de marée restent fermées pour elle,
+  `FlowField.avoid_transient`) au lieu de basculer à chaque marée ; les raccourcis restent au choix du joueur.
+- Départ (4, 1760), parvis sud. Corrompus : les Enlisés. **Gardien provisoire** : la Chimère des brumes (carte 4).

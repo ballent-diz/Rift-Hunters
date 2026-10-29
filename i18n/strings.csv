@@ -1759,3 +1759,12 @@ TREE_GUIDE_BODY_6,"Chaque Écho a son arbre, dans l'onglet Échos, qui se lit co
 EXPEDITION_ECHO_AT_MAP,Carte %d,Map %d
 EXPEDITION_ECHO_LATER,À venir,Coming later
 REFUGE_TAB_SHORTCUTS,"Changer d'onglet : LB / RB, Page préc. / suiv. ou Ctrl+Tab","Switch tabs: LB / RB, Page Up / Down or Ctrl+Tab"
+ARENA_ROOT_MANGROVE_NAME,Mangrove des racines,Root Mangrove
+ARENA_ROOT_MANGROVE_DESC,"Une boucle de berges autour d'un lagon : la vase colle aux pieds de tous, Corrompus compris. L'île du centre n'a qu'un accès.","A loop of banks around a lagoon: the mud sticks to everyone's feet, Corrupted included. The central island has a single way in."
+ZONE_ROOT_MANGROVE_1_NAME,La Mangrove occidentale,The Western Mangrove
+ZONE_ROOT_MANGROVE_2_NAME,Les Ruines-miroirs,The Mirror Ruins
+ZONE_ROOT_MANGROVE_3_NAME,La Tourbière,The Bog
+FINALE_TRAVEL_ISLAND,Les berges sont nettoyées : empruntez la longue racine jusqu'à l'île du lagon.,The banks are cleared: take the long root to the lagoon island.
+ARENA_TIDE_TEMPLE_NAME,Temple des marées,Tide Temple
+ARENA_TIDE_TEMPLE_DESC,"Des terrasses reliées par des ponts hauts et des chaussées basses : à marée haute, l'eau noie les chaussées. Refermez les quatre failles.","Terraces linked by high bridges and low causeways: at high tide, the water drowns the causeways. Seal the four rifts."
+FINALE_TRAVEL_BASIN,"Les failles sont refermées : rejoignez le bassin sacré, au nord-est.",The rifts are sealed: reach the sacred basin to the north-east.
