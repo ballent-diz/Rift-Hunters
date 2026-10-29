@@ -1,0 +1,211 @@
+{
+  "visual_id": "boss.glauquemire",
+  "cell": [
+    512,
+    512
+  ],
+  "anchor": [
+    256,
+    480
+  ],
+  "scale": 0.5,
+  "target_height": 150,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "anchor_mode": "mass",
+  "resample": "lanczos",
+  "hover": 0,
+  "isolate": true,
+  "preview_zoom": 1,
+  "icon_size": 128,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "source/sheet_a.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 8,
+      "loop": true,
+      "source_scale": 1.0
+    },
+    {
+      "name": "move",
+      "source": "source/sheet_a.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "source_scale": 1.0
+    },
+    {
+      "name": "claws",
+      "source": "source/sheet_a.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 1.0
+    },
+    {
+      "name": "mud_spit",
+      "source": "source/sheet_b.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 0.946809
+    },
+    {
+      "name": "root_lash",
+      "source": "source/sheet_b.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 0.946809
+    },
+    {
+      "name": "leech_call",
+      "source": "source/sheet_b.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "source_scale": 0.946809
+    },
+    {
+      "name": "transform",
+      "source": "source/sheet_c.png",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "source_scale": 0.709729
+    },
+    {
+      "name": "phase2_idle",
+      "source": "source/sheet_c.png",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 8,
+      "loop": true,
+      "source_scale": 0.709729
+    },
+    {
+      "name": "prism_beam",
+      "source": "source/sheet_d.png",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "source_scale": 0.699686
+    },
+    {
+      "name": "hurt",
+      "source": "source/sheet_d.png",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 0.699686
+    },
+    {
+      "name": "phase3_idle",
+      "source": "source/sheet_e.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 8,
+      "loop": true,
+      "source_scale": 0.908163
+    },
+    {
+      "name": "whirlpool",
+      "source": "source/sheet_e.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "source_scale": 0.908163
+    },
+    {
+      "name": "swallow",
+      "source": "source/sheet_e.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 0.908163
+    },
+    {
+      "name": "death",
+      "source": "source/sheet_f.png",
+      "grid": [
+        6,
+        1
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 8,
+      "loop": false,
+      "source_scale": 0.786219
+    }
+  ],
+  "aliases": {
+    "attack": "claws"
+  }
+}

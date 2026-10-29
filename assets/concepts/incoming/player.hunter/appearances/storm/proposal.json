@@ -1,0 +1,18 @@
+{
+  "name_fr": "Nuit d’orage",
+  "status": "proposal",
+  "runtime_imported": false,
+  "price_created": false,
+  "manifest_entry_created": false,
+  "layout": [
+    3,
+    2
+  ],
+  "poses_reference": "../reference.json",
+  "source_sha256": "6590e23c04f500bf5ca25c5bc7af0ca038a441e9d25863e27a63669fdfb25977",
+  "source_dimensions": [
+    1682,
+    935
+  ],
+  "note": "Maquette de tenue sur six poses de référence. Ni atlas de jeu complet, ni correspondance pixel par pixel certifiée."
+}

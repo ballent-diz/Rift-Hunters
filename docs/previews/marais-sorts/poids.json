@@ -1,0 +1,7 @@
+{
+  "new_unique_blob_bytes": 84189965,
+  "new_unique_blob_Mo": 84.19,
+  "limit_bytes": 150000000,
+  "under_limit": true,
+  "method": "Blobs uniques de la livraison courante absents de main, hors rapport et sa mention (<2 Ko). Versions precedentes conservees dans historique."
+}

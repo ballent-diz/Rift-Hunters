@@ -1,0 +1,7 @@
+{
+  "status": "vert",
+  "exit_code": 0,
+  "log": "c3-verified-checks.log",
+  "native_preview": "c3-reflets-art/preview",
+  "note": "Import Godot puis suites assets/art véritables, aucun seuil ni fichier gameplay modifié."
+}

@@ -11660,8 +11660,9 @@
 			"icon": "res://assets/ui/icons/objects/ash_nest.png"
 		},
 		"enemy.mire_leech": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.mire_leech/job.json",
+			"sheet": "res://assets/sprites/enemies/mire_leech/mire_leech_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11684,23 +11685,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/mire_leech.png"
 		},
 		"enemy.bloat_toad": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.bloat_toad/job.json",
+			"sheet": "res://assets/sprites/enemies/bloat_toad/bloat_toad_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11723,23 +11726,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"leap": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/bloat_toad.png"
 		},
 		"enemy.rift_gnat": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rift_gnat/job.json",
+			"sheet": "res://assets/sprites/enemies/rift_gnat/rift_gnat_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11762,23 +11773,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/rift_gnat.png"
 		},
 		"enemy.creeping_root": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.creeping_root/job.json",
+			"sheet": "res://assets/sprites/enemies/creeping_root/creeping_root_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11801,23 +11814,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"plunge": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/creeping_root.png"
 		},
 		"enemy.spore_mother": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.spore_mother/job.json",
+			"sheet": "res://assets/sprites/enemies/spore_mother/spore_mother_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11840,23 +11861,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spore_mark": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spore_carpet": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"pulse": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/spore_mother.png"
 		},
 		"enemy.bark_warden": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.bark_warden/job.json",
+			"sheet": "res://assets/sprites/enemies/bark_warden/bark_warden_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11879,23 +11920,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"roots": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"bark_shield": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"armor_break": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/bark_warden.png"
 		},
 		"enemy.marsh_maw": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.marsh_maw/job.json",
+			"sheet": "res://assets/sprites/enemies/marsh_maw/marsh_maw_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11918,23 +11979,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"dive": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"belly_charge": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
-					"row": 2,
-					"frames": 1,
+				"rage": {
+					"row": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/marsh_maw.png"
 		},
 		"enemy.wandering_shard": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.wandering_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/wandering_shard/wandering_shard_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11957,23 +12038,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/wandering_shard.png"
 		},
 		"enemy.glass_sentinel": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.glass_sentinel/job.json",
+			"sheet": "res://assets/sprites/enemies/glass_sentinel/glass_sentinel_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11996,23 +12079,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/glass_sentinel.png"
 		},
 		"enemy.quartz_golem": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.quartz_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/quartz_golem/quartz_golem_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12035,23 +12120,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/quartz_golem.png"
 		},
 		"enemy.creeping_mirror": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.creeping_mirror/job.json",
+			"sheet": "res://assets/sprites/enemies/creeping_mirror/creeping_mirror_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12074,23 +12161,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"blink": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/creeping_mirror.png"
 		},
 		"enemy.mirror_priestess": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.mirror_priestess/job.json",
+			"sheet": "res://assets/sprites/enemies/mirror_priestess/mirror_priestess_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12113,23 +12208,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"reflections": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"mirror_guard": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blink": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/mirror_priestess.png"
 		},
 		"enemy.crystal_colossus": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.crystal_colossus/job.json",
+			"sheet": "res://assets/sprites/enemies/crystal_colossus/crystal_colossus_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12152,23 +12267,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"beam": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"shard_burst": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"exposed_core": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/crystal_colossus.png"
 		},
 		"enemy.reflection_huntress": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.reflection_huntress/job.json",
+			"sheet": "res://assets/sprites/enemies/reflection_huntress/reflection_huntress_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12191,19 +12326,44 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"chain_leap": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"prism_mark": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"reveal": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
-					"row": 2,
-					"frames": 1,
+				"stealth": {
+					"row": 5,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/reflection_huntress.png"
 		},
 		"environment.ash_vents": {
 			"status": "wip",
@@ -12248,8 +12408,9 @@
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
 		"boss.glauquemire": {
-			"status": "planned",
-			"note": "Dévoreur du chapitre 3 : sprites à livrer par Codex (docs/design/DEVOREUR_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.glauquemire/job.json",
+			"sheet": "res://assets/sprites/bosses/glauquemire/glauquemire_sheet.png",
 			"cell": [
 				512,
 				512
@@ -12273,12 +12434,6 @@
 					"loop": true
 				},
 				"claws": {
-					"row": 2,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"attack": {
 					"row": 2,
 					"frames": 6,
 					"fps": 12,
@@ -12349,12 +12504,20 @@
 					"frames": 6,
 					"fps": 8,
 					"loop": false
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/bosses/glauquemire.png"
 		},
 		"object.mist_lantern": {
-			"status": "planned",
-			"note": "Lanterne du voile de brume (Chimère des brumes) : sprite à venir ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.mist_lantern/job.json",
+			"sheet": "res://assets/sprites/objects/mist_lantern/mist_lantern_sheet.png",
 			"cell": [
 				128,
 				128
@@ -12365,6 +12528,24 @@
 			],
 			"scale": 0.5,
 			"animations": {
+				"lit_idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"extinguish": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"unlit_idle": {
+					"row": 2,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
@@ -12377,7 +12558,8 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/objects/mist_lantern.png"
 		},
 		"environment.cataclysm_threshold": {
 			"status": "wip",
@@ -12399,6 +12581,1462 @@
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; escalier ajouté par Claude entre les deux zones (28 octobre).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/cataclysm_threshold/minimap.webp"
+		},
+		"vfx.enemy.shared.indicator_area": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/shared/indicator_area.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.spore_mother.spore_mark": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/spore_mother/spore_mark.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 3.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.slam": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/slam.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.8,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.mud_impact": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/mud_impact.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.bark_warden.armor_break": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/bark_warden/armor_break.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.6,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.spore_mother.spore_carpet": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/spore_mother/spore_carpet.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.5,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.mirror_priestess.clones": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/mirror_priestess/clones.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.bark_warden.bark_shield": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/bark_warden/bark_shield.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.tide_ring": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/tide_ring.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.5,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.ice_scarab.snap": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/ice_scarab/snap.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
+		"vfx.enemy.quartz_golem.impact": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/quartz_golem/impact.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.55,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.marsh_maw.plunge": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/marsh_maw/plunge.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.7,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.mud_wall": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/mud_wall.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.frost_wolf.bite": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/frost_wolf/bite.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
+		"vfx.enemy.ice_worm.burrow": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/ice_worm/burrow.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.7,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
+		"vfx.enemy.crystal_colossus.sweep_beam": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/crystal_colossus/sweep_beam.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.frost_wolf.frost_landing": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/frost_wolf/frost_landing.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.7,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
+		"vfx.enemy.reflection_huntress.chain_blink": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/reflection_huntress/chain_blink.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.42,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.swallow": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/swallow.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.leech_feed": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/leech_feed.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.crystal_colossus.shard_fan": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/crystal_colossus/shard_fan.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.prism_beam": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/prism_beam.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.marsh_maw.rage": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/marsh_maw/rage.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.shared.indicator_line": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/shared/indicator_line.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.bark_warden.binding_roots": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/bark_warden/binding_roots.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.7,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.creeping_mirror.snap": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/creeping_mirror/snap.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.35,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.mirror_priestess.reflecting_mirror": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/mirror_priestess/reflecting_mirror.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.mirror_priestess.evasive_blink": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/mirror_priestess/evasive_blink.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.45,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.wandering_shard.projectile": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/wandering_shard/projectile.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.6,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.reflection_huntress.prism_explosion": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/reflection_huntress/prism_explosion.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.6,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.creeping_mirror.reflection_jump": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/creeping_mirror/reflection_jump.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.45,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.creeping_root.burrow": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/creeping_root/burrow.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.creeping_root.lash": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/creeping_root/lash.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.45,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.reflection_huntress.reveal": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/reflection_huntress/reveal.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.bloat_toad.mud_landing": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/bloat_toad/mud_landing.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.mirror": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/mirror.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.facet_break": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/facet_break.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.75,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.echo_release": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/echo_release.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.6,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.phase_transition": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/phase_transition.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.marsh_maw.belly_charge": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/marsh_maw/belly_charge.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.55,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.reflection_huntress.prism_mark": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/reflection_huntress/prism_mark.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 3.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.spore_mother.mark_explosion": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/spore_mother/mark_explosion.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.claws": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/claws.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.glass_sentinel.slash": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/glass_sentinel/slash.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.spore_mother.heal_aura": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/spore_mother/heal_aura.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.facets": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/facets.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.snow_bat.ice_needle": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/snow_bat/ice_needle.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.8,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
+		"vfx.enemy.crystal_colossus.exposed_core": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/crystal_colossus/exposed_core.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.rift_gnat.needle": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/rift_gnat/needle.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.6,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.mire_leech.bite": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/mire_leech/bite.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.35,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.root_leash": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/root_leash.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.heart_pulse": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/heart_pulse.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.ice_worm.bite": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/ice_worm/bite.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
+		"vfx.enemy.bloat_toad.projectile": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/bloat_toad/projectile.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.shared.indicator_sector": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter3/shared/indicator_sector.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.0,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.boss.glauquemire.whirlpool": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/glauquemire/whirlpool.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"environment.volcano_heart": {
 			"status": "wip",

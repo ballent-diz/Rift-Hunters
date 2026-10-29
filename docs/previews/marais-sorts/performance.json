@@ -1,0 +1,46 @@
+{
+  "before": {
+    "boss_effects": 8,
+    "combat_simulated": false,
+    "effects": 24,
+    "kind": "mesure de rendu isolée, pas un benchmark de combat",
+    "measured_frames": 120,
+    "median_draw_calls": 1141,
+    "median_frame_interval_ms": 21.37,
+    "p95_frame_interval_ms": 28.94,
+    "processor": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "resolution": [
+      1280,
+      720
+    ],
+    "sprite_load": 90,
+    "sprite_visual_id": "monster.mossback",
+    "video_adapter": "Intel(R) Iris(R) Xe Graphics",
+    "vsync_requested": "disabled",
+    "warmup_frames": 30,
+    "zoom": 1.33333333333333
+  },
+  "after": {
+    "boss_effects": 8,
+    "combat_simulated": false,
+    "effects": 24,
+    "kind": "mesure de rendu isolée, pas un benchmark de combat",
+    "measured_frames": 120,
+    "median_draw_calls": 702,
+    "median_frame_interval_ms": 21.847,
+    "p95_frame_interval_ms": 27.964,
+    "processor": "11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz",
+    "resolution": [
+      1280,
+      720
+    ],
+    "sprite_load": 90,
+    "sprite_visual_id": "monster.mossback",
+    "video_adapter": "Intel(R) Iris(R) Xe Graphics",
+    "vsync_requested": "disabled",
+    "warmup_frames": 30,
+    "zoom": 1.33333333333333
+  },
+  "baseline_commit": "1d41723b2e6af94f33d6353b9c4443e3dae324c9",
+  "note": "Banc de rendu isolé, 90 sprites témoins Mousseroc, pas de combat ni IA ; la charge système et la fréquence du processeur ne sont pas figées. Mesures indicatives."
+}

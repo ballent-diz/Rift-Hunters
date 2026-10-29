@@ -1,0 +1,365 @@
+[
+  {
+    "id": "jade",
+    "file": "jade_source.png",
+    "sha256": "c7185bbba6518edc29fb1d8f4e6e2303e1b7823e29b4c1181d205e90eb89bfb7",
+    "bytes": 735817,
+    "size": [
+      1683,
+      935
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "nonempty_cells": 6,
+    "opaque_edge_contacts": 0,
+    "cells": [
+      {
+        "row": 0,
+        "column": 0,
+        "alpha8_bbox": [
+          145,
+          60,
+          411,
+          436
+        ],
+        "margins": [
+          145,
+          60,
+          150,
+          32
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 0,
+        "column": 1,
+        "alpha8_bbox": [
+          208,
+          63,
+          465,
+          443
+        ],
+        "margins": [
+          208,
+          63,
+          96,
+          25
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 0,
+        "column": 2,
+        "alpha8_bbox": [
+          143,
+          61,
+          425,
+          437
+        ],
+        "margins": [
+          143,
+          61,
+          136,
+          31
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 0,
+        "alpha8_bbox": [
+          188,
+          86,
+          461,
+          443
+        ],
+        "margins": [
+          188,
+          86,
+          100,
+          24
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 1,
+        "alpha8_bbox": [
+          167,
+          65,
+          433,
+          443
+        ],
+        "margins": [
+          167,
+          65,
+          128,
+          24
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "alpha8_bbox": [
+          189,
+          204,
+          495,
+          443
+        ],
+        "margins": [
+          189,
+          204,
+          66,
+          24
+        ],
+        "border_contact": false
+      }
+    ]
+  },
+  {
+    "id": "ivory",
+    "file": "ivory_source.png",
+    "sha256": "290c844c81764bafadd14740107c892e56bd9e3afd4177fa9b1fb1a6297ac5ed",
+    "bytes": 776266,
+    "size": [
+      1683,
+      935
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "nonempty_cells": 6,
+    "opaque_edge_contacts": 0,
+    "cells": [
+      {
+        "row": 0,
+        "column": 0,
+        "alpha8_bbox": [
+          142,
+          59,
+          434,
+          436
+        ],
+        "margins": [
+          142,
+          59,
+          127,
+          32
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 0,
+        "column": 1,
+        "alpha8_bbox": [
+          203,
+          59,
+          470,
+          439
+        ],
+        "margins": [
+          203,
+          59,
+          91,
+          29
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 0,
+        "column": 2,
+        "alpha8_bbox": [
+          144,
+          60,
+          426,
+          439
+        ],
+        "margins": [
+          144,
+          60,
+          135,
+          29
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 0,
+        "alpha8_bbox": [
+          190,
+          83,
+          460,
+          441
+        ],
+        "margins": [
+          190,
+          83,
+          101,
+          26
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 1,
+        "alpha8_bbox": [
+          170,
+          66,
+          438,
+          443
+        ],
+        "margins": [
+          170,
+          66,
+          123,
+          24
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "alpha8_bbox": [
+          190,
+          202,
+          496,
+          443
+        ],
+        "margins": [
+          190,
+          202,
+          65,
+          24
+        ],
+        "border_contact": false
+      }
+    ]
+  },
+  {
+    "id": "storm",
+    "file": "storm_source.png",
+    "sha256": "6590e23c04f500bf5ca25c5bc7af0ca038a441e9d25863e27a63669fdfb25977",
+    "bytes": 682513,
+    "size": [
+      1682,
+      935
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "nonempty_cells": 6,
+    "opaque_edge_contacts": 0,
+    "cells": [
+      {
+        "row": 0,
+        "column": 0,
+        "alpha8_bbox": [
+          148,
+          61,
+          405,
+          438
+        ],
+        "margins": [
+          148,
+          61,
+          156,
+          30
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 0,
+        "column": 1,
+        "alpha8_bbox": [
+          208,
+          59,
+          465,
+          440
+        ],
+        "margins": [
+          208,
+          59,
+          95,
+          28
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 0,
+        "column": 2,
+        "alpha8_bbox": [
+          145,
+          66,
+          426,
+          440
+        ],
+        "margins": [
+          145,
+          66,
+          135,
+          28
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 0,
+        "alpha8_bbox": [
+          190,
+          86,
+          459,
+          441
+        ],
+        "margins": [
+          190,
+          86,
+          102,
+          26
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 1,
+        "alpha8_bbox": [
+          173,
+          65,
+          437,
+          441
+        ],
+        "margins": [
+          173,
+          65,
+          123,
+          26
+        ],
+        "border_contact": false
+      },
+      {
+        "row": 1,
+        "column": 2,
+        "alpha8_bbox": [
+          191,
+          201,
+          501,
+          441
+        ],
+        "margins": [
+          191,
+          201,
+          60,
+          26
+        ],
+        "border_contact": false
+      }
+    ]
+  }
+]
