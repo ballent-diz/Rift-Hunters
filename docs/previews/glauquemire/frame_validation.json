@@ -1,0 +1,3109 @@
+[
+  {
+    "id": "boss.glauquemire",
+    "source": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-glauquemire\\assets\\sprites\\bosses\\glauquemire\\glauquemire_sheet.png",
+    "sha256": "cee3bdfa91a5e539add7c2edb472c694973a340b0f60b03aa66a135c12abc132",
+    "dimensions": [
+      3072,
+      7168
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "frames": [
+      {
+        "animation": "idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          153,
+          331,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          153,
+          331,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          152,
+          328,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          152,
+          328,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          147,
+          328,
+          381,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          328,
+          131,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          149,
+          330,
+          382,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          330,
+          130,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 4,
+        "alpha8_bbox": [
+          150,
+          331,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          331,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 5,
+        "alpha8_bbox": [
+          151,
+          332,
+          381,
+          482
+        ],
+        "transparent_margins": [
+          151,
+          332,
+          131,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 0,
+        "alpha8_bbox": [
+          146,
+          333,
+          377,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          333,
+          135,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 1,
+        "alpha8_bbox": [
+          148,
+          327,
+          385,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          327,
+          127,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 2,
+        "alpha8_bbox": [
+          149,
+          326,
+          386,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          326,
+          126,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 3,
+        "alpha8_bbox": [
+          145,
+          323,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          145,
+          323,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 4,
+        "alpha8_bbox": [
+          147,
+          320,
+          382,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          320,
+          130,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 5,
+        "alpha8_bbox": [
+          149,
+          328,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          328,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "claws",
+        "frame": 0,
+        "alpha8_bbox": [
+          147,
+          333,
+          382,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          333,
+          130,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "claws",
+        "frame": 1,
+        "alpha8_bbox": [
+          147,
+          331,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          331,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "claws",
+        "frame": 2,
+        "alpha8_bbox": [
+          157,
+          310,
+          389,
+          482
+        ],
+        "transparent_margins": [
+          157,
+          310,
+          123,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "claws",
+        "frame": 3,
+        "alpha8_bbox": [
+          137,
+          322,
+          383,
+          482
+        ],
+        "transparent_margins": [
+          137,
+          322,
+          129,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "claws",
+        "frame": 4,
+        "alpha8_bbox": [
+          141,
+          325,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          141,
+          325,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "claws",
+        "frame": 5,
+        "alpha8_bbox": [
+          147,
+          329,
+          386,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          329,
+          126,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "mud_spit",
+        "frame": 0,
+        "alpha8_bbox": [
+          150,
+          330,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          330,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "mud_spit",
+        "frame": 1,
+        "alpha8_bbox": [
+          146,
+          343,
+          386,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          343,
+          126,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "mud_spit",
+        "frame": 2,
+        "alpha8_bbox": [
+          144,
+          327,
+          382,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          327,
+          130,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "mud_spit",
+        "frame": 3,
+        "alpha8_bbox": [
+          143,
+          330,
+          405,
+          482
+        ],
+        "transparent_margins": [
+          143,
+          330,
+          107,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "mud_spit",
+        "frame": 4,
+        "alpha8_bbox": [
+          148,
+          332,
+          381,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          332,
+          131,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "mud_spit",
+        "frame": 5,
+        "alpha8_bbox": [
+          152,
+          332,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          152,
+          332,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "root_lash",
+        "frame": 0,
+        "alpha8_bbox": [
+          151,
+          332,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          151,
+          332,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "root_lash",
+        "frame": 1,
+        "alpha8_bbox": [
+          141,
+          323,
+          381,
+          482
+        ],
+        "transparent_margins": [
+          141,
+          323,
+          131,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "root_lash",
+        "frame": 2,
+        "alpha8_bbox": [
+          148,
+          326,
+          383,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          326,
+          129,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "root_lash",
+        "frame": 3,
+        "alpha8_bbox": [
+          144,
+          325,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          325,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "root_lash",
+        "frame": 4,
+        "alpha8_bbox": [
+          147,
+          325,
+          382,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          325,
+          130,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "root_lash",
+        "frame": 5,
+        "alpha8_bbox": [
+          150,
+          332,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          332,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "leech_call",
+        "frame": 0,
+        "alpha8_bbox": [
+          149,
+          333,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          333,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "leech_call",
+        "frame": 1,
+        "alpha8_bbox": [
+          137,
+          314,
+          385,
+          482
+        ],
+        "transparent_margins": [
+          137,
+          314,
+          127,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "leech_call",
+        "frame": 2,
+        "alpha8_bbox": [
+          148,
+          294,
+          387,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          294,
+          125,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "leech_call",
+        "frame": 3,
+        "alpha8_bbox": [
+          138,
+          323,
+          388,
+          482
+        ],
+        "transparent_margins": [
+          138,
+          323,
+          124,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "leech_call",
+        "frame": 4,
+        "alpha8_bbox": [
+          145,
+          333,
+          388,
+          482
+        ],
+        "transparent_margins": [
+          145,
+          333,
+          124,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "leech_call",
+        "frame": 5,
+        "alpha8_bbox": [
+          148,
+          332,
+          381,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          332,
+          131,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "transform",
+        "frame": 0,
+        "alpha8_bbox": [
+          152,
+          332,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          152,
+          332,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "transform",
+        "frame": 1,
+        "alpha8_bbox": [
+          151,
+          332,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          151,
+          332,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "transform",
+        "frame": 2,
+        "alpha8_bbox": [
+          146,
+          325,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          325,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "transform",
+        "frame": 3,
+        "alpha8_bbox": [
+          147,
+          324,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          324,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "transform",
+        "frame": 4,
+        "alpha8_bbox": [
+          147,
+          322,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          322,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "transform",
+        "frame": 5,
+        "alpha8_bbox": [
+          148,
+          321,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          321,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase2_idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          150,
+          329,
+          377,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          329,
+          135,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase2_idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          150,
+          323,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          323,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase2_idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          148,
+          323,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          323,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase2_idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          149,
+          325,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          325,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase2_idle",
+        "frame": 4,
+        "alpha8_bbox": [
+          148,
+          329,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          329,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase2_idle",
+        "frame": 5,
+        "alpha8_bbox": [
+          150,
+          329,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          329,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "prism_beam",
+        "frame": 0,
+        "alpha8_bbox": [
+          149,
+          320,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          320,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "prism_beam",
+        "frame": 1,
+        "alpha8_bbox": [
+          144,
+          319,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          319,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "prism_beam",
+        "frame": 2,
+        "alpha8_bbox": [
+          144,
+          319,
+          373,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          319,
+          139,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "prism_beam",
+        "frame": 3,
+        "alpha8_bbox": [
+          142,
+          315,
+          368,
+          482
+        ],
+        "transparent_margins": [
+          142,
+          315,
+          144,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "prism_beam",
+        "frame": 4,
+        "alpha8_bbox": [
+          146,
+          319,
+          381,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          319,
+          131,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "prism_beam",
+        "frame": 5,
+        "alpha8_bbox": [
+          150,
+          319,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          319,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 0,
+        "alpha8_bbox": [
+          149,
+          320,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          320,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 1,
+        "alpha8_bbox": [
+          147,
+          322,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          322,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 2,
+        "alpha8_bbox": [
+          149,
+          321,
+          377,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          321,
+          135,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 3,
+        "alpha8_bbox": [
+          144,
+          342,
+          377,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          342,
+          135,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 4,
+        "alpha8_bbox": [
+          145,
+          311,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          145,
+          311,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 5,
+        "alpha8_bbox": [
+          148,
+          331,
+          375,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          331,
+          137,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase3_idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          149,
+          330,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          330,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase3_idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          150,
+          330,
+          377,
+          482
+        ],
+        "transparent_margins": [
+          150,
+          330,
+          135,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase3_idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          149,
+          330,
+          376,
+          482
+        ],
+        "transparent_margins": [
+          149,
+          330,
+          136,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase3_idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          148,
+          329,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          329,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase3_idle",
+        "frame": 4,
+        "alpha8_bbox": [
+          147,
+          329,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          329,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "phase3_idle",
+        "frame": 5,
+        "alpha8_bbox": [
+          148,
+          329,
+          377,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          329,
+          135,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "whirlpool",
+        "frame": 0,
+        "alpha8_bbox": [
+          145,
+          332,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          145,
+          332,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "whirlpool",
+        "frame": 1,
+        "alpha8_bbox": [
+          144,
+          323,
+          375,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          323,
+          137,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "whirlpool",
+        "frame": 2,
+        "alpha8_bbox": [
+          142,
+          314,
+          362,
+          482
+        ],
+        "transparent_margins": [
+          142,
+          314,
+          150,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "whirlpool",
+        "frame": 3,
+        "alpha8_bbox": [
+          148,
+          318,
+          384,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          318,
+          128,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "whirlpool",
+        "frame": 4,
+        "alpha8_bbox": [
+          144,
+          320,
+          383,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          320,
+          129,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "whirlpool",
+        "frame": 5,
+        "alpha8_bbox": [
+          147,
+          326,
+          378,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          326,
+          134,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "swallow",
+        "frame": 0,
+        "alpha8_bbox": [
+          148,
+          329,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          148,
+          329,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "swallow",
+        "frame": 1,
+        "alpha8_bbox": [
+          144,
+          322,
+          375,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          322,
+          137,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "swallow",
+        "frame": 2,
+        "alpha8_bbox": [
+          146,
+          297,
+          365,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          297,
+          147,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "swallow",
+        "frame": 3,
+        "alpha8_bbox": [
+          144,
+          320,
+          369,
+          482
+        ],
+        "transparent_margins": [
+          144,
+          320,
+          143,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "swallow",
+        "frame": 4,
+        "alpha8_bbox": [
+          138,
+          321,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          138,
+          321,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "swallow",
+        "frame": 5,
+        "alpha8_bbox": [
+          146,
+          329,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          329,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 0,
+        "alpha8_bbox": [
+          146,
+          316,
+          375,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          316,
+          137,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 1,
+        "alpha8_bbox": [
+          147,
+          329,
+          375,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          329,
+          137,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 2,
+        "alpha8_bbox": [
+          147,
+          345,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          345,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 3,
+        "alpha8_bbox": [
+          146,
+          370,
+          379,
+          482
+        ],
+        "transparent_margins": [
+          146,
+          370,
+          133,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 4,
+        "alpha8_bbox": [
+          143,
+          378,
+          388,
+          482
+        ],
+        "transparent_margins": [
+          143,
+          378,
+          124,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 5,
+        "alpha8_bbox": [
+          145,
+          383,
+          389,
+          482
+        ],
+        "transparent_margins": [
+          145,
+          383,
+          123,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 0,
+        "alpha8_bbox": [
+          147,
+          333,
+          382,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          333,
+          130,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 1,
+        "alpha8_bbox": [
+          147,
+          331,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          331,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 2,
+        "alpha8_bbox": [
+          157,
+          310,
+          389,
+          482
+        ],
+        "transparent_margins": [
+          157,
+          310,
+          123,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 3,
+        "alpha8_bbox": [
+          137,
+          322,
+          383,
+          482
+        ],
+        "transparent_margins": [
+          137,
+          322,
+          129,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 4,
+        "alpha8_bbox": [
+          141,
+          325,
+          380,
+          482
+        ],
+        "transparent_margins": [
+          141,
+          325,
+          132,
+          30
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 5,
+        "alpha8_bbox": [
+          147,
+          329,
+          386,
+          482
+        ],
+        "transparent_margins": [
+          147,
+          329,
+          126,
+          30
+        ],
+        "edge_contact": false
+      }
+    ]
+  },
+  {
+    "id": "object.mist_lantern",
+    "source": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-glauquemire\\assets\\sprites\\objects\\mist_lantern\\mist_lantern_sheet.png",
+    "sha256": "eeae0468ee373e3d4675be3b4daef47cfcea28ac53eec508874e6bd0ee59d6af",
+    "dimensions": [
+      768,
+      384
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "frames": [
+      {
+        "animation": "lit_idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          32,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "lit_idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          32,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "lit_idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          33,
+          28,
+          101,
+          120
+        ],
+        "transparent_margins": [
+          33,
+          28,
+          27,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "lit_idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          31,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "lit_idle",
+        "frame": 4,
+        "alpha8_bbox": [
+          31,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "lit_idle",
+        "frame": 5,
+        "alpha8_bbox": [
+          32,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "extinguish",
+        "frame": 0,
+        "alpha8_bbox": [
+          33,
+          27,
+          101,
+          120
+        ],
+        "transparent_margins": [
+          33,
+          27,
+          27,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "extinguish",
+        "frame": 1,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "extinguish",
+        "frame": 2,
+        "alpha8_bbox": [
+          31,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "extinguish",
+        "frame": 3,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "extinguish",
+        "frame": 4,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "extinguish",
+        "frame": 5,
+        "alpha8_bbox": [
+          33,
+          27,
+          101,
+          120
+        ],
+        "transparent_margins": [
+          33,
+          27,
+          27,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "unlit_idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "unlit_idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          31,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "unlit_idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          31,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "unlit_idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "unlit_idle",
+        "frame": 4,
+        "alpha8_bbox": [
+          33,
+          27,
+          101,
+          120
+        ],
+        "transparent_margins": [
+          33,
+          27,
+          27,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "unlit_idle",
+        "frame": 5,
+        "alpha8_bbox": [
+          31,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          32,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          32,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          33,
+          28,
+          101,
+          120
+        ],
+        "transparent_margins": [
+          33,
+          28,
+          27,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          31,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 4,
+        "alpha8_bbox": [
+          31,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 5,
+        "alpha8_bbox": [
+          32,
+          28,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          28,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 0,
+        "alpha8_bbox": [
+          33,
+          27,
+          101,
+          120
+        ],
+        "transparent_margins": [
+          33,
+          27,
+          27,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 1,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 2,
+        "alpha8_bbox": [
+          31,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          31,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 3,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 4,
+        "alpha8_bbox": [
+          32,
+          27,
+          100,
+          120
+        ],
+        "transparent_margins": [
+          32,
+          27,
+          28,
+          8
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 5,
+        "alpha8_bbox": [
+          33,
+          27,
+          101,
+          120
+        ],
+        "transparent_margins": [
+          33,
+          27,
+          27,
+          8
+        ],
+        "edge_contact": false
+      }
+    ]
+  },
+  {
+    "id": "player.hunter",
+    "source": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c12\\assets\\sprites\\players\\hunter\\hunter_sheet.png",
+    "sha256": "99965593a5ce61179d9bc602b1a813bcd432614e0d0c692b77782d85705f9325",
+    "dimensions": [
+      672,
+      400
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "frames": [
+      {
+        "animation": "idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          25,
+          10,
+          74,
+          76
+        ],
+        "transparent_margins": [
+          25,
+          10,
+          22,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          24,
+          10,
+          69,
+          76
+        ],
+        "transparent_margins": [
+          24,
+          10,
+          27,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          24,
+          10,
+          71,
+          76
+        ],
+        "transparent_margins": [
+          24,
+          10,
+          25,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          22,
+          9,
+          68,
+          76
+        ],
+        "transparent_margins": [
+          22,
+          9,
+          28,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 4,
+        "alpha8_bbox": [
+          23,
+          10,
+          70,
+          76
+        ],
+        "transparent_margins": [
+          23,
+          10,
+          26,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 5,
+        "alpha8_bbox": [
+          23,
+          10,
+          71,
+          76
+        ],
+        "transparent_margins": [
+          23,
+          10,
+          25,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 0,
+        "alpha8_bbox": [
+          27,
+          10,
+          70,
+          76
+        ],
+        "transparent_margins": [
+          27,
+          10,
+          26,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 1,
+        "alpha8_bbox": [
+          34,
+          10,
+          78,
+          76
+        ],
+        "transparent_margins": [
+          34,
+          10,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 2,
+        "alpha8_bbox": [
+          27,
+          9,
+          69,
+          76
+        ],
+        "transparent_margins": [
+          27,
+          9,
+          27,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 3,
+        "alpha8_bbox": [
+          34,
+          10,
+          78,
+          76
+        ],
+        "transparent_margins": [
+          34,
+          10,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 4,
+        "alpha8_bbox": [
+          22,
+          11,
+          70,
+          76
+        ],
+        "transparent_margins": [
+          22,
+          11,
+          26,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 5,
+        "alpha8_bbox": [
+          31,
+          11,
+          71,
+          76
+        ],
+        "transparent_margins": [
+          31,
+          11,
+          25,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 0,
+        "alpha8_bbox": [
+          33,
+          15,
+          78,
+          76
+        ],
+        "transparent_margins": [
+          33,
+          15,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 1,
+        "alpha8_bbox": [
+          25,
+          16,
+          70,
+          76
+        ],
+        "transparent_margins": [
+          25,
+          16,
+          26,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 2,
+        "alpha8_bbox": [
+          33,
+          9,
+          77,
+          76
+        ],
+        "transparent_margins": [
+          33,
+          9,
+          19,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 3,
+        "alpha8_bbox": [
+          25,
+          9,
+          77,
+          76
+        ],
+        "transparent_margins": [
+          25,
+          9,
+          19,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 4,
+        "alpha8_bbox": [
+          18,
+          9,
+          78,
+          76
+        ],
+        "transparent_margins": [
+          18,
+          9,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 5,
+        "alpha8_bbox": [
+          39,
+          11,
+          87,
+          76
+        ],
+        "transparent_margins": [
+          39,
+          11,
+          9,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 6,
+        "alpha8_bbox": [
+          26,
+          12,
+          81,
+          76
+        ],
+        "transparent_margins": [
+          26,
+          12,
+          15,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 0,
+        "alpha8_bbox": [
+          28,
+          11,
+          73,
+          76
+        ],
+        "transparent_margins": [
+          28,
+          11,
+          23,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 1,
+        "alpha8_bbox": [
+          25,
+          11,
+          73,
+          76
+        ],
+        "transparent_margins": [
+          25,
+          11,
+          23,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 2,
+        "alpha8_bbox": [
+          31,
+          11,
+          75,
+          76
+        ],
+        "transparent_margins": [
+          31,
+          11,
+          21,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 3,
+        "alpha8_bbox": [
+          27,
+          10,
+          70,
+          76
+        ],
+        "transparent_margins": [
+          27,
+          10,
+          26,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 4,
+        "alpha8_bbox": [
+          19,
+          10,
+          74,
+          76
+        ],
+        "transparent_margins": [
+          19,
+          10,
+          22,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 5,
+        "alpha8_bbox": [
+          17,
+          11,
+          76,
+          76
+        ],
+        "transparent_margins": [
+          17,
+          11,
+          20,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "hurt",
+        "frame": 6,
+        "alpha8_bbox": [
+          24,
+          11,
+          84,
+          76
+        ],
+        "transparent_margins": [
+          24,
+          11,
+          12,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 0,
+        "alpha8_bbox": [
+          34,
+          17,
+          80,
+          76
+        ],
+        "transparent_margins": [
+          34,
+          17,
+          16,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 1,
+        "alpha8_bbox": [
+          40,
+          26,
+          87,
+          76
+        ],
+        "transparent_margins": [
+          40,
+          26,
+          9,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 2,
+        "alpha8_bbox": [
+          31,
+          34,
+          83,
+          76
+        ],
+        "transparent_margins": [
+          31,
+          34,
+          13,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 3,
+        "alpha8_bbox": [
+          33,
+          38,
+          85,
+          76
+        ],
+        "transparent_margins": [
+          33,
+          38,
+          11,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 4,
+        "alpha8_bbox": [
+          16,
+          43,
+          78,
+          76
+        ],
+        "transparent_margins": [
+          16,
+          43,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 5,
+        "alpha8_bbox": [
+          21,
+          44,
+          82,
+          76
+        ],
+        "transparent_margins": [
+          21,
+          44,
+          14,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "dash",
+        "frame": 0,
+        "alpha8_bbox": [
+          33,
+          15,
+          78,
+          76
+        ],
+        "transparent_margins": [
+          33,
+          15,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "dash",
+        "frame": 1,
+        "alpha8_bbox": [
+          25,
+          16,
+          70,
+          76
+        ],
+        "transparent_margins": [
+          25,
+          16,
+          26,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "dash",
+        "frame": 2,
+        "alpha8_bbox": [
+          33,
+          9,
+          77,
+          76
+        ],
+        "transparent_margins": [
+          33,
+          9,
+          19,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "dash",
+        "frame": 3,
+        "alpha8_bbox": [
+          25,
+          9,
+          77,
+          76
+        ],
+        "transparent_margins": [
+          25,
+          9,
+          19,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "dash",
+        "frame": 4,
+        "alpha8_bbox": [
+          18,
+          9,
+          78,
+          76
+        ],
+        "transparent_margins": [
+          18,
+          9,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "dash",
+        "frame": 5,
+        "alpha8_bbox": [
+          39,
+          11,
+          87,
+          76
+        ],
+        "transparent_margins": [
+          39,
+          11,
+          9,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "dash",
+        "frame": 6,
+        "alpha8_bbox": [
+          26,
+          12,
+          81,
+          76
+        ],
+        "transparent_margins": [
+          26,
+          12,
+          15,
+          4
+        ],
+        "edge_contact": false
+      }
+    ]
+  },
+  {
+    "id": "monster.mossback",
+    "source": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters-c12\\assets\\sprites\\monsters\\mossback\\mossback_sheet.png",
+    "sha256": "90cacb854b96d3ddff19ee45e57cef380408d5332ead05d62a80384d98efa79e",
+    "dimensions": [
+      384,
+      352
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "frames": [
+      {
+        "animation": "idle",
+        "frame": 0,
+        "alpha8_bbox": [
+          18,
+          10,
+          78,
+          84
+        ],
+        "transparent_margins": [
+          18,
+          10,
+          18,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 1,
+        "alpha8_bbox": [
+          21,
+          12,
+          82,
+          84
+        ],
+        "transparent_margins": [
+          21,
+          12,
+          14,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 2,
+        "alpha8_bbox": [
+          22,
+          3,
+          83,
+          84
+        ],
+        "transparent_margins": [
+          22,
+          3,
+          13,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "idle",
+        "frame": 3,
+        "alpha8_bbox": [
+          25,
+          5,
+          84,
+          84
+        ],
+        "transparent_margins": [
+          25,
+          5,
+          12,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 0,
+        "alpha8_bbox": [
+          22,
+          14,
+          77,
+          84
+        ],
+        "transparent_margins": [
+          22,
+          14,
+          19,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 1,
+        "alpha8_bbox": [
+          21,
+          13,
+          79,
+          84
+        ],
+        "transparent_margins": [
+          21,
+          13,
+          17,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 2,
+        "alpha8_bbox": [
+          21,
+          10,
+          82,
+          84
+        ],
+        "transparent_margins": [
+          21,
+          10,
+          14,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "move",
+        "frame": 3,
+        "alpha8_bbox": [
+          23,
+          13,
+          76,
+          84
+        ],
+        "transparent_margins": [
+          23,
+          13,
+          20,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 0,
+        "alpha8_bbox": [
+          25,
+          19,
+          86,
+          84
+        ],
+        "transparent_margins": [
+          25,
+          19,
+          10,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 1,
+        "alpha8_bbox": [
+          28,
+          8,
+          87,
+          84
+        ],
+        "transparent_margins": [
+          28,
+          8,
+          9,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 2,
+        "alpha8_bbox": [
+          7,
+          19,
+          73,
+          84
+        ],
+        "transparent_margins": [
+          7,
+          19,
+          23,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "attack",
+        "frame": 3,
+        "alpha8_bbox": [
+          21,
+          19,
+          79,
+          84
+        ],
+        "transparent_margins": [
+          21,
+          19,
+          17,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 0,
+        "alpha8_bbox": [
+          17,
+          18,
+          76,
+          84
+        ],
+        "transparent_margins": [
+          17,
+          18,
+          20,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 1,
+        "alpha8_bbox": [
+          14,
+          10,
+          75,
+          84
+        ],
+        "transparent_margins": [
+          14,
+          10,
+          21,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 2,
+        "alpha8_bbox": [
+          21,
+          19,
+          82,
+          84
+        ],
+        "transparent_margins": [
+          21,
+          19,
+          14,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "death",
+        "frame": 3,
+        "alpha8_bbox": [
+          19,
+          36,
+          83,
+          84
+        ],
+        "transparent_margins": [
+          19,
+          36,
+          13,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "technique",
+        "frame": 0,
+        "alpha8_bbox": [
+          25,
+          19,
+          86,
+          84
+        ],
+        "transparent_margins": [
+          25,
+          19,
+          10,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "technique",
+        "frame": 1,
+        "alpha8_bbox": [
+          28,
+          8,
+          87,
+          84
+        ],
+        "transparent_margins": [
+          28,
+          8,
+          9,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "technique",
+        "frame": 2,
+        "alpha8_bbox": [
+          7,
+          19,
+          73,
+          84
+        ],
+        "transparent_margins": [
+          7,
+          19,
+          23,
+          4
+        ],
+        "edge_contact": false
+      },
+      {
+        "animation": "technique",
+        "frame": 3,
+        "alpha8_bbox": [
+          21,
+          19,
+          79,
+          84
+        ],
+        "transparent_margins": [
+          21,
+          19,
+          17,
+          4
+        ],
+        "edge_contact": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,66 @@
+{
+  "visual_id": "object.mist_lantern",
+  "cell": [
+    128,
+    128
+  ],
+  "anchor": [
+    64,
+    118
+  ],
+  "scale": 0.5,
+  "target_height": 90,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": true,
+  "anchor_mode": "feet",
+  "resample": "lanczos",
+  "hover": 0,
+  "isolate": true,
+  "preview_zoom": 1,
+  "icon_size": 64,
+  "animations": [
+    {
+      "name": "lit_idle",
+      "source": "source/mist_lantern_source.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "name": "extinguish",
+      "source": "source/mist_lantern_source.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false
+    },
+    {
+      "name": "unlit_idle",
+      "source": "source/mist_lantern_source.png",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    }
+  ],
+  "aliases": {
+    "idle": "lit_idle",
+    "death": "extinguish"
+  }
+}

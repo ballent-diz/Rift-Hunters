@@ -11660,8 +11660,9 @@
 			"icon": "res://assets/ui/icons/objects/ash_nest.png"
 		},
 		"enemy.mire_leech": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.mire_leech/job.json",
+			"sheet": "res://assets/sprites/enemies/mire_leech/mire_leech_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11684,23 +11685,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/mire_leech.png"
 		},
 		"enemy.bloat_toad": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.bloat_toad/job.json",
+			"sheet": "res://assets/sprites/enemies/bloat_toad/bloat_toad_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11723,23 +11726,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"leap": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/bloat_toad.png"
 		},
 		"enemy.rift_gnat": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rift_gnat/job.json",
+			"sheet": "res://assets/sprites/enemies/rift_gnat/rift_gnat_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11762,23 +11773,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/rift_gnat.png"
 		},
 		"enemy.creeping_root": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.creeping_root/job.json",
+			"sheet": "res://assets/sprites/enemies/creeping_root/creeping_root_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11801,23 +11814,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"plunge": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/creeping_root.png"
 		},
 		"enemy.spore_mother": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.spore_mother/job.json",
+			"sheet": "res://assets/sprites/enemies/spore_mother/spore_mother_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11840,23 +11861,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spore_mark": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spore_carpet": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"pulse": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/spore_mother.png"
 		},
 		"enemy.bark_warden": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.bark_warden/job.json",
+			"sheet": "res://assets/sprites/enemies/bark_warden/bark_warden_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11879,23 +11920,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"roots": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"bark_shield": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"armor_break": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/bark_warden.png"
 		},
 		"enemy.marsh_maw": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.marsh_maw/job.json",
+			"sheet": "res://assets/sprites/enemies/marsh_maw/marsh_maw_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11918,23 +11979,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"dive": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"belly_charge": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
-					"row": 2,
-					"frames": 1,
+				"rage": {
+					"row": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/marsh_maw.png"
 		},
 		"enemy.wandering_shard": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.wandering_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/wandering_shard/wandering_shard_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11957,23 +12038,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/wandering_shard.png"
 		},
 		"enemy.glass_sentinel": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.glass_sentinel/job.json",
+			"sheet": "res://assets/sprites/enemies/glass_sentinel/glass_sentinel_sheet.png",
 			"cell": [
 				256,
 				256
@@ -11996,23 +12079,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/glass_sentinel.png"
 		},
 		"enemy.quartz_golem": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.quartz_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/quartz_golem/quartz_golem_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12035,23 +12120,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/quartz_golem.png"
 		},
 		"enemy.creeping_mirror": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.creeping_mirror/job.json",
+			"sheet": "res://assets/sprites/enemies/creeping_mirror/creeping_mirror_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12074,23 +12161,31 @@
 					"fps": 12,
 					"loop": false
 				},
+				"blink": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/creeping_mirror.png"
 		},
 		"enemy.mirror_priestess": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.mirror_priestess/job.json",
+			"sheet": "res://assets/sprites/enemies/mirror_priestess/mirror_priestess_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12113,23 +12208,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"reflections": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"mirror_guard": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blink": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/mirror_priestess.png"
 		},
 		"enemy.crystal_colossus": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.crystal_colossus/job.json",
+			"sheet": "res://assets/sprites/enemies/crystal_colossus/crystal_colossus_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12152,23 +12267,43 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"beam": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"shard_burst": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"exposed_core": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/crystal_colossus.png"
 		},
 		"enemy.reflection_huntress": {
-			"status": "planned",
-			"note": "Chapitre 3 : sprite à livrer par Codex (docs/art/MONSTRES_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.reflection_huntress/job.json",
+			"sheet": "res://assets/sprites/enemies/reflection_huntress/reflection_huntress_sheet.png",
 			"cell": [
 				256,
 				256
@@ -12191,19 +12326,44 @@
 					"fps": 12,
 					"loop": false
 				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"chain_leap": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"prism_mark": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"reveal": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
-					"row": 2,
-					"frames": 1,
+				"stealth": {
+					"row": 5,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/reflection_huntress.png"
 		},
 		"environment.ash_vents": {
 			"status": "wip",
@@ -12248,8 +12408,9 @@
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
 		"boss.glauquemire": {
-			"status": "planned",
-			"note": "Dévoreur du chapitre 3 : sprites à livrer par Codex (docs/design/DEVOREUR_CHAPITRE3.md) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.glauquemire/job.json",
+			"sheet": "res://assets/sprites/bosses/glauquemire/glauquemire_sheet.png",
 			"cell": [
 				512,
 				512
@@ -12273,12 +12434,6 @@
 					"loop": true
 				},
 				"claws": {
-					"row": 2,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"attack": {
 					"row": 2,
 					"frames": 6,
 					"fps": 12,
@@ -12349,12 +12504,20 @@
 					"frames": 6,
 					"fps": 8,
 					"loop": false
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/bosses/glauquemire.png"
 		},
 		"object.mist_lantern": {
-			"status": "planned",
-			"note": "Lanterne du voile de brume (Chimère des brumes) : sprite à venir ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.mist_lantern/job.json",
+			"sheet": "res://assets/sprites/objects/mist_lantern/mist_lantern_sheet.png",
 			"cell": [
 				128,
 				128
@@ -12365,6 +12528,24 @@
 			],
 			"scale": 0.5,
 			"animations": {
+				"lit_idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"extinguish": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"unlit_idle": {
+					"row": 2,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
 				"idle": {
 					"row": 0,
 					"frames": 6,
@@ -12377,7 +12558,8 @@
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/objects/mist_lantern.png"
 		},
 		"environment.cataclysm_threshold": {
 			"status": "wip",

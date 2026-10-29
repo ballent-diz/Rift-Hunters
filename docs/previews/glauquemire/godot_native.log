@@ -1,0 +1,38 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+USER ERROR: Condition "err != OK" is true.
+   at: initialize (drivers/gles3/shader_gles3.cpp:798)
+OpenGL API 3.3.0 - Build 32.0.101.6987 - Compatibility - Using Device: Intel - Intel(R) Iris(R) Xe Graphics
+
+boss_idle 358616 bytes 85 quality; derived PNGs cleaned
+
+boss_move 360256 bytes 85 quality; derived PNGs cleaned
+
+boss_attack 361334 bytes 85 quality; derived PNGs cleaned
+
+boss_mud_spit 360106 bytes 85 quality; derived PNGs cleaned
+
+boss_root_lash 361544 bytes 85 quality; derived PNGs cleaned
+
+boss_leech_call 362512 bytes 85 quality; derived PNGs cleaned
+
+boss_transform 364042 bytes 85 quality; derived PNGs cleaned
+
+boss_phase2_idle 365566 bytes 85 quality; derived PNGs cleaned
+
+boss_prism_beam 367442 bytes 85 quality; derived PNGs cleaned
+
+boss_hurt 363680 bytes 85 quality; derived PNGs cleaned
+
+boss_phase3_idle 364666 bytes 85 quality; derived PNGs cleaned
+
+boss_whirlpool 366230 bytes 85 quality; derived PNGs cleaned
+
+boss_swallow 366546 bytes 85 quality; derived PNGs cleaned
+
+boss_death 358402 bytes 85 quality; derived PNGs cleaned
+
+mist_lantern_0 stage saved; PNGs cleaned
+
+mist_lantern_1 stage saved; PNGs cleaned
+
+mist_lantern_2 705640 bytes 85 quality; derived PNGs cleaned

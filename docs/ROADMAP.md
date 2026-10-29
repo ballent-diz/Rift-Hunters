@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
+
+14 créatures importées, 25 sources, 54 animations peintes (324 poses), deux bancs Godot 720p animés. Sources Work indisponibles au téléchargement : remplacements générés selon l’autorisation du 28 octobre. Import Godot, suites assets et art (qualité cartes incluse) verts. Aucun gameplay. Réserve artistique : Enlisés sombres sur terre. Effets PR #78 déjà fusionnés : lot 2 couvert, raccords Claude à vérifier sans redessiner les effets.
+
+
 ## Sorts des monstres chapitres 3 et 4 — effets améliorés livrés pour revue (Codex, PR #78)
 
 56 scènes autonomes récupérées de Work ; matière, frappe et dissipation reprises avec le vocabulaire peint du Chasseur. 56 scènes contrôlées, 19 groupes capturés dans Godot, mesure de rendu jointe. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
@@ -21,7 +26,7 @@ Nouvelle map-arène multi-lobes, sans reprise de la spirale. Carte 9 renommée L
   - Glauquemire : miroirs à orienter.
 - **Glauquemire**, Dévoreur du chapitre 3 (3 phases, 8 mécaniques nouvelles) : forme provisoire, prompt de Codex dans
   [design/DEVOREUR_CHAPITRE3.md](design/DEVOREUR_CHAPITRE3.md). Les cartes 13 à 15 sont conçues dans
-  [design/CARTES.md](design/CARTES.md). La lanterne de brume attend aussi son sprite.
+  [design/CARTES.md](design/CARTES.md). Glauquemire et lanterne de brume — **Livré (Codex), 28 octobre** : six planches de corps, trois phases, 14 animations ; lanterne allumée/extinction/éteinte. Import Godot, assets et art verts, captures 720p. Aucun gameplay. Raccords Claude et réserves dans `docs/art/GLAUQUEMIRE_SPRITES.md`.
 - **Équilibrage aux règles actuelles** (un Écho au départ, pas de drops) : cartes 1 à 6 mesurées au bot. Multiplicateurs
   de boss par carte (`boss_hp_mult`, `boss_damage_mult`). Tableau dans [design/DIFFICULTE.md](design/DIFFICULTE.md).
 - **Navigation** :
@@ -204,7 +209,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | M1 | Séparation des modes : campagne par jalons (pas d'XP, un choix par jalon : mutations, Échos, reliques ; jalon renforcé), survie avec les montées de niveau | Claude | — | Fait (21 oct.) : bot comme avant sur les 4 cartes |
 | M2 | Campagne de survie (5 étapes sur les cartes existantes, vagues à la suite) + carte bonus géante à vagues infinies débloquée à la fin | Claude | M1 | Fait (21 oct.) : « Épreuves de survie » (piste à part) et « Faille sans fin » ; carte géante dessinée à prévoir (Codex) |
 | M2b | Collection d'Échos étalée sur 3 chapitres (16 Échos, les moins forts d'abord ; capture garantie sur une carte, récompenses, boutique), [design/COLLECTION_ECHOS.md](design/COLLECTION_ECHOS.md) | Claude | M2 | Fait (21 oct.) ; Échos de boutique en vente avec M3 |
-| M3 | Boutique unique (éclats) : Consommables, Survie, Apparences | Claude (+ Codex pour les apparences) | M1 | Fait (21 oct.) : onglet Boutique (Échos en vente, 3 consommables à emporter, 3 avantages de survie) ; apparences à venir (images de Codex) |
+| M3 | Boutique unique (éclats) : Consommables, Survie, Apparences | Claude (+ Codex pour les apparences) | M1 | Fait (21 oct.) : onglet Boutique (Échos en vente, 3 consommables à emporter, 3 avantages de survie) ; apparences : trois propositions livrées (Codex, 28 octobre), sans import ni prix ; validation avant raccordement |
 
 ### Étape C — Sorts et builds
 
