@@ -1,0 +1,11 @@
+{
+  "composition.png": "c49100a8e3538cde5682b9deb96308e5d18b60bad6adf1f3852080ddbed8c7de",
+  "job.json": "a574b546e4affbcbb2db2ce8ea35695594bbd4195f5fdcebd136c3d7a65e8a0d",
+  "plan.json": "aaae9295c2eb93e3a44a37f68e76eaa785c66bad2175ac2a26716acd94c5bfc9",
+  "source/composition_source.png": "f2332b8e4a3aa0a54e11b5b45ce379f0d147fa8702ebb1642908686cb69c04aa",
+  "source/PROMPT_COMPOSITION.txt": "c76bcc0a9daaaa9b7e25208eaccafcc9ee4a3051f63e470227c1ff97a171bc6e",
+  "source/PROMPT_ESPACES.txt": "f69cf9662d86ccdab415f0742217dc30fb5df768e9afefce51362e26c579af2c",
+  "source/PROMPT_PASSAGE.txt": "061a482fe642740c5934f18b6ab78cbfb4085fda8eb21b49a2b813831b36c14b",
+  "source/PROMPT_RETOUCHE.txt": "06bd5d622fccd613e0f588591bf85991eaaa09611cc88634e0d1756791120ec3",
+  "source/provenance.json": "69efa96c74507c37431776e56b476593e29a44ecab29ee7039931683018fdc2a"
+}
