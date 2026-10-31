@@ -82,7 +82,7 @@ script = ExtResource("4")
 enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_root"])
 weights = Array[float]([3.0, 1.2, 1.0, 0.8])
 count = 56
-elites = Array[StringName]([&"bark_warden"])
+elites = Array[StringName]([])
 spawn_rate = 2.8
 max_alive = 60
 
@@ -91,7 +91,7 @@ script = ExtResource("4")
 enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_root"])
 weights = Array[float]([3.0, 1.2, 1.0, 0.8])
 count = 64
-elites = Array[StringName]([&"spore_mother"])
+elites = Array[StringName]([&"bark_warden"])
 spawn_rate = 3.0
 max_alive = 68
 
@@ -99,28 +99,28 @@ max_alive = 68
 script = ExtResource("4")
 enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_root"])
 weights = Array[float]([3.0, 1.2, 1.0, 0.9])
-count = 66
-elites = Array[StringName]([&"marsh_maw"])
-spawn_rate = 3.2
-max_alive = 75
+count = 54
+elites = Array[StringName]([])
+spawn_rate = 3.0
+max_alive = 62
 
 [sub_resource type="Resource" id="zone_wave_8"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_root"])
 weights = Array[float]([3.0, 1.2, 1.0, 1.0])
-count = 76
-elites = Array[StringName]([&"bark_warden"])
-spawn_rate = 3.4
-max_alive = 82
+count = 62
+elites = Array[StringName]([])
+spawn_rate = 3.2
+max_alive = 70
 
 [sub_resource type="Resource" id="zone_wave_9"]
 script = ExtResource("4")
 enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_root"])
 weights = Array[float]([3.0, 1.2, 1.1, 1.0])
-count = 88
-elites = Array[StringName]([&"marsh_maw", &"spore_mother"])
-spawn_rate = 3.6
-max_alive = 90
+count = 70
+elites = Array[StringName]([&"marsh_maw"])
+spawn_rate = 3.4
+max_alive = 76
 
 [sub_resource type="Resource" id="level_zone_1"]
 script = ExtResource("5")
@@ -170,10 +170,10 @@ ground_detail_color = Color(0.12, 0.19, 0.16, 1.0)
 unlocked_by_default = false
 xp_mult = 1.5
 progression = &"milestones"
-enemy_hp_mult = 0.8
-enemy_damage_mult = 0.7
-boss_hp_mult = 1.4
-boss_damage_mult = 1.1
+enemy_hp_mult = 0.7
+enemy_damage_mult = 0.35
+boss_hp_mult = 1.2
+boss_damage_mult = 1.0
 zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
 waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4")]
 mud_zones = Array[Rect2]([Rect2(-553, -1301, 310, 173), Rect2(615, -1285, 378, 195), Rect2(-1807, -771, 330, 207), Rect2(-2168, -337, 381, 198), Rect2(-1656, 25, 352, 237), Rect2(1834, 177, 368, 237), Rect2(1142, 675, 400, 219), Rect2(1781, 842, 326, 240)])
