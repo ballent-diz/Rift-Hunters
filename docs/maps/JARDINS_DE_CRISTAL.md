@@ -38,7 +38,7 @@ Deux retouches de composition avant validation : le premier pont de racines a é
 - [x] Composition entière, prompts exacts et empreintes conservés.
 - [x] Contrôle ciblé de chargement de l’image dans Godot ; aperçu technique 1280×720 joint.
 - [x] Nouveau parcours horizontal, deux franchissements distincts, fin sans arène.
-- [ ] Validation visuelle de cette composition par le propriétaire.
+- [x] Composition corrigée validée par le propriétaire le 29 octobre 2026.
 - [ ] Mesures du sol praticable et des largeurs lors de la peinture des collisions.
 - [ ] Passe de détail par huit régions après validation, assemblage et rapport qualité conforme.
 - [ ] Niveau jouable, collisions et mécaniques, raccordés ensuite par Claude.
@@ -46,3 +46,7 @@ Deux retouches de composition avant validation : le premier pont de racines a é
 **Ce n’est pas une carte finale ni un niveau jouable.** Aucun agrandissement livré comme détail final, aucun champ, masque de collision, `src/`, `data/` ou manifeste runtime modifié. Les références Ruines/Mangrove servent uniquement au style ; leur plan n’est pas repris. Le propriétaire a autorisé l’enchaînement des autres lots sans attendre une réponse ; la passe de régions attend la validation du plan.
 
 Poids des nouveaux fichiers avant ces petites métadonnées : **4.7 Mo**, sous la limite de 150 Mo.
+
+## Correction validée du premier franchissement
+
+Le contournement au nord de l’arche est remplacé par un chenal infranchissable relié aux eaux des bords nord et sud. Le pont bas en cristal est orienté est-ouest et raccordé directement aux deux berges ; le tablier reste libre. Ce pont est l’unique franchissement entre les deux premières zones. Conserver cette topologie lors du détail ; surveiller la teinte ocre pour éviter un orange vif.

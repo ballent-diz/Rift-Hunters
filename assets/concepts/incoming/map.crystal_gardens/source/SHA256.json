@@ -1,9 +1,11 @@
 {
-  "assets/concepts/incoming/map.crystal_gardens/composition.png": "88865536e94d21fc0480e92b6f80cfc5af5ccde8622bf63c54fbab559588386c",
-  "assets/concepts/incoming/map.crystal_gardens/job.json": "d05d3062931ce082f44780917554e418d5b954e931cf72185e042f8e1371bea5",
-  "assets/concepts/incoming/map.crystal_gardens/plan.json": "d6ad5d4043019efcf13b9a1441d1a2516b4ab70f76c5d82084c09eb3d432ea29",
-  "assets/concepts/incoming/map.crystal_gardens/source/PROMPT_COMPOSITION.txt": "124128f720fbe4ef8e0b56f8405452b35e31c49a5b6e298685a325505df659cf",
-  "assets/concepts/incoming/map.crystal_gardens/source/PROMPT_ESPACES.txt": "e1bc41ed547ecacabe95f9d67cfc537b393dbd5e17ac708fb1f722644bb0652d",
-  "assets/concepts/incoming/map.crystal_gardens/source/PROMPT_RETOUCHE.txt": "b70cd998810ac0637b5fc0156bd6683feacea417ab0a876ddf6318b1c67f443a",
-  "assets/concepts/incoming/map.crystal_gardens/source/provenance.json": "d53b31ebf817da897773fe6f4fc5f7b41c398935ccd421213aee4c27510f66c3"
+  "composition.png": "c49100a8e3538cde5682b9deb96308e5d18b60bad6adf1f3852080ddbed8c7de",
+  "job.json": "a574b546e4affbcbb2db2ce8ea35695594bbd4195f5fdcebd136c3d7a65e8a0d",
+  "plan.json": "aaae9295c2eb93e3a44a37f68e76eaa785c66bad2175ac2a26716acd94c5bfc9",
+  "source/composition_source.png": "f2332b8e4a3aa0a54e11b5b45ce379f0d147fa8702ebb1642908686cb69c04aa",
+  "source/PROMPT_COMPOSITION.txt": "c76bcc0a9daaaa9b7e25208eaccafcc9ee4a3051f63e470227c1ff97a171bc6e",
+  "source/PROMPT_ESPACES.txt": "f69cf9662d86ccdab415f0742217dc30fb5df768e9afefce51362e26c579af2c",
+  "source/PROMPT_PASSAGE.txt": "061a482fe642740c5934f18b6ab78cbfb4085fda8eb21b49a2b813831b36c14b",
+  "source/PROMPT_RETOUCHE.txt": "06bd5d622fccd613e0f588591bf85991eaaa09611cc88634e0d1756791120ec3",
+  "source/provenance.json": "69efa96c74507c37431776e56b476593e29a44ecab29ee7039931683018fdc2a"
 }
