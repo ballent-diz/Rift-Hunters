@@ -1,7 +1,7 @@
 {
   "id": "map.crystal_gardens",
   "status": "wip",
-  "stage": "composition_validee_detail_a_faire",
+  "stage": "detail_livre_conforme_sans_raccordement_runtime",
   "world_size": [
     5016,
     1672
@@ -10,7 +10,7 @@
   "owner_approved": true,
   "autonomous_continuation_authorized": true,
   "plan_locked": true,
-  "regions_generated": false,
+  "regions_generated": true,
   "runtime_integrated": false,
   "generated_dimensions": [
     2171,
@@ -27,5 +27,10 @@
     "source/PROMPT_ESPACES.txt",
     "source/PROMPT_PASSAGE.txt"
   ],
-  "changes": "Chenal nord-sud sans contournement, pont bas est-ouest raccordé aux deux berges. Validé par le propriétaire le29octobre."
+  "changes": "Chenal nord-sud sans contournement, pont bas est-ouest raccordé aux deux berges. Validé par le propriétaire le29octobre.",
+  "detail_tiles": [
+    "assets/environments/crystal_gardens/map.webp",
+    "assets/environments/crystal_gardens/map_1.webp",
+    "assets/environments/crystal_gardens/map_2.webp"
+  ]
 }

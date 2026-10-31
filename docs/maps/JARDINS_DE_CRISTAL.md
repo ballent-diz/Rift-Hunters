@@ -40,7 +40,7 @@ Deux retouches de composition avant validation : le premier pont de racines a é
 - [x] Nouveau parcours horizontal, deux franchissements distincts, fin sans arène.
 - [x] Composition corrigée validée par le propriétaire le 29 octobre 2026.
 - [ ] Mesures du sol praticable et des largeurs lors de la peinture des collisions.
-- [ ] Passe de détail par huit régions après validation, assemblage et rapport qualité conforme.
+- [x] Huit régions détaillées, assemblage et rapport conforme.
 - [ ] Niveau jouable, collisions et mécaniques, raccordés ensuite par Claude.
 
 **Ce n’est pas une carte finale ni un niveau jouable.** Aucun agrandissement livré comme détail final, aucun champ, masque de collision, `src/`, `data/` ou manifeste runtime modifié. Les références Ruines/Mangrove servent uniquement au style ; leur plan n’est pas repris. Le propriétaire a autorisé l’enchaînement des autres lots sans attendre une réponse ; la passe de régions attend la validation du plan.
@@ -50,3 +50,7 @@ Poids des nouveaux fichiers avant ces petites métadonnées : **4.7 Mo**, sous l
 ## Correction validée du premier franchissement
 
 Le contournement au nord de l’arche est remplacé par un chenal infranchissable relié aux eaux des bords nord et sud. Le pont bas en cristal est orienté est-ouest et raccordé directement aux deux berges ; le tablier reste libre. Ce pont est l’unique franchissement entre les deux premières zones. Conserver cette topologie lors du détail ; surveiller la teinte ocre pour éviter un orange vif.
+
+## Détail livré le 31 octobre
+
+Huit régions redessinées puis assemblées, trois tuiles de 3762 × 3762 pixels dans assets/environments/crystal_gardens/. Qualité **conforme** : densité 2,25 ; part lisse 0,111 ; détails fins 346,456 ; détails moyens 111,237 ; secteurs conformes 100 % ; fidélité 0,989. Rapport et planche d’échelle joints. Le pont est conservé ; sa matière est devenue gris-cyan plus discrète. Aucun manifeste runtime, collision, src/ ou data/ modifié : Claude raccordera les tuiles et le propriétaire peindra les collisions.
