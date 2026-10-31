@@ -102,4 +102,4 @@ Arène `data/arenas/root_mangrove.tres`, vagues par zone, collisions peintes par
 Barrières fermées, chaque zone est isolée (`test_map_passages::test_root_mangrove_barriers_split_the_zones`).
 **Vase** : les huit nappes de `mud.png` (rectangle intérieur de chaque tache, `mud_painted`). Corrompus : les Enlisés
 (Sangsue, Moustique, Crapaud-gonfle, Racine rampante ; élites Mère-spore, Gardien d'écorce, Gueule des marais).
-**Gardien provisoire** : la Sentinelle des racines (carte 3), en attendant le gardien propre du chapitre 3.
+**Gardien : le Gardien d'écorce**, garde d'écorce (docs/design/MONSTRES.md).

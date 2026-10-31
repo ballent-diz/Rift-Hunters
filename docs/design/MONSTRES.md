@@ -132,6 +132,18 @@ nouvelle planche, seulement ses effets. Aucune de ces mécaniques n'existe chez 
 Le bot reste dans le cercle du duel, s'écarte des fils (et tranche d'une Ruée quand il est collé) et reste près de la
 Matrone quand sa carapace tient. Tests : `test_boss_signatures`.
 
+#### Gardiens des cartes 11 et 12 (validés et codés le 31 octobre 2026)
+
+`MarshGuardians`, `data/bosses/bark_colossus.tres` et `marsh_maw_guardian.tres` : élites des Enlisés en version boss.
+
+| Carte | Gardien | Mécanique phare | Pour le joueur |
+|---|---|---|---|
+| 11. Mangrove des racines | Gardien d'écorce | **Garde d'écorce** (`bark_guard`) : il s'enracine 7 s (8 en phase 2) et lève son bouclier, qui pivote lentement vers le Chasseur (0,9 rad/s). De face, les coups portent × 0,1 ; de dos ou de flanc, × 1,5. Racines entravantes sous le Chasseur pour le garder en face | le contourner, ou laisser les Échos l'occuper |
+| 12. Temple des marées | Gueule des marais | **Plongée** (`maw_dive`) : intouchable sous la surface, une ride suit le Chasseur 2,5 s ; l'onde de sortie est annoncée, puis elle ressurgit, sonnée 2 s et vulnérable (dégâts × 2). Charge ventrale autour | lire la ride, s'écarter de l'onde, frapper à la sortie |
+
+Le bot contourne la garde (il se place dans le dos du Gardien) ; il s'écarte de l'onde annoncée de la plongée. Tests :
+`test_boss_signatures`.
+
 ### À l'intérieur d'un chapitre (5 cartes)
 
 - **Carte 1** : la nouvelle famille avec ses normaux simples et **une** élite ; ses mécaniques sont présentées seules.

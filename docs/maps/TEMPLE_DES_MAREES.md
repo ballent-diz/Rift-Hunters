@@ -132,4 +132,4 @@ Arène `data/arenas/tide_temple.tres`, fermeture de failles, collisions peintes 
   en vie selon la phase, 0,6 par seconde et par faille ouverte.
 - **Flèche de route** : elle suit le chemin haut permanent (les chaussées de marée restent fermées pour elle,
   `FlowField.avoid_transient`) au lieu de basculer à chaque marée ; les raccourcis restent au choix du joueur.
-- Départ (4, 1760), parvis sud. Corrompus : les Enlisés. **Gardien provisoire** : la Chimère des brumes (carte 4).
+- Départ (4, 1760), parvis sud. Corrompus : les Enlisés. **Gardienne : la Gueule des marais**, plongée (docs/design/MONSTRES.md).

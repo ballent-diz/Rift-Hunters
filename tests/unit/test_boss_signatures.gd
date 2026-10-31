@@ -290,3 +290,38 @@ func test_slag_shell_cracks_under_a_rock() -> void:
 	check_near(ash._damage_modifier(boss, RunFixture.info(100.0)), 1.5, 0.001, "carapace fendue : les coups portent davantage")
 	_tick(10.5)
 	check(not ash.cracked(), "la carapace se reforme")
+
+
+func test_bark_guard_blocks_from_the_front_only() -> void:
+	_fight(&"bark_colossus")
+	var pattern: BossPatternData = _pattern(&"bark_colossus", &"bark_guard")
+	brain._pattern_bark_guard(pattern)
+	var guardians: MarshGuardians = brain.marsh_guardians()
+	check(guardians.guarding(), "le Gardien lève sa garde d'écorce")
+	var facing: Vector2 = guardians.guard["facing"]
+	check(guardians.from_front(boss.position + facing * 300.0), "le Chasseur qui l'a provoqué est de face")
+	check(not guardians.from_front(boss.position - facing * 300.0), "dans son dos, plus de bouclier")
+	var front: float = ctx.combat.deal_damage(boss, RunFixture.info(100.0))
+	ctx.player.global_position = boss.position - facing * 300.0
+	var back: float = ctx.combat.deal_damage(boss, RunFixture.info(100.0))
+	check(front < back * 0.2, "de face les coups ne portent presque pas (%.1f contre %.1f)" % [front, back])
+	_tick(0.5)
+	var turned: Vector2 = guardians.guard["facing"]
+	check(absf(turned.angle_to(facing)) < 0.6, "le bouclier pivote lentement")
+	_tick(float(pattern.params["duration"]) + 1.0)
+	check(not guardians.guarding(), "la garde retombe")
+
+
+func test_dive_hides_then_surfaces_stunned() -> void:
+	_fight(&"marsh_maw_guardian")
+	var pattern: BossPatternData = _pattern(&"marsh_maw_guardian", &"maw_dive")
+	brain._pattern_maw_dive(pattern)
+	var guardians: MarshGuardians = brain.marsh_guardians()
+	check(guardians.diving() and not boss.visual.visible, "elle plonge sous la surface")
+	check_eq(ctx.combat.deal_damage(boss, RunFixture.info(100.0)), 0.0, "intouchable en plongée")
+	var start: float = boss.position.distance_to(ctx.player.global_position)
+	_tick(1.0)
+	check(boss.position.distance_to(ctx.player.global_position) < start, "la ride suit le Chasseur")
+	_tick(float(pattern.params["chase"]) + float(pattern.params["warning"]))
+	check(not guardians.diving() and boss.visual.visible, "elle ressurgit")
+	check(brain.stunned_time > 0.0 and brain.heart_time > 0.0, "sonnée et vulnérable à la sortie")

@@ -53,6 +53,7 @@ var _signatures: BossSignatures
 var _marsh: GlauquemireMechanics
 var _guardians: GuardianSignatures
 var _ash: AshGuardians
+var _marsh_guardians: MarshGuardians
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -253,6 +254,13 @@ func ash() -> AshGuardians:
 		_ash = AshGuardians.new()
 		_add_mechanics(_ash)
 	return _ash
+
+
+func marsh_guardians() -> MarshGuardians:
+	if _marsh_guardians == null:
+		_marsh_guardians = MarshGuardians.new()
+		_add_mechanics(_marsh_guardians)
+	return _marsh_guardians
 
 
 func marsh() -> GlauquemireMechanics:
@@ -562,6 +570,18 @@ func _pattern_silk_threads(pattern: BossPatternData) -> void:
 
 func _pattern_slag_rain(pattern: BossPatternData) -> void:
 	ash().slag_rain(pattern)
+
+
+func _pattern_bark_guard(pattern: BossPatternData) -> void:
+	marsh_guardians().bark_guard(pattern)
+
+
+func _pattern_root_snare(pattern: BossPatternData) -> void:
+	marsh_guardians().root_snare(pattern)
+
+
+func _pattern_maw_dive(pattern: BossPatternData) -> void:
+	marsh_guardians().maw_dive(pattern)
 
 
 func _pattern_mud_wall(pattern: BossPatternData) -> void:

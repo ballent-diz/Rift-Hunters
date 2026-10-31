@@ -1803,3 +1803,16 @@ BOSS_DUEL_INTRO,"Cercle du duel : les Échos restent dehors, vos coups portent d
 BOSS_THREADS_INTRO,Fils tendus : les toucher vous colle sur place et la Reine bondit. Une Ruée à travers un fil le tranche.,Spun threads: touching one sticks you in place and the Queen pounces. Dash through a thread to cut it.
 BOSS_SHELL_INTRO,Sa carapace arrête presque tous les coups : attirez-la sous les roches qui tombent pour la fendre.,Her shell stops almost every hit: lure her under falling rocks to crack it.
 BOSS_SHELL_CRACKED,Carapace fendue !,Shell cracked!
+BOSS_BARK_COLOSSUS_NAME,Gardien d'écorce,Bark Warden
+BOSS_BARK_COLOSSUS_TITLE,Gardien de la Mangrove,Warden of the Mangrove
+BOSS_BARK_COLOSSUS_PHASE1,L'écorce levée,Bark Raised
+BOSS_BARK_COLOSSUS_PHASE2,L'écorce fendue,Bark Split
+BOSS_MARSH_MAW_GUARDIAN_NAME,Gueule des marais,Marsh Maw
+BOSS_MARSH_MAW_GUARDIAN_TITLE,Gardienne du Temple,Warden of the Temple
+BOSS_MARSH_MAW_GUARDIAN_PHASE1,Sous la surface,Beneath the Surface
+BOSS_MARSH_MAW_GUARDIAN_PHASE2,La faim des eaux,Hunger of the Deep
+BOSS_PATTERN_BARK_GUARD,Garde d'écorce,Bark Guard
+BOSS_PATTERN_ROOTS,Racines entravantes,Binding Roots
+BOSS_PATTERN_DIVE,Plongée,Dive
+BOSS_GUARD_INTRO,"Garde d'écorce : de face, son bouclier arrête presque tout. Prenez-le à revers, ou laissez vos Échos l'occuper.","Bark guard: from the front, his shield stops everything. Take him from behind, or let your Echoes keep him busy."
+BOSS_DIVE_INTRO,"Elle plonge : suivez la ride. Écartez-vous de l'onde annoncée, puis frappez-la quand elle ressurgit, sonnée.","She dives: watch the ripple. Step out of the marked wave, then strike her as she resurfaces, stunned."

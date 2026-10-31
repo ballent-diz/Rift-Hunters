@@ -13,8 +13,8 @@
   engloutis » = cartes 11 et 12. Gardiens propres des cartes 7 à 9 : Chevalier calciné (cercle du duel), Reine-veuve
   (fils tendus), Matrone des scories (carapace fendue par les roches). Équilibrage des cartes 7 à 12 dans
   [DIFFICULTE.md](design/DIFFICULTE.md).
-- **Restent à faire** : gardiens propres des cartes 11 et 12 (Sentinelle des racines et Chimère des brumes en attendant :
-  propositions à faire) ; cartes 13 à 15.
+- **Gardiens des cartes 11 et 12** (31 octobre) : Gardien d'écorce (garde d'écorce) et Gueule des marais (plongée).
+- **Restent à faire** : cartes 13 à 15.
 
 ## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
 
