@@ -1768,3 +1768,17 @@ FINALE_TRAVEL_ISLAND,Les berges sont nettoyées : empruntez la longue racine jus
 ARENA_TIDE_TEMPLE_NAME,Temple des marées,Tide Temple
 ARENA_TIDE_TEMPLE_DESC,"Des terrasses reliées par des ponts hauts et des chaussées basses : à marée haute, l'eau noie les chaussées. Refermez les quatre failles.","Terraces linked by high bridges and low causeways: at high tide, the water drowns the causeways. Seal the four rifts."
 FINALE_TRAVEL_BASIN,"Les failles sont refermées : rejoignez le bassin sacré, au nord-est.",The rifts are sealed: reach the sacred basin to the north-east.
+ZONE_ASH_VENTS_1_NAME,La Plaine basse,The Low Plain
+ZONE_ASH_VENTS_2_NAME,La Vallée des cheminées,The Chimney Valley
+ZONE_ASH_VENTS_3_NAME,La Corniche,The Ledge
+FINALE_TRAVEL_HOLLOW,"La corniche est nettoyée : rejoignez le grand creux à l'est, le gardien y attend.","The ledge is cleared: reach the great hollow to the east, the guardian waits there."
+ZONE_SOOT_DENS_1_NAME,La Cour haute,The Upper Court
+ZONE_SOOT_DENS_2_NAME,La Terrasse médiane,The Middle Terrace
+ZONE_SOOT_DENS_3_NAME,Le Réfectoire,The Refectory
+FINALE_TRAVEL_NAVE,"Le réfectoire est nettoyé : entrez dans la nef, au sud-est.",The refectory is cleared: enter the nave to the south-east.
+ZONE_CATACLYSM_THRESHOLD_1_NAME,La Boucle de cendre,The Ash Loop
+ZONE_CATACLYSM_THRESHOLD_2_NAME,Le Croissant,The Crescent
+ZONE_CATACLYSM_THRESHOLD_3_NAME,Le Plateau est,The East Plateau
+FINALE_TRAVEL_SUMMIT,"Le plateau est nettoyé : montez sur le plateau du sommet, au nord.","The plateau is cleared: climb to the summit plateau, to the north."
+CHAPTER_SUNKEN_MARSHES_NAME,Les Marais engloutis,The Sunken Marshes
+CHAPTER_SUNKEN_MARSHES_DESC,"Passé le volcan, la Faille a noyé la jungle : mangroves, vase qui colle, temples de cristal-miroir et marées qui montent.","Past the volcano, the Rift drowned the jungle: mangroves, sticky mud, mirror-crystal temples and rising tides."

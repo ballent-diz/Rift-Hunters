@@ -1,25 +1,153 @@
-[gd_resource type="Resource" script_class="ArenaData" load_steps=5 format=3]
+[gd_resource type="Resource" script_class="ArenaData" load_steps=21 format=3]
 
 [ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/zone_wave_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/level_zone_data.gd" id="5"]
 
 [sub_resource type="Resource" id="wave_phase_data_1"]
 script = ExtResource("2")
 start_time = 0.0
-end_time = 150.0
-enemies = [&"cinder_crawler", &"ash_hound", &"smoke_wisp"]
-weights = [3.0, 1.5, 1.2]
-spawn_rate = 1.6
-max_alive = 70
+end_time = 60.0
+enemies = [&"cinder_crawler"]
+weights = [3.0]
+spawn_rate = 1.3
+max_alive = 60
 
 [sub_resource type="Resource" id="wave_phase_data_2"]
 script = ExtResource("2")
-start_time = 150.0
-end_time = 9999.0
-enemies = [&"cinder_crawler", &"ash_hound", &"char_golem"]
-weights = [3.0, 1.6, 1.0]
-spawn_rate = 2.4
+start_time = 60.0
+end_time = 150.0
+enemies = [&"cinder_crawler", &"smoke_wisp"]
+weights = [3.0, 1.2]
+spawn_rate = 2.0
 max_alive = 100
+
+[sub_resource type="Resource" id="wave_phase_data_3"]
+script = ExtResource("2")
+start_time = 150.0
+end_time = 240.0
+enemies = [&"cinder_crawler", &"smoke_wisp", &"char_golem"]
+weights = [3.0, 1.2, 1.0]
+spawn_rate = 2.6
+max_alive = 140
+
+[sub_resource type="Resource" id="wave_phase_data_4"]
+script = ExtResource("2")
+start_time = 240.0
+end_time = 9999.0
+enemies = [&"cinder_crawler", &"smoke_wisp", &"char_golem", &"ash_hound"]
+weights = [3.0, 1.2, 1.0, 1.0]
+spawn_rate = 3.2
+max_alive = 190
+
+[sub_resource type="Resource" id="zone_wave_1"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp"])
+weights = Array[float]([3.0, 1.2])
+count = 32
+elites = Array[StringName]([])
+spawn_rate = 1.6
+max_alive = 30
+
+[sub_resource type="Resource" id="zone_wave_2"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 42
+elites = Array[StringName]([])
+spawn_rate = 1.85
+max_alive = 38
+
+[sub_resource type="Resource" id="zone_wave_3"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem", &"ash_hound"])
+weights = Array[float]([3.0, 1.2, 1.0, 1.0])
+count = 50
+elites = Array[StringName]([&"pyre_brute"])
+spawn_rate = 2.1
+max_alive = 46
+
+[sub_resource type="Resource" id="zone_wave_4"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 48
+elites = Array[StringName]([])
+spawn_rate = 2.35
+max_alive = 54
+
+[sub_resource type="Resource" id="zone_wave_5"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem", &"ash_hound"])
+weights = Array[float]([3.0, 1.2, 1.0, 1.0])
+count = 56
+elites = Array[StringName]([])
+spawn_rate = 2.6
+max_alive = 62
+
+[sub_resource type="Resource" id="zone_wave_6"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem", &"ash_hound"])
+weights = Array[float]([3.0, 1.2, 1.0, 1.0])
+count = 64
+elites = Array[StringName]([&"cinder_knight"])
+spawn_rate = 2.85
+max_alive = 70
+
+[sub_resource type="Resource" id="zone_wave_7"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem"])
+weights = Array[float]([3.0, 1.2, 1.0])
+count = 66
+elites = Array[StringName]([])
+spawn_rate = 3.1
+max_alive = 78
+
+[sub_resource type="Resource" id="zone_wave_8"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem", &"ash_hound"])
+weights = Array[float]([3.0, 1.2, 1.0, 1.0])
+count = 76
+elites = Array[StringName]([])
+spawn_rate = 3.35
+max_alive = 86
+
+[sub_resource type="Resource" id="zone_wave_9"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"smoke_wisp", &"char_golem", &"ash_hound"])
+weights = Array[float]([3.0, 1.2, 1.0, 1.0])
+count = 88
+elites = Array[StringName]([&"cinder_knight"])
+spawn_rate = 3.6
+max_alive = 94
+
+[sub_resource type="Resource" id="level_zone_1"]
+script = ExtResource("5")
+name_key = "ZONE_ASH_VENTS_1_NAME"
+anchor = Vector2(1008, 820)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2"), SubResource("zone_wave_3")])
+exit_walls = Array[Rect2]([Rect2(-870, 360, 60, 180), Rect2(-870, 1060, 60, 200), Rect2(-870, 1590, 60, 82)])
+heal_ratio = 0.25
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_2"]
+script = ExtResource("5")
+name_key = "ZONE_ASH_VENTS_2_NAME"
+anchor = Vector2(-1376, 444)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_4"), SubResource("zone_wave_5"), SubResource("zone_wave_6")])
+exit_walls = Array[Rect2]([Rect2(-1820, -1180, 430, 60)])
+heal_ratio = 0.25
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_3"]
+script = ExtResource("5")
+name_key = "ZONE_ASH_VENTS_3_NAME"
+anchor = Vector2(208, -996)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_7"), SubResource("zone_wave_8"), SubResource("zone_wave_9")])
+exit_walls = Array[Rect2]([])
+heal_ratio = 0.25
+reward_chest = true
 
 [resource]
 script = ExtResource("1")
@@ -30,10 +158,20 @@ size = Vector2(5016, 3344)
 navigation_cell_size = 48.0
 environment_id = &"environment.ash_vents"
 unlocked_by_default = false
+xp_mult = 1.5
 progression = &"milestones"
-boss_time = 360.0
-boss_id = &"pyre_guardian"
 elite_first_time = 90.0
 elite_interval = 60.0
-elite_enemy_ids = Array[StringName]([&"cinder_knight"])
-waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2")]
+zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
+waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2"), SubResource("wave_phase_data_3"), SubResource("wave_phase_data_4")]
+boss_time = 420.0
+boss_id = &"pyre_guardian"
+finale_center = Vector2(1200, -860)
+finale_radii = Vector2(500, 330)
+finale_travel_key = "FINALE_TRAVEL_HOLLOW"
+elite_enemy_ids = Array[StringName]([&"cinder_knight", &"pyre_brute"])
+enemy_hp_mult = 0.7
+enemy_damage_mult = 0.55
+boss_hp_mult = 1.2
+boss_damage_mult = 1.0
+ember_pods = Array[Vector2]([Vector2(456, 468), Vector2(1360, 436), Vector2(904, 1172), Vector2(1608, 740), Vector2(-1648, -28), Vector2(-1200, 348), Vector2(-1800, 836), Vector2(-1704, 1140), Vector2(-400, -1100), Vector2(256, -700), Vector2(1104, -1068), Vector2(1856, -868)])

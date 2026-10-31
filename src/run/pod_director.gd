@@ -55,9 +55,11 @@ func prime(enemy: Enemy) -> void:
 func step(delta: float) -> void:
 	_time += delta
 	for pod: Dictionary in pods:
-		var enemy: Enemy = pod["enemy"]
-		if pod["state"] == State.IDLE:
+		# Lu sans type : un bulbe retiré de la carte est libéré.
+		var held: Variant = pod["enemy"]
+		if pod["state"] == State.IDLE or not is_instance_valid(held):
 			continue
+		var enemy: Enemy = held
 		pod["timer"] = float(pod["timer"]) - delta
 		if float(pod["timer"]) > 0.0:
 			continue
@@ -97,7 +99,10 @@ func _burst(pod: Dictionary) -> void:
 ## Bulbe au repos : légère pulsation de braise ; amorcé : anneau qui se resserre (en plus du télégraphe du danger).
 func _draw() -> void:
 	for pod: Dictionary in pods:
-		var enemy: Enemy = pod["enemy"]
+		var held: Variant = pod["enemy"]
+		if not is_instance_valid(held):
+			continue
+		var enemy: Enemy = held
 		match pod["state"]:
 			State.IDLE:
 				var pulse: float = 0.5 + 0.5 * sin(_time * 2.5 + enemy.position.x)

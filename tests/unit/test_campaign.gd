@@ -141,3 +141,18 @@ func test_run_setup_falls_back_to_unlocked_choices() -> void:
 	check_eq(setup.difficulty_id, &"normal", "Cauchemar verrouillé : Normal")
 	check(setup.arena_id != &"storm_highlands", "carte verrouillée : remplacée")
 	check(setup.modifier_ids.is_empty(), "pas de pacte en Normal")
+
+
+func test_chapters_two_and_three_in_order() -> void:
+	var ids: Array[StringName] = []
+	for map: CampaignMapData in GameDB.chapters.get(&"devastated_lands").maps:
+		ids.append(map.arena_id)
+	check_eq(ids, [&"scorched_verge", &"ash_vents", &"soot_dens", &"cataclysm_threshold", &"caldera_arena"] as Array[StringName],
+		"chapitre 2 : cartes 6 à 10")
+	var marshes: ChapterData = GameDB.chapters.get(&"sunken_marshes")
+	check(marshes != null and marshes.order == 3, "chapitre 3 : les Marais engloutis")
+	check_eq(marshes.maps[0].arena_id, &"root_mangrove", "la Mangrove ouvre le chapitre 3")
+	var profile := ProfileData.new()
+	check(not Campaign.is_map_unlocked(profile, GameDB.arena(&"root_mangrove")), "verrouillée au départ")
+	Campaign._mode_entry(profile, &"caldera_arena", Campaign.NORMAL)["wins"] = 1
+	check(Campaign.is_map_unlocked(profile, GameDB.arena(&"root_mangrove")), "ouverte après le Cœur du volcan")

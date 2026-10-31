@@ -12377,6 +12377,10 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/ash_vents/field.png",
 			"field_step": 2.0,
+			"start": [
+				1912,
+				1140
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
@@ -12398,6 +12402,10 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/soot_dens/field.png",
 			"field_step": 2.0,
+			"start": [
+				-1552,
+				-1752
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
@@ -12573,6 +12581,10 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cataclysm_threshold/field.png",
 			"field_step": 2.0,
+			"start": [
+				0,
+				1904
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {

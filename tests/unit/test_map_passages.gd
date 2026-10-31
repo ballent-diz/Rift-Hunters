@@ -104,15 +104,21 @@ func test_root_mangrove_landmarks_are_reachable() -> void:
 		"tourbière": Vector2(1712, 740), "île": Vector2(0, -210), "retour sud": Vector2(-150, 1250)})
 
 
-func test_root_mangrove_barriers_split_the_zones() -> void:
-	var arena: ArenaData = GameDB.arena(&"root_mangrove")
-	var walls: Array[Rect2] = []
-	for zone: LevelZoneData in arena.zones:
-		walls.append_array(zone.exit_walls)
-	var seen: Dictionary = _reach(&"root_mangrove", walls, {"mangrove": arena.zones[0].anchor,
-		"ruines": arena.zones[1].anchor, "tourbière": arena.zones[2].anchor, "île": arena.finale_center})
-	check(seen["mangrove"], "la zone 1 commence au départ")
-	check(not seen["ruines"] and not seen["tourbière"] and not seen["île"], "barrières fermées : rien d'autre n'est accessible")
+## Barrières fermées : seule la zone 1 est accessible depuis le départ ; ouvertes, toutes les zones et la finale.
+func test_zone_barriers_split_the_zones() -> void:
+	for id: StringName in [&"ash_vents", &"soot_dens", &"cataclysm_threshold", &"root_mangrove"]:
+		var arena: ArenaData = GameDB.arena(id)
+		var walls: Array[Rect2] = []
+		var places: Dictionary = {"finale": arena.finale_center}
+		for i: int in arena.zones.size():
+			walls.append_array(arena.zones[i].exit_walls)
+			places["zone %d" % (i + 1)] = arena.zones[i].anchor
+		var closed: Dictionary = _reach(id, walls, places)
+		var open: Dictionary = _reach(id, [], places)
+		for place: String in places:
+			check(open[place], "%s : %s atteignable barrières ouvertes" % [id, place])
+			check(closed[place] == (place == "zone 1"), "%s : %s %s barrières fermées" % [id, place,
+				"atteignable" if place == "zone 1" else "isolée"])
 
 
 func test_tide_temple_high_road_stays_open_at_high_tide() -> void:

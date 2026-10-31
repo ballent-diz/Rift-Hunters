@@ -36,7 +36,8 @@ func setup(p_ctx: RunContext) -> void:
 func standing() -> int:
 	var count: int = 0
 	for nest: Dictionary in nests:
-		if (nest["enemy"] as Enemy).alive:
+		var held: Variant = nest["enemy"]
+		if is_instance_valid(held) and (held as Enemy).alive:
 			count += 1
 	return count
 
@@ -44,9 +45,11 @@ func standing() -> int:
 func step(delta: float) -> void:
 	var player: Vector2 = ctx.player.global_position
 	for nest: Dictionary in nests:
-		var enemy: Enemy = nest["enemy"]
-		if not enemy.alive:
+		# Lu sans type : un nid détruit est libéré et ne peut plus être affecté à une variable typée.
+		var held: Variant = nest["enemy"]
+		if not is_instance_valid(held) or not (held as Enemy).alive:
 			continue
+		var enemy: Enemy = held
 		if enemy.position.distance_to(player) > ctx.arena.nest_wake_range:
 			continue
 		nest["timer"] = float(nest["timer"]) - delta
