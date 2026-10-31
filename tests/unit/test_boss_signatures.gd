@@ -233,3 +233,60 @@ func test_ram_hits_and_throws_the_hunter_aside() -> void:
 	check(ctx.player.hp < hp, "la charge blesse")
 	check(absf(ctx.player.global_position.y - start.y) > 40.0, "et projette le Chasseur sur le côté")
 	check_eq(brain.stunned_time, 0.0, "sans obstacle, il n'est pas assommé")
+
+
+func test_duel_circle_keeps_echoes_out_and_burns_outside() -> void:
+	_fight(&"cinder_champion")
+	var pattern: BossPatternData = _pattern(&"cinder_champion", &"duel_circle")
+	brain._pattern_duel_circle(pattern)
+	_tick(pattern.telegraph + 0.1)
+	var ash: AshGuardians = brain.ash()
+	check(ash.dueling(), "le Chevalier trace le cercle du duel")
+	var center: Vector2 = ash.duel["center"]
+	var radius: float = ash.duel["radius"]
+	for ally: Ally in ctx.allies.team:
+		check(ally.global_position.distance_to(center) > radius, "les Échos restent dehors")
+	check_near(ash._damage_modifier(boss, RunFixture.info(100.0)), 1.5, 0.001, "les coups du Chasseur portent 1,5 fois")
+	var hp: float = ctx.player.hp
+	ctx.player.global_position = center + Vector2(radius + 80.0, 0.0)
+	_tick(0.6)
+	check(ctx.player.hp < hp, "sortir du cercle brûle")
+	_tick(float(pattern.params["duration"]))
+	check(not ash.dueling(), "le cercle finit par tomber")
+
+
+func test_threads_stick_then_the_queen_pounces() -> void:
+	_fight(&"widow_queen", Vector2(500, 0))
+	var ash: AshGuardians = brain.ash()
+	ash._thread_params = _pattern(&"widow_queen", &"silk_threads").params
+	var pos: Vector2 = ctx.player.global_position
+	ash.threads = [{"a": pos - Vector2(150, 0), "b": pos + Vector2(150, 0), "until": ctx.time + 10.0, "ready": 0.0}]
+	_tick(0.1)
+	check(ash.stuck_time > 0.0 and ctx.player.is_hindered(), "toucher un fil colle sur place")
+	_tick(1.4)
+	check(boss.position.distance_to(pos) < 60.0, "la Reine bondit sur la proie engluée")
+
+
+func test_dash_cuts_a_thread() -> void:
+	_fight(&"widow_queen", Vector2(500, 0))
+	var ash: AshGuardians = brain.ash()
+	var pos: Vector2 = ctx.player.global_position
+	ash.threads = [{"a": pos - Vector2(0, 150), "b": pos + Vector2(0, 150), "until": ctx.time + 10.0, "ready": 0.0}]
+	ctx.player._dash_time = 0.2
+	_tick(0.05)
+	check(ash.threads.is_empty(), "une Ruée à travers le fil le tranche")
+	check_eq(ash.stuck_time, 0.0, "sans coller le Chasseur")
+
+
+func test_slag_shell_cracks_under_a_rock() -> void:
+	_fight(&"slag_matriarch")
+	var ash: AshGuardians = brain.ash()
+	check(ash.shell, "la Matrone arrive sous sa carapace")
+	check_near(ash._damage_modifier(boss, RunFixture.info(100.0)), 0.15, 0.001, "les coups ne portent presque pas")
+	ash._on_rock_landed(boss.position + Vector2(400, 0), 90.0)
+	check(not ash.cracked(), "une roche tombée loin d'elle ne fait rien")
+	ash._on_rock_landed(boss.position + Vector2(40, 0), 90.0)
+	check(ash.cracked(), "une roche qui tombe sur elle fend la carapace")
+	check_near(ash._damage_modifier(boss, RunFixture.info(100.0)), 1.5, 0.001, "carapace fendue : les coups portent davantage")
+	_tick(10.5)
+	check(not ash.cracked(), "la carapace se reforme")

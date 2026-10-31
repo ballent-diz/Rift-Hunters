@@ -106,7 +106,7 @@ nourricières, carapace à facettes, tourbillon, anneau de marée, engloutisseme
 [DEVOREUR_CHAPITRE3.md](DEVOREUR_CHAPITRE3.md). Les cartes 7 à 9 reprennent pour l'instant le Gardien du bûcher ; leurs
 gardiens propres, comme ceux du chapitre 3, devront chacun apporter leur mécanique phare.
 
-#### Gardiens des cartes 7 à 9 : propositions de Claude (26 octobre 2026, à valider)
+#### Gardiens des cartes 7 à 9 : proposés le 26 octobre, validés et codés le 31 octobre 2026
 
 Chacun est l'élite que la carte met en avant, en version boss (sprite agrandi, comme le Gardien du bûcher) : pas de
 nouvelle planche, seulement ses effets. Aucune de ces mécaniques n'existe chez un autre boss.
@@ -117,8 +117,20 @@ nouvelle planche, seulement ses effets. Aucune de ces mécaniques n'existe chez 
 | 8. Tanières de suie | Reine-veuve (Veuve de cendre) | **Fils tendus** : elle tend des fils de soie entre les rochers et les nids. Toucher un fil colle sur place 1,2 s, et elle bondit sur la proie engluée. Une Ruée à travers un fil le coupe. Les fils bloquent aussi les Corrompus | lire les fils, garder sa Ruée, couper un passage |
 | 9. Volcan carré | Matrone des scories | Au choix du propriétaire. **Chaleur** : une jauge du Chasseur monte près d'elle et sur la lave, et redescend loin d'elle ou sur la croûte refroidie ; pleine, elle brûle. Il faut frapper puis s'écarter. Ou **Carapace à fendre** : elle est insensible tant que sa carapace tient ; une roche magmatique qui tombe sur elle la fend 10 s. Il faut l'attirer sous les ombres des roches | gérer la distance, ou se servir de la pluie de roches de la carte |
 
-Effort estimé : high pour les trois (code, données, tests, bot). À coder quand les collisions des cartes 7 à 9
-seront définitives.
+**Réalisé** (`AshGuardians`, `data/bosses/cinder_champion.tres`, `widow_queen.tres`, `slag_matriarch.tres`) :
+
+- **Chevalier calciné** (`duel_circle`) : cercle de rayon 350 au moins, centré entre lui et le Chasseur, 8 s (9 s en
+  phase 2) ; Échos repoussés dehors, coups du Chasseur × 1,5, 6 dégâts toutes les 0,5 s hors du cercle (8 en phase 2).
+  Taille tournoyante, charge et invocations autour.
+- **Reine-veuve** (`silk_threads`) : 4 fils (6 en phase 2) de 420 unités autour du Chasseur, 14 s. Un fil touché colle
+  1,2 s puis la Reine bondit sur la zone annoncée ; une Ruée à travers le fil le tranche. Les fils ne bloquent pas les
+  Corrompus (simplification). Couvée et charge autour.
+- **Matrone des scories** (`slag_rain`, carapace) : choix retenu « Carapace à fendre », qui se sert de la pluie de roches
+  de la carte 9. Carapace dès son arrivée (coups × 0,15) ; une roche qui tombe sur elle (pluie de la carte ou sa
+  propre pluie de scories) la fend 10 s (coups × 1,5, sonnée 1 s).
+
+Le bot reste dans le cercle du duel, s'écarte des fils (et tranche d'une Ruée quand il est collé) et reste près de la
+Matrone quand sa carapace tient. Tests : `test_boss_signatures`.
 
 ### À l'intérieur d'un chapitre (5 cartes)
 

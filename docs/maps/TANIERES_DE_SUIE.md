@@ -159,3 +159,18 @@ Verdict : **CONFORME**.
 Les retouches conservent les contours et les passages. Les prompts exacts sont dans `source/regions_v1/` ; `GENERATIONS.json` associe chaque sortie finale à son prompt. Les images précédant les retouches sont archivées dans `essais_finesse`, `essais_echelle` et `essais_derniere_passe`. La dernière passe concerne `r0_3`, `r1_3` et `r3_0`. Aucun seuil ni outil de contrôle n’a été modifié.
 
 Cinq secteurs restent hors norme, principalement dans les crevasses brumeuses et les bords : voir les coordonnées de `qualite.json`. Le verdict global conforme n’est donc pas une garantie de netteté uniforme. La carte de chaleur jointe est le **diagnostic initial**, avant les retouches ; elle ne mesure pas les dernières sorties.
+
+## Intégration en jeu (Claude, 31 octobre 2026)
+
+Arène `data/arenas/soot_dens.tres`, vagues par zone sur les collisions peintes par le propriétaire (praticable 33 %).
+
+| Élément | Placement (unités du monde) |
+|---|---|
+| Départ | (-1552, -1752), parvis au pied des marches |
+| Zone 1, cour haute | ancre (-752, -1504) ; sortie : barrière sur l'escalier vers la terrasse (1600, -750, 560 × 60) |
+| Zone 2, terrasse médiane | ancre (1192, -400) ; sortie : barrière sur le pont de pierre (-430, -330, 60 × 170) |
+| Zone 3, réfectoire | ancre (-1080, 1128) ; sortie : barrière à l'entrée de la nef (-20, 640, 60 × 420) |
+| Finale | la nef, centre (1256, 1512) ; son entrée se referme derrière le Chasseur |
+
+Six nids aux positions proposées. Calcinés ; élites Veuve de cendre et Brute du bûcher.
+**Gardien : la Reine-veuve**, fils tendus (docs/design/MONSTRES.md).

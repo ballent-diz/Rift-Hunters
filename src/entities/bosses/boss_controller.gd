@@ -52,6 +52,7 @@ var _ended: bool = false
 var _signatures: BossSignatures
 var _marsh: GlauquemireMechanics
 var _guardians: GuardianSignatures
+var _ash: AshGuardians
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -67,6 +68,9 @@ func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
 		busy_time = 1.4
 	if not phase().mechanics.is_empty():
 		marsh().on_phase(0, phase())
+	# Carapace de la Matrone des scories : dès son arrivée (réglages dans BossData.signature_params).
+	if data.signature == &"slag_rain":
+		ash().begin_shell(data.signature_params)
 
 
 func phase() -> BossPhaseData:
@@ -242,6 +246,13 @@ func guardians() -> GuardianSignatures:
 		_guardians = GuardianSignatures.new()
 		_add_mechanics(_guardians)
 	return _guardians
+
+
+func ash() -> AshGuardians:
+	if _ash == null:
+		_ash = AshGuardians.new()
+		_add_mechanics(_ash)
+	return _ash
 
 
 func marsh() -> GlauquemireMechanics:
@@ -539,6 +550,18 @@ func _pattern_mist_veil(pattern: BossPatternData) -> void:
 
 func _pattern_pyre_ram(pattern: BossPatternData) -> void:
 	guardians().pyre_ram(pattern)
+
+
+func _pattern_duel_circle(pattern: BossPatternData) -> void:
+	ash().duel_circle(pattern)
+
+
+func _pattern_silk_threads(pattern: BossPatternData) -> void:
+	ash().silk_threads(pattern)
+
+
+func _pattern_slag_rain(pattern: BossPatternData) -> void:
+	ash().slag_rain(pattern)
 
 
 func _pattern_mud_wall(pattern: BossPatternData) -> void:

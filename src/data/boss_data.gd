@@ -28,3 +28,6 @@ extends Resource
 @export var intro_animation: StringName = &""
 ## Mécanique phare (type d'attaque) : propre à ce boss, aucun autre ne l'utilise (docs/design/MONSTRES.md).
 @export var signature: StringName = &""
+## Réglages d'une mécanique phare passive, active dès l'arrivée du boss (carapace de la Matrone : shell_mult,
+## cracked_mult, crack_time, stun).
+@export var signature_params: Dictionary = {}

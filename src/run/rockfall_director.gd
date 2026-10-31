@@ -5,6 +5,9 @@ extends Node2D
 ## tout le monde, Corrompus compris, et petite plaque de sol brûlant. Plus fréquente à chaque zone nettoyée et pendant
 ## le combat final. Avec des cratères (ArenaData.rockfall_vents), chaque roche part en arc du plus proche : éruption.
 
+## Une roche vient de s'écraser (carapace de la Matrone des scories).
+signal landed(pos: Vector2, radius: float)
+
 const ROCK := Color(0.16, 0.11, 0.1)
 const MAGMA := Color(1.0, 0.5, 0.12)
 ## Distance des chutes autour du Chasseur : dans son champ de vision, rarement pile sur lui.
@@ -102,6 +105,7 @@ func _impact(pos: Vector2) -> void:
 	if ctx.arena.rockfall_burn_time > 0.0 and ctx.burn:
 		ctx.burn.add_plate(pos, radius * 0.7, ctx.arena.rockfall_burn_time)
 	ctx.stats.add(&"rockfalls")
+	landed.emit(pos, radius)
 
 
 ## Ombre qui grandit sous la roche, puis la roche qui tombe pendant la dernière demi-seconde.
