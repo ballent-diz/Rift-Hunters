@@ -1,0 +1,17 @@
+{
+  "source_scale": {
+    "A": 1.0,
+    "B": 0.946809,
+    "C": 0.709729,
+    "D": 0.699686,
+    "E": 0.908163,
+    "F": 0.786219
+  },
+  "reference": "Largeur médiane du corps au repos de A ; facteur fixe commun à toute chaque planche.",
+  "reference_width": 222.5,
+  "target_height_art": 150,
+  "manifest_scale": 0.5,
+  "death": "F mesurée sur sa première pose : ne pas regonfler le cadavre final.",
+  "transform": "C représente vase vers cristal ; phase3 distincte E, pas de seconde métamorphose séparée.",
+  "validation": "Choix autonome autorisé le 28 octobre ; aucune validation artistique propriétaire prétendue."
+}

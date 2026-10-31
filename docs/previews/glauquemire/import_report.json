@@ -1,0 +1,28 @@
+{
+  "entries": {
+    "boss.glauquemire": {
+      "border_frames": [],
+      "cell": [
+        512,
+        512
+      ],
+      "scale": 0.5
+    },
+    "object.mist_lantern": {
+      "border_frames": [],
+      "cell": [
+        128,
+        128
+      ],
+      "scale": 0.5
+    }
+  },
+  "source_scale": {
+    "A": 1.0,
+    "B": 0.946809,
+    "C": 0.709729,
+    "D": 0.699686,
+    "E": 0.908163,
+    "F": 0.786219
+  }
+}

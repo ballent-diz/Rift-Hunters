@@ -1,0 +1,184 @@
+{
+  "enemy.bark_warden": {
+    "border_frames": [],
+    "move_heights_art": [
+      142,
+      135,
+      132,
+      130,
+      132,
+      134
+    ],
+    "world_target": 66.0,
+    "painted_animations": 6
+  },
+  "enemy.bloat_toad": {
+    "border_frames": [],
+    "move_heights_art": [
+      74,
+      74,
+      73,
+      74,
+      76,
+      70
+    ],
+    "world_target": 36.0,
+    "painted_animations": 3
+  },
+  "enemy.creeping_mirror": {
+    "border_frames": [],
+    "move_heights_art": [
+      71,
+      73,
+      72,
+      75,
+      74,
+      76
+    ],
+    "world_target": 36.0,
+    "painted_animations": 3
+  },
+  "enemy.creeping_root": {
+    "border_frames": [],
+    "move_heights_art": [
+      84,
+      80,
+      81,
+      73,
+      83,
+      82
+    ],
+    "world_target": 40.0,
+    "painted_animations": 3
+  },
+  "enemy.crystal_colossus": {
+    "border_frames": [],
+    "move_heights_art": [
+      147,
+      147,
+      146,
+      146,
+      140,
+      146
+    ],
+    "world_target": 72.0,
+    "painted_animations": 6
+  },
+  "enemy.glass_sentinel": {
+    "border_frames": [],
+    "move_heights_art": [
+      80,
+      82,
+      82,
+      82,
+      80,
+      82
+    ],
+    "world_target": 40.0,
+    "painted_animations": 2
+  },
+  "enemy.marsh_maw": {
+    "border_frames": [],
+    "move_heights_art": [
+      119,
+      120,
+      127,
+      121,
+      126,
+      135
+    ],
+    "world_target": 62.0,
+    "painted_animations": 5
+  },
+  "enemy.mire_leech": {
+    "border_frames": [],
+    "move_heights_art": [
+      61,
+      60,
+      62,
+      63,
+      60,
+      62
+    ],
+    "world_target": 30.0,
+    "painted_animations": 2
+  },
+  "enemy.mirror_priestess": {
+    "border_frames": [],
+    "move_heights_art": [
+      122,
+      121,
+      122,
+      122,
+      122,
+      122
+    ],
+    "world_target": 60.0,
+    "painted_animations": 6
+  },
+  "enemy.quartz_golem": {
+    "border_frames": [],
+    "move_heights_art": [
+      89,
+      90,
+      92,
+      90,
+      86,
+      91
+    ],
+    "world_target": 44.0,
+    "painted_animations": 2
+  },
+  "enemy.reflection_huntress": {
+    "border_frames": [],
+    "move_heights_art": [
+      112,
+      115,
+      123,
+      114,
+      117,
+      120
+    ],
+    "world_target": 58.0,
+    "painted_animations": 6
+  },
+  "enemy.rift_gnat": {
+    "border_frames": [],
+    "move_heights_art": [
+      71,
+      60,
+      56,
+      57,
+      46,
+      69
+    ],
+    "world_target": 30.0,
+    "painted_animations": 2
+  },
+  "enemy.spore_mother": {
+    "border_frames": [],
+    "move_heights_art": [
+      119,
+      121,
+      123,
+      120,
+      122,
+      123
+    ],
+    "world_target": 60.0,
+    "painted_animations": 6
+  },
+  "enemy.wandering_shard": {
+    "border_frames": [],
+    "move_heights_art": [
+      62,
+      68,
+      72,
+      56,
+      60,
+      62
+    ],
+    "world_target": 30.0,
+    "painted_animations": 2
+  }
+}

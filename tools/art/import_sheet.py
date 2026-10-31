@@ -298,12 +298,16 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     factor = 1.0 if job.get("keep_size") else float(job.get("target_height", ch * 0.75)) / heights[len(heights) // 2]
     scaled = []
     for anim, frames in sources:
+        # Les planches générées séparément peuvent cadrer le même corps à une autre taille.
+        frame_factor = factor * float(anim.get("source_scale", 1.0))
+        if not np.isfinite(frame_factor) or frame_factor <= 0:
+            raise ValueError("source_scale doit être positif et fini : " + anim["name"])
         out = []
         for fr in frames:
-            if factor == 1.0:
+            if frame_factor == 1.0:
                 out.append(fr)
                 continue
-            size = (max(1, round(fr.width * factor)), max(1, round(fr.height * factor)))
+            size = (max(1, round(fr.width * frame_factor)), max(1, round(fr.height * frame_factor)))
             resample = Image.Resampling.LANCZOS if job.get("resample") == "lanczos" else Image.Resampling.BOX
             out.append(fr.resize(size, resample))
         scaled.append((anim, out))

@@ -1,0 +1,18 @@
+{
+  "name_fr": "Veilleur de jade",
+  "status": "proposal",
+  "runtime_imported": false,
+  "price_created": false,
+  "manifest_entry_created": false,
+  "layout": [
+    3,
+    2
+  ],
+  "poses_reference": "../reference.json",
+  "source_sha256": "c7185bbba6518edc29fb1d8f4e6e2303e1b7823e29b4c1181d205e90eb89bfb7",
+  "source_dimensions": [
+    1683,
+    935
+  ],
+  "note": "Maquette de tenue sur six poses de référence. Ni atlas de jeu complet, ni correspondance pixel par pixel certifiée."
+}

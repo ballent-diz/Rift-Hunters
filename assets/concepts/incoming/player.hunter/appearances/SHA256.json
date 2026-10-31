@@ -1,0 +1,15 @@
+{
+  "generation-records.json": "7dc47cc1d409423a8593fe0f9a50eb87607cfa9e3c828c16b8199472b8551e82",
+  "ivory/proposal.json": "2c8413aca8f7de70f04ed9c7c15f75391b22ad399b9b126c344d828dffc41d47",
+  "ivory/source/board.png": "290c844c81764bafadd14740107c892e56bd9e3afd4177fa9b1fb1a6297ac5ed",
+  "ivory/source/prompt.txt": "4299f14b852669f83b03682165c088e8c971d682304832a375ce72bc0be168c4",
+  "jade/proposal.json": "81b0f6a064a3e01d63bcd1eb3785623f0405a80768c2ed6cfc23318dc4b11beb",
+  "jade/source/board.png": "c7185bbba6518edc29fb1d8f4e6e2303e1b7823e29b4c1181d205e90eb89bfb7",
+  "jade/source/prompt.txt": "8e4f0ab234eeb4a19414c4ff4701f1f62ac2bffbc0db74313b57f5d87f00ef18",
+  "provenanceSHA.json": "e899c99d8e7d016adfda02ef1284bdf84934a15d7fa296a20767ce4dffbc8531",
+  "reference.json": "ed6ab18470484987f243150a82c99b7839a2d88eb2eeb4de715f9c0b5c01c3b5",
+  "reference_poses.png": "fa5449d50fc8572a8ec868559ea0b84e2918cecbf1dd40083b0de14df349b147",
+  "storm/proposal.json": "413a03791b83339fcba2970f591d783c80b3d31bc4e6e0e72b2d49af3e5c5ecc",
+  "storm/source/board.png": "6590e23c04f500bf5ca25c5bc7af0ca038a441e9d25863e27a63669fdfb25977",
+  "storm/source/prompt.txt": "8121507aeb08ad49494709015512dfcbc7b38c55facb48ed4b4af8ed71d83cb1"
+}

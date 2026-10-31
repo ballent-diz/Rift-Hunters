@@ -5,6 +5,7 @@ import json
 import os
 import sys
 import tempfile
+from unittest.mock import patch
 import numpy as np
 from PIL import Image
 
@@ -82,6 +83,32 @@ def main():
             bottom = int(np.nonzero(cell[:, :, 3].any(axis=1))[0].max())
             if bottom != 54 - hover:
                 failures.append("ancrage (hover=%d) : bas en %d au lieu de %d" % (hover, bottom, 54 - hover))
+        # Deux planches cadrées différemment gardent la même taille corporelle ;
+        # une mort affaissée ne doit pas être regonflée à la hauteur du vivant.
+        for name, height in (("small", 20), ("large", 40), ("fallen", 10)):
+            Image.new("RGBA", (12, height), (70, 150, 180, 255)).save(os.path.join(tmp, name + ".png"))
+        scale_job = {
+            "visual_id": "monster.scale_test", "cell": [64, 64], "anchor": [32, 54],
+            "target_height": 40, "background": "alpha", "outline": False, "colors": 0,
+            "animations": [
+                {"name": "move", "source": "small.png", "frames": 1},
+                {"name": "attack", "source": "large.png", "frames": 1, "source_scale": 0.5},
+                {"name": "death", "source": "fallen.png", "frames": 1, "source_scale": 0.5},
+            ],
+        }
+        with open(job_path, "w") as handle:
+            json.dump(scale_job, handle)
+        observed = []
+        real_preview = import_sheet.make_preview
+
+        def capture_preview(title, rows, cell, zoom):
+            observed.extend(int(np.count_nonzero(frames[0][:, :, 3].any(axis=1))) for _, frames in rows)
+            return real_preview(title, rows, cell, zoom=zoom)
+
+        with patch.object(import_sheet, "make_preview", side_effect=capture_preview):
+            import_sheet.run(job_path, preview_only=True, preview_dir=tmp)
+        if observed != [40, 40, 10]:
+            failures.append("échelle entre planches ou mort affaissée incorrecte : %s" % observed)
         print("Aperçu :", preview.size)
     if failures:
         print("ÉCHEC :", "; ".join(failures))

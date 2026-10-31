@@ -78,6 +78,7 @@ Conseils pour les images :
 | `aliases` | animations manquantes réutilisant une autre ligne, ex. `{"technique": "attack"}` |
 | `empty_animations` | poses runtime transparentes, sans source dessinée, ex. `[{"name":"death","fps":12,"loop":false}]` pour masquer le corps pendant une disparition commune |
 | `frame_offsets` (par animation) | décalages graphiques `[x,y]` après ancrage, un par pose ; préserve une montée/piqué dans la cellule sans déplacer l’entité |
+| `source_scale` (par animation) | facteur positif de cadrage pour une planche complémentaire ; même facteur pour toute la rangée, sans regonfler les morts ni les poses accroupies |
 
 
 ### Planches à plusieurs rangées (monstres à partir du chapitre 2)

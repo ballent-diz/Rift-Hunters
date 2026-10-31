@@ -1,0 +1,12 @@
+{
+  "boss_animations": 14,
+  "boss_painted_frames": 84,
+  "lantern_animations": 3,
+  "lantern_painted_frames": 18,
+  "capture_kind": "banc visuel Godot 1280x720, pas de combat",
+  "native_gpu": "Images complètes et code de sortie 0 ; message initialize(shader_gles3.cpp:798) conservé, ne pas déclarer GPU sans erreur.",
+  "same_inputs": {
+    "boss_sha256": "cee3bdfa91a5e539add7c2edb472c694973a340b0f60b03aa66a135c12abc132",
+    "lantern_sha256": "eeae0468ee373e3d4675be3b4daef47cfcea28ac53eec508874e6bd0ee59d6af"
+  }
+}

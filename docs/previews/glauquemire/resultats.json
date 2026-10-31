@@ -1,0 +1,7 @@
+{
+  "status": "vert",
+  "exit_code": 0,
+  "log": "glauquemire-verified-checks.log",
+  "native_preview": "glauquemire-preview",
+  "note": "Import Godot puis suites assets/art véritables, aucun seuil ni fichier gameplay modifié."
+}

@@ -24,9 +24,7 @@ Le catalogue donne le décompte exact : 31 scènes d'ennemis du chapitre 3, 16 d
 **aucun comportement du combat n'a été remplacé**. Les formes provisoires de `MarshTechniques`
 et `GlauquemireMechanics` continuent d'être utilisées jusqu'à ce raccordement.
 
-Glauquemire : seule la planche de corps A est proposée au propriétaire. Les cinq suivantes
-restent suspendues à sa validation, conformément à `docs/design/DEVOREUR_CHAPITRE3.md`
-sur la branche de Claude. Les effets de terrain ne présument pas la validation du corps.
+Glauquemire : les six planches de corps A–F et la lanterne sont désormais livrées dans le lot autonome du 28 octobre (`docs/art/GLAUQUEMIRE_SPRITES.md`). Ce choix suit le nouveau brief sans questions ; il ne prétend pas remplacer la validation artistique du propriétaire. Les effets de terrain PR #78 sont conservés sans régénération.
 
 ## Contrat commun
 

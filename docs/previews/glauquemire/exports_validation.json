@@ -1,0 +1,121 @@
+[
+  {
+    "file": "boss_idle.webp",
+    "bytes": 358616,
+    "frames": 6,
+    "expected_duration_ms": 750,
+    "actual_duration_ms": 750,
+    "sha256": "1e0ae7a45c1e933fc1d53373a6dbd77ef8c5ddd084d0cbcbd9eef105664d4a54"
+  },
+  {
+    "file": "boss_move.webp",
+    "bytes": 360256,
+    "frames": 6,
+    "expected_duration_ms": 600,
+    "actual_duration_ms": 600,
+    "sha256": "b5ab07e6b48d54362baf0950eacf08eb540312fa1f725254740162206042c682"
+  },
+  {
+    "file": "boss_attack.webp",
+    "bytes": 361334,
+    "frames": 6,
+    "expected_duration_ms": 500,
+    "actual_duration_ms": 500,
+    "sha256": "3b8dd9992c91ac7c53a97c74e156567011c096729ea4b942ded41f42e582bc9b"
+  },
+  {
+    "file": "boss_mud_spit.webp",
+    "bytes": 360106,
+    "frames": 6,
+    "expected_duration_ms": 500,
+    "actual_duration_ms": 500,
+    "sha256": "b7c82aa284d2ec810c58a5e3a68782d2c6a4c58f29950e08065cde25e63984d7"
+  },
+  {
+    "file": "boss_root_lash.webp",
+    "bytes": 361544,
+    "frames": 6,
+    "expected_duration_ms": 500,
+    "actual_duration_ms": 500,
+    "sha256": "982db799e6127e3abfbf393902e000c8b2f80584e04db8c146f34aead4e64c2d"
+  },
+  {
+    "file": "boss_leech_call.webp",
+    "bytes": 362512,
+    "frames": 6,
+    "expected_duration_ms": 600,
+    "actual_duration_ms": 600,
+    "sha256": "3bcad9301f388e006697cdf74e7bf4421b396cb29049e8a896313451680b1068"
+  },
+  {
+    "file": "boss_transform.webp",
+    "bytes": 364042,
+    "frames": 6,
+    "expected_duration_ms": 600,
+    "actual_duration_ms": 600,
+    "sha256": "e8e8d0b5e99e3f29cd7463a28ec792b49e3bb0bb58c9e608fb118b9ba0cdeede"
+  },
+  {
+    "file": "boss_phase2_idle.webp",
+    "bytes": 365566,
+    "frames": 6,
+    "expected_duration_ms": 750,
+    "actual_duration_ms": 750,
+    "sha256": "8b85263b27c12beffd3ac24dc63a61808a7ff77f9c46888381c0f08f807c9c1a"
+  },
+  {
+    "file": "boss_prism_beam.webp",
+    "bytes": 367442,
+    "frames": 6,
+    "expected_duration_ms": 600,
+    "actual_duration_ms": 600,
+    "sha256": "39c0999ceb4eeb3ad9ec5f0d6efb184c730337bae16921beb87379ebd288a2f2"
+  },
+  {
+    "file": "boss_hurt.webp",
+    "bytes": 363680,
+    "frames": 6,
+    "expected_duration_ms": 500,
+    "actual_duration_ms": 500,
+    "sha256": "6b2307bbf78fcfa2fc35345289a9ddddc1aaf673aa4b0a1049a83ebcc1c96328"
+  },
+  {
+    "file": "boss_phase3_idle.webp",
+    "bytes": 364666,
+    "frames": 6,
+    "expected_duration_ms": 750,
+    "actual_duration_ms": 750,
+    "sha256": "e36a3443b87f97f85053b62b620148b46b457991ece87a8e34dd4976911edefe"
+  },
+  {
+    "file": "boss_whirlpool.webp",
+    "bytes": 366230,
+    "frames": 6,
+    "expected_duration_ms": 600,
+    "actual_duration_ms": 600,
+    "sha256": "1b57f1647c3f5f449b82dc3ad6f44ca98a85e816ce6a20cc2b2693b8b7573ad7"
+  },
+  {
+    "file": "boss_swallow.webp",
+    "bytes": 366546,
+    "frames": 6,
+    "expected_duration_ms": 500,
+    "actual_duration_ms": 500,
+    "sha256": "060e282cf8a8eb7222f48a3ba180c1ca65ca36c7d2bcf05babc4c3f50c28f5ec"
+  },
+  {
+    "file": "boss_death.webp",
+    "bytes": 358402,
+    "frames": 6,
+    "expected_duration_ms": 750,
+    "actual_duration_ms": 750,
+    "sha256": "8ca9764c7cd89835fedf5e1e2a68b3f10c68b5e09ab5b44d4c779143e899d677"
+  },
+  {
+    "file": "mist_lantern.webp",
+    "bytes": 705640,
+    "frames": 18,
+    "actual_duration_ms": 2000,
+    "sha256": "b064dce33989ee772077caf74f44640294bfcac77c66a54addc802786a75a06f"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "name_fr": "Argent des temples",
+  "status": "proposal",
+  "runtime_imported": false,
+  "price_created": false,
+  "manifest_entry_created": false,
+  "layout": [
+    3,
+    2
+  ],
+  "poses_reference": "../reference.json",
+  "source_sha256": "290c844c81764bafadd14740107c892e56bd9e3afd4177fa9b1fb1a6297ac5ed",
+  "source_dimensions": [
+    1683,
+    935
+  ],
+  "note": "Maquette de tenue sur six poses de référence. Ni atlas de jeu complet, ni correspondance pixel par pixel certifiée."
+}

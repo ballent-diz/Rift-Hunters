@@ -1,0 +1,19 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "transparent_background": true,
+  "original": "C:\\Users\\petit\\.codex\\generated_images\\01a1819d-377e-7013-8a3c-8ea58b8434d5\\exec-c2cffa02-b0ef-42e6-a119-3851a6eaddb7.png",
+  "retained": "mist_lantern_source.png",
+  "reference": "Rift-Hunters/assets/sprites/enemies/husk/husk_sheet.png",
+  "reference_role": "finesse et style uniquement",
+  "prompt_file": "prompt.txt",
+  "grid": [
+    6,
+    3
+  ],
+  "rows": [
+    "lit_idle",
+    "extinguish/death",
+    "unlit_idle"
+  ],
+  "frames": 18
+}

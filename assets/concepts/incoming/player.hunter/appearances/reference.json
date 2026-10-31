@@ -1,0 +1,46 @@
+{
+  "source": "assets/sprites/players/hunter/hunter_sheet.png",
+  "sha256": "99965593a5ce61179d9bc602b1a813bcd432614e0d0c692b77782d85705f9325",
+  "cell": [
+    96,
+    80
+  ],
+  "anchor": [
+    48,
+    74
+  ],
+  "scale": 0.65,
+  "selected_frames": [
+    [
+      "idle",
+      0,
+      0
+    ],
+    [
+      "move_1",
+      1,
+      1
+    ],
+    [
+      "move_4",
+      1,
+      4
+    ],
+    [
+      "attack",
+      2,
+      0
+    ],
+    [
+      "hurt",
+      3,
+      0
+    ],
+    [
+      "death",
+      4,
+      2
+    ]
+  ],
+  "method": "Découpage des poses existantes, assemblage technique 3x2 et affichage x4 nearest ; aucun dessin nouveau."
+}
