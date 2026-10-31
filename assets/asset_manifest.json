@@ -12377,12 +12377,16 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/ash_vents/field.png",
 			"field_step": 2.0,
+			"start": [
+				1912,
+				1140
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/ash_vents/minimap.webp"
 		},
@@ -12398,12 +12402,16 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/soot_dens/field.png",
 			"field_step": 2.0,
+			"start": [
+				-1552,
+				-1752
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
@@ -12573,12 +12581,16 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cataclysm_threshold/field.png",
 			"field_step": 2.0,
+			"start": [
+				0,
+				1904
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; escalier ajouté par Claude entre les deux zones (28 octobre).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/cataclysm_threshold/minimap.webp"
 		},
@@ -14037,6 +14049,80 @@
 			"visual_only": true,
 			"duration": 1.6,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"environment.volcano_heart": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/volcano_heart/map.webp",
+			"map_tiles": [
+				"res://assets/environments/volcano_heart/map.webp",
+				"res://assets/environments/volcano_heart/map_1.webp",
+				"res://assets/environments/volcano_heart/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/volcano_heart/field.png",
+			"field_step": 2.0,
+			"start": [
+				0,
+				2152
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/volcano_heart/minimap.webp"
+		},
+		"environment.root_mangrove": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/root_mangrove/map.webp",
+			"map_tiles": [
+				"res://assets/environments/root_mangrove/map.webp",
+				"res://assets/environments/root_mangrove/map_1.webp",
+				"res://assets/environments/root_mangrove/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/root_mangrove/field.png",
+			"field_step": 2.0,
+			"start": [
+				-1792,
+				924
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/root_mangrove/minimap.webp"
+		},
+		"environment.tide_temple": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/tide_temple/map.webp",
+			"map_tiles": [
+				"res://assets/environments/tide_temple/map.webp",
+				"res://assets/environments/tide_temple/map_1.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/tide_temple/field.png",
+			"field_step": 2.0,
+			"start": [
+				4,
+				1760
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; chaussées de marée T01, T03 et T04 (tide.png) rendues praticables et raccord du pont haut au bassin élargi par Claude (29 octobre). T02 et T05, murées, restent bloquées.",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/tide_temple/minimap.webp"
 		}
 	}
 }

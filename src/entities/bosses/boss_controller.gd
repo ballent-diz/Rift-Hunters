@@ -52,6 +52,7 @@ var _ended: bool = false
 var _signatures: BossSignatures
 var _marsh: GlauquemireMechanics
 var _guardians: GuardianSignatures
+var _ash: AshGuardians
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -67,6 +68,9 @@ func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
 		busy_time = 1.4
 	if not phase().mechanics.is_empty():
 		marsh().on_phase(0, phase())
+	# Carapace de la Matrone des scories : dès son arrivée (réglages dans BossData.signature_params).
+	if data.signature == &"slag_rain":
+		ash().begin_shell(data.signature_params)
 
 
 func phase() -> BossPhaseData:
@@ -244,6 +248,13 @@ func guardians() -> GuardianSignatures:
 	return _guardians
 
 
+func ash() -> AshGuardians:
+	if _ash == null:
+		_ash = AshGuardians.new()
+		_add_mechanics(_ash)
+	return _ash
+
+
 func marsh() -> GlauquemireMechanics:
 	if _marsh == null:
 		_marsh = GlauquemireMechanics.new()
@@ -290,7 +301,7 @@ func _pattern_shadow_wave(pattern: BossPatternData) -> void:
 ## Points praticables seulement (hors rochers et falaises) ; plafond d'invocations actives (max_active).
 func _pattern_summon(pattern: BossPatternData) -> void:
 	var enemy_ids: Array = pattern.params.get("enemies", ["skitterling"])
-	_summons.assign(_summons.filter(func(e: Enemy) -> bool: return is_instance_valid(e) and e.alive))
+	_summons.assign(_summons.filter(func(e: Variant) -> bool: return is_instance_valid(e) and (e as Enemy).alive))
 	var count: int = mini(int(pattern.params.get("count", 6)), ctx.spawner.current_cap() - ctx.enemies.count())
 	count = mini(count, int(pattern.params.get("max_active", 999)) - _summons.size())
 	var points := PackedVector2Array()
@@ -541,6 +552,18 @@ func _pattern_pyre_ram(pattern: BossPatternData) -> void:
 	guardians().pyre_ram(pattern)
 
 
+func _pattern_duel_circle(pattern: BossPatternData) -> void:
+	ash().duel_circle(pattern)
+
+
+func _pattern_silk_threads(pattern: BossPatternData) -> void:
+	ash().silk_threads(pattern)
+
+
+func _pattern_slag_rain(pattern: BossPatternData) -> void:
+	ash().slag_rain(pattern)
+
+
 func _pattern_mud_wall(pattern: BossPatternData) -> void:
 	marsh().mud_wall(pattern)
 
@@ -610,7 +633,7 @@ func _vfx(scene_name: String, pos: Vector2, dir: Vector2, props: Dictionary = {}
 		required: bool = false) -> Node2D:
 	if data.vfx_dir == "" or scene_name == "":
 		return null
-	_effects.assign(_effects.filter(func(fx: Node2D) -> bool: return is_instance_valid(fx)))
+	_effects.assign(_effects.filter(func(fx: Variant) -> bool: return is_instance_valid(fx)))
 	if not required and _effects.size() >= MAX_EFFECTS:
 		return null
 	var path: String = data.vfx_dir.path_join(scene_name + ".tscn")

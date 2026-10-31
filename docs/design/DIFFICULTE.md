@@ -74,6 +74,12 @@ partir de la carte 4.
 | 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Sylvécaille, Lueurine | 4 sur 4 | 6 min |
 | 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 3 sur 4 | 5 à 7 min |
 | 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4 | 3 min 30 à 6 min |
+| 7. Évents de cendre | 1,3 · 0,95 | 2,5 · 1,2 (Chevalier calciné) | + Égidor, Lucivelle | 2 sur 3 | 8 min |
+| 8. Tanières de suie | 1,3 · 0,95 | 2,5 · 1,2 (Reine-veuve) | + Pyraile, Égidor | 2 sur 3 | 8 min 30 |
+| 9. Le Seuil du Cataclysme | 1 · 0,6 (roches 8 toutes les 8 s) | 2 · 1,2 (Matrone des scories) | + Spectrâtre, Pyraile | 2 sur 3 | 7 min 30 |
+| 10. Cœur du volcan | 0,7 · 0,45 (vagues de moitié, une élite par palier) | 0,5 · 0,6 (Pyrevorn) | + Gravelune, Pyraile | 3 sur 3 | 9 à 11 min 30 |
+| 11. Mangrove des racines | 0,7 · 0,35 (une élite par zone) | 1,2 · 1 (gardien provisoire) | + Solgriffe, Gravelune | 2 sur 3 | 6 min 30 |
+| 12. Temple des marées | 1 · 0,5 (45 à 120 en vie, élites des failles toutes les 140 s) | 1,2 · 1 (gardien provisoire) | + Ronceline, Solgriffe | 2 sur 3 | 3 min |
 
 Mesures du 26 octobre 2026, avec le bot corrigé :
 - il va chercher les derniers Corrompus ;
@@ -83,7 +89,9 @@ Mesures du 26 octobre 2026, avec le bot corrigé :
 Avant ces corrections, des vagues traînaient de 2 à 4 minutes (jusqu'à 15 minutes pour la carte 5), et le bot restait
 parfois bloqué. Les cartes 3 et 4, à 4 sur 4, sont au bord haut de la cible : à surveiller en test.
 
-Les cartes 7 à 10 attendent leur décor et leurs collisions définitives.
+Cartes 7 à 12 mesurées le 31 octobre 2026 (arbre « veteran », 3 graines, Cendrelame + les deux Échos les plus forts
+débloqués à ce stade). La carte 12, en fermeture de failles, reste courte comme la carte 2 ; les gardiens des cartes 11
+et 12 sont provisoires.
 
 ## Ce que le bot sait faire (pour lire ses résultats)
 

@@ -134,3 +134,18 @@ Le manifeste d'analyse des rapports ne constitue pas une entrée runtime du jeu.
 
 Sources brutes, recadrages d'entrée, prompts, retouche et SHA256 :
 `assets/concepts/incoming/map.ash_vents/source/regions_v1/`.
+
+## Intégration en jeu (Claude, 31 octobre 2026)
+
+Arène `data/arenas/ash_vents.tres`, vagues par zone sur les collisions peintes par le propriétaire (praticable 55 %).
+
+| Élément | Placement (unités du monde) |
+|---|---|
+| Départ | (1912, 1140), renfoncement en bas à droite |
+| Zone 1, plaine basse | ancre (1008, 820) ; sortie : barrières sur la brèche de l'arête (deux passages) et le bord du bas, x ≈ -840 |
+| Zone 2, vallée des cheminées | ancre (-1376, 444) ; sortie : barrière sur la rampe vers la corniche (-1820, -1180, 430 × 60) |
+| Zone 3, corniche | ancre (208, -996) |
+| Finale | cercle d'énergie dans le creux de la corniche, centre (1200, -860), rayons 500 × 330 |
+
+Douze bulbes de braise aux positions proposées (ramenées sur du sol dégagé). Calcinés ; élites Brute du bûcher et
+Chevalier calciné. **Gardien : le Chevalier calciné**, cercle du duel (docs/design/MONSTRES.md).

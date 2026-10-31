@@ -71,3 +71,13 @@ Le contrôle ciblé dans Godot 4.3 a importé puis chargé les trois textures et
 À raccorder par Claude : entrée du manifeste, champ de collisions peint par le propriétaire, niveau, Pyrevorn, dégâts des nappes et projectiles volcaniques. Aucun fichier `src/` ou `data/` modifié.
 
 Poids des nouveaux blobs uniques : **141,8 Mo**, renommages déjà présents dans main exclus. [Mesure détaillée](../previews/volcano-heart/poids.json).
+
+## Intégration en jeu (Claude, 29 octobre 2026)
+
+- Arène `data/arenas/caldera_arena.tres` branchée sur `environment.volcano_heart` (collisions peintes par le
+  propriétaire, praticable 52 %, d'un seul tenant). Départ sur la rampe sud (0, 2152), Pyrevorn au centre.
+- **Nappes brûlantes** (`burn_plates`) : les huit nappes de `hazards.png` (centre et rayon équivalent de chaque
+  composante), plus un éclat de H06 ; elles ne sont praticables qu'en partie, là où le propriétaire ne les a pas peintes.
+- **Cratères** (`rockfall_vents`) : les deux évents du pourtour, nord-ouest (-2240, -1570) et nord-est (2070, -2210).
+- Paliers, gardiens et vagues inchangés (`test_caldera_arena`) ; repères atteignables par une élite
+  (`test_map_passages`).

@@ -38,3 +38,21 @@ qualite_seconde_passe.json : densité (pixels par unité) = 2.25, part lisse (m�
 qualite.json : densité (pixels par unité) = 2.25, part lisse (médiane) = 0.225, détails fins / 100×100 u (médiane) = 338.731, détails moyens / 100×100 u (médiane) = 100.036, secteurs conformes (part) = 0.918, fidélité au plan validé (corrélation) = 0.977.
 
 La finition locale concerne uniquement `r0_2`, `r1_2` et `r3_0`, avec `PROMPT_FINITION.txt`. Leurs versions précédentes sont dans `essai_seconde_passe`. Les trois étapes donnent 283,113 → 324,440 → 338,731 détails fins, avec des seuils de contrôle inchangés.
+
+## Intégration en jeu (Claude, 31 octobre 2026)
+
+Collisions peintes par le propriétaire (praticable 43 %) ; un escalier taillé dans la falaise relie la boucle du bas au
+croissant (rendu provisoire, retouche confiée à Codex). Arène `data/arenas/cataclysm_threshold.tres`, vagues par zone
+en spirale :
+
+| Élément | Placement (unités du monde) |
+|---|---|
+| Départ | (0, 1904), bas de la carte |
+| Zone 1, boucle de cendre | ancre (-1296, 200) ; sortie : barrière en haut de l'escalier (-130, 790, 400 × 60) |
+| Zone 2, croissant | ancre (864, 72) ; sortie : barrière vers le plateau est (1380, -300, 60 × 360) |
+| Zone 3, plateau est | ancre (1800, -800) |
+| Finale | cercle d'énergie sur le plateau du sommet, centre (-300, -1880), rayons 620 × 230 |
+
+**Pluie de roches magmatiques** tombées du ciel (une toutes les 7 s, plus fréquentes à chaque zone et contre le
+gardien). Enfants du magma ; élites Matrone des scories, Titan de caldeira, Wyvernette. **Gardien : la Matrone des
+scories**, carapace fendue par les roches (docs/design/MONSTRES.md).

@@ -1759,3 +1759,47 @@ TREE_GUIDE_BODY_6,"Chaque Écho a son arbre, dans l'onglet Échos, qui se lit co
 EXPEDITION_ECHO_AT_MAP,Carte %d,Map %d
 EXPEDITION_ECHO_LATER,À venir,Coming later
 REFUGE_TAB_SHORTCUTS,"Changer d'onglet : LB / RB, Page préc. / suiv. ou Ctrl+Tab","Switch tabs: LB / RB, Page Up / Down or Ctrl+Tab"
+ARENA_ROOT_MANGROVE_NAME,Mangrove des racines,Root Mangrove
+ARENA_ROOT_MANGROVE_DESC,"Une boucle de berges autour d'un lagon : la vase colle aux pieds de tous, Corrompus compris. L'île du centre n'a qu'un accès.","A loop of banks around a lagoon: the mud sticks to everyone's feet, Corrupted included. The central island has a single way in."
+ZONE_ROOT_MANGROVE_1_NAME,La Mangrove occidentale,The Western Mangrove
+ZONE_ROOT_MANGROVE_2_NAME,Les Ruines-miroirs,The Mirror Ruins
+ZONE_ROOT_MANGROVE_3_NAME,La Tourbière,The Bog
+FINALE_TRAVEL_ISLAND,Les berges sont nettoyées : empruntez la longue racine jusqu'à l'île du lagon.,The banks are cleared: take the long root to the lagoon island.
+ARENA_TIDE_TEMPLE_NAME,Temple des marées,Tide Temple
+ARENA_TIDE_TEMPLE_DESC,"Des terrasses reliées par des ponts hauts et des chaussées basses : à marée haute, l'eau noie les chaussées. Refermez les quatre failles.","Terraces linked by high bridges and low causeways: at high tide, the water drowns the causeways. Seal the four rifts."
+FINALE_TRAVEL_BASIN,"Les failles sont refermées : rejoignez le bassin sacré, au nord-est.",The rifts are sealed: reach the sacred basin to the north-east.
+ZONE_ASH_VENTS_1_NAME,La Plaine basse,The Low Plain
+ZONE_ASH_VENTS_2_NAME,La Vallée des cheminées,The Chimney Valley
+ZONE_ASH_VENTS_3_NAME,La Corniche,The Ledge
+FINALE_TRAVEL_HOLLOW,"La corniche est nettoyée : rejoignez le grand creux à l'est, le gardien y attend.","The ledge is cleared: reach the great hollow to the east, the guardian waits there."
+ZONE_SOOT_DENS_1_NAME,La Cour haute,The Upper Court
+ZONE_SOOT_DENS_2_NAME,La Terrasse médiane,The Middle Terrace
+ZONE_SOOT_DENS_3_NAME,Le Réfectoire,The Refectory
+FINALE_TRAVEL_NAVE,"Le réfectoire est nettoyé : entrez dans la nef, au sud-est.",The refectory is cleared: enter the nave to the south-east.
+ZONE_CATACLYSM_THRESHOLD_1_NAME,La Boucle de cendre,The Ash Loop
+ZONE_CATACLYSM_THRESHOLD_2_NAME,Le Croissant,The Crescent
+ZONE_CATACLYSM_THRESHOLD_3_NAME,Le Plateau est,The East Plateau
+FINALE_TRAVEL_SUMMIT,"Le plateau est nettoyé : montez sur le plateau du sommet, au nord.","The plateau is cleared: climb to the summit plateau, to the north."
+CHAPTER_SUNKEN_MARSHES_NAME,Les Marais engloutis,The Sunken Marshes
+CHAPTER_SUNKEN_MARSHES_DESC,"Passé le volcan, la Faille a noyé la jungle : mangroves, vase qui colle, temples de cristal-miroir et marées qui montent.","Past the volcano, the Rift drowned the jungle: mangroves, sticky mud, mirror-crystal temples and rising tides."
+BOSS_CINDER_CHAMPION_NAME,Chevalier calciné,Charred Knight
+BOSS_CINDER_CHAMPION_TITLE,Gardien des Évents,Warden of the Vents
+BOSS_CINDER_CHAMPION_PHASE1,Lame au clair,Blade Drawn
+BOSS_CINDER_CHAMPION_PHASE2,Duel sans merci,Merciless Duel
+BOSS_WIDOW_QUEEN_NAME,Reine-veuve,Widow Queen
+BOSS_WIDOW_QUEEN_TITLE,Gardienne des Tanières,Warden of the Dens
+BOSS_WIDOW_QUEEN_PHASE1,La toile tendue,The Spun Web
+BOSS_WIDOW_QUEEN_PHASE2,La reine affamée,The Starving Queen
+BOSS_SLAG_MATRIARCH_NAME,Matrone des scories,Slag Matriarch
+BOSS_SLAG_MATRIARCH_TITLE,Gardienne du Seuil,Warden of the Threshold
+BOSS_SLAG_MATRIARCH_PHASE1,Carapace de scories,Slag Shell
+BOSS_SLAG_MATRIARCH_PHASE2,Coulée vivante,Living Flow
+BOSS_PATTERN_SPIN_SLASH,Taille tournoyante,Spinning Slash
+BOSS_PATTERN_DUEL,Cercle du duel,Duel Circle
+BOSS_PATTERN_THREADS,Fils tendus,Spun Threads
+BOSS_PATTERN_BROOD,Couvée,Brood
+BOSS_PATTERN_SLAG_RAIN,Pluie de scories,Slag Rain
+BOSS_DUEL_INTRO,"Cercle du duel : les Échos restent dehors, vos coups portent davantage, mais sortir du cercle brûle.","Duel circle: your Echoes stay outside and your hits land harder, but leaving the circle burns."
+BOSS_THREADS_INTRO,Fils tendus : les toucher vous colle sur place et la Reine bondit. Une Ruée à travers un fil le tranche.,Spun threads: touching one sticks you in place and the Queen pounces. Dash through a thread to cut it.
+BOSS_SHELL_INTRO,Sa carapace arrête presque tous les coups : attirez-la sous les roches qui tombent pour la fendre.,Her shell stops almost every hit: lure her under falling rocks to crack it.
+BOSS_SHELL_CRACKED,Carapace fendue !,Shell cracked!

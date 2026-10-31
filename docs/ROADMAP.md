@@ -1,5 +1,21 @@
 # Rift Hunters — feuille de route
 
+## Lot du 29 octobre (Claude) : collisions des cartes 7 à 12, cartes 10 à 12 en jeu
+
+- **Collisions peintes par le propriétaire** pour les cartes 7 à 12 ; carte 9 : escalier taillé dans la falaise entre
+  les deux zones (rendu provisoire, retouche confiée à Codex). Bot invulnérable : cartes 7, 8 et 9 gagnées, gardien tué.
+- **Carte 10** : `caldera_arena` branchée sur le décor `volcano_heart` (nappes et cratères recalés) —
+  [fiche](maps/COEUR_DU_VOLCAN.md).
+- **Carte 11** `root_mangrove` : trois zones, finale sur l'île, vase — [fiche](maps/MANGROVE_DES_RACINES.md).
+- **Carte 12** `tide_temple` : quatre failles, finale dans le bassin sacré, marée sur trois chaussées —
+  [fiche](maps/TEMPLE_DES_MAREES.md).
+- **Campagne** (31 octobre) : cartes 7 à 9 en vagues par zone, chapitre 2 = cartes 6 à 10, chapitre 3 « Les Marais
+  engloutis » = cartes 11 et 12. Gardiens propres des cartes 7 à 9 : Chevalier calciné (cercle du duel), Reine-veuve
+  (fils tendus), Matrone des scories (carapace fendue par les roches). Équilibrage des cartes 7 à 12 dans
+  [DIFFICULTE.md](design/DIFFICULTE.md).
+- **Restent à faire** : gardiens propres des cartes 11 et 12 (Sentinelle des racines et Chimère des brumes en attendant :
+  propositions à faire) ; cartes 13 à 15.
+
 ## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
 
 14 créatures importées, 25 sources, 54 animations peintes (324 poses), deux bancs Godot 720p animés. Sources Work indisponibles au téléchargement : remplacements générés selon l’autorisation du 28 octobre. Import Godot, suites assets et art (qualité cartes incluse) verts. Aucun gameplay. Réserve artistique : Enlisés sombres sur terre. Effets PR #78 déjà fusionnés : lot 2 couvert, raccords Claude à vérifier sans redessiner les effets.

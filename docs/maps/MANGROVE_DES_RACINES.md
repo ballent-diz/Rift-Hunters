@@ -86,3 +86,20 @@ Import et chargement des tuiles et du masque contrôlés dans un projet Godot 4.
 Aucun `src/`, `data/` ou masque de collision existant modifié. Entrée du manifeste runtime différée : aucun champ `field` inventé. Sources retenues, prompts et SHA256 dans `assets/concepts/incoming/map.root_mangrove/` ; aperçu léger dans `docs/previews/root-mangrove/`.
 
 Poids des nouveaux fichiers uniques : **109.1 Mo**, sous la limite 150 Mo. [Mesure](../previews/root-mangrove/poids.json).
+
+## Intégration en jeu (Claude, 29 octobre 2026)
+
+Arène `data/arenas/root_mangrove.tres`, vagues par zone, collisions peintes par le propriétaire (praticable 38 %).
+
+| Élément | Placement (unités du monde) |
+|---|---|
+| Départ | (-1792, 924), sentier sud-ouest |
+| Zone 1, Mangrove occidentale | ancre (-1704, -164) ; sortie : barrière sur le pont-racine nord-ouest (-1030, -1340, 60 × 220) |
+| Zone 2, Ruines-miroirs | ancre (456, -1068) ; sortie : barrière sur le gué de pierre nord-est (1225, -900, 60 × 250) |
+| Zone 3, Tourbière | ancre (1712, 740) ; sorties : la longue racine vers l'île (670, 380, 60 × 200) et le retour sud de la boucle (-430, 1120, 60 × 260) |
+| Finale | cercle d'énergie sur l'île, centre (0, -210), rayons 540 × 320 |
+
+Barrières fermées, chaque zone est isolée (`test_map_passages::test_root_mangrove_barriers_split_the_zones`).
+**Vase** : les huit nappes de `mud.png` (rectangle intérieur de chaque tache, `mud_painted`). Corrompus : les Enlisés
+(Sangsue, Moustique, Crapaud-gonfle, Racine rampante ; élites Mère-spore, Gardien d'écorce, Gueule des marais).
+**Gardien provisoire** : la Sentinelle des racines (carte 3), en attendant le gardien propre du chapitre 3.
