@@ -1,16 +1,16 @@
 {
   "id": "map.reflection_wells",
   "status": "wip",
-  "stage": "composition_pour_validation",
+  "stage": "detail_non_conforme_a_reprendre",
   "world_size": [
     5016,
     5016
   ],
   "composition": "composition.png",
-  "owner_approved": false,
+  "owner_approved": true,
   "autonomous_continuation_authorized": true,
-  "plan_locked": false,
-  "regions_generated": false,
+  "plan_locked": true,
+  "regions_generated": true,
   "runtime_integrated": false,
   "not_before": "2026-10-28T13:00:00+01:00",
   "source": "source/composition_source.png",
@@ -29,5 +29,8 @@
     "source/PROMPT_ESPACES.txt",
     "source/PROMPT_PONTS.txt"
   ],
-  "changes": "Dais vide, deux puits ronds, palette froide, sols élargis et accès nord/sud réparés. Boucle conservée par assemblage des retouches générées."
+  "changes": "Dais vide, deux puits ronds, palette froide, sols élargis et accès nord/sud réparés. Boucle conservée par assemblage des retouches générées.",
+  "approval_date": "2026-10-29",
+  "detail_guidance": "Varier la matière des dalles gris-cyan, renforcer discrètement les joints et la mousse sans changer le plan.",
+  "quality_conforme": false
 }

@@ -45,7 +45,7 @@ La première composition avait une terre trop dorée et un cristal sur l'autel. 
 - [x] Composition carrée entière, socle vide, deux puits, deux ponts et quatre emplacements.
 - [x] Sols élargis, approches visuellement reliées et carte inspectée entière.
 - [x] Sources/prompts/empreintes conservés.
-- [ ] Validation du plan par le propriétaire puis peinture des collisions.
+- [x] Plan validé par le propriétaire le 29 octobre 2026. Peinture des collisions à faire par le propriétaire.
 - [ ] Vérification chiffrée des surfaces et de la navigation.
 - [ ] Seize régions de détail, assemblage à2,25 pixels/unité, rapport qualité conforme et planche d'échelle après validation.
 - [ ] Intégration des portails, autel, ennemis et mécaniques par Claude.
@@ -55,3 +55,13 @@ La première composition avait une terre trop dorée et un cristal sur l'autel. 
 ## Vérifications jointes
 
 Chargement de la composition et rendu natif de la carte entière dans Godot : réussis, aperçu1280 × 720 joint. Import headless du projet complet et suites `tools/run_tests.sh assets` et `art` : verts. Assets :424 entrées,408 valides,16 placeholders,0 erreur ; ces résultats portent sur le **runtime de main inchangé**, la nouvelle carte restant hors runtime sous `.gdignore`. Le contrôle de qualité exécuté par la suite art concerne les cartes finales existantes : il ne certifie pas cette composition. Aucun seuil ou manifeste n’a été changé pour ce contrôle.
+
+## Validation et détail
+
+Plan figé, validé le 29 octobre. Seize régions en cours (Codex). Renforcer le contraste et la variété de la pierre, mousse et joints fins pour réduire l’effet carrelage uniforme ; garder toutes les emprises et les deux ponts.
+
+## Contrôle de détail du 1er novembre : réserve
+
+Seize régions ont été redessinées, puis six retouchées (r0_2, r1_2, r2_1, r2_2, r3_2, r3_3). Le résultat reste **NON CONFORME** : densité 2,25, part lisse 0,198, détails fins 319,033 (minimum329,944), moyens99,263 (avant95,787), secteurs98% (avant95,9%), fidélité0,990 (avant0,994). Le dernier secteur hors norme est (4800,4800). La retouche améliore la matière moyenne mais pas la médiane des détails fins. Aucun seuil modifié, renforcement natif plafonné120% conservé.
+
+Aperçu détail_a_corriger.webp et rapports avant/après joints. Ces images ne sont pas une livraison finale conforme. Les tuiles candidates restent hors Git : leur poids brut avoisine146Mo, plus12,46Mo déjà livrés ; ne pas dépasser150Mo sans résoudre l’encodage. Ni manifeste runtime ni collisions modifiés. Reprise de la finesse nécessaire avant raccordement ; pas de fausse validation en jeu.
