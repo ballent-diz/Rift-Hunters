@@ -328,3 +328,5 @@ Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs
 ## B3 — Carte 11, Mangrove des racines : visuels livrés pour revue (Codex)
 
 Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
+
+Carte15 Cœur des marais — composition livrée pour validation (Codex, 1er novembre). Plan vertical 2:3, synthèse vase/marée/cristaux, sans intégration gameplay.
