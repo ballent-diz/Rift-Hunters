@@ -875,8 +875,7 @@ func _technique_web(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vec
 	return true
 
 
-## Plongée (E2, Rôdeur de lave) : s'enfouit (intouchable, invisible), avance sous terre en laissant une traînée,
-## puis ressort sous le Chasseur après une alerte au sol.
+## Plongée (E2) : s'enfouit (intouchable, invisible), suit le chemin des marcheurs sous terre, ressort sous le Chasseur.
 func _technique_burrow(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
 	var travel: float = float(technique.params.get("travel", 1.2))
 	var emerge: float = float(technique.params.get("emerge", 0.55))
@@ -893,7 +892,8 @@ func _step_burrow(enemy: Enemy, motion: Dictionary, delta: float) -> void:
 	enemy.visual.visible = false
 	var to_player: Vector2 = ctx.player.global_position - enemy.position
 	if float(motion["t"]) < float(motion["duration"]):
-		var step: Vector2 = to_player.limit_length(float(motion["speed"]) * delta)
+		var step: Vector2 = (ctx.flow.direction(enemy.position, to_player.normalized()) if ctx.flow else to_player.normalized()) \
+			* minf(to_player.length(), float(motion["speed"]) * delta)
 		enemy.position = ctx.obstacles.push_out(enemy.position + step, enemy.radius)
 		motion["trail"] = float(motion["trail"]) - delta
 		if float(motion["trail"]) <= 0.0:
