@@ -811,12 +811,13 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 	enemy.motion = {}
 
 
-## Technique propre au gestionnaire (_technique_<kind>) ou au chapitre 3 (MarshTechniques.technique_<kind>).
+## Technique propre au gestionnaire (_technique_<kind>), ou technique_<kind> du chapitre 4 (FrostTechniques), sinon du 3.
 func _run_technique(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
 	var method: String = "_technique_" + String(technique.kind)
 	if has_method(method):
 		return call(method, enemy, technique, player_pos)
-	return marsh.call("technique_" + String(technique.kind), enemy, technique, player_pos)
+	var shared: String = "technique_" + String(technique.kind)
+	return (ctx.frost if ctx.frost and ctx.frost.has_method(shared) else marsh).call(shared, enemy, technique, player_pos)
 
 
 func _later(enemy: Enemy, delay: float, action: Callable) -> void:

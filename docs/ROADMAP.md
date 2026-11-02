@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## Lot du 2 novembre (Claude) : chapitre 4, le Glacier silencieux (mécaniques)
+
+- 14 monstres (Givrés, Échos du silence) avec formes provisoires, techniques E18 à E22, froid et braseros (B7),
+  Nivorath (3 phases, Écho des sorts) : [MONSTRES.md](design/MONSTRES.md). Sprites et effets à livrer par Codex ;
+  cartes 16 à 20 à concevoir.
+
 ## Lot du 29 octobre (Claude) : collisions des cartes 7 à 12, cartes 10 à 12 en jeu
 
 - **Collisions peintes par le propriétaire** pour les cartes 7 à 12 ; carte 9 : escalier taillé dans la falaise entre

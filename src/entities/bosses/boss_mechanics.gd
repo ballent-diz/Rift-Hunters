@@ -43,6 +43,11 @@ func bot_dash() -> bool:
 	return false
 
 
+## Bot : retenir ses sorts (gueule de Nivorath ouverte).
+func bot_hold_spells() -> bool:
+	return false
+
+
 ## Mort du boss : tout ce qui reste est retiré.
 func finish() -> void:
 	pass

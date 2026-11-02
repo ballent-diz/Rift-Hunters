@@ -54,6 +54,7 @@ var _marsh: GlauquemireMechanics
 var _guardians: GuardianSignatures
 var _ash: AshGuardians
 var _marsh_guardians: MarshGuardians
+var _nivorath: NivorathMechanics
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -261,6 +262,13 @@ func marsh_guardians() -> MarshGuardians:
 		_marsh_guardians = MarshGuardians.new()
 		_add_mechanics(_marsh_guardians)
 	return _marsh_guardians
+
+
+func nivorath() -> NivorathMechanics:
+	if _nivorath == null:
+		_nivorath = NivorathMechanics.new()
+		_add_mechanics(_nivorath)
+	return _nivorath
 
 
 func marsh() -> GlauquemireMechanics:
@@ -582,6 +590,22 @@ func _pattern_root_snare(pattern: BossPatternData) -> void:
 
 func _pattern_maw_dive(pattern: BossPatternData) -> void:
 	marsh_guardians().maw_dive(pattern)
+
+
+func _pattern_spell_capture(pattern: BossPatternData) -> void:
+	nivorath().spell_capture(pattern)
+
+
+func _pattern_ice_spikes(pattern: BossPatternData) -> void:
+	nivorath().ice_spikes(pattern)
+
+
+func _pattern_shatter_floor(pattern: BossPatternData) -> void:
+	nivorath().shatter_floor(pattern)
+
+
+func _pattern_frozen_dive(pattern: BossPatternData) -> void:
+	nivorath().frozen_dive(pattern)
 
 
 func _pattern_mud_wall(pattern: BossPatternData) -> void:

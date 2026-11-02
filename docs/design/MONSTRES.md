@@ -189,6 +189,31 @@ Nouvelles mécaniques du chapitre 3 :
 | E17 | **Clones** : copies fragiles qui imitent ses tirs | trouver l'originale |
 | — | **Volants** : survolent le décor (les tirs aussi les atteignent) | ne pas compter sur les abris contre eux |
 
+## Application au chapitre 4 « Le Glacier silencieux » (codé le 2 novembre 2026, sprites à venir de Codex)
+
+| Famille | Normaux | Normaux à technique | Élites (techniques ; trait) |
+|---|---|---|---|
+| Givrés (cartes 16 à 18) | Rampe-givre, Loup de blizzard, Spectre de neige (**volant**), Golem de glace | Loup : Glissade (charge sur la glace) | Chaman du gel : Prison de glace (**E18**) / Brume glaciale ; souffle les braseros. Yéti des cimes : Avalanche (**E19**) / Bond (E1) ; rage (E7). Archère du givre : Flèche glaçante (E5) / Pluie de grêle ; furtive dans la neige |
+| Échos du silence (cartes 19 et 20) | Éclat du silence (**volant**), Chevalier de glace, Sentinelle gelée (tir), Brise-banquise | Brise-banquise : Plongée (E2) | Héraut du silence : Silence (**E20**) / Écho des sorts (**E21**). Mammouth de givre : Piétinement (charge puis armure qui éclate, E6 + E8) / Fissure de banquise (**E22**). Sorcière des neiges : Appel du blizzard / Clones de neige (E17) ; téléportation quand on la frappe trop (E16) |
+
+Nouvelles mécaniques du chapitre 4 (`FrostTechniques`, `RunContext.frost`) :
+
+| # | Mécanique | Ce qu'elle demande au joueur |
+|---|---|---|
+| E18 | **Prison de glace** : un bloc se forme sous le Chasseur ; resté dedans, il est figé jusqu'à ce qu'une Ruée brise la glace | garder sa Ruée |
+| E19 | **Avalanche** : une boule de neige roule vers le Chasseur et grossit, puis éclate contre le décor | s'écarter de sa ligne, l'attirer contre un rocher |
+| E20 | **Silence** : dans le cercle du Héraut, les sorts du Chasseur ne partent plus | sortir du cercle ou abattre le Héraut |
+| E21 | **Écho des sorts** : le Héraut renvoie le dernier sort du Chasseur (s'il date de moins de 8 s) en gerbe de tirs | choisir quand lancer ses sorts |
+| E22 | **Fissure de banquise** : une ligne de glace brisée blesse, puis ralentit quelques secondes | ne pas rester sur l'axe du Mammouth |
+| B7 | **Froid et braseros** (`ColdDirector`, `ArenaData.cold_rate`, `braziers`) : loin d'un brasero allumé, la jauge de froid monte ; pleine, elle ralentit et blesse. Le Chaman souffle les braseros, qui se rallument après 15 s | rester près de la chaleur, protéger les braseros |
+
+**Nivorath, le Silence du Glacier** (Dévoreur du chapitre 4, `NivorathMechanics`, 15 000 PV, 3 phases) : griffes, pics
+de glace, souffle de blizzard et invocations ; mécanique phare **Écho des sorts** (`spell_capture`) dès la phase 2 :
+il ouvre sa gueule de cristal ; chaque sort lancé pendant ce temps est aspiré (sans le blesser) puis renvoyé en
+couronnes de tirs amplifiées ; si aucun sort n'a été lancé, il s'étouffe, sonné et vulnérable. Phase 3 : banquise qui
+éclate autour de lui et plongée sous la glace. Le bot retient ses sorts quand la gueule est ouverte et regagne un
+brasero quand le froid monte. Tests : `test_chapter4`.
+
 ## État du code (26 octobre 2026, mécaniques phares)
 
 `BossData.signature` ; mécaniques qui durent au-delà d'une attaque dans des `BossMechanics` créées par le
