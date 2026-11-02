@@ -1935,3 +1935,17 @@ JOURNAL_TIDE_RING,Anneau de marée,Tide ring
 JOURNAL_SWALLOW,Écho englouti,Swallowed Echo
 JOURNAL_CAPTURE,Écho des sorts,Spell echo
 JOURNAL_SHATTER,Banquise brisée,Shattered ice
+ADVICE_TITLE,Conseil,Advice
+ADVICE_THREAT,Ce qui vous a le plus blessé : %s,What hurt you most: %s
+ADVICE_SPEND,"Vous avez %d Éclats : de quoi apprendre un nœud de l'Arbre du Chasseur avant de repartir.","You have %d Shards: enough to learn a node in the Hunter Tree before heading out again."
+ADVICE_SOURCE_BURN,Le sol brûlant,Burning ground
+ADVICE_BURN,"Les plaques rougeoyantes brûlent tant que vous restez dessus : traversez-les vite, ou attirez-y les Corrompus.","Glowing plates burn while you stand on them: cross them quickly, or lure the Corrupted onto them."
+ADVICE_CRYSTAL,"Vos propres cristaux vous ont touché : frappez-les depuis le côté opposé à la horde et restez hors de l'axe des deux autres rayons.","Your own crystals hit you: strike them from the side opposite the horde and stay out of the other two beams."
+ADVICE_POD,"Un bulbe amorcé éclate dans tout son cercle : frappez-le, puis éloignez-vous avant l'éclatement.","A primed pod bursts across its whole circle: strike it, then step away before it bursts."
+ADVICE_SOURCE_ROCKFALL,Les roches qui tombent,Falling rocks
+ADVICE_ROCKFALL,Chaque chute est annoncée au sol : gardez un œil sur les cercles et ne vous arrêtez pas dedans.,Every fall is marked on the ground: watch the circles and never stop inside one.
+ADVICE_SOURCE_BOSS,Les coups du boss,The boss's blows
+ADVICE_BOSS,"Ses attaques sont annoncées au sol : gardez votre Ruée pour les plus grosses et frappez quand il est sonné.","Its attacks are marked on the ground: keep your Dash for the big ones and strike when it is stunned."
+TIP_MILESTONE,"Jalon atteint : choisissez un avantage rare. Il dure jusqu'à la fin de la carte.","Milestone reached: pick a rare boon. It lasts until the end of the map."
+TIP_ELITE,"Une élite arrive : elle a ses propres techniques. Lisez l'alerte au sol et esquivez à la Ruée.","An elite is coming: it has its own techniques. Read the warning on the ground and dodge with your Dash."
+TIP_ZONE,"Zone nettoyée : la barrière s'ouvre. Suivez la flèche vers la zone suivante.","Zone cleared: the barrier opens. Follow the arrow to the next zone."

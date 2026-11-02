@@ -7,13 +7,6 @@ const COOLDOWN_SIZE := 34.0
 const COOLDOWN_GAP := 6.0
 const COOLDOWN_OFFSET := 30.0
 ## Conseils de première partie : [instant (s), clé de traduction].
-const TUTORIAL_TIPS := [[2.0, "TIP_MOVE"], [9.0, "TIP_AUTO_ATTACK"], [16.0, "TIP_SPELLS"], [25.0, "TIP_TECHNIQUES"],
-	[36.0, "TIP_DASH"], [50.0, "TIP_COOLDOWNS"], [70.0, "TIP_BOSS"]]
-## Touches citées par une astuce (libellés selon la disposition du clavier).
-const TIP_KEYS := {
-	"TIP_MOVE": [&"move_up", &"move_left", &"move_down", &"move_right"],
-	"TIP_TECHNIQUES": [&"technique_1", &"technique_2", &"technique_3"],
-}
 ## Barre des sorts du Chasseur (bas gauche) : taille d'un emplacement et écart.
 const SPELL_SLOT := 64.0
 const SPELL_GAP := 34.0
@@ -21,6 +14,8 @@ const SPELL_GAP := 34.0
 const CARD_TIME := 8.0
 
 var ctx: RunContext
+## Astuces de la première expédition (déclenchées par les actions du joueur).
+var tutorial := TutorialTips.new()
 var minimap := Minimap.new()
 var _font: Font
 var _banner_text: String = ""
@@ -30,7 +25,6 @@ var _card_time: float = 0.0
 var _banner_time: float = 0.0
 var _icons: Dictionary = {}
 var _beat: float = 0.0
-var _tips: Array = []
 var _tip_text: String = ""
 var _tip_time: float = 0.0
 ## Barre des sorts (illustrations HD de 512 px) : dessinée sur un calque filtré avec mipmaps pour rester nette une
@@ -58,8 +52,9 @@ func setup(p_ctx: RunContext) -> void:
 		banner(tr(key) % boss.display_name()))
 	ctx.events.boss_phase_changed.connect(func(_phase: int) -> void: banner(tr("HUD_BOSS_PHASE2")))
 	Audio.beat.connect(func(_index: int) -> void: _beat = 1.0)
+	# Première expédition : astuces déclenchées par ce que fait le joueur (TutorialTips).
 	if ctx.setup.show_tutorial:
-		_tips = TUTORIAL_TIPS.duplicate()
+		tutorial.setup(ctx)
 	ctx.events.evolution_taken.connect(func(_id: StringName, evo_id: StringName) -> void:
 		for monster: MonsterData in GameDB.monsters.values():
 			for evo: EvolutionData in monster.evolutions:
@@ -85,17 +80,9 @@ func _process(delta: float) -> void:
 	_banner_time = maxf(_banner_time - delta, 0.0)
 	_card_time = maxf(_card_time - delta, 0.0)
 	_beat = maxf(_beat - delta * 4.0, 0.0)
-	_tip_time = maxf(_tip_time - delta, 0.0)
-	if ctx and not _tips.is_empty() and ctx.time >= float(_tips[0][0]):
-		var key: String = str(_tips[0][1])
-		_tip_text = tr(key + "_MOUSE") if key == "TIP_SPELLS" and Settings.uses_mouse() else tr(key)
-		var labels: Array = []
-		for action: StringName in TIP_KEYS.get(str(_tips[0][1]), []):
-			labels.append(InputSetup.key_label(action))
-		if not labels.is_empty():
-			_tip_text = _tip_text % labels
-		_tip_time = 7.0
-		_tips.pop_front()
+	tutorial.step(delta)
+	_tip_text = tutorial.text
+	_tip_time = tutorial.time
 	_spell_icon_layer.queue_redraw()
 	if ctx and ctx.player:
 		ctx.player.hurt_flash = maxf(ctx.player.hurt_flash - delta * 3.0, 0.0)
