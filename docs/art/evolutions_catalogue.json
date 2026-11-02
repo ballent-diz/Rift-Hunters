@@ -1,0 +1,713 @@
+[
+  {
+    "visual_id": "monster.cinderwing.phoenixwing",
+    "base": "monster.cinderwing",
+    "name": "Phénixaile",
+    "target_height": 64,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.cinderwing.stormtalon",
+    "base": "monster.cinderwing",
+    "name": "Serre-tonnerre",
+    "target_height": 64,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.glimmerwing.dawnward",
+    "base": "monster.glimmerwing",
+    "name": "Aube-Garde",
+    "target_height": 86,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.glimmerwing.prismara",
+    "base": "monster.glimmerwing",
+    "name": "Prismara",
+    "target_height": 86,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.glimmerwing.prismatic_eclipse",
+    "base": "monster.glimmerwing",
+    "name": "Éclipse prismatique",
+    "target_height": 90,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.gloommaw.abyssmaw",
+    "base": "monster.gloommaw",
+    "name": "Gouffre-gueule",
+    "target_height": 78,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.gloommaw.gorgeshade",
+    "base": "monster.gloommaw",
+    "name": "Gloutombre",
+    "target_height": 78,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.glowmoth.aurora_moth",
+    "base": "monster.glowmoth",
+    "name": "Phalène d'aurore",
+    "target_height": 64,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.glowmoth.lantern_moth",
+    "base": "monster.glowmoth",
+    "name": "Phalène-lanterne",
+    "target_height": 64,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.gravishell.eclipse_shell",
+    "base": "monster.gravishell",
+    "name": "Carapace d'éclipse",
+    "target_height": 74,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.gravishell.moonarch",
+    "base": "monster.gravishell",
+    "name": "Lunarche",
+    "target_height": 74,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.grovestag.amberwood",
+    "base": "monster.grovestag",
+    "name": "Bois-d'ambre",
+    "target_height": 82,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.grovestag.sylvan_stag",
+    "base": "monster.grovestag",
+    "name": "Cerf-sylve",
+    "target_height": 82,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.hollowflame.hearthvoid",
+    "base": "monster.hollowflame",
+    "name": "Âtrenoir",
+    "target_height": 70,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.hollowflame.void_lantern",
+    "base": "monster.hollowflame",
+    "name": "Lanterne-néant",
+    "target_height": 70,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.magmander.obsidrake",
+    "base": "monster.magmander",
+    "name": "Obsidrake",
+    "target_height": 74,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.magmander.volcanyx",
+    "base": "monster.magmander",
+    "name": "Volcandre",
+    "target_height": 74,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.mirrorling.kaleidos",
+    "base": "monster.mirrorling",
+    "name": "Kaléidos",
+    "target_height": 70,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.mirrorling.prismward",
+    "base": "monster.mirrorling",
+    "name": "Prisme-garde",
+    "target_height": 70,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.moonspore.moonmold",
+    "base": "monster.moonspore",
+    "name": "Moisilune",
+    "target_height": 74,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.moonspore.sporecrown",
+    "base": "monster.moonspore",
+    "name": "Couronne-spore",
+    "target_height": 74,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.mossback.monolith",
+    "base": "monster.mossback",
+    "name": "Monolithe",
+    "target_height": 94,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.mossback.quakeback",
+    "base": "monster.mossback",
+    "name": "Tremblecroc",
+    "target_height": 92,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.stormshell.dynamo",
+    "base": "monster.stormshell",
+    "name": "Dynamo",
+    "target_height": 79,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.stormshell.thunderaegis",
+    "base": "monster.stormshell",
+    "name": "Égide-tonnerre",
+    "target_height": 79,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.sunclaw.noonfang",
+    "base": "monster.sunclaw",
+    "name": "Croc-de-midi",
+    "target_height": 79,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.sunclaw.zenith",
+    "base": "monster.sunclaw",
+    "name": "Zénithe",
+    "target_height": 79,
+    "scale": 0.75,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "technique"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.thornweave.blightbloom",
+    "base": "monster.thornweave",
+    "name": "Floraison funeste",
+    "target_height": 97,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.thornweave.briar_queen",
+    "base": "monster.thornweave",
+    "name": "Reine-ronce",
+    "target_height": 97,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.voltwisp.stormarc",
+    "base": "monster.voltwisp",
+    "name": "Arc-tempête",
+    "target_height": 70,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  },
+  {
+    "visual_id": "monster.voltwisp.thunderhead",
+    "base": "monster.voltwisp",
+    "name": "Tonnerrine",
+    "target_height": 75,
+    "scale": 0.65,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      }
+    ]
+  }
+]

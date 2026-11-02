@@ -1,0 +1,29 @@
+{
+  "godot": "4.3.stable.official.77dcf97d8",
+  "forms": 31,
+  "source_sheets": 62,
+  "painted_animations": 144,
+  "painted_poses": 956,
+  "aliases": 11,
+  "animation_fields_match_bases": true,
+  "assets_total": 473,
+  "assets_valid": 458,
+  "planned_chapter4": 15,
+  "asset_errors": 0,
+  "art_importer": "passed",
+  "final_maps_conform": 6,
+  "capture_size": [
+    1280,
+    720
+  ],
+  "gifs": {
+    "comparaison-0.gif": 1334549,
+    "comparaison-6.gif": 1924046,
+    "comparaison-1.gif": 1413408,
+    "comparaison-2.gif": 1899214,
+    "comparaison-4.gif": 1642940,
+    "comparaison-5.gif": 1882885,
+    "comparaison-7.gif": 1038843,
+    "comparaison-3.gif": 1640564
+  }
+}

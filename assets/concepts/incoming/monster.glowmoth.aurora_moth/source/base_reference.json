@@ -1,0 +1,7 @@
+{
+  "visual_id": "monster.glowmoth",
+  "sheet": "assets/sprites/monsters/glowmoth/glowmoth_sheet.png",
+  "sha256": "739a995fc8cb2b783df6893d1ca7487422a9a492474beb69658b6cbdf44349e6",
+  "reference_main": "858c88b9d229bcb55df0fb22b3a004358420349b",
+  "source_unchanged_in_main_e7701e9": true
+}

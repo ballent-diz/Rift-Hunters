@@ -1,0 +1,7 @@
+{
+  "visual_id": "monster.thornweave",
+  "sheet": "assets/sprites/monsters/thornweave/thornweave_sheet.png",
+  "sha256": "e3c8b8408f444ddafe8992641b7af651f0fb4ed8d0887a5303d96265d7b3a69b",
+  "reference_main": "858c88b9d229bcb55df0fb22b3a004358420349b",
+  "source_unchanged_in_main_e7701e9": true
+}

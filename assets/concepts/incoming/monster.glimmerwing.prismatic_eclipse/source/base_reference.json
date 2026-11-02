@@ -1,0 +1,7 @@
+{
+  "visual_id": "monster.glimmerwing",
+  "sheet": "assets/sprites/monsters/glimmerwing/glimmerwing_sheet.png",
+  "sha256": "a9f3e4d706a9911031029014a45e5dc6decbf7ddb01146b150d88ceb18226a68",
+  "reference_main": "858c88b9d229bcb55df0fb22b3a004358420349b",
+  "source_unchanged_in_main_e7701e9": true
+}

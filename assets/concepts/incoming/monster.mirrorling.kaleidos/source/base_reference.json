@@ -1,0 +1,7 @@
+{
+  "visual_id": "monster.mirrorling",
+  "sheet": "assets/sprites/monsters/mirrorling/mirrorling_sheet.png",
+  "sha256": "3950095728cb9ca1186ed10cec779f09abd05bc73666fc2f185daa5b3899d555",
+  "reference_main": "858c88b9d229bcb55df0fb22b3a004358420349b",
+  "source_unchanged_in_main_e7701e9": true
+}

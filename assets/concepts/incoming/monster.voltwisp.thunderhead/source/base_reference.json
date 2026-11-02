@@ -1,0 +1,7 @@
+{
+  "visual_id": "monster.voltwisp",
+  "sheet": "assets/sprites/monsters/voltwisp/voltwisp_sheet.png",
+  "sha256": "51d6bcfa34c7d106fec0bb15986e7132cfb9d36e191ee8930491dfa4b61befe6",
+  "reference_main": "858c88b9d229bcb55df0fb22b3a004358420349b",
+  "source_unchanged_in_main_e7701e9": true
+}

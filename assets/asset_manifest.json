@@ -195,6 +195,1463 @@
 			},
 			"icon": "res://assets/ui/icons/monsters/glimmerwing.png"
 		},
+		"monster.cinderwing.phoenixwing": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.cinderwing.phoenixwing/job.json",
+			"sheet": "res://assets/sprites/monsters/cinderwing/cinderwing_phoenixwing_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/cinderwing_phoenixwing.png"
+		},
+		"monster.cinderwing.stormtalon": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.cinderwing.stormtalon/job.json",
+			"sheet": "res://assets/sprites/monsters/cinderwing/cinderwing_stormtalon_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/cinderwing_stormtalon.png"
+		},
+		"monster.glimmerwing.dawnward": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.glimmerwing.dawnward/job.json",
+			"sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_dawnward_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/glimmerwing_dawnward.png"
+		},
+		"monster.glimmerwing.prismara": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.glimmerwing.prismara/job.json",
+			"sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_prismara_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/glimmerwing_prismara.png"
+		},
+		"monster.glimmerwing.prismatic_eclipse": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.glimmerwing.prismatic_eclipse/job.json",
+			"sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_prismatic_eclipse_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/glimmerwing_prismatic_eclipse.png"
+		},
+		"monster.gloommaw.abyssmaw": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.gloommaw.abyssmaw/job.json",
+			"sheet": "res://assets/sprites/monsters/gloommaw/gloommaw_abyssmaw_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/gloommaw_abyssmaw.png"
+		},
+		"monster.gloommaw.gorgeshade": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.gloommaw.gorgeshade/job.json",
+			"sheet": "res://assets/sprites/monsters/gloommaw/gloommaw_gorgeshade_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/gloommaw_gorgeshade.png"
+		},
+		"monster.glowmoth.aurora_moth": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.glowmoth.aurora_moth/job.json",
+			"sheet": "res://assets/sprites/monsters/glowmoth/glowmoth_aurora_moth_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/glowmoth_aurora_moth.png"
+		},
+		"monster.glowmoth.lantern_moth": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.glowmoth.lantern_moth/job.json",
+			"sheet": "res://assets/sprites/monsters/glowmoth/glowmoth_lantern_moth_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/glowmoth_lantern_moth.png"
+		},
+		"monster.gravishell.eclipse_shell": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.gravishell.eclipse_shell/job.json",
+			"sheet": "res://assets/sprites/monsters/gravishell/gravishell_eclipse_shell_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/gravishell_eclipse_shell.png"
+		},
+		"monster.gravishell.moonarch": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.gravishell.moonarch/job.json",
+			"sheet": "res://assets/sprites/monsters/gravishell/gravishell_moonarch_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/gravishell_moonarch.png"
+		},
+		"monster.grovestag.amberwood": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.grovestag.amberwood/job.json",
+			"sheet": "res://assets/sprites/monsters/grovestag/grovestag_amberwood_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/grovestag_amberwood.png"
+		},
+		"monster.grovestag.sylvan_stag": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.grovestag.sylvan_stag/job.json",
+			"sheet": "res://assets/sprites/monsters/grovestag/grovestag_sylvan_stag_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/grovestag_sylvan_stag.png"
+		},
+		"monster.hollowflame.hearthvoid": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.hollowflame.hearthvoid/job.json",
+			"sheet": "res://assets/sprites/monsters/hollowflame/hollowflame_hearthvoid_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/hollowflame_hearthvoid.png"
+		},
+		"monster.hollowflame.void_lantern": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.hollowflame.void_lantern/job.json",
+			"sheet": "res://assets/sprites/monsters/hollowflame/hollowflame_void_lantern_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/hollowflame_void_lantern.png"
+		},
+		"monster.magmander.obsidrake": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.magmander.obsidrake/job.json",
+			"sheet": "res://assets/sprites/monsters/magmander/magmander_obsidrake_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/magmander_obsidrake.png"
+		},
+		"monster.magmander.volcanyx": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.magmander.volcanyx/job.json",
+			"sheet": "res://assets/sprites/monsters/magmander/magmander_volcanyx_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/magmander_volcanyx.png"
+		},
+		"monster.mirrorling.kaleidos": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.mirrorling.kaleidos/job.json",
+			"sheet": "res://assets/sprites/monsters/mirrorling/mirrorling_kaleidos_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/mirrorling_kaleidos.png"
+		},
+		"monster.mirrorling.prismward": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.mirrorling.prismward/job.json",
+			"sheet": "res://assets/sprites/monsters/mirrorling/mirrorling_prismward_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/mirrorling_prismward.png"
+		},
+		"monster.moonspore.moonmold": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.moonspore.moonmold/job.json",
+			"sheet": "res://assets/sprites/monsters/moonspore/moonspore_moonmold_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/moonspore_moonmold.png"
+		},
+		"monster.moonspore.sporecrown": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.moonspore.sporecrown/job.json",
+			"sheet": "res://assets/sprites/monsters/moonspore/moonspore_sporecrown_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/moonspore_sporecrown.png"
+		},
+		"monster.mossback.monolith": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.mossback.monolith/job.json",
+			"sheet": "res://assets/sprites/monsters/mossback/mossback_monolith_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/mossback_monolith.png"
+		},
+		"monster.mossback.quakeback": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.mossback.quakeback/job.json",
+			"sheet": "res://assets/sprites/monsters/mossback/mossback_quakeback_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/mossback_quakeback.png"
+		},
+		"monster.stormshell.dynamo": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.stormshell.dynamo/job.json",
+			"sheet": "res://assets/sprites/monsters/stormshell/stormshell_dynamo_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/stormshell_dynamo.png"
+		},
+		"monster.stormshell.thunderaegis": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.stormshell.thunderaegis/job.json",
+			"sheet": "res://assets/sprites/monsters/stormshell/stormshell_thunderaegis_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/stormshell_thunderaegis.png"
+		},
+		"monster.sunclaw.noonfang": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.sunclaw.noonfang/job.json",
+			"sheet": "res://assets/sprites/monsters/sunclaw/sunclaw_noonfang_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/sunclaw_noonfang.png"
+		},
+		"monster.sunclaw.zenith": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.sunclaw.zenith/job.json",
+			"sheet": "res://assets/sprites/monsters/sunclaw/sunclaw_zenith_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.75,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 8,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 8,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"technique": {
+					"row": 3,
+					"frames": 8,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 8,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/sunclaw_zenith.png"
+		},
+		"monster.thornweave.blightbloom": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.thornweave.blightbloom/job.json",
+			"sheet": "res://assets/sprites/monsters/thornweave/thornweave_blightbloom_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/thornweave_blightbloom.png"
+		},
+		"monster.thornweave.briar_queen": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.thornweave.briar_queen/job.json",
+			"sheet": "res://assets/sprites/monsters/thornweave/thornweave_briar_queen_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/thornweave_briar_queen.png"
+		},
+		"monster.voltwisp.stormarc": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.voltwisp.stormarc/job.json",
+			"sheet": "res://assets/sprites/monsters/voltwisp/voltwisp_stormarc_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/voltwisp_stormarc.png"
+		},
+		"monster.voltwisp.thunderhead": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/monster.voltwisp.thunderhead/job.json",
+			"sheet": "res://assets/sprites/monsters/voltwisp/voltwisp_thunderhead_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 4,
+					"fps": 6,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 4,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 4,
+					"fps": 6,
+					"loop": false
+				},
+				"technique": {
+					"row": 2,
+					"frames": 4,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/monsters/voltwisp_thunderhead.png"
+		},
 		"enemy.skitterling": {
 			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.skitterling/job.json",

@@ -1,0 +1,7 @@
+{
+  "visual_id": "monster.stormshell",
+  "sheet": "assets/sprites/monsters/stormshell/stormshell_sheet.png",
+  "sha256": "7a03af41987234c1965cff1ec2c8f1965bec0b81f97c9dbea206fd6154a87681",
+  "reference_main": "858c88b9d229bcb55df0fb22b3a004358420349b",
+  "source_unchanged_in_main_e7701e9": true
+}

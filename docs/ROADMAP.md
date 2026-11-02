@@ -246,6 +246,8 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 | C7 | Les 9 nouveaux Échos en jeu : données, attaques, sorts, arbres, duos nommés, textes FR/EN | Claude | C3, C6 et les sprites (C8) | Fait (18 oct.) : 9 Échos, 18 sorts, 4 statuts, 8 duos, effets et icônes de Codex raccordés — [design/ECHOS.md](design/ECHOS.md), à valider |
 | C8 | Sprites des 9 nouveaux Échos (+ Mirelle) : prompts, génération, import | Codex (génération autorisée, prompts, import, contrôle) | — | Livré (Codex), PR #25 |
 
+**Images manquantes — évolutions : Livré (Codex, 2 novembre 2026).** Les 31 identifiants fournis, 62 planches et 956 poses sont importés ; noms, frames, fps et boucles des bases conservés. Import, assets, art et audit verts ; huit GIF 720p comparés aux bases. Aucune règle réactivée ou modifiée. Contrat : `docs/art/EVOLUTIONS_ECHOS.md`.
+
 C5, habillage fonctionnel de l’arbre après fusion de la PR #16 : **En cours (Codex)**.
 Écran 1280 × 720, états et connexions, builds et équipements ; règles de progression inchangées.
 Mise à jour du propriétaire : génération des 24 icônes confiée à Codex, puis import par le pipeline commun.

@@ -1,0 +1,7 @@
+{
+  "visual_id": "monster.cinderwing",
+  "sheet": "assets/sprites/monsters/cinderwing/cinderwing_sheet.png",
+  "sha256": "5ae1a7fcac7661f54ed6254720839527eb3abdc2f049abe5006bd72e5c0e6dcf",
+  "reference_main": "858c88b9d229bcb55df0fb22b3a004358420349b",
+  "source_unchanged_in_main_e7701e9": true
+}
