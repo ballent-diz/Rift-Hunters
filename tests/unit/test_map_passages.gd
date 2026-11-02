@@ -69,3 +69,66 @@ func test_painted_obstacles_stay_blocked() -> void:
 		var point: Vector2 = center + Vector2.from_angle(TAU * index / 40) * 160
 		check(not ground.obstacle_field().blocks(point, ELITE_RADIUS), "tourner sur le basalte avec une élite")
 	ground.free()
+
+
+## Obstacles d'une carte, avec des rectangles fermés en plus (barrières de zone, chaussées noyées).
+func _field_with(id: StringName, walls: Array[Rect2]) -> Array:
+	var ground := ArenaGround.new()
+	ground.setup(GameDB.arena(id), 7)
+	var field: ObstacleField = ground.obstacle_field()
+	for rect: Rect2 in walls:
+		field.add_wall(rect)
+	return [ground, field]
+
+
+func _reach(id: StringName, walls: Array[Rect2], places: Dictionary) -> Dictionary:
+	var pair: Array = _field_with(id, walls)
+	var ground: ArenaGround = pair[0]
+	var targets: Array[Vector2] = []
+	targets.assign(places.values())
+	var ok: Array[bool] = reachable(pair[1], ground.arena_rect(), ground.player_start(), targets, ELITE_RADIUS)
+	ground.free()
+	var result: Dictionary = {}
+	for i: int in ok.size():
+		result[places.keys()[i]] = ok[i]
+	return result
+
+
+func test_volcano_heart_landmarks_are_reachable() -> void:
+	_check(&"caldera_arena", {"centre": Vector2(0, 0), "bord nord-ouest": Vector2(-1800, -1200),
+		"bord nord-est": Vector2(1700, -1500), "est": Vector2(1864, -104), "sud-ouest": Vector2(-1800, 920)})
+
+
+func test_root_mangrove_landmarks_are_reachable() -> void:
+	_check(&"root_mangrove", {"mangrove": Vector2(-1704, -164), "ruines": Vector2(456, -1068),
+		"tourbière": Vector2(1712, 740), "île": Vector2(0, -210), "retour sud": Vector2(-150, 1250)})
+
+
+## Barrières fermées : seule la zone 1 est accessible depuis le départ ; ouvertes, toutes les zones et la finale.
+func test_zone_barriers_split_the_zones() -> void:
+	for id: StringName in [&"ash_vents", &"soot_dens", &"cataclysm_threshold", &"root_mangrove"]:
+		var arena: ArenaData = GameDB.arena(id)
+		var walls: Array[Rect2] = []
+		var places: Dictionary = {"finale": arena.finale_center}
+		for i: int in arena.zones.size():
+			walls.append_array(arena.zones[i].exit_walls)
+			places["zone %d" % (i + 1)] = arena.zones[i].anchor
+		var closed: Dictionary = _reach(id, walls, places)
+		var open: Dictionary = _reach(id, [], places)
+		for place: String in places:
+			check(open[place], "%s : %s atteignable barrières ouvertes" % [id, place])
+			check(closed[place] == (place == "zone 1"), "%s : %s %s barrières fermées" % [id, place,
+				"atteignable" if place == "zone 1" else "isolée"])
+
+
+func test_tide_temple_high_road_stays_open_at_high_tide() -> void:
+	var arena: ArenaData = GameDB.arena(&"tide_temple")
+	check(arena.tide_causeways.size() > 0, "chaussées de marée")
+	var places: Dictionary = {"bassin sacré": arena.finale_center}
+	for i: int in arena.rift_points.size():
+		places["faille %d" % (i + 1)] = arena.rift_points[i]
+	var low: Dictionary = _reach(&"tide_temple", [], places)
+	var high: Dictionary = _reach(&"tide_temple", arena.tide_causeways, places)
+	for place: String in places:
+		check(low[place], "marée basse : %s atteignable" % place)
+		check(high[place], "marée haute : %s atteignable par le chemin haut" % place)

@@ -5,11 +5,14 @@ extends RefCounted
 
 var ctx: RunContext
 var m: EnemyManager
+## Effets peints des techniques (présentation seulement).
+var vfx: MarshVfx
 
 
 func _init(p_ctx: RunContext, manager: EnemyManager) -> void:
 	ctx = p_ctx
 	m = manager
+	vfx = MarshVfx.new(p_ctx, manager)
 
 ## Spore-marque, marque de prisme (E14) : marque le Chasseur, qui explose après un délai ; la Ruée l'efface.
 func technique_mark(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
@@ -21,6 +24,7 @@ func technique_mark(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vec
 		if ctx.player.alive and not ctx.player.is_marked():
 			ctx.player.mark(float(technique.params.get("delay", 3.0)), m._scaled(enemy, technique.damage),
 				float(technique.params.get("radius", 110.0)), enemy.data.id)
+			vfx.mark(enemy)
 			ctx.fx.spark(ctx.player.global_position, Color(0.7, 1.0, 0.4), 14.0))
 	return true
 
@@ -62,6 +66,7 @@ func technique_blink(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: V
 			var target: Vector2 = ctx.obstacles.push_out((around + side * distance).clamp(area.position, area.end),
 				enemy.radius)
 			ctx.fx.burst(enemy.position, enemy.radius * 1.4, Color(0.75, 0.95, 1.0, 0.5))
+			vfx.blink(enemy, enemy.position, target)
 			enemy.position = target
 			enemy.invulnerable_time = 0.15
 			ctx.fx.burst(target, enemy.radius * 1.4, Color(0.75, 0.95, 1.0, 0.5)))
@@ -76,9 +81,11 @@ func technique_blink(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: V
 func technique_clones(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
 	var count: int = int(technique.params.get("count", 2))
 	enemy.technique_busy = technique.telegraph
+	var spots: Array[Vector2] = []
 	for i: int in count:
 		var pos: Vector2 = ctx.obstacles.push_out(enemy.position + Vector2.RIGHT.rotated(TAU * i / count + 0.6) * 70.0,
 			enemy.radius)
+		spots.append(pos)
 		ctx.fx.ring(pos, enemy.radius * 1.3, Color(0.75, 0.95, 1.0, 0.8), technique.telegraph)
 		m._later(enemy, technique.telegraph, func() -> void:
 			var clone: Enemy = m.spawn(enemy.data, pos)
@@ -89,6 +96,7 @@ func technique_clones(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: 
 			clone.xp_value = 0
 			clone.contact_damage = enemy.contact_damage * 0.5
 			clone.visual.modulate = Color(0.75, 0.95, 1.0, 0.6))
+	vfx.clones(enemy, spots)
 	return true
 
 
@@ -138,7 +146,14 @@ func hidden(enemy: Enemy) -> bool:
 
 func stealth_alpha(enemy: Enemy, player_pos: Vector2) -> float:
 	var range_px: float = enemy.data.stealth_range
-	return clampf(1.0 - (enemy.position.distance_to(player_pos) - range_px * 0.7) / (range_px * 0.3), 0.08, 1.0)
+	var alpha: float = clampf(1.0 - (enemy.position.distance_to(player_pos) - range_px * 0.7) / (range_px * 0.3), 0.08, 1.0)
+	# Passage à visible : l'effet de révélation, une fois par sortie de l'ombre.
+	if alpha >= 0.95 and not enemy.revealed:
+		enemy.revealed = true
+		vfx.reveal(enemy)
+	elif alpha <= 0.1:
+		enemy.revealed = false
+	return alpha
 
 
 ## Ombre des volants, bulle du bouclier d'écorce, arc du miroir renvoyeur.
@@ -175,17 +190,21 @@ func technique_sweep_beam(enemy: Enemy, technique: EnemyTechniqueData, player_po
 	var side: float = 1.0 if ctx.rng.randf() < 0.5 else -1.0
 	var start: Vector2 = (player_pos - enemy.position).normalized().rotated(-arc * 0.5 * side)
 	ctx.fx.danger_line(enemy.position, enemy.position + start * length, width, technique.telegraph)
+	var ends: float = ctx.time + technique.telegraph + sweep_time
 	for i: int in steps:
 		var dir: Vector2 = start.rotated(arc * side * i / float(maxi(steps - 1, 1)))
 		m._later(enemy, technique.telegraph + sweep_time * i / float(steps), func() -> void:
-			ctx.hazards.add_beam(enemy.position, dir, ctx.obstacles.clear_distance(enemy.position, dir, length), width, 0.05,
-				sweep_time / float(steps) + 0.05, m._scaled(enemy, technique.damage), enemy.data.id))
+			var reach: float = ctx.obstacles.clear_distance(enemy.position, dir, length)
+			ctx.hazards.add_beam(enemy.position, dir, reach, width, 0.05, sweep_time / float(steps) + 0.05,
+				m._scaled(enemy, technique.damage), enemy.data.id)
+			vfx.sweep(enemy, dir, reach, width, ends))
 	var weak: float = float(technique.params.get("weak_time", 0.0))
 	enemy.technique_busy = technique.telegraph + sweep_time + weak
 	if weak > 0.0:
 		m._later(enemy, technique.telegraph + sweep_time, func() -> void:
 			enemy.extra_damage_taken = float(technique.params.get("weak_mult", 1.6))
 			ctx.fx.text(enemy.position + Vector2(0, -enemy.radius - 24.0), tr("ENEMY_WEAK_POINT"), Color(0.75, 0.95, 1.0))
+			vfx.exposed(enemy, weak)
 			m._later(enemy, weak, func() -> void: enemy.extra_damage_taken = 1.0))
 	return true
 

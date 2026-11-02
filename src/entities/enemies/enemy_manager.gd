@@ -265,9 +265,8 @@ func step(delta: float) -> void:
 				enemy.touch_cooldown = contact_interval
 				if not misses(enemy):
 					ctx.combat.damage_player(enemy.contact_damage, enemy.data.id if enemy.data else &"boss")
-				# Coup au contact visible (ennemis de mêlée) : la rangée d'attaque de la feuille.
 				if not enemy.is_boss and view.has_point(pos):
-					enemy.visual.play_action(&"attack")
+					marsh.vfx.melee(enemy, player_pos)
 		if enemy.data and enemy.data.stealth_range > 0.0:
 			enemy.visual.modulate.a = marsh.stealth_alpha(enemy, player_pos)
 		if view.has_point(pos):
@@ -811,12 +810,14 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 	enemy.motion = {}
 
 
-## Technique propre au gestionnaire (_technique_<kind>) ou au chapitre 3 (MarshTechniques.technique_<kind>).
+## Technique propre au gestionnaire (_technique_<kind>), ou technique_<kind> du chapitre 4 (FrostTechniques), sinon du 3.
 func _run_technique(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
-	var method: String = "_technique_" + String(technique.kind)
-	if has_method(method):
-		return call(method, enemy, technique, player_pos)
-	return marsh.call("technique_" + String(technique.kind), enemy, technique, player_pos)
+	var shared: String = "technique_" + String(technique.kind)
+	var done: bool = call("_" + shared, enemy, technique, player_pos) if has_method("_" + shared) else \
+		(ctx.frost if ctx.frost and ctx.frost.has_method(shared) else marsh).call(shared, enemy, technique, player_pos)
+	if done:
+		marsh.vfx.technique(enemy, technique, player_pos)
+	return done
 
 
 func _later(enemy: Enemy, delay: float, action: Callable) -> void:
@@ -874,8 +875,7 @@ func _technique_web(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vec
 	return true
 
 
-## Plongée (E2, Rôdeur de lave) : s'enfouit (intouchable, invisible), avance sous terre en laissant une traînée,
-## puis ressort sous le Chasseur après une alerte au sol.
+## Plongée (E2) : s'enfouit (intouchable, invisible), suit le chemin des marcheurs sous terre, ressort sous le Chasseur.
 func _technique_burrow(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: Vector2) -> bool:
 	var travel: float = float(technique.params.get("travel", 1.2))
 	var emerge: float = float(technique.params.get("emerge", 0.55))
@@ -892,7 +892,9 @@ func _step_burrow(enemy: Enemy, motion: Dictionary, delta: float) -> void:
 	enemy.visual.visible = false
 	var to_player: Vector2 = ctx.player.global_position - enemy.position
 	if float(motion["t"]) < float(motion["duration"]):
-		enemy.position += to_player.limit_length(float(motion["speed"]) * delta)
+		var step: Vector2 = (ctx.flow.direction(enemy.position, to_player.normalized()) if ctx.flow else to_player.normalized()) \
+			* minf(to_player.length(), float(motion["speed"]) * delta)
+		enemy.position = ctx.obstacles.push_out(enemy.position + step, enemy.radius)
 		motion["trail"] = float(motion["trail"]) - delta
 		if float(motion["trail"]) <= 0.0:
 			motion["trail"] = 0.12
@@ -980,8 +982,9 @@ func _step_pending_actions() -> void:
 		var entry: Dictionary = _pending_actions[i]
 		if ctx.time >= float(entry["time"]):
 			_pending_actions.remove_at(i)
-			var enemy: Enemy = entry["enemy"]
-			if is_instance_valid(enemy) and enemy.alive:
+			# Lu sans type : un ennemi libéré entre-temps ne peut pas être affecté à une variable typée.
+			var enemy: Variant = entry["enemy"]
+			if is_instance_valid(enemy) and (enemy as Enemy).alive:
 				(entry["action"] as Callable).call()
 		i -= 1
 

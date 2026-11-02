@@ -48,6 +48,8 @@ var reflect_until: float = 0.0
 var reflect_dir := Vector2.RIGHT
 ## Clone (E17) : copie fragile qui disparaît à clone_until.
 var is_clone: bool = false
+## Furtif : déjà révélé depuis sa dernière sortie de l'ombre (effet de révélation joué une fois).
+var revealed: bool = false
 ## Né d'un nid (B8) : ne compte pas dans les vagues.
 var from_nest: bool = false
 var clone_until: float = 0.0

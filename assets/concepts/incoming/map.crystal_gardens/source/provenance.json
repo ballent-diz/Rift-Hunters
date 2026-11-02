@@ -1,0 +1,24 @@
+{
+  "stages": [
+    {
+      "prompt": "source/PROMPT_COMPOSITION.txt",
+      "output_sha256": "9db231216e9970529f9fb34523d264c21239cbdfd0b63ed820cd44eb4ce557ec",
+      "raw_output_stored_in_git": false
+    },
+    {
+      "prompt": "source/PROMPT_RETOUCHE.txt",
+      "output_sha256": "01568a2e8abf4db031e8de7bcb753017bbcaf0ec345a269adf000350b2ac6099",
+      "raw_output_stored_in_git": false
+    },
+    {
+      "prompt": "source/PROMPT_ESPACES.txt",
+      "output_sha256": "c38747b7cf5cb11dfae0866ea08e9835c35419ae53435577129fbf79def2cc5b",
+      "raw_output_stored_in_git": false
+    }
+  ],
+  "normalization": "Derniere composition uniquement, convertie en RGB1536x512 par LANCZOS ; aucune passe de detail ni upscale final.",
+  "references": [
+    "res://docs/previews/root-mangrove/carte_entiere.webp",
+    "res://assets/environments/cascade_ruins/map.webp"
+  ]
+}

@@ -22,3 +22,5 @@ var life: float = 1.5
 var radius: float = 6.0
 var color := Color.WHITE
 var hit_ids: Dictionary = {}
+## Corps peint d'un tir ennemi (scène du tireur, PaintedVfx), qui suit le tir ; lu sans type car il peut être libéré.
+var fx: Variant = null

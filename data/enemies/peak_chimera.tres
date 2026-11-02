@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
 [ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
 
 [sub_resource type="Resource" id="visual_data_1"]
 script = ExtResource("2")
@@ -23,6 +24,21 @@ params = {
 "charge_time": 0.45
 }
 
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"leap"
+anim = &"attack"
+cooldown = 7.0
+min_range = 200.0
+max_range = 420.0
+telegraph = 0.5
+damage = 14.0
+params = {
+"flight": 0.45,
+"radius": 75.0,
+"height": 70.0
+}
+
 [resource]
 script = ExtResource("1")
 id = &"peak_chimera"
@@ -37,3 +53,4 @@ radius = 26.0
 xp_value = 3
 visual = SubResource("visual_data_1")
 attack = SubResource("attack_data_2")
+techniques = Array[ExtResource("4")]([SubResource("technique_1")])

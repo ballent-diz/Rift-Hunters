@@ -73,3 +73,24 @@ func test_tide_floods_causeways_then_recedes() -> void:
 		ctx.tide.step(0.1)
 		t += 0.1
 	check(not ctx.tide.is_high() and not ctx.obstacles._wall_blocks(Vector2(350, 0), 10.0), "marée basse : raccourci rouvert")
+
+
+func test_route_arrows_follow_the_permanent_path() -> void:
+	var causeway := Rect2(250, -60, 200, 120)
+	var ctx: RunContext = _start(func(arena: ArenaData) -> void:
+		arena.tide_causeways = [causeway])
+	check(ctx.obstacles.wall_transient.has(true), "chaussée marquée passagère")
+	var route := FlowField.new()
+	route.avoid_transient = true
+	route.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)
+	var crowd := FlowField.new()
+	crowd.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)
+	# Une case de la chaussée hors du décor : seule la marée peut la fermer.
+	var free := Vector2.INF
+	for x: int in range(int(causeway.position.x) + 8, int(causeway.end.x), 16):
+		for y: int in range(int(causeway.position.y) + 8, int(causeway.end.y), 16):
+			if free == Vector2.INF and not ctx.obstacles.blocks(Vector2(x, y), FlowField.CLEARANCE, false):
+				free = Vector2(x, y)
+	check(free != Vector2.INF, "chaussée hors du décor")
+	check(not route.is_walkable(route.cell_of(free)), "la flèche de route évite la chaussée même à marée basse")
+	check(crowd.is_walkable(crowd.cell_of(free)), "les Corrompus l'empruntent à marée basse")
