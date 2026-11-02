@@ -21,6 +21,8 @@ var ctx: RunContext
 ## {"enemy": Enemy, "state": State, "timer": float, "kind": StringName, "dir": Vector2}
 var pods: Array[Dictionary] = []
 var _time: float = 0.0
+## Annonces déjà faites (bulbes, cristaux) : une seule fois, à l'approche du premier.
+var _announced: Dictionary = {}
 
 
 static func uses_pods(arena: ArenaData) -> bool:
@@ -90,6 +92,20 @@ func _aim(pos: Vector2, from: Vector2) -> Vector2:
 	return dir
 
 
+## Première approche d'un bulbe ou d'un cristal : son annonce (et sa fiche au Journal la première fois).
+func _announce() -> void:
+	if _announced.size() >= 2 or ctx.player == null:
+		return
+	for pod: Dictionary in pods:
+		var held: Variant = pod["enemy"]
+		var kind: StringName = pod["kind"]
+		if _announced.has(kind) or not is_instance_valid(held):
+			continue
+		if (held as Enemy).position.distance_to(ctx.player.global_position) < 600.0:
+			_announced[kind] = true
+			ctx.events.event_started.emit("CRYSTAL_INTRO" if kind == CRYSTAL_ID else "POD_INTRO")
+
+
 ## Les trois rayons d'un cristal chargé.
 static func beams(pod: Dictionary) -> Array[Vector2]:
 	var dir: Vector2 = pod["dir"]
@@ -99,6 +115,7 @@ static func beams(pod: Dictionary) -> Array[Vector2]:
 
 func step(delta: float) -> void:
 	_time += delta
+	_announce()
 	for pod: Dictionary in pods:
 		# Lu sans type : un bulbe retiré de la carte est libéré.
 		var held: Variant = pod["enemy"]

@@ -17,11 +17,16 @@ const TIP_KEYS := {
 ## Barre des sorts du Chasseur (bas gauche) : taille d'un emplacement et écart.
 const SPELL_SLOT := 64.0
 const SPELL_GAP := 34.0
+## Durée d'affichage d'une fiche de mécanique.
+const CARD_TIME := 8.0
 
 var ctx: RunContext
 var minimap := Minimap.new()
 var _font: Font
 var _banner_text: String = ""
+## Fiche de la mécanique rencontrée pour la première fois (MechanicJournal) : clé de l'annonce et temps restant.
+var _card_key: String = ""
+var _card_time: float = 0.0
 var _banner_time: float = 0.0
 var _icons: Dictionary = {}
 var _beat: float = 0.0
@@ -45,7 +50,7 @@ func setup(p_ctx: RunContext) -> void:
 	add_child(_spell_icon_layer)
 	add_child(minimap)
 	minimap.setup(ctx)
-	ctx.events.event_started.connect(func(key: String) -> void: banner(tr(key)))
+	ctx.events.event_started.connect(_on_event_started)
 	ctx.events.synergy_activated.connect(func(id: StringName) -> void:
 		banner(tr("HUD_SYNERGY_ACTIVATED") % tr(GameDB.synergies[id].name_key)))
 	ctx.events.boss_spawned.connect(func(boss: Enemy) -> void:
@@ -62,6 +67,15 @@ func setup(p_ctx: RunContext) -> void:
 					banner(tr("HUD_EVOLUTION") % tr(evo.name_key)))
 
 
+## Mécanique : fiche à la première rencontre (notée au Journal), simple rappel ensuite ; autre annonce : bandeau.
+func _on_event_started(key: String) -> void:
+	if MechanicJournal.is_mechanic(key) and MechanicJournal.record(Profile.profile, key):
+		_card_key = key
+		_card_time = CARD_TIME
+		return
+	banner(tr(key))
+
+
 func banner(text: String) -> void:
 	_banner_text = text
 	_banner_time = 3.0
@@ -69,6 +83,7 @@ func banner(text: String) -> void:
 
 func _process(delta: float) -> void:
 	_banner_time = maxf(_banner_time - delta, 0.0)
+	_card_time = maxf(_card_time - delta, 0.0)
 	_beat = maxf(_beat - delta * 4.0, 0.0)
 	_tip_time = maxf(_tip_time - delta, 0.0)
 	if ctx and not _tips.is_empty() and ctx.time >= float(_tips[0][0]):
@@ -92,6 +107,39 @@ func _text(pos: Vector2, value: String, font_size: int, color: Color,
 	# Contour épais et opaque : texte lisible sur les sols clairs (herbe, sable, neige).
 	draw_string_outline(_font, pos, value, align, width, font_size, 7, Color(0.02, 0.02, 0.05, 1.0))
 	draw_string(_font, pos, value, align, width, font_size, color)
+
+
+## Bandeau d'annonce : sur plusieurs lignes au besoin, toujours dans l'écran (plus petit s'il est long).
+func _draw_banner(w: float, h: float) -> void:
+	var alpha: float = clampf(_banner_time, 0.0, 1.0)
+	var font_size: int = 30 if _banner_text.length() <= 48 else 24
+	var width: float = w * 0.7
+	var pos := Vector2((w - width) * 0.5, h * 0.28)
+	draw_multiline_string_outline(_font, pos, _banner_text, HORIZONTAL_ALIGNMENT_CENTER, width, font_size, 3, 7,
+		Color(0.02, 0.02, 0.05, alpha))
+	draw_multiline_string(_font, pos, _banner_text, HORIZONTAL_ALIGNMENT_CENTER, width, font_size, 3,
+		Color(1.0, 0.92, 0.6, alpha))
+
+
+## Fiche de mécanique : cadre sous la barre du boss, pictogramme qui pulse, titre, explication, renvoi au Journal.
+func _draw_card(w: float) -> void:
+	var alpha: float = clampf(_card_time * 2.0, 0.0, 1.0) * clampf((CARD_TIME - _card_time) * 4.0, 0.0, 1.0)
+	var rect := Rect2(w * 0.5 - 340.0, 118.0, 680.0, 132.0)
+	var accent := Color(1.0, 0.72, 0.4, alpha)
+	draw_rect(rect, Color(0.05, 0.04, 0.09, 0.9 * alpha))
+	draw_rect(rect, accent, false, 2.0)
+	var pulse: float = 0.5 + 0.5 * sin((CARD_TIME - _card_time) * 5.0)
+	var icon := rect.position + Vector2(56.0, rect.size.y * 0.5)
+	draw_circle(icon, 26.0 + 6.0 * pulse, Color(accent, 0.18 * alpha))
+	draw_arc(icon, 26.0, 0.0, TAU, 32, accent, 3.0)
+	draw_string(_font, icon + Vector2(-6, 11), "!", HORIZONTAL_ALIGNMENT_LEFT, -1, 32, accent)
+	var left: float = rect.position.x + 104.0
+	var width: float = rect.end.x - left - 18.0
+	_text(Vector2(left, rect.position.y + 34.0), tr(MechanicJournal.title_key(_card_key)), 24, Color(1.0, 0.92, 0.6, alpha))
+	draw_multiline_string(_font, Vector2(left, rect.position.y + 62.0), MechanicJournal.body(_card_key), HORIZONTAL_ALIGNMENT_LEFT, width, 17,
+		3, Color(0.9, 0.94, 1.0, alpha))
+	draw_string(_font, Vector2(left, rect.end.y - 10.0), tr("JOURNAL_CARD_HINT"), HORIZONTAL_ALIGNMENT_LEFT, width, 13,
+		Color(0.65, 0.7, 0.85, alpha))
 
 
 func _bar(rect: Rect2, ratio: float, fill: Color, back: Color = Color(0.05, 0.05, 0.09, 0.85)) -> void:
@@ -176,8 +224,9 @@ func _draw() -> void:
 	_draw_echo_cooldowns()
 	_draw_boss(w)
 	if _banner_time > 0.0:
-		var alpha: float = clampf(_banner_time, 0.0, 1.0)
-		_text(Vector2(0, h * 0.28), _banner_text, 30, Color(1.0, 0.92, 0.6, alpha), HORIZONTAL_ALIGNMENT_CENTER, w)
+		_draw_banner(w, h)
+	if _card_time > 0.0:
+		_draw_card(w)
 	if _tip_time > 0.0:
 		var tip_alpha: float = clampf(_tip_time, 0.0, 1.0)
 		draw_rect(Rect2(w * 0.2, h - 172, w * 0.6, 34), Color(0.05, 0.06, 0.1, 0.75 * tip_alpha))

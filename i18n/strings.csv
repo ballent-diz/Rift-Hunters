@@ -1894,3 +1894,44 @@ CONTROL_SCHEME_MOUSE,clavier + souris,keyboard + mouse
 CONTROL_SCHEME_KEYBOARD_HINT,"Les deux mains au clavier : ZQSD pour marcher, flèches pour les sorts (lancés dans la direction du Chasseur), A, E, F pour les Échos.","Both hands on the keyboard: WASD to move, arrow keys for spells (cast in the Hunter's facing direction), Q, E, F for the Echoes."
 CONTROL_SCHEME_MOUSE_HINT,"Une main sur la souris : ZQSD ou flèches pour marcher, A, E, R, F ou clic gauche pour les sorts (lancés vers le curseur), 1, 2, 3 pour les Échos, clic droit pour l'ordre de focus.","One hand on the mouse: WASD or arrow keys to move, Q, E, R, F or left click for spells (cast toward the cursor), 1, 2, 3 for the Echoes, right click for the focus order."
 TIP_SPELLS_MOUSE,"A, E, R, F ou clic gauche : les sorts du Chasseur, lancés vers le curseur.","Q, E, R, F or left click: the Hunter's spells, cast toward the cursor."
+TAB_JOURNAL,Journal,Journal
+JOURNAL_INTRO,"Les mécaniques que vous avez rencontrées en expédition : %d sur %d. Une fiche s'affiche la première fois qu'une mécanique apparaît.","The mechanics you have met on expeditions: %d of %d. A card appears the first time a mechanic shows up."
+JOURNAL_GROUP_MAPS,Cartes,Maps
+JOURNAL_GROUP_ENEMIES,Corrompus,Corrupted
+JOURNAL_GROUP_BOSSES,Gardiens et Dévoreurs,Guardians and Devourers
+JOURNAL_UNKNOWN,Pas encore rencontrée.,Not met yet.
+JOURNAL_CARD_HINT,Nouvelle mécanique : à relire dans le Journal du refuge.,New mechanic: read it again in the Refuge Journal.
+POD_INTRO,"Bulbes de braise : frappez-en un, il s'embrase puis éclate et ravage les Corrompus autour. Ne restez pas trop près.","Ember pods: strike one, it ignites, then bursts and ravages the Corrupted around it. Don't stand too close."
+CRYSTAL_INTRO,"Cristaux-miroirs : frappez-en un, il éclate en trois rayons, le premier dans le sens du coup. Placez-le entre vous et la horde.","Mirror crystals: strike one, it bursts into three beams, the first one in the direction of your blow. Put it between you and the horde."
+JOURNAL_NIGHT,Nuit et lucioles,Night and fireflies
+JOURNAL_FLOOD,Crue,Flood
+JOURNAL_POD,Bulbes de braise,Ember pods
+JOURNAL_NEST,Nids,Nests
+JOURNAL_LAVA,Lave qui déborde,Overflowing lava
+JOURNAL_MUD,Vase,Mud
+JOURNAL_TIDE,Marée,Tide
+JOURNAL_CRYSTAL,Cristaux-miroirs,Mirror crystals
+JOURNAL_COLD,Froid et braseros,Cold and braziers
+JOURNAL_ICE_PRISON,Prison de glace,Ice prison
+JOURNAL_HUSH,Cercle de silence,Circle of silence
+JOURNAL_ORB,Orbe de source,Source orb
+JOURNAL_MIST_VEIL,Voile de brume,Mist veil
+JOURNAL_CROWN,Couronne d'astres,Star crown
+JOURNAL_RAM,Charge du bûcher,Pyre charge
+JOURNAL_DUEL,Cercle du duel,Duel circle
+JOURNAL_THREADS,Fils tendus,Taut threads
+JOURNAL_SHELL,Carapace de scories,Slag shell
+JOURNAL_CRATER,Cratères en série,Crater sequence
+JOURNAL_GUARD,Garde d'écorce,Bark guard
+JOURNAL_DIVE,Plongée,Dive
+JOURNAL_SPORE_VEIL,Voile de spores,Spore veil
+JOURNAL_MUD_WALL,Murs de vase,Mud walls
+JOURNAL_LEASH,Racine-laisse,Root leash
+JOURNAL_LEECH,Sangsues,Leeches
+JOURNAL_FACETS,Carapace de cristal,Crystal shell
+JOURNAL_MIRROR,Miroirs,Mirrors
+JOURNAL_WHIRLPOOL,Tourbillon,Whirlpool
+JOURNAL_TIDE_RING,Anneau de marée,Tide ring
+JOURNAL_SWALLOW,Écho englouti,Swallowed Echo
+JOURNAL_CAPTURE,Écho des sorts,Spell echo
+JOURNAL_SHATTER,Banquise brisée,Shattered ice
