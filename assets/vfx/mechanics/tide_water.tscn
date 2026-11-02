@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="tide_water" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"tide_water"
+visual_duration = 2.0
+loop_visual = true
+radius = 75.0
+width = 6.0
+travel_distance = 230.0
+color = Color(0.196078, 0.486275, 0.568627, 1)
+accent = Color(0.694118, 0.890196, 0.874510, 1)
+particle_budget = 20
+metadata/visual_only = true

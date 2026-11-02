@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="dive_burst" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"dive_burst"
+visual_duration = 0.8
+loop_visual = false
+radius = 75.0
+width = 10.0
+travel_distance = 0.0
+color = Color(0.262745, 0.529412, 0.556863, 1)
+accent = Color(0.815686, 1.000000, 0.941176, 1)
+particle_budget = 20
+metadata/visual_only = true

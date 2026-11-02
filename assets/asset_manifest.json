@@ -14123,6 +14123,546 @@
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; chaussées de marée T01, T03 et T04 (tide.png) rendues praticables et raccord du pont haut au bassin élargi par Claude (29 octobre). T02 et T05, murées, restent bloquées.",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/tide_temple/minimap.webp"
+		},
+		"vfx.mechanic.duel_circle": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/duel_circle.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 8,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.silk_thread": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/silk_thread.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.slag_shell": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/slag_shell.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.slag_rain_impact": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/slag_rain_impact.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.65,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.bark_shield": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/bark_shield.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.dive_ripple": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/dive_ripple.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.dive_burst": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/dive_burst.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.8,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.snowball": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/snowball.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.1,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.ice_prison": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/ice_prison.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.hush_circle": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/hush_circle.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.blizzard_vortex": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/blizzard_vortex.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.frost_mist": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/frost_mist.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.ice_crack": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/ice_crack.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.spell_echo_volley": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/spell_echo_volley.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.8,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.ice_spikes": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/ice_spikes.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.1,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.shatter_floor": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/shatter_floor.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.spell_capture": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/spell_capture.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.6,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.rockfall": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/rockfall.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.tide_water": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/tide_water.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.mechanic.cold_aura": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/mechanics/cold_aura.tscn",
+			"sheet": "res://assets/vfx/mechanics/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
 		}
 	}
 }

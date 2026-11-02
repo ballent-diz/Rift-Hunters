@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="rockfall" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"rockfall"
+visual_duration = 0.9
+loop_visual = false
+radius = 45.0
+width = 14.0
+travel_distance = 60.0
+color = Color(0.552941, 0.486275, 0.423529, 1)
+accent = Color(0.843137, 0.792157, 0.690196, 1)
+particle_budget = 20
+metadata/visual_only = true

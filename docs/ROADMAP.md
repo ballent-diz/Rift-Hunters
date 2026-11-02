@@ -25,6 +25,10 @@
 
 56 scènes autonomes récupérées de Work ; matière, frappe et dissipation reprises avec le vocabulaire peint du Chasseur. 56 scènes contrôlées, 19 groupes capturés dans Godot, mesure de rendu jointe. Aucun gameplay modifié. Raccordement par Claude après validation ; sprites existants conservés.
 
+## Images manquantes — effets des mécaniques : Livré (Codex, 2 novembre 2026)
+
+Vingt scènes autonomes : gardiens, glace et cartes. Import, assets et art verts ; 20 scènes / 40 fins sans erreur, quatre GIF 720p. Aucun raccord de gameplay ; contrat et choix dans `docs/art/EFFETS_MECANIQUES.md`.
+
 ## B3 — Carte 10, Cœur du volcan : visuels livrés pour revue (Codex)
 
 Nouvelle map-arène multi-lobes, sans reprise de la spirale. Carte 9 renommée Le Seuil du Cataclysme (cataclysm_threshold) sur demande du propriétaire. Ensuite seulement : cartes 11 puis 12, puis sprites chapitre 3. Le propriétaire autorise désormais la poursuite sans attendre de réponses ; choix et contrôles documentés.

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="hush_circle" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"hush_circle"
+visual_duration = 2.0
+loop_visual = true
+radius = 95.0
+width = 6.0
+travel_distance = 0.0
+color = Color(0.643137, 0.529412, 0.847059, 1)
+accent = Color(0.925490, 0.901961, 1.000000, 1)
+particle_budget = 20
+metadata/visual_only = true

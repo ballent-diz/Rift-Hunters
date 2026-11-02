@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="duel_circle" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"duel_circle"
+visual_duration = 8.0
+loop_visual = false
+radius = 120.0
+width = 9.0
+travel_distance = 240.0
+color = Color(0.972549, 0.474510, 0.207843, 1)
+accent = Color(1.000000, 0.894118, 0.635294, 1)
+particle_budget = 20
+metadata/visual_only = true

@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="cold_aura" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"cold_aura"
+visual_duration = 2.0
+loop_visual = true
+radius = 80.0
+width = 8.0
+travel_distance = 0.0
+color = Color(0.847059, 0.607843, 0.282353, 1)
+accent = Color(1.000000, 0.894118, 0.674510, 1)
+particle_budget = 20
+metadata/visual_only = true

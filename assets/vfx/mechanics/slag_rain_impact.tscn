@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="slag_rain_impact" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"slag_rain_impact"
+visual_duration = 0.65
+loop_visual = false
+radius = 65.0
+width = 12.0
+travel_distance = 0.0
+color = Color(0.839216, 0.403922, 0.196078, 1)
+accent = Color(1.000000, 0.909804, 0.698039, 1)
+particle_budget = 20
+metadata/visual_only = true

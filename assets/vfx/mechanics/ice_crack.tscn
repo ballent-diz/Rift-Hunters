@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/mechanics/mechanic_effect.gd" id="1"]
+
+[node name="ice_crack" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"ice_crack"
+visual_duration = 0.9
+loop_visual = false
+radius = 70.0
+width = 9.0
+travel_distance = 220.0
+color = Color(0.388235, 0.615686, 0.819608, 1)
+accent = Color(0.937255, 0.980392, 1.000000, 1)
+particle_budget = 20
+metadata/visual_only = true
