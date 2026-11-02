@@ -505,7 +505,7 @@ MASTERY_MIRRORLING_REFLECTOR,Renvoyez 300 projectiles avec Mirelle (cumul).,Refl
 MASTERY_MIRRORLING_SHIELD,Utilisez 6 Reflets en une expédition.,Use 6 Reflections in one expedition.
 MASTERY_MIRRORLING_EVOLVED_VICTORY,Refermez une Faille avec Mirelle évoluée.,Seal a Rift with an evolved Mirrorling.
 ENEMY_BROODMOTHER_NAME,Nuée-mère,Broodmother
-ENEMY_BROODMOTHER_DESC,Reste en retrait et fait éclore des Grouillards. À éliminer en priorité.,Stays back and hatches Skitterlings. Kill it first.
+ENEMY_BROODMOTHER_DESC,Fait éclore des Grouillards et s’enfouit pour ressortir sous vos pieds. À éliminer en priorité.,Hatches Skitterlings and burrows to burst out beneath you. Kill it first.
 ENEMY_SHADE_STALKER_NAME,Rôdeur d'ombre,Shade Stalker
 ENEMY_SHADE_STALKER_DESC,"Se fige, marque un point derrière vous puis s'y téléporte.","Freezes, marks a spot behind you, then teleports there."
 ENEMY_CRYSTAL_WARDEN_NAME,Gardien de cristal,Crystal Warden
@@ -603,11 +603,11 @@ ENEMY_SILVER_HARPY_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creatu
 ENEMY_ASH_NEWT_NAME,Salamandre de cendre,Ash Newt
 ENEMY_ASH_NEWT_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
 ENEMY_MENHIR_WARDEN_NAME,Gardien des menhirs,Menhir Warden
-ENEMY_MENHIR_WARDEN_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_MENHIR_WARDEN_DESC,Bloc des Hautes Terres d’Orage qui s’enfonce dans la terre et surgit sous le Chasseur. Restez en mouvement.,A Storm Highlands block that sinks into the ground and erupts beneath the Hunter. Keep moving.
 ENEMY_STORM_KNIGHT_NAME,Chevalier fulgurant,Thunder Knight
-ENEMY_STORM_KNIGHT_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_STORM_KNIGHT_DESC,Chevalier des Hautes Terres d’Orage : il bondit et frappe le sol là où vous êtes. Une Ruée l’esquive.,Storm Highlands knight: it leaps and smashes the ground where you stand. Dash to dodge.
 ENEMY_PEAK_CHIMERA_NAME,Chimère des sommets,Summit Chimera
-ENEMY_PEAK_CHIMERA_DESC,Corrompu des Hautes Terres d’Orage.,A Corrupted creature of the Storm Highlands.
+ENEMY_PEAK_CHIMERA_DESC,Bête agile des Hautes Terres d’Orage : charges et bonds pour couper votre fuite.,Agile Storm Highlands beast: charges and leaps to cut off your escape.
 BOSS_ASTRAVORN_NAME,Astravorn,Astravorn
 BOSS_ASTRAVORN_TITLE,Souverain de l’Orage,Sovereign of the Storm
 BOSS_ASTRAVORN_PHASE2,Tempête déchaînée,Unbound storm

@@ -893,7 +893,8 @@ func _step_burrow(enemy: Enemy, motion: Dictionary, delta: float) -> void:
 	enemy.visual.visible = false
 	var to_player: Vector2 = ctx.player.global_position - enemy.position
 	if float(motion["t"]) < float(motion["duration"]):
-		enemy.position += to_player.limit_length(float(motion["speed"]) * delta)
+		var step: Vector2 = to_player.limit_length(float(motion["speed"]) * delta)
+		enemy.position = ctx.obstacles.push_out(enemy.position + step, enemy.radius)
 		motion["trail"] = float(motion["trail"]) - delta
 		if float(motion["trail"]) <= 0.0:
 			motion["trail"] = 0.12

@@ -16,8 +16,10 @@ Cadre : [CARTES.md](CARTES.md) (familles par chapitre, briques de terrain), [../
 - **Rien n'est dessiné pour rien** : chaque rangée d'une planche correspond à une animation jouée en jeu. Une
   animation prévue sans mécanique codée n'est pas commandée.
 
-Piste en attente : donner le Saut et le Tunnel (E1, E2) à quatre élites du chapitre 1, décision reportée au test
-complet du chapitre 1 (voir `docs/ROADMAP.md`, « À décider lors du test complet du chapitre 1 »).
+Exception validée le 2 novembre 2026 : quatre élites du chapitre 1 reçoivent le Saut ou le Tunnel (E1, E2), avec le
+rendu du jeu (arc et ombre, enfouissement et traînée de terre) et leur rangée d'attaque, sans nouvelle planche :
+Saut pour la Chimère des sommets et le Chevalier fulgurant, Tunnel pour le Gardien des menhirs et la Couveuse. Alertes
+d'au moins 0,5 s. Sous terre, un tunnelier bute contre les murs et les barrières de zone au lieu de les traverser.
 
 ## Planches par rang
 
