@@ -47,7 +47,9 @@ func _run() -> void:
 		effect.scale = Vector2.ONE * 0.9
 		root.add_child(effect)
 		if item["effect_kind"] in ["ice_prison", "slag_shell", "bark_shield", "duel_circle",
-			"hush_circle", "cold_aura", "frost_mist", "dive_ripple"]:
+			"hush_circle", "cold_aura", "frost_mist", "dive_ripple", "star_crown", "absorb",
+			"pyre_slam", "blazing_rage", "soot_web", "slag_molt", "summon", "brood", "lay_eggs",
+			"crater_sequence", "skyfall", "leap", "dive", "plunge"]:
 			var entry: Dictionary = manifest["player.hunter"]
 			var actor := Sprite2D.new()
 			actor.texture = load(entry["sheet"])
