@@ -1,5 +1,21 @@
 # Rift Hunters — feuille de route
 
+## À faire : musique (décisions du 2 novembre 2026)
+
+- [x] **Menus** : un morceau fixe et calme, en boucle. Écran titre : `music/menu/music_box_in_the_machine_title.mp3` ;
+  refuge et ses menus : `music/refuge/music_box_in_the_machine.mp3` (les deux versions de « Music Box in the
+  Machine », 137 BPM, retirées des combats de boss). À remplacer par de vrais morceaux d'ambiance si le propriétaire
+  en crée : il suffit de changer le fichier du dossier.
+- [ ] **Tri des musiques en jeu** (propriétaire) : réécoute des morceaux actuels, nouveaux morceaux à générer.
+  `run/REDLINE PANIC (1).mp3` est une copie exacte de `REDLINE PANIC.mp3` : à supprimer.
+- [ ] **Une playlist par chapitre** (lecture aléatoire, comme aujourd'hui) : chapitre 1 = lot 1, chapitre 2 = lot 2,
+  etc. Un dossier par chapitre (`music/run/<chapitre>/`) ; un chapitre sans morceau reprend la liste générale.
+  Code : Claude (effort medium), quand le propriétaire envoie les lots.
+- [ ] **Taille des lots** (conseil, à confirmer) : par chapitre, 6 à 8 morceaux d'exploration et de combat (20 à
+  25 minutes sans répétition, une carte entière sans entendre deux fois le même titre) et 2 à 3 morceaux de boss
+  (thème du Dévoreur, gardiens) ; un jingle de défaite commun (aucun aujourd'hui). Environ 35 à 45 morceaux pour
+  4 chapitres.
+
 ## Lot du 2 novembre (Claude) : chapitre 4, le Glacier silencieux (mécaniques)
 
 - 14 monstres (Givrés, Échos du silence) avec formes provisoires, techniques E18 à E22, froid et braseros (B7),
