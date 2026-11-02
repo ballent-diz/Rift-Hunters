@@ -174,6 +174,20 @@ extends Resource
 ## Le Chasseur trop proche est touché aussi (télégraphe : il a le temps de s'écarter).
 @export var pod_player_damage: float = 12.0
 @export var pod_regrow: float = 25.0
+@export_group("Cristaux-miroirs (brique B5, carte 13, docs/design/CARTES.md)")
+## Emplacements des cristaux-miroirs. Un coup allié les charge ; ils éclatent en trois rayons (le premier dans le sens
+## du coup, les deux autres à 120°) qui transpercent les Corrompus sur leur ligne et touchent le Chasseur dans l'axe.
+@export var crystal_mirrors: Array[Vector2] = []
+@export var crystal_prime: float = 0.9
+@export var crystal_beam_length: float = 650.0
+@export var crystal_beam_width: float = 44.0
+## Dégâts aux Corrompus : forfait + part des PV max (moitié pour les élites, forfait seul pour les boss).
+@export var crystal_damage: float = 35.0
+@export_range(0.0, 1.0) var crystal_damage_ratio: float = 0.3
+@export var crystal_player_damage: float = 12.0
+@export var crystal_regrow: float = 18.0
+## Aimantation du premier rayon vers un boss proche de l'axe (degrés) : viser le gardien reste lisible.
+@export var crystal_assist: float = 30.0
 @export_group("Pluie de roches magmatiques (carte 10, docs/design/CARTES.md)")
 ## Une chute toutes les rockfall_interval secondes (0 = aucune) ; plus fréquente à chaque zone nettoyée et contre le boss.
 @export var rockfall_interval: float = 0.0

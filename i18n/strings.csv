@@ -1860,3 +1860,20 @@ ICE_PRISON_INTRO,Prison de glace ! Une Ruée la brise.,Ice prison! A dash breaks
 HUSH_INTRO,Cercle de silence : vos sorts n'y partent plus. Sortez-en ou abattez le Héraut.,Circle of silence: your spells won't fire inside. Step out or take down the Herald.
 COLD_INTRO,Le froid monte : restez près des braseros allumés pour vous réchauffer.,The cold is rising: stay near lit braziers to warm up.
 SPELL_SILENCED,Silence !,Silenced!
+ARENA_CRYSTAL_GARDENS_NAME,Jardins de cristal,Crystal Gardens
+ARENA_CRYSTAL_GARDENS_DESC,"Trois clairières reliées par une arche de pierre et une chaussée de dalles. Des cristaux-miroirs y poussent : frappés, ils éclatent en rayons qui transpercent les Corrompus alignés.","Three clearings linked by a stone arch and a flagstone causeway. Mirror crystals grow there: struck, they burst into beams that pierce the Corrupted in line."
+ZONE_CRYSTAL_GARDENS_1_NAME,La Clairière de l'arche,The Arch Clearing
+ZONE_CRYSTAL_GARDENS_2_NAME,L'Avenue des jardins,The Garden Avenue
+FINALE_TRAVEL_TERRACE,"Les jardins sont nettoyés : franchissez la chaussée de dalles jusqu'à la terrasse, à l'est.","The gardens are cleared: cross the flagstone causeway to the terrace in the east."
+ENEMY_CRYSTAL_MIRROR_NAME,Cristal-miroir,Mirror Crystal
+ENEMY_CRYSTAL_MIRROR_DESC,"Frappez-le : il éclate en trois rayons, le premier dans le sens du coup. Placez-le entre vous et la horde ; ne restez pas dans l'axe des deux autres.","Strike it: it bursts into three beams, the first one in the direction of your blow. Put it between you and the horde; stay out of the other two."
+BOSS_SPORE_MATRIARCH_NAME,Mère des spores,Spore Matriarch
+BOSS_SPORE_MATRIARCH_TITLE,Gardienne des Jardins,Warden of the Gardens
+BOSS_SPORE_MATRIARCH_PHASE1,Le voile tissé,The Woven Veil
+BOSS_SPORE_MATRIARCH_PHASE2,La floraison,The Bloom
+BOSS_PATTERN_SPORE_LASH,Fouet de spores,Spore Lash
+BOSS_PATTERN_SPORE_VEIL,Floraison,Bloom
+BOSS_SPORE_VEIL_INTRO,"Voile de spores : vos coups glissent sur elle. Frappez un cristal-miroir aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Strike a mirror crystal lined up with her: its beam burns the veil."
+BOSS_VEIL_BURNED,Voile brûlé !,Veil burned!
+MAP_OBJ_CRYSTALS_DESC,Terminer en faisant éclater au moins %d cristaux-miroirs,Clear it shattering at least %d mirror crystals
+MAP_OBJ_VEIL_DESC,Terminer en brûlant au moins %d fois le voile de la gardienne,Clear it burning the warden's veil at least %d times

@@ -51,7 +51,7 @@ boutique, d'étoiles ni de capture en partie pour les Échos ; l'équipe (3 au p
 | 10. Grande arène (`caldera_arena`) | Solgriffe |
 | 11. Mangrove des racines (`root_mangrove`) | Ronceline |
 | 12. Temple des marées (`tide_temple`) | Mirelle |
-| 13 (`chapter3_map3`) | Fulgurine |
+| 13 (`crystal_gardens`) | Fulgurine |
 | 14 (`chapter3_map4`) | Mousseroc |
 | 15 (`chapter3_map5`, finale du chapitre 3) | Gueule-d'ombre — le dernier |
 

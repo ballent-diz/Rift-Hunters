@@ -20,7 +20,9 @@
   (fils tendus), Matrone des scories (carapace fendue par les roches). Équilibrage des cartes 7 à 12 dans
   [DIFFICULTE.md](design/DIFFICULTE.md).
 - **Gardiens des cartes 11 et 12** (31 octobre) : Gardien d'écorce (garde d'écorce) et Gueule des marais (plongée).
-- **Restent à faire** : cartes 13 à 15.
+- **Carte 13, Jardins de cristal** (2 novembre) : collisions peintes par le propriétaire, cristaux-miroirs, gardienne
+  Mère des spores (voile de spores brûlé par les rayons) ; chapitre 3 = cartes 11 à 13.
+- **Restent à faire** : cartes 14 et 15.
 
 ## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
 

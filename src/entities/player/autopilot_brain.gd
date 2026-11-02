@@ -253,7 +253,8 @@ func _weak_point() -> Enemy:
 	return null
 
 
-## Œuf de cendre proche, ou bulbe de braise au repos entouré d'au moins 5 Corrompus (le Chasseur à l'écart).
+## Œuf de cendre proche, bulbe de braise au repos entouré d'au moins 5 Corrompus (le Chasseur à l'écart), ou
+## cristal-miroir avec une horde derrière lui.
 func _mechanic_target(pos: Vector2) -> Vector2:
 	for enemy: Enemy in ctx.enemies.query_radius(pos, 380.0):
 		if enemy.alive and enemy.data and enemy.data.structure and not enemy.data.pod and enemy.is_target():
@@ -267,8 +268,23 @@ func _mechanic_target(pos: Vector2) -> Vector2:
 		var bulb: Enemy = held
 		if bulb.position.distance_to(pos) > 450.0:
 			continue
+		if PodDirector.is_crystal(pod):
+			# Cristal-miroir : frappé de ce côté, son premier rayon part vers la horde de l'autre côté.
+			if _beyond(bulb.position, pos) >= 5:
+				return bulb.global_position
+			continue
 		if bulb.position.distance_to(pos) < ctx.arena.pod_radius + 40.0:
 			continue
 		if ctx.enemies.query_radius(bulb.position, ctx.arena.pod_radius).size() >= 6:
 			return bulb.global_position
 	return Vector2.INF
+
+
+## Corrompus alignés au-delà du cristal (dans un cône de 25° autour de l'axe Chasseur → cristal, portée du rayon).
+func _beyond(crystal: Vector2, pos: Vector2) -> int:
+	var axis: Vector2 = (crystal - pos).normalized()
+	var count: int = 0
+	for enemy: Enemy in ctx.enemies.query_radius(crystal, ctx.arena.crystal_beam_length):
+		if enemy.alive and not enemy.is_obstacle and absf(axis.angle_to(enemy.position - crystal)) < deg_to_rad(25.0):
+			count += 1
+	return count
