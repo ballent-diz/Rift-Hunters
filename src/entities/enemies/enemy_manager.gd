@@ -980,8 +980,9 @@ func _step_pending_actions() -> void:
 		var entry: Dictionary = _pending_actions[i]
 		if ctx.time >= float(entry["time"]):
 			_pending_actions.remove_at(i)
-			var enemy: Enemy = entry["enemy"]
-			if is_instance_valid(enemy) and enemy.alive:
+			# Lu sans type : un ennemi libéré entre-temps ne peut pas être affecté à une variable typée.
+			var enemy: Variant = entry["enemy"]
+			if is_instance_valid(enemy) and (enemy as Enemy).alive:
 				(entry["action"] as Callable).call()
 		i -= 1
 

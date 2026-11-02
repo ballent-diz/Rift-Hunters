@@ -261,8 +261,11 @@ func _mechanic_target(pos: Vector2) -> Vector2:
 	if ctx.pods == null:
 		return Vector2.INF
 	for pod: Dictionary in ctx.pods.pods:
-		var bulb: Enemy = pod["enemy"]
-		if pod["state"] != PodDirector.State.IDLE or bulb.position.distance_to(pos) > 450.0:
+		var held: Variant = pod["enemy"]
+		if pod["state"] != PodDirector.State.IDLE or not is_instance_valid(held):
+			continue
+		var bulb: Enemy = held
+		if bulb.position.distance_to(pos) > 450.0:
 			continue
 		if bulb.position.distance_to(pos) < ctx.arena.pod_radius + 40.0:
 			continue
