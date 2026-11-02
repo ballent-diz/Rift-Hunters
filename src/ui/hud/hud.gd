@@ -188,7 +188,7 @@ func _draw() -> void:
 		var best: int = int((Profile.profile.data["records"] as Dictionary).get("endless_best_wave", 0))
 		_text(Vector2(0, 66), tr("ENDLESS_STATUS") % [ctx.endless_wave(), best], 14, UiKit.GOLD,
 			HORIZONTAL_ALIGNMENT_CENTER, w)
-	elif ctx.boss == null:
+	elif ctx.boss == null and not ctx.arena.practice:
 		var left: float = maxf(ctx.arena.boss_time - ctx.time, 0.0)
 		var boss_name: String = tr(GameDB.boss(ctx.arena.boss_id).name_key)
 		_text(Vector2(0, 66), tr("HUD_NAMED_BOSS_IN") % [boss_name, int(left) / 60, int(left) % 60], 14, UiKit.MUTED,

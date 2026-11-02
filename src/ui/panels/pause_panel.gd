@@ -78,7 +78,7 @@ func _build() -> void:
 		Settings.minimap_size = (Settings.minimap_size + 1) % 4
 		Settings.save_settings()
 		_build(), 320))
-	_box.add_child(UiKit.button(tr("PAUSE_ABANDON"), func() -> void:
+	_box.add_child(UiKit.button(tr("TRAINING_LEAVE") if ctx and ctx.setup.training else tr("PAUSE_ABANDON"), func() -> void:
 		close()
 		abandon_requested.emit(), 320))
 	_box.add_child(_keys_button())

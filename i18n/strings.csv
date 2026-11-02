@@ -1991,3 +1991,14 @@ MENU_CONTINUE,Continuer,Continue
 MENU_CONTINUE_HINT,"Retour au refuge : votre progression vous attend (dernière carte : %s).","Back to the Refuge: your progress is waiting (last map: %s)."
 MENU_OPTIONS,Options,Options
 MENU_CLOSE,Fermer,Close
+TRAINING_OPEN,Salle d'entraînement,Training room
+TRAINING_OPEN_HINT,"Essayez votre équipe, vos sorts et votre arbre contre des mannequins : aucune vague, rien à gagner ni à perdre.","Try your team, spells and tree against dummies: no waves, nothing to win or lose."
+TRAINING_TITLE,Salle d'entraînement,Training room
+TRAINING_DPS,%d dégâts / s,%d damage / s
+TRAINING_TOTAL,Total : %d dégâts,Total: %d damage
+TRAINING_HINT,"Mesure sur les 5 dernières secondes. %s : pause, puis « Quitter l'entraînement ».","Measured over the last 5 seconds. %s: pause, then “Leave training”."
+TRAINING_LEAVE,Quitter l'entraînement,Leave training
+ENEMY_TRAINING_DUMMY_NAME,Mannequin d'entraînement,Training dummy
+ENEMY_TRAINING_DUMMY_DESC,"Un tronc cerclé de fer, planté au refuge pour roder les gestes. Il encaisse tout, ne rend rien.","An iron-banded log, set up at the Refuge to drill your moves. It takes everything and gives nothing back."
+ARENA_TRAINING_GROUNDS_NAME,Salle d'entraînement,Training room
+ARENA_TRAINING_GROUNDS_DESC,Une cour du refuge où se dressent des mannequins.,A Refuge courtyard lined with training dummies.

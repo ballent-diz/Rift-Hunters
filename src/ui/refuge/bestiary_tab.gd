@@ -81,6 +81,8 @@ func refresh() -> void:
 		"enemies":
 			list.add_child(UiKit.title(tr("BESTIARY_ENEMIES"), 16, UiKit.ACCENT))
 			for id: StringName in GameDB.sorted_ids(GameDB.enemies):
+				if not GameDB.enemy(id).in_bestiary:
+					continue
 				_entry(list, "enemy:" + String(id), tr(GameDB.enemy(id).name_key) if p.is_discovered("enemies", id) else "???")
 			for id: StringName in GameDB.sorted_ids(GameDB.bosses):
 				var boss_known: bool = p.lifetime("bosses_killed") > 0 or p.data["records"]["best_time"] >= 420.0

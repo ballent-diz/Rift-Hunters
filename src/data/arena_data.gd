@@ -74,6 +74,8 @@ extends Resource
 @export var ground_detail_color: Color = Color(0.16, 0.17, 0.25)
 ## Arènes hors campagne seulement : les cartes d'un chapitre se débloquent en avançant (Campaign).
 @export var unlocked_by_default: bool = true
+## Salle d'entraînement : ni vague, ni gardien, ni récompense (jamais proposée comme carte).
+@export var practice: bool = false
 ## Obstacles présents dès le début : {identifiant d'ennemi STATIC: nombre}.
 @export var start_obstacles: Dictionary = {}
 ## Règles propres à l'arène (effets installés au début de la partie).

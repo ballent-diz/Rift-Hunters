@@ -448,6 +448,11 @@ func _summary(p: ProfileData, arena: ArenaData) -> PanelContainer:
 	go.add_theme_stylebox_override("hover", MenuSkin.frame(Color(0.42, 0.12, 0.16), MenuSkin.PAPER))
 	go.set_meta(MenuSkin.KEEP_STYLE, true)
 	outer.add_child(go)
+	# Salle d'entraînement : essayer l'équipe et le build contre des mannequins, sans rien gagner ni perdre.
+	var training: Button = UiKit.button(tr("TRAINING_OPEN"), _train, 0)
+	training.name = "TrainingButton"
+	training.tooltip_text = tr("TRAINING_OPEN_HINT")
+	outer.add_child(training)
 	return panel
 
 
@@ -528,6 +533,11 @@ func _toggle(id: StringName, key: String) -> void:
 	var entry: Dictionary = profile().mastery_entry(id)
 	entry[key] = not bool(entry.get(key, false))
 	refuge.commit()
+
+
+func _train() -> void:
+	Audio.play_sfx(&"ui_click")
+	Router.start_run(Profile.make_training_setup())
 
 
 func _depart() -> void:

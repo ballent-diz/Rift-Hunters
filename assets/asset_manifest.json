@@ -14902,6 +14902,27 @@
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/crystal_gardens/minimap.webp"
 		},
+		"object.training_dummy": {
+			"status": "planned",
+			"note": "Salle d'entraînement : mannequin (tronc cerclé de fer) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
 		"object.crystal_mirror": {
 			"status": "planned",
 			"note": "Carte 13 : cristal-miroir à livrer par Codex (même gabarit que object.ember_pod) ; forme provisoire en attendant.",

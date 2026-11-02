@@ -43,3 +43,5 @@ var start_levels: int = 0
 var shop_items: Array[StringName] = []
 ## Conseils de première partie affichés dans le HUD.
 var show_tutorial: bool = false
+## Salle d'entraînement (lot 6 des menus) : mannequins, aucune vague, aucun effet sur la progression.
+var training: bool = false

@@ -16,6 +16,21 @@
   (thème du Dévoreur, gardiens) ; un jingle de défaite commun (aucun aujourd'hui). Environ 35 à 45 morceaux pour
   4 chapitres.
 
+## Lot du 2 novembre (Claude) : menus et tutoriels (lots 1 à 6, propositions validées)
+
+- **Contrôles** : clavier seul (par défaut) ou clavier + souris (visée au curseur, clic gauche), au choix dans Options.
+- **Lot 1** : annonces sur plusieurs lignes, fiche à la première rencontre d'une mécanique, onglet Journal.
+- **Lot 2** : conseil après défaite (source principale des dégâts subis), astuces de la première carte déclenchées par
+  les actions du joueur.
+- **Lot 3** : refuge en cinq groupes (Expédition, Progression, Collection, Marché, Options) révélés au fil de la
+  progression, bandeau « Prochaine étape » des premières parties, monnaies avec infobulles, chemin du chapitre.
+- **Lot 4** : Boutique illustrée (« il manque N éclats »), Bestiaire en trois rubriques (vignettes, silhouettes,
+  pastilles, barre de maîtrise), Laboratoire en arbre.
+- **Lot 5** : « Continuer » et « Options » au menu principal ; aide-mémoire des touches en pause (F1), clavier et
+  manette.
+- **Lot 6** : salle d'entraînement (bouton sous « Partir en expédition ») : mannequins, dégâts par seconde par source,
+  rien à gagner ni à perdre. Sprite du mannequin à livrer (`object.training_dummy`, forme provisoire).
+
 ## Lot du 2 novembre (Claude) : chapitre 4, le Glacier silencieux (mécaniques)
 
 - 14 monstres (Givrés, Échos du silence) avec formes provisoires, techniques E18 à E22, froid et braseros (B7),

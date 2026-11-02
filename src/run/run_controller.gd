@@ -312,8 +312,14 @@ func _build_ui() -> void:
 	root.add_child(pause_panel)
 	pause_panel.setup(ctx)
 	pause_panel.abandon_requested.connect(func() -> void:
+		# Entraînement : retour direct au refuge, sans bilan ni effet sur la progression.
+		if ctx.setup.training:
+			Router.goto_refuge()
+			return
 		ctx.stats.add(&"abandoned")
 		_finish(false))
+	if ctx.setup.training:
+		root.add_child(TrainingMeter.new(ctx))
 	results_panel = ResultsPanel.new()
 	root.add_child(results_panel)
 	results_panel.setup()

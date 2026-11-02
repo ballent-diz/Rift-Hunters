@@ -20,6 +20,8 @@ enum Brain { CHASER, RANGED, CHARGER, STATIC, SUMMONER, BLINKER, WARDEN }
 ## Structure (cerveau STATIC) : immobile mais ciblée et attaquée comme un Corrompu (faille à refermer).
 ## Sans cela, un STATIC est un simple obstacle ignoré par les attaques automatiques.
 @export var structure: bool = false
+## false : absent du Bestiaire (mannequin de la salle d'entraînement).
+@export var in_bestiary: bool = true
 ## Bulbe de braise (brique B5, PodDirector) : un coup allié l'amorce au lieu de le blesser.
 @export var pod: bool = false
 ## Attaque spéciale (projectile du Cracheur, charge du Bondisseur).

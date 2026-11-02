@@ -104,7 +104,12 @@ func _rewards_column(_result: Dictionary, rewards: Dictionary) -> VBoxContainer:
 
 
 func _source_name(source: String) -> String:
+	return source_name(source)
+
+
+## Nom affichable d'une source de dégâts (Chasseur ou Écho).
+static func source_name(source: String) -> String:
 	if source == "player":
-		return tr("SOURCE_PLAYER")
+		return TranslationServer.translate("SOURCE_PLAYER")
 	var monster: MonsterData = GameDB.monster(StringName(source))
-	return tr(monster.name_key) if monster else source
+	return TranslationServer.translate(monster.name_key) if monster else source

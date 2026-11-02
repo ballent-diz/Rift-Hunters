@@ -38,6 +38,9 @@ func _ready() -> void:
 					_times.append(float(t))
 			"arena":
 				setup.arena_id = StringName(parts[1])
+			"training":
+				setup.arena_id = &"training_grounds"
+				setup.training = true
 			"starter":
 				setup.starter_id = StringName(parts[1])
 			"seed":
