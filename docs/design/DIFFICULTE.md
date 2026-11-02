@@ -81,6 +81,7 @@ partir de la carte 4. Cartes 1 à 5 remesurées le 2 novembre 2026 avec le Saut 
 | 10. Cœur du volcan | 0,7 · 0,45 (vagues de moitié, une élite par palier) | 0,5 · 0,6 (Pyrevorn) | + Gravelune, Pyraile | 3 sur 3 | 9 à 11 min 30 |
 | 11. Mangrove des racines | 0,7 · 0,35 (une élite par zone) | 2,2 · 1 (Gardien d'écorce) | + Solgriffe, Gravelune | 3 sur 3 | 7 min |
 | 12. Temple des marées | 1 · 0,5 (45 à 120 en vie, élites des failles toutes les 140 s) | 1,2 · 0,55 (Gueule des marais) | + Ronceline, Solgriffe | 2 sur 3 | 3 à 4 min |
+| 13. Jardins de cristal | 0,85 · 0,4 (9 cristaux-miroirs) | 1,6 · 0,9 (Mère des spores, voile brûlé 6 s, repousse en 12 s) | + Miroitin, Ronceline | 2 sur 3 | 5 min 30 |
 
 Mesures du 26 octobre 2026, avec le bot corrigé :
 - il va chercher les derniers Corrompus ;

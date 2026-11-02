@@ -140,6 +140,6 @@ visual_scale = 2.2
 signature = &"spore_veil"
 signature_params = {
 "veil_mult": 0.2,
-"burn": 5.0,
-"regrow": 14.0
+"burn": 6.0,
+"regrow": 12.0
 }
