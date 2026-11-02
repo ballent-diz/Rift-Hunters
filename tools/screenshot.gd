@@ -74,7 +74,9 @@ func _ready() -> void:
 			_run.level_up_panel.visible = false
 			_run.chest_panel.visible = false
 			match menu:
-				"pause": _run.pause_panel.open()
+				"pause":
+					_run.pause_panel.show_keys = selection == "keys"
+					_run.pause_panel.open()
 				"levelup":
 					_run.level_up_panel.open()
 					if not item_ids.is_empty():
@@ -117,6 +119,8 @@ func _ready() -> void:
 					echoes.set("_monster", StringName(selection.get_slice(":", 1)))
 					echoes.set("_selected", StringName(selection.get_slice(":", 2)))
 					echoes.refresh()
+			elif selection == "options" and screen.has_method("open_options"):
+				screen.open_options()
 			elif menu == "credits":
 				screen._show_credits()
 		await get_tree().create_timer(0.5).timeout

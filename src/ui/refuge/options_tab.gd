@@ -59,7 +59,7 @@ func refresh() -> void:
 		box.add_child(UiKit.button(tr("OPTIONS_TEST_DEV"), func() -> void:
 			HunterTree.unlock_all_for_testing(profile())
 			EchoTree.unlock_all_echoes_for_testing(profile())
-			refuge.commit(), 420))
+			_commit(), 420))
 		box.add_child(UiKit.wrapped(tr("OPTIONS_TEST_DEV_HINT"), 13, UiKit.MUTED))
 	# Nouvelle partie : deux clics (le second confirme), la progression est effacée.
 	var reset: Button = UiKit.button(tr("OPTIONS_RESET_CONFIRM") if _confirm_reset else tr("OPTIONS_RESET_PROFILE"),
@@ -113,4 +113,12 @@ func _reset_profile() -> void:
 		return
 	_confirm_reset = false
 	Profile.reset_profile()
-	refuge.commit()
+	_commit()
+
+
+## Hors du refuge (fenêtre d'options du menu principal), on sauvegarde simplement le profil.
+func _commit() -> void:
+	if refuge:
+		refuge.commit()
+	else:
+		Profile.save()

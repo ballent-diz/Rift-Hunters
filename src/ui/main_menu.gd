@@ -6,6 +6,8 @@ const MENU_ART := preload("res://assets/ui/main_menu/refuge.png")
 const INK := Color(1.0, 0.91, 0.8)
 
 var _canvas: Control
+## Fenêtre d'options ouverte par-dessus le menu (rouverte si les réglages reconstruisent le menu).
+var _options_open: bool = false
 
 
 func _ready() -> void:
@@ -13,11 +15,20 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	resized.connect(_fit_canvas)
 	Settings.changed.connect(_build)
+	Profile.changed.connect(_build)
 	_build()
 	Audio.play_context("menu")
 
 
 func _build() -> void:
+	# La fenêtre d'options survit à la reconstruction (langue, réglages) : son défilement est gardé.
+	var window: Control = get_node_or_null("OptionsWindow")
+	if window:
+		remove_child(window)
+		# Langue changée : la fenêtre est refaite (ses titres sont traduits à la construction).
+		if window.get_meta("locale", "") != Settings.locale:
+			window.queue_free()
+			window = null
 	UiKit.clear(self)
 	var bg := ColorRect.new()
 	bg.color = Color(0.025, 0.02, 0.055)
@@ -36,12 +47,14 @@ func _build() -> void:
 	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_canvas.add_child(art)
-	var play: Button = UiKit.button(tr("MENU_PLAY"), func() -> void:
+	# Un joueur qui revient « continue » ; l'infobulle rappelle la dernière carte choisie.
+	var returning: bool = int(Profile.profile.data["runs"].get("played", 0)) > 0
+	var play: Button = UiKit.button(tr("MENU_CONTINUE") if returning else tr("MENU_PLAY"), func() -> void:
 		Audio.play_sfx(&"ui_click")
 		Router.goto_refuge(), 360)
-	var settings: Button = UiKit.button(tr("MENU_LANGUAGE") % tr("LANGUAGE_NAME"), func() -> void:
-		Settings.set_locale("en" if Settings.locale == "fr" else "fr"), 360)
-	settings.tooltip_text = tr("OPTIONS_LANGUAGE") % tr("LANGUAGE_NAME")
+	if returning:
+		play.tooltip_text = tr("MENU_CONTINUE_HINT") % _last_map_name()
+	var settings: Button = UiKit.button(tr("MENU_OPTIONS"), open_options, 360)
 	var credits: Button = UiKit.button(tr("MENU_CREDITS"), _show_credits, 360)
 	var quit: Button = UiKit.button(tr("MENU_QUIT"), func() -> void: get_tree().quit(), 360)
 	var buttons: Array[Button] = [play, settings, credits, quit]
@@ -49,7 +62,7 @@ func _build() -> void:
 		Rect2(298, 577, 475, 70), Rect2(298, 662, 475, 70)]
 	for index: int in buttons.size():
 		_skin_button(buttons[index], rows[index])
-		buttons[index].name = ["Play", "Language", "Credits", "Quit"][index]
+		buttons[index].name = ["Play", "Options", "Credits", "Quit"][index]
 	for index: int in buttons.size():
 		var previous: NodePath = buttons[index].get_path_to(buttons[posmod(index - 1, buttons.size())])
 		var next: NodePath = buttons[index].get_path_to(buttons[(index + 1) % buttons.size()])
@@ -65,7 +78,77 @@ func _build() -> void:
 	_canvas.add_child(version)
 	_add_warning()
 	_fit_canvas()
-	play.grab_focus.call_deferred()
+	if window:
+		add_child(window)
+		var tab: RefugeTab = window.find_child("OptionsTab", true, false)
+		tab.refresh()
+	elif _options_open:
+		_open_options_window()
+	else:
+		play.grab_focus.call_deferred()
+
+
+func _last_map_name() -> String:
+	var arena: ArenaData = GameDB.arena(StringName(Profile.profile.preference("arena", "")))
+	return tr(arena.name_key) if arena else "—"
+
+
+## Options complètes (celles du refuge) dans une fenêtre, sans passer par le refuge.
+func open_options() -> void:
+	Audio.play_sfx(&"ui_click")
+	_options_open = true
+	_open_options_window()
+
+
+func close_options() -> void:
+	_options_open = false
+	var window: Node = get_node_or_null("OptionsWindow")
+	if window:
+		remove_child(window)
+		window.queue_free()
+	var options: Button = _canvas.get_node_or_null("Options")
+	if options:
+		options.grab_focus.call_deferred()
+
+
+func _open_options_window() -> void:
+	var window := Control.new()
+	window.name = "OptionsWindow"
+	window.set_meta("locale", Settings.locale)
+	window.theme = MenuSkin.theme()
+	window.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	add_child(window)
+	window.add_child(UiKit.dimmer(0.75))
+	var frame := PanelContainer.new()
+	frame.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	for side: String in ["left", "right", "top", "bottom"]:
+		frame.set("offset_" + side, 60 if side in ["top", "left"] else -60)
+	frame.add_theme_stylebox_override("panel", MenuSkin.frame(Color(0.045, 0.025, 0.08, 0.97), MenuSkin.LANTERN))
+	window.add_child(frame)
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 10)
+	frame.add_child(box)
+	var header := HBoxContainer.new()
+	box.add_child(header)
+	var title: Label = UiKit.title(tr("MENU_OPTIONS"), 30, MenuSkin.PAPER)
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	header.add_child(title)
+	var close: Button = UiKit.button(tr("MENU_CLOSE"), close_options, 200)
+	close.name = "CloseOptions"
+	header.add_child(close)
+	var tab: RefugeTab = (load("res://src/ui/refuge/options_tab.gd") as GDScript).new()
+	tab.name = "OptionsTab"
+	tab.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	box.add_child(tab)
+	tab.setup(null)
+	tab.refresh()
+	close.grab_focus.call_deferred()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _options_open and event.is_action_pressed(&"ui_cancel"):
+		close_options()
+		get_viewport().set_input_as_handled()
 
 
 ## Une seule transformation pour l'image, le texte et les zones cliquables : aucun recadrage.

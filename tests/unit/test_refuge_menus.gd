@@ -300,3 +300,31 @@ func test_shop_bestiary_and_lab_are_visual() -> void:
 	var branch: Node = lab.find_child("Branch_corrupted_study", true, false)
 	check(branch != null and branch.find_child("Research_elite_dossier", true, false) != null,
 		"Laboratoire : les suites d'une recherche sur sa branche")
+
+
+func test_main_menu_continue_options_and_key_guide() -> void:
+	var menu: Control = load(Router.MAIN_MENU).instantiate()
+	_viewport.add_child(menu)
+	await _settle()
+	var play: Button = menu.find_child("Play", true, false)
+	check_eq(play.text, tr("MENU_PLAY"), "premier lancement : entrer au refuge")
+	Profile.profile.data["runs"]["played"] = 2
+	Profile.save()
+	await _settle()
+	play = menu.find_child("Play", true, false)
+	check_eq(play.text, tr("MENU_CONTINUE"), "joueur de retour : Continuer")
+	(menu.find_child("Options", true, false) as Button).pressed.emit()
+	await _settle()
+	check(menu.find_child("OptionsWindow", true, false) != null, "Options : fenêtre ouverte depuis le menu")
+	check(menu.find_child("ControlScheme", true, false) != null, "Options complètes (mode de contrôle)")
+	Settings.apply()
+	await _settle()
+	check(menu.find_child("OptionsWindow", true, false) != null, "la fenêtre survit à un changement de réglage")
+	menu.close_options()
+	await _settle()
+	check(menu.find_child("OptionsWindow", true, false) == null, "Fermer : retour au menu")
+	menu.free()
+	var guide: GridContainer = KeyGuide.build()
+	check_eq(guide.get_child_count(), (KeyGuide.ROWS.size() + 1) * 3, "aide-mémoire : une ligne par action")
+	check_eq(KeyGuide.pad_label(&"technique_1"), "X", "glyphe manette d'une technique")
+	guide.free()

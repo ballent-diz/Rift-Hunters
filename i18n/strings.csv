@@ -18,7 +18,6 @@ OPTIONS_SCREEN_SHAKE,Secousses de l'écran : %s,Screen shake: %s
 PAUSE_TITLE,Pause,Paused
 PAUSE_RESUME,Reprendre,Resume
 PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
-PAUSE_CONTROLS,Déplacement : ZQSD · Sorts du Chasseur : flèches · Techniques des Échos : A E F · Ruée : Espace · Manette prise en charge,Move: WASD · Hunter spells: arrow keys · Echo Techniques: Q E F · Dash: Space · Gamepad supported
 HUD_LEVEL,Niv. %d,Lv. %d
 HUD_MILESTONES,Jalons : %d,Milestones: %d
 HUD_CHOICES_RESERVED,%d choix en réserve [%s],%d choice(s) stored [%s]
@@ -1979,3 +1978,16 @@ BESTIARY_NEVER_FALLS,Un Écho ne tombe jamais au combat.,An Echo never falls in 
 BESTIARY_MASTERY_BAR,Maîtrise niveau %d · %d / %d XP,Mastery level %d · %d / %d XP
 BESTIARY_MASTERY_MAX,Maîtrise niveau %d · palier maximal,Mastery level %d · top tier
 LAB_MISSING,Il manque %d essence,%d essence short
+ACTION_MOVE,Déplacement,Move
+ACTION_PAUSE,Pause,Pause
+KEY_GUIDE_CLICK,clic gauche,left click
+KEY_GUIDE_ACTION,Action,Action
+KEY_GUIDE_KEYBOARD,Clavier,Keyboard
+KEY_GUIDE_PAD,Manette,Gamepad
+KEY_GUIDE_TITLE,Aide-mémoire des touches,Controls cheat sheet
+KEY_GUIDE_OPEN,Aide-mémoire des touches (F1),Controls cheat sheet (F1)
+KEY_GUIDE_HIDE,Masquer l'aide-mémoire,Hide the cheat sheet
+MENU_CONTINUE,Continuer,Continue
+MENU_CONTINUE_HINT,"Retour au refuge : votre progression vous attend (dernière carte : %s).","Back to the Refuge: your progress is waiting (last map: %s)."
+MENU_OPTIONS,Options,Options
+MENU_CLOSE,Fermer,Close
