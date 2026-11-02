@@ -1,0 +1,29 @@
+{
+  "generated_by": "Godot SubViewport transparent",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    220
+  ],
+  "rows": [
+    "idle",
+    "charged",
+    "burst",
+    "debris"
+  ],
+  "frames_per_row": 6,
+  "time_samples": [
+    0.0,
+    0.1067,
+    0.2133,
+    0.32,
+    0.4267,
+    0.5333
+  ],
+  "preview_ray_length": 70,
+  "runtime_ray_length_default": 240,
+  "runtime_imported": false
+}

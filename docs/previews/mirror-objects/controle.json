@@ -1,0 +1,27 @@
+{
+  "godot_version": "4.3",
+  "headless_import_exit": 0,
+  "native_exit": 0,
+  "frames_720p": 48,
+  "transparent_poses": 24,
+  "enemy_witness_sprites": 90,
+  "combat_simulated": false,
+  "performance_measured": false,
+  "checks": [
+    "scene_load",
+    "four_states",
+    "seek_visual",
+    "release",
+    "reuse",
+    "one_root_node"
+  ],
+  "source_sha256": {
+    "assets/vfx/objects/mirror_crystal/mirror_crystal.gd": "76b9938e5982216ec9296adb8bfd38fe1c607e6dd047447f59e6958fcfe96ad0",
+    "assets/vfx/objects/mirror_crystal/mirror_crystal.tscn": "69e35602a13b23874978938cecfc4135f6eeaca0b7dbaf8d405dc8902db334d3",
+    "assets/vfx/objects/mirror_crystal/preview_sheet.json": "fa5b4300e4bdd2f8f2f58c946daa6f611c401eaaafbfaecf7ee28290dc84fb1b",
+    "assets/vfx/objects/mirror_crystal/preview_sheet.png": "d3dfcd250aae82c8ed30e60bfa0026f768327e9b943e98892dc11938e55b5037",
+    "assets/vfx/objects/mirror_portal/mirror_portal.gd": "0f7dfe78081d752d222706e90afc7ec9f2054028250d14e9a30dfce87a65b821",
+    "assets/vfx/objects/mirror_portal/mirror_portal.tscn": "577f63b0bd203ab3c992d283cf99d325c8ec99850cf45606539ec6e3dcd4d2ed"
+  },
+  "notes": "Banc visuel, pas partie. GIF recadrés ; captures entières1280x720. Planche cristal rayons limités70 pour tenir cellule, scène runtime240 inchangée."
+}
