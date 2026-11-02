@@ -136,8 +136,8 @@ func _draw_card(w: float) -> void:
 	var left: float = rect.position.x + 104.0
 	var width: float = rect.end.x - left - 18.0
 	_text(Vector2(left, rect.position.y + 34.0), tr(MechanicJournal.title_key(_card_key)), 24, Color(1.0, 0.92, 0.6, alpha))
-	draw_multiline_string(_font, Vector2(left, rect.position.y + 62.0), MechanicJournal.body(_card_key), HORIZONTAL_ALIGNMENT_LEFT, width, 17,
-		3, Color(0.9, 0.94, 1.0, alpha))
+	draw_multiline_string(_font, Vector2(left, rect.position.y + 62.0), MechanicJournal.body(_card_key),
+		HORIZONTAL_ALIGNMENT_LEFT, width, 17, 3, Color(0.9, 0.94, 1.0, alpha))
 	draw_string(_font, Vector2(left, rect.end.y - 10.0), tr("JOURNAL_CARD_HINT"), HORIZONTAL_ALIGNMENT_LEFT, width, 13,
 		Color(0.65, 0.7, 0.85, alpha))
 
