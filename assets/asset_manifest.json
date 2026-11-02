@@ -12377,12 +12377,16 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/ash_vents/field.png",
 			"field_step": 2.0,
+			"start": [
+				1912,
+				1140
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/ash_vents/minimap.webp"
 		},
@@ -12398,12 +12402,16 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/soot_dens/field.png",
 			"field_step": 2.0,
+			"start": [
+				-1552,
+				-1752
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/soot_dens/minimap.webp"
 		},
@@ -12573,12 +12581,16 @@
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cataclysm_threshold/field.png",
 			"field_step": 2.0,
+			"start": [
+				0,
+				1904
+			],
 			"arena_size": 5016,
 			"filter": "linear",
 			"ambient": {
 				"amount": 0
 			},
-			"note": "Collisions provisoires calculées par Claude (falaises, lave, bord) ; à corriger par le propriétaire.",
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; escalier ajouté par Claude entre les deux zones (28 octobre).",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/cataclysm_threshold/minimap.webp"
 		},
@@ -14037,6 +14049,833 @@
 			"visual_only": true,
 			"duration": 1.6,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"environment.volcano_heart": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/volcano_heart/map.webp",
+			"map_tiles": [
+				"res://assets/environments/volcano_heart/map.webp",
+				"res://assets/environments/volcano_heart/map_1.webp",
+				"res://assets/environments/volcano_heart/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/volcano_heart/field.png",
+			"field_step": 2.0,
+			"start": [
+				0,
+				2152
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/volcano_heart/minimap.webp"
+		},
+		"environment.root_mangrove": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/root_mangrove/map.webp",
+			"map_tiles": [
+				"res://assets/environments/root_mangrove/map.webp",
+				"res://assets/environments/root_mangrove/map_1.webp",
+				"res://assets/environments/root_mangrove/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/root_mangrove/field.png",
+			"field_step": 2.0,
+			"start": [
+				-1792,
+				924
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/root_mangrove/minimap.webp"
+		},
+		"environment.tide_temple": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/tide_temple/map.webp",
+			"map_tiles": [
+				"res://assets/environments/tide_temple/map.webp",
+				"res://assets/environments/tide_temple/map_1.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/tide_temple/field.png",
+			"field_step": 2.0,
+			"start": [
+				4,
+				1760
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; chaussées de marée T01, T03 et T04 (tide.png) rendues praticables et raccord du pont haut au bassin élargi par Claude (29 octobre). T02 et T05, murées, restent bloquées.",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/tide_temple/minimap.webp"
+		},
+		"enemy.frost_crawler": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.blizzard_wolf": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"slide": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.snow_wraith": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.ice_golem": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.frost_shaman": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"ice_prison": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"frost_mist": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"snuff": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.peak_yeti": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"avalanche": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"pounce": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"rage": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.rime_archer": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"chilling_arrow": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"hail_volley": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"fade": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.hush_shard": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.ice_knight": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.frozen_sentry": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.icebreaker": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"dive": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.silence_herald": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"hush": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spell_echo": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"absorb": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.frost_mammoth": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"charge": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"ice_crack": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"armor_break": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"enemy.snow_witch": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"blizzard_call": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"snow_clones": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blink": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
+		},
+		"boss.nivorath": {
+			"status": "planned",
+			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				480
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"claw": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"ice_spikes": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blizzard_breath": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spell_capture": {
+					"row": 6,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spell_release": {
+					"row": 7,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"transform": {
+					"row": 8,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"shatter_floor": {
+					"row": 9,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"frozen_dive": {
+					"row": 10,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"attack": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
 		}
 	}
 }

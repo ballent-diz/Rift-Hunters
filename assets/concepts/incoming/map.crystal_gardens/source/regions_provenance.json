@@ -1,0 +1,23 @@
+{
+  "regions_sha256": {
+    "r0_0.png": "6437eeb9fad97392c08a50e3e574bc90f0581a04c50a2f0810202f5e0065e0af",
+    "r0_1.png": "8b08d1f524291b40e0f595d1794f67ea17480cbc8dc3a94ae221d73f0cc6f358",
+    "r0_2.png": "e415132f6d34e378a3cf9004c2da921f2977331e5b9a207c02c55b2a3e4ce0d6",
+    "r0_3.png": "2cd1c28402b148a15c25562e2db1249698cdd5991dafa72a9209073c2ac1ddc1",
+    "r1_0.png": "74beafcd969d13c6a823ae637bcef4b26994a5ad0ad2136eb67af5198498bea9",
+    "r1_1.png": "eb2842d8da210daca881f9387a92b134768212546aca5466252e685fb6bba18f",
+    "r1_2.png": "22814be5023874b93d4f3c4b720d8e35f6e428c4f2b38b75fcc902dacb73b216",
+    "r1_3.png": "be8b9af146903fc0d170eca4d5a67b464be4e958cf6b4afe35e62f2702a047b9"
+  },
+  "reference_sha256": "e4460646619dc7f57fdcf3ea63a45d41ff650d3f0f271ca9aaa2d031554c4afb",
+  "prompt": "PROMPT_REGION.txt",
+  "outputs_intermediaires_hors_git": true,
+  "native_size": [
+    3762,
+    1254
+  ],
+  "tiles_size": [
+    3762,
+    3762
+  ]
+}

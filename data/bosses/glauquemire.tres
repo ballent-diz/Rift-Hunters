@@ -23,6 +23,7 @@ cooldown = 3.5
 damage = 24.0
 telegraph = 0.7
 params = {
+"vfx": "claws",
 "anim": "claws",
 "radius": 190.0,
 "half_angle": 55.0,
@@ -38,6 +39,7 @@ cooldown = 7.0
 damage = 30.0
 telegraph = 1.0
 params = {
+"vfx": "slam",
 "anim": "claws",
 "fists": 1,
 "radius": 160.0
@@ -99,6 +101,7 @@ cooldown = 3.2
 damage = 26.0
 telegraph = 0.65
 params = {
+"vfx": "claws",
 "anim": "claws",
 "radius": 200.0,
 "half_angle": 58.0,
@@ -149,6 +152,7 @@ cooldown = 7.0
 damage = 32.0
 telegraph = 0.9
 params = {
+"vfx": "slam",
 "anim": "claws",
 "fists": 1,
 "radius": 170.0
@@ -163,6 +167,7 @@ cooldown = 3.0
 damage = 28.0
 telegraph = 0.6
 params = {
+"vfx": "claws",
 "anim": "claws",
 "radius": 210.0,
 "half_angle": 60.0,
@@ -280,3 +285,4 @@ phases = [SubResource("phase_1"), SubResource("phase_2"), SubResource("phase_3")
 mouth_offset = Vector2(70, -90)
 hurt_ratio = 0.06
 signature = &"prism_beam"
+vfx_dir = "res://assets/vfx/bosses/glauquemire"

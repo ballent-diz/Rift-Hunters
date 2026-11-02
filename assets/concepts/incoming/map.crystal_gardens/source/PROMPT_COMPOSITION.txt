@@ -1,0 +1,13 @@
+Top-down video game map for Rift Hunters, a 2D survivor-like. Full-bleed 3:1 wide panorama, maximum resolution, no borders, no text, no UI, no characters.
+Theme: drowned jungle marsh with crystal-mirror temple gardens: emerald moss, turquoise shallow water (not walkable), mangrove roots, pale cyan crystal ruins, low mist. No lava, no orange, no ash.
+Layout from left to right: [start: a mossy stone landing on the far left, wide open, closed by mangrove roots and water on its outer side], [zone 1: a broad terraced garden plateau of flat mossy flagstones with one HUGE open clearing, low hedges and crystal ruins only along its edges], [passage: a wide natural arch of fallen pale crystal spanning turquoise water, at least 2.5% of image width], [zone 2: a long sunken garden avenue running east, wide flat paving, giant mirror-crystal clusters and banyan roots lining both sides only], [passage: a broad stepping-stone causeway across a shallow ford, clearly walkable], [final zone, NO arena: a wide crescent-shaped terrace on the far right, a huge open flat area overlooking a lagoon, closed by water and roots on its outer curve].
+At least 55% of the image is flat, open, unobstructed walkable ground (mossy flagstones, packed earth, short moss).
+Main paths at least 4% of image width. Each zone contains a HUGE open clearing for fighting hordes.
+Leave the clearings completely empty: no crystal, statue, pillar or tree in the middle of paths or clearings.
+Giant crystals, roots, ruins and water stay on the edges and along the map border.
+Clear, sharp boundary between walkable ground and blocking scenery (deep water, giant roots, crystal walls).
+The map border is closed by scenery: no path leaves the image.
+Uniform overhead game camera, same scale everywhere, top-left light. Steps and trees in proportion to a small 32-unit-tall character. Sharp detailed fantasy game art matching the attached reference: intricate stone, fine foliage, wet textured moss. NOT blurry, NOT smooth plastic, NOT coarse pixels, NOT photorealistic.
+One coherent landscape, no visible seams or pasted rectangles.
+
+STYLE REFERENCES ONLY: Match the hand-painted stone, fine plants, coherent overhead camera and crisp material contours in the supplied Rift Hunters maps. Do not copy their layout, island loop, buildings, clearings or routes. Use a genuinely new LEFT-TO-RIGHT 3:1 layout. This is the composition stage for a 5016 by 1672 unit world. No interactive crystals or portal symbols painted on playable ground; crystal ruins are border scenery only. Keep the main avenue and the two connecting passages fully continuous, physically supported and unobstructed. The final crescent terrace must be a broad, thick solid plateau for manoeuvring, not a narrow U-shaped walkway.

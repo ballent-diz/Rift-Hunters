@@ -200,7 +200,7 @@ func technique_pressed(_index: int) -> bool:
 ## Comme un joueur : Taille fendante (emplacement 0) au contact, Lance prismatique (1) dès qu'une cible est à portée.
 func spell_pressed(slot: int) -> bool:
 	var spells: HunterSpells = ctx.spells
-	if spells == null or slot >= spells.slots.size() or spells.slots[slot] == null:
+	if spells == null or slot >= spells.slots.size() or spells.slots[slot] == null or ctx.boss_hold_spells():
 		return false
 	var spell: SpellData = spells.slots[slot]
 	var pos: Vector2 = ctx.player.global_position
@@ -261,8 +261,11 @@ func _mechanic_target(pos: Vector2) -> Vector2:
 	if ctx.pods == null:
 		return Vector2.INF
 	for pod: Dictionary in ctx.pods.pods:
-		var bulb: Enemy = pod["enemy"]
-		if pod["state"] != PodDirector.State.IDLE or bulb.position.distance_to(pos) > 450.0:
+		var held: Variant = pod["enemy"]
+		if pod["state"] != PodDirector.State.IDLE or not is_instance_valid(held):
+			continue
+		var bulb: Enemy = held
+		if bulb.position.distance_to(pos) > 450.0:
 			continue
 		if bulb.position.distance_to(pos) < ctx.arena.pod_radius + 40.0:
 			continue

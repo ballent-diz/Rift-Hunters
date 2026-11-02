@@ -64,16 +64,23 @@ avant de toucher aux monstres eux-mêmes. Les boss et gardiens ont leurs propres
 ### Réglages mesurés (campagne Normal, règles du 26 octobre 2026 : un Écho au départ, pas de drops)
 
 Équipe du bot : Cendrelame et les Échos réellement débloqués à ce stade (un par carte gagnée), arbre « veteran » à
-partir de la carte 4.
+partir de la carte 4. Cartes 1 à 5 remesurées le 2 novembre 2026 avec le Saut et le Tunnel des élites du chapitre 1
+(arbre « veteran », 2 ou 3 graines) : aucun réglage à changer.
 
-| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Équipe du bot | Bot (4 graines) | Durée |
+| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Équipe du bot | Bot (victoires) | Durée |
 |---|---|---|---|---|---|
-| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 | Cendrelame seule | 3 sur 4 | 6 à 7 min |
-| 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 | 3 min 30 à 5 min |
-| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | 4 sur 4 | 6 min 30 |
-| 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Sylvécaille, Lueurine | 4 sur 4 | 6 min |
-| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 3 sur 4 | 5 à 7 min |
+| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 | Cendrelame seule | 2 sur 2 | 6 min 30 |
+| 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 | 3 min 30 à 4 min |
+| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | 3 sur 3 | 6 à 7 min |
+| 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Scoriade, Lueurine | 3 sur 3 | 5 min 40 |
+| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 2 sur 3 | 7 min |
 | 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4 | 3 min 30 à 6 min |
+| 7. Évents de cendre | 1,3 · 0,95 | 2,5 · 1,2 (Chevalier calciné) | + Égidor, Lucivelle | 2 sur 3 | 8 min |
+| 8. Tanières de suie | 1,3 · 0,95 | 2,5 · 1,2 (Reine-veuve) | + Pyraile, Égidor | 2 sur 3 | 8 min 30 |
+| 9. Le Seuil du Cataclysme | 1 · 0,6 (roches 8 toutes les 8 s) | 2 · 1,2 (Matrone des scories) | + Spectrâtre, Pyraile | 2 sur 3 | 7 min 30 |
+| 10. Cœur du volcan | 0,7 · 0,45 (vagues de moitié, une élite par palier) | 0,5 · 0,6 (Pyrevorn) | + Gravelune, Pyraile | 3 sur 3 | 9 à 11 min 30 |
+| 11. Mangrove des racines | 0,7 · 0,35 (une élite par zone) | 2,2 · 1 (Gardien d'écorce) | + Solgriffe, Gravelune | 3 sur 3 | 7 min |
+| 12. Temple des marées | 1 · 0,5 (45 à 120 en vie, élites des failles toutes les 140 s) | 1,2 · 0,55 (Gueule des marais) | + Ronceline, Solgriffe | 2 sur 3 | 3 à 4 min |
 
 Mesures du 26 octobre 2026, avec le bot corrigé :
 - il va chercher les derniers Corrompus ;
@@ -83,7 +90,8 @@ Mesures du 26 octobre 2026, avec le bot corrigé :
 Avant ces corrections, des vagues traînaient de 2 à 4 minutes (jusqu'à 15 minutes pour la carte 5), et le bot restait
 parfois bloqué. Les cartes 3 et 4, à 4 sur 4, sont au bord haut de la cible : à surveiller en test.
 
-Les cartes 7 à 10 attendent leur décor et leurs collisions définitives.
+Cartes 7 à 12 mesurées le 31 octobre 2026 (arbre « veteran », 3 graines, Cendrelame + les deux Échos les plus forts
+débloqués à ce stade). La carte 12, en fermeture de failles, reste courte comme la carte 2.
 
 ## Ce que le bot sait faire (pour lire ses résultats)
 

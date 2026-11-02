@@ -100,6 +100,10 @@ func cast(slot: int, aim: Vector2, power: float = 1.0) -> bool:
 	if spell == null or ctx.player.is_leaping():
 		return false
 	var origin: Vector2 = ctx.player.global_position
+	# Cercle de silence (Héraut du silence, chapitre 4) : aucun sort ne part.
+	if ctx.frost and ctx.frost.silenced(origin):
+		ctx.fx.text(origin + Vector2(0, -40), tr("SPELL_SILENCED"), Color(0.75, 0.6, 1.0))
+		return false
 	var dir: Vector2 = aim_direction(aim)
 	var variant: StringName = variants[slot]
 	# Second appui gratuit : Retour du Bond, sortie des Failles jumelles.

@@ -23,7 +23,7 @@ src/
   core/        autoloads : GameDB, Settings, Profile, Router, Assets
   data/        classes Resource (MonsterData, EnemyData, ...)
   combat/      StatSheet, DamageInfo, CombatSystem, StatusSystem, SpatialGrid, effects/
-  entities/    player/, allies/, enemies/, bosses/, projectiles/, pickups/, hazards/
+  entities/    player/, allies/, enemies/, bosses/, projectiles/, pickups/, hazards/, painted_vfx.gd (effets peints)
   run/         RunController, RunContext, SpawnDirector, EventDirector, UpgradeOffers, BuildState
   progression/ SafeJsonStore, migrations, ProfileData, services (arbre, maîtrise, objectifs, campagne...)
   ui/          hud/, panels/, refuge/, thème

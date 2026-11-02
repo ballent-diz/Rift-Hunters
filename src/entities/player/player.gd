@@ -133,6 +133,12 @@ func hinder(duration: float, mult: float) -> void:
 	_hinder_time = maxf(_hinder_time, duration)
 
 
+## Fin de l'entrave en cours (prison de glace brisée d'une Ruée).
+func release_hinder() -> void:
+	_hinder_time = 0.0
+	_hinder_mult = 1.0
+
+
 func is_hindered() -> bool:
 	return _hinder_time > 0.0
 

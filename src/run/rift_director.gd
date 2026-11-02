@@ -33,6 +33,7 @@ func setup(p_ctx: RunContext) -> void:
 		rifts.append(ctx.enemies.spawn(data, point))
 	ctx.events.enemy_killed.connect(_on_enemy_killed)
 	guide = FlowField.new()
+	guide.avoid_transient = true
 	guide.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)
 	_elite_timer = ctx.arena.rift_elite_interval * 0.5
 	ctx.events.event_started.emit(TranslationServer.translate("RIFTS_INTRO") % total())

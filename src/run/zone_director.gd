@@ -83,6 +83,7 @@ func _init(p_ctx: RunContext) -> void:
 		_zone_cells.append(cells)
 	# Guide fin (cases de 16) : suit aussi les passages étroits ; recalculé seulement quand l'objectif change.
 	guide = FlowField.new()
+	guide.avoid_transient = true
 	guide.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)
 	zone_index = 0
 	phase = Phase.START

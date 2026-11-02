@@ -190,6 +190,19 @@ extends Resource
 ## Cratères qui crachent les roches (grande arène) : chaque roche part en arc du cratère le plus proche de sa cible.
 ## Vide : la roche tombe du ciel.
 @export var rockfall_vents: Array[Vector2] = []
+@export_group("Froid et braseros (brique B7, chapitre 4)")
+## Froid gagné par seconde loin des braseros (jauge de 0 à 100 ; 0 = pas de froid sur la carte).
+@export var cold_rate: float = 0.0
+## Froid perdu par seconde dans la chaleur d'un brasero allumé.
+@export var cold_recover: float = 30.0
+## Braseros de la carte (unités du monde) et rayon de leur chaleur.
+@export var braziers: Array[Vector2] = []
+@export var brazier_radius: float = 220.0
+## Un brasero soufflé par le Chaman du gel se rallume après ce délai (secondes).
+@export var brazier_relight: float = 15.0
+## Jauge pleine : dégâts au Chasseur toutes les 0,5 s (× dégâts ennemis de la difficulté) et ralentissement.
+@export var cold_damage: float = 4.0
+@export_range(0.1, 1.0) var cold_hinder: float = 0.7
 @export_group("Nuit et lucioles (brique B2, docs/design/CARTES.md)")
 ## Opacité du voile de nuit (0 = jour ; 0,85 = nuit profonde). La nuit limite les cibles aux ennemis éclairés.
 @export_range(0.0, 0.95) var night: float = 0.0

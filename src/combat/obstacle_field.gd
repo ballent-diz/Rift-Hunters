@@ -15,6 +15,8 @@ var circles: Array[Vector3] = []
 ## Barrières temporaires (mode vagues par zone) : rectangles infranchissables qu'on ouvre en cours de partie.
 var walls: Array[Rect2] = []
 var wall_enabled: Array[bool] = []
+## Barrières passagères (chaussées de marée) : les flèches de route les évitent même ouvertes.
+var wall_transient: Array[bool] = []
 ## Incrémenté à chaque ouverture / fermeture de barrière (la navigation se met à jour).
 var walls_version: int = 0
 ## Cercles retirés en cours de partie (sceau brisé) : la navigation rouvre leurs cases.
@@ -99,9 +101,10 @@ func is_empty() -> bool:
 
 
 ## Ajoute une barrière (fermée) ; renvoie son indice.
-func add_wall(rect: Rect2) -> int:
+func add_wall(rect: Rect2, transient: bool = false) -> int:
 	walls.append(rect)
 	wall_enabled.append(true)
+	wall_transient.append(transient)
 	walls_version += 1
 	return walls.size() - 1
 

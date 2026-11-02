@@ -30,7 +30,7 @@ func setup(p_ctx: RunContext) -> void:
 	z_index = -4
 	_timer = ctx.arena.tide_first
 	for rect: Rect2 in ctx.arena.tide_causeways:
-		var id: int = ctx.obstacles.add_wall(rect)
+		var id: int = ctx.obstacles.add_wall(rect, true)
 		ctx.obstacles.set_wall_enabled(id, false)
 		_walls.append(id)
 
