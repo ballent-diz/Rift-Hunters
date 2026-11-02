@@ -10752,6 +10752,762 @@
 			},
 			"icon": "res://assets/ui/icons/bosses/source_devourer.png"
 		},
+		"vfx.boss.nebulorax.claw": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/nebulorax/claw.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.nebulorax.shadow_wave": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/nebulorax/shadow_wave.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.nebulorax.summon": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/nebulorax/summon.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.nebulorax.absorb": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/nebulorax/absorb.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.8,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.nebulorax.void_beam": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/nebulorax/void_beam.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.astravorn.claw": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/astravorn/claw.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.astravorn.shadow_wave": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/astravorn/shadow_wave.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.astravorn.summon": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/astravorn/summon.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.astravorn.star_crown": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/astravorn/star_crown.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 2.0,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.astravorn.void_beam": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/astravorn/void_beam.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.pyrevorn.sweep": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/pyrevorn/sweep.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.pyrevorn.crater_sequence": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/pyrevorn/crater_sequence.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.pyrevorn.rock_rain": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/pyrevorn/rock_rain.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.pyrevorn.summon": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/pyrevorn/summon.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.pyrevorn.skyfall": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/pyrevorn/skyfall.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.2,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.boss.pyrevorn.eye_beam": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/bosses/pyrevorn/eye_beam.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.85,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.ash_hound.leap": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/ash_hound/leap.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.pyre_brute.pyre_slam": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/pyre_brute/pyre_slam.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.pyre_brute.blazing_rage": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/pyre_brute/blazing_rage.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.5,
+			"loop_visual": true,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.ashen_widow.lay_eggs": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/ashen_widow/lay_eggs.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.3,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.ashen_widow.soot_web": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/ashen_widow/soot_web.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.cinder_knight.charge": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/cinder_knight/charge.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.3,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.lava_lurker.plunge": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/lava_lurker/plunge.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.caldera_titan.eruption": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/caldera_titan/eruption.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.3,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.flame_wyrmling.flame_breath": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/flame_wyrmling/flame_breath.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.3,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.flame_wyrmling.dive": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/flame_wyrmling/dive.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.slag_matron.brood": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/slag_matron/brood.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 1.3,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
+		"vfx.enemy.slag_matron.slag_molt": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter2/slag_matron/slag_molt.tscn",
+			"sheet": "res://assets/vfx/bosses/attack_poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.9,
+			"loop_visual": false,
+			"notes": "Scène native peinte autonome. Aucun gameplay ; raccordement par Claude après revue."
+		},
 		"vfx.boss.source_devourer.claw": {
 			"status": "wip",
 			"kind": "effect_scene",

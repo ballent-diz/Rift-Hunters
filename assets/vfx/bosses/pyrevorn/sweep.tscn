@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://assets/vfx/bosses/painted_attack_effect.gd" id="1"]
+
+[node name="sweep" type="Node2D"]
+script = ExtResource("1")
+effect_kind = &"sweep"
+visual_duration = 0.85
+loop_visual = false
+radius = 95.0
+width = 17.0
+travel_distance = 190.0
+color = Color(0.909804, 0.411765, 0.180392, 1)
+accent = Color(1.000000, 0.901961, 0.639216, 1)
+particle_budget = 20
+metadata/visual_only = true

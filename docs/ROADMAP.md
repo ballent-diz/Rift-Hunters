@@ -131,6 +131,10 @@ Pyrevorn : quatre planches livrées, onze animations (66 poses), import et captu
 Voir [art/PYREVORN_SPRITES.md](art/PYREVORN_SPRITES.md). Apparence du boss à valider ; famille magma validée.
 Aucun changement de gameplay ; comportements et données restent à Claude.
 
+## Images manquantes — effets des boss et du chapitre 2 : Livré (Codex, 2 novembre 2026)
+
+Seize motifs de boss et douze techniques des fiches ennemies ; 28 scènes / 56 fins sans erreur, import, assets et art verts, cinq GIF 720p. Aucun raccord de gameplay ; catalogue, choix et contrat dans `docs/art/EFFETS_BOSS_CHAPITRE2.md`.
+
 ## Sprites du chapitre 2 — Calcinés validés (Codex)
 
 Validation des sept Calcinés par le propriétaire le 22 octobre 2026. Famille magma à suivre.

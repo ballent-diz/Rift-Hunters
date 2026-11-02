@@ -1,0 +1,23 @@
+{
+  "godot": "4.3.stable.official.77dcf97d8",
+  "scenes": 28,
+  "checked_finishes": 56,
+  "contract_errors": 0,
+  "assets_total": 470,
+  "assets_valid": 455,
+  "planned_chapter4": 15,
+  "asset_errors": 0,
+  "art_importer": "passed",
+  "final_maps_conform": 6,
+  "capture_size": [
+    1280,
+    720
+  ],
+  "gifs": {
+    "groupe-1.gif": 578373,
+    "groupe-4.gif": 442059,
+    "groupe-0.gif": 563589,
+    "groupe-2.gif": 434826,
+    "groupe-3.gif": 508286
+  }
+}
