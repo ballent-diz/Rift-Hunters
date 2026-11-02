@@ -1888,3 +1888,9 @@ BOSS_SPORE_VEIL_INTRO,"Voile de spores : vos coups glissent sur elle. Frappez un
 BOSS_VEIL_BURNED,Voile brûlé !,Veil burned!
 MAP_OBJ_CRYSTALS_DESC,Terminer en faisant éclater au moins %d cristaux-miroirs,Clear it shattering at least %d mirror crystals
 MAP_OBJ_VEIL_DESC,Terminer en brûlant au moins %d fois le voile de la gardienne,Clear it burning the warden's veil at least %d times
+OPTIONS_CONTROL_SCHEME,Contrôles : %s,Controls: %s
+CONTROL_SCHEME_KEYBOARD,clavier seul,keyboard only
+CONTROL_SCHEME_MOUSE,clavier + souris,keyboard + mouse
+CONTROL_SCHEME_KEYBOARD_HINT,"Les deux mains au clavier : ZQSD pour marcher, flèches pour les sorts (lancés dans la direction du Chasseur), A, E, F pour les Échos.","Both hands on the keyboard: WASD to move, arrow keys for spells (cast in the Hunter's facing direction), Q, E, F for the Echoes."
+CONTROL_SCHEME_MOUSE_HINT,"Une main sur la souris : ZQSD ou flèches pour marcher, A, E, R, F ou clic gauche pour les sorts (lancés vers le curseur), 1, 2, 3 pour les Échos, clic droit pour l'ordre de focus.","One hand on the mouse: WASD or arrow keys to move, Q, E, R, F or left click for spells (cast toward the cursor), 1, 2, 3 for the Echoes, right click for the focus order."
+TIP_SPELLS_MOUSE,"A, E, R, F ou clic gauche : les sorts du Chasseur, lancés vers le curseur.","Q, E, R, F or left click: the Hunter's spells, cast toward the cursor."

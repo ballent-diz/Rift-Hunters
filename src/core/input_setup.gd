@@ -26,6 +26,26 @@ const ACTIONS := {
 }
 
 
+## Second mode « clavier + souris » (Settings.control_scheme = "mouse") : visée au curseur, sorts sur A, E, R, F
+## (touches physiques Q, E, R, F en AZERTY) et clic gauche, Échos sur 1, 2, 3, marche ZQSD ou flèches.
+const MOUSE_ACTIONS := {
+	&"move_up": [KEY_W, KEY_UP],
+	&"move_down": [KEY_S, KEY_DOWN],
+	&"move_left": [KEY_A, KEY_LEFT],
+	&"move_right": [KEY_D, KEY_RIGHT],
+	&"dash": [KEY_SPACE, KEY_SHIFT],
+	&"spell_1": [KEY_Q],
+	&"spell_2": [KEY_E],
+	&"spell_3": [KEY_R],
+	&"spell_4": [KEY_F],
+	&"technique_1": [KEY_1, KEY_KP_1],
+	&"technique_2": [KEY_2, KEY_KP_2],
+	&"technique_3": [KEY_3, KEY_KP_3],
+	&"open_choices": [KEY_TAB],
+	&"toggle_map": [KEY_M],
+	&"pause": [KEY_ESCAPE, KEY_P],
+}
+
 ## Actions reconfigurables au clavier, dans l'ordre affiché par les options.
 const REBINDABLE: Array[StringName] = [&"move_up", &"move_down", &"move_left", &"move_right", &"dash",
 	&"spell_1", &"spell_2", &"spell_3", &"spell_4", &"technique_1", &"technique_2", &"technique_3",
@@ -104,13 +124,33 @@ static func set_keys(action: StringName, keys: Array[int]) -> void:
 		InputMap.action_add_event(action, event)
 
 
-## Applique des touches personnalisées {action: [touches physiques]} ; les actions absentes reprennent leurs défauts.
-static func apply_bindings(bindings: Dictionary) -> void:
+## Touches par défaut du mode de contrôle (« keyboard » : tout au clavier ; « mouse » : clavier + souris).
+static func defaults(scheme: String) -> Dictionary:
+	return MOUSE_ACTIONS if scheme == "mouse" else ACTIONS
+
+
+## Applique des touches personnalisées {action: [touches physiques]} ; les actions absentes reprennent les défauts du
+## mode de contrôle. En mode souris, le clic gauche lance aussi le premier sort.
+static func apply_bindings(bindings: Dictionary, scheme: String = "keyboard") -> void:
+	var base: Dictionary = defaults(scheme)
 	for action: StringName in REBINDABLE:
 		var keys: Array[int] = []
-		for value: Variant in bindings.get(String(action), ACTIONS[action]):
+		for value: Variant in bindings.get(String(action), base[action]):
 			keys.append(int(value))
 		set_keys(action, keys)
+	_set_click(&"spell_1", MOUSE_BUTTON_LEFT, scheme == "mouse")
+
+
+static func _set_click(action: StringName, button: MouseButton, enabled: bool) -> void:
+	if not InputMap.has_action(action):
+		return
+	for event: InputEvent in InputMap.action_get_events(action):
+		if event is InputEventMouseButton and (event as InputEventMouseButton).button_index == button:
+			InputMap.action_erase_event(action, event)
+	if enabled:
+		var click := InputEventMouseButton.new()
+		click.button_index = button
+		InputMap.action_add_event(action, click)
 
 
 ## Nom affiché de la première touche d'une action, selon la disposition du clavier (« A » en AZERTY pour Q).

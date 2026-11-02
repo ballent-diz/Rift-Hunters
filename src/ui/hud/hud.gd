@@ -72,7 +72,8 @@ func _process(delta: float) -> void:
 	_beat = maxf(_beat - delta * 4.0, 0.0)
 	_tip_time = maxf(_tip_time - delta, 0.0)
 	if ctx and not _tips.is_empty() and ctx.time >= float(_tips[0][0]):
-		_tip_text = tr(str(_tips[0][1]))
+		var key: String = str(_tips[0][1])
+		_tip_text = tr(key + "_MOUSE") if key == "TIP_SPELLS" and Settings.uses_mouse() else tr(key)
 		var labels: Array = []
 		for action: StringName in TIP_KEYS.get(str(_tips[0][1]), []):
 			labels.append(InputSetup.key_label(action))

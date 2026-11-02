@@ -22,6 +22,9 @@ var show_fps: bool = false
 var minimap_size: int = 2
 ## Sorts du Chasseur : maintenir la touche affiche la zone, la relâcher lance (sinon lancement immédiat).
 var spell_preview: bool = false
+## Mode de contrôle : « keyboard » (tout au clavier, visée dans la direction du Chasseur) ou « mouse » (clavier +
+## souris, visée au curseur). Chaque mode a ses touches par défaut (InputSetup).
+var control_scheme: String = "keyboard"
 ## Touches personnalisées du clavier : {action: [touches physiques]} (actions absentes : touches par défaut).
 var bindings: Dictionary = {}
 ## Dernier périphérique utilisé : true = manette (visée assistée, navigation au pad).
@@ -51,6 +54,7 @@ func load_settings() -> void:
 	show_fps = bool(data.get("show_fps", show_fps))
 	minimap_size = clampi(int(data.get("minimap_size", minimap_size)), 0, 3)
 	spell_preview = bool(data.get("spell_preview", spell_preview))
+	control_scheme = "mouse" if str(data.get("control_scheme", "keyboard")) == "mouse" else "keyboard"
 	bindings = {}
 	var saved: Variant = data.get("bindings", {})
 	if int(data.get("bindings_version", 1)) < InputSetup.BINDINGS_VERSION:
@@ -80,6 +84,7 @@ func save_settings() -> Error:
 		"show_fps": show_fps,
 		"minimap_size": minimap_size,
 		"spell_preview": spell_preview,
+		"control_scheme": control_scheme,
 		"bindings": bindings,
 		"bindings_version": InputSetup.BINDINGS_VERSION,
 	}
@@ -88,7 +93,7 @@ func save_settings() -> Error:
 
 func apply() -> void:
 	TranslationServer.set_locale(locale)
-	InputSetup.apply_bindings(bindings)
+	InputSetup.apply_bindings(bindings, control_scheme)
 	var bus: int = AudioServer.get_bus_index("Master")
 	AudioServer.set_bus_volume_db(bus, linear_to_db(maxf(master_volume, 0.0001)))
 	for pair: Array in [["Music", music_volume], ["SFX", sfx_volume]]:
@@ -133,6 +138,18 @@ func bind_key(action: StringName, keycode: int) -> void:
 	bindings[String(action)] = keys
 	apply()
 	save_settings()
+
+
+## Change de mode de contrôle : les touches reprennent les défauts du nouveau mode.
+func set_control_scheme(scheme: String) -> void:
+	control_scheme = "mouse" if scheme == "mouse" else "keyboard"
+	bindings = {}
+	apply()
+	save_settings()
+
+
+func uses_mouse() -> bool:
+	return control_scheme == "mouse" and not using_gamepad
 
 
 func reset_bindings() -> void:

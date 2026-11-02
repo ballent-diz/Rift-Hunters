@@ -31,6 +31,13 @@ func refresh() -> void:
 		Settings.save_settings()
 		refresh(), 360))
 	box.add_child(UiKit.title(tr("OPTIONS_KEYS_TITLE"), 20, MenuSkin.PAPER))
+	var scheme: Button = UiKit.button(tr("OPTIONS_CONTROL_SCHEME") % tr("CONTROL_SCHEME_" + Settings.control_scheme.to_upper()),
+		func() -> void:
+			Settings.set_control_scheme("keyboard" if Settings.control_scheme == "mouse" else "mouse")
+			refresh(), 420)
+	scheme.name = "ControlScheme"
+	box.add_child(scheme)
+	box.add_child(UiKit.wrapped(tr("CONTROL_SCHEME_" + Settings.control_scheme.to_upper() + "_HINT"), 14, UiKit.MUTED))
 	box.add_child(_toggle(tr("OPTIONS_SPELL_PREVIEW"), Settings.spell_preview, func(on: bool) -> void:
 		Settings.spell_preview = on))
 	var grid := GridContainer.new()
