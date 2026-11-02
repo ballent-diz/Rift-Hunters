@@ -14138,211 +14138,6 @@
 			},
 			"icon": "res://assets/ui/icons/enemies/ice_golem.png"
 		},
-		"enemy.hush_shard": {
-			"status": "final",
-			"imported_from": "assets/concepts/incoming/enemy.hush_shard/job.json",
-			"sheet": "res://assets/sprites/enemies/hush_shard/hush_shard_sheet.png",
-			"cell": [
-				256,
-				256
-			],
-			"anchor": [
-				128,
-				238
-			],
-			"scale": 0.5,
-			"animations": {
-				"move": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"attack": {
-					"row": 1,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				}
-			},
-			"icon": "res://assets/ui/icons/enemies/hush_shard.png"
-		},
-		"enemy.ice_knight": {
-			"status": "final",
-			"imported_from": "assets/concepts/incoming/enemy.ice_knight/job.json",
-			"sheet": "res://assets/sprites/enemies/ice_knight/ice_knight_sheet.png",
-			"cell": [
-				256,
-				256
-			],
-			"anchor": [
-				128,
-				238
-			],
-			"scale": 0.5,
-			"animations": {
-				"move": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"attack": {
-					"row": 1,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				}
-			},
-			"icon": "res://assets/ui/icons/enemies/ice_knight.png"
-		},
-		"enemy.frozen_sentry": {
-			"status": "final",
-			"imported_from": "assets/concepts/incoming/enemy.frozen_sentry/job.json",
-			"sheet": "res://assets/sprites/enemies/frozen_sentry/frozen_sentry_sheet.png",
-			"cell": [
-				256,
-				256
-			],
-			"anchor": [
-				128,
-				238
-			],
-			"scale": 0.5,
-			"animations": {
-				"move": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"attack": {
-					"row": 1,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				}
-			},
-			"icon": "res://assets/ui/icons/enemies/frozen_sentry.png"
-		},
-		"enemy.icebreaker": {
-			"status": "final",
-			"imported_from": "assets/concepts/incoming/enemy.icebreaker/job.json",
-			"sheet": "res://assets/sprites/enemies/icebreaker/icebreaker_sheet.png",
-			"cell": [
-				256,
-				256
-			],
-			"anchor": [
-				128,
-				238
-			],
-			"scale": 0.5,
-			"animations": {
-				"move": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"attack": {
-					"row": 1,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"dive": {
-					"row": 2,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"death": {
-					"row": 3,
-					"frames": 1,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				}
-			},
-			"icon": "res://assets/ui/icons/enemies/icebreaker.png"
-		},
-		"object.brazier": {
-			"status": "final",
-			"imported_from": "assets/concepts/incoming/object.brazier/job.json",
-			"sheet": "res://assets/sprites/objects/brazier/brazier_sheet.png",
-			"cell": [
-				256,
-				256
-			],
-			"anchor": [
-				128,
-				238
-			],
-			"scale": 0.5,
-			"animations": {
-				"lit": {
-					"row": 0,
-					"frames": 6,
-					"fps": 12,
-					"loop": true
-				},
-				"dim": {
-					"row": 1,
-					"frames": 6,
-					"fps": 12,
-					"loop": true
-				},
-				"out": {
-					"row": 2,
-					"frames": 6,
-					"fps": 12,
-					"loop": false
-				}
-			},
-			"icon": "res://assets/ui/icons/objects/brazier.png"
-		},
 		"enemy.frost_shaman": {
 			"status": "final",
 			"imported_from": "assets/concepts/incoming/enemy.frost_shaman/job.json",
@@ -14519,6 +14314,176 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/enemies/rime_archer.png"
+		},
+		"enemy.hush_shard": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.hush_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/hush_shard/hush_shard_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/hush_shard.png"
+		},
+		"enemy.ice_knight": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.ice_knight/job.json",
+			"sheet": "res://assets/sprites/enemies/ice_knight/ice_knight_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/ice_knight.png"
+		},
+		"enemy.frozen_sentry": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frozen_sentry/job.json",
+			"sheet": "res://assets/sprites/enemies/frozen_sentry/frozen_sentry_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/frozen_sentry.png"
+		},
+		"enemy.icebreaker": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.icebreaker/job.json",
+			"sheet": "res://assets/sprites/enemies/icebreaker/icebreaker_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"dive": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/icebreaker.png"
 		},
 		"enemy.silence_herald": {
 			"status": "final",
@@ -14785,6 +14750,41 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/bosses/nivorath.png"
+		},
+		"object.brazier": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.brazier/job.json",
+			"sheet": "res://assets/sprites/objects/brazier/brazier_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"lit": {
+					"row": 0,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"dim": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"out": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/brazier.png"
 		}
 	}
 }

@@ -48,6 +48,10 @@ var burn: BurnDirector
 var pods: PodDirector
 var rockfall: RockfallDirector
 var tide: TideDirector
+var cold: ColdDirector
+var frost: FrostTechniques
+## Effets peints autonomes des ennemis et des boss (présentation seulement).
+var painted: PaintedVfx
 var nests: NestDirector
 ## Gardien de palier en cours (élite en version boss), pour la barre de boss.
 var mini_boss: Enemy
@@ -116,6 +120,10 @@ func danger_vector(pos: Vector2) -> Vector2:
 		result += terrain.danger(pos)
 	if tide:
 		result += tide.danger(pos)
+	if cold:
+		result += cold.danger(pos)
+	if frost:
+		result += frost.danger(pos)
 	for mechanics: BossMechanics in boss_mechanics:
 		result += mechanics.danger(pos)
 	return result
@@ -128,6 +136,13 @@ func boss_bot_move(pos: Vector2) -> Vector2:
 		if move != Vector2.ZERO:
 			return move
 	return Vector2.ZERO
+
+
+func boss_hold_spells() -> bool:
+	for mechanics: BossMechanics in boss_mechanics:
+		if mechanics.bot_hold_spells():
+			return true
+	return false
 
 
 func boss_bot_dash() -> bool:

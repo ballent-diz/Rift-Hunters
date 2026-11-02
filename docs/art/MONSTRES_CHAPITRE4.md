@@ -1,6 +1,6 @@
 # Chapitre 4 — Le Glacier silencieux : livraison des sprites
 
-Lot demandé le 2 novembre 2026. **14 ennemis, Nivorath et un brasero**, 31 planches retenues, 69 animations peintes et **414 poses**. Les noms et gestes suivent les fiches du commit `7605b92247b98e812e9a643f7cfdd24d49237122` de `claude/utiliser-mon-git-oofk0o`, lu sans fusionner son code. Base de la branche : `main` à `858c88b9d229bcb55df0fb22b3a004358420349b`.
+Lot demandé le 2 novembre 2026. **14 ennemis, Nivorath et un brasero**, 31 planches retenues, 69 animations peintes et **414 poses**. Les noms et gestes suivent les fiches du commit `7605b92247b98e812e9a643f7cfdd24d49237122` de `claude/utiliser-mon-git-oofk0o`, lu sans fusionner son code. Base initiale : `main` à `858c88b9d229bcb55df0fb22b3a004358420349b`, puis actualisation sur `e7701e9` (PR #89). Les fiches de référence sont désormais fusionnées dans `main` ; leurs entrées prévues sont remplacées par ces imports sans perdre les changements de gameplay.
 
 ## Format et catalogue
 
@@ -63,9 +63,9 @@ Les deux familles et les quatre groupes d’animations de Nivorath sont dans [`d
 ## Récapitulatif pour revue
 
 - **Livré** : bestiaire fixé, Nivorath, brasero, recettes et sources retenues, correction des effets sans ennemi, aperçus et contrôles.
-- **Non fait** : intégration des fiches du chapitre 4 présentes sur la branche Claude, raccordement temporel des techniques et du brasero, essais de campagne par le propriétaire. Aucun code dans `src/` ni règle de `data/` modifié.
+- **Non fait** : raccordement temporel des techniques et du brasero, essais de campagne par le propriétaire. Les fiches du chapitre 4 ont été fusionnées séparément par la PR #89. Aucun code dans `src/` ni règle de `data/` modifié.
 - **Choix faits sans validation** : détails de silhouette dans le bestiaire imposé, retrait de 14 px pour les deux volants, seconde rangée transparente des planches C, facteurs de cadrage documentés. La palette reste glace bleue/blanche et Faille violette, sans lave ni vert de marais.
-- **Raccords Claude** : fusionner ses fiches séparément ; piloter les animations existantes et les trois états du brasero. Les cercles d’alerte et zones de gameplay restent au code.
+- **Raccords Claude** : ses fiches sont conservées telles que fusionnées dans `main` ; piloter les animations existantes et les trois états du brasero. Les cercles d’alerte et zones de gameplay restent au code.
 
 `final` protège les sprites d’un remplacement procédural ; ce statut ne constitue pas une validation artistique du propriétaire.
 
