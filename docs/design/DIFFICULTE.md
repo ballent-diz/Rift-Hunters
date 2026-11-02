@@ -46,15 +46,25 @@ Code : `ObstacleField.blocks_shot`, `clear_distance`, `line_clear` ; `Projectile
 
 ## Garde-fou : la courbe mesurée
 
-La difficulté ne doit jamais dépasser la progression du joueur (jalons, Échos, boutique, arbre). À chaque carte,
-mesure au bot (`tools/balance_sim.sh`, `META=veteran`) :
+La difficulté ne doit jamais dépasser la progression du joueur (jalons, Échos, boutique, arbre). Le jeu vise un défi
+réel (décision du propriétaire, 2 novembre 2026) : on galère un peu pour passer une carte, sans se décourager, et on
+sent une marge de progression sur son build comme sur son jeu. À chaque carte, mesure au bot
+(`tools/balance_sim.sh`, `PROFILE=stage`) :
 
-- **victoires** autour de **75 %** (entre 60 et 90 %) ;
+- **profil d'étape** (`tests/smoke/stage_profile.gd`) : le bot reçoit ce qu'un joueur moyen-bon aurait débloqué en
+  arrivant sur la carte (progression rejouée avec les vraies règles : Éclats des victoires, d'environ 1,6 tentative par
+  carte et de la moitié des objectifs, 20 % laissés à la boutique ; Points de Chasseur ; emplacements de sorts ; sceau
+  d'Écho ; maîtrise et arbres des Échos ; équipe des Échos les plus récents). Carte 1 : 2 sorts, 6 points, Cendrelame
+  seule ; carte 13 : 4 sorts et leurs variantes, 24 points, 3 Échos ;
+- **bot moyen-bon** (`AutopilotBrain`) : il connaît les mécaniques, réagit à la plupart des tirs, garde sa Taille
+  fendante pour les groupes et les cibles fortes ;
+- **victoires** autour de **2 sur 3** (entre 50 et 80 %) : un joueur moyen-bon perd parfois, un débutant devra
+  progresser ;
 - **durée** qui augmente doucement d'une carte à l'autre (environ 6 à 9 minutes au chapitre 1, 9 à 12 au chapitre 2) ;
 - **dégâts subis** en hausse progressive.
 
-**Chaque nouvelle carte** (décision du propriétaire, 23 octobre 2026) : une passe courte avec le bot « joueur moyen »
-sur cette carte seulement (2 Échos de départ × 1 à 2 graines, `SIM_TIMEOUT=2400`), avant la pull request. Les cartes
+**Chaque nouvelle carte** (décision du propriétaire, 23 octobre 2026) : une passe courte avec le bot sur cette carte
+seulement (`PROFILE=stage`, 3 graines, `SIM_TIMEOUT=2400`), avant la pull request. Les cartes
 déjà livrées ne sont pas remesurées d'office : le propriétaire les règle pendant ses propres tests.
 
 Une carte qui sort de la courbe est corrigée par ses propres réglages (`enemy_hp_mult`, `enemy_damage_mult`, vagues)

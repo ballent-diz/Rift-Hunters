@@ -29,6 +29,7 @@ func _ready() -> void:
 	var boss_at: float = -1.0
 	var features: Array[String] = []
 	var boss_id: StringName = &""
+	var stage: bool = false
 	for arg: String in OS.get_cmdline_user_args():
 		var parts: PackedStringArray = arg.trim_prefix("--").split("=")
 		if parts[0] in TestArena.FEATURES:
@@ -52,6 +53,9 @@ func _ready() -> void:
 				boss_id = StringName(parts[1])
 			"meta":
 				setup.meta_effects = _meta_profile(parts[1])
+			"profile":
+				# « stage » : ce qu'un joueur moyen-bon aurait débloqué en arrivant sur cette carte (StageProfile).
+				stage = parts[1] == "stage"
 			"modifiers":
 				for id: String in parts[1].split(",", false):
 					setup.modifier_ids.append(StringName(id))
@@ -59,6 +63,8 @@ func _ready() -> void:
 				# Équipe du refuge (compagnons de l'Écho de tête), ex. --team=mossback,glimmerwing
 				for id: String in parts[1].split(",", false):
 					setup.companion_ids.append(StringName(id))
+	if stage:
+		_apply_stage(setup)
 	setup.arena_override = TestArena.build(setup.arena_id, boss_id, features)
 	_run = load("res://scenes/run.tscn").instantiate()
 	_run.skip_profile = true
@@ -70,6 +76,25 @@ func _ready() -> void:
 	_run.ctx.player.god_mode = god
 	_run.finished.connect(_on_finished)
 	print("Smoke test : départ ", setup.starter_id, " / ", setup.difficulty_id, " / graine ", setup.run_seed)
+
+
+## Progression rejouée jusqu'à la carte jouée (StageProfile), lue par les mêmes règles qu'une vraie partie. Une équipe
+## passée par --team reste prioritaire.
+func _apply_stage(setup: RunSetup) -> void:
+	var team: Array[StringName] = setup.companion_ids.duplicate()
+	Profile.profile = StageProfile.build(setup.arena_id, setup.starter_id)
+	if not team.is_empty():
+		var ids: PackedStringArray = [String(setup.starter_id)]
+		for id: StringName in team:
+			ids.append(String(id))
+		Profile.profile.set_preference("team", ",".join(ids))
+	var real: RunSetup = Profile.make_run_setup(setup.starter_id)
+	for key: String in ["meta_effects", "monster_meta_effects", "spell_ids", "spell_variants", "echo_techniques",
+			"starter_rank", "starter_variant", "companion_ids", "companion_ranks", "companion_variants", "unlocked_monsters",
+			"unlocked_relics", "unlocked_upgrades", "shop_items", "start_levels"]:
+		setup.set(key, real.get(key))
+	setup.show_tutorial = false
+	print("Profil d'étape : ", StageProfile.describe(Profile.profile))
 
 
 ## Profils de progression typiques pour l'équilibrage : « veteran » ≈ 10 parties, « expert » ≈ 30 parties.
