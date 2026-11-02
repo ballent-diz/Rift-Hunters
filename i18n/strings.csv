@@ -233,7 +233,6 @@ MASTERY_GLIMMERWING_EVOLVED_VICTORY,Refermez une Faille avec Lucivelle évoluée
 MENU_PLAY,Entrer au Refuge,Enter the Refuge
 REFUGE_TITLE,Refuge,Refuge
 REFUGE_MAIN_MENU,Écran titre,Title screen
-REFUGE_CURRENCIES,Éclats de faille : %d   ·   Essence : %d,Rift Shards: %d   ·   Essence: %d
 TAB_EXPEDITION,Expédition,Expedition
 TAB_TREE,Arbre du Chasseur,Hunter's Tree
 TAB_BESTIARY,Bestiaire,Bestiary
@@ -270,7 +269,6 @@ BESTIARY_RELICS,Reliques,Relics
 BESTIARY_SYNERGIES,Synergies,Synergies
 BESTIARY_UNKNOWN,Pas encore découvert.,Not discovered yet.
 BESTIARY_SYNERGY_HINT,Réunissez ces Échos dans la même équipe pour découvrir leur synergie.,Bring these Echoes into the same team to discover their synergy.
-BESTIARY_STATS,Dégâts %d · %s attaques/s · Portée %d · ne tombe jamais au combat,Damage %d · %s attacks/s · Range %d · never falls in battle
 BESTIARY_EVOLUTIONS,Évolutions,Evolutions
 BESTIARY_NOT_SEEN,jamais obtenue,never obtained
 BESTIARY_MASTERY,Maîtrise,Mastery
@@ -1618,7 +1616,7 @@ SHOP_LOOKS_SOON,"Bientôt : couleurs et tenues du Chasseur et des Échos.","Comi
 SHOP_BUY,Acheter · %d éclats,Buy · %d shards
 SHOP_OWNED,Acquis,Owned
 SHOP_STOCK,En stock : %d,In stock: %d
-SHOP_PACK,Emporter à la prochaine expédition,Bring on the next expedition
+SHOP_PACK,Emporter,Pack it
 SHOP_PACKED,✓ Emporté,✓ Packed
 SHOP_LOCKED_AFTER,En vente après : %s,On sale after: %s
 SHOP_NO_ECHO,"Aucun Écho en vente pour l'instant : avancez dans la campagne.","No Echo on sale yet: progress through the campaign."
@@ -1949,3 +1947,35 @@ ADVICE_BOSS,"Ses attaques sont annoncées au sol : gardez votre Ruée pour les p
 TIP_MILESTONE,"Jalon atteint : choisissez un avantage rare. Il dure jusqu'à la fin de la carte.","Milestone reached: pick a rare boon. It lasts until the end of the map."
 TIP_ELITE,"Une élite arrive : elle a ses propres techniques. Lisez l'alerte au sol et esquivez à la Ruée.","An elite is coming: it has its own techniques. Read the warning on the ground and dodge with your Dash."
 TIP_ZONE,"Zone nettoyée : la barrière s'ouvre. Suivez la flèche vers la zone suivante.","Zone cleared: the barrier opens. Follow the arrow to the next zone."
+REFUGE_GROUP_EXPEDITION,Expédition,Expedition
+REFUGE_GROUP_PROGRESSION,Progression,Progression
+REFUGE_GROUP_COLLECTION,Collection,Collection
+REFUGE_GROUP_MARKET,Marché,Market
+REFUGE_GROUP_OPTIONS,Options,Options
+REFUGE_SHARDS,Éclats,Shards
+REFUGE_ESSENCE,Essence,Essence
+REFUGE_SHARDS_HINT,"Éclats de faille : gagnés à chaque expédition, davantage en battant élites et gardiens. Ils servent à apprendre les nœuds des arbres (Chasseur et Échos) et à acheter à la Boutique.","Rift Shards: earned on every expedition, more for beating elites and guardians. Spend them on tree nodes (Hunter and Echoes) and in the Shop."
+REFUGE_ESSENCE_HINT,"Essence : plus rare, laissée par les élites et les gardiens vaincus. Elle finance les recherches du Laboratoire.","Essence: rarer, dropped by defeated elites and guardians. It funds research in the Laboratory."
+REFUGE_NEXT_STEP,Prochaine étape,Next step
+REFUGE_GO,Y aller,Go there
+REFUGE_STEP_FIRST_RUN,"Choisissez une carte et partez en expédition : vos Éclats vous attendent au retour.","Pick a map and head out on an expedition: your Shards will be waiting when you return."
+REFUGE_STEP_LEARN,"Vous avez assez d'Éclats : apprenez un nœud dans l'arbre du Chasseur.","You have enough Shards: learn a node in the Hunter's Tree."
+REFUGE_STEP_ACTIVATE,"Un nœud appris attend d'être activé dans l'arbre du Chasseur : seuls les nœuds actifs comptent en partie.","A learned node is waiting to be activated in the Hunter's Tree: only active nodes count in a run."
+REFUGE_STEP_ECHO,"Un de vos Échos peut progresser : ouvrez son arbre et composez votre équipe.","One of your Echoes can grow: open its tree and build your team."
+REFUGE_STEP_READY,"Tout est prêt : repartez en expédition, ou tentez les étoiles des cartes déjà gagnées.","All set: head out again, or chase the stars of maps you have already won."
+EXPEDITION_ECHOES_TO_FIND,À découvrir (%d) :,To discover (%d):
+EXPEDITION_CHAPTER_STARS,★ %d / %d dans ce chapitre,★ %d / %d in this chapter
+EXPEDITION_ECHO_MAP_SHORT,C%d,M%d
+SHOP_MISSING,Il manque %d éclats,%d shards short
+SHOP_PACK_HINT,"Emporté à la prochaine expédition (une unité, consommée au départ).","Brought on the next expedition (one unit, used up when you set out)."
+BESTIARY_SECTION_ECHOES,Échos,Echoes
+BESTIARY_SECTION_ENEMIES,Corrompus et gardiens,Hollowed and guardians
+BESTIARY_SECTION_LORE,Reliques et synergies,Relics and synergies
+BESTIARY_CHIP_DAMAGE,dégâts,damage
+BESTIARY_CHIP_RATE,attaques/s,attacks/s
+BESTIARY_CHIP_RANGE,portée,range
+BESTIARY_CHIP_ROLE,rôle,role
+BESTIARY_NEVER_FALLS,Un Écho ne tombe jamais au combat.,An Echo never falls in battle.
+BESTIARY_MASTERY_BAR,Maîtrise niveau %d · %d / %d XP,Mastery level %d · %d / %d XP
+BESTIARY_MASTERY_MAX,Maîtrise niveau %d · palier maximal,Mastery level %d · top tier
+LAB_MISSING,Il manque %d essence,%d essence short

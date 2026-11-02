@@ -9,6 +9,10 @@ func title_key() -> String:
 	return "TAB_JOURNAL"
 
 
+func unlocked() -> bool:
+	return not MechanicJournal.seen(profile()).is_empty()
+
+
 ## Nouvelle mécanique notée depuis la dernière lecture du Journal.
 func needs_attention() -> bool:
 	return MechanicJournal.seen(profile()).size() > int(profile().data.get("journal_read", 0))

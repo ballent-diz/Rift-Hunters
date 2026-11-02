@@ -80,8 +80,18 @@ func _add_starters(box: VBoxContainer, p: ProfileData) -> void:
 	for id: StringName in GameDB.sorted_ids(GameDB.monsters):
 		(owned if p.is_monster_unlocked(GameDB.monster(id)) else later).append(id)
 	later.sort_custom(func(a: StringName, b: StringName) -> bool: return _map_number(a) < _map_number(b))
-	for id: StringName in owned + later:
+	for id: StringName in owned:
 		row.add_child(_starter_tile(p, GameDB.monster(id), team.has(id)))
+	if not later.is_empty():
+		# Échos à gagner : une rangée de pastilles discrètes, l'équipe disponible reste au premier plan.
+		var hidden := HFlowContainer.new()
+		hidden.name = "EchoesToFind"
+		hidden.add_theme_constant_override("h_separation", 6)
+		hidden.add_theme_constant_override("v_separation", 6)
+		hidden.add_child(UiKit.caption(tr("EXPEDITION_ECHOES_TO_FIND") % later.size(), 11, UiKit.MUTED))
+		for id: StringName in later:
+			hidden.add_child(_starter_tile(p, GameDB.monster(id), false))
+		box.add_child(hidden)
 	for id: StringName in team:
 		var monster: MonsterData = GameDB.monster(id)
 		var options := HBoxContainer.new()
@@ -134,18 +144,19 @@ func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Butt
 		tile.tooltip_text = tr(monster.desc_key) + "\n" + tr("EXPEDITION_MASTERY") % Mastery.level(p, monster)
 		tile.pressed.connect(_select_starter.bind(monster.id))
 	else:
-		# Échos à gagner : tuiles plus petites, l'équipe disponible reste au premier plan.
-		tile.custom_minimum_size = Vector2(76, 76)
-		var mystery: Label = UiKit.title("?", 24, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
+		tile.custom_minimum_size = Vector2(46, 46)
+		box.offset_left = 2
+		box.offset_right = -2
+		box.offset_top = 2
+		box.offset_bottom = -2
+		var number: int = _map_number(monster.id)
+		var short: String = tr("EXPEDITION_ECHO_MAP_SHORT") % number if number < 99 else "?"
+		var mystery: Label = UiKit.title(short, 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
 		mystery.size_flags_vertical = Control.SIZE_EXPAND_FILL
 		mystery.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		box.add_child(mystery)
-		var number: int = _map_number(monster.id)
-		var locked: Label = UiKit.caption(tr("EXPEDITION_ECHO_AT_MAP") % number if number < 99
-			else tr("EXPEDITION_ECHO_LATER"), 10, UiKit.MUTED)
-		locked.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		box.add_child(locked)
-		tile.tooltip_text = EchoCollection.source_text(monster)
+		var where: String = tr("EXPEDITION_ECHO_AT_MAP") % number if number < 99 else tr("EXPEDITION_ECHO_LATER")
+		tile.tooltip_text = where + "\n" + EchoCollection.source_text(monster)
 	for child: Node in box.get_children():
 		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return tile
@@ -201,6 +212,7 @@ func _chapter_panel(p: ProfileData, chapter: ChapterData, current: ArenaData) ->
 	heading.add_child(UiKit.title(tr(chapter.name_key), 20, MenuSkin.PAPER))
 	box.add_child(banner)
 	box.add_child(UiKit.wrapped(tr(chapter.desc_key), 13, UiKit.MUTED))
+	box.add_child(_chapter_path(p, chapter, current))
 	var row := HFlowContainer.new()
 	row.add_theme_constant_override("h_separation", 10)
 	row.add_theme_constant_override("v_separation", 10)
@@ -214,6 +226,60 @@ func _chapter_panel(p: ProfileData, chapter: ChapterData, current: ArenaData) ->
 		var previous: ArenaData = GameDB.arena(maps[index - 1].arena_id) if index > 0 else null
 		row.add_child(_map_tile(p, arena, map, chapter.color, arena == current, previous))
 	return panel
+
+
+## Chemin du chapitre : une étape par carte, reliées dans l'ordre ; pleine si gagnée, cerclée d'or si ouverte, grise si
+## fermée ; un anneau sur la carte choisie et, dessous, les étoiles obtenues.
+func _chapter_path(p: ProfileData, chapter: ChapterData, current: ArenaData) -> Control:
+	var steps: Array[Dictionary] = []
+	var stars: int = 0
+	var total: int = 0
+	for map: CampaignMapData in chapter.maps:
+		var arena: ArenaData = GameDB.arena(map.arena_id)
+		if arena == null:
+			continue
+		var done: int = 0
+		for objective: MapObjectiveData in map.objectives:
+			done += 1 if Campaign.objective_done(p, arena.id, Campaign.NORMAL, objective.id) else 0
+		stars += done
+		total += map.objectives.size()
+		steps.append({"won": Campaign.wins(p, arena.id) > 0, "open": p.is_arena_unlocked(arena),
+			"current": arena == current, "stars": "%d/%d" % [done, map.objectives.size()]})
+	var row := HBoxContainer.new()
+	row.name = "ChapterPath"
+	row.add_theme_constant_override("separation", 14)
+	var path := Control.new()
+	path.custom_minimum_size = Vector2(maxf(steps.size() * 92.0, 92.0), 50)
+	path.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	path.draw.connect(func() -> void:
+		var font: Font = path.get_theme_default_font()
+		for i: int in steps.size():
+			var center := Vector2(26 + i * 92, 18)
+			if i > 0:
+				var lit: bool = bool(steps[i - 1]["won"])
+				path.draw_line(center - Vector2(78, 0), center - Vector2(14, 0),
+					Color(chapter.color, 0.9) if lit else Color(UiKit.MUTED, 0.35), 3.0 if lit else 2.0, true)
+			var step: Dictionary = steps[i]
+			if step["won"]:
+				path.draw_circle(center, 11, chapter.color)
+			elif step["open"]:
+				path.draw_circle(center, 11, Color(0.08, 0.06, 0.12))
+				path.draw_arc(center, 11, 0, TAU, 32, UiKit.GOLD, 2.0, true)
+			else:
+				path.draw_circle(center, 11, Color(0.18, 0.18, 0.22))
+			if step["current"]:
+				path.draw_arc(center, 16, 0, TAU, 32, MenuSkin.PAPER, 1.5, true)
+			var number: String = str(i + 1)
+			path.draw_string(font, center + Vector2(-4 * number.length(), 5), number, HORIZONTAL_ALIGNMENT_LEFT, -1, 13,
+				Color(0.05, 0.04, 0.08) if step["won"] else MenuSkin.PAPER)
+			if step["open"]:
+				path.draw_string(font, center + Vector2(-14, 32), "★ " + str(step["stars"]), HORIZONTAL_ALIGNMENT_LEFT,
+					-1, 11, UiKit.GOLD if step["won"] else UiKit.MUTED))
+	row.add_child(path)
+	var summary: Label = UiKit.caption(tr("EXPEDITION_CHAPTER_STARS") % [stars, total], 12, UiKit.GOLD)
+	summary.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	row.add_child(summary)
+	return row
 
 
 func _map_tile(p: ProfileData, arena: ArenaData, map: CampaignMapData, accent: Color, selected: bool,

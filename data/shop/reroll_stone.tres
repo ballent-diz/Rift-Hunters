@@ -22,3 +22,4 @@ effects = [SubResource("effect_1")]
 start_levels = 0
 color = Color(0.6, 0.85, 1, 1)
 order = 2
+art = "relic.cracked_hourglass"
