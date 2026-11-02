@@ -81,6 +81,6 @@ func test_pyrevorn_patterns_run() -> void:
 func test_rocks_arc_from_the_vents() -> void:
 	var ctx: RunContext = _start()
 	check(ctx.rockfall != null, "pluie de roches active")
-	var target: Vector2 = Vector2(-1800, -1700)
+	var target: Vector2 = Vector2(-1800, -1500)
 	ctx.rockfall.drop(target)
-	check_eq(ctx.rockfall.falling.back()["from"], Vector2(-2200, -2100), "la roche part du cratère le plus proche")
+	check_eq(ctx.rockfall.falling.back()["from"], Vector2(-2240, -1570), "la roche part du cratère le plus proche")

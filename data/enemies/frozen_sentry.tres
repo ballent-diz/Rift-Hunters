@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.frozen_sentry"
+shape = 17
+size = 40.0
+primary = Color(0.6, 0.7, 0.85, 1.0)
+secondary = Color(0.85, 0.9, 1.0, 1.0)
+accent = Color(0.7, 0.45, 1.0, 1.0)
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("3")
+damage = 11.0
+cooldown = 2.4
+attack_range = 440.0
+projectile_speed = 280.0
+params = {
+"keep_distance": 290.0,
+"windup": 0.4
+}
+
+[resource]
+script = ExtResource("1")
+id = &"frozen_sentry"
+name_key = "ENEMY_FROZEN_SENTRY_NAME"
+desc_key = "ENEMY_FROZEN_SENTRY_DESC"
+brain = 1
+max_hp = 34.0
+damage = 9.0
+defense = 8.0
+move_speed = 56.0
+radius = 17.0
+xp_value = 2
+knockback_resist = 0.1
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_1")

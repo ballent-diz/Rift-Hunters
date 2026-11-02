@@ -23,6 +23,9 @@ const NEIGHBORS: Array[Vector2i] = [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0,
 var cell_size: float = CELL
 var origin := Vector2.ZERO
 var size := Vector2i.ZERO
+## Flèche de route : les barrières passagères (marée) restent fermées, la route suit le chemin permanent au lieu de
+## basculer à chaque marée.
+var avoid_transient := false
 var _walkable := PackedByteArray()
 ## Cases praticables sans les barrières (référence pour les rouvrir).
 var _base_walkable := PackedByteArray()
@@ -63,7 +66,7 @@ func apply_walls(obstacles: ObstacleField) -> void:
 		_released_seen += 1
 	_walkable = _base_walkable.duplicate()
 	for i: int in obstacles.walls.size():
-		if not obstacles.wall_enabled[i]:
+		if not obstacles.wall_enabled[i] and not (avoid_transient and obstacles.wall_transient[i]):
 			continue
 		var r: Rect2 = obstacles.walls[i].grow(CLEARANCE)
 		var lo: Vector2i = cell_of(r.position)

@@ -1,5 +1,27 @@
 # Rift Hunters — feuille de route
 
+## Lot du 2 novembre (Claude) : chapitre 4, le Glacier silencieux (mécaniques)
+
+- 14 monstres (Givrés, Échos du silence) avec formes provisoires, techniques E18 à E22, froid et braseros (B7),
+  Nivorath (3 phases, Écho des sorts) : [MONSTRES.md](design/MONSTRES.md). Sprites et effets à livrer par Codex ;
+  cartes 16 à 20 à concevoir.
+
+## Lot du 29 octobre (Claude) : collisions des cartes 7 à 12, cartes 10 à 12 en jeu
+
+- **Collisions peintes par le propriétaire** pour les cartes 7 à 12 ; carte 9 : escalier taillé dans la falaise entre
+  les deux zones (rendu provisoire, retouche confiée à Codex). Bot invulnérable : cartes 7, 8 et 9 gagnées, gardien tué.
+- **Carte 10** : `caldera_arena` branchée sur le décor `volcano_heart` (nappes et cratères recalés) —
+  [fiche](maps/COEUR_DU_VOLCAN.md).
+- **Carte 11** `root_mangrove` : trois zones, finale sur l'île, vase — [fiche](maps/MANGROVE_DES_RACINES.md).
+- **Carte 12** `tide_temple` : quatre failles, finale dans le bassin sacré, marée sur trois chaussées —
+  [fiche](maps/TEMPLE_DES_MAREES.md).
+- **Campagne** (31 octobre) : cartes 7 à 9 en vagues par zone, chapitre 2 = cartes 6 à 10, chapitre 3 « Les Marais
+  engloutis » = cartes 11 et 12. Gardiens propres des cartes 7 à 9 : Chevalier calciné (cercle du duel), Reine-veuve
+  (fils tendus), Matrone des scories (carapace fendue par les roches). Équilibrage des cartes 7 à 12 dans
+  [DIFFICULTE.md](design/DIFFICULTE.md).
+- **Gardiens des cartes 11 et 12** (31 octobre) : Gardien d'écorce (garde d'écorce) et Gueule des marais (plongée).
+- **Restent à faire** : cartes 13 à 15.
+
 ## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
 
 14 créatures importées, 25 sources, 54 animations peintes (324 poses), deux bancs Godot 720p animés. Sources Work indisponibles au téléchargement : remplacements générés selon l’autorisation du 28 octobre. Import Godot, suites assets et art (qualité cartes incluse) verts. Aucun gameplay. Réserve artistique : Enlisés sombres sur terre. Effets PR #78 déjà fusionnés : lot 2 couvert, raccords Claude à vérifier sans redessiner les effets.
@@ -200,7 +222,7 @@ Ne pas travailler à deux sur le même lot : le noter « en cours (qui) » ci-de
 |---|---|---|---|---|
 | B1 | Données chapitre / carte, déblocage en avançant, objectifs par carte, récompenses dégressives, Normal / Cauchemar par carte (suppression de la Tension), migration de sauvegarde | Claude | A1 | Fait (17/10) — chapitre 1 : Ruines des Cascades puis Hautes Terres d'Orage, voir [design/CAMPAGNE.md](design/CAMPAGNE.md) |
 | B2 | Refuge : sélection chapitre → carte, objectifs visibles ; Plaine fracturée en mode Survie hors campagne | Claude (code) + Codex (habillage) | B1 | Code fait (17/10) : chapitres en cartes, résumé et départ toujours visibles ; habillage à affiner (Codex) |
-| B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; briques B1, B2, B3, B6, gardien et défense d'autel faits (19 oct.). Carte 3 « Bois des Lucioles » jouable dans la campagne (21 oct., qualité conforme). Carte 4 « Gué des Brumes » jouable dans la campagne (21 oct.), sceau de Codex en jeu. Carte 5 : composition (Codex). |
+| B3 | Cartes 3 à 5 du chapitre 1 puis chapitres 2 à 5 (25 cartes, plan dans [design/CARTES.md](design/CARTES.md)), familles de monstres, particularités de terrain | Codex (images, décor, créatures) + propriétaire (collisions peintes, validation) + Claude (zones, modes, particularités) | A1 pour les cartes en vagues | Plan validé (18 oct.) ; briques B1, B2, B3, B6, gardien et défense d'autel faits (19 oct.). Carte 3 « Bois des Lucioles » jouable dans la campagne (21 oct., qualité conforme). Carte 4 « Gué des Brumes » jouable dans la campagne (21 oct.), sceau de Codex en jeu. Carte 5 : composition (Codex). Carte 13 « Jardins de cristal » : composition livrée (Codex, PR #81), plan corrigé validé le 29 octobre ; détail livré conforme le 31 octobre (Codex), raccordement Claude à faire. |
 
 ### Étape M — Deux modes de jeu (décision du 21 octobre 2026, [design/MODES.md](design/MODES.md))
 
@@ -258,14 +280,11 @@ Raccordement C1/C2 et validation en jeu à suivre ; les 24 icônes sont désorma
 
 Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md).
 
-## À décider lors du test complet du chapitre 1
+## Décidé : saut et tunnel des élites du chapitre 1
 
-À rappeler au propriétaire quand il teste réellement tout le chapitre 1 (décision du 22 octobre 2026 : mis de côté).
-
-- **Saut et tunnel pour les élites du chapitre 1** ([design/MONSTRES.md](design/MONSTRES.md), mécaniques E1 et E2) :
-  Saut pour la Chimère des sommets et le Chevalier fulgurant, Tunnel pour le Gardien des menhirs et la Couveuse ; rendu
-  fait par le jeu (arc et ombre, enfoncement et traînée de terre) faute de rangées dédiées, planche B de Codex
-  facultative. Effort estimé : high. Appliquer ou non.
+Décision du 2 novembre 2026, appliquée ([design/MONSTRES.md](design/MONSTRES.md), mécaniques E1 et E2) : Saut pour la
+Chimère des sommets et le Chevalier fulgurant, Tunnel pour le Gardien des menhirs et la Couveuse. Rendu fait par le jeu
+(arc et ombre, enfoncement et traînée de terre) ; une planche B de Codex reste facultative et se brancherait sans code.
 
 ## Documents de référence
 
