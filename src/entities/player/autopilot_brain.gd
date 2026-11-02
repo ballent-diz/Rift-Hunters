@@ -12,6 +12,11 @@ const COVER_RECHECK := 0.5
 const COVER_SEARCH := 200.0
 ## Traque des derniers Corrompus : distance de recherche (au-delà, la flèche de route mène à eux).
 const CHASE_SEARCH := 800.0
+## Recoin trop étroit pour la route (longer l'obstacle n'en sort pas) : le bot revient sur ses pas, vers un point
+## de son trajet relevé quand il avançait encore (comme un joueur qui recule pour contourner).
+const TRAIL_SIZE := 8
+const BACKTRACK_AFTER := 3
+const BACKTRACK_TIME := 3.0
 
 var _dash_wanted: bool = false
 var _wander := Vector2.RIGHT
@@ -22,6 +27,10 @@ var _check_pos := Vector2.INF
 var _check_time: float = 0.0
 var _unstick_until: float = -1.0
 var _slide: float = 1.0
+var _trail: Array[Vector2] = []
+var _stuck_checks: int = 0
+var _backtrack_to := Vector2.INF
+var _backtrack_until: float = -1.0
 ## Abri visé (INF : aucun) et prochaine réévaluation.
 var _cover := Vector2.INF
 var _cover_check: float = 0.0
@@ -79,6 +88,16 @@ func _compute_move() -> Vector2:
 		if _check_pos != Vector2.INF and pos.distance_to(_check_pos) < 40.0:
 			_unstick_until = ctx.time + 2.5
 			_slide = -_slide
+			_stuck_checks += 1
+			# Longer l'obstacle n'a pas suffi : retour sur un point du trajet d'avant le blocage.
+			if _stuck_checks >= BACKTRACK_AFTER and _trail.size() >= 2:
+				_backtrack_to = _trail[maxi(0, _trail.size() - 1 - _stuck_checks)]
+				_backtrack_until = ctx.time + BACKTRACK_TIME
+		else:
+			_stuck_checks = 0
+			_trail.append(pos)
+			if _trail.size() > TRAIL_SIZE:
+				_trail.pop_front()
 		_check_pos = pos
 		_check_time = ctx.time + 2.0
 	var slide := Vector2.ZERO
@@ -87,6 +106,8 @@ func _compute_move() -> Vector2:
 		var heading: Vector2 = route if route != Vector2.ZERO else _wander
 		slide = heading.normalized().orthogonal() * _slide * 1.4
 	var result: Vector2 = flee + seek + home + route + slide + _wander * 0.25 + _chase(pos, hunting)
+	if ctx.time < _backtrack_until and pos.distance_to(_backtrack_to) > 24.0:
+		result = (_backtrack_to - pos).normalized() * 2.0 + flee * 0.5
 	# Mécaniques de boss : foncer dans un orbe, entrer dans la couronne, se placer derrière un miroir.
 	var forced: Vector2 = ctx.boss_bot_move(pos)
 	if forced != Vector2.ZERO:
