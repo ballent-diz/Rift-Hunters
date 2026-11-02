@@ -1,0 +1,1706 @@
+{
+  "entities": 16,
+  "painted_poses": 414,
+  "failures": [],
+  "sprites": {
+    "enemy.frost_crawler": {
+      "poses": 12,
+      "colors": 32,
+      "reference_world_height": 30.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            60,
+            62,
+            65,
+            60,
+            63,
+            61
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            63,
+            56,
+            59,
+            57,
+            58,
+            64
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.blizzard_wolf": {
+      "poses": 18,
+      "colors": 32,
+      "reference_world_height": 39.0,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            78,
+            76,
+            78,
+            78,
+            76,
+            78
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            79,
+            70,
+            96,
+            78,
+            89,
+            77
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "slide": {
+          "heights": [
+            88,
+            88,
+            85,
+            86,
+            87,
+            88
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.snow_wraith": {
+      "poses": 12,
+      "colors": 32,
+      "reference_world_height": 30.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            60,
+            62,
+            61,
+            65,
+            62,
+            61
+          ],
+          "bottoms": [
+            225,
+            225,
+            225,
+            225,
+            225,
+            225
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            61,
+            53,
+            80,
+            54,
+            62,
+            60
+          ],
+          "bottoms": [
+            225,
+            225,
+            225,
+            225,
+            225,
+            225
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.ice_golem": {
+      "poses": 12,
+      "colors": 32,
+      "reference_world_height": 47.0,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            96,
+            93,
+            96,
+            94,
+            94,
+            94
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            96,
+            79,
+            107,
+            86,
+            90,
+            94
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.frost_shaman": {
+      "poses": 36,
+      "colors": 32,
+      "reference_world_height": 60.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            128,
+            123,
+            122,
+            121,
+            118,
+            121
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            121,
+            108,
+            141,
+            101,
+            101,
+            122
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "death": {
+          "heights": [
+            122,
+            102,
+            83,
+            91,
+            76,
+            70
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "ice_prison": {
+          "heights": [
+            125,
+            133,
+            111,
+            98,
+            98,
+            121
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "frost_mist": {
+          "heights": [
+            118,
+            92,
+            94,
+            87,
+            84,
+            119
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "snuff": {
+          "heights": [
+            122,
+            122,
+            122,
+            122,
+            117,
+            121
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0,
+        "sheet_b.png": 0.851064,
+        "sheet_c.png": 0.955882
+      }
+    },
+    "enemy.peak_yeti": {
+      "poses": 36,
+      "colors": 32,
+      "reference_world_height": 70.0,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            141,
+            139,
+            136,
+            142,
+            152,
+            138
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            141,
+            119,
+            182,
+            170,
+            154,
+            139
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "death": {
+          "heights": [
+            151,
+            141,
+            123,
+            123,
+            137,
+            85
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "avalanche": {
+          "heights": [
+            149,
+            145,
+            206,
+            144,
+            141,
+            145
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "pounce": {
+          "heights": [
+            132,
+            217,
+            188,
+            181,
+            129,
+            148
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "rage": {
+          "heights": [
+            139,
+            127,
+            158,
+            165,
+            154,
+            136
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0,
+        "sheet_b.png": 0.984305,
+        "sheet_c.png": 0.825188
+      }
+    },
+    "enemy.rime_archer": {
+      "poses": 36,
+      "colors": 32,
+      "reference_world_height": 57.0,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            114,
+            114,
+            114,
+            114,
+            114,
+            113
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            139,
+            139,
+            139,
+            139,
+            139,
+            139
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "death": {
+          "heights": [
+            126,
+            124,
+            123,
+            122,
+            122,
+            122
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "chilling_arrow": {
+          "heights": [
+            99,
+            122,
+            120,
+            119,
+            123,
+            98
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "hail_volley": {
+          "heights": [
+            129,
+            131,
+            133,
+            133,
+            92,
+            98
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "fade": {
+          "heights": [
+            114,
+            112,
+            113,
+            111,
+            111,
+            111
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0,
+        "sheet_b.png": 0.812865,
+        "sheet_c.png": 1.00361
+      }
+    },
+    "enemy.hush_shard": {
+      "poses": 12,
+      "colors": 32,
+      "reference_world_height": 30.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            62,
+            62,
+            61,
+            61,
+            61,
+            62
+          ],
+          "bottoms": [
+            225,
+            225,
+            225,
+            225,
+            225,
+            225
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            62,
+            51,
+            55,
+            55,
+            57,
+            62
+          ],
+          "bottoms": [
+            225,
+            225,
+            225,
+            225,
+            225,
+            225
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.ice_knight": {
+      "poses": 12,
+      "colors": 32,
+      "reference_world_height": 42.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            86,
+            83,
+            101,
+            84,
+            86,
+            85
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            86,
+            71,
+            98,
+            77,
+            75,
+            86
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.frozen_sentry": {
+      "poses": 12,
+      "colors": 32,
+      "reference_world_height": 40.5,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            81,
+            81,
+            81,
+            81,
+            82,
+            80
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            81,
+            65,
+            79,
+            75,
+            76,
+            81
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.icebreaker": {
+      "poses": 18,
+      "colors": 32,
+      "reference_world_height": 40.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            82,
+            85,
+            80,
+            80,
+            86,
+            81
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            83,
+            78,
+            106,
+            84,
+            82,
+            84
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "dive": {
+          "heights": [
+            80,
+            83,
+            78,
+            59,
+            80,
+            100
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    },
+    "enemy.silence_herald": {
+      "poses": 36,
+      "colors": 32,
+      "reference_world_height": 62.25,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            124,
+            126,
+            125,
+            126,
+            123,
+            123
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            136,
+            99,
+            125,
+            120,
+            112,
+            127
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "death": {
+          "heights": [
+            126,
+            114,
+            98,
+            101,
+            110,
+            49
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "hush": {
+          "heights": [
+            125,
+            125,
+            124,
+            125,
+            125,
+            125
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "spell_echo": {
+          "heights": [
+            135,
+            135,
+            135,
+            135,
+            135,
+            135
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "absorb": {
+          "heights": [
+            126,
+            126,
+            124,
+            126,
+            125,
+            125
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0,
+        "sheet_b.png": 0.829231,
+        "sheet_c.png": 0.811747
+      }
+    },
+    "enemy.frost_mammoth": {
+      "poses": 36,
+      "colors": 32,
+      "reference_world_height": 76.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            153,
+            153,
+            169,
+            155,
+            154,
+            153
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            154,
+            128,
+            184,
+            147,
+            147,
+            152
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "death": {
+          "heights": [
+            159,
+            132,
+            111,
+            122,
+            164,
+            85
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "charge": {
+          "heights": [
+            150,
+            150,
+            148,
+            150,
+            150,
+            150
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "ice_crack": {
+          "heights": [
+            156,
+            157,
+            158,
+            170,
+            150,
+            152
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "armor_break": {
+          "heights": [
+            153,
+            154,
+            159,
+            156,
+            148,
+            146
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0,
+        "sheet_b.png": 0.845574,
+        "sheet_c.png": 0.763605
+      }
+    },
+    "enemy.snow_witch": {
+      "poses": 36,
+      "colors": 32,
+      "reference_world_height": 58.5,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "move": {
+          "heights": [
+            117,
+            117,
+            116,
+            117,
+            117,
+            117
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            124,
+            124,
+            124,
+            124,
+            124,
+            124
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "death": {
+          "heights": [
+            114,
+            113,
+            112,
+            113,
+            115,
+            113
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "blizzard_call": {
+          "heights": [
+            115,
+            116,
+            138,
+            101,
+            103,
+            114
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "snow_clones": {
+          "heights": [
+            118,
+            110,
+            107,
+            112,
+            105,
+            117
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "blink": {
+          "heights": [
+            117,
+            114,
+            113,
+            115,
+            114,
+            118
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0,
+        "sheet_b.png": 0.887363,
+        "sheet_c.png": 0.984756
+      }
+    },
+    "boss.nivorath": {
+      "poses": 72,
+      "colors": 32,
+      "reference_world_height": 150.75,
+      "cell": [
+        512,
+        512
+      ],
+      "anchor": [
+        256,
+        480
+      ],
+      "scale": 0.5,
+      "animations": {
+        "idle": {
+          "heights": [
+            300,
+            302,
+            302,
+            302,
+            301,
+            300
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 8,
+          "loop": true
+        },
+        "move": {
+          "heights": [
+            326,
+            304,
+            329,
+            303,
+            302,
+            302
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 10,
+          "loop": true
+        },
+        "attack": {
+          "heights": [
+            305,
+            277,
+            306,
+            288,
+            291,
+            305
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "claw": {
+          "heights": [
+            300,
+            318,
+            315,
+            318,
+            300,
+            303
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "ice_spikes": {
+          "heights": [
+            304,
+            318,
+            316,
+            308,
+            307,
+            304
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "blizzard_breath": {
+          "heights": [
+            301,
+            307,
+            298,
+            299,
+            299,
+            299
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "spell_capture": {
+          "heights": [
+            301,
+            303,
+            306,
+            303,
+            306,
+            301
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "spell_release": {
+          "heights": [
+            314,
+            296,
+            299,
+            296,
+            296,
+            295
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "death": {
+          "heights": [
+            301,
+            285,
+            256,
+            235,
+            206,
+            125
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "transform": {
+          "heights": [
+            308,
+            325,
+            309,
+            308,
+            311,
+            313
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "shatter_floor": {
+          "heights": [
+            301,
+            338,
+            326,
+            297,
+            307,
+            304
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        },
+        "frozen_dive": {
+          "heights": [
+            287,
+            316,
+            287,
+            300,
+            311,
+            305
+          ],
+          "bottoms": [
+            481,
+            481,
+            481,
+            481,
+            481,
+            481
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0,
+        "sheet_b.png": 0.994485,
+        "sheet_c.png": 0.990842,
+        "sheet_d.png": 1.024621
+      }
+    },
+    "object.brazier": {
+      "poses": 18,
+      "colors": 32,
+      "reference_world_height": 48.75,
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5,
+      "animations": {
+        "lit": {
+          "heights": [
+            96,
+            97,
+            98,
+            100,
+            98,
+            97
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": true
+        },
+        "dim": {
+          "heights": [
+            78,
+            92,
+            80,
+            90,
+            79,
+            75
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": true
+        },
+        "out": {
+          "heights": [
+            60,
+            83,
+            86,
+            63,
+            60,
+            61
+          ],
+          "bottoms": [
+            239,
+            239,
+            239,
+            239,
+            239,
+            239
+          ],
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "normalization": {
+        "sheet_a.png": 1.0
+      }
+    }
+  }
+}

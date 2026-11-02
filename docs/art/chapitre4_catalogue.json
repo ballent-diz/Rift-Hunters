@@ -1,0 +1,321 @@
+[
+  {
+    "visual_id": "enemy.frost_crawler",
+    "name": "Rampe-givre",
+    "height": 30,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.blizzard_wolf",
+    "name": "Loup de blizzard",
+    "height": 38,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "slide"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.snow_wraith",
+    "name": "Spectre de neige",
+    "height": 30,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.ice_golem",
+    "name": "Golem de glace",
+    "height": 46,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.frost_shaman",
+    "name": "Chaman du gel",
+    "height": 60,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      },
+      {
+        "name": "ice_prison"
+      },
+      {
+        "name": "frost_mist"
+      },
+      {
+        "name": "snuff"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.peak_yeti",
+    "name": "Yéti des cimes",
+    "height": 70,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      },
+      {
+        "name": "avalanche"
+      },
+      {
+        "name": "pounce"
+      },
+      {
+        "name": "rage"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.rime_archer",
+    "name": "Archère du givre",
+    "height": 56,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      },
+      {
+        "name": "chilling_arrow"
+      },
+      {
+        "name": "hail_volley"
+      },
+      {
+        "name": "fade"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.hush_shard",
+    "name": "Éclat du silence",
+    "height": 30,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.ice_knight",
+    "name": "Chevalier de glace",
+    "height": 42,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.frozen_sentry",
+    "name": "Sentinelle gelée",
+    "height": 40,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.icebreaker",
+    "name": "Brise-banquise",
+    "height": 40,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "dive"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.silence_herald",
+    "name": "Héraut du silence",
+    "height": 62,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      },
+      {
+        "name": "hush"
+      },
+      {
+        "name": "spell_echo"
+      },
+      {
+        "name": "absorb"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.frost_mammoth",
+    "name": "Mammouth de givre",
+    "height": 76,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      },
+      {
+        "name": "charge"
+      },
+      {
+        "name": "ice_crack"
+      },
+      {
+        "name": "armor_break"
+      }
+    ]
+  },
+  {
+    "visual_id": "enemy.snow_witch",
+    "name": "Sorcière des neiges",
+    "height": 58,
+    "animations": [
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "death"
+      },
+      {
+        "name": "blizzard_call"
+      },
+      {
+        "name": "snow_clones"
+      },
+      {
+        "name": "blink"
+      }
+    ]
+  },
+  {
+    "visual_id": "boss.nivorath",
+    "name": "Nivorath, le Silence du Glacier",
+    "height": 150,
+    "animations": [
+      {
+        "name": "idle"
+      },
+      {
+        "name": "move"
+      },
+      {
+        "name": "attack"
+      },
+      {
+        "name": "claw"
+      },
+      {
+        "name": "ice_spikes"
+      },
+      {
+        "name": "blizzard_breath"
+      },
+      {
+        "name": "spell_capture"
+      },
+      {
+        "name": "spell_release"
+      },
+      {
+        "name": "death"
+      },
+      {
+        "name": "transform"
+      },
+      {
+        "name": "shatter_floor"
+      },
+      {
+        "name": "frozen_dive"
+      }
+    ]
+  },
+  {
+    "visual_id": "object.brazier",
+    "name": "Brasero",
+    "height": 48,
+    "animations": [
+      {
+        "name": "lit"
+      },
+      {
+        "name": "dim"
+      },
+      {
+        "name": "out"
+      }
+    ]
+  }
+]

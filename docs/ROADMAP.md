@@ -1,5 +1,17 @@
 # Rift Hunters — feuille de route
 
+## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
+
+- Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses ; six effets sans ennemi retirés. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.
+- Lot 2 : trente formes évoluées des Échos, animations des formes de base conservées.
+- Lot 3 : effets autonomes des mécaniques des gardiens, du glacier et des cartes.
+- Lot 4 : effets de Nébulorax, Astravorn, Pyrevorn et des techniques du chapitre 2.
+
+Une branche et une PR par lot, sans changement de `src/` ni des règles de `data/`.
+La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit pas être fusionnée.
+Les fiches et entrées prévues du chapitre 4 sont lues au commit `7605b92247b98e812e9a643f7cfdd24d49237122`
+de `claude/utiliser-mon-git-oofk0o` ; elles ne sont pas encore fusionnées dans `main` au démarrage du lot.
+
 ## Lot du 29 octobre (Claude) : collisions des cartes 7 à 12, cartes 10 à 12 en jeu
 
 - **Collisions peintes par le propriétaire** pour les cartes 7 à 12 ; carte 9 : escalier taillé dans la falaise entre

@@ -12828,32 +12828,6 @@
 			"duration": 1.5,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
-		"vfx.enemy.ice_scarab.snap": {
-			"status": "wip",
-			"kind": "effect_scene",
-			"scene": "res://assets/vfx/enemies/chapter4/ice_scarab/snap.tscn",
-			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				32
-			],
-			"scale": 1,
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 1,
-					"fps": 1,
-					"loop": false
-				}
-			},
-			"visual_only": true,
-			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
-		},
 		"vfx.enemy.quartz_golem.impact": {
 			"status": "wip",
 			"kind": "effect_scene",
@@ -12932,58 +12906,6 @@
 			"duration": 1.0,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
-		"vfx.enemy.frost_wolf.bite": {
-			"status": "wip",
-			"kind": "effect_scene",
-			"scene": "res://assets/vfx/enemies/chapter4/frost_wolf/bite.tscn",
-			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				32
-			],
-			"scale": 1,
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 1,
-					"fps": 1,
-					"loop": false
-				}
-			},
-			"visual_only": true,
-			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
-		},
-		"vfx.enemy.ice_worm.burrow": {
-			"status": "wip",
-			"kind": "effect_scene",
-			"scene": "res://assets/vfx/enemies/chapter4/ice_worm/burrow.tscn",
-			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				32
-			],
-			"scale": 1,
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 1,
-					"fps": 1,
-					"loop": false
-				}
-			},
-			"visual_only": true,
-			"duration": 0.7,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
-		},
 		"vfx.enemy.crystal_colossus.sweep_beam": {
 			"status": "wip",
 			"kind": "effect_scene",
@@ -13009,32 +12931,6 @@
 			"visual_only": true,
 			"duration": 1.0,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
-		},
-		"vfx.enemy.frost_wolf.frost_landing": {
-			"status": "wip",
-			"kind": "effect_scene",
-			"scene": "res://assets/vfx/enemies/chapter4/frost_wolf/frost_landing.tscn",
-			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				32
-			],
-			"scale": 1,
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 1,
-					"fps": 1,
-					"loop": false
-				}
-			},
-			"visual_only": true,
-			"duration": 0.7,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
 		},
 		"vfx.enemy.reflection_huntress.chain_blink": {
 			"status": "wip",
@@ -13790,32 +13686,6 @@
 			"duration": 1.2,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
-		"vfx.enemy.snow_bat.ice_needle": {
-			"status": "wip",
-			"kind": "effect_scene",
-			"scene": "res://assets/vfx/enemies/chapter4/snow_bat/ice_needle.tscn",
-			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				32
-			],
-			"scale": 1,
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 1,
-					"fps": 1,
-					"loop": false
-				}
-			},
-			"visual_only": true,
-			"duration": 0.8,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
-		},
 		"vfx.enemy.crystal_colossus.exposed_core": {
 			"status": "wip",
 			"kind": "effect_scene",
@@ -13945,32 +13815,6 @@
 			"visual_only": true,
 			"duration": 1.0,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
-		},
-		"vfx.enemy.ice_worm.bite": {
-			"status": "wip",
-			"kind": "effect_scene",
-			"scene": "res://assets/vfx/enemies/chapter4/ice_worm/bite.tscn",
-			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
-			"cell": [
-				64,
-				64
-			],
-			"anchor": [
-				32,
-				32
-			],
-			"scale": 1,
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 1,
-					"fps": 1,
-					"loop": false
-				}
-			},
-			"visual_only": true,
-			"duration": 0.4,
-			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
 		},
 		"vfx.enemy.bloat_toad.projectile": {
 			"status": "wip",
@@ -14123,6 +13967,824 @@
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; chaussées de marée T01, T03 et T04 (tide.png) rendues praticables et raccord du pont haut au bassin élargi par Claude (29 octobre). T02 et T05, murées, restent bloquées.",
 			"generated_by": "tools/art/collision_mask.py",
 			"minimap": "res://assets/environments/tide_temple/minimap.webp"
+		},
+		"enemy.frost_crawler": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frost_crawler/job.json",
+			"sheet": "res://assets/sprites/enemies/frost_crawler/frost_crawler_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/frost_crawler.png"
+		},
+		"enemy.blizzard_wolf": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.blizzard_wolf/job.json",
+			"sheet": "res://assets/sprites/enemies/blizzard_wolf/blizzard_wolf_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"slide": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/blizzard_wolf.png"
+		},
+		"enemy.snow_wraith": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.snow_wraith/job.json",
+			"sheet": "res://assets/sprites/enemies/snow_wraith/snow_wraith_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/snow_wraith.png"
+		},
+		"enemy.ice_golem": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.ice_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/ice_golem/ice_golem_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/ice_golem.png"
+		},
+		"enemy.hush_shard": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.hush_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/hush_shard/hush_shard_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/hush_shard.png"
+		},
+		"enemy.ice_knight": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.ice_knight/job.json",
+			"sheet": "res://assets/sprites/enemies/ice_knight/ice_knight_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/ice_knight.png"
+		},
+		"enemy.frozen_sentry": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frozen_sentry/job.json",
+			"sheet": "res://assets/sprites/enemies/frozen_sentry/frozen_sentry_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/frozen_sentry.png"
+		},
+		"enemy.icebreaker": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.icebreaker/job.json",
+			"sheet": "res://assets/sprites/enemies/icebreaker/icebreaker_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"dive": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/icebreaker.png"
+		},
+		"object.brazier": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.brazier/job.json",
+			"sheet": "res://assets/sprites/objects/brazier/brazier_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"lit": {
+					"row": 0,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"dim": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"out": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/brazier.png"
+		},
+		"enemy.frost_shaman": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frost_shaman/job.json",
+			"sheet": "res://assets/sprites/enemies/frost_shaman/frost_shaman_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"ice_prison": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"frost_mist": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"snuff": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/frost_shaman.png"
+		},
+		"enemy.peak_yeti": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.peak_yeti/job.json",
+			"sheet": "res://assets/sprites/enemies/peak_yeti/peak_yeti_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"avalanche": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"pounce": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"rage": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/peak_yeti.png"
+		},
+		"enemy.rime_archer": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rime_archer/job.json",
+			"sheet": "res://assets/sprites/enemies/rime_archer/rime_archer_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"chilling_arrow": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"hail_volley": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"fade": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/rime_archer.png"
+		},
+		"enemy.silence_herald": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.silence_herald/job.json",
+			"sheet": "res://assets/sprites/enemies/silence_herald/silence_herald_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"hush": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spell_echo": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"absorb": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/silence_herald.png"
+		},
+		"enemy.frost_mammoth": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frost_mammoth/job.json",
+			"sheet": "res://assets/sprites/enemies/frost_mammoth/frost_mammoth_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"charge": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"ice_crack": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"armor_break": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/frost_mammoth.png"
+		},
+		"enemy.snow_witch": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.snow_witch/job.json",
+			"sheet": "res://assets/sprites/enemies/snow_witch/snow_witch_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blizzard_call": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"snow_clones": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blink": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/snow_witch.png"
+		},
+		"boss.nivorath": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.nivorath/job.json",
+			"sheet": "res://assets/sprites/bosses/nivorath/nivorath_sheet.png",
+			"cell": [
+				512,
+				512
+			],
+			"anchor": [
+				256,
+				480
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"claw": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"ice_spikes": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"blizzard_breath": {
+					"row": 5,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spell_capture": {
+					"row": 6,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spell_release": {
+					"row": 7,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 8,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"transform": {
+					"row": 9,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"shatter_floor": {
+					"row": 10,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"frozen_dive": {
+					"row": 11,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/nivorath.png"
 		}
 	}
 }
