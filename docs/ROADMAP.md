@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## Lot du 2 novembre (Claude) : chapitre 4, le Glacier silencieux (mécaniques)
+
+- 14 monstres (Givrés, Échos du silence) avec formes provisoires, techniques E18 à E22, froid et braseros (B7),
+  Nivorath (3 phases, Écho des sorts) : [MONSTRES.md](design/MONSTRES.md). Sprites et effets à livrer par Codex ;
+  cartes 16 à 20 à concevoir.
+
 ## Lot du 29 octobre (Claude) : collisions des cartes 7 à 12, cartes 10 à 12 en jeu
 
 - **Collisions peintes par le propriétaire** pour les cartes 7 à 12 ; carte 9 : escalier taillé dans la falaise entre
@@ -278,14 +284,11 @@ Raccordement C1/C2 et validation en jeu à suivre ; les 24 icônes sont désorma
 
 Voir « À faire avant la publication Steam » ci-dessous et [STEAM.md](STEAM.md).
 
-## À décider lors du test complet du chapitre 1
+## Décidé : saut et tunnel des élites du chapitre 1
 
-À rappeler au propriétaire quand il teste réellement tout le chapitre 1 (décision du 22 octobre 2026 : mis de côté).
-
-- **Saut et tunnel pour les élites du chapitre 1** ([design/MONSTRES.md](design/MONSTRES.md), mécaniques E1 et E2) :
-  Saut pour la Chimère des sommets et le Chevalier fulgurant, Tunnel pour le Gardien des menhirs et la Couveuse ; rendu
-  fait par le jeu (arc et ombre, enfoncement et traînée de terre) faute de rangées dédiées, planche B de Codex
-  facultative. Effort estimé : high. Appliquer ou non.
+Décision du 2 novembre 2026, appliquée ([design/MONSTRES.md](design/MONSTRES.md), mécaniques E1 et E2) : Saut pour la
+Chimère des sommets et le Chevalier fulgurant, Tunnel pour le Gardien des menhirs et la Couveuse. Rendu fait par le jeu
+(arc et ombre, enfoncement et traînée de terre) ; une planche B de Codex reste facultative et se brancherait sans code.
 
 ## Documents de référence
 

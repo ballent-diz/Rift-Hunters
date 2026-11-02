@@ -50,7 +50,7 @@ Les scènes restent sous les acteurs (`z_index=1`, repère acteur à 3). L’ima
 
 - Import propre sous Godot 4.3.
 - Contrôle ciblé : **20 scènes**, trajectoires conservées, temps figé, orientations, boucles, retraits et réemploi ; **40 fins vérifiées, zéro erreur**.
-- `tools/run_tests.sh assets` : **447 ressources valides**, zéro erreur.
+- `tools/run_tests.sh assets` : **462 entrées : 447 valides, 15 prévues pour le chapitre 4 du lot 1, zéro erreur** après actualisation sur `main` (PR #89).
 - `tools/run_tests.sh art` : importeur et six cartes finales conformes, sans modification de seuils.
 - Lint des nouveaux scripts réussi.
 - Quatre groupes capturés dans Godot à **1280 × 720**, avec GIF de 18 images chacun, tous sous 3 Mo. Les états tendu/coupé, intact/brisé et les changements de niveau sont visibles dans les GIF.

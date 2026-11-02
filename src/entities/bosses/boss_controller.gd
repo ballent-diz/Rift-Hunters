@@ -54,6 +54,7 @@ var _marsh: GlauquemireMechanics
 var _guardians: GuardianSignatures
 var _ash: AshGuardians
 var _marsh_guardians: MarshGuardians
+var _nivorath: NivorathMechanics
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -261,6 +262,13 @@ func marsh_guardians() -> MarshGuardians:
 		_marsh_guardians = MarshGuardians.new()
 		_add_mechanics(_marsh_guardians)
 	return _marsh_guardians
+
+
+func nivorath() -> NivorathMechanics:
+	if _nivorath == null:
+		_nivorath = NivorathMechanics.new()
+		_add_mechanics(_nivorath)
+	return _nivorath
 
 
 func marsh() -> GlauquemireMechanics:
@@ -584,6 +592,22 @@ func _pattern_maw_dive(pattern: BossPatternData) -> void:
 	marsh_guardians().maw_dive(pattern)
 
 
+func _pattern_spell_capture(pattern: BossPatternData) -> void:
+	nivorath().spell_capture(pattern)
+
+
+func _pattern_ice_spikes(pattern: BossPatternData) -> void:
+	nivorath().ice_spikes(pattern)
+
+
+func _pattern_shatter_floor(pattern: BossPatternData) -> void:
+	nivorath().shatter_floor(pattern)
+
+
+func _pattern_frozen_dive(pattern: BossPatternData) -> void:
+	nivorath().frozen_dive(pattern)
+
+
 func _pattern_mud_wall(pattern: BossPatternData) -> void:
 	marsh().mud_wall(pattern)
 
@@ -625,14 +649,15 @@ func _mouth() -> Vector2:
 func _telegraph(pattern: BossPatternData, shape: String, pos: Vector2, dir: Vector2, props: Dictionary) -> void:
 	if data.vfx_dir == "" or pattern.params.get("vfx", "") == "":
 		return
-	ctx.hazards.mark_last_painted()
 	var indicator_props := props.duplicate()
 	indicator_props["target_shape"] = StringName(shape)
 	indicator_props["loop_visual"] = true
 	indicator_props["visual_duration"] = maxf(pattern.telegraph, 0.3)
 	var fx: Node2D = _vfx("indicator", pos, dir, indicator_props, -1.0, true)
+	# Sans télégraphe peint (Glauquemire n'en a pas), le repère du jeu reste plein.
 	if fx == null:
 		return
+	ctx.hazards.mark_last_painted()
 	_indicators.append(fx)
 	schedule(pattern.telegraph, func() -> void:
 		if is_instance_valid(fx):

@@ -14,6 +14,8 @@ const ROOT := Color(0.5, 0.38, 0.22)
 const MIRROR_RADIUS := 30.0
 ## Côtés de la carapace : droite, bas, gauche, haut (repère du monde, la carapace ne tourne pas).
 const SIDES := 4
+## Effets peints de Glauquemire (assets/vfx/bosses/glauquemire/, docs/art/MARAIS_SORTS_GODOT.md).
+const VFX := "vfx.boss.glauquemire."
 
 ## Flaques de vase : {"pos", "radius", "harden_at", "crumble_at", "wall"} (wall : indice du mur, -1 avant durcissement).
 var puddles: Array[Dictionary] = []
@@ -37,6 +39,8 @@ var _facet_regrow: Array[float] = []
 var _facet_regrow_time: float = 14.0
 var _facet_mult: float = 0.3
 var _swallow_mark: Dictionary = {}
+## Étiquettes des boucles peintes affichées (le dessin provisoire correspondant s'efface).
+var _shown: Dictionary = {}
 
 
 func setup(p_ctx: RunContext, p_brain: BossController) -> void:
@@ -46,8 +50,10 @@ func setup(p_ctx: RunContext, p_brain: BossController) -> void:
 	ctx.events.enemy_damaged.connect(_on_enemy_damaged)
 
 
-func on_phase(_index: int, phase: BossPhaseData) -> void:
+func on_phase(index: int, phase: BossPhaseData) -> void:
 	var params: Dictionary = phase.mechanic_params
+	if index > 0:
+		_play(VFX + "phase_transition", boss().position)
 	if phase.mechanics.has(&"facets"):
 		_facet_max = boss().max_hp * float(params.get("facet_ratio", 0.035))
 		_facet_regrow_time = float(params.get("facet_regrow", 14.0))
@@ -85,6 +91,7 @@ func step(delta: float) -> void:
 	_step_whirl(delta)
 	_step_tide(delta)
 	_step_swallow()
+	_sync_vfx()
 	queue_redraw()
 
 
@@ -119,7 +126,8 @@ func mud_wall(pattern: BossPatternData) -> void:
 		pos = ctx.obstacles.push_out(pos.clamp(area.position, area.end), radius)
 		ctx.hazards.add_circle(pos, radius, pattern.telegraph, brain._damage(pattern), true, brain.data.id)
 		brain.schedule(pattern.telegraph, func() -> void:
-			puddles.append({"pos": pos, "radius": radius, "harden_at": ctx.time + float(params.get("harden", 2.5)),
+			_play(VFX + "mud_impact", pos, Vector2.RIGHT, {"radius": radius})
+			puddles.append({"pos": pos, "radius": radius, "born": ctx.time, "harden_at": ctx.time + float(params.get("harden", 2.5)),
 				"crumble_at": ctx.time + float(params.get("harden", 2.5)) + float(params.get("wall_time", 7.0)), "wall": -1}))
 	intro("BOSS_MUD_WALL_INTRO")
 	brain.busy_time = pattern.telegraph + 0.4
@@ -249,6 +257,7 @@ func _step_leeches() -> void:
 			boss().hp = minf(boss().max_hp, boss().hp + boss().max_hp * _leech_heal)
 			ctx.stats.add(&"boss_leech_healed", boss().hp - before)
 			ctx.fx.burst(boss().position, boss().radius, Color(0.5, 1.0, 0.5, 0.4))
+			_play(VFX + "leech_feed", boss().position, leech.position - boss().position)
 			ctx.enemies.marsh.vanish(leech)
 
 
@@ -277,6 +286,8 @@ func _break_facet(side: int) -> void:
 	facets[side] = 0.0
 	_facet_regrow[side] = ctx.time + _facet_regrow_time
 	ctx.fx.debris(boss().position + Vector2.RIGHT.rotated(side * PI * 0.5) * boss().radius, CRYSTAL, 12)
+	_play(VFX + "facet_break", boss().position + Vector2.RIGHT.rotated(side * PI * 0.5) * boss().radius,
+		Vector2.RIGHT.rotated(side * PI * 0.5))
 	ctx.stats.add(&"boss_facets_broken")
 
 
@@ -566,6 +577,7 @@ func _release(freed: bool) -> void:
 	ally.global_position = ctx.obstacles.push_out(boss().position + Vector2.RIGHT.rotated(ctx.rng.randf() * TAU)
 		* (boss().radius + 40.0), Ally.BODY_RADIUS)
 	ctx.fx.burst(ally.global_position, 40.0, Color(WATER, 0.6))
+	_play(VFX + "echo_release", ally.global_position, ally.global_position - boss().position)
 	if freed:
 		brain.stun(stun)
 		ctx.fx.text(boss().position + Vector2(0, -boss().radius - 30.0), tr("BOSS_ECHO_FREED"), Color(0.7, 1.0, 0.9))
@@ -620,6 +632,78 @@ func _bot_mirror_spot(pos: Vector2) -> Vector2:
 	return (best["pos"] as Vector2) - to_boss.normalized() * (MIRROR_RADIUS + 30.0)
 
 
+# --- Effets peints (présentation seulement : géométrie et durées viennent des mécaniques) ------------------------
+
+func _painted() -> PaintedVfx:
+	return ctx.painted if ctx.painted and is_instance_valid(ctx.painted) else null
+
+
+func _play(key: String, pos: Vector2, dir: Vector2 = Vector2.RIGHT, props: Dictionary = {}) -> void:
+	if _painted():
+		_painted().play(key, pos, dir, props)
+
+
+## Boucles recalées chaque image sur l'état réel : vase et murs (durcissement), racine-laisse, carapace, miroirs,
+## rayons (trajets déjà tracés), tourbillon, marée, Écho englouti, cœur exposé. Un état disparu dissipe sa boucle.
+func _sync_vfx() -> void:
+	_shown.clear()
+	var painted: PaintedVfx = _painted()
+	if painted == null or brain == null:
+		return
+	var center: Vector2 = boss().position
+	for puddle: Dictionary in puddles:
+		var pos: Vector2 = puddle["pos"]
+		var radius: float = puddle["radius"]
+		var hardening: float = clampf(inverse_lerp(float(puddle.get("born", 0.0)), float(puddle["harden_at"]), ctx.time),
+			0.0, 1.0)
+		var tag: String = "glq_mud_%d_%d" % [int(pos.x), int(pos.y)]
+		_show(painted.sync(tag, VFX + "mud_wall", pos, {"radius": radius, "width": radius * 1.5}), tag, [1.0, hardening])
+	if not leash.is_empty():
+		var anchor: Vector2 = leash["anchor"]
+		var fx: Node2D = painted.sync("glq_leash", VFX + "root_leash", anchor)
+		if _show(fx, "glq_leash"):
+			fx.call("set_path_local", PackedVector2Array([Vector2.ZERO, ctx.player.global_position - anchor]))
+	if not facets.is_empty():
+		var fx: Node2D = painted.sync("glq_facets", VFX + "facets", center, {"radius": boss().radius + 10.0})
+		if _show(fx, "glq_facets"):
+			var values := PackedFloat32Array()
+			for side: int in SIDES:
+				values.append(facets[side] / maxf(_facet_max, 1.0))
+			fx.call("set_facet_strengths", values)
+	for i: int in mirrors.size():
+		var fx: Node2D = painted.sync("glq_mirror%d" % i, VFX + "mirror", mirrors[i]["pos"], {"radius": MIRROR_RADIUS})
+		if _show(fx, "glq_mirror%d" % i):
+			fx.rotation = (mirrors[i]["arrow"] as Vector2).angle()
+	if beam_firing():
+		var paths: Array = beam["paths"]
+		for b: int in paths.size():
+			var fx: Node2D = painted.sync("glq_beam%d" % b, VFX + "prism_beam", center, {"width": float(beam["width"])})
+			if _show(fx, "glq_beam%d" % b):
+				var local := PackedVector2Array()
+				for point: Vector2 in paths[b]:
+					local.append(point - center)
+				fx.call("set_path_local", local)
+	if whirl_active():
+		_show(painted.sync("glq_whirl", VFX + "whirlpool", center), "glq_whirl")
+	if not tide.is_empty():
+		_show(painted.sync("glq_tide", VFX + "tide_ring", tide["center"], {"radius": float(tide["radius"])}), "glq_tide")
+	if not swallowed.is_empty():
+		_show(painted.sync("glq_swallow", VFX + "swallow", center, {"radius": boss().radius * 0.45}), "glq_swallow")
+	if brain.heart_time > 0.0 and boss().alive:
+		_show(painted.sync("glq_heart", VFX + "heart_pulse", center, {"radius": boss().radius * 0.5}), "glq_heart")
+	painted.prune("glq_")
+
+
+## Note la boucle comme affichée ; `state` : intensité et durcissement transmis à l'effet.
+func _show(fx: Node2D, tag: String, state: Array = []) -> bool:
+	if fx == null:
+		return false
+	_shown[tag] = true
+	if state.size() == 2:
+		fx.call("set_visual_state", float(state[0]), float(state[1]))
+	return true
+
+
 # --- Dessin ----------------------------------------------------------------------------------------------------
 
 func _draw() -> void:
@@ -627,8 +711,12 @@ func _draw() -> void:
 		var center: Vector2 = tide["center"]
 		var radius: float = tide["radius"]
 		draw_arc(center, radius + 450.0, 0.0, TAU, 96, Color(WATER, 0.45), 900.0)
-		draw_arc(center, radius, 0.0, TAU, 96, Color(0.85, 1.0, 0.97, 0.7), 4.0)
+		if not _shown.has("glq_tide"):
+			draw_arc(center, radius, 0.0, TAU, 96, Color(0.85, 1.0, 0.97, 0.7), 4.0)
 	for puddle: Dictionary in puddles:
+		var pos: Vector2 = puddle["pos"]
+		if _shown.has("glq_mud_%d_%d" % [int(pos.x), int(pos.y)]):
+			continue
 		if int(puddle["wall"]) < 0:
 			var left: float = clampf((float(puddle["harden_at"]) - ctx.time) / 2.5, 0.0, 1.0)
 			draw_circle(puddle["pos"], float(puddle["radius"]), Color(MUD, 0.55))
@@ -638,18 +726,20 @@ func _draw() -> void:
 			draw_rect(rect, Color(0.28, 0.25, 0.18, 0.95))
 			draw_rect(rect, Color(0.55, 0.48, 0.32), false, 3.0)
 	if not leash.is_empty():
-		draw_line(leash["anchor"], ctx.player.global_position, ROOT, 6.0)
-		draw_circle(leash["anchor"], 12.0, ROOT)
+		if not _shown.has("glq_leash"):
+			draw_line(leash["anchor"], ctx.player.global_position, ROOT, 6.0)
+			draw_circle(leash["anchor"], 12.0, ROOT)
 		draw_arc(leash["anchor"], float(leash["length"]), 0.0, TAU, 48, Color(ROOT, 0.4), 2.0)
-	_draw_facets()
-	for mirror: Dictionary in mirrors:
-		_draw_mirror(mirror)
+	if not _shown.has("glq_facets"):
+		_draw_facets()
+	for i: int in mirrors.size():
+		_draw_mirror(mirrors[i], _shown.has("glq_mirror%d" % i))
 	if not beam.is_empty():
-		if beam_firing():
+		if beam_firing() and not _shown.has("glq_beam0"):
 			for path: PackedVector2Array in beam["paths"]:
 				draw_polyline(path, Color(CRYSTAL, 0.5), float(beam["width"]))
 				draw_polyline(path, Color(1.0, 1.0, 1.0, 0.9), float(beam["width"]) * 0.3)
-	if whirl_active():
+	if whirl_active() and not _shown.has("glq_whirl"):
 		for k: int in 3:
 			var r: float = fmod(_time * 160.0 + k * 140.0, 420.0) + 60.0
 			draw_arc(boss().position, 480.0 - r, _time * 3.0 + k, _time * 3.0 + k + PI * 1.2, 24, Color(WATER, 0.6), 3.0)
@@ -658,7 +748,8 @@ func _draw() -> void:
 	if not swallowed.is_empty():
 		var progress: float = clampf(float(swallowed["dealt"]) / maxf(float(swallowed["need"]), 1.0), 0.0, 1.0)
 		var pulse: float = 0.5 + 0.5 * sin(_time * 6.0)
-		draw_circle(boss().position + Vector2(0, boss().radius * 0.3), 22.0 + 6.0 * pulse, Color(0.9, 1.0, 0.8, 0.45))
+		if not _shown.has("glq_swallow"):
+			draw_circle(boss().position + Vector2(0, boss().radius * 0.3), 22.0 + 6.0 * pulse, Color(0.9, 1.0, 0.8, 0.45))
 		draw_arc(boss().position, boss().radius + 18.0, -PI * 0.5, -PI * 0.5 + TAU * progress, 40, Color(0.7, 1.0, 0.9), 5.0)
 
 
@@ -673,14 +764,16 @@ func _draw_facets() -> void:
 		draw_arc(boss().position, boss().radius + 10.0, center - 0.6, center + 0.6, 16, Color(CRYSTAL, 0.35 + 0.5 * strength), 7.0)
 
 
-func _draw_mirror(mirror: Dictionary) -> void:
+## Miroir provisoire ; peint, seule la flèche (l'information de jeu) reste dessinée.
+func _draw_mirror(mirror: Dictionary, painted: bool) -> void:
 	var pos: Vector2 = mirror["pos"]
 	var arrow: Vector2 = mirror["arrow"]
 	var glow: float = float(mirror["flash"])
-	var points := PackedVector2Array([pos + Vector2(0, -MIRROR_RADIUS), pos + Vector2(MIRROR_RADIUS * 0.7, 0),
-		pos + Vector2(0, MIRROR_RADIUS), pos + Vector2(-MIRROR_RADIUS * 0.7, 0)])
-	draw_colored_polygon(points, Color(CRYSTAL.lerp(Color.WHITE, glow), 0.75))
-	points.append(points[0])
-	draw_polyline(points, Color(0.3, 0.6, 0.8), 2.0)
+	if not painted:
+		var points := PackedVector2Array([pos + Vector2(0, -MIRROR_RADIUS), pos + Vector2(MIRROR_RADIUS * 0.7, 0),
+			pos + Vector2(0, MIRROR_RADIUS), pos + Vector2(-MIRROR_RADIUS * 0.7, 0)])
+		draw_colored_polygon(points, Color(CRYSTAL.lerp(Color.WHITE, glow), 0.75))
+		points.append(points[0])
+		draw_polyline(points, Color(0.3, 0.6, 0.8), 2.0)
 	draw_line(pos, pos + arrow * (MIRROR_RADIUS + 26.0), Color(1.0, 1.0, 1.0, 0.9), 4.0)
 	draw_circle(pos + arrow * (MIRROR_RADIUS + 26.0), 6.0, Color(1.0, 1.0, 1.0, 0.9))

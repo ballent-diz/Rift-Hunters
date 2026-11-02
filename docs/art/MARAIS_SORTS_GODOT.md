@@ -20,9 +20,42 @@ Les planches raster livrées séparément sont des sources artistiques, pas une 
 - Télégraphes communs : **3 scènes** de zone, ligne et secteur.
 
 Le catalogue donne le décompte exact : 31 scènes d'ennemis du chapitre 3, 16 du boss,
-6 prototypes et 3 télégraphes = 56. Les scènes sont disponibles pour raccordement par Claude ;
-**aucun comportement du combat n'a été remplacé**. Les formes provisoires de `MarshTechniques`
-et `GlauquemireMechanics` continuent d'être utilisées jusqu'à ce raccordement.
+6 prototypes et 3 télégraphes = 56.
+
+## Raccordement en jeu (2 novembre 2026)
+
+Les 31 scènes du chapitre 3 et les 16 de Glauquemire sont **branchées en jeu**. Aucune règle de combat
+n'a changé : les effets lisent l'état déjà résolu et ne font que le montrer.
+
+- `PaintedVfx` (`src/entities/painted_vfx.gd`, `ctx.painted`) : calque unique qui résout les clés du
+  manifeste (`vfx.enemy.<monstre>.<anim>`, `vfx.boss.glauquemire.<anim>`). Trois usages : `play` (coup unique),
+  `hold` (boucle qui suit un porteur jusqu'à une échéance ou une condition, avec un rappel de fin) et
+  `sync` + `prune` (boucle recalée chaque image sur un état, dissipée quand il disparaît).
+  Plafond : 24 effets décoratifs, dont 8 de boss. Les boucles d'état (`sync` : miroirs, marée, carapace)
+  sont déjà bornées par la mécanique et passent outre. Les avertissements du combat restent dessinés à part.
+- `MarshVfx` (`src/entities/enemies/marsh_vfx.gd`) aiguille les techniques du chapitre 3 :
+  - après chaque technique réussie : atterrissage, plongée, ruée, rage, racines, tapis de spores, éventail d'éclats,
+    aura de soin, miroir renvoyeur, bulles d'écorce (en éclats si la Gardienne tombe) ;
+  - au moment exact de l'événement : marque (explose à son terme, s'efface après une Ruée), sauts et
+    clignements (départ et arrivée réels), reflets, rayon balayant (tronçons déjà coupés par le décor), cœur à nu ;
+  - frappes au contact, corps peints des tirs ennemis, révélation de la Chasseresse furtive.
+  Sans scène pour un monstre, rien n'est créé.
+- Glauquemire :
+  - `vfx_dir` pointe vers `assets/vfx/bosses/glauquemire/` : griffes et écrasement via `params.vfx` ;
+  - `GlauquemireMechanics._sync_vfx` recale chaque image la vase et les murs (stade de durcissement réel),
+    la racine-laisse, la carapace (intégrité des quatre faces), les miroirs (orientation), les rayons
+    (trajets tracés), le tourbillon, la marée, l'engloutissement et le cœur exposé ;
+  - coups uniques : impact de vase, éclat de face, soin des sangsues, libération d'Écho, changement de phase ;
+  - le dessin provisoire d'un élément s'efface dès que sa version peinte est affichée. La flèche des miroirs
+    reste dessinée, c'est l'information de jeu.
+- Glauquemire n'a pas de télégraphe peint : ses repères au sol restent pleins.
+- Les 6 prototypes du chapitre 4 (`frost_wolf`, `ice_scarab`, `snow_bat`, `ice_worm`) ne sont pas branchés, car
+  leurs monstres n'existent pas. Les 3 télégraphes communs ne sont pas branchés non plus : le jeu garde
+  ses propres repères.
+
+Vérification : `tests/unit/test_painted_vfx.gd` (résolution des 44 scènes, tir peint qui suit puis se dissipe,
+marque qui explose, bulle qui cède, plafond, boucles de Glauquemire qui suivent l'état), suite complète, partie
+bot sur la Mangrove des racines, captures en jeu des trois phases du boss et des techniques du chapitre 3.
 
 Glauquemire : les six planches de corps A–F et la lanterne sont désormais livrées dans le lot autonome du 28 octobre (`docs/art/GLAUQUEMIRE_SPRITES.md`). Ce choix suit le nouveau brief sans questions ; il ne prétend pas remplacer la validation artistique du propriétaire. Les effets de terrain PR #78 sont conservés sans régénération.
 

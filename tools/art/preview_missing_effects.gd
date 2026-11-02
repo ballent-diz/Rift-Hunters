@@ -45,6 +45,10 @@ func _run() -> void:
 		effect.destroy_on_finish = false
 		effect.position = Vector2(190 + (local_index % 3) * 420, 235 + (local_index / 3) * 300)
 		effect.scale = Vector2.ONE * 0.9
+		if item["effect_kind"] in ["skyfall", "rock_rain", "eruption", "crater_sequence", "leap", "dive", "flame_breath"]:
+			# Garder l'envol/chute entier sous les légendes ; le repère reçoit le même zoom.
+			effect.position.y += 70
+			effect.scale = Vector2.ONE * 0.7
 		root.add_child(effect)
 		if item["effect_kind"] in ["ice_prison", "slag_shell", "bark_shield", "duel_circle",
 			"hush_circle", "cold_aura", "frost_mist", "dive_ripple", "star_crown", "absorb",
@@ -57,7 +61,7 @@ func _run() -> void:
 			actor.region_enabled = true
 			actor.region_rect = Rect2(0, 0, entry["cell"][0], entry["cell"][1])
 			actor.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-			actor.scale = Vector2.ONE * float(entry["scale"]) * 0.9
+			actor.scale = Vector2.ONE * float(entry["scale"]) * effect.scale.x
 			actor.position = effect.position - Vector2(entry["anchor"][0], entry["anchor"][1]) * actor.scale
 			actor.z_index = 3
 			root.add_child(actor)
@@ -91,6 +95,8 @@ func _run() -> void:
 				effect.set_visual_state(1.0 if phase < 0.6 else 0.15, 0.0 if phase < 0.6 else 1.0)
 			elif kind in ["snowball", "tide_water"]:
 				effect.set_visual_state(1.0, sin(phase * PI))
+			elif kind == "eruption":
+				effect.set_visual_state(1.0, 0.0 if phase < 0.65 else 1.0)
 		await process_frame
 		await RenderingServer.frame_post_draw
 		var code := root.get_texture().get_image().save_png(out.path_join("%03d.png" % frame))
