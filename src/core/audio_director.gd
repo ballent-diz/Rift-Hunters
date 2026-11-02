@@ -9,7 +9,7 @@ const MANIFEST_PATH := "res://assets/audio/audio_manifest.json"
 ## Dossiers scannés automatiquement : chaque fichier audio déposé est joué dans le contexte du dossier.
 ## Le BPM peut être indiqué dans le nom du fichier (ex. « assaut_165bpm.mp3 »).
 const MUSIC_FOLDERS := {
-	"res://assets/audio/music/menu": ["menu", "refuge"],
+	"res://assets/audio/music/menu": ["menu"],
 	"res://assets/audio/music/refuge": ["refuge"],
 	"res://assets/audio/music/run": ["run"],
 	"res://assets/audio/music/boss": ["boss", "boss_phase2"],
@@ -19,6 +19,7 @@ const MUSIC_FOLDERS := {
 }
 const AUDIO_EXTENSIONS: Array[String] = ["mp3", "ogg", "wav"]
 ## Contexte de repli quand un contexte n'a aucun morceau (ex. pas de musique de menu : on joue celles des parties).
+## Écran titre (menu) et refuge ont chacun leur morceau fixe ; un refuge sans morceau reprend celui de l'écran titre.
 const FALLBACK_CONTEXTS := {"menu": "run", "refuge": "menu", "boss_phase2": "boss"}
 ## Contextes joués une seule fois (jingles). Les autres enchaînent leurs morceaux au hasard (liste de lecture).
 const ONE_SHOT_CONTEXTS: Array[String] = ["victory", "defeat"]

@@ -182,14 +182,6 @@
 			"bpm": 165.0,
 			"offset": 0.035
 		},
-		"res://assets/audio/music/boss/Music Box in the Machine (1).mp3": {
-			"bpm": 137.0,
-			"offset": 0.353
-		},
-		"res://assets/audio/music/boss/Music Box in the Machine.mp3": {
-			"bpm": 137.0,
-			"offset": 0.17
-		},
 		"res://assets/audio/music/boss/最后的守关者 (1).mp3": {
 			"bpm": 149.75,
 			"offset": 0.181
@@ -293,6 +285,14 @@
 		"res://assets/audio/music/run/霓虹暗流.mp3": {
 			"bpm": 144.0,
 			"offset": 0.258
+		},
+		"res://assets/audio/music/menu/music_box_in_the_machine_title.mp3": {
+			"bpm": 137.0,
+			"offset": 0.353
+		},
+		"res://assets/audio/music/refuge/music_box_in_the_machine.mp3": {
+			"bpm": 137.0,
+			"offset": 0.17
 		}
 	}
 }
