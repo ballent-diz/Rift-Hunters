@@ -1,13 +1,13 @@
 {
   "id": "map.marsh_heart",
   "status": "wip",
-  "stage": "composition_pour_validation",
+  "stage": "composition_validee_plan_fige",
   "world_size": [
     3344,
     5016
   ],
-  "owner_approved": false,
-  "plan_locked": false,
+  "owner_approved": true,
+  "plan_locked": true,
   "regions_generated": false,
   "runtime_integrated": false,
   "composition": "composition.png",
@@ -17,5 +17,8 @@
     "source/PROMPT_COMPOSITION.txt",
     "source/PROMPT_ARENE.txt"
   ],
-  "method": "Générateur intégré, composition puis agrandissement visuel de l’arène, aucun upscale de détail final."
+  "method": "Générateur intégré, composition puis agrandissement visuel de l’arène, aucun upscale de détail final.",
+  "approval_date": "2026-11-02",
+  "approval_scope": "Composition entière et plan ; contrôle de la taille utile de l’arène sur les collisions encore requis.",
+  "composition_sha256": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300"
 }
