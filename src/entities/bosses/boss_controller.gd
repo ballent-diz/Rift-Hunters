@@ -649,14 +649,15 @@ func _mouth() -> Vector2:
 func _telegraph(pattern: BossPatternData, shape: String, pos: Vector2, dir: Vector2, props: Dictionary) -> void:
 	if data.vfx_dir == "" or pattern.params.get("vfx", "") == "":
 		return
-	ctx.hazards.mark_last_painted()
 	var indicator_props := props.duplicate()
 	indicator_props["target_shape"] = StringName(shape)
 	indicator_props["loop_visual"] = true
 	indicator_props["visual_duration"] = maxf(pattern.telegraph, 0.3)
 	var fx: Node2D = _vfx("indicator", pos, dir, indicator_props, -1.0, true)
+	# Sans télégraphe peint (Glauquemire n'en a pas), le repère du jeu reste plein.
 	if fx == null:
 		return
+	ctx.hazards.mark_last_painted()
 	_indicators.append(fx)
 	schedule(pattern.telegraph, func() -> void:
 		if is_instance_valid(fx):

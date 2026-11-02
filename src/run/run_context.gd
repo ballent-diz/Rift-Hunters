@@ -50,6 +50,8 @@ var rockfall: RockfallDirector
 var tide: TideDirector
 var cold: ColdDirector
 var frost: FrostTechniques
+## Effets peints autonomes des ennemis et des boss (présentation seulement).
+var painted: PaintedVfx
 var nests: NestDirector
 ## Gardien de palier en cours (élite en version boss), pour la barre de boss.
 var mini_boss: Enemy

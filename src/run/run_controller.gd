@@ -209,6 +209,9 @@ func _build_world() -> void:
 	ctx.frost = FrostTechniques.new()
 	ctx.world.add_child(ctx.frost)
 	ctx.frost.setup(ctx)
+	ctx.painted = PaintedVfx.new()
+	ctx.painted.setup(ctx)
+	ctx.world.add_child(ctx.painted)
 	if TerrainDirector.uses_terrain(ctx.arena):
 		ctx.terrain = TerrainDirector.new()
 		ctx.world.add_child(ctx.terrain)

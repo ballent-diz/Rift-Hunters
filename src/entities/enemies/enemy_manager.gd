@@ -265,9 +265,8 @@ func step(delta: float) -> void:
 				enemy.touch_cooldown = contact_interval
 				if not misses(enemy):
 					ctx.combat.damage_player(enemy.contact_damage, enemy.data.id if enemy.data else &"boss")
-				# Coup au contact visible (ennemis de mêlée) : la rangée d'attaque de la feuille.
 				if not enemy.is_boss and view.has_point(pos):
-					enemy.visual.play_action(&"attack")
+					marsh.vfx.melee(enemy, player_pos)
 		if enemy.data and enemy.data.stealth_range > 0.0:
 			enemy.visual.modulate.a = marsh.stealth_alpha(enemy, player_pos)
 		if view.has_point(pos):
@@ -813,11 +812,12 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 
 ## Technique propre au gestionnaire (_technique_<kind>), ou technique_<kind> du chapitre 4 (FrostTechniques), sinon du 3.
 func _run_technique(enemy: Enemy, technique: EnemyTechniqueData, player_pos: Vector2) -> bool:
-	var method: String = "_technique_" + String(technique.kind)
-	if has_method(method):
-		return call(method, enemy, technique, player_pos)
 	var shared: String = "technique_" + String(technique.kind)
-	return (ctx.frost if ctx.frost and ctx.frost.has_method(shared) else marsh).call(shared, enemy, technique, player_pos)
+	var done: bool = call("_" + shared, enemy, technique, player_pos) if has_method("_" + shared) else \
+		(ctx.frost if ctx.frost and ctx.frost.has_method(shared) else marsh).call(shared, enemy, technique, player_pos)
+	if done:
+		marsh.vfx.technique(enemy, technique, player_pos)
+	return done
 
 
 func _later(enemy: Enemy, delay: float, action: Callable) -> void:
