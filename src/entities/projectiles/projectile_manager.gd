@@ -73,6 +73,7 @@ func spawn_hostile(pos: Vector2, dir: Vector2, speed: float, damage: float, sour
 	p.source_id = source_id
 	p.radius = radius
 	p.life = life
+	p.fx = MarshVfx.projectile(ctx.painted, source_id, pos, dir)
 	hostile.append(p)
 	return p
 
@@ -93,7 +94,10 @@ func step(delta: float) -> void:
 		if not _step_hostile(p, delta, rect):
 			hostile[i] = hostile[hostile.size() - 1]
 			hostile.pop_back()
+			_drop_fx(p)
 			_pool.append(p)
+		elif is_instance_valid(p.fx):
+			(p.fx as Node2D).global_position = p.position
 		i -= 1
 	_friendly_canvas.queue_redraw()
 	_hostile_canvas.queue_redraw()
@@ -218,6 +222,7 @@ func reflect_hostiles(center: Vector2, radius: float, template: DamageInfo, colo
 			var dir: Vector2 = (target.position - p.position) if target else -p.velocity
 			spawn_friendly(p.position, dir, maxf(p.velocity.length() * 2.0, 380.0), info,
 				{"pierce": 1, "radius": p.radius, "life": 1.6, "color": color, "target": target})
+			_drop_fx(p)
 			_pool.append(p)
 			count += 1
 		i -= 1
@@ -226,8 +231,16 @@ func reflect_hostiles(center: Vector2, radius: float, template: DamageInfo, colo
 
 func clear_hostile() -> void:
 	for p: Projectile in hostile:
+		_drop_fx(p)
 		_pool.append(p)
 	hostile.clear()
+
+
+## Le tir s'arrête : son corps peint se dissipe.
+static func _drop_fx(p: Projectile) -> void:
+	if is_instance_valid(p.fx):
+		(p.fx as Node).call("release")
+	p.fx = null
 
 
 func _draw_friendly() -> void:
@@ -238,6 +251,8 @@ func _draw_friendly() -> void:
 
 func _draw_hostile() -> void:
 	for p: Projectile in hostile:
+		if is_instance_valid(p.fx):
+			continue
 		_hostile_canvas.draw_circle(p.position, p.radius + 2.0, HOSTILE_OUTLINE)
 		_hostile_canvas.draw_circle(p.position, p.radius, HOSTILE_BODY)
 		_hostile_canvas.draw_circle(p.position, p.radius * 0.45, HOSTILE_CORE)

@@ -200,7 +200,7 @@ func technique_pressed(_index: int) -> bool:
 ## Comme un joueur : Taille fendante (emplacement 0) au contact, Lance prismatique (1) dès qu'une cible est à portée.
 func spell_pressed(slot: int) -> bool:
 	var spells: HunterSpells = ctx.spells
-	if spells == null or slot >= spells.slots.size() or spells.slots[slot] == null:
+	if spells == null or slot >= spells.slots.size() or spells.slots[slot] == null or ctx.boss_hold_spells():
 		return false
 	var spell: SpellData = spells.slots[slot]
 	var pos: Vector2 = ctx.player.global_position

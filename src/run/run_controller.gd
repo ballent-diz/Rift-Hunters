@@ -205,6 +205,13 @@ func _build_world() -> void:
 	ctx.enemies.z_index = 2
 	ctx.enemies.setup(ctx)
 	ctx.world.add_child(ctx.enemies)
+	# Techniques du chapitre 4 et leurs effets durables (boules de neige, silence, tourbillons, prison de glace).
+	ctx.frost = FrostTechniques.new()
+	ctx.world.add_child(ctx.frost)
+	ctx.frost.setup(ctx)
+	ctx.painted = PaintedVfx.new()
+	ctx.painted.setup(ctx)
+	ctx.world.add_child(ctx.painted)
 	if TerrainDirector.uses_terrain(ctx.arena):
 		ctx.terrain = TerrainDirector.new()
 		ctx.world.add_child(ctx.terrain)
@@ -229,6 +236,10 @@ func _build_world() -> void:
 		ctx.tide = TideDirector.new()
 		ctx.world.add_child(ctx.tide)
 		ctx.tide.setup(ctx)
+	if ColdDirector.uses_cold(ctx.arena):
+		ctx.cold = ColdDirector.new()
+		ctx.world.add_child(ctx.cold)
+		ctx.cold.setup(ctx)
 	if PodDirector.uses_pods(ctx.arena):
 		ctx.pods = PodDirector.new()
 		ctx.world.add_child(ctx.pods)
@@ -344,6 +355,9 @@ func _physics_process(delta: float) -> void:
 		ctx.rockfall.step(delta)
 	if ctx.tide:
 		ctx.tide.step(delta)
+	if ctx.cold:
+		ctx.cold.step(delta)
+	ctx.frost.step(delta)
 	if ctx.nests:
 		ctx.nests.step(delta)
 	if ctx.night:
