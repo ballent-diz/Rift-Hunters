@@ -576,17 +576,28 @@ MAP_CLOSE_HINT,%s : fermer la carte,%s: close the map
 OPTIONS_CONTROLS,Manette : stick gauche déplacement · stick droit visée · A/RB Ruée · RT/LT sorts 1 et 2 · croix haut/droite sorts 3 et 4 · X/Y/B Techniques · LB focus · Start pause,Gamepad: left stick move · right stick aim · A/RB Dash · RT/LT spells 1 and 2 · D-pad up/right spells 3 and 4 · X/Y/B Techniques · LB focus · Start pause
 MENU_CREDITS,Crédits,Credits
 CREDITS_BACK,Retour,Back
-CREDITS_BODY,"Rift Hunters — un jeu original.
-Conception et direction : le propriétaire du projet.
-Programmation, game design et outils : développé avec Claude Code.
-Moteur : Godot Engine (licence MIT).
-Polices : Cinzel (The Cinzel Project Authors) et Inter (The Inter Project Authors), SIL Open Font License 1.1.
-Musiques et effets sonores : à créditer lors de leur intégration.","Rift Hunters — an original game.
-Design and direction: the project owner.
-Programming, game design and tools: developed with Claude Code.
-Engine: Godot Engine (MIT license).
-Fonts: Cinzel (The Cinzel Project Authors) and Inter (The Inter Project Authors), SIL Open Font License 1.1.
-Music and sound effects: to be credited when integrated."
+CREDITS_TAGLINE,Un jeu original,An original game
+CREDITS_HUNTER,Le Chasseur de Failles,The Rift Hunter
+CREDITS_CREATION,Création,Created by
+CREDITS_TEAM,L'équipe Rift Hunters,The Rift Hunters team
+CREDITS_CREATION_ROLES,Conception · Direction artistique · Game design · Programmation,Concept · Art direction · Game design · Programming
+CREDITS_ECHOES,Les Échos,The Echoes
+CREDITS_ECHOES_SUB,"%d compagnons, autant de façons de chasser","%d companions, as many ways to hunt"
+CREDITS_DEVOURERS,Les Dévoreurs,The Devourers
+CREDITS_DEVOURERS_SUB,Ce qui attend au fond des failles,What waits at the bottom of the rifts
+CREDITS_RESOURCES,Outils et ressources,Tools and assets
+CREDITS_ENGINE_TITLE,Moteur,Engine
+CREDITS_ENGINE_BODY,Le moteur libre qui fait tourner le jeu.,The free engine the game runs on.
+CREDITS_ENGINE_LICENSE,Licence MIT,MIT license
+CREDITS_FONTS_TITLE,Polices,Fonts
+CREDITS_FONTS_BODY,The Cinzel Project Authors · The Inter Project Authors,The Cinzel Project Authors · The Inter Project Authors
+CREDITS_FONTS_LICENSE,SIL Open Font License 1.1,SIL Open Font License 1.1
+CREDITS_TILES_TITLE,Décors,Scenery
+CREDITS_TILES_BODY,Pack de tuiles par Pixel-boy et AAA.,Tile pack by Pixel-boy and AAA.
+CREDITS_TILES_LICENSE,Creative Commons Zero (CC0),Creative Commons Zero (CC0)
+CREDITS_THANKS,Merci d'avoir joué,Thank you for playing
+CREDITS_LICENSES,Licences,Licenses
+CREDITS_LICENSES_BODY,"Rift Hunters utilise Godot Engine (licence MIT, texte ci-dessous), les polices Cinzel et Inter (SIL Open Font License 1.1) et des tuiles du pack Ninja Adventure de Pixel-boy et AAA (CC0 1.0).","Rift Hunters uses Godot Engine (MIT license, text below), the Cinzel and Inter fonts (SIL Open Font License 1.1) and tiles from the Ninja Adventure pack by Pixel-boy and AAA (CC0 1.0)."
 ARENA_THREE_RIFTS_NAME,Ruines des Cascades,Waterfall Ruins
 ARENA_THREE_RIFTS_DESC,Traversez les ruines et leurs cascades jusqu’à la grande faille violette.,Cross the ruins and waterfalls to reach the great violet rift.
 MENU_LANGUAGE,Langue : %s,Language: %s

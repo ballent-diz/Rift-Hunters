@@ -56,9 +56,16 @@ func test_keyboard_cycle_and_credits_action() -> void:
 	var credits: Button = canvas.get_node("Credits")
 	credits.pressed.emit()
 	await host.get_tree().process_frame
-	var panel: PanelContainer = _menu.get_child(_menu.get_child_count() - 1)
-	check(panel is PanelContainer, "crédits ouverts par le bouton existant")
-	var box: VBoxContainer = panel.get_child(0)
-	var back: Button = box.get_child(box.get_child_count() - 1)
-	back.pressed.emit()
-	check(panel.is_queued_for_deletion(), "retour des crédits")
+	var screen: Variant = _menu.get_child(_menu.get_child_count() - 1)
+	check(screen is CreditsScreen, "générique ouvert par le bouton existant")
+	var credits_screen: CreditsScreen = screen
+	await host.get_tree().process_frame
+	var scroll: ScrollContainer = credits_screen.get_child(0)
+	var before: int = scroll.scroll_vertical
+	for i: int in 30:
+		await host.get_tree().process_frame
+	check(scroll.scroll_vertical > before, "le générique défile tout seul")
+	credits_screen._show_licenses()
+	check(credits_screen._licenses != null, "les licences s'ouvrent à part")
+	credits_screen.back_button.pressed.emit()
+	check(credits_screen.is_queued_for_deletion(), "retour du générique")

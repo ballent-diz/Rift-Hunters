@@ -122,22 +122,7 @@ func _add_warning() -> void:
 	panel.add_child(label)
 
 
-## Crédits et licences (la licence de Godot doit accompagner toute distribution).
+## Générique (CreditsScreen) ; les licences, dont celle de Godot, s'y ouvrent à part.
 func _show_credits() -> void:
-	var panel := PanelContainer.new()
-	panel.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	panel.theme = MenuSkin.theme()
-	panel.add_theme_stylebox_override("panel", MenuSkin.frame())
-	add_child(panel)
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 10)
-	panel.add_child(box)
-	box.add_child(UiKit.title(tr("MENU_CREDITS"), 32, UiKit.ACCENT))
-	var text := RichTextLabel.new()
-	text.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	text.add_theme_font_size_override("normal_font_size", 15)
-	text.text = tr("CREDITS_BODY") + "\n\n" + Engine.get_license_text()
-	box.add_child(text)
-	var back: Button = UiKit.button(tr("CREDITS_BACK"), func() -> void: panel.queue_free(), 260)
-	box.add_child(back)
-	back.grab_focus.call_deferred()
+	var screen := CreditsScreen.new()
+	add_child(screen)
