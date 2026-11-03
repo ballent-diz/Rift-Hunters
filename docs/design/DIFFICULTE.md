@@ -71,27 +71,31 @@ Une carte qui sort de la courbe est corrigée par ses propres réglages (`enemy_
 avant de toucher aux monstres eux-mêmes. Les boss et gardiens ont leurs propres réglages (`boss_hp_mult`,
 `boss_damage_mult`), car ils ne suivent pas ceux des vagues.
 
-### Réglages mesurés (campagne Normal, règles du 26 octobre 2026 : un Écho au départ, pas de drops)
+### Réglages mesurés (campagne Normal, profil d'étape, bot moyen-bon : 2 et 3 novembre 2026)
 
-Équipe du bot : Cendrelame et les Échos réellement débloqués à ce stade (un par carte gagnée), arbre « veteran » à
-partir de la carte 4. Cartes 1 à 5 remesurées le 2 novembre 2026 avec le Saut et le Tunnel des élites du chapitre 1
-(arbre « veteran », 2 ou 3 graines) : aucun réglage à changer.
+Mesure `PROFILE=stage`, 3 graines par carte (4 pour les Tanières) : le bot reçoit à chaque carte la progression d'un
+joueur moyen-bon (sorts, points, Échos les plus récents, arbres ; voir plus haut). Cible : 2 victoires sur 3.
+Le 3 novembre, le bot sort aussi des recoins trop étroits pour sa route en revenant sur ses pas (graine 3 des
+Hautes Terres, qui tournait en rond).
 
-| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Équipe du bot | Bot (victoires) | Durée |
-|---|---|---|---|---|---|
-| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 | Cendrelame seule | 2 sur 2 | 6 min 30 |
-| 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 | 3 min 30 à 4 min |
-| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | 3 sur 3 | 6 à 7 min |
-| 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Scoriade, Lueurine | 3 sur 3 | 5 min 40 |
-| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 2 sur 3 | 7 min |
-| 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4 | 3 min 30 à 6 min |
-| 7. Évents de cendre | 1,3 · 0,95 | 2,5 · 1,2 (Chevalier calciné) | + Égidor, Lucivelle | 2 sur 3 | 8 min |
-| 8. Tanières de suie | 1,3 · 0,95 | 2,5 · 1,2 (Reine-veuve) | + Pyraile, Égidor | 2 sur 3 | 8 min 30 |
-| 9. Le Seuil du Cataclysme | 1 · 0,6 (roches 8 toutes les 8 s) | 2 · 1,2 (Matrone des scories) | + Spectrâtre, Pyraile | 2 sur 3 | 7 min 30 |
-| 10. Cœur du volcan | 0,7 · 0,45 (vagues de moitié, une élite par palier) | 0,5 · 0,6 (Pyrevorn) | + Gravelune, Pyraile | 3 sur 3 | 9 à 11 min 30 |
-| 11. Mangrove des racines | 0,7 · 0,35 (une élite par zone) | 2,2 · 1 (Gardien d'écorce) | + Solgriffe, Gravelune | 3 sur 3 | 7 min |
-| 12. Temple des marées | 1 · 0,5 (45 à 120 en vie, élites des failles toutes les 140 s) | 1,2 · 0,55 (Gueule des marais) | + Ronceline, Solgriffe | 2 sur 3 | 3 à 4 min |
-| 13. Jardins de cristal | 0,85 · 0,4 (9 cristaux-miroirs) | 1,6 · 0,9 (Mère des spores, voile brûlé 6 s, repousse en 12 s) | + Miroitin, Ronceline | 2 sur 3 | 5 min 30 |
+| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Bot (victoires) | Durée |
+|---|---|---|---|---|
+| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 (Nébulorax) | 2 sur 3 | 7 min à 7 min 30 |
+| 2. Hautes Terres d'Orage | 0,85 · 0,8 | 0,9 · 0,85 (Astravorn) | 2 sur 3 | 6 min |
+| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 (Sentinelle des Racines) | 2 sur 3 | 7 à 8 min |
+| 4. Gué des Brumes | 0,97 · 0,97 | 1,2 · 1,17 (Chimère des Brumes) | 2 sur 3 | 5 min 30 à 6 min |
+| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 (Dévoreur des Sources) | 2 sur 3 | 6 min 30 |
+| 6. Lisière calcinée | 0,85 · 0,8 | 1,4 · 1,15 (Gardien du bûcher) | 2 sur 3 | 6 min |
+| 7. Évents de cendre | 1,3 · 0,95 | 2,5 · 1,2 (Chevalier calciné) | 2 sur 3 | 7 min 45 |
+| 8. Tanières de suie | 1,65 · 1,4 | 3,8 · 2,1 (Reine-veuve) | 3 sur 4 | 8 à 9 min 15 |
+| 9. Le Seuil du Cataclysme | 1,07 · 0,68 | 2,15 · 1,25 (Matrone des scories) | 2 sur 3 | 6 min 15 à 7 min 15 |
+| 10. Cœur du volcan | 0,7 · 0,45 | 0,5 · 0,6 (Pyrevorn) | 2 sur 3 | 10 min |
+| 11. Mangrove des racines | 0,95 · 0,6 | 2,7 · 1,25 (Gardien d'écorce) | 2 sur 3 | 6 min 30 |
+| 12. Temple des marées | 1,4 · 0,65 | 1,25 · 0,58 (Gueule des marais) | 2 sur 3 | 3 min |
+| 13. Jardins de cristal | 1 · 0,5 | 1,9 · 1 (Mère des spores) | 2 sur 3 | 5 min |
+
+Tanières de suie (3 novembre) : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à
+3,8 · 2,1 et les vagues de 1,2 à 1,4 en dégâts (une défaite à 8 % de PV du gardien sur 4 parties).
 
 Mesures du 26 octobre 2026, avec le bot corrigé :
 - il va chercher les derniers Corrompus ;
