@@ -250,10 +250,6 @@
 			"bpm": 144.25,
 			"offset": 0.238
 		},
-		"res://assets/audio/music/run/Neon Circuit.mp3": {
-			"bpm": 144.0,
-			"offset": 0.372
-		},
 		"res://assets/audio/music/run/Neon Overdrive (1).mp3": {
 			"bpm": 153.0,
 			"offset": 0.142
@@ -282,17 +278,13 @@
 			"bpm": 144.75,
 			"offset": 0.397
 		},
-		"res://assets/audio/music/run/霓虹暗流.mp3": {
+		"res://assets/audio/music/menu/neon_circuit.mp3": {
+			"bpm": 144.0,
+			"offset": 0.372
+		},
+		"res://assets/audio/music/refuge/neon_undercurrent.mp3": {
 			"bpm": 144.0,
 			"offset": 0.258
-		},
-		"res://assets/audio/music/menu/music_box_in_the_machine_title.mp3": {
-			"bpm": 137.0,
-			"offset": 0.353
-		},
-		"res://assets/audio/music/refuge/music_box_in_the_machine.mp3": {
-			"bpm": 137.0,
-			"offset": 0.17
 		}
 	}
 }

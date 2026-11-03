@@ -23,10 +23,10 @@ sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs ide
 
 ## À faire : musique (décisions du 2 novembre 2026)
 
-- [x] **Menus** : un morceau fixe et calme, en boucle. Écran titre : `music/menu/music_box_in_the_machine_title.mp3` ;
-  refuge et ses menus : `music/refuge/music_box_in_the_machine.mp3` (les deux versions de « Music Box in the
-  Machine », 137 BPM, retirées des combats de boss). À remplacer par de vrais morceaux d'ambiance si le propriétaire
-  en crée : il suffit de changer le fichier du dossier.
+- [x] **Menus** (révisé le 3 novembre 2026) : un morceau fixe en boucle, pas forcément calme mais au tempo le plus
+  lent du lot. Écran titre : `music/menu/neon_circuit.mp3` ; refuge et ses menus : `music/refuge/neon_undercurrent.mp3`
+  (« Neon Circuit » et « 霓虹暗流 », 144 BPM, sortis de la liste des expéditions où restent leurs variantes « (1) »).
+  « Music Box in the Machine » est retirée du jeu (sonnait trop « horreur »). Pour changer : remplacer le fichier.
 - [ ] **Tri des musiques en jeu** (propriétaire) : réécoute des morceaux actuels, nouveaux morceaux à générer.
   `run/REDLINE PANIC (1).mp3` est une copie exacte de `REDLINE PANIC.mp3` : à supprimer.
 - [ ] **Une playlist par chapitre** (lecture aléatoire, comme aujourd'hui) : chapitre 1 = lot 1, chapitre 2 = lot 2,
