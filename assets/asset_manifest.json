@@ -14958,8 +14958,9 @@
 			"minimap": "res://assets/environments/crystal_gardens/minimap.webp"
 		},
 		"object.training_dummy": {
-			"status": "planned",
-			"note": "Salle d'entraînement : mannequin (tronc cerclé de fer) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.training_dummy/job.json",
+			"sheet": "res://assets/sprites/objects/training_dummy/training_dummy_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14972,11 +14973,18 @@
 			"animations": {
 				"idle": {
 					"row": 0,
-					"frames": 1,
-					"fps": 1,
+					"frames": 6,
+					"fps": 6,
 					"loop": true
+				},
+				"hit": {
+					"row": 1,
+					"frames": 6,
+					"fps": 18,
+					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/objects/training_dummy.png"
 		},
 		"object.crystal_mirror": {
 			"status": "planned",
