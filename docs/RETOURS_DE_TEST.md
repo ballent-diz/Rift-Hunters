@@ -13,5 +13,5 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 - [ ] **Performances** : gros ralentissements quand il y a beaucoup d'ennemis à l'écran.
 - [ ] **Carte 2 (Hautes Terres d'Orage) : faille de droite inaccessible** sous la pression des monstres. Déplacer
   cette faille (`rift_points`, actuellement (1710, -225)) vers un endroit plus accessible.
-- [ ] **Combat contre Astravorn** : le jeu « bugge » pendant le combat (à préciser : ralentissements, blocage ou
-  plantage). Probablement lié au point des performances.
+- [ ] **Combat contre Astravorn** : chute à environ 10 images par seconde pendant le combat (ralentissement, pas de
+  blocage). À mesurer en priorité avec le point des performances.
