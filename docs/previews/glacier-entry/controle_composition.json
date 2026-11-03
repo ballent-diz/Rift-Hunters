@@ -1,0 +1,33 @@
+{
+  "date": "2026-11-03",
+  "stage": "composition_pour_validation",
+  "composition_dimensions": [
+    1536,
+    1024
+  ],
+  "proposed_world": [
+    5016,
+    3344
+  ],
+  "godot": "4.3.stable.official.77dcf97d8",
+  "headless_import_exit": 0,
+  "native_preview_exit": 0,
+  "preview_viewport": [
+    1280,
+    720
+  ],
+  "entire_map_visible": true,
+  "owner_approved": false,
+  "detail_generated": false,
+  "collision_mask_created": false,
+  "runtime_manifest_changed": false,
+  "navigation_or_combat_tested": false,
+  "final_detail_quality_checked": false,
+  "visual_review": [
+    "trois zones et deux passages",
+    "six plaques de glace praticable distinctes des crevasses",
+    "six blocs-abris hors des passages",
+    "palette froide sans orange",
+    "neige alternative autour des plaques"
+  ]
+}

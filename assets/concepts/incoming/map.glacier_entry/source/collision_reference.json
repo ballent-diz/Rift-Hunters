@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-03",
+  "reference": "reference.jpg",
+  "published_reference": "docs/previews/glacier-entry/reference_collisions.jpg",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "reference_sha256": "5457abc4bd8307491fbb145d5ea3da68fc0cc7bb86416c680a6e1740422b3873",
+  "composition_sha256": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
+  "encoding": {
+    "format": "JPEG",
+    "quality": 85,
+    "optimize": true,
+    "subsampling": 0,
+    "resize": false,
+    "Pillow": "12.3.0"
+  },
+  "approval_pending": true,
+  "painting_return": "PNG entier 1536 × 1024, même cadrage, sans redimensionnement ; rouge translucide sur les zones bloquées. Glace claire praticable : ne pas la bloquer.",
+  "mask_generated": false
+}

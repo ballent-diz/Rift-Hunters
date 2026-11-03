@@ -1,0 +1,31 @@
+{
+  "id": "map.glacier_entry",
+  "chapter": 4,
+  "map_number": 16,
+  "title_proposed": "Entrée du Glacier",
+  "status": "wip",
+  "stage": "composition_pour_validation",
+  "owner_approved": false,
+  "plan_locked": false,
+  "regions_generated": false,
+  "runtime_integrated": false,
+  "world_size": [
+    5016,
+    3344
+  ],
+  "composition": "composition.png",
+  "source": "composition.png",
+  "composition_dimensions": [
+    1536,
+    1024
+  ],
+  "composition_sha256": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt"
+  ],
+  "plan": "plan.json",
+  "detail_after_owner_approval_only": true,
+  "collision_painting_by_owner": true,
+  "quality_conforme": false,
+  "quality_scope": "Composition seulement ; contrôle de détail non applicable avant validation et redessin des régions."
+}

@@ -1,0 +1,9 @@
+{
+  "composition.png": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
+  "job.json": "fe91e24787f016cd06f296dabafafbe65f4543de4337d81735500f6a066b0ed5",
+  "plan.json": "1e9a2aea600ec5565a1a08b6b89e948c15b5db70a02eb4fb67b9c21fd6f0839f",
+  "source/PROMPT_COMPOSITION.txt": "43872078d8d8f174bd078f158ed07cba8270cb70f3be91c1b14d2be5ffd01696",
+  "source/collision_reference.json": "9c978e77aab96b05a4ba49fda5195da63fa4ca437359907fb29e5b1b3b82c38b",
+  "source/generation.json": "d1c8d2d1b7223a2b9fdecb2c2b64be2dda8c55513330bde2cd7dac48ae2a488e",
+  "source/layout.png": "f579acac8993f5f418f3c6294c1219f2af0cb10d353bcc4d91f0b8aad2608de1"
+}

@@ -1,0 +1,10 @@
+{
+  "date": "2026-11-03",
+  "method": "Mise en peinture du croquis de composition par le générateur intégré",
+  "layout_input": "layout.png",
+  "layout_input_sha256": "f579acac8993f5f418f3c6294c1219f2af0cb10d353bcc4d91f0b8aad2608de1",
+  "retained": "../composition.png",
+  "retained_sha256": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
+  "prompt": "PROMPT_COMPOSITION.txt",
+  "detail_regions_generated": false
+}
