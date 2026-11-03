@@ -66,8 +66,9 @@ func _run() -> void:
 		_sprites.append(_sprite(entry, foot))
 		_entries.append(entry)
 		_names.append(item["animations"])
-		_label(item["name"], Vector2(foot.x - 145, foot.y + 20))
-		_labels.append(_label("", Vector2(foot.x - 145, foot.y + 47), 16))
+		var caption_offset := 150 if ids.size() == 1 else 20
+		_label(item["name"], Vector2(foot.x - 145, foot.y + caption_offset))
+		_labels.append(_label("", Vector2(foot.x - 145, foot.y + caption_offset + 27), 16))
 	var hunter_entry: Dictionary = Assets.entry(&"player.hunter")
 	var hunter := _sprite(hunter_entry, Vector2(1150, 640))
 	var idle: Dictionary = hunter_entry["animations"]["idle"]
