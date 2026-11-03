@@ -67,3 +67,9 @@ Le contournement au nord de l’arche est remplacé par un chenal infranchissabl
 ## Détail livré le 31 octobre
 
 Huit régions redessinées puis assemblées, trois tuiles de 3762 × 3762 pixels dans assets/environments/crystal_gardens/. Qualité **conforme** : densité 2,25 ; part lisse 0,111 ; détails fins 346,456 ; détails moyens 111,237 ; secteurs conformes 100 % ; fidélité 0,989. Rapport et planche d’échelle joints. Le pont est conservé ; sa matière est devenue gris-cyan plus discrète. Aucun manifeste runtime, collision, src/ ou data/ modifié : Claude raccordera les tuiles et le propriétaire peindra les collisions.
+
+## Visuel des cristaux (3 novembre 2026)
+
+Les cristaux-miroirs utilisent la scène animée de Codex (`assets/vfx/objects/mirror_crystal/`, PR 90), pilotée par
+`PodDirector` : `idle` au repos, `charged` une fois frappé, `burst` (trois rayons dans le sens retenu) à l'éclatement,
+puis `hidden` jusqu'à la repousse. La forme provisoire de l'entité reste masquée.

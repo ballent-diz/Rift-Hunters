@@ -16,6 +16,8 @@ const POD_ID := &"ember_pod"
 const CRYSTAL_ID := &"crystal_mirror"
 const EMBER := Color(1.0, 0.5, 0.15)
 const LIGHT := Color(0.65, 0.95, 1.0)
+## Visuel des cristaux-miroirs (scène de Codex, PR 90) : états idle, charged, burst, hidden pilotés ici.
+const CRYSTAL_SCENE := "res://assets/vfx/objects/mirror_crystal/mirror_crystal.tscn"
 
 var ctx: RunContext
 ## {"enemy": Enemy, "state": State, "timer": float, "kind": StringName, "dir": Vector2}
@@ -42,7 +44,24 @@ func setup(p_ctx: RunContext) -> void:
 func _spawn(kind: StringName, pos: Vector2) -> void:
 	var enemy: Enemy = ctx.enemies.spawn(GameDB.enemy(kind), pos)
 	enemy.visual.play(&"idle")
-	pods.append({"enemy": enemy, "state": State.IDLE, "timer": 0.0, "kind": kind, "dir": Vector2.RIGHT})
+	var pod: Dictionary = {"enemy": enemy, "state": State.IDLE, "timer": 0.0, "kind": kind, "dir": Vector2.RIGHT}
+	pods.append(pod)
+	if kind == CRYSTAL_ID and ResourceLoader.exists(CRYSTAL_SCENE):
+		var crystal: Node2D = (load(CRYSTAL_SCENE) as PackedScene).instantiate()
+		crystal.set("ray_length", ctx.arena.crystal_beam_length)
+		crystal.set("duration", 0.5)
+		enemy.add_child(crystal)
+		enemy.visual.visible = false
+		pod["visual"] = crystal
+		# Fin de l'éclatement : rien ne reste jusqu'à la repousse.
+		crystal.connect("finished", func() -> void:
+			if pod["state"] == State.EMPTY:
+				crystal.call("play", &"hidden"))
+
+
+func _show(pod: Dictionary, state: StringName) -> void:
+	if pod.has("visual"):
+		(pod["visual"] as Node2D).call("play", state)
 
 
 func _entry(enemy: Enemy) -> Dictionary:
@@ -62,6 +81,7 @@ func prime(enemy: Enemy, from: Vector2 = Vector2.INF) -> void:
 	if pod.is_empty() or pod["state"] != State.IDLE:
 		return
 	pod["state"] = State.PRIMED
+	_show(pod, &"charged")
 	enemy.visual.play(&"primed")
 	enemy.visual.flash()
 	var damage_mult: float = ctx.difficulty.enemy_damage_mult
@@ -132,6 +152,7 @@ func step(delta: float) -> void:
 				_burst(pod)
 		else:
 			pod["state"] = State.IDLE
+			_show(pod, &"idle")
 			enemy.dormant = false
 			enemy.visual.play(&"idle")
 			enemy.visual.modulate.a = 1.0
@@ -171,6 +192,9 @@ func _burst(pod: Dictionary) -> void:
 ## Cristal : trois rayons coupés par le décor ; chaque Corrompu sur une ligne est transpercé (une fois).
 func _shatter(pod: Dictionary) -> void:
 	var enemy: Enemy = _empty(pod, ctx.arena.crystal_regrow)
+	if pod.has("visual"):
+		(pod["visual"] as Node2D).set("direction", pod["dir"])
+	_show(pod, &"burst")
 	var origin: Vector2 = enemy.position
 	var half: float = ctx.arena.crystal_beam_width * 0.5
 	var hit: Dictionary = {}
@@ -204,6 +228,8 @@ func _draw() -> void:
 		var color: Color = LIGHT if is_crystal(pod) else EMBER
 		match pod["state"]:
 			State.IDLE:
+				if pod.has("visual"):
+					continue
 				var pulse: float = 0.5 + 0.5 * sin(_time * 2.5 + enemy.position.x)
 				draw_circle(enemy.position, enemy.radius * (1.1 + 0.15 * pulse), Color(color, 0.12 + 0.1 * pulse))
 			State.PRIMED:
