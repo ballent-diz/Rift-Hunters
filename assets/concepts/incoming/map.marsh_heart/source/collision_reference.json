@@ -19,5 +19,9 @@
     "resize": false,
     "Pillow": "12.3.0"
   },
-  "painting_return": "PNG, cadrage et dimensions inchangés ; rouge translucide sur les zones bloquées."
+  "painting_return": "PNG, cadrage et dimensions inchangés ; rouge translucide sur les zones bloquées.",
+  "published_reference": "docs/previews/marsh-heart/reference_collisions.jpg",
+  "source_image": "../composition.png",
+  "painting_guidance": "Peindre les zones bloquées en rouge translucide ; conserver toute la carte, le cadrage et les dimensions 1024 × 1536. Retour en PNG.",
+  "reference_frame": "Composition entière validée le 2 novembre 2026, sans recadrage ni redimensionnement."
 }

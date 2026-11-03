@@ -67,7 +67,7 @@ Import Godot **4.3**, sept captures **1280 × 720** et contrôle ciblé des asse
 
 ## Collisions et raccordement
 
-Une image entière légère **1024 × 1536** a été remise au propriétaire pour peindre les collisions en rouge translucide, au cadrage exact de la composition validée. Le JPEG exact reste localement sous `collision/reference.jpg` ; recette et empreinte sont dans `source/collision_reference.json`. Retour attendu en PNG, au même cadrage et sans redimensionnement. Aucun masque n’a été peint automatiquement.
+Une image entière légère **1024 × 1536** a été remise au propriétaire pour peindre les collisions en rouge translucide, au cadrage exact de la composition validée. Le [JPEG exact de référence](../previews/marsh-heart/reference_collisions.jpg) est versionné pour être récupérable depuis Git ; une copie locale reste sous `collision/reference.jpg`. Recette et empreinte sont dans `source/collision_reference.json`. Retour attendu en PNG, au même cadrage et sans redimensionnement. Aucun masque n’a été peint automatiquement.
 
 - **Livré** : détail des douze régions, master natif sans perte, deux tuiles, prompts/empreintes/recette, rapport conforme, vue entière et captures au zoom réel.
 - **Non fait** : collisions peintes, mesure de l’arène utile, navigation, champ `field`, niveau jouable, entrée du manifeste runtime et mécaniques. `src/`, `data/` et le manifeste runtime sont identiques à `main`.

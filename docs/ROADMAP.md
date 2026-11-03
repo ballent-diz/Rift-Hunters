@@ -357,3 +357,5 @@ Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuile
 ## Carte 15 — Cœur des marais : détail graphique livré (Codex, 3 novembre)
 
 Composition entière validée le 2 novembre, plan figé. Douze régions redessinées par vingt-quatre demi-régions ; master natif sans perte et deux tuiles. Rapport conforme : détails fins 388,169 ; moyens 101,967 ; 35 secteurs sur 35 ; fidélité 0,977. Collisions du propriétaire et contrôle de la taille utile de l’arène, puis raccordement par Claude : `docs/maps/COEUR_DES_MARAIS.md`.
+
+Référence de collisions de la carte 15 livrée (Codex, 3 novembre) : JPEG entier 1024 × 1536 au cadrage validé, recette et empreinte conservées ; retour attendu en PNG aux mêmes dimensions. Aucun masque peint automatiquement. Voir `docs/maps/COEUR_DES_MARAIS.md`.
