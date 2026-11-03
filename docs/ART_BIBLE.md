@@ -105,6 +105,25 @@ Règles complètes, mécaniques et montée en puissance : [design/MONSTRES.md](d
 3. Capture en jeu (`tools/screenshot.tscn`) : lisible au milieu de la foule, distinct des Corrompus.
 4. Le code couleur fonctionnel est respecté.
 
+## Échelle des décors — règle du propriétaire, 3 novembre 2026
+
+Les décors ont tous la même densité (2,25 pixels par unité du monde), mais les **éléments peints** doivent aussi être à
+l'échelle des personnages. Référence : le **Chasseur mesure environ 52 unités** de haut (Cendrelame, environ 1,3 fois
+plus) ; les Ruines des Cascades (carte 1) sont la carte étalon.
+
+| Élément peint | Taille attendue (unités du monde) | Par rapport au Chasseur |
+|---|---|---|
+| Marche d'escalier (profondeur) | 12 à 16 | environ 1/4 de sa hauteur |
+| Pavé, dalle | 15 à 26 | au plus 1/2 de sa hauteur |
+| Porte, arche de passage | 75 à 90 de haut | environ 1,5 fois sa hauteur |
+| Colonne, pilier | 30 à 45 de large | moins de sa largeur d'épaules × 2 |
+| Arbre adulte | 120 à 200 de haut | 2,5 à 4 fois sa hauteur |
+| Abri (bloc, rocher) | 110 à 160 de large | assez pour s'y cacher entièrement |
+
+Chaque carte se valide sur une **capture au zoom réel** avec le Chasseur et un Écho posés sur un escalier, un dallage
+et près d'une porte ou d'une colonne. Écarts relevés le 3 novembre : carte 15 (escaliers et colonnes 3 à 4 fois trop
+grands) et carte 4 (dalles environ 2 fois trop grandes), à reprendre par une passe de détail sans changer le plan.
+
 ## Objets posés sur les cartes — règle du propriétaire, 3 novembre 2026
 
 Tout objet ajouté par le jeu sur une carte (portails, cristaux, autels, abris, mannequins, nids, bulbes, braseros…)
