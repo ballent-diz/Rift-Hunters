@@ -97,16 +97,17 @@ Hautes Terres, qui tournait en rond).
 | 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 (Dévoreur des Sources) | 2 sur 3 | 6 min 30 |
 | 6. Lisière calcinée | 0,85 · 0,8 | 1,4 · 1,15 (Gardien du bûcher) | 2 sur 3 | 6 min |
 | 7. Évents de cendre | 1,3 · 0,95 | 2,5 · 1,2 (Chevalier calciné) | 2 sur 3 | 7 min 45 |
-| 8. Tanières de suie | 1,65 · 1,4 | 3,8 · 2,1 (Reine-veuve) | 3 sur 4 | 8 à 9 min 15 |
+| 8. Tanières de suie (nuit) | 1,65 · 1,3 | 3,8 · 1,95 (Reine-veuve) | 2 sur 4 | 7 min 30 à 8 min 45 |
 | 9. Le Seuil du Cataclysme | 1,07 · 0,68 | 2,15 · 1,25 (Matrone des scories) | 2 sur 3 | 6 min 15 à 7 min 15 |
 | 10. Cœur du volcan | 0,7 · 0,45 | 0,5 · 0,6 (Pyrevorn) | 2 sur 3 | 10 min |
-| 11. Mangrove des racines | 0,95 · 0,6 | 2,7 · 1,25 (Gardien d'écorce) | 2 sur 3 | 6 min 30 |
+| 11. Mangrove des racines (nuit) | 0,95 · 0,55 | 2,5 · 1,25 (Gardien d'écorce) | 2 sur 4 | 6 min 10 à 6 min 50 |
 | 12. Temple des marées | 1,4 · 0,65 | 1,25 · 0,58 (Gueule des marais) | 2 sur 3 | 3 min |
 | 13. Jardins de cristal | 1 · 0,5 | 1,9 · 1 (Mère des spores) | 2 sur 3 | 5 min |
 | 14. Puits des reflets | 1,3 · 1,8 (autel frappé à 0,36) | 1 · 2,4 (Dame des portails) | 3 sur 4 | 5 min 30 à 6 min 30 |
 | 15. Cœur des marais | 1 · 0,7 (marée, vase) | 1,6 · 1,15 (Glauquemire, cinq abris) | 3 sur 4 | 5 min 30 à 6 min 20 |
 
-Tanières de suie (3 novembre) : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à
+Tanières de suie et Mangrove des racines (3 novembre) : passées en cartes de nuit, réglées autour de 1 victoire sur 2
+(défaites à 2 % et 13 % de PV du gardien). Avant la nuit, Tanières de suie : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à
 3,8 · 2,1 et les vagues de 1,2 à 1,4 en dégâts (une défaite à 8 % de PV du gardien sur 4 parties).
 
 Mesures du 26 octobre 2026, avec le bot corrigé :
