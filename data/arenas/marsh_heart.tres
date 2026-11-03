@@ -1,0 +1,135 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/zone_wave_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/level_zone_data.gd" id="5"]
+
+[sub_resource type="Resource" id="wave_phase_data_1"]
+script = ExtResource("2")
+start_time = 0.0
+end_time = 120.0
+enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"wandering_shard"])
+weights = Array[float]([3.0, 1.2, 1.0])
+spawn_rate = 1.6
+max_alive = 60
+
+[sub_resource type="Resource" id="wave_phase_data_2"]
+script = ExtResource("2")
+start_time = 120.0
+end_time = 9999.0
+enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_root", &"wandering_shard", &"creeping_mirror", &"glass_sentinel"])
+weights = Array[float]([3.0, 1.2, 1.0, 0.8, 1.0, 0.8, 0.8])
+spawn_rate = 2.6
+max_alive = 110
+
+[sub_resource type="Resource" id="zone_wave_1"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"wandering_shard"])
+weights = Array[float]([3.0, 1.5])
+count = 34
+elites = Array[StringName]([])
+spawn_rate = 1.7
+max_alive = 34
+
+[sub_resource type="Resource" id="zone_wave_2"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"wandering_shard", &"bloat_toad"])
+weights = Array[float]([3.0, 1.2, 1.4, 1.0])
+count = 44
+elites = Array[StringName]([])
+spawn_rate = 2.0
+max_alive = 42
+
+[sub_resource type="Resource" id="zone_wave_3"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_mirror"])
+weights = Array[float]([3.0, 1.2, 1.0, 1.0])
+count = 52
+elites = Array[StringName]([&"spore_mother"])
+spawn_rate = 2.3
+max_alive = 48
+
+[sub_resource type="Resource" id="zone_wave_4"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"creeping_root", &"creeping_mirror", &"glass_sentinel"])
+weights = Array[float]([3.0, 1.2, 0.9, 1.0, 0.9])
+count = 56
+elites = Array[StringName]([])
+spawn_rate = 2.6
+max_alive = 56
+
+[sub_resource type="Resource" id="zone_wave_5"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"bloat_toad", &"creeping_root", &"glass_sentinel", &"quartz_golem"])
+weights = Array[float]([3.0, 1.0, 0.9, 1.0, 0.6])
+count = 62
+elites = Array[StringName]([&"mirror_priestess"])
+spawn_rate = 2.9
+max_alive = 62
+
+[sub_resource type="Resource" id="zone_wave_6"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"rift_gnat", &"bloat_toad", &"creeping_root", &"glass_sentinel", &"quartz_golem", &"creeping_mirror"])
+weights = Array[float]([3.0, 1.2, 1.0, 0.9, 1.0, 0.7, 1.0])
+count = 70
+elites = Array[StringName]([&"marsh_maw"])
+spawn_rate = 3.2
+max_alive = 72
+
+[sub_resource type="Resource" id="level_zone_1"]
+script = ExtResource("5")
+name_key = "ZONE_MARSH_HEART_1_NAME"
+anchor = Vector2(0, 1500)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2"), SubResource("zone_wave_3")])
+exit_walls = Array[Rect2]([Rect2(-240, 660, 480, 60)])
+heal_ratio = 0.2
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_2"]
+script = ExtResource("5")
+name_key = "ZONE_MARSH_HEART_2_NAME"
+anchor = Vector2(0, 250)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_4"), SubResource("zone_wave_5"), SubResource("zone_wave_6")])
+exit_walls = Array[Rect2]([Rect2(-260, -560, 520, 60), Rect2(-1270, -660, 380, 60), Rect2(890, -660, 380, 60)])
+heal_ratio = 0.2
+reward_chest = true
+
+[resource]
+script = ExtResource("1")
+id = &"marsh_heart"
+name_key = "ARENA_MARSH_HEART_NAME"
+desc_key = "ARENA_MARSH_HEART_DESC"
+size = Vector2(3344, 5016)
+navigation_cell_size = 48.0
+boss_time = 420.0
+boss_id = &"glauquemire"
+finale_center = Vector2(0, -1450)
+finale_radii = Vector2(1000, 680)
+finale_travel_key = "FINALE_TRAVEL_MARSH_TERRACE"
+elite_first_time = 90.0
+elite_interval = 60.0
+elite_enemy_ids = Array[StringName]([&"spore_mother", &"bark_warden", &"marsh_maw", &"mirror_priestess", &"crystal_colossus", &"reflection_huntress"])
+environment_id = &"environment.marsh_heart"
+ground_color = Color(0.08, 0.13, 0.12, 1.0)
+ground_detail_color = Color(0.12, 0.19, 0.16, 1.0)
+unlocked_by_default = false
+xp_mult = 1.5
+progression = &"milestones"
+enemy_hp_mult = 1.0
+enemy_damage_mult = 0.7
+boss_hp_mult = 1.0
+boss_damage_mult = 1.0
+zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2")])
+waves = [SubResource("wave_phase_data_1"), SubResource("wave_phase_data_2")]
+mud_zones = Array[Rect2]([Rect2(329, 1549, 356, 281), Rect2(-848, 1091, 366, 204), Rect2(-660, 1600, 359, 260), Rect2(458, 1066, 436, 227)])
+mud_mult = 0.45
+mud_stick = 1.0
+mud_painted = true
+tide_causeways = Array[Rect2]([Rect2(-930, -150, 520, 160), Rect2(410, -150, 520, 160)])
+tide_first = 25.0
+tide_low = 22.0
+tide_warning = 4.0
+tide_high = 12.0
+cover_rocks = Array[Vector2]([Vector2(-690, -1480), Vector2(690, -1480), Vector2(-260, -1040), Vector2(260, -1040), Vector2(0, -1880)])
+crystal_mirrors = Array[Vector2]([Vector2(512, -1132), Vector2(-522, -1146), Vector2(-506, -1828), Vector2(500, -1845)])

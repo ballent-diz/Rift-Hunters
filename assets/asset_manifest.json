@@ -14877,6 +14877,30 @@
 				}
 			}
 		},
+		"environment.marsh_heart": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/marsh_heart/map.webp",
+			"map_tiles": [
+				"res://assets/environments/marsh_heart/map.webp",
+				"res://assets/environments/marsh_heart/map_1.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/marsh_heart/field.png",
+			"field_step": 2.0,
+			"start": [
+				0,
+				2280
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (3 novembre 2026), décor livré par Codex (PR 87).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/marsh_heart/minimap.webp"
+		},
 		"environment.reflection_wells": {
 			"status": "wip",
 			"kind": "map",
