@@ -350,6 +350,6 @@ Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès u
 
 ## Carte 14 — Puits des reflets : détail graphique livré (Codex)
 
-Composition carrée commencée après 13 h Europe/Paris le 28 octobre, plan fourni : boucle extérieure, place centrale en croix, deux ponts nord/sud seulement, puits est/ouest et quatre emplacements de portail vides. Aucune collision ni mécanique.
+Plan carré validé le 29 octobre : boucle extérieure, place centrale en croix, deux ponts nord/sud seulement, puits est/ouest et quatre emplacements de portail vides.
 
-Carte14 Puits des reflets — Codex, 3 novembre : détail livré depuis32 demi-régions, master natif et3 tuiles ; rapport conforme (fins425,248, moyens109,692, secteurs100%, fidélité0,957), captures Godot au zoom du jeu. Plan validé inchangé. Peinture des collisions par le propriétaire puis raccordement par Claude : `docs/maps/PUITS_DES_REFLETS.md`.
+Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuiles et captures Godot au zoom du jeu. Rapport conforme : détails fins 425,248 ; moyens 109,692 ; secteurs 100 % ; fidélité 0,957. La peinture des collisions revient au propriétaire, puis le raccordement à Claude : `docs/maps/PUITS_DES_REFLETS.md`.

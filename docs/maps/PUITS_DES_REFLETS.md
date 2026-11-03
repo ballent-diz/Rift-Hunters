@@ -46,7 +46,7 @@ python3 tools/art/finish_reflection_wells.py --work /tmp/rift-puits --quality 98
 | Part lisse médiane |0,049|≤0,270|
 | Détails fins |425,248|329,944 à446,395|
 | Détails moyens |109,692|90,940 à123,036|
-| Secteurs conformes |49/49, soit100 %|≥85 %|
+| Secteurs conformes |49/49, soit 100 %|≥85 %|
 | Fidélité au plan |0,957|≥0,850|
 
 **Verdict : conforme.** [Rapport chiffré](../previews/reflection-wells/qualite.json) et [journal](../previews/reflection-wells/qualite.log).
@@ -66,4 +66,4 @@ Le 2 novembre, une image entière légère **1536 × 1536** a été remise au pr
 - **Choix faits sans validation** : redessin par demi-régions, matière plus fine, pavés plus petits dans leurs emprises figées, assemblage sans double texture et encodage des tuiles en qualité 98.
 - **Raccords Claude** : réutiliser les trois tuiles de `assets/environments/reflection_wells/` pour le monde 5016 × 5016 ; attendre la peinture du propriétaire, construire le champ, vérifier les passages et placer les mécaniques. Les portails et l’objet d’autel restent des sprites séparés.
 
-**Détail graphique livré ; aucun essai de circulation ou de combat n’est revendiqué.** Poids total des fichiers ajoutés ou modifiés par la PR : **123.21Mo**, source et aperçus compris.
+**Détail graphique livré ; aucun essai de circulation ou de combat n’est revendiqué.** Poids total des fichiers ajoutés ou modifiés par la PR : **123,21 Mo**, source et aperçus compris.
