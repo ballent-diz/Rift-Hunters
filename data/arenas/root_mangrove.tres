@@ -165,6 +165,7 @@ elite_first_time = 90.0
 elite_interval = 60.0
 elite_enemy_ids = Array[StringName]([&"spore_mother", &"bark_warden", &"marsh_maw"])
 environment_id = &"environment.root_mangrove"
+cover_rocks = Array[Vector2]([Vector2(-286, -255), Vector2(405, -210), Vector2(0, 30)])
 night = 0.82
 light_radius = 300.0
 echo_light_radius = 120.0
