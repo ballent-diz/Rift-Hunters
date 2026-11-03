@@ -12,6 +12,13 @@ La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
 
+## Idées en réserve (propriétaire)
+
+- **Alliés mortels** (idée du 3 novembre 2026, à concevoir plus tard) : une ou plusieurs parties, ou un mode à part,
+  où le Chasseur combat avec un ou plusieurs alliés qui ont des PV ; la partie n'est perdue que si tout le monde
+  tombe. Pistes à trancher le moment venu : alliés pilotés par le jeu (compagnons, Chasseurs rescapés à escorter) ou
+  par d'autres joueurs (coopération locale) ; relève d'un allié tombé ; effet sur les Échos (aujourd'hui invulnérables).
+
 ## À faire : musique (décisions du 2 novembre 2026)
 
 - [x] **Menus** : un morceau fixe et calme, en boucle. Écran titre : `music/menu/music_box_in_the_machine_title.mp3` ;
