@@ -1,0 +1,10 @@
+{
+  "initial_input_sha256": "00b0021055eb5754e2e4785e621c46a6d65f0a0a11f6b7c4b30dc696c3ade125",
+  "retained_sha256": "e08d3e0c42c145372054df8d5a05a4384911cad020c677357a75f331137375ae",
+  "correction_input_sha256": "cf717d1adb46f2ba21a1a0e8842eb9f0860c8df2d8089dfc3a178bfd9c242de9",
+  "prompts": [
+    "PROMPT_INITIAL.txt",
+    "PROMPT_CORRECTION.txt",
+    "PROMPT_SHADOW.txt"
+  ]
+}

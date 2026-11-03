@@ -15045,6 +15045,88 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/objects/brazier.png"
+		},
+		"object.cover_rock": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.cover_rock/job.json",
+			"sheet": "res://assets/sprites/objects/cover_rock/cover_rock_sheet.png",
+			"cell": [
+				384,
+				384
+			],
+			"anchor": [
+				192,
+				344
+			],
+			"scale": 0.5,
+			"animations": {
+				"variant_1": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				},
+				"variant_2": {
+					"row": 1,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				},
+				"variant_3": {
+					"row": 2,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/cover_rock.png"
+		},
+		"object.cover_rock_ice": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.cover_rock_ice/job.json",
+			"sheet": "res://assets/sprites/objects/cover_rock_ice/cover_rock_ice_sheet.png",
+			"cell": [
+				384,
+				384
+			],
+			"anchor": [
+				192,
+				344
+			],
+			"scale": 0.5,
+			"animations": {
+				"variant_1": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				},
+				"variant_2": {
+					"row": 1,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				},
+				"variant_3": {
+					"row": 2,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/cover_rock_ice.png"
 		}
 	}
 }

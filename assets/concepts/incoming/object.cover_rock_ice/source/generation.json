@@ -1,0 +1,8 @@
+{
+  "input_id": "object.cover_rock avant correction de son ombre",
+  "input_sha256": "cf717d1adb46f2ba21a1a0e8842eb9f0860c8df2d8089dfc3a178bfd9c242de9",
+  "retained_sha256": "ceaf1e3f6c83e2b5970c15c86067a57ed5aa361d74655cbf29bcd50db0df42d6",
+  "prompts": [
+    "PROMPT_ICE.txt"
+  ]
+}

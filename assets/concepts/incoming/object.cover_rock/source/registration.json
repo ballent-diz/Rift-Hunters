@@ -1,0 +1,77 @@
+{
+  "world_ground_width": 116,
+  "collision_defined": false,
+  "placement_defined": false,
+  "shadow": "incluse, ancre au pied du rocher ; ne pas ajouter une seconde ombre",
+  "variants": [
+    {
+      "animation": "variant_1",
+      "source_foot": [
+        350,
+        650
+      ],
+      "source_ground_width": 500,
+      "ground_width_world": 116,
+      "visual_height_above_foot_world": 122.03,
+      "frame_offset": [
+        7,
+        6
+      ],
+      "source_scale": 1.0,
+      "scale_pixels_per_source_pixel": 0.464,
+      "source_bbox": [
+        100,
+        124,
+        606,
+        666
+      ],
+      "body_top_source": 124
+    },
+    {
+      "animation": "variant_2",
+      "source_foot": [
+        356,
+        650
+      ],
+      "source_ground_width": 500,
+      "ground_width_world": 116,
+      "visual_height_above_foot_world": 125.98,
+      "frame_offset": [
+        6,
+        7
+      ],
+      "source_scale": 1.0,
+      "scale_pixels_per_source_pixel": 0.464,
+      "source_bbox": [
+        97,
+        107,
+        603,
+        667
+      ],
+      "body_top_source": 107
+    },
+    {
+      "animation": "variant_3",
+      "source_foot": [
+        364,
+        650
+      ],
+      "source_ground_width": 510,
+      "ground_width_world": 116,
+      "visual_height_above_foot_world": 136.24,
+      "frame_offset": [
+        11,
+        6
+      ],
+      "source_scale": 0.9803921568627451,
+      "scale_pixels_per_source_pixel": 0.4549019607843137,
+      "source_bbox": [
+        114,
+        51,
+        627,
+        664
+      ],
+      "body_top_source": 51
+    }
+  ]
+}

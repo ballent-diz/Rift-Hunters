@@ -1,0 +1,77 @@
+{
+  "object.cover_rock": {
+    "rgb_colors": 32,
+    "variants": [
+      {
+        "bbox": [
+          76,
+          100,
+          311,
+          351
+        ],
+        "ground_width_world": 116,
+        "height_world": 122.03
+      },
+      {
+        "bbox": [
+          72,
+          92,
+          307,
+          352
+        ],
+        "ground_width_world": 116,
+        "height_world": 125.98
+      },
+      {
+        "bbox": [
+          78,
+          72,
+          311,
+          351
+        ],
+        "ground_width_world": 116,
+        "height_world": 136.24
+      }
+    ]
+  },
+  "object.cover_rock_ice": {
+    "rgb_colors": 32,
+    "variants": [
+      {
+        "bbox": [
+          72,
+          96,
+          330,
+          354
+        ],
+        "ground_width_world": 116,
+        "height_world": 123.89
+      },
+      {
+        "bbox": [
+          69,
+          90,
+          324,
+          354
+        ],
+        "ground_width_world": 116,
+        "height_world": 126.9
+      },
+      {
+        "bbox": [
+          75,
+          67,
+          330,
+          354
+        ],
+        "ground_width_world": 116,
+        "height_world": 138.52
+      }
+    ]
+  },
+  "godot": "4.3.stable.official.77dcf97d8",
+  "assets_errors": 0,
+  "game_camera_zoom": 1.3333,
+  "collisions_created": false,
+  "placement_in_level": false
+}

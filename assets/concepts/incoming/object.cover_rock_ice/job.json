@@ -1,0 +1,88 @@
+{
+  "visual_id": "object.cover_rock_ice",
+  "cell": [
+    384,
+    384
+  ],
+  "anchor": [
+    192,
+    344
+  ],
+  "scale": 0.5,
+  "target_height": 258.44800000000004,
+  "status": "final",
+  "background": "alpha",
+  "tolerance": 0,
+  "colors": 32,
+  "outline": false,
+  "preserve_alpha": true,
+  "anchor_mode": "mass",
+  "resample": "lanczos",
+  "preview_zoom": 1,
+  "icon_size": 128,
+  "animations": [
+    {
+      "name": "variant_1",
+      "source": "source/variants.png",
+      "ranges": [
+        [
+          0,
+          724
+        ]
+      ],
+      "frames": 1,
+      "fps": 1,
+      "loop": false,
+      "source_scale": 1.0,
+      "frame_offsets": [
+        [
+          10,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "variant_2",
+      "source": "source/variants.png",
+      "ranges": [
+        [
+          724,
+          1448
+        ]
+      ],
+      "frames": 1,
+      "fps": 1,
+      "loop": false,
+      "source_scale": 1.0,
+      "frame_offsets": [
+        [
+          7,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "variant_3",
+      "source": "source/variants.png",
+      "ranges": [
+        [
+          1448,
+          2172
+        ]
+      ],
+      "frames": 1,
+      "fps": 1,
+      "loop": false,
+      "source_scale": 0.9803921568627451,
+      "frame_offsets": [
+        [
+          14,
+          9
+        ]
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "variant_1"
+  }
+}
