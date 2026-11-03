@@ -11,4 +11,5 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 - [ ] **Musique** : ne jamais jouer les mêmes morceaux sur deux cartes d'affilée.
 - [ ] **Flèche d'objectif** : ses mouvements pendant les déplacements agacent ; la rendre plus fixe.
 - [ ] **Performances** : gros ralentissements quand il y a beaucoup d'ennemis à l'écran.
-- [ ] **Carte 2 : trop de monstres**, impossible d'atteindre la dernière faille.
+- [ ] **Carte 2 (Hautes Terres d'Orage) : faille de droite inaccessible** sous la pression des monstres. Déplacer
+  cette faille (`rift_points`, actuellement (1710, -225)) vers un endroit plus accessible.
