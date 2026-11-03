@@ -52,7 +52,7 @@ boutique, d'étoiles ni de capture en partie pour les Échos ; l'équipe (3 au p
 | 11. Mangrove des racines (`root_mangrove`) | Ronceline |
 | 12. Temple des marées (`tide_temple`) | Mirelle |
 | 13 (`crystal_gardens`) | Fulgurine |
-| 14 (`chapter3_map4`) | Mousseroc |
+| 14 (`reflection_wells`) | Mousseroc |
 | 15 (`chapter3_map5`, finale du chapitre 3) | Gueule-d'ombre — le dernier |
 
 Identifiants des cartes 13 à 15 à renommer quand elles arrivent. Bot (Cendrelame seul au départ, bonus d'arbre

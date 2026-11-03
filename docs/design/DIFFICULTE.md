@@ -93,6 +93,7 @@ Hautes Terres, qui tournait en rond).
 | 11. Mangrove des racines | 0,95 · 0,6 | 2,7 · 1,25 (Gardien d'écorce) | 2 sur 3 | 6 min 30 |
 | 12. Temple des marées | 1,4 · 0,65 | 1,25 · 0,58 (Gueule des marais) | 2 sur 3 | 3 min |
 | 13. Jardins de cristal | 1 · 0,5 | 1,9 · 1 (Mère des spores) | 2 sur 3 | 5 min |
+| 14. Puits des reflets | 1,3 · 1,8 (autel frappé à 0,36) | 1 · 2,4 (Dame des portails) | 3 sur 4 | 5 min 30 à 6 min 30 |
 
 Tanières de suie (3 novembre) : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à
 3,8 · 2,1 et les vagues de 1,2 à 1,4 en dégâts (une défaite à 8 % de PV du gardien sur 4 parties).

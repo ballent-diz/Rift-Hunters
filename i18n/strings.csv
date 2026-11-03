@@ -2016,3 +2016,5 @@ BOSS_PORTAL_INTRO,"Saut de portail : elle plonge dans un miroir et ressort par l
 BOSS_PORTAL_TRAPPED,Piégée !,Trapped!
 JOURNAL_PORTAL_LADY,Saut de portail,Portal leap
 BESTIARY_BOSS_LORE_PORTAL_LADY,"Elle garde les Puits depuis que le premier miroir s'est fendu. Chaque portail est une porte de sa maison : qui en tient le seuil la tient elle-même.","She has guarded the Wells since the first mirror cracked. Every portal is a door of her house: whoever holds the threshold holds her."
+MAP_OBJ_PORTALS_DESC,Terminer en empruntant au moins %d miroirs-portails,Clear it using at least %d mirror portals
+MAP_OBJ_PORTAL_TRAP_DESC,Terminer en piégeant au moins %d fois la gardienne dans un portail,Clear it trapping the warden in a portal at least %d times

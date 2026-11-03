@@ -11,6 +11,10 @@ const ENEMY_CHECK := 0.1
 ## Arrivée : un peu à côté du jumeau, pour ne pas repartir aussitôt.
 const ARRIVAL_OFFSET := 18.0
 const INTRO_RANGE := 700.0
+## Visuel des portails (scène de Codex, PR 90) : un nœud par portail, même teinte pour les deux jumeaux.
+const VISUAL_SCENE := "res://assets/vfx/objects/mirror_portal/mirror_portal.tscn"
+const VISUAL_RADIUS := 40.0
+const TRANSIT_TIME := 0.65
 
 ## {"pos", "twin" (index), "pair", "budget"} ; la recharge est portée par la paire.
 var portals: Array[Dictionary] = []
@@ -23,6 +27,8 @@ var _enemy_cooldowns: Dictionary = {}
 var _enemy_clock: float = 0.0
 var _time: float = 0.0
 var _announced: bool = false
+## Portail où se tient le Chasseur (-1 : aucun) : on passe en y entrant, pas en y restant.
+var _inside: int = -1
 
 
 static func uses_portals(arena: ArenaData) -> bool:
@@ -37,9 +43,19 @@ func setup(p_ctx: RunContext) -> void:
 	for i: int in points.size() / 2 * 2:
 		var pair: int = i / 2
 		portals.append({"pos": ctx.obstacles.push_out(points[i], ctx.arena.portal_radius), "twin": i + 1 - 2 * (i % 2),
-			"pair": pair, "budget": 1.0})
+			"pair": pair, "budget": 1.0, "shown": &"", "transit_until": 0.0})
 		if i % 2 == 0:
 			pair_ready_at.append(0.0)
+	var scene: PackedScene = load(VISUAL_SCENE) if ResourceLoader.exists(VISUAL_SCENE) else null
+	for portal: Dictionary in portals:
+		if scene:
+			var visual: Node2D = scene.instantiate()
+			visual.position = portal["pos"]
+			visual.set("radius", VISUAL_RADIUS)
+			visual.set("tint", PAIR_COLORS[int(portal["pair"]) % PAIR_COLORS.size()])
+			visual.set("duration", TRANSIT_TIME)
+			add_child(visual)
+			portal["visual"] = visual
 
 
 func ready_for_player(index: int) -> bool:
@@ -51,19 +67,44 @@ func step(delta: float) -> void:
 	if ctx.player == null:
 		return
 	var pos: Vector2 = ctx.player.global_position
+	var inside: int = -1
 	for i: int in portals.size():
 		var portal: Dictionary = portals[i]
 		if not _announced and pos.distance_to(portal["pos"]) < INTRO_RANGE:
 			_announced = true
 			ctx.events.event_started.emit("PORTAL_INTRO")
-		if ready_for_player(i) and pos.distance_to(portal["pos"]) < ctx.arena.portal_radius:
-			_send_player(i)
-			break
+		if pos.distance_to(portal["pos"]) < ctx.arena.portal_radius:
+			inside = i
+	if inside >= 0 and inside != _inside and ready_for_player(inside):
+		_send_player(inside)
+		inside = -1
+	_inside = inside
+	_update_visuals()
 	_enemy_clock -= delta
 	if _enemy_clock <= 0.0:
 		_enemy_clock = ENEMY_CHECK
 		_send_enemies(ENEMY_CHECK)
 	queue_redraw()
+
+
+## État affiché : entrée ou sortie le temps du passage, puis actif ou en recharge selon la paire.
+func _update_visuals() -> void:
+	for i: int in portals.size():
+		var portal: Dictionary = portals[i]
+		if not portal.has("visual") or ctx.time < float(portal["transit_until"]):
+			continue
+		var wanted: StringName = &"active" if ready_for_player(i) else &"cooldown"
+		if portal["shown"] != wanted:
+			portal["shown"] = wanted
+			(portal["visual"] as Node2D).call("set_state", wanted)
+
+
+func _transit(index: int, state: StringName) -> void:
+	var portal: Dictionary = portals[index]
+	if portal.has("visual"):
+		portal["shown"] = state
+		portal["transit_until"] = ctx.time + TRANSIT_TIME
+		(portal["visual"] as Node2D).call("set_state", state)
 
 
 func _send_player(index: int) -> void:
@@ -73,6 +114,8 @@ func _send_player(index: int) -> void:
 	var from: Vector2 = ctx.player.global_position
 	var to: Vector2 = _arrival(twin["pos"], from - portal["pos"])
 	pair_ready_at[portal["pair"]] = ctx.time + ctx.arena.portal_cooldown
+	_transit(index, &"enter")
+	_transit(int(portal["twin"]), &"exit")
 	ctx.fx.burst(from, 70.0, Color(color, 0.6))
 	ctx.player.global_position = to
 	ctx.fx.burst(to, 70.0, Color(color, 0.6))
@@ -96,6 +139,8 @@ func _send_enemies(delta: float) -> void:
 				continue
 			var twin: Dictionary = portals[portal["twin"]]
 			enemy.position = _arrival(twin["pos"], enemy.position - portal["pos"])
+			if ctx.time >= float(twin["transit_until"]):
+				_transit(int(portal["twin"]), &"exit")
 			_enemy_cooldowns[id] = ctx.time + ctx.arena.portal_enemy_cooldown
 			ctx.fx.burst(enemy.position, enemy.radius * 1.6, Color(PAIR_COLORS[int(portal["pair"]) % PAIR_COLORS.size()],
 				0.5))
@@ -144,6 +189,7 @@ func mark_exit(index: int, at: float) -> void:
 	exit_time = at
 
 
+## Sous le portail de Codex : seuil discret (zone d'entrée), arc de recharge, sortie annoncée de la gardienne.
 func _draw() -> void:
 	if ctx == null:
 		return
@@ -153,18 +199,13 @@ func _draw() -> void:
 		var center: Vector2 = portal["pos"]
 		var color: Color = PAIR_COLORS[int(portal["pair"]) % PAIR_COLORS.size()]
 		var ready: bool = ready_for_player(i)
-		var alpha: float = 1.0 if ready else 0.4
-		draw_circle(center + Vector2(6, 8), radius * 1.15, Color(0, 0, 0, 0.25))
-		draw_circle(center, radius * 1.05, Color(0.03, 0.05, 0.1, 0.75 * alpha))
-		draw_circle(center, radius * 0.75, Color(color, 0.18 * alpha))
-		draw_arc(center, radius * 1.05, 0.0, TAU, 48, Color(color, 0.9 * alpha), 4.0, true)
-		for k: int in 3:
-			var start: float = _time * (1.6 if ready else 0.4) + TAU * k / 3.0
-			draw_arc(center, radius * 0.72, start, start + 1.3, 16, Color(color.lightened(0.3), 0.8 * alpha), 3.0, true)
+		draw_arc(center, radius, 0.0, TAU, 40, Color(color, 0.55 if ready else 0.2), 2.0, true)
+		if not portal.has("visual"):
+			draw_circle(center, radius * 0.75, Color(color, 0.18 if ready else 0.06))
 		if not ready:
 			var left: float = clampf((pair_ready_at[portal["pair"]] - ctx.time) / maxf(ctx.arena.portal_cooldown, 0.01), 0.0,
 				1.0)
-			draw_arc(center, radius * 1.25, -PI / 2.0, -PI / 2.0 + TAU * (1.0 - left), 40, Color(color, 0.7), 3.0, true)
+			draw_arc(center, radius + 8.0, -PI / 2.0, -PI / 2.0 + TAU * (1.0 - left), 40, Color(color, 0.7), 3.0, true)
 		if i == exit_index and ctx.time < exit_time:
 			var pulse: float = 0.5 + 0.5 * sin(_time * 10.0)
 			draw_arc(center, radius * (1.35 + 0.1 * pulse), 0.0, TAU, 48, Color(1.0, 0.95, 0.6, 0.6 + 0.4 * pulse), 5.0, true)

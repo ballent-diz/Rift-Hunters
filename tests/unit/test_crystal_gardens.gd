@@ -47,8 +47,7 @@ func test_arena_and_campaign() -> void:
 	check_eq(arena.crystal_mirrors.size(), 9, "trois cristaux par clairière")
 	check_eq(arena.boss_id, &"spore_matriarch", "gardienne : la Mère des spores")
 	var marshes: ChapterData = GameDB.chapters.get(&"sunken_marshes")
-	check_eq(marshes.maps.size(), 3, "chapitre 3 : trois cartes")
-	check_eq(marshes.maps[2].arena_id, &"crystal_gardens", "les Jardins ferment le chapitre pour l'instant")
+	check_eq(marshes.maps[2].arena_id, &"crystal_gardens", "les Jardins, troisième carte du chapitre 3")
 	check_eq(GameDB.monster(&"voltwisp").discovery_arena, &"crystal_gardens", "Fulgurine s'y découvre")
 
 
