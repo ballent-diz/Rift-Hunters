@@ -1,7 +1,7 @@
 {
   "id": "map.marsh_heart",
   "status": "wip",
-  "stage": "composition_validee_plan_fige",
+  "stage": "detail_en_cours",
   "world_size": [
     3344,
     5016
@@ -20,5 +20,10 @@
   "method": "Générateur intégré, composition puis agrandissement visuel de l’arène, aucun upscale de détail final.",
   "approval_date": "2026-11-02",
   "approval_scope": "Composition entière et plan ; contrôle de la taille utile de l’arène sur les collisions encore requis.",
-  "composition_sha256": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300"
+  "composition_sha256": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
+  "autonomous_continuation_authorized": true,
+  "detail_started": "2026-11-03",
+  "detail_region_count": 12,
+  "detail_part_count": 24,
+  "detail_build_tool": "tools/art/finish_marsh_heart.py"
 }

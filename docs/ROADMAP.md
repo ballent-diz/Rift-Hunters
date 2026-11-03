@@ -349,3 +349,8 @@ Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs
 Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
 
 Carte15 Cœur des marais — composition entière validée par le propriétaire, plan figé (2 novembre). Plan vertical 2:3, synthèse vase/marée/cristaux, sans intégration gameplay.
+
+
+## Carte 15 — Cœur des marais : détail en cours (Codex, 3 novembre)
+
+Composition entière validée le 2 novembre, plan figé. Redessin prévu de douze régions, par vingt-quatre demi-régions ; témoin de finesse et d’échelle avant la passe complète. Peinture des collisions et contrôle de la taille utile de l’arène restent au propriétaire.
