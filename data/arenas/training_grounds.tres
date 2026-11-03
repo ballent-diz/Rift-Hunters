@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"training_grounds"
+name_key = "ARENA_TRAINING_GROUNDS_NAME"
+desc_key = "ARENA_TRAINING_GROUNDS_DESC"
+size = Vector2(1800, 1400)
+boss_time = 999999.0
+boss_id = &""
+waves = []
+events = []
+elite_first_time = 999999.0
+elite_interval = 999999.0
+decor_density = 0.4
+ground_color = Color(0.13, 0.11, 0.1, 1)
+ground_detail_color = Color(0.19, 0.16, 0.13, 1)
+unlocked_by_default = false
+practice = true
+start_obstacles = {
+"training_dummy": 4
+}

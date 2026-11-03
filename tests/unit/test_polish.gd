@@ -124,3 +124,31 @@ func test_player_sprite_and_death_animation() -> void:
 		run._physics_process(1.0 / 60.0)
 	check(run.ctx.finished, "écran de défaite après le délai (%.1f s)" % RunController.DEFEAT_DELAY)
 	RunFixture.dispose(run)
+
+
+func test_mouse_control_scheme_is_a_second_option() -> void:
+	var path: String = "user://test_scheme_%d.json" % Time.get_ticks_usec()
+	var original_path: String = Settings.path
+	var original_scheme: String = Settings.control_scheme
+	var original_bindings: Dictionary = Settings.bindings.duplicate()
+	Settings.path = path
+	check_eq(InputSetup.defaults("keyboard")[&"spell_1"], [KEY_RIGHT], "par défaut : tout au clavier")
+	Settings.set_control_scheme("mouse")
+	check(InputSetup.keys_of(&"spell_1").has(KEY_Q), "souris : premier sort sur A (Q physique)")
+	var click: bool = false
+	for event: InputEvent in InputMap.action_get_events(&"spell_1"):
+		click = click or (event is InputEventMouseButton and (event as InputEventMouseButton).button_index == MOUSE_BUTTON_LEFT)
+	check(click, "souris : le clic gauche lance aussi le premier sort")
+	check(InputSetup.keys_of(&"move_up").has(KEY_UP), "souris : les flèches font marcher")
+	Settings.using_gamepad = false
+	check(Settings.uses_mouse(), "visée au curseur")
+	Settings.load_settings()
+	check_eq(Settings.control_scheme, "mouse", "mode relu")
+	Settings.set_control_scheme("keyboard")
+	check(InputSetup.keys_of(&"spell_1").has(KEY_RIGHT) and not Settings.uses_mouse(), "retour au tout-clavier")
+	for event: InputEvent in InputMap.action_get_events(&"spell_1"):
+		check(not (event is InputEventMouseButton), "plus de clic sur le premier sort")
+	Settings.path = original_path
+	Settings.control_scheme = original_scheme
+	Settings.bindings = original_bindings
+	Settings.apply()

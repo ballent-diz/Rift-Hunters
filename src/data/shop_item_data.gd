@@ -21,5 +21,7 @@ extends Resource
 @export var start_levels: int = 0
 @export var color: Color = Color(1.0, 0.8, 0.4)
 @export var order: int = 0
+## Illustration de menu reprise du catalogue ItemArt (« relic.cracked_hourglass »), vide : aucune.
+@export var art: String = ""
 ## Fonctionnalité dont dépend ce contenu (BalanceConfig.disabled_features) : masqué quand elle est mise de côté.
 @export var feature: StringName = &""

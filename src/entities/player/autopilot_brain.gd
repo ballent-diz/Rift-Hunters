@@ -1,16 +1,22 @@
 class_name AutopilotBrain
 extends PlayerBrain
-## Bot de test : esquive les ennemis, ramasse l'XP, utilise Ruée et Techniques, joue les mécaniques des boss.
-## Sert aux smoke tests (partie complète sans intervention) et à l'équilibrage. Il joue comme un joueur MOYEN
-## (docs/design/DIFFICULTE.md) : il connaît les mécaniques principales (abris contre les tirs et les souffles, bulbes
-## de braise, œufs, point faible), sans réflexes parfaits (réaction aux tirs à distance une fois sur COVER_REACTION).
+## Bot de test : esquive les ennemis, utilise Ruée, sorts et Techniques, joue les mécaniques des cartes et des boss
+## (en mode survie, il ramasse aussi l'XP ; la campagne n'en a pas). Sert aux smoke tests et à l'équilibrage. Il joue
+## comme un joueur MOYEN-BON (docs/design/DIFFICULTE.md) : il connaît les mécaniques (abris contre les tirs et les
+## souffles, bulbes et cristaux, œufs, point faible), garde sa Taille fendante pour les groupes et les cibles qui
+## comptent, sans réflexes parfaits (réaction aux tirs à distance COVER_REACTION du temps).
 
-## Joueur moyen : il ne réagit pas à chaque menace (part des réévaluations où il cherche un abri).
-const COVER_REACTION := 0.7
+## Joueur moyen-bon : il réagit à la plupart des menaces, pas à toutes (part des réévaluations où il cherche un abri).
+const COVER_REACTION := 0.85
 const COVER_RECHECK := 0.5
 const COVER_SEARCH := 200.0
 ## Traque des derniers Corrompus : distance de recherche (au-delà, la flèche de route mène à eux).
 const CHASE_SEARCH := 800.0
+## Recoin trop étroit pour la route (longer l'obstacle n'en sort pas) : le bot revient sur ses pas, vers un point
+## de son trajet relevé quand il avançait encore (comme un joueur qui recule pour contourner).
+const TRAIL_SIZE := 8
+const BACKTRACK_AFTER := 3
+const BACKTRACK_TIME := 3.0
 
 var _dash_wanted: bool = false
 var _wander := Vector2.RIGHT
@@ -21,6 +27,10 @@ var _check_pos := Vector2.INF
 var _check_time: float = 0.0
 var _unstick_until: float = -1.0
 var _slide: float = 1.0
+var _trail: Array[Vector2] = []
+var _stuck_checks: int = 0
+var _backtrack_to := Vector2.INF
+var _backtrack_until: float = -1.0
 ## Abri visé (INF : aucun) et prochaine réévaluation.
 var _cover := Vector2.INF
 var _cover_check: float = 0.0
@@ -78,6 +88,16 @@ func _compute_move() -> Vector2:
 		if _check_pos != Vector2.INF and pos.distance_to(_check_pos) < 40.0:
 			_unstick_until = ctx.time + 2.5
 			_slide = -_slide
+			_stuck_checks += 1
+			# Longer l'obstacle n'a pas suffi : retour sur un point du trajet d'avant le blocage.
+			if _stuck_checks >= BACKTRACK_AFTER and _trail.size() >= 2:
+				_backtrack_to = _trail[maxi(0, _trail.size() - 1 - _stuck_checks)]
+				_backtrack_until = ctx.time + BACKTRACK_TIME
+		else:
+			_stuck_checks = 0
+			_trail.append(pos)
+			if _trail.size() > TRAIL_SIZE:
+				_trail.pop_front()
 		_check_pos = pos
 		_check_time = ctx.time + 2.0
 	var slide := Vector2.ZERO
@@ -86,6 +106,8 @@ func _compute_move() -> Vector2:
 		var heading: Vector2 = route if route != Vector2.ZERO else _wander
 		slide = heading.normalized().orthogonal() * _slide * 1.4
 	var result: Vector2 = flee + seek + home + route + slide + _wander * 0.25 + _chase(pos, hunting)
+	if ctx.time < _backtrack_until and pos.distance_to(_backtrack_to) > 24.0:
+		result = (_backtrack_to - pos).normalized() * 2.0 + flee * 0.5
 	# Mécaniques de boss : foncer dans un orbe, entrer dans la couronne, se placer derrière un miroir.
 	var forced: Vector2 = ctx.boss_bot_move(pos)
 	if forced != Vector2.ZERO:
@@ -197,7 +219,8 @@ func technique_pressed(_index: int) -> bool:
 	return ctx.enemies.count() > 8 or ctx.boss != null or _guardian() != null
 
 
-## Comme un joueur : Taille fendante (emplacement 0) au contact, Lance prismatique (1) dès qu'une cible est à portée.
+## Comme un joueur : Taille fendante (emplacement 0) sur un groupe ou une cible forte, Lance prismatique (1) dès qu'une
+## cible est à portée.
 func spell_pressed(slot: int) -> bool:
 	var spells: HunterSpells = ctx.spells
 	if spells == null or slot >= spells.slots.size() or spells.slots[slot] == null or ctx.boss_hold_spells():
@@ -211,8 +234,15 @@ func spell_pressed(slot: int) -> bool:
 			return ctx.player.hp < ctx.player.max_hp * 0.6
 		&"rifts", &"wall", &"crystal":
 			return ctx.enemies.count() > 10 and ctx.enemies.find_nearest(pos, 300.0) != null
-	var reach: float = spell.spell_range * (0.9 if spell.spell_kind == &"slash" else 0.7)
-	return ctx.enemies.find_nearest(pos, maxf(reach, 120.0)) != null
+	var reach: float = maxf(spell.spell_range * (0.9 if spell.spell_kind == &"slash" else 0.7), 120.0)
+	if spell.spell_kind == &"slash":
+		# Taille fendante : sur un groupe, une élite ou le boss, pas sur un Corrompu isolé.
+		var near: Array[Enemy] = ctx.enemies.query_radius(pos, reach)
+		for enemy: Enemy in near:
+			if enemy.alive and (enemy.is_boss or enemy.is_elite):
+				return true
+		return near.size() >= 3
+	return ctx.enemies.find_nearest(pos, reach) != null
 
 
 ## Comme un joueur : ordonne aux Échos de cibler le boss, ou un point faible exposé (ordre de focus).
@@ -253,7 +283,8 @@ func _weak_point() -> Enemy:
 	return null
 
 
-## Œuf de cendre proche, ou bulbe de braise au repos entouré d'au moins 5 Corrompus (le Chasseur à l'écart).
+## Œuf de cendre proche, bulbe de braise au repos entouré d'au moins 5 Corrompus (le Chasseur à l'écart), ou
+## cristal-miroir avec une horde derrière lui.
 func _mechanic_target(pos: Vector2) -> Vector2:
 	for enemy: Enemy in ctx.enemies.query_radius(pos, 380.0):
 		if enemy.alive and enemy.data and enemy.data.structure and not enemy.data.pod and enemy.is_target():
@@ -267,8 +298,23 @@ func _mechanic_target(pos: Vector2) -> Vector2:
 		var bulb: Enemy = held
 		if bulb.position.distance_to(pos) > 450.0:
 			continue
+		if PodDirector.is_crystal(pod):
+			# Cristal-miroir : frappé de ce côté, son premier rayon part vers la horde de l'autre côté.
+			if _beyond(bulb.position, pos) >= 5:
+				return bulb.global_position
+			continue
 		if bulb.position.distance_to(pos) < ctx.arena.pod_radius + 40.0:
 			continue
 		if ctx.enemies.query_radius(bulb.position, ctx.arena.pod_radius).size() >= 6:
 			return bulb.global_position
 	return Vector2.INF
+
+
+## Corrompus alignés au-delà du cristal (dans un cône de 25° autour de l'axe Chasseur → cristal, portée du rayon).
+func _beyond(crystal: Vector2, pos: Vector2) -> int:
+	var axis: Vector2 = (crystal - pos).normalized()
+	var count: int = 0
+	for enemy: Enemy in ctx.enemies.query_radius(crystal, ctx.arena.crystal_beam_length):
+		if enemy.alive and not enemy.is_obstacle and absf(axis.angle_to(enemy.position - crystal)) < deg_to_rad(25.0):
+			count += 1
+	return count

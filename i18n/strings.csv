@@ -18,7 +18,6 @@ OPTIONS_SCREEN_SHAKE,Secousses de l'écran : %s,Screen shake: %s
 PAUSE_TITLE,Pause,Paused
 PAUSE_RESUME,Reprendre,Resume
 PAUSE_ABANDON,Abandonner l'expédition,Abandon expedition
-PAUSE_CONTROLS,Déplacement : ZQSD · Sorts du Chasseur : flèches · Techniques des Échos : A E F · Ruée : Espace · Manette prise en charge,Move: WASD · Hunter spells: arrow keys · Echo Techniques: Q E F · Dash: Space · Gamepad supported
 HUD_LEVEL,Niv. %d,Lv. %d
 HUD_MILESTONES,Jalons : %d,Milestones: %d
 HUD_CHOICES_RESERVED,%d choix en réserve [%s],%d choice(s) stored [%s]
@@ -233,7 +232,6 @@ MASTERY_GLIMMERWING_EVOLVED_VICTORY,Refermez une Faille avec Lucivelle évoluée
 MENU_PLAY,Entrer au Refuge,Enter the Refuge
 REFUGE_TITLE,Refuge,Refuge
 REFUGE_MAIN_MENU,Écran titre,Title screen
-REFUGE_CURRENCIES,Éclats de faille : %d   ·   Essence : %d,Rift Shards: %d   ·   Essence: %d
 TAB_EXPEDITION,Expédition,Expedition
 TAB_TREE,Arbre du Chasseur,Hunter's Tree
 TAB_BESTIARY,Bestiaire,Bestiary
@@ -270,7 +268,6 @@ BESTIARY_RELICS,Reliques,Relics
 BESTIARY_SYNERGIES,Synergies,Synergies
 BESTIARY_UNKNOWN,Pas encore découvert.,Not discovered yet.
 BESTIARY_SYNERGY_HINT,Réunissez ces Échos dans la même équipe pour découvrir leur synergie.,Bring these Echoes into the same team to discover their synergy.
-BESTIARY_STATS,Dégâts %d · %s attaques/s · Portée %d · ne tombe jamais au combat,Damage %d · %s attacks/s · Range %d · never falls in battle
 BESTIARY_EVOLUTIONS,Évolutions,Evolutions
 BESTIARY_NOT_SEEN,jamais obtenue,never obtained
 BESTIARY_MASTERY,Maîtrise,Mastery
@@ -576,17 +573,28 @@ MAP_CLOSE_HINT,%s : fermer la carte,%s: close the map
 OPTIONS_CONTROLS,Manette : stick gauche déplacement · stick droit visée · A/RB Ruée · RT/LT sorts 1 et 2 · croix haut/droite sorts 3 et 4 · X/Y/B Techniques · LB focus · Start pause,Gamepad: left stick move · right stick aim · A/RB Dash · RT/LT spells 1 and 2 · D-pad up/right spells 3 and 4 · X/Y/B Techniques · LB focus · Start pause
 MENU_CREDITS,Crédits,Credits
 CREDITS_BACK,Retour,Back
-CREDITS_BODY,"Rift Hunters — un jeu original.
-Conception et direction : le propriétaire du projet.
-Programmation, game design et outils : développé avec Claude Code.
-Moteur : Godot Engine (licence MIT).
-Polices : Cinzel (The Cinzel Project Authors) et Inter (The Inter Project Authors), SIL Open Font License 1.1.
-Musiques et effets sonores : à créditer lors de leur intégration.","Rift Hunters — an original game.
-Design and direction: the project owner.
-Programming, game design and tools: developed with Claude Code.
-Engine: Godot Engine (MIT license).
-Fonts: Cinzel (The Cinzel Project Authors) and Inter (The Inter Project Authors), SIL Open Font License 1.1.
-Music and sound effects: to be credited when integrated."
+CREDITS_TAGLINE,Un jeu original,An original game
+CREDITS_HUNTER,Le Chasseur de Failles,The Rift Hunter
+CREDITS_CREATION,Création,Created by
+CREDITS_TEAM,L'équipe Rift Hunters,The Rift Hunters team
+CREDITS_CREATION_ROLES,Conception · Direction artistique · Game design · Programmation,Concept · Art direction · Game design · Programming
+CREDITS_ECHOES,Les Échos,The Echoes
+CREDITS_ECHOES_SUB,"%d compagnons, autant de façons de chasser","%d companions, as many ways to hunt"
+CREDITS_DEVOURERS,Les Dévoreurs,The Devourers
+CREDITS_DEVOURERS_SUB,Ce qui attend au fond des failles,What waits at the bottom of the rifts
+CREDITS_RESOURCES,Outils et ressources,Tools and assets
+CREDITS_ENGINE_TITLE,Moteur,Engine
+CREDITS_ENGINE_BODY,Le moteur libre qui fait tourner le jeu.,The free engine the game runs on.
+CREDITS_ENGINE_LICENSE,Licence MIT,MIT license
+CREDITS_FONTS_TITLE,Polices,Fonts
+CREDITS_FONTS_BODY,The Cinzel Project Authors · The Inter Project Authors,The Cinzel Project Authors · The Inter Project Authors
+CREDITS_FONTS_LICENSE,SIL Open Font License 1.1,SIL Open Font License 1.1
+CREDITS_TILES_TITLE,Décors,Scenery
+CREDITS_TILES_BODY,Pack de tuiles par Pixel-boy et AAA.,Tile pack by Pixel-boy and AAA.
+CREDITS_TILES_LICENSE,Creative Commons Zero (CC0),Creative Commons Zero (CC0)
+CREDITS_THANKS,Merci d'avoir joué,Thank you for playing
+CREDITS_LICENSES,Licences,Licenses
+CREDITS_LICENSES_BODY,"Rift Hunters utilise Godot Engine (licence MIT, texte ci-dessous), les polices Cinzel et Inter (SIL Open Font License 1.1) et des tuiles du pack Ninja Adventure de Pixel-boy et AAA (CC0 1.0).","Rift Hunters uses Godot Engine (MIT license, text below), the Cinzel and Inter fonts (SIL Open Font License 1.1) and tiles from the Ninja Adventure pack by Pixel-boy and AAA (CC0 1.0)."
 ARENA_THREE_RIFTS_NAME,Ruines des Cascades,Waterfall Ruins
 ARENA_THREE_RIFTS_DESC,Traversez les ruines et leurs cascades jusqu’à la grande faille violette.,Cross the ruins and waterfalls to reach the great violet rift.
 MENU_LANGUAGE,Langue : %s,Language: %s
@@ -1607,7 +1615,7 @@ SHOP_LOOKS_SOON,"Bientôt : couleurs et tenues du Chasseur et des Échos.","Comi
 SHOP_BUY,Acheter · %d éclats,Buy · %d shards
 SHOP_OWNED,Acquis,Owned
 SHOP_STOCK,En stock : %d,In stock: %d
-SHOP_PACK,Emporter à la prochaine expédition,Bring on the next expedition
+SHOP_PACK,Emporter,Pack it
 SHOP_PACKED,✓ Emporté,✓ Packed
 SHOP_LOCKED_AFTER,En vente après : %s,On sale after: %s
 SHOP_NO_ECHO,"Aucun Écho en vente pour l'instant : avancez dans la campagne.","No Echo on sale yet: progress through the campaign."
@@ -1860,3 +1868,153 @@ ICE_PRISON_INTRO,Prison de glace ! Une Ruée la brise.,Ice prison! A dash breaks
 HUSH_INTRO,Cercle de silence : vos sorts n'y partent plus. Sortez-en ou abattez le Héraut.,Circle of silence: your spells won't fire inside. Step out or take down the Herald.
 COLD_INTRO,Le froid monte : restez près des braseros allumés pour vous réchauffer.,The cold is rising: stay near lit braziers to warm up.
 SPELL_SILENCED,Silence !,Silenced!
+ARENA_CRYSTAL_GARDENS_NAME,Jardins de cristal,Crystal Gardens
+ARENA_CRYSTAL_GARDENS_DESC,"Trois clairières reliées par une arche de pierre et une chaussée de dalles. Des cristaux-miroirs y poussent : frappés, ils éclatent en rayons qui transpercent les Corrompus alignés.","Three clearings linked by a stone arch and a flagstone causeway. Mirror crystals grow there: struck, they burst into beams that pierce the Corrupted in line."
+ZONE_CRYSTAL_GARDENS_1_NAME,La Clairière de l'arche,The Arch Clearing
+ZONE_CRYSTAL_GARDENS_2_NAME,L'Avenue des jardins,The Garden Avenue
+FINALE_TRAVEL_TERRACE,"Les jardins sont nettoyés : franchissez la chaussée de dalles jusqu'à la terrasse, à l'est.","The gardens are cleared: cross the flagstone causeway to the terrace in the east."
+ENEMY_CRYSTAL_MIRROR_NAME,Cristal-miroir,Mirror Crystal
+ENEMY_CRYSTAL_MIRROR_DESC,"Frappez-le : il éclate en trois rayons, le premier dans le sens du coup. Placez-le entre vous et la horde ; ne restez pas dans l'axe des deux autres.","Strike it: it bursts into three beams, the first one in the direction of your blow. Put it between you and the horde; stay out of the other two."
+BOSS_SPORE_MATRIARCH_NAME,Mère des spores,Spore Matriarch
+BOSS_SPORE_MATRIARCH_TITLE,Gardienne des Jardins,Warden of the Gardens
+BOSS_SPORE_MATRIARCH_PHASE1,Le voile tissé,The Woven Veil
+BOSS_SPORE_MATRIARCH_PHASE2,La floraison,The Bloom
+BOSS_PATTERN_SPORE_LASH,Fouet de spores,Spore Lash
+BOSS_PATTERN_SPORE_VEIL,Floraison,Bloom
+BOSS_SPORE_VEIL_INTRO,"Voile de spores : vos coups glissent sur elle. Frappez un cristal-miroir aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Strike a mirror crystal lined up with her: its beam burns the veil."
+BOSS_VEIL_BURNED,Voile brûlé !,Veil burned!
+MAP_OBJ_CRYSTALS_DESC,Terminer en faisant éclater au moins %d cristaux-miroirs,Clear it shattering at least %d mirror crystals
+MAP_OBJ_VEIL_DESC,Terminer en brûlant au moins %d fois le voile de la gardienne,Clear it burning the warden's veil at least %d times
+OPTIONS_CONTROL_SCHEME,Contrôles : %s,Controls: %s
+CONTROL_SCHEME_KEYBOARD,clavier seul,keyboard only
+CONTROL_SCHEME_MOUSE,clavier + souris,keyboard + mouse
+CONTROL_SCHEME_KEYBOARD_HINT,"Les deux mains au clavier : ZQSD pour marcher, flèches pour les sorts (lancés dans la direction du Chasseur), A, E, F pour les Échos.","Both hands on the keyboard: WASD to move, arrow keys for spells (cast in the Hunter's facing direction), Q, E, F for the Echoes."
+CONTROL_SCHEME_MOUSE_HINT,"Une main sur la souris : ZQSD ou flèches pour marcher, A, E, R, F ou clic gauche pour les sorts (lancés vers le curseur), 1, 2, 3 pour les Échos, clic droit pour l'ordre de focus.","One hand on the mouse: WASD or arrow keys to move, Q, E, R, F or left click for spells (cast toward the cursor), 1, 2, 3 for the Echoes, right click for the focus order."
+TIP_SPELLS_MOUSE,"A, E, R, F ou clic gauche : les sorts du Chasseur, lancés vers le curseur.","Q, E, R, F or left click: the Hunter's spells, cast toward the cursor."
+TAB_JOURNAL,Journal,Journal
+JOURNAL_INTRO,"Les mécaniques que vous avez rencontrées en expédition : %d sur %d. Une fiche s'affiche la première fois qu'une mécanique apparaît.","The mechanics you have met on expeditions: %d of %d. A card appears the first time a mechanic shows up."
+JOURNAL_GROUP_MAPS,Cartes,Maps
+JOURNAL_GROUP_ENEMIES,Corrompus,Corrupted
+JOURNAL_GROUP_BOSSES,Gardiens et Dévoreurs,Guardians and Devourers
+JOURNAL_UNKNOWN,Pas encore rencontrée.,Not met yet.
+JOURNAL_CARD_HINT,Nouvelle mécanique : à relire dans le Journal du refuge.,New mechanic: read it again in the Refuge Journal.
+POD_INTRO,"Bulbes de braise : frappez-en un, il s'embrase puis éclate et ravage les Corrompus autour. Ne restez pas trop près.","Ember pods: strike one, it ignites, then bursts and ravages the Corrupted around it. Don't stand too close."
+CRYSTAL_INTRO,"Cristaux-miroirs : frappez-en un, il éclate en trois rayons, le premier dans le sens du coup. Placez-le entre vous et la horde.","Mirror crystals: strike one, it bursts into three beams, the first one in the direction of your blow. Put it between you and the horde."
+JOURNAL_NIGHT,Nuit et lucioles,Night and fireflies
+JOURNAL_FLOOD,Crue,Flood
+JOURNAL_POD,Bulbes de braise,Ember pods
+JOURNAL_NEST,Nids,Nests
+JOURNAL_LAVA,Lave qui déborde,Overflowing lava
+JOURNAL_MUD,Vase,Mud
+JOURNAL_TIDE,Marée,Tide
+JOURNAL_CRYSTAL,Cristaux-miroirs,Mirror crystals
+JOURNAL_COLD,Froid et braseros,Cold and braziers
+JOURNAL_ICE_PRISON,Prison de glace,Ice prison
+JOURNAL_HUSH,Cercle de silence,Circle of silence
+JOURNAL_ORB,Orbe de source,Source orb
+JOURNAL_MIST_VEIL,Voile de brume,Mist veil
+JOURNAL_CROWN,Couronne d'astres,Star crown
+JOURNAL_RAM,Charge du bûcher,Pyre charge
+JOURNAL_DUEL,Cercle du duel,Duel circle
+JOURNAL_THREADS,Fils tendus,Taut threads
+JOURNAL_SHELL,Carapace de scories,Slag shell
+JOURNAL_CRATER,Cratères en série,Crater sequence
+JOURNAL_GUARD,Garde d'écorce,Bark guard
+JOURNAL_DIVE,Plongée,Dive
+JOURNAL_SPORE_VEIL,Voile de spores,Spore veil
+JOURNAL_MUD_WALL,Murs de vase,Mud walls
+JOURNAL_LEASH,Racine-laisse,Root leash
+JOURNAL_LEECH,Sangsues,Leeches
+JOURNAL_FACETS,Carapace de cristal,Crystal shell
+JOURNAL_MIRROR,Miroirs,Mirrors
+JOURNAL_WHIRLPOOL,Tourbillon,Whirlpool
+JOURNAL_TIDE_RING,Anneau de marée,Tide ring
+JOURNAL_SWALLOW,Écho englouti,Swallowed Echo
+JOURNAL_CAPTURE,Écho des sorts,Spell echo
+JOURNAL_SHATTER,Banquise brisée,Shattered ice
+ADVICE_TITLE,Conseil,Advice
+ADVICE_THREAT,Ce qui vous a le plus blessé : %s,What hurt you most: %s
+ADVICE_SPEND,"Vous avez %d Éclats : de quoi apprendre un nœud de l'Arbre du Chasseur avant de repartir.","You have %d Shards: enough to learn a node in the Hunter Tree before heading out again."
+ADVICE_SOURCE_BURN,Le sol brûlant,Burning ground
+ADVICE_BURN,"Les plaques rougeoyantes brûlent tant que vous restez dessus : traversez-les vite, ou attirez-y les Corrompus.","Glowing plates burn while you stand on them: cross them quickly, or lure the Corrupted onto them."
+ADVICE_CRYSTAL,"Vos propres cristaux vous ont touché : frappez-les depuis le côté opposé à la horde et restez hors de l'axe des deux autres rayons.","Your own crystals hit you: strike them from the side opposite the horde and stay out of the other two beams."
+ADVICE_POD,"Un bulbe amorcé éclate dans tout son cercle : frappez-le, puis éloignez-vous avant l'éclatement.","A primed pod bursts across its whole circle: strike it, then step away before it bursts."
+ADVICE_SOURCE_ROCKFALL,Les roches qui tombent,Falling rocks
+ADVICE_ROCKFALL,Chaque chute est annoncée au sol : gardez un œil sur les cercles et ne vous arrêtez pas dedans.,Every fall is marked on the ground: watch the circles and never stop inside one.
+ADVICE_SOURCE_BOSS,Les coups du boss,The boss's blows
+ADVICE_BOSS,"Ses attaques sont annoncées au sol : gardez votre Ruée pour les plus grosses et frappez quand il est sonné.","Its attacks are marked on the ground: keep your Dash for the big ones and strike when it is stunned."
+TIP_MILESTONE,"Jalon atteint : choisissez un avantage rare. Il dure jusqu'à la fin de la carte.","Milestone reached: pick a rare boon. It lasts until the end of the map."
+TIP_ELITE,"Une élite arrive : elle a ses propres techniques. Lisez l'alerte au sol et esquivez à la Ruée.","An elite is coming: it has its own techniques. Read the warning on the ground and dodge with your Dash."
+TIP_ZONE,"Zone nettoyée : la barrière s'ouvre. Suivez la flèche vers la zone suivante.","Zone cleared: the barrier opens. Follow the arrow to the next zone."
+REFUGE_GROUP_EXPEDITION,Expédition,Expedition
+REFUGE_GROUP_PROGRESSION,Progression,Progression
+REFUGE_GROUP_COLLECTION,Collection,Collection
+REFUGE_GROUP_MARKET,Marché,Market
+REFUGE_GROUP_OPTIONS,Options,Options
+REFUGE_SHARDS,Éclats,Shards
+REFUGE_ESSENCE,Essence,Essence
+REFUGE_SHARDS_HINT,"Éclats de faille : gagnés à chaque expédition, davantage en battant élites et gardiens. Ils servent à apprendre les nœuds des arbres (Chasseur et Échos) et à acheter à la Boutique.","Rift Shards: earned on every expedition, more for beating elites and guardians. Spend them on tree nodes (Hunter and Echoes) and in the Shop."
+REFUGE_ESSENCE_HINT,"Essence : plus rare, laissée par les élites et les gardiens vaincus. Elle finance les recherches du Laboratoire.","Essence: rarer, dropped by defeated elites and guardians. It funds research in the Laboratory."
+REFUGE_NEXT_STEP,Prochaine étape,Next step
+REFUGE_GO,Y aller,Go there
+REFUGE_STEP_FIRST_RUN,"Choisissez une carte et partez en expédition : vos Éclats vous attendent au retour.","Pick a map and head out on an expedition: your Shards will be waiting when you return."
+REFUGE_STEP_LEARN,"Vous avez assez d'Éclats : apprenez un nœud dans l'arbre du Chasseur.","You have enough Shards: learn a node in the Hunter's Tree."
+REFUGE_STEP_ACTIVATE,"Un nœud appris attend d'être activé dans l'arbre du Chasseur : seuls les nœuds actifs comptent en partie.","A learned node is waiting to be activated in the Hunter's Tree: only active nodes count in a run."
+REFUGE_STEP_ECHO,"Un de vos Échos peut progresser : ouvrez son arbre et composez votre équipe.","One of your Echoes can grow: open its tree and build your team."
+REFUGE_STEP_READY,"Tout est prêt : repartez en expédition, ou tentez les étoiles des cartes déjà gagnées.","All set: head out again, or chase the stars of maps you have already won."
+EXPEDITION_ECHOES_TO_FIND,À découvrir (%d) :,To discover (%d):
+EXPEDITION_CHAPTER_STARS,★ %d / %d dans ce chapitre,★ %d / %d in this chapter
+EXPEDITION_ECHO_MAP_SHORT,C%d,M%d
+SHOP_MISSING,Il manque %d éclats,%d shards short
+SHOP_PACK_HINT,"Emporté à la prochaine expédition (une unité, consommée au départ).","Brought on the next expedition (one unit, used up when you set out)."
+BESTIARY_SECTION_ECHOES,Échos,Echoes
+BESTIARY_SECTION_ENEMIES,Corrompus et gardiens,Hollowed and guardians
+BESTIARY_SECTION_LORE,Reliques et synergies,Relics and synergies
+BESTIARY_CHIP_DAMAGE,dégâts,damage
+BESTIARY_CHIP_RATE,attaques/s,attacks/s
+BESTIARY_CHIP_RANGE,portée,range
+BESTIARY_CHIP_ROLE,rôle,role
+BESTIARY_NEVER_FALLS,Un Écho ne tombe jamais au combat.,An Echo never falls in battle.
+BESTIARY_MASTERY_BAR,Maîtrise niveau %d · %d / %d XP,Mastery level %d · %d / %d XP
+BESTIARY_MASTERY_MAX,Maîtrise niveau %d · palier maximal,Mastery level %d · top tier
+LAB_MISSING,Il manque %d essence,%d essence short
+ACTION_MOVE,Déplacement,Move
+ACTION_PAUSE,Pause,Pause
+KEY_GUIDE_CLICK,clic gauche,left click
+KEY_GUIDE_ACTION,Action,Action
+KEY_GUIDE_KEYBOARD,Clavier,Keyboard
+KEY_GUIDE_PAD,Manette,Gamepad
+KEY_GUIDE_TITLE,Aide-mémoire des touches,Controls cheat sheet
+KEY_GUIDE_OPEN,Aide-mémoire des touches (F1),Controls cheat sheet (F1)
+KEY_GUIDE_HIDE,Masquer l'aide-mémoire,Hide the cheat sheet
+MENU_CONTINUE,Continuer,Continue
+MENU_CONTINUE_HINT,"Retour au refuge : votre progression vous attend (dernière carte : %s).","Back to the Refuge: your progress is waiting (last map: %s)."
+MENU_OPTIONS,Options,Options
+MENU_CLOSE,Fermer,Close
+TRAINING_OPEN,Salle d'entraînement,Training room
+TRAINING_OPEN_HINT,"Essayez votre équipe, vos sorts et votre arbre contre des mannequins : aucune vague, rien à gagner ni à perdre.","Try your team, spells and tree against dummies: no waves, nothing to win or lose."
+TRAINING_TITLE,Salle d'entraînement,Training room
+TRAINING_DPS,%d dégâts / s,%d damage / s
+TRAINING_TOTAL,Total : %d dégâts,Total: %d damage
+TRAINING_HINT,"Mesure sur les 5 dernières secondes. %s : pause, puis « Quitter l'entraînement ».","Measured over the last 5 seconds. %s: pause, then “Leave training”."
+TRAINING_LEAVE,Quitter l'entraînement,Leave training
+ENEMY_TRAINING_DUMMY_NAME,Mannequin d'entraînement,Training dummy
+ENEMY_TRAINING_DUMMY_DESC,"Un tronc cerclé de fer, planté au refuge pour roder les gestes. Il encaisse tout, ne rend rien.","An iron-banded log, set up at the Refuge to drill your moves. It takes everything and gives nothing back."
+ARENA_TRAINING_GROUNDS_NAME,Salle d'entraînement,Training room
+ARENA_TRAINING_GROUNDS_DESC,Une cour du refuge où se dressent des mannequins.,A Refuge courtyard lined with training dummies.
+ARENA_REFLECTION_WELLS_NAME,Puits des reflets,Wells of Reflection
+ARENA_REFLECTION_WELLS_DESC,"Une place en croix entre deux puits sans fond, reliée à la boucle extérieure par deux ponts seulement. Défendez l'autel ; les miroirs-portails ramènent en un instant au cœur de la place… et la horde les emprunte aussi.","A cross-shaped plaza between two bottomless wells, linked to the outer loop by only two bridges. Defend the altar; the mirror portals bring you back to the heart of the plaza in an instant… and the horde uses them too."
+PORTAL_INTRO,"Miroirs-portails : entrez dans un portail pour ressortir par son jumeau, de la même couleur. Après votre passage, la paire se recharge quelques secondes. Les Corrompus les empruntent aussi.","Mirror portals: step into a portal to come out of its twin, of the same colour. After you pass, the pair recharges for a few seconds. The Corrupted use them too."
+JOURNAL_PORTAL,Miroirs-portails,Mirror portals
+BOSS_PORTAL_LADY_NAME,Dame des portails,Lady of the Portals
+BOSS_PORTAL_LADY_TITLE,Gardienne des Puits,Warden of the Wells
+BOSS_PORTAL_LADY_PHASE1,Le reflet fuyant,The Fleeting Reflection
+BOSS_PORTAL_LADY_PHASE2,La danse des miroirs,The Mirror Dance
+BOSS_PATTERN_PRISM_SLASH,Taille de prisme,Prism Slash
+BOSS_PATTERN_PORTAL_HOP,Saut de portail,Portal Leap
+BOSS_PORTAL_INTRO,"Saut de portail : elle plonge dans un miroir et ressort par le portail qui s'illumine. Tenez-vous dedans quand elle ressort : piégée, elle sort sonnée et vulnérable. Sinon, son onde de prisme frappe tout autour.","Portal leap: she dives into a mirror and comes out of the portal that lights up. Stand inside it when she emerges: trapped, she comes out stunned and vulnerable. Otherwise, her prism wave strikes all around."
+BOSS_PORTAL_TRAPPED,Piégée !,Trapped!
+JOURNAL_PORTAL_LADY,Saut de portail,Portal leap
+BESTIARY_BOSS_LORE_PORTAL_LADY,"Elle garde les Puits depuis que le premier miroir s'est fendu. Chaque portail est une porte de sa maison : qui en tient le seuil la tient elle-même.","She has guarded the Wells since the first mirror cracked. Every portal is a door of her house: whoever holds the threshold holds her."
+MAP_OBJ_PORTALS_DESC,Terminer en empruntant au moins %d miroirs-portails,Clear it using at least %d mirror portals
+MAP_OBJ_PORTAL_TRAP_DESC,Terminer en piégeant au moins %d fois la gardienne dans un portail,Clear it trapping the warden in a portal at least %d times

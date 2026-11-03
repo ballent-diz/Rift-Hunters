@@ -46,41 +46,57 @@ Code : `ObstacleField.blocks_shot`, `clear_distance`, `line_clear` ; `Projectile
 
 ## Garde-fou : la courbe mesurée
 
-La difficulté ne doit jamais dépasser la progression du joueur (jalons, Échos, boutique, arbre). À chaque carte,
-mesure au bot (`tools/balance_sim.sh`, `META=veteran`) :
+La difficulté ne doit jamais dépasser la progression du joueur (jalons, Échos, boutique, arbre). Le jeu vise un défi
+réel (décision du propriétaire, 2 novembre 2026) : on galère un peu pour passer une carte, sans se décourager, et on
+sent une marge de progression sur son build comme sur son jeu. À chaque carte, mesure au bot
+(`tools/balance_sim.sh`, `PROFILE=stage`) :
 
-- **victoires** autour de **75 %** (entre 60 et 90 %) ;
+- **profil d'étape** (`tests/smoke/stage_profile.gd`) : le bot reçoit ce qu'un joueur moyen-bon aurait débloqué en
+  arrivant sur la carte (progression rejouée avec les vraies règles : Éclats des victoires, d'environ 1,6 tentative par
+  carte et de la moitié des objectifs, 20 % laissés à la boutique ; Points de Chasseur ; emplacements de sorts ; sceau
+  d'Écho ; maîtrise et arbres des Échos ; équipe des Échos les plus récents). Carte 1 : 2 sorts, 6 points, Cendrelame
+  seule ; carte 13 : 4 sorts et leurs variantes, 24 points, 3 Échos ;
+- **bot moyen-bon** (`AutopilotBrain`) : il connaît les mécaniques, réagit à la plupart des tirs, garde sa Taille
+  fendante pour les groupes et les cibles fortes ;
+- **victoires** autour de **2 sur 3** (entre 50 et 80 %) : un joueur moyen-bon perd parfois, un débutant devra
+  progresser ;
 - **durée** qui augmente doucement d'une carte à l'autre (environ 6 à 9 minutes au chapitre 1, 9 à 12 au chapitre 2) ;
 - **dégâts subis** en hausse progressive.
 
-**Chaque nouvelle carte** (décision du propriétaire, 23 octobre 2026) : une passe courte avec le bot « joueur moyen »
-sur cette carte seulement (2 Échos de départ × 1 à 2 graines, `SIM_TIMEOUT=2400`), avant la pull request. Les cartes
+**Chaque nouvelle carte** (décision du propriétaire, 23 octobre 2026) : une passe courte avec le bot sur cette carte
+seulement (`PROFILE=stage`, 3 graines, `SIM_TIMEOUT=2400`), avant la pull request. Les cartes
 déjà livrées ne sont pas remesurées d'office : le propriétaire les règle pendant ses propres tests.
 
 Une carte qui sort de la courbe est corrigée par ses propres réglages (`enemy_hp_mult`, `enemy_damage_mult`, vagues)
 avant de toucher aux monstres eux-mêmes. Les boss et gardiens ont leurs propres réglages (`boss_hp_mult`,
 `boss_damage_mult`), car ils ne suivent pas ceux des vagues.
 
-### Réglages mesurés (campagne Normal, règles du 26 octobre 2026 : un Écho au départ, pas de drops)
+### Réglages mesurés (campagne Normal, profil d'étape, bot moyen-bon : 2 et 3 novembre 2026)
 
-Équipe du bot : Cendrelame et les Échos réellement débloqués à ce stade (un par carte gagnée), arbre « veteran » à
-partir de la carte 4. Cartes 1 à 5 remesurées le 2 novembre 2026 avec le Saut et le Tunnel des élites du chapitre 1
-(arbre « veteran », 2 ou 3 graines) : aucun réglage à changer.
+Mesure `PROFILE=stage`, 3 graines par carte (4 pour les Tanières) : le bot reçoit à chaque carte la progression d'un
+joueur moyen-bon (sorts, points, Échos les plus récents, arbres ; voir plus haut). Cible : 2 victoires sur 3.
+Le 3 novembre, le bot sort aussi des recoins trop étroits pour sa route en revenant sur ses pas (graine 3 des
+Hautes Terres, qui tournait en rond).
 
-| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Équipe du bot | Bot (victoires) | Durée |
-|---|---|---|---|---|---|
-| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 | Cendrelame seule | 2 sur 2 | 6 min 30 |
-| 2. Hautes Terres d'Orage | 0,6 · 0,55 | 0,65 · 0,6 | + Sylvécaille | 3 sur 3 | 3 min 30 à 4 min |
-| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 | + Sylvécaille, Scoriade | 3 sur 3 | 6 à 7 min |
-| 4. Gué des Brumes | 0,75 · 0,75 (autel 5 500 PV) | 1 · 1 | + Scoriade, Lueurine | 3 sur 3 | 5 min 40 |
-| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 | + Lueurine, Sporelune | 2 sur 3 | 7 min |
-| 6. Lisière calcinée | 0,7 · 0,6 | 1,2 · 1 | + Lucivelle, Sporelune | 3 sur 4 | 3 min 30 à 6 min |
-| 7. Évents de cendre | 1,3 · 0,95 | 2,5 · 1,2 (Chevalier calciné) | + Égidor, Lucivelle | 2 sur 3 | 8 min |
-| 8. Tanières de suie | 1,3 · 0,95 | 2,5 · 1,2 (Reine-veuve) | + Pyraile, Égidor | 2 sur 3 | 8 min 30 |
-| 9. Le Seuil du Cataclysme | 1 · 0,6 (roches 8 toutes les 8 s) | 2 · 1,2 (Matrone des scories) | + Spectrâtre, Pyraile | 2 sur 3 | 7 min 30 |
-| 10. Cœur du volcan | 0,7 · 0,45 (vagues de moitié, une élite par palier) | 0,5 · 0,6 (Pyrevorn) | + Gravelune, Pyraile | 3 sur 3 | 9 à 11 min 30 |
-| 11. Mangrove des racines | 0,7 · 0,35 (une élite par zone) | 2,2 · 1 (Gardien d'écorce) | + Solgriffe, Gravelune | 3 sur 3 | 7 min |
-| 12. Temple des marées | 1 · 0,5 (45 à 120 en vie, élites des failles toutes les 140 s) | 1,2 · 0,55 (Gueule des marais) | + Ronceline, Solgriffe | 2 sur 3 | 3 à 4 min |
+| Carte | Vagues (PV · dégâts) | Boss ou gardien (PV · dégâts) | Bot (victoires) | Durée |
+|---|---|---|---|---|
+| 1. Ruines des Cascades | 0,4 · 0,4 | 0,5 · 0,5 (Nébulorax) | 2 sur 3 | 7 min à 7 min 30 |
+| 2. Hautes Terres d'Orage | 0,85 · 0,8 | 0,9 · 0,85 (Astravorn) | 2 sur 3 | 6 min |
+| 3. Bois des Lucioles | 0,85 · 0,8 | 1 · 1 (Sentinelle des Racines) | 2 sur 3 | 7 à 8 min |
+| 4. Gué des Brumes | 0,97 · 0,97 | 1,2 · 1,17 (Chimère des Brumes) | 2 sur 3 | 5 min 30 à 6 min |
+| 5. Source des Cascades | 0,6 · 0,55 | 1 · 1 (Dévoreur des Sources) | 2 sur 3 | 6 min 30 |
+| 6. Lisière calcinée | 0,85 · 0,8 | 1,4 · 1,15 (Gardien du bûcher) | 2 sur 3 | 6 min |
+| 7. Évents de cendre | 1,3 · 0,95 | 2,5 · 1,2 (Chevalier calciné) | 2 sur 3 | 7 min 45 |
+| 8. Tanières de suie | 1,65 · 1,4 | 3,8 · 2,1 (Reine-veuve) | 3 sur 4 | 8 à 9 min 15 |
+| 9. Le Seuil du Cataclysme | 1,07 · 0,68 | 2,15 · 1,25 (Matrone des scories) | 2 sur 3 | 6 min 15 à 7 min 15 |
+| 10. Cœur du volcan | 0,7 · 0,45 | 0,5 · 0,6 (Pyrevorn) | 2 sur 3 | 10 min |
+| 11. Mangrove des racines | 0,95 · 0,6 | 2,7 · 1,25 (Gardien d'écorce) | 2 sur 3 | 6 min 30 |
+| 12. Temple des marées | 1,4 · 0,65 | 1,25 · 0,58 (Gueule des marais) | 2 sur 3 | 3 min |
+| 13. Jardins de cristal | 1 · 0,5 | 1,9 · 1 (Mère des spores) | 2 sur 3 | 5 min |
+| 14. Puits des reflets | 1,3 · 1,8 (autel frappé à 0,36) | 1 · 2,4 (Dame des portails) | 3 sur 4 | 5 min 30 à 6 min 30 |
+
+Tanières de suie (3 novembre) : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à
+3,8 · 2,1 et les vagues de 1,2 à 1,4 en dégâts (une défaite à 8 % de PV du gardien sur 4 parties).
 
 Mesures du 26 octobre 2026, avec le bot corrigé :
 - il va chercher les derniers Corrompus ;

@@ -67,3 +67,24 @@ Le 2 novembre, une image entière légère **1536 × 1536** a été remise au pr
 - **Raccords Claude** : réutiliser les trois tuiles de `assets/environments/reflection_wells/` pour le monde 5016 × 5016 ; attendre la peinture du propriétaire, construire le champ, vérifier les passages et placer les mécaniques. Les portails et l’objet d’autel restent des sprites séparés.
 
 **Détail graphique livré ; aucun essai de circulation ou de combat n’est revendiqué.** Poids total des fichiers ajoutés ou modifiés par la PR : **123,21 Mo**, source et aperçus compris.
+
+## En jeu (Claude, 3 novembre 2026)
+
+- **Collisions** : peinture du propriétaire (`collision/painted.webp`) → `collision.png` → `field.png`, sans détection
+  d'eau automatique (elle bloquait à tort un coin de la boucle sud-est) ; 40 % de sol praticable. Mini-carte,
+  entrée `environment.reflection_wells` du manifeste.
+- **Arène** `data/arenas/reflection_wells.tres` : défense d'autel (5 vagues de 50 s, sceau de 6 000 PV sur le socle
+  central), famille des Reflets (Éclat errant, Miroir rampant, Sentinelle de verre, Golem de quartz ; élites
+  Prêtresse-miroir, Colosse de cristal, Chasseresse des reflets). Six arrivées sur la boucle.
+- **Miroirs-portails** (brique B6, `PortalDirector`) : quatre paires, chaque coin de la boucle relié à la place près
+  de l'autel ; visuel `mirror_portal.tscn` de Codex (une teinte par paire, états actif, recharge, entrée et sortie).
+  On passe en entrant dans le portail ; la paire se recharge 5 s. Les Corrompus passent aussi (1,5 par seconde et
+  par portail au plus, 8 s entre deux passages d'un même Corrompu). La flèche de route vers l'autel propose un
+  portail quand il raccourcit le trajet.
+- **Gardienne : Dame des portails** (`PortalGuardian`, choisie par le propriétaire) : elle plonge dans un miroir et
+  ressort par le portail qui s'illumine (le plus proche du Chasseur). Le Chasseur qui s'y tient quand elle ressort la
+  piège : sonnée 5 s, dégâts doublés ; sinon, onde de prisme autour du portail. Sprite : celui de la Prêtresse-miroir.
+- **Campagne** : quatrième carte du chapitre 3 ; elle donne Mousseroc. Objectifs : passer 8 portails, finir sous
+  650 dégâts ; Cauchemar : piéger 2 fois la gardienne.
+- **Équilibrage** (profil d'étape, 4 graines) : vagues 1,3 · 1,8, gardienne 1 · 2,4, autel frappé à 0,36 :
+  3 victoires sur 4 (une défaite à 9 % de PV de la gardienne), 5 min 30 à 6 min 30.

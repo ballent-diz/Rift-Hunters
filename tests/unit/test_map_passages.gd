@@ -106,7 +106,7 @@ func test_root_mangrove_landmarks_are_reachable() -> void:
 
 ## Barrières fermées : seule la zone 1 est accessible depuis le départ ; ouvertes, toutes les zones et la finale.
 func test_zone_barriers_split_the_zones() -> void:
-	for id: StringName in [&"ash_vents", &"soot_dens", &"cataclysm_threshold", &"root_mangrove"]:
+	for id: StringName in [&"ash_vents", &"soot_dens", &"cataclysm_threshold", &"root_mangrove", &"crystal_gardens"]:
 		var arena: ArenaData = GameDB.arena(id)
 		var walls: Array[Rect2] = []
 		var places: Dictionary = {"finale": arena.finale_center}

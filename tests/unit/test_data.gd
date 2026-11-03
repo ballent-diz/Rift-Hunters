@@ -44,6 +44,9 @@ func test_monsters_play_differently() -> void:
 func test_arena_references() -> void:
 	for id: StringName in GameDB.arenas:
 		var arena: ArenaData = GameDB.arenas[id]
+		if arena.practice:
+			check(arena.waves.is_empty() and not arena.unlocked_by_default, "%s : entraînement sans vague, hors cartes" % id)
+			continue
 		check(GameDB.boss(arena.boss_id) != null, "%s : boss inconnu" % id)
 		check(not arena.waves.is_empty(), "%s : aucune vague" % id)
 		for wave: WavePhaseData in arena.waves:

@@ -51,8 +51,8 @@ max_alive = 240
 
 [resource]
 script = ExtResource("1")
-enemy_damage_mult = 0.75
-enemy_hp_mult = 0.75
+enemy_damage_mult = 0.97
+enemy_hp_mult = 0.97
 id = &"mist_ford"
 name_key = "ARENA_MIST_FORD_NAME"
 desc_key = "ARENA_MIST_FORD_DESC"
@@ -79,3 +79,5 @@ altar_spawn_points = Array[Vector2]([Vector2(0, -1248), Vector2(-1864, -1040), V
 slow_zones = Array[Rect2]([Rect2(-192, -952, 344, 384), Rect2(-1184, -232, 584, 232), Rect2(624, -248, 584, 240), Rect2(-144, 240, 344, 552)])
 slow_zone_mult = 0.6
 slow_zones_painted = true
+boss_hp_mult = 1.2
+boss_damage_mult = 1.17

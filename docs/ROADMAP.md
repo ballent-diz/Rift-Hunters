@@ -1,5 +1,36 @@
 # Rift Hunters — feuille de route
 
+## À faire : musique (décisions du 2 novembre 2026)
+
+- [x] **Menus** : un morceau fixe et calme, en boucle. Écran titre : `music/menu/music_box_in_the_machine_title.mp3` ;
+  refuge et ses menus : `music/refuge/music_box_in_the_machine.mp3` (les deux versions de « Music Box in the
+  Machine », 137 BPM, retirées des combats de boss). À remplacer par de vrais morceaux d'ambiance si le propriétaire
+  en crée : il suffit de changer le fichier du dossier.
+- [ ] **Tri des musiques en jeu** (propriétaire) : réécoute des morceaux actuels, nouveaux morceaux à générer.
+  `run/REDLINE PANIC (1).mp3` est une copie exacte de `REDLINE PANIC.mp3` : à supprimer.
+- [ ] **Une playlist par chapitre** (lecture aléatoire, comme aujourd'hui) : chapitre 1 = lot 1, chapitre 2 = lot 2,
+  etc. Un dossier par chapitre (`music/run/<chapitre>/`) ; un chapitre sans morceau reprend la liste générale.
+  Code : Claude (effort medium), quand le propriétaire envoie les lots.
+- [ ] **Taille des lots** (conseil, à confirmer) : par chapitre, 6 à 8 morceaux d'exploration et de combat (20 à
+  25 minutes sans répétition, une carte entière sans entendre deux fois le même titre) et 2 à 3 morceaux de boss
+  (thème du Dévoreur, gardiens) ; un jingle de défaite commun (aucun aujourd'hui). Environ 35 à 45 morceaux pour
+  4 chapitres.
+
+## Lot du 2 novembre (Claude) : menus et tutoriels (lots 1 à 6, propositions validées)
+
+- **Contrôles** : clavier seul (par défaut) ou clavier + souris (visée au curseur, clic gauche), au choix dans Options.
+- **Lot 1** : annonces sur plusieurs lignes, fiche à la première rencontre d'une mécanique, onglet Journal.
+- **Lot 2** : conseil après défaite (source principale des dégâts subis), astuces de la première carte déclenchées par
+  les actions du joueur.
+- **Lot 3** : refuge en cinq groupes (Expédition, Progression, Collection, Marché, Options) révélés au fil de la
+  progression, bandeau « Prochaine étape » des premières parties, monnaies avec infobulles, chemin du chapitre.
+- **Lot 4** : Boutique illustrée (« il manque N éclats »), Bestiaire en trois rubriques (vignettes, silhouettes,
+  pastilles, barre de maîtrise), Laboratoire en arbre.
+- **Lot 5** : « Continuer » et « Options » au menu principal ; aide-mémoire des touches en pause (F1), clavier et
+  manette.
+- **Lot 6** : salle d'entraînement (bouton sous « Partir en expédition ») : mannequins, dégâts par seconde par source,
+  rien à gagner ni à perdre. Sprite du mannequin à livrer (`object.training_dummy`, forme provisoire).
+
 ## Lot du 2 novembre (Claude) : chapitre 4, le Glacier silencieux (mécaniques)
 
 - 14 monstres (Givrés, Échos du silence) avec formes provisoires, techniques E18 à E22, froid et braseros (B7),
@@ -20,7 +51,9 @@
   (fils tendus), Matrone des scories (carapace fendue par les roches). Équilibrage des cartes 7 à 12 dans
   [DIFFICULTE.md](design/DIFFICULTE.md).
 - **Gardiens des cartes 11 et 12** (31 octobre) : Gardien d'écorce (garde d'écorce) et Gueule des marais (plongée).
-- **Restent à faire** : cartes 13 à 15.
+- **Carte 13, Jardins de cristal** (2 novembre) : collisions peintes par le propriétaire, cristaux-miroirs, gardienne
+  Mère des spores (voile de spores brûlé par les rayons) ; chapitre 3 = cartes 11 à 13.
+- **Restent à faire** : cartes 14 et 15.
 
 ## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
 

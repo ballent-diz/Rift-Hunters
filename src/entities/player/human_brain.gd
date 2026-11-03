@@ -1,6 +1,6 @@
 class_name HumanBrain
 extends PlayerBrain
-## Commandes au clavier (ou à la manette). La souris ne sert plus à viser.
+## Commandes au clavier (ou à la manette) ; en mode « clavier + souris » (Settings.control_scheme), visée au curseur.
 
 const TECHNIQUE_ACTIONS: Array[StringName] = [&"technique_1", &"technique_2", &"technique_3"]
 const SPELL_ACTIONS: Array[StringName] = [&"spell_1", &"spell_2", &"spell_3", &"spell_4"]
@@ -57,6 +57,8 @@ func focus_requested() -> bool:
 ## Les deux mains au clavier (décision du 24 octobre 2026) : sorts et Techniques partent dans la direction du
 ## Chasseur, vers l'ennemi le plus proche dans le cône devant lui, sinon à AIM_DISTANCE devant.
 func aim_point() -> Vector2:
+	if Settings.uses_mouse():
+		return ctx.player.get_global_mouse_position()
 	var origin: Vector2 = ctx.player.global_position
 	if Settings.using_gamepad:
 		var stick := Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
