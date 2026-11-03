@@ -20,7 +20,8 @@ job.json :
   "colors": 32,                             couleurs max de la palette commune (0 = pas de réduction)
   "outline": true,                          ajoute un contour sombre d'1 pixel
   "flip": false,                            true si les images regardent vers la gauche
-  "anchor_mode": "feet",                    "feet" (milieu des pixels les plus bas) ou "mass" (centre du corps : stable
+  "anchor_mode": "feet",                    "feet" (milieu des pixels les plus bas), "center" (centre de masse x/y, boss),
+                                            ou "mass" (centre du corps en x : stable
                                             d'une image à l'autre pour les créatures à pattes, évite le tremblement)
   "hover": 0,                               créatures volantes : pixels entre le bas du corps et l'ancre (ombre au sol)
   "animations": [
@@ -235,6 +236,9 @@ def feet_point(arr: np.ndarray, mode: str = "feet") -> tuple:
     alpha = arr[:, :, 3] > 0
     rows = np.nonzero(alpha.any(axis=1))[0]
     bottom = rows.max()
+    if mode == "center":
+        ys, xs = np.nonzero(alpha)
+        return float(xs.mean()), float(ys.mean())
     if mode == "mass":
         return float(np.nonzero(alpha)[1].mean()), float(bottom)
     xs = np.nonzero(alpha[max(bottom - 2, 0):bottom + 1].any(axis=0))[0]
@@ -323,7 +327,9 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             strip.paste(fr.convert("RGB"), (x, 0), fr)
             x += fr.width
         # FASTOCTREE conserve les petits accents saturés (braises, yeux) que la coupe médiane efface.
-        palette_img = strip.quantize(colors=colors + 1, method=Image.Quantize.FASTOCTREE)
+        # Réserver le contour dans le budget de palette demandé.
+        palette_size = max(1, colors - int(job.get("outline", True)))
+        palette_img = strip.quantize(colors=palette_size, method=Image.Quantize.FASTOCTREE)
     rows_out = []
     sheet_cols = max(len(frs) for _, frs in scaled)
     # Une pose transparente peut masquer le sprite pendant un effet commun de disparition.

@@ -83,6 +83,10 @@ def main():
             bottom = int(np.nonzero(cell[:, :, 3].any(axis=1))[0].max())
             if bottom != 54 - hover:
                 failures.append("ancrage (hover=%d) : bas en %d au lieu de %d" % (hover, bottom, 54 - hover))
+        centered = import_sheet.place_in_cell(blob, (64, 64), (32, 32), mode="center")
+        cy, cx = np.nonzero(centered[:, :, 3])
+        if abs(float(cx.mean()) - 32) > 0.5 or abs(float(cy.mean()) - 32) > 0.5:
+            failures.append("l’ancre du boss doit coïncider avec son centre de masse x/y")
         # Deux planches cadrées différemment gardent la même taille corporelle ;
         # une mort affaissée ne doit pas être regonflée à la hauteur du vivant.
         for name, height in (("small", 20), ("large", 40), ("fallen", 10)):
@@ -109,6 +113,32 @@ def main():
             import_sheet.run(job_path, preview_only=True, preview_dir=tmp)
         if observed != [40, 40, 10]:
             failures.append("échelle entre planches ou mort affaissée incorrecte : %s" % observed)
+        # Le budget s'applique à toutes les couleurs visibles, contour compris.
+        yy, xx = np.indices((40, 24))
+        palette_source = np.stack(((xx * 11) % 256, (yy * 7) % 256, ((xx + yy) * 13) % 256,
+                                   np.full_like(xx, 255)), axis=2).astype(np.uint8)
+        Image.fromarray(palette_source, "RGBA").save(os.path.join(tmp, "palette.png"))
+        for outline in (False, True):
+            palette_job = {
+                "visual_id": "monster.palette_test", "cell": [64, 64], "anchor": [32, 54],
+                "target_height": 40, "background": "alpha", "outline": outline, "colors": 32,
+                "animations": [{"name": "move", "source": "palette.png", "frames": 1}],
+            }
+            with open(job_path, "w") as handle:
+                json.dump(palette_job, handle)
+            observed_colors = []
+
+            def capture_colors(title, rows, cell, zoom):
+                for _, frames in rows:
+                    for frame in frames:
+                        observed_colors.extend(frame[frame[:, :, 3] > 0, :3].tolist())
+                return real_preview(title, rows, cell, zoom=zoom)
+
+            with patch.object(import_sheet, "make_preview", side_effect=capture_colors):
+                import_sheet.run(job_path, preview_only=True, preview_dir=tmp)
+            count = len({tuple(c) for c in observed_colors})
+            if count > 32 or count < 2:
+                failures.append("budget de palette (outline=%s) : %d couleurs" % (outline, count))
         print("Aperçu :", preview.size)
     if failures:
         print("ÉCHEC :", "; ".join(failures))

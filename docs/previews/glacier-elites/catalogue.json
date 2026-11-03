@@ -1,0 +1,77 @@
+{
+  "lot": "elites",
+  "sprites": [
+    {
+      "id": "enemy.frost_shaman",
+      "name": "Chaman du gel",
+      "animations": [
+        "move",
+        "attack",
+        "death",
+        "ice_prison",
+        "frost_mist",
+        "snuff"
+      ]
+    },
+    {
+      "id": "enemy.peak_yeti",
+      "name": "Yéti des cimes",
+      "animations": [
+        "move",
+        "attack",
+        "death",
+        "avalanche",
+        "pounce",
+        "rage"
+      ]
+    },
+    {
+      "id": "enemy.rime_archer",
+      "name": "Archère du givre",
+      "animations": [
+        "move",
+        "attack",
+        "death",
+        "chilling_arrow",
+        "hail_volley",
+        "fade"
+      ]
+    },
+    {
+      "id": "enemy.silence_herald",
+      "name": "Héraut du silence",
+      "animations": [
+        "move",
+        "attack",
+        "death",
+        "hush",
+        "spell_echo",
+        "absorb"
+      ]
+    },
+    {
+      "id": "enemy.frost_mammoth",
+      "name": "Mammouth de givre",
+      "animations": [
+        "move",
+        "attack",
+        "death",
+        "charge",
+        "ice_crack",
+        "armor_break"
+      ]
+    },
+    {
+      "id": "enemy.snow_witch",
+      "name": "Sorcière des neiges",
+      "animations": [
+        "move",
+        "attack",
+        "death",
+        "blizzard_call",
+        "snow_clones",
+        "blink"
+      ]
+    }
+  ]
+}

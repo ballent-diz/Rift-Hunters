@@ -1,0 +1,26 @@
+{
+  "sheet_a.png": {
+    "input_sha256": "a3c538367b57a895dffdc136a6de12bc86f2aecc5c11087d32c0dc0f3187c313",
+    "retained_sha256": "4ada946d5bd3f1c672df4ac2b43d2a30ec0104a5d2581b277d25ee39dced6bf2",
+    "original_prompt": "prompt_a.txt",
+    "correction_prompt": "PROMPT_COOL_PALETTE_A.txt",
+    "date": "2026-11-03",
+    "method": "Correction de palette uniquement, poses et mise en page conservées, transparence conservée."
+  },
+  "sheet_b.png": {
+    "input_sha256": "864224ce782184d3f07876d07440942eb94ce79f4d8cfbb8e8d04ebcc9b9fbba",
+    "retained_sha256": "26b84d781b4d85e8995bf551d6108dd0e109ea8be2103581722012d95067ee9c",
+    "original_prompt": "prompt_b.txt",
+    "correction_prompt": "PROMPT_COOL_PALETTE_B.txt",
+    "date": "2026-11-03",
+    "method": "Correction de palette uniquement, poses et mise en page conservées, transparence conservée."
+  },
+  "sheet_c.png": {
+    "input_sha256": "b7e922a4de79ef3036d95f70058729897fff406578f5c10f2c43e6e185b89569",
+    "retained_sha256": "7986e019931e543c4da6319e69d7de6375462654e6aa7c0ed5ff94e8e2b9c20d",
+    "original_prompt": "prompt_c.txt",
+    "correction_prompt": "PROMPT_COOL_PALETTE_C.txt",
+    "date": "2026-11-03",
+    "method": "Correction de palette uniquement, poses et mise en page conservées, transparence conservée."
+  }
+}

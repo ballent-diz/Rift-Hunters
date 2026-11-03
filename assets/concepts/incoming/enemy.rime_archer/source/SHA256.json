@@ -1,0 +1,15 @@
+{
+  "job.json": "d701d09d5f16197dd22dfe1b877138b9bbb0e033fa3312aeaca76432f1535be5",
+  "source/PROMPT_COOL_PALETTE_A.txt": "8e3897cde86071a2923a6af2f956d52382a91542bcae965efc37c2df6ae774b4",
+  "source/PROMPT_COOL_PALETTE_B.txt": "8f6ae5b927131b81edb376122534b16826dc3f29dbf4d4a70b547a28be169e6a",
+  "source/PROMPT_COOL_PALETTE_C.txt": "610802b1ff96ded3b0ba38859467734452c843a5632b858065906391effd63a9",
+  "source/normalization.json": "7e7bb5f35c139c5e8bd1126ba5a23385149c8afc1c75eecc1e909c47dfea899b",
+  "source/palette_correction.json": "4bb560e08552f2c509879a80b738a92f7294028fa8824802aade6913058f3ceb",
+  "source/prompt_a.txt": "c529329d5c8d0d9702ed533b749927fddc9b3fcb35a28b1febcfa30d9340e8eb",
+  "source/prompt_b.txt": "9feeacdabb53e1167ddb7cf97be7c89e03a1887381333d4acd040ec87630b2d9",
+  "source/prompt_c.txt": "21c125859198edd34749d700b7d48decb7608bf2ec327dc77a41de6e8de0a2fc",
+  "source/sheet_a.png": "4ada946d5bd3f1c672df4ac2b43d2a30ec0104a5d2581b277d25ee39dced6bf2",
+  "source/sheet_b.png": "26b84d781b4d85e8995bf551d6108dd0e109ea8be2103581722012d95067ee9c",
+  "source/sheet_c.png": "7986e019931e543c4da6319e69d7de6375462654e6aa7c0ed5ff94e8e2b9c20d",
+  "source/size_delivery.json": "b445e80e4b243ebe3fee1484aed29d226a4f1384dfa79212c98a254b44b19363"
+}
