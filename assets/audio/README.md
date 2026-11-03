@@ -17,7 +17,7 @@ Déposez les fichiers (MP3, OGG ou WAV) dans ces dossiers : ils sont détectés 
 - Noms sans espaces ni accents recommandés. Git LFS conseillé pour les gros volumes (`git lfs track "*.mp3"`).
 - Effets sonores : `sfx/<nom>.mp3`, associés aux événements dans `audio_manifest.json` (section `sfx`).
 
-Choix du 2 novembre 2026 : un morceau fixe et posé pour chaque menu, les plus calmes du lot (tempo le plus lent,
-plus de passages doux) : écran titre `menu/music_box_in_the_machine_title.mp3`, refuge
-`refuge/music_box_in_the_machine.mp3` (deux versions de « Music Box in the Machine », retirées des combats de boss).
-À remplacer par de vrais morceaux d'ambiance quand ils existeront : il suffit de changer le fichier du dossier.
+Choix du 3 novembre 2026 (demande du propriétaire) : un morceau fixe pour chaque menu, les deux au tempo le plus
+lent du lot (144 BPM), pris dans la liste des expéditions : écran titre `menu/neon_circuit.mp3` (« Neon Circuit »),
+refuge `refuge/neon_undercurrent.mp3` (« 霓虹暗流 »). Leurs variantes « (1) » restent dans `run/`. « Music Box in
+the Machine » est retirée du jeu (trop « horreur »). Pour changer : remplacer le fichier du dossier.
