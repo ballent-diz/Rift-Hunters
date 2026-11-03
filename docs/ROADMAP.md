@@ -16,8 +16,9 @@ sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs ide
 
 - **Alliés mortels** (idée du 3 novembre 2026, à concevoir plus tard) : une ou plusieurs parties, ou un mode à part,
   où le Chasseur combat avec un ou plusieurs alliés qui ont des PV ; la partie n'est perdue que si tout le monde
-  tombe. Pistes à trancher le moment venu : alliés pilotés par le jeu (compagnons, Chasseurs rescapés à escorter) ou
-  par d'autres joueurs (coopération locale) ; relève d'un allié tombé ; effet sur les Échos (aujourd'hui invulnérables).
+  tombe. Décidé : les alliés sont pilotés par un bot (même base que le bot d'autoplay) ; les Échos ne changent pas
+  sur ce mode (toujours invulnérables). Reste à trancher le moment venu : forme (parties de campagne ou mode à part),
+  nombre d'alliés, relève d'un allié tombé.
 
 ## À faire : musique (décisions du 2 novembre 2026)
 
