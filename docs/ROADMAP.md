@@ -360,6 +360,10 @@ Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuile
 
 Composition entière validée le 2 novembre, plan figé. Douze régions redessinées par vingt-quatre demi-régions ; master natif sans perte et deux tuiles. Rapport conforme : détails fins 388,169 ; moyens 101,967 ; 35 secteurs sur 35 ; fidélité 0,977. Collisions du propriétaire et contrôle de la taille utile de l’arène, puis raccordement par Claude : `docs/maps/COEUR_DES_MARAIS.md`.
 
-## Glacier silencieux — Élites livrés (Codex, 3 novembre)
+## Glacier silencieux — livraisons graphiques en trois lots (Codex, 3 novembre)
 
-6 visuels et 216 poses, import par recettes et contrôle assets sans erreur. Sources froides, planches et captures au zoom du jeu ; aucun changement de src/, data/ ou de la carte14. Voir `docs/art/GLACIER_ELITES.md`. Autres lots sur leurs branches indépendantes.
+- Normaux : huit visuels, 108 poses ; branche `codex/glacier-normaux`, fiche `docs/art/GLACIER_NORMAUX.md` dans ce lot.
+- Élites : six visuels, 216 poses ; branche `codex/glacier-elites`, fiche `docs/art/GLACIER_ELITES.md` dans ce lot.
+- Nivorath : un visuel, 72 poses ; branche `codex/glacier-nivorath`, fiche `docs/art/GLACIER_NIVORATH.md` dans ce lot.
+
+Recettes 64 px pour les monstres, 320 px pour le Dévoreur, échelle 0,5 ; sources froides, palettes limitées, import et contrôles assets sans erreur, aperçus et captures au zoom du jeu. Chaque branche ne remplace que les entrées de son lot : les autres restent prévues jusqu’à fusion de leurs livraisons. Aucun changement de src/, data/, de mécaniques ou de la carte14. Le propriétaire valide le rendu en partie ; Claude raccorde les animations aux événements.
