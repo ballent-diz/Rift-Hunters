@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Reconstruit les tuiles des Cœur des marais depuis le master natif retenu, sans toucher au runtime.
+"""Reconstruit les tuiles du Cœur des marais depuis le master natif retenu, sans toucher au runtime.
 
 python3 tools/art/finish_marsh_heart.py --work /tmp/rift-coeur-marais
 Dépendances : numpy, Pillow, scipy.
