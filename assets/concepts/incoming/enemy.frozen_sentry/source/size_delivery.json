@@ -1,0 +1,16 @@
+{
+  "requested_reference_height": 40,
+  "retained_reference_height": 40,
+  "common_fit_factor": 1.0,
+  "max_width_before_fit": 45.823,
+  "max_height_before_fit": 40.127,
+  "cell": [
+    64,
+    64
+  ],
+  "anchor": [
+    32,
+    54
+  ],
+  "hover": 0
+}

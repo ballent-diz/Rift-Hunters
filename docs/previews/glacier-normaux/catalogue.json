@@ -1,0 +1,71 @@
+{
+  "lot": "normaux",
+  "sprites": [
+    {
+      "id": "enemy.frost_crawler",
+      "name": "Rampe-givre",
+      "animations": [
+        "move",
+        "attack"
+      ]
+    },
+    {
+      "id": "enemy.blizzard_wolf",
+      "name": "Loup de blizzard",
+      "animations": [
+        "move",
+        "attack",
+        "slide"
+      ]
+    },
+    {
+      "id": "enemy.snow_wraith",
+      "name": "Spectre de neige",
+      "animations": [
+        "move",
+        "attack"
+      ]
+    },
+    {
+      "id": "enemy.ice_golem",
+      "name": "Golem de glace",
+      "animations": [
+        "move",
+        "attack"
+      ]
+    },
+    {
+      "id": "enemy.hush_shard",
+      "name": "Éclat du silence",
+      "animations": [
+        "move",
+        "attack"
+      ]
+    },
+    {
+      "id": "enemy.ice_knight",
+      "name": "Chevalier de glace",
+      "animations": [
+        "move",
+        "attack"
+      ]
+    },
+    {
+      "id": "enemy.frozen_sentry",
+      "name": "Sentinelle gelée",
+      "animations": [
+        "move",
+        "attack"
+      ]
+    },
+    {
+      "id": "enemy.icebreaker",
+      "name": "Brise-banquise",
+      "animations": [
+        "move",
+        "attack",
+        "dive"
+      ]
+    }
+  ]
+}

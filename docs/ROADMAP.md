@@ -357,3 +357,7 @@ Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuile
 ## Carte 15 — Cœur des marais : détail graphique livré (Codex, 3 novembre)
 
 Composition entière validée le 2 novembre, plan figé. Douze régions redessinées par vingt-quatre demi-régions ; master natif sans perte et deux tuiles. Rapport conforme : détails fins 388,169 ; moyens 101,967 ; 35 secteurs sur 35 ; fidélité 0,977. Collisions du propriétaire et contrôle de la taille utile de l’arène, puis raccordement par Claude : `docs/maps/COEUR_DES_MARAIS.md`.
+
+## Glacier silencieux — Normaux livrés (Codex, 3 novembre)
+
+8 visuels et 108 poses, import par recettes et contrôle assets sans erreur. Sources froides, planches et captures au zoom du jeu ; aucun changement de src/, data/ ou de la carte14. Voir `docs/art/GLACIER_NORMAUX.md`. Autres lots sur leurs branches indépendantes.

@@ -14125,15 +14125,16 @@
 			"minimap": "res://assets/environments/tide_temple/minimap.webp"
 		},
 		"enemy.frost_crawler": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frost_crawler/job.json",
+			"sheet": "res://assets/sprites/enemies/frost_crawler/frost_crawler_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				54
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14149,30 +14150,32 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/frost_crawler.png"
 		},
 		"enemy.blizzard_wolf": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.blizzard_wolf/job.json",
+			"sheet": "res://assets/sprites/enemies/blizzard_wolf/blizzard_wolf_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				54
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14185,39 +14188,41 @@
 				"attack": {
 					"row": 1,
 					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
 					"fps": 12,
 					"loop": false
 				},
 				"slide": {
-					"row": 3,
+					"row": 2,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/blizzard_wolf.png"
 		},
 		"enemy.snow_wraith": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.snow_wraith/job.json",
+			"sheet": "res://assets/sprites/enemies/snow_wraith/snow_wraith_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				58
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14233,30 +14238,32 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/snow_wraith.png"
 		},
 		"enemy.ice_golem": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.ice_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/ice_golem/ice_golem_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				54
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14272,19 +14279,20 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/ice_golem.png"
 		},
 		"enemy.frost_shaman": {
 			"status": "planned",
@@ -14458,15 +14466,16 @@
 			}
 		},
 		"enemy.hush_shard": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.hush_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/hush_shard/hush_shard_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				58
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14482,30 +14491,32 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/hush_shard.png"
 		},
 		"enemy.ice_knight": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.ice_knight/job.json",
+			"sheet": "res://assets/sprites/enemies/ice_knight/ice_knight_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				54
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14521,30 +14532,32 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/ice_knight.png"
 		},
 		"enemy.frozen_sentry": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frozen_sentry/job.json",
+			"sheet": "res://assets/sprites/enemies/frozen_sentry/frozen_sentry_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				54
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14560,30 +14573,32 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/frozen_sentry.png"
 		},
 		"enemy.icebreaker": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.icebreaker/job.json",
+			"sheet": "res://assets/sprites/enemies/icebreaker/icebreaker_sheet.png",
 			"cell": [
-				256,
-				256
+				64,
+				64
 			],
 			"anchor": [
-				128,
-				238
+				32,
+				54
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14596,28 +14611,29 @@
 				"attack": {
 					"row": 1,
 					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
 					"fps": 12,
 					"loop": false
 				},
 				"dive": {
-					"row": 3,
+					"row": 2,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/icebreaker.png"
 		},
 		"enemy.silence_herald": {
 			"status": "planned",
