@@ -1,0 +1,53 @@
+{
+  "id": "map.marsh_heart",
+  "status": "wip",
+  "stage": "detail_conforme_pret_pour_collisions",
+  "world_size": [
+    3344,
+    5016
+  ],
+  "owner_approved": true,
+  "plan_locked": true,
+  "regions_generated": true,
+  "runtime_integrated": false,
+  "composition": "composition.png",
+  "source": "source/composition_source.png",
+  "source_sha256": "8925bc415aabf6b12ea747001b98589df8b57d57fa9426d9975244b426b0599f",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_ARENE.txt",
+    "source/PROMPT_DETAIL_FIRST.txt",
+    "source/PROMPT_SAMPLE_CORRECTION.txt",
+    "source/PROMPT_DETAIL_FIN.txt"
+  ],
+  "method": "Composition entière validée, puis douze régions redessinées par vingt-quatre demi-régions ; master natif assemblé sans perte et présentation Lanczos ×3. Aucun changement du plan.",
+  "approval_date": "2026-11-02",
+  "approval_scope": "Composition entière et plan ; contrôle de la taille utile de l’arène sur les collisions encore requis.",
+  "composition_sha256": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
+  "autonomous_continuation_authorized": true,
+  "detail_started": "2026-11-03",
+  "detail_region_count": 12,
+  "detail_part_count": 24,
+  "detail_build_tool": "tools/art/finish_marsh_heart.py",
+  "detail_sample_verified": true,
+  "detail_sample": {
+    "region": "r2_1",
+    "scope": "témoin régional, pas contrôle global de la carte",
+    "fine": 376.389,
+    "medium": 108.533,
+    "smooth": 0.1085,
+    "godot_captures_verified": true
+  },
+  "quality_conforme": true,
+  "detail_completed": "2026-11-03",
+  "region_count": 12,
+  "generated_parts": 24,
+  "region_sources": "source/regions_provenance.json",
+  "detail_source": "source/map_detailed.webp",
+  "detail_recipe": "source/detail_recipe.json",
+  "retained_master_dimensions": [
+    2508,
+    3762
+  ],
+  "quality_report": "docs/previews/marsh-heart/qualite.json"
+}
