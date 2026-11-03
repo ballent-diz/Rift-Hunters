@@ -1,7 +1,25 @@
 {
-  "source_branch": "codex/carte-puits-des-reflets",
-  "base_main": "2da0104dee5483bbd48036bb6768c51ce37bdf66",
-  "runtime_changes_by_map": [],
-  "method": "Projet complet préparé depuis le même main ; seuls le manifeste et les deux outils d’import de la précédente livraison sont restaurés à main. Cache Godot conservé, sources runtime de main inchangées. Les atlas non référencés de la livraison précédente restent hors manifeste.",
-  "new_map": "Composition sous incoming avec .gdignore, pas d’intégration runtime ni de contrôle de détail final à ce stade."
+  "date": "2026-11-03",
+  "godot": "4.3.stable.official.77dcf97d8",
+  "assets": {
+    "total": 442,
+    "valid": 427,
+    "planned_chapter4": 15,
+    "errors": 0
+  },
+  "map14_quality_ok": true,
+  "captures": {
+    "count": 5,
+    "viewport": [
+      1280,
+      720
+    ],
+    "game_zoom": 1.3333,
+    "same_hunter_and_echo": true,
+    "navigation_tested": false
+  },
+  "godot_script_or_loading_errors": 0,
+  "renderer": "OpenGL Compatibility / llvmpipe",
+  "known_platform_warning": "V-Sync non réglable sur affichage virtuel",
+  "runtime_integrated": false
 }

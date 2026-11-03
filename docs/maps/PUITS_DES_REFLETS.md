@@ -1,67 +1,69 @@
-# Puits des reflets — composition de la carte 14
+# Puits des reflets — détail de la carte 14
 
-Composition carrée **1536 × 1536**, monde prévu **5016 × 5016 unités**. Chapitre 3 : temple englouti, pierre cyan pâle, mousse émeraude, racines et eau turquoise. Travail commencé après **13 h Europe/Paris le 28 octobre**, comme demandé.
+**Détail graphique livré le 3 novembre 2026.** Le plan carré validé le 29 octobre est conservé : monde de **5016 × 5016 unités**, composition de 1536 × 1536 pixels. Les seize régions ont reçu un redessin plus fin, par trente-deux demi-régions, puis un assemblage continu. Trois tuiles de **3762 × 11286 pixels** livrent 2,25 pixels par unité.
 
-![Carte entière](../previews/reflection-wells/composition.webp)
+![Carte détaillée entière](../previews/reflection-wells/carte_detaillee.webp)
 
-## Plan proposé
+[Composition figée](../previews/reflection-wells/composition.webp) · [Plan annoté](../previews/reflection-wells/plan_annote.webp) · [Vue entière dans Godot](../previews/reflection-wells/apercu_720p.png)
 
-Une boucle périphérique de dalles entoure la carte. La place centrale a une silhouette en croix et un socle d'autel vide. **Deux ponts seulement**, nord et sud, joignent cette place à la boucle. Les puits ronds est et ouest sont plongés dans l'eau sombre infranchissable ; aucune liaison latérale n'est proposée. Les quatre emplacements de portails restent vides : les objets seront placés par le jeu.
+## Plan conservé
+
+La boucle périphérique reste continue autour de la place centrale en croix et de son socle d’autel vide. **Deux ponts seulement, nord et sud**, relient la place à la boucle. Les puits ronds est et ouest restent dans l’eau infranchissable, sans liaison latérale. Les quatre emplacements de portails restent vides pour les objets du jeu.
 
 | Repère | X,Y % approximatifs |
 |---|---|
 | Départ sur la boucle sud | 50,87 |
-| Emplacements de portails NO / NE | 14,12 / 87,12 |
-| Emplacements de portails SO / SE | 14,86 / 87,86 |
-| Pont nord | rectangle x47,5 ; y18,5 ; largeur4,5 ; hauteur10 |
-| Pont sud | rectangle x47,5 ; y66 ; largeur4,5 ; hauteur17,5 |
-| Socle d'autel vide | 50,48 |
-| Puits ouest / est | 19,49 / 81,49 |
+| Portails NO / NE | 14,12 /87,12 |
+| Portails SO / SE | 14,86 /87,86 |
+| Pont nord | x47,5 ;y18,5 ;largeur4,5 ;hauteur10 |
+| Pont sud | x47,5 ;y66 ;largeur4,5 ;hauteur17,5 |
+| Socle d’autel vide | 50,48 |
+| Puits ouest / est | 19,49 /81,49 |
 
-[Plan annoté](../previews/reflection-wells/plan_annote.webp). Les rectangles de ponts servent de repères graphiques ; ils ne définissent aucune collision ni zone de gameplay.
+Ces repères graphiques ne définissent aucune collision ou zone de gameplay. La part de sol praticable et les largeurs utiles seront mesurées sur la peinture du propriétaire.
 
-## Mesures et limites à cette étape
+## Source retenue et reconstruction
 
-| Critère | Constat |
-|---|---|
-| Format | Grand carré 1:1, monde5016 × 5016 prévu |
-| Boucle continue | Continuité visuelle inspectée, angles ouverts et départ sud relié |
-| Accès au centre | Deux ponts visibles nord/sud ; aucun pont est/ouest |
-| Ponts ≥2,5 % de largeur | Largeurs visuelles estimées ≈4,5 % ; à mesurer sur le futur masque |
-| Boucle ≥4 % de largeur | Sols périphériques élargis ; mesure exacte au détourage |
-| Sol praticable ≥55 % | Objectif de composition, **non certifié sans peinture** ; ne pas déduire une mesure fiable des seules couleurs de l'image |
-| Place centrale | Croix élargie, sol libre autour du socle bas ; aucun cristal/objet sur le socle |
-| Portails | Quatre empreintes de sol laissées vides, pas de portail peint |
-| Bord extérieur | Racines et eau ferment la carte ; les chemins ne sont pas des sorties |
+Le **master natif assemblé** `source/map_detailed.webp` fait 3762 × 3762 pixels, à 0,75 pixel par unité. Il est encodé sans perte et sa relecture RGB a été comparée pixel par pixel au résultat de l’assemblage. Les trente-deux dessins de demi-régions apportent entre 1,08 et 1,20 vrai pixel généré par unité. Leurs empreintes, dimensions, cadrages et références figurent dans `source/regions_provenance.json` ; le prompt retenu est `source/PROMPT_DETAIL_FIN.txt`. Les bandes et régions intermédiaires restent hors Git.
 
-## Retouches et sources
+Le plan et l’échelle des pavés sont figés. Les recouvrements internes des régions font 128 unités ; ceux entre régions suivent le découpage standard de `map_regions.py`. Un chemin de faible différence choisit un seul dessin dans les recouvrements, avec un fondu d’un pixel natif : les joints ne se dédoublent plus. La calibration native conserve le plafond standard de 120 %. Aucun bruit procédural ni shader de détail n’est ajouté.
 
-La première composition avait une terre trop dorée et un cristal sur l'autel. La retouche a refroidi le sol, vidé le socle et rendu les deux puits ronds explicites. La passe d'espace a agrandi la place et les sols. Une réparation des ponts a amélioré leurs longueurs mais entamé la boucle aux approches : l'assemblage technique conserve donc la partie centrale/ponts de cette réparation, et les bandes nord et sud de la passe d'espace. Les recouvrements courts sont fondus ; **aucune peinture procédurale n'est ajoutée**. La carte n'est pas encore approuvée : il ne s'agit pas d'une modification d'un plan validé.
+La présentation agrandit le master par 3 en Lanczos. Les tuiles sont encodées en WebP **qualité 98**, avec perte ; le contrôle final porte sur ces fichiers décodés. La source native reste sans perte. `source/detail_recipe.json` donne la présentation, l’encodage et les empreintes des tuiles.
 
-`source/assembly.json` décrit les bandes et les empreintes des entrées ; les prompts exacts sont joints. Une seule source retenue et sa composition de travail sont versionnées. Les variantes intermédiaires restent hors Git. Références de style : Jardins de cristal et Mangrove ; leurs plans ne sont pas repris.
+Reconstruction depuis la source retenue, avec numpy, Pillow et scipy :
 
-## État et suite
+```bash
+python3 tools/art/finish_reflection_wells.py --work /tmp/rift-puits --quality 98
+```
 
-- [x] Composition carrée entière, socle vide, deux puits, deux ponts et quatre emplacements.
-- [x] Sols élargis, approches visuellement reliées et carte inspectée entière.
-- [x] Sources/prompts/empreintes conservés.
-- [x] Plan validé par le propriétaire le 29 octobre 2026. Peinture des collisions à faire par le propriétaire.
-- [ ] Vérification chiffrée des surfaces et de la navigation.
-- [ ] Seize régions de détail, assemblage à2,25 pixels/unité, rapport qualité conforme et planche d'échelle après validation.
-- [ ] Intégration des portails, autel, ennemis et mécaniques par Claude.
+`package_reflection_wells.py` décrit la fabrication du master depuis les trente-deux bandes de génération conservées localement. `map_seams.py` réalise les raccords ; les outils et seuils de qualité du dépôt restent inchangés.
 
-**Composition seulement : aucun niveau jouable ni carte finale.** Aucune collision, `field`, donnée de gameplay, `src/` ou entrée du manifeste runtime ajoutée. L'agrandissement de travail à1536px n'est pas une passe de détail. Le rapport de qualité final n'est pas revendiqué à cette étape.
+## Contrôles de livraison
 
-## Vérifications jointes
+| Contrôle sur les tuiles livrées | Résultat | Attendu |
+|---|---:|---:|
+| Densité |2,250|2,183 à2,317|
+| Part lisse médiane |0,049|≤0,270|
+| Détails fins |425,248|329,944 à446,395|
+| Détails moyens |109,692|90,940 à123,036|
+| Secteurs conformes |49/49, soit100 %|≥85 %|
+| Fidélité au plan |0,957|≥0,850|
 
-Chargement de la composition et rendu natif de la carte entière dans Godot : réussis, aperçu1280 × 720 joint. Import headless du projet complet et suites `tools/run_tests.sh assets` et `art` : verts. Assets :424 entrées,408 valides,16 placeholders,0 erreur ; ces résultats portent sur le **runtime de main inchangé**, la nouvelle carte restant hors runtime sous `.gdignore`. Le contrôle de qualité exécuté par la suite art concerne les cartes finales existantes : il ne certifie pas cette composition. Aucun seuil ou manifeste n’a été changé pour ce contrôle.
+**Verdict : conforme.** [Rapport chiffré](../previews/reflection-wells/qualite.json) et [journal](../previews/reflection-wells/qualite.log).
 
-## Validation et détail
+La [planche d’échelle](../previews/reflection-wells/echelle.png) provient de `map_regions.py compare` : détail, composition et Ruines au même zoom, avec une réduction commune de 1710 à 1600 pixels pour le dépôt. La [comparaison des sols](../previews/reflection-wells/echelle_sol.webp) conserve exactement 1 pixel par unité. Les quatre vues `centre_zoom_jeu.png`, `pont_nord_zoom_jeu.png`, `boucle_sud_est_zoom_jeu.png` et `reference_ruines_zoom_jeu.png` utilisent le même Chasseur, le même Écho et le zoom réel du jeu.
 
-Plan figé, validé le 29 octobre. Seize régions en cours (Codex). Renforcer le contraste et la variété de la pierre, mousse et joints fins pour réduire l’effet carrelage uniforme ; garder toutes les emprises et les deux ponts.
+Le [diagnostic spectral relatif](../previews/reflection-wells/nettete_relative.webp) signale encore 171 cases sur 961, soit 17,8 %, surtout dans les pavés comparés au feuillage plus riche de la même carte. Il est joint pour la revue visuelle ; les six critères absolus de référence passent, y compris les 49 secteurs. **Cette vue rouge et verte est un diagnostic de netteté, pas une peinture de collisions.** Les captures au zoom réel montrent les pavés et les raccords.
 
-## Contrôle de détail du 1er novembre : réserve
+Import Godot 4.3 et cinq captures 1280 × 720 : réussis, sans erreur de script ou de chargement. Contrôle `assets` : 442 entrées, 427 valides, 15 prévues pour le chapitre 4 du lot de sprites indépendant, zéro erreur. Lint du banc et exécution réelle des recettes réussis. [Contrôle de chargement et limites](../previews/reflection-wells/runtime_controle.json).
 
-Seize régions ont été redessinées, puis six retouchées (r0_2, r1_2, r2_1, r2_2, r3_2, r3_3). Le résultat reste **NON CONFORME** : densité 2,25, part lisse 0,198, détails fins 319,033 (minimum329,944), moyens99,263 (avant95,787), secteurs98% (avant95,9%), fidélité0,990 (avant0,994). Le dernier secteur hors norme est (4800,4800). La retouche améliore la matière moyenne mais pas la médiane des détails fins. Aucun seuil modifié, renforcement natif plafonné120% conservé.
+## Collisions et raccordement
 
-Aperçu détail_a_corriger.webp et rapports avant/après joints. Ces images ne sont pas une livraison finale conforme. Les tuiles candidates restent hors Git : leur poids brut avoisine146Mo, plus12,46Mo déjà livrés ; ne pas dépasser150Mo sans résoudre l’encodage. Ni manifeste runtime ni collisions modifiés. Reprise de la finesse nécessaire avant raccordement ; pas de fausse validation en jeu.
+Le 2 novembre, une image entière légère **1536 × 1536** a été remise au propriétaire pour peindre les collisions en rouge translucide. Son cadrage est celui de la composition validée. Le JPEG exact est conservé localement sous `collision/reference.jpg` ; recette d’encodage et empreinte figurent dans `source/collision_reference.json`. Le retour est attendu en PNG, au même cadrage et sans redimensionnement. Aucun masque n’a été peint automatiquement.
+
+- **Livré** : détail des seize régions, master natif sans perte, trois tuiles, prompt/empreintes/recette, rapport conforme, vues entières et captures au zoom réel.
+- **Non fait** : collisions peintes et navigation, champ `field`, niveau jouable, entrée du manifeste runtime et raccord des mécaniques. Les règles de `data/` et `src/` restent identiques à `main`.
+- **Choix faits sans validation** : redessin par demi-régions, matière plus fine, pavés plus petits dans leurs emprises figées, assemblage sans double texture et encodage des tuiles en qualité 98.
+- **Raccords Claude** : réutiliser les trois tuiles de `assets/environments/reflection_wells/` pour le monde 5016 × 5016 ; attendre la peinture du propriétaire, construire le champ, vérifier les passages et placer les mécaniques. Les portails et l’objet d’autel restent des sprites séparés.
+
+**Détail graphique livré ; aucun essai de circulation ou de combat n’est revendiqué.** Poids total des fichiers ajoutés ou modifiés par la PR : **123.21Mo**, source et aperçus compris.

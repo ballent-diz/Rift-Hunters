@@ -348,8 +348,8 @@ Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs
 
 Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
 
-## Carte 14 — Puits des reflets : composition livrée pour validation (Codex)
+## Carte 14 — Puits des reflets : détail graphique livré (Codex)
 
 Composition carrée commencée après 13 h Europe/Paris le 28 octobre, plan fourni : boucle extérieure, place centrale en croix, deux ponts nord/sud seulement, puits est/ouest et quatre emplacements de portail vides. Aucune collision ni mécanique.
 
-Carte14 Puits des reflets — Codex, 1er novembre : composition validée,16 régions détaillées et6 retouches ; contrôle NON CONFORME sur la finesse (319,033/min329,944). Rapports avant/après PR84 ; détail final à reprendre, pas de raccordement runtime.
+Carte14 Puits des reflets — Codex, 3 novembre : détail livré depuis32 demi-régions, master natif et3 tuiles ; rapport conforme (fins425,248, moyens109,692, secteurs100%, fidélité0,957), captures Godot au zoom du jeu. Plan validé inchangé. Peinture des collisions par le propriétaire puis raccordement par Claude : `docs/maps/PUITS_DES_REFLETS.md`.
