@@ -348,6 +348,12 @@ Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs
 
 Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
 
+## Carte 14 — Puits des reflets : détail graphique livré (Codex)
+
+Plan carré validé le 29 octobre : boucle extérieure, place centrale en croix, deux ponts nord/sud seulement, puits est/ouest et quatre emplacements de portail vides.
+
+Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuiles et captures Godot au zoom du jeu. Rapport conforme : détails fins 425,248 ; moyens 109,692 ; secteurs 100 % ; fidélité 0,957. La peinture des collisions revient au propriétaire, puis le raccordement à Claude : `docs/maps/PUITS_DES_REFLETS.md`.
+
 Carte15 Cœur des marais — composition entière validée par le propriétaire, plan figé (2 novembre). Plan vertical 2:3, synthèse vase/marée/cristaux, sans intégration gameplay.
 
 

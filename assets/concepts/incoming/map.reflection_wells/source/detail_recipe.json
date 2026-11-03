@@ -1,0 +1,30 @@
+{
+  "world": [
+    5016,
+    5016
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "presentation": "Lanczos ×3 après redessin des régions ; aucune texture procédurale",
+  "tile_encoding": {
+    "format": "WebP",
+    "quality": 98,
+    "method": 6,
+    "lossless": false
+  },
+  "tile_bytes": [
+    20956140,
+    20959030,
+    20807032
+  ],
+  "relative_sharpness_diagnostic": {
+    "blurry_cells": 171,
+    "valid_cells": 961,
+    "blurry_share": 0.17793964620187305
+  },
+  "tiles_sha256": {
+    "map.webp": "d6e4db4de92df6a48ddbd939b125984e5339655a511bb5be87fcdc215bc88c6b",
+    "map_1.webp": "2bc38fe72e60a7ce5c29a75e06f63ec315faea1c6395289f16ac90e0783623cd",
+    "map_2.webp": "02c6821045f265476b1513d6505f4295298bdbb5d97f78c3925b25a9427be256"
+  }
+}

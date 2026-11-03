@@ -1,0 +1,50 @@
+{
+  "id": "map.reflection_wells",
+  "status": "wip",
+  "stage": "detail_conforme_pret_pour_collisions",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition": "composition.png",
+  "owner_approved": true,
+  "autonomous_continuation_authorized": true,
+  "plan_locked": true,
+  "regions_generated": true,
+  "runtime_integrated": false,
+  "not_before": "2026-10-28T13:00:00+01:00",
+  "source": "source/composition_source.png",
+  "composition_dimensions": [
+    1536,
+    1536
+  ],
+  "source_dimensions": [
+    1254,
+    1254
+  ],
+  "assembly": "source/assembly.json",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_RETOUCHE.txt",
+    "source/PROMPT_ESPACES.txt",
+    "source/PROMPT_PONTS.txt",
+    "source/PROMPT_DETAIL_FIN.txt"
+  ],
+  "changes": "Dais vide, deux puits ronds, palette froide, sols élargis et accès nord/sud réparés. Boucle conservée par assemblage des retouches générées.",
+  "approval_date": "2026-10-29",
+  "detail_guidance": "Varier la matière des dalles gris-cyan, renforcer discrètement les joints et la mousse sans changer le plan.",
+  "quality_conforme": true,
+  "region_count": 16,
+  "region_sources": "source/regions_provenance.json",
+  "detail_recipe": "source/detail_recipe.json",
+  "build_tool": "tools/art/finish_reflection_wells.py",
+  "composition_sha256": "a553780aafc86388c133a41e7cfcc1923b8885a4f225cac22bb94db842f3a8e8",
+  "generated_parts": 32,
+  "detail_source": "source/map_detailed.webp",
+  "retained_master_dimensions": [
+    3762,
+    3762
+  ],
+  "quality_report": "docs/previews/reflection-wells/qualite.json",
+  "approval_scope": "Composition et plan validés le 29 octobre 2026 ; revue manuelle du détail à faire par le propriétaire."
+}

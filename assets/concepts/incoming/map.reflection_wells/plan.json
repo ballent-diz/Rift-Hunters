@@ -1,0 +1,72 @@
+{
+  "world_size": [
+    5016,
+    5016
+  ],
+  "format": "1:1",
+  "points_percent": {
+    "Départ": [
+      50,
+      87
+    ],
+    "Portail NO": [
+      14,
+      12
+    ],
+    "Portail NE": [
+      87,
+      12
+    ],
+    "Portail SO": [
+      14,
+      86
+    ],
+    "Portail SE": [
+      87,
+      86
+    ],
+    "Pont nord": [
+      50,
+      23
+    ],
+    "Pont sud": [
+      50,
+      75
+    ],
+    "Autel vide": [
+      50,
+      48
+    ],
+    "Puits ouest": [
+      19,
+      49
+    ],
+    "Puits est": [
+      81,
+      49
+    ]
+  },
+  "bridges_approximate_rects_percent_xywh": {
+    "pont_nord": [
+      47.5,
+      18.5,
+      4.5,
+      10.0
+    ],
+    "pont_sud": [
+      47.5,
+      66.0,
+      4.5,
+      17.5
+    ]
+  },
+  "only_center_connections": [
+    "north",
+    "south"
+  ],
+  "walkable_share_target": 0.55,
+  "walkable_share_measured": null,
+  "navigation_verified": false,
+  "owner_collision_mask": null,
+  "note": "Repères visuels approximatifs de composition, pas des coordonnées de gameplay."
+}
