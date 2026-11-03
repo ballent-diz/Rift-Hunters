@@ -1,0 +1,23 @@
+{
+  "lot": "nivorath",
+  "sprites": [
+    {
+      "id": "boss.nivorath",
+      "name": "Nivorath, le Silence du Glacier",
+      "animations": [
+        "idle",
+        "move",
+        "attack",
+        "claw",
+        "ice_spikes",
+        "blizzard_breath",
+        "spell_capture",
+        "spell_release",
+        "death",
+        "transform",
+        "shatter_floor",
+        "frozen_dive"
+      ]
+    }
+  ]
+}

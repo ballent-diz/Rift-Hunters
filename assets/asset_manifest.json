@@ -14791,15 +14791,16 @@
 			}
 		},
 		"boss.nivorath": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.nivorath/job.json",
+			"sheet": "res://assets/sprites/bosses/nivorath/nivorath_sheet.png",
 			"cell": [
-				512,
-				512
+				320,
+				320
 			],
 			"anchor": [
-				256,
-				480
+				160,
+				160
 			],
 			"scale": 0.5,
 			"animations": {
@@ -14815,10 +14816,10 @@
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
+				"attack": {
 					"row": 2,
 					"frames": 6,
-					"fps": 10,
+					"fps": 12,
 					"loop": false
 				},
 				"claw": {
@@ -14851,31 +14852,32 @@
 					"fps": 12,
 					"loop": false
 				},
-				"transform": {
+				"death": {
 					"row": 8,
 					"frames": 6,
-					"fps": 12,
+					"fps": 10,
 					"loop": false
 				},
-				"shatter_floor": {
+				"transform": {
 					"row": 9,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
-				"frozen_dive": {
+				"shatter_floor": {
 					"row": 10,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
-				"attack": {
-					"row": 3,
+				"frozen_dive": {
+					"row": 11,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/bosses/nivorath.png"
 		}
 	}
 }
