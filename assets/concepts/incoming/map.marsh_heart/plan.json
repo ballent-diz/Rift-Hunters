@@ -1,0 +1,81 @@
+{
+  "world_size": [
+    3344,
+    5016
+  ],
+  "points_percent": {
+    "Départ": [
+      50,
+      96
+    ],
+    "Clairière et vase": [
+      50,
+      79
+    ],
+    "Temple central": [
+      50,
+      55
+    ],
+    "Arène libre": [
+      50,
+      23
+    ],
+    "Détour sec ouest": [
+      11,
+      56
+    ],
+    "Détour sec est": [
+      89,
+      56
+    ]
+  },
+  "rectangles_percent": {
+    "chaussee_basse_ouest": [
+      18,
+      47,
+      20,
+      3
+    ],
+    "chaussee_basse_est": [
+      62,
+      47,
+      20,
+      3
+    ],
+    "pont_sec_ouest": [
+      18,
+      59,
+      20,
+      3
+    ],
+    "pont_sec_est": [
+      62,
+      59,
+      20,
+      3
+    ],
+    "arene_emprise_estimee": [
+      12,
+      6,
+      76,
+      33
+    ]
+  },
+  "mud_centres_percent": [
+    [
+      28,
+      74
+    ],
+    [
+      47,
+      83
+    ],
+    [
+      68,
+      82
+    ]
+  ],
+  "dry_route": "Sol central vertical et deux berges latérales reliés aux ponts secs ; fermer uniquement les deux chaussées hautes pour la marée.",
+  "navigation_certified": false,
+  "walkable_share_measured": null
+}
