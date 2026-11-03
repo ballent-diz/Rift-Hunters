@@ -6,7 +6,7 @@
 
 [Composition seule](../previews/marsh-heart/composition.webp) · [Plan annoté](../previews/marsh-heart/plan_annote.webp)
 
-Chapitre3, monde prévu **3344 × 5016 unités**, portrait2:3. Composition seulement, **pas de régions ni de niveau jouable**. Image retenue : incoming/map.marsh_heart/composition.png ; carte entière et plan annoté dans docs/previews/marsh-heart/.
+Chapitre3, monde prévu **3344 × 5016 unités**, portrait2:3. Détail en cours depuis le 3 novembre sur le plan validé ; **aucun niveau jouable livré à ce stade**. Image retenue : incoming/map.marsh_heart/composition.png ; carte entière et plan annoté dans docs/previews/marsh-heart/.
 
 ## Parcours et mécaniques à raccorder par Claude
 
@@ -36,11 +36,11 @@ L’arène supérieure a été approfondie lors de la retouche. Emprise visuelle
 - [x] Inspection visuelle de la continuité des accès.
 - [x] Composition validée par le propriétaire le 2 novembre 2026, après présentation de la carte entière.
 - [ ] Collisions peintes ensuite par le propriétaire ; taille utile de l’arène à vérifier.
-- [ ] Passe de régions uniquement après validation.
+- [ ] Passe de détail en cours : douze régions, travaillées en vingt-quatre demi-régions.
 - [ ] Raccordement vagues, vase, marée, miroirs et gardien par Claude.
 
 Aucun src/,data/,collision ni manifeste runtime modifié. Les références Puits/Ruines servent aux matières, pas au plan. Une première composition trop peu profonde et une retouche échouée pour connexion ont précédé la sortie retenue ; essais exclus de Git. La version de travail n’est pas un détail final conforme.
 
 ## Validation du 2 novembre 2026
 
-Réponse du propriétaire : « Je valide la composition. », à la demande précisant le contrôle ultérieur de la taille utile de l’arène sur les collisions. Cette validation fige la composition entière et son plan. Elle ne certifie ni navigation ni rayon de combat de950unités. La demande de ce lot est accomplie ; aucune région de détail de la carte15 n’est produite ici. Les images et coordonnées validées restent identiques à celles de la proposition.
+Réponse du propriétaire : « Je valide la composition. », à la demande précisant le contrôle ultérieur de la taille utile de l’arène sur les collisions. Cette validation fige la composition entière et son plan. Elle ne certifie ni navigation ni rayon de combat de950unités. Le 3 novembre, le propriétaire a demandé de démarrer le détail. Le témoin du temple est vérifié à l’échelle du jeu ; les autres régions sont en cours de redessin. Les images et coordonnées validées restent identiques à celles de la proposition.

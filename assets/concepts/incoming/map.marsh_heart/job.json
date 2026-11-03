@@ -25,5 +25,14 @@
   "detail_started": "2026-11-03",
   "detail_region_count": 12,
   "detail_part_count": 24,
-  "detail_build_tool": "tools/art/finish_marsh_heart.py"
+  "detail_build_tool": "tools/art/finish_marsh_heart.py",
+  "detail_sample_verified": true,
+  "detail_sample": {
+    "region": "r2_1",
+    "scope": "témoin régional, pas contrôle global de la carte",
+    "fine": 376.389,
+    "medium": 108.533,
+    "smooth": 0.1085,
+    "godot_captures_verified": true
+  }
 }

@@ -63,21 +63,33 @@ def main():
                              box[0], 0, overlap_x=max(0, previous_right - box[0]))
             previous_right = box[2]
             directory = generated / p["name"]
-            history.append({"name": p["name"], "crop_in_region_world": crop, "dimensions": list(im.size),
-                            "generated_original_sha256": digest(directory / "output.png"),
-                            "input_sha256": digest(directory / "input.png"),
-                            "reference_sha256": digest(directory / "reference_scale.png")})
+            metadata = json.loads((directory / "generation.json").read_text())
+            corrected = metadata["prompt"].endswith("PROMPT_SAMPLE_CORRECTION.txt")
+            prompts = [prompt_path.name]
+            if corrected:
+                prompts = ["PROMPT_DETAIL_FIRST.txt", "PROMPT_SAMPLE_CORRECTION.txt"]
+                for filename in prompts:
+                    (SOURCE / filename).write_text((generated / filename).read_text())
+            entry = {"name": p["name"], "crop_in_region_world": crop, "dimensions": list(im.size),
+                     "generated_original_sha256": digest(directory / "output.png"),
+                     "layout_input_sha256": digest(directory / "input.png"),
+                     "reference_sha256": digest(directory / "reference_scale.png"), "prompts": prompts}
+            if corrected:
+                entry["correction_input_sha256"] = digest(directory / "first_attempt.png")
+            if metadata.get("material_reference"):
+                entry["material_reference_sha256"] = digest(generated / metadata["material_reference"])
+            history.append(entry)
         assert filled.all()
         retained = Image.fromarray(canvas)
         target = working / "regions" / f"{name}.png"
         retained.save(target)
         regions.append({"name": name, "assembled_region_sha256": digest(target), "dimensions": list(size),
                         "generated_density": density,
-                        "prompt": prompt_path.name, "parts": history})
+                        "prompts": sorted({f for part in history for f in part["prompts"]}), "parts": history})
         print(name, "assemblée hors Git", size, f"{density:.3f} pixels générés/unité", flush=True)
     layout = json.loads((working / "regions.json").read_text())
     canvas = np.zeros((3762, 2508, 3), np.uint8)
-    filled = np.zeros((3762, 3762), bool)
+    filled = np.zeros(canvas.shape[:2], bool)
     for region in layout["regions"]:
         crop = region["crop"]
         box = [round(v * 0.75) for v in crop]
