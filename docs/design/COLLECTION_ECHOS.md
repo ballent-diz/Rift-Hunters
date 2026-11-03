@@ -53,7 +53,7 @@ boutique, d'étoiles ni de capture en partie pour les Échos ; l'équipe (3 au p
 | 12. Temple des marées (`tide_temple`) | Mirelle |
 | 13 (`crystal_gardens`) | Fulgurine |
 | 14 (`reflection_wells`) | Mousseroc |
-| 15 (`chapter3_map5`, finale du chapitre 3) | Gueule-d'ombre — le dernier |
+| 15 (`marsh_heart`, finale du chapitre 3) | Gueule-d'ombre — le dernier |
 
 Identifiants des cartes 13 à 15 à renommer quand elles arrivent. Bot (Cendrelame seul au départ, bonus d'arbre
 « veteran ») : campagne 11 victoires sur 12 sur les cartes 1 à 4.

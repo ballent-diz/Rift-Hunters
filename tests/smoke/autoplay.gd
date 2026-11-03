@@ -139,7 +139,10 @@ func _physics_process(_delta: float) -> void:
 							enemy.is_target()])
 	if _frames > _max_frames:
 		# Mesures en invulnérable (--god --max-minutes) : les dégâts par source servent au classement des Échos.
-		print("Dégâts par source : ", _run.build_result()["stats"]["damage_by_source"])
+		var stats: Dictionary = _run.build_result()["stats"]
+		print("Dégâts par source : ", stats["damage_by_source"])
+		print("Sorts lancés : ", _usage(stats["counters"], "_casts"), " · Techniques des Échos : ",
+			_usage(stats["counters"], "_techniques"))
 		printerr("ÉCHEC : la partie n'est pas terminée après le délai maximal")
 		get_tree().quit(2)
 
@@ -152,7 +155,8 @@ func _on_finished(result: Dictionary) -> void:
 		int(counters.get("elites_killed", 0)), int(counters.get("chests_opened", 0)), result["evolutions"],
 		result["relics"], result["synergies"]])
 	print("Dégâts par source : ", result["stats"]["damage_by_source"])
-	print("Sorts lancés : ", int(_run.ctx.stats.get_value(&"spells_cast")))
+	print("Sorts lancés : ", int(_run.ctx.stats.get_value(&"spells_cast")), " ", _usage(counters, "_casts"))
+	print("Techniques des Échos : ", _usage(counters, "_techniques"))
 	# Mécaniques de boss jouées (orbes renvoyés, miroirs tournés, carapace brisée…).
 	var mechanics: Dictionary = {}
 	for key: String in counters:
@@ -167,3 +171,12 @@ func _on_finished(result: Dictionary) -> void:
 		int(counters.get("damage_taken", 0))])
 	print("Récompenses : ", _run.rewards)
 	get_tree().quit(0)
+
+
+## Utilisation par sort ou par Écho : compteurs « <id><suffixe> » de la partie.
+func _usage(counters: Dictionary, suffix: String) -> Dictionary:
+	var usage: Dictionary = {}
+	for key: String in counters:
+		if key.ends_with(suffix) and key != "spells_cast":
+			usage[key.trim_suffix(suffix)] = int(counters[key])
+	return usage
