@@ -10,6 +10,7 @@ const BOSSES := &"bosses"
 ## Annonce de la mécanique → [titre, famille], dans l'ordre d'affichage du Journal.
 const ENTRIES := {
 	"NIGHT_INTRO": ["JOURNAL_NIGHT", MAPS],
+	"NIGHT_EMBERS_INTRO": ["JOURNAL_NIGHT_EMBERS", MAPS],
 	"FLOOD_INTRO": ["JOURNAL_FLOOD", MAPS],
 	"POD_INTRO": ["JOURNAL_POD", MAPS],
 	"NEST_INTRO": ["JOURNAL_NEST", MAPS],
