@@ -405,6 +405,10 @@ Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuile
 
 Composition entière validée le 2 novembre, plan figé. Douze régions redessinées par vingt-quatre demi-régions ; master natif sans perte et deux tuiles. Rapport conforme : détails fins 388,169 ; moyens 101,967 ; 35 secteurs sur 35 ; fidélité 0,977. Collisions du propriétaire et contrôle de la taille utile de l’arène, puis raccordement par Claude : `docs/maps/COEUR_DES_MARAIS.md`.
 
-## Mannequin d’entraînement — livré pour revue (Codex, 3 novembre)
+## Livraisons visuelles — abris, mannequin et carte16 (Codex, 3 novembre)
 
-`object.training_dummy` : tronc cerclé de fer, cible peinte, idle et hit, cellule256 et échelle0,5. Douze poses importées, pied fixe, secousse de0,333s, assets sans erreur. Livraison graphique sans modification de la salle ni du gameplay.
+- Abris : `object.cover_rock` et `object.cover_rock_ice`, trois variantes statiques chacun, ombres incluses et gabarit contrôlé ; branche `codex/rochers-abris`, fiche `docs/art/ROCHERS_ABRIS.md` dans ce lot.
+- Mannequin : `object.training_dummy`, douze poses idle/hit, pied fixe et secousse courte ; branche `codex/mannequin-entrainement`, fiche `docs/art/MANNEQUIN_ENTRAINEMENT.md` dans ce lot.
+- Carte16 : composition 3:2 du Glacier proposée, trois zones, glace praticable et six blocs-abris, plan en % et référence de peinture ; branche `codex/carte-16-composition`, fiche `docs/maps/ENTREE_DU_GLACIER.md` dans ce lot. Validation du propriétaire attendue avant tout détail graphique.
+
+Contrôles ciblés de chargement et captures livrés. Chaque branche reste indépendante : aucun changement de src/, data/ ou des fichiers des cartes14/15. Collisions, placement, réactions aux dégâts et mécanique de glisse relèvent de l’intégration par Claude ; aucune simulation de combat n’est revendiquée.
