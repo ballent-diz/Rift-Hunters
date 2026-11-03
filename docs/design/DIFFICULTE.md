@@ -66,6 +66,10 @@ sent une marge de progression sur son build comme sur son jeu. À chaque carte, 
   fendante pour les groupes et les cibles fortes ;
 - **victoires** autour de **2 sur 3** (entre 50 et 80 %) : un joueur moyen-bon perd parfois, un débutant devra
   progresser ;
+- **carte spéciale de nuit** (décision du propriétaire, 3 novembre 2026) : chaque chapitre a une carte de nuit (brique
+  B2, ajoutée par-dessus ses mécaniques sans les changer) : chapitre 1 Bois des Lucioles, chapitre 2 Tanières de suie
+  (braises flottantes), chapitre 3 Mangrove des racines, chapitre 4 à choisir. Elle se règle **un cran au-dessus** des
+  autres cartes : environ **1 victoire sur 2** au bot moyen-bon ;
 - **durée** qui augmente doucement d'une carte à l'autre (environ 6 à 9 minutes au chapitre 1, 9 à 12 au chapitre 2) ;
 - **dégâts subis** en hausse progressive.
 

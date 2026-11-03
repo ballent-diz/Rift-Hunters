@@ -92,6 +92,11 @@ temples en cristal-miroir cyan pâle. Aucune lave, aucun orange vif, aucune cend
 | 14. Puits des reflets (`reflection_wells`) | Défense d'autel (variante), format 1:1 | **Miroirs-portails** (B6) : paires de portails ; y entrer ramène au portail jumeau (recharge de quelques secondes, les Corrompus les empruntent aussi). Raccourci pour revenir défendre l'autel, ou piège pour séparer la horde |
 | 15. Cœur des marais (`marsh_heart`) | Vagues par zone + **Glauquemire**, Dévoreur du chapitre 3 (3 phases), format 2:3 vertical | Combinaison du chapitre : vase, marée haute pendant le combat, cristaux-miroirs dans l'arène |
 
+**Carte spéciale de nuit** (décision du propriétaire, 3 novembre 2026) : au moins une carte par chapitre reçoit la nuit
+(brique B2 : voile, clairières éclairées qui révèlent les ennemis) en plus de ses mécaniques : Bois des Lucioles
+(chapitre 1), Tanières de suie (chapitre 2, braises flottantes au lieu des lucioles), Mangrove des racines
+(chapitre 3) ; une carte du chapitre 4 à choisir. Difficulté un cran au-dessus (docs/design/DIFFICULTE.md).
+
 ### Chapitre 4 — piste : le Glacier silencieux
 
 | Carte | Mode | Particularité |
