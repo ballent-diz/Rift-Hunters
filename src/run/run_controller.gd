@@ -244,6 +244,10 @@ func _build_world() -> void:
 		ctx.pods = PodDirector.new()
 		ctx.world.add_child(ctx.pods)
 		ctx.pods.setup(ctx)
+	if PortalDirector.uses_portals(ctx.arena):
+		ctx.portals = PortalDirector.new()
+		ctx.world.add_child(ctx.portals)
+		ctx.portals.setup(ctx)
 	if ctx.arena.night > 0.0:
 		# Juste après les Corrompus : le voile les couvre, pas les Échos, le Chasseur ni les dangers.
 		ctx.night = NightDirector.new()
@@ -357,6 +361,8 @@ func _physics_process(delta: float) -> void:
 	ctx.burn.step(delta)
 	if ctx.pods:
 		ctx.pods.step(delta)
+	if ctx.portals:
+		ctx.portals.step(delta)
 	if ctx.rockfall:
 		ctx.rockfall.step(delta)
 	if ctx.tide:

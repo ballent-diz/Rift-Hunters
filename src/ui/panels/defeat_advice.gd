@@ -11,6 +11,7 @@ const SIGNATURE_INTRO := {
 	&"pyre_ram": "BOSS_RAM_INTRO", &"duel_circle": "BOSS_DUEL_INTRO", &"silk_threads": "BOSS_THREADS_INTRO",
 	&"slag_rain": "BOSS_SHELL_INTRO", &"crater_sequence": "BOSS_CRATER_INTRO", &"bark_guard": "BOSS_GUARD_INTRO",
 	&"maw_dive": "BOSS_DIVE_INTRO", &"spore_veil": "BOSS_SPORE_VEIL_INTRO", &"prism_beam": "BOSS_MIRROR_INTRO",
+	&"portal_hop": "BOSS_PORTAL_INTRO",
 	&"spell_capture": "BOSS_CAPTURE_INTRO",
 }
 ## Dangers de carte et sources sans fiche.

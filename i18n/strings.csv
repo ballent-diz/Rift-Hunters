@@ -2002,3 +2002,17 @@ ENEMY_TRAINING_DUMMY_NAME,Mannequin d'entraînement,Training dummy
 ENEMY_TRAINING_DUMMY_DESC,"Un tronc cerclé de fer, planté au refuge pour roder les gestes. Il encaisse tout, ne rend rien.","An iron-banded log, set up at the Refuge to drill your moves. It takes everything and gives nothing back."
 ARENA_TRAINING_GROUNDS_NAME,Salle d'entraînement,Training room
 ARENA_TRAINING_GROUNDS_DESC,Une cour du refuge où se dressent des mannequins.,A Refuge courtyard lined with training dummies.
+ARENA_REFLECTION_WELLS_NAME,Puits des reflets,Wells of Reflection
+ARENA_REFLECTION_WELLS_DESC,"Une place en croix entre deux puits sans fond, reliée à la boucle extérieure par deux ponts seulement. Défendez l'autel ; les miroirs-portails ramènent en un instant au cœur de la place… et la horde les emprunte aussi.","A cross-shaped plaza between two bottomless wells, linked to the outer loop by only two bridges. Defend the altar; the mirror portals bring you back to the heart of the plaza in an instant… and the horde uses them too."
+PORTAL_INTRO,"Miroirs-portails : entrez dans un portail pour ressortir par son jumeau, de la même couleur. Après votre passage, la paire se recharge quelques secondes. Les Corrompus les empruntent aussi.","Mirror portals: step into a portal to come out of its twin, of the same colour. After you pass, the pair recharges for a few seconds. The Corrupted use them too."
+JOURNAL_PORTAL,Miroirs-portails,Mirror portals
+BOSS_PORTAL_LADY_NAME,Dame des portails,Lady of the Portals
+BOSS_PORTAL_LADY_TITLE,Gardienne des Puits,Warden of the Wells
+BOSS_PORTAL_LADY_PHASE1,Le reflet fuyant,The Fleeting Reflection
+BOSS_PORTAL_LADY_PHASE2,La danse des miroirs,The Mirror Dance
+BOSS_PATTERN_PRISM_SLASH,Taille de prisme,Prism Slash
+BOSS_PATTERN_PORTAL_HOP,Saut de portail,Portal Leap
+BOSS_PORTAL_INTRO,"Saut de portail : elle plonge dans un miroir et ressort par le portail qui s'illumine. Tenez-vous dedans quand elle ressort : piégée, elle sort sonnée et vulnérable. Sinon, son onde de prisme frappe tout autour.","Portal leap: she dives into a mirror and comes out of the portal that lights up. Stand inside it when she emerges: trapped, she comes out stunned and vulnerable. Otherwise, her prism wave strikes all around."
+BOSS_PORTAL_TRAPPED,Piégée !,Trapped!
+JOURNAL_PORTAL_LADY,Saut de portail,Portal leap
+BESTIARY_BOSS_LORE_PORTAL_LADY,"Elle garde les Puits depuis que le premier miroir s'est fendu. Chaque portail est une porte de sa maison : qui en tient le seuil la tient elle-même.","She has guarded the Wells since the first mirror cracked. Every portal is a door of her house: whoever holds the threshold holds her."

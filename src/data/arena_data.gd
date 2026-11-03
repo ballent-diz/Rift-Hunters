@@ -176,6 +176,16 @@ extends Resource
 ## Le Chasseur trop proche est touché aussi (télégraphe : il a le temps de s'écarter).
 @export var pod_player_damage: float = 12.0
 @export var pod_regrow: float = 25.0
+@export_group("Miroirs-portails (brique B6, carte 14, docs/design/CARTES.md)")
+## Paires de portails, à la suite : portail, jumeau, portail, jumeau… Entrer dans l'un ramène au jumeau.
+@export var portal_pairs: Array[Vector2] = []
+@export var portal_radius: float = 52.0
+## Recharge d'une paire après le passage du Chasseur.
+@export var portal_cooldown: float = 5.0
+## Un Corrompu qui vient de passer ne repasse pas avant ce délai ; un portail laisse passer au plus
+## portal_enemy_rate Corrompus par seconde.
+@export var portal_enemy_cooldown: float = 8.0
+@export var portal_enemy_rate: float = 1.5
 @export_group("Cristaux-miroirs (brique B5, carte 13, docs/design/CARTES.md)")
 ## Emplacements des cristaux-miroirs. Un coup allié les charge ; ils éclatent en trois rayons (le premier dans le sens
 ## du coup, les deux autres à 120°) qui transpercent les Corrompus sur leur ligne et touchent le Chasseur dans l'axe.
