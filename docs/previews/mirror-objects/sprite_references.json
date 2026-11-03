@@ -1,0 +1,14 @@
+{
+  "hunter": {
+    "scale": 0.65,
+    "source": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters\\assets\\sprites\\players\\hunter\\hunter_sheet.png"
+  },
+  "echo": {
+    "scale": 0.65,
+    "source": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters\\assets\\sprites\\monsters\\mossback\\mossback_sheet.png"
+  },
+  "enemy": {
+    "scale": 0.75,
+    "source": "C:\\Users\\petit\\.codex\\.chatgpt-projects\\g-p-6ace1ce7608881919aee541812ac7997\\Rift-Hunters\\assets\\sprites\\enemies\\skitterling\\skitterling_sheet.png"
+  }
+}
