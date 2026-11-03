@@ -323,7 +323,10 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             strip.paste(fr.convert("RGB"), (x, 0), fr)
             x += fr.width
         # FASTOCTREE conserve les petits accents saturés (braises, yeux) que la coupe médiane efface.
-        palette_img = strip.quantize(colors=colors + 1, method=Image.Quantize.FASTOCTREE)
+        # Le contour ajoute sa propre couleur après quantification : réserver sa place
+        # dans le budget, au lieu de dépasser celui-ci de deux couleurs.
+        palette_size = max(1, colors - int(job.get("outline", True)))
+        palette_img = strip.quantize(colors=palette_size, method=Image.Quantize.FASTOCTREE)
     rows_out = []
     sheet_cols = max(len(frs) for _, frs in scaled)
     # Une pose transparente peut masquer le sprite pendant un effet commun de disparition.

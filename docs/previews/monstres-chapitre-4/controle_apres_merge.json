@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-03",
+  "original_art_commit": "337f3b1cf5ceef0a4890b7096ecaac51a038f9bb",
+  "main_merged": "41c68502d4c063edf0d8a77b90f2cc39db46df55",
+  "godot": "4.3.stable.official.77dcf97d8",
+  "commands": {
+    "godot --headless --import --path .": 0,
+    "tools/run_tests.sh assets": 0
+  },
+  "assets": {
+    "total": 447,
+    "valid": 445,
+    "placeholders": 2,
+    "errors": 0
+  },
+  "chapter4": {
+    "final": [
+      "enemy.frost_crawler",
+      "enemy.blizzard_wolf",
+      "enemy.snow_wraith",
+      "enemy.ice_golem",
+      "enemy.frost_shaman",
+      "enemy.peak_yeti",
+      "enemy.rime_archer",
+      "enemy.hush_shard",
+      "enemy.ice_knight",
+      "enemy.frozen_sentry",
+      "enemy.icebreaker",
+      "enemy.silence_herald",
+      "enemy.frost_mammoth",
+      "enemy.snow_witch",
+      "boss.nivorath",
+      "object.brazier"
+    ],
+    "planned": []
+  },
+  "planned_outside_chapter4": [
+    "object.training_dummy",
+    "object.crystal_mirror"
+  ],
+  "original_art_and_jobs_unchanged": true,
+  "retained_files_verified": 142,
+  "all_main_entries_preserved": true,
+  "other_main_entries_unchanged": true,
+  "no_gameplay_changes": true,
+  "no_new_sprites_generated": true
+}

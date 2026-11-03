@@ -1,5 +1,17 @@
 # Rift Hunters — feuille de route
 
+## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
+
+- Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses. Sources originales conservées ; toutes les entrées de main préservées lors du merge du 3 novembre. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.
+- Lot 2 : 31 formes évoluées des Échos, animations des formes de base conservées.
+- Lot 3 : effets autonomes des mécaniques des gardiens, du glacier et des cartes.
+- Lot 4 : effets de Nébulorax, Astravorn, Pyrevorn et des techniques du chapitre 2.
+
+Une branche et une PR par lot, sans changement de `src/` ni des règles de `data/`.
+La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit pas être fusionnée.
+Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
+sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
+
 ## À faire : musique (décisions du 2 novembre 2026)
 
 - [x] **Menus** : un morceau fixe et calme, en boucle. Écran titre : `music/menu/music_box_in_the_machine_title.mp3` ;

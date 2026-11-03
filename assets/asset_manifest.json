@@ -14125,8 +14125,9 @@
 			"minimap": "res://assets/environments/tide_temple/minimap.webp"
 		},
 		"enemy.frost_crawler": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frost_crawler/job.json",
+			"sheet": "res://assets/sprites/enemies/frost_crawler/frost_crawler_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14149,23 +14150,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/frost_crawler.png"
 		},
 		"enemy.blizzard_wolf": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.blizzard_wolf/job.json",
+			"sheet": "res://assets/sprites/enemies/blizzard_wolf/blizzard_wolf_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14185,32 +14188,34 @@
 				"attack": {
 					"row": 1,
 					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
 					"fps": 12,
 					"loop": false
 				},
 				"slide": {
-					"row": 3,
+					"row": 2,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/blizzard_wolf.png"
 		},
 		"enemy.snow_wraith": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.snow_wraith/job.json",
+			"sheet": "res://assets/sprites/enemies/snow_wraith/snow_wraith_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14233,23 +14238,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/snow_wraith.png"
 		},
 		"enemy.ice_golem": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.ice_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/ice_golem/ice_golem_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14272,23 +14279,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/ice_golem.png"
 		},
 		"enemy.frost_shaman": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frost_shaman/job.json",
+			"sheet": "res://assets/sprites/enemies/frost_shaman/frost_shaman_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14311,15 +14320,9 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
-					"frames": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
@@ -14340,12 +14343,20 @@
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/frost_shaman.png"
 		},
 		"enemy.peak_yeti": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.peak_yeti/job.json",
+			"sheet": "res://assets/sprites/enemies/peak_yeti/peak_yeti_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14368,15 +14379,9 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
-					"frames": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
@@ -14397,12 +14402,20 @@
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/peak_yeti.png"
 		},
 		"enemy.rime_archer": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rime_archer/job.json",
+			"sheet": "res://assets/sprites/enemies/rime_archer/rime_archer_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14425,15 +14438,9 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
-					"frames": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
@@ -14454,12 +14461,20 @@
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/rime_archer.png"
 		},
 		"enemy.hush_shard": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.hush_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/hush_shard/hush_shard_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14482,23 +14497,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/hush_shard.png"
 		},
 		"enemy.ice_knight": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.ice_knight/job.json",
+			"sheet": "res://assets/sprites/enemies/ice_knight/ice_knight_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14521,23 +14538,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/ice_knight.png"
 		},
 		"enemy.frozen_sentry": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frozen_sentry/job.json",
+			"sheet": "res://assets/sprites/enemies/frozen_sentry/frozen_sentry_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14560,23 +14579,25 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
 					"frames": 1,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/frozen_sentry.png"
 		},
 		"enemy.icebreaker": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.icebreaker/job.json",
+			"sheet": "res://assets/sprites/enemies/icebreaker/icebreaker_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14596,32 +14617,34 @@
 				"attack": {
 					"row": 1,
 					"frames": 6,
-					"fps": 12,
-					"loop": false
-				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
-				"death": {
-					"row": 2,
-					"frames": 1,
 					"fps": 12,
 					"loop": false
 				},
 				"dive": {
-					"row": 3,
+					"row": 2,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/icebreaker.png"
 		},
 		"enemy.silence_herald": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.silence_herald/job.json",
+			"sheet": "res://assets/sprites/enemies/silence_herald/silence_herald_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14644,15 +14667,9 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
-					"frames": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
@@ -14673,12 +14690,20 @@
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/silence_herald.png"
 		},
 		"enemy.frost_mammoth": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.frost_mammoth/job.json",
+			"sheet": "res://assets/sprites/enemies/frost_mammoth/frost_mammoth_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14701,15 +14726,9 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
-					"frames": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
@@ -14730,12 +14749,20 @@
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/frost_mammoth.png"
 		},
 		"enemy.snow_witch": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.snow_witch/job.json",
+			"sheet": "res://assets/sprites/enemies/snow_witch/snow_witch_sheet.png",
 			"cell": [
 				256,
 				256
@@ -14758,15 +14785,9 @@
 					"fps": 12,
 					"loop": false
 				},
-				"idle": {
-					"row": 0,
-					"frames": 6,
-					"fps": 10,
-					"loop": true
-				},
 				"death": {
 					"row": 2,
-					"frames": 1,
+					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
@@ -14787,12 +14808,20 @@
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/enemies/snow_witch.png"
 		},
 		"boss.nivorath": {
-			"status": "planned",
-			"note": "Chapitre 4 : sprite à livrer par Codex (prompt du 2 novembre 2026) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.nivorath/job.json",
+			"sheet": "res://assets/sprites/bosses/nivorath/nivorath_sheet.png",
 			"cell": [
 				512,
 				512
@@ -14815,10 +14844,10 @@
 					"fps": 10,
 					"loop": true
 				},
-				"death": {
+				"attack": {
 					"row": 2,
 					"frames": 6,
-					"fps": 10,
+					"fps": 12,
 					"loop": false
 				},
 				"claw": {
@@ -14851,31 +14880,32 @@
 					"fps": 12,
 					"loop": false
 				},
-				"transform": {
+				"death": {
 					"row": 8,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
-				"shatter_floor": {
+				"transform": {
 					"row": 9,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
-				"frozen_dive": {
+				"shatter_floor": {
 					"row": 10,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
 				},
-				"attack": {
-					"row": 3,
+				"frozen_dive": {
+					"row": 11,
 					"frames": 6,
 					"fps": 12,
 					"loop": false
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/bosses/nivorath.png"
 		},
 		"environment.marsh_heart": {
 			"status": "wip",
@@ -15004,6 +15034,41 @@
 					"loop": false
 				}
 			}
+		},
+		"object.brazier": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.brazier/job.json",
+			"sheet": "res://assets/sprites/objects/brazier/brazier_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"lit": {
+					"row": 0,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"dim": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"out": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/brazier.png"
 		}
 	}
 }
