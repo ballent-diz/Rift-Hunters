@@ -1,6 +1,6 @@
 extends TestCase
 ## Carte 15, Cœur des marais (docs/design/CARTES.md) : finale du chapitre 3. Vagues par zone du sud au nord, vase,
-## marée sur les chaussées hautes, cristaux-miroirs et abris sur la terrasse, Glauquemire.
+## marée sur les chaussées hautes, cristaux-miroirs sur la terrasse, Glauquemire.
 
 var run: RunController
 
@@ -48,17 +48,6 @@ func test_map_points_stand_on_open_ground() -> void:
 	for rect: Rect2 in arena.mud_zones:
 		check(not ctx.obstacles.blocks(rect.get_center(), 30.0, false), "vase praticable en %s" % rect.get_center())
 	check(not ctx.obstacles.blocks(arena.finale_center, 200.0, false), "centre de la terrasse dégagé")
-
-
-func test_cover_rocks_block_shots_on_the_terrace() -> void:
-	var ctx: RunContext = _start()
-	for pos: Vector2 in ctx.arena.cover_rocks:
-		var inside: bool = (pos - ctx.arena.finale_center).length() < ctx.arena.finale_radii.x
-		check(inside, "abri dans l'arène de la terrasse : %s" % pos)
-		check(ctx.obstacles.blocks_shot(pos), "l'abri arrête les tirs : %s" % pos)
-		var before: Vector2 = pos + Vector2(-200, 0)
-		var after: Vector2 = pos + Vector2(200, 0)
-		check(not ctx.obstacles.line_clear(before, after), "pas de ligne de vue à travers l'abri")
 
 
 func test_terrace_is_reachable_from_the_start() -> void:
