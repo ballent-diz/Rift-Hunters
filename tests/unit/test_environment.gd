@@ -303,3 +303,23 @@ func test_flow_field_cost_on_map() -> void:
 	check(reached > walkable * 0.9, "presque toutes les cases praticables sont reliées")
 	check(flow.cost_at(ground.player_start()) < FlowField.UNREACHED, "départ joignable")
 	ground.free()
+
+
+## Ennemi coincé hors de portée (derrière les murs d'une arène fermée) : la case de sortie n'est cherchée qu'une
+## fois par case jusqu'au prochain calcul (sinon chaque ennemi la recherchait à chaque image : 10 ms au boss de la
+## carte 2), et la direction donnée reste la même.
+func test_flow_escape_search_is_cached() -> void:
+	var field := ObstacleField.new()
+	for wall: Rect2 in [Rect2(-200, -200, 400, 20), Rect2(-200, 180, 400, 20), Rect2(-200, -200, 20, 400),
+			Rect2(180, -200, 20, 400)]:
+		field.add_wall(wall)
+	var flow := FlowField.new()
+	flow.setup(field, Rect2(-800, -800, 1600, 1600), FlowField.CELL)
+	flow.update(Vector2(600, 600))
+	var inside := Vector2(10, 10)
+	var first: Vector2 = flow.direction(inside, Vector2.RIGHT)
+	check_eq(flow._escape.size(), 1, "recherche mémorisée pour la case")
+	check_eq(flow.direction(inside + Vector2(2, 1), Vector2.RIGHT), first, "même direction depuis la même case")
+	check_eq(flow._escape.size(), 1, "pas de nouvelle recherche")
+	flow.update(Vector2(-600, 600))
+	check(flow._escape.is_empty(), "mémoire vidée quand les distances sont recalculées")

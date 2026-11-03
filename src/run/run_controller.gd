@@ -23,6 +23,8 @@ var rewards: Dictionary = {}
 var skip_profile: bool = false
 ## Temps fort atteint (ou touche « choix ») : les choix de niveau en réserve s'ouvrent l'un après l'autre.
 var release_choices: bool = false
+## Chronométrage des systèmes (outil de mesure, branché par l'autoplay --perf ; null en jeu normal).
+var profiler: StepProfiler = null
 var _pending_chests: int = 0
 var _victory_timer: float = -1.0
 var _defeat_timer: float = -1.0
@@ -130,6 +132,9 @@ func start(setup: RunSetup) -> void:
 	if not setup.autopilot:
 		Profile.profile.set_preference("starter", String(setup.starter_id))
 	Audio.play_context("run")
+	# Musiques du boss chargées en arrière-plan dès le départ (pas de gel à son arrivée ni à la phase 2).
+	Audio.prefetch("boss")
+	Audio.prefetch("boss_phase2")
 	ctx.events.boss_defeated.connect(_on_boss_defeated)
 	ctx.events.chest_collected.connect(func() -> void:
 		if not ctx.balance.feature_enabled(&"chests"):
@@ -350,50 +355,78 @@ func _physics_process(delta: float) -> void:
 		_update_camera(delta)
 		return
 	ctx.time += delta
+	if profiler:
+		profiler.begin(ctx.time)
 	if ctx.finale:
 		ctx.finale.step(delta)
+	_mark(&"d_finale")
 	if ctx.zones:
 		ctx.zones.step(delta)
+	_mark(&"d_zones")
 	if ctx.rifts:
 		ctx.rifts.step(delta)
+	_mark(&"d_rifts")
 	if ctx.altar:
 		ctx.altar.step(delta)
+	_mark(&"d_altar")
 	if ctx.terrain:
 		ctx.terrain.step(delta)
+	_mark(&"d_terrain")
 	if ctx.flood:
 		ctx.flood.step(delta)
+	_mark(&"d_flood")
 	ctx.burn.step(delta)
+	_mark(&"d_burn")
 	if ctx.pods:
 		ctx.pods.step(delta)
+	_mark(&"d_pods")
 	if ctx.portals:
 		ctx.portals.step(delta)
+	_mark(&"d_portals")
 	if ctx.rockfall:
 		ctx.rockfall.step(delta)
+	_mark(&"d_rockfall")
 	if ctx.tide:
 		ctx.tide.step(delta)
+	_mark(&"d_tide")
 	if ctx.cold:
 		ctx.cold.step(delta)
+	_mark(&"d_cold")
 	ctx.frost.step(delta)
+	_mark(&"d_frost")
 	if ctx.nests:
 		ctx.nests.step(delta)
+	_mark(&"d_nests")
 	if ctx.night:
 		ctx.night.step(delta)
+	_mark(&"d_night")
+	_mark(&"directeurs")
 	spawner.step(delta)
 	event_director.step(delta)
+	_mark(&"apparitions")
 	ctx.player.step(delta)
 	ctx.spells.step(delta)
+	_mark(&"chasseur")
 	ctx.allies.step(delta)
+	_mark(&"echos")
 	ctx.enemies.step(delta)
 	if ctx.finale:
 		ctx.finale.enforce_boundary()
+	_mark(&"ennemis")
 	if boss_controller:
 		boss_controller.step(delta)
+	_mark(&"boss")
 	ctx.projectiles.step(delta)
+	_mark(&"projectiles")
 	ctx.pickups.step(delta)
 	ctx.hazards.step(delta)
+	_mark(&"ramassables_dangers")
 	ctx.combat.flush_queue()
+	_mark(&"degats")
 	ctx.fx.step(delta)
+	_mark(&"effets")
 	_update_camera(delta)
+	_mark(&"camera")
 	if _victory_timer >= 0.0:
 		_victory_timer -= delta
 		if _victory_timer < 0.0:
@@ -408,6 +441,11 @@ func _physics_process(delta: float) -> void:
 			_finish(false)
 		return
 	_open_modals()
+
+
+func _mark(section: StringName) -> void:
+	if profiler:
+		profiler.mark(section)
 
 
 func _open_modals() -> void:

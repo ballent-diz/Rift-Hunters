@@ -12,6 +12,22 @@ La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
 
+## Performances (Claude, 3 novembre 2026)
+
+Retour du propriétaire : environ 10 images par seconde contre Astravorn, ralentissements quand l'écran est chargé.
+Mesure : `autoplay … --perf` (coût de chaque système par pas de simulation, à-coups de plus de 30 ms, appels de
+dessin sous `xvfb-run`).
+
+- **Cause principale** : des ennemis sur des cases qui ne mènent pas au Chasseur (derrière les murs de l'arène finale)
+  recherchaient une case de sortie sur jusqu'à 900 cases, à chaque image. Contre Astravorn : environ 10 ms par pas
+  pour 45 ennemis. Recherche mémorisée par case jusqu'au prochain calcul des distances (`FlowField._escape`) :
+  3 à 4 ms pour 90 ennemis. Bot : 3 victoires sur 4 sur la carte 2, comme avant.
+- **Effet boule de neige** : au-delà de 16 ms par pas, Godot enchaînait jusqu'à 8 pas par image. Plafond fixé à 3
+  (`physics/common/max_physics_steps_per_frame`) : en surcharge, le jeu ralentit au lieu de s'écrouler.
+- **Gels ponctuels** : musique du boss, phase 2 et morceau suivant chargés en arrière-plan (`Audio.prefetch`) ;
+  animations des sorts équipés chargées au départ. Gel de 664 ms au passage en phase 2 supprimé.
+- Rendu : 120 à 390 appels de dessin par image, rien d'anormal.
+
 ## Idées en réserve (propriétaire)
 
 - **Alliés mortels** (idée du 3 novembre 2026, à concevoir plus tard) : une ou plusieurs parties, ou un mode à part,

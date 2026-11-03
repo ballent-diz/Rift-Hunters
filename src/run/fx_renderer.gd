@@ -91,6 +91,12 @@ func danger_line(from: Vector2, to: Vector2, width: float, life: float) -> void:
 	_shapes.append({"type": 4, "pos": from, "to": to, "color": Color(1.0, 0.25, 0.6), "size": width, "life": life, "total": life})
 
 
+
+## Nombre d'éléments affichés (nombres de dégâts / formes / particules), pour la mesure des performances.
+func debug_counts() -> String:
+	return "%d/%d/%d" % [_numbers.size(), _shapes.size(), _particles.size()]
+
+
 func step(delta: float) -> void:
 	for list: Array[Dictionary] in [_numbers, _shapes]:
 		var i: int = list.size() - 1

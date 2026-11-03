@@ -30,6 +30,7 @@ func _ready() -> void:
 	var features: Array[String] = []
 	var boss_id: StringName = &""
 	var stage: bool = false
+	var perf: bool = false
 	for arg: String in OS.get_cmdline_user_args():
 		var parts: PackedStringArray = arg.trim_prefix("--").split("=")
 		if parts[0] in TestArena.FEATURES:
@@ -43,6 +44,8 @@ func _ready() -> void:
 				setup.run_seed = int(parts[1])
 			"god":
 				god = true
+			"perf":
+				perf = true
 			"max-minutes":
 				_max_frames = int(float(parts[1]) * 3600.0)
 			"boss-at":
@@ -74,6 +77,9 @@ func _ready() -> void:
 		_run.ctx.arena = _run.ctx.arena.duplicate()
 		_run.ctx.arena.boss_time = boss_at
 	_run.ctx.player.god_mode = god
+	if perf:
+		_run.profiler = StepProfiler.new()
+		_report_every = 60 * 10
 	_run.finished.connect(_on_finished)
 	print("Smoke test : départ ", setup.starter_id, " / ", setup.difficulty_id, " / graine ", setup.run_seed)
 
@@ -123,6 +129,8 @@ func _physics_process(_delta: float) -> void:
 		print("  t=%ds niv=%d ennemis=%d éliminations=%d PV=%d équipe=%s boss=%s" % [int(ctx.time), ctx.player.level,
 			ctx.enemies.count(), int(ctx.stats.get_value(&"kills")), int(ctx.player.hp), ctx.allies.team_ids(),
 			("%d%%" % int(100.0 * ctx.boss.hp / ctx.boss.max_hp)) if ctx.boss else "-"])
+		if _run.profiler:
+			_print_perf(ctx)
 		if ctx.rifts:
 			print("    failles %d/%d · finale %d · position %s" % [ctx.rifts.closed, ctx.rifts.total(),
 				ctx.finale.state if ctx.finale else -1, ctx.player.global_position.round()])
@@ -180,3 +188,17 @@ func _usage(counters: Dictionary, suffix: String) -> Dictionary:
 		if key.ends_with(suffix) and key != "spells_cast":
 			usage[key.trim_suffix(suffix)] = int(counters[key])
 	return usage
+
+
+## Mesure des performances (--perf) : coût de chaque système, temps total par image et charge à l'écran.
+func _print_perf(ctx: RunContext) -> void:
+	print("    perf : ", _run.profiler.report())
+	print("    perf : physique %.2f ms · process %.2f ms · noeuds %d · projectiles %d/%d · ramassables %d · fx %s" % [
+		Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS) * 1000.0,
+		Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0,
+		int(Performance.get_monitor(Performance.OBJECT_NODE_COUNT)), ctx.projectiles.friendly.size(),
+		ctx.projectiles.hostile.size(), ctx.pickups.items.size(), ctx.fx.debug_counts()])
+	print("    perf : rendu %d images/s · %d appels de dessin · %d objets · %d primitives" % [Engine.get_frames_per_second(),
+		int(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)),
+		int(Performance.get_monitor(Performance.RENDER_TOTAL_OBJECTS_IN_FRAME)),
+		int(Performance.get_monitor(Performance.RENDER_TOTAL_PRIMITIVES_IN_FRAME))])
