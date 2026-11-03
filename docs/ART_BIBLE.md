@@ -105,6 +105,21 @@ Règles complètes, mécaniques et montée en puissance : [design/MONSTRES.md](d
 3. Capture en jeu (`tools/screenshot.tscn`) : lisible au milieu de la foule, distinct des Corrompus.
 4. Le code couleur fonctionnel est respecté.
 
+## Objets posés sur les cartes — règle du propriétaire, 3 novembre 2026
+
+Tout objet ajouté par le jeu sur une carte (portails, cristaux, autels, abris, mannequins, nids, bulbes, braseros…)
+doit **se fondre dans la direction artistique de la carte où il apparaît** :
+
+- **sprite peint**, de la même facture que le décor de la carte ; aucun dessin vectoriel en aplats ;
+- **palette prélevée sur la carte**, pas de couleur saturée étrangère au décor ;
+- même finesse de détail, **lumière en haut à gauche**, **ombre portée** au sol ;
+- les repères utiles au jeu (couleur commune aux deux portails d'une paire, état prêt ou en recharge, sortie annoncée)
+  restent **discrets** : lueur ou liseré dans les teintes de la carte, jamais un grand halo ou un anneau criard ;
+- validation sur une **capture au zoom réel**, l'objet posé dans son décor.
+
+Les rendus vectoriels provisoires (miroirs-portails, cristaux-miroirs, mannequin) sont atténués en attendant leurs
+sprites peints ; les rochers-abris dessinés par le jeu ont été retirés : les abris se peignent dans le décor.
+
 ## Cartes : exigences du propriétaire
 
 Pour les décors de niveaux, appliquer aussi [MAP_GUIDELINES.md](MAP_GUIDELINES.md). Les exigences de netteté à l’écran, d’échelle des décors, de routes dégagées et de grandes surfaces de manœuvre priment sur les anciennes recettes de maps.
