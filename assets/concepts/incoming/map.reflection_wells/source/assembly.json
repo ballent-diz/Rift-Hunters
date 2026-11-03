@@ -1,0 +1,23 @@
+{
+  "method": "Assemblage de retouches IA : partie centrale/ponts de la retouche accès ; boucle périphérique nord et sud de la retouche espaces. Aucune peinture nouvelle par code. Composition non validée, aucune collision fournie modifiée.",
+  "size_source": [
+    1254,
+    1254
+  ],
+  "regions": {
+    "central": "exec-80e7a428-6bda-4e90-8151-f09bfff2c62f.png",
+    "north_south_ring": "exec-3ea339b6-4c6f-45ea-863a-70797fb9caa5.png",
+    "north_blend_y_percent": [
+      17.8,
+      19.0
+    ],
+    "south_blend_y_percent": [
+      79.5,
+      80.7
+    ]
+  },
+  "inputs_sha256": {
+    "exec-3ea339b6-4c6f-45ea-863a-70797fb9caa5.png": "ea5dc596f9ee8ace4444015d516f91191c58af1084254364a3bc7abc5fd542d4",
+    "exec-80e7a428-6bda-4e90-8151-f09bfff2c62f.png": "47fafa71d5efcf28fd069e0639451e9c78e002e1c22df3d2d62cafb3a751c9bf"
+  }
+}

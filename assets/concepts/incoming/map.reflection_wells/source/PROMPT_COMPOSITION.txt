@@ -1,0 +1,20 @@
+Top-down video game map for Rift Hunters, a 2D survivor-like. Full-bleed square, maximum resolution, no borders,
+no text, no UI, no characters.
+Theme: a sunken temple of reflection wells in a turquoise marsh lake: pale cyan crystal-mirror architecture,
+emerald moss, mangrove roots, still dark water, low mist. No lava, no orange, no ash.
+Layout: a wide ring causeway of flat mossy paving runs around the whole map, inside the outer border of roots and
+water. In the center, a large CROSS-shaped raised stone plaza (not round, not square) holds an altar dais, with a
+huge open flat area around the dais. The center is joined to the ring by only TWO long straight stone bridges
+(north and south), each at least 2.5% of image width; east and west of the center are deep round reflection wells
+of dark water, impassable. On the ring, at the four corners, four wide flat paved landings (open, empty, about 4%
+of image width across) where the game will place mirror portals; leave them completely bare. The start is a wide
+open landing on the south part of the ring.
+At least 55% of the image is flat, open, unobstructed walkable ground. The ring causeway is at least 4% of image width
+everywhere. Nothing stands in the middle of the ring, the bridges, the landings or the central plaza: crystal
+columns, statues, roots and ruins stay on the outer edges only.
+Clear, sharp boundary between walkable stone and water. The map border is closed by roots and deep water.
+Uniform overhead game camera, same scale everywhere, top-left light, proportions for a small 32-unit-tall character.
+Sharp detailed fantasy game art matching the attached reference. NOT blurry, NOT smooth plastic, NOT coarse pixels,
+NOT photorealistic. One coherent landscape, no visible seams.
+
+COMPOSITION AND ACCESS CLARIFICATION (same requested plan, not a different layout): This is a new SQUARE plan. Images 1 and 2 are STYLE/MATERIAL/CAMERA REFERENCES ONLY, never their layout. Use a very broad rounded-square peripheral ring of empty mossy stone paving, about 12–14% of the full map width thick, comfortably above the 4% minimum, so open walkable floor remains the majority of the image. Closed root-and-water border around it. The central platform has a clean large PLUS/CROSS outline with four short broad arms and deep right-angle notches, approximately 44% of map width across, with broad central bars; it must not turn into a circular or square arena. One low bare altar dais at its center, lots of unobstructed paving around it. EXACTLY TWO bridges reach this central cross: a straight NORTH bridge and a straight SOUTH bridge on the vertical centre axis, about 4% wide, visibly long and fully anchored at both ends. NO EAST BRIDGE and NO WEST BRIDGE, no stepping stones, no side staircase, root or narrow ledge that touches the central platform. Round dark reflection pools sit directly EAST and WEST of the cross, clearly impassable, separated from all central paving by sharp dark-water boundaries. Four bare portal landings belong to the ring at northwest, northeast, southwest, southeast; no portals, columns or statues on these landings, only unobstructed flat stone. The south start landing also stays open. All huge roots, crystal columns and temple ruins remain on the OUTER boundary; never on the ring, bridge decks or the cross plaza. Cyan architecture and emerald moss, silver-blue water; NO orange/yellow terrain and no lava. No drawn map labels, no characters, no interface. Keep the same fine painted fantasy game textures, light upper-left and overhead camera as the references. Prioritize one continuous usable ring and unmistakable north/south-only access.

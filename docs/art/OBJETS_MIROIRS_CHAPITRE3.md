@@ -14,3 +14,14 @@ Les planches de sprites sont des exports du rendu natif Godot, pour aperçu/réu
 ## Contrôles et réserves
 
 Import headless puis chargement/rendu natif Godot4.3 : sorties0, aucune erreur dans les journaux. Quatre états de chaque objet, seek, release/reuse et racines sans enfants vérifiés. Captures1280×720, deux GIF de moins3Mo et planche transparente24poses du cristal. Banc avec90sprites Skitterling fixes, pas de combat ni mesure de FPS. La planche du cristal limite ray_length à70 pour contenir les rayons ; la scène autonome conserve240. Style facetté natif plus graphique que le décor peint : validation artistique en partie reste au propriétaire. Aucun test de gameplay invoqué, ces scènes ne sont pas raccordées.
+
+## Actualisation après fusion de main — 3 novembre 2026
+
+`origin/main` (`aee08a9`) a été fusionné par merge ; les entrées B5/B6 et cartes14/15 du ROADMAP sont conservées. Import headless Godot4.3 et banc relancés : 48 captures720p, 24 poses transparentes, zéro erreur de script ou de chargement. Les six fichiers graphiques et scripts des objets sont identiques à la PR90 avant fusion : états, `set_state`/`play`, `seek_visual`, `release` et signaux `finished` inchangés. Le banc vérifie aussi l’émission unique des signaux et l’absence de signal lors d’un seek.
+
+Banc reproductible depuis le dépôt, après import :
+
+```bash
+mkdir -p /tmp/rift-mirror-check
+godot --path . --resolution 1280x720 --script res://docs/previews/mirror-objects/preview_bench.gd -- /tmp/rift-mirror-check
+```

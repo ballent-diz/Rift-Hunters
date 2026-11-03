@@ -1,0 +1,16 @@
+{
+  "composition.png": "a553780aafc86388c133a41e7cfcc1923b8885a4f225cac22bb94db842f3a8e8",
+  "job.json": "080cd621c69736367cea15a2ddc4699a4ca5dd2f58a65cf0bdc27935ddb5b9c4",
+  "plan.json": "7c0bb7254ed3500d237ad757a19830919f9b6ba72709b1f00ac1a39b6a7833a1",
+  "source/PROMPT_COMPOSITION.txt": "cd4916b10ac830d0d893d749e1810d8ec3abb97404401178c0934773a5e08173",
+  "source/PROMPT_DETAIL_FIN.txt": "3e9e65f1b57075073e87c01e803c81b7978358d4fbd0f0c7af0652edbc6cfc49",
+  "source/PROMPT_ESPACES.txt": "5d8077c81f97ce48b57a6f32430135ac7eaf8c1c4d9ee396078cc0490eb62ba7",
+  "source/PROMPT_PONTS.txt": "b008e4e7a6652a7fd5f36601106a80e168c6f4e128bf6f116e3c518ae83671a5",
+  "source/PROMPT_RETOUCHE.txt": "ada957db58b12c0976bdfae558becebc2a2ed1f46a4ac8da6fbd233468307691",
+  "source/assembly.json": "e9984cebc06918ecc74bfde3db35e26601b41ab4b61da8e37918c9e9f75a2782",
+  "source/collision_reference.json": "d3d081057df7df8ea660500e6f00a1afca246f56ee885ea32d51a90ff5d68f83",
+  "source/composition_source.png": "c3ea038f1416582a3a10ee44c778f84612b93a302a2a9ca08a66f895fb63850e",
+  "source/detail_recipe.json": "e3151ea5c2d8c94f2d9e2108e18aeef06754817547cfc1d7ba18490afdb0985c",
+  "source/map_detailed.webp": "2b4a45be93f3538f9d15731a3880d335e1a6278dc149743b8747e6f6b6cd5a79",
+  "source/regions_provenance.json": "1da5c18c4bffab73f931a8d3c04146260c6447632092853e47f0c7c06b4af8a6"
+}

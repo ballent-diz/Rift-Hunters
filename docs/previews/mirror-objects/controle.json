@@ -24,5 +24,20 @@
     "assets/vfx/objects/mirror_portal/mirror_portal.tscn": "577f63b0bd203ab3c992d283cf99d325c8ec99850cf45606539ec6e3dcd4d2ed"
   },
   "notes": "Banc visuel, pas partie. GIF recadrés ; captures entières1280x720. Planche cristal rayons limités70 pour tenir cellule, scène runtime240 inchangée.",
-  "hash_method": "SHA256 ; textes normalisés LF comme les blobs Git, images octets exacts"
+  "hash_method": "SHA256 ; textes normalisés LF comme les blobs Git, images octets exacts",
+  "recheck_after_main_merge": {
+    "date": "2026-11-03",
+    "main": "aee08a9",
+    "godot": "4.3.stable.official.77dcf97d8",
+    "headless_import_exit": 0,
+    "native_exit": 0,
+    "frames_720p": 48,
+    "transparent_poses": 24,
+    "api_sources_identical_to_pr90": true,
+    "finished_signal_checked": true,
+    "seek_emits_no_signal": true,
+    "release_and_reuse_checked": true,
+    "script_or_load_errors": 0,
+    "bench_resources": "Ressources importées des Ruines et du Skitterling dans le dépôt ; aucune image temporaire à fournir."
+  }
 }

@@ -5,12 +5,17 @@ func run():
     var out = OS.get_cmdline_user_args()[0]
     root.size = Vector2i(1280,720)
     var bg = Sprite2D.new()
-    bg.texture = load("res://ground.png")
+    var ground = load("res://assets/environments/cascade_ruins/map_1.webp").get_image()
+    assert(ground != null and not ground.is_empty())
+    bg.texture = ImageTexture.create_from_image(ground.get_region(Rect2i(1200, 700, 1280, 720)))
     bg.position = Vector2(640,360)
     root.add_child(bg)
+    var sheet = load("res://assets/sprites/enemies/skitterling/skitterling_sheet.png").get_image()
+    assert(sheet != null and not sheet.is_empty())
+    var witness = ImageTexture.create_from_image(sheet.get_region(Rect2i(0, 0, 64, 64)))
     for i in range(90):
         var enemy = Sprite2D.new()
-        enemy.texture = load("res://enemy.png")
+        enemy.texture = witness
         enemy.position = Vector2(24+(i%18)*70,48+(i/18)*125)
         enemy.scale = Vector2.ONE * 0.6
         enemy.modulate.a = 0.65
@@ -74,5 +79,39 @@ func run():
             await process_frame
             await RenderingServer.frame_post_draw
             assert(sv.get_texture().get_image().save_png(out+"/alpha_%d_%d.png" % [state,f])==OK)
+    check_finished(crystal, portal)
     print("OK B5/B6 : chargement, 4 etats, seek, release/reuse, 48 frames, 24 poses alpha, 90 sprites temoins")
     quit(0)
+
+# Vérification des signatures existantes, sans modifier les objets.
+func check_finished(crystal, portal):
+    var count = {"crystal": 0, "portal": 0}
+    crystal.finished.connect(func(): count["crystal"] += 1)
+    portal.finished.connect(func(_state): count["portal"] += 1)
+    for state in ["burst", "debris"]:
+        crystal.play(StringName(state))
+        var before = count["crystal"]
+        crystal.seek_visual(10.0)
+        crystal._process(10.0)
+        assert(count["crystal"] == before)
+        crystal.play(StringName(state))
+        crystal._process(10.0)
+        crystal._process(10.0)
+        assert(count["crystal"] == before + 1)
+    for state in ["cooldown", "enter", "exit"]:
+        portal.play(StringName(state))
+        var before = count["portal"]
+        portal.seek_visual(10.0)
+        portal._process(10.0)
+        assert(count["portal"] == before)
+        portal.play(StringName(state))
+        portal._process(10.0)
+        portal._process(10.0)
+        assert(count["portal"] == before + 1)
+    for obj in [crystal, portal]:
+        obj.release()
+        assert(not obj.visible and not obj.is_processing())
+    crystal.play(&"idle")
+    portal.play(&"active")
+    assert(crystal.visible and portal.visible)
+    print("OK API B5/B6 : signaux finished, émission unique, seek sans signal, release, play/reuse")
