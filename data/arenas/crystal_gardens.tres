@@ -111,6 +111,7 @@ elite_first_time = 90.0
 elite_interval = 60.0
 elite_enemy_ids = Array[StringName]([&"spore_mother", &"bark_warden", &"marsh_maw"])
 environment_id = &"environment.crystal_gardens"
+cover_rocks = Array[Vector2]([Vector2(1794, -90), Vector2(2239, -30), Vector2(1950, 262)])
 ground_color = Color(0.08, 0.13, 0.12, 1.0)
 ground_detail_color = Color(0.12, 0.19, 0.16, 1.0)
 unlocked_by_default = false

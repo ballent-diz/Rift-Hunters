@@ -47,7 +47,8 @@ Code : `ObstacleField.blocks_shot`, `clear_distance`, `line_clear` ; `Projectile
 **Abris posés par le jeu** (demande du propriétaire, 3 novembre 2026) : les cartes peintes récentes laissent leurs
 aires de combat dégagées, sans rocher au milieu. `ArenaData.cover_rocks` (et `cover_radius`) ajoute des rochers
 indestructibles au champ d'obstacles avant la navigation (`CoverRocks`) : ils arrêtent le passage, les tirs et les
-souffles comme le décor. Placés d'abord dans l'arène de Glauquemire (carte 15) ; dessin provisoire en attendant le
+souffles comme le décor. Placés dans les arènes des gardiens des cartes 11 à 15 (3 sur la Mangrove, 2 plus petits dans le bassin étroit du
+Temple des marées, 3 sur la terrasse des Jardins, 4 sur la place des Puits, 5 sur la terrasse de Glauquemire) ; dessin provisoire en attendant le
 sprite `object.cover_rock` demandé à Codex.
 
 ## Garde-fou : la courbe mesurée
