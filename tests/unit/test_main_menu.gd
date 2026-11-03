@@ -26,7 +26,7 @@ func test_art_and_hit_targets_stay_inside_each_resolution() -> void:
 		var canvas: Control = _menu.get_node("MenuCanvas")
 		var bounds := Rect2(canvas.position, canvas.size * canvas.scale)
 		check(Rect2(Vector2.ZERO, resolution).encloses(bounds), "décor visible : %s" % resolution)
-		for button_name: String in ["Play", "Language", "Credits", "Quit"]:
+		for button_name: String in ["Play", "Options", "Credits", "Quit"]:
 			var button: Button = canvas.get_node(button_name)
 			var target := Rect2(canvas.position + button.position * canvas.scale, button.size * canvas.scale)
 			check(bounds.encloses(target), "bouton visible : %s / %s" % [button_name, resolution])
@@ -36,14 +36,24 @@ func test_language_action_rebuilds_translated_controls() -> void:
 	await host.get_tree().process_frame
 	Settings.set_locale("fr")
 	await host.get_tree().process_frame
-	var settings: Button = _menu.get_node("MenuCanvas/Language")
-	check_eq(settings.text, "Langue : Français")
-	settings.pressed.emit()
+	var options: Button = _menu.get_node("MenuCanvas/Options")
+	check_eq(options.text, "Options")
+	options.pressed.emit()
+	await host.get_tree().process_frame
+	var window: Control = _menu.get_node("OptionsWindow")
+	var language: Button = null
+	for button: Node in window.find_children("*", "Button", true, false):
+		if (button as Button).text == "Langue : Français":
+			language = button
+	check(language != null, "la langue se règle dans la fenêtre d'options")
+	language.pressed.emit()
 	await host.get_tree().process_frame
 	check_eq(Settings.locale, "en")
-	check_eq(_menu.get_node("MenuCanvas/Language").text, "Language: English")
-	check_eq(_menu.get_node("MenuCanvas/Play").text, "Enter the Refuge")
+	var play: String = _menu.get_node("MenuCanvas/Play").text
+	check(play == "Enter the Refuge" or play == "Continue", "menu retraduit : %s" % play)
 	check_eq(_menu.get_node("MenuCanvas/Quit").text, "Quit")
+	check(_menu.find_child("CloseOptions", true, false) != null, "fenêtre d'options toujours ouverte")
+	check_eq((_menu.find_child("CloseOptions", true, false) as Button).text, "Close", "fenêtre retraduite")
 
 
 func test_keyboard_cycle_and_credits_action() -> void:
@@ -56,9 +66,16 @@ func test_keyboard_cycle_and_credits_action() -> void:
 	var credits: Button = canvas.get_node("Credits")
 	credits.pressed.emit()
 	await host.get_tree().process_frame
-	var panel: PanelContainer = _menu.get_child(_menu.get_child_count() - 1)
-	check(panel is PanelContainer, "crédits ouverts par le bouton existant")
-	var box: VBoxContainer = panel.get_child(0)
-	var back: Button = box.get_child(box.get_child_count() - 1)
-	back.pressed.emit()
-	check(panel.is_queued_for_deletion(), "retour des crédits")
+	var screen: Variant = _menu.get_child(_menu.get_child_count() - 1)
+	check(screen is CreditsScreen, "générique ouvert par le bouton existant")
+	var credits_screen: CreditsScreen = screen
+	await host.get_tree().process_frame
+	var scroll: ScrollContainer = credits_screen.get_child(0)
+	var before: int = scroll.scroll_vertical
+	for i: int in 30:
+		await host.get_tree().process_frame
+	check(scroll.scroll_vertical > before, "le générique défile tout seul")
+	credits_screen._show_licenses()
+	check(credits_screen._licenses != null, "les licences s'ouvrent à part")
+	credits_screen.back_button.pressed.emit()
+	check(credits_screen.is_queued_for_deletion(), "retour du générique")

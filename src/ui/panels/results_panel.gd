@@ -33,6 +33,8 @@ func show_result(result: Dictionary, rewards: Dictionary) -> void:
 	var summary: String = tr("RESULT_SUMMARY_CAMPAIGN" if milestones else "RESULT_SUMMARY") % [int(time) / 60, int(time) % 60,
 		int(result.get("level", 1)) - (1 if milestones else 0), int(result.get("kills", 0))]
 	_box.add_child(UiKit.label(summary, 20, UiKit.TEXT, HORIZONTAL_ALIGNMENT_CENTER))
+	if not victory and endless_wave == 0:
+		_add_advice(result)
 	var columns := HBoxContainer.new()
 	columns.add_theme_constant_override("separation", 40)
 	columns.alignment = BoxContainer.ALIGNMENT_CENTER
@@ -47,6 +49,29 @@ func show_result(result: Dictionary, rewards: Dictionary) -> void:
 	refuge.grab_focus.call_deferred()
 	buttons.add_child(UiKit.button(tr("RESULT_REPLAY"), func() -> void: replay_requested.emit(), 240))
 	_box.add_child(buttons)
+
+
+## Défaite : ce qui vous a eu et comment le contrer (DefeatAdvice), plus un rappel si des Éclats attendent.
+func _add_advice(result: Dictionary) -> void:
+	var lines: Array[String] = DefeatAdvice.advice(result)
+	var hint: String = DefeatAdvice.build_hint(Profile.profile)
+	if lines.is_empty() and hint == "":
+		return
+	var card := PanelContainer.new()
+	card.name = "DefeatAdvice"
+	card.add_theme_stylebox_override("panel", MenuSkin.frame(Color(0.08, 0.05, 0.1, 0.95), MenuSkin.LANTERN))
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 4)
+	card.add_child(box)
+	box.add_child(UiKit.title(tr("ADVICE_TITLE"), 20, MenuSkin.LANTERN))
+	if not lines.is_empty():
+		box.add_child(UiKit.label(tr("ADVICE_THREAT") % lines[0], 17, MenuSkin.PAPER))
+		var text: Label = UiKit.wrapped(lines[1], 16, UiKit.TEXT)
+		text.custom_minimum_size.x = 720
+		box.add_child(text)
+	if hint != "":
+		box.add_child(UiKit.wrapped(hint, 15, UiKit.ACCENT))
+	_box.add_child(card)
 
 
 func _damage_column(result: Dictionary) -> VBoxContainer:
@@ -79,7 +104,12 @@ func _rewards_column(_result: Dictionary, rewards: Dictionary) -> VBoxContainer:
 
 
 func _source_name(source: String) -> String:
+	return source_name(source)
+
+
+## Nom affichable d'une source de dégâts (Chasseur ou Écho).
+static func source_name(source: String) -> String:
 	if source == "player":
-		return tr("SOURCE_PLAYER")
+		return TranslationServer.translate("SOURCE_PLAYER")
 	var monster: MonsterData = GameDB.monster(StringName(source))
-	return tr(monster.name_key) if monster else source
+	return TranslationServer.translate(monster.name_key) if monster else source

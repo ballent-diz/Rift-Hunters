@@ -146,6 +146,17 @@ Matrone quand sa carapace tient. Tests : `test_boss_signatures`.
 Le bot contourne la garde (il se place dans le dos du Gardien) ; il s'écarte de l'onde annoncée de la plongée. Tests :
 `test_boss_signatures`.
 
+#### Gardienne de la carte 13 (validée et codée le 2 novembre 2026)
+
+`SporeGuardian`, `data/bosses/spore_matriarch.tres` : la Mère-spore en version boss, qui reprend la mécanique de la
+carte (les cristaux-miroirs).
+
+| Carte | Gardien | Mécanique phare | Pour le joueur |
+|---|---|---|---|
+| 13. Jardins de cristal | Mère des spores | **Voile de spores** (`spore_veil`) : levé dès son arrivée, il réduit les coups à × 0,2. Un rayon de cristal-miroir qui la traverse le brûle : sonnée 5 s, dégâts × 2, puis le voile repousse au bout de 14 s. Le premier rayon d'un cristal part dans le sens du coup, aimanté vers elle à 30° près. Floraison : bouffées de spores autour du Chasseur, qui hâtent aussi la repousse du voile | frapper un cristal aligné avec elle, puis profiter de la fenêtre |
+
+Le bot se place derrière un cristal au repos aligné avec elle et le frappe. Tests : `test_crystal_gardens`.
+
 ### À l'intérieur d'un chapitre (5 cartes)
 
 - **Carte 1** : la nouvelle famille avec ses normaux simples et **une** élite ; ses mécaniques sont présentées seules.

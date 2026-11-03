@@ -1,0 +1,43 @@
+{
+  "godot_version": "4.3",
+  "headless_import_exit": 0,
+  "native_exit": 0,
+  "frames_720p": 48,
+  "transparent_poses": 24,
+  "enemy_witness_sprites": 90,
+  "combat_simulated": false,
+  "performance_measured": false,
+  "checks": [
+    "scene_load",
+    "four_states",
+    "seek_visual",
+    "release",
+    "reuse",
+    "one_root_node"
+  ],
+  "source_sha256": {
+    "assets/vfx/objects/mirror_crystal/mirror_crystal.gd": "2246f4c3b375443c1c94f987b3ac08eb0a5faee04a976308d70539b9841e5023",
+    "assets/vfx/objects/mirror_crystal/mirror_crystal.tscn": "8e01e512639cc551e677f91724bff9a235b89ce15fc9f7882d89b7cf3c0f2514",
+    "assets/vfx/objects/mirror_crystal/preview_sheet.json": "158945fbe2a4ba56d7c7fa18b10347758182d6508ca3226cb32f64aae82850b6",
+    "assets/vfx/objects/mirror_crystal/preview_sheet.png": "d3dfcd250aae82c8ed30e60bfa0026f768327e9b943e98892dc11938e55b5037",
+    "assets/vfx/objects/mirror_portal/mirror_portal.gd": "0f7dfe78081d752d222706e90afc7ec9f2054028250d14e9a30dfce87a65b821",
+    "assets/vfx/objects/mirror_portal/mirror_portal.tscn": "577f63b0bd203ab3c992d283cf99d325c8ec99850cf45606539ec6e3dcd4d2ed"
+  },
+  "notes": "Banc visuel, pas partie. GIF recadrés ; captures entières1280x720. Planche cristal rayons limités70 pour tenir cellule, scène runtime240 inchangée.",
+  "hash_method": "SHA256 ; textes normalisés LF comme les blobs Git, images octets exacts",
+  "recheck_after_main_merge": {
+    "date": "2026-11-03",
+    "main": "aee08a9",
+    "godot": "4.3.stable.official.77dcf97d8",
+    "headless_import_exit": 0,
+    "native_exit": 0,
+    "frames_720p": 48,
+    "transparent_poses": 24,
+    "api_sources_identical_to_pr90": true,
+    "finished_signal_checked": true,
+    "seek_emits_no_signal": true,
+    "release_and_reuse_checked": true,
+    "script_or_load_errors": 0,
+    "bench_resources": "Ressources importées des Ruines et du Skitterling dans le dépôt ; aucune image temporaire à fournir."
+  }
+}

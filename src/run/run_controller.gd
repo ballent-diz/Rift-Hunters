@@ -244,6 +244,10 @@ func _build_world() -> void:
 		ctx.pods = PodDirector.new()
 		ctx.world.add_child(ctx.pods)
 		ctx.pods.setup(ctx)
+	if PortalDirector.uses_portals(ctx.arena):
+		ctx.portals = PortalDirector.new()
+		ctx.world.add_child(ctx.portals)
+		ctx.portals.setup(ctx)
 	if ctx.arena.night > 0.0:
 		# Juste après les Corrompus : le voile les couvre, pas les Échos, le Chasseur ni les dangers.
 		ctx.night = NightDirector.new()
@@ -312,8 +316,14 @@ func _build_ui() -> void:
 	root.add_child(pause_panel)
 	pause_panel.setup(ctx)
 	pause_panel.abandon_requested.connect(func() -> void:
+		# Entraînement : retour direct au refuge, sans bilan ni effet sur la progression.
+		if ctx.setup.training:
+			Router.goto_refuge()
+			return
 		ctx.stats.add(&"abandoned")
 		_finish(false))
+	if ctx.setup.training:
+		root.add_child(TrainingMeter.new(ctx))
 	results_panel = ResultsPanel.new()
 	root.add_child(results_panel)
 	results_panel.setup()
@@ -351,6 +361,8 @@ func _physics_process(delta: float) -> void:
 	ctx.burn.step(delta)
 	if ctx.pods:
 		ctx.pods.step(delta)
+	if ctx.portals:
+		ctx.portals.step(delta)
 	if ctx.rockfall:
 		ctx.rockfall.step(delta)
 	if ctx.tide:

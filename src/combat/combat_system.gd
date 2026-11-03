@@ -62,10 +62,12 @@ func deal_damage(enemy: Enemy, info: DamageInfo) -> float:
 	if enemy.is_shielded(ctx.time):
 		ctx.fx.spark(enemy.global_position, Color(0.55, 0.95, 0.6), 10.0)
 		return 0.0
-	# Bulbe de braise : un coup du Chasseur ou d'un Écho l'amorce (aucun dégât, aucune élimination comptée).
+	# Bulbe de braise, cristal-miroir : un coup du Chasseur ou d'un Écho l'amorce (aucun dégât, aucune élimination).
 	if enemy.data != null and enemy.data.pod:
 		if info.is_friendly() and ctx.pods:
-			ctx.pods.prime(enemy)
+			var ally: Ally = ctx.allies.get_ally(info.source_id) \
+				if info.source_kind == DamageInfo.SourceKind.ALLY and ctx.allies else null
+			ctx.pods.prime(enemy, ally.global_position if ally else ctx.player.global_position)
 		return 0.0
 	var amount: float = compute_damage(enemy, info)
 	if amount <= 0.0:

@@ -2,7 +2,7 @@
 
 ## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
 
-- Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses ; six effets sans ennemi retirés. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.
+- Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses. Sources originales conservées ; toutes les entrées de main préservées lors du merge du 3 novembre. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.
 - Lot 2 : 31 formes évoluées des Échos, animations des formes de base conservées.
 - Lot 3 : effets autonomes des mécaniques des gardiens, du glacier et des cartes.
 - Lot 4 : effets de Nébulorax, Astravorn, Pyrevorn et des techniques du chapitre 2.
@@ -11,6 +11,37 @@ Une branche et une PR par lot, sans changement de `src/` ni des règles de `data
 La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit pas être fusionnée.
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
+
+## À faire : musique (décisions du 2 novembre 2026)
+
+- [x] **Menus** : un morceau fixe et calme, en boucle. Écran titre : `music/menu/music_box_in_the_machine_title.mp3` ;
+  refuge et ses menus : `music/refuge/music_box_in_the_machine.mp3` (les deux versions de « Music Box in the
+  Machine », 137 BPM, retirées des combats de boss). À remplacer par de vrais morceaux d'ambiance si le propriétaire
+  en crée : il suffit de changer le fichier du dossier.
+- [ ] **Tri des musiques en jeu** (propriétaire) : réécoute des morceaux actuels, nouveaux morceaux à générer.
+  `run/REDLINE PANIC (1).mp3` est une copie exacte de `REDLINE PANIC.mp3` : à supprimer.
+- [ ] **Une playlist par chapitre** (lecture aléatoire, comme aujourd'hui) : chapitre 1 = lot 1, chapitre 2 = lot 2,
+  etc. Un dossier par chapitre (`music/run/<chapitre>/`) ; un chapitre sans morceau reprend la liste générale.
+  Code : Claude (effort medium), quand le propriétaire envoie les lots.
+- [ ] **Taille des lots** (conseil, à confirmer) : par chapitre, 6 à 8 morceaux d'exploration et de combat (20 à
+  25 minutes sans répétition, une carte entière sans entendre deux fois le même titre) et 2 à 3 morceaux de boss
+  (thème du Dévoreur, gardiens) ; un jingle de défaite commun (aucun aujourd'hui). Environ 35 à 45 morceaux pour
+  4 chapitres.
+
+## Lot du 2 novembre (Claude) : menus et tutoriels (lots 1 à 6, propositions validées)
+
+- **Contrôles** : clavier seul (par défaut) ou clavier + souris (visée au curseur, clic gauche), au choix dans Options.
+- **Lot 1** : annonces sur plusieurs lignes, fiche à la première rencontre d'une mécanique, onglet Journal.
+- **Lot 2** : conseil après défaite (source principale des dégâts subis), astuces de la première carte déclenchées par
+  les actions du joueur.
+- **Lot 3** : refuge en cinq groupes (Expédition, Progression, Collection, Marché, Options) révélés au fil de la
+  progression, bandeau « Prochaine étape » des premières parties, monnaies avec infobulles, chemin du chapitre.
+- **Lot 4** : Boutique illustrée (« il manque N éclats »), Bestiaire en trois rubriques (vignettes, silhouettes,
+  pastilles, barre de maîtrise), Laboratoire en arbre.
+- **Lot 5** : « Continuer » et « Options » au menu principal ; aide-mémoire des touches en pause (F1), clavier et
+  manette.
+- **Lot 6** : salle d'entraînement (bouton sous « Partir en expédition ») : mannequins, dégâts par seconde par source,
+  rien à gagner ni à perdre. Sprite du mannequin à livrer (`object.training_dummy`, forme provisoire).
 
 ## Lot du 2 novembre (Claude) : chapitre 4, le Glacier silencieux (mécaniques)
 
@@ -32,7 +63,9 @@ sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs ide
   (fils tendus), Matrone des scories (carapace fendue par les roches). Équilibrage des cartes 7 à 12 dans
   [DIFFICULTE.md](design/DIFFICULTE.md).
 - **Gardiens des cartes 11 et 12** (31 octobre) : Gardien d'écorce (garde d'écorce) et Gueule des marais (plongée).
-- **Restent à faire** : cartes 13 à 15.
+- **Carte 13, Jardins de cristal** (2 novembre) : collisions peintes par le propriétaire, cristaux-miroirs, gardienne
+  Mère des spores (voile de spores brûlé par les rayons) ; chapitre 3 = cartes 11 à 13.
+- **Restent à faire** : cartes 14 et 15.
 
 ## Journée visuelle du 28 octobre — Monstres du chapitre 3 : Livré (Codex)
 
@@ -359,3 +392,15 @@ Carte 6 : 12 régions assemblées, rapport qualité conforme (94,3 % de secteurs
 ## B3 — Carte 11, Mangrove des racines : visuels livrés pour revue (Codex)
 
 Branche codex/carte-root-mangrove. Parcours en boucle, lagon et île à accès unique, nappes de vase. Carte 10 publiée dans la PR #76 ; carte 12 après cette livraison. Poursuite autonome autorisée par le propriétaire.
+
+Objets B5/B6 des cartes13/14 — Livré (Codex, 2 novembre) : scènes Godot autonomes cristal-miroir et miroirs-portails, sans raccordement gameplay ni manifeste.
+
+## Carte 14 — Puits des reflets : détail graphique livré (Codex)
+
+Plan carré validé le 29 octobre : boucle extérieure, place centrale en croix, deux ponts nord/sud seulement, puits est/ouest et quatre emplacements de portail vides.
+
+Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuiles et captures Godot au zoom du jeu. Rapport conforme : détails fins 425,248 ; moyens 109,692 ; secteurs 100 % ; fidélité 0,957. La peinture des collisions revient au propriétaire, puis le raccordement à Claude : `docs/maps/PUITS_DES_REFLETS.md`.
+
+## Carte 15 — Cœur des marais : détail graphique livré (Codex, 3 novembre)
+
+Composition entière validée le 2 novembre, plan figé. Douze régions redessinées par vingt-quatre demi-régions ; master natif sans perte et deux tuiles. Rapport conforme : détails fins 388,169 ; moyens 101,967 ; 35 secteurs sur 35 ; fidélité 0,977. Collisions du propriétaire et contrôle de la taille utile de l’arène, puis raccordement par Claude : `docs/maps/COEUR_DES_MARAIS.md`.

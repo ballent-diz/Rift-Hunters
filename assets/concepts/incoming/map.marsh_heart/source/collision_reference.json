@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-03",
+  "reference": "reference.jpg",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "world": [
+    3344,
+    5016
+  ],
+  "reference_sha256": "2b36014051ddf93ed076b972e0ad42856a286f878c6fda3bed2747039d44973f",
+  "composition_sha256": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
+  "encoding": {
+    "format": "JPEG",
+    "quality": 90,
+    "optimize": true,
+    "subsampling": 0,
+    "resize": false,
+    "Pillow": "12.3.0"
+  },
+  "painting_return": "PNG, cadrage et dimensions inchangés ; rouge translucide sur les zones bloquées."
+}

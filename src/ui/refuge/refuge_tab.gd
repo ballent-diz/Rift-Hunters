@@ -14,6 +14,16 @@ func needs_attention() -> bool:
 	return false
 
 
+## false : l'onglet n'apparaît pas encore dans la navigation (révélation progressive du refuge).
+func unlocked() -> bool:
+	return true
+
+
+## Au moins une expédition jouée (onglets révélés après le premier retour).
+func played_once() -> bool:
+	return int(profile().data["runs"].get("played", 0)) > 0
+
+
 func setup(p_refuge: Refuge) -> void:
 	refuge = p_refuge
 	add_theme_constant_override("margin_left", 16)

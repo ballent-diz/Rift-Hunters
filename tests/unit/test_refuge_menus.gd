@@ -202,11 +202,13 @@ func test_tabs_switch_from_the_keyboard_and_show_what_needs_attention() -> void:
 	key.keycode = KEY_PAGEDOWN
 	key.pressed = true
 	_screen._unhandled_input(key)
-	check_eq(_screen.tabs.current_tab, 1, "Page suivante : onglet suivant")
+	var order: Array[int] = _screen.visible_order()
+	check_eq(_screen.tabs.current_tab, order[1], "Page suivante : onglet suivant de la navigation")
 	key.keycode = KEY_PAGEUP
 	_screen._unhandled_input(key)
 	_screen._unhandled_input(key)
-	check_eq(_screen.tabs.current_tab, _screen.tabs.get_tab_count() - 1, "Page précédente : boucle sur le dernier")
+	check_eq(_screen.tabs.current_tab, order[-1], "Page précédente : boucle sur le dernier")
+	check_eq(_screen.group_of(order[1]), 1, "après l'Expédition vient le groupe Progression")
 	# 5000 Éclats : des nœuds du Chasseur à apprendre.
 	_screen.refresh_all()
 	check(_screen.tabs.get_tab_title(2).ends_with("●"), "repère sur l'arbre du Chasseur")
@@ -226,19 +228,17 @@ func test_expedition_lists_owned_echoes_first_with_the_map_of_the_others() -> vo
 	await _settle()
 	var tab: RefugeTab = _screen.tabs.get_child(0)
 	var numbers: Array[int] = []
-	var owned_after_locked := false
-	var seen_locked := false
-	for tile: Node in tab.find_children("*", "Button", true, false):
-		var labels: Array[Node] = tile.find_children("*", "Label", true, false)
-		for label: Node in labels:
-			var text: String = (label as Label).text
-			if text.begins_with(tr("EXPEDITION_ECHO_AT_MAP").to_upper().get_slice("%", 0)):
-				seen_locked = true
-				numbers.append(int(text.get_slice(" ", text.get_slice_count(" ") - 1)))
-			elif seen_locked and text == tr("MONSTER_ASHBLADE_NAME"):
-				owned_after_locked = true
+	var hidden: Node = tab.find_child("EchoesToFind", true, false)
+	check(hidden != null, "rangée des Échos à découvrir")
+	for tile: Node in hidden.find_children("*", "Button", true, false):
+		check((tile as Button).tooltip_text.begins_with(tr("EXPEDITION_ECHO_AT_MAP").get_slice("%", 0)) \
+			or (tile as Button).tooltip_text.begins_with(tr("EXPEDITION_ECHO_LATER")), "infobulle : la carte qui le donne")
+		var text: String = (tile.find_children("*", "Label", true, false)[0] as Label).text
+		var where: String = (tile as Button).tooltip_text.get_slice("\n", 0)
+		if where.get_slice(" ", where.get_slice_count(" ") - 1).is_valid_int():
+			numbers.append(int(where.get_slice(" ", where.get_slice_count(" ") - 1)))
+		check(text != tr("MONSTER_ASHBLADE_NAME"), "Échos débloqués hors de la rangée à découvrir")
 	check(not numbers.is_empty(), "Échos à gagner : la carte qui les donne")
-	check(not owned_after_locked, "Échos débloqués avant ceux à gagner")
 	var sorted: Array[int] = numbers.duplicate()
 	sorted.sort()
 	check_eq(numbers, sorted, "Échos à gagner dans l'ordre des cartes")
@@ -249,3 +249,82 @@ func test_objectives_show_progress_bars() -> void:
 	await _settle()
 	var tab: RefugeTab = _screen.tabs.get_child(6)
 	check(not tab.find_children("ObjectiveBar", "ProgressBar", true, false).is_empty(), "barres de progression")
+
+
+func test_refuge_groups_reveal_tabs_as_the_player_progresses() -> void:
+	Profile.profile.data["runs"]["played"] = 0
+	Profile.profile.add_currency("essence", -Profile.profile.essence())
+	(Profile.profile.data["research"] as Array).clear()
+	(Profile.profile.data.get_or_add("journal", []) as Array).clear()
+	_screen.refresh_all()
+	var shop: int = _screen.tab_index("shop_tab")
+	check(not _screen.visible_order().has(shop), "pas encore de Boutique avant la première expédition")
+	check(not _screen.visible_order().has(_screen.tab_index("journal_tab")), "Journal vide : onglet caché")
+	check_eq(str(_screen.next_step()["tab"]), "expedition_tab", "premier pas : partir en expédition")
+	Profile.profile.data["runs"]["played"] = 1
+	Profile.profile.add_currency("essence", 5)
+	_screen.refresh_all()
+	check(_screen.visible_order().has(shop), "Boutique ouverte après un retour")
+	check(_screen.visible_order().has(_screen.tab_index("lab_tab")), "Laboratoire ouvert avec de l'Essence")
+	_screen.select_tab(shop)
+	check_eq(_screen.tabs.current_tab, shop, "un onglet ouvert se sélectionne")
+	var subtabs: Control = _screen.find_child("SubTabs", true, false)
+	check(subtabs.visible, "groupe Marché : rangée des sous-onglets visible")
+	Profile.profile.data["runs"]["played"] = Refuge.GUIDE_RUNS
+	_screen.refresh_all()
+	check(_screen.next_step().is_empty(), "le guide s'efface après les premières parties")
+
+
+func test_shop_bestiary_and_lab_are_visual() -> void:
+	Profile.profile.data["runs"]["played"] = 1
+	Profile.profile.add_currency("shards", -Profile.profile.shards())
+	Profile.profile.add_currency("essence", 2)
+	_screen.refresh_all()
+	_screen.select_tab(_screen.tab_index("shop_tab"))
+	await _settle()
+	var shop: RefugeTab = _screen.tabs.get_child(_screen.tab_index("shop_tab"))
+	check(shop.find_child("ItemArt", true, false) != null, "Boutique : objets illustrés")
+	check(shop.find_child("Missing", true, false) != null, "Boutique : « il manque » quand c'est trop cher")
+	_screen.select_tab(_screen.tab_index("bestiary_tab"))
+	await _settle()
+	var bestiary: RefugeTab = _screen.tabs.get_child(_screen.tab_index("bestiary_tab"))
+	check(bestiary.find_child("Echo_ashblade", true, false) != null, "Bestiaire : vignettes d'Échos")
+	bestiary._show("monster:ashblade")
+	check(bestiary.find_child("StatChips", true, false).get_child_count() >= 3, "Bestiaire : chiffres en pastilles")
+	check(bestiary.find_child("MasteryBar", true, false).get_child_count() == 2, "Bestiaire : barre de maîtrise")
+	(bestiary.find_child("Section_enemies", true, false) as Button).pressed.emit()
+	check(bestiary.find_child("Echo_ashblade", true, false) == null, "rubrique Corrompus : plus de vignettes d'Échos")
+	_screen.select_tab(_screen.tab_index("lab_tab"))
+	await _settle()
+	var lab: RefugeTab = _screen.tabs.get_child(_screen.tab_index("lab_tab"))
+	var branch: Node = lab.find_child("Branch_corrupted_study", true, false)
+	check(branch != null and branch.find_child("Research_elite_dossier", true, false) != null,
+		"Laboratoire : les suites d'une recherche sur sa branche")
+
+
+func test_main_menu_continue_options_and_key_guide() -> void:
+	var menu: Control = load(Router.MAIN_MENU).instantiate()
+	_viewport.add_child(menu)
+	await _settle()
+	var play: Button = menu.find_child("Play", true, false)
+	check_eq(play.text, tr("MENU_PLAY"), "premier lancement : entrer au refuge")
+	Profile.profile.data["runs"]["played"] = 2
+	Profile.save()
+	await _settle()
+	play = menu.find_child("Play", true, false)
+	check_eq(play.text, tr("MENU_CONTINUE"), "joueur de retour : Continuer")
+	(menu.find_child("Options", true, false) as Button).pressed.emit()
+	await _settle()
+	check(menu.find_child("OptionsWindow", true, false) != null, "Options : fenêtre ouverte depuis le menu")
+	check(menu.find_child("ControlScheme", true, false) != null, "Options complètes (mode de contrôle)")
+	Settings.apply()
+	await _settle()
+	check(menu.find_child("OptionsWindow", true, false) != null, "la fenêtre survit à un changement de réglage")
+	menu.close_options()
+	await _settle()
+	check(menu.find_child("OptionsWindow", true, false) == null, "Fermer : retour au menu")
+	menu.free()
+	var guide: GridContainer = KeyGuide.build()
+	check_eq(guide.get_child_count(), (KeyGuide.ROWS.size() + 1) * 3, "aide-mémoire : une ligne par action")
+	check_eq(KeyGuide.pad_label(&"technique_1"), "X", "glyphe manette d'une technique")
+	guide.free()

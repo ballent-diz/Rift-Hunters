@@ -110,7 +110,18 @@ func unlocked_arenas() -> Array[ArenaData]:
 	return list
 
 
-func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSetup:
+## Salle d'entraînement : l'équipe, l'arbre et les sorts actuels contre des mannequins ; rien n'est consommé ni gagné.
+func make_training_setup() -> RunSetup:
+	var setup: RunSetup = make_run_setup(&"", null, true)
+	setup.arena_id = &"training_grounds"
+	setup.difficulty_id = Campaign.NORMAL
+	setup.modifier_ids.clear()
+	setup.show_tutorial = false
+	setup.training = true
+	return setup
+
+
+func make_run_setup(starter_id: StringName, previous: RunSetup = null, training: bool = false) -> RunSetup:
 	var setup := RunSetup.new()
 	var unlocked: Array[StringName] = unlocked_monsters()
 	setup.starter_id = starter_id if starter_id != &"" else (team()[0] if not team().is_empty() else &"")
@@ -144,10 +155,11 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null) -> RunSet
 	setup.show_tutorial = not bool(profile.data["flags"].get("tutorial_done", false))
 	setup.meta_effects = HunterTree.effects_for(profile)
 	# Boutique : consommables emportés (une unité consommée par départ) et objets de survie acquis.
-	var shop: Dictionary = Shop.prepare_run(profile, GameDB.arena(setup.arena_id))
-	setup.meta_effects.append_array(shop["effects"])
-	setup.start_levels = int(shop["start_levels"])
-	setup.shop_items.assign(shop["items"])
+	if not training:
+		var shop: Dictionary = Shop.prepare_run(profile, GameDB.arena(setup.arena_id))
+		setup.meta_effects.append_array(shop["effects"])
+		setup.start_levels = int(shop["start_levels"])
+		setup.shop_items.assign(shop["items"])
 	var loadout: Dictionary = HunterTree.loadout(profile)
 	setup.spell_ids = loadout["spells"]
 	setup.spell_variants = loadout["variants"]

@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-03",
+  "godot": "4.3.stable.official.77dcf97d8",
+  "assets": {
+    "total": 442,
+    "valid": 427,
+    "planned_chapter4": 15,
+    "errors": 0
+  },
+  "map15_quality_ok": true,
+  "captures": {
+    "count": 7,
+    "viewport": [
+      1280,
+      720
+    ],
+    "game_zoom": 1.3333,
+    "same_hunter_and_echo": true,
+    "navigation_tested": false
+  },
+  "godot_script_or_loading_errors": 0,
+  "renderer": "OpenGL Compatibility / llvmpipe",
+  "known_platform_warning": "V-Sync non réglable sur affichage virtuel",
+  "runtime_integrated": false
+}

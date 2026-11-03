@@ -46,27 +46,36 @@ tools/run_tests.sh assets
 tools/run_tests.sh art
 ```
 
-## Correction préalable
+## Préservation de main lors du merge du 3 novembre
 
-La branche `codex/preparation-sprites-chapitre-4` reste sans suite : aucun de ses noms ou règles de planches n’est repris. Les six entrées `vfx.enemy.frost_wolf.bite`, `.frost_landing`, `vfx.enemy.ice_scarab.snap`, `vfx.enemy.ice_worm.bite`, `.burrow` et `vfx.enemy.snow_bat.ice_needle` ont été retirées du manifeste, du catalogue vivant et de leurs fichiers de scène. Aucun renommage opportuniste ne conserve une mécanique absente du bestiaire. Le contrôle des 50 effets restants réussit. Les anciens aperçus restent des documents historiques.
+`origin/main` (`41c6850`, PR91 fusionnée) est intégré par merge, sans rebase ni force-push. Le manifeste reprend toutes les entrées de main, dont les cartes13/14, `object.training_dummy`, `object.crystal_mirror` et les objets miroirs. Seules les entrées des quatorze ennemis du chapitre4, de Nivorath et du brasero reçoivent la livraison originale en statut `final`, avec leurs feuilles et icônes.
+
+Les six scènes d’effets présentes dans main, ainsi que leur catalogue, sont conservées : aucun retrait d’entrée ou de fichier hors du lot de sprites. Les deux côtés du conflit ROADMAP restent présents. Tous les fichiers de `src/`, `data/`, des objets miroirs et de la carte14 restent identiques à main.
 
 ## Contrôles et aperçus
 
-- Import Godot 4.3 propre ; `tools/run_tests.sh assets` : 437 ressources valides, zéro erreur.
-- `tools/run_tests.sh art` : importeur réussi et six cartes finales conformes ; seuils inchangés.
-- `check_marsh_vfx.gd` : 50 scènes conservées, zéro erreur après la correction préalable.
-- Audit des sorties : 16 visuels, 414 poses non vides, aucun bord touché, ancres stables, 32 couleurs opaques au plus et empreintes des sources vérifiées.
-- Lint ciblé du banc Godot réussi. Six séquences sont capturées dans Godot à 1280 × 720 ; tous les GIF font moins de 3 Mo.
+Actualisation du 3 novembre, après merge :
+
+- Godot **4.3** : `godot --headless --import --path .` réussi, sans erreur de script ou de chargement.
+- `tools/run_tests.sh assets` : **447 entrées, 445 valides, 2 placeholders, zéro erreur**.
+- Chapitre4 : **16 livraisons finales**, aucune entrée encore `planned` parmi les quatorze monstres, Nivorath et le brasero.
+- Restent `planned` hors chapitre4 : `object.training_dummy` (salle d’entraînement) et `object.crystal_mirror` (chapitre3), conservés comme dans main.
+- Identité des **142 fichiers d’art, sources et recettes** vérifiée par SHA256 avec la branche originale au commit `337f3b1` : aucun sprite redessiné, aucune réimportation Python ni modification de cellule.
+- Tous les identifiants de main sont conservés ; toutes ses entrées hors des seize livraisons sont identiques. Les six scènes d’effets auparavant retirées par la branche restent celles de main.
+
+[Rapport après merge](../previews/monstres-chapitre-4/controle_apres_merge.json) · [Journal assets](../previews/monstres-chapitre-4/assets-apres-merge.log) · [Import](../previews/monstres-chapitre-4/godot-import-apres-merge.log).
+
+L’audit graphique initial reste joint : 16 visuels, 414 poses, marges et ancres contrôlées, 32 couleurs opaques au plus. Les six séquences Godot et les GIF de moins de 3 Mo restent ceux de la livraison originale ; ils n’ont pas été régénérés pour ce merge.
 
 Les deux familles et les quatre groupes d’animations de Nivorath sont dans [`docs/previews/monstres-chapitre-4/`](../previews/monstres-chapitre-4/). `qualite.json` détaille chaque animation et chaque pose. Le banc montre les vrais fichiers du manifeste à un zoom du monde de 1,8 ; il ne prétend pas être une partie du chapitre 4.
 
 ## Récapitulatif pour revue
 
-- **Livré** : bestiaire fixé, Nivorath, brasero, recettes et sources retenues, correction des effets sans ennemi, aperçus et contrôles.
+- **Livré** : bestiaire fixé, Nivorath, brasero, recettes et sources retenues, préservation des entrées de main, aperçus et contrôles.
 - **Non fait** : raccordement temporel des techniques et du brasero, essais de campagne par le propriétaire. Les fiches du chapitre 4 ont été fusionnées séparément par la PR #89. Aucun code dans `src/` ni règle de `data/` modifié.
 - **Choix faits sans validation** : détails de silhouette dans le bestiaire imposé, retrait de 14 px pour les deux volants, seconde rangée transparente des planches C, facteurs de cadrage documentés. La palette reste glace bleue/blanche et Faille violette, sans lave ni vert de marais.
 - **Raccords Claude** : ses fiches sont conservées telles que fusionnées dans `main` ; piloter les animations existantes et les trois états du brasero. Les cercles d’alerte et zones de gameplay restent au code.
 
 `final` protège les sprites d’un remplacement procédural ; ce statut ne constitue pas une validation artistique du propriétaire.
 
-Poids des fichiers ajoutés ou modifiés : environ **83.54 Mo**, inférieur à 150 Mo (mesure Git jointe au dossier de travail).
+Poids des fichiers ajoutés ou modifiés : environ **83.57 Mo**, inférieur à 150 Mo ([rapport](../previews/monstres-chapitre-4/poids-apres-merge.json)).

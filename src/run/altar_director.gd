@@ -306,6 +306,11 @@ func spawn_position() -> Vector2:
 func objective_direction(pos: Vector2) -> Vector2:
 	if phase == Phase.BOSS or pos.distance_to(position) < ROUTE_DISTANCE:
 		return Vector2.ZERO
+	# Miroirs-portails (carte 14) : un portail dont le jumeau est bien plus près de l'autel est le chemin le plus court.
+	if ctx.portals:
+		var portal: Vector2 = ctx.portals.shortcut(pos, guide)
+		if portal != Vector2.INF:
+			return (portal - pos).normalized()
 	return guide.direction(pos, (position - pos).normalized())
 
 

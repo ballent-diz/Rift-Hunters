@@ -39,9 +39,22 @@ Deux retouches de composition avant validation : le premier pont de racines a é
 - [x] Contrôle ciblé de chargement de l’image dans Godot ; aperçu technique 1280×720 joint.
 - [x] Nouveau parcours horizontal, deux franchissements distincts, fin sans arène.
 - [x] Composition corrigée validée par le propriétaire le 29 octobre 2026.
-- [ ] Mesures du sol praticable et des largeurs lors de la peinture des collisions.
+- [x] Mesures du sol praticable et des largeurs lors de la peinture des collisions (46 % praticable, pont ~100 unités,
+  chaussée de dalles ~230).
 - [x] Huit régions détaillées, assemblage et rapport conforme.
-- [ ] Niveau jouable, collisions et mécaniques, raccordés ensuite par Claude.
+- [x] Niveau jouable, collisions et mécaniques, raccordés par Claude (2 novembre 2026).
+
+## En jeu (2 novembre 2026)
+
+- Collisions peintes par le propriétaire (`assets/concepts/incoming/map.crystal_gardens/collision/`).
+- Arène `data/arenas/crystal_gardens.tres`, mode vagues par zone :
+  - **zone 1, la Clairière de l'arche** : la barrière ferme le pont ;
+  - **zone 2, l'Avenue des jardins** : la barrière ferme la chaussée de dalles ;
+  - **finale** sur la terrasse est, avec la Mère des spores.
+- **Cristaux-miroirs** (brique B5, `PodDirector`), trois par clairière. Un coup les charge ; 0,9 s plus tard, trois
+  rayons de 650 unités partent : le premier dans le sens du coup, les deux autres à 120°. Ils transpercent les Corrompus
+  (35 + 30 % des PV max), touchent le Chasseur dans l'axe, s'arrêtent sur le décor, puis le cristal repousse en 18 s.
+- Chapitre 3, carte 3. Écho découvert : Fulgurine (Voltwisp).
 
 **Ce n’est pas une carte finale ni un niveau jouable.** Aucun agrandissement livré comme détail final, aucun champ, masque de collision, `src/`, `data/` ou manifeste runtime modifié. Les références Ruines/Mangrove servent uniquement au style ; leur plan n’est pas repris. Le propriétaire a autorisé l’enchaînement des autres lots sans attendre une réponse ; la passe de régions attend la validation du plan.
 
@@ -54,3 +67,9 @@ Le contournement au nord de l’arche est remplacé par un chenal infranchissabl
 ## Détail livré le 31 octobre
 
 Huit régions redessinées puis assemblées, trois tuiles de 3762 × 3762 pixels dans assets/environments/crystal_gardens/. Qualité **conforme** : densité 2,25 ; part lisse 0,111 ; détails fins 346,456 ; détails moyens 111,237 ; secteurs conformes 100 % ; fidélité 0,989. Rapport et planche d’échelle joints. Le pont est conservé ; sa matière est devenue gris-cyan plus discrète. Aucun manifeste runtime, collision, src/ ou data/ modifié : Claude raccordera les tuiles et le propriétaire peindra les collisions.
+
+## Visuel des cristaux (3 novembre 2026)
+
+Les cristaux-miroirs utilisent la scène animée de Codex (`assets/vfx/objects/mirror_crystal/`, PR 90), pilotée par
+`PodDirector` : `idle` au repos, `charged` une fois frappé, `burst` (trois rayons dans le sens retenu) à l'éclatement,
+puis `hidden` jusqu'à la repousse. La forme provisoire de l'entité reste masquée.

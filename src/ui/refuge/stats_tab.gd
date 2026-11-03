@@ -10,6 +10,10 @@ func title_key() -> String:
 	return "TAB_STATS"
 
 
+func unlocked() -> bool:
+	return played_once()
+
+
 func refresh() -> void:
 	var box: VBoxContainer = scroll_box(6)
 	var p: ProfileData = profile()

@@ -96,10 +96,10 @@ params = {
 
 [resource]
 script = ExtResource("1")
-boss_hp_mult = 0.65
-boss_damage_mult = 0.6
-enemy_damage_mult = 0.55
-enemy_hp_mult = 0.6
+boss_hp_mult = 0.9
+boss_damage_mult = 0.85
+enemy_damage_mult = 0.8
+enemy_hp_mult = 0.85
 id = &"storm_highlands"
 name_key = "ARENA_STORM_HIGHLANDS_NAME"
 desc_key = "ARENA_STORM_HIGHLANDS_DESC"

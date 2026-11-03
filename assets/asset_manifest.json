@@ -12828,6 +12828,32 @@
 			"duration": 1.5,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
+		"vfx.enemy.ice_scarab.snap": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/ice_scarab/snap.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
 		"vfx.enemy.quartz_golem.impact": {
 			"status": "wip",
 			"kind": "effect_scene",
@@ -12906,6 +12932,58 @@
 			"duration": 1.0,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
+		"vfx.enemy.frost_wolf.bite": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/frost_wolf/bite.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
+		"vfx.enemy.ice_worm.burrow": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/ice_worm/burrow.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.7,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
 		"vfx.enemy.crystal_colossus.sweep_beam": {
 			"status": "wip",
 			"kind": "effect_scene",
@@ -12931,6 +13009,32 @@
 			"visual_only": true,
 			"duration": 1.0,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.frost_wolf.frost_landing": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/frost_wolf/frost_landing.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.7,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
 		},
 		"vfx.enemy.reflection_huntress.chain_blink": {
 			"status": "wip",
@@ -13686,6 +13790,32 @@
 			"duration": 1.2,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
+		"vfx.enemy.snow_bat.ice_needle": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/snow_bat/ice_needle.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.8,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
+		},
 		"vfx.enemy.crystal_colossus.exposed_core": {
 			"status": "wip",
 			"kind": "effect_scene",
@@ -13815,6 +13945,32 @@
 			"visual_only": true,
 			"duration": 1.0,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
+		},
+		"vfx.enemy.ice_worm.bite": {
+			"status": "wip",
+			"kind": "effect_scene",
+			"scene": "res://assets/vfx/enemies/chapter4/ice_worm/bite.tscn",
+			"sheet": "res://assets/vfx/enemies/chapter3/poster.svg",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				32
+			],
+			"scale": 1,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": false
+				}
+			},
+			"visual_only": true,
+			"duration": 0.4,
+			"notes": "Animation native Godot ; raccordement combat réservé à Claude. Proposition chapitre 4, sans mécanique validée."
 		},
 		"vfx.enemy.bloat_toad.projectile": {
 			"status": "wip",
@@ -14750,6 +14906,110 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/bosses/nivorath.png"
+		},
+		"environment.reflection_wells": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/reflection_wells/map.webp",
+			"map_tiles": [
+				"res://assets/environments/reflection_wells/map.webp",
+				"res://assets/environments/reflection_wells/map_1.webp",
+				"res://assets/environments/reflection_wells/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/reflection_wells/field.png",
+			"field_step": 2.0,
+			"start": [
+				0,
+				1856
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (2 novembre 2026), décor livré par Codex (3 novembre).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/reflection_wells/minimap.webp"
+		},
+		"environment.crystal_gardens": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/crystal_gardens/map.webp",
+			"map_tiles": [
+				"res://assets/environments/crystal_gardens/map.webp",
+				"res://assets/environments/crystal_gardens/map_1.webp",
+				"res://assets/environments/crystal_gardens/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/crystal_gardens/field.png",
+			"field_step": 2.0,
+			"start": [
+				-2107,
+				-17
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (2 novembre 2026).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/crystal_gardens/minimap.webp"
+		},
+		"object.training_dummy": {
+			"status": "planned",
+			"note": "Salle d'entraînement : mannequin (tronc cerclé de fer) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.crystal_mirror": {
+			"status": "planned",
+			"note": "Carte 13 : cristal-miroir à livrer par Codex (même gabarit que object.ember_pod) ; forme provisoire en attendant.",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				238
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 6,
+					"loop": true
+				},
+				"primed": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"burst": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			}
 		},
 		"object.brazier": {
 			"status": "final",

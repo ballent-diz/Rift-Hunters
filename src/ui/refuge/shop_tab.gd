@@ -6,6 +6,10 @@ func title_key() -> String:
 	return "TAB_SHOP"
 
 
+func unlocked() -> bool:
+	return played_once()
+
+
 func refresh() -> void:
 	var box: VBoxContainer = scroll_box(10)
 	var p: ProfileData = profile()
@@ -64,6 +68,8 @@ func _echo_row(p: ProfileData, monster: MonsterData) -> PanelContainer:
 	buy.name = "BuyEcho_" + String(monster.id)
 	buy.disabled = not EchoCollection.is_for_sale(p, monster) or not p.can_afford("shards", monster.shop_price)
 	(parts[3] as VBoxContainer).add_child(buy)
+	if EchoCollection.is_for_sale(p, monster) and not p.can_afford("shards", monster.shop_price):
+		_missing(parts[3], monster.shop_price - p.shards())
 	if not EchoCollection.is_for_sale(p, monster):
 		texts.add_child(UiKit.label(tr("SHOP_LOCKED_AFTER") % _arena_name(monster.discovery_arena), 13, UiKit.DANGER))
 	return parts[0]
@@ -71,6 +77,7 @@ func _echo_row(p: ProfileData, monster: MonsterData) -> PanelContainer:
 
 func _item_row(p: ProfileData, item: ShopItemData) -> PanelContainer:
 	var parts: Array = _row(item.color)
+	_add_art(parts[1], item)
 	var texts: VBoxContainer = parts[2]
 	var actions: VBoxContainer = parts[3]
 	var owned: bool = item.kind == Shop.SURVIVAL and Shop.owns(p, item.id)
@@ -82,18 +89,46 @@ func _item_row(p: ProfileData, item: ShopItemData) -> PanelContainer:
 	buy.name = "Buy_" + String(item.id)
 	buy.disabled = not Shop.can_buy(p, item)
 	actions.add_child(buy)
+	# Trop cher : le manque s'affiche sous le prix, en rouge, plutôt qu'un simple bouton grisé.
+	if not owned and Shop.is_available(p, item) and not p.can_afford("shards", item.price):
+		_missing(actions, item.price - p.shards())
 	if item.kind == Shop.CONSUMABLE:
 		var stock: int = Shop.stock(p, item.id)
 		texts.add_child(UiKit.label(tr("SHOP_STOCK") % stock, 13, UiKit.GOLD))
 		var packed: bool = Shop.is_packed(p, item.id)
 		var pack: Button = HunterTreeSkin.button(tr("SHOP_PACKED") if packed else tr("SHOP_PACK"), _pack.bind(item.id), packed)
 		pack.name = "Pack_" + String(item.id)
+		pack.tooltip_text = tr("SHOP_PACK_HINT")
 		# Sans stock, le bouton ne servirait à rien : on ne l'affiche pas.
 		if stock > 0 or packed:
 			actions.add_child(pack)
 		else:
 			pack.free()
 	return parts[0]
+
+
+func _missing(actions: VBoxContainer, amount: int) -> void:
+	var label: Label = UiKit.label(tr("SHOP_MISSING") % amount, 13, UiKit.DANGER, HORIZONTAL_ALIGNMENT_CENTER)
+	label.name = "Missing"
+	actions.add_child(label)
+
+
+func _add_art(row: HBoxContainer, item: ShopItemData) -> void:
+	if item.art == "":
+		return
+	var texture: Texture2D = ItemArt.texture(item.art.get_slice(".", 0), StringName(item.art.get_slice(".", 1)))
+	if texture == null:
+		return
+	var art := TextureRect.new()
+	art.name = "ItemArt"
+	art.texture = texture
+	art.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	art.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	art.custom_minimum_size = Vector2(76, 76)
+	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	art.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	row.add_child(art)
+	row.move_child(art, 0)
 
 
 func _arena_name(arena_id: StringName) -> String:

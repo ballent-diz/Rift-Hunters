@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-02",
+  "reference": "reference.jpg",
+  "dimensions": [
+    1536,
+    1536
+  ],
+  "world": [
+    5016,
+    5016
+  ],
+  "reference_sha256": "b9bd317a2ad29b16fc44e7b3228a9d5ae24d1304a6d3f72fc54717a79a26a553",
+  "composition_sha256": "a553780aafc86388c133a41e7cfcc1923b8885a4f225cac22bb94db842f3a8e8",
+  "purpose": "Image entière légère envoyée au propriétaire pour peinture des collisions en rouge translucide. Aucun masque créé automatiquement.",
+  "painting_return": "Même cadrage et dimensions, PNG sans perte après peinture.",
+  "encoding": {
+    "format": "JPEG",
+    "quality": 90,
+    "optimize": true,
+    "subsampling": 0,
+    "resize": false,
+    "Pillow": "12.3.0"
+  }
+}

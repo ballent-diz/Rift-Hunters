@@ -26,6 +26,19 @@ func setup(monster: MonsterData, palette: Array = [], evolution: EvolutionData =
 	_fit()
 
 
+## Même aperçu pour toute entité (Chasseur, Dévoreur) : son EntityVisual de jeu.
+func setup_visual(data: VisualData) -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	clip_contents = true
+	custom_minimum_size = Vector2(120, 112)
+	visual_data = data
+	visual = EntityVisual.new()
+	add_child(visual)
+	visual.setup(visual_data)
+	resized.connect(_fit)
+	_fit()
+
+
 func _fit() -> void:
 	if visual == null:
 		return

@@ -46,6 +46,7 @@ var terrain: TerrainDirector
 var flood: FloodDirector
 var burn: BurnDirector
 var pods: PodDirector
+var portals: PortalDirector
 var rockfall: RockfallDirector
 var tide: TideDirector
 var cold: ColdDirector

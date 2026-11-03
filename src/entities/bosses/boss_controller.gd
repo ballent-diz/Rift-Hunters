@@ -55,6 +55,8 @@ var _guardians: GuardianSignatures
 var _ash: AshGuardians
 var _marsh_guardians: MarshGuardians
 var _nivorath: NivorathMechanics
+var _spore: SporeGuardian
+var _portal_lady: PortalGuardian
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -73,6 +75,12 @@ func _init(p_ctx: RunContext, p_boss: Enemy) -> void:
 	# Carapace de la Matrone des scories : dès son arrivée (réglages dans BossData.signature_params).
 	if data.signature == &"slag_rain":
 		ash().begin_shell(data.signature_params)
+	# Voile de spores de la Mère-spore (gardien de la carte 13) : levé dès son arrivée.
+	if data.signature == &"spore_veil":
+		spore().begin_veil(data.signature_params)
+	# Dame des portails (gardienne de la carte 14) : saute de miroir-portail en miroir-portail.
+	if data.signature == &"portal_hop":
+		portal_lady().begin(data.signature_params)
 
 
 func phase() -> BossPhaseData:
@@ -269,6 +277,20 @@ func nivorath() -> NivorathMechanics:
 		_nivorath = NivorathMechanics.new()
 		_add_mechanics(_nivorath)
 	return _nivorath
+
+
+func spore() -> SporeGuardian:
+	if _spore == null:
+		_spore = SporeGuardian.new()
+		_add_mechanics(_spore)
+	return _spore
+
+
+func portal_lady() -> PortalGuardian:
+	if _portal_lady == null:
+		_portal_lady = PortalGuardian.new()
+		_add_mechanics(_portal_lady)
+	return _portal_lady
 
 
 func marsh() -> GlauquemireMechanics:
@@ -590,6 +612,14 @@ func _pattern_root_snare(pattern: BossPatternData) -> void:
 
 func _pattern_maw_dive(pattern: BossPatternData) -> void:
 	marsh_guardians().maw_dive(pattern)
+
+
+func _pattern_spore_veil(pattern: BossPatternData) -> void:
+	spore().spore_veil(pattern)
+
+
+func _pattern_portal_hop(pattern: BossPatternData) -> void:
+	portal_lady().portal_hop(pattern)
 
 
 func _pattern_spell_capture(pattern: BossPatternData) -> void:
