@@ -44,12 +44,10 @@ Un masque de tir séparé pourra être ajouté si une carte le demande.
 Code : `ObstacleField.blocks_shot`, `clear_distance`, `line_clear` ; `ProjectileManager._hits_decor` ;
 `HazardManager.add_beam` (rayon tronqué) et secteurs (ligne de vue) ; `EnemyManager.find_nearest_visible`.
 
-**Abris posés par le jeu** (demande du propriétaire, 3 novembre 2026) : les cartes peintes récentes laissent leurs
-aires de combat dégagées, sans rocher au milieu. `ArenaData.cover_rocks` (et `cover_radius`) ajoute des rochers
-indestructibles au champ d'obstacles avant la navigation (`CoverRocks`) : ils arrêtent le passage, les tirs et les
-souffles comme le décor. Placés dans les arènes des gardiens des cartes 11 à 15 (3 sur la Mangrove, 2 plus petits dans le bassin étroit du
-Temple des marées, 3 sur la terrasse des Jardins, 4 sur la place des Puits, 5 sur la terrasse de Glauquemire) ; dessin provisoire en attendant le
-sprite `object.cover_rock` demandé à Codex.
+**Abris** : les rochers posés par le jeu (`ArenaData.cover_rocks`, `CoverRocks`, essayés le 3 novembre 2026 sur les
+cartes 11 à 15) sont **retirés à la demande du propriétaire** : leur rendu ne s'accordait pas au décor peint. Les abris
+doivent être peints dans le décor (blocs demandés à Codex pour la carte 16 et les suivantes) ; le champ reste
+disponible, vide, si un sprite d'abri est livré un jour.
 
 ## Garde-fou : la courbe mesurée
 
@@ -105,7 +103,7 @@ Hautes Terres, qui tournait en rond).
 | 12. Temple des marées | 1,4 · 0,65 | 1,25 · 0,58 (Gueule des marais) | 2 sur 3 | 3 min |
 | 13. Jardins de cristal | 1 · 0,5 | 1,9 · 1 (Mère des spores) | 2 sur 3 | 5 min |
 | 14. Puits des reflets | 1,3 · 1,8 (autel frappé à 0,36) | 1 · 2,4 (Dame des portails) | 3 sur 4 | 5 min 30 à 6 min 30 |
-| 15. Cœur des marais | 1 · 0,7 (marée, vase) | 1,6 · 1,15 (Glauquemire, cinq abris) | 3 sur 4 | 5 min 30 à 6 min 20 |
+| 15. Cœur des marais | 1 · 0,7 (marée, vase) | 1,6 · 1,15 (Glauquemire) | 3 sur 4 (mesuré avec cinq abris, retirés depuis) | 5 min 30 à 6 min 20 |
 
 Tanières de suie et Mangrove des racines (3 novembre) : passées en cartes de nuit sans changer leurs réglages
 (décision du propriétaire). Tanières de suie, avant la nuit : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à

@@ -86,8 +86,7 @@ Une image entière légère **1024 × 1536** a été remise au propriétaire pou
   l'escalier central et les deux escaliers des berges. Les Enlisés et les Reflets se mêlent.
 - **Marée** sur les deux chaussées hautes seulement ; les ponts bas et les berges restent secs.
 - **Terrasse de Glauquemire** : arène de 2 000 × 1 360 unités (`finale_radii` 1000 × 680), quatre cristaux-miroirs sur
-  les dalles peintes et **cinq rochers-abris** (`cover_rocks`, demande du propriétaire) qui arrêtent ses tirs et ses
-  rayons.
+  les dalles peintes.
 - **Campagne** : cinquième et dernière carte du chapitre 3 ; elle donne Gueule-d'ombre. Objectifs : finir sous
   800 dégâts, vaincre Glauquemire en moins de 4 minutes ; Cauchemar : 12 élites.
 - **Équilibrage** (profil d'étape, 4 graines) : vagues 1 · 0,7, Glauquemire 1,6 · 1,15 : 3 victoires sur 4,
