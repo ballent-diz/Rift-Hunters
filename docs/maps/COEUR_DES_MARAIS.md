@@ -75,3 +75,20 @@ Une image entière légère **1024 × 1536** a été remise au propriétaire pou
 - **Raccords Claude** : réutiliser les deux tuiles de `assets/environments/marsh_heart/` pour le monde 3344 × 5016 ; attendre la peinture du propriétaire, construire le champ et vérifier passages et arène. Placer vase, marée, vagues, miroirs et gardien séparément du fond. La marée ne doit toucher que les chaussées prévues.
 
 **Détail graphique livré ; aucun essai de circulation ou de combat n’est revendiqué.** Le poids du lot figure dans [le rapport de poids](../previews/marsh-heart/poids.json).
+
+## En jeu (Claude, 3 novembre 2026)
+
+- **Collisions** : peinture du propriétaire (`collision/painted.webp`) → `collision.png` → `field.png`, sans détection
+  d'eau automatique ; 49 % de sol praticable, une seule région. Passages les plus étroits : les escaliers (environ
+  260 unités). Mini-carte et entrée `environment.marsh_heart` du manifeste.
+- **Arène** `data/arenas/marsh_heart.tres` : deux zones de vagues, du sud au nord. Zone 1 : la clairière de vase (quatre
+  nappes calées sur la vase peinte), sortie par l'escalier sud. Zone 2 : le temple des chaussées, sorties par
+  l'escalier central et les deux escaliers des berges. Les Enlisés et les Reflets se mêlent.
+- **Marée** sur les deux chaussées hautes seulement ; les ponts bas et les berges restent secs.
+- **Terrasse de Glauquemire** : arène de 2 000 × 1 360 unités (`finale_radii` 1000 × 680), quatre cristaux-miroirs sur
+  les dalles peintes et **cinq rochers-abris** (`cover_rocks`, demande du propriétaire) qui arrêtent ses tirs et ses
+  rayons.
+- **Campagne** : cinquième et dernière carte du chapitre 3 ; elle donne Gueule-d'ombre. Objectifs : finir sous
+  800 dégâts, vaincre Glauquemire en moins de 4 minutes ; Cauchemar : 12 élites.
+- **Équilibrage** (profil d'étape, 4 graines) : vagues 1 · 0,7, Glauquemire 1,6 · 1,15 : 3 victoires sur 4,
+  5 min 30 à 6 min 20, combat du Dévoreur de 1 min 45 à 2 min 30.

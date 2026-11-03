@@ -176,6 +176,11 @@ extends Resource
 ## Le Chasseur trop proche est touché aussi (télégraphe : il a le temps de s'écarter).
 @export var pod_player_damage: float = 12.0
 @export var pod_regrow: float = 25.0
+@export_group("Abris (règle des abris, docs/design/DIFFICULTE.md)")
+## Rochers indestructibles posés par le jeu sur les cartes peintes trop dégagées : ils bloquent le passage, les tirs et
+## les souffles (cercles d'obstacles), pour se protéger des attaques de boss.
+@export var cover_rocks: Array[Vector2] = []
+@export var cover_radius: float = 58.0
 @export_group("Miroirs-portails (brique B6, carte 14, docs/design/CARTES.md)")
 ## Paires de portails, à la suite : portail, jumeau, portail, jumeau… Entrer dans l'un ramène au jumeau.
 @export var portal_pairs: Array[Vector2] = []

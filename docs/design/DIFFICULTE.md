@@ -44,6 +44,12 @@ Un masque de tir séparé pourra être ajouté si une carte le demande.
 Code : `ObstacleField.blocks_shot`, `clear_distance`, `line_clear` ; `ProjectileManager._hits_decor` ;
 `HazardManager.add_beam` (rayon tronqué) et secteurs (ligne de vue) ; `EnemyManager.find_nearest_visible`.
 
+**Abris posés par le jeu** (demande du propriétaire, 3 novembre 2026) : les cartes peintes récentes laissent leurs
+aires de combat dégagées, sans rocher au milieu. `ArenaData.cover_rocks` (et `cover_radius`) ajoute des rochers
+indestructibles au champ d'obstacles avant la navigation (`CoverRocks`) : ils arrêtent le passage, les tirs et les
+souffles comme le décor. Placés d'abord dans l'arène de Glauquemire (carte 15) ; dessin provisoire en attendant le
+sprite `object.cover_rock` demandé à Codex.
+
 ## Garde-fou : la courbe mesurée
 
 La difficulté ne doit jamais dépasser la progression du joueur (jalons, Échos, boutique, arbre). Le jeu vise un défi
@@ -94,6 +100,7 @@ Hautes Terres, qui tournait en rond).
 | 12. Temple des marées | 1,4 · 0,65 | 1,25 · 0,58 (Gueule des marais) | 2 sur 3 | 3 min |
 | 13. Jardins de cristal | 1 · 0,5 | 1,9 · 1 (Mère des spores) | 2 sur 3 | 5 min |
 | 14. Puits des reflets | 1,3 · 1,8 (autel frappé à 0,36) | 1 · 2,4 (Dame des portails) | 3 sur 4 | 5 min 30 à 6 min 30 |
+| 15. Cœur des marais | 1 · 0,7 (marée, vase) | 1,6 · 1,15 (Glauquemire, cinq abris) | 3 sur 4 | 5 min 30 à 6 min 20 |
 
 Tanières de suie (3 novembre) : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à
 3,8 · 2,1 et les vagues de 1,2 à 1,4 en dégâts (une défaite à 8 % de PV du gardien sur 4 parties).

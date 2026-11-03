@@ -2018,3 +2018,8 @@ JOURNAL_PORTAL_LADY,Saut de portail,Portal leap
 BESTIARY_BOSS_LORE_PORTAL_LADY,"Elle garde les Puits depuis que le premier miroir s'est fendu. Chaque portail est une porte de sa maison : qui en tient le seuil la tient elle-même.","She has guarded the Wells since the first mirror cracked. Every portal is a door of her house: whoever holds the threshold holds her."
 MAP_OBJ_PORTALS_DESC,Terminer en empruntant au moins %d miroirs-portails,Clear it using at least %d mirror portals
 MAP_OBJ_PORTAL_TRAP_DESC,Terminer en piégeant au moins %d fois la gardienne dans un portail,Clear it trapping the warden in a portal at least %d times
+ARENA_MARSH_HEART_NAME,Cœur des marais,Heart of the Marshes
+ARENA_MARSH_HEART_DESC,"Le temple englouti où dort Glauquemire. Traversez la clairière de vase, tenez le temple pendant que la marée noie les chaussées, puis montez sur la terrasse.","The sunken temple where Glauquemire sleeps. Cross the mud clearing, hold the temple while the tide drowns the causeways, then climb to the terrace."
+ZONE_MARSH_HEART_1_NAME,La Clairière de vase,The Mud Clearing
+ZONE_MARSH_HEART_2_NAME,Le Temple des chaussées,The Causeway Temple
+FINALE_TRAVEL_MARSH_TERRACE,"Le temple est tenu : montez les marches jusqu'à la terrasse, au nord. Glauquemire vous y attend.","The temple is held: climb the steps to the terrace in the north. Glauquemire awaits you there."
