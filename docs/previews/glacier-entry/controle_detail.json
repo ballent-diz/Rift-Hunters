@@ -468,5 +468,17 @@
   "relative_sharpness_diagnostic": {
     "blurry_cells": 404,
     "valid_cells": 620
-  }
+  },
+  "main_validation_commit": "20ea2c1",
+  "assets_validation": {
+    "entries": 448,
+    "valid": 446,
+    "placeholders_outside_map16": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ],
+    "errors": 0,
+    "exit": 0
+  },
+  "headless_import_after_main_exit": 0
 }
