@@ -131,3 +131,12 @@ poche, le raccourci, le surplomb et l’emprise réelle du sommet avant de décl
 Le lot reste hors manifeste runtime jusqu’à cette intégration. Aucun fichier de `src/`, `data/`, ni des cartes 14,
 15 ou 16 n’est modifié. Les captures vérifient le rendu et le chargement ; aucun essai de circulation ou de combat
 n’est revendiqué.
+
+## En jeu (Claude, 4 novembre 2026)
+
+- Collisions : peinture du propriétaire, `collision_mask.py overlay brazier_pass … --no-water`, foyers rendus
+  praticables (les disques peints fermaient le pont et la corniche à 50-60 unités), puis `build`.
+- `data/arenas/brazier_pass.tres` : départ (-500, 1980) dans la chaleur de H1, failles F1 à F4 et braseros H1 à H10
+  aux centres du plan, finale au sommet (201, -1756), rayons (480, 380), nuit 0,82, froid 3,5/s. Gardien : Chaman
+  ancestral. Tests : `test_brazier_pass`.
+

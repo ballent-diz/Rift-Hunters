@@ -12,6 +12,23 @@ La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
 
+## Carte 17, Col des braseros, en jeu (Claude, 4 novembre 2026)
+
+Décor de Codex (PR 101) et collisions peintes par le propriétaire. Deuxième carte du chapitre 4, **carte de nuit**
+du chapitre. Fiche : `docs/maps/COL_DES_BRASEROS.md`.
+
+- Fermeture de quatre failles en montant vers le nord, puis gardien sur le replat du sommet (cercle tracé par le jeu).
+  Nouveau réglage `ArenaData.rift_hp_mult` (solidité des failles), ici ×5.
+- **Froid et braseros (B7) de nuit** : dix braseros sur les foyers peints, sprite `object.brazier` (allumé, éteint) ;
+  les braseros allumés éclairent la nuit et révèlent les ennemis (comme les lucioles). Pieds des braseros laissés
+  praticables : bloqués, ils fermaient les passages du pont et de la corniche.
+- **Gardien : Chaman ancestral** (`rime_elder`, sprite du Chaman du gel) : bâton, pluie de stalactites, invocations
+  et mécanique phare **Grand gel** (`FrostElder`) : il souffle les braseros proches sauf un ; hors de sa chaleur,
+  vague de gel, dégâts et Prison de glace (une Ruée la brise).
+- [ ] **Équilibrage à reprendre** (mis de côté à la demande du propriétaire) : réglage actuel ennemis ×1 / ×0,8,
+  failles ×5, froid 3,5/s, gardien ×1,6 / ×0,85 → 4 victoires sur 4 mais combat final court (35 s) ; gardien ×1,9 →
+  2 sur 4, ×2,2 → 1 sur 4. Viser 3 sur 4 avec un combat d'au moins 60 s (toucher aux dégâts plutôt qu'aux PV).
+
 ## Carte 16, Entrée du Glacier, en jeu (Claude, 4 novembre 2026)
 
 Décor de Codex (PR 100) et collisions peintes par le propriétaire. Chapitre 4 « Le Glacier silencieux » ouvert

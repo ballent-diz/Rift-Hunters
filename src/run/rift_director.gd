@@ -30,7 +30,10 @@ func setup(p_ctx: RunContext) -> void:
 		push_error("Faille introuvable : %s" % ctx.arena.rift_enemy_id)
 		return
 	for point: Vector2 in ctx.arena.rift_points:
-		rifts.append(ctx.enemies.spawn(data, point))
+		var rift: Enemy = ctx.enemies.spawn(data, point)
+		rift.max_hp *= ctx.arena.rift_hp_mult
+		rift.hp = rift.max_hp
+		rifts.append(rift)
 	ctx.events.enemy_killed.connect(_on_enemy_killed)
 	guide = FlowField.new()
 	guide.avoid_transient = true

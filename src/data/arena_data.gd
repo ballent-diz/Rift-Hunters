@@ -31,6 +31,8 @@ extends Resource
 @export var rift_spawn_radius: float = 240.0
 ## Une élite sort d'une faille ouverte toutes les N secondes (× difficulté).
 @export var rift_elite_interval: float = 40.0
+## Solidité des failles (× leurs PV, en plus des multiplicateurs de la carte) : durée de la fermeture.
+@export var rift_hp_mult: float = 1.0
 @export_group("")
 @export var waves: Array[WavePhaseData] = []
 ## Grande arène : les zones sont des paliers qui partagent toute la carte (aucune barrière, pas de trajet entre elles).

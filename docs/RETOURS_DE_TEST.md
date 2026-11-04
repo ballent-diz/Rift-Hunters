@@ -23,3 +23,4 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   (ex. Singularité doit s'activer sur le personnage, pas à un endroit au hasard de la carte).
 - [ ] **Mode test « dev »** : débloquer aussi les compétences « débloquée au niveau 3 » et « niveau 1 du chapitre 2 ».
 - [ ] **Menus : visuels des cartes 7 à 15** à ajouter.
+- [ ] **Carte 17, Col des braseros : équilibrage à reprendre** (détails : docs/ROADMAP.md, carte 17).
