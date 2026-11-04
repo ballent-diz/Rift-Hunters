@@ -1,0 +1,63 @@
+{
+  "id": "map.brazier_pass",
+  "chapter": 4,
+  "map_number": 17,
+  "title": "Le Col des braseros",
+  "status": "wip",
+  "stage": "detail_conforme_pret_pour_collisions",
+  "world_size": [
+    5016,
+    5016
+  ],
+  "composition_dimensions": [
+    1254,
+    1254
+  ],
+  "composition": "composition.png",
+  "source": "source/map_detailed.webp",
+  "owner_approved": true,
+  "owner_approval_date": "2026-11-04",
+  "owner_approval_message": "c'est bon pour moi démarre la passe au détail",
+  "plan_locked": true,
+  "composition_sha256": "0c0025b557eda3b05b4cba714c0ff923c855f6bb184c32c83152597b8b5921c2",
+  "plan": "plan.json",
+  "regions_generated": true,
+  "runtime_integrated": false,
+  "quality_conforme": true,
+  "quality_scope": "Seize régions redessinées ; contrôle global conforme, captures et échelle livrées ; runtime à intégrer.",
+  "detail_region_count": 16,
+  "detail_part_count": 32,
+  "collision_mask_created": false,
+  "detail_started": "2026-11-04",
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_CORRECTIONS.txt",
+    "source/PROMPT_DETAIL.txt",
+    "source/PROMPT_ECHELLE_PORTE.txt",
+    "source/PROMPT_ECHELLE_PORTE_FIN.txt",
+    "source/PROMPT_GABARIT_ABRIS.txt",
+    "source/PROMPT_GABARIT_FOYERS.txt",
+    "source/PROMPT_PAVES_PONT.txt",
+    "source/PROMPT_REFERENCE_MATIERE.txt"
+  ],
+  "detail_sample_verified": true,
+  "detail_sample": {
+    "region": "r0_3",
+    "fine": 432.394,
+    "medium": 98.104,
+    "smooth": 0.0885,
+    "door_frame_world_approx": 84,
+    "scope": "Témoin régional au zoom réel avec Chasseur et Écho, pas contrôle global."
+  },
+  "detail_completed": "2026-11-04",
+  "quality_report": "docs/previews/brazier-pass/qualite.json",
+  "retained_master_dimensions": [
+    3762,
+    3762
+  ],
+  "presentation_dimensions": [
+    11286,
+    11286
+  ],
+  "sharpness_repair": "source/sharpness_repair.json"
+}
