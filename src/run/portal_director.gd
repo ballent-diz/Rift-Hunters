@@ -5,15 +5,19 @@ extends Node2D
 ## empruntent aussi, à débit limité. Raccourci pour revenir défendre l'autel, ou piège qui sépare la horde.
 ## Le gardien de la carte (PortalGuardian) saute de portail en portail. Aucune règle de gameplay dans le dessin.
 
-const PAIR_COLORS: Array[Color] = [Color(0.45, 0.95, 1.0), Color(0.85, 0.6, 1.0), Color(0.55, 1.0, 0.75),
-	Color(1.0, 0.8, 0.5)]
+## Teintes des paires prises dans la palette de la carte, éteintes (docs/ART_BIBLE.md, objets posés sur les cartes) :
+## eau sarcelle, sauge, or pâle des fleurs, gris lilas de la pierre.
+const PAIR_COLORS: Array[Color] = [Color(0.36, 0.6, 0.64), Color(0.52, 0.68, 0.52), Color(0.74, 0.7, 0.46),
+	Color(0.6, 0.58, 0.68)]
+## Le visuel vectoriel est assombri pour moins trancher sur le décor peint, en attendant les sprites peints de Codex.
+const VISUAL_MODULATE := Color(0.82, 0.86, 0.84)
 const ENEMY_CHECK := 0.1
 ## Arrivée : un peu à côté du jumeau, pour ne pas repartir aussitôt.
 const ARRIVAL_OFFSET := 18.0
 const INTRO_RANGE := 700.0
 ## Visuel des portails (scène de Codex, PR 90) : un nœud par portail, même teinte pour les deux jumeaux.
 const VISUAL_SCENE := "res://assets/vfx/objects/mirror_portal/mirror_portal.tscn"
-const VISUAL_RADIUS := 40.0
+const VISUAL_RADIUS := 34.0
 const TRANSIT_TIME := 0.65
 
 ## {"pos", "twin" (index), "pair", "budget"} ; la recharge est portée par la paire.
@@ -54,6 +58,7 @@ func setup(p_ctx: RunContext) -> void:
 			visual.set("radius", VISUAL_RADIUS)
 			visual.set("tint", PAIR_COLORS[int(portal["pair"]) % PAIR_COLORS.size()])
 			visual.set("duration", TRANSIT_TIME)
+			visual.modulate = VISUAL_MODULATE
 			add_child(visual)
 			portal["visual"] = visual
 
@@ -199,13 +204,14 @@ func _draw() -> void:
 		var center: Vector2 = portal["pos"]
 		var color: Color = PAIR_COLORS[int(portal["pair"]) % PAIR_COLORS.size()]
 		var ready: bool = ready_for_player(i)
-		draw_arc(center, radius, 0.0, TAU, 40, Color(color, 0.55 if ready else 0.2), 2.0, true)
+		draw_arc(center, radius, 0.0, TAU, 40, Color(color, 0.2 if ready else 0.08), 1.5, true)
 		if not portal.has("visual"):
 			draw_circle(center, radius * 0.75, Color(color, 0.18 if ready else 0.06))
 		if not ready:
 			var left: float = clampf((pair_ready_at[portal["pair"]] - ctx.time) / maxf(ctx.arena.portal_cooldown, 0.01), 0.0,
 				1.0)
-			draw_arc(center, radius + 8.0, -PI / 2.0, -PI / 2.0 + TAU * (1.0 - left), 40, Color(color, 0.7), 3.0, true)
+			draw_arc(center, radius + 8.0, -PI / 2.0, -PI / 2.0 + TAU * (1.0 - left), 40, Color(color, 0.35), 2.0, true)
 		if i == exit_index and ctx.time < exit_time:
 			var pulse: float = 0.5 + 0.5 * sin(_time * 10.0)
-			draw_arc(center, radius * (1.35 + 0.1 * pulse), 0.0, TAU, 48, Color(1.0, 0.95, 0.6, 0.6 + 0.4 * pulse), 5.0, true)
+			draw_arc(center, radius * (1.35 + 0.1 * pulse), 0.0, TAU, 48, Color(0.86, 0.82, 0.58, 0.45 + 0.35 * pulse), 4.0,
+				true)

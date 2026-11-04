@@ -17,6 +17,9 @@ Aucun lien avec une licence existante : noms, créatures, visuels et mécaniques
 4. Ne jamais déclarer un système terminé sans l'avoir vérifié (tests + lancement).
 5. Git partagé avec Codex (consignes communes : `AGENTS.md`) : une branche par tâche depuis `main` à jour,
    pull request vers `main`, pas de push direct sur `main`.
+6. **Prompts pour Codex en attente** : `docs/prompts/CODEX_EN_ATTENTE.md`. Quand le propriétaire demande les tâches
+   en attente (ou les prompts Codex), ressortir ces prompts tels quels avec la liste. Retirer un prompt du fichier
+   une fois envoyé et traité.
 
 ## Commandes
 

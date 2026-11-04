@@ -12,12 +12,21 @@ La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
 
+## Idées en réserve (propriétaire)
+
+- **Alliés mortels** (idée du 3 novembre 2026, à concevoir plus tard) : une ou plusieurs parties, ou un mode à part,
+  où le Chasseur combat avec un ou plusieurs alliés qui ont des PV ; la partie n'est perdue que si tout le monde
+  tombe. Décidé : les alliés sont pilotés par un bot (même base que le bot d'autoplay) ; les Échos ne changent pas
+  sur ce mode (toujours invulnérables). C'est un mode réutilisable, à poser sur plusieurs cartes : au moins 3 sur
+  l'ensemble du jeu (comme le mode nuit, un réglage de carte plutôt qu'un contenu à part). Reste à trancher le moment
+  venu : quelles cartes, nombre d'alliés, relève d'un allié tombé.
+
 ## À faire : musique (décisions du 2 novembre 2026)
 
-- [x] **Menus** : un morceau fixe et calme, en boucle. Écran titre : `music/menu/music_box_in_the_machine_title.mp3` ;
-  refuge et ses menus : `music/refuge/music_box_in_the_machine.mp3` (les deux versions de « Music Box in the
-  Machine », 137 BPM, retirées des combats de boss). À remplacer par de vrais morceaux d'ambiance si le propriétaire
-  en crée : il suffit de changer le fichier du dossier.
+- [x] **Menus** (révisé le 3 novembre 2026) : un morceau fixe en boucle, pas forcément calme mais au tempo le plus
+  lent du lot. Écran titre : `music/menu/neon_circuit.mp3` ; refuge et ses menus : `music/refuge/neon_undercurrent.mp3`
+  (« Neon Circuit » et « 霓虹暗流 », 144 BPM, sortis de la liste des expéditions où restent leurs variantes « (1) »).
+  « Music Box in the Machine » est retirée du jeu (sonnait trop « horreur »). Pour changer : remplacer le fichier.
 - [ ] **Tri des musiques en jeu** (propriétaire) : réécoute des morceaux actuels, nouveaux morceaux à générer.
   `run/REDLINE PANIC (1).mp3` est une copie exacte de `REDLINE PANIC.mp3` : à supprimer.
 - [ ] **Une playlist par chapitre** (lecture aléatoire, comme aujourd'hui) : chapitre 1 = lot 1, chapitre 2 = lot 2,

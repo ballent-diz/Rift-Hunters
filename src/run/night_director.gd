@@ -9,7 +9,6 @@ const VEIL := preload("res://assets/shaders/night_veil.gdshader")
 const MAX_LIGHTS := 16
 ## Fréquence à laquelle les clairières révèlent les ennemis présents.
 const REVEAL_INTERVAL := 0.8
-const FIREFLY_COLOR := Color(0.85, 1.0, 0.45)
 const FIREFLIES_PER_GLADE := 18
 
 var ctx: RunContext
@@ -37,7 +36,7 @@ func setup(p_ctx: RunContext) -> void:
 
 ## Une fois la partie construite : annonce (HUD prêt) et effets peints des Échos au-dessus du voile.
 func _start() -> void:
-	ctx.events.event_started.emit("NIGHT_INTRO")
+	ctx.events.event_started.emit(ctx.arena.night_intro_key)
 	if ctx.allies and ctx.allies.vfx.layer:
 		ctx.allies.vfx.layer.z_index = 2
 
@@ -123,6 +122,6 @@ func _draw_fireflies() -> void:
 			var angle: float = phase + _time * (0.25 + 0.15 * fmod(phase, 1.0))
 			var pos: Vector2 = glade + Vector2.from_angle(angle) * orbit + Vector2(0, sin(_time * 1.7 + phase) * 10.0)
 			var glow: float = 0.45 + 0.55 * absf(sin(_time * 2.1 + phase * 1.3))
-			_fireflies.draw_circle(pos, 5.0, Color(FIREFLY_COLOR, 0.18 * glow))
-			_fireflies.draw_circle(pos, 1.8, Color(FIREFLY_COLOR, 0.9 * glow))
+			_fireflies.draw_circle(pos, 5.0, Color(ctx.arena.firefly_color, 0.18 * glow))
+			_fireflies.draw_circle(pos, 1.8, Color(ctx.arena.firefly_color, 0.9 * glow))
 

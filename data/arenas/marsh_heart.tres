@@ -131,5 +131,4 @@ tide_first = 25.0
 tide_low = 22.0
 tide_warning = 4.0
 tide_high = 12.0
-cover_rocks = Array[Vector2]([Vector2(-690, -1480), Vector2(690, -1480), Vector2(-260, -1040), Vector2(260, -1040), Vector2(0, -1880)])
 crystal_mirrors = Array[Vector2]([Vector2(512, -1132), Vector2(-522, -1146), Vector2(-506, -1828), Vector2(500, -1845)])

@@ -244,6 +244,9 @@ extends Resource
 ## Clairières de lucioles : zones éclairées qui révèlent les ennemis (statut Révélé).
 @export var firefly_glades: Array[Vector2] = []
 @export var firefly_radius: float = 220.0
+## Couleur des lueurs des clairières (lucioles ; braises flottantes sur les Tanières de suie) et annonce de la nuit.
+@export var firefly_color: Color = Color(0.85, 1.0, 0.45)
+@export var night_intro_key: String = "NIGHT_INTRO"
 
 ## L'arène se termine par une finale (cercle ou arène murée) plutôt que par un boss chronométré classique.
 func has_finale() -> bool:
