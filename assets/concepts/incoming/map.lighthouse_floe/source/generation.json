@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-04",
+  "tool": "image_gen.imagegen",
+  "stage": "composition_a_valider",
+  "retained_image_sha256": "421ec6f4936ab9b233b3a13e8cd46985531cf275050469deb811d493f319a822",
+  "size": [
+    1254,
+    1254
+  ],
+  "steps": [
+    {
+      "type": "composition",
+      "prompt": "PROMPT_COMPOSITION.txt",
+      "prompt_sha256": "b2c20e56968f5afe3dbb7d4ff6ce89945b74b8fbea723e3f958903c3242eeefc",
+      "guide": "layout.png",
+      "guide_sha256": "c282c42721ead8b12c2553ffd3e4da855156d32066f411f6dbdfad997316d72f",
+      "discarded_generation_sha256": "f1a18824bc0b4ad8305b1a8c30d536e9965bbf88d47cf427e33e820aa93d53f8"
+    },
+    {
+      "type": "local_edit",
+      "prompt": "PROMPT_PHARE_EPAVE.txt",
+      "prompt_sha256": "b6a01c46a3647afff215b799ad344cbe7697300c1ac4dc039cebac8383fe4bab",
+      "output": "../composition.png",
+      "retained": true
+    }
+  ],
+  "style_references": [
+    {
+      "map": 18,
+      "scope": "style_seulement",
+      "sha256": "3f1b0b374a72912ec22a8ca559409daed68b0217d8d77ccf65964579273b6812"
+    },
+    {
+      "map": 16,
+      "scope": "style_seulement",
+      "sha256": "d1a059677b3184ea581619e887ff94bbafcb5c0b737392cb19c10abbf6d3b3da"
+    }
+  ],
+  "broken_generated": false,
+  "detail_generated": false,
+  "runtime_integrated": false
+}

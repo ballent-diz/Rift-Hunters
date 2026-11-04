@@ -1,0 +1,126 @@
+{
+  "date": "2026-11-04",
+  "stage": "composition_a_valider",
+  "owner_approved": false,
+  "main_base": "60d42976e8c103068b21064a29af02367f53ddbc",
+  "capture_and_assets_base": "41a629bc3acec5970ce5de6b787d1ca5963f14b5",
+  "base_update_scope": "Main a reçu la carte18 pendant la revue ; fast-forward, puis import Godot renouvelé. Aucun changement aux sprites, src/, data/ ni au manifeste entre ces bases.",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        "."
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_lighthouse_floe.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map19/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "3b03fc0f8e8e9d09b73745d90aa0fc7b3bfa1f0e8a616561edadffde8337ae96"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "ce0481e56cf48c09c2e95efe10a016af91c8818af1a7dd5118a868d79da01e6c"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_lighthouse_floe.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    }
+  ],
+  "assets": {
+    "total": 448,
+    "valid": 446,
+    "placeholders": 2,
+    "errors": 0,
+    "preexisting_placeholders": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ]
+  },
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "collision_mask_created": false,
+    "composition_sha256": "421ec6f4936ab9b233b3a13e8cd46985531cf275050469deb811d493f319a822",
+    "native_sprites_unchanged": true,
+    "profile_read_only": true,
+    "review_sha256": "572f30dede5ebe0e3bef2b473dd80277602fb60256cf01a06ae02a94a755f362",
+    "runtime_integrated": false,
+    "scope": "composition_seule",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "capture_sha256": {
+    "ensemble_720p.png": "453f7e4845c74d455008916c7baa003a034fbdba8d1060871a14e8d3eb10e646",
+    "epave_zoom_jeu.png": "a3791db4e7345ffbd86667793181ed07be047a2ac3884a164283770a711ef264",
+    "neige_tassee_zoom_jeu.png": "699f55eec1c37deee92ed3b16d0602286808adee862154b8674d29e8552f1f5e",
+    "phare_zoom_jeu.png": "1fe211fae8c27fd890c5828b97cc0566be6c48ea632cd14a1abe5636b888469e",
+    "pierre_zoom_jeu.png": "76f6cfd779515eb3480e1dbd9d0cc8a47f76125de9fcc26749ef926189b3b5f1",
+    "reference_ruines_zoom_jeu.png": "9cd24045d7d52064bdd8d621a2626fa23f5dfda2fa89aeba395cf242a6c2a6ad",
+    "silence_banquise.png": "c37e236eb46a31f327cb5e23ddfee24be30e9adc730b2bfdfb37f25e5ceb02bd",
+    "silence_neige.png": "e9e00629d30a177c1ac1eb9c1f80b97d66473e1499100b1d79d083c87284b46c"
+  },
+  "geometry_checks": {
+    "plates": 12,
+    "paths": 4,
+    "covers_per_quadrant": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "plate_axis_sizes_world_range": [
+      432,
+      532
+    ],
+    "covers_outside_plates_with_maximum_160u_footprint": true
+  },
+  "world": [
+    5016,
+    5016
+  ],
+  "composition_dimensions": [
+    1254,
+    1254
+  ],
+  "detail_generated": false,
+  "broken_generated": false,
+  "quality_conforme": false,
+  "quality_scope": "Composition seule ; régions et contrôle check_map_quality conformes pour les deux états après validation.",
+  "paired_images_pixel_comparison_status": "À faire après le détail, sur les fichiers encodés effectivement livrés.",
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false
+}

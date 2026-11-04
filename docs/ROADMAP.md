@@ -430,3 +430,8 @@ Composition corrigée validée par le propriétaire, plan figé : trois plateaux
 ## Carte 18 — Le Lac gelé des tempêtes : détail graphique livré (Codex, 4 novembre)
 
 Composition validée par le propriétaire, plan figé :3344 ×5016, camp nord, tour du lac sombre infranchissable par l’est, anse sud-est et arène séparée en croissant. Douze régions redessinées en vingt-quatre demi-régions, sept refuges du vent ouverts et treize abris de combat conservés. Détail conforme : fins422.158, moyens100.422, 35/35 secteurs, fidélité0.992. Master natif sans perte, deux tuiles, vues entières, comparaison d’échelle et captures des Givrés sur neige et berge au zoom réel. Référence légère1024 ×1536 prête pour la peinture du propriétaire ; aucun masque produit. Import Godot et contrôle assets réussis. Voir `docs/maps/LAC_GELE_DES_TEMPETES.md`. Aucun changement de src/, data/, du manifeste ou des cartes14 à17 ; collisions et B2 par Claude.
+
+
+## Carte 19 — La Banquise du phare : composition à valider (Codex, 4 novembre)
+
+Branche `codex/carte-19-banquise-phare`, depuis main actualisé. Proposition carrée5016 ×5016, plan rayonnant : phare éteint sur l’île centrale, quatre accès de natures différentes, anneau de banquise et départ au sud-ouest. Douze plaques B4 proposées, trois abris de combat par quart sur terrain stable. Plan annoté et captures des sept Échos du silence au zoom réel ; voir `docs/maps/BANQUISE_DU_PHARE.md`. Composition à valider avant plan figé et détail des états intact/brisé ; contrôle de superposition hors plaques prévu. Aucun changement de src/, data/, du manifeste ni des cartes14 à18 ; intégration par Claude.

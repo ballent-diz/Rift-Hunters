@@ -1,0 +1,1222 @@
+{
+  "id": "map.lighthouse_floe",
+  "map_number": 19,
+  "chapter": 4,
+  "title": "La Banquise du phare",
+  "world": [
+    5016,
+    5016
+  ],
+  "mode": "défense d’autel",
+  "mechanic": "B4 Banquise qui se fend",
+  "format": "1:1",
+  "stage": "composition_a_valider",
+  "owner_approved": false,
+  "plan_locked": false,
+  "coordinates": "Pourcentages depuis le coin haut-gauche, proposition sans données runtime ni masque de collisions.",
+  "start_pct": [
+    21,
+    80
+  ],
+  "start_clearing_world_target": [
+    1000,
+    900
+  ],
+  "island": {
+    "polygon_pct": [
+      [
+        31,
+        42
+      ],
+      [
+        34,
+        35
+      ],
+      [
+        43,
+        31
+      ],
+      [
+        54,
+        32
+      ],
+      [
+        63,
+        36
+      ],
+      [
+        66,
+        44
+      ],
+      [
+        65,
+        55
+      ],
+      [
+        61,
+        62
+      ],
+      [
+        52,
+        66
+      ],
+      [
+        42,
+        64
+      ],
+      [
+        35,
+        59
+      ],
+      [
+        31,
+        51
+      ]
+    ],
+    "material": "roche grise stable, bord net et place dégagée autour du phare"
+  },
+  "lighthouse": {
+    "foot_center_pct": [
+      50,
+      50.7
+    ],
+    "plinth_diameter_world_target": 300,
+    "tower_height_world_target": [
+      520,
+      580
+    ],
+    "door_height_world_target": [
+      75,
+      90
+    ],
+    "top_lit": false,
+    "painted_in_background": true,
+    "role": "Le phare peint est l’autel à défendre ; aucun second autel ajouté.",
+    "plinth_center_pct": [
+      50,
+      50.8
+    ],
+    "scale_status": "Porte corrigée dans la composition ; finesse des marches, pavés et blocs à reprendre par régions."
+  },
+  "paths": [
+    {
+      "id": "north",
+      "kind": "crête rocheuse",
+      "centerline_pct": [
+        [
+          50,
+          11
+        ],
+        [
+          50,
+          16
+        ],
+        [
+          50,
+          20.5
+        ],
+        [
+          50,
+          28
+        ],
+        [
+          50,
+          33
+        ]
+      ],
+      "plate": "p01",
+      "width_world_target": 340
+    },
+    {
+      "id": "east",
+      "kind": "épave de brise-glace échoué, pont de bois et de fer",
+      "centerline_pct": [
+        [
+          90,
+          48.5
+        ],
+        [
+          86,
+          48.5
+        ],
+        [
+          82,
+          48.5
+        ],
+        [
+          78.5,
+          48.5
+        ],
+        [
+          72,
+          48.5
+        ],
+        [
+          65,
+          48.5
+        ]
+      ],
+      "plate": "p04",
+      "width_world_target": 280,
+      "wreck_footprint_pct": [
+        [
+          63,
+          48
+        ],
+        [
+          66,
+          45.5
+        ],
+        [
+          78,
+          44.8
+        ],
+        [
+          77.8,
+          51
+        ],
+        [
+          79,
+          53
+        ],
+        [
+          68,
+          53.5
+        ],
+        [
+          63,
+          51.5
+        ]
+      ]
+    },
+    {
+      "id": "south",
+      "kind": "passerelle de pierre",
+      "centerline_pct": [
+        [
+          50,
+          90
+        ],
+        [
+          50,
+          84
+        ],
+        [
+          50,
+          77.5
+        ],
+        [
+          50,
+          73
+        ],
+        [
+          50,
+          69
+        ],
+        [
+          50,
+          64
+        ]
+      ],
+      "plate": "p07",
+      "width_world_target": 280
+    },
+    {
+      "id": "west",
+      "kind": "bande de neige tassée",
+      "centerline_pct": [
+        [
+          10,
+          48
+        ],
+        [
+          15,
+          48
+        ],
+        [
+          20,
+          48
+        ],
+        [
+          25,
+          48
+        ],
+        [
+          31,
+          48
+        ],
+        [
+          34,
+          48
+        ]
+      ],
+      "plate": "p10",
+      "width_world_target": 340
+    }
+  ],
+  "plates": [
+    {
+      "id": "p01",
+      "center_pct": [
+        49.566,
+        20.273
+      ],
+      "polygon_pct": [
+        [
+          47.608,
+          16.108
+        ],
+        [
+          52.153,
+          16.188
+        ],
+        [
+          54.545,
+          18.82
+        ],
+        [
+          54.705,
+          21.93
+        ],
+        [
+          52.632,
+          24.163
+        ],
+        [
+          48.405,
+          24.88
+        ],
+        [
+          45.774,
+          22.568
+        ],
+        [
+          44.498,
+          19.936
+        ],
+        [
+          45.774,
+          17.863
+        ]
+      ],
+      "path": "north",
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        512,
+        440
+      ]
+    },
+    {
+      "id": "p02",
+      "center_pct": [
+        64.815,
+        23.897
+      ],
+      "polygon_pct": [
+        [
+          63.955,
+          19.059
+        ],
+        [
+          67.943,
+          19.537
+        ],
+        [
+          70.096,
+          22.169
+        ],
+        [
+          69.139,
+          25.598
+        ],
+        [
+          66.906,
+          27.99
+        ],
+        [
+          63.557,
+          29.187
+        ],
+        [
+          60.447,
+          26.715
+        ],
+        [
+          59.888,
+          23.923
+        ],
+        [
+          61.404,
+          20.893
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        512,
+        508
+      ]
+    },
+    {
+      "id": "p03",
+      "center_pct": [
+        76.459,
+        33.541
+      ],
+      "polygon_pct": [
+        [
+          75.12,
+          28.389
+        ],
+        [
+          78.868,
+          28.389
+        ],
+        [
+          80.941,
+          30.542
+        ],
+        [
+          81.419,
+          33.573
+        ],
+        [
+          80.383,
+          36.523
+        ],
+        [
+          77.911,
+          38.836
+        ],
+        [
+          74.88,
+          38.357
+        ],
+        [
+          72.169,
+          36.443
+        ],
+        [
+          70.973,
+          33.413
+        ],
+        [
+          71.93,
+          30.941
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        524,
+        524
+      ]
+    },
+    {
+      "id": "p04",
+      "center_pct": [
+        82.713,
+        48.467
+      ],
+      "polygon_pct": [
+        [
+          80.702,
+          43.222
+        ],
+        [
+          84.769,
+          43.461
+        ],
+        [
+          87.161,
+          45.774
+        ],
+        [
+          86.842,
+          49.282
+        ],
+        [
+          85.646,
+          51.834
+        ],
+        [
+          83.174,
+          52.871
+        ],
+        [
+          79.745,
+          52.632
+        ],
+        [
+          78.15,
+          50.159
+        ],
+        [
+          78.23,
+          46.97
+        ]
+      ],
+      "path": "east",
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        452,
+        484
+      ]
+    },
+    {
+      "id": "p05",
+      "center_pct": [
+        75.901,
+        62.959
+      ],
+      "polygon_pct": [
+        [
+          75.917,
+          57.656
+        ],
+        [
+          79.027,
+          59.011
+        ],
+        [
+          80.702,
+          61.643
+        ],
+        [
+          80.303,
+          64.753
+        ],
+        [
+          78.868,
+          67.703
+        ],
+        [
+          75.518,
+          68.262
+        ],
+        [
+          72.568,
+          66.667
+        ],
+        [
+          70.973,
+          63.796
+        ],
+        [
+          71.611,
+          61.005
+        ],
+        [
+          73.525,
+          59.091
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        488,
+        532
+      ]
+    },
+    {
+      "id": "p06",
+      "center_pct": [
+        64.195,
+        73.804
+      ],
+      "polygon_pct": [
+        [
+          63.477,
+          68.9
+        ],
+        [
+          67.145,
+          69.537
+        ],
+        [
+          69.777,
+          72.089
+        ],
+        [
+          69.617,
+          75.359
+        ],
+        [
+          66.986,
+          77.911
+        ],
+        [
+          63.955,
+          79.027
+        ],
+        [
+          60.766,
+          77.671
+        ],
+        [
+          59.33,
+          75.279
+        ],
+        [
+          59.649,
+          72.01
+        ],
+        [
+          61.244,
+          70.255
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        524,
+        508
+      ]
+    },
+    {
+      "id": "p07",
+      "center_pct": [
+        49.876,
+        77.858
+      ],
+      "polygon_pct": [
+        [
+          47.209,
+          73.206
+        ],
+        [
+          52.073,
+          73.365
+        ],
+        [
+          54.386,
+          75.758
+        ],
+        [
+          55.183,
+          78.947
+        ],
+        [
+          53.349,
+          80.941
+        ],
+        [
+          50.319,
+          81.818
+        ],
+        [
+          46.89,
+          81.26
+        ],
+        [
+          44.817,
+          79.346
+        ],
+        [
+          44.657,
+          76.077
+        ]
+      ],
+      "path": "south",
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        528,
+        432
+      ]
+    },
+    {
+      "id": "p08",
+      "center_pct": [
+        34.809,
+        73.9
+      ],
+      "polygon_pct": [
+        [
+          33.174,
+          69.139
+        ],
+        [
+          36.523,
+          69.378
+        ],
+        [
+          39.075,
+          71.212
+        ],
+        [
+          40.112,
+          74.482
+        ],
+        [
+          39.075,
+          77.911
+        ],
+        [
+          35.885,
+          79.266
+        ],
+        [
+          32.695,
+          78.15
+        ],
+        [
+          30.303,
+          75.997
+        ],
+        [
+          30.064,
+          72.887
+        ],
+        [
+          31.18,
+          70.574
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        504,
+        508
+      ]
+    },
+    {
+      "id": "p09",
+      "center_pct": [
+        23.022,
+        63.254
+      ],
+      "polygon_pct": [
+        [
+          21.611,
+          58.293
+        ],
+        [
+          24.482,
+          57.974
+        ],
+        [
+          26.555,
+          60.048
+        ],
+        [
+          27.751,
+          63.078
+        ],
+        [
+          27.352,
+          65.949
+        ],
+        [
+          25.279,
+          68.022
+        ],
+        [
+          21.85,
+          67.943
+        ],
+        [
+          19.139,
+          66.427
+        ],
+        [
+          17.624,
+          63.716
+        ],
+        [
+          18.581,
+          61.085
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        508,
+        504
+      ]
+    },
+    {
+      "id": "p10",
+      "center_pct": [
+        19.386,
+        48.142
+      ],
+      "polygon_pct": [
+        [
+          16.746,
+          43.78
+        ],
+        [
+          20.813,
+          43.381
+        ],
+        [
+          23.206,
+          45.056
+        ],
+        [
+          24.561,
+          47.687
+        ],
+        [
+          23.604,
+          50.957
+        ],
+        [
+          21.691,
+          52.552
+        ],
+        [
+          18.341,
+          52.711
+        ],
+        [
+          15.71,
+          51.276
+        ],
+        [
+          14.274,
+          48.405
+        ],
+        [
+          14.912,
+          45.614
+        ]
+      ],
+      "path": "west",
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        516,
+        468
+      ]
+    },
+    {
+      "id": "p11",
+      "center_pct": [
+        22.855,
+        33.437
+      ],
+      "polygon_pct": [
+        [
+          21.292,
+          28.23
+        ],
+        [
+          24.721,
+          28.23
+        ],
+        [
+          27.033,
+          30.223
+        ],
+        [
+          27.911,
+          33.413
+        ],
+        [
+          26.874,
+          36.603
+        ],
+        [
+          24.482,
+          38.357
+        ],
+        [
+          21.451,
+          38.198
+        ],
+        [
+          18.74,
+          36.603
+        ],
+        [
+          17.624,
+          33.652
+        ],
+        [
+          18.421,
+          30.861
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        516,
+        508
+      ]
+    },
+    {
+      "id": "p12",
+      "center_pct": [
+        35.016,
+        23.118
+      ],
+      "polygon_pct": [
+        [
+          33.094,
+          18.102
+        ],
+        [
+          36.922,
+          18.182
+        ],
+        [
+          38.995,
+          20.175
+        ],
+        [
+          40.112,
+          23.126
+        ],
+        [
+          39.075,
+          25.997
+        ],
+        [
+          36.762,
+          27.99
+        ],
+        [
+          33.493,
+          27.99
+        ],
+        [
+          30.941,
+          26.156
+        ],
+        [
+          29.904,
+          23.126
+        ],
+        [
+          30.861,
+          20.335
+        ]
+      ],
+      "path": null,
+      "closed_state": "banquise verte praticable",
+      "open_state": "eau noire infranchissable, morceaux flottants et bord cassé dans le même polygone",
+      "covers_allowed": false,
+      "bounds_world_measured_approx": [
+        512,
+        496
+      ]
+    }
+  ],
+  "stable_outer_loop": {
+    "centerline_pct": [
+      [
+        50,
+        9
+      ],
+      [
+        71,
+        12
+      ],
+      [
+        89,
+        27
+      ],
+      [
+        92,
+        49
+      ],
+      [
+        90,
+        70
+      ],
+      [
+        73,
+        89
+      ],
+      [
+        50,
+        91
+      ],
+      [
+        29,
+        89
+      ],
+      [
+        13,
+        74
+      ],
+      [
+        9,
+        49
+      ],
+      [
+        12,
+        29
+      ],
+      [
+        29,
+        12
+      ],
+      [
+        50,
+        9
+      ]
+    ],
+    "width_world_target": 300,
+    "scope": "Boucle de rivage ferme, extérieure aux plaques ; vérifier sa continuité sur les collisions du propriétaire."
+  },
+  "cover_rocks": [
+    {
+      "id": "a01",
+      "center_pct": [
+        19.139,
+        19.059
+      ],
+      "quadrant": "nw",
+      "material": "rocher",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a02",
+      "center_pct": [
+        9.49,
+        37.4
+      ],
+      "quadrant": "nw",
+      "material": "rocher",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a03",
+      "center_pct": [
+        40.112,
+        41.308
+      ],
+      "quadrant": "nw",
+      "material": "rocher de l’île",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a04",
+      "center_pct": [
+        80.144,
+        19.458
+      ],
+      "quadrant": "ne",
+      "material": "bloc de glace dressé",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a05",
+      "center_pct": [
+        88.596,
+        37.321
+      ],
+      "quadrant": "ne",
+      "material": "rocher",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a06",
+      "center_pct": [
+        59.25,
+        40.75
+      ],
+      "quadrant": "ne",
+      "material": "rocher de l’île",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a07",
+      "center_pct": [
+        82.935,
+        83.014
+      ],
+      "quadrant": "se",
+      "material": "bloc de glace dressé",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a08",
+      "center_pct": [
+        90.032,
+        67.863
+      ],
+      "quadrant": "se",
+      "material": "débris plein de l’épave sur rivage",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a09",
+      "center_pct": [
+        59.49,
+        59.25
+      ],
+      "quadrant": "se",
+      "material": "rocher de l’île",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a10",
+      "center_pct": [
+        18.581,
+        90.59
+      ],
+      "quadrant": "sw",
+      "material": "débris plein échoué sur rivage",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a11",
+      "center_pct": [
+        11.085,
+        67.863
+      ],
+      "quadrant": "sw",
+      "material": "rocher",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    },
+    {
+      "id": "a12",
+      "center_pct": [
+        40.112,
+        59.49
+      ],
+      "quadrant": "sw",
+      "material": "rocher de l’île",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Cible du détail 110–160 unités ; la composition fixe la position, pas le gabarit final."
+    }
+  ],
+  "closure_safety_proposal": {
+    "all_open_image_scope": "L’image brisée contiendra les12 états ouverts à découper ; elle ne représente pas une fermeture simultanée autorisée en jeu.",
+    "runtime_rule_proposal": "Conserver au moins deux accès au phare ouverts, et un itinéraire de retour via la boucle ferme ; ne pas ouvrir tout un secteur simultanément. Claude fixe et teste le séquencement.",
+    "authored_static_collision_mask": false,
+    "navigation_tested": false
+  },
+  "paired_images": {
+    "same_framing": true,
+    "same_resolution": true,
+    "outside_plate_pixels_must_match": true,
+    "method_proposal": "Source intacte commune ; retouches générées localement puis réinsérées strictement dans les polygones des plaques. Comparaison pixel à pixel hors plaques.",
+    "broken_generated": false,
+    "comparison_status": "À réaliser après validation et détail des deux états ; aucune preuve de superposition revendiquée à ce stade."
+  },
+  "architecture_scale_world": {
+    "hunter_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "door_height": [
+      75,
+      90
+    ]
+  },
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "detail_generated": false,
+  "coordinate_basis": {
+    "image": "composition.png",
+    "size_px": [
+      1254,
+      1254
+    ],
+    "world_units_per_pixel": 4,
+    "geometry": "Repères relevés sur les joints peints de la proposition retenue ; à figer après validation."
+  },
+  "detail_region_workflow": "Découpage map_regions.py après validation, mêmes régions dans les deux états ; aucun agrandissement seul livré comme carte finale."
+}
