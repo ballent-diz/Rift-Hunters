@@ -1,7 +1,8 @@
 extends Node
-## Revue graphique de composition uniquement ; aucune partie ni donnée de niveau écrite.
+## Revue graphique de la composition et du détail ; aucune partie ni donnée de niveau écrite.
 
 const COMPOSITION := "res://assets/concepts/incoming/map.storm_lake/composition.png"
+const DETAIL_ROOT := "res://assets/environments/storm_lake/"
 
 var _world: Node2D
 var _ground: Node2D
@@ -10,6 +11,7 @@ var _hunter: EntityVisual
 var _echo: EntityVisual
 var _caption: Label
 var _out := "/tmp/rift-storm-lake"
+var _phase := "COMPOSITION"
 
 
 func _ready() -> void:
@@ -76,7 +78,7 @@ func _givres(center: Vector2, name: String) -> void:
 		actor.position = center + Vector2((i * 140 - 210) if i < 4 else ((i - 4) * 140 - 140),
 			-65 if i < 4 else 100)
 		monsters.append(actor)
-	_caption.text = "COMPOSITION CARTE 18 · GIVRÉS / %s · ZOOM RÉEL · DÉTAIL À VENIR" % name.to_upper()
+	_caption.text = "%s CARTE 18 · GIVRÉS / %s · ZOOM RÉEL" % [_phase, name.to_upper()]
 	await _save("givres_" + name + ".png")
 	for actor: EntityVisual in monsters:
 		actor.queue_free()
@@ -85,9 +87,16 @@ func _givres(center: Vector2, name: String) -> void:
 
 
 func _capture() -> void:
+	var detail := false
+	var sample := ""
 	for arg: String in OS.get_cmdline_user_args():
 		if arg.begins_with("--out="):
 			_out = arg.trim_prefix("--out=")
+		elif arg == "--detail":
+			detail = true
+		elif arg.begins_with("--sample="):
+			sample = arg.trim_prefix("--sample=")
+	_phase = "DÉTAIL" if detail or not sample.is_empty() else "COMPOSITION"
 	DirAccess.make_dir_recursive_absolute(_out)
 	get_window().size = Vector2i(1280, 720)
 	get_window().content_scale_size = Vector2i(1280, 720)
@@ -95,9 +104,20 @@ func _capture() -> void:
 	add_child(_world)
 	_ground = Node2D.new()
 	_world.add_child(_ground)
-	var image := Image.load_from_file(ProjectSettings.globalize_path(COMPOSITION))
-	assert(image != null and image.get_size() == Vector2i(1024, 1536))
-	_image(image, Vector2.ZERO, 3344.0 / 1024.0)
+	if not sample.is_empty():
+		var image := Image.load_from_file(sample)
+		assert(image != null)
+		_image(image, Vector2(954.6667, 0), 1.0 / 2.25)
+	elif detail:
+		for i: int in 2:
+			var path := DETAIL_ROOT + ("map.webp" if i == 0 else "map_1.webp")
+			var image := Image.load_from_file(ProjectSettings.globalize_path(path))
+			assert(image != null and image.get_size() == Vector2i(3762, 11286))
+			_image(image, Vector2(i * 1672, 0), 1.0 / 2.25)
+	else:
+		var image := Image.load_from_file(ProjectSettings.globalize_path(COMPOSITION))
+		assert(image != null and image.get_size() == Vector2i(1024, 1536))
+		_image(image, Vector2.ZERO, 3344.0 / 1024.0)
 	_caption = Label.new()
 	_caption.position = Vector2(15, 12)
 	_caption.add_theme_font_size_override("font_size", 17)
@@ -106,21 +126,29 @@ func _capture() -> void:
 	add_child(_caption)
 	_world.scale = Vector2.ONE * (640.0 / 5016.0)
 	_world.position = Vector2(426.67, 60)
-	_caption.text = "CARTE 18 · LAC GELÉ DES TEMPÊTES · COMPOSITION ENTIÈRE À VALIDER · AUCUN BLIZZARD PEINT"
-	await _save("ensemble_720p.png")
+	_caption.text = "CARTE 18 · LAC GELÉ DES TEMPÊTES · %s ENTIER · AUCUN BLIZZARD PEINT" % _phase
+	if sample.is_empty():
+		await _save("ensemble_720p.png")
 	_actors = Node2D.new()
 	_actors.y_sort_enabled = true
 	_actors.z_index = 2
 	_world.add_child(_actors)
 	_hunter = _actor(GameDB.balance.player_visual)
 	_echo = _actor(GameDB.enemy(&"snow_wraith").visual)
-	for spec: Array in [["camp", Vector2(1390, 420)], ["passerelle", Vector2(2563, 1218)],
+	if not sample.is_empty():
+		_camera(Vector2(1390, 270))
+		_caption.text = "CARTE 18 · TÉMOIN DU CAMP · CHASSEUR / ÉCHO · ZOOM RÉEL"
+		await _save("temoin_camp_zoom_jeu.png")
+		print("STORM_LAKE_SAMPLE_PREVIEW_OK")
+		get_tree().quit(0)
+		return
+	for spec: Array in [["camp", Vector2(1390, 270)], ["passerelle", Vector2(2563, 1218)],
 			["breche", Vector2(2704, 3001)], ["refuge", Vector2(2867, 1682)],
 			["arene", Vector2(970, 4264)]]:
 		_camera(spec[1])
-		_caption.text = "COMPOSITION CARTE 18 · %s · CHASSEUR / ÉCHO · ZOOM RÉEL · DÉTAIL À VENIR" % String(spec[0]).to_upper()
+		_caption.text = "%s CARTE 18 · %s · CHASSEUR / ÉCHO · ZOOM RÉEL" % [_phase, String(spec[0]).to_upper()]
 		await _save(String(spec[0]) + "_zoom_jeu.png")
-	await _givres(Vector2(1572, 750), "neige")
+	await _givres(Vector2(1580, 670), "neige")
 	await _givres(Vector2(2608, 3662), "berge")
 	_ground.queue_free()
 	await get_tree().process_frame
@@ -135,5 +163,5 @@ func _capture() -> void:
 	_camera(Vector2(2700, 500))
 	_caption.text = "RUINES DES CASCADES · MÊME CHASSEUR / ÉCHO ET ZOOM · RÉFÉRENCE D’ÉCHELLE"
 	await _save("reference_ruines_zoom_jeu.png")
-	print("STORM_LAKE_COMPOSITION_PREVIEW_OK · aucune intégration ni collision")
+	print("STORM_LAKE_PREVIEW_OK · ", _phase, " · aucune intégration ni collision")
 	get_tree().quit(0)

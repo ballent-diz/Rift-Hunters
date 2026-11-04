@@ -6,7 +6,7 @@
     1024,
     1536
   ],
-  "owner_approved": false,
+  "owner_approved": true,
   "stages": [
     {
       "prompt": "PROMPT_COMPOSITION.txt",

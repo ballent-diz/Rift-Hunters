@@ -8,13 +8,13 @@
     5016
   ],
   "status": "wip",
-  "stage": "composition_a_valider",
+  "stage": "detail_conforme_pret_pour_collisions",
   "composition": "composition.png",
-  "owner_approved": false,
-  "plan_locked": false,
-  "regions_generated": false,
-  "quality_conforme": false,
-  "quality_scope": "Proposition de composition ; contrôle final de finesse après validation et détail par régions.",
+  "owner_approved": true,
+  "plan_locked": true,
+  "regions_generated": true,
+  "quality_conforme": true,
+  "quality_scope": "Détail des12 régions conforme ; composition validée, runtime et collisions à intégrer.",
   "runtime_integrated": false,
   "collision_mask_created": false,
   "composition_dimensions": [
@@ -22,12 +22,74 @@
     1536
   ],
   "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
-  "proposed_landmarks": "source/composition_review.json",
   "wind_shelters": 7,
   "cover_rocks": 13,
-  "composition_validation_pending": true,
+  "composition_validation_pending": false,
   "prompts": [
     "source/PROMPT_COMPOSITION.txt",
-    "source/PROMPT_PASSAGES_ARENE.txt"
-  ]
+    "source/PROMPT_DETAIL.txt",
+    "source/PROMPT_GABARIT_ABRIS.txt",
+    "source/PROMPT_NETTOYAGE_PONTON.txt",
+    "source/PROMPT_PASSAGES_ARENE.txt",
+    "source/PROMPT_REFERENCE_MATIERE.txt"
+  ],
+  "owner_approval_date": "2026-11-04",
+  "owner_approval_message": "ok c'est bon pour moi, démarre la passe au détail",
+  "plan": "plan.json",
+  "detail_region_count": 12,
+  "detail_part_count": 24,
+  "detail_sample_verified": true,
+  "detail_samples": {
+    "regions": [
+      "r0_1",
+      "r1_1"
+    ],
+    "measurements": [
+      {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.12320709228515625,
+          418.1027412414551,
+          103.8980484008789
+        ],
+        "regional_reference_bands_met": true,
+        "region": "r0_1",
+        "crop_world": [
+          954.7,
+          0.0,
+          2389.3,
+          1414.0
+        ]
+      },
+      {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.16675567626953125,
+          407.867431640625,
+          97.33200073242188
+        ],
+        "regional_reference_bands_met": false,
+        "region": "r1_1",
+        "crop_world": [
+          954.7,
+          1094.0,
+          2389.3,
+          2668.0
+        ]
+      }
+    ],
+    "scope": "Bandes globales de référence atteintes sur les deux témoins ; capture du camp au zoom réel avec Chasseur et Écho. Aucun verdict global de carte à ce stade."
+  },
+  "quality_report": "docs/previews/storm-lake/qualite.json",
+  "source": "source/map_detailed.webp",
+  "retained_master_dimensions": [
+    2508,
+    3762
+  ],
+  "presentation_dimensions": [
+    7524,
+    11286
+  ],
+  "detail_completed": "2026-11-04",
+  "sharpness_repair": "source/sharpness_repair.json"
 }

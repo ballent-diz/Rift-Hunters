@@ -10,9 +10,9 @@
   "format": "2:3 vertical",
   "mode": "vagues par zone",
   "mechanic": "B2 Blizzard",
-  "stage": "proposition_de_composition",
-  "owner_approved": false,
-  "plan_locked": false,
+  "stage": "detail_livre_collisions_a_peindre",
+  "owner_approved": true,
+  "plan_locked": true,
   "coordinates": "Pourcentages depuis le coin haut-gauche, x sur3344 et y sur5016 ; repères proposés avant validation, sans données runtime.",
   "start_pct": [
     44,
@@ -806,11 +806,12 @@
   "storm_overlay_painted": false,
   "collision_mask_created": false,
   "runtime_integrated": false,
-  "detail_generated": false,
-  "review_note": "Repères relevés sur la composition retenue, avant validation ; plan.json figé à produire après accord du propriétaire.",
+  "detail_generated": true,
   "composition_dimensions": [
     1024,
     1536
   ],
-  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f"
+  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "approval_date": "2026-11-04",
+  "approval_message": "ok c'est bon pour moi, démarre la passe au détail"
 }

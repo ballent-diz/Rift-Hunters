@@ -1,21 +1,23 @@
 # Carte 18 — Le Lac gelé des tempêtes
 
-**Composition proposée au propriétaire, à valider avant le détail.** Chapitre 4, Glacier silencieux ; identifiant
+**Composition validée le 4 novembre 2026 ; détail graphique livré, collisions à peindre.** Chapitre 4, Glacier silencieux ; identifiant
 proposé `storm_lake`. Format vertical **3344 × 5016 unités** (2:3), image entière 1024 × 1536 pixels.
 Le format suit la demande propre à cette carte.
 
-![Composition entière](../previews/storm-lake/composition.webp)
+![Détail entier](../previews/storm-lake/detail.webp)
+
+[Composition et détail côte à côte](../previews/storm-lake/detail_ensemble.webp).
 
 [Plan annoté entier](../previews/storm-lake/plan_annote.webp) ·
-[Repères proposés pour la revue](../../assets/concepts/incoming/map.storm_lake/source/composition_review.json).
+[Plan figé et repères](../../assets/concepts/incoming/map.storm_lake/plan.json).
 
-## Parcours à valider
+## Plan validé
 
 Le Chasseur part du campement de pêcheurs au **nord** et descend par la **rive est**. Le lac gelé bleu sombre est
 **entièrement infranchissable**, avec des fractures profondes et des berges abruptes. La rive ouest est fermée par
 la falaise ; aucun itinéraire ne contourne les passages de zones par ce côté.
 
-| Étape | Centre x %, y % | Proposition |
+| Étape | Centre x %, y % | Disposition validée |
 |---|---|---|
 | Départ | 44 ;12 | Place dégagée du camp abandonné ; cabanes, filets et barques en périphérie |
 | Z1 | 48 ;13 | Large rive nord enneigée |
@@ -61,10 +63,9 @@ dans les repères de revue. Les rochers qui constituent les parois des refuges r
 
 Le camp de pêcheurs et les pontons donnent son identité au décor : bois grisé, lac très sombre, neige gris-bleu
 en traînées et liserés violets bas-droite. Les gabarits finaux restent ceux de l’ART_BIBLE : Chasseur ≈ 52 unités,
-marches 12–16, pavés≤26, colonnes 30–45, portes 75–90. Le redessin par régions affinera ces éléments sans recomposer
-le plan qui sera validé.
+marches 12–16, pavés≤26, colonnes 30–45, portes 75–90. Le redessin conserve le plan validé et les emprises des éléments.
 
-## Captures de contrôle de la composition
+## Captures du détail au zoom réel
 
 Captures Godot 1280 × 720 au zoom réel 1,3333, avec les sprites existants et leurs échelles du manifeste :
 
@@ -77,21 +78,26 @@ Captures Godot 1280 × 720 au zoom réel 1,3333, avec les sprites existants et l
   [arène](../previews/storm-lake/arene_zoom_jeu.png), avec le Chasseur et un Écho.
 - [Ruines des Cascades au même zoom](../previews/storm-lake/reference_ruines_zoom_jeu.png), référence d’échelle.
 
-Les silhouettes pâles restent lisibles sur les valeurs gris-bleu proposées. Ces vues agrandissent **la composition** :
-la finesse du sol est encore provisoire. Aucun résultat de qualité finale n’est revendiqué à ce stade.
-L’import Godot, le chargement graphique, le contrôle assets et le lint passent ;
-[compte rendu](../previews/storm-lake/controle_composition.json).
+Les silhouettes pâles restent lisibles sur la neige gris-bleu du camp et de la berge. Les captures utilisent les vrais sprites, leurs échelles du manifeste et la caméra du jeu. Le voile du blizzard sera ajouté par Claude.
 
-## Suite après validation du propriétaire
+## Détail et contrôles
 
-1. Figer les repères validés dans `plan.json`.
-2. Redessiner les 12 régions prévues, contrôler le témoin d’échelle puis les raccords, livrer un master natif et
-   deux tuiles finales à 2,25 pixels/unité ; joindre `map_regions.py compare` et un rapport
-   `check_map_quality.py` **conforme**, selon [QUALITE_DES_CARTES.md](QUALITE_DES_CARTES.md).
-3. Fournir une image entière légère au cadrage validé pour la peinture des collisions, avec recette et empreinte
-   dans `source/collision_reference.json`. Le propriétaire retournera un PNG au même cadrage et aux dimensions
-   indiquées dans cette future livraison. Aucun masque peint par Codex.
-4. Claude raccorde collisions, navigation, zones et barrières, blizzard B2, refuges, gardien et campagne.
+Douze régions redessinées en vingt-quatre demi-régions, référence des Ruines jointe à chaque génération. Un témoin du camp avec Chasseur et Écho a fixé l’échelle avant le lot, et un second témoin a contrôlé la matière du lac sombre. Master natif sans perte 2508 × 3762, présentation 7524 × 11286 en deux tuiles 3762 × 11286 à 2,25 pixels par unité. Les essais et régions intermédiaires restent hors Git.
 
-La composition ne figure pas au manifeste runtime. Aucun fichier de `src/`, `data/`, du manifeste ni des cartes 14
-à 17 n’est modifié. Le banc de captures est statique, sans écriture de profil ; navigation et combat restent à tester.
+Contrôle **conforme** : détails fins 422,158, moyens 100,422, part lisse 0,108, **35/35 secteurs conformes**, fidélité au plan 0,992. La correction de netteté laisse zéro case résiduelle à la référence initiale figée après encodage ; le diagnostic relatif frais est conservé séparément dans la recette.
+
+- [Rapport de qualité](../previews/storm-lake/qualite.json), [comparaison officielle d’échelle](../previews/storm-lake/echelle.webp), [compte rendu des contrôles](../previews/storm-lake/controle_detail.json).
+- [Treize abris à 1 pixel par unité](../previews/storm-lake/abris.webp), [sept refuges et leur sol libre](../previews/storm-lake/refuges.webp).
+- Recette, provenance et empreintes dans `assets/concepts/incoming/map.storm_lake/source/` ; reconstruction depuis le master retenu avec `tools/art/build_storm_lake.py --rebuild --work <dossier_hors_depot> --model <modele_x4v3_0.2.onnx>`.
+
+Import Godot headless, chargement des deux tuiles et des acteurs, neuf captures finales, `tools/run_tests.sh assets`, gdlint et compilation Python réussis. Les deux placeholders du manifeste existant restent hors lot.
+
+## Collisions et raccordement
+
+[Image entière légère à peindre](../previews/storm-lake/reference_collisions.jpg), **1024 × 1536** au cadrage exact de la composition validée. Recette JPEG et empreinte dans [`source/collision_reference.json`](../../assets/concepts/incoming/map.storm_lake/source/collision_reference.json) ; copie de travail identique dans `collision/reference.jpg`, ignorée par Git.
+
+Peindre en rouge translucide **tout le lac gelé**, les falaises et crevasses, les masses de glace des passages, les murs des cabanes et refuges et les **bases au sol** des treize abris. Laisser libres la neige des berges, le tablier entier de la passerelle et ses accès, la brèche, l’entrée du croissant et le sol ouvert des sept refuges. Les petits détails au sol restent traversables. Ne pas bloquer les ombres ni la projection du toit d’un refuge sur son sol praticable.
+
+Retour attendu : **PNG entier 1024 × 1536**, sans recadrage, rotation, marge ou redimensionnement. Aucun masque n’a été produit par Codex. Claude raccorde la peinture, la navigation, les zones et barrières, le blizzard B2 et la révélation autour des refuges, le gardien et la campagne. Vérifier les passages et l’emprise libre de 1000 unités de l’arène sur les collisions peintes avant de déclarer le niveau jouable.
+
+Aucun changement de `src/`, `data/`, du manifeste ni des cartes 14 à 17. Le décor reste hors runtime jusqu’à l’intégration par Claude ; aucun essai de circulation ni de combat n’est revendiqué.

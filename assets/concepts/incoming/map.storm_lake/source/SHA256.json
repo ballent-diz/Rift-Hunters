@@ -1,10 +1,20 @@
 {
   ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
   "composition.png": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
-  "job.json": "f149665c5f63b6fad198cc55e0c5fb216c038aefcb463944d89b7abdf856ff51",
+  "job.json": "a26dfad1051a94989d60ed9df3f8f38f0901166a8a5c61818abe675b3ebf377f",
+  "plan.json": "4f108c6570f35e0e99d4d94bd40bd0004f17c2aecf95cfa1432fcd29d40c910a",
   "source/PROMPT_COMPOSITION.txt": "f21d9867ba4f3e5689c3b8dadacc4fb59e69e5e1b38333f00078cbe095f1100c",
+  "source/PROMPT_DETAIL.txt": "a102630614739430ce6bbf60324480a87826db7b39f42fd7d7fb29ecdb265305",
+  "source/PROMPT_GABARIT_ABRIS.txt": "b0cd18b551c101d3fd7924d0693fbf9d77b932af0cc1022e8879ffb5658d26d3",
+  "source/PROMPT_NETTOYAGE_PONTON.txt": "76133157e89a0886620f1117ce4b0963068c586a50e376aa8c12587590c1ed3f",
   "source/PROMPT_PASSAGES_ARENE.txt": "24fe4628b0c3500b9a477f0ceba3328271d025f8bb1dd36533a3ac7cc2955cfb",
-  "source/composition_review.json": "c04f3611f409e6c93b386ef03ba370a76782e8f0f72fdbdf251e6b7166994b82",
-  "source/generation.json": "d54ea5d827428d3d098638c7035947053ce5f2a0854ec791a405b8606fc48bc1",
-  "source/layout.png": "264a0af26cf6c51cc5fad39540033228a1d062fdb4304f79e479bbaf7200157c"
+  "source/PROMPT_REFERENCE_MATIERE.txt": "15b4f4c62433798df4f340d29db1329f7c69b2971ff97394b08ab54ce340f4c2",
+  "source/collision_reference.json": "310a1823911aea2368f93e97b342818ee1985c48c890a4d9778c11a9880d4ddc",
+  "source/detail_recipe.json": "9a208ab8baf514b7a960c3ee3584e4001894e9b783c2119e613bc786e21dc7d5",
+  "source/generation.json": "1399d76bbd50d3c4c92341daf43073e1ca42d5c039d060dadcdba80d9a878af6",
+  "source/layout.png": "264a0af26cf6c51cc5fad39540033228a1d062fdb4304f79e479bbaf7200157c",
+  "source/map_detailed.webp": "8b506e11bd9bd0fc26cc0bb6470067a7724d5ab4877a852a2ddcf6abef8ca27f",
+  "source/regions_provenance.json": "adf5f63b7f7b9795d27980976e894c7a96c5f7ec6cc4622cfb1b5548a13d2291",
+  "source/scale_corrections.json": "fe4ee6145cda16b48f3d17d5089968a08f9ae44a12853b7b03c27e9e11caa09d",
+  "source/sharpness_repair.json": "0c116358bb2612a32ee46558d99d4833896c49336c3f493b835eeb8139565f64"
 }

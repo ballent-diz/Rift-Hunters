@@ -1,0 +1,61 @@
+{
+  "date": "2026-11-04",
+  "prompt": "PROMPT_GABARIT_ABRIS.txt",
+  "targets": [
+    "a2",
+    "a8",
+    "a9"
+  ],
+  "purpose": "Ramener les trois abris les plus larges dans la plage110–160 unités, pieds conservés.",
+  "before_master_sha256": "5394817db386c0553db11ca13496784e6faa26fbf5d8e57bf93a2c0234a3d1b1",
+  "after_master_sha256": "8b506e11bd9bd0fc26cc0bb6470067a7724d5ab4877a852a2ddcf6abef8ca27f",
+  "input_sha256": "25a647c59e6b67a0216a05e2168d5b659a8ced926c1804ab0cfac30e3271d875",
+  "generated_patch_sha256": "b0af5d462cb3b264000c848a89d8cc564eea0a9a39a682bf152ad043ca46eba8",
+  "generated_dimensions": [
+    2170,
+    725
+  ],
+  "generated_density_min": 2.2604166666666665,
+  "cells": [
+    {
+      "id": "a2",
+      "crop_world": [
+        1769.9895999999999,
+        530.4896,
+        2089.9896,
+        850.4896
+      ],
+      "cell": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "a8",
+      "crop_world": [
+        2831.30832,
+        3479.34584,
+        3151.30832,
+        3799.34584
+      ],
+      "cell": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "a9",
+      "crop_world": [
+        2181.4687999999996,
+        3642.6166399999997,
+        2501.4687999999996,
+        3962.6166399999997
+      ],
+      "cell": [
+        2,
+        0
+      ]
+    }
+  ],
+  "blend": "Réinsertion dans les mêmes rectangles, lisière fondue24 unités ; aucun masque de collision."
+}
