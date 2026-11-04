@@ -1,0 +1,817 @@
+{
+  "id": "map.storm_lake",
+  "map_number": 18,
+  "chapter": 4,
+  "title": "Le Lac gelé des tempêtes",
+  "world": [
+    3344,
+    5016
+  ],
+  "format": "2:3 vertical",
+  "mode": "vagues par zone",
+  "mechanic": "B2 Blizzard",
+  "stage": "detail_livre_collisions_a_peindre",
+  "owner_approved": true,
+  "plan_locked": true,
+  "coordinates": "Pourcentages depuis le coin haut-gauche, x sur3344 et y sur5016 ; repères proposés avant validation, sans données runtime.",
+  "start_pct": [
+    44,
+    12
+  ],
+  "zones": [
+    {
+      "id": "z1",
+      "name": "Rive nord",
+      "center_pct": [
+        48,
+        13
+      ],
+      "polygon_pct": [
+        [
+          7,
+          7
+        ],
+        [
+          20,
+          3
+        ],
+        [
+          76,
+          3
+        ],
+        [
+          95,
+          9
+        ],
+        [
+          95,
+          20
+        ],
+        [
+          83,
+          22
+        ],
+        [
+          63,
+          21
+        ],
+        [
+          39,
+          20
+        ],
+        [
+          13,
+          22
+        ],
+        [
+          7,
+          18
+        ]
+      ]
+    },
+    {
+      "id": "z2",
+      "name": "Rive est",
+      "center_pct": [
+        78,
+        43
+      ],
+      "polygon_pct": [
+        [
+          71,
+          27
+        ],
+        [
+          89,
+          27
+        ],
+        [
+          96,
+          30
+        ],
+        [
+          97,
+          46
+        ],
+        [
+          90,
+          57
+        ],
+        [
+          78,
+          59
+        ],
+        [
+          64,
+          56
+        ],
+        [
+          58,
+          52
+        ],
+        [
+          60,
+          41
+        ],
+        [
+          58,
+          32
+        ]
+      ]
+    },
+    {
+      "id": "z3",
+      "name": "Anse sud-est",
+      "center_pct": [
+        79,
+        72
+      ],
+      "polygon_pct": [
+        [
+          69,
+          61
+        ],
+        [
+          91,
+          60
+        ],
+        [
+          96,
+          66
+        ],
+        [
+          96,
+          74
+        ],
+        [
+          86,
+          80
+        ],
+        [
+          74,
+          83
+        ],
+        [
+          64,
+          79
+        ],
+        [
+          59,
+          73
+        ],
+        [
+          63,
+          66
+        ]
+      ]
+    }
+  ],
+  "lake": {
+    "polygon_pct": [
+      [
+        12,
+        24
+      ],
+      [
+        23,
+        20
+      ],
+      [
+        41,
+        20.5
+      ],
+      [
+        55,
+        24
+      ],
+      [
+        58,
+        31
+      ],
+      [
+        58,
+        41
+      ],
+      [
+        56,
+        50
+      ],
+      [
+        59,
+        58
+      ],
+      [
+        57,
+        67
+      ],
+      [
+        50,
+        71
+      ],
+      [
+        37,
+        73
+      ],
+      [
+        20,
+        69
+      ],
+      [
+        9,
+        61
+      ],
+      [
+        7,
+        50
+      ],
+      [
+        8,
+        36
+      ]
+    ],
+    "traversable": false,
+    "material": "Glace épaisse bleu sombre fissurée ; bord soufflé net, aucune plaque de glisse praticable."
+  },
+  "passages": [
+    {
+      "id": "p1",
+      "from": "z1",
+      "to": "z2",
+      "kind": "passerelle de bois sur crevasse",
+      "center_pct": [
+        76.66,
+        24.349
+      ],
+      "width_world_target": 260,
+      "length_world_target": 300,
+      "barrier_suitable": true,
+      "clear_width_composition_px_approx": 80
+    },
+    {
+      "id": "p2",
+      "from": "z2",
+      "to": "z3",
+      "kind": "brèche entre deux blocs de glace effondrés",
+      "center_pct": [
+        80.859,
+        59.831
+      ],
+      "width_world_target": 280,
+      "length_world_target": 180,
+      "barrier_suitable": true,
+      "clear_width_composition_px_approx": 88
+    },
+    {
+      "id": "p3",
+      "from": "z3",
+      "to": "arena",
+      "kind": "entrée large du croissant par la berge sud du lac",
+      "center_pct": [
+        60.645,
+        76.823
+      ],
+      "width_world_target": 700,
+      "barrier_suitable": true,
+      "opening_scope": "Large ouverture du croissant entre rive du lac et éperon de glace, sans porte ni cercle peint ; fermeture par barrière du jeu."
+    }
+  ],
+  "main_route": {
+    "centerline_pct": [
+      [
+        44,
+        12
+      ],
+      [
+        62,
+        11
+      ],
+      [
+        74,
+        20
+      ],
+      [
+        76.66,
+        21.81
+      ],
+      [
+        76.66,
+        27.47
+      ],
+      [
+        76,
+        36
+      ],
+      [
+        74,
+        45
+      ],
+      [
+        71.5,
+        49
+      ],
+      [
+        73,
+        54
+      ],
+      [
+        80.859,
+        59.831
+      ],
+      [
+        79,
+        66
+      ],
+      [
+        79,
+        72
+      ],
+      [
+        64,
+        74
+      ],
+      [
+        60.645,
+        76.823
+      ],
+      [
+        44,
+        81
+      ],
+      [
+        29,
+        85
+      ]
+    ],
+    "width_world_target": 300,
+    "measurement_scope": "Axe de composition, largeurs cibles ; navigation et barrières à vérifier sur les collisions du propriétaire."
+  },
+  "arena": {
+    "name": "Amphithéâtre de glace en croissant",
+    "polygon_pct": [
+      [
+        6,
+        78
+      ],
+      [
+        11,
+        71
+      ],
+      [
+        23,
+        71
+      ],
+      [
+        43,
+        74
+      ],
+      [
+        53,
+        73
+      ],
+      [
+        61,
+        77
+      ],
+      [
+        68,
+        81
+      ],
+      [
+        66,
+        85
+      ],
+      [
+        61,
+        89
+      ],
+      [
+        56,
+        95
+      ],
+      [
+        39,
+        98
+      ],
+      [
+        18,
+        98
+      ],
+      [
+        7,
+        95
+      ],
+      [
+        3,
+        90
+      ],
+      [
+        3,
+        83
+      ]
+    ],
+    "center_pct": [
+      29,
+      85
+    ],
+    "open_core_diameter_world_target": 1000,
+    "separate_arena": true,
+    "opening_pct": [
+      60.645,
+      76.823
+    ],
+    "opening_direction": "nord-est, face au lac par sa berge sèche",
+    "backing": "falaise à l’ouest et au sud",
+    "wind_shelters": [
+      "w6",
+      "w7"
+    ],
+    "cover_rocks": [
+      "a10",
+      "a11",
+      "a12",
+      "a13"
+    ],
+    "envelope_scope": "Emprise proposée ; largeur utile à confirmer après peinture des collisions.",
+    "open_core_center_pct": [
+      29,
+      85
+    ]
+  },
+  "wind_shelters": [
+    {
+      "id": "w1",
+      "center_pct": [
+        19.727,
+        13.737
+      ],
+      "clear_floor_diameter_world_target": 200,
+      "visual": "ruine de cabane ouverte au sud-est",
+      "warmth": "Neige plus calme et tonalité légèrement nacrée, sans halo ni aplat.",
+      "traversable_floor": true,
+      "runtime_visibility_effect_painted": false,
+      "center_composition_px": [
+        202,
+        211
+      ]
+    },
+    {
+      "id": "w2",
+      "center_pct": [
+        73.438,
+        13.346
+      ],
+      "clear_floor_diameter_world_target": 200,
+      "visual": "rochers en demi-cercle ouverts au sud",
+      "warmth": "Neige plus calme et tonalité légèrement nacrée, sans halo ni aplat.",
+      "traversable_floor": true,
+      "runtime_visibility_effect_painted": false,
+      "center_composition_px": [
+        752,
+        205
+      ]
+    },
+    {
+      "id": "w3",
+      "center_pct": [
+        85.742,
+        33.529
+      ],
+      "clear_floor_diameter_world_target": 200,
+      "visual": "surplomb de glace court, sol visible",
+      "warmth": "Neige plus calme et tonalité légèrement nacrée, sans halo ni aplat.",
+      "traversable_floor": true,
+      "runtime_visibility_effect_painted": false,
+      "center_composition_px": [
+        878,
+        515
+      ]
+    },
+    {
+      "id": "w4",
+      "center_pct": [
+        80.664,
+        49.935
+      ],
+      "clear_floor_diameter_world_target": 200,
+      "visual": "ruine de cabane ouverte à l’ouest",
+      "warmth": "Neige plus calme et tonalité légèrement nacrée, sans halo ni aplat.",
+      "traversable_floor": true,
+      "runtime_visibility_effect_painted": false,
+      "center_composition_px": [
+        826,
+        767
+      ]
+    },
+    {
+      "id": "w5",
+      "center_pct": [
+        88.281,
+        68.49
+      ],
+      "clear_floor_diameter_world_target": 200,
+      "visual": "creux de rochers ouvert à l’ouest",
+      "warmth": "Neige plus calme et tonalité légèrement nacrée, sans halo ni aplat.",
+      "traversable_floor": true,
+      "runtime_visibility_effect_painted": false,
+      "center_composition_px": [
+        904,
+        1052
+      ]
+    },
+    {
+      "id": "w6",
+      "center_pct": [
+        17.969,
+        72.005
+      ],
+      "clear_floor_diameter_world_target": 200,
+      "visual": "creux de glace ouvert vers le centre de l’arène",
+      "warmth": "Neige plus calme et tonalité légèrement nacrée, sans halo ni aplat.",
+      "traversable_floor": true,
+      "runtime_visibility_effect_painted": false,
+      "center_composition_px": [
+        184,
+        1106
+      ]
+    },
+    {
+      "id": "w7",
+      "center_pct": [
+        59.668,
+        88.216
+      ],
+      "clear_floor_diameter_world_target": 200,
+      "visual": "ruine basse ouverte vers le centre de l’arène",
+      "warmth": "Neige plus calme et tonalité légèrement nacrée, sans halo ni aplat.",
+      "traversable_floor": true,
+      "runtime_visibility_effect_painted": false,
+      "center_composition_px": [
+        611,
+        1355
+      ]
+    }
+  ],
+  "cover_rocks": [
+    {
+      "id": "a1",
+      "center_pct": [
+        30.371,
+        9.701
+      ],
+      "area": "z1",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        311,
+        149
+      ]
+    },
+    {
+      "id": "a2",
+      "center_pct": [
+        57.715,
+        15.56
+      ],
+      "area": "z1",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        591,
+        239
+      ]
+    },
+    {
+      "id": "a3",
+      "center_pct": [
+        83.984,
+        18.359
+      ],
+      "area": "z1",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        860,
+        282
+      ]
+    },
+    {
+      "id": "a4",
+      "center_pct": [
+        68.359,
+        33.724
+      ],
+      "area": "z2",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        700,
+        518
+      ]
+    },
+    {
+      "id": "a5",
+      "center_pct": [
+        81.152,
+        42.904
+      ],
+      "area": "z2",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        831,
+        659
+      ]
+    },
+    {
+      "id": "a6",
+      "center_pct": [
+        65.234,
+        52.344
+      ],
+      "area": "z2",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        668,
+        804
+      ]
+    },
+    {
+      "id": "a7",
+      "center_pct": [
+        71.68,
+        65.43
+      ],
+      "area": "z3",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        734,
+        1005
+      ]
+    },
+    {
+      "id": "a8",
+      "center_pct": [
+        89.453,
+        74.349
+      ],
+      "area": "z3",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        916,
+        1142
+      ]
+    },
+    {
+      "id": "a9",
+      "center_pct": [
+        70.02,
+        77.604
+      ],
+      "area": "z3",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        717,
+        1192
+      ]
+    },
+    {
+      "id": "a10",
+      "center_pct": [
+        9.277,
+        77.409
+      ],
+      "area": "arena",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        95,
+        1189
+      ]
+    },
+    {
+      "id": "a11",
+      "center_pct": [
+        44.629,
+        76.693
+      ],
+      "area": "arena",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        457,
+        1178
+      ]
+    },
+    {
+      "id": "a12",
+      "center_pct": [
+        9.18,
+        90.885
+      ],
+      "area": "arena",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        94,
+        1396
+      ]
+    },
+    {
+      "id": "a13",
+      "center_pct": [
+        46.484,
+        91.667
+      ],
+      "area": "arena",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "foot_anchor": true,
+      "foot_composition_px": [
+        476,
+        1408
+      ]
+    }
+  ],
+  "architecture_scale_world": {
+    "hunter_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "door_height": [
+      75,
+      90
+    ]
+  },
+  "storm_overlay_painted": false,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "detail_generated": true,
+  "composition_dimensions": [
+    1024,
+    1536
+  ],
+  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "approval_date": "2026-11-04",
+  "approval_message": "ok c'est bon pour moi, démarre la passe au détail"
+}

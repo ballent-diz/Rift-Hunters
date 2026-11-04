@@ -1,0 +1,856 @@
+{
+  "world": [
+    3344,
+    5016
+  ],
+  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "approved_plan_date": "2026-11-04",
+  "generated_date": "2026-11-04",
+  "method": "Douze régions peintes en vingt-quatre demi-régions, recouvrement de 128 unités ; raccord de faible différence.",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1274.7,
+        1414.0
+      ],
+      "parts": [
+        {
+          "name": "r0_0_s0",
+          "global_crop_world": [
+            0.0,
+            0.0,
+            701.35,
+            1414.0
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375703,
+          "original_sha256": "2eee382c493ad68f59dc7c3660daffd06dd9c7890e8666672f87f29b57bac50e",
+          "input_sha256": "ede6c191dca688ef7cbe99a95e190d15d9a9d52570c6bb637829db39dfea3131",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r0_0_s1",
+          "global_crop_world": [
+            573.35,
+            0.0,
+            1274.7,
+            1414.0
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375703,
+          "original_sha256": "af71a661de6fe94de6abfd64739c730eb0f4d5854c8b1a26eb5e1733ef530101",
+          "input_sha256": "1c4d3f7dac016068021d25dad7a3c6cb8787fef97c079eaaa1b244fb46639f27",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.09625244140625,
+          442.2426223754883,
+          101.96685791015625
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        954.7,
+        0.0,
+        2389.3,
+        1414.0
+      ],
+      "parts": [
+        {
+          "name": "r0_1_s0",
+          "global_crop_world": [
+            954.7,
+            0.0,
+            1736.0,
+            1414.0
+          ],
+          "dimensions": [
+            932,
+            1688
+          ],
+          "generated_density": 1.1928836554460513,
+          "original_sha256": "6e3aacf51cc5d58f1d78134e7f8f539441898391dfb56327b0743097ef1c3e2d",
+          "input_sha256": "b5af670f08e6b63d2c9c48bc1d155417361e11d4676be7ba5fa94c6624aa879e",
+          "scale_reference_sha256": "cf4303e3a0e815b3ffa5bae5bb881f337627a62cf72937a787b73963ea2f9567",
+          "prompts": [
+            "PROMPT_DETAIL.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r0_1_s1",
+          "global_crop_world": [
+            1608.0,
+            0.0,
+            2389.3,
+            1414.0
+          ],
+          "dimensions": [
+            932,
+            1688
+          ],
+          "generated_density": 1.1928836554460513,
+          "original_sha256": "16ad732bb5714564aac043ba551005fbe94974697bd255503ff026af5e0a9206",
+          "input_sha256": "fb5d78a9066f842885d523681e5f4700aeedc204b591ef4bf9020ef53e5a9877",
+          "scale_reference_sha256": "cf4303e3a0e815b3ffa5bae5bb881f337627a62cf72937a787b73963ea2f9567",
+          "prompts": [
+            "PROMPT_DETAIL.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.12320709228515625,
+          418.1027412414551,
+          103.8980484008789
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2069.3,
+        0.0,
+        3344,
+        1414.0
+      ],
+      "parts": [
+        {
+          "name": "r0_2_s0",
+          "global_crop_world": [
+            2069.3,
+            0.0,
+            2770.65,
+            1414.0
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375705,
+          "original_sha256": "a74d7504ecb4cb7bf0a6e76701bc4fac372618659b59fc921de8039834d8b6d0",
+          "input_sha256": "409f05dbd03a1ca9a8814fe06e5a8bd9efa689d6b406e31e62fca54925ad40f4",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r0_2_s1",
+          "global_crop_world": [
+            2642.65,
+            0.0,
+            3344.0,
+            1414.0
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375705,
+          "original_sha256": "0f1ec7190549d53be80492687bd6775066f68aea0613c64db502d41029e14fbd",
+          "input_sha256": "b6e6f421e172d8ce7b4a657ccc786fe4d4f037178767616c20492140ef48af21",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.06104278564453125,
+          431.6210746765137,
+          101.96685791015625
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        1094.0,
+        1274.7,
+        2668.0
+      ],
+      "parts": [
+        {
+          "name": "r1_0_s0",
+          "global_crop_world": [
+            0.0,
+            1094.0,
+            701.35,
+            2668.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.1934127040707208,
+          "original_sha256": "40795da9a1317cb1081572000d6c5da39b5eb148ca758245d5af4bcb3ae91fe6",
+          "input_sha256": "03dbea6dd218a741cd11cc4369ba39fa4a90277c43457242e825b2bb1d4f90cc",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r1_0_s1",
+          "global_crop_world": [
+            573.35,
+            1094.0,
+            1274.7,
+            2668.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.1934127040707208,
+          "original_sha256": "1af87799e8fecc0bc8c6a48b33f73fe94e2ca4e11c4d5821165bc62392aba0b1",
+          "input_sha256": "995b0514f9b487bfb76a6da7728ceae490fb0e3b0fd87452408e349066425ff2",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.18157958984375,
+          422.9307174682617,
+          100.22878646850586
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        954.7,
+        1094.0,
+        2389.3,
+        2668.0
+      ],
+      "parts": [
+        {
+          "name": "r1_1_s0",
+          "global_crop_world": [
+            954.7,
+            1094.0,
+            1736.0,
+            2668.0
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.1301676692691667,
+          "original_sha256": "b9a14918be4fa8f6449eb69a02dcaec72e2cbcafe9f5a7dba7e96474cb5b2642",
+          "input_sha256": "cba6541a36f5494bd0e6c5217d7395546f15ff1a9f35a69b42df5cd0dac640ce",
+          "scale_reference_sha256": "e035997461ca2c74155d5b52f98a263240bf941e6a23ed3eed246ea12b7aeaa7",
+          "prompts": [
+            "PROMPT_DETAIL.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r1_1_s1",
+          "global_crop_world": [
+            1608.0,
+            1094.0,
+            2389.3,
+            2668.0
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.1301676692691667,
+          "original_sha256": "2e05c5f035db153d49d79b1f72ff4e3f20c152f2263cd3d66f007412bcb7bd50",
+          "input_sha256": "f2bb352caf2a448b5b01fcc182c73afc482ec240af9f1770dab7147b5f3d041f",
+          "scale_reference_sha256": "e035997461ca2c74155d5b52f98a263240bf941e6a23ed3eed246ea12b7aeaa7",
+          "prompts": [
+            "PROMPT_DETAIL.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.16675567626953125,
+          407.867431640625,
+          97.33200073242188
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2069.3,
+        1094.0,
+        3344,
+        2668.0
+      ],
+      "parts": [
+        {
+          "name": "r1_2_s0",
+          "global_crop_world": [
+            2069.3,
+            1094.0,
+            2770.65,
+            2668.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.193412704070721,
+          "original_sha256": "f08642687878fd6feaac70be5048803138b62ec0e7e394981eadf1bb93a243a2",
+          "input_sha256": "06594e7e2c134516cf6dfba89045f932e3bdbb7944796adae921b771c8226195",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r1_2_s1",
+          "global_crop_world": [
+            2642.65,
+            1094.0,
+            3344.0,
+            2668.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.193412704070721,
+          "original_sha256": "9f3fceeabd428e575778484138bb5729e3315d1d5f311e6282554fa8384596c4",
+          "input_sha256": "a0e0e30b19dabd5a2026db8caf6dce5d243c31835e3802affb10ab783919f2cb",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.08252716064453125,
+          431.0417175292969,
+          102.35309600830078
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2348.0,
+        1274.7,
+        3922.0
+      ],
+      "parts": [
+        {
+          "name": "r2_0_s0",
+          "global_crop_world": [
+            0.0,
+            2348.0,
+            701.35,
+            3922.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.1934127040707208,
+          "original_sha256": "2b17bd60335dc891ad7c89848578387d526ba2443254e95c6ce70f785f6b0aba",
+          "input_sha256": "b45f7d12229fbb6dab1fba15129dadcf2d16c357cd2d387e4bf27b62ccdc535d",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r2_0_s1",
+          "global_crop_world": [
+            573.35,
+            2348.0,
+            1274.7,
+            3922.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.1934127040707208,
+          "original_sha256": "707a41c8d2197ad7f2266deade90631e65a5086961d42951bee389e4e2e1115f",
+          "input_sha256": "f71d7b4b1920150c34691345c540288751cc2830ee5389a524b602696f65bc3c",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.14835357666015625,
+          422.15824127197266,
+          99.64942932128906
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        954.7,
+        2348.0,
+        2389.3,
+        3922.0
+      ],
+      "parts": [
+        {
+          "name": "r2_1_s0",
+          "global_crop_world": [
+            954.7,
+            2348.0,
+            1736.0,
+            3922.0
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.1301676692691667,
+          "original_sha256": "5a1cdbd8821db5dcd6c0557515e09f2aaeb761feb79a7b1268b81f4720c14d1d",
+          "input_sha256": "b7dd954484669153450cbb9603eee21c3b48bfc22a7e77aae55c75739a504703",
+          "scale_reference_sha256": "e035997461ca2c74155d5b52f98a263240bf941e6a23ed3eed246ea12b7aeaa7",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r2_1_s1",
+          "global_crop_world": [
+            1608.0,
+            2348.0,
+            2389.3,
+            3922.0
+          ],
+          "dimensions": [
+            883,
+            1780
+          ],
+          "generated_density": 1.1301676692691667,
+          "original_sha256": "0d00b57a33c6f07fe7fcd28ac3aade120cd227c6ac6d65f8db495c09e346ef93",
+          "input_sha256": "b70639287d9fa3b51b7d924b82ad8dfb144455ca7e47fe8ae67c45c84c0b531f",
+          "scale_reference_sha256": "e035997461ca2c74155d5b52f98a263240bf941e6a23ed3eed246ea12b7aeaa7",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.089508056640625,
+          432.39355087280273,
+          103.70492935180664
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2069.3,
+        2348.0,
+        3344,
+        3922.0
+      ],
+      "parts": [
+        {
+          "name": "r2_2_s0",
+          "global_crop_world": [
+            2069.3,
+            2348.0,
+            2770.65,
+            3922.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.193412704070721,
+          "original_sha256": "ef084b3185a297e5ade538f18ee49fd0b32c05d154fc3039f5d38dd6d9113bd9",
+          "input_sha256": "fcd318d028647cd416f4a91ae18a5617bad4c4979c2fc0043839ef5c2f85051d",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r2_2_s1",
+          "global_crop_world": [
+            2642.65,
+            2348.0,
+            3344.0,
+            3922.0
+          ],
+          "dimensions": [
+            837,
+            1879
+          ],
+          "generated_density": 1.193412704070721,
+          "original_sha256": "cd3203167e30c3c88700905c74a6b901e7342d150c750091bab603b4a9de3031",
+          "input_sha256": "676fd72439ea528099085b8db0703b15e13daad353f06b844419f5ed0fcb35bd",
+          "scale_reference_sha256": "cb3906e7d93d4f1d6bb3737a9d5375866a8a53a04969a56712540c8faa6c6f2a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 80,
+        "median_smooth_fine_medium": [
+          0.05608367919921875,
+          438.38024139404297,
+          104.67052459716797
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_0",
+      "crop_world": [
+        0.0,
+        3602.0,
+        1274.7,
+        5016
+      ],
+      "parts": [
+        {
+          "name": "r3_0_s0",
+          "global_crop_world": [
+            0.0,
+            3602.0,
+            701.35,
+            5016
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375703,
+          "original_sha256": "73bd724f02a255194aa9c0c91890f410480b07ef6dd7a6c5779085b74eb3b06f",
+          "input_sha256": "92c4e195855917b0fca39f4dcc684bef66ebd99f0c183e72e38c04975e7b9fad",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt",
+            "PROMPT_NETTOYAGE_PONTON.txt"
+          ],
+          "local_corrections": [
+            {
+              "kind": "Retrait du ponton parasite ; retour au sol enneigé du plan validé.",
+              "prompt": "PROMPT_NETTOYAGE_PONTON.txt",
+              "before_part_sha256": "a82ed2378b63882baca23d89d156b6f87e6002dade2184b54445bd62062e9bd6",
+              "generated_patch_sha256": "6d3a0f74fc92b0b6a5e8a4d4c1bf9fd257d22b1e2d0c67bc8ab8493368cc6740",
+              "crop_in_part_pixels": [
+                0,
+                552,
+                318,
+                1140
+              ],
+              "after_part_sha256": "73bd724f02a255194aa9c0c91890f410480b07ef6dd7a6c5779085b74eb3b06f",
+              "geometry_reference_sha256": "0a115287c4bf380e6a97cd71f912a6fa1d06bb12753d3b707b2a83f905455613"
+            }
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r3_0_s1",
+          "global_crop_world": [
+            573.35,
+            3602.0,
+            1274.7,
+            5016
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375703,
+          "original_sha256": "bbd92141d6376fd80ffa8306c83b5b46b1bb2c2be31b3332fcc8f02b046218cb",
+          "input_sha256": "c2d96f29218679e1b98631d20a4421e461a46fd9dc42072952eeb482713545d8",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.151580810546875,
+          401.30138397216797,
+          102.93245315551758
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_1",
+      "crop_world": [
+        954.7,
+        3602.0,
+        2389.3,
+        5016
+      ],
+      "parts": [
+        {
+          "name": "r3_1_s0",
+          "global_crop_world": [
+            954.7,
+            3602.0,
+            1736.0,
+            5016
+          ],
+          "dimensions": [
+            932,
+            1688
+          ],
+          "generated_density": 1.1928836554460513,
+          "original_sha256": "27e59ffaed1f08175a170eb92d38064329d7d2ce0ace09f9ce6111fb438cd6eb",
+          "input_sha256": "2ed77824ffad44f52b9b3d77aec1b172e0d6ee1d3517255fc54a29264e2e2917",
+          "scale_reference_sha256": "cf4303e3a0e815b3ffa5bae5bb881f337627a62cf72937a787b73963ea2f9567",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r3_1_s1",
+          "global_crop_world": [
+            1608.0,
+            3602.0,
+            2389.3,
+            5016
+          ],
+          "dimensions": [
+            932,
+            1688
+          ],
+          "generated_density": 1.1928836554460513,
+          "original_sha256": "ab751ad6fb28deb699e70f2d7b4d69c485fd2783607642badf01e22f6bed07c5",
+          "input_sha256": "86928f66279c65b8cb18e1931588b6754cc329fc7c10e284d3fc1149d8a99346",
+          "scale_reference_sha256": "cf4303e3a0e815b3ffa5bae5bb881f337627a62cf72937a787b73963ea2f9567",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.14844894409179688,
+          397.8252410888672,
+          102.93245315551758
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_2",
+      "crop_world": [
+        2069.3,
+        3602.0,
+        3344,
+        5016
+      ],
+      "parts": [
+        {
+          "name": "r3_2_s0",
+          "global_crop_world": [
+            2069.3,
+            3602.0,
+            2770.65,
+            5016
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375705,
+          "original_sha256": "15a4cda77c809343b921fbbbedd0f9cf1eac1c8030b0db032e7c5cc85ea8cd88",
+          "input_sha256": "2bca9e437a5253e9f06b0a9639aa8abb9e66f4357fec59bcbdf0f22ae759c02f",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r3_2_s1",
+          "global_crop_world": [
+            2642.65,
+            3602.0,
+            3344.0,
+            5016
+          ],
+          "dimensions": [
+            883,
+            1781
+          ],
+          "generated_density": 1.2590004990375705,
+          "original_sha256": "5253f123439fab7608a78a83b83b8caf301f76b427f6fe50429826a0d6c784da",
+          "input_sha256": "cafd5f78fdf9916c9025a7f26dff4102da06071491140c6011c7c3fe89cd13ef",
+          "scale_reference_sha256": "cf665fb30884e262120530c1e240193378a7115cd10179518b433b5a8be200d6",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "local_corrections": [],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.05545806884765625,
+          444.3669319152832,
+          101.58061981201172
+        ],
+        "regional_reference_bands_met": false
+      }
+    }
+  ],
+  "retained_source": "map_detailed.webp",
+  "retained_sha256": "8b506e11bd9bd0fc26cc0bb6470067a7724d5ab4877a852a2ddcf6abef8ca27f",
+  "retained_dimensions": [
+    2508,
+    3762
+  ],
+  "retained_density": 0.75,
+  "pixels_lossless_verified": true,
+  "prompts": [
+    "PROMPT_DETAIL.txt",
+    "PROMPT_NETTOYAGE_PONTON.txt",
+    "PROMPT_REFERENCE_MATIERE.txt",
+    "PROMPT_GABARIT_ABRIS.txt"
+  ],
+  "intermediate_images": "Conservées hors dépôt ; une seule source native assemblée retenue.",
+  "local_scale_corrections": "scale_corrections.json"
+}

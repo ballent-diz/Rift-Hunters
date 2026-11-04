@@ -1,0 +1,34 @@
+{
+  "date": "2026-11-04",
+  "reference": "reference.jpg",
+  "published_reference": "docs/previews/storm-lake/reference_collisions.jpg",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "world": [
+    3344,
+    5016
+  ],
+  "reference_bytes": 770991,
+  "reference_sha256": "c35139883c7a4477ad844c88a8d5581f57cb0dd388b2798671df5ebff26cd6b7",
+  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "source_tiles_sha256": {
+    "map.webp": "25df843826550540fe2982b0d7dad87ccc3fac586c35437afd51f1c8851298d8",
+    "map_1.webp": "37bab63e594ef286a399496a921e8137e15b68a5ea165c1b186b18e8e09c2ceb"
+  },
+  "world_units_per_pixel": 3.265625,
+  "encoding": {
+    "format": "JPEG",
+    "quality": 85,
+    "optimize": true,
+    "subsampling": 0,
+    "resize": "Lanczos de7524x11286 à1024x1536",
+    "crop": null,
+    "Pillow": "12.3.0"
+  },
+  "layout_approved": true,
+  "painting_return": "PNG entier1024 ×1536, même cadrage, sans rotation, marge ni redimensionnement. Rouge translucide sur lac, falaises, crevasses, parois et bases des13 abris ; neige, pont, brèche, entrée et sol des7 refuges restent libres.",
+  "painting_surface": "Bases au sol, pas les sommets ni les ombres. Les surplombs et cabanes des refuges gardent leur sol praticable et leur ouverture.",
+  "mask_generated": false
+}

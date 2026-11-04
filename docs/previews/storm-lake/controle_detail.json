@@ -1,0 +1,624 @@
+{
+  "date": "2026-11-04",
+  "godot_version": "4.3.stable.official.77dcf97d8",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        "."
+      ],
+      "exit_code": 0,
+      "duration_seconds": 26.18
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_storm_lake.tscn",
+        "--",
+        "--detail",
+        "--out=/workspace/.rift-art/map18/detail/captures"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 11.2
+    },
+    {
+      "name": "assets",
+      "command": [
+        "bash",
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 8.94
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_storm_lake.gd"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.31
+    },
+    {
+      "name": "python_compile",
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/art/build_storm_lake.py"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.06
+    }
+  ],
+  "viewport": [
+    1280,
+    720
+  ],
+  "camera_zoom": 1.3333,
+  "capture_sha256": {
+    "arene_zoom_jeu.png": "d06a58e3a338f74055de8e3e3fe4be888cd3aad8587ccdcdf633497fb00d8a6a",
+    "breche_zoom_jeu.png": "c554cb4196cde1527afac5811c7cfeff3fd361c0e4a1c1deb74bc8a011422b1f",
+    "camp_zoom_jeu.png": "5ca7714855d5fb0c0cb5d8f342fc0580faf09c4628620c664f9867a78170c41e",
+    "ensemble_720p.png": "f9d4f3cdef57fef719b46d72a28743dc3ebe1b43c087d5aee1f3808930a97dfe",
+    "givres_berge.png": "de8af33294988813663f87436863830fa63bcd8a2aac13a5b7a61699858b8211",
+    "givres_neige.png": "41ac2bdae01e1d7d524dacebf26cb648488f31be225b99c65a5ad6cc7aca799f",
+    "passerelle_zoom_jeu.png": "1403fc13ee1c5030ab1ccffa511ceb4353c2b06c22ee3f071f31df769c317cfb",
+    "reference_ruines_zoom_jeu.png": "aabca9279a9d3b981579c4811e062a72d979f9ab89725300d9d1b02e6cf325b5",
+    "refuge_zoom_jeu.png": "36f459ed5d4149c62926fd322409b500b3dc840d55f1dabc61560e45b5595cd4"
+  },
+  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "master_sha256": "8b506e11bd9bd0fc26cc0bb6470067a7724d5ab4877a852a2ddcf6abef8ca27f",
+  "tiles_sha256": {
+    "map.webp": "25df843826550540fe2982b0d7dad87ccc3fac586c35437afd51f1c8851298d8",
+    "map_1.webp": "37bab63e594ef286a399496a921e8137e15b68a5ea165c1b186b18e8e09c2ceb"
+  },
+  "collision_reference_sha256": "c35139883c7a4477ad844c88a8d5581f57cb0dd388b2798671df5ebff26cd6b7",
+  "detail_regions": 12,
+  "generated_parts": 24,
+  "wind_shelters": 7,
+  "cover_blocks_per_area": [
+    3,
+    3,
+    3,
+    4
+  ],
+  "quality_conforme": true,
+  "quality_report": "qualite.json",
+  "sharpness_repair": {
+    "method": "Real-ESRGAN x4v3, débruitage 0,2 ; demi-taille puis ×4 et retour à taille initiale ; cases douces seulement.",
+    "model": "realesr_general_x4v3_0.2.onnx",
+    "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+    "initial_cells": 124,
+    "initial_reference": 0.0012662385124713182,
+    "remaining_cells_frozen_reference": 0,
+    "valid_cells": 620,
+    "selected_cells_row_col": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        0,
+        13
+      ],
+      [
+        0,
+        14
+      ],
+      [
+        0,
+        15
+      ],
+      [
+        0,
+        16
+      ],
+      [
+        0,
+        19
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        1,
+        14
+      ],
+      [
+        1,
+        15
+      ],
+      [
+        1,
+        16
+      ],
+      [
+        1,
+        18
+      ],
+      [
+        1,
+        19
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        16
+      ],
+      [
+        2,
+        18
+      ],
+      [
+        3,
+        6
+      ],
+      [
+        3,
+        14
+      ],
+      [
+        3,
+        15
+      ],
+      [
+        3,
+        19
+      ],
+      [
+        4,
+        0
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        4,
+        13
+      ],
+      [
+        4,
+        15
+      ],
+      [
+        5,
+        1
+      ],
+      [
+        5,
+        2
+      ],
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        12
+      ],
+      [
+        5,
+        17
+      ],
+      [
+        5,
+        19
+      ],
+      [
+        6,
+        3
+      ],
+      [
+        6,
+        4
+      ],
+      [
+        6,
+        6
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        6,
+        12
+      ],
+      [
+        6,
+        13
+      ],
+      [
+        6,
+        14
+      ],
+      [
+        6,
+        15
+      ],
+      [
+        6,
+        16
+      ],
+      [
+        6,
+        18
+      ],
+      [
+        7,
+        0
+      ],
+      [
+        7,
+        1
+      ],
+      [
+        7,
+        9
+      ],
+      [
+        7,
+        10
+      ],
+      [
+        7,
+        11
+      ],
+      [
+        7,
+        12
+      ],
+      [
+        7,
+        13
+      ],
+      [
+        7,
+        14
+      ],
+      [
+        7,
+        15
+      ],
+      [
+        7,
+        16
+      ],
+      [
+        8,
+        0
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        15
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        8,
+        17
+      ],
+      [
+        8,
+        18
+      ],
+      [
+        9,
+        18
+      ],
+      [
+        9,
+        19
+      ],
+      [
+        10,
+        0
+      ],
+      [
+        11,
+        13
+      ],
+      [
+        11,
+        14
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        13,
+        16
+      ],
+      [
+        14,
+        13
+      ],
+      [
+        15,
+        18
+      ],
+      [
+        16,
+        9
+      ],
+      [
+        16,
+        11
+      ],
+      [
+        16,
+        12
+      ],
+      [
+        16,
+        13
+      ],
+      [
+        16,
+        17
+      ],
+      [
+        17,
+        11
+      ],
+      [
+        17,
+        12
+      ],
+      [
+        17,
+        13
+      ],
+      [
+        18,
+        11
+      ],
+      [
+        18,
+        12
+      ],
+      [
+        18,
+        13
+      ],
+      [
+        19,
+        7
+      ],
+      [
+        19,
+        12
+      ],
+      [
+        20,
+        0
+      ],
+      [
+        20,
+        7
+      ],
+      [
+        20,
+        13
+      ],
+      [
+        21,
+        8
+      ],
+      [
+        21,
+        13
+      ],
+      [
+        22,
+        8
+      ],
+      [
+        22,
+        10
+      ],
+      [
+        22,
+        11
+      ],
+      [
+        22,
+        12
+      ],
+      [
+        23,
+        4
+      ],
+      [
+        23,
+        5
+      ],
+      [
+        23,
+        9
+      ],
+      [
+        23,
+        10
+      ],
+      [
+        23,
+        12
+      ],
+      [
+        23,
+        19
+      ],
+      [
+        24,
+        0
+      ],
+      [
+        26,
+        12
+      ],
+      [
+        26,
+        13
+      ],
+      [
+        26,
+        19
+      ],
+      [
+        27,
+        11
+      ],
+      [
+        27,
+        16
+      ],
+      [
+        27,
+        18
+      ],
+      [
+        28,
+        1
+      ],
+      [
+        28,
+        9
+      ],
+      [
+        28,
+        13
+      ],
+      [
+        28,
+        16
+      ],
+      [
+        28,
+        19
+      ],
+      [
+        29,
+        0
+      ],
+      [
+        29,
+        17
+      ],
+      [
+        29,
+        18
+      ],
+      [
+        30,
+        0
+      ],
+      [
+        30,
+        1
+      ],
+      [
+        30,
+        10
+      ],
+      [
+        30,
+        13
+      ],
+      [
+        30,
+        16
+      ],
+      [
+        30,
+        17
+      ],
+      [
+        30,
+        18
+      ],
+      [
+        30,
+        19
+      ]
+    ],
+    "blocks": 248,
+    "remaining_cells_frozen_reference_after_encoding": 0
+  },
+  "relative_sharpness_diagnostic": {
+    "blurry_cells": 470,
+    "valid_cells": 620
+  },
+  "protected_paths_unchanged": true,
+  "runtime_manifest_changed": false,
+  "collision_mask_created": false,
+  "storm_overlay_painted": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false,
+  "capture_scope": "Banc graphique statique avec vrais sprites, sans partie ni profil écrit ; contrôle du manifeste existant et chargement des deux nouvelles tuiles."
+}
