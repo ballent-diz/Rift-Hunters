@@ -221,6 +221,17 @@ extends Resource
 ## Cratères qui crachent les roches (grande arène) : chaque roche part en arc du cratère le plus proche de sa cible.
 ## Vide : la roche tombe du ciel.
 @export var rockfall_vents: Array[Vector2] = []
+@export_group("Glace qui fait glisser (brique B1, chapitre 4)")
+## Plaques de glace praticables : ellipse inscrite dans chaque rectangle (unités du monde). Sur la glace, tout le monde
+## (Chasseur, Corrompus) garde son élan : accélération et changement de direction lents, glissade quand on s'arrête.
+@export var ice_patches: Array[Rect2] = []
+## Temps pour atteindre sa pleine vitesse (ou retourner sa course) sur la glace.
+@export var ice_accel_time: float = 0.6
+## Glissade : temps pour s'arrêter quand on lâche la direction.
+@export var ice_glide_time: float = 1.5
+## Vitesse maximale sur la glace (multiplicateur) et longueur de la Ruée (multiplicateur, finit en glissade).
+@export var ice_speed_mult: float = 1.15
+@export var ice_dash_mult: float = 1.4
 @export_group("Froid et braseros (brique B7, chapitre 4)")
 ## Froid gagné par seconde loin des braseros (jauge de 0 à 100 ; 0 = pas de froid sur la carte).
 @export var cold_rate: float = 0.0

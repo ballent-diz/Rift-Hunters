@@ -12,6 +12,25 @@ La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
 
+## Carte 16, Entrée du Glacier, en jeu (Claude, 4 novembre 2026)
+
+Décor de Codex (PR 100) et collisions peintes par le propriétaire. Chapitre 4 « Le Glacier silencieux » ouvert
+dans la campagne (`data/chapters/silent_glacier.tres`, une carte pour l'instant). Fiche : `docs/maps/ENTREE_DU_GLACIER.md`.
+
+- **Glace qui fait glisser (B1)** : `IceDirector`, `ArenaData.ice_patches` (six ellipses relevées sur l'image).
+  Chasseur et Corrompus (hors volants) : pleine vitesse ou demi-tour en 0,6 s, +15 % de vitesse, glissade de 1,5 s,
+  Ruée 40 % plus longue qui finit en glissade, charges de boss lancées depuis la glace 40 % plus longues. Traînée de
+  givre, fiche « Glace qui fait glisser » au premier pas sur la glace. Les Échos ne glissent pas (à décider).
+- **Vagues** : Givrés (Rampe-givre, Loup de blizzard, Spectre de neige, Golem de glace), élites Archère du givre,
+  Chaman du gel, Yéti des cimes. Deux zones (Bassin de neige, Plateau des glaces), barrières aux deux cols.
+- **Gardien : Patriarche des cimes** (`peak_patriarch`, sprite du Yéti, 2 phases) : revers, bond, invocations et
+  mécanique phare **Avalanche** (boules de neige en éventail, arrêtées par les abris).
+- **Équilibrage** (profil d'étape) : ennemis ×1 / ×0,8, gardien ×2 / ×1,05 → 3 victoires sur 4, combat de 55 à 70 s.
+- **Bot** : un point de retour en ligne droite à travers un mur le collait dans une poche du plateau central ; il ne
+  choisit plus que des points visibles.
+- **À décider** : chaque carte gagnée débloque un Écho, mais les 15 Échos à gagner sont déjà attribués (cartes 1 à
+  15). Le chapitre 4 n'en donne pas encore ; la règle est vérifiée pour les chapitres 1 à 3 seulement.
+
 ## Performances (Claude, 3 novembre 2026)
 
 Retour du propriétaire : environ 10 images par seconde contre Astravorn, ralentissements quand l'écran est chargé.

@@ -200,10 +200,20 @@ func step(delta: float) -> void:
 		position += _dash_dir * (ctx.balance.dash_distance / ctx.balance.dash_duration) * delta
 		if _dash_time <= 0.0:
 			ctx.events.player_dashed.emit(_dash_from, global_position)
+			# Glace : la Ruée finit en glissade dans sa direction.
+			if ctx.ice and ctx.ice.on_ice(position):
+				velocity = _dash_dir * stats.get_value(StatKeys.MOVE_SPEED) * ctx.ice.speed_mult()
 	else:
 		var hinder: float = _hinder_mult if _hinder_time > 0.0 else 1.0
-		velocity = move * stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() \
+		var top: float = stats.get_value(StatKeys.MOVE_SPEED) * statuses.speed_mult() \
 			* ctx.terrain_speed(position, get_instance_id()) * hinder
+		if ctx.ice and ctx.ice.on_ice(position):
+			# Glace (B1) : élan, vitesse majorée et glissade quand on lâche la direction.
+			top *= ctx.ice.speed_mult()
+			var reference: float = maxf(top, stats.get_value(StatKeys.MOVE_SPEED) * ctx.ice.speed_mult())
+			velocity = ctx.ice.glide(velocity, move * top, reference, delta)
+		else:
+			velocity = move * top
 		# Courants et crues emportent le Chasseur (pas pendant la Ruée).
 		position += (velocity + ctx.terrain_drift(position)) * delta
 		if brain.wants_dash() and dash_cooldown_left <= 0.0:
@@ -243,6 +253,8 @@ func _check_wedged(delta: float) -> void:
 func _start_dash(move: Vector2) -> void:
 	_dash_dir = move.normalized() if move.length() > 0.1 else facing
 	_dash_time = ctx.balance.dash_duration
+	if ctx.ice and ctx.ice.on_ice(position):
+		_dash_time *= ctx.ice.dash_mult()
 	_dash_from = global_position
 	_iframes = maxf(_iframes, stats.get_value(StatKeys.DASH_IFRAMES))
 	dash_cooldown_left = maxf(stats.get_value(StatKeys.DASH_COOLDOWN), 0.4)

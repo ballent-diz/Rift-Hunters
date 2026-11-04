@@ -245,6 +245,10 @@ func _build_world() -> void:
 		ctx.tide = TideDirector.new()
 		ctx.world.add_child(ctx.tide)
 		ctx.tide.setup(ctx)
+	if not ctx.arena.ice_patches.is_empty():
+		ctx.ice = IceDirector.new()
+		ctx.world.add_child(ctx.ice)
+		ctx.ice.setup(ctx)
 	if ColdDirector.uses_cold(ctx.arena):
 		ctx.cold = ColdDirector.new()
 		ctx.world.add_child(ctx.cold)
@@ -392,6 +396,8 @@ func _physics_process(delta: float) -> void:
 	if ctx.cold:
 		ctx.cold.step(delta)
 	_mark(&"d_cold")
+	if ctx.ice:
+		ctx.ice.step(delta)
 	ctx.frost.step(delta)
 	_mark(&"d_frost")
 	if ctx.nests:

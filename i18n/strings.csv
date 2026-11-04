@@ -2025,3 +2025,21 @@ ZONE_MARSH_HEART_2_NAME,Le Temple des chaussées,The Causeway Temple
 FINALE_TRAVEL_MARSH_TERRACE,"Le temple est tenu : montez les marches jusqu'à la terrasse, au nord. Glauquemire vous y attend.","The temple is held: climb the steps to the terrace in the north. Glauquemire awaits you there."
 NIGHT_EMBERS_INTRO,"La suie éteint le jour : restez près des braises flottantes pour voir vos ennemis et les nids.","Soot snuffs out the day: stay near the floating embers to see your enemies and the nests."
 JOURNAL_NIGHT_EMBERS,Nuit de suie et braises,Soot night and embers
+ARENA_GLACIER_ENTRY_NAME,Entrée du Glacier,Glacier Gate
+ARENA_GLACIER_ENTRY_DESC,"Trois plateaux de neige reliés par des cols étroits, et des plaques de glace où tout le monde glisse. Le Patriarche des cimes garde la terrasse du glacier.","Three snowy plateaus linked by narrow passes, and ice sheets where everyone slides. The Peak Patriarch guards the glacier terrace."
+ZONE_GLACIER_ENTRY_1_NAME,Le Bassin de neige,The Snow Basin
+ZONE_GLACIER_ENTRY_2_NAME,Le Plateau des glaces,The Ice Plateau
+FINALE_TRAVEL_GLACIER_TERRACE,"Le plateau est nettoyé : franchissez le col, au nord-est, jusqu'à la terrasse du glacier. Le Patriarche des cimes vous y attend.","The plateau is clear: cross the pass to the northeast, up to the glacier terrace. The Peak Patriarch awaits you there."
+CHAPTER_SILENT_GLACIER_NAME,Le Glacier silencieux,The Silent Glacier
+CHAPTER_SILENT_GLACIER_DESC,"Au-delà des marais, la Faille a figé la montagne : neige, glace qui fait glisser, braseros à garder allumés et un silence qui avale les sorts.","Beyond the marshes, the Rift froze the mountain: snow, slippery ice, braziers to keep lit and a silence that swallows spells."
+BOSS_PEAK_PATRIARCH_NAME,Patriarche des cimes,Peak Patriarch
+BOSS_PEAK_PATRIARCH_TITLE,Gardien de l'Entrée du Glacier,Guardian of the Glacier Gate
+BOSS_PEAK_PATRIARCH_PHASE1,Maître des neiges,Lord of the Snows
+BOSS_PEAK_PATRIARCH_PHASE2,Colère des cimes,Wrath of the Peaks
+BOSS_PATTERN_YETI_SWIPE,Revers glacé,Frozen Backhand
+BOSS_PATTERN_YETI_POUNCE,Bond du Patriarche,Patriarch's Pounce
+BOSS_PATTERN_AVALANCHE,Avalanche,Avalanche
+ICE_INTRO,Glace ! Tout le monde y glisse et freine lentement. Attirez-y les Corrompus qui foncent : ils vous dépasseront.,Ice! Everyone slides and slows down slowly on it. Lure charging Corrupted onto it: they will overshoot you.
+JOURNAL_ICE,Glace qui fait glisser,Slippery ice
+BOSS_AVALANCHE_INTRO,Avalanche : le Patriarche fait rouler des boules de neige le long des lignes annoncées. Un abri les arrête : elles éclatent contre le décor.,Avalanche: the Patriarch rolls snowballs along the marked lines. Cover stops them: they shatter against the scenery.
+JOURNAL_AVALANCHE,Avalanche,Avalanche

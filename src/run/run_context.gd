@@ -50,6 +50,7 @@ var portals: PortalDirector
 var rockfall: RockfallDirector
 var tide: TideDirector
 var cold: ColdDirector
+var ice: IceDirector
 var frost: FrostTechniques
 ## Effets peints autonomes des ennemis et des boss (présentation seulement).
 var painted: PaintedVfx
