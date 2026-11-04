@@ -4,10 +4,10 @@
   "map_number": 16,
   "title_proposed": "Entrée du Glacier",
   "status": "wip",
-  "stage": "composition_pour_validation",
-  "owner_approved": false,
-  "plan_locked": false,
-  "regions_generated": false,
+  "stage": "detail_conforme_pret_pour_collisions",
+  "owner_approved": true,
+  "plan_locked": true,
+  "regions_generated": true,
   "runtime_integrated": false,
   "world_size": [
     5016,
@@ -19,13 +19,52 @@
     1536,
     1024
   ],
-  "composition_sha256": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
+  "composition_sha256": "c861371d373e510206ba1dac6bc9a863707a00033beba758e61133db408ed7d3",
   "prompts": [
-    "source/PROMPT_COMPOSITION.txt"
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_CORRECTIONS.txt",
+    "source/PROMPT_ECHELLE_ABRIS.txt",
+    "source/PROMPT_DETAIL.txt",
+    "source/PROMPT_REFERENCE_MATIERE.txt",
+    "source/PROMPT_FALAISES.txt"
   ],
   "plan": "plan.json",
   "detail_after_owner_approval_only": true,
   "collision_painting_by_owner": true,
-  "quality_conforme": false,
-  "quality_scope": "Composition seulement ; contrôle de détail non applicable avant validation et redessin des régions."
+  "quality_conforme": true,
+  "quality_scope": "Détail redessiné par régions ; contrôle global conforme, captures et échelle livrées.",
+  "layout_approved": true,
+  "layout_locked": true,
+  "layout_approval_scope": "Trois plateaux reliés par deux cols ; corrections demandées le 3 novembre 2026.",
+  "corrected_composition_approval_pending": false,
+  "owner_approval_date": "2026-11-03",
+  "owner_approval_message": "ok on garde cette version",
+  "detail_started": "2026-11-04",
+  "detail_region_count": 12,
+  "detail_part_count": 24,
+  "detail_sample_verified": true,
+  "detail_sample": {
+    "region": "r1_2",
+    "sharpen_percent": 40,
+    "smooth": 0.23195,
+    "fine": 360.553,
+    "medium": 101.001,
+    "scope": "Témoin seulement, aucun verdict global."
+  },
+  "detail_build_tool": "tools/art/build_glacier_entry.py",
+  "detail_source": "source/map_detailed.webp",
+  "region_sources": "source/regions_provenance.json",
+  "detail_recipe": "source/detail_recipe.json",
+  "detail_completed": "2026-11-04",
+  "quality_report": "docs/previews/glacier-entry/qualite.json",
+  "retained_master_dimensions": [
+    3762,
+    2508
+  ],
+  "presentation_dimensions": [
+    11286,
+    7524
+  ],
+  "collision_mask_created": false,
+  "sharpness_repair": "source/sharpness_repair.json"
 }

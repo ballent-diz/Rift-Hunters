@@ -1,10 +1,27 @@
 {
   "date": "2026-11-03",
-  "method": "Mise en peinture du croquis de composition par le générateur intégré",
+  "method": "Retouche de composition validée : contraste, 13 abris, fermeture sud-est, glace centrale réduite.",
   "layout_input": "layout.png",
   "layout_input_sha256": "f579acac8993f5f418f3c6294c1219f2af0cb10d353bcc4d91f0b8aad2608de1",
   "retained": "../composition.png",
-  "retained_sha256": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
+  "retained_sha256": "c861371d373e510206ba1dac6bc9a863707a00033beba758e61133db408ed7d3",
   "prompt": "PROMPT_COMPOSITION.txt",
-  "detail_regions_generated": false
+  "detail_regions_generated": false,
+  "layout_approved": true,
+  "corrected_composition_approval_pending": false,
+  "revision_chain": [
+    {
+      "input_sha256": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
+      "prompt": "PROMPT_CORRECTIONS.txt",
+      "output_sha256": "71e52fb42b1cd8df300d937de6cfcef302dcbf84b3aeb983a0bf32206c75bb9f"
+    },
+    {
+      "input_sha256": "71e52fb42b1cd8df300d937de6cfcef302dcbf84b3aeb983a0bf32206c75bb9f",
+      "prompt": "PROMPT_ECHELLE_ABRIS.txt",
+      "output_sha256": "c861371d373e510206ba1dac6bc9a863707a00033beba758e61133db408ed7d3"
+    }
+  ],
+  "intermediate_images": "Essais et états antérieurs conservés hors dépôt ; une seule composition retenue.",
+  "corrected_composition_approved": true,
+  "owner_approval_date": "2026-11-03"
 }

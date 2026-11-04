@@ -25,7 +25,7 @@ func _capture() -> void:
 	sprite.position = Vector2(160, 55)
 	add_child(sprite)
 	var label := Label.new()
-	label.text = "CARTE 16 · ENTRÉE DU GLACIER · COMPOSITION À VALIDER · AUCUN DÉTAIL NI GAMEPLAY"
+	label.text = "CARTE 16 · ENTRÉE DU GLACIER · COMPOSITION VALIDÉE · AUCUN DÉTAIL NI GAMEPLAY"
 	label.position = Vector2(20, 15)
 	label.add_theme_font_size_override("font_size", 18)
 	add_child(label)

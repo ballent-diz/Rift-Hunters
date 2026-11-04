@@ -1,0 +1,161 @@
+{
+  "actors": [
+    {
+      "frame": 0,
+      "id": "enemy.frost_crawler",
+      "offset_world": [
+        -294,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 1,
+      "id": "enemy.blizzard_wolf",
+      "offset_world": [
+        -196,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 2,
+      "id": "enemy.snow_wraith",
+      "offset_world": [
+        -98,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 3,
+      "id": "enemy.ice_golem",
+      "offset_world": [
+        0,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 4,
+      "id": "enemy.frost_shaman",
+      "offset_world": [
+        98,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 5,
+      "id": "enemy.peak_yeti",
+      "offset_world": [
+        196,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 0,
+      "id": "enemy.rime_archer",
+      "offset_world": [
+        294,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 1,
+      "id": "enemy.hush_shard",
+      "offset_world": [
+        -294,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 2,
+      "id": "enemy.ice_knight",
+      "offset_world": [
+        -196,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 3,
+      "id": "enemy.frozen_sentry",
+      "offset_world": [
+        -98,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 4,
+      "id": "enemy.icebreaker",
+      "offset_world": [
+        0,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 5,
+      "id": "enemy.silence_herald",
+      "offset_world": [
+        98,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 0,
+      "id": "enemy.frost_mammoth",
+      "offset_world": [
+        196,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 1,
+      "id": "enemy.snow_witch",
+      "offset_world": [
+        294,
+        95
+      ],
+      "scale": 0.5
+    }
+  ],
+  "background": "Composition agrandie pour le contrôle de contraste seulement ; aucun détail final.",
+  "viewport": [
+    1280,
+    720
+  ],
+  "views": [
+    {
+      "center_pct": [
+        51,
+        31
+      ],
+      "file": "neige.png"
+    },
+    {
+      "center_pct": [
+        50,
+        48
+      ],
+      "file": "glace.png"
+    }
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "zoom": 1.3333,
+  "composition_sha256": "c861371d373e510206ba1dac6bc9a863707a00033beba758e61133db408ed7d3",
+  "final_detail_generated": false,
+  "actor_sheet_changes": false,
+  "collision_mask_created": false,
+  "assessment": "Inspection visuelle : silhouettes et contours sombres distincts sur neige bleutée et glace cyan. Fond de composition provisoire, aucun verdict de netteté finale."
+}

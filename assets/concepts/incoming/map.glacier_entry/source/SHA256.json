@@ -1,9 +1,18 @@
 {
-  "composition.png": "2a35b898b5d0c341efb569dd5e169be58342eeb290a47712f7bfe59200e0eb23",
-  "job.json": "fe91e24787f016cd06f296dabafafbe65f4543de4337d81735500f6a066b0ed5",
-  "plan.json": "1e9a2aea600ec5565a1a08b6b89e948c15b5db70a02eb4fb67b9c21fd6f0839f",
+  "composition.png": "c861371d373e510206ba1dac6bc9a863707a00033beba758e61133db408ed7d3",
+  "job.json": "fbb622ff67c2417f57435385668b0f96609d17c218ad71eb1d1703fcc9a4fdb7",
+  "plan.json": "018c7d6667a529f848413c2631b1003ca0cdbecd2bd26a1db0ee5a2c40871489",
   "source/PROMPT_COMPOSITION.txt": "43872078d8d8f174bd078f158ed07cba8270cb70f3be91c1b14d2be5ffd01696",
-  "source/collision_reference.json": "9c978e77aab96b05a4ba49fda5195da63fa4ca437359907fb29e5b1b3b82c38b",
-  "source/generation.json": "d1c8d2d1b7223a2b9fdecb2c2b64be2dda8c55513330bde2cd7dac48ae2a488e",
-  "source/layout.png": "f579acac8993f5f418f3c6294c1219f2af0cb10d353bcc4d91f0b8aad2608de1"
+  "source/PROMPT_CORRECTIONS.txt": "00705af5897243b89e5dbf19fb984828f6d90b24fd3ea9fd3e72e51e07994979",
+  "source/PROMPT_DETAIL.txt": "f06cff50cda27f9084f56bd981c01ba707aa9baeac567613197b88a43f273d37",
+  "source/PROMPT_ECHELLE_ABRIS.txt": "f6ee078109ee01cd84b9c3ddba448bec3e3ec46bee6fa1c9e889546fe40bc81f",
+  "source/PROMPT_FALAISES.txt": "21302f585b2b142b3aaa0c61b25cd093265f4d915fe1bea243375b5bef8125ce",
+  "source/PROMPT_REFERENCE_MATIERE.txt": "606929fbb0ef1592a08731bf9efd7569dd870d5c0d0c343e137b280452204693",
+  "source/collision_reference.json": "3d4eb27dee1945152c1822a9d09f5f7e5bc606737bc9f88d39ad3e9871c8b375",
+  "source/detail_recipe.json": "21db541401f7307bf3692b90129e66b374a7389d113dbfbce054cddc6d7abfc3",
+  "source/generation.json": "28ec03b6658b2dd485dc15dca8eb196d52ce5709757136e50e5e0492a2432c74",
+  "source/layout.png": "f579acac8993f5f418f3c6294c1219f2af0cb10d353bcc4d91f0b8aad2608de1",
+  "source/map_detailed.webp": "9db87edb8bd85d8b3ffe537f699389cf985080be741d439f310daf98c3e8ab33",
+  "source/regions_provenance.json": "afc312a85602876e51925b2bdf981b1c9fc508a8d9bb11181defeacdbd8a371a",
+  "source/sharpness_repair.json": "e487e102cc0d63cab4753275c623f54b453c4f3696f3515ab62611df988293c8"
 }
