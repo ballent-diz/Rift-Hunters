@@ -262,13 +262,13 @@ func test_spell_slots_open_with_the_campaign() -> void:
 	check(not HunterTree.slot_unlocked(profile, 2), "3e emplacement fermé au départ")
 	check_eq(HunterTree.slot_of(profile, &"rift_leap"), -1, "le 3e sort ne se range pas dans un emplacement fermé")
 	check(not HunterTree.equip(profile, &"rift_leap", 2), "on ne peut pas l'y équiper")
-	_win(&"storm_highlands")
-	check(HunterTree.slot_unlocked(profile, 2), "ouvert après la carte 2 (arrivée sur la carte 3)")
+	_win(&"three_rifts")
+	check(HunterTree.slot_unlocked(profile, 2), "ouvert après la carte 1")
 	check(not HunterTree.slot_unlocked(profile, 3), "4e encore fermé")
 	check(HunterTree.equip(profile, &"rift_leap", 2), "3e sort équipé")
 	check_eq(HunterTree.loadout(profile)["spells"][2], &"rift_leap", "il part en partie")
-	_win(&"cascade_source")
-	check(HunterTree.slot_unlocked(profile, 3), "4e ouvert à la fin du chapitre 1")
+	_win(&"firefly_woods")
+	check(HunterTree.slot_unlocked(profile, 3), "4e ouvert après la carte 3")
 
 
 func _win(arena_id: StringName) -> void:
