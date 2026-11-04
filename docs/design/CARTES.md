@@ -102,7 +102,8 @@ attirer les chargeurs sur la glace, éviter d'y affronter un boss, la traverser 
 **Carte spéciale de nuit** (décision du propriétaire, 3 novembre 2026) : au moins une carte par chapitre reçoit la nuit
 (brique B2 : voile, clairières éclairées qui révèlent les ennemis) en plus de ses mécaniques : Bois des Lucioles
 (chapitre 1), Tanières de suie (chapitre 2, braises flottantes au lieu des lucioles), Mangrove des racines
-(chapitre 3) ; une carte du chapitre 4 à choisir. Les réglages de la carte ne changent pas : la nuit suffit à la rendre plus dure.
+(chapitre 3) ; Col des braseros (chapitre 4, carte 17, décision du 4 novembre 2026 : les braseros allumés éclairent
+en plus de réchauffer). Les réglages de la carte ne changent pas : la nuit suffit à la rendre plus dure.
 
 ### Chapitre 4 — piste : le Glacier silencieux
 
