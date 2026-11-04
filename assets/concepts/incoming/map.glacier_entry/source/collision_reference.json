@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-03",
+  "revision": "Composition corrigée : 4 + 4 + 5 abris et secteur sud-est fermé.",
+  "reference": "reference.jpg",
+  "published_reference": "docs/previews/glacier-entry/reference_collisions.jpg",
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "reference_bytes": 398440,
+  "reference_sha256": "11eb46d7e8c8fe3846b15684b33f69732dde44ba37057ae77fddc60665c1861b",
+  "composition_sha256": "c861371d373e510206ba1dac6bc9a863707a00033beba758e61133db408ed7d3",
+  "encoding": {
+    "format": "JPEG",
+    "quality": 85,
+    "optimize": true,
+    "subsampling": 0,
+    "resize": false,
+    "Pillow": "12.3.0"
+  },
+  "layout_approved": true,
+  "owner_approved": true,
+  "corrected_composition_approval_pending": false,
+  "painting_return": "PNG entier 1536 × 1024, même cadrage, sans redimensionnement ; rouge translucide sur falaises, crevasses et bases des 13 abris. Glace claire et neige restent praticables.",
+  "painting_surface": "Base au sol des abris, pas leurs sommets ni leurs ombres portées.",
+  "mask_generated": false
+}
