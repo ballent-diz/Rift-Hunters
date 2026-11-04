@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-03",
+  "stage": "composition_validee",
+  "composition_dimensions": [
+    1536,
+    1024
+  ],
+  "proposed_world": [
+    5016,
+    3344
+  ],
+  "godot": "4.3.stable.official.77dcf97d8",
+  "headless_import_exit": 0,
+  "native_preview_exit": 0,
+  "preview_viewport": [
+    1280,
+    720
+  ],
+  "entire_map_visible": true,
+  "owner_approved": true,
+  "detail_generated": false,
+  "collision_mask_created": false,
+  "runtime_manifest_changed": false,
+  "navigation_or_combat_tested": false,
+  "final_detail_quality_checked": false,
+  "visual_review": [
+    "trois plateaux et deux cols conservés",
+    "13 abris (4 + 4 + 5), bases environ137 à157 unités",
+    "6 plaques de glace praticable, plaque centrale réduite",
+    "neige bleutée, sprites PR92 inspectés au zoom réel",
+    "secteur sud-est fermé par falaise et crevasse",
+    "parcours, finale et emprise visuelle dans plan.json"
+  ],
+  "composition_sha256": "c861371d373e510206ba1dac6bc9a863707a00033beba758e61133db408ed7d3"
+}

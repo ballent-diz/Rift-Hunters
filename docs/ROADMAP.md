@@ -429,3 +429,16 @@ Détail livré le 3 novembre depuis 32 demi-régions : master natif, trois tuile
 ## Carte 15 — Cœur des marais : détail graphique livré (Codex, 3 novembre)
 
 Composition entière validée le 2 novembre, plan figé. Douze régions redessinées par vingt-quatre demi-régions ; master natif sans perte et deux tuiles. Rapport conforme : détails fins 388,169 ; moyens 101,967 ; 35 secteurs sur 35 ; fidélité 0,977. Collisions du propriétaire et contrôle de la taille utile de l’arène, puis raccordement par Claude : `docs/maps/COEUR_DES_MARAIS.md`.
+
+## Livraisons visuelles — abris, mannequin et carte16 (Codex, 3 novembre)
+
+- Abris : `object.cover_rock` et `object.cover_rock_ice`, trois variantes statiques chacun, ombres incluses et gabarit contrôlé ; branche `codex/rochers-abris`, fiche `docs/art/ROCHERS_ABRIS.md` dans ce lot.
+- Mannequin : `object.training_dummy`, douze poses idle/hit, pied fixe et secousse courte ; branche `codex/mannequin-entrainement`, fiche `docs/art/MANNEQUIN_ENTRAINEMENT.md` dans ce lot.
+- Carte16 : composition corrigée **validée par le propriétaire le 3 novembre** (« ok on garde cette version »). Trois plateaux et deux cols conservés ; 4 + 4 + 5 abris d’environ140 à155 unités, neige bleutée, glace centrale réduite et secteur sud-est fermé. Captures des14 sprites du chapitre4 sur neige et glace au zoom réel, plan en % avec finale et référence légère de peinture ; branche `codex/carte-16-composition`, fiche `docs/maps/ENTREE_DU_GLACIER.md`. Plan figé ; peinture des collisions par le propriétaire, détail par régions non commencé.
+
+Contrôles ciblés de chargement et captures livrés. Chaque branche reste indépendante : aucun changement de src/, data/ ou des fichiers des cartes14/15. Collisions, placement, réactions aux dégâts et mécanique de glisse relèvent de l’intégration par Claude ; aucune simulation de combat n’est revendiquée.
+
+
+## Carte 16 — Entrée du Glacier : détail graphique livré (Codex, 4 novembre)
+
+Composition corrigée validée par le propriétaire, plan figé : trois plateaux, deux cols, glace praticable et13 abris (4 +4 +5). Douze régions redessinées en vingt-quatre demi-régions, retouche des falaises du bas droit, master natif sans perte et trois tuiles. Contrôle conforme : détails fins382,762 ; moyens100,422 ; 35 secteurs sur35 ; fidélité0,986. Correction locale de netteté : aucune case résiduelle à référence initiale figée après encodage. Captures Godot au zoom réel,14 sprites du chapitre4 sur neige et glace, comparaison d’échelle et référence de peinture inchangée livrées. Voir `docs/maps/ENTREE_DU_GLACIER.md`. Collisions du propriétaire, glisse B1 et intégration par Claude ; aucun changement de src/, data/ ou des cartes14/15.

@@ -1,0 +1,162 @@
+{
+  "actors": [
+    {
+      "frame": 0,
+      "id": "enemy.frost_crawler",
+      "offset_world": [
+        -294,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 1,
+      "id": "enemy.blizzard_wolf",
+      "offset_world": [
+        -196,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 2,
+      "id": "enemy.snow_wraith",
+      "offset_world": [
+        -98,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 3,
+      "id": "enemy.ice_golem",
+      "offset_world": [
+        0,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 4,
+      "id": "enemy.frost_shaman",
+      "offset_world": [
+        98,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 5,
+      "id": "enemy.peak_yeti",
+      "offset_world": [
+        196,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 0,
+      "id": "enemy.rime_archer",
+      "offset_world": [
+        294,
+        -95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 1,
+      "id": "enemy.hush_shard",
+      "offset_world": [
+        -294,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 2,
+      "id": "enemy.ice_knight",
+      "offset_world": [
+        -196,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 3,
+      "id": "enemy.frozen_sentry",
+      "offset_world": [
+        -98,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 4,
+      "id": "enemy.icebreaker",
+      "offset_world": [
+        0,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 5,
+      "id": "enemy.silence_herald",
+      "offset_world": [
+        98,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 0,
+      "id": "enemy.frost_mammoth",
+      "offset_world": [
+        196,
+        95
+      ],
+      "scale": 0.5
+    },
+    {
+      "frame": 1,
+      "id": "enemy.snow_witch",
+      "offset_world": [
+        294,
+        95
+      ],
+      "scale": 0.5
+    }
+  ],
+  "background": "Tuiles détaillées à 2,25 px/unité",
+  "viewport": [
+    1280,
+    720
+  ],
+  "views": [
+    {
+      "center_pct": [
+        51,
+        31
+      ],
+      "file": "neige.png"
+    },
+    {
+      "center_pct": [
+        50,
+        48
+      ],
+      "file": "glace.png"
+    }
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "zoom": 1.3333,
+  "tiles_sha256": {
+    "map.webp": "745826c6676e87b0f391b4dd253a17e5e4b00afc183331532fb493f15d8640e9",
+    "map_1.webp": "f6d0be2529820606bf700201a72e2c0433a652ac7d615085fe9076efa9ede84e",
+    "map_2.webp": "8d5bd05e408de4e290d3b74150c78cdeb6c444e0bb8ea89c559b5dbba57a0829"
+  },
+  "native_sprites_unchanged": true
+}
