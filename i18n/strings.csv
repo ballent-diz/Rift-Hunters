@@ -2043,3 +2043,17 @@ ICE_INTRO,Glace ! Tout le monde y glisse et freine lentement. Attirez-y les Corr
 JOURNAL_ICE,Glace qui fait glisser,Slippery ice
 BOSS_AVALANCHE_INTRO,Avalanche : le Patriarche fait rouler des boules de neige le long des lignes annoncées. Un abri les arrête : elles éclatent contre le décor.,Avalanche: the Patriarch rolls snowballs along the marked lines. Cover stops them: they shatter against the scenery.
 JOURNAL_AVALANCHE,Avalanche,Avalanche
+ARENA_BRAZIER_PASS_NAME,Le Col des braseros,Brazier Pass
+ARENA_BRAZIER_PASS_DESC,"Une montée de nuit dans le froid : refermez les quatre failles en allant de brasero en brasero, puis affrontez le Chaman ancestral au sommet.","A night climb in the cold: close the four rifts by moving from brazier to brazier, then face the Elder Shaman on the summit."
+FINALE_TRAVEL_BRAZIER_SUMMIT,"Les failles sont refermées : montez jusqu'au replat du sommet, au nord. Le Chaman ancestral vous y attend.","The rifts are closed: climb to the summit flat, in the north. The Elder Shaman awaits you there."
+NIGHT_BRAZIERS_INTRO,"Nuit sur le col : seuls les braseros allumés éclairent et réchauffent. Loin d'eux, on ne voit pas les ennemis et le froid monte.","Night on the pass: only lit braziers give light and warmth. Away from them, you cannot see enemies and the cold rises."
+JOURNAL_NIGHT_BRAZIERS,Nuit et braseros,Night and braziers
+BOSS_RIME_ELDER_NAME,Chaman ancestral,Elder Shaman
+BOSS_RIME_ELDER_TITLE,Gardien du Col des braseros,Guardian of the Brazier Pass
+BOSS_RIME_ELDER_PHASE1,Souffle du col,Breath of the Pass
+BOSS_RIME_ELDER_PHASE2,Hiver sans fin,Endless Winter
+BOSS_PATTERN_RIME_STAFF,Bâton de givre,Rime Staff
+BOSS_PATTERN_ICICLES,Pluie de stalactites,Icicle Rain
+BOSS_PATTERN_DEEP_FREEZE,Grand gel,Deep Freeze
+BOSS_DEEP_FREEZE_INTRO,"Grand gel : le Chaman souffle les braseros sauf un, qui flamboie. Courez dans sa chaleur avant la vague de gel, ou brisez la prison d'une Ruée.","Deep Freeze: the Shaman snuffs every brazier but one, which blazes. Run into its warmth before the frost wave, or break the prison with a Dash."
+JOURNAL_DEEP_FREEZE,Grand gel,Deep Freeze

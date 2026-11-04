@@ -53,10 +53,22 @@ func is_lit(pos: Vector2) -> bool:
 		for ally: Ally in ctx.allies.team:
 			if pos.distance_to(ally.global_position) <= ctx.arena.echo_light_radius:
 				return true
-	for glade: Vector2 in ctx.arena.firefly_glades:
-		if pos.distance_to(glade) <= ctx.arena.firefly_radius:
+	for source: Vector3 in light_sources():
+		if pos.distance_to(Vector2(source.x, source.y)) <= source.z:
 			return true
 	return false
+
+
+## Sources fixes (x, y, rayon) : clairières, et braseros allumés quand la carte a du froid (Col des braseros).
+func light_sources() -> Array[Vector3]:
+	var result: Array[Vector3] = []
+	for glade: Vector2 in ctx.arena.firefly_glades:
+		result.append(Vector3(glade.x, glade.y, ctx.arena.firefly_radius))
+	if ctx.cold:
+		for i: int in ctx.arena.braziers.size():
+			if ctx.cold.is_lit(i):
+				result.append(Vector3(ctx.arena.braziers[i].x, ctx.arena.braziers[i].y, ctx.arena.brazier_radius))
+	return result
 
 
 ## Lumières (x, y, rayon, intensité) : Chasseur, Échos, boss, puis les clairières les plus proches du Chasseur.
@@ -68,14 +80,14 @@ func lights() -> PackedVector4Array:
 		result.append(Vector4(ally.global_position.x, ally.global_position.y, ctx.arena.echo_light_radius, 0.85))
 	if ctx.boss and ctx.boss.alive:
 		result.append(Vector4(ctx.boss.position.x, ctx.boss.position.y, ctx.boss.radius * 3.0, 0.8))
-	var glades: Array[Vector2] = ctx.arena.firefly_glades.duplicate()
-	glades.sort_custom(func(a: Vector2, b: Vector2) -> bool:
-		return a.distance_squared_to(center) < b.distance_squared_to(center))
+	var glades: Array[Vector3] = light_sources()
+	glades.sort_custom(func(a: Vector3, b: Vector3) -> bool:
+		return Vector2(a.x, a.y).distance_squared_to(center) < Vector2(b.x, b.y).distance_squared_to(center))
 	for i: int in glades.size():
 		if result.size() >= MAX_LIGHTS:
 			break
 		var flicker: float = 0.88 + 0.08 * sin(_time * 2.3 + i * 1.7)
-		result.append(Vector4(glades[i].x, glades[i].y, ctx.arena.firefly_radius, flicker))
+		result.append(Vector4(glades[i].x, glades[i].y, glades[i].z, flicker))
 	return result
 
 
@@ -84,8 +96,8 @@ func step(delta: float) -> void:
 	_reveal_timer -= delta
 	if _reveal_timer <= 0.0:
 		_reveal_timer = REVEAL_INTERVAL
-		for glade: Vector2 in ctx.arena.firefly_glades:
-			for enemy: Enemy in ctx.enemies.query_radius(glade, ctx.arena.firefly_radius):
+		for source: Vector3 in light_sources():
+			for enemy: Enemy in ctx.enemies.query_radius(Vector2(source.x, source.y), source.z):
 				ctx.status_system.apply(enemy, &"reveal", 1, &"firefly")
 	var lit: PackedVector4Array = lights()
 	(material as ShaderMaterial).set_shader_parameter("lights", lit)

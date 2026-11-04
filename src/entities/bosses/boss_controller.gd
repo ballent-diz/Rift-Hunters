@@ -9,7 +9,7 @@ extends RefCounted
 
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
-	&"avalanche": &"avalanche",
+	&"avalanche": &"avalanche", &"deep_freeze": &"snuff",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -60,6 +60,7 @@ var _marsh_guardians: MarshGuardians
 var _nivorath: NivorathMechanics
 var _spore: SporeGuardian
 var _portal_lady: PortalGuardian
+var _frost_elder: FrostElder
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -287,6 +288,13 @@ func spore() -> SporeGuardian:
 		_spore = SporeGuardian.new()
 		_add_mechanics(_spore)
 	return _spore
+
+
+func frost_elder() -> FrostElder:
+	if _frost_elder == null:
+		_frost_elder = FrostElder.new()
+		_add_mechanics(_frost_elder)
+	return _frost_elder
 
 
 func portal_lady() -> PortalGuardian:
@@ -656,6 +664,11 @@ func _pattern_avalanche(pattern: BossPatternData) -> void:
 				"grow": float(pattern.params.get("grow", 26.0)), "max": float(pattern.params.get("max_radius", 80.0)),
 				"damage": damage, "until": ctx.time + float(pattern.params.get("life", 4.0)), "hit": false,
 				"source": data.id}))
+
+
+## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.
+func _pattern_deep_freeze(pattern: BossPatternData) -> void:
+	frost_elder().deep_freeze(pattern)
 
 
 func _pattern_ice_spikes(pattern: BossPatternData) -> void:
