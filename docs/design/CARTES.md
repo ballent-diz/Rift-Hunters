@@ -111,7 +111,7 @@ en plus de réchauffer). Les réglages de la carte ne changent pas : la nuit suf
 |---|---|---|
 | 16 | Vagues par zone | B1 Glace qui fait glisser |
 | 17 | Fermeture de failles | B7 Chaleur des braseros |
-| 18 | Vagues par zone | B2 Blizzard |
+| 18 | Vagues par zone | B2 Blizzard (prompt Codex du 4 novembre : Lac gelé des tempêtes, abris du vent). Pour le distinguer de la nuit de la carte 17 : rafales où la vue se bouche puis se dégage, vent qui pousse un peu ; les abris du vent restent toujours dégagés |
 | 19 | Variante | B4 Banquise qui se fend |
 | 20 | Vagues + Dévoreur | B9 Écho des sorts + B1 |
 
