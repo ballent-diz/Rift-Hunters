@@ -1,0 +1,33 @@
+{
+  "id": "map.storm_lake",
+  "map_number": 18,
+  "chapter": 4,
+  "title": "Le Lac gelé des tempêtes",
+  "world_size": [
+    3344,
+    5016
+  ],
+  "status": "wip",
+  "stage": "composition_a_valider",
+  "composition": "composition.png",
+  "owner_approved": false,
+  "plan_locked": false,
+  "regions_generated": false,
+  "quality_conforme": false,
+  "quality_scope": "Proposition de composition ; contrôle final de finesse après validation et détail par régions.",
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "composition_dimensions": [
+    1024,
+    1536
+  ],
+  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "proposed_landmarks": "source/composition_review.json",
+  "wind_shelters": 7,
+  "cover_rocks": 13,
+  "composition_validation_pending": true,
+  "prompts": [
+    "source/PROMPT_COMPOSITION.txt",
+    "source/PROMPT_PASSAGES_ARENE.txt"
+  ]
+}

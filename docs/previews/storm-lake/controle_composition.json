@@ -1,0 +1,123 @@
+{
+  "date": "2026-11-04",
+  "stage": "composition_a_valider",
+  "owner_approved": false,
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        "."
+      ],
+      "exit_code": 0,
+      "duration_seconds": 6.54
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_storm_lake.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map18/captures"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 8.34
+    },
+    {
+      "name": "assets",
+      "command": [
+        "bash",
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 8.78
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_storm_lake.gd"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 0.31
+    },
+    {
+      "name": "captures_final_positions",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_storm_lake.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map18/captures"
+      ],
+      "exit_code": 0,
+      "duration_seconds": 7.4,
+      "reason": "Déplacer la présentation sur neige dans la place nord pour poser tous les sprites sur le sol libre."
+    }
+  ],
+  "world": [
+    3344,
+    5016
+  ],
+  "composition_dimensions": [
+    1024,
+    1536
+  ],
+  "composition_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "viewport": [
+    1280,
+    720
+  ],
+  "camera_zoom": 1.3333,
+  "native_sprites_unchanged": true,
+  "capture_sha256": {
+    "arene_zoom_jeu.png": "a3c7963ecd023d318252179f4ac62df19c6859d034ef3c30b9b12fe3ce2ba9b2",
+    "breche_zoom_jeu.png": "9d3795b589811d04c98489f030509456fab9818ae0c32f2bb6628c184523054f",
+    "camp_zoom_jeu.png": "0eb343f129a268d27ab7b6529dede1fd9f1f2039a77832f772b131e2094f64fa",
+    "ensemble_720p.png": "da02f9158adbead8fbc9d5a0dbca5c4eb8b4a6fba13abec745890a5495848e89",
+    "givres_berge.png": "699eb761af636de1c346e9bf8c5c74d3be23fb8c590247d4aa08ef34a033fc9f",
+    "givres_neige.png": "ba4117495e4fee15e755688a6d02b12fea33d963385d7fb4493171d5e5fb0a00",
+    "passerelle_zoom_jeu.png": "fafb22646b389527ba1a0f7fff369b62876d34117d60a1d83e7ef3385b56496f",
+    "reference_ruines_zoom_jeu.png": "aabca9279a9d3b981579c4811e062a72d979f9ab89725300d9d1b02e6cf325b5",
+    "refuge_zoom_jeu.png": "16021b7fcc33f1e3fdf9c676b2b9eb6bae3394ec04a9a19d1dcd5fa4673b94c4"
+  },
+  "wind_shelters": 7,
+  "cover_blocks_per_area": [
+    3,
+    3,
+    3,
+    4
+  ],
+  "storm_overlay_painted": false,
+  "detail_generated": false,
+  "quality_conforme": false,
+  "quality_scope": "Détail par12 régions et rapport check_map_quality conforme à produire après validation du propriétaire. Les captures actuelles montrent uniquement la composition agrandie au zoom réel.",
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false,
+  "protected_paths_unchanged": true,
+  "runtime_manifest_changed": false
+}

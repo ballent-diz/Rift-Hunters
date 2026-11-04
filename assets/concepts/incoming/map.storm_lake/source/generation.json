@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-04",
+  "retained": "../composition.png",
+  "retained_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "dimensions": [
+    1024,
+    1536
+  ],
+  "owner_approved": false,
+  "stages": [
+    {
+      "prompt": "PROMPT_COMPOSITION.txt",
+      "layout_sha256": "264a0af26cf6c51cc5fad39540033228a1d062fdb4304f79e479bbaf7200157c",
+      "output_sha256": "5e9c2e719baf7d501c1ec9d4f9fd49aa001c826079ae70673e3ea1096f7386ba"
+    },
+    {
+      "prompt": "PROMPT_PASSAGES_ARENE.txt",
+      "input_sha256": "5e9c2e719baf7d501c1ec9d4f9fd49aa001c826079ae70673e3ea1096f7386ba",
+      "output_sha256": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f"
+    }
+  ],
+  "style_references": [
+    {
+      "id": "map.glacier_entry",
+      "scope": "Palette et facture seulement",
+      "sha256": "d1a059677b3184ea581619e887ff94bbafcb5c0b737392cb19c10abbf6d3b3da"
+    },
+    {
+      "id": "map.brazier_pass",
+      "commit": "43b0ee83b441c8cde325b8893b497430694d6299",
+      "scope": "Palette et facture seulement",
+      "sha256": "7b7368370858c6ebec55f506cba5556a56d3614dce95021efeec6a26116d5164"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "composition.png": "895a99165eb4d4cbb4df09039247c97203d0628c81f7cbc91383176788f8c93f",
+  "job.json": "f149665c5f63b6fad198cc55e0c5fb216c038aefcb463944d89b7abdf856ff51",
+  "source/PROMPT_COMPOSITION.txt": "f21d9867ba4f3e5689c3b8dadacc4fb59e69e5e1b38333f00078cbe095f1100c",
+  "source/PROMPT_PASSAGES_ARENE.txt": "24fe4628b0c3500b9a477f0ceba3328271d025f8bb1dd36533a3ac7cc2955cfb",
+  "source/composition_review.json": "c04f3611f409e6c93b386ef03ba370a76782e8f0f72fdbdf251e6b7166994b82",
+  "source/generation.json": "d54ea5d827428d3d098638c7035947053ce5f2a0854ec791a405b8606fc48bc1",
+  "source/layout.png": "264a0af26cf6c51cc5fad39540033228a1d062fdb4304f79e479bbaf7200157c"
+}
