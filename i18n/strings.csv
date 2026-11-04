@@ -2057,3 +2057,5 @@ BOSS_PATTERN_ICICLES,Pluie de stalactites,Icicle Rain
 BOSS_PATTERN_DEEP_FREEZE,Grand gel,Deep Freeze
 BOSS_DEEP_FREEZE_INTRO,"Grand gel : le Chaman souffle les braseros sauf un, qui flamboie. Courez dans sa chaleur avant la vague de gel, ou brisez la prison d'une Ruée.","Deep Freeze: the Shaman snuffs every brazier but one, which blazes. Run into its warmth before the frost wave, or break the prison with a Dash."
 JOURNAL_DEEP_FREEZE,Grand gel,Deep Freeze
+BLIZZARD_INTRO,"Blizzard ! Quand le voile s'épaissit, une rafale arrive : on ne voit plus que les ennemis proches et le vent pousse tout le monde. Les refuges du vent restent dégagés.","Blizzard! When the veil thickens, a gust is coming: you only see nearby enemies and the wind pushes everyone. Wind shelters stay clear."
+JOURNAL_BLIZZARD,Blizzard,Blizzard

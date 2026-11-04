@@ -213,7 +213,7 @@ func step(delta: float) -> void:
 	var arena: Rect2 = ctx.arena_rect()
 	var contact_interval: float = ctx.balance.contact_damage_interval
 	var parity: int = _frame % 2
-	var drifting: bool = ctx.flood != null or (ctx.terrain != null and not ctx.arena.currents.is_empty())
+	var drifting: bool = ctx.flood != null or ctx.arena.blizzard or (ctx.terrain != null and not ctx.arena.currents.is_empty())
 	if ctx.flow != null:
 		_flow_timer -= delta
 		if _flow_timer <= 0.0:

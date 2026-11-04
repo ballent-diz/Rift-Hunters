@@ -260,6 +260,19 @@ extends Resource
 ## Couleur des lueurs des clairières (lucioles ; braises flottantes sur les Tanières de suie) et annonce de la nuit.
 @export var firefly_color: Color = Color(0.85, 1.0, 0.45)
 @export var night_intro_key: String = "NIGHT_INTRO"
+@export_group("Blizzard (variante de la brique B2, carte 18)")
+## Blizzard : le voile de nuit devient une tempête de neige (couleur blizzard_color). Entre deux rafales, voile léger
+## (blizzard_calm) et cibles libres ; pendant une rafale, le voile monte à `night`, on ne vise que ce qu'on voit et le
+## vent pousse tout le monde (sauf dans les refuges du vent, firefly_glades, qui restent dégagés).
+@export var blizzard: bool = false
+@export_range(0.0, 0.95) var blizzard_calm: float = 0.35
+@export var blizzard_color: Color = Color(0.86, 0.9, 0.97)
+## Cycle : rafale toutes les `period` secondes, annoncée `warning` secondes (le voile s'épaissit), longue de `gust`.
+@export var blizzard_period: float = 16.0
+@export var blizzard_warning: float = 2.0
+@export var blizzard_gust: float = 5.0
+## Poussée du vent pendant une rafale (unités par seconde).
+@export var blizzard_wind: float = 45.0
 
 ## L'arène se termine par une finale (cercle ou arène murée) plutôt que par un boss chronométré classique.
 func has_finale() -> bool:

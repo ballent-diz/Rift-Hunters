@@ -108,6 +108,8 @@ func terrain_drift(pos: Vector2) -> Vector2:
 		result += terrain.drift(pos)
 	if flood:
 		result += flood.drift(pos)
+	if night:
+		result += night.wind(pos)
 	return result
 
 
