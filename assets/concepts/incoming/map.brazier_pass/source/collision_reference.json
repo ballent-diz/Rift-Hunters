@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-04",
+  "source": "Trois tuiles détaillées décodées et concaténées horizontalement",
+  "source_tiles_sha256": {
+    "map.webp": "5de89eeca1e8140e44584574211a78231536439f19279eb67eeaf5678ac9d132",
+    "map_1.webp": "ad1cdce242c7f4bc71f85c1b28c36c19b4b3ece5df195f3e296735a18888c4bf",
+    "map_2.webp": "02516594ef29d178901cb7e829197512fb861b6c1c2b29a586bced1cb1870895"
+  },
+  "composition_sha256": "0c0025b557eda3b05b4cba714c0ff923c855f6bb184c32c83152597b8b5921c2",
+  "reference": "docs/previews/brazier-pass/reference_collisions.jpg",
+  "reference_sha256": "fdef69dba5ae3d7be1ab970bc6bf6ff24edcfb62d0fc240c5b4ac8e9b0ef890d",
+  "world": [
+    5016,
+    5016
+  ],
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "world_units_per_pixel": 4,
+  "recipe": {
+    "library": "Pillow",
+    "version": "12.3.0",
+    "resize": "Lanczos",
+    "crop": null,
+    "format": "JPEG",
+    "quality": 85,
+    "subsampling": 0,
+    "optimize": true
+  },
+  "expected_return": {
+    "format": "PNG",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "framing": "Même cadrage entier et orientation ; aucun recadrage, rotation, marge ou changement de proportions."
+  },
+  "mask_created": false,
+  "purpose": "Peinture manuelle des collisions par le propriétaire ; intégration par Claude."
+}

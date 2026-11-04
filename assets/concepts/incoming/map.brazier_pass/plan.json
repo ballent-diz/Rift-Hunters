@@ -1,0 +1,1034 @@
+{
+  "id": "map.brazier_pass",
+  "title": "Le Col des braseros",
+  "map_number": 17,
+  "chapter": 4,
+  "world": [
+    5016,
+    5016
+  ],
+  "composition_stage": "composition_validee",
+  "owner_approved": true,
+  "format": "1:1",
+  "mode": "fermeture de failles",
+  "mechanic": "B7 Froid et braseros",
+  "coordinates": "Pourcentages depuis le coin haut-gauche ; plan de composition proposé, sans données runtime ni masque.",
+  "start_pct": [
+    40,
+    88
+  ],
+  "start_area_polygon_pct": [
+    [
+      21,
+      83
+    ],
+    [
+      28,
+      78
+    ],
+    [
+      43,
+      80
+    ],
+    [
+      57,
+      78
+    ],
+    [
+      72,
+      82
+    ],
+    [
+      78,
+      91
+    ],
+    [
+      71,
+      97
+    ],
+    [
+      34,
+      97
+    ],
+    [
+      23,
+      93
+    ]
+  ],
+  "rifts": [
+    {
+      "id": "f1",
+      "center_pct": [
+        30,
+        71.5
+      ],
+      "pocket_polygon_pct": [
+        [
+          10,
+          68
+        ],
+        [
+          16,
+          60
+        ],
+        [
+          29,
+          59
+        ],
+        [
+          41,
+          63
+        ],
+        [
+          46,
+          72
+        ],
+        [
+          43,
+          81
+        ],
+        [
+          35,
+          86
+        ],
+        [
+          19,
+          86
+        ],
+        [
+          11,
+          79
+        ]
+      ],
+      "clear_core_diameter_world_target": 900,
+      "minimum_requested_world": 700,
+      "hearth": "h2",
+      "rift_object_painted": false
+    },
+    {
+      "id": "f2",
+      "center_pct": [
+        63,
+        64
+      ],
+      "pocket_polygon_pct": [
+        [
+          50,
+          57
+        ],
+        [
+          58,
+          50
+        ],
+        [
+          76,
+          50
+        ],
+        [
+          87,
+          55
+        ],
+        [
+          90,
+          65
+        ],
+        [
+          84,
+          74
+        ],
+        [
+          68,
+          77
+        ],
+        [
+          54,
+          72
+        ],
+        [
+          50,
+          65
+        ]
+      ],
+      "clear_core_diameter_world_target": 900,
+      "minimum_requested_world": 700,
+      "hearth": "h4",
+      "rift_object_painted": false
+    },
+    {
+      "id": "f3",
+      "center_pct": [
+        32.8,
+        44.7
+      ],
+      "pocket_polygon_pct": [
+        [
+          12,
+          40
+        ],
+        [
+          19,
+          32
+        ],
+        [
+          35,
+          31
+        ],
+        [
+          45,
+          36
+        ],
+        [
+          48,
+          46
+        ],
+        [
+          46,
+          54
+        ],
+        [
+          35,
+          58
+        ],
+        [
+          20,
+          57
+        ],
+        [
+          12,
+          50
+        ]
+      ],
+      "clear_core_diameter_world_target": 900,
+      "minimum_requested_world": 700,
+      "hearth": "h6",
+      "rift_object_painted": false
+    },
+    {
+      "id": "f4",
+      "center_pct": [
+        67,
+        31
+      ],
+      "pocket_polygon_pct": [
+        [
+          53,
+          27
+        ],
+        [
+          60,
+          20
+        ],
+        [
+          77,
+          21
+        ],
+        [
+          87,
+          25
+        ],
+        [
+          91,
+          34
+        ],
+        [
+          87,
+          43
+        ],
+        [
+          74,
+          47
+        ],
+        [
+          59,
+          43
+        ],
+        [
+          53,
+          36
+        ]
+      ],
+      "clear_core_diameter_world_target": 900,
+      "minimum_requested_world": 700,
+      "hearth": "h8",
+      "rift_object_painted": false
+    }
+  ],
+  "hearths": [
+    {
+      "id": "h1",
+      "center_pct": [
+        39.633,
+        86.204
+      ],
+      "diameter_world": 90,
+      "role": "départ",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        497,
+        1081
+      ]
+    },
+    {
+      "id": "h2",
+      "center_pct": [
+        28.309,
+        73.285
+      ],
+      "diameter_world": 90,
+      "role": "près de F1",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        355,
+        919
+      ]
+    },
+    {
+      "id": "h3",
+      "center_pct": [
+        43.301,
+        64.992
+      ],
+      "diameter_world": 90,
+      "role": "relais du pont",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        543,
+        815
+      ]
+    },
+    {
+      "id": "h4",
+      "center_pct": [
+        59.888,
+        62.52
+      ],
+      "diameter_world": 90,
+      "role": "près de F2",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        751,
+        784
+      ]
+    },
+    {
+      "id": "h5",
+      "center_pct": [
+        52.392,
+        51.515
+      ],
+      "diameter_world": 90,
+      "role": "relais de corniche",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        657,
+        646
+      ]
+    },
+    {
+      "id": "h6",
+      "center_pct": [
+        35.407,
+        46.651
+      ],
+      "diameter_world": 90,
+      "role": "près de F3",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        444,
+        585
+      ]
+    },
+    {
+      "id": "h7",
+      "center_pct": [
+        47.847,
+        36.443
+      ],
+      "diameter_world": 90,
+      "role": "relais du surplomb",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        600,
+        457
+      ]
+    },
+    {
+      "id": "h8",
+      "center_pct": [
+        64.593,
+        33.971
+      ],
+      "diameter_world": 90,
+      "role": "près de F4",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        810,
+        426
+      ]
+    },
+    {
+      "id": "h9",
+      "center_pct": [
+        62.839,
+        17.624
+      ],
+      "diameter_world": 90,
+      "role": "sommet est",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        788,
+        221
+      ]
+    },
+    {
+      "id": "h10",
+      "center_pct": [
+        46.093,
+        13.317
+      ],
+      "diameter_world": 90,
+      "role": "sommet ouest",
+      "painted": "Foyer vide : dalle noircie, cendres, neige fondue ; aucun brasero peint.",
+      "runtime_visual": "object.brazier",
+      "sprite_in_background": false,
+      "center_composition_px": [
+        578,
+        167
+      ]
+    }
+  ],
+  "main_route": {
+    "centerline_pct": [
+      [
+        39.633,
+        86.204
+      ],
+      [
+        28.309,
+        73.285
+      ],
+      [
+        43.301,
+        64.992
+      ],
+      [
+        59.888,
+        62.52
+      ],
+      [
+        52.392,
+        51.515
+      ],
+      [
+        35.407,
+        46.651
+      ],
+      [
+        47.847,
+        36.443
+      ],
+      [
+        64.593,
+        33.971
+      ],
+      [
+        62.839,
+        17.624
+      ],
+      [
+        46.093,
+        13.317
+      ]
+    ],
+    "minimum_width_world_target": 260,
+    "hearth_links": [
+      {
+        "from": "h1",
+        "to": "h2",
+        "length_world": 861.7,
+        "centerline_pct": [
+          [
+            39.633,
+            86.204
+          ],
+          [
+            28.309,
+            73.285
+          ]
+        ]
+      },
+      {
+        "from": "h2",
+        "to": "h3",
+        "length_world": 859.4,
+        "centerline_pct": [
+          [
+            28.309,
+            73.285
+          ],
+          [
+            43.301,
+            64.992
+          ]
+        ]
+      },
+      {
+        "from": "h3",
+        "to": "h4",
+        "length_world": 841.2,
+        "centerline_pct": [
+          [
+            43.301,
+            64.992
+          ],
+          [
+            59.888,
+            62.52
+          ]
+        ]
+      },
+      {
+        "from": "h4",
+        "to": "h5",
+        "length_world": 667.9,
+        "centerline_pct": [
+          [
+            59.888,
+            62.52
+          ],
+          [
+            52.392,
+            51.515
+          ]
+        ]
+      },
+      {
+        "from": "h5",
+        "to": "h6",
+        "length_world": 886.3,
+        "centerline_pct": [
+          [
+            52.392,
+            51.515
+          ],
+          [
+            35.407,
+            46.651
+          ]
+        ]
+      },
+      {
+        "from": "h6",
+        "to": "h7",
+        "length_world": 807.2,
+        "centerline_pct": [
+          [
+            35.407,
+            46.651
+          ],
+          [
+            47.847,
+            36.443
+          ]
+        ]
+      },
+      {
+        "from": "h7",
+        "to": "h8",
+        "length_world": 849.1,
+        "centerline_pct": [
+          [
+            47.847,
+            36.443
+          ],
+          [
+            64.593,
+            33.971
+          ]
+        ]
+      },
+      {
+        "from": "h8",
+        "to": "h9",
+        "length_world": 824.7,
+        "centerline_pct": [
+          [
+            64.593,
+            33.971
+          ],
+          [
+            62.839,
+            17.624
+          ]
+        ]
+      },
+      {
+        "from": "h9",
+        "to": "h10",
+        "length_world": 867.3,
+        "centerline_pct": [
+          [
+            62.839,
+            17.624
+          ],
+          [
+            46.093,
+            13.317
+          ]
+        ]
+      }
+    ],
+    "length_world": 7464.8,
+    "measurement_scope": "Distances entre centres relevés sur la composition ; axes schématiques à suivre dans le parcours visible. Pas une navigation mesurée sur collisions."
+  },
+  "passages": [
+    {
+      "id": "p1",
+      "kind": "rampe de neige tassée",
+      "center_pct": [
+        37,
+        82
+      ],
+      "width_world_target": 300
+    },
+    {
+      "id": "p2",
+      "kind": "pont de pierre sur crevasse",
+      "center_pct": [
+        45,
+        66
+      ],
+      "width_world_target": 280
+    },
+    {
+      "id": "p3",
+      "kind": "corniche le long de la falaise",
+      "center_pct": [
+        53,
+        52
+      ],
+      "width_world_target": 260
+    },
+    {
+      "id": "p4",
+      "kind": "passage sous surplomb de glace",
+      "center_pct": [
+        49,
+        37
+      ],
+      "width_world_target": 280,
+      "note": "Surplomb court attaché au versant nord ; bande de sol visible, entrée et sortie lisibles."
+    }
+  ],
+  "shortcuts": [
+    {
+      "id": "s1",
+      "centerline_pct": [
+        [
+          52.392,
+          51.515
+        ],
+        [
+          53,
+          44
+        ],
+        [
+          47.847,
+          36.443
+        ]
+      ],
+      "width_world_target": 170,
+      "from_hearth": "h5",
+      "to_hearth": "h7",
+      "length_world": 837.0,
+      "note": "Détour court à droite de l’éperon ; F3 conserve deux accès visibles par le chemin principal."
+    }
+  ],
+  "summit": {
+    "center_pct": [
+      54,
+      15
+    ],
+    "polygon_pct": [
+      [
+        29,
+        9
+      ],
+      [
+        38,
+        3
+      ],
+      [
+        60,
+        3
+      ],
+      [
+        76,
+        6
+      ],
+      [
+        82,
+        14
+      ],
+      [
+        79,
+        23
+      ],
+      [
+        71,
+        29
+      ],
+      [
+        56,
+        29
+      ],
+      [
+        38,
+        30
+      ],
+      [
+        29,
+        23
+      ]
+    ],
+    "useful_envelope_polygon_pct": [
+      [
+        40,
+        7
+      ],
+      [
+        66,
+        6
+      ],
+      [
+        71,
+        13
+      ],
+      [
+        69,
+        25
+      ],
+      [
+        60,
+        29
+      ],
+      [
+        42,
+        28
+      ],
+      [
+        37,
+        19
+      ]
+    ],
+    "open_core_center_pct": [
+      54,
+      15
+    ],
+    "open_core_diameter_world_target": 1000,
+    "hearths": [
+      "h9",
+      "h10"
+    ],
+    "cover_rocks": [
+      "a13",
+      "a14",
+      "a15",
+      "a16"
+    ],
+    "separate_arena": false,
+    "guard_post_ruins": "Autour du replat seulement, centre vide.",
+    "guardian_condition": "Après fermeture des quatre failles, indépendamment des raccourcis ; raccordement par Claude.",
+    "envelope_scope": "Emprise visuelle proposée ; surface utile et cercle libre à confirmer sur les collisions peintes."
+  },
+  "cover_rocks": [
+    {
+      "id": "a1",
+      "center_pct": [
+        16.268,
+        68.102
+      ],
+      "ground_width_world_target": 140,
+      "area": "f1",
+      "material": "rocher de schiste gelé",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        204,
+        854
+      ]
+    },
+    {
+      "id": "a2",
+      "center_pct": [
+        36.443,
+        75.04
+      ],
+      "ground_width_world_target": 140,
+      "area": "f1",
+      "material": "congère gelée compacte",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        457,
+        941
+      ]
+    },
+    {
+      "id": "a3",
+      "center_pct": [
+        20.494,
+        78.947
+      ],
+      "ground_width_world_target": 140,
+      "area": "f1",
+      "material": "bloc de maçonnerie",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        257,
+        990
+      ]
+    },
+    {
+      "id": "a4",
+      "center_pct": [
+        65.869,
+        59.33
+      ],
+      "ground_width_world_target": 140,
+      "area": "f2",
+      "material": "rocher de schiste gelé",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        826,
+        744
+      ]
+    },
+    {
+      "id": "a5",
+      "center_pct": [
+        74.402,
+        59.171
+      ],
+      "ground_width_world_target": 140,
+      "area": "f2",
+      "material": "congère gelée compacte",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        933,
+        742
+      ]
+    },
+    {
+      "id": "a6",
+      "center_pct": [
+        69.617,
+        69.697
+      ],
+      "ground_width_world_target": 140,
+      "area": "f2",
+      "material": "bloc de maçonnerie",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        873,
+        874
+      ]
+    },
+    {
+      "id": "a7",
+      "center_pct": [
+        21.77,
+        39.713
+      ],
+      "ground_width_world_target": 140,
+      "area": "f3",
+      "material": "rocher de schiste gelé",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        273,
+        498
+      ]
+    },
+    {
+      "id": "a8",
+      "center_pct": [
+        17.065,
+        49.601
+      ],
+      "ground_width_world_target": 140,
+      "area": "f3",
+      "material": "congère gelée compacte",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        214,
+        622
+      ]
+    },
+    {
+      "id": "a9",
+      "center_pct": [
+        39.633,
+        51.675
+      ],
+      "ground_width_world_target": 140,
+      "area": "f3",
+      "material": "bloc de maçonnerie",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        497,
+        648
+      ]
+    },
+    {
+      "id": "a10",
+      "center_pct": [
+        56.619,
+        26.156
+      ],
+      "ground_width_world_target": 140,
+      "area": "f4",
+      "material": "rocher de schiste gelé",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        710,
+        328
+      ]
+    },
+    {
+      "id": "a11",
+      "center_pct": [
+        78.708,
+        29.506
+      ],
+      "ground_width_world_target": 140,
+      "area": "f4",
+      "material": "congère gelée compacte",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        987,
+        370
+      ]
+    },
+    {
+      "id": "a12",
+      "center_pct": [
+        73.604,
+        39.793
+      ],
+      "ground_width_world_target": 140,
+      "area": "f4",
+      "material": "bloc de maçonnerie",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        923,
+        499
+      ]
+    },
+    {
+      "id": "a13",
+      "center_pct": [
+        34.848,
+        12.44
+      ],
+      "ground_width_world_target": 140,
+      "area": "summit",
+      "material": "rocher de schiste gelé",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        437,
+        156
+      ]
+    },
+    {
+      "id": "a14",
+      "center_pct": [
+        72.488,
+        10.526
+      ],
+      "ground_width_world_target": 140,
+      "area": "summit",
+      "material": "congère gelée compacte",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        909,
+        132
+      ]
+    },
+    {
+      "id": "a15",
+      "center_pct": [
+        71.77,
+        23.206
+      ],
+      "ground_width_world_target": 140,
+      "area": "summit",
+      "material": "bloc de maçonnerie",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        900,
+        291
+      ]
+    },
+    {
+      "id": "a16",
+      "center_pct": [
+        35.885,
+        25.518
+      ],
+      "ground_width_world_target": 140,
+      "area": "summit",
+      "material": "rocher de schiste gelé",
+      "collision_authored": false,
+      "foot_center_composition_px": [
+        450,
+        320
+      ]
+    }
+  ],
+  "architecture_scale_world": {
+    "hunter_reference_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "door_height": [
+      75,
+      90
+    ]
+  },
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "detail_generated": true,
+  "composition_dimensions": [
+    1254,
+    1254
+  ],
+  "source_layout": "source/layout.png",
+  "source_layout_note": "Croquis initial de proposition ; les repères ci-dessous sont relevés sur la peinture retenue.",
+  "warmth_radius_runtime_reference_world": 220,
+  "warmth_reference_scope": "Valeur actuellement lue dans ArenaData, non modifiée ; les foyers relais sont séparés par des zones froides.",
+  "plan_locked": true,
+  "approval_date": "2026-11-04",
+  "approval_message": "c'est bon pour moi démarre la passe au détail"
+}
