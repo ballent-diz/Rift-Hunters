@@ -24,3 +24,4 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 - [ ] **Mode test « dev »** : débloquer aussi les compétences « débloquée au niveau 3 » et « niveau 1 du chapitre 2 ».
 - [ ] **Menus : visuels des cartes 7 à 15** à ajouter.
 - [ ] **Carte 17, Col des braseros : équilibrage à reprendre** (détails : docs/ROADMAP.md, carte 17).
+- [ ] **Carte 18, Lac gelé des tempêtes : équilibrage à reprendre**, en commençant par l'Avalanche de l'élite Yéti des cimes (détails : docs/ROADMAP.md, carte 18).

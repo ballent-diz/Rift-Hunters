@@ -9,7 +9,7 @@ extends RefCounted
 
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
-	&"avalanche": &"avalanche", &"deep_freeze": &"snuff",
+	&"avalanche": &"avalanche", &"deep_freeze": &"snuff", &"storm_hunt": &"slide",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -42,6 +42,8 @@ var _fight_time: float = 0.0
 var _charge_time: float = 0.0
 ## Avalanche du Patriarche : fiche de mécanique affichée une fois.
 var _avalanche_announced: bool = false
+## Chasse dans la tempête du Loup alpha : fiche de mécanique affichée une fois.
+var _hunt_announced: bool = false
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
 var _effects: Array[Node2D] = []
@@ -664,6 +666,34 @@ func _pattern_avalanche(pattern: BossPatternData) -> void:
 				"grow": float(pattern.params.get("grow", 26.0)), "max": float(pattern.params.get("max_radius", 80.0)),
 				"damage": damage, "until": ctx.time + float(pattern.params.get("life", 4.0)), "hit": false,
 				"source": data.id}))
+
+
+## Chasse dans la tempête (Loup alpha, carte 18) : il disparaît dans la neige et charge `count` fois, chaque fois
+## depuis une direction différente autour du Chasseur, sur une ligne annoncée ; il reste vulnérable entre deux charges.
+func _pattern_storm_hunt(pattern: BossPatternData) -> void:
+	if not _hunt_announced:
+		_hunt_announced = true
+		ctx.events.event_started.emit("BOSS_STORM_HUNT_INTRO")
+	var count: int = int(pattern.params.get("count", 3))
+	var gap: float = float(pattern.params.get("gap", 1.6))
+	var reach: float = float(pattern.params.get("reach", 520.0))
+	var speed: float = float(pattern.params.get("speed", 760.0))
+	var duration: float = reach * 2.0 / speed
+	busy_time = count * gap + 0.5
+	var angle: float = ctx.rng.randf() * TAU
+	for i: int in count:
+		var turn: float = angle + i * TAU / float(count) + ctx.rng.randf_range(-0.4, 0.4)
+		schedule(i * gap, func() -> void:
+			var target: Vector2 = ctx.player.global_position
+			var from: Vector2 = ctx.obstacles.push_out(target + Vector2.RIGHT.rotated(turn) * reach, boss.radius)
+			boss.position = from
+			ctx.fx.burst(from, boss.radius * 1.4, Color(0.85, 0.92, 1.0, 0.6))
+			var dir: Vector2 = (target - from).normalized()
+			ctx.fx.danger_line(from, from + dir * speed * duration, boss.radius * 1.6, pattern.telegraph)
+			schedule(pattern.telegraph, func() -> void:
+				_charge_dir = dir
+				_charge_speed = speed
+				_charge_time = duration))
 
 
 ## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.

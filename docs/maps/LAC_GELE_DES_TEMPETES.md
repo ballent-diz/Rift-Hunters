@@ -101,3 +101,12 @@ Peindre en rouge translucide **tout le lac gelé**, les falaises et crevasses, l
 Retour attendu : **PNG entier 1024 × 1536**, sans recadrage, rotation, marge ou redimensionnement. Aucun masque n’a été produit par Codex. Claude raccorde la peinture, la navigation, les zones et barrières, le blizzard B2 et la révélation autour des refuges, le gardien et la campagne. Vérifier les passages et l’emprise libre de 1000 unités de l’arène sur les collisions peintes avant de déclarer le niveau jouable.
 
 Aucun changement de `src/`, `data/`, du manifeste ni des cartes 14 à 17. Le décor reste hors runtime jusqu’à l’intégration par Claude ; aucun essai de circulation ni de combat n’est revendiqué.
+
+## En jeu (Claude, 5 novembre 2026)
+
+- Collisions : peinture du propriétaire, `collision_mask.py overlay storm_lake … --no-water`, puis `build`.
+- `data/arenas/storm_lake.tres` : départ (-201, -1906), zones (-67, -1856), (776, -391), (970, 1144), barrières à la
+  passerelle (y ≈ -1290), à la brèche (y ≈ 410) et à l'entrée de l'amphithéâtre (x ≈ 300), finale (-702, 1756),
+  rayons (520, 460). Refuges du vent : centres du plan (deux recalés de quelques unités sur le sol praticable), rayon
+  140. Blizzard : calme 0,3, rafale 0,82. Gardien : Loup alpha des tempêtes. Tests : `test_storm_lake`.
+

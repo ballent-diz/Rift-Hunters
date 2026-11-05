@@ -1,0 +1,170 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/boss_phase_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/boss_pattern_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.blizzard_wolf"
+shape = 4
+size = 100.0
+primary = Color(0.78, 0.84, 0.92, 1.0)
+secondary = Color(0.36, 0.42, 0.55, 1.0)
+accent = Color(0.7, 0.9, 1.0, 1.0)
+
+[sub_resource type="Resource" id="pattern_1"]
+script = ExtResource("4")
+kind = &"sweep"
+name_key = "BOSS_PATTERN_FROST_FANGS"
+weight = 3.0
+cooldown = 3.0
+damage = 17.0
+telegraph = 0.6
+params = {
+"anim": "attack",
+"radius": 160.0,
+"half_angle": 50.0,
+"range": 220.0
+}
+
+[sub_resource type="Resource" id="pattern_2"]
+script = ExtResource("4")
+kind = &"charge"
+name_key = "BOSS_PATTERN_WOLF_GLIDE"
+weight = 1.5
+cooldown = 6.0
+damage = 19.0
+telegraph = 0.8
+params = {
+"anim": "slide",
+"speed": 700.0,
+"duration": 0.8
+}
+
+[sub_resource type="Resource" id="pattern_3"]
+script = ExtResource("4")
+kind = &"storm_hunt"
+name_key = "BOSS_PATTERN_STORM_HUNT"
+weight = 2.0
+cooldown = 12.0
+damage = 20.0
+telegraph = 0.9
+params = {
+"anim": "slide",
+"count": 3,
+"gap": 1.6,
+"reach": 520.0,
+"speed": 760.0
+}
+
+[sub_resource type="Resource" id="pattern_4"]
+script = ExtResource("4")
+kind = &"summon"
+name_key = "BOSS_PATTERN_SUMMON"
+weight = 1.0
+cooldown = 14.0
+damage = 0.0
+telegraph = 1.0
+params = {
+"anim": "attack",
+"count": 4,
+"max_active": 8,
+"enemies": ["blizzard_wolf", "frost_crawler"]
+}
+
+[sub_resource type="Resource" id="pattern_11"]
+script = ExtResource("4")
+kind = &"sweep"
+name_key = "BOSS_PATTERN_FROST_FANGS"
+weight = 3.0
+cooldown = 2.6
+damage = 19.0
+telegraph = 0.5
+params = {
+"anim": "attack",
+"radius": 170.0,
+"half_angle": 50.0,
+"range": 220.0
+}
+
+[sub_resource type="Resource" id="pattern_12"]
+script = ExtResource("4")
+kind = &"charge"
+name_key = "BOSS_PATTERN_WOLF_GLIDE"
+weight = 1.5
+cooldown = 5.0
+damage = 21.0
+telegraph = 0.7
+params = {
+"anim": "slide",
+"speed": 740.0,
+"duration": 0.8
+}
+
+[sub_resource type="Resource" id="pattern_13"]
+script = ExtResource("4")
+kind = &"storm_hunt"
+name_key = "BOSS_PATTERN_STORM_HUNT"
+weight = 2.0
+cooldown = 10.0
+damage = 22.0
+telegraph = 0.8
+params = {
+"anim": "slide",
+"count": 4,
+"gap": 1.6,
+"reach": 520.0,
+"speed": 760.0
+}
+
+[sub_resource type="Resource" id="pattern_14"]
+script = ExtResource("4")
+kind = &"summon"
+name_key = "BOSS_PATTERN_SUMMON"
+weight = 1.0
+cooldown = 14.0
+damage = 0.0
+telegraph = 1.0
+params = {
+"anim": "attack",
+"count": 5,
+"max_active": 10,
+"enemies": ["blizzard_wolf", "snow_wraith"]
+}
+
+[sub_resource type="Resource" id="phase_1"]
+script = ExtResource("3")
+hp_threshold = 1.0
+name_key = "BOSS_BLIZZARD_ALPHA_PHASE1"
+pattern_interval = 1.9
+patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3"), SubResource("pattern_4")]
+
+[sub_resource type="Resource" id="phase_2"]
+script = ExtResource("3")
+hp_threshold = 0.5
+name_key = "BOSS_BLIZZARD_ALPHA_PHASE2"
+move_speed_mult = 1.25
+pattern_interval = 1.5
+transition_time = 1.2
+transition_animation = &"attack"
+patterns = [SubResource("pattern_11"), SubResource("pattern_12"), SubResource("pattern_13"), SubResource("pattern_14")]
+
+[resource]
+script = ExtResource("1")
+id = &"blizzard_alpha"
+name_key = "BOSS_BLIZZARD_ALPHA_NAME"
+title_key = "BOSS_BLIZZARD_ALPHA_TITLE"
+max_hp = 4300.0
+damage = 20.0
+defense = 25.0
+move_speed = 78.0
+radius = 46.0
+shard_reward = 85
+essence_reward = 9
+visual = SubResource("visual_data_1")
+phases = [SubResource("phase_1"), SubResource("phase_2")]
+guardian = true
+visual_scale = 2.2
+signature = &"storm_hunt"

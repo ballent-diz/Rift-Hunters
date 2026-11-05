@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ChapterData" load_steps=18 format=3]
+[gd_resource type="Resource" script_class="ChapterData" load_steps=25 format=3]
 
 [ext_resource type="Script" path="res://src/data/chapter_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/campaign_map_data.gd" id="2"]
@@ -130,6 +130,69 @@ nightmare_first_victory_shards = 1210
 objectives = Array[ExtResource("3")]([SubResource("map_2_normal_1"), SubResource("map_2_normal_2"), SubResource("map_2_normal_3")])
 nightmare_objectives = Array[ExtResource("3")]([SubResource("map_2_nightmare_1"), SubResource("map_2_nightmare_2"), SubResource("map_2_nightmare_3")])
 
+[sub_resource type="Resource" id="map_3_normal_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 210
+
+[sub_resource type="Resource" id="map_3_normal_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 800.0
+compare = 1
+reward_shards = 273
+
+[sub_resource type="Resource" id="map_3_normal_3"]
+script = ExtResource("3")
+id = &"swift"
+desc_key = "MAP_OBJ_BOSS_TIME_DESC"
+stat_key = &"boss_fight_time"
+threshold = 240.0
+compare = 1
+duration = true
+reward_shards = 273
+
+[sub_resource type="Resource" id="map_3_nightmare_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 399
+
+[sub_resource type="Resource" id="map_3_nightmare_2"]
+script = ExtResource("3")
+id = &"elites"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 12.0
+compare = 0
+reward_shards = 462
+
+[sub_resource type="Resource" id="map_3_nightmare_3"]
+script = ExtResource("3")
+id = &"pact"
+desc_key = "MAP_OBJ_PACTS_DESC"
+stat_key = &"modifiers_count"
+threshold = 3.0
+compare = 0
+reward_shards = 546
+
+[sub_resource type="Resource" id="map_3"]
+script = ExtResource("2")
+arena_id = &"storm_lake"
+first_victory_shards = 920
+nightmare_first_victory_shards = 1270
+objectives = Array[ExtResource("3")]([SubResource("map_3_normal_1"), SubResource("map_3_normal_2"), SubResource("map_3_normal_3")])
+nightmare_objectives = Array[ExtResource("3")]([SubResource("map_3_nightmare_1"), SubResource("map_3_nightmare_2"), SubResource("map_3_nightmare_3")])
+
 [resource]
 script = ExtResource("1")
 id = &"silent_glacier"
@@ -137,4 +200,4 @@ order = 4
 name_key = "CHAPTER_SILENT_GLACIER_NAME"
 desc_key = "CHAPTER_SILENT_GLACIER_DESC"
 color = Color(0.62, 0.8, 0.96, 1)
-maps = Array[ExtResource("2")]([SubResource("map_1"), SubResource("map_2")])
+maps = Array[ExtResource("2")]([SubResource("map_1"), SubResource("map_2"), SubResource("map_3")])
