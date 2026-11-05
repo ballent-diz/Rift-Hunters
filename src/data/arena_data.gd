@@ -31,6 +31,8 @@ extends Resource
 @export var rift_spawn_radius: float = 240.0
 ## Une élite sort d'une faille ouverte toutes les N secondes (× difficulté).
 @export var rift_elite_interval: float = 40.0
+## Solidité des failles (× leurs PV, en plus des multiplicateurs de la carte) : durée de la fermeture.
+@export var rift_hp_mult: float = 1.0
 @export_group("")
 @export var waves: Array[WavePhaseData] = []
 ## Grande arène : les zones sont des paliers qui partagent toute la carte (aucune barrière, pas de trajet entre elles).
@@ -221,6 +223,17 @@ extends Resource
 ## Cratères qui crachent les roches (grande arène) : chaque roche part en arc du cratère le plus proche de sa cible.
 ## Vide : la roche tombe du ciel.
 @export var rockfall_vents: Array[Vector2] = []
+@export_group("Glace qui fait glisser (brique B1, chapitre 4)")
+## Plaques de glace praticables : ellipse inscrite dans chaque rectangle (unités du monde). Sur la glace, tout le monde
+## (Chasseur, Corrompus) garde son élan : accélération et changement de direction lents, glissade quand on s'arrête.
+@export var ice_patches: Array[Rect2] = []
+## Temps pour atteindre sa pleine vitesse (ou retourner sa course) sur la glace.
+@export var ice_accel_time: float = 0.6
+## Glissade : temps pour s'arrêter quand on lâche la direction.
+@export var ice_glide_time: float = 1.5
+## Vitesse maximale sur la glace (multiplicateur) et longueur de la Ruée (multiplicateur, finit en glissade).
+@export var ice_speed_mult: float = 1.15
+@export var ice_dash_mult: float = 1.4
 @export_group("Froid et braseros (brique B7, chapitre 4)")
 ## Froid gagné par seconde loin des braseros (jauge de 0 à 100 ; 0 = pas de froid sur la carte).
 @export var cold_rate: float = 0.0
@@ -247,6 +260,19 @@ extends Resource
 ## Couleur des lueurs des clairières (lucioles ; braises flottantes sur les Tanières de suie) et annonce de la nuit.
 @export var firefly_color: Color = Color(0.85, 1.0, 0.45)
 @export var night_intro_key: String = "NIGHT_INTRO"
+@export_group("Blizzard (variante de la brique B2, carte 18)")
+## Blizzard : le voile de nuit devient une tempête de neige (couleur blizzard_color). Entre deux rafales, voile léger
+## (blizzard_calm) et cibles libres ; pendant une rafale, le voile monte à `night`, on ne vise que ce qu'on voit et le
+## vent pousse tout le monde (sauf dans les refuges du vent, firefly_glades, qui restent dégagés).
+@export var blizzard: bool = false
+@export_range(0.0, 0.95) var blizzard_calm: float = 0.35
+@export var blizzard_color: Color = Color(0.86, 0.9, 0.97)
+## Cycle : rafale toutes les `period` secondes, annoncée `warning` secondes (le voile s'épaissit), longue de `gust`.
+@export var blizzard_period: float = 16.0
+@export var blizzard_warning: float = 2.0
+@export var blizzard_gust: float = 5.0
+## Poussée du vent pendant une rafale (unités par seconde).
+@export var blizzard_wind: float = 45.0
 
 ## L'arène se termine par une finale (cercle ou arène murée) plutôt que par un boss chronométré classique.
 func has_finale() -> bool:

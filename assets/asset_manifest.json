@@ -15069,6 +15069,56 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/objects/brazier.png"
+		},
+		"environment.glacier_entry": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/glacier_entry/map.webp",
+			"map_tiles": [
+				"res://assets/environments/glacier_entry/map.webp",
+				"res://assets/environments/glacier_entry/map_1.webp",
+				"res://assets/environments/glacier_entry/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/glacier_entry/field.png",
+			"field_step": 2.0,
+			"start": [
+				-1800,
+				1240
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (4 novembre 2026), décor livré par Codex (PR 100).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/glacier_entry/minimap.webp"
+		},
+		"environment.brazier_pass": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/brazier_pass/map.webp",
+			"map_tiles": [
+				"res://assets/environments/brazier_pass/map.webp",
+				"res://assets/environments/brazier_pass/map_1.webp",
+				"res://assets/environments/brazier_pass/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/brazier_pass/field.png",
+			"field_step": 2.0,
+			"start": [
+				-500,
+				1980
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire (4 novembre 2026), décor livré par Codex (PR 101).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/brazier_pass/minimap.webp"
 		}
 	}
 }

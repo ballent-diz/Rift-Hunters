@@ -50,6 +50,11 @@ func setup(p_ctx: RunContext, spell_ids: Array[StringName], spell_variants: Dict
 	cooldowns.resize(SLOTS)
 	cooldowns.fill(0.0)
 	vfx.setup(ctx.world)
+	# Animations des sorts équipés chargées au départ : sinon le premier lancer de chaque sort fige le jeu.
+	for spell: SpellData in slots:
+		if spell:
+			vfx.has_effect(spell.spell_kind)
+	vfx.warm("cleaving_slash.impact")
 	world = HunterSpellWorld.new()
 	world.setup(ctx, self)
 	add_child(world)

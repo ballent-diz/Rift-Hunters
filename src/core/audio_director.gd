@@ -44,6 +44,12 @@ var _rng := RandomNumberGenerator.new()
 var _available_sfx: Dictionary = {}
 ## Contexte dont les morceaux sont réellement joués (après repli éventuel).
 var _playlist_context: String = ""
+## Morceau choisi d'avance par contexte (préchargé en arrière-plan) et suivant de la liste de lecture en cours.
+## Charger un MP3 sur le fil principal fige le jeu (jusqu'à une demi-seconde, disque froid) : début du boss,
+## phase 2, enchaînement des morceaux. Ils sont donc préparés en tâche de fond avant d'être joués.
+var _prefetched: Dictionary = {}
+var _next_track: String = ""
+var _loading: Dictionary = {}
 
 
 func _ready() -> void:
@@ -150,10 +156,32 @@ func play_context(context: String) -> void:
 	if ids.is_empty():
 		_fade_out_all()
 		return
-	var id: String = ids[_rng.randi() % ids.size()]
+	var id: String = str(_prefetched.get(context, ""))
+	_prefetched.erase(context)
+	if not ids.has(id):
+		id = ids[_rng.randi() % ids.size()]
 	if id == current_track_id and _players[_active].playing:
 		return
 	_play_track(id)
+
+
+## Choisit dès maintenant le morceau d'un contexte à venir (boss, phase 2) et le charge en arrière-plan.
+func prefetch(context: String) -> void:
+	if _prefetched.has(context):
+		return
+	var ids: Array[String] = tracks_for(resolve_context(context))
+	if ids.is_empty():
+		return
+	var id: String = ids[_rng.randi() % ids.size()]
+	_prefetched[context] = id
+	_request(str(music_tracks[id]["path"]))
+
+
+func _request(path: String) -> void:
+	if _stream_cache.has(path) or _loading.has(path) or not ResourceLoader.exists(path):
+		return
+	if ResourceLoader.load_threaded_request(path) == OK:
+		_loading[path] = true
 
 
 ## Contexte réellement joué : le contexte demandé, ou son repli s'il n'a aucun morceau.
@@ -179,7 +207,9 @@ func next_track_id(context: String, previous: String) -> String:
 func _on_track_finished(player: AudioStreamPlayer) -> void:
 	if player != _players[_active] or ONE_SHOT_CONTEXTS.has(current_context) or _playlist_context == "":
 		return
-	var id: String = next_track_id(_playlist_context, current_track_id)
+	var id: String = _next_track
+	if not tracks_for(_playlist_context).has(id):
+		id = next_track_id(_playlist_context, current_track_id)
 	if id != "":
 		_play_track(id)
 
@@ -201,6 +231,12 @@ func _play_track(id: String) -> void:
 	player.volume_db = -40.0
 	player.play()
 	_fade = FADE_TIME
+	# Liste de lecture : le morceau suivant se charge pendant que celui-ci joue.
+	_next_track = ""
+	if not loop and not ONE_SHOT_CONTEXTS.has(current_context):
+		_next_track = next_track_id(_playlist_context, id)
+		if _next_track != "":
+			_request(str(music_tracks[_next_track]["path"]))
 
 
 func _fade_out_all() -> void:
@@ -213,6 +249,10 @@ func _fade_out_all() -> void:
 
 func _load_stream(path: String, loop: bool) -> AudioStream:
 	var stream: AudioStream = _stream_cache.get(path)
+	if stream == null and _loading.has(path):
+		# Préchargé en arrière-plan : déjà prêt le plus souvent (sinon on attend la fin du chargement en cours).
+		_loading.erase(path)
+		stream = ResourceLoader.load_threaded_get(path) as AudioStream
 	if stream == null:
 		if not ResourceLoader.exists(path):
 			return null

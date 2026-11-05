@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-04",
+  "retained": "../composition.png",
+  "retained_sha256": "0c0025b557eda3b05b4cba714c0ff923c855f6bb184c32c83152597b8b5921c2",
+  "dimensions": [
+    1254,
+    1254
+  ],
+  "owner_approved": true,
+  "composition_chain": [
+    {
+      "input": "layout.png",
+      "input_sha256": "d3ec6a7a06172822ca819efbc974390a32d52d82eb45b3111d7dbf78cd1bee1b",
+      "prompt": "PROMPT_COMPOSITION.txt",
+      "style_reference": "map.glacier_entry, palette et facture seulement",
+      "output_sha256": "698564a0f05eda04c8b3b435772ca3afba945ebb814bb19e3529fb710fc8ae35"
+    },
+    {
+      "input_sha256": "698564a0f05eda04c8b3b435772ca3afba945ebb814bb19e3529fb710fc8ae35",
+      "prompt": "PROMPT_CORRECTIONS.txt",
+      "output_sha256": "0c0025b557eda3b05b4cba714c0ff923c855f6bb184c32c83152597b8b5921c2"
+    }
+  ]
+}

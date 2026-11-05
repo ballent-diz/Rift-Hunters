@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-04",
+  "prompt": "PROMPT_PAVES_PONT.txt",
+  "input_sha256": "8dcae479d66970bf117866549ababaf373fcb9f61bafcaaa27b073f4a7ee8adc",
+  "output_sha256": "b53a8497227717f4f327a537d282778269c4ef5fc60f2fbb468bfb976b96913e",
+  "output_dimensions": [
+    1576,
+    998
+  ],
+  "crop_world": [
+    1760,
+    3010,
+    2610,
+    3550
+  ],
+  "deck_only_world": [
+    1846,
+    3164,
+    2492,
+    3378
+  ],
+  "anchors_world": [
+    [
+      1846,
+      3164
+    ],
+    [
+      2172,
+      3260
+    ],
+    [
+      2492,
+      3378
+    ]
+  ],
+  "generated_density_min": 1.848148148148148,
+  "before_master_sha256": "e86df230f3ceb11a8f611f82d20b6f47950ccbe004be3817c26f545089059cd8",
+  "after_master_sha256": "1a72d7848958d75107bb8f9f4f7ca65b3f94e6bc61365bff06468e7d20541fed",
+  "before_middle_tile_sha256": "01d3de9680559b99425a14bbc984eca5613791143ab54b8f7170238a956ee755",
+  "after_middle_tile_sha256": "ad1cdce242c7f4bc71f85c1b28c36c19b4b3ece5df195f3e296735a18888c4bf",
+  "method": "Seul le dallage intérieur peint est recalé sur les limites du tablier et H3 ; petits pavés15–23 unités. Parapets, piliers, arche, neige et falaises inchangés. Réinsertion native puis présentation×3, lisière4 unités ; tuile centrale réencodée qualité98."
+}

@@ -213,7 +213,7 @@ func step(delta: float) -> void:
 	var arena: Rect2 = ctx.arena_rect()
 	var contact_interval: float = ctx.balance.contact_damage_interval
 	var parity: int = _frame % 2
-	var drifting: bool = ctx.flood != null or (ctx.terrain != null and not ctx.arena.currents.is_empty())
+	var drifting: bool = ctx.flood != null or ctx.arena.blizzard or (ctx.terrain != null and not ctx.arena.currents.is_empty())
 	if ctx.flow != null:
 		_flow_timer -= delta
 		if _flow_timer <= 0.0:
@@ -224,10 +224,8 @@ func step(delta: float) -> void:
 		var enemy: Enemy = list[i]
 		if not enemy.alive:
 			continue
-		if enemy.invulnerable_time > 0.0:
-			enemy.invulnerable_time = maxf(enemy.invulnerable_time - delta, 0.0)
-		if enemy.touch_cooldown > 0.0:
-			enemy.touch_cooldown -= delta
+		enemy.invulnerable_time = maxf(enemy.invulnerable_time - delta, 0.0)
+		enemy.touch_cooldown = maxf(enemy.touch_cooldown - delta, 0.0)
 		if not enemy.statuses.is_empty():
 			for dot: Array in enemy.statuses.tick(delta, dot_mults):
 				_apply_dot(enemy, dot)
@@ -338,6 +336,8 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 			_tick_blinker(enemy, delta, dir, nav, dist, speed, target_pos)
 		EnemyData.Brain.WARDEN:
 			_tick_warden(enemy, delta, dir, nav, dist, speed)
+	if ctx.ice:
+		ctx.ice.slide_enemy(enemy, speed, delta)
 	enemy.position += enemy.velocity * delta
 
 

@@ -1,0 +1,1099 @@
+{
+  "world": [
+    5016,
+    5016
+  ],
+  "composition_sha256": "0c0025b557eda3b05b4cba714c0ff923c855f6bb184c32c83152597b8b5921c2",
+  "approved_plan_date": "2026-11-04",
+  "generated_date": "2026-11-04",
+  "method": "Seize régions peintes en trente-deux demi-régions, recouvrement de 128 unités ; raccord de faible différence.",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1414.0
+      ],
+      "parts": [
+        {
+          "name": "r0_0_s0",
+          "global_crop_world": [
+            0.0,
+            0.0,
+            771.0,
+            1414.0
+          ],
+          "dimensions": [
+            926,
+            1699
+          ],
+          "generated_density": 1.2010376134889753,
+          "original_sha256": "f597e22a16dd5b1f8eb3471a2a1ac7fdef5d571f83dc287374552d668e37d43c",
+          "input_sha256": "503d3331e14f3b26568b38ae6911413a46a11cc0c8a5fa738dfc88cb67246bd2",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r0_0_s1",
+          "global_crop_world": [
+            643.0,
+            0.0,
+            1414.0,
+            1414.0
+          ],
+          "dimensions": [
+            926,
+            1699
+          ],
+          "generated_density": 1.2010376134889753,
+          "original_sha256": "faf0ab6ec3684ba1453d1a6ee60a6fa1abc7ff80ae2a42d43b431b5ffc43aebb",
+          "input_sha256": "84ecf6f8af83dbe241b9c6448a4f68164fbf76b0693fde2bf3cc94621cef8eb1",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.2734794616699219,
+          340.8551216125488,
+          87.6760482788086
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1414.0
+      ],
+      "parts": [
+        {
+          "name": "r0_1_s0",
+          "global_crop_world": [
+            1094.0,
+            0.0,
+            1945.0,
+            1414.0
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "6c86044b4debe7b27d617c879390f00bf9b5d74386ec7a5b46e3a31cfce19b80",
+          "input_sha256": "e9170de822f63555e0ea4c9d1f0ea27d943aa7806b01c3fc4e929f908de8c46a",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r0_1_s1",
+          "global_crop_world": [
+            1817.0,
+            0.0,
+            2668.0,
+            1414.0
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "25adeecffe32b9c444a42810b3df93874dde58fff995dfa4be9bab0673c0542f",
+          "input_sha256": "67965a92fb69df170cfae70918921fc2f92ddc673bf98128751026d78588a30f",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.11421585083007812,
+          380.4445266723633,
+          109.49850082397461
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1414.0
+      ],
+      "parts": [
+        {
+          "name": "r0_2_s0",
+          "global_crop_world": [
+            2348.0,
+            0.0,
+            3199.0,
+            1414.0
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "4f53f30050e795ac72be783240ad213097e90713462988d08f32f4d3e27149a9",
+          "input_sha256": "a8cd6206fb9bc7a91896e7993d58819fd8596dc18c037b7ff03790cca8de445c",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r0_2_s1",
+          "global_crop_world": [
+            3071.0,
+            0.0,
+            3922.0,
+            1414.0
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "7eab10caa985101a386ef4b606ff743e9b04312b9076091402b1b6b34b959dca",
+          "input_sha256": "0be3d8c9b96e7a28711d4e03c319891f9786f1aa98917c08d9aafc833e6d5123",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.139129638671875,
+          376.77526473999023,
+          107.18107223510742
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3602.0,
+        0.0,
+        5016,
+        1414.0
+      ],
+      "parts": [
+        {
+          "name": "r0_3_s0",
+          "global_crop_world": [
+            3602.0,
+            0.0,
+            4373.0,
+            1414.0
+          ],
+          "dimensions": [
+            926,
+            1698
+          ],
+          "generated_density": 1.200848656294201,
+          "original_sha256": "f8536034f474e8288451aa046ab05cc46a72220a719820ea752ed77d6a436c5e",
+          "input_sha256": "fe5ba8c1a759e4020066dd4f94f2e90358b2e4e002e1e2111791cde3c778f104",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_ECHELLE_PORTE.txt",
+            "PROMPT_ECHELLE_PORTE_FIN.txt"
+          ],
+          "scale_correction_chain": [
+            {
+              "input_sha256": "9469812c917220c0613837459664d9a09d7220a7a1fbb8d5e6bc35b50b9e0258",
+              "prompt": "PROMPT_ECHELLE_PORTE.txt",
+              "output_sha256": "e591e4cab93b4c95dfc0d0bca2787bfe716210b897c37e7b5882d42934cdb214"
+            },
+            {
+              "input_sha256": "e591e4cab93b4c95dfc0d0bca2787bfe716210b897c37e7b5882d42934cdb214",
+              "prompt": "PROMPT_ECHELLE_PORTE_FIN.txt",
+              "output_sha256": "f8536034f474e8288451aa046ab05cc46a72220a719820ea752ed77d6a436c5e"
+            }
+          ],
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r0_3_s1",
+          "global_crop_world": [
+            4245.0,
+            0.0,
+            5016.0,
+            1414.0
+          ],
+          "dimensions": [
+            926,
+            1699
+          ],
+          "generated_density": 1.2010376134889753,
+          "original_sha256": "80fb9015a246f03b33b9f26bfeadf16ab869bd4e580ab08266186e51aac9b670",
+          "input_sha256": "d6f93425d7d6a832219e5f33397836533badbba9a4dfa23c1edb435604e644ce",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.08845901489257812,
+          432.39355087280273,
+          98.10447692871094
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        1094.0,
+        1414.0,
+        2668.0
+      ],
+      "parts": [
+        {
+          "name": "r1_0_s0",
+          "global_crop_world": [
+            0.0,
+            1094.0,
+            771.0,
+            2668.0
+          ],
+          "dimensions": [
+            878,
+            1792
+          ],
+          "generated_density": 1.1385006353240152,
+          "original_sha256": "ae8b7b43f2ea5772d47d26f34d00fe66879d947973839b8a4938353c67ac6e36",
+          "input_sha256": "2e4e9537e1b98929af14c8c4a7d6e5e8b839778295860c7367bf7cb9cf260dea",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r1_0_s1",
+          "global_crop_world": [
+            643.0,
+            1094.0,
+            1414.0,
+            2668.0
+          ],
+          "dimensions": [
+            877,
+            1792
+          ],
+          "generated_density": 1.1374837872892347,
+          "original_sha256": "a7147c58eb9df0300c4b1fa48fc4424cb7f25cdc9c597dd9b3149bc27e9caa11",
+          "input_sha256": "ff69d32bef2a0240f6f9da2a764c49e13305e1e74fded03a2781f01daf43d62f",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.13115310668945312,
+          386.81745529174805,
+          104.28428649902344
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2668.0
+      ],
+      "parts": [
+        {
+          "name": "r1_1_s0",
+          "global_crop_world": [
+            1094.0,
+            1094.0,
+            1945.0,
+            2668.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "e4a3d56f6efff69dfe646d9eeaa4ca78515f813d826871e9d102874be10a5347",
+          "input_sha256": "a91e119fa7f7b56043077a51793dcf6a1fd4abcad4afadbdce388e9eff9d0b4b",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r1_1_s1",
+          "global_crop_world": [
+            1817.0,
+            1094.0,
+            2668.0,
+            2668.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "c55c3c27f41bf8108358bd5b5a059fa0d0be4eb7b30abe929c4273f4bd5a3c1d",
+          "input_sha256": "53fc61ebfd5b8e54ecbe6f58f2519ae4820fc884366df6449f524f82566e7343",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 80,
+        "median_smooth_fine_medium": [
+          0.06975936889648438,
+          406.9018363952637,
+          104.28428649902344
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2668.0
+      ],
+      "parts": [
+        {
+          "name": "r1_2_s0",
+          "global_crop_world": [
+            2348.0,
+            1094.0,
+            3199.0,
+            2668.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "a35adba0cfd4ae7b354f4181270a01a61a3df7918486d0d4c35bfd2f9d7db02f",
+          "input_sha256": "b73c00621e12b01344ed7165c39d1a363cfd7b0bb926a50ec279137677837b8e",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r1_2_s1",
+          "global_crop_world": [
+            3071.0,
+            1094.0,
+            3922.0,
+            2668.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "eb1cc437c9c5c24453448023e1b1f7ca3f2a0df5f702283f16ee0e04e93302fa",
+          "input_sha256": "061ea44fc96aa6cd428d08aae37b8490415d0d642578a1be0a9eee30c2a96790",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.07107162475585938,
+          374.8440742492676,
+          107.56731033325195
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3602.0,
+        1094.0,
+        5016,
+        2668.0
+      ],
+      "parts": [
+        {
+          "name": "r1_3_s0",
+          "global_crop_world": [
+            3602.0,
+            1094.0,
+            4373.0,
+            2668.0
+          ],
+          "dimensions": [
+            878,
+            1792
+          ],
+          "generated_density": 1.1385006353240152,
+          "original_sha256": "226e81becce5038c0e3d16e7601606299d9b2be3abe3325e40d11a35c099fec7",
+          "input_sha256": "987726b98726c7e307de7e81c2f36e508c73e06a1d63635d19cd4a7a4728eabf",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r1_3_s1",
+          "global_crop_world": [
+            4245.0,
+            1094.0,
+            5016.0,
+            2668.0
+          ],
+          "dimensions": [
+            878,
+            1792
+          ],
+          "generated_density": 1.1385006353240152,
+          "original_sha256": "a0f1ab191045db263e15716f585c2b27c83caa1698e7ec68cdd94ebd4d0e6912",
+          "input_sha256": "0159bf2f783666f7bf806f4d285d5eded3ef5630c64d79efa200f79d813b2041",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.17445755004882812,
+          383.53443145751953,
+          91.5384292602539
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2348.0,
+        1414.0,
+        3922.0
+      ],
+      "parts": [
+        {
+          "name": "r2_0_s0",
+          "global_crop_world": [
+            0.0,
+            2348.0,
+            771.0,
+            3922.0
+          ],
+          "dimensions": [
+            878,
+            1792
+          ],
+          "generated_density": 1.1385006353240152,
+          "original_sha256": "d460bfb47dd10aaf3b8d2d51122b925c7f75dadba81633fa39dec5b3f6316f16",
+          "input_sha256": "3ea8d856e6d3a13c499fa25325e70660454aa4679ab6066d372e4077813593b3",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r2_0_s1",
+          "global_crop_world": [
+            643.0,
+            2348.0,
+            1414.0,
+            3922.0
+          ],
+          "dimensions": [
+            878,
+            1792
+          ],
+          "generated_density": 1.1385006353240152,
+          "original_sha256": "4167ffb5041a6c01839ea23e5b8167c6c7fced3b54e5d73c42f724290acd9df8",
+          "input_sha256": "c8007d16b4f819e862fbe9718c475c585b13d6d52cddd7fd9961e85f5b30cb43",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.10142135620117188,
+          386.044979095459,
+          104.28428649902344
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        1094.0,
+        2348.0,
+        2668.0,
+        3922.0
+      ],
+      "parts": [
+        {
+          "name": "r2_1_s0",
+          "global_crop_world": [
+            1094.0,
+            2348.0,
+            1945.0,
+            3922.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "ff7476e3451ace9dc55cad3e3e10a604501aaa0b8435ee1d0564782bf7665e18",
+          "input_sha256": "3af5178af8647d8c7d09042b1a31737ed4afeeb4f2a9cd0a58f7e94df28237ff",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r2_1_s1",
+          "global_crop_world": [
+            1817.0,
+            2348.0,
+            2668.0,
+            3922.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "8baceaa9a1f72032cdcbdc2815ff517ddff01ae1e610f4791b29167199bd9d35",
+          "input_sha256": "679994077f98515d8681fcd7c4789c7a34258168aaf7a63a48f14640ea44b62d",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.103912353515625,
+          414.0472412109375,
+          101.77373886108398
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2348.0,
+        2348.0,
+        3922.0,
+        3922.0
+      ],
+      "parts": [
+        {
+          "name": "r2_2_s0",
+          "global_crop_world": [
+            2348.0,
+            2348.0,
+            3199.0,
+            3922.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "a8a77bf362f1ca80414c42107a70f7cd81ac70258197a4a6e70e73aae9360fec",
+          "input_sha256": "bb286d39219f17d256c69ffa8ea7c14594f316be881fdb7feb0530bb96075e92",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r2_2_s1",
+          "global_crop_world": [
+            3071.0,
+            2348.0,
+            3922.0,
+            3922.0
+          ],
+          "dimensions": [
+            922,
+            1706
+          ],
+          "generated_density": 1.0834312573443008,
+          "original_sha256": "fbae061d6bf86ecf5af3ab0238663d26bb1215d6320d1b0b259adc275eb6c281",
+          "input_sha256": "d851f3b6d6baae64c1598636b259b8427e89fb62f509efdbd602b6ac95991af0",
+          "scale_reference_sha256": "26efcf18fe9d8ba595308359dd29ae6a2733eb83c9e15e11cc837fa3a34e458a",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 80,
+        "median_smooth_fine_medium": [
+          0.07524490356445312,
+          408.4467887878418,
+          104.4774055480957
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_3",
+      "crop_world": [
+        3602.0,
+        2348.0,
+        5016,
+        3922.0
+      ],
+      "parts": [
+        {
+          "name": "r2_3_s0",
+          "global_crop_world": [
+            3602.0,
+            2348.0,
+            4373.0,
+            3922.0
+          ],
+          "dimensions": [
+            877,
+            1792
+          ],
+          "generated_density": 1.1374837872892347,
+          "original_sha256": "35c09bdffa3d10421c0fa0ebe18bbfe177324283e9c412ccf5f49f5b097af83c",
+          "input_sha256": "0c684123dde0b59f073ad911e4cdab4a4e6ad803d7ab3faf94ab5e47a09cc563",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r2_3_s1",
+          "global_crop_world": [
+            4245.0,
+            2348.0,
+            5016.0,
+            3922.0
+          ],
+          "dimensions": [
+            878,
+            1792
+          ],
+          "generated_density": 1.1385006353240152,
+          "original_sha256": "d7e2d8fe56e796f63ac3e3420e623287b12d15e7bed2afacddad697cce88d06d",
+          "input_sha256": "ec79515cb9aa73e10d08341c8a206d2d9ca4c45795f33a0d12c9d1fc5ceba9b8",
+          "scale_reference_sha256": "a471f2e0274d2e9079205cbfff1fbf1ab35bf0e40ef3747490d7bc8a190a114d",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.11915206909179688,
+          405.35688400268555,
+          96.36640548706055
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r3_0",
+      "crop_world": [
+        0.0,
+        3602.0,
+        1414.0,
+        5016
+      ],
+      "parts": [
+        {
+          "name": "r3_0_s0",
+          "global_crop_world": [
+            0.0,
+            3602.0,
+            771.0,
+            5016
+          ],
+          "dimensions": [
+            926,
+            1699
+          ],
+          "generated_density": 1.2010376134889753,
+          "original_sha256": "aa420c7348d2bca43187851d009eac5ddd1ce35f71c4ef0d07d4dd23519d6e6d",
+          "input_sha256": "2bc50b232e9e223ddc810281a8a3e45b51fa99b736c262bc6a827e1e3c315ac6",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r3_0_s1",
+          "global_crop_world": [
+            643.0,
+            3602.0,
+            1414.0,
+            5016
+          ],
+          "dimensions": [
+            926,
+            1699
+          ],
+          "generated_density": 1.2010376134889753,
+          "original_sha256": "77457370c9a11999db2a97a27afd41f74f66f6a945d09d47e39d0b369ee3d46b",
+          "input_sha256": "5bb0b55dff6c939654303e4c0260319ae69c2cf15f17f87058684e30db5531fc",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 100,
+        "median_smooth_fine_medium": [
+          0.086090087890625,
+          438.38024139404297,
+          104.28428649902344
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_1",
+      "crop_world": [
+        1094.0,
+        3602.0,
+        2668.0,
+        5016
+      ],
+      "parts": [
+        {
+          "name": "r3_1_s0",
+          "global_crop_world": [
+            1094.0,
+            3602.0,
+            1945.0,
+            5016
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "8b9ddfa1aac3f202aba365276921375df57266350864e68f2916e601e525a620",
+          "input_sha256": "68ad0c4ad2c01da1830d473263aa53af808203c61116f565c6d97995e307bb07",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r3_1_s1",
+          "global_crop_world": [
+            1817.0,
+            3602.0,
+            2668.0,
+            5016
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "fcadd4c74ce4eab4d504ae68362dada9019f11d5a719c120f524aa34a5a24a77",
+          "input_sha256": "50fb5dfaf94d1c1048d6efe5825a43d547e622c1e10ae2af562a5f7a969ffa1c",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.13428878784179688,
+          378.32021713256836,
+          103.70492935180664
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_2",
+      "crop_world": [
+        2348.0,
+        3602.0,
+        3922.0,
+        5016
+      ],
+      "parts": [
+        {
+          "name": "r3_2_s0",
+          "global_crop_world": [
+            2348.0,
+            3602.0,
+            3199.0,
+            5016
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "4b50d4fe3de0792ae8aa8d16207182d2c66a58cef7ace0b5ca0787407be9d9b6",
+          "input_sha256": "d453843866c455d0c775f893abe02a3233d9c3f61fd8fbea8726d12025c72fc8",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r3_2_s1",
+          "global_crop_world": [
+            3071.0,
+            3602.0,
+            3922.0,
+            5016
+          ],
+          "dimensions": [
+            973,
+            1616
+          ],
+          "generated_density": 1.1428571428571428,
+          "original_sha256": "e4f9a9e57adc3a7136db58cd2751b52215677ecb9efd9081fa13d75ec6e77e90",
+          "input_sha256": "6e8a23a74f4ff873ea8bb975cae39a96fb3266163d913e37b803e87e38e80c7d",
+          "scale_reference_sha256": "79a6631ed7a50d05a63d6012a9ede96b822f277927dadc6c7e90bd7ea198705f",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.09039306640625,
+          395.31469345092773,
+          103.12557220458984
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_3",
+      "crop_world": [
+        3602.0,
+        3602.0,
+        5016,
+        5016
+      ],
+      "parts": [
+        {
+          "name": "r3_3_s0",
+          "global_crop_world": [
+            3602.0,
+            3602.0,
+            4373.0,
+            5016
+          ],
+          "dimensions": [
+            926,
+            1699
+          ],
+          "generated_density": 1.2010376134889753,
+          "original_sha256": "4057f70a84a74bfa9dd8e8026baa056080e3827557a3f353d3948edd1def25ef",
+          "input_sha256": "f0f8ec7683a6f6577a53eb3641971618f49234cd0422c250fe05244b0d48830c",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        },
+        {
+          "name": "r3_3_s1",
+          "global_crop_world": [
+            4245.0,
+            3602.0,
+            5016.0,
+            5016
+          ],
+          "dimensions": [
+            926,
+            1699
+          ],
+          "generated_density": 1.2010376134889753,
+          "original_sha256": "510e52dad6df876e77b52d525b781dd968831dea104c5dfbf2f2af5aea0bf154",
+          "input_sha256": "26a892381b3b4b2a9fac22a6dd641d4c652270e409ae3ea988dad5aff2b966c4",
+          "scale_reference_sha256": "71a2ab9d36eaafba4b0fa7d0621211d21971f3ddc119af710011718431da6b11",
+          "prompts": [
+            "PROMPT_DETAIL.txt",
+            "PROMPT_REFERENCE_MATIERE.txt"
+          ],
+          "scale_correction_chain": null,
+          "before_cliff_correction_sha256": null
+        }
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.10325241088867188,
+          415.39907455444336,
+          98.10447692871094
+        ],
+        "regional_reference_bands_met": false
+      }
+    }
+  ],
+  "retained_source": "map_detailed.webp",
+  "retained_sha256": "1a72d7848958d75107bb8f9f4f7ca65b3f94e6bc61365bff06468e7d20541fed",
+  "retained_dimensions": [
+    3762,
+    3762
+  ],
+  "retained_density": 0.75,
+  "pixels_lossless_verified": true,
+  "prompts": [
+    "PROMPT_DETAIL.txt",
+    "PROMPT_REFERENCE_MATIERE.txt",
+    "PROMPT_ECHELLE_PORTE.txt",
+    "PROMPT_ECHELLE_PORTE_FIN.txt",
+    "PROMPT_GABARIT_ABRIS.txt",
+    "PROMPT_GABARIT_FOYERS.txt",
+    "PROMPT_PAVES_PONT.txt"
+  ],
+  "intermediate_images": "Conservées hors dépôt ; une seule source native assemblée retenue.",
+  "local_scale_corrections": "scale_corrections.json",
+  "local_bridge_paving": "bridge_paving_correction.json"
+}

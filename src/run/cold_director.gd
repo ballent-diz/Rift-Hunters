@@ -16,6 +16,8 @@ var out_until: Array[float] = []
 var _tick: float = 0.0
 var _time: float = 0.0
 var _announced := false
+## Sprites des braseros (object.brazier : allumé, éteint) ; vide sans feuille, la forme provisoire est dessinée.
+var _sprites: Array[AnimatedSprite2D] = []
 
 
 static func uses_cold(arena: ArenaData) -> bool:
@@ -28,6 +30,21 @@ func setup(p_ctx: RunContext) -> void:
 	z_index = -3
 	out_until.resize(ctx.arena.braziers.size())
 	out_until.fill(0.0)
+	var frames: SpriteFrames = Assets.get_sprite_frames(&"object.brazier")
+	if frames == null:
+		return
+	for pos: Vector2 in ctx.arena.braziers:
+		var sprite := AnimatedSprite2D.new()
+		sprite.sprite_frames = frames
+		sprite.centered = false
+		sprite.offset = -Assets.anchor(&"object.brazier")
+		sprite.scale = Vector2.ONE * Assets.pixel_scale(&"object.brazier")
+		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		sprite.position = pos
+		sprite.z_index = 3
+		add_child(sprite)
+		sprite.play(&"lit")
+		_sprites.append(sprite)
 
 
 func is_lit(index: int) -> bool:
@@ -77,6 +94,10 @@ func step(delta: float) -> void:
 		player.hinder(TICK + 0.1, ctx.arena.cold_hinder)
 		ctx.combat.damage_player(ctx.arena.cold_damage * ctx.difficulty.enemy_damage_mult, &"cold")
 		ctx.stats.add(&"cold_ticks")
+	for i: int in _sprites.size():
+		var anim: StringName = &"lit" if is_lit(i) else &"out"
+		if _sprites[i].animation != anim:
+			_sprites[i].play(anim)
 	queue_redraw()
 
 
@@ -93,20 +114,24 @@ func danger(pos: Vector2) -> Vector2:
 	return (target - pos).normalized() * (1.0 + (cold - 60.0) / 40.0)
 
 
-## Braseros (forme provisoire en attendant le sprite object.brazier) et jauge de froid autour du Chasseur.
+## Chaleur des braseros (le sprite object.brazier est un enfant ; forme provisoire sans feuille) et jauge de froid.
 func _draw() -> void:
 	var pulse: float = 0.5 + 0.5 * sin(_time * 6.0)
 	for i: int in ctx.arena.braziers.size():
 		var pos: Vector2 = ctx.arena.braziers[i]
+		var sprite: bool = i < _sprites.size()
 		if is_lit(i):
 			draw_circle(pos, ctx.arena.brazier_radius, Color(FIRE, 0.06 + 0.03 * pulse))
 			draw_arc(pos, ctx.arena.brazier_radius, 0.0, TAU, 64, Color(FIRE, 0.35), 2.0)
-			draw_circle(pos, 16.0 + 3.0 * pulse, Color(FIRE, 0.9))
+			if not sprite:
+				draw_circle(pos, 16.0 + 3.0 * pulse, Color(FIRE, 0.9))
 		else:
-			draw_circle(pos, 14.0, Color(0.35, 0.36, 0.4, 0.9))
+			if not sprite:
+				draw_circle(pos, 14.0, Color(0.35, 0.36, 0.4, 0.9))
 			var left: float = clampf((out_until[i] - ctx.time) / ctx.arena.brazier_relight, 0.0, 1.0)
-			draw_arc(pos, 22.0, -PI / 2.0, -PI / 2.0 + TAU * (1.0 - left), 24, Color(FIRE, 0.6), 2.0)
-		draw_circle(pos, 9.0, Color(0.42, 0.28, 0.16))
+			draw_arc(pos, 30.0, -PI / 2.0, -PI / 2.0 + TAU * (1.0 - left), 24, Color(FIRE, 0.6), 2.0)
+		if not sprite:
+			draw_circle(pos, 9.0, Color(0.42, 0.28, 0.16))
 	if cold > 0.0:
 		var center: Vector2 = ctx.player.global_position
 		var color: Color = Color(FROST, 0.9) if not full() else Color(1.0, 1.0, 1.0, 0.6 + 0.4 * pulse)
