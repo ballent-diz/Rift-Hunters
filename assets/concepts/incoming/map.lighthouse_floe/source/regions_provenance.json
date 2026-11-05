@@ -1,0 +1,967 @@
+{
+  "date": "2026-11-05",
+  "world": [
+    5016,
+    5016
+  ],
+  "composition_sha256": "f95ec07ecdeecb2ee0d06c91f3b6f6109845103ed8f7225a734a6b338ae6aa9c",
+  "method": "Seize régions carrées peintes de1574unités avec marges ; extraction des limites réelles, calibrage natif et raccord de faible différence.",
+  "native_density": 0.75,
+  "native_dimensions": [
+    3762,
+    3762
+  ],
+  "retained_sha256": "326554258cbd65162dedae956aff06dc5422fe6b41cba37ef1333fb12018c3f5",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1414.0
+      ],
+      "square_world": [
+        -160.0,
+        -160.0,
+        1414.0,
+        1414.0
+      ],
+      "input_sha256": "486553d1fd5aff1574948cf81e1c46518cdf850e185494fee5c425f11eaa3173",
+      "generated_sha256": "6896ab08aa80a20329ae36b2029325b4d8eb7865630d60d7f51fddbe96ee538b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.12115859985351562,
+          416.55778884887695,
+          100.0356674194336
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r0_0",
+        "path": "/workspace/generated_images/exec-160b73a1-93b0-46ce-a606-9c85319caac1.png",
+        "before_frozen_correction": "/workspace/generated_images/exec-d6e9cb35-238a-49ae-a922-4d92326a1b02.png",
+        "frozen_correction": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1414.0
+      ],
+      "square_world": [
+        1094.0,
+        -160.0,
+        2668.0,
+        1414.0
+      ],
+      "input_sha256": "8efb66645cb9ec4f6f54ace9e3518440237f057f2d77d2bd5d1482e7db8edad6",
+      "generated_sha256": "ce570e82dd6a52bb8c347c3d3a449ccd49ebea6cc02db6d09868413d49c9051d",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.15259933471679688,
+          441.4701461791992,
+          101.77373886108398
+        ],
+        "regional_reference_bands_met": true
+      },
+      "original_generation": {
+        "name": "r0_1",
+        "path": "/workspace/generated_images/exec-34a161c0-9713-4f99-832b-35920e6dca9c.png",
+        "before_frozen_correction": "/workspace/generated_images/exec-5b85aabb-ef1a-47c8-b034-85aa1372b302.png",
+        "frozen_correction": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1414.0
+      ],
+      "square_world": [
+        2348.0,
+        -160.0,
+        3922.0,
+        1414.0
+      ],
+      "input_sha256": "d389f6f14660ca6f663e679ed6a4578dab7aa0dddc73dc07f7f70a6f726fb167",
+      "generated_sha256": "a46b3319cc5d020c299d5ff46807a10b0b5ff5dd391b5ae0c6f96d4a37480d77",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.13702392578125,
+          438.95959854125977,
+          104.4774055480957
+        ],
+        "regional_reference_bands_met": true
+      },
+      "original_generation": {
+        "name": "r0_2",
+        "path": "/workspace/generated_images/exec-ed4b1cba-929c-4924-896b-2c7289818c45.png",
+        "before_frozen_correction": "/workspace/generated_images/exec-5d14c072-9389-4af6-a678-aeeb6ecf1a19.png",
+        "frozen_correction": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3602.0,
+        0.0,
+        5016,
+        1414.0
+      ],
+      "square_world": [
+        3602.0,
+        -160.0,
+        5176.0,
+        1414.0
+      ],
+      "input_sha256": "dd08030759f931833523eb9e7790a8ab1abff6fe7897a7ea421671e80f07e8cc",
+      "generated_sha256": "1cf5fa2e02f3415b73c3847f7637edfc02feadde76852c033b17337da884f9a2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.09603500366210938,
+          429.689884185791,
+          100.0356674194336
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r0_3",
+        "path": "/workspace/generated_images/exec-56074ebe-1a17-4b97-9db5-594465f011c7.png",
+        "before_frozen_correction": "/workspace/generated_images/exec-3b66866f-a4d7-4cda-a4b3-3811aef8a2e9.png",
+        "frozen_correction": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        1094.0,
+        1414.0,
+        2668.0
+      ],
+      "square_world": [
+        -160.0,
+        1094.0,
+        1414.0,
+        2668.0
+      ],
+      "input_sha256": "693d554d6edfbff859142fd5934996f34bc40527355e431a299e6d144f1e9742",
+      "generated_sha256": "a9b2abdf798b7138cea8e5b74c6f5cbd58061259221738cc8702315a2062190c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt"
+      ],
+      "sharpness": {
+        "percent": 80,
+        "median_smooth_fine_medium": [
+          0.115997314453125,
+          437.99400329589844,
+          99.64942932128906
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r1_0",
+        "path": "/workspace/generated_images/exec-d6581901-9d89-4f8a-a260-036a49650d7c.png",
+        "before_frozen_correction": "/workspace/generated_images/exec-d9d764a7-2689-46bf-bf23-e054f41bb86d.png",
+        "frozen_correction": true
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2668.0
+      ],
+      "square_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2668.0
+      ],
+      "input_sha256": "9ad98980a11e3c54e799e6494eb5e734e4c7e7a902608d62f706e37950e6f073",
+      "generated_sha256": "201005cdc076c27807952aa2671970ede1039ed655a1fc48230a0361413a2b37",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_ABRI_TEMOIN.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 100,
+        "median_smooth_fine_medium": [
+          0.14550399780273438,
+          384.8862648010254,
+          107.95354843139648
+        ],
+        "regional_reference_bands_met": true
+      },
+      "original_generation": {
+        "name": "r1_1",
+        "path": "/workspace/generated_images/exec-af8a5ad1-ba9f-44e8-a0e1-4aa7b15768bb.png",
+        "cover_correction": true,
+        "before_frozen_correction": "/workspace/generated_images/exec-befe3848-9bcc-4636-b4a1-2aa91f9144b3.png",
+        "frozen_correction": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_ABRI_TEMOIN.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2668.0
+      ],
+      "square_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2668.0
+      ],
+      "input_sha256": "97bd226c50c19b1900ab37c70e44d80a7ba4621ca186ecae8275362513914303",
+      "generated_sha256": "5fc5946deca3e7a67a858f67d3cff944d22517e1a7c455ce149823036f505aa8",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.16475677490234375,
+          424.8619079589844,
+          103.51181030273438
+        ],
+        "regional_reference_bands_met": true
+      },
+      "original_generation": {
+        "name": "r1_2",
+        "path": "/workspace/generated_images/exec-b3ee05f3-a52f-4f30-8233-e5af87152ec1.png",
+        "before_frozen_correction": "/workspace/generated_images/exec-d7305279-fce8-4359-bd48-c292852283ef.png",
+        "frozen_correction": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3602.0,
+        1094.0,
+        5016,
+        2668.0
+      ],
+      "square_world": [
+        3602.0,
+        1094.0,
+        5176.0,
+        2668.0
+      ],
+      "input_sha256": "66238bbbca06debffbf481c98177867478df47364060f06a880bd323740e1e71",
+      "generated_sha256": "daf3b706f9529479c9faa8b0a767e6fb2df41670114ca55149fb222c3c8ec4fe",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 80,
+        "median_smooth_fine_medium": [
+          0.09636306762695312,
+          440.5045509338379,
+          100.61502456665039
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r1_3",
+        "path": "/workspace/generated_images/exec-340b4c04-bab5-4b29-894d-401e8f8f6768.png",
+        "before_frozen_correction": "/workspace/generated_images/exec-9eba8f20-9153-4523-9821-93e03d98959a.png",
+        "frozen_correction": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2348.0,
+        1414.0,
+        3922.0
+      ],
+      "square_world": [
+        -160.0,
+        2348.0,
+        1414.0,
+        3922.0
+      ],
+      "input_sha256": "2fd6d218371c30e89cd67e81145870a34450c0e0addaaf01ad304ec8c81700fd",
+      "generated_sha256": "d960c7972a202858d1eed6c712819e0ced00749c8d92268e9b9cdfbd00bf4c01",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.17925262451171875,
+          436.4490509033203,
+          98.876953125
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r2_0",
+        "path": "/workspace/generated_images/exec-e8b95ea6-db03-49ee-aa03-ec53d7744560.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        1094.0,
+        2348.0,
+        2668.0,
+        3922.0
+      ],
+      "square_world": [
+        1094.0,
+        2348.0,
+        2668.0,
+        3922.0
+      ],
+      "input_sha256": "c60e3564656504b1086c074040c61ef041467c506d5d70f93c7b06bd4f5a3b22",
+      "generated_sha256": "b04534ae9606afca20766a031fbda7dd840354a8e4c122008886b37629ff019d",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.156707763671875,
+          450.35362243652344,
+          98.876953125
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r2_1",
+        "path": "/workspace/generated_images/exec-923a9e81-8dcd-4993-b5a6-fc8e5457e1a1.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2348.0,
+        2348.0,
+        3922.0,
+        3922.0
+      ],
+      "square_world": [
+        2348.0,
+        2348.0,
+        3922.0,
+        3922.0
+      ],
+      "input_sha256": "4e7c187d42e4974bba1f6103541c522c540c7e4787b5f82abf2c48e6c8a8cc9e",
+      "generated_sha256": "0f4db033accfbf26bfdda2e669d20214f754f874e556749e8371c917a2ede4e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.219818115234375,
+          440.8907890319824,
+          99.26319122314453
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r2_2",
+        "path": "/workspace/generated_images/exec-4a179fa0-40d4-426d-9dbd-c4e691bd296c.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r2_3",
+      "crop_world": [
+        3602.0,
+        2348.0,
+        5016,
+        3922.0
+      ],
+      "square_world": [
+        3602.0,
+        2348.0,
+        5176.0,
+        3922.0
+      ],
+      "input_sha256": "cac6ca41b1a2e690e2c1e558e9acfd2d8affada3e7a41847917f0547b810131d",
+      "generated_sha256": "1a8373b75676862f5c1d7699c94587f3dd236d901fffb43d0bfdaba01b03be3d",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.18115234375,
+          429.8830032348633,
+          89.22100067138672
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r2_3",
+        "path": "/workspace/generated_images/exec-80c3b7b7-0d20-4b36-9d35-a94b070a1165.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    },
+    {
+      "name": "r3_0",
+      "crop_world": [
+        0.0,
+        3602.0,
+        1414.0,
+        5016
+      ],
+      "square_world": [
+        -160.0,
+        3602.0,
+        1414.0,
+        5176.0
+      ],
+      "input_sha256": "93804ca967f2ec4fa94aa3f0caf80077d4313a83380dd0e34e35b8a3950e0dcf",
+      "generated_sha256": "a972a8ea4261bb7b430f3cbb2833a1845254b07f14a54e915d76c64659790f4e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.23528671264648438,
+          409.4123840332031,
+          100.80814361572266
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r3_0",
+        "path": "/workspace/generated_images/exec-4396b92e-50be-45cd-9879-20498b0256b9.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ],
+        "before_frozen_correction": "/workspace/generated_images/exec-71c61acc-4eb5-4ad3-a8a5-53d7f604d659.png",
+        "frozen_correction": true,
+        "south_no_open_water": true
+      }
+    },
+    {
+      "name": "r3_1",
+      "crop_world": [
+        1094.0,
+        3602.0,
+        2668.0,
+        5016
+      ],
+      "square_world": [
+        1094.0,
+        3602.0,
+        2668.0,
+        5176.0
+      ],
+      "input_sha256": "492a058c3883fa06ff5b04ceb5947d98811a05c7b81b24573c954dc9e5217bdb",
+      "generated_sha256": "d36cebd0d03cdb421f5f104ed25f755d660569c889ab8adbd565d1776d485411",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 80,
+        "median_smooth_fine_medium": [
+          0.13315200805664062,
+          445.33252716064453,
+          99.64942932128906
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r3_1",
+        "path": "/workspace/generated_images/exec-af24c3d4-5f14-4074-a5d2-ab492acd72ad.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ],
+        "before_frozen_correction": "/workspace/generated_images/exec-d5721b70-3735-43b5-9f9b-74054b880d4f.png",
+        "frozen_correction": true,
+        "south_no_open_water": true
+      }
+    },
+    {
+      "name": "r3_2",
+      "crop_world": [
+        2348.0,
+        3602.0,
+        3922.0,
+        5016
+      ],
+      "square_world": [
+        2348.0,
+        3602.0,
+        3922.0,
+        5176.0
+      ],
+      "input_sha256": "d21fb448db65fdf86cdf3acea2b18cc43cfb6b6f41d82a5e35e68bc0e92b58d4",
+      "generated_sha256": "81dcc8792fd6a92ff14c5e464048cdb09b8094c57f56fb9b8df3f30b8e4b9930",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.15118408203125,
+          442.43574142456055,
+          100.0356674194336
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r3_2",
+        "path": "/workspace/generated_images/exec-4b0cef70-b28f-4287-845f-eab4e86e2717.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ],
+        "before_frozen_correction": "/workspace/generated_images/exec-29107242-00ba-49f7-a301-f9a2d3beb9c7.png",
+        "frozen_correction": true,
+        "south_no_open_water": true
+      }
+    },
+    {
+      "name": "r3_3",
+      "crop_world": [
+        3602.0,
+        3602.0,
+        5016,
+        5016
+      ],
+      "square_world": [
+        3602.0,
+        3602.0,
+        5176.0,
+        5176.0
+      ],
+      "input_sha256": "4317cdcf806d4dab9445a6172b14c3d1177fd50551f30427bb340e298ba1e548",
+      "generated_sha256": "b4e6812355bc8dd941ad1326b21ec1d7a72f3defd5862d34035f75b04925e5e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_GLACE_STABLE.txt"
+      ],
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.11060333251953125,
+          436.83528900146484,
+          96.17328643798828
+        ],
+        "regional_reference_bands_met": false
+      },
+      "original_generation": {
+        "name": "r3_3",
+        "path": "/workspace/generated_images/exec-e7fa98db-d0a7-4ff4-ac01-e366abf40b80.png",
+        "frozen_material_direct": true,
+        "prompts": [
+          "PROMPT_DETAIL.txt",
+          "PROMPT_GLACE_STABLE.txt"
+        ]
+      }
+    }
+  ],
+  "intermediates": "Hors dépôt",
+  "pixels_lossless_verified": true,
+  "local_cover_corrections": [
+    {
+      "id": "a01",
+      "box_world": [
+        619.999608,
+        544.001168,
+        1219.999608,
+        1144.001168
+      ],
+      "target_width_world": 140,
+      "output_sha256": "717b0a1e525788a66cabd1ea0e301e00a4df9c276dc086558449ee3a341fc8aa",
+      "input_sha256": "a04912f2881b12f44c53eed8c11e172b1d18804f9731bea16d0739c42e8a9410",
+      "guide_sha256": "40f6c39a2e4ec97c86c1c7ccf69bd1549d2d8917123027b360e87c889fb24ec5",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a02",
+      "box_world": [
+        160.00231199999996,
+        1359.9990319999997,
+        760.002312,
+        1959.9990319999997
+      ],
+      "target_width_world": 140,
+      "output_sha256": "717b0a1e525788a66cabd1ea0e301e00a4df9c276dc086558449ee3a341fc8aa",
+      "input_sha256": "a04912f2881b12f44c53eed8c11e172b1d18804f9731bea16d0739c42e8a9410",
+      "guide_sha256": "40f6c39a2e4ec97c86c1c7ccf69bd1549d2d8917123027b360e87c889fb24ec5",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a03",
+      "method": "Témoin déjà au bon gabarit, pixels conservés."
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        3799.9981439999992,
+        503.998568,
+        4399.998143999999,
+        1103.998568
+      ],
+      "target_width_world": 140,
+      "output_sha256": "717b0a1e525788a66cabd1ea0e301e00a4df9c276dc086558449ee3a341fc8aa",
+      "input_sha256": "a04912f2881b12f44c53eed8c11e172b1d18804f9731bea16d0739c42e8a9410",
+      "guide_sha256": "40f6c39a2e4ec97c86c1c7ccf69bd1549d2d8917123027b360e87c889fb24ec5",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a05",
+      "box_world": [
+        4240.001664,
+        1124.0012479999998,
+        4840.001664,
+        1724.0012479999998
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a06",
+      "box_world": [
+        2644.000752,
+        1671.999248,
+        3244.000752,
+        2271.999248
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        3748.002288,
+        3911.9993839999997,
+        4348.002288,
+        4511.999384
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        4243.999416,
+        3307.997744,
+        4843.999416,
+        3907.997744
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a09",
+      "box_world": [
+        2644.000752,
+        2580.000584,
+        3244.000752,
+        3180.000584
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        484.0008,
+        4068.0019999999995,
+        1084.0008,
+        4668.0019999999995
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a11",
+      "box_world": [
+        219.9986879999999,
+        3132.0013519999998,
+        819.9986879999999,
+        3732.0013519999998
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a12",
+      "box_world": [
+        1752.0004559999998,
+        2596.001624,
+        2352.0004559999998,
+        3196.001624
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    }
+  ],
+  "local_closed_plate_size_corrections": [
+    {
+      "id": "p06",
+      "crop_world": [
+        3470.858267610381,
+        2621.144266936299,
+        4370.8582676103815,
+        3521.144266936299
+      ],
+      "input_sha256": "7c8685a8af39e60b46d1f2ccfcfb7f9f9843dc53b55b8a863913e9d10366922f",
+      "generated_sha256": "2e7bae8e1757379a4d63f0e571d17824e89ece104b7fa7bb7254981e16348988",
+      "prompt": "PROMPT_PLAQUES_ECHELLE_FINALE.txt",
+      "method": "Réduction peinte locale de la plaque fermée, contexte gelé rétabli ; réinsertion limitée à son ancienne emprise et sa lèvre."
+    },
+    {
+      "id": "p07",
+      "crop_world": [
+        2815.3876659355374,
+        3163.6008738317346,
+        3715.3876659355374,
+        4063.6008738317346
+      ],
+      "input_sha256": "82970ab66f0d019f5e7340e82a5c1db6f753aca8775b6fafe50c444b7e48a4b9",
+      "generated_sha256": "16f95128f1f89ea6c01e933a8aef0e8f51a2f75616ccc29fc1b9e9b325cab130",
+      "prompt": "PROMPT_PLAQUES_ECHELLE_FINALE.txt",
+      "method": "Réduction peinte locale de la plaque fermée, contexte gelé rétabli ; réinsertion limitée à son ancienne emprise et sa lèvre."
+    }
+  ]
+}

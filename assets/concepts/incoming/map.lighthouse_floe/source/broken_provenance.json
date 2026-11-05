@@ -1,0 +1,313 @@
+{
+  "date": "2026-11-05",
+  "world": [
+    5016,
+    5016
+  ],
+  "native_size": [
+    3762,
+    3762
+  ],
+  "master_sha256": "326554258cbd65162dedae956aff06dc5422fe6b41cba37ef1333fb12018c3f5",
+  "delta_sha256": "261c89e3d1099c7db0a91a491dd7fc68b662d98ec244f4151d9a62f20188476d",
+  "plan_sha256": "3c5b6f978189d59160baa880373917f23d9dd703929ae6f69f1e3e2a36920c3a",
+  "method": "Mêmes16régions communes ;14ouvertures peintes localement, limitées strictement aux polygones B4.",
+  "outside_plate_alpha_zero": true,
+  "static_collision_mask_created": false,
+  "plates": [
+    {
+      "id": "p01",
+      "world_crop": [
+        2036.4427114212308,
+        611.2351894924066,
+        2936.442711421231,
+        1511.2351894924066
+      ],
+      "input_sha256": "b84706b3844a13b7fbae1b646aad4c1b636e1b4d4b0bd10505bef78867379926",
+      "generated_sha256": "5ba70eec70d64b6f3323f091bf0c9d9d3643a98ab9de34af2df40809e96a0fb5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 20,
+      "dark_water_fraction": 0.8867,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p02",
+      "world_crop": [
+        2740.459882413972,
+        613.8258977462676,
+        3640.459882413972,
+        1513.8258977462676
+      ],
+      "input_sha256": "20406cb597405e087cbf595828c6f29a6bb39f51b0d389e64a7ae37308741ae8",
+      "generated_sha256": "a38daf9a0547e344021a63be1a6e2a1da4fba53f8154cf289a6fee76525c13a1",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.8181,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p03",
+      "world_crop": [
+        3104.2464017322636,
+        953.8809705769966,
+        4004.2464017322636,
+        1853.8809705769966
+      ],
+      "input_sha256": "7db1daee1c66d702e2a3692c6234aa317b127b25709d6ed575a374674391e571",
+      "generated_sha256": "71a3a10bea125e3219c706ce5079072cc941d9305a5b24a15aada55dbcb0c06d",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.8671,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p04",
+      "world_crop": [
+        3415.116808341834,
+        1333.0879292757566,
+        4315.116808341834,
+        2233.0879292757563
+      ],
+      "input_sha256": "157597af161ca0cdff6f47c5181926e3e4d9079b7e440b5d33365437842374e7",
+      "generated_sha256": "d0fb2e4a3c12cbcad916a8e1ded99f3bea5f9cef538900218a679f9208be8f11",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333326,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.8272,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p05",
+      "world_crop": [
+        4060.5574335411884,
+        1997.3106334099116,
+        4960.557433541188,
+        2897.3106334099116
+      ],
+      "input_sha256": "de3a4efa524eb5ec86c514a5118d114e0dd1e31812cd1231cda9d9ce3d633141",
+      "generated_sha256": "5efec56f9e9ad7f45d8dc926398897004c228938ca62cfab0d4b8ab4b140e330",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.8736,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p06",
+      "world_crop": [
+        3471.890367449756,
+        2606.1705492579817,
+        4371.890367449756,
+        3506.1705492579817
+      ],
+      "input_sha256": "6a073105dd3f7bfe6d62af2a5a6cbff926de4c48227872bd6ebe02d58b63931c",
+      "generated_sha256": "59246a5ce983c1651c168049cd7a304c16cb7a4945afb2d43934961cc59fc5d4",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 80,
+      "dark_water_fraction": 0.8454,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p07",
+      "world_crop": [
+        2834.4866662908044,
+        3147.5187837101353,
+        3734.4866662908044,
+        4047.5187837101353
+      ],
+      "input_sha256": "bf24ba91be58c590c47c96fb4a930104784abf50067a7b843d1367c1fed35c13",
+      "generated_sha256": "a481ae59e3df7b804a488cd432073251cf2eef8924f894d2f0c7cfba43882fb7",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 40,
+      "dark_water_fraction": 0.8013,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p08",
+      "world_crop": [
+        1996.5012804863454,
+        3416.315980948278,
+        2896.5012804863454,
+        4316.315980948279
+      ],
+      "input_sha256": "dac08d8f752df61d3f66a0482c4a952ce72222d058d1b4ffc1c4048724a62843",
+      "generated_sha256": "994720261800bb9cb86a608989d6978126e11ce8a1229d26e60e07124b1c806b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333326,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.7799,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p09",
+      "world_crop": [
+        1096.8614118605271,
+        3147.816404768926,
+        1996.8614118605271,
+        4047.816404768926
+      ],
+      "input_sha256": "a77740dcb0ea59a2810dfb9ceb33d81d97f4d14aec644e020aa87fe511b8af7c",
+      "generated_sha256": "48efa68f67f4c0f006b824be08135634cb441caa012a29f4508f50b5dfce03db",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 40,
+      "dark_water_fraction": 0.8571,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p10",
+      "world_crop": [
+        634.2223034512169,
+        2604.978555545402,
+        1534.222303451217,
+        3504.978555545402
+      ],
+      "input_sha256": "90b95ee5813288cfd406c8a21615270bf3363cc2356c970ebf4ff04a12426d36",
+      "generated_sha256": "3ac55e2845aaddaa5d63dd9f77ff7e3d0a29ffedd31f5c092715eaf7b5bb50b6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 40,
+      "dark_water_fraction": 0.8404,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p11",
+      "world_crop": [
+        176.42111412033353,
+        2088.8094100154,
+        1076.4211141203336,
+        2988.8094100154
+      ],
+      "input_sha256": "5b876bb974dd42d854e8eea6f695b05f1b4e8c12d5b72c5d536500d9d1f1f5c9",
+      "generated_sha256": "2c25d7c6a7aa75b3d3de9c28af3d9c9d9ddfcfb964c7a23d3be77075f5765f1b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.393333333333333,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.9061,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p12",
+      "world_crop": [
+        677.9021323289542,
+        1167.0782842512135,
+        1577.9021323289542,
+        2067.0782842512135
+      ],
+      "input_sha256": "40fc1645afc5a2f8ac93f84936a0b15857f2a79c5a2986205adeff70a965fb37",
+      "generated_sha256": "afa5131752083419d8f5963454c393fb0d6125b349c8f2973d4789cbcb2b504b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.8944,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p13",
+      "world_crop": [
+        995.5993807090881,
+        772.2615265520978,
+        1895.599380709088,
+        1672.2615265520978
+      ],
+      "input_sha256": "0cfec9fee4df39ea8bdac98ed9a9a0a84ab9cc8d9abb29190b0bc73064fcb1a0",
+      "generated_sha256": "9284a5c62f061a344d30ff98605fe36d56b8c4caec735e989563a6467b8b49d6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.3933333333333333,
+      "native_sharpening_percent": 0,
+      "dark_water_fraction": 0.932,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    },
+    {
+      "id": "p14",
+      "world_crop": [
+        1460.2408565793182,
+        417.7952099182868,
+        2360.2408565793185,
+        1317.7952099182867
+      ],
+      "input_sha256": "6cb4f9b74bb3360f277dcafd2ca84784af3b62140f30b2622ec2a0242daebb85",
+      "generated_sha256": "6f60429cb40983bbe3722407f9b26d615e8df88f24329e50c3667919bdaa54df",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.393333333333333,
+      "native_sharpening_percent": 20,
+      "dark_water_fraction": 0.9505,
+      "prompts": [
+        "PROMPT_BANQUISE_BRISEE.txt"
+      ]
+    }
+  ]
+}
