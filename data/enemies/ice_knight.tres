@@ -15,6 +15,7 @@ accent = Color(0.7, 0.45, 1.0, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"ice_knight"
+family = &"silence"
 name_key = "ENEMY_ICE_KNIGHT_NAME"
 desc_key = "ENEMY_ICE_KNIGHT_DESC"
 brain = 0

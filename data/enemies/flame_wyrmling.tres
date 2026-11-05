@@ -46,6 +46,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"flame_wyrmling"
+family = &"magma"
 name_key = "ENEMY_FLAME_WYRMLING_NAME"
 desc_key = "ENEMY_FLAME_WYRMLING_DESC"
 brain = 0

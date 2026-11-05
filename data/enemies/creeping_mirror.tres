@@ -31,6 +31,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"creeping_mirror"
+family = &"reflets"
 name_key = "ENEMY_CREEPING_MIRROR_NAME"
 desc_key = "ENEMY_CREEPING_MIRROR_DESC"
 brain = 0

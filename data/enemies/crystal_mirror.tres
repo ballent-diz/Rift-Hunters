@@ -15,6 +15,7 @@ accent = Color(1.0, 1.0, 1.0, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"crystal_mirror"
+family = &"reflets"
 name_key = "ENEMY_CRYSTAL_MIRROR_NAME"
 desc_key = "ENEMY_CRYSTAL_MIRROR_DESC"
 brain = 3

@@ -63,6 +63,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"peak_yeti"
+family = &"givres"
 name_key = "ENEMY_PEAK_YETI_NAME"
 desc_key = "ENEMY_PEAK_YETI_DESC"
 brain = 0

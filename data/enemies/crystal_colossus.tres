@@ -50,6 +50,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"crystal_colossus"
+family = &"reflets"
 name_key = "ENEMY_CRYSTAL_COLOSSUS_NAME"
 desc_key = "ENEMY_CRYSTAL_COLOSSUS_DESC"
 brain = 0

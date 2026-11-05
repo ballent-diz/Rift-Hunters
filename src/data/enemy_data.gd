@@ -6,6 +6,8 @@ enum Brain { CHASER, RANGED, CHARGER, STATIC, SUMMONER, BLINKER, WARDEN }
 
 @export var id: StringName = &""
 @export var name_key: String = ""
+## Famille (docs/design/MONSTRES.md) : couleurs des effets génériques (impact, disparition) ; vide : famille violette.
+@export var family: StringName = &""
 @export var desc_key: String = ""
 @export var brain: Brain = Brain.CHASER
 @export var max_hp: float = 10.0

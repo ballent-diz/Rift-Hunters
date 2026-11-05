@@ -33,6 +33,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"bloat_toad"
+family = &"enlises"
 name_key = "ENEMY_BLOAT_TOAD_NAME"
 desc_key = "ENEMY_BLOAT_TOAD_DESC"
 brain = 0

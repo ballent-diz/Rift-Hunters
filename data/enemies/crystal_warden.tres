@@ -24,6 +24,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"crystal_warden"
+family = &"violet"
 name_key = "ENEMY_CRYSTAL_WARDEN_NAME"
 desc_key = "ENEMY_CRYSTAL_WARDEN_DESC"
 brain = 6

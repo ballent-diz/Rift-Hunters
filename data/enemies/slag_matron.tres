@@ -48,6 +48,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"slag_matron"
+family = &"magma"
 name_key = "ENEMY_SLAG_MATRON_NAME"
 desc_key = "ENEMY_SLAG_MATRON_DESC"
 brain = 0

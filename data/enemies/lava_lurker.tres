@@ -32,6 +32,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"lava_lurker"
+family = &"magma"
 name_key = "ENEMY_LAVA_LURKER_NAME"
 desc_key = "ENEMY_LAVA_LURKER_DESC"
 brain = 0

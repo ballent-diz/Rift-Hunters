@@ -1,0 +1,17 @@
+{
+	"note": "Palettes par famille de monstres (du plus sombre au plus clair, le blanc reste le cœur de l'effet). Effets pixelfx (MIT) générés par tools/art/build_pixelfx.py ; une feuille par effet et par famille dans assets/vfx/pixelfx/.",
+	"effects": {
+		"hit": {"source": "impacts/hit-spark", "opts": {"seed": 4}},
+		"death": {"source": "spawn/poof", "opts": {"seed": 3}}
+	},
+	"families": {
+		"violet": ["#1d0b2e", "#3e1763", "#6b2a9e", "#9b4fd1", "#c48cf0", "#e6c8ff", "#ffffff"],
+		"highlands": ["#1e1a10", "#4a3a14", "#8a6a1e", "#c9a23a", "#f0d36b", "#fff3b0", "#ffffff"],
+		"calcines": ["#4a1712", "#c9281f", "#f2561d", "#ff8a2a", "#ffe26b", "#fff3a6", "#ffffff"],
+		"magma": ["#2a0a06", "#6e1408", "#b3260c", "#e8501a", "#ff9a3c", "#ffd98a", "#ffffff"],
+		"enlises": ["#0b2420", "#14473c", "#1f7a5e", "#3fae80", "#86d9a8", "#d2f5d8", "#ffffff"],
+		"reflets": ["#0f2433", "#1d4b66", "#2f86a6", "#5cc2d9", "#9fe6f0", "#e0fbff", "#ffffff"],
+		"givres": ["#0e1c3a", "#1b3a6e", "#2f62a8", "#5c95d6", "#9cc6f0", "#dcefff", "#ffffff"],
+		"silence": ["#160f33", "#2c1f66", "#4a3aa0", "#7a66d6", "#b0a3f0", "#e4dcff", "#ffffff"]
+	}
+}

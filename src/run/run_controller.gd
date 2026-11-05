@@ -282,6 +282,9 @@ func _build_world() -> void:
 	ctx.fx = FxRenderer.new()
 	ctx.fx.setup(ctx)
 	ctx.world.add_child(ctx.fx)
+	ctx.pixel_fx = PixelFx.new()
+	ctx.pixel_fx.setup(ctx)
+	ctx.world.add_child(ctx.pixel_fx)
 	ctx.spells = HunterSpells.new()
 	ctx.spells.setup(ctx, ctx.setup.spell_ids if not ctx.setup.spell_ids.is_empty() else ctx.balance.default_spells,
 		ctx.setup.spell_variants)
@@ -356,6 +359,7 @@ func _physics_process(delta: float) -> void:
 	if _hitstop > 0.0:
 		_hitstop -= delta
 		ctx.fx.step(delta * 0.2)
+		ctx.pixel_fx.step(delta * 0.2)
 		_update_camera(delta)
 		return
 	ctx.time += delta
@@ -430,6 +434,7 @@ func _physics_process(delta: float) -> void:
 	ctx.combat.flush_queue()
 	_mark(&"degats")
 	ctx.fx.step(delta)
+	ctx.pixel_fx.step(delta)
 	_mark(&"effets")
 	_update_camera(delta)
 	_mark(&"camera")

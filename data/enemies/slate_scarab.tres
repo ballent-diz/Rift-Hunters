@@ -15,6 +15,7 @@ accent = Color(1.0, 0.5, 0.8, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"slate_scarab"
+family = &"highlands"
 name_key = "ENEMY_SLATE_SCARAB_NAME"
 desc_key = "ENEMY_SLATE_SCARAB_DESC"
 brain = 0

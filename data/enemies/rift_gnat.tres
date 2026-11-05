@@ -15,6 +15,7 @@ accent = Color(0.8, 0.5, 1.0, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"rift_gnat"
+family = &"enlises"
 name_key = "ENEMY_RIFT_GNAT_NAME"
 desc_key = "ENEMY_RIFT_GNAT_DESC"
 brain = 0

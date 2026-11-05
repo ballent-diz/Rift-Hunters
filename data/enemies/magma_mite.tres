@@ -15,6 +15,7 @@ accent = Color(1.0, 0.6, 0.15, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"magma_mite"
+family = &"magma"
 name_key = "ENEMY_MAGMA_MITE_NAME"
 desc_key = "ENEMY_MAGMA_MITE_DESC"
 brain = 0

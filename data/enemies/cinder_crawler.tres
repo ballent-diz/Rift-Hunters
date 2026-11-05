@@ -15,6 +15,7 @@ accent = Color(0.9, 0.88, 0.85, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"cinder_crawler"
+family = &"calcines"
 name_key = "ENEMY_CINDER_CRAWLER_NAME"
 desc_key = "ENEMY_CINDER_CRAWLER_DESC"
 brain = 0

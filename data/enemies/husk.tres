@@ -15,6 +15,7 @@ accent = Color(1.0, 0.5, 0.8, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"husk"
+family = &"violet"
 name_key = "ENEMY_HUSK_NAME"
 desc_key = "ENEMY_HUSK_DESC"
 brain = 0
