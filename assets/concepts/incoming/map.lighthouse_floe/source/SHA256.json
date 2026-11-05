@@ -1,10 +1,12 @@
 {
   ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "composition.png": "421ec6f4936ab9b233b3a13e8cd46985531cf275050469deb811d493f319a822",
-  "job.json": "93b3a9a5bab77c3caff38dc7c5cba12b9f73faec7dddffb06b58eaf52486ef99",
+  "composition.png": "578da7def2a50eb7c0a0413c21994be7cfe70f944f9bf18c7827d48b602ecbfc",
+  "job.json": "8b59dd92850ca4fd1e2ffd1304ddf0ca0da85ac5b54b2e8007717df413b5819f",
+  "plan.json": "a12e8ea570450b284ddeeeb8081d2016b923edc87431e6057e6b8c423acde31d",
+  "source/PROMPT_AJUSTEMENT_ACCES_PLAQUES.txt": "2274bdb73d49bc5c58d85873d399073283425d00f639274f9442d0a58a069281",
   "source/PROMPT_COMPOSITION.txt": "b2c20e56968f5afe3dbb7d4ff6ce89945b74b8fbea723e3f958903c3242eeefc",
+  "source/PROMPT_CORRECTION_COMPOSITION.txt": "a1a694af15208c3a29ebaffe7a3751e60ac00d8e458d9290ebc63927697f85c8",
   "source/PROMPT_PHARE_EPAVE.txt": "b6a01c46a3647afff215b799ad344cbe7697300c1ac4dc039cebac8383fe4bab",
-  "source/composition_review.json": "572f30dede5ebe0e3bef2b473dd80277602fb60256cf01a06ae02a94a755f362",
-  "source/generation.json": "daa53b7f0905565737361d0292e0de50f6a782060a8689e2bb143564b17b891f",
-  "source/layout.png": "c282c42721ead8b12c2553ffd3e4da855156d32066f411f6dbdfad997316d72f"
+  "source/generation.json": "f5abeb70ea7a866cf28de78b316fe7e1f8e0f78ef25eea428d4e9096e7e3d182",
+  "source/layout.png": "46545de1150d13317eebfcb16480b8132e241e49e4549132d4ffbd59f8ccf676"
 }

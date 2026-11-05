@@ -1,0 +1,1885 @@
+{
+  "id": "map.lighthouse_floe",
+  "map_number": 19,
+  "chapter": 4,
+  "title": "La Banquise du phare",
+  "world": [
+    5016,
+    5016
+  ],
+  "mode": "défense d’autel",
+  "mechanic": "B4 Banquise qui se fend",
+  "format": "1:1",
+  "stage": "composition_corrigee_a_valider",
+  "owner_approved": false,
+  "plan_locked": false,
+  "coordinates": "Pourcentages depuis le coin haut-gauche, proposition sans données runtime ni masque de collisions.",
+  "start_pct": [
+    21,
+    80
+  ],
+  "start_clearing_world_target": [
+    1000,
+    900
+  ],
+  "island": {
+    "polygon_pct": [
+      [
+        31,
+        42
+      ],
+      [
+        34,
+        35
+      ],
+      [
+        43,
+        31
+      ],
+      [
+        54,
+        32
+      ],
+      [
+        63,
+        36
+      ],
+      [
+        66,
+        44
+      ],
+      [
+        65,
+        55
+      ],
+      [
+        61,
+        62
+      ],
+      [
+        52,
+        66
+      ],
+      [
+        42,
+        64
+      ],
+      [
+        35,
+        59
+      ],
+      [
+        31,
+        51
+      ]
+    ],
+    "material": "roche grise stable, bord net et place dégagée autour du phare"
+  },
+  "lighthouse": {
+    "foot_center_pct": [
+      50,
+      50.7
+    ],
+    "plinth_diameter_world_target": 300,
+    "tower_height_world_target": [
+      520,
+      580
+    ],
+    "door_height_world_target": [
+      75,
+      90
+    ],
+    "top_lit": false,
+    "painted_in_background": true,
+    "role": "Le phare peint est l’autel à défendre ; aucun second autel ajouté.",
+    "plinth_center_pct": [
+      50,
+      50.8
+    ],
+    "scale_status": "Échelle du phare acceptée par le propriétaire, même pied, porte, tour et socle conservés dans la correction.",
+    "preservation_scope": "Géométrie et échelle conservées ; aucune identité pixel à pixel revendiquée entre essais de composition."
+  },
+  "paths": [
+    {
+      "id": "north",
+      "kind": "crête rocheuse",
+      "centerline_pct": [
+        [
+          50,
+          11
+        ],
+        [
+          50,
+          17
+        ],
+        [
+          48.8,
+          20.9
+        ],
+        [
+          50,
+          25.5
+        ],
+        [
+          50,
+          33
+        ]
+      ],
+      "plate": "p01",
+      "width_world_target": 300
+    },
+    {
+      "id": "east",
+      "kind": "Épave inclinée de brise-glace, bordages brisés, fer rouillé désaturé et mât couché le long de la coque.",
+      "centerline_pct": [
+        [
+          92,
+          48.5
+        ],
+        [
+          86.2,
+          48.2
+        ],
+        [
+          81,
+          48.5
+        ],
+        [
+          76,
+          48.5
+        ],
+        [
+          70,
+          48.5
+        ],
+        [
+          65,
+          48.5
+        ]
+      ],
+      "plate": "p05",
+      "width_world_target": 280,
+      "wreck_footprint_pct": [
+        [
+          63.5,
+          47.8
+        ],
+        [
+          68,
+          44.8
+        ],
+        [
+          79,
+          44.2
+        ],
+        [
+          80,
+          47.2
+        ],
+        [
+          77,
+          51.5
+        ],
+        [
+          66,
+          52.7
+        ],
+        [
+          63.5,
+          51
+        ]
+      ],
+      "wreck_deck_clear": true
+    },
+    {
+      "id": "south",
+      "kind": "passerelle de pierre",
+      "centerline_pct": [
+        [
+          50,
+          89
+        ],
+        [
+          49,
+          83
+        ],
+        [
+          48.5,
+          77.4
+        ],
+        [
+          50,
+          73
+        ],
+        [
+          50,
+          69
+        ],
+        [
+          50,
+          64
+        ]
+      ],
+      "plate": "p08",
+      "width_world_target": 280
+    },
+    {
+      "id": "west",
+      "kind": "Crête rocheuse enneigée, passage continu et soutenu au-dessus du fossé.",
+      "centerline_pct": [
+        [
+          9,
+          48
+        ],
+        [
+          12,
+          48
+        ],
+        [
+          15.1,
+          48.1
+        ],
+        [
+          20,
+          48
+        ],
+        [
+          26,
+          48
+        ],
+        [
+          33,
+          48
+        ]
+      ],
+      "plate": "p11",
+      "width_world_target": 300,
+      "supported_crossing_extent_pct": [
+        [
+          17.5,
+          45.5
+        ],
+        [
+          34,
+          45.5
+        ],
+        [
+          34,
+          50.7
+        ],
+        [
+          17.5,
+          50.7
+        ]
+      ]
+    }
+  ],
+  "plates": [
+    {
+      "id": "p01",
+      "center_pct": [
+        48.674,
+        20.883
+      ],
+      "polygon_pct": [
+        [
+          47.847,
+          18.82
+        ],
+        [
+          49.203,
+          18.501
+        ],
+        [
+          50.0,
+          19.139
+        ],
+        [
+          51.834,
+          19.458
+        ],
+        [
+          51.276,
+          20.335
+        ],
+        [
+          52.153,
+          20.734
+        ],
+        [
+          51.196,
+          21.451
+        ],
+        [
+          51.037,
+          22.648
+        ],
+        [
+          49.203,
+          23.764
+        ],
+        [
+          47.847,
+          23.525
+        ],
+        [
+          46.491,
+          23.126
+        ],
+        [
+          45.694,
+          22.01
+        ],
+        [
+          46.172,
+          21.212
+        ],
+        [
+          45.614,
+          20.335
+        ],
+        [
+          46.651,
+          19.856
+        ],
+        [
+          46.571,
+          19.219
+        ]
+      ],
+      "diameter_world_measured_approx": 333.5,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": "north",
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p02",
+      "center_pct": [
+        63.948,
+        21.041
+      ],
+      "polygon_pct": [
+        [
+          59.33,
+          21.212
+        ],
+        [
+          60.367,
+          19.777
+        ],
+        [
+          60.845,
+          18.66
+        ],
+        [
+          62.121,
+          19.219
+        ],
+        [
+          63.317,
+          18.979
+        ],
+        [
+          64.354,
+          18.421
+        ],
+        [
+          65.311,
+          18.979
+        ],
+        [
+          66.507,
+          18.341
+        ],
+        [
+          66.188,
+          19.936
+        ],
+        [
+          67.783,
+          20.175
+        ],
+        [
+          69.059,
+          19.856
+        ],
+        [
+          68.341,
+          21.212
+        ],
+        [
+          67.145,
+          21.531
+        ],
+        [
+          66.667,
+          22.488
+        ],
+        [
+          65.391,
+          22.807
+        ],
+        [
+          64.115,
+          23.923
+        ],
+        [
+          62.52,
+          24.641
+        ],
+        [
+          62.201,
+          23.604
+        ],
+        [
+          61.085,
+          23.445
+        ],
+        [
+          60.686,
+          22.408
+        ],
+        [
+          59.569,
+          22.249
+        ]
+      ],
+      "diameter_world_measured_approx": 492.7,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p03",
+      "center_pct": [
+        71.83,
+        29.919
+      ],
+      "polygon_pct": [
+        [
+          68.581,
+          28.07
+        ],
+        [
+          69.697,
+          26.715
+        ],
+        [
+          70.813,
+          27.273
+        ],
+        [
+          71.531,
+          28.309
+        ],
+        [
+          73.046,
+          28.389
+        ],
+        [
+          73.844,
+          29.107
+        ],
+        [
+          75.199,
+          29.346
+        ],
+        [
+          74.88,
+          30.463
+        ],
+        [
+          73.923,
+          31.021
+        ],
+        [
+          74.083,
+          31.898
+        ],
+        [
+          72.648,
+          32.297
+        ],
+        [
+          70.734,
+          33.493
+        ],
+        [
+          70.973,
+          32.057
+        ],
+        [
+          70.016,
+          31.021
+        ],
+        [
+          70.175,
+          29.825
+        ],
+        [
+          69.139,
+          29.426
+        ]
+      ],
+      "diameter_world_measured_approx": 344.0,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p04",
+      "center_pct": [
+        78.44,
+        36.066
+      ],
+      "polygon_pct": [
+        [
+          75.518,
+          36.443
+        ],
+        [
+          76.475,
+          35.407
+        ],
+        [
+          77.592,
+          35.327
+        ],
+        [
+          79.027,
+          34.689
+        ],
+        [
+          81.1,
+          33.652
+        ],
+        [
+          80.622,
+          34.928
+        ],
+        [
+          79.745,
+          36.045
+        ],
+        [
+          79.825,
+          37.48
+        ],
+        [
+          78.708,
+          38.118
+        ],
+        [
+          77.592,
+          37.321
+        ],
+        [
+          76.635,
+          37.321
+        ]
+      ],
+      "diameter_world_measured_approx": 313.0,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p05",
+      "center_pct": [
+        85.608,
+        48.124
+      ],
+      "polygon_pct": [
+        [
+          82.456,
+          47.049
+        ],
+        [
+          83.652,
+          46.73
+        ],
+        [
+          84.769,
+          46.013
+        ],
+        [
+          85.486,
+          45.215
+        ],
+        [
+          86.443,
+          46.172
+        ],
+        [
+          87.719,
+          46.491
+        ],
+        [
+          88.676,
+          46.411
+        ],
+        [
+          89.713,
+          47.129
+        ],
+        [
+          88.915,
+          48.006
+        ],
+        [
+          88.596,
+          48.963
+        ],
+        [
+          87.56,
+          49.203
+        ],
+        [
+          87.161,
+          50.159
+        ],
+        [
+          85.805,
+          50.0
+        ],
+        [
+          84.848,
+          50.638
+        ],
+        [
+          84.051,
+          50.239
+        ],
+        [
+          82.456,
+          50.638
+        ],
+        [
+          83.174,
+          49.282
+        ],
+        [
+          82.935,
+          48.246
+        ],
+        [
+          82.137,
+          47.767
+        ]
+      ],
+      "diameter_world_measured_approx": 404.3,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": "east",
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p06",
+      "center_pct": [
+        77.166,
+        61.045
+      ],
+      "polygon_pct": [
+        [
+          75.199,
+          57.735
+        ],
+        [
+          76.555,
+          57.815
+        ],
+        [
+          77.99,
+          57.177
+        ],
+        [
+          79.745,
+          58.293
+        ],
+        [
+          80.941,
+          58.214
+        ],
+        [
+          80.463,
+          59.49
+        ],
+        [
+          81.1,
+          60.287
+        ],
+        [
+          80.064,
+          61.483
+        ],
+        [
+          80.064,
+          62.44
+        ],
+        [
+          78.788,
+          63.317
+        ],
+        [
+          76.874,
+          63.557
+        ],
+        [
+          75.279,
+          64.673
+        ],
+        [
+          73.206,
+          65.152
+        ],
+        [
+          74.003,
+          64.035
+        ],
+        [
+          74.641,
+          63.397
+        ],
+        [
+          75.199,
+          61.882
+        ],
+        [
+          74.322,
+          60.686
+        ],
+        [
+          74.561,
+          59.171
+        ]
+      ],
+      "diameter_world_measured_approx": 521.2,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p07",
+      "center_pct": [
+        65.114,
+        72.845
+      ],
+      "polygon_pct": [
+        [
+          62.6,
+          71.691
+        ],
+        [
+          63.955,
+          70.973
+        ],
+        [
+          64.992,
+          70.494
+        ],
+        [
+          66.507,
+          70.734
+        ],
+        [
+          67.305,
+          70.335
+        ],
+        [
+          68.501,
+          70.973
+        ],
+        [
+          69.537,
+          70.893
+        ],
+        [
+          69.378,
+          72.169
+        ],
+        [
+          67.943,
+          72.568
+        ],
+        [
+          67.783,
+          73.844
+        ],
+        [
+          66.427,
+          74.322
+        ],
+        [
+          65.63,
+          75.199
+        ],
+        [
+          63.796,
+          75.04
+        ],
+        [
+          62.36,
+          75.997
+        ],
+        [
+          62.281,
+          74.88
+        ],
+        [
+          61.404,
+          74.96
+        ],
+        [
+          62.041,
+          73.684
+        ],
+        [
+          62.759,
+          72.887
+        ],
+        [
+          61.962,
+          72.408
+        ]
+      ],
+      "diameter_world_measured_approx": 456.2,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p08",
+      "center_pct": [
+        48.568,
+        77.371
+      ],
+      "polygon_pct": [
+        [
+          45.056,
+          75.518
+        ],
+        [
+          46.73,
+          75.359
+        ],
+        [
+          48.006,
+          74.801
+        ],
+        [
+          49.203,
+          75.279
+        ],
+        [
+          50.558,
+          74.561
+        ],
+        [
+          50.877,
+          75.758
+        ],
+        [
+          51.994,
+          76.316
+        ],
+        [
+          52.153,
+          77.193
+        ],
+        [
+          53.828,
+          77.113
+        ],
+        [
+          54.226,
+          77.831
+        ],
+        [
+          53.509,
+          78.788
+        ],
+        [
+          52.233,
+          78.947
+        ],
+        [
+          51.037,
+          79.904
+        ],
+        [
+          49.362,
+          79.506
+        ],
+        [
+          48.246,
+          79.346
+        ],
+        [
+          47.209,
+          78.708
+        ],
+        [
+          45.853,
+          79.027
+        ],
+        [
+          44.817,
+          78.389
+        ],
+        [
+          43.381,
+          78.549
+        ],
+        [
+          43.7,
+          77.592
+        ],
+        [
+          42.823,
+          77.273
+        ],
+        [
+          43.7,
+          76.396
+        ]
+      ],
+      "diameter_world_measured_approx": 572.7,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": "south",
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p09",
+      "center_pct": [
+        31.372,
+        71.781
+      ],
+      "polygon_pct": [
+        [
+          28.309,
+          70.973
+        ],
+        [
+          29.825,
+          69.936
+        ],
+        [
+          31.18,
+          70.096
+        ],
+        [
+          32.855,
+          69.537
+        ],
+        [
+          34.689,
+          69.298
+        ],
+        [
+          34.131,
+          70.494
+        ],
+        [
+          33.493,
+          71.292
+        ],
+        [
+          34.29,
+          72.408
+        ],
+        [
+          33.493,
+          72.967
+        ],
+        [
+          32.775,
+          74.083
+        ],
+        [
+          31.1,
+          74.083
+        ],
+        [
+          30.144,
+          73.206
+        ],
+        [
+          28.868,
+          73.285
+        ],
+        [
+          27.911,
+          72.887
+        ],
+        [
+          27.512,
+          72.169
+        ]
+      ],
+      "diameter_world_measured_approx": 387.7,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p10",
+      "center_pct": [
+        22.324,
+        61.806
+      ],
+      "polygon_pct": [
+        [
+          19.059,
+          59.25
+        ],
+        [
+          19.856,
+          57.735
+        ],
+        [
+          21.212,
+          58.293
+        ],
+        [
+          21.93,
+          59.33
+        ],
+        [
+          23.126,
+          59.809
+        ],
+        [
+          23.764,
+          60.845
+        ],
+        [
+          25.359,
+          61.802
+        ],
+        [
+          25.837,
+          62.998
+        ],
+        [
+          27.352,
+          63.397
+        ],
+        [
+          26.794,
+          64.354
+        ],
+        [
+          25.359,
+          64.833
+        ],
+        [
+          24.003,
+          64.274
+        ],
+        [
+          23.046,
+          64.593
+        ],
+        [
+          22.01,
+          63.636
+        ],
+        [
+          20.813,
+          63.557
+        ],
+        [
+          20.016,
+          62.52
+        ],
+        [
+          18.82,
+          61.802
+        ],
+        [
+          17.624,
+          61.164
+        ],
+        [
+          18.182,
+          60.128
+        ]
+      ],
+      "diameter_world_measured_approx": 500.7,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p11",
+      "center_pct": [
+        15.405,
+        48.26
+      ],
+      "polygon_pct": [
+        [
+          12.36,
+          46.97
+        ],
+        [
+          13.397,
+          46.411
+        ],
+        [
+          14.912,
+          45.933
+        ],
+        [
+          16.348,
+          45.056
+        ],
+        [
+          17.384,
+          45.056
+        ],
+        [
+          16.986,
+          46.571
+        ],
+        [
+          17.464,
+          47.368
+        ],
+        [
+          18.501,
+          47.767
+        ],
+        [
+          17.544,
+          48.804
+        ],
+        [
+          16.826,
+          49.123
+        ],
+        [
+          17.145,
+          50.478
+        ],
+        [
+          16.348,
+          51.196
+        ],
+        [
+          15.231,
+          50.797
+        ],
+        [
+          14.434,
+          50.877
+        ],
+        [
+          13.397,
+          50.0
+        ],
+        [
+          12.041,
+          49.601
+        ],
+        [
+          11.563,
+          48.405
+        ]
+      ],
+      "diameter_world_measured_approx": 351.9,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": "west",
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p12",
+      "center_pct": [
+        22.218,
+        31.61
+      ],
+      "polygon_pct": [
+        [
+          20.096,
+          29.665
+        ],
+        [
+          21.212,
+          29.346
+        ],
+        [
+          22.329,
+          28.708
+        ],
+        [
+          23.126,
+          29.187
+        ],
+        [
+          24.402,
+          29.107
+        ],
+        [
+          25.439,
+          28.628
+        ],
+        [
+          25.837,
+          29.665
+        ],
+        [
+          27.432,
+          29.665
+        ],
+        [
+          26.635,
+          30.861
+        ],
+        [
+          26.396,
+          31.898
+        ],
+        [
+          24.96,
+          32.057
+        ],
+        [
+          24.083,
+          32.695
+        ],
+        [
+          22.967,
+          32.616
+        ],
+        [
+          22.089,
+          33.732
+        ],
+        [
+          20.973,
+          34.29
+        ],
+        [
+          20.175,
+          35.566
+        ],
+        [
+          18.9,
+          35.407
+        ],
+        [
+          18.182,
+          34.689
+        ],
+        [
+          19.139,
+          33.652
+        ],
+        [
+          18.82,
+          32.616
+        ],
+        [
+          19.856,
+          31.818
+        ],
+        [
+          19.298,
+          30.861
+        ],
+        [
+          18.66,
+          30.303
+        ]
+      ],
+      "diameter_world_measured_approx": 528.0,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p13",
+      "center_pct": [
+        28.708,
+        24.517
+      ],
+      "polygon_pct": [
+        [
+          24.96,
+          23.923
+        ],
+        [
+          26.316,
+          23.365
+        ],
+        [
+          27.193,
+          22.727
+        ],
+        [
+          28.469,
+          22.807
+        ],
+        [
+          30.303,
+          21.93
+        ],
+        [
+          30.144,
+          23.046
+        ],
+        [
+          30.702,
+          23.844
+        ],
+        [
+          32.137,
+          24.163
+        ],
+        [
+          32.855,
+          25.04
+        ],
+        [
+          31.419,
+          25.279
+        ],
+        [
+          31.18,
+          26.396
+        ],
+        [
+          30.144,
+          26.396
+        ],
+        [
+          29.027,
+          25.837
+        ],
+        [
+          28.15,
+          26.077
+        ],
+        [
+          27.193,
+          25.439
+        ],
+        [
+          25.997,
+          25.518
+        ],
+        [
+          25.837,
+          24.801
+        ],
+        [
+          24.721,
+          24.721
+        ]
+      ],
+      "diameter_world_measured_approx": 408.3,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    },
+    {
+      "id": "p14",
+      "center_pct": [
+        37.45,
+        18.003
+      ],
+      "polygon_pct": [
+        [
+          33.333,
+          17.863
+        ],
+        [
+          34.37,
+          16.746
+        ],
+        [
+          35.327,
+          16.906
+        ],
+        [
+          36.284,
+          16.587
+        ],
+        [
+          37.48,
+          16.188
+        ],
+        [
+          38.596,
+          16.348
+        ],
+        [
+          39.793,
+          15.869
+        ],
+        [
+          41.467,
+          14.992
+        ],
+        [
+          41.148,
+          16.108
+        ],
+        [
+          41.786,
+          16.906
+        ],
+        [
+          41.627,
+          18.102
+        ],
+        [
+          40.989,
+          18.979
+        ],
+        [
+          39.713,
+          19.458
+        ],
+        [
+          38.676,
+          20.175
+        ],
+        [
+          37.719,
+          20.654
+        ],
+        [
+          37.241,
+          19.936
+        ],
+        [
+          36.045,
+          19.697
+        ],
+        [
+          35.008,
+          19.458
+        ],
+        [
+          33.892,
+          19.617
+        ],
+        [
+          33.254,
+          18.9
+        ],
+        [
+          32.695,
+          18.581
+        ]
+      ],
+      "diameter_world_measured_approx": 475.4,
+      "size_world_allowed": [
+        300,
+        600
+      ],
+      "silhouette": "Contour de fracture irrégulier relevé sur la peinture, non octogonal ; les concavités sont conservées.",
+      "path": null,
+      "closed_state": "Banquise pâle turquoise translucide praticable, entourée de glace stable plus sombre.",
+      "open_state": "Eau noire infranchissable, débris flottants et bord cassé dans le même polygone.",
+      "covers_allowed": false
+    }
+  ],
+  "stable_outer_loop": {
+    "centerline_pct": [
+      [
+        50,
+        7
+      ],
+      [
+        72,
+        10
+      ],
+      [
+        91,
+        25
+      ],
+      [
+        94,
+        49
+      ],
+      [
+        93,
+        70
+      ],
+      [
+        74,
+        89
+      ],
+      [
+        49,
+        92
+      ],
+      [
+        29,
+        91
+      ],
+      [
+        10,
+        74
+      ],
+      [
+        7,
+        49
+      ],
+      [
+        10,
+        28
+      ],
+      [
+        28,
+        10
+      ],
+      [
+        50,
+        7
+      ]
+    ],
+    "width_world_target": 300,
+    "scope": "Boucle de rivage ferme, extérieure aux plaques ; vérifier sa continuité sur les collisions du propriétaire."
+  },
+  "cover_rocks": [
+    {
+      "id": "a01",
+      "center_pct": [
+        17.863,
+        17.943
+      ],
+      "quadrant": "nw",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 128
+    },
+    {
+      "id": "a02",
+      "center_pct": [
+        8.772,
+        35.327
+      ],
+      "quadrant": "nw",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 120
+    },
+    {
+      "id": "a03",
+      "center_pct": [
+        41.069,
+        40.989
+      ],
+      "quadrant": "nw",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 152
+    },
+    {
+      "id": "a04",
+      "center_pct": [
+        82.057,
+        17.703
+      ],
+      "quadrant": "ne",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 120
+    },
+    {
+      "id": "a05",
+      "center_pct": [
+        90.909,
+        30.144
+      ],
+      "quadrant": "ne",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 124
+    },
+    {
+      "id": "a06",
+      "center_pct": [
+        58.772,
+        40.59
+      ],
+      "quadrant": "ne",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 136
+    },
+    {
+      "id": "a07",
+      "center_pct": [
+        79.346,
+        85.486
+      ],
+      "quadrant": "se",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 124
+    },
+    {
+      "id": "a08",
+      "center_pct": [
+        90.032,
+        74.482
+      ],
+      "quadrant": "se",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 132
+    },
+    {
+      "id": "a09",
+      "center_pct": [
+        58.612,
+        59.011
+      ],
+      "quadrant": "se",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 144
+    },
+    {
+      "id": "a10",
+      "center_pct": [
+        15.949,
+        88.676
+      ],
+      "quadrant": "sw",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 124
+    },
+    {
+      "id": "a11",
+      "center_pct": [
+        9.41,
+        70.494
+      ],
+      "quadrant": "sw",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 120
+    },
+    {
+      "id": "a12",
+      "center_pct": [
+        41.069,
+        59.171
+      ],
+      "quadrant": "sw",
+      "material": "rocher plein dressé, pied stable et ombre portée",
+      "ground_width_world_target": 140,
+      "ground_width_world_range": [
+        110,
+        160
+      ],
+      "on_breaking_plate": false,
+      "size_status": "Emprise au sol estimée sur la composition corrigée ; à garder lors du détail.",
+      "ground_width_world_measured_approx": 152
+    }
+  ],
+  "closure_safety_proposal": {
+    "all_open_image_scope": "L’image brisée contiendra les12 états ouverts à découper ; elle ne représente pas une fermeture simultanée autorisée en jeu.",
+    "runtime_rule_proposal": "Conserver au moins deux accès au phare ouverts, et un itinéraire de retour via la boucle ferme ; ne pas ouvrir tout un secteur simultanément. Claude fixe et teste le séquencement.",
+    "authored_static_collision_mask": false,
+    "navigation_tested": false
+  },
+  "paired_images": {
+    "same_framing": true,
+    "same_resolution": true,
+    "outside_plate_pixels_must_match": true,
+    "method_proposal": "Source intacte commune ; retouches générées localement puis réinsérées strictement dans les polygones des plaques. Comparaison pixel à pixel hors plaques.",
+    "broken_generated": false,
+    "comparison_status": "À réaliser après validation et détail des deux états ; aucune preuve de superposition revendiquée à ce stade."
+  },
+  "architecture_scale_world": {
+    "hunter_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "door_height": [
+      75,
+      90
+    ]
+  },
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "detail_generated": false,
+  "coordinate_basis": {
+    "image": "composition.png",
+    "size_px": [
+      1254,
+      1254
+    ],
+    "world_units_per_pixel": 4,
+    "geometry": "Polygones proposés relevés sur les nouvelles fractures de la composition corrigée, non figés avant validation.",
+    "size_measure": "Diamètre maximal entre sommets du contour, approximation à 4 unités par pixel."
+  },
+  "detail_region_workflow": "Découpage map_regions.py après validation, mêmes régions dans les deux états ; aucun agrandissement seul livré comme carte finale.",
+  "date": "2026-11-05",
+  "owner_feedback_applied": {
+    "approved_scope": "Plan rayonnant et phare à son échelle conservés, selon la correction du propriétaire du 5 novembre.",
+    "corrections": [
+      "Quatorze plaques irrégulières, tailles et silhouettes variées, teinte pâle distincte de la glace stable.",
+      "Franchissement continu du fossé à l’ouest, avec une plaque sur son approche.",
+      "Épave de brise-glace abîmée et raccourcie, mât couché, voie de marche libre ; carcasses éloignées retirées.",
+      "Douze abris pleins ancrés, trois par quart, quatre sur l’île et huit sur rivage ferme.",
+      "Rives découpées, congères, traces et affleurements ; falaises gris-bleu moins saturées."
+    ],
+    "corrected_composition_approved": false
+  }
+}

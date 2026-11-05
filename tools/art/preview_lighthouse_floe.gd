@@ -2,7 +2,7 @@ extends Node
 ## Revue de composition seule, aux échelles et feuilles du jeu. Aucune partie lancée.
 
 const COMPOSITION := "res://assets/concepts/incoming/map.lighthouse_floe/composition.png"
-const REVIEW := "res://assets/concepts/incoming/map.lighthouse_floe/source/composition_review.json"
+const REVIEW := "res://assets/concepts/incoming/map.lighthouse_floe/plan.json"
 
 var _world: Node2D
 var _ground: Node2D
@@ -116,11 +116,17 @@ func _capture() -> void:
 	_hunter = _actor(GameDB.balance.player_visual)
 	_echo = _actor(GameDB.enemy(&"snow_wraith").visual)
 	for spec: Array in [["phare", Vector2(2508, 2440)], ["epave", Vector2(3550, 2390)],
-			["pierre", Vector2(2495, 3440)], ["neige_tassee", Vector2(1370, 2400)]]:
+			["pierre", Vector2(2495, 3440)], ["ouest", Vector2(1370, 2400)]]:
 		_camera(spec[1])
 		if spec[0] == "phare":
 			_hunter.position = Vector2(2432, 2610)
 			_echo.position = Vector2(2660, 2605)
+		elif spec[0] == "ouest":
+			_hunter.position = Vector2(1330, 2400)
+			_echo.position = Vector2(1460, 2400)
+		elif spec[0] == "epave":
+			_hunter.position = Vector2(3500, 2390)
+			_echo.position = Vector2(3610, 2390)
 		_caption.text = "COMPOSITION 19 · %s · CHASSEUR / ÉCHO · ZOOM RÉEL · DÉTAIL À VENIR" % String(spec[0]).to_upper()
 		await _save(String(spec[0]) + "_zoom_jeu.png")
 	await _silence(Vector2(900, 4050), "neige")

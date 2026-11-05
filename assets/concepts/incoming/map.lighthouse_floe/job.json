@@ -8,7 +8,7 @@
     5016
   ],
   "status": "wip",
-  "stage": "composition_a_valider",
+  "stage": "composition_corrigee_a_valider",
   "composition": "composition.png",
   "owner_approved": false,
   "plan_locked": false,
@@ -22,10 +22,15 @@
   "broken_generated": false,
   "runtime_integrated": false,
   "collision_mask_created": false,
-  "review": "source/composition_review.json",
+  "review": "plan.json",
   "composition_size": [
     1254,
     1254
   ],
-  "native_world_units_per_pixel": 4
+  "native_world_units_per_pixel": 4,
+  "plan": "plan.json",
+  "plates": 14,
+  "covers": 12,
+  "last_correction": "2026-11-05",
+  "detail_generated": false
 }

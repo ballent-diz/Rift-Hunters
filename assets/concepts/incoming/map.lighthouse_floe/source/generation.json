@@ -1,41 +1,37 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-05",
   "tool": "image_gen.imagegen",
-  "stage": "composition_a_valider",
-  "retained_image_sha256": "421ec6f4936ab9b233b3a13e8cd46985531cf275050469deb811d493f319a822",
+  "stage": "composition_corrigee_a_valider",
+  "retained_image_sha256": "578da7def2a50eb7c0a0413c21994be7cfe70f944f9bf18c7827d48b602ecbfc",
   "size": [
     1254,
     1254
   ],
-  "steps": [
+  "previous_composition": {
+    "commit": "42869f5fcc03f912a45b6849c9b8fd82a448796b",
+    "sha256": "421ec6f4936ab9b233b3a13e8cd46985531cf275050469deb811d493f319a822",
+    "status": "Remplacée à la demande du propriétaire ; disponible dans Git."
+  },
+  "correction_steps": [
     {
-      "type": "composition",
-      "prompt": "PROMPT_COMPOSITION.txt",
-      "prompt_sha256": "b2c20e56968f5afe3dbb7d4ff6ce89945b74b8fbea723e3f958903c3242eeefc",
-      "guide": "layout.png",
-      "guide_sha256": "c282c42721ead8b12c2553ffd3e4da855156d32066f411f6dbdfad997316d72f",
-      "discarded_generation_sha256": "f1a18824bc0b4ad8305b1a8c30d536e9965bbf88d47cf427e33e820aa93d53f8"
+      "prompt": "PROMPT_CORRECTION_COMPOSITION.txt",
+      "prompt_sha256": "a1a694af15208c3a29ebaffe7a3751e60ac00d8e458d9290ebc63927697f85c8",
+      "input_sha256": "421ec6f4936ab9b233b3a13e8cd46985531cf275050469deb811d493f319a822",
+      "style_reference": "Carte18, style et palette seulement",
+      "style_sha256": "3f1b0b374a72912ec22a8ca559409daed68b0217d8d77ccf65964579273b6812",
+      "output_sha256": "c7f3770ef29de89251dc20f483caefb9f535e7c9375b72558dcd1c80b78005cb",
+      "intermediate_saved_in_repository": false
     },
     {
-      "type": "local_edit",
-      "prompt": "PROMPT_PHARE_EPAVE.txt",
-      "prompt_sha256": "b6a01c46a3647afff215b799ad344cbe7697300c1ac4dc039cebac8383fe4bab",
-      "output": "../composition.png",
-      "retained": true
+      "prompt": "PROMPT_AJUSTEMENT_ACCES_PLAQUES.txt",
+      "prompt_sha256": "2274bdb73d49bc5c58d85873d399073283425d00f639274f9442d0a58a069281",
+      "technical_guide_sha256": "3ff2634409defde0a84548b7560c0e6277f622640b9abcdecf7f6c066b62773a",
+      "guide_scope": "Guide technique de placement et gabarit, hors dépôt.",
+      "input_sha256": "c7f3770ef29de89251dc20f483caefb9f535e7c9375b72558dcd1c80b78005cb",
+      "retained_output_sha256": "578da7def2a50eb7c0a0413c21994be7cfe70f944f9bf18c7827d48b602ecbfc"
     }
   ],
-  "style_references": [
-    {
-      "map": 18,
-      "scope": "style_seulement",
-      "sha256": "3f1b0b374a72912ec22a8ca559409daed68b0217d8d77ccf65964579273b6812"
-    },
-    {
-      "map": 16,
-      "scope": "style_seulement",
-      "sha256": "d1a059677b3184ea581619e887ff94bbafcb5c0b737392cb19c10abbf6d3b3da"
-    }
-  ],
+  "composition_approved": false,
   "broken_generated": false,
   "detail_generated": false,
   "runtime_integrated": false
