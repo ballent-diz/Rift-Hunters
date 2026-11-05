@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-05",
+  "corrections": [
+    {
+      "id": "p06",
+      "crop_world": [
+        3470.858267610381,
+        2621.144266936299,
+        4370.8582676103815,
+        3521.144266936299
+      ],
+      "input_sha256": "7c8685a8af39e60b46d1f2ccfcfb7f9f9843dc53b55b8a863913e9d10366922f",
+      "generated_sha256": "2e7bae8e1757379a4d63f0e571d17824e89ece104b7fa7bb7254981e16348988",
+      "prompt": "PROMPT_PLAQUES_ECHELLE_FINALE.txt",
+      "method": "Réduction peinte locale de la plaque fermée, contexte gelé rétabli ; réinsertion limitée à son ancienne emprise et sa lèvre."
+    },
+    {
+      "id": "p07",
+      "crop_world": [
+        2815.3876659355374,
+        3163.6008738317346,
+        3715.3876659355374,
+        4063.6008738317346
+      ],
+      "input_sha256": "82970ab66f0d019f5e7340e82a5c1db6f753aca8775b6fafe50c444b7e48a4b9",
+      "generated_sha256": "16f95128f1f89ea6c01e933a8aef0e8f51a2f75616ccc29fc1b9e9b325cab130",
+      "prompt": "PROMPT_PLAQUES_ECHELLE_FINALE.txt",
+      "method": "Réduction peinte locale de la plaque fermée, contexte gelé rétabli ; réinsertion limitée à son ancienne emprise et sa lèvre."
+    }
+  ]
+}

@@ -7,19 +7,19 @@
     5016,
     5016
   ],
-  "status": "wip",
-  "stage": "composition_corrigee_a_valider",
+  "status": "final",
+  "stage": "detail_graphique_livre",
   "composition": "composition.png",
-  "owner_approved": false,
-  "plan_locked": false,
-  "regions_generated": false,
-  "quality_conforme": false,
-  "quality_scope": "Proposition ; finesse des deux états et superposition à contrôler après validation et détail.",
+  "owner_approved": true,
+  "plan_locked": true,
+  "regions_generated": 16,
+  "quality_conforme": true,
+  "quality_scope": "Deux états conformes sur49/49secteurs ; référence brisée = plan approuvé + ouvertures B4 seules.",
   "paired_states": [
     "intact",
     "broken"
   ],
-  "broken_generated": false,
+  "broken_generated": true,
   "runtime_integrated": false,
   "collision_mask_created": false,
   "review": "plan.json",
@@ -27,10 +27,25 @@
     1254,
     1254
   ],
-  "native_world_units_per_pixel": 4,
+  "native_world_units_per_pixel": 1.3333333333333333,
   "plan": "plan.json",
   "plates": 14,
   "covers": 12,
   "last_correction": "2026-11-05",
-  "detail_generated": false
+  "detail_generated": true,
+  "owner_approval_date": "2026-11-05",
+  "composition_sha256": "f95ec07ecdeecb2ee0d06c91f3b6f6109845103ed8f7225a734a6b338ae6aa9c",
+  "owner_selected_image_sha256": "c7f3770ef29de89251dc20f483caefb9f535e7c9375b72558dcd1c80b78005cb",
+  "broken_local_paintings": 14,
+  "native_size": [
+    3762,
+    3762
+  ],
+  "presentation_size": [
+    11286,
+    11286
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "collision_reference": "source/collision_reference.json"
 }

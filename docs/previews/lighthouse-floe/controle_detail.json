@@ -1,0 +1,209 @@
+{
+  "date": "2026-11-05",
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "plan_locked": true,
+  "main_base": "60d42976e8c103068b21064a29af02367f53ddbc",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        "."
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_lighthouse_floe.tscn",
+        "--",
+        "--detail",
+        "--out=/workspace/.rift-art/map19/detail/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "45974d6f1c06bcfc5a38133c9f61543a09ee5e7d5557677cfec65fe199fc2b96"
+    },
+    {
+      "name": "captures-broken",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_lighthouse_floe.tscn",
+        "--",
+        "--detail",
+        "--broken",
+        "--out=/workspace/.rift-art/map19/detail/captures-broken"
+      ],
+      "exit_code": 0,
+      "log_sha256": "c1003f2c7e3024f110c7c4b430eef276ac99d2591ef7425b29c09a77f769e765"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "ce0481e56cf48c09c2e95efe10a016af91c8818af1a7dd5118a868d79da01e6c"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_lighthouse_floe.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    },
+    {
+      "name": "python_compile",
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/art/build_lighthouse_floe.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "assets": {
+    "total": 448,
+    "valid": 446,
+    "placeholders": 2,
+    "errors": 0,
+    "preexisting_placeholders": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ]
+  },
+  "quality": {
+    "intact": "qualite_intacte.json",
+    "broken": "qualite_brisee.json",
+    "sectors_each": 49,
+    "conforme": true,
+    "thresholds_unchanged": true
+  },
+  "world": [
+    5016,
+    5016
+  ],
+  "native_size": [
+    3762,
+    3762
+  ],
+  "game_size": [
+    11286,
+    11286
+  ],
+  "composition_sha256": "f95ec07ecdeecb2ee0d06c91f3b6f6109845103ed8f7225a734a6b338ae6aa9c",
+  "plan_sha256": "3c5b6f978189d59160baa880373917f23d9dd703929ae6f69f1e3e2a36920c3a",
+  "captures": [
+    {
+      "file": "ensemble_720p.webp",
+      "original_png_sha256": "c6462ebabc0a613b304df59d18ebb9d2ace4b03d9be14acdf677f8ea1ba91c1f",
+      "sha256": "c54b6189f49756e76d435347291708f5b29cc35ea43b2504b1f98e11d1738cdf"
+    },
+    {
+      "file": "epave_zoom_jeu.webp",
+      "original_png_sha256": "c5d92b3a4a9e83cd468f4e2d95c59561506a7c77a4fb7926fc9129ac1e79d05f",
+      "sha256": "db582e5a157d7792e51b92f97b7e779aa0faafae3923d74c22d35a86f453c5d9"
+    },
+    {
+      "file": "ouest_zoom_jeu.webp",
+      "original_png_sha256": "b728f734285438aedbd139589442b5930db6629f048d4c3d0fbaaa29483fab36",
+      "sha256": "b5a8758cb77052af130d98259b170d6f70b81ecbce615bf7485939fe503cce9d"
+    },
+    {
+      "file": "phare_zoom_jeu.webp",
+      "original_png_sha256": "f66cac2cb93f38ec52a2e5446f381609bc5dea1a0b4e5a74650d0bcd3c64bb6b",
+      "sha256": "1d857685a5c453a2bf3540bcbf3160328c2abf57482b8d519b5030df7be0d436"
+    },
+    {
+      "file": "pierre_zoom_jeu.webp",
+      "original_png_sha256": "608c1490ea955bf7c662944229883687bbdb1823fea49ac9cc2e12f820671627",
+      "sha256": "cde7dcc000146fe6450258e77f603e3f47eed9bc1f10669fc9aedff1f74fea85"
+    },
+    {
+      "file": "reference_ruines_zoom_jeu.webp",
+      "original_png_sha256": "9cd24045d7d52064bdd8d621a2626fa23f5dfda2fa89aeba395cf242a6c2a6ad",
+      "sha256": "919681b6b3cdbc7edc0afc8ac1fb06da99f94dddd1824f2c0c51dab7453af3fa"
+    },
+    {
+      "file": "silence_banquise.webp",
+      "original_png_sha256": "f67720bbadc07a5b9be4ad73996a44b2aeb007272901e419466f3beca03fd486",
+      "sha256": "310b7f7790567d3d41d02e5aa5fe166aa14690be397be9a03f1e33a76d4dc52e"
+    },
+    {
+      "file": "silence_neige.webp",
+      "original_png_sha256": "5f883747080129be28b2a0b9cc2f16530e20313ce3f3d740d19bdbe309aed47a",
+      "sha256": "1810477c94e64ece6535ca2e6626e1c2aaedf87ad974dfd03b85ad0eaf572817"
+    },
+    {
+      "file": "brisee_ensemble_720p.webp",
+      "original_png_sha256": "133b454ed240bfb4fa26a761c42bc28e65972eb7f19f07eaad9136ee159c70f3",
+      "sha256": "cb2ecc341838ad4035d5ce9b61825f7e7951c614f72fbff30b65e8aa9a31f644"
+    },
+    {
+      "file": "brisee_epave_brisee_zoom_jeu.webp",
+      "original_png_sha256": "23d9886bd1dd4f01a3640ab3caf489b20d644f1ad81f0c4ff76b42cb43116591",
+      "sha256": "e1a2a118d97ac8d0f4075f4db9a531761e99ea7d87316629082f51597e3ba5a8"
+    }
+  ],
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "collision_mask_created": false,
+    "composition_sha256": "f95ec07ecdeecb2ee0d06c91f3b6f6109845103ed8f7225a734a6b338ae6aa9c",
+    "native_sprites_unchanged": true,
+    "profile_read_only": true,
+    "review_sha256": "fc6b31190c7ce33d7c740ff385c5e47d3a9360d46128918eb0aeeb6324e41342",
+    "runtime_integrated": false,
+    "scope": "detail_graphique",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "metadata_note": "Après captures, seuls les libellés de livraison et les mesures dérivées des polygones ont été actualisés ; géométrie et images inchangées.",
+  "plate_count": 14,
+  "diameters_world_min_max": [
+    306.91,
+    546.22
+  ],
+  "covers": 12,
+  "covers_per_quadrant": 3,
+  "covers_outside_plates_including_160u_footprint": true,
+  "paired_pixel_checks": "superposition.json",
+  "changed_pixels_outside_plates": 0,
+  "collision_reference_sha256": "3197a7efe6e1ef7338904dadb7aa1f8050b61be948de3a95910763803eef8055",
+  "collision_reference_bytes": 743772,
+  "profile_read_only": true,
+  "native_sprites_unchanged": true,
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "navigation_or_combat_tested": false
+}

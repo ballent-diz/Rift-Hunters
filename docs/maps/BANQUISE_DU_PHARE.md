@@ -1,138 +1,117 @@
 # Carte 19 — La Banquise du phare
 
-**Composition corrigée à valider — 5 novembre 2026.** Identifiant proposé : `lighthouse_floe`.
-Chapitre 4, Glacier silencieux ; défense d’autel, particularité B4 « Banquise qui se fend ».
-Branche `codex/carte-19-banquise-phare`, depuis `origin/main` actualisé.
+**Détail graphique livré — 5 novembre 2026.** `lighthouse_floe`, chapitre 4, Glacier silencieux.
+Défense d’autel ; B4 « Banquise qui se fend ». Le propriétaire a retenu la **première** composition
+corrigée, longue épave à l’est et crête à l’ouest. Les deux ajustements autorisés sont appliqués :
+plaques sous 600 unités et P05 à la sortie est de l’épave.
 
-![Composition entière proposée](../previews/lighthouse-floe/composition.webp)
-
-![Plan proposé et repères](../previews/lighthouse-floe/plan_annote.webp)
-
-## Composition proposée
-
-Monde carré de **5016 × 5016 unités**, image de composition de **1254 × 1254 pixels**.
-Île rocheuse centrale, phare peint éteint, eau noire intérieure, anneau de banquise praticable,
-puis rivage enneigé et falaises périphériques. Départ au sud-ouest sur une grande place dégagée.
-Le phare est lui-même l’autel : aucun second autel ni enceinte de finale.
-
-Les coordonnées ci-dessous partent du coin supérieur gauche, en pourcentages de l’image entière.
-Le fichier [plan.json](../../assets/concepts/incoming/map.lighthouse_floe/plan.json)
-contient les repères proposés et les nouveaux polygones relevés sur les fractures de l’image corrigée.
-Il reste **non figé**, avec `owner_approved: false` et `plan_locked: false`, jusqu’à validation de cette correction.
-Le propriétaire a confirmé le plan rayonnant et l’échelle du phare ; la composition corrigée complète reste à valider.
-
-| Repère | Position / trajet proposé |
+| Intacte entière | Brisée entière |
 | --- | --- |
-| Départ | 21 % ; 80 %, rivage sud-ouest |
-| Phare éteint | Pied vers 50 % ; 50,7 %, sur l’île stable |
-| Accès nord | Crête rocheuse ; plaque P01 ; arrivée sur le nord de l’île |
-| Accès est | Épave de brise-glace, coque abîmée et pont dégagé ; plaque P05 après la coque |
-| Accès sud | Passerelle de pierre ; plaque P08 |
-| Accès ouest | Crête rocheuse enneigée traversant tout le fossé ; plaque P11 sur son approche |
-| Détour | Boucle sur le rivage ferme, tracée en pointillés sur le plan |
-| Abris | A01–A12 : trois par quart, huit sur les rivages et quatre sur l’île |
+| ![Intacte](../previews/lighthouse-floe/intacte.webp) | ![Brisée](../previews/lighthouse-floe/brisee.webp) |
 
-Le phare, sa porte, ses marches et son socle gardent l’échelle acceptée par le propriétaire,
-avec un Chasseur d’environ 52 unités ; la tour reste grande et son sommet sans lumière.
-La porte reste dans la cible **75–90 unités**. Les petits motifs seront affinés par régions :
-marches 12–16 unités, pavés au plus 26, colonnes 30–45, sans changer la taille du phare.
-Les douze abris pleins ont maintenant une emprise au sol estimée à **120–152 unités** de largeur,
-dans la plage demandée 110–160 ; leur silhouette dressée et leur ombre les rendent lisibles.
-Les quatre rochers de l’île ont été repris. Les deux carcasses éloignées sur neige ont été retirées.
+## Plan et échelle
 
-L’épave est raccourcie au fossé : coque inclinée, bordages brisés, membrures de fer rouillé désaturé,
-mât couché le long de la coque et tablier praticable dégagé. Son extrémité extérieure rejoint la glace
-stable **avant P05**, sans recouvrir cette plaque. Le franchissement ouest est continu jusqu’au sol de l’île.
-Rivage découpé, congères ombrées, traces et affleurements varient l’anneau extérieur ; les falaises sont gris-bleu,
-moins saturées que dans la première proposition.
+Monde **5016 × 5016 unités** : île portant le phare éteint, fossé permanent d’eau noire,
+anneau de banquise praticable, rivages enneigés et falaises. Le phare peint est l’autel.
+Le [plan.json](../../assets/concepts/incoming/map.lighthouse_floe/plan.json) est approuvé et verrouillé.
+Coordonnées en pourcentages depuis le coin haut-gauche du cadrage entier. Les polygones B4 suivent
+les surfaces supérieures détaillées ; les lèvres et faces verticales décoratives restent communes.
 
-## Plaques B4 et chemins de retour
+![Plan détaillé et repères](../previews/lighthouse-floe/plan_annote.webp)
 
-**Quatorze plaques distinctes**, P01–P14 en sens horaire depuis le nord. Leurs polygones proposés
-suivent les nouvelles fractures irrégulières, avec des concavités et des silhouettes de tailles variées,
-sans octogones. Leurs diamètres maximaux relevés font environ **313–573 unités**
-(distance maximale entre sommets, approximation à quatre unités par pixel), dans la plage 300–600 demandée.
-Au moins une plaque se trouve sur chacun des quatre accès : **P01 nord, P05 est, P08 sud, P11 ouest**.
-Les plaques intactes sont praticables. Aucun abri n’est placé dans leur emprise.
-Le turquoise pâle translucide des plaques et leurs lèvres de fracture se distinguent de la glace stable
-vert-gris plus sombre. Le goulet d’eau noire permanent reste clairement séparé autour de l’île.
+| Repère | Position ou chemin |
+| --- | --- |
+| Départ | 21 % ; 80 %, place dégagée sud-ouest |
+| Pied du phare | 50 % ; 50,7 %, socle cible 300 unités |
+| Nord | Crête rocheuse ; plaque P01 |
+| Est | Épave inclinée, bordages brisés, fer rouillé, mât couché ; P05 après la coque |
+| Sud | Passerelle de pierre ; plaque P08 |
+| Ouest | Crête rocheuse enneigée franchissant le fossé ; plaque P11 |
+| Retour | Boucle de rivage ferme vers les autres accès |
+| Abris | A01–A12, trois par quart : quatre sur l’île, huit sur les rivages |
 
-La boucle extérieure doit permettre de rejoindre un autre accès lorsqu’une plaque cède.
-Proposition de séquencement pour Claude : conserver au moins deux accès au phare ouverts,
-et ne pas ouvrir simultanément toutes les plaques d’un secteur. Les collisions du propriétaire,
-la continuité effective des détours et le calendrier B4 seront validés lors de l’intégration.
-Aucun test de navigation ou de combat n’est revendiqué par cette revue graphique.
+**14 plaques irrégulières de 307 à 547 unités** de diamètre maximal entre sommets, sans octogones.
+Turquoise translucide et fractures les distinguent de la glace stable. Aucun abri, y compris son
+emprise maximale de 160 unités, ne recoupe les plaques. Les blocs ont été repris au gabarit cible140u.
+Le phare conserve la forme et l’échelle acceptées : Chasseur environ52u, porte cible75–90,
+marches12–16, petits pavés26 au plus. Les formes rocheuses naturelles ne sont pas des pavés.
 
-L’image future « banquise brisée » montrera les quatorze emprises ouvertes comme **ressource graphique
-à afficher plaque par plaque**. Elle ne décrit pas un état de jeu autorisant l’ouverture des quatorze plaques à la fois.
+**16 régions peintes** pour le décor commun, puis **14 ouvertures peintes localement** dans ces mêmes
+régions. Master natif **3762 × 3762**, densité **0,75 pixel/unité** ; présentation **11286 × 11286**,
+densité **2,25 pixels/unité**, en trois tuiles verticales. Calibration et correction locale des cases
+douces sont documentées dans `source/detail_recipe.json`. Les intermédiaires restent hors dépôt.
 
-## Deux états et détail à venir
+## Qualité et superposition
 
-Après validation de cette composition : figer `plan.json`, découper avec `tools/art/map_regions.py`,
-puis redessiner chaque région dans les **deux états, avec les mêmes limites et la même finesse**.
-Les références sont les Ruines des Cascades et les règles de
-[QUALITE_DES_CARTES.md](QUALITE_DES_CARTES.md). Aucun agrandissement de la composition ne sera livré comme détail.
+| Contrôle | Intacte | Brisée |
+| --- | ---: | ---: |
+| Détails fins / 100 × 100 unités | 391,645 | 391,645 |
+| Détails moyens | 96,173 | 95,787 |
+| Secteurs conformes | 49/49 | 49/49 |
+| Fidélité à la composition de l’état | 0,905 | 0,914 |
+| Verdict | **Conforme** | **Conforme** |
 
-L’état brisé partira de la source intacte commune : eau noire, morceaux flottants et bords cassés
-seront peints localement puis réinsérés strictement dans les polygones des plaques.
-Tout ce qui est hors plaques doit conserver **exactement les mêmes pixels**, y compris le phare,
-les rivages, les abris, les quatre ouvrages et les ombres extérieures.
-Même cadrage et même résolution pour les deux images. Le contrôle pixel à pixel sera effectué
-**sur les fichiers effectivement livrés, après encodage**, avec superposition et rapport de différences.
-Le choix d’encodage devra préserver cette identité hors plaques.
+Rapports : [intacte](../previews/lighthouse-floe/qualite_intacte.json),
+[brisée](../previews/lighthouse-floe/qualite_brisee.json). Seuils inchangés de `check_map_quality.py`.
+La référence brisée est la composition approuvée avec les seules ouvertures B4 projetées dans leurs
+polygones ; tous les pixels de référence hors plaques sont inchangés (`source/broken_reference_recipe.json`).
+Le diagnostic contre la composition intacte reste dans `qualite_brisee_reference_intacte.json` :
+finesse conforme, corrélation0,842 sous le seuil, du fait du remplacement intentionnel de glace par l’eau noire.
 
-À ce stade, seul l’état intact de **composition** existe. Le second état, le détail par régions,
-le rapport `check_map_quality.py` conforme pour chaque état et la preuve de superposition restent à produire
-après validation. Aucun fichier du manifeste ou décor utilisable en jeu n’est ajouté.
+**Zéro pixel modifié hors plaques après encodage**, aux résolutions native, jeu et aperçu.
+Les deux aperçus entiers sont sans perte, au même cadrage. Preuve :
+[superposition.json](../previews/lighthouse-floe/superposition.json).
 
-## Lisibilité et captures de revue
+![États et seules différences](../previews/lighthouse-floe/superposition.webp)
 
-Le banc [preview_lighthouse_floe.tscn](../../tools/art/preview_lighthouse_floe.tscn) affiche la composition
-avec les feuilles existantes du jeu, leurs ancres et leurs échelles inchangées. Le zoom est lu dans
-`GameDB.balance.camera_zoom`, à 1280 × 720 ; aucune partie ni écriture de profil n’est lancée.
+L’image entière brisée représente toutes les ressources d’ouverture, pas une demande d’ouvrir les14
+plaques simultanément. Claude fixe le séquencement B4 avec des accès ouverts et un retour au phare.
+Aucun essai de navigation ou de combat n’est revendiqué par ce banc graphique.
 
-- [Chasseur et Écho au pied du phare](../previews/lighthouse-floe/phare_zoom_jeu.png)
-- [Épave traversable](../previews/lighthouse-floe/epave_zoom_jeu.png)
-- [Passerelle de pierre](../previews/lighthouse-floe/pierre_zoom_jeu.png)
-- [Franchissement ouest du fossé](../previews/lighthouse-floe/ouest_zoom_jeu.png)
-- [Sept Échos du silence sur neige](../previews/lighthouse-floe/silence_neige.png)
-- [Les mêmes sur banquise](../previews/lighthouse-floe/silence_banquise.png)
-- [Référence des Ruines au même zoom](../previews/lighthouse-floe/reference_ruines_zoom_jeu.png)
+## Captures au zoom réel
+
+Le banc [preview_lighthouse_floe.tscn](../../tools/art/preview_lighthouse_floe.tscn) utilise les feuilles
+et ancres existantes, à1280 ×720 et au zoom `GameDB.balance.camera_zoom` (1,3333), sans lancer de partie
+ni écrire de profil. Neige bleutée, glace verte, lumière haut-gauche et liseré violet bas-droite.
+
+- [Chasseur et Écho au phare](../previews/lighthouse-floe/phare_zoom_jeu.webp)
+- [Épave](../previews/lighthouse-floe/epave_zoom_jeu.webp), [crête ouest](../previews/lighthouse-floe/ouest_zoom_jeu.webp), [passerelle sud](../previews/lighthouse-floe/pierre_zoom_jeu.webp)
+- [Sept Échos sur neige](../previews/lighthouse-floe/silence_neige.webp) et [sur banquise](../previews/lighthouse-floe/silence_banquise.webp)
+- [Sortie est brisée, personnages sur le pont](../previews/lighthouse-floe/brisee_epave_brisee_zoom_jeu.webp)
+- [Ruines au même zoom](../previews/lighthouse-floe/reference_ruines_zoom_jeu.webp), [comparaison officielle d’échelle](../previews/lighthouse-floe/comparaison_echelle.webp), [douze abris à1px/u](../previews/lighthouse-floe/abris_echelle.webp)
 
 Éclat du silence, Chevalier de glace, Sentinelle gelée, Brise-banquise, Héraut du silence,
-Mammouth de givre et Sorcière des neiges : sprites déjà livrés au chapitre 4, aucun redessin.
-Ces captures examinent leur contraste sur la composition agrandie au zoom réel ; la finesse du terrain
-et l’échelle des motifs seront à vérifier à nouveau après les régions.
-Les sept silhouettes restent distinctes sur le vert de la banquise et le bleu-gris de la neige.
-Le Chasseur est posé au pied des marches du phare ; la porte corrigée garde une taille humaine.
-L’orientation lumineuse reste haut-gauche, avec un liseré violet discret en bas à droite.
-Glace de mer verte, neige bleutée, pierre grise et fer rouillé désaturé donnent l’identité propre du lieu.
-
-Le reçu [controle_composition.json](../previews/lighthouse-floe/controle_composition.json) conserve
-les commandes, résultats de chargement et empreintes de cette étape. La conformité graphique finale
-est explicitement en attente du détail et de la validation.
+Mammouth de givre et Sorcière des neiges restent distincts sur les deux sols ; aucun sprite refait.
+Import Godot headless, deux bancs de captures, assets et lint ciblé réussis :448 assets,446 valides,
+deux placeholders préexistants (`object.training_dummy`, `object.crystal_mirror`), zéro erreur.
+Reçu : [controle_detail.json](../previews/lighthouse-floe/controle_detail.json).
 
 ## Collisions et raccordement
 
-Après le détail des deux états, fournir une **référence entière légère de l’image intacte**, sans repères,
-avec recette, dimensions et SHA-256 dans `source/collision_reference.json`, comme pour les cartes précédentes.
-Le propriétaire peindra les collisions puis renverra un **PNG au même cadrage** ; aucun masque statique n’est
-dessiné par Codex. Les plaques resteront praticables dans cette peinture : le jeu les fermera temporairement
-lorsqu’elles cèdent. Les polygones B4 sont des repères pour ces changements d’état, pas un masque statique.
+**[Référence entière légère à peindre : JPEG1254 ×1254](../previews/lighthouse-floe/reference_collisions.jpg)**,
+état intact sans annotation, 4 unités par pixel. Recette, dimensions, poids et SHA-256 dans
+[`source/collision_reference.json`](../../assets/concepts/incoming/map.lighthouse_floe/source/collision_reference.json).
+Retour attendu : **PNG1254 ×1254 au même cadrage**, sans redimensionnement, obstacles bloquants
+en rouge translucide. **Laisser les plaques B4 praticables** : le jeu les fermera temporairement.
+Aucun masque statique dessiné par Codex.
 
-Claude intégrera collisions, autel, fermetures B4, gardien et campagne.
-**Aucun changement de `src/`, `data/`, du manifeste ni des cartes 14 à 18.**
+Fond intact : `assets/environments/lighthouse_floe/map.webp`, `map_1.webp`, `map_2.webp`.
+Ouvertures indépendantes sans perte : `assets/environments/lighthouse_floe/broken/p01.webp` à `p14.webp`.
+`source/paired_recipe.json` donne fichiers, SHA-256 et rectangles sur l’image entière en pixels/unités.
+Poser chaque ouverture à `(x0,y0)/2,25`, échelle `1/2,25`. Les rectangles bornent les images ;
+les polygones du plan font foi pour les fermetures du jeu.
 
-## Sources et étapes
+Le dépôt garde le fond commun sans perte (`source/map_detailed.webp`) et les seules ouvertures
+(`source/broken_delta.webp`). Les **deux images entières** sont reconstructibles sans service externe :
 
-Dossier `assets/concepts/incoming/map.lighthouse_floe/` ignoré par Godot :
-`composition.png`, `job.json`, **`plan.json` proposé**, croquis technique actualisé, prompts de génération et de correction,
-`generation.json` et empreintes `SHA256.json`. La première proposition est remplacée dans les mêmes chemins ;
-elle reste accessible dans l’historique Git, sans copie `_v2` ni essais supplémentaires versionnés.
-Essais et images non retenues restent hors dépôt.
+```bash
+python tools/art/build_lighthouse_floe.py --export-states --work /tmp/lighthouse-floe-export
+```
 
-- Composition corrigée et nouveaux polygones dans `plan.json` : proposés, en attente du propriétaire.
-- Verrouillage du `plan.json` : après validation.
-- Régions intactes et brisées, contrôle qualité conforme et superposition : à faire.
-- Référence de peinture des collisions : après le détail.
-- Masque et intégration en jeu : propriétaire et Claude.
+Résultat : `native_intact.webp` et `native_broken.webp`, même cadrage3762 ×3762. La commande vérifie les
+empreintes et les pixels hors plaques, reconstruit les surimpressions et contrôle l’état brisé.
+Elle utilise les tuiles finales présentes. `--present` est réservé à leur reconstruction avec le modèle
+de correction locale documenté ; aucune relance nécessaire pour l’intégration.
+
+Le propriétaire peint les collisions ; Claude intègre autel, B4, gardien et campagne.
+**Aucun changement de `src/`, `data/`, du manifeste ni des cartes14 à18.**
