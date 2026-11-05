@@ -2,7 +2,7 @@
 
 **Composition à valider par le propriétaire — 5 novembre2026.** Identifiant proposé : `silent_heart`.
 Chapitre4, Glacier silencieux, fin de chapitre : deux zones de vagues puis Nivorath.
-Branche `codex/carte-20-coeur-silence`, depuis main actualisé `60d4297`.
+Branche `codex/carte-20-coeur-silence`, créée depuis `60d4297`, puis fusion de main `320ab58`.
 
 ![Composition entière](../previews/silent-heart/composition.webp)
 
@@ -74,7 +74,7 @@ Les piliers naturels de la cathédrale peuvent être plus larges.
 Ces vues examinent la **composition agrandie**, dont le terrain reste provisoire au zoom réel.
 Elles ne constituent pas un détail graphique final ni un rapport de qualité conforme.
 Le banc [preview_silent_heart.tscn](../../tools/art/preview_silent_heart.tscn) ne lance pas de partie,
-avec `Profile.read_only = true`. Reçu : [controle_composition.json](../previews/silent-heart/controle_composition.json).
+avec `Profile.read_only = true`. Import Godot, captures, assets (450 entrées,448 valides, deux placeholders préexistants, zéro erreur) et lint ciblé réussis sur main actualisé. Reçu : [controle_composition.json](../previews/silent-heart/controle_composition.json).
 
 ## Suite après validation
 

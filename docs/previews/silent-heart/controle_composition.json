@@ -3,7 +3,7 @@
   "stage": "composition_a_valider",
   "owner_approved": false,
   "plan_locked": false,
-  "main_base": "60d42976e8c103068b21064a29af02367f53ddbc",
+  "main_base": "320ab5870e5664de642dfe89fae62377474703f4",
   "checks": [
     {
       "name": "godot_import",
@@ -45,7 +45,7 @@
         "assets"
       ],
       "exit_code": 0,
-      "log_sha256": "ce0481e56cf48c09c2e95efe10a016af91c8818af1a7dd5118a868d79da01e6c"
+      "log_sha256": "74d7264177dc00147b870d83eb09138b84f2148914d7de4320ee141b581f8b1d"
     },
     {
       "name": "gdlint",
@@ -58,8 +58,8 @@
     }
   ],
   "assets": {
-    "total": 448,
-    "valid": 446,
+    "total": 450,
+    "valid": 448,
     "placeholders": 2,
     "errors": 0,
     "preexisting_placeholders": [
@@ -67,7 +67,7 @@
       "object.crystal_mirror"
     ]
   },
-  "asset_check_scope": "Manifeste et sprites inchangés ; dernière correction de marches limitée à la composition ignorée par Godot.",
+  "asset_check_scope": "Contrôle des assets de main actualisé, avec les nouvelles entrées environment.glacier_entry et environment.brazier_pass.",
   "capture_receipt": {
     "camera_zoom": 1.3333,
     "collision_mask_created": false,
@@ -126,5 +126,7 @@
   "quality_scope": "Composition seule ; 12régions et conformité après validation.",
   "runtime_integrated": false,
   "collision_mask_created": false,
-  "navigation_or_combat_tested": false
+  "navigation_or_combat_tested": false,
+  "branch_created_from": "60d42976e8c103068b21064a29af02367f53ddbc",
+  "base_update_scope": "Fusion de main ; toutes ses entrées conservées dans ROADMAP. Import, captures et assets relancés sur cette base, images et zoom inchangés. Aucun changement propre au lot dans les chemins protégés."
 }
