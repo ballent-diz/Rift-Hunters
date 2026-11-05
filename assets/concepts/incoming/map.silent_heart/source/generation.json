@@ -1,0 +1,52 @@
+{
+  "date": "2026-11-05",
+  "tool": "image_gen.imagegen",
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+  "plan_sha256": "35bf9ac6fc9c142e1030dd5266bd5e992841b78011c10d6eca00260febb9adbc",
+  "master_sha256": "6808ca7c284241b9e220e19d75d743916d322cd39c0f2e9542894fd8679c0084",
+  "world": [
+    5016,
+    3344
+  ],
+  "native_size": [
+    3762,
+    2508
+  ],
+  "regions": 12,
+  "region_provenance": "regions_provenance.json",
+  "local_cover_corrections": "cover_corrections.json",
+  "detail_recipe": "detail_recipe.json",
+  "initial_composition_generation": {
+    "date": "2026-11-05",
+    "tool": "image_gen.imagegen",
+    "stage": "composition_a_valider",
+    "composition_generation_sha256": "294a17b64b2aee07f6e6f5b1e5cb2496ccfa90f4a5ef11ddb92bbd486f7727bf",
+    "retained_composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+    "reference_scope": "Croquis technique de parcours ; carte16 pour style/palette uniquement, aucune reprise de son plan.",
+    "style_reference_sha256": "4e58521f16dc5789a822a597f47d69b59c0fd55eb68526ce8adce84e9eb7a057",
+    "local_stair_repair": {
+      "box_pixels": [
+        570,
+        470,
+        790,
+        690
+      ],
+      "generated_sha256": "0565f08ab5f140faa0134a423ce5f70c04e8176a9dac4854b30baaa172b23634",
+      "input_sha256": "251944673995f9c3b51b4b3668e9d308bf5a14319f72a65cc467f2d07f5a36af",
+      "prompts": [
+        "PROMPT_ESCALIER.txt",
+        "PROMPT_MARCHES_ECHELLE.txt"
+      ],
+      "orientation_repair_sha256": "5980ec7293044319590724ec0da929d90a4e064c9262bd2850b373093aa21c07",
+      "assembly": "Réinsertion locale au cadrage original, transition12px uniquement au bord du recadrage."
+    },
+    "intermediates_in_git": false,
+    "detail_generated": false
+  },
+  "detail_generated": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "intermediates_in_git": false
+}

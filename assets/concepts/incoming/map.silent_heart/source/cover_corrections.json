@@ -1,0 +1,272 @@
+{
+  "date": "2026-11-05",
+  "covers": [
+    {
+      "id": "a01",
+      "box_world": [
+        3652.6079999999997,
+        1232.05592,
+        4252.608,
+        1832.05592
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        3952.608,
+        1632.05592
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 20,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a02",
+      "box_world": [
+        4214.4,
+        1005.9112319999999,
+        4814.4,
+        1605.911232
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        4514.4,
+        1405.911232
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a03",
+      "box_world": [
+        3635.0519999999997,
+        2123.8706239999997,
+        4235.052,
+        2723.8706239999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        3935.0519999999997,
+        2523.8706239999997
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        2197.968,
+        1380.8806399999999,
+        2797.968,
+        1980.8806399999999
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        2497.968,
+        1780.8806399999999
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 20,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a05",
+      "box_world": [
+        2799.8879999999995,
+        1114.3103359999998,
+        3399.8879999999995,
+        1714.3103359999998
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        3099.8879999999995,
+        1514.3103359999998
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a06",
+      "box_world": [
+        2448.7679999999996,
+        2177.9999519999997,
+        3048.7679999999996,
+        2777.9999519999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        2748.7679999999996,
+        2577.9999519999997
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        42.592799999999954,
+        1292.6893279999997,
+        642.5927999999999,
+        1892.6893279999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        342.5927999999999,
+        1692.6893279999997
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        1535.856,
+        1157.4546239999997,
+        2135.8559999999998,
+        1757.4546239999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        1835.8559999999998,
+        1557.4546239999997
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a09",
+      "box_world": [
+        1029.24,
+        2475.615952,
+        1629.24,
+        3075.615952
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        1329.24,
+        2875.615952
+      ],
+      "input_sha256": "cb67c08757210f3f4d699b37f353d4c863d2f6e36e79667ba26906e5818f9201",
+      "guide_sha256": "b842f83f1301330a8e4d43f7998bb60717af1235e4a1901d8b332800675fe9ae",
+      "generated_sha256": "75fbfd30fef95f86c40a9593f2d1501f8e95a8cd04dca022d13a07c8cc7f2632",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        5.975999999999942,
+        812.2735680000001,
+        605.9759999999999,
+        1412.273568
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        305.9759999999999,
+        1212.273568
+      ],
+      "input_sha256": "cb67c08757210f3f4d699b37f353d4c863d2f6e36e79667ba26906e5818f9201",
+      "guide_sha256": "b842f83f1301330a8e4d43f7998bb60717af1235e4a1901d8b332800675fe9ae",
+      "generated_sha256": "75fbfd30fef95f86c40a9593f2d1501f8e95a8cd04dca022d13a07c8cc7f2632",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 20,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a11",
+      "box_world": [
+        1420.4879999999998,
+        2140.182656,
+        2020.4879999999998,
+        2740.182656
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        1720.4879999999998,
+        2540.182656
+      ],
+      "input_sha256": "cb67c08757210f3f4d699b37f353d4c863d2f6e36e79667ba26906e5818f9201",
+      "guide_sha256": "b842f83f1301330a8e4d43f7998bb60717af1235e4a1901d8b332800675fe9ae",
+      "generated_sha256": "75fbfd30fef95f86c40a9593f2d1501f8e95a8cd04dca022d13a07c8cc7f2632",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    }
+  ],
+  "west_crystal_unchanged_during_cover_pass": true,
+  "static_collision_mask_created": false,
+  "intermediates": "Planches hors dépôt ; seul le master final est retenu."
+}
