@@ -2074,3 +2074,6 @@ BOSS_PATTERN_WOLF_GLIDE,Glissade de l'alpha,Alpha Glide
 BOSS_PATTERN_STORM_HUNT,Chasse dans la tempête,Storm Hunt
 BOSS_STORM_HUNT_INTRO,"Chasse dans la tempête : le Loup disparaît dans la neige et charge plusieurs fois, chaque fois d'un autre côté. Écartez-vous de chaque ligne annoncée ; entre deux charges, il est à découvert.","Storm Hunt: the Wolf vanishes into the snow and charges several times, each time from another side. Step off each marked line; between charges, he is exposed."
 JOURNAL_STORM_HUNT,Chasse dans la tempête,Storm Hunt
+CREDITS_FX_TITLE,Effets,Effects
+CREDITS_FX_BODY,"Effets pixel art par Patch et Hugo Duprez, aux couleurs de chaque famille de monstres.","Pixel art effects by Patch and Hugo Duprez, in the colours of each monster family."
+CREDITS_FX_LICENSE,Licence MIT,MIT License

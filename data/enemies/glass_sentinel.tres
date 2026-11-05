@@ -27,6 +27,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"glass_sentinel"
+family = &"reflets"
 name_key = "ENEMY_GLASS_SENTINEL_NAME"
 desc_key = "ENEMY_GLASS_SENTINEL_DESC"
 brain = 1

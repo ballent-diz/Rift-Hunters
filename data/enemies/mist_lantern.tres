@@ -15,6 +15,7 @@ accent = Color(1.0, 1.0, 1.0, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"mist_lantern"
+family = &"highlands"
 name_key = "ENEMY_MIST_LANTERN_NAME"
 desc_key = "ENEMY_MIST_LANTERN_DESC"
 brain = 3

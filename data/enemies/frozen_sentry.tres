@@ -27,6 +27,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"frozen_sentry"
+family = &"silence"
 name_key = "ENEMY_FROZEN_SENTRY_NAME"
 desc_key = "ENEMY_FROZEN_SENTRY_DESC"
 brain = 1

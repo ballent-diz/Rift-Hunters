@@ -46,6 +46,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"silence_herald"
+family = &"silence"
 name_key = "ENEMY_SILENCE_HERALD_NAME"
 desc_key = "ENEMY_SILENCE_HERALD_DESC"
 brain = 0

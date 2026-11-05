@@ -27,6 +27,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"ash_newt"
+family = &"highlands"
 name_key = "ENEMY_ASH_NEWT_NAME"
 desc_key = "ENEMY_ASH_NEWT_DESC"
 brain = 1

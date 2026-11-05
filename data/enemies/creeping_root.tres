@@ -32,6 +32,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"creeping_root"
+family = &"enlises"
 name_key = "ENEMY_CREEPING_ROOT_NAME"
 desc_key = "ENEMY_CREEPING_ROOT_DESC"
 brain = 0

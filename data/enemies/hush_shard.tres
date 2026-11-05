@@ -15,6 +15,7 @@ accent = Color(0.7, 0.45, 1.0, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"hush_shard"
+family = &"silence"
 name_key = "ENEMY_HUSH_SHARD_NAME"
 desc_key = "ENEMY_HUSH_SHARD_DESC"
 brain = 0

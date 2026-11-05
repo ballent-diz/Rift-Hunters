@@ -61,6 +61,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"snow_witch"
+family = &"silence"
 name_key = "ENEMY_SNOW_WITCH_NAME"
 desc_key = "ENEMY_SNOW_WITCH_DESC"
 brain = 0

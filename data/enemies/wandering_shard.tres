@@ -15,6 +15,7 @@ accent = Color(0.8, 0.6, 1.0, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"wandering_shard"
+family = &"reflets"
 name_key = "ENEMY_WANDERING_SHARD_NAME"
 desc_key = "ENEMY_WANDERING_SHARD_DESC"
 brain = 0
