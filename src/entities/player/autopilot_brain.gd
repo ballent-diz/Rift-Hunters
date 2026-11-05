@@ -92,6 +92,11 @@ func _compute_move() -> Vector2:
 			# Longer l'obstacle n'a pas suffi : retour sur un point du trajet d'avant le blocage.
 			if _stuck_checks >= BACKTRACK_AFTER and _trail.size() >= 2:
 				_backtrack_to = _trail[maxi(0, _trail.size() - 1 - _stuck_checks)]
+				# Point de retour visible depuis ici : en ligne droite à travers un mur, le bot y resterait collé.
+				for k: int in range(_trail.size() - 1, -1, -1):
+					if pos.distance_to(_trail[k]) > 60.0 and ctx.obstacles.line_clear(pos, _trail[k]):
+						_backtrack_to = _trail[k]
+						break
 				_backtrack_until = ctx.time + BACKTRACK_TIME
 		else:
 			_stuck_checks = 0

@@ -1,0 +1,275 @@
+{
+  "world": [
+    5016,
+    5016
+  ],
+  "native_size": [
+    3762,
+    3762
+  ],
+  "game_size": [
+    11286,
+    11286
+  ],
+  "pixel_rule": "Centre du pixel à l’intérieur du polygone ; aucun débordement.",
+  "source_master_sha256": "326554258cbd65162dedae956aff06dc5422fe6b41cba37ef1333fb12018c3f5",
+  "source_delta_sha256": "261c89e3d1099c7db0a91a491dd7fc68b662d98ec244f4151d9a62f20188476d",
+  "plan_sha256": "3c5b6f978189d59160baa880373917f23d9dd703929ae6f69f1e3e2a36920c3a",
+  "intact_tiles_sha256": {
+    "map.webp": "56844161ba3490728ef311db9bbc3a87f2338822610568c5d18f1e2638807735",
+    "map_1.webp": "fcb566df2188df69e350a6b7a78a367aa0bef06f0ea6b444b133f594081b7f0e",
+    "map_2.webp": "630fec6c5095358775e4f3444cc3ee88a9c63f980969939824a9bb8f0ca06cd6"
+  },
+  "overlays": [
+    {
+      "id": "p01",
+      "file": "assets/environments/lighthouse_floe/broken/p01.webp",
+      "pixel_rect_on_full_image": [
+        5177,
+        2103,
+        6031,
+        2725
+      ],
+      "world_rect_on_full_image": [
+        2300.888889,
+        934.666667,
+        2680.444444,
+        1211.111111
+      ],
+      "sha256": "7dce43846174a77e76b4dbfef53ff0fb6acb5e1ccaa2cffbd4523963f9ec6abf"
+    },
+    {
+      "id": "p02",
+      "file": "assets/environments/lighthouse_floe/broken/p02.webp",
+      "pixel_rect_on_full_image": [
+        6560,
+        1998,
+        7747,
+        2797
+      ],
+      "world_rect_on_full_image": [
+        2915.555556,
+        888.0,
+        3443.111111,
+        1243.111111
+      ],
+      "sha256": "56f14d3776d956a5d5ba673f0064ac79468e0b8eec7f200cc822969ca3d5f78e"
+    },
+    {
+      "id": "p03",
+      "file": "assets/environments/lighthouse_floe/broken/p03.webp",
+      "pixel_rect_on_full_image": [
+        7643,
+        2838,
+        8316,
+        3519
+      ],
+      "world_rect_on_full_image": [
+        3396.888889,
+        1261.333333,
+        3696.0,
+        1564.0
+      ],
+      "sha256": "88b2990660c829aa9b2b0c4d506faa3521753e005d627bb0c1129c3371d655e7"
+    },
+    {
+      "id": "p04",
+      "file": "assets/environments/lighthouse_floe/broken/p04.webp",
+      "pixel_rect_on_full_image": [
+        8292,
+        3725,
+        8916,
+        4287
+      ],
+      "world_rect_on_full_image": [
+        3685.333333,
+        1655.555556,
+        3962.666667,
+        1905.333333
+      ],
+      "sha256": "29f2e22446bef11d3a813385a8d5aea331a329ec64bb99b4cd1d605643507ae0"
+    },
+    {
+      "id": "p05",
+      "file": "assets/environments/lighthouse_floe/broken/p05.webp",
+      "pixel_rect_on_full_image": [
+        9797,
+        5198,
+        10570,
+        5793
+      ],
+      "world_rect_on_full_image": [
+        4354.222222,
+        2310.222222,
+        4697.777778,
+        2574.666667
+      ],
+      "sha256": "026943610db14d984211983f53640f0684f7e531208be50e5f6a23605729c1e4"
+    },
+    {
+      "id": "p06",
+      "file": "assets/environments/lighthouse_floe/broken/p06.webp",
+      "pixel_rect_on_full_image": [
+        8346,
+        6513,
+        9195,
+        7261
+      ],
+      "world_rect_on_full_image": [
+        3709.333333,
+        2894.666667,
+        4086.666667,
+        3227.111111
+      ],
+      "sha256": "5d526eccf6dcb7fd961d5b29d7a01ae027490b8151a9584dfe76bca027c2bb01"
+    },
+    {
+      "id": "p07",
+      "file": "assets/environments/lighthouse_floe/broken/p07.webp",
+      "pixel_rect_on_full_image": [
+        7028,
+        7856,
+        7818,
+        8361
+      ],
+      "world_rect_on_full_image": [
+        3123.555556,
+        3491.555556,
+        3474.666667,
+        3716.0
+      ],
+      "sha256": "7e67150a3252446b0f88b1ea0aa8234688dc0c8ec5fc9c13aa47c4dfd5876ff6"
+    },
+    {
+      "id": "p08",
+      "file": "assets/environments/lighthouse_floe/broken/p08.webp",
+      "pixel_rect_on_full_image": [
+        5001,
+        8282,
+        5943,
+        8947
+      ],
+      "world_rect_on_full_image": [
+        2222.666667,
+        3680.888889,
+        2641.333333,
+        3976.444444
+      ],
+      "sha256": "7247d76e725416b168fcff12a8cc6e57aaeffa4fca2c766fed1be1d6764a5463"
+    },
+    {
+      "id": "p09",
+      "file": "assets/environments/lighthouse_floe/broken/p09.webp",
+      "pixel_rect_on_full_image": [
+        3024,
+        7760,
+        3798,
+        8389
+      ],
+      "world_rect_on_full_image": [
+        1344.0,
+        3448.888889,
+        1688.0,
+        3728.444444
+      ],
+      "sha256": "3750294279a099b775d01ecb7b14ceb610b84b8f620ffad9cdcd99a7fdf3a87a"
+    },
+    {
+      "id": "p10",
+      "file": "assets/environments/lighthouse_floe/broken/p10.webp",
+      "pixel_rect_on_full_image": [
+        1946,
+        6426,
+        2994,
+        7290
+      ],
+      "world_rect_on_full_image": [
+        864.888889,
+        2856.0,
+        1330.666667,
+        3240.0
+      ],
+      "sha256": "848be49371af80ee823f9f5ab9c4991d1f70120d2fdfdb839b8a64bdac9b1a0f"
+    },
+    {
+      "id": "p11",
+      "file": "assets/environments/lighthouse_floe/broken/p11.webp",
+      "pixel_rect_on_full_image": [
+        1077,
+        5312,
+        1746,
+        6016
+      ],
+      "world_rect_on_full_image": [
+        478.666667,
+        2360.888889,
+        776.0,
+        2673.777778
+      ],
+      "sha256": "aa5657bfd4593ef49bc518e8a20d5746ea63b0c679b94f14120e5eda331fe7bb"
+    },
+    {
+      "id": "p12",
+      "file": "assets/environments/lighthouse_floe/broken/p12.webp",
+      "pixel_rect_on_full_image": [
+        2024,
+        3329,
+        3090,
+        4033
+      ],
+      "world_rect_on_full_image": [
+        899.555556,
+        1479.555556,
+        1373.333333,
+        1792.444444
+      ],
+      "sha256": "9fbcc1a12b326f0b5c22455bdd9a36348a64dc575eed6499bf08b98750757848"
+    },
+    {
+      "id": "p13",
+      "file": "assets/environments/lighthouse_floe/broken/p13.webp",
+      "pixel_rect_on_full_image": [
+        2843,
+        2631,
+        3622,
+        2890
+      ],
+      "world_rect_on_full_image": [
+        1263.555556,
+        1169.333333,
+        1609.777778,
+        1284.444444
+      ],
+      "sha256": "bb2d2dcbd665dcc394c0df67c090fc5e9b6f1f10569235a123db0d2b1b2ddd65"
+    },
+    {
+      "id": "p14",
+      "file": "assets/environments/lighthouse_floe/broken/p14.webp",
+      "pixel_rect_on_full_image": [
+        3792,
+        1737,
+        4710,
+        2104
+      ],
+      "world_rect_on_full_image": [
+        1685.333333,
+        772.0,
+        2093.333333,
+        935.111111
+      ],
+      "sha256": "71871c567d8ede8cfdf0316f0d6d08ea7988386364959aa1a0e1cf30e43531b2"
+    }
+  ],
+  "changed_pixels_inside_plates": 3202928,
+  "changed_pixels_outside_plates": 0,
+  "native_outside_equal_after_encoding": true,
+  "game_outside_equal_after_encoding": true,
+  "preview_outside_equal_after_encoding": true,
+  "native_whole_images_sha256": {
+    "native_intact.webp": "326554258cbd65162dedae956aff06dc5422fe6b41cba37ef1333fb12018c3f5",
+    "native_broken.webp": "cd4e22a2a7c0457d76658c7ff3cfbecae893378d8d662c4c83358186258d8042"
+  },
+  "storage": "Fond commun stocké une fois,14surimpressions et source delta sans perte ; deux images entières reconstituables.",
+  "static_collision_mask_created": false,
+  "runtime_integrated": false
+}

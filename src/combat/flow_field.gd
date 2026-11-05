@@ -34,6 +34,9 @@ var _walls_version: int = -1
 var _released_seen: int = 0
 var _dist := PackedInt32Array()
 var _target_cell := Vector2i(-1, -1)
+## Case de sortie déjà cherchée pour chaque case injoignable (index de case → case, (-1, -1) si aucune), valable
+## jusqu'au prochain calcul des distances : sans elle, chaque ennemi coincé refait la recherche à chaque image.
+var _escape: Dictionary = {}
 ## Décor (pour sortir d'un recoin en ligne droite dégagée).
 var _obstacles: ObstacleField
 
@@ -143,6 +146,7 @@ func update(target: Vector2) -> void:
 	if start == _target_cell or start.x < 0:
 		return
 	_target_cell = start
+	_escape.clear()
 	_dist.fill(UNREACHED)
 	var w: int = size.x
 	var first: int = start.y * w + start.x
@@ -206,7 +210,14 @@ func direction(pos: Vector2, direct: Vector2) -> Vector2:
 			best = value
 			best_cell = c
 	if best_cell.x < 0 and here == UNREACHED:
-		best_cell = _nearest_reached(cell, pos)
+		var index: int = cell.y * size.x + cell.x
+		var cached: Vector2i = _escape.get(index, Vector2i(-2, -2))
+		# Réutilisée si elle reste en vue depuis cette position (un ennemi voisin dans la même case l'a trouvée).
+		if cached.x == -1 or (cached.x >= 0 and (_obstacles == null or _obstacles.line_clear(pos, cell_center(cached)))):
+			best_cell = cached
+		else:
+			best_cell = _nearest_reached(cell, pos)
+			_escape[index] = best_cell
 		# Aucune case de retour en vue : s'éloigner du décor qui enserre le recoin.
 		if best_cell.x < 0 and _obstacles != null:
 			var away: Vector2 = _obstacles.repulsion(pos, 60.0)

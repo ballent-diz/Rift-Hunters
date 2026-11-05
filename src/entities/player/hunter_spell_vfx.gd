@@ -63,6 +63,11 @@ func slash_impact(pos: Vector2, direction: Vector2) -> void:
 		effect.call("play", direction)
 
 
+## Charge à l'avance l'animation `effect_id` (départ de la partie).
+func warm(effect_id: String) -> void:
+	_scene(effect_id)
+
+
 func _scene(effect_id: String) -> PackedScene:
 	if effect_id == "":
 		return null

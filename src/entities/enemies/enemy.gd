@@ -18,6 +18,8 @@ var contact_damage: float = 5.0
 var xp_value: int = 1
 var velocity := Vector2.ZERO
 var push_velocity := Vector2.ZERO
+## Élan gardé sur la glace (brique B1) : vitesse réelle de l'image précédente.
+var slide := Vector2.ZERO
 var state: State = State.MOVE
 var state_timer: float = 0.0
 var attack_timer: float = 0.0

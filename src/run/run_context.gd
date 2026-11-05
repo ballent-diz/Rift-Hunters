@@ -50,6 +50,7 @@ var portals: PortalDirector
 var rockfall: RockfallDirector
 var tide: TideDirector
 var cold: ColdDirector
+var ice: IceDirector
 var frost: FrostTechniques
 ## Effets peints autonomes des ennemis et des boss (présentation seulement).
 var painted: PaintedVfx
@@ -107,6 +108,8 @@ func terrain_drift(pos: Vector2) -> Vector2:
 		result += terrain.drift(pos)
 	if flood:
 		result += flood.drift(pos)
+	if night:
+		result += night.wind(pos)
 	return result
 
 

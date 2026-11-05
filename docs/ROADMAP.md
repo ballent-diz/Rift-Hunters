@@ -12,6 +12,58 @@ La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
 
+## Carte 17, Col des braseros, en jeu (Claude, 4 novembre 2026)
+
+Décor de Codex (PR 101) et collisions peintes par le propriétaire. Deuxième carte du chapitre 4, **carte de nuit**
+du chapitre. Fiche : `docs/maps/COL_DES_BRASEROS.md`.
+
+- Fermeture de quatre failles en montant vers le nord, puis gardien sur le replat du sommet (cercle tracé par le jeu).
+  Nouveau réglage `ArenaData.rift_hp_mult` (solidité des failles), ici ×5.
+- **Froid et braseros (B7) de nuit** : dix braseros sur les foyers peints, sprite `object.brazier` (allumé, éteint) ;
+  les braseros allumés éclairent la nuit et révèlent les ennemis (comme les lucioles). Pieds des braseros laissés
+  praticables : bloqués, ils fermaient les passages du pont et de la corniche.
+- **Gardien : Chaman ancestral** (`rime_elder`, sprite du Chaman du gel) : bâton, pluie de stalactites, invocations
+  et mécanique phare **Grand gel** (`FrostElder`) : il souffle les braseros proches sauf un ; hors de sa chaleur,
+  vague de gel, dégâts et Prison de glace (une Ruée la brise).
+- [ ] **Équilibrage à reprendre** (mis de côté à la demande du propriétaire) : réglage actuel ennemis ×1 / ×0,8,
+  failles ×5, froid 3,5/s, gardien ×1,6 / ×0,85 → 4 victoires sur 4 mais combat final court (35 s) ; gardien ×1,9 →
+  2 sur 4, ×2,2 → 1 sur 4. Viser 3 sur 4 avec un combat d'au moins 60 s (toucher aux dégâts plutôt qu'aux PV).
+
+## Carte 16, Entrée du Glacier, en jeu (Claude, 4 novembre 2026)
+
+Décor de Codex (PR 100) et collisions peintes par le propriétaire. Chapitre 4 « Le Glacier silencieux » ouvert
+dans la campagne (`data/chapters/silent_glacier.tres`, une carte pour l'instant). Fiche : `docs/maps/ENTREE_DU_GLACIER.md`.
+
+- **Glace qui fait glisser (B1)** : `IceDirector`, `ArenaData.ice_patches` (six ellipses relevées sur l'image).
+  Chasseur et Corrompus (hors volants) : pleine vitesse ou demi-tour en 0,6 s, +15 % de vitesse, glissade de 1,5 s,
+  Ruée 40 % plus longue qui finit en glissade, charges de boss lancées depuis la glace 40 % plus longues. Traînée de
+  givre, fiche « Glace qui fait glisser » au premier pas sur la glace. Les Échos ne glissent pas (à décider).
+- **Vagues** : Givrés (Rampe-givre, Loup de blizzard, Spectre de neige, Golem de glace), élites Archère du givre,
+  Chaman du gel, Yéti des cimes. Deux zones (Bassin de neige, Plateau des glaces), barrières aux deux cols.
+- **Gardien : Patriarche des cimes** (`peak_patriarch`, sprite du Yéti, 2 phases) : revers, bond, invocations et
+  mécanique phare **Avalanche** (boules de neige en éventail, arrêtées par les abris).
+- **Équilibrage** (profil d'étape) : ennemis ×1 / ×0,8, gardien ×2 / ×1,05 → 3 victoires sur 4, combat de 55 à 70 s.
+- **Bot** : un point de retour en ligne droite à travers un mur le collait dans une poche du plateau central ; il ne
+  choisit plus que des points visibles.
+- **À décider** : chaque carte gagnée débloque un Écho, mais les 15 Échos à gagner sont déjà attribués (cartes 1 à
+  15). Le chapitre 4 n'en donne pas encore ; la règle est vérifiée pour les chapitres 1 à 3 seulement.
+
+## Performances (Claude, 3 novembre 2026)
+
+Retour du propriétaire : environ 10 images par seconde contre Astravorn, ralentissements quand l'écran est chargé.
+Mesure : `autoplay … --perf` (coût de chaque système par pas de simulation, à-coups de plus de 30 ms, appels de
+dessin sous `xvfb-run`).
+
+- **Cause principale** : des ennemis sur des cases qui ne mènent pas au Chasseur (derrière les murs de l'arène finale)
+  recherchaient une case de sortie sur jusqu'à 900 cases, à chaque image. Contre Astravorn : environ 10 ms par pas
+  pour 45 ennemis. Recherche mémorisée par case jusqu'au prochain calcul des distances (`FlowField._escape`) :
+  3 à 4 ms pour 90 ennemis. Bot : 3 victoires sur 4 sur la carte 2, comme avant.
+- **Effet boule de neige** : au-delà de 16 ms par pas, Godot enchaînait jusqu'à 8 pas par image. Plafond fixé à 3
+  (`physics/common/max_physics_steps_per_frame`) : en surcharge, le jeu ralentit au lieu de s'écrouler.
+- **Gels ponctuels** : musique du boss, phase 2 et morceau suivant chargés en arrière-plan (`Audio.prefetch`) ;
+  animations des sorts équipés chargées au départ. Gel de 664 ms au passage en phase 2 supprimé.
+- Rendu : 120 à 390 appels de dessin par image, rien d'anormal.
+
 ## Idées en réserve (propriétaire)
 
 - **Alliés mortels** (idée du 3 novembre 2026, à concevoir plus tard) : une ou plusieurs parties, ou un mode à part,
@@ -427,10 +479,18 @@ Contrôles ciblés de chargement et captures livrés. Chaque branche reste indé
 
 Composition corrigée validée par le propriétaire, plan figé : trois plateaux, deux cols, glace praticable et13 abris (4 +4 +5). Douze régions redessinées en vingt-quatre demi-régions, retouche des falaises du bas droit, master natif sans perte et trois tuiles. Contrôle conforme : détails fins382,762 ; moyens100,422 ; 35 secteurs sur35 ; fidélité0,986. Correction locale de netteté : aucune case résiduelle à référence initiale figée après encodage. Captures Godot au zoom réel,14 sprites du chapitre4 sur neige et glace, comparaison d’échelle et référence de peinture inchangée livrées. Voir `docs/maps/ENTREE_DU_GLACIER.md`. Collisions du propriétaire, glisse B1 et intégration par Claude ; aucun changement de src/, data/ ou des cartes14/15.
 
+## Carte 17 — Le Col des braseros : détail graphique livré (Codex, 4 novembre)
+
+Branche `codex/carte-17-col-braseros`, depuis main actualisé. Composition validée et plan figé : monde 5016 × 5016, montée en serpentin, quatre poches de failles, pont, corniche, surplomb, raccourci et sommet ouvert. Seize régions peintes en trente-deux demi-régions ; correction locale du gabarit des 16 abris et 10 foyers vides. Détail conforme : fins 376,968, moyens 102,353, secteurs conformes 48/49, fidélité 0,985. Master natif sans perte, trois tuiles, vues entières, comparaison d’échelle et captures des Givrés au zoom réel livrés. Référence légère 1254 × 1254 prête pour la peinture du propriétaire ; aucun masque produit. Voir `docs/maps/COL_DES_BRASEROS.md`. Import Godot et contrôle assets sans erreur. Aucun changement de src/, data/, du manifeste ou des cartes 14 à 16 ; B7, failles, braseros et intégration par Claude.
+
 ## Carte 18 — Le Lac gelé des tempêtes : détail graphique livré (Codex, 4 novembre)
 
 Composition validée par le propriétaire, plan figé :3344 ×5016, camp nord, tour du lac sombre infranchissable par l’est, anse sud-est et arène séparée en croissant. Douze régions redessinées en vingt-quatre demi-régions, sept refuges du vent ouverts et treize abris de combat conservés. Détail conforme : fins422.158, moyens100.422, 35/35 secteurs, fidélité0.992. Master natif sans perte, deux tuiles, vues entières, comparaison d’échelle et captures des Givrés sur neige et berge au zoom réel. Référence légère1024 ×1536 prête pour la peinture du propriétaire ; aucun masque produit. Import Godot et contrôle assets réussis. Voir `docs/maps/LAC_GELE_DES_TEMPETES.md`. Aucun changement de src/, data/, du manifeste ou des cartes14 à17 ; collisions et B2 par Claude.
 
+
+## Carte 19 — La Banquise du phare : détail graphique livré (Codex, 5 novembre)
+
+Première composition corrigée validée par le propriétaire, plan figé : 5016 × 5016, phare central éteint, fossé noir, banquise rayonnante, longue épave est et crête ouest. Deux retouches autorisées appliquées : 14 plaques irrégulières de 307 à 547 unités, dont P05 à la sortie est ; chaque accès cardinal possède une plaque. Seize régions peintes communes et quatorze ouvertures locales, douze abris repris au gabarit cible140u, trois par quart. Deux états au même cadrage : 49/49 secteurs conformes chacun, fidélité0,905 intacte et0,914 brisée (composition de référence avec seules ouvertures B4) ; zéro pixel changé hors plaques après encodage. Sources sans perte, trois tuiles et quatorze surimpressions indépendantes, captures au zoom réel et référence légère1254 ×1254 prête à peindre. Import Godot et contrôles ciblés réussis. Voir `docs/maps/BANQUISE_DU_PHARE.md`. Aucun masque statique produit : propriétaire puis Claude pour collisions, autel, B4, gardien et campagne. Aucun changement de src/, data/, du manifeste ni des cartes14 à18.
 
 ## Carte 20 — Le Cœur du Silence : composition proposée (Codex, 5 novembre)
 

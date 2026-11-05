@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buyof5k28sqg1"
-path="res://.godot/imported/composition.webp-29cd86f8051359fbf92f5060d6223009.ctex"
+uid="uid://p0ktdhmlyunc"
+path="res://.godot/imported/p07.webp-5b837ae7d6e45479f64ea879dea562c7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/silent-heart/composition.webp"
-dest_files=["res://.godot/imported/composition.webp-29cd86f8051359fbf92f5060d6223009.ctex"]
+source_file="res://assets/environments/lighthouse_floe/broken/p07.webp"
+dest_files=["res://.godot/imported/p07.webp-5b837ae7d6e45479f64ea879dea562c7.ctex"]
 
 [params]
 

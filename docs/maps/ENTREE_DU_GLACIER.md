@@ -84,3 +84,13 @@ xvfb-run -a godot --path . --audio-driver Dummy --resolution 1280x720 \
 ```
 
 Le nom et l’empreinte du modèle sont enregistrés. Le script réapplique la même correction depuis le master ; aucune collision ou donnée de gameplay n’est reconstruite.
+
+## En jeu (Claude, 4 novembre 2026)
+
+- Collisions : peinture du propriétaire (`collision/painted.webp`), masque `collision.png` via
+  `collision_mask.py overlay glacier_entry … --no-water` (la neige bleutée et la glace ne sont pas de l'eau), puis
+  `build`. Les bases des treize abris sont bloquées.
+- `data/arenas/glacier_entry.tres` : départ (-1800, 1240), zone 1 (-1756, 815), zone 2 (0, 401), barrières aux cols
+  (col 1 : x ≈ -800, 240 unités ; col 2 : x ≈ 850, 200 unités), finale (1680, -520), rayons (470, 660), six plaques
+  de glace. Gardien : Patriarche des cimes. Tests : `test_glacier_entry`.
+

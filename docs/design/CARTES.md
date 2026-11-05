@@ -92,8 +92,8 @@ temples en cristal-miroir cyan pâle. Aucune lave, aucun orange vif, aucune cend
 | 14. Puits des reflets (`reflection_wells`) | Défense d'autel (variante), format 1:1 | **Miroirs-portails** (B6) : paires de portails ; y entrer ramène au portail jumeau (recharge de quelques secondes, les Corrompus les empruntent aussi). Raccourci pour revenir défendre l'autel, ou piège pour séparer la horde |
 | 15. Cœur des marais (`marsh_heart`) | Vagues par zone + **Glauquemire**, Dévoreur du chapitre 3 (3 phases), format 2:3 vertical | Combinaison du chapitre : vase, marée haute pendant le combat, cristaux-miroirs dans l'arène |
 
-**Glace qui fait glisser** (brique B1 du chapitre 4, validée par le propriétaire le 3 novembre 2026, à coder avec la
-carte 16) : sur une plaque de glace, pour tout le monde (Chasseur, Échos, Corrompus) : élan (environ 0,6 s pour
+**Glace qui fait glisser** (brique B1 du chapitre 4, validée par le propriétaire le 3 novembre 2026, codée le
+4 novembre 2026 avec la carte 16 : `IceDirector`, `ArenaData.ice_patches`) : sur une plaque de glace, pour tout le monde (Chasseur, Échos, Corrompus) : élan (environ 0,6 s pour
 atteindre sa pleine vitesse ou changer de direction), vitesse maximale +15 %, glissade d'environ 1,5 s quand on lâche
 la direction, Ruée 40 % plus longue mais qui glisse à la fin ; les Corrompus qui foncent dépassent le Chasseur et les
 charges (Glissade du Loup, Piétinement du Mammouth) portent plus loin. Traînée de givre et son de glisse. Tactique :
@@ -102,7 +102,8 @@ attirer les chargeurs sur la glace, éviter d'y affronter un boss, la traverser 
 **Carte spéciale de nuit** (décision du propriétaire, 3 novembre 2026) : au moins une carte par chapitre reçoit la nuit
 (brique B2 : voile, clairières éclairées qui révèlent les ennemis) en plus de ses mécaniques : Bois des Lucioles
 (chapitre 1), Tanières de suie (chapitre 2, braises flottantes au lieu des lucioles), Mangrove des racines
-(chapitre 3) ; une carte du chapitre 4 à choisir. Les réglages de la carte ne changent pas : la nuit suffit à la rendre plus dure.
+(chapitre 3) ; Col des braseros (chapitre 4, carte 17, décision du 4 novembre 2026 : les braseros allumés éclairent
+en plus de réchauffer). Les réglages de la carte ne changent pas : la nuit suffit à la rendre plus dure.
 
 ### Chapitre 4 — piste : le Glacier silencieux
 
@@ -110,7 +111,7 @@ attirer les chargeurs sur la glace, éviter d'y affronter un boss, la traverser 
 |---|---|---|
 | 16 | Vagues par zone | B1 Glace qui fait glisser |
 | 17 | Fermeture de failles | B7 Chaleur des braseros |
-| 18 | Vagues par zone | B2 Blizzard |
+| 18 | Vagues par zone | B2 Blizzard (prompt Codex du 4 novembre : Lac gelé des tempêtes, abris du vent). Pour le distinguer de la nuit de la carte 17 : rafales où la vue se bouche puis se dégage, vent qui pousse un peu ; les abris du vent restent toujours dégagés |
 | 19 | Variante | B4 Banquise qui se fend |
 | 20 | Vagues + Dévoreur | B9 Écho des sorts + B1 |
 

@@ -9,6 +9,7 @@ extends RefCounted
 
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
+	&"avalanche": &"avalanche", &"deep_freeze": &"snuff",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -39,6 +40,8 @@ var _ready_at: Dictionary = {}
 var _scheduled: Array[Dictionary] = []
 var _fight_time: float = 0.0
 var _charge_time: float = 0.0
+## Avalanche du Patriarche : fiche de mécanique affichée une fois.
+var _avalanche_announced: bool = false
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
 var _effects: Array[Node2D] = []
@@ -57,6 +60,7 @@ var _marsh_guardians: MarshGuardians
 var _nivorath: NivorathMechanics
 var _spore: SporeGuardian
 var _portal_lady: PortalGuardian
+var _frost_elder: FrostElder
 var _mechanics: Array[BossMechanics] = []
 
 
@@ -286,6 +290,13 @@ func spore() -> SporeGuardian:
 	return _spore
 
 
+func frost_elder() -> FrostElder:
+	if _frost_elder == null:
+		_frost_elder = FrostElder.new()
+		_add_mechanics(_frost_elder)
+	return _frost_elder
+
+
 func portal_lady() -> PortalGuardian:
 	if _portal_lady == null:
 		_portal_lady = PortalGuardian.new()
@@ -427,6 +438,9 @@ func _pattern_charge(pattern: BossPatternData) -> void:
 	var dir: Vector2 = (ctx.player.global_position - boss.position).normalized()
 	var speed: float = float(pattern.params.get("speed", 620.0))
 	var duration: float = float(pattern.params.get("duration", 0.9))
+	# Glace (B1) : une charge lancée depuis la glace porte plus loin.
+	if ctx.ice and ctx.ice.on_ice(boss.position):
+		duration *= ctx.ice.dash_mult()
 	ctx.fx.danger_line(boss.position, boss.position + dir * speed * duration, boss.radius * 1.6, pattern.telegraph)
 	busy_time = pattern.telegraph + duration
 	schedule(pattern.telegraph, func() -> void:
@@ -624,6 +638,37 @@ func _pattern_portal_hop(pattern: BossPatternData) -> void:
 
 func _pattern_spell_capture(pattern: BossPatternData) -> void:
 	nivorath().spell_capture(pattern)
+
+
+## Avalanche (Patriarche des cimes, carte 16) : boules de neige en éventail, annoncées par des lignes ; elles
+## grossissent en roulant et éclatent contre le décor : un abri les arrête.
+func _pattern_avalanche(pattern: BossPatternData) -> void:
+	if not _avalanche_announced:
+		_avalanche_announced = true
+		ctx.events.event_started.emit("BOSS_AVALANCHE_INTRO")
+	var count: int = int(pattern.params.get("count", 3))
+	var spread: float = float(pattern.params.get("spread", 0.35))
+	var aim: Vector2 = (ctx.player.global_position - boss.position).normalized()
+	var dirs: Array[Vector2] = []
+	for i: int in count:
+		var t: float = 0.0 if count == 1 else float(i) / float(count - 1) - 0.5
+		dirs.append(aim.rotated(t * spread * 2.0))
+	for dir: Vector2 in dirs:
+		ctx.fx.danger_line(boss.position, boss.position + dir * 900.0, 50.0, pattern.telegraph)
+	busy_time = pattern.telegraph + 0.3
+	var damage: float = _damage(pattern)
+	schedule(pattern.telegraph, func() -> void:
+		for dir: Vector2 in dirs:
+			ctx.frost.snowballs.append({"pos": boss.position + dir * (boss.radius + 24.0), "dir": dir,
+				"speed": float(pattern.params.get("speed", 300.0)), "radius": float(pattern.params.get("radius", 24.0)),
+				"grow": float(pattern.params.get("grow", 26.0)), "max": float(pattern.params.get("max_radius", 80.0)),
+				"damage": damage, "until": ctx.time + float(pattern.params.get("life", 4.0)), "hit": false,
+				"source": data.id}))
+
+
+## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.
+func _pattern_deep_freeze(pattern: BossPatternData) -> void:
+	frost_elder().deep_freeze(pattern)
 
 
 func _pattern_ice_spikes(pattern: BossPatternData) -> void:

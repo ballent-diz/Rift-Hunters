@@ -75,9 +75,9 @@ extends Resource
 ## errants capturés en partie : les Échos se gagnent à la victoire).
 ## Le contenu reste en données ; retirer l'identifiant de la liste le remet en jeu.
 @export var disabled_features: Array[StringName] = [&"relics", &"chests", &"evolutions", &"team_seal", &"captures"]
-## Emplacements de sorts du Chasseur (décision du 24 octobre 2026) : carte à gagner pour ouvrir chaque emplacement,
-## &"" s'il est ouvert d'office. 3e à l'arrivée sur la carte 3, 4e à la fin du chapitre 1.
-@export var spell_slot_unlock_arenas: Array[StringName] = [&"", &"", &"storm_highlands", &"cascade_source"]
+## Emplacements de sorts du Chasseur (révisé le 4 novembre 2026) : carte à gagner pour ouvrir chaque emplacement,
+## &"" s'il est ouvert d'office. 3e après la carte 1, 4e après la carte 3.
+@export var spell_slot_unlock_arenas: Array[StringName] = [&"", &"", &"three_rifts", &"firefly_woods"]
 @export_group("Mini-boss (gardiens de palier)")
 ## Élite en version boss : dégâts de contact et de techniques, et recharge des techniques.
 @export var mini_boss_damage_mult: float = 1.5

@@ -1,0 +1,39 @@
+{
+  "date": "2026-11-05",
+  "tool": "image_gen.imagegen",
+  "stage": "detail_graphique_livre",
+  "composition_approved": true,
+  "owner_selection": "PREMIÈRE composition corrigée, épave longue est et crête ouest ; seconde proposition non retenue.",
+  "owner_selected_image_sha256": "c7f3770ef29de89251dc20f483caefb9f535e7c9375b72558dcd1c80b78005cb",
+  "authorized_adjustments": [
+    "Plaques <=600u, dont réduction de la plaque ouest médiane.",
+    "Plaque P05 à la sortie est de l’épave."
+  ],
+  "composition_sha256": "f95ec07ecdeecb2ee0d06c91f3b6f6109845103ed8f7225a734a6b338ae6aa9c",
+  "composition_size": [
+    1254,
+    1254
+  ],
+  "composition_prompts": [
+    "PROMPT_CORRECTION_COMPOSITION.txt",
+    "PROMPT_AJUSTEMENTS_VALIDES.txt",
+    "PROMPT_REDUCTION_SUD.txt"
+  ],
+  "retained_master_sha256": "326554258cbd65162dedae956aff06dc5422fe6b41cba37ef1333fb12018c3f5",
+  "native_size": [
+    3762,
+    3762
+  ],
+  "regions": 16,
+  "regions_provenance": "regions_provenance.json",
+  "broken_local_paintings": 14,
+  "broken_provenance": "broken_provenance.json",
+  "paired_recipe": "paired_recipe.json",
+  "quality_intact": "docs/previews/lighthouse-floe/qualite_intacte.json",
+  "quality_broken": "docs/previews/lighthouse-floe/qualite_brisee.json",
+  "intermediate_regions_saved_in_repository": false,
+  "detail_generated": true,
+  "broken_generated": true,
+  "runtime_integrated": false,
+  "collision_mask_created": false
+}
