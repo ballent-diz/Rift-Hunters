@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-05",
+  "tool": "image_gen.imagegen",
+  "stage": "composition_a_valider",
+  "original_composition_sha256": "4a1161fc9bfb9ea3ff682645484ccdb75cf9b6eaa9ea5be02b6b38d363c6f19d",
+  "retained_composition_sha256": "03e64dae2b9891f27abb682f85b4cebed8272fa289ba1da8ca9c2b54cdcf5d1d",
+  "size": [
+    1536,
+    1024
+  ],
+  "local_repairs": [
+    {
+      "id": "arch",
+      "crop_pixels": [
+        600,
+        430,
+        900,
+        730
+      ],
+      "target_pixels": [
+        628,
+        469,
+        802,
+        639
+      ],
+      "input_sheet_sha256": "d7e22c007ceefdd7b9a211b1ebbcb77d79a4323a97d4b5d671d9069a5294377d",
+      "generated_sheet_sha256": "01de8b92b64bb77edfb848562757b0c2e07d05c2d6d8925f85912d6773982416",
+      "prompt": "PROMPT_REPERES_ECHELLE.txt"
+    },
+    {
+      "id": "gate",
+      "crop_pixels": [
+        0,
+        724,
+        300,
+        1024
+      ],
+      "target_pixels": [
+        0,
+        813,
+        226,
+        1024
+      ],
+      "input_sheet_sha256": "d7e22c007ceefdd7b9a211b1ebbcb77d79a4323a97d4b5d671d9069a5294377d",
+      "generated_sheet_sha256": "01de8b92b64bb77edfb848562757b0c2e07d05c2d6d8925f85912d6773982416",
+      "prompt": "PROMPT_REPERES_ECHELLE.txt"
+    },
+    {
+      "id": "belfry",
+      "crop_pixels": [
+        1236,
+        0,
+        1536,
+        300
+      ],
+      "target_pixels": [
+        1385,
+        0,
+        1536,
+        280
+      ],
+      "input_sheet_sha256": "d7e22c007ceefdd7b9a211b1ebbcb77d79a4323a97d4b5d671d9069a5294377d",
+      "generated_sheet_sha256": "01de8b92b64bb77edfb848562757b0c2e07d05c2d6d8925f85912d6773982416",
+      "prompt": "PROMPT_REPERES_ECHELLE.txt"
+    },
+    {
+      "id": "facade",
+      "crop_pixels": [
+        240,
+        500,
+        540,
+        800
+      ],
+      "target_pixels": [
+        270,
+        512,
+        512,
+        724
+      ],
+      "input_sheet_sha256": "d7e22c007ceefdd7b9a211b1ebbcb77d79a4323a97d4b5d671d9069a5294377d",
+      "generated_sheet_sha256": "01de8b92b64bb77edfb848562757b0c2e07d05c2d6d8925f85912d6773982416",
+      "prompt": "PROMPT_REPERES_ECHELLE.txt"
+    }
+  ],
+  "local_patch_repairs": [
+    {
+      "id": "c01",
+      "crop_pixels": [
+        113,
+        650,
+        413,
+        950
+      ],
+      "input_sha256": "5124558a910fd2aa1a406e47adaa5b9ce44ba498a17ca021b75a4a29a03bd96a",
+      "generated_sha256": "39e50f017a05e6db5ab227e9a4a7dd8ceaed5019c13b70195727ba8e70165677",
+      "prompt": "PROMPT_NAPPES_ECHELLE.txt",
+      "method": "Réduction peinte puis réinsertion dans la seule ancienne emprise de contamination, sans masque statique."
+    },
+    {
+      "id": "c06",
+      "crop_pixels": [
+        913,
+        28,
+        1213,
+        328
+      ],
+      "input_sha256": "5124558a910fd2aa1a406e47adaa5b9ce44ba498a17ca021b75a4a29a03bd96a",
+      "generated_sha256": "39e50f017a05e6db5ab227e9a4a7dd8ceaed5019c13b70195727ba8e70165677",
+      "prompt": "PROMPT_NAPPES_ECHELLE.txt",
+      "method": "Réduction peinte puis réinsertion dans la seule ancienne emprise de contamination, sans masque statique."
+    }
+  ],
+  "style_reference_scope": "Ruines : finesse et échelle, sans reprendre leur plan, végétation, eau ou palette.",
+  "style_reference_sha256": "cfe0dd9f9d01505cf2c8d5397f54e73a985ec564acafe61bfcdb7edfb16ad6bd",
+  "layout_guide_sha256": "bcc5624c1d25967182f13cf2bf6152fea9bbc99d9c65b9de480706fcb337444d",
+  "owner_approved": false,
+  "identity_approved": false,
+  "detail_generated": false,
+  "intermediates_in_git": false,
+  "runtime_integrated": false
+}

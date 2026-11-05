@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-05",
+  "stage": "composition_a_valider",
+  "owner_approved": false,
+  "identity_approved": false,
+  "plan_locked": false,
+  "main_base": "209f92f731c3a6e5f47016b62ce97685a2e778cb",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        "."
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_shattered_outskirts.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map21/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "53a701a18216261e28e9c1ff7f20a5d4a9c475a59bb5ec136ff94d952dda7bf3"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "0d1d6045af18643d6b6638ad5050296028b9cee68cff06829a39cf79b4b4c075"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_shattered_outskirts.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    }
+  ],
+  "assets": {
+    "total": 451,
+    "valid": 449,
+    "placeholders": 2,
+    "errors": 0
+  },
+  "preexisting_placeholders": [
+    "object.training_dummy",
+    "object.crystal_mirror"
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "composition_size": [
+    1536,
+    1024
+  ],
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "chapter5_sprites_created": false,
+    "collision_mask_created": false,
+    "composition_sha256": "03e64dae2b9891f27abb682f85b4cebed8272fa289ba1da8ca9c2b54cdcf5d1d",
+    "native_sprites_unchanged": true,
+    "profile_read_only": true,
+    "review_sha256": "6a37959db17a91e5de74a4dd3eb899ec5b344e2420e1e15baee7916e7c5c75ad",
+    "runtime_integrated": false,
+    "scope": "composition_seule",
+    "viewport": [
+      1280,
+      720
+    ],
+    "witness_ids": [
+      "wandering_shard",
+      "glass_sentinel",
+      "quartz_golem",
+      "hush_shard",
+      "ice_knight",
+      "silence_herald"
+    ]
+  },
+  "captures": {
+    "arche_zoom_jeu.webp": "abe6e55ff2a4287c2317d81d88eea4e3c3a6569e816f5e115e6bafff7cfe81f4",
+    "beffroi_zoom_jeu.webp": "1b28af1d31bb2211fcaf35c90da8c5238bbfe2e7e301875c3e5f639843d5efde",
+    "depart_zoom_jeu.webp": "e4ff23ed83d58a154489d65e641766eefb53a0bb21f6981fc783c6dfb081c1c5",
+    "ensemble_720p.webp": "d9921b98c5b0eec503848494725c4ede9e08691beb1783cd5b1663f9e3e8bf95",
+    "escalier_zoom_jeu.webp": "4071a90ca39e49b402bdb9ec019724080c4d11d723baa215ad9a4d9bae5bf663",
+    "facade_zoom_jeu.webp": "50622c4ce273e94167e65b895eb2163b79eef1b67b804c820cbc718af0032157",
+    "lisibilite_corruption.webp": "1e436c2ea95e056f0d9ff054a6ec7c3798002bea7ef925f5ec5edfac2f47e82f",
+    "lisibilite_dalles.webp": "fda0350e52bae25c31db54e802d19a7038b98170f9fbe9910336124440b81a1a"
+  },
+  "corrupted_ground": {
+    "count": 6,
+    "diameters_world": {
+      "c01": 320.3,
+      "c02": 475.15,
+      "c03": 485.47,
+      "c04": 464.71,
+      "c05": 490.02,
+      "c06": 313.57
+    },
+    "walkable": true,
+    "start_outside_patches": true
+  },
+  "covers_by_zone": {
+    "z1": 3,
+    "z2": 3,
+    "finale": 4
+  },
+  "cover_centers_outside_patches": true,
+  "free_final_floor_world": [
+    1000,
+    1000
+  ],
+  "chapter5_sprites_created": false,
+  "detail_generated": false,
+  "quality_conforme": false,
+  "quality_scope": "Composition et identité à valider ; douze régions et rapport conforme après accord.",
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false
+}
