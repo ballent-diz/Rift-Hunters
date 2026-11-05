@@ -1,0 +1,29 @@
+{
+  "id": "map.silent_heart",
+  "map_number": 20,
+  "chapter": 4,
+  "title": "Le Cœur du Silence",
+  "world_size": [
+    5016,
+    3344
+  ],
+  "status": "wip",
+  "stage": "composition_a_valider",
+  "composition": "composition.png",
+  "composition_size": [
+    1536,
+    1024
+  ],
+  "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+  "review": "source/composition_review.json",
+  "owner_approved": false,
+  "plan_locked": false,
+  "detail_generated": false,
+  "regions_generated": false,
+  "quality_conforme": false,
+  "quality_scope": "Composition seule ; contrôle conforme à produire après validation et douze régions détaillées.",
+  "slippery_ice": 7,
+  "cover_rocks": 11,
+  "runtime_integrated": false,
+  "collision_mask_created": false
+}

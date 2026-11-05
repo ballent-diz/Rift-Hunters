@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-05",
+  "stage": "composition_a_valider",
+  "owner_approved": false,
+  "plan_locked": false,
+  "main_base": "60d42976e8c103068b21064a29af02367f53ddbc",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        "."
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_silent_heart.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map20/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "cbf23cc3cd1ca8a1cbb2485d26d9fae9f87feee55de8fc74219ba2e5dba26003"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "ce0481e56cf48c09c2e95efe10a016af91c8818af1a7dd5118a868d79da01e6c"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_silent_heart.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    }
+  ],
+  "assets": {
+    "total": 448,
+    "valid": 446,
+    "placeholders": 2,
+    "errors": 0,
+    "preexisting_placeholders": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ]
+  },
+  "asset_check_scope": "Manifeste et sprites inchangés ; dernière correction de marches limitée à la composition ignorée par Godot.",
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "collision_mask_created": false,
+    "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+    "native_sprites_unchanged": true,
+    "profile_read_only": true,
+    "review_sha256": "a783d391e346d5a9f57e1705a150fccb9e64730fd68ea5f5cbeb69996b888b65",
+    "runtime_integrated": false,
+    "scope": "composition_seule",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "captures": {
+    "abri_zoom_jeu.webp": "7f3390bc4822c2a5eb4495a3f0427a6a532a181687e6354daa53604990e7349b",
+    "cristal_zoom_jeu.webp": "9f97a62d2ff184342edb0653231f0259ab81b6610bcae147d1d99a0f28e96c8f",
+    "ensemble_720p.webp": "d076a4cdc7c2ea0fd1a377afb738dc334ab269ade8f5b6bec0d6450612310846",
+    "escalier_zoom_jeu.webp": "5cfeb051e0e87c6a4c3140abb2053792d8c791bec231e1727608b5d40980e14f",
+    "nivorath_glace.webp": "0c569fd1fb9114d8d3a6a7a5c1f768ddc93609299aa99277ed85fe9e59876ea7",
+    "nivorath_neige.webp": "49b4b8da379c490adf90dba9c2c34f6a41cf38e8c0073c9acd47a48b4565c37a",
+    "reference_ruines_zoom_jeu.webp": "6bcbc09c5cc01bef12452c0172ad25728e62781a36b295cf66489817fc46533f",
+    "silence_glace.webp": "b961ba2a690adfc36db2312e8b5b987ce7fd423cd948a8de40245a2188460ee4",
+    "silence_neige.webp": "31cf69a4b2f5a2c675c59b8a297cf716212a84441465b9d7d862358bff229c29",
+    "tunnel_zoom_jeu.webp": "b475accb427fb2a445eda7eff001d2bb3c8c1c449ffab47657616f4b7d6a51d8"
+  },
+  "world": [
+    5016,
+    3344
+  ],
+  "composition_size": [
+    1536,
+    1024
+  ],
+  "ice_patches": 7,
+  "ice_diameters_world": {
+    "i01": 547.8,
+    "i02": 585.4,
+    "i03": 553.0,
+    "i04": 464.8,
+    "i05": 413.0,
+    "i06": 519.9,
+    "i07": 460.7
+  },
+  "covers_by_zone": {
+    "z1": 3,
+    "z2": 3,
+    "cathedral": 5
+  },
+  "firm_combat_core_world": [
+    1250,
+    1400
+  ],
+  "detail_generated": false,
+  "quality_conforme": false,
+  "quality_scope": "Composition seule ; 12régions et conformité après validation.",
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "navigation_or_combat_tested": false
+}
