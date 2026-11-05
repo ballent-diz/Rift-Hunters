@@ -12,6 +12,22 @@ La proposition `codex/preparation-sprites-chapitre-4` est abandonnée et ne doit
 Les fiches et entrées prévues du chapitre 4, lues initialement dans la branche Claude,
 sont désormais intégrées dans `main` par la PR 89 ; ce lot conserve leurs identifiants et animations.
 
+## Carte 18, Lac gelé des tempêtes, en jeu (Claude, 5 novembre 2026)
+
+Décor de Codex (PR 102) et collisions peintes par le propriétaire. Troisième carte du chapitre 4. Fiche :
+`docs/maps/LAC_GELE_DES_TEMPETES.md`.
+
+- Vagues par zone du nord au sud-est autour du lac gelé (rive nord, rive est, anse), barrières à la passerelle, à la
+  brèche et à l'entrée de l'amphithéâtre en croissant (finale, cercle tracé par le jeu).
+- **Blizzard** (variante de B2, `ArenaData.blizzard`, `NightDirector`) : voile blanc léger au calme (cibles libres) ;
+  toutes les 16 s, une rafale s'annonce 2 s puis dure 5 s : voile épais, on ne vise que ce qu'on voit, le vent pousse
+  le Chasseur et les Corrompus dans une direction tirée au sort. Les sept refuges du vent restent dégagés et abrités.
+- **Gardien : Loup alpha des tempêtes** (`blizzard_alpha`, sprite du Loup de blizzard) : crocs, glissade, invocations
+  et mécanique phare **Chasse dans la tempête** (3 puis 4 charges annoncées, chacune d'un autre côté).
+- [ ] **Équilibrage à reprendre** : réglage de départ (ennemis ×1 / ×0,8, gardien ×1,8 / ×1) → 2 victoires sur 4 ;
+  les deux défaites viennent de l'élite **Yéti des cimes** (environ 150 dégâts par partie, Avalanche), déjà
+  meurtrière sur la carte 16 : revoir d'abord les dégâts de son Avalanche.
+
 ## Carte 17, Col des braseros, en jeu (Claude, 4 novembre 2026)
 
 Décor de Codex (PR 101) et collisions peintes par le propriétaire. Deuxième carte du chapitre 4, **carte de nuit**
