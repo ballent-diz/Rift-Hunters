@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-05",
+  "state": "intact",
+  "reference": "docs/previews/lighthouse-floe/reference_collisions.jpg",
+  "sha256": "3197a7efe6e1ef7338904dadb7aa1f8050b61be948de3a95910763803eef8055",
+  "bytes": 743772,
+  "size": [
+    1254,
+    1254
+  ],
+  "world": [
+    5016,
+    5016
+  ],
+  "world_units_per_pixel": 4,
+  "whole_map": true,
+  "crop": null,
+  "orientation": "Identique aux deux états, origine haut-gauche.",
+  "recipe": {
+    "input_tiles_left_to_right": [
+      {
+        "path": "assets/environments/lighthouse_floe/map.webp",
+        "sha256": "56844161ba3490728ef311db9bbc3a87f2338822610568c5d18f1e2638807735"
+      },
+      {
+        "path": "assets/environments/lighthouse_floe/map_1.webp",
+        "sha256": "fcb566df2188df69e350a6b7a78a367aa0bef06f0ea6b444b133f594081b7f0e"
+      },
+      {
+        "path": "assets/environments/lighthouse_floe/map_2.webp",
+        "sha256": "630fec6c5095358775e4f3444cc3ee88a9c63f980969939824a9bb8f0ca06cd6"
+      }
+    ],
+    "assembly_size": [
+      11286,
+      11286
+    ],
+    "resize": "Lanczos",
+    "format": "JPEG",
+    "quality": 85,
+    "subsampling": 0,
+    "optimize": true
+  },
+  "expected_return": {
+    "format": "PNG",
+    "size": [
+      1254,
+      1254
+    ],
+    "same_framing": true,
+    "resize_allowed": false,
+    "paint": "Obstacles bloquants en rouge translucide sur la référence intacte ; plaques B4 laissées praticables."
+  },
+  "static_collision_mask_created": false,
+  "runtime_closure": "Claude ferme temporairement les plaques B4 selon plan.json."
+}

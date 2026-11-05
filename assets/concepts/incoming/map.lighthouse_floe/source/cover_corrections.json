@@ -1,0 +1,206 @@
+{
+  "date": "2026-11-05",
+  "covers": [
+    {
+      "id": "a01",
+      "box_world": [
+        619.999608,
+        544.001168,
+        1219.999608,
+        1144.001168
+      ],
+      "target_width_world": 140,
+      "output_sha256": "717b0a1e525788a66cabd1ea0e301e00a4df9c276dc086558449ee3a341fc8aa",
+      "input_sha256": "a04912f2881b12f44c53eed8c11e172b1d18804f9731bea16d0739c42e8a9410",
+      "guide_sha256": "40f6c39a2e4ec97c86c1c7ccf69bd1549d2d8917123027b360e87c889fb24ec5",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a02",
+      "box_world": [
+        160.00231199999996,
+        1359.9990319999997,
+        760.002312,
+        1959.9990319999997
+      ],
+      "target_width_world": 140,
+      "output_sha256": "717b0a1e525788a66cabd1ea0e301e00a4df9c276dc086558449ee3a341fc8aa",
+      "input_sha256": "a04912f2881b12f44c53eed8c11e172b1d18804f9731bea16d0739c42e8a9410",
+      "guide_sha256": "40f6c39a2e4ec97c86c1c7ccf69bd1549d2d8917123027b360e87c889fb24ec5",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a03",
+      "method": "Témoin déjà au bon gabarit, pixels conservés."
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        3799.9981439999992,
+        503.998568,
+        4399.998143999999,
+        1103.998568
+      ],
+      "target_width_world": 140,
+      "output_sha256": "717b0a1e525788a66cabd1ea0e301e00a4df9c276dc086558449ee3a341fc8aa",
+      "input_sha256": "a04912f2881b12f44c53eed8c11e172b1d18804f9731bea16d0739c42e8a9410",
+      "guide_sha256": "40f6c39a2e4ec97c86c1c7ccf69bd1549d2d8917123027b360e87c889fb24ec5",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a05",
+      "box_world": [
+        4240.001664,
+        1124.0012479999998,
+        4840.001664,
+        1724.0012479999998
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a06",
+      "box_world": [
+        2644.000752,
+        1671.999248,
+        3244.000752,
+        2271.999248
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        3748.002288,
+        3911.9993839999997,
+        4348.002288,
+        4511.999384
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        4243.999416,
+        3307.997744,
+        4843.999416,
+        3907.997744
+      ],
+      "target_width_world": 140,
+      "output_sha256": "f0c618b2dc8269ba90c52d1ca6205650f9e66138283737383190eedfa9e84c51",
+      "input_sha256": "8898311371bda313c9f6f505c532aa2874519da8f8affa7723dbbe9ecff1d52d",
+      "guide_sha256": "24481d61a34be879a161d154ab9cc4a67eec818b5917e70744de2857afc0a33c",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a09",
+      "box_world": [
+        2644.000752,
+        2580.000584,
+        3244.000752,
+        3180.000584
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        484.0008,
+        4068.0019999999995,
+        1084.0008,
+        4668.0019999999995
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a11",
+      "box_world": [
+        219.9986879999999,
+        3132.0013519999998,
+        819.9986879999999,
+        3732.0013519999998
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    },
+    {
+      "id": "a12",
+      "box_world": [
+        1752.0004559999998,
+        2596.001624,
+        2352.0004559999998,
+        3196.001624
+      ],
+      "target_width_world": 140,
+      "output_sha256": "6b6fc56f45f0d7d08e1b1d8354a4a33d570a994b143f6a31f45e768dc656fbd4",
+      "input_sha256": "e9b1e2a3df7911f6c53a0866408ee22bd2d3ea014877660da8ba1d8e04e9f044",
+      "guide_sha256": "807d7cd4d0a3c19af3ed1eb67213e995aabf122136294d7966a619cdd0ea781a",
+      "prompts": [
+        "PROMPT_ABRIS_GABARITS.txt",
+        "PROMPT_ABRIS_REMPLACEMENT.txt"
+      ],
+      "method": "Remplacement peint du bloc provisoire ; réinsertion de la case locale avec fondu de bord, phare protégé."
+    }
+  ],
+  "lighthouse_unchanged_during_corrections": true,
+  "intermediates": "Planches et retouches conservées hors dépôt ; seul le master assemblé est retenu."
+}

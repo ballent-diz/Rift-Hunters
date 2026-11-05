@@ -1,0 +1,12 @@
+{
+  "composition_sha256": "f95ec07ecdeecb2ee0d06c91f3b6f6109845103ed8f7225a734a6b338ae6aa9c",
+  "delta_sha256": "261c89e3d1099c7db0a91a491dd7fc68b662d98ec244f4151d9a62f20188476d",
+  "reference_sha256": "fb4c780dca1b34936c8335e95fda518d7269d4c21b5b68126865f55f330bbd2d",
+  "size": [
+    1254,
+    1254
+  ],
+  "method": "Composition approuvée inchangée hors plaques ; projection des seules ouvertures B4 dans leurs polygones.",
+  "outside_plates_identical": true,
+  "quality_thresholds_unchanged": true
+}
