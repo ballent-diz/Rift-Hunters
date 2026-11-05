@@ -1,0 +1,141 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=16 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/zone_wave_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/level_zone_data.gd" id="5"]
+
+[sub_resource type="Resource" id="wave_phase_data_1"]
+script = ExtResource("2")
+start_time = 0.0
+end_time = 9999.0
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"snow_wraith", &"ice_golem"])
+weights = Array[float]([3.0, 1.4, 1.0, 0.8])
+spawn_rate = 2.4
+max_alive = 100
+
+[sub_resource type="Resource" id="zone_wave_1"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"snow_wraith"])
+weights = Array[float]([3.0, 1.2])
+count = 32
+elites = Array[StringName]([])
+spawn_rate = 1.7
+max_alive = 34
+
+[sub_resource type="Resource" id="zone_wave_2"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"snow_wraith"])
+weights = Array[float]([3.0, 1.4, 1.0])
+count = 42
+elites = Array[StringName]([])
+spawn_rate = 2.0
+max_alive = 42
+
+[sub_resource type="Resource" id="zone_wave_3"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"ice_golem"])
+weights = Array[float]([3.0, 1.4, 0.8])
+count = 48
+elites = Array[StringName]([&"rime_archer"])
+spawn_rate = 2.3
+max_alive = 48
+
+[sub_resource type="Resource" id="zone_wave_4"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"snow_wraith", &"ice_golem"])
+weights = Array[float]([3.0, 1.5, 1.0, 0.8])
+count = 52
+elites = Array[StringName]([])
+spawn_rate = 2.5
+max_alive = 52
+
+[sub_resource type="Resource" id="zone_wave_5"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"ice_golem"])
+weights = Array[float]([3.0, 1.6, 0.9])
+count = 58
+elites = Array[StringName]([&"frost_shaman"])
+spawn_rate = 2.8
+max_alive = 58
+
+[sub_resource type="Resource" id="zone_wave_6"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"snow_wraith", &"ice_golem"])
+weights = Array[float]([3.0, 1.6, 1.0, 1.0])
+count = 60
+elites = Array[StringName]([])
+spawn_rate = 3.0
+max_alive = 62
+
+[sub_resource type="Resource" id="zone_wave_7"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"snow_wraith", &"ice_golem"])
+weights = Array[float]([3.0, 1.7, 1.1, 1.1])
+count = 66
+elites = Array[StringName]([&"peak_yeti"])
+spawn_rate = 3.2
+max_alive = 70
+
+[sub_resource type="Resource" id="level_zone_1"]
+script = ExtResource("5")
+name_key = "ZONE_STORM_LAKE_1_NAME"
+anchor = Vector2(-67, -1856)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2")])
+exit_walls = Array[Rect2]([Rect2(740, -1320, 330, 60)])
+heal_ratio = 0.2
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_2"]
+script = ExtResource("5")
+name_key = "ZONE_STORM_LAKE_2_NAME"
+anchor = Vector2(776, -391)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_3"), SubResource("zone_wave_4"), SubResource("zone_wave_5")])
+exit_walls = Array[Rect2]([Rect2(710, 380, 350, 60)])
+heal_ratio = 0.2
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_3"]
+script = ExtResource("5")
+name_key = "ZONE_STORM_LAKE_3_NAME"
+anchor = Vector2(970, 1144)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_6"), SubResource("zone_wave_7")])
+exit_walls = Array[Rect2]([Rect2(270, 1130, 60, 620)])
+heal_ratio = 0.2
+reward_chest = true
+
+[resource]
+script = ExtResource("1")
+id = &"storm_lake"
+name_key = "ARENA_STORM_LAKE_NAME"
+desc_key = "ARENA_STORM_LAKE_DESC"
+size = Vector2(3344, 5016)
+navigation_cell_size = 48.0
+boss_time = 420.0
+boss_id = &"blizzard_alpha"
+finale_center = Vector2(-702, 1756)
+finale_radii = Vector2(520, 460)
+finale_travel_key = "FINALE_TRAVEL_STORM_AMPHI"
+elite_first_time = 90.0
+elite_interval = 60.0
+elite_enemy_ids = Array[StringName]([&"rime_archer", &"frost_shaman", &"peak_yeti"])
+environment_id = &"environment.storm_lake"
+ground_color = Color(0.62, 0.7, 0.82, 1.0)
+ground_detail_color = Color(0.72, 0.8, 0.9, 1.0)
+unlocked_by_default = false
+xp_mult = 1.5
+progression = &"milestones"
+enemy_hp_mult = 1.0
+enemy_damage_mult = 0.8
+boss_hp_mult = 1.8
+boss_damage_mult = 1.0
+zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3")])
+waves = [SubResource("wave_phase_data_1")]
+night = 0.82
+light_radius = 280.0
+echo_light_radius = 120.0
+firefly_glades = Array[Vector2]([Vector2(-1012, -1819), Vector2(784, -1839), Vector2(1203, -818), Vector2(1025, -11), Vector2(1232, 911), Vector2(-1071, 1160), Vector2(323, 1917)])
+firefly_radius = 140.0
+night_intro_key = "BLIZZARD_INTRO"
+blizzard = true
+blizzard_calm = 0.3

@@ -2059,3 +2059,18 @@ BOSS_DEEP_FREEZE_INTRO,"Grand gel : le Chaman souffle les braseros sauf un, qui 
 JOURNAL_DEEP_FREEZE,Grand gel,Deep Freeze
 BLIZZARD_INTRO,"Blizzard ! Quand le voile s'épaissit, une rafale arrive : on ne voit plus que les ennemis proches et le vent pousse tout le monde. Les refuges du vent restent dégagés.","Blizzard! When the veil thickens, a gust is coming: you only see nearby enemies and the wind pushes everyone. Wind shelters stay clear."
 JOURNAL_BLIZZARD,Blizzard,Blizzard
+ARENA_STORM_LAKE_NAME,Le Lac gelé des tempêtes,The Storm-Frozen Lake
+ARENA_STORM_LAKE_DESC,"Faites le tour du lac gelé dans le blizzard, de refuge du vent en refuge du vent, jusqu'à l'amphithéâtre où rôde le Loup alpha des tempêtes.","Circle the frozen lake through the blizzard, from wind shelter to wind shelter, to the amphitheatre where the Storm Alpha prowls."
+ZONE_STORM_LAKE_1_NAME,La Rive nord,The North Shore
+ZONE_STORM_LAKE_2_NAME,La Rive est,The East Shore
+ZONE_STORM_LAKE_3_NAME,L'Anse du sud-est,The Southeast Cove
+FINALE_TRAVEL_STORM_AMPHI,L'anse est nettoyée : longez la berge vers l'ouest jusqu'à l'amphithéâtre de glace. Le Loup alpha des tempêtes vous y attend.,The cove is clear: follow the shore west to the ice amphitheatre. The Storm Alpha awaits you there.
+BOSS_BLIZZARD_ALPHA_NAME,Loup alpha des tempêtes,Storm Alpha
+BOSS_BLIZZARD_ALPHA_TITLE,Gardien du Lac gelé,Guardian of the Frozen Lake
+BOSS_BLIZZARD_ALPHA_PHASE1,Meute du blizzard,Blizzard Pack
+BOSS_BLIZZARD_ALPHA_PHASE2,Hurlement des tempêtes,Howl of the Storms
+BOSS_PATTERN_FROST_FANGS,Crocs de givre,Frost Fangs
+BOSS_PATTERN_WOLF_GLIDE,Glissade de l'alpha,Alpha Glide
+BOSS_PATTERN_STORM_HUNT,Chasse dans la tempête,Storm Hunt
+BOSS_STORM_HUNT_INTRO,"Chasse dans la tempête : le Loup disparaît dans la neige et charge plusieurs fois, chaque fois d'un autre côté. Écartez-vous de chaque ligne annoncée ; entre deux charges, il est à découvert.","Storm Hunt: the Wolf vanishes into the snow and charges several times, each time from another side. Step off each marked line; between charges, he is exposed."
+JOURNAL_STORM_HUNT,Chasse dans la tempête,Storm Hunt
