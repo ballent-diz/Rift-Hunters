@@ -7,23 +7,36 @@
     5016,
     3344
   ],
-  "status": "wip",
-  "stage": "composition_a_valider",
+  "status": "final",
+  "stage": "detail_graphique_livre",
   "composition": "composition.png",
   "composition_size": [
     1536,
     1024
   ],
   "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
-  "review": "source/composition_review.json",
-  "owner_approved": false,
-  "plan_locked": false,
-  "detail_generated": false,
-  "regions_generated": false,
-  "quality_conforme": false,
-  "quality_scope": "Composition seule ; contrôle conforme à produire après validation et douze régions détaillées.",
+  "review": "plan.json",
+  "owner_approved": true,
+  "plan_locked": true,
+  "detail_generated": true,
+  "regions_generated": 12,
+  "quality_conforme": true,
+  "quality_scope": "35secteurs, seuils inchangés de check_map_quality ; voir docs/previews/silent-heart/qualite.json.",
   "slippery_ice": 7,
   "cover_rocks": 11,
   "runtime_integrated": false,
-  "collision_mask_created": false
+  "collision_mask_created": false,
+  "owner_approval_date": "2026-11-05",
+  "plan": "plan.json",
+  "native_size": [
+    3762,
+    2508
+  ],
+  "game_size": [
+    11286,
+    7524
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "collision_reference": "source/collision_reference.json"
 }

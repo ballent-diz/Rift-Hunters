@@ -1,93 +1,101 @@
-# Carte20 — Le Cœur du Silence
+# Carte 20 — Le Cœur du Silence
 
-**Composition à valider par le propriétaire — 5 novembre2026.** Identifiant proposé : `silent_heart`.
-Chapitre4, Glacier silencieux, fin de chapitre : deux zones de vagues puis Nivorath.
-Branche `codex/carte-20-coeur-silence`, créée depuis `60d4297`, puis fusion de main `320ab58`.
+**Détail graphique livré — 5 novembre 2026.** `silent_heart`, fin du chapitre 4, Glacier silencieux.
+Composition validée par le propriétaire : trois salles d’est en ouest, arche puis escalier de cascade,
+cathédrale à l’ouest, sept plaques périphériques. Les cinq corrections autorisées sont appliquées.
 
-![Composition entière](../previews/silent-heart/composition.webp)
+![Carte détaillée entière](../previews/silent-heart/detail.webp)
 
-## Parcours proposé
+## Plan conservé et corrections
 
-Monde **5016 ×3344 unités**, cadrage **3:2**, composition **1536 ×1024 pixels**.
-Parcours **de droite à gauche**, à l’intérieur du glacier. Des murs de glace profonde, des voûtes
-et des piliers naturels en bordure encadrent trois salles inégales ; la lumière froide filtre du plafond.
-La seule crevasse ouverte sur le ciel éclaire la place de départ à l’est. Les limites restent fermées par
-la glace : cette ouverture de plafond n’est pas une sortie de carte.
+Monde **5016 × 3344 unités**, cadrage **3:2** et parcours **de droite à gauche**, à l’intérieur du glacier.
+Le [plan.json](../../assets/concepts/incoming/map.silent_heart/plan.json) est approuvé et verrouillé.
+Les repères sont en pourcentages depuis le coin haut-gauche de l’image entière ; ils ne constituent
+pas des collisions. Les limites de matière B1 sont relevées sur le master détaillé, en conservant
+les contours de composition et les positions approuvées pour comparaison.
 
-![Plan, passages, plaques et abris](../previews/silent-heart/plan_annote.webp)
+![Plan sur le détail](../previews/silent-heart/plan_annote.webp)
 
-Coordonnées en pourcentages depuis le coin haut-gauche de l’image entière.
-Les repères et emprises proposés sont dans
-[`source/composition_review.json`](../../assets/concepts/incoming/map.silent_heart/source/composition_review.json).
-Ils servent à cette revue, pas aux collisions. **Le `plan.json` verrouillé sera établi après validation.**
-
-| Repère | Emplacement et rôle |
+| Repère | Emplacement et résultat |
 | --- | --- |
-| Départ | 92 % ;24 %, grande place de la galerie est sous la crevasse |
-| Z1, Galerie des stalactites | Salle longue à l’est, centre vers85 % ;53 %, deux plaques B1 et trois abris |
-| Tunnel Z1 → Z2 | Vers73 % ;57 %, court passage de glace au sol apparent, cible267u de largeur |
-| Z2, Salle des échos | Salle arrondie irrégulière centrale, vers60 % ;59 %, deux plaques périphériques et trois abris |
-| Escalier Z2 → cathédrale | Vers44 % ;58 %, traverse d’est en ouest au pied de la cascade gelée, cible334u de largeur |
-| Cathédrale gelée | Grande nef ovale allongée nord-sud à l’ouest, trois plaques périphériques et cinq abris |
-| Cœur de combat ferme | Centre22,5 % ;55 %, ellipse de repérage1250 ×1400u, sans dessin d’ellipse sur le décor |
-| Décor du fond | Cœur de cristal brisé vers18 % ;15 %, contre le fond de la nef |
+| Départ | **92 % ; 24 %**, dans la salle est sous la crevasse lumineuse haut-droite ; aucun autre passage est ajouté |
+| Z1, Galerie des stalactites | Salle allongée à l’est, stalactites aux murs, rangée de piliers fins sur son côté ouest, deux plaques B1 et trois abris |
+| Arche est → milieu | Vers 73 % ; 57 %, sol apparent clair et continu, cible 267 unités de largeur |
+| Z2, Salle des échos | Salle ronde irrégulière centrale, trois blocs de voûte tombés et deux plaques périphériques |
+| Escalier de la cascade | Vers 44 % ; 58 %, marches d’est en ouest, cible 12–16 unités de profondeur, sol soutenu et clair |
+| Cathédrale gelée | Grande nef ovale séparée à l’ouest, piliers naturels le long des côtés, cinq abris et trois plaques en bordure |
+| Cœur de neige ferme | Centre 22,5 % ; 55 %, emprise libre cible **1250 × 1400 unités** ; l’ellipse du plan est un repère uniquement |
+| Cristal brisé | **Fond OUEST, vers 7,5 % ; 58 %**, face à l’entrée ; ancien cristal du coin nord retiré |
 
-La cathédrale est séparée de Z2 par l’escalier et ses murs latéraux. Chaque liaison est suffisamment
-courte et nette pour une barrière de jeu. Aucun effet de barrière n’est peint. Les flèches et l’ellipse
-sur le plan annoté sont des repères de revue, jamais des éléments du sol.
+Les ouvertures sombres sous les deux ouvrages se lisent comme des **gouffres infranchissables** : lèvres
+cassées, parois verticales et vide profond. Les tabliers et leurs deux raccordements restent praticables.
+Les masses de glacier ferment le bord de carte ; la fissure de plafond du départ n’est pas une sortie.
+Les obstacles et sept plaques gardent les emplacements de la composition, sans nouveau trajet.
 
-## Glace et abris
+## Détail, glace et abris
 
-**Sept plaques de glace lisse B1**, I01–I07, environ **413 à586u** de diamètre maximal relevé sur leurs
-contours : deux dans Z1, deux dans Z2 et trois dans la cathédrale. Elles sont cyan clair, affleurantes,
-polies, toujours praticables et contournables par le sol ferme. Aucune ne recouvre le tunnel ou l’escalier.
-Il ne s’agit pas de plaques de banquise B4 : aucune seconde image d’eau ouverte n’est demandée ici.
+Les **douze régions** sont redessinées, chacune sur un carré de 1574 unités avec marges.
+Chaque sortie carrée de 1254 pixels fournit environ **0,797 pixel de vrai dessin par unité** ; les
+parties utiles sont assemblées à **0,75 pixel/unité** par raccords de faible différence, puis calibrées.
+Le master natif sans perte mesure **3762 × 2508 pixels**. La présentation est à **2,25 pixels/unité**,
+soit **11286 × 7524 pixels**, en trois tuiles de 3762 × 7524. Les essais restent hors dépôt.
 
-**Onze abris pleins**, A01–A11 : trois dans chaque zone et cinq dans la cathédrale, hors plaques.
-Piliers brisés, glace tombée et rochers dressés, ombres portées et faces haut-gauche éclairées.
-Le gabarit **110–160u**, cible140u, sera fixé dans le détail des régions, en conservant les emplacements
-approuvés. Les grands piliers de voûte restent dans les murs et ne remplacent pas ces abris de combat.
+Les sept plaques B1 mesurent environ **416 à 604 unités** de diamètre relevé. Elles sont lisses, cyan, affleurantes, **toujours praticables et contournables**.
+Aucune ne coupe un passage obligé. Elles ne deviennent pas des trous : aucun second état B4 peint.
+Les onze abris ont été repris localement au gabarit cible de **140 unités**, dans la plage 110–160 :
+trois dans la galerie, trois dans la salle des échos, cinq dans la cathédrale. Leurs pieds sont recalés
+sur les blocs détaillés, sans déplacement dans les salles ; repères de composition conservés.
+Le cristal ouest et l’escalier ont été protégés pendant cette correction locale. Les trois amas de dalles sont finalement des blocs compacts de125 unités, toutes leurs parties connexes incluses (`source/cover_final_corrections.json`).
 
-Le centre de la cathédrale reste ferme et dégagé. Les deux zones ont chacune une large aire de manœuvre.
-La continuité navigable et l’étanchéité des barrières seront contrôlées par Claude lors de l’intégration,
-avec les collisions peintes du propriétaire ; aucun essai de déplacement ou de combat n’est revendiqué ici.
+![Abris à 1 pixel par unité, repère de largeur 140 unités](../previews/silent-heart/abris_echelle.webp)
 
-## Lisibilité et échelle
+**Verdict conforme : 35 secteurs sur 35**, détails fins386,238, moyens98,877, part lisse0,123, fidélité0,964. La finesse, la densité et la fidélité sont contrôlées avec les seuils inchangés du dépôt :
+[rapport qualité](../previews/silent-heart/qualite.json),
+[comparaison d’échelle avec les Ruines](../previews/silent-heart/comparaison_echelle.webp).
+La présentation part du vrai détail peint ; la correction locale des cases douces est documentée
+dans `source/detail_recipe.json` et `source/sharpness_repair.json`. Six retouches locales de parois extérieures ont ensuite rendu les sept secteurs de bordure conformes ; les pixels natifs intérieurs sont conservés (`source/border_corrections.json`).
 
-Palette bleu-gris du chapitre, neige légèrement bleutée, glace profonde translucide et reflets violets
-dans les murs ; aucun orange. Lumière haut-gauche et liseré violet discret bas-droite.
-Nivorath et les sept Échos du silence utilisent leurs feuilles existantes, ancres et échelles inchangées.
-Ils sont ajoutés uniquement dans le banc de revue, jamais peints dans la carte.
+## Captures au zoom du jeu
 
+Le banc [preview_silent_heart.tscn](../../tools/art/preview_silent_heart.tscn) utilise les feuilles
+existantes, leurs ancres et échelles inchangées, à 1280 × 720 et au zoom de `GameDB.balance`.
+Chasseur environ 52 unités, marches 12–16, petits pavés 26 au plus, piliers fins 30–45 ; les grands
+piliers naturels de la cathédrale restent aux murs. Palette bleu-gris, glace translucide et reflets
+violets dans les parois, lumière haut-gauche et liseré violet bas-droite, sans orange.
+
+- [Départ sous la crevasse](../previews/silent-heart/depart_zoom_jeu.webp)
+- [Escalier avec Chasseur et Écho](../previews/silent-heart/escalier_zoom_jeu.webp)
+- [Arche et gouffre](../previews/silent-heart/tunnel_zoom_jeu.webp), [cristal au fond ouest](../previews/silent-heart/cristal_zoom_jeu.webp), [abri](../previews/silent-heart/abri_zoom_jeu.webp)
+- [Sept Échos du silence sur neige](../previews/silent-heart/silence_neige.webp) et [sur glace](../previews/silent-heart/silence_glace.webp)
 - [Nivorath sur neige](../previews/silent-heart/nivorath_neige.webp) et [sur glace](../previews/silent-heart/nivorath_glace.webp)
-- [Sept Échos sur neige](../previews/silent-heart/silence_neige.webp) et [sur glace](../previews/silent-heart/silence_glace.webp)
-- [Chasseur et Écho sur l’escalier](../previews/silent-heart/escalier_zoom_jeu.webp)
-- [Tunnel](../previews/silent-heart/tunnel_zoom_jeu.webp), [abri](../previews/silent-heart/abri_zoom_jeu.webp), [cristal du fond](../previews/silent-heart/cristal_zoom_jeu.webp)
 - [Ruines au même zoom](../previews/silent-heart/reference_ruines_zoom_jeu.webp)
 
-Captures1280 ×720 au zoom réel `GameDB.balance.camera_zoom` (1,3333). Les silhouettes des sprites restent
-distinctes sur les deux matériaux. L’escalier a été repris localement pour orienter les marches selon
-le trajet est-ouest, puis resserré vers la cible12–16u par marche. Les détails d’architecture seront
-calibrés pendant les régions : pavé26u au plus, colonne construite30–45, porte75–90, Chasseur environ52.
-Les piliers naturels de la cathédrale peuvent être plus larges.
+Nivorath et les Échos sont ajoutés uniquement dans ce banc, jamais peints dans la carte. Le profil est
+en lecture seule ; aucune partie n’est lancée. Reçu des commandes, résultats et empreintes :
+[controle_detail.json](../previews/silent-heart/controle_detail.json).
+Aucun test de navigation, d’étanchéité des barrières ou de combat n’est revendiqué par ces captures.
 
-Ces vues examinent la **composition agrandie**, dont le terrain reste provisoire au zoom réel.
-Elles ne constituent pas un détail graphique final ni un rapport de qualité conforme.
-Le banc [preview_silent_heart.tscn](../../tools/art/preview_silent_heart.tscn) ne lance pas de partie,
-avec `Profile.read_only = true`. Import Godot, captures, assets (450 entrées,448 valides, deux placeholders préexistants, zéro erreur) et lint ciblé réussis sur main actualisé. Reçu : [controle_composition.json](../previews/silent-heart/controle_composition.json).
+## Collisions et raccordement
 
-## Suite après validation
+**[Image entière légère à peindre : JPEG 1254 × 836](../previews/silent-heart/reference_collisions.jpg)**,
+sans annotation ni recadrage, 4 unités par pixel. Recette, dimensions, poids et SHA-256 dans
+[`source/collision_reference.json`](../../assets/concepts/incoming/map.silent_heart/source/collision_reference.json).
+Retour attendu : **PNG 1254 × 836 au même cadrage**, sans redimensionnement, obstacles bloquants
+peints en rouge translucide. **Laisser les sept plaques B1 et les tabliers praticables** ; fermer les
+gouffres sombres sous les ouvrages. Aucun masque statique dessiné par Codex.
 
-1. Figer `plan.json` : départ, zones, deux liaisons, centre et emprise de la nef, sept plaques, onze abris.
-2. Valider un secteur témoin au zoom réel, puis peindre les **douze régions** prévues pour5016 ×3344u.
-3. Assembler, vérifier les raccords et l’échelle face aux Ruines, obtenir le verdict **conforme** de
-   `check_map_quality.py` avec les seuils de [QUALITE_DES_CARTES.md](QUALITE_DES_CARTES.md).
-4. Fournir l’image entière légère de référence pour la peinture des collisions, recette et SHA-256 dans
-   `source/collision_reference.json` ; retour PNG au même cadrage. Aucun masque peint par Codex.
+Fichiers utilisables : `assets/environments/silent_heart/map.webp`, `map_1.webp`, `map_2.webp`,
+à placer de gauche à droite sur 1672 unités chacune, échelle graphique `1/2,25`.
+Source native retenue : `assets/concepts/incoming/map.silent_heart/source/map_detailed.webp`.
+`source/regions_provenance.json`, `cover_corrections.json`, `detail_recipe.json` et `SHA256.json`
+conservent les recettes et empreintes. Reconstruction depuis le master, avec le modèle de correction
+locale documenté dans la recette :
 
-La référence de peinture sera produite après le détail, pour conserver les obstacles définitifs.
-Les plaques B1 resteront praticables. Le jeu gère le glissement, les cercles de silence, l’Écho des sorts,
-Nivorath et ses trois phases, l’éclatement de banquise et la plongée : aucun de ces effets n’est peint.
+```bash
+python tools/art/build_silent_heart.py --present --model /chemin/realesr_general_x4v3_0.2.onnx --work /tmp/silent-heart-export
+```
 
-**Aucun changement de `src/`, `data/`, du manifeste ni des cartes14 à19.**
-Claude intégrera collisions, zones, B1, Nivorath et campagne. Seule la composition est soumise ici.
+Le propriétaire peint les collisions. Claude intègre zones, barrières, glissement B1, Nivorath,
+Écho des sorts, cercles de silence, éclatement et plongée de phase 3, puis campagne.
+L’intégration et les essais en jeu restent à faire ; aucun de ces effets n’est peint dans le décor.
+**Aucun changement de `src/`, `data/`, du manifeste ni des cartes 14 à 19.**

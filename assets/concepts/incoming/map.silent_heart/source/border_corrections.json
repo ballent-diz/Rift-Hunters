@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-05",
+  "scope": "Finesse des parois extérieures basses et droites ; tous pixels natifs hors retouche conservés. Aucun masque statique de collisions.",
+  "native_interior_equal": true,
+  "local_paintings": [
+    {
+      "id": "bottom0",
+      "world_crop": [
+        0,
+        2144,
+        1200,
+        3344
+      ],
+      "input_sha256": "4a0d289a7b9620b0a241e0514ea4c0208aad0801fb81da55fa749b7f010d5dcf",
+      "generated_sha256": "f2163fd510faf4c22f9e31a62180337b65d1306a95b97fc17a7248261cddd447",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.04370880126953125,
+          436.0628128051758,
+          104.09116744995117
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom1",
+      "world_crop": [
+        954,
+        2144,
+        2154,
+        3344
+      ],
+      "input_sha256": "a33c04e33d3397a2a8b129ccc2dc7a00ead0c9225df759e41e5f3195a2848f68",
+      "generated_sha256": "e29d4653d1e416d393f31e76052f91738011dc00afd408ffaa6a3aae84d1d399",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.04587554931640625,
+          417.9096221923828,
+          101.96685791015625
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom2",
+      "world_crop": [
+        1908,
+        2144,
+        3108,
+        3344
+      ],
+      "input_sha256": "0bd7f7559287875f5dedb19d60254e31f1761621f7cc38484179b8f2749531a7",
+      "generated_sha256": "b36e4c8ef8438aba5c156a2c92977e8059d0b838c81141a86e91ed82ee034f03",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.07441329956054688,
+          427.3724555969238,
+          103.51181030273438
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom3",
+      "world_crop": [
+        2862,
+        2144,
+        4062,
+        3344
+      ],
+      "input_sha256": "398dcbf004acc35075310878a447395357be3c526b149982e7d68e72dc597b76",
+      "generated_sha256": "7339c6039c06155b6d02348a1fdfdeb45b05efc49c3c2a894123e78cb855ed75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.08862686157226562,
+          427.17933654785156,
+          103.31869125366211
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom4",
+      "world_crop": [
+        3816,
+        2144,
+        5016,
+        3344
+      ],
+      "input_sha256": "4d5583aa0961ed9832c1297d3e4f1ddd23dd60ad4508a783a5ee3a640efae786",
+      "generated_sha256": "437f9c7949171974569ef63afb81e69b8701e54043c0a8e6571a2d26c71579c7",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.06424713134765625,
+          428.91740798950195,
+          104.28428649902344
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "right",
+      "world_crop": [
+        3816,
+        650,
+        5016,
+        1850
+      ],
+      "input_sha256": "fb646eca2a79f8e792889d3fb5ef0da4b5493efc469d7af0a46a8538681f70d3",
+      "generated_sha256": "10534ae47260ebab0725382f96a18bbd1636df1e0490c1443135b278ade47348",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.07630538940429688,
+          371.3679313659668,
+          104.09116744995117
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    }
+  ],
+  "alpha_technical_sha256": "1152a2b2523163de3a855fae460f9040e3e2d9fc0ad6aa626fec556d696a1d1c",
+  "intermediates": "Hors dépôt"
+}

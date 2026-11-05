@@ -1,0 +1,573 @@
+{
+  "world": [
+    5016,
+    3344
+  ],
+  "native_size": [
+    3762,
+    2508
+  ],
+  "game_size": [
+    11286,
+    7524
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "retained_master_sha256": "6808ca7c284241b9e220e19d75d743916d322cd39c0f2e9542894fd8679c0084",
+  "presentation": "Présentation initiale avec correction locale des cases douces ; seules les retouches peintes sont réinsérées ensuite.",
+  "initial_presentation": {
+    "world": [
+      5016,
+      3344
+    ],
+    "native_size": [
+      3762,
+      2508
+    ],
+    "game_size": [
+      11286,
+      7524
+    ],
+    "native_density": 0.75,
+    "presentation_density": 2.25,
+    "retained_master_sha256": "da728cac12053d0f329cc7e6c5aa8461a7ce54f03a1c8558f051cf594ac8503b",
+    "presentation": "Présentation initiale avec correction locale des cases douces ; seules les parois de bordure repeintes sont réinsérées après celle-ci.",
+    "initial_presentation": {
+      "world": [
+        5016,
+        3344
+      ],
+      "native_size": [
+        3762,
+        2508
+      ],
+      "game_size": [
+        11286,
+        7524
+      ],
+      "native_density": 0.75,
+      "presentation_density": 2.25,
+      "retained_master_sha256": "af1338b29ed9c8d62ef23fe3363964ec32d93c594769b256adced88a49ad5a26",
+      "regions_provenance": "regions_provenance.json",
+      "presentation": "Détail peint par régions, Lanczos ×3 et correction locale des cases douces seulement.",
+      "encoding": {
+        "format": "WebP",
+        "quality": 98,
+        "method": 6
+      },
+      "tile_bytes": [
+        10574736,
+        11320214,
+        10509512
+      ],
+      "tiles_sha256": {
+        "map.webp": "ee89f40ab9031a2138f3307769e067fc5331be99313168cae00b0eae89c6eb65",
+        "map_1.webp": "8bf586378159e63f3b57e581eaf3a878372e875f857fc49d13d03171aea6be05",
+        "map_2.webp": "ec9baad03a730788ba27b727a51c7f9d4311df0d17dd82009f6be62d56d9e412"
+      },
+      "sharpness_repair": {
+        "method": "Real-ESRGAN x4v3, débruitage 0,2 ; demi-taille puis ×4 et retour à taille initiale ; cases douces seulement.",
+        "model": "realesr_general_x4v3_0.2.onnx",
+        "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+        "initial_cells": 114,
+        "initial_reference": 0.000914582924451679,
+        "remaining_cells_frozen_reference": 0,
+        "valid_cells": 620,
+        "selected_cells_row_col": [
+          [
+            0,
+            15
+          ],
+          [
+            0,
+            22
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            1,
+            11
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            2,
+            8
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            2,
+            15
+          ],
+          [
+            2,
+            16
+          ],
+          [
+            2,
+            28
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            3,
+            9
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            3,
+            13
+          ],
+          [
+            3,
+            16
+          ],
+          [
+            3,
+            17
+          ],
+          [
+            3,
+            26
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            4,
+            23
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            5,
+            13
+          ],
+          [
+            5,
+            14
+          ],
+          [
+            5,
+            15
+          ],
+          [
+            5,
+            18
+          ],
+          [
+            5,
+            19
+          ],
+          [
+            5,
+            23
+          ],
+          [
+            6,
+            12
+          ],
+          [
+            6,
+            16
+          ],
+          [
+            6,
+            22
+          ],
+          [
+            6,
+            23
+          ],
+          [
+            7,
+            2
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            7,
+            15
+          ],
+          [
+            7,
+            21
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            8,
+            12
+          ],
+          [
+            8,
+            14
+          ],
+          [
+            8,
+            15
+          ],
+          [
+            8,
+            21
+          ],
+          [
+            8,
+            30
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            9,
+            18
+          ],
+          [
+            9,
+            21
+          ],
+          [
+            9,
+            30
+          ],
+          [
+            10,
+            1
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            10,
+            13
+          ],
+          [
+            10,
+            20
+          ],
+          [
+            10,
+            21
+          ],
+          [
+            10,
+            23
+          ],
+          [
+            10,
+            27
+          ],
+          [
+            10,
+            28
+          ],
+          [
+            10,
+            30
+          ],
+          [
+            11,
+            12
+          ],
+          [
+            11,
+            13
+          ],
+          [
+            11,
+            14
+          ],
+          [
+            11,
+            21
+          ],
+          [
+            11,
+            24
+          ],
+          [
+            11,
+            26
+          ],
+          [
+            12,
+            12
+          ],
+          [
+            12,
+            13
+          ],
+          [
+            12,
+            14
+          ],
+          [
+            12,
+            21
+          ],
+          [
+            12,
+            22
+          ],
+          [
+            12,
+            25
+          ],
+          [
+            13,
+            1
+          ],
+          [
+            13,
+            14
+          ],
+          [
+            13,
+            19
+          ],
+          [
+            13,
+            21
+          ],
+          [
+            14,
+            10
+          ],
+          [
+            14,
+            11
+          ],
+          [
+            14,
+            14
+          ],
+          [
+            14,
+            16
+          ],
+          [
+            14,
+            17
+          ],
+          [
+            14,
+            18
+          ],
+          [
+            14,
+            23
+          ],
+          [
+            15,
+            1
+          ],
+          [
+            15,
+            3
+          ],
+          [
+            15,
+            4
+          ],
+          [
+            15,
+            9
+          ],
+          [
+            15,
+            10
+          ],
+          [
+            15,
+            11
+          ],
+          [
+            15,
+            14
+          ],
+          [
+            15,
+            15
+          ],
+          [
+            15,
+            16
+          ],
+          [
+            15,
+            18
+          ],
+          [
+            15,
+            25
+          ],
+          [
+            15,
+            26
+          ],
+          [
+            16,
+            7
+          ],
+          [
+            16,
+            8
+          ],
+          [
+            16,
+            9
+          ],
+          [
+            16,
+            17
+          ],
+          [
+            16,
+            22
+          ],
+          [
+            16,
+            25
+          ],
+          [
+            16,
+            28
+          ],
+          [
+            17,
+            0
+          ],
+          [
+            17,
+            1
+          ],
+          [
+            17,
+            4
+          ],
+          [
+            17,
+            7
+          ],
+          [
+            17,
+            8
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            18,
+            3
+          ],
+          [
+            18,
+            7
+          ],
+          [
+            18,
+            8
+          ],
+          [
+            18,
+            21
+          ],
+          [
+            19,
+            6
+          ],
+          [
+            19,
+            18
+          ],
+          [
+            19,
+            20
+          ],
+          [
+            19,
+            21
+          ],
+          [
+            19,
+            26
+          ]
+        ],
+        "blocks": 242,
+        "remaining_cells_frozen_reference_after_encoding": 0
+      }
+    },
+    "border_provenance": "border_corrections.json",
+    "unchanged_native_interior_verified": true,
+    "encoding": {
+      "format": "WebP",
+      "quality": 98,
+      "method": 6
+    },
+    "tile_bytes": [
+      10031960,
+      10617144,
+      10089262
+    ],
+    "tiles_sha256": {
+      "map.webp": "d6bbc41bea07bf3bbd71f7acc6517b4d3d91e6b3e6da18e4380eaf56b81c181e",
+      "map_1.webp": "af7198e48b47d8a6b4f157d4f0af49021a27e4a53a27e871f797e3a560bf5ecc",
+      "map_2.webp": "f1d14e218b250a002a1143b10f611c48383fdb810f04d221bca75c0a9dbca337"
+    }
+  },
+  "local_provenance": "cover_final_corrections.json",
+  "unchanged_native_outside_patches_verified": true,
+  "encoding": {
+    "format": "WebP",
+    "quality": 98,
+    "method": 6
+  },
+  "tile_bytes": [
+    9877116,
+    10392444,
+    9914354
+  ],
+  "tiles_sha256": {
+    "map.webp": "e2aa0c7d35d642486d5e3c64eecfd07f963b05322986f5aace3d74fcebb493f4",
+    "map_1.webp": "29f9e0f8d34badbd69fc407fc93642ca4d6f754fc61e5d2b42c7996e76d13cfc",
+    "map_2.webp": "ca95f404ec45eced117a76096db9e097d668fc69cce5fc0db31dce53b3dbb8c6"
+  }
+}
