@@ -6,4 +6,3 @@ SCALE FOR THIS REGION: 1574 world units across the entire image. A52-unit hunter
 
 
 This is ONLY A CROP of the map, not an entire level: never paint a whole map, another chamber, new platform or stairs in it. Preserve exact number, size, location and outlines of all visible pale cyan FLOOR patches. Do not invent additional ice patches, plinths, pillars, rooms, bridges or paths. Mandatory LOCAL CORRECTIONS below override the guide only at the named existing elements. Everything else stays pixel-registered to image1. No boss, no spells.
-
