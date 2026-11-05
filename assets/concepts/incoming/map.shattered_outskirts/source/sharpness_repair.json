@@ -1,0 +1,113 @@
+{
+  "method": "Real-ESRGAN x4v3, débruitage 0,2 ; demi-taille puis ×4 et retour à taille initiale ; cases douces seulement.",
+  "model": "realesr_general_x4v3_0.2.onnx",
+  "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+  "initial_cells": 25,
+  "initial_reference": 0.0006868199561722577,
+  "remaining_cells_frozen_reference": 0,
+  "valid_cells": 620,
+  "selected_cells_row_col": [
+    [
+      1,
+      12
+    ],
+    [
+      4,
+      29
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      6,
+      10
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      12
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      8,
+      16
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      9,
+      14
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      9,
+      19
+    ],
+    [
+      10,
+      8
+    ],
+    [
+      10,
+      14
+    ],
+    [
+      11,
+      7
+    ],
+    [
+      11,
+      14
+    ],
+    [
+      12,
+      6
+    ],
+    [
+      12,
+      8
+    ],
+    [
+      12,
+      11
+    ],
+    [
+      12,
+      14
+    ],
+    [
+      13,
+      12
+    ],
+    [
+      15,
+      7
+    ],
+    [
+      17,
+      24
+    ],
+    [
+      17,
+      29
+    ],
+    [
+      19,
+      1
+    ]
+  ],
+  "blocks": 79,
+  "remaining_cells_frozen_reference_after_encoding": 0
+}

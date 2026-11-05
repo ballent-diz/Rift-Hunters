@@ -1,0 +1,148 @@
+{
+  "world": [
+    5016,
+    3344
+  ],
+  "native_size": [
+    3762,
+    2508
+  ],
+  "game_size": [
+    11286,
+    7524
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "retained_master_sha256": "8dfff78f6b952667aec61d4d298020162bcb9e453128169ce2471990154facc6",
+  "regions_provenance": "regions_provenance.json",
+  "native_antialias_radius_pixels": 0.6,
+  "presentation": "Détail peint par régions, anticrénelage natif0,6px, Lanczos ×3 et correction locale des cases douces seulement.",
+  "encoding": {
+    "format": "WebP",
+    "quality": 98,
+    "method": 6
+  },
+  "tile_bytes": [
+    9549028,
+    9741506,
+    9245926
+  ],
+  "tiles_sha256": {
+    "map.webp": "02e4a3053f90f14dd2e6aa6112675db6780e0ff57de26a95403587e1ac0877bb",
+    "map_1.webp": "0a11f2ecdbcb096a2351fa9202a5eba97123a288784f5b1dd1634903f0de63dc",
+    "map_2.webp": "67535f0eae5e245a82f7cb4f0199cd6f5c5e4735a87313a73eb1d0b40c340b2c"
+  },
+  "sharpness_repair": {
+    "method": "Real-ESRGAN x4v3, débruitage 0,2 ; demi-taille puis ×4 et retour à taille initiale ; cases douces seulement.",
+    "model": "realesr_general_x4v3_0.2.onnx",
+    "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+    "initial_cells": 25,
+    "initial_reference": 0.0006868199561722577,
+    "remaining_cells_frozen_reference": 0,
+    "valid_cells": 620,
+    "selected_cells_row_col": [
+      [
+        1,
+        12
+      ],
+      [
+        4,
+        29
+      ],
+      [
+        5,
+        17
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        8,
+        9
+      ],
+      [
+        8,
+        12
+      ],
+      [
+        8,
+        13
+      ],
+      [
+        8,
+        16
+      ],
+      [
+        9,
+        12
+      ],
+      [
+        9,
+        14
+      ],
+      [
+        9,
+        18
+      ],
+      [
+        9,
+        19
+      ],
+      [
+        10,
+        8
+      ],
+      [
+        10,
+        14
+      ],
+      [
+        11,
+        7
+      ],
+      [
+        11,
+        14
+      ],
+      [
+        12,
+        6
+      ],
+      [
+        12,
+        8
+      ],
+      [
+        12,
+        11
+      ],
+      [
+        12,
+        14
+      ],
+      [
+        13,
+        12
+      ],
+      [
+        15,
+        7
+      ],
+      [
+        17,
+        24
+      ],
+      [
+        17,
+        29
+      ],
+      [
+        19,
+        1
+      ]
+    ],
+    "blocks": 79,
+    "remaining_cells_frozen_reference_after_encoding": 0
+  }
+}
