@@ -1,0 +1,868 @@
+{
+  "id": "map.suspended_quarters",
+  "map_number": 23,
+  "chapter": 5,
+  "title": "Les Quartiers suspendus",
+  "world": [
+    5016,
+    2508
+  ],
+  "stage": "composition_a_valider",
+  "owner_approved": false,
+  "plan_locked": false,
+  "detail_generated": false,
+  "mode": "Vagues par zone",
+  "mechanic": "B6 Téléporteurs de faille",
+  "identity": "Pierre pâle et ardoise éventrées, dorures ternies, bannières déchirées, veines violet sombre et magenta plus présentes que carte22 ; îlots arrachés avec soubassements rocheux au-dessus du vide.",
+  "direction": "Ouest → est ; quatre îlots principaux légèrement décalés, sans diagonale ni rues parallèles.",
+  "start_pct": [
+    10.9649,
+    73.764
+  ],
+  "islands": [
+    {
+      "id": "west",
+      "name": "Départ ouest",
+      "polygon_pct": [
+        [
+          2.193,
+          39.075
+        ],
+        [
+          5.1834,
+          32.6954
+        ],
+        [
+          15.7496,
+          33.8915
+        ],
+        [
+          19.7368,
+          42.2648
+        ],
+        [
+          20.933,
+          56.6188
+        ],
+        [
+          20.7337,
+          69.7767
+        ],
+        [
+          19.5375,
+          88.9155
+        ],
+        [
+          13.1579,
+          94.8963
+        ],
+        [
+          4.5853,
+          91.3078
+        ],
+        [
+          1.7943,
+          79.3461
+        ],
+        [
+          1.1962,
+          57.4163
+        ]
+      ],
+      "secondary": false,
+      "walk_reachable": true
+    },
+    {
+      "id": "z1",
+      "name": "Z1 · Cours des fondations",
+      "polygon_pct": [
+        [
+          25.9171,
+          39.8724
+        ],
+        [
+          30.9011,
+          35.4864
+        ],
+        [
+          40.4705,
+          36.6826
+        ],
+        [
+          45.2552,
+          41.4673
+        ],
+        [
+          46.4514,
+          55.8214
+        ],
+        [
+          45.6539,
+          78.1499
+        ],
+        [
+          42.4641,
+          93.7002
+        ],
+        [
+          34.689,
+          96.4912
+        ],
+        [
+          26.7145,
+          92.1053
+        ],
+        [
+          23.9234,
+          80.5423
+        ],
+        [
+          23.9234,
+          57.0175
+        ]
+      ],
+      "secondary": false,
+      "walk_reachable": true
+    },
+    {
+      "id": "z2",
+      "name": "Z2 · Place des charpentes",
+      "polygon_pct": [
+        [
+          50.8373,
+          18.3413
+        ],
+        [
+          55.4226,
+          10.3668
+        ],
+        [
+          65.3907,
+          11.563
+        ],
+        [
+          69.5774,
+          21.5311
+        ],
+        [
+          70.5742,
+          40.2711
+        ],
+        [
+          70.1754,
+          59.8086
+        ],
+        [
+          67.5837,
+          77.3525
+        ],
+        [
+          60.4067,
+          82.9346
+        ],
+        [
+          52.8309,
+          77.7512
+        ],
+        [
+          49.0431,
+          66.5869
+        ],
+        [
+          48.8437,
+          46.6507
+        ],
+        [
+          49.6411,
+          29.5056
+        ]
+      ],
+      "secondary": false,
+      "walk_reachable": true
+    },
+    {
+      "id": "finale",
+      "name": "Place des quartiers hauts",
+      "polygon_pct": [
+        [
+          75.3589,
+          18.74
+        ],
+        [
+          82.5359,
+          11.9617
+        ],
+        [
+          93.5008,
+          14.7528
+        ],
+        [
+          97.8868,
+          27.1132
+        ],
+        [
+          98.8836,
+          49.4418
+        ],
+        [
+          97.6874,
+          72.1691
+        ],
+        [
+          95.8931,
+          92.504
+        ],
+        [
+          87.7193,
+          96.0925
+        ],
+        [
+          77.3525,
+          92.9027
+        ],
+        [
+          73.764,
+          82.9346
+        ],
+        [
+          72.7671,
+          62.5997
+        ],
+        [
+          73.3652,
+          41.4673
+        ]
+      ],
+      "secondary": false,
+      "walk_reachable": true
+    },
+    {
+      "id": "refuge",
+      "name": "Refuge suspendu nord",
+      "polygon_pct": [
+        [
+          29.3062,
+          5.1834
+        ],
+        [
+          34.2903,
+          1.5949
+        ],
+        [
+          41.866,
+          3.5885
+        ],
+        [
+          45.0558,
+          11.563
+        ],
+        [
+          45.2552,
+          21.5311
+        ],
+        [
+          43.6603,
+          29.5056
+        ],
+        [
+          37.0813,
+          31.8979
+        ],
+        [
+          30.303,
+          27.9107
+        ],
+        [
+          27.512,
+          17.5439
+        ]
+      ],
+      "secondary": true,
+      "walk_reachable": false
+    }
+  ],
+  "zones": [
+    {
+      "id": "z1",
+      "island": "z1",
+      "name": "Cours des fondations",
+      "polygon_pct": [
+        [
+          25.9171,
+          39.8724
+        ],
+        [
+          30.9011,
+          35.4864
+        ],
+        [
+          40.4705,
+          36.6826
+        ],
+        [
+          45.2552,
+          41.4673
+        ],
+        [
+          46.4514,
+          55.8214
+        ],
+        [
+          45.6539,
+          78.1499
+        ],
+        [
+          42.4641,
+          93.7002
+        ],
+        [
+          34.689,
+          96.4912
+        ],
+        [
+          26.7145,
+          92.1053
+        ],
+        [
+          23.9234,
+          80.5423
+        ],
+        [
+          23.9234,
+          57.0175
+        ]
+      ],
+      "open_core_center_pct": [
+        34.8884,
+        62.9984
+      ],
+      "open_core_world": [
+        600,
+        600
+      ]
+    },
+    {
+      "id": "z2",
+      "island": "z2",
+      "name": "Place des charpentes",
+      "polygon_pct": [
+        [
+          50.8373,
+          18.3413
+        ],
+        [
+          55.4226,
+          10.3668
+        ],
+        [
+          65.3907,
+          11.563
+        ],
+        [
+          69.5774,
+          21.5311
+        ],
+        [
+          70.5742,
+          40.2711
+        ],
+        [
+          70.1754,
+          59.8086
+        ],
+        [
+          67.5837,
+          77.3525
+        ],
+        [
+          60.4067,
+          82.9346
+        ],
+        [
+          52.8309,
+          77.7512
+        ],
+        [
+          49.0431,
+          66.5869
+        ],
+        [
+          48.8437,
+          46.6507
+        ],
+        [
+          49.6411,
+          29.5056
+        ]
+      ],
+      "open_core_center_pct": [
+        61.0048,
+        53.0303
+      ],
+      "open_core_world": [
+        600,
+        600
+      ]
+    }
+  ],
+  "finale": {
+    "island": "finale",
+    "name": "Place des quartiers hauts",
+    "center_pct": [
+      86.3238,
+      58.6124
+    ],
+    "free_core_center_pct": [
+      86.3238,
+      58.6124
+    ],
+    "free_core_world": [
+      1000,
+      1000
+    ],
+    "closed_arena": false,
+    "painted_combat_circle": false
+  },
+  "bridges": [
+    {
+      "id": "p1",
+      "from": "west",
+      "to": "z1",
+      "width_world_target": 240,
+      "material": "Passerelle de pierre fissurée, tablier continu, bords effrités.",
+      "center_pct": [
+        22.5911,
+        58.138
+      ],
+      "deck_polygon_pct": [
+        [
+          19.9362,
+          55.0239
+        ],
+        [
+          25.319,
+          55.0239
+        ],
+        [
+          25.319,
+          64.5933
+        ],
+        [
+          19.9362,
+          64.5933
+        ]
+      ],
+      "barrier_segment_pct": [
+        [
+          22.5911,
+          53.5156
+        ],
+        [
+          22.5911,
+          62.7604
+        ]
+      ],
+      "width_world_measured_composition": 231.86,
+      "geometry_scope": "Largeur du dessus praticable relevée entre les parapets ; composition seulement, aucune collision ni barrière ajoutée."
+    },
+    {
+      "id": "p2",
+      "from": "z1",
+      "to": "z2",
+      "width_world_target": 240,
+      "material": "Passerelle de bois et de poutres récupérées, brisée sur les seuls bords ; tablier continu.",
+      "center_pct": [
+        47.2005,
+        48.2422
+      ],
+      "deck_polygon_pct": [
+        [
+          45.0558,
+          43.8596
+        ],
+        [
+          50.4386,
+          43.8596
+        ],
+        [
+          50.4386,
+          53.429
+        ],
+        [
+          45.0558,
+          53.429
+        ]
+      ],
+      "barrier_segment_pct": [
+        [
+          47.2005,
+          43.6198
+        ],
+        [
+          47.2005,
+          52.8646
+        ]
+      ],
+      "width_world_measured_composition": 231.86,
+      "geometry_scope": "Largeur du dessus praticable relevée entre les parapets ; composition seulement, aucune collision ni barrière ajoutée."
+    },
+    {
+      "id": "p3",
+      "from": "z2",
+      "to": "finale",
+      "width_world_target": 240,
+      "material": "Pont de pierre à arches rompues en dessous, tablier encore continu.",
+      "center_pct": [
+        71.0938,
+        50.9115
+      ],
+      "deck_polygon_pct": [
+        [
+          68.7799,
+          47.0494
+        ],
+        [
+          74.9601,
+          47.0494
+        ],
+        [
+          74.9601,
+          56.6188
+        ],
+        [
+          68.7799,
+          56.6188
+        ]
+      ],
+      "barrier_segment_pct": [
+        [
+          71.0938,
+          46.875
+        ],
+        [
+          71.0938,
+          54.9479
+        ]
+      ],
+      "width_world_measured_composition": 202.47,
+      "geometry_scope": "Largeur du dessus praticable relevée entre les parapets ; composition seulement, aucune collision ni barrière ajoutée."
+    }
+  ],
+  "teleporters": [
+    {
+      "id": "a1",
+      "twin": "a2",
+      "pair": "A",
+      "island": "west",
+      "center_pct": [
+        14.5338,
+        50.5519
+      ],
+      "diameter_world_target": 180,
+      "diameter_world_allowed": [
+        160,
+        200
+      ],
+      "clearance_from_base_edge_world": 120,
+      "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
+      "diameter_world_measured_composition": 187.56,
+      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+    },
+    {
+      "id": "a2",
+      "twin": "a1",
+      "pair": "A",
+      "island": "z2",
+      "center_pct": [
+        60.1237,
+        25.2604
+      ],
+      "diameter_world_target": 180,
+      "diameter_world_allowed": [
+        160,
+        200
+      ],
+      "clearance_from_base_edge_world": 120,
+      "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
+      "diameter_world_measured_composition": 199.2,
+      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+    },
+    {
+      "id": "b1",
+      "twin": "b2",
+      "pair": "B",
+      "island": "z1",
+      "center_pct": [
+        38.3697,
+        82.4865
+      ],
+      "diameter_world_target": 180,
+      "diameter_world_allowed": [
+        160,
+        200
+      ],
+      "clearance_from_base_edge_world": 120,
+      "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
+      "diameter_world_measured_composition": 185.33,
+      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+    },
+    {
+      "id": "b2",
+      "twin": "b1",
+      "pair": "B",
+      "island": "finale",
+      "center_pct": [
+        85.8073,
+        24.9349
+      ],
+      "diameter_world_target": 180,
+      "diameter_world_allowed": [
+        160,
+        200
+      ],
+      "clearance_from_base_edge_world": 120,
+      "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
+      "diameter_world_measured_composition": 195.94,
+      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+    },
+    {
+      "id": "c1",
+      "twin": "c2",
+      "pair": "C",
+      "island": "z2",
+      "center_pct": [
+        60.0911,
+        68.2292
+      ],
+      "diameter_world_target": 180,
+      "diameter_world_allowed": [
+        160,
+        200
+      ],
+      "clearance_from_base_edge_world": 120,
+      "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
+      "diameter_world_measured_composition": 189.41,
+      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+    },
+    {
+      "id": "c2",
+      "twin": "c1",
+      "pair": "C",
+      "island": "refuge",
+      "center_pct": [
+        34.7127,
+        18.5563
+      ],
+      "diameter_world_target": 180,
+      "diameter_world_allowed": [
+        160,
+        200
+      ],
+      "clearance_from_base_edge_world": 120,
+      "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
+      "diameter_world_measured_composition": 178.63,
+      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+    }
+  ],
+  "cover_rocks": [
+    {
+      "id": "a01",
+      "island": "z1",
+      "center_pct": [
+        27.9297,
+        44.9219
+      ],
+      "material": "pan de mur bas",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a02",
+      "island": "z1",
+      "center_pct": [
+        42.5781,
+        61.7188
+      ],
+      "material": "charrette renversée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a03",
+      "island": "z1",
+      "center_pct": [
+        40.7552,
+        43.8802
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a04",
+      "island": "z2",
+      "center_pct": [
+        52.474,
+        29.6875
+      ],
+      "material": "statue brisée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a05",
+      "island": "z2",
+      "center_pct": [
+        65.8854,
+        38.2812
+      ],
+      "material": "cloche tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a06",
+      "island": "z2",
+      "center_pct": [
+        52.3438,
+        68.8802
+      ],
+      "material": "pan de mur bas",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a07",
+      "island": "finale",
+      "center_pct": [
+        78.6458,
+        29.6875
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a08",
+      "island": "finale",
+      "center_pct": [
+        93.8802,
+        31.25
+      ],
+      "material": "statue brisée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a09",
+      "island": "finale",
+      "center_pct": [
+        77.7995,
+        87.6302
+      ],
+      "material": "cloche tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a10",
+      "island": "finale",
+      "center_pct": [
+        93.75,
+        88.0208
+      ],
+      "material": "charrette renversée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    },
+    {
+      "id": "a11",
+      "island": "refuge",
+      "center_pct": [
+        41.9271,
+        23.5677
+      ],
+      "material": "pan de mur bas",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+    }
+  ],
+  "architecture_scale_world": {
+    "hunter_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "house_door_height": [
+      75,
+      90
+    ]
+  },
+  "void_blocks_movement": true,
+  "bridges_and_pads_walkable": true,
+  "corruption_is_decorative": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "chapter5_sprites_created": false,
+  "runtime_notes": [
+    "Respecter la progression des vagues lors de l’activation des paires entre îlots : seuls les secteurs déjà ouverts doivent être accessibles ; règles et activation à définir par Claude, sans ajouter de porte peinte.",
+    "Le refuge ne possède ni pont ni autre accès à pied : paireC seule.",
+    "Les trois ponts assurent tout le parcours principal sans téléporteur."
+  ],
+  "coordinate_basis": "Proposition en pourcentages du cadrage entier5016×2508, origine haut-gauche ; relevés à confirmer sur la composition retenue puis au détail.",
+  "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+  "review_limitations": [
+    "La composition est agrandie dans les captures pour vérifier la disposition et la lisibilité des sprites ; le sol, l’architecture et les abris recevront leur finesse et leur gabarit final dans huit régions après validation.",
+    "Pas de plan.json verrouillé, de tuiles finales, de rapport qualité final ni de masque de collisions à ce stade.",
+    "Les dégagements exacts des socles seront mesurés sur le détail puis contrôlés sur les collisions peintes par le propriétaire."
+  ]
+}

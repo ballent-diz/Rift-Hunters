@@ -1,0 +1,182 @@
+{
+  "date": "2026-11-06",
+  "stage": "composition_a_valider",
+  "main_base": "3a9520ac8bf3ad3d96606713c0e0b4856fd49d24",
+  "owner_approved": false,
+  "plan_locked": false,
+  "detail_generated": false,
+  "quality_conforme": null,
+  "quality_scope": "Finesse du sol et gabarits d’architecture provisoires ; huit régions et contrôle qualité après validation.",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy"
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_suspended_quarters.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map23/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "3138d49b61f2e92b5d4314fca801cf497630c23cc54f3a001552c19026367f51"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "0d1d6045af18643d6b6638ad5050296028b9cee68cff06829a39cf79b4b4c075"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_suspended_quarters.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    }
+  ],
+  "assets": {
+    "total": 451,
+    "valid": 449,
+    "placeholders": 2,
+    "errors": 0,
+    "preexisting_placeholders": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ]
+  },
+  "captures": [
+    {
+      "file": "ensemble_720p.webp",
+      "sha256": "a14502552df0d4addda2ba3ea1b3bf754f2cf9e785dca0dcd58183c475030202",
+      "original_png_sha256": "4cda3afb61f3e4572db1f2dcc08e8be4978894434bd157e3c3128c491ff038bb"
+    },
+    {
+      "file": "lisibilite_corruption.webp",
+      "sha256": "7fe78f4d9aeafc408b238907274a4a2453e6e496586b5a79463d7840bec53b24",
+      "original_png_sha256": "60ee4c70bd616e20544dd7df43765457b777f18269aa1e3f75dcf931bb9daebe"
+    },
+    {
+      "file": "lisibilite_dalles.webp",
+      "sha256": "d06522d123d6f6c5eeb626463e19e9ace49c64d75d8d49fe80a1d02f26d83394",
+      "original_png_sha256": "c7b3e54813ca3f92902d39cfc144c197f0637cb27cd7003b5e8094c1fe00da63"
+    },
+    {
+      "file": "lisibilite_vide.webp",
+      "sha256": "9a655fa27f05ce2d3e550dbe96417cebd19aa935bcb16c6900d41848c0418d6b",
+      "original_png_sha256": "cb27d80ed6bb476113bd8795b165246f10381742d556a89c81c499a9af973d73"
+    },
+    {
+      "file": "pont_1_zoom_jeu.webp",
+      "sha256": "004d1eb4838c8d8638733455dbfb6a906c3407e5c2c669955b537721298573fa",
+      "original_png_sha256": "579404a63fd29dedce48441c03d5f453931b2c9428fdc59a8897a5467c32ecc0"
+    },
+    {
+      "file": "pont_2_zoom_jeu.webp",
+      "sha256": "ece9a92d2bd0e0f3b47ec60103e1aee0f6067a2079eacc81e363124fbddf76bd",
+      "original_png_sha256": "89d63eff29f9e060dae9751bdf821a33f4ebb7bec514b18350fa3d7c7e5eecd4"
+    },
+    {
+      "file": "pont_3_zoom_jeu.webp",
+      "sha256": "1a3100340a5b9779c95478cfb14652dee3efd8403d02a71eeb45786e12dee221",
+      "original_png_sha256": "e1da5e397ba14a1de023fa1fd100446f6a161b5b381089559718e244efc1288b"
+    },
+    {
+      "file": "socle_a1_zoom_jeu.webp",
+      "sha256": "d7bdc597a42324dff484cfd31c12631f960e6da12450ab49bb040dffdc61f949",
+      "original_png_sha256": "7fbd02994e11fa1606f7f8746ac934503f6b3127ec13636eca758ce0e3a84e8c"
+    },
+    {
+      "file": "socle_c2_zoom_jeu.webp",
+      "sha256": "50cce34567363c9053356112b195f6fd12f77d6e26625032e0fc1a24c36f77ee",
+      "original_png_sha256": "f70384eb8f795f080cfdda824b02409490497e6829729f3dc380e0cac44a8d7a"
+    }
+  ],
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "collision_mask_created": false,
+    "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+    "detail_generated": false,
+    "native_sprites_unchanged": true,
+    "profile_read_only": true,
+    "review_sha256": "a3ca2cfbb843388dff9317f9a8a9bd4f6861b5382059616c227882cfa9ac392d",
+    "runtime_integrated": false,
+    "scope": "composition_a_valider",
+    "viewport": [
+      1280,
+      720
+    ],
+    "witness_ids": [
+      "wandering_shard",
+      "glass_sentinel",
+      "quartz_golem",
+      "hush_shard",
+      "ice_knight",
+      "silence_herald"
+    ]
+  },
+  "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+  "review_sha256": "a3ca2cfbb843388dff9317f9a8a9bd4f6861b5382059616c227882cfa9ac392d",
+  "islands": 5,
+  "main_islands": 4,
+  "secondary_islands": 1,
+  "main_walk_route_without_teleporters": [
+    "finale",
+    "west",
+    "z1",
+    "z2"
+  ],
+  "abstract_route_only": true,
+  "secondary_only_by_teleporter": true,
+  "bridges": 3,
+  "bridge_widths_world": [
+    231.86,
+    231.86,
+    202.47
+  ],
+  "teleporters": 6,
+  "teleporter_pairs": 3,
+  "twins_bidirectional_and_unique": true,
+  "cover_counts": {
+    "z1": 3,
+    "z2": 3,
+    "finale": 4,
+    "refuge": 1
+  },
+  "cover_final_scale_pending": true,
+  "free_finale_core_world": [
+    1000,
+    1000
+  ],
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false,
+  "chapter5_sprites_created": false
+}

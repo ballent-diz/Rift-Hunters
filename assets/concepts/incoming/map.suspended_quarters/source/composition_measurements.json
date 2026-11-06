@@ -1,0 +1,70 @@
+{
+  "teleporters": [
+    {
+      "id": "a1",
+      "generated_bbox_pixels": [
+        277,
+        281,
+        445,
+        441
+      ],
+      "diameter_world": 187.5598086124402
+    },
+    {
+      "id": "c2",
+      "generated_bbox_pixels": [
+        902,
+        296,
+        1062,
+        451
+      ],
+      "diameter_world": 178.62838915470493
+    },
+    {
+      "id": "b1",
+      "generated_bbox_pixels": [
+        214,
+        823,
+        380,
+        979
+      ],
+      "diameter_world": 185.32695374800636
+    },
+    {
+      "id": "a2",
+      "composition_bbox_pixels": [
+        893,
+        295,
+        954,
+        349
+      ],
+      "diameter_world": 199.203125
+    },
+    {
+      "id": "b2",
+      "composition_bbox_pixels": [
+        1288,
+        292,
+        1348,
+        347
+      ],
+      "diameter_world": 195.9375
+    },
+    {
+      "id": "c1",
+      "composition_bbox_pixels": [
+        894,
+        625,
+        952,
+        679
+      ],
+      "diameter_world": 189.40625
+    }
+  ],
+  "bridge_widths_world": [
+    231.86,
+    231.86,
+    202.47
+  ],
+  "scope": "Relevés de composition ; précision3,27u par pixel, pas de collision ou navigation validée."
+}

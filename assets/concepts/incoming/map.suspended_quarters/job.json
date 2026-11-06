@@ -1,0 +1,36 @@
+{
+  "id": "map.suspended_quarters",
+  "map_number": 23,
+  "chapter": 5,
+  "title": "Les Quartiers suspendus",
+  "world_size": [
+    5016,
+    2508
+  ],
+  "status": "wip",
+  "stage": "composition_a_valider",
+  "composition": "composition.png",
+  "composition_size": [
+    1536,
+    768
+  ],
+  "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+  "review": "source/composition_review.json",
+  "owner_approved": false,
+  "plan_locked": false,
+  "detail_generated": false,
+  "regions_generated": false,
+  "regions_expected": 8,
+  "quality_conforme": false,
+  "quality_scope": "Composition seulement ; finesse finale et qualité conforme à établir après les huit régions.",
+  "islands": 5,
+  "main_islands": 4,
+  "secondary_islands": 1,
+  "bridges": 3,
+  "teleporters": 6,
+  "teleporter_pairs": 3,
+  "covers": 11,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "chapter5_sprites_created": false
+}

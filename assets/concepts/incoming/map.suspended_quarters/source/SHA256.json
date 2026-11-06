@@ -1,0 +1,12 @@
+{
+  ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "composition.png": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+  "job.json": "31f140eff35ae5ad3221188d39beec53328eeee275383c6a34e6ba7d7a5920a4",
+  "source/PROMPT_BRIDGES.txt": "f89411c4bd61822dfcbd6c70a7c2f9a921642eb4584a7b95ceebddd1edecae97",
+  "source/PROMPT_COMPOSITION.txt": "7514b5b2235157ed8a15db05db65a9ae3be65c047bb51b80ea336ba58755e831",
+  "source/PROMPT_PADS.txt": "81bd1a244d32696f141f8e8448c3b542a170cb0405ec8aa45ae48a5d92e36d4f",
+  "source/composition_measurements.json": "9e337cbfa1a630b52fc5a97f992eaf2ec3dc2a16b78cb105cbb37d88041f5c77",
+  "source/composition_review.json": "a3ca2cfbb843388dff9317f9a8a9bd4f6861b5382059616c227882cfa9ac392d",
+  "source/generation.json": "018a0f63491bff6acb3fe367ddb147c5628803ae43e7009c0c1b52785f0406a6",
+  "source/layout.png": "8f2559868b3ee0158a2bf202aca18628516ee6096b66052c2fe3b206452bcae4"
+}
