@@ -521,3 +521,10 @@ Plan validé5016 ×3344 conservé : trois salles est-ouest, arche puis escalier 
 ## Carte 22 — Le Sanctuaire des runes : détail livré (Codex, 6 novembre)
 
 Composition validée et plan figé3344 ×5016 : trois rues sud→nord, trois traverses, six arches ouvertes à runes sombres (seuils209–238u), parvis libre1600 ×1000u hors socle vide et treize abris mesurés130–159u. Douze régions réellement redessinées, deux tuiles finales, qualité conforme35/35 et fidélité0,972 ; traitement de netteté borné pour préserver le pavage. Sept captures au zoom réel avec les sprites existants, import Godot et contrôle assets sans erreur. Référence entière légère836 ×1254 à peindre par le propriétaire, retourPNG au même cadrage ; recette et empreinte dans source/collision_reference.json. Les seuils, escaliers et sols violets restent praticables ; Claude raccordera collisions, autel, portes, gardien et campagne. Aucun masque créé ni nouveau sprite du chapitre5 ; aucun changement de src/, data/, du manifeste ou des cartes14 à21. Voir docs/maps/SANCTUAIRE_DES_RUNES.md.
+
+## Compétences et effets pixelfx par famille (lot 1, 6 novembre)
+
+Audit et attribution « Corrompu → compétence → effet pixelfx » : [design/VFX_COMPETENCES.md](design/VFX_COMPETENCES.md).
+Toutes les techniques déclarées sont codées ; seule manque l'armure qui se fend du Gardien d'écorce. **En attente de
+la validation du propriétaire** (éléments par famille, attributions, effets peints du chapitre 3 conservés ou non),
+puis lot 2 (chapitres 1 et 2) et lot 3 (chapitres 3 et 4).
