@@ -1,0 +1,207 @@
+{
+  "date": "2026-11-05",
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "identity_approved": true,
+  "plan_locked": true,
+  "main_base": "209f92f731c3a6e5f47016b62ce97685a2e778cb",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy"
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_shattered_outskirts.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map21/detail/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "aba8230d56a6114c7c71b32f676697ec5b0b810e0225c4534337e981b5fa151e"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "0d1d6045af18643d6b6638ad5050296028b9cee68cff06829a39cf79b4b4c075"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_shattered_outskirts.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    },
+    {
+      "name": "python_compile",
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/art/build_shattered_outskirts.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "assets": {
+    "total": 451,
+    "valid": 449,
+    "placeholders": 2,
+    "errors": 0,
+    "preexisting_placeholders": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ]
+  },
+  "quality_conforme": true,
+  "quality_report": "qualite.json",
+  "quality_sectors": 35,
+  "quality_sectors_conforme": 35,
+  "quality_thresholds_unchanged": true,
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "chapter5_sprites_created": false,
+    "collision_mask_created": false,
+    "composition_sha256": "03e64dae2b9891f27abb682f85b4cebed8272fa289ba1da8ca9c2b54cdcf5d1d",
+    "native_sprites_unchanged": true,
+    "plan_sha256": "3e9eab1711efd99a131791adf705cb38b6dc9fcc27edaf9f2f5568028407571a",
+    "profile_read_only": true,
+    "runtime_integrated": false,
+    "scope": "detail_graphique",
+    "tiles_sha256": [
+      "02e4a3053f90f14dd2e6aa6112675db6780e0ff57de26a95403587e1ac0877bb",
+      "0a11f2ecdbcb096a2351fa9202a5eba97123a288784f5b1dd1634903f0de63dc",
+      "67535f0eae5e245a82f7cb4f0199cd6f5c5e4735a87313a73eb1d0b40c340b2c"
+    ],
+    "viewport": [
+      1280,
+      720
+    ],
+    "witness_ids": [
+      "wandering_shard",
+      "glass_sentinel",
+      "quartz_golem",
+      "hush_shard",
+      "ice_knight",
+      "silence_herald"
+    ]
+  },
+  "captures": [
+    {
+      "file": "arche_zoom_jeu.webp",
+      "sha256": "195d05d874cf5d40d528ed551f52d36361858263250d480fa30890ebcb84324b",
+      "original_png_sha256": "4a2ba8cdbbe4c1ebb90ff6290966f1578fab54b19869f5d1ebd2dac2add6daab"
+    },
+    {
+      "file": "beffroi_zoom_jeu.webp",
+      "sha256": "9c207ee8c6911ea246f7e04750cafb9a9d041929f9843f461043d5dbecfe6287",
+      "original_png_sha256": "0a6ffee4a1a47d00f47368e910e966f194615fe57ed1287353808e77a4b30a5d"
+    },
+    {
+      "file": "depart_zoom_jeu.webp",
+      "sha256": "0a6b89310effcedc4838d896ee562747beef9761f98df7a787597364ae0fd7a4",
+      "original_png_sha256": "9d6244c61b1e430f7cd0eae190e381fcd0eb9e26e671c629cd4d11b559b63f78"
+    },
+    {
+      "file": "ensemble_720p.webp",
+      "sha256": "255eb160d624347b3d048a045fd433f8f9d0c2f7252a1091cdd1a68151f08720",
+      "original_png_sha256": "03c9a0758de03e72537b6b08a691f11b44699cffee23f66edae4e7f343422e5a"
+    },
+    {
+      "file": "escalier_zoom_jeu.webp",
+      "sha256": "428323ecfc99886d9ca27b8918ab210de3147f3ca67c757fd06002f096e5be20",
+      "original_png_sha256": "6c061815fa2b8971d51abd8413899af28c2b8cc406c37158aac5703d66ec8e2c"
+    },
+    {
+      "file": "facade_zoom_jeu.webp",
+      "sha256": "de05d0727b27311395a2c954346e60b76265f1be067d38e807313db12b054c9a",
+      "original_png_sha256": "bdbac86590efcef665d3c5db2652c94ad254605159626a625cca9bc940cfd5af"
+    },
+    {
+      "file": "lisibilite_corruption.webp",
+      "sha256": "00db96c67ef711fcee6bd769ea2c607182ba9bc277c31e012130f7ab84636940",
+      "original_png_sha256": "23835ffc445e4dd389fff6d0eda3d243472046f5e838e6a6ac30d9706e0e1e7f"
+    },
+    {
+      "file": "lisibilite_dalles.webp",
+      "sha256": "4e4ced3e72c702b33ecaef5e30cc27061b4bfc25b047e6ce4678a9b061c317db",
+      "original_png_sha256": "520f75184fcde0f1e7c6bef3ad19dffe9c388b5620715b73ec78f44c45a6b3b5"
+    }
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "native_size": [
+    3762,
+    2508
+  ],
+  "game_size": [
+    11286,
+    7524
+  ],
+  "composition_sha256": "03e64dae2b9891f27abb682f85b4cebed8272fa289ba1da8ca9c2b54cdcf5d1d",
+  "plan_sha256": "3e9eab1711efd99a131791adf705cb38b6dc9fcc27edaf9f2f5568028407571a",
+  "master_sha256": "8dfff78f6b952667aec61d4d298020162bcb9e453128169ce2471990154facc6",
+  "regions": 12,
+  "local_cover_paintings": 10,
+  "compact_base_refinements": 4,
+  "corrupted_material_boundary_refinements": 4,
+  "cover_counts": {
+    "z1": 3,
+    "z2": 3,
+    "finale": 4
+  },
+  "cover_width_world_range": [
+    111.64,
+    141.15
+  ],
+  "corrupted_ground_patches": 6,
+  "corrupted_ground_diameter_world_range": [
+    337.11,
+    421.61
+  ],
+  "polygons_simple": true,
+  "cover_bounds_outside_corrupted_ground": true,
+  "start_outside_corrupted_ground": true,
+  "free_combat_core_world": [
+    1000,
+    1000
+  ],
+  "free_combat_core_has_no_cover": true,
+  "collision_reference_bytes": 605710,
+  "collision_reference_sha256": "5aeacd0f9d09e24092ccf9e89d38560193012c6002ebfba0e942cf6a42909df4",
+  "native_sprites_unchanged": true,
+  "profile_read_only": true,
+  "chapter5_sprites_created": false,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false
+}

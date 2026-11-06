@@ -1,0 +1,44 @@
+{
+  "id": "map.shattered_outskirts",
+  "map_number": 21,
+  "chapter": 5,
+  "title": "Les Faubourgs brisés",
+  "world_size": [
+    5016,
+    3344
+  ],
+  "status": "final",
+  "stage": "detail_graphique_livre",
+  "composition": "composition.png",
+  "composition_size": [
+    1536,
+    1024
+  ],
+  "composition_sha256": "03e64dae2b9891f27abb682f85b4cebed8272fa289ba1da8ca9c2b54cdcf5d1d",
+  "owner_approved": true,
+  "identity_approved": true,
+  "plan_locked": true,
+  "detail_generated": true,
+  "regions_generated": 12,
+  "quality_conforme": true,
+  "quality_scope": "Contrôle des tuiles livrées, seuils inchangés de check_map_quality ; voir docs/previews/shattered-outskirts/qualite.json.",
+  "review": "plan.json",
+  "corrupted_ground_patches": 6,
+  "covers": 10,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "chapter5_sprites_created": false,
+  "owner_approval_date": "2026-11-05",
+  "plan": "plan.json",
+  "native_size": [
+    3762,
+    2508
+  ],
+  "game_size": [
+    11286,
+    7524
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "collision_reference": "source/collision_reference.json"
+}

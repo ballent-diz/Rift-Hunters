@@ -1,0 +1,78 @@
+[
+  {
+    "id": "c02",
+    "box_world": [
+      1221.2213599999998,
+      1383.4555199999998,
+      2021.2213599999998,
+      2183.4555199999995
+    ],
+    "target_diameter_world": 450,
+    "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+    "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+    "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+    "generated_dimensions": [
+      1254,
+      1254
+    ],
+    "prompt": "PROMPT_NAPPES_DETAIL.txt",
+    "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+  },
+  {
+    "id": "c03",
+    "box_world": [
+      2295.99968,
+      1214.4163199999998,
+      3095.99968,
+      2014.4163199999998
+    ],
+    "target_diameter_world": 450,
+    "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+    "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+    "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+    "generated_dimensions": [
+      1254,
+      1254
+    ],
+    "prompt": "PROMPT_NAPPES_DETAIL.txt",
+    "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+  },
+  {
+    "id": "c04",
+    "box_world": [
+      2660.36192,
+      1500.6627199999998,
+      3460.36192,
+      2300.66272
+    ],
+    "target_diameter_world": 450,
+    "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+    "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+    "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+    "generated_dimensions": [
+      1254,
+      1254
+    ],
+    "prompt": "PROMPT_NAPPES_DETAIL.txt",
+    "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+  },
+  {
+    "id": "c05",
+    "box_world": [
+      2660.91368,
+      756.6895999999999,
+      3460.91368,
+      1556.6896
+    ],
+    "target_diameter_world": 450,
+    "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+    "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+    "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+    "generated_dimensions": [
+      1254,
+      1254
+    ],
+    "prompt": "PROMPT_NAPPES_DETAIL.txt",
+    "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+  }
+]

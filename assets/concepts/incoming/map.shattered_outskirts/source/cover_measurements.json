@@ -1,0 +1,182 @@
+[
+  {
+    "id": "a01",
+    "generated_bbox_pixels": [
+      234,
+      307,
+      380,
+      484
+    ],
+    "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+    "solid_bounds_world": [
+      428.17,
+      2389.38,
+      544.6,
+      2530.52
+    ],
+    "width_world": 116.43,
+    "foot_refinement_world": 56.2
+  },
+  {
+    "id": "a02",
+    "generated_bbox_pixels": [
+      850,
+      307,
+      1027,
+      483
+    ],
+    "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+    "solid_bounds_world": [
+      1317.26,
+      2656.9,
+      1458.41,
+      2797.25
+    ],
+    "width_world": 141.15,
+    "foot_refinement_world": 55.19
+  },
+  {
+    "id": "a03",
+    "generated_bbox_pixels": [
+      224,
+      977,
+      378,
+      1092
+    ],
+    "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+    "solid_bounds_world": [
+      1874.84,
+      2223.03,
+      1997.64,
+      2314.73
+    ],
+    "width_world": 122.81,
+    "foot_refinement_world": 42.01
+  },
+  {
+    "id": "a04",
+    "generated_bbox_pixels": [
+      839,
+      960,
+      999,
+      1088
+    ],
+    "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+    "solid_bounds_world": [
+      2366.87,
+      2109.15,
+      2494.46,
+      2211.22
+    ],
+    "width_world": 127.59,
+    "foot_refinement_world": 41.35
+  },
+  {
+    "id": "a05",
+    "generated_bbox_pixels": [
+      256,
+      348,
+      403,
+      484
+    ],
+    "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+    "solid_bounds_world": [
+      3249.66,
+      1586.07,
+      3366.88,
+      1694.52
+    ],
+    "width_world": 117.22,
+    "foot_refinement_world": 57.4
+  },
+  {
+    "id": "a06",
+    "generated_bbox_pixels": [
+      201,
+      158,
+      440,
+      422
+    ],
+    "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+    "solid_bounds_world": [
+      2318.37,
+      1231.54,
+      2432.66,
+      1357.78
+    ],
+    "width_world": 114.29,
+    "foot_refinement_world": 53.71
+  },
+  {
+    "id": "a07",
+    "generated_bbox_pixels": [
+      810,
+      165,
+      1058,
+      421
+    ],
+    "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+    "solid_bounds_world": [
+      3341.8,
+      854.31,
+      3460.4,
+      976.73
+    ],
+    "width_world": 118.6,
+    "foot_refinement_world": 57.38
+  },
+  {
+    "id": "a08",
+    "generated_bbox_pixels": [
+      188,
+      805,
+      434,
+      1045
+    ],
+    "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+    "solid_bounds_world": [
+      4264.41,
+      253.51,
+      4382.05,
+      368.29
+    ],
+    "width_world": 117.64,
+    "foot_refinement_world": 57.57
+  },
+  {
+    "id": "a09",
+    "generated_bbox_pixels": [
+      236,
+      289,
+      376,
+      461
+    ],
+    "generated_sha256": "b1b896286da51876c257b12052f78a067c5dd00210e0acd7f9ffcc27b32a2d37",
+    "solid_bounds_world": [
+      4623.14,
+      1097.61,
+      4734.78,
+      1234.78
+    ],
+    "width_world": 111.64,
+    "foot_refinement_world": 38.1
+  },
+  {
+    "id": "a10",
+    "generated_bbox_pixels": [
+      817,
+      738,
+      1060,
+      1045
+    ],
+    "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+    "solid_bounds_world": [
+      4267.29,
+      1337.21,
+      4383.5,
+      1484.02
+    ],
+    "width_world": 116.21,
+    "foot_refinement_world": 30.12
+  }
+]
