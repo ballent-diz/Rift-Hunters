@@ -21,6 +21,8 @@ d'effort et n'attend pas de feu vert pour commencer une tâche demandée.
   (`codex/<sujet>` pour Codex, `claude/<sujet>` pour Claude), créée **depuis un `main` à jour**, puis une pull request
   vers `main`. Pour le code, on fusionne seulement ce qui passe les tests ; pour les lots visuels de Codex,
   appliquer les contrôles ciblés et la validation manuelle indiqués ci-dessus.
+- Chaque PR lance les vérifications automatiques de GitHub (`.github/workflows/tests.yml`, identiques à
+  `tools/run_tests.sh`) : une PR ne se fusionne qu'avec la coche verte.
 - Avant de commencer : `git fetch origin && git checkout -b codex/<sujet> origin/main`.
 - Un seul agent à la fois sur une même branche. Après fusion, supprimer la branche (pas de branches `snapshot/…` :
   l'historique git suffit pour revenir en arrière).
