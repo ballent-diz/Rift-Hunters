@@ -10301,7 +10301,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cascade_source/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
 				8,
@@ -11545,7 +11545,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/scorched_verge/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"arena_size": 5016,
 			"start": [
 				-1696,
@@ -12376,7 +12376,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/ash_vents/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				1912,
 				1140
@@ -12388,7 +12388,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/ash_vents/minimap.webp"
+			"minimap": "res://assets/environments/ash_vents/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/ash_vents.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.soot_dens": {
 			"status": "wip",
@@ -12401,7 +12403,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/soot_dens/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				-1552,
 				-1752
@@ -12413,7 +12415,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/soot_dens/minimap.webp"
+			"minimap": "res://assets/environments/soot_dens/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/soot_dens.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"boss.glauquemire": {
 			"status": "final",
@@ -12580,7 +12584,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/cataclysm_threshold/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				0,
 				1904
@@ -12592,7 +12596,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; escalier ajouté par Claude entre les deux zones (28 octobre).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/cataclysm_threshold/minimap.webp"
+			"minimap": "res://assets/environments/cataclysm_threshold/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/cataclysm_threshold.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"vfx.enemy.shared.indicator_area": {
 			"status": "wip",
@@ -12617,7 +12623,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.spore_mother.spore_mark": {
@@ -12643,7 +12649,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 3.0,
+			"duration": 3,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.boss.glauquemire.slam": {
@@ -12929,7 +12935,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.frost_wolf.bite": {
@@ -13007,7 +13013,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.frost_wolf.frost_landing": {
@@ -13163,7 +13169,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.marsh_maw.rage": {
@@ -13189,7 +13195,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.shared.indicator_line": {
@@ -13215,7 +13221,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.bark_warden.binding_roots": {
@@ -13657,7 +13663,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 3.0,
+			"duration": 3,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.spore_mother.mark_explosion": {
@@ -13839,7 +13845,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.rift_gnat.needle": {
@@ -13917,7 +13923,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.boss.glauquemire.heart_pulse": {
@@ -13943,7 +13949,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.ice_worm.bite": {
@@ -13995,7 +14001,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.enemy.shared.indicator_sector": {
@@ -14021,7 +14027,7 @@
 				}
 			},
 			"visual_only": true,
-			"duration": 1.0,
+			"duration": 1,
 			"notes": "Animation native Godot ; raccordement combat réservé à Claude."
 		},
 		"vfx.boss.glauquemire.whirlpool": {
@@ -14061,7 +14067,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/volcano_heart/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				0,
 				2152
@@ -14073,7 +14079,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/volcano_heart/minimap.webp"
+			"minimap": "res://assets/environments/volcano_heart/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/caldera_arena.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.root_mangrove": {
 			"status": "wip",
@@ -14086,7 +14094,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/root_mangrove/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				-1792,
 				924
@@ -14098,7 +14106,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/root_mangrove/minimap.webp"
+			"minimap": "res://assets/environments/root_mangrove/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/root_mangrove.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.tide_temple": {
 			"status": "wip",
@@ -14110,7 +14120,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/tide_temple/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				4,
 				1760
@@ -14122,7 +14132,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (27 octobre 2026) ; chaussées de marée T01, T03 et T04 (tide.png) rendues praticables et raccord du pont haut au bassin élargi par Claude (29 octobre). T02 et T05, murées, restent bloquées.",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/tide_temple/minimap.webp"
+			"minimap": "res://assets/environments/tide_temple/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/tide_temple.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"enemy.frost_crawler": {
 			"status": "final",
@@ -14917,7 +14929,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/marsh_heart/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				0,
 				2280
@@ -14929,7 +14941,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (3 novembre 2026), décor livré par Codex (PR 87).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/marsh_heart/minimap.webp"
+			"minimap": "res://assets/environments/marsh_heart/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/marsh_heart.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.reflection_wells": {
 			"status": "wip",
@@ -14942,7 +14956,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/reflection_wells/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				0,
 				1856
@@ -14954,7 +14968,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (2 novembre 2026), décor livré par Codex (3 novembre).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/reflection_wells/minimap.webp"
+			"minimap": "res://assets/environments/reflection_wells/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/reflection_wells.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.crystal_gardens": {
 			"status": "wip",
@@ -14967,7 +14983,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/crystal_gardens/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				-2107,
 				-17
@@ -14979,7 +14995,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (2 novembre 2026).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/crystal_gardens/minimap.webp"
+			"minimap": "res://assets/environments/crystal_gardens/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/crystal_gardens.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"object.training_dummy": {
 			"status": "planned",
@@ -15081,7 +15099,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/glacier_entry/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				-1800,
 				1240
@@ -15093,7 +15111,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (4 novembre 2026), décor livré par Codex (PR 100).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/glacier_entry/minimap.webp"
+			"minimap": "res://assets/environments/glacier_entry/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/glacier_entry.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.brazier_pass": {
 			"status": "wip",
@@ -15106,7 +15126,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/brazier_pass/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				-500,
 				1980
@@ -15118,7 +15138,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (4 novembre 2026), décor livré par Codex (PR 101).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/brazier_pass/minimap.webp"
+			"minimap": "res://assets/environments/brazier_pass/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/brazier_pass.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"environment.storm_lake": {
 			"status": "wip",
@@ -15130,7 +15152,7 @@
 			],
 			"detail_strength": 0.32,
 			"field": "res://assets/environments/storm_lake/field.png",
-			"field_step": 2.0,
+			"field_step": 2,
 			"start": [
 				-201,
 				-1906
@@ -15142,7 +15164,9 @@
 			},
 			"note": "Collisions peintes par le propriétaire (4 novembre 2026), décor livré par Codex (PR 102).",
 			"generated_by": "tools/art/collision_mask.py",
-			"minimap": "res://assets/environments/storm_lake/minimap.webp"
+			"minimap": "res://assets/environments/storm_lake/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/storm_lake.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		}
 	}
 }

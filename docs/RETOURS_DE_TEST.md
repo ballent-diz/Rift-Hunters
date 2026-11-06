@@ -35,6 +35,7 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   le Mur de faille se dresse juste devant lui.
 - [x] **Mode test « dev »** : débloquer aussi les compétences « débloquée au niveau 3 » et « niveau 1 du chapitre 2 ».
   Corrigé le 6 novembre : le mode test ouvre les emplacements de sort 3 et 4.
-- [ ] **Menus : visuels des cartes 7 à 15** à ajouter.
+- [x] **Menus : visuels des cartes 7 à 15** à ajouter. Corrigé le 6 novembre : vignettes des cartes 7 à 18 tirées
+  de leurs décors (`tools/art/build_expedition_previews.gd`).
 - [ ] **Carte 17, Col des braseros : équilibrage à reprendre** (détails : docs/ROADMAP.md, carte 17).
 - [ ] **Carte 18, Lac gelé des tempêtes : équilibrage à reprendre**, en commençant par l'Avalanche de l'élite Yéti des cimes (détails : docs/ROADMAP.md, carte 18).

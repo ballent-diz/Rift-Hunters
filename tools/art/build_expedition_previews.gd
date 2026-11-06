@@ -13,6 +13,18 @@ const MAPS := {
 	"mist_ford": ["environment.mist_ford", 0.5, true],
 	"cascade_source": ["environment.cascade_source", 0.72, true],
 	"scorched_verge": ["environment.scorched_verge", 0.5, true],
+	"ash_vents": ["environment.ash_vents", 0.5, true],
+	"soot_dens": ["environment.soot_dens", 0.5, true],
+	"cataclysm_threshold": ["environment.cataclysm_threshold", 0.5, true],
+	"caldera_arena": ["environment.volcano_heart", 0.5, true],
+	"root_mangrove": ["environment.root_mangrove", 0.5, true],
+	"tide_temple": ["environment.tide_temple", 0.5, true],
+	"crystal_gardens": ["environment.crystal_gardens", 0.5, true],
+	"reflection_wells": ["environment.reflection_wells", 0.5, true],
+	"marsh_heart": ["environment.marsh_heart", 0.5, true],
+	"glacier_entry": ["environment.glacier_entry", 0.5, true],
+	"brazier_pass": ["environment.brazier_pass", 0.5, true],
+	"storm_lake": ["environment.storm_lake", 0.5, true],
 }
 
 
