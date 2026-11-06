@@ -1,0 +1,53 @@
+{
+  "date": "2026-11-05",
+  "scope": "Trois amas de dalles remplacés par des blocs compacts125u, tous éléments connexes inclus ; pieds et ouvrages conservés.",
+  "corrections": [
+    {
+      "id": "a02",
+      "world_crop": [
+        4264.4,
+        1075.911232,
+        4764.4,
+        1575.911232
+      ],
+      "target_connected_width_world": 125,
+      "generated_sha256": "267f5c4560e1f7aca05fc75763ffaa8d5856def4530834d5905fabdaac4ea9a1",
+      "input_sha256": "7515205a54bef3b412a1b9a467b8e38f2aef87cbe497c22a492e1ba0dc1d046d",
+      "guide_sha256": "73b268b6ea138fc153f17c427459c8a4d05356e987915dda290257cce1189e85",
+      "prompt": "PROMPT_ABRIS_COMPACTS.txt",
+      "sharpening_percent": 0
+    },
+    {
+      "id": "a04",
+      "world_crop": [
+        2247.968,
+        1450.8806399999999,
+        2747.968,
+        1950.8806399999999
+      ],
+      "target_connected_width_world": 125,
+      "generated_sha256": "267f5c4560e1f7aca05fc75763ffaa8d5856def4530834d5905fabdaac4ea9a1",
+      "input_sha256": "7515205a54bef3b412a1b9a467b8e38f2aef87cbe497c22a492e1ba0dc1d046d",
+      "guide_sha256": "73b268b6ea138fc153f17c427459c8a4d05356e987915dda290257cce1189e85",
+      "prompt": "PROMPT_ABRIS_COMPACTS.txt",
+      "sharpening_percent": 0
+    },
+    {
+      "id": "a06",
+      "world_crop": [
+        2498.7679999999996,
+        2247.9999519999997,
+        2998.7679999999996,
+        2747.9999519999997
+      ],
+      "target_connected_width_world": 125,
+      "generated_sha256": "267f5c4560e1f7aca05fc75763ffaa8d5856def4530834d5905fabdaac4ea9a1",
+      "input_sha256": "7515205a54bef3b412a1b9a467b8e38f2aef87cbe497c22a492e1ba0dc1d046d",
+      "guide_sha256": "73b268b6ea138fc153f17c427459c8a4d05356e987915dda290257cce1189e85",
+      "prompt": "PROMPT_ABRIS_COMPACTS.txt",
+      "sharpening_percent": 0
+    }
+  ],
+  "native_outside_patches_equal": true,
+  "static_collision_mask_created": false
+}

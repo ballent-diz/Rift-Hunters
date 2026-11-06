@@ -58,6 +58,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"spore_mother"
+family = &"enlises"
 name_key = "ENEMY_SPORE_MOTHER_NAME"
 desc_key = "ENEMY_SPORE_MOTHER_DESC"
 brain = 0

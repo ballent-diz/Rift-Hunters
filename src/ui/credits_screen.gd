@@ -154,6 +154,12 @@ func _resources(column: VBoxContainer) -> void:
 	row.add_child(_resource(tr("CREDITS_TILES_TITLE"), "Ninja Adventure", UiKit.font(&"title"), tr("CREDITS_TILES_BODY"),
 		tr("CREDITS_TILES_LICENSE"), Color(0.55, 0.9, 0.55)))
 	column.add_child(row)
+	var second := HBoxContainer.new()
+	second.alignment = BoxContainer.ALIGNMENT_CENTER
+	second.custom_minimum_size = Vector2(WIDTH, 0)
+	second.add_child(_resource(tr("CREDITS_FX_TITLE"), "pixelfx", UiKit.font(&"title"), tr("CREDITS_FX_BODY"),
+		tr("CREDITS_FX_LICENSE"), Color(0.75, 0.6, 1.0)))
+	column.add_child(second)
 
 
 func _thanks(column: VBoxContainer) -> void:

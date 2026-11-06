@@ -79,6 +79,8 @@ func deal_damage(enemy: Enemy, info: DamageInfo) -> float:
 	if info.knockback > 0.0 and not enemy.is_boss:
 		enemy.push(info.direction * info.knockback * (1.0 - enemy.data_knockback_resist()))
 	ctx.fx.damage_number(enemy.global_position, dealt, info)
+	if ctx.pixel_fx and not enemy.is_boss and not info.has_tag(DamageInfo.TAG_DOT):
+		ctx.pixel_fx.hit(enemy)
 	for application: StatusApplication in info.statuses:
 		if application.chance >= 1.0 or ctx.rng.randf() <= application.chance:
 			ctx.status_system.apply(enemy, application.status_id, application.stacks, info.source_id)

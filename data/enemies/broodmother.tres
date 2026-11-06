@@ -42,6 +42,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"broodmother"
+family = &"violet"
 name_key = "ENEMY_BROODMOTHER_NAME"
 desc_key = "ENEMY_BROODMOTHER_DESC"
 brain = 4

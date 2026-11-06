@@ -1,0 +1,924 @@
+{
+  "date": "2026-11-05",
+  "world": [
+    5016,
+    3344
+  ],
+  "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+  "plan_sha256": "35bf9ac6fc9c142e1030dd5266bd5e992841b78011c10d6eca00260febb9adbc",
+  "native_density": 0.75,
+  "native_size": [
+    3762,
+    2508
+  ],
+  "retained_sha256": "6808ca7c284241b9e220e19d75d743916d322cd39c0f2e9542894fd8679c0084",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1274.7
+      ],
+      "square_world": [
+        -160.0,
+        -160.0,
+        1414.0,
+        1414.0
+      ],
+      "generated_sha256": "71fd23b22478c50e86f0a9d3e2aadd8fc014687c6646e4224428cf2b3b0d1149",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "23440baacd7cb0292240c20fb19735997fdb1000344e0801a8b49f9ed65fbfb1",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_DETAIL.txt",
+        "PROMPT_RETRAIT_CRISTAL_NORD.txt"
+      ],
+      "local_instructions": null,
+      "sharpness": {
+        "percent": 80,
+        "median_smooth_fine_medium": [
+          0.12905120849609375,
+          377.9339790344238,
+          105.44300079345703
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1274.7
+      ],
+      "square_world": [
+        1094.0,
+        -160.0,
+        2668.0,
+        1414.0
+      ],
+      "generated_sha256": "bf28ab32aa9d799f7c442384ed479ce562d78a6d8bb892452a13aa965c9a1bc7",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "38ecee6342e90ab6ce252beca713540e29f8fcdb17c648d68c4d11b2a8762818",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_DETAIL.txt"
+      ],
+      "local_instructions": "North-central section: cathedral east/north wall, waterfall upperpart, Echo Hall north edge. Any old north-corner purple crystal sliver must be removed, no throne anywhere. Global new WEST heart is OUTSIDE crop. Keep crystalline deep walls and pale flush patches. No giant crystal clumps appearing in center.",
+      "sharpness": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.09522247314453125,
+          397.2458839416504,
+          101.77373886108398
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1274.7
+      ],
+      "square_world": [
+        2348.0,
+        -160.0,
+        3922.0,
+        1414.0
+      ],
+      "generated_sha256": "659f6e1c769b77afea8958dea9971d9ddedccd268d70217e1e08193f9ba21245",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "3b234f12b850c1b362af516f43afb2683746aeb37ecd03c5c5106dbbaa3f0d5d",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_DETAIL.txt"
+      ],
+      "local_instructions": "Upper Echo Hall and wall between middle and east gallery. Preserve round irregular Echo Hall silhouette and its pale flush ice patch. Falling vault chunks only at existing covers. If eastern gallery edge appears at far RIGHT, only a narrow orderly ice pillar row globalx76.5% with feet y35%; keep main gallery floor empty. No throne/crystal heart in this crop.",
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.23643112182617188,
+          361.1326217651367,
+          83.62054824829102
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3602.0,
+        0.0,
+        5016,
+        1274.7
+      ],
+      "square_world": [
+        3602.0,
+        -160.0,
+        5176.0,
+        1414.0
+      ],
+      "generated_sha256": "79197cfb7b1d54cdc014fa8fe65fd9a62cd9d8ec0b16da15706bed767aa3cca9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "1e306ba8d1135ac07b50d539549b6a11297a776310c89df2ebe638c7981e418e",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": null,
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.1250457763671875,
+          428.1449317932129,
+          100.42190551757812
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        954.7,
+        1414.0,
+        2389.3
+      ],
+      "square_world": [
+        -160.0,
+        954.7,
+        1414.0,
+        2528.7
+      ],
+      "generated_sha256": "ca833547fec6fba7619479f891dfdb5e115579baa7d070b96a7353b8c32aee40",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "e1efd4a8bfee755909f8394b6266f0e6dac7d1b75c79637d9a1db857545229ec",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": "WEST CATHEDRAL combat heart and west back. IMPORTANT add the ONE BROKEN CRYSTALLINE HEART at global7.5%,58% = localx34.1%,y62.6%, facing RIGHT/east toward entry; foot on firm floor near west wall, pedestal<=220u wide. No north-corner throne. Keep center snow EMPTY over1250x1400u globalcenter22.5%,55%. Retain all existing cover FEET, shrink blocks to140u width. Natural piers at wall sides only. No new crystal in center.",
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.13881683349609375,
+          383.7275505065918,
+          107.56731033325195
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        1094.0,
+        954.7,
+        2668.0,
+        2389.3
+      ],
+      "square_world": [
+        1094.0,
+        954.7,
+        2668.0,
+        2528.7
+      ],
+      "generated_sha256": "96b5c7d96aaf72e75ad1c8e297799f920afaa25b7216d2e2dea221a984305afc",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "956ad7cab62a9eb8c7c604589e61f0e0599f06da255a7bafb1f3903985ac8e06",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_DETAIL.txt"
+      ],
+      "local_instructions": null,
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.11153411865234375,
+          404.970645904541,
+          101.96685791015625
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2348.0,
+        954.7,
+        3922.0,
+        2389.3
+      ],
+      "square_world": [
+        2348.0,
+        954.7,
+        3922.0,
+        2528.7
+      ],
+      "generated_sha256": "c7de13511f7e3f6f04c02d527d3f008b4bd344034ad744031d6c5ca42f0a1d58",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "36c8452785707fa212d91e61323f2217b0ee8322acde83f13d0c7e08c13aab45",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": "MIDDLE ECHO HALL and ARCH to east. Round irregular chamber, THREE existing FALLEN VAULT BOULDER covers resized to140u width, no neat row of pillars in this room. The ARCH crossing near global73%,57% must show broad LIT CONTINUOUS deck left-right, open entrances, no obstruction. Its black-blue opening BELOW is a jagged deadly VOID, not a tunnel floor or walking route. Flat cyan icepatch around global65%,70% stays in place. No throne.",
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.1070098876953125,
+          374.2647171020508,
+          103.31869125366211
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3602.0,
+        954.7,
+        5016,
+        2389.3
+      ],
+      "square_world": [
+        3602.0,
+        954.7,
+        5176.0,
+        2528.7
+      ],
+      "generated_sha256": "af8605d14839bb28b09157b15e14d540e8fdb95049f4e04f83fea44b044ecd94",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "898c7ff021ff5463ec802f0be8f9fa3179a3eb52897bc1ae8bb3b188ef6e3755",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": "EAST STALACTITE GALLERY centralpart. Sparse orderly vertical row of narrow30-45u ice columns along west side, globalx76.5%,y35%,46%,68% = localx~15%,localy~14%,37%,84%. Row does not block the arch at global73%,57% nor overlap existing3maincovers140u. Keep center gallery broad and EMPTY, original cyan patch to lower-right flat. Arch mouth at lower-left remains clear with visible walkable deck; dark area below is sheer void. No throne.",
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.10019302368164062,
+          385.4656219482422,
+          110.27097702026367
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2069.3,
+        1414.0,
+        3344
+      ],
+      "square_world": [
+        -160.0,
+        2069.3,
+        1414.0,
+        3643.3
+      ],
+      "generated_sha256": "7b7f129beced27d50bf2a8fa3d8d0d69abd0e0e219de0a675fad913f1e1e11df",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "c9e7d84f5b0fff5faa6404fa0f5d4ef02df859411598d8e8c24004ea58616250",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": "SOUTH-WEST CATHEDRAL periphery and lower ice patch. Preserve huge firm combat heart above, original flush B1 patch, large sidewalls and nave silhouette. All existing upright combat rocks width140u, never giant walls. Natural ice piers along side perimeter, not across heart. New west-heart location is OUTSIDE this crop above: do not add any throne here.",
+      "sharpness": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.1234893798828125,
+          371.17481231689453,
+          102.15997695922852
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        1094.0,
+        2069.3,
+        2668.0,
+        3344
+      ],
+      "square_world": [
+        1094.0,
+        2069.3,
+        2668.0,
+        3643.3
+      ],
+      "generated_sha256": "6dac876ebe4f7aa1001da97f5b66a93409dc311ecaff1e6524688ce00380fa8d",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "5373d5702830f8dd2836704ae2f4830078832b50e1a06f5e69e63f9b1657cdd4",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": "SOUTH-EAST CATHEDRAL and lower frozen-cascade chasm wall. Preserve original narrow wall trace and map edge. Dark chasm has jagged broken lip, deep black-blue void, no attractive flat bottom. Existing lower cathedral cover resized140u at same foot. No crystal throne here. Only natural wall-side piers, no obstacles on firm open floor.",
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.1752471923828125,
+          379.0926933288574,
+          86.517333984375
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2348.0,
+        2069.3,
+        3922.0,
+        3344
+      ],
+      "square_world": [
+        2348.0,
+        2069.3,
+        3922.0,
+        3643.3
+      ],
+      "generated_sha256": "acc96cd0d474fcd11eae959f2dcdf381aa41d8e027f2460d8ab9bc0e12581ce5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "0e86594349df329875ecda202aae8073bd80f4c2681b0d45460dc1ce8f2664ee",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": "SOUTHERN ECHO HALL: round irregular wall, pale flat slippery patch at upper-right, existing fallen-vault cover resized140u, not a new colonnade. Dark narrow wall-cleft to right remains inaccessible jagged void, no floor/path below arch. Preserve closed lower map rim and original open floor area. No throne.",
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.1940155029296875,
+          374.2647171020508,
+          90.18659591674805
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_3",
+      "crop_world": [
+        3602.0,
+        2069.3,
+        5016,
+        3344
+      ],
+      "square_world": [
+        3602.0,
+        2069.3,
+        5176.0,
+        3643.3
+      ],
+      "generated_sha256": "ff51381e016b85659ad53feab4a83d879add84072ae3c7aa72910165a437ad19",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "35e6accc900c33607e64b2d86b1f7731e808ff696bd7a3ec917b8f7bfe8bc670",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompts": [
+        "PROMPT_REGION_LOCAL.txt"
+      ],
+      "local_instructions": "SOUTHERN EAST STALACTITE GALLERY. Continue sparse western-side ice-pillar row at global76.5%,68% and78%,81% (localroughx15%,20%, y13%,41%). Narrow30-45u piers, separate from big140u covers. Preserve broad firm gallery floor, existing cyan FLAT ice patch right, and lower map border. Do not add eastern exit, floor route outside map or any throne.",
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.292755126953125,
+          343.7519073486328,
+          88.64164352416992
+        ],
+        "regional_reference_bands_met": false
+      }
+    }
+  ],
+  "pixels_lossless_verified": true,
+  "method": "Douze régions carrées peintes de1574u ; marges extraites, calibration native et raccord de faible différence.",
+  "intermediates": "Guides, régions et retouches hors dépôt ; seul le master retenu est versionné.",
+  "local_cover_corrections": [
+    {
+      "id": "a01",
+      "box_world": [
+        3652.6079999999997,
+        1232.05592,
+        4252.608,
+        1832.05592
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        3952.608,
+        1632.05592
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 20,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a02",
+      "box_world": [
+        4214.4,
+        1005.9112319999999,
+        4814.4,
+        1605.911232
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        4514.4,
+        1405.911232
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a03",
+      "box_world": [
+        3635.0519999999997,
+        2123.8706239999997,
+        4235.052,
+        2723.8706239999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        3935.0519999999997,
+        2523.8706239999997
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        2197.968,
+        1380.8806399999999,
+        2797.968,
+        1980.8806399999999
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        2497.968,
+        1780.8806399999999
+      ],
+      "input_sha256": "72abe1434a73bba1fea7319d639944e552f51a8e803dcd0d2fcf30c7b88e19e9",
+      "guide_sha256": "8552fab93c1b024be0aa91b73ca3784a9e4cce10441a501abd735e1676aa4742",
+      "generated_sha256": "09b94cca3862333f637cd9ef538732285df2e23cd4a67a6ee29d46b4af577320",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 20,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a05",
+      "box_world": [
+        2799.8879999999995,
+        1114.3103359999998,
+        3399.8879999999995,
+        1714.3103359999998
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        3099.8879999999995,
+        1514.3103359999998
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a06",
+      "box_world": [
+        2448.7679999999996,
+        2177.9999519999997,
+        3048.7679999999996,
+        2777.9999519999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        2748.7679999999996,
+        2577.9999519999997
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        42.592799999999954,
+        1292.6893279999997,
+        642.5927999999999,
+        1892.6893279999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        342.5927999999999,
+        1692.6893279999997
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        1535.856,
+        1157.4546239999997,
+        2135.8559999999998,
+        1757.4546239999997
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        1835.8559999999998,
+        1557.4546239999997
+      ],
+      "input_sha256": "91309fbe3aa994cc6838b6e5b61470ccec7f162590508bdd2625536a3aa85061",
+      "guide_sha256": "e6d189e16a23a638754ee83ceef921ccd61acdbb24c23c3212f145ce2f75fd97",
+      "generated_sha256": "27298a22c8a01950ea3bf5858cbf5b1535cc2b7e6314228d6491e43b243d1ab2",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a09",
+      "box_world": [
+        1029.24,
+        2475.615952,
+        1629.24,
+        3075.615952
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        1329.24,
+        2875.615952
+      ],
+      "input_sha256": "cb67c08757210f3f4d699b37f353d4c863d2f6e36e79667ba26906e5818f9201",
+      "guide_sha256": "b842f83f1301330a8e4d43f7998bb60717af1235e4a1901d8b332800675fe9ae",
+      "generated_sha256": "75fbfd30fef95f86c40a9593f2d1501f8e95a8cd04dca022d13a07c8cc7f2632",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        5.975999999999942,
+        812.2735680000001,
+        605.9759999999999,
+        1412.273568
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        305.9759999999999,
+        1212.273568
+      ],
+      "input_sha256": "cb67c08757210f3f4d699b37f353d4c863d2f6e36e79667ba26906e5818f9201",
+      "guide_sha256": "b842f83f1301330a8e4d43f7998bb60717af1235e4a1901d8b332800675fe9ae",
+      "generated_sha256": "75fbfd30fef95f86c40a9593f2d1501f8e95a8cd04dca022d13a07c8cc7f2632",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 20,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    },
+    {
+      "id": "a11",
+      "box_world": [
+        1420.4879999999998,
+        2140.182656,
+        2020.4879999999998,
+        2740.182656
+      ],
+      "target_width_world": 140,
+      "foot_world": [
+        1720.4879999999998,
+        2540.182656
+      ],
+      "input_sha256": "cb67c08757210f3f4d699b37f353d4c863d2f6e36e79667ba26906e5818f9201",
+      "guide_sha256": "b842f83f1301330a8e4d43f7998bb60717af1235e4a1901d8b332800675fe9ae",
+      "generated_sha256": "75fbfd30fef95f86c40a9593f2d1501f8e95a8cd04dca022d13a07c8cc7f2632",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "native_sharpening_percent": 0,
+      "prompt": "PROMPT_ABRIS_GABARITS.txt",
+      "method": "Remplacement peint du bloc entier au gabarit du guide, pied au sol conservé ; réinsertion locale, fondu26u, cristal et escalier protégés."
+    }
+  ],
+  "border_material_corrections": [
+    {
+      "id": "bottom0",
+      "world_crop": [
+        0,
+        2144,
+        1200,
+        3344
+      ],
+      "input_sha256": "4a0d289a7b9620b0a241e0514ea4c0208aad0801fb81da55fa749b7f010d5dcf",
+      "generated_sha256": "f2163fd510faf4c22f9e31a62180337b65d1306a95b97fc17a7248261cddd447",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 60,
+        "median_smooth_fine_medium": [
+          0.04370880126953125,
+          436.0628128051758,
+          104.09116744995117
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom1",
+      "world_crop": [
+        954,
+        2144,
+        2154,
+        3344
+      ],
+      "input_sha256": "a33c04e33d3397a2a8b129ccc2dc7a00ead0c9225df759e41e5f3195a2848f68",
+      "generated_sha256": "e29d4653d1e416d393f31e76052f91738011dc00afd408ffaa6a3aae84d1d399",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.04587554931640625,
+          417.9096221923828,
+          101.96685791015625
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom2",
+      "world_crop": [
+        1908,
+        2144,
+        3108,
+        3344
+      ],
+      "input_sha256": "0bd7f7559287875f5dedb19d60254e31f1761621f7cc38484179b8f2749531a7",
+      "generated_sha256": "b36e4c8ef8438aba5c156a2c92977e8059d0b838c81141a86e91ed82ee034f03",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.07441329956054688,
+          427.3724555969238,
+          103.51181030273438
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom3",
+      "world_crop": [
+        2862,
+        2144,
+        4062,
+        3344
+      ],
+      "input_sha256": "398dcbf004acc35075310878a447395357be3c526b149982e7d68e72dc597b76",
+      "generated_sha256": "7339c6039c06155b6d02348a1fdfdeb45b05efc49c3c2a894123e78cb855ed75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.08862686157226562,
+          427.17933654785156,
+          103.31869125366211
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "bottom4",
+      "world_crop": [
+        3816,
+        2144,
+        5016,
+        3344
+      ],
+      "input_sha256": "4d5583aa0961ed9832c1297d3e4f1ddd23dd60ad4508a783a5ee3a640efae786",
+      "generated_sha256": "437f9c7949171974569ef63afb81e69b8701e54043c0a8e6571a2d26c71579c7",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 40,
+        "median_smooth_fine_medium": [
+          0.06424713134765625,
+          428.91740798950195,
+          104.28428649902344
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    },
+    {
+      "id": "right",
+      "world_crop": [
+        3816,
+        650,
+        5016,
+        1850
+      ],
+      "input_sha256": "fb646eca2a79f8e792889d3fb5ef0da4b5493efc469d7af0a46a8538681f70d3",
+      "generated_sha256": "10534ae47260ebab0725382f96a18bbd1636df1e0490c1443135b278ade47348",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.045,
+      "sharpening": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.07630538940429688,
+          371.3679313659668,
+          104.09116744995117
+        ],
+        "regional_reference_bands_met": true
+      },
+      "prompt": "PROMPT_PAROIS_BORDURE.txt"
+    }
+  ],
+  "final_cover_corrections": [
+    {
+      "id": "a02",
+      "world_crop": [
+        4264.4,
+        1075.911232,
+        4764.4,
+        1575.911232
+      ],
+      "target_connected_width_world": 125,
+      "generated_sha256": "267f5c4560e1f7aca05fc75763ffaa8d5856def4530834d5905fabdaac4ea9a1",
+      "input_sha256": "7515205a54bef3b412a1b9a467b8e38f2aef87cbe497c22a492e1ba0dc1d046d",
+      "guide_sha256": "73b268b6ea138fc153f17c427459c8a4d05356e987915dda290257cce1189e85",
+      "prompt": "PROMPT_ABRIS_COMPACTS.txt",
+      "sharpening_percent": 0
+    },
+    {
+      "id": "a04",
+      "world_crop": [
+        2247.968,
+        1450.8806399999999,
+        2747.968,
+        1950.8806399999999
+      ],
+      "target_connected_width_world": 125,
+      "generated_sha256": "267f5c4560e1f7aca05fc75763ffaa8d5856def4530834d5905fabdaac4ea9a1",
+      "input_sha256": "7515205a54bef3b412a1b9a467b8e38f2aef87cbe497c22a492e1ba0dc1d046d",
+      "guide_sha256": "73b268b6ea138fc153f17c427459c8a4d05356e987915dda290257cce1189e85",
+      "prompt": "PROMPT_ABRIS_COMPACTS.txt",
+      "sharpening_percent": 0
+    },
+    {
+      "id": "a06",
+      "world_crop": [
+        2498.7679999999996,
+        2247.9999519999997,
+        2998.7679999999996,
+        2747.9999519999997
+      ],
+      "target_connected_width_world": 125,
+      "generated_sha256": "267f5c4560e1f7aca05fc75763ffaa8d5856def4530834d5905fabdaac4ea9a1",
+      "input_sha256": "7515205a54bef3b412a1b9a467b8e38f2aef87cbe497c22a492e1ba0dc1d046d",
+      "guide_sha256": "73b268b6ea138fc153f17c427459c8a4d05356e987915dda290257cce1189e85",
+      "prompt": "PROMPT_ABRIS_COMPACTS.txt",
+      "sharpening_percent": 0
+    }
+  ]
+}

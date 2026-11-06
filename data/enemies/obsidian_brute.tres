@@ -15,6 +15,7 @@ accent = Color(1.0, 0.6, 0.15, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"obsidian_brute"
+family = &"magma"
 name_key = "ENEMY_OBSIDIAN_BRUTE_NAME"
 desc_key = "ENEMY_OBSIDIAN_BRUTE_DESC"
 brain = 0

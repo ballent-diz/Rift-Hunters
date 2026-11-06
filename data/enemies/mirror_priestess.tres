@@ -70,6 +70,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"mirror_priestess"
+family = &"reflets"
 name_key = "ENEMY_MIRROR_PRIESTESS_NAME"
 desc_key = "ENEMY_MIRROR_PRIESTESS_DESC"
 brain = 1

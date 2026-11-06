@@ -46,6 +46,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"reflection_huntress"
+family = &"reflets"
 name_key = "ENEMY_REFLECTION_HUNTRESS_NAME"
 desc_key = "ENEMY_REFLECTION_HUNTRESS_DESC"
 brain = 0

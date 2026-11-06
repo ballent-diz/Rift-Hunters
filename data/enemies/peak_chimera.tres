@@ -42,6 +42,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"peak_chimera"
+family = &"highlands"
 name_key = "ENEMY_PEAK_CHIMERA_NAME"
 desc_key = "ENEMY_PEAK_CHIMERA_DESC"
 brain = 2

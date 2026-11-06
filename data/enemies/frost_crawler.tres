@@ -15,6 +15,7 @@ accent = Color(0.55, 0.75, 1.0, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"frost_crawler"
+family = &"givres"
 name_key = "ENEMY_FROST_CRAWLER_NAME"
 desc_key = "ENEMY_FROST_CRAWLER_DESC"
 brain = 0

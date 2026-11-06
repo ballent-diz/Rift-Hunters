@@ -1,0 +1,205 @@
+{
+  "date": "2026-11-05",
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "plan_locked": true,
+  "main_base": "320ab5870e5664de642dfe89fae62377474703f4",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        "."
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_silent_heart.tscn",
+        "--",
+        "--detail",
+        "--out=/workspace/.rift-art/map20/detail/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "7d729f1f6a370ae07c525f4d2f0a1b7509665f5640ae8a13268193f0177a1701"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "74d7264177dc00147b870d83eb09138b84f2148914d7de4320ee141b581f8b1d"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_silent_heart.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    },
+    {
+      "name": "python_compile",
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/art/build_silent_heart.py"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "assets": {
+    "total": 450,
+    "valid": 448,
+    "placeholders": 2,
+    "errors": 0,
+    "preexisting_placeholders": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ]
+  },
+  "quality_conforme": true,
+  "quality_report": "qualite.json",
+  "quality_sectors": 35,
+  "quality_sectors_conforme": 35,
+  "quality_thresholds_unchanged": true,
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "collision_mask_created": false,
+    "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+    "native_sprites_unchanged": true,
+    "profile_read_only": true,
+    "review_sha256": "35bf9ac6fc9c142e1030dd5266bd5e992841b78011c10d6eca00260febb9adbc",
+    "runtime_integrated": false,
+    "scope": "detail_graphique",
+    "viewport": [
+      1280,
+      720
+    ]
+  },
+  "captures": [
+    {
+      "file": "abri_zoom_jeu.webp",
+      "sha256": "6a663c8fba8432ceb3dea385938c1d9a4fc98eaba7f17c29df568c7ed13948f5",
+      "original_png_sha256": "b55d5f60359887d4a5e6f4fa29518b71b24df071a0624ede7771cab28bd849a5"
+    },
+    {
+      "file": "cristal_zoom_jeu.webp",
+      "sha256": "d889d82e40d77159fabe3436ae99f5efeca3b0bebd9037ac1786997a54542ef9",
+      "original_png_sha256": "9cf9844227cdf472fcf009747e31a46e1926ae113ae6cc20dc3fe034526ad354"
+    },
+    {
+      "file": "depart_zoom_jeu.webp",
+      "sha256": "9345faa7e83fb32b7c8ad333b4eda722c255c8efe29da6609c524f31d5106dbf",
+      "original_png_sha256": "1dc67d02bb876bf102da2efed69a9c39a4fd3f29c34148e347cc02a6cabea047"
+    },
+    {
+      "file": "ensemble_720p.webp",
+      "sha256": "0ed64edd30e3b7f746183a67917b5a9c8267094a50d855dfb85aae796a23a68e",
+      "original_png_sha256": "88639420d2cdc88051b02fe8c087b47163429e723738c44421fd4920cc3c4860"
+    },
+    {
+      "file": "escalier_zoom_jeu.webp",
+      "sha256": "4e45d22ab5cfd1fb3460d68e60a034ad3685ec45f2af2609d4632f5493826377",
+      "original_png_sha256": "1ee54004432a783d531cf78c01f35019766298a4181fa4bcf1219b7221e09325"
+    },
+    {
+      "file": "nivorath_glace.webp",
+      "sha256": "a61a5a5d3092160ebc983a4649875ff16c76e45eadbde407bf21156e35462344",
+      "original_png_sha256": "98c542982b5e4040016e962beb816061351ca68c2c6fdac61f3a35b631a10adf"
+    },
+    {
+      "file": "nivorath_neige.webp",
+      "sha256": "6b9ddbb56ee36cd79c4963898aa9142b9ea091c6988727c5406fc92338438f1a",
+      "original_png_sha256": "27ef37928a0fba7a3ef3963a05978dff4bf45a26e3ecd64edd7f67b471c558b7"
+    },
+    {
+      "file": "reference_ruines_zoom_jeu.webp",
+      "sha256": "6bcbc09c5cc01bef12452c0172ad25728e62781a36b295cf66489817fc46533f",
+      "original_png_sha256": "7be3d11211ee8a5c9496e093106b29f58d623d4e9622057073b556397b2bd9a8"
+    },
+    {
+      "file": "silence_glace.webp",
+      "sha256": "1bcc3633da195b71f2504adfdd23f3c1a526fe13b2212fadc73f5777204eb25d",
+      "original_png_sha256": "b836bd0ff019f51ea0f9543c9f3df3af431dfe034502117576ab0a08359af8e0"
+    },
+    {
+      "file": "silence_neige.webp",
+      "sha256": "fa3f98f2bfb1a8c1e8794dd248a050ebd3c0202ba500249c97cca229905d7aa5",
+      "original_png_sha256": "002aa5a7b6ccbef64271e6bb7c931c49bc392d321dcdae298071486665bc6529"
+    },
+    {
+      "file": "tunnel_zoom_jeu.webp",
+      "sha256": "dc058b3b641a74451a851bbe876bbfb666fbeaa5f421a97e86638dde97116f51",
+      "original_png_sha256": "a8eca6f1c2e46cbfe6f89b03bc03f816a1a14ee99685622d4651f496c2c139ed"
+    }
+  ],
+  "world": [
+    5016,
+    3344
+  ],
+  "native_size": [
+    3762,
+    2508
+  ],
+  "game_size": [
+    11286,
+    7524
+  ],
+  "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+  "plan_sha256": "35bf9ac6fc9c142e1030dd5266bd5e992841b78011c10d6eca00260febb9adbc",
+  "master_sha256": "6808ca7c284241b9e220e19d75d743916d322cd39c0f2e9542894fd8679c0084",
+  "regions": 12,
+  "local_cover_paintings": 11,
+  "compact_cover_refinements": 3,
+  "local_border_paintings": 6,
+  "cover_counts": {
+    "z1": 3,
+    "z2": 3,
+    "cathedral": 5
+  },
+  "cover_target_width_world": 140,
+  "compact_cover_target_world": 125,
+  "slippery_ice": 7,
+  "polygons_simple": true,
+  "cover_centers_outside_slippery_ice": true,
+  "firm_combat_core_world": [
+    1250,
+    1400
+  ],
+  "west_crystal_pct": [
+    7.5,
+    58
+  ],
+  "start_pct": [
+    92,
+    24
+  ],
+  "collision_reference_bytes": 548935,
+  "collision_reference_sha256": "a54c1b7042d1112c7c73dbb87fc64988b4b6f17ad53420f276a7247edefdf0ea",
+  "native_sprites_unchanged": true,
+  "profile_read_only": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false
+}

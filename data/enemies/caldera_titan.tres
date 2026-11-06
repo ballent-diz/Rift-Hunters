@@ -33,6 +33,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"caldera_titan"
+family = &"magma"
 name_key = "ENEMY_CALDERA_TITAN_NAME"
 desc_key = "ENEMY_CALDERA_TITAN_DESC"
 brain = 0

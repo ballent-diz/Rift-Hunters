@@ -15,6 +15,7 @@ accent = Color(1.0, 0.5, 0.15, 1.0)
 [resource]
 script = ExtResource("1")
 id = &"ember_pod"
+family = &"calcines"
 name_key = "ENEMY_EMBER_POD_NAME"
 desc_key = "ENEMY_EMBER_POD_DESC"
 brain = 3

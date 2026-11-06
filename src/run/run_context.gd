@@ -27,6 +27,8 @@ var pickups: PickupManager
 var hazards: HazardManager
 var spells: HunterSpells
 var fx: FxRenderer
+## Effets génériques des Corrompus aux couleurs de leur famille (pixelfx).
+var pixel_fx: PixelFx
 ## Obstacles infranchissables du décor (rochers, arbres, eau).
 var obstacles := ObstacleField.new()
 ## Carte de flux vers le Chasseur (null sans décor infranchissable) : les ennemis contournent par les routes.

@@ -50,6 +50,7 @@ params = {
 [resource]
 script = ExtResource("1")
 id = &"frost_mammoth"
+family = &"silence"
 name_key = "ENEMY_FROST_MAMMOTH_NAME"
 desc_key = "ENEMY_FROST_MAMMOTH_DESC"
 brain = 0

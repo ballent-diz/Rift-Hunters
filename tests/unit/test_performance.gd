@@ -58,3 +58,4 @@ func _step(ctx: RunContext, delta: float) -> void:
 	ctx.hazards.step(delta)
 	ctx.combat.flush_queue()
 	ctx.fx.step(delta)
+	ctx.pixel_fx.step(delta)
