@@ -1,7 +1,8 @@
 extends TestCase
 ## Charge élevée : 450 ennemis + 300 projectiles. Mesure le temps de simulation par frame (sans rendu).
 
-## Budget de simulation (sans rendu) sur une machine de test modeste ; 16,6 ms par frame à 60 FPS.
+## Budget de simulation (sans rendu) sur une machine de test modeste ; 16,6 ms par frame à 60 FPS. Les machines
+## partagées de l'intégration continue (GitHub) sont plus lentes et irrégulières : elles fixent PERF_BUDGET_MS.
 const BUDGET_MS := 10.0
 
 var run: RunController
@@ -43,9 +44,10 @@ func test_dense_crowd_step_time() -> void:
 					DamageInfo.make(1.0, DamageInfo.SourceKind.PLAYER, &"player", tags), {"life": 1.2, "pierce": 2})
 			_step(ctx, delta)
 		avg_ms = minf(avg_ms, (Time.get_ticks_usec() - start) / 1000.0 / frames)
+	var budget: float = float(OS.get_environment("PERF_BUDGET_MS")) if OS.has_environment("PERF_BUDGET_MS") else BUDGET_MS
 	print("    Charge : %d ennemis, %d projectiles → %.2f ms/frame (budget %.0f ms)" % [ctx.enemies.count(),
-		ctx.projectiles.friendly.size(), avg_ms, BUDGET_MS])
-	check(avg_ms < BUDGET_MS, "simulation trop lente : %.2f ms/frame" % avg_ms)
+		ctx.projectiles.friendly.size(), avg_ms, budget])
+	check(avg_ms < budget, "simulation trop lente : %.2f ms/frame" % avg_ms)
 
 
 func _step(ctx: RunContext, delta: float) -> void:
