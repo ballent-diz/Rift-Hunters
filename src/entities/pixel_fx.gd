@@ -13,7 +13,12 @@ const MAX_HITS_PER_FRAME := 5
 ## Délai minimal entre deux impacts sur un même Corrompu.
 const HIT_INTERVAL := 0.15
 ## Vitesse de lecture : la disparition (1,6 s dans pixelfx) est raccourcie pour ne pas encombrer l'écran.
-const SPEED := {&"hit": 1.0, &"death": 1.6}
+const SPEED := {&"hit": 1.0, &"death": 1.6, &"ring_burst": 2.0, &"ring_dust": 1.5}
+## Anneaux des boss (sorts en cercle) : poussière le long du front, au plus une bouffée par RING_DUST_STEP unités de
+## circonférence, et RING_DUST_MAX par passage ; la charge et l'onde de choc sont agrandies (pixels nets).
+const RING_DUST_STEP := 260.0
+const RING_DUST_MAX := 3
+const RING_SCALE := 2.0
 
 var ctx: RunContext
 ## Feuille chargée par « effet/famille » : {"texture", "rects", "pivot", "fps"} (vide si absente).
@@ -58,14 +63,39 @@ func death(enemy: Enemy) -> void:
 		ctx.fx.debris(enemy.position, tint, 14 if (enemy.is_elite or enemy.is_boss) else 4)
 
 
-func play(effect: StringName, family: StringName, pos: Vector2, flip: bool = false) -> bool:
+func play(effect: StringName, family: StringName, pos: Vector2, flip: bool = false, scale: float = 1.0,
+		speed: float = 0.0) -> bool:
 	if _active.size() >= MAX_ACTIVE:
 		return false
 	var sheet: Dictionary = _sheet(effect, family)
 	if sheet.is_empty():
 		return false
-	_active.append({"sheet": sheet, "pos": pos, "t": 0.0, "speed": float(SPEED.get(effect, 1.0)), "flip": flip})
+	_active.append({"sheet": sheet, "pos": pos, "t": 0.0, "speed": speed if speed > 0.0 else float(SPEED.get(effect, 1.0)),
+		"flip": flip, "scale": scale})
 	return true
+
+
+## Charge d'un sort en cercle : l'implosion se resserre sur le boss pendant toute l'annonce (`duration`).
+func ring_charge(pos: Vector2, family: StringName, duration: float) -> void:
+	var sheet: Dictionary = _sheet(&"ring_charge", family)
+	if sheet.is_empty() or duration <= 0.05:
+		return
+	var length: float = (sheet["rects"] as Array).size() / float(sheet["fps"])
+	play(&"ring_charge", family, pos, false, RING_SCALE, length / duration)
+
+
+## Départ de l'anneau : onde de choc au centre.
+func ring_burst(pos: Vector2, family: StringName) -> void:
+	play(&"ring_burst", family, pos, false, RING_SCALE)
+
+
+## Poussière soulevée par le front de l'anneau (rayon `radius`), hors des brèches (`safe` : angle -> vrai si brèche).
+func ring_dust(center: Vector2, radius: float, family: StringName, safe: Callable) -> void:
+	var count: int = mini(RING_DUST_MAX, maxi(1, int(TAU * radius / RING_DUST_STEP)))
+	for i: int in count:
+		var angle: float = ctx.rng.randf() * TAU if ctx else randf() * TAU
+		if not safe.call(angle):
+			play(&"ring_dust", family, center + Vector2.RIGHT.rotated(angle) * radius, angle > PI * 0.5 and angle < PI * 1.5)
 
 
 func active_count() -> int:
@@ -117,8 +147,9 @@ func _draw() -> void:
 		var rect: Rect2 = rects[frame]
 		var pivot: Vector2 = sheet["pivot"]
 		var pos: Vector2 = fx["pos"]
-		if bool(fx["flip"]):
-			draw_set_transform(pos, 0.0, Vector2(-1.0, 1.0))
+		var scale: float = fx.get("scale", 1.0)
+		if bool(fx["flip"]) or scale != 1.0:
+			draw_set_transform(pos, 0.0, Vector2(-scale if bool(fx["flip"]) else scale, scale))
 			draw_texture_rect_region(sheet["texture"], Rect2(-pivot, rect.size), rect)
 			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		else:
