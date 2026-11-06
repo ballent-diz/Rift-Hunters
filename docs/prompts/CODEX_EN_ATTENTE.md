@@ -5,31 +5,7 @@ dans l'ordre ; chacun est autonome. Rappel pour Codex : une branche par tâche d
 (AGENTS.md) ; si l'API GitHub le bloque, pousser la branche et donner son nom et son dernier commit : Claude ouvrira
 la PR.
 
-## 1. Carte 16 : corrections de la composition (avant le détail graphique)
-
-```text
-Carte 16 (chapitre 4, Glacier silencieux, docs/design/CARTES.md : vagues par zone, B1 glace qui fait glisser) : le
-propriétaire valide le plan de ta composition (trois plateaux reliés par des cols étroits, plaques de glace lisses
-bien lisibles, blocs de glace dans les aires de combat) et la lisibilité des monstres sur la neige. Garde ce plan et
-applique ces corrections avant le détail graphique :
-
-1) Abris : les blocs de glace doivent pouvoir abriter le Chasseur des attaques de boss : 110 à 160 unités de large,
-   3 à 4 par plateau dans les aires de combat (pas collés aux bords), 4 à 5 sur le plateau de la finale, lisibles
-   comme des obstacles pleins (ombre portée, faces éclairées en haut à gauche).
-2) Parcours explicite : indique dans plan.json (repères en %) le point de départ, l'ordre des plateaux, le plateau de
-   la finale et son emprise utile. Le champ de neige en bas à droite doit être soit relié clairement au parcours,
-   soit fermé (falaise ou crevasse).
-3) Échelle : respecte la nouvelle règle de docs/ART_BIBLE.md (section « Échelle des décors » : Chasseur environ 52
-   unités ; marche 12 à 16, dalle au plus 26, colonne 30 à 45 de large) et valide sur une capture au zoom réel avec
-   le Chasseur et un Écho.
-
-ATTENTION : le propriétaire a déjà peint les collisions sur la version actuelle de la composition (blocs de glace
-compris). Ne change ni le cadrage ni les contours praticables ; si une correction les modifie, signale-le pour qu'il
-repeigne. Ensuite : plan.json, détail graphique, image de référence des collisions comme pour les cartes 14 et 15.
-Ne touche ni src/ ni data/.
-```
-
-## 2. Objets posés sur les cartes : sprites peints dans la direction artistique de chaque carte
+## 1. Objets posés sur les cartes : sprites peints dans la direction artistique de chaque carte
 
 ```text
 Objets de gameplay posés sur les cartes : le propriétaire constate qu'ils ne se fondent pas dans la direction
@@ -52,7 +28,7 @@ Garde les mêmes états et les mêmes noms que les scènes actuelles : Claude re
 règles. Capture au zoom réel de chaque objet posé dans sa carte. Ne modifie ni src/ ni data/.
 ```
 
-## 3. Échelle des décors : cartes 15 et 4
+## 2. Échelle des décors : cartes 15 et 4
 
 ```text
 Échelle des décors (docs/ART_BIBLE.md, section « Échelle des décors ») : le Chasseur mesure environ 52 unités de
@@ -73,6 +49,7 @@ les bords praticables n'ont pas bougé. Ne touche ni src/ ni data/.
 
 ## Déjà réglé (ne plus envoyer)
 
+- Carte 16 : corrections de la composition, devenues sans objet (carte détaillée et intégrée en jeu).
 - PR #90 (objets miroirs) et PR #92 (sprites du chapitre 4) : fusionnées.
 - Image de référence des collisions de la carte 15 : le propriétaire a peint les collisions, carte intégrée.
 - Rochers-abris en sprite séparé (`object.cover_rock`) : abandonné, les abris se peignent dans les décors.
