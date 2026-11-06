@@ -94,6 +94,9 @@ func _add_starters(box: VBoxContainer, p: ProfileData) -> void:
 		box.add_child(hidden)
 	for id: StringName in team:
 		var monster: MonsterData = GameDB.monster(id)
+		# Sort actif de l'Écho, en une ligne (retour de test).
+		if monster.technique:
+			box.add_child(UiKit.wrapped(_spell_line(monster), 12, UiKit.MUTED))
 		var options := HBoxContainer.new()
 		options.add_theme_constant_override("separation", 10)
 		var entry: Dictionary = p.mastery_entry(id)
@@ -142,6 +145,8 @@ func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Butt
 		role.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		box.add_child(role)
 		tile.tooltip_text = tr(monster.desc_key) + "\n" + tr("EXPEDITION_MASTERY") % Mastery.level(p, monster)
+		if monster.technique:
+			tile.tooltip_text += "\n" + _spell_line(monster)
 		tile.pressed.connect(_select_starter.bind(monster.id))
 	else:
 		tile.custom_minimum_size = Vector2(46, 46)
@@ -160,6 +165,12 @@ func _starter_tile(p: ProfileData, monster: MonsterData, selected: bool) -> Butt
 	for child: Node in box.get_children():
 		(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return tile
+
+
+## « Écho — sort actif : description ».
+func _spell_line(monster: MonsterData) -> String:
+	return tr("EXPEDITION_ECHO_SPELL") % [tr(monster.name_key), tr(monster.technique.name_key),
+		tr(monster.technique.desc_key)]
 
 
 ## Numéro de la carte de campagne qui donne cet Écho (99 : pas encore de carte).

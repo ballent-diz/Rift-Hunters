@@ -17,6 +17,9 @@ const FAN_ANGLE := 15.0
 const FAN_DAMAGE := 0.8
 const OVERCHARGE_TIME := 1.2
 const OVERCHARGE_MAX := 2.5
+## Clavier seul : sorts posés sur le Chasseur, et distance du Mur devant lui (spell_aim).
+const SELF_CAST_KINDS: Array[StringName] = [&"singularity", &"crystal", &"rifts", &"rupture", &"pack_call"]
+const KEYBOARD_WALL_DISTANCE := 70.0
 
 var ctx: RunContext
 ## Sort équipé par emplacement (null : emplacement vide).
@@ -36,6 +39,8 @@ var vfx := HunterSpellVfx.new()
 ## Puissance du lancement en cours (Surcharge, Contre-taille) et variante de la Lance.
 var _power: float = 1.0
 var _lance_variant: StringName = &""
+## Point visé du sort montré par l'indicateur au sol (fixé à chaque dessin).
+var _shown_aim := Vector2.ZERO
 
 
 func setup(p_ctx: RunContext, spell_ids: Array[StringName], spell_variants: Dictionary = {}) -> void:
@@ -74,7 +79,7 @@ func step(delta: float) -> void:
 		if brain.spell_released(charge_slot) or not brain.spell_held(charge_slot):
 			var slot: int = charge_slot
 			charge_slot = -1
-			cast(slot, brain.aim_point(), charge_power())
+			cast(slot, spell_aim(slots[slot]), charge_power())
 	for i: int in SLOTS:
 		if slots[i] == null:
 			continue
@@ -87,9 +92,9 @@ func step(delta: float) -> void:
 				preview_slot = i
 			elif preview_slot == i and brain.spell_released(i):
 				preview_slot = -1
-				cast(i, brain.aim_point())
+				cast(i, spell_aim(slots[i]))
 		elif brain.spell_pressed(i):
-			cast(i, brain.aim_point())
+			cast(i, spell_aim(slots[i]))
 	queue_redraw()
 
 
@@ -178,6 +183,21 @@ func ready_ratio(slot: int) -> float:
 	return 1.0 - cooldowns[slot] / maxf(total, 0.01)
 
 
+## Point visé pour ce sort. Au clavier seul (ni souris ni stick), les sorts posés au sol partent sur le Chasseur
+## et le Mur se dresse juste devant lui ; les autres gardent la visée vers l'avant (ennemi le plus proche du cône).
+func spell_aim(spell: SpellData) -> Vector2:
+	var brain: PlayerBrain = ctx.player.brain
+	var aim: Vector2 = brain.aim_point()
+	if spell == null or brain.aims_freely():
+		return aim
+	var origin: Vector2 = ctx.player.global_position
+	if spell.spell_kind in SELF_CAST_KINDS:
+		return origin
+	if spell.spell_kind == &"wall":
+		return origin + aim_direction(aim) * KEYBOARD_WALL_DISTANCE
+	return aim
+
+
 ## Direction de lancement : vers le point visé, ou vers l'avant si le curseur est sur le Chasseur.
 func aim_direction(aim: Vector2) -> Vector2:
 	var offset: Vector2 = aim - ctx.player.global_position
@@ -259,8 +279,9 @@ func _draw() -> void:
 	if ctx == null or ctx.setup.autopilot or not ctx.player.alive:
 		return
 	var origin: Vector2 = ctx.player.global_position
-	var aim: Vector2 = ctx.player.brain.aim_point()
 	var shown: int = charge_slot if charge_slot >= 0 else preview_slot
+	var aim: Vector2 = spell_aim(slots[shown]) if shown >= 0 else ctx.player.brain.aim_point()
+	_shown_aim = aim
 	if shown >= 0 and slots[shown] != null:
 		draw_shape(slots[shown], origin, aim_direction(aim), variants[shown])
 	if charge_slot >= 0:
@@ -294,7 +315,7 @@ func draw_shape(spell: SpellData, origin: Vector2, dir: Vector2, variant: String
 		&"lance":
 			_draw_line_shape(origin, dir, spell.spell_range, spell.width, fill, edge)
 		&"leap":
-			var target: Vector2 = origin + dir * minf(spell.spell_range, ctx.player.brain.aim_point().distance_to(origin))
+			var target: Vector2 = origin + dir * minf(spell.spell_range, _shown_aim.distance_to(origin))
 			draw_line(origin, target, edge, 2.0)
 			_draw_circle_shape(target, spell.width * (2.0 if variant == &"impact" else 1.0), fill, edge)
 		&"parry", &"aegis":
@@ -315,7 +336,7 @@ func draw_shape(spell: SpellData, origin: Vector2, dir: Vector2, variant: String
 
 
 func _aim_point(origin: Vector2, max_range: float) -> Vector2:
-	return origin + (ctx.player.brain.aim_point() - origin).limit_length(max_range)
+	return origin + (_shown_aim - origin).limit_length(max_range)
 
 
 func _draw_circle_shape(center: Vector2, radius: float, fill: Color, edge: Color) -> void:

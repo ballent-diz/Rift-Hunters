@@ -1,0 +1,827 @@
+{
+  "date": "2026-11-05",
+  "world": [
+    5016,
+    3344
+  ],
+  "composition_sha256": "03e64dae2b9891f27abb682f85b4cebed8272fa289ba1da8ca9c2b54cdcf5d1d",
+  "plan_sha256": "3e9eab1711efd99a131791adf705cb38b6dc9fcc27edaf9f2f5568028407571a",
+  "native_density": 0.75,
+  "native_size": [
+    3762,
+    2508
+  ],
+  "retained_sha256": "8dfff78f6b952667aec61d4d298020162bcb9e453128169ce2471990154facc6",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1274.7
+      ],
+      "square_world": [
+        -160.0,
+        -160.0,
+        1414.0,
+        1414.0
+      ],
+      "generated_sha256": "4a75a3a671abe2c59336e2bb9696f9496aeb848afa14d79111e6ad338485a69e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "1f64d669595342d92bb2519187891c0a279bd76bf925166b072235f34cadeff9",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r0_0",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.062480926513671875,
+          491.6810989379883,
+          110.0778579711914
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1274.7
+      ],
+      "square_world": [
+        1094.0,
+        -160.0,
+        2668.0,
+        1414.0
+      ],
+      "generated_sha256": "e0629efa6974f55ca52a1e32c33917388fac13c92434412512c930c314651794",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "433ea897600cc785b6c22e3e3efe5f9cdde72cec6e63dbe8a87fd29c5a2f8654",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r0_1",
+      "local_instructions": null,
+      "initial_generation_sha256": "4dc1baabefdd6d72030409bc8613b99b7166706e7ba8f3cda9d9a0836aa36c6a",
+      "correction_prompt": "LOCAL FLOOR CORRECTION ONLY. Keep this exact highdetail image identical, all buildings, slate roofs, banners, lighting, exactcamera and framing. REMOVE ALL VIOLET/MAGENTA VEINS FROM THE FLOOR: the thin luminous purple lines in the left alley and the smallpurple mark near bottomcenter should be entirely ordinary PALE gray cobbles same texture as adjacent floor. This region has NO contaminated ground at all. KEEP purple cloth banners on walls unchanged. Keep small statuecover, no moving, no new objects or colorchanges. Only erase purple floorfissures using proper newly painted paving. Preserve high definition crisp textures. Output same square,1254x1254 minimum, fullbleed.",
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.12749862670898438,
+          415.2059555053711,
+          106.02235794067383
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1274.7
+      ],
+      "square_world": [
+        2348.0,
+        -160.0,
+        3922.0,
+        1414.0
+      ],
+      "generated_sha256": "f91a2ac22358f94628d32c82d1568c8357171e015df169da1ac77bca65049593",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "06392297357586af73feb2d0992c1ce00746fb10cf0807fad9c3b523c99be6e4",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r0_2",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.02127838134765625,
+          501.5301704406738,
+          114.90583419799805
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3602.0,
+        0.0,
+        5016,
+        1274.7
+      ],
+      "square_world": [
+        3602.0,
+        -160.0,
+        5176.0,
+        1414.0
+      ],
+      "generated_sha256": "66b5255639cfaceb918d202a81ac9cab41e7c4c3b08b9c0fde724a0050961cf6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "3b79b8fe0ddcf10958e0afdf61a3742c505344e9e4f9f99dd5c8274181048274",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r0_3",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.033740997314453125,
+          487.43247985839844,
+          122.82371520996094
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        954.7,
+        1414.0,
+        2389.3
+      ],
+      "square_world": [
+        -160.0,
+        954.7,
+        1414.0,
+        2528.7
+      ],
+      "generated_sha256": "20c44314b4ccc38592f952005c988eb379e2c9c1d444b1ccc77d892d46e1486b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "6fe5097c5c0057b1416a39c617c5c0d233499bb65992cd6879d5d7789fd4ee79",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "PROMPT_DETAIL.txt",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.046360015869140625,
+          492.0673370361328,
+          111.62281036376953
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        1094.0,
+        954.7,
+        2668.0,
+        2389.3
+      ],
+      "square_world": [
+        1094.0,
+        954.7,
+        2668.0,
+        2528.7
+      ],
+      "generated_sha256": "51c3b4992ca2000420755595afd406f99cd78b3b0073fc2433097d0d58daa992",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "a1e11cd6e28212146fdfba7dac6b903fd08f1e8b24aa709d00789eb82d813103",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r1_1",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.013523101806640625,
+          486.85312271118164,
+          119.54069137573242
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2348.0,
+        954.7,
+        3922.0,
+        2389.3
+      ],
+      "square_world": [
+        2348.0,
+        954.7,
+        3922.0,
+        2528.7
+      ],
+      "generated_sha256": "38300c6dc4b053fc06740ab6f0324072101b3a6d1e9f12703dc4a07765ad3d43",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "6d24b8e829f5e69f81c9d541461ecc17b1e063d74596c608f3912b120fecf58c",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r1_2",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.021320343017578125,
+          513.8897895812988,
+          114.13335800170898
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3602.0,
+        954.7,
+        5016,
+        2389.3
+      ],
+      "square_world": [
+        3602.0,
+        954.7,
+        5176.0,
+        2528.7
+      ],
+      "generated_sha256": "fdc5f939921c65bd57ee06fea94ef2c480e696250f82790aa70e2e60dbef756c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "78094975d006cafcc3a47382edb0429de972eda1cc97448a35afbad2913a30a6",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r1_3",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.05206298828125,
+          484.921932220459,
+          113.16776275634766
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2069.3,
+        1414.0,
+        3344
+      ],
+      "square_world": [
+        -160.0,
+        2069.3,
+        1414.0,
+        3643.3
+      ],
+      "generated_sha256": "2eb9b8126c0cd3ac642245047f934df97583ef6fb6c16ae98a83b2bede48dff9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "529e2ab9d60fa902b478ba787fdbaec2fd8d2f49420ea902b8c02e207cb793fd",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r2_0",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.030895233154296875,
+          484.1494560241699,
+          119.73381042480469
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        1094.0,
+        2069.3,
+        2668.0,
+        3344
+      ],
+      "square_world": [
+        1094.0,
+        2069.3,
+        2668.0,
+        3643.3
+      ],
+      "generated_sha256": "6f700038f0bdb226004bb6a86e49968f0eba7a126b3541b88e661b4d1adb7457",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "a3fd7d392fecf0513a9ba072a425a5fd6bb82b74594fbaa5c35062cbc28a22a5",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r2_1",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.056064605712890625,
+          468.31369400024414,
+          109.49850082397461
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2348.0,
+        2069.3,
+        3922.0,
+        3344
+      ],
+      "square_world": [
+        2348.0,
+        2069.3,
+        3922.0,
+        3643.3
+      ],
+      "generated_sha256": "075221f6b6b9c97f56879fc32f0e9e05b0e3ed28e337813c9dea1c1708ae05ca",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "66317b25c2fe012c5d50422119cbfc4559130dc2ef18b457ba9a1f8b62a2ff7f",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r2_2",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.0659942626953125,
+          477.9696464538574,
+          102.93245315551758
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_3",
+      "crop_world": [
+        3602.0,
+        2069.3,
+        5016,
+        3344
+      ],
+      "square_world": [
+        3602.0,
+        2069.3,
+        5176.0,
+        3643.3
+      ],
+      "generated_sha256": "c5fb4bbffd1b986d02273d2547abf2561ff36c847d0c6b96b847ecefd4a71c68",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "339d1848f0e8e06521f82c51fa554bbcfb459582f507ce537a6024b40cd14631",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r2_3",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.08013916015625,
+          484.3425750732422,
+          108.14666748046875
+        ],
+        "regional_reference_bands_met": false
+      }
+    }
+  ],
+  "pixels_lossless_verified": true,
+  "method": "Douze régions carrées peintes de1574u ; marges extraites, calibration native et raccord de faible différence.",
+  "retained_source": "map_detailed.webp",
+  "intermediates": "Guides, régions et retouches hors dépôt ; seul le master retenu est versionné.",
+  "local_cover_corrections": [
+    {
+      "id": "a01",
+      "box_world": [
+        241.56799999999998,
+        2144.56,
+        741.568,
+        2644.56
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        491.568,
+        2474.56
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a02",
+      "box_world": [
+        1139.4319999999998,
+        2412.08,
+        1639.4319999999998,
+        2912.08
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        1389.4319999999998,
+        2742.08
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a03",
+      "box_world": [
+        1696.2079999999996,
+        1943.92,
+        2196.2079999999996,
+        2443.92
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        1946.2079999999996,
+        2273.92
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        2197.8079999999995,
+        1843.6,
+        2697.8079999999995,
+        2343.6
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        2447.8079999999995,
+        2173.6
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a05",
+      "box_world": [
+        3045.5119999999997,
+        1308.56,
+        3545.5119999999997,
+        1808.56
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        3295.5119999999997,
+        1638.56
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a06",
+      "box_world": [
+        2122.5679999999998,
+        974.1599999999999,
+        2622.5679999999998,
+        1474.1599999999999
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        2372.5679999999998,
+        1304.1599999999999
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        3145.832,
+        589.5999999999999,
+        3645.832,
+        1089.6
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        3395.832,
+        919.5999999999999
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        4078.808,
+        -19.00799999999998,
+        4578.808,
+        480.992
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        4328.808,
+        310.992
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a09",
+      "box_world": [
+        4434.944,
+        867.1519999999998,
+        4934.944,
+        1367.1519999999998
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        4684.944,
+        1197.1519999999998
+      ],
+      "input_sha256": "a165ba00d59ebeaca3ac8d5ccb102fc7506689f764998034bd91f0b95631407a",
+      "guide_sha256": "2e95267af04067d9b47686d5f8bfad44370d5eb62aa5f048c18c62b051026daa",
+      "generated_sha256": "b1b896286da51876c257b12052f78a067c5dd00210e0acd7f9ffcc27b32a2d37",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page2"
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        4068.776,
+        1124.6399999999999,
+        4568.776,
+        1624.6399999999999
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        4318.776,
+        1454.6399999999999
+      ],
+      "input_sha256": "a165ba00d59ebeaca3ac8d5ccb102fc7506689f764998034bd91f0b95631407a",
+      "guide_sha256": "2e95267af04067d9b47686d5f8bfad44370d5eb62aa5f048c18c62b051026daa",
+      "generated_sha256": "b1b896286da51876c257b12052f78a067c5dd00210e0acd7f9ffcc27b32a2d37",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page2"
+    }
+  ],
+  "compact_base_corrections": [
+    {
+      "id": "a06",
+      "box_world": [
+        2222.2490207336523,
+        1155.9781818181816,
+        2522.0895311004783,
+        1455.8186921850079
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        3254.2849505582135,
+        775.4054226475278,
+        3554.12546092504,
+        1075.245933014354
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        4174.501779904306,
+        168.39231897926638,
+        4474.342290271133,
+        468.2328293460925
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        4176.431502392345,
+        1284.1296331738436,
+        4476.27201275917,
+        1583.9701435406696
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    }
+  ],
+  "local_corrupted_material_corrections": [
+    {
+      "id": "c02",
+      "box_world": [
+        1221.2213599999998,
+        1383.4555199999998,
+        2021.2213599999998,
+        2183.4555199999995
+      ],
+      "target_diameter_world": 450,
+      "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+      "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+      "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_NAPPES_DETAIL.txt",
+      "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+    },
+    {
+      "id": "c03",
+      "box_world": [
+        2295.99968,
+        1214.4163199999998,
+        3095.99968,
+        2014.4163199999998
+      ],
+      "target_diameter_world": 450,
+      "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+      "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+      "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_NAPPES_DETAIL.txt",
+      "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+    },
+    {
+      "id": "c04",
+      "box_world": [
+        2660.36192,
+        1500.6627199999998,
+        3460.36192,
+        2300.66272
+      ],
+      "target_diameter_world": 450,
+      "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+      "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+      "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_NAPPES_DETAIL.txt",
+      "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+    },
+    {
+      "id": "c05",
+      "box_world": [
+        2660.91368,
+        756.6895999999999,
+        3460.91368,
+        1556.6896
+      ],
+      "target_diameter_world": 450,
+      "input_sha256": "d768af8ea56dc433ed40304fc850ea3603c00da35bfdd185890fed411edfdc36",
+      "guide_sha256": "c4888468ff833d32ece97dbb6e1135626e532e156213db936197a7801031b701",
+      "generated_sha256": "61b7b172a0374c31ba9ff259cdb70c9bbd060ea57d86a84a104daa878eeee456",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_NAPPES_DETAIL.txt",
+      "method": "Réduction peinte, réinsertion limitée au seul ancien matériau violet et8px natifs de marge ; pas de masque statique."
+    }
+  ]
+}

@@ -261,6 +261,8 @@ func test_test_mode_unlocks_the_whole_tree() -> void:
 		check_eq(HunterTree.learned_rank(profile, node), node.max_rank(), "%s appris" % id)
 	check(HunterTree.points_left(profile) >= 150, "points en abondance")
 	check(HunterTree.activate(profile, GameDB.skill_node(&"bond_swap")), "un sort de niveau IV s'active")
+	for slot: int in HunterTree.SPELL_SLOTS:
+		check(HunterTree.slot_unlocked(profile, slot), "emplacement de sort %d ouvert" % (slot + 1))
 
 
 func test_every_spell_has_its_icon() -> void:

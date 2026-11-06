@@ -1,0 +1,302 @@
+{
+  "date": "2026-11-05",
+  "covers": [
+    {
+      "id": "a01",
+      "box_world": [
+        241.56799999999998,
+        2144.56,
+        741.568,
+        2644.56
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        491.568,
+        2474.56
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a02",
+      "box_world": [
+        1139.4319999999998,
+        2412.08,
+        1639.4319999999998,
+        2912.08
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        1389.4319999999998,
+        2742.08
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a03",
+      "box_world": [
+        1696.2079999999996,
+        1943.92,
+        2196.2079999999996,
+        2443.92
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        1946.2079999999996,
+        2273.92
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        2197.8079999999995,
+        1843.6,
+        2697.8079999999995,
+        2343.6
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        2447.8079999999995,
+        2173.6
+      ],
+      "input_sha256": "32394e8453d665cb927aaf07c4d3dc6b6359623b76d0a6f79eb3a2f37a259257",
+      "guide_sha256": "92366d862bf63e8d761773154febf856d9cec345ae0b80fa67b0fc090718b0ce",
+      "generated_sha256": "d06936d846df0b2ffb28605247bbdc91065d9f9b6a9adcd6a9eee28dd62dc14b",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page0"
+    },
+    {
+      "id": "a05",
+      "box_world": [
+        3045.5119999999997,
+        1308.56,
+        3545.5119999999997,
+        1808.56
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        3295.5119999999997,
+        1638.56
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a06",
+      "box_world": [
+        2122.5679999999998,
+        974.1599999999999,
+        2622.5679999999998,
+        1474.1599999999999
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        2372.5679999999998,
+        1304.1599999999999
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        3145.832,
+        589.5999999999999,
+        3645.832,
+        1089.6
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        3395.832,
+        919.5999999999999
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        4078.808,
+        -19.00799999999998,
+        4578.808,
+        480.992
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        4328.808,
+        310.992
+      ],
+      "input_sha256": "fe482e49d7badbd33f8ab525fa1237f98e23f26830428336a38982c44a8e745a",
+      "guide_sha256": "363aefb5ca37a79ba5d4b2033a7b12fb8a3937bea62b371e611f3a7a4545af82",
+      "generated_sha256": "3bebb847e659623abb71a33907c84bd754af0eb0cfabc1093e2d601f4dcabd0c",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page1"
+    },
+    {
+      "id": "a09",
+      "box_world": [
+        4434.944,
+        867.1519999999998,
+        4934.944,
+        1367.1519999999998
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        4684.944,
+        1197.1519999999998
+      ],
+      "input_sha256": "a165ba00d59ebeaca3ac8d5ccb102fc7506689f764998034bd91f0b95631407a",
+      "guide_sha256": "2e95267af04067d9b47686d5f8bfad44370d5eb62aa5f048c18c62b051026daa",
+      "generated_sha256": "b1b896286da51876c257b12052f78a067c5dd00210e0acd7f9ffcc27b32a2d37",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page2"
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        4068.776,
+        1124.6399999999999,
+        4568.776,
+        1624.6399999999999
+      ],
+      "target_width_world": 130,
+      "foot_reference_world": [
+        4318.776,
+        1454.6399999999999
+      ],
+      "input_sha256": "a165ba00d59ebeaca3ac8d5ccb102fc7506689f764998034bd91f0b95631407a",
+      "guide_sha256": "2e95267af04067d9b47686d5f8bfad44370d5eb62aa5f048c18c62b051026daa",
+      "generated_sha256": "b1b896286da51876c257b12052f78a067c5dd00210e0acd7f9ffcc27b32a2d37",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS.txt#page2"
+    }
+  ],
+  "compact_base_corrections": [
+    {
+      "id": "a06",
+      "box_world": [
+        2222.2490207336523,
+        1155.9781818181816,
+        2522.0895311004783,
+        1455.8186921850079
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    },
+    {
+      "id": "a07",
+      "box_world": [
+        3254.2849505582135,
+        775.4054226475278,
+        3554.12546092504,
+        1075.245933014354
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        4174.501779904306,
+        168.39231897926638,
+        4474.342290271133,
+        468.2328293460925
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        4176.431502392345,
+        1284.1296331738436,
+        4476.27201275917,
+        1583.9701435406696
+      ],
+      "target_width_world": 130,
+      "input_sha256": "74e236732e868d8869a2c055c79ff6fc53878feca62bc8e069c0a51c016ce6aa",
+      "guide_sha256": "e9eeff0fc38bdc631cf6aaf6476048b4747e63c5e907bc7620ee8c8dede4ac1f",
+      "generated_sha256": "3e500f8b01971533cb3ed5949df479c97ad3dbe77e53f93412155950dd8df9e9",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_ABRIS_BASES.txt"
+    }
+  ],
+  "corrupted_floor_and_stair_pixels_unchanged": true,
+  "collision_mask_created": false,
+  "intermediates_in_git": false
+}

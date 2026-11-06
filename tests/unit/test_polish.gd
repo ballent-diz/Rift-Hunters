@@ -101,6 +101,19 @@ func test_music_playlist_and_fallbacks() -> void:
 			check(Audio.next_track_id("run", run_ids[0]) != run_ids[0], "le morceau suivant change")
 
 
+## Retour de test : deux cartes d'affilée ne jouent jamais les mêmes morceaux (tant qu'il en reste d'autres).
+func test_consecutive_maps_change_music() -> void:
+	var run_ids: Array[String] = Audio.tracks_for("run")
+	var saved_map: Array[String] = Audio._map_tracks.duplicate()
+	var saved_last: Array[String] = Audio._last_map_tracks.duplicate()
+	Audio._map_tracks.assign(run_ids.slice(0, run_ids.size() / 2))
+	Audio.begin_map()
+	for i: int in 30:
+		check(not Audio._last_map_tracks.has(Audio.next_track_id("run", "")), "morceau absent de la carte précédente")
+	Audio._map_tracks = saved_map
+	Audio._last_map_tracks = saved_last
+
+
 func test_measured_tempo_is_applied() -> void:
 	var with_bpm: int = 0
 	for id: String in Audio.tracks_for("run"):

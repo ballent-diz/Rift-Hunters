@@ -131,6 +131,7 @@ func start(setup: RunSetup) -> void:
 	ctx.events.capture_completed.connect(func(_id: StringName) -> void: Audio.play_sfx(&"evolution"))
 	if not setup.autopilot:
 		Profile.profile.set_preference("starter", String(setup.starter_id))
+	Audio.begin_map()
 	Audio.play_context("run")
 	# Musiques du boss chargées en arrière-plan dès le départ (pas de gel à son arrivée ni à la phase 2).
 	Audio.prefetch("boss")

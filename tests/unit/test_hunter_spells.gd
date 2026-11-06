@@ -107,6 +107,31 @@ func test_keyboard_aim_follows_facing() -> void:
 	check(behind.alive, "ennemi derrière ignoré")
 
 
+## Retour de test : au clavier seul, les sorts posés au sol (Singularité...) partent sur le Chasseur.
+func test_keyboard_ground_spells_cast_on_the_hunter() -> void:
+	var player: Player = run.ctx.player
+	var scheme: String = Settings.control_scheme
+	var gamepad: bool = Settings.using_gamepad
+	Settings.control_scheme = "keyboard"
+	Settings.using_gamepad = false
+	var brain := HumanBrain.new()
+	brain.ctx = run.ctx
+	player.brain = brain
+	player.facing = Vector2.RIGHT
+	var origin: Vector2 = player.global_position
+	check(not brain.aims_freely(), "clavier seul : pas de visée libre")
+	check_eq(_spells().spell_aim(GameDB.spells[&"singularity"]), origin, "Singularité sur le Chasseur")
+	check_eq(_spells().spell_aim(GameDB.spells[&"refracting_crystal"]), origin, "Cristal sur le Chasseur")
+	var wall: Vector2 = _spells().spell_aim(GameDB.spells[&"rift_wall"])
+	check(wall.x > origin.x + 30.0 and wall.x < origin.x + 100.0, "Mur juste devant le Chasseur")
+	var lance: Vector2 = _spells().spell_aim(GameDB.spells[&"prismatic_lance"])
+	check(lance.x > origin.x + 100.0, "Lance : visée vers l'avant inchangée")
+	Settings.control_scheme = "mouse"
+	check(brain.aims_freely(), "souris : visée libre")
+	Settings.control_scheme = scheme
+	Settings.using_gamepad = gamepad
+
+
 func _set_variant(slot: int, variant: StringName) -> void:
 	_spells().variants[slot] = variant
 

@@ -56,3 +56,9 @@ func focus_requested() -> bool:
 ## Point visé dans le monde (curseur) pour les techniques et l'ordre de focus.
 func aim_point() -> Vector2:
 	return ctx.player.global_position
+
+
+## Vrai si le point visé est choisi librement (souris, stick, bot) ; faux au clavier seul, où les sorts posés au
+## sol partent sur le Chasseur (HunterSpells.spell_aim).
+func aims_freely() -> bool:
+	return true
