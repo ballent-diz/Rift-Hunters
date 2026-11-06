@@ -1,0 +1,277 @@
+{
+  "date": "2026-11-06",
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "identity_approved": true,
+  "plan_locked": true,
+  "main_base": "79198570c705d57116effd4c91c7188d9c93e15c",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy"
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_suspended_quarters.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map23/detail/captures-final"
+      ],
+      "exit_code": 0,
+      "log_sha256": "8a8a1bf7d421375df2c4d1047038edd5fef37de661dd7e7b742789c6f688bf6e"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "0d1d6045af18643d6b6638ad5050296028b9cee68cff06829a39cf79b4b4c075"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_suspended_quarters.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    },
+    {
+      "name": "python_compile",
+      "command": [
+        "python3",
+        "-m",
+        "py_compile",
+        "tools/art/build_suspended_quarters.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "quality",
+      "command": [
+        "python3",
+        "tools/art/build_suspended_quarters.py",
+        "--present",
+        "--work",
+        "/workspace/.rift-art/map23/detail/presentation-lossless",
+        "--model",
+        "/workspace/.rift-art/map14/final-build/realesr_general_x4v3_0.2.onnx",
+        "--residual-limit",
+        "0.5",
+        "--lossless"
+      ],
+      "exit_code": 0,
+      "log_sha256": "426a6f3ca834c9d4b85269737d7d952194c337bb5bdc5385388d016ac8e7fa51"
+    },
+    {
+      "name": "scale_comparison",
+      "command": [
+        "python3",
+        "tools/art/map_regions.py",
+        "compare",
+        "--images",
+        "assets/environments/suspended_quarters/map.webp",
+        "assets/environments/suspended_quarters/map_1.webp",
+        "assets/environments/suspended_quarters/map_2.webp",
+        "--world",
+        "5016x2508",
+        "--composition",
+        "assets/concepts/incoming/map.suspended_quarters/composition.png",
+        "--at",
+        "853,1248",
+        "1320,1020",
+        "--out",
+        "/workspace/.rift-art/map23/detail/comparaison_echelle.png"
+      ],
+      "exit_code": 0,
+      "log_sha256": "4c762b3623b8258b54ca536761c30542d8e8f6c296a961ded8b47432c8d0543c"
+    }
+  ],
+  "assets": {
+    "total": 451,
+    "errors": 0,
+    "preexisting_planned_entries": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ],
+    "valid": 449,
+    "placeholders": 2
+  },
+  "quality_conforme": true,
+  "quality_report": "qualite.json",
+  "quality_sectors": 20,
+  "quality_sectors_conforme": 17,
+  "quality_thresholds_unchanged": true,
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "collision_mask_created": false,
+    "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+    "detail_generated": true,
+    "native_sprites_unchanged": true,
+    "plan_sha256": "ca100ac196329c27edf6ded7f35d11445bc960b7e052f290c623b33136cf5f7e",
+    "profile_read_only": true,
+    "runtime_integrated": false,
+    "scope": "detail_graphique_livre",
+    "tiles_sha256": [
+      "e6554402ee5f81a92c1ff4a7a686253897a1d5e30ccc39de55093be86c66f5c6",
+      "cd9cde640f09c108b13d7d89350da26980f2f52c7558dfd0bacd12a39fea6645",
+      "364a05b16519b86955a09e584da7d510e36c0d426ecb62a6f090afd48c3d38f5"
+    ],
+    "viewport": [
+      1280,
+      720
+    ],
+    "witness_ids": [
+      "wandering_shard",
+      "glass_sentinel",
+      "quartz_golem",
+      "hush_shard",
+      "ice_knight",
+      "silence_herald"
+    ]
+  },
+  "captures": [
+    {
+      "file": "cour_interieure_zoom_jeu.webp",
+      "sha256": "535b6e486ee65186a90211542a884a69d4bef06f61eb90ceb4e369e48f672dba",
+      "original_png_sha256": "382a2cbb795f40eeb47b366a667897772aeef451b20f441458c4a22cd9087a02"
+    },
+    {
+      "file": "depart_zoom_jeu.webp",
+      "sha256": "8bd7b5e1de7360b773855f53ad633828211d37ad4b317abed824c0e9509f622d",
+      "original_png_sha256": "2a7412ee36a666a1e84432831ccb27b7505fbde33d6936ef1dba2013654a0f74"
+    },
+    {
+      "file": "ensemble_720p.webp",
+      "sha256": "1b927a6a793fd185fadda9a196c798c71f82a2c58690656a291e98576e2ed6ba",
+      "original_png_sha256": "209ef741ee9a3b641b20a6006cfc3748d7449d7a5964c0b0666ec667cd444f18"
+    },
+    {
+      "file": "faille_interieure_zoom_jeu.webp",
+      "sha256": "2de10854ec60659158e16a5c779966c9ce116210bd0c38047fdd6c59161175f2",
+      "original_png_sha256": "d2010962590961a2dc22ef865a7e8aa3825aee5028a94b637511f28fa123ce65"
+    },
+    {
+      "file": "finale_zoom_jeu.webp",
+      "sha256": "465d52dc7ba1fd31fb586be0cf7dc6855d9d9f9b9e2836887096c4d227fb8a59",
+      "original_png_sha256": "3114b138a0ca799323999cdac92947fc32d202277ece36b7144bd504727d8a58"
+    },
+    {
+      "file": "lisibilite_corruption.webp",
+      "sha256": "2da40096277a8383b7cf17712813b335d27e019d650747f09f53b4d64d527b1a",
+      "original_png_sha256": "82ffa3c6c5cfc5b6b0c13e709df4aaf40e618ef053b22eca559cf221bb0dcf89"
+    },
+    {
+      "file": "lisibilite_dalles.webp",
+      "sha256": "51bc973b2010bc4cc3029e595e83d39e626890bfad0f0b757d74bd7a3e4e9bcd",
+      "original_png_sha256": "1b862557d483239a22c22fde937efee8f55340647ddab5ebf2f6893162a1de7f"
+    },
+    {
+      "file": "lisibilite_vide.webp",
+      "sha256": "1b5e216df46b9a56969f1f0fdbc96c6a1a27f9dc424f09b984fa7c04ddf422d9",
+      "original_png_sha256": "764d45b6f95567bfd279cd806a8c9fdeaa1dc6059ba7033187703fd4cf23f05e"
+    },
+    {
+      "file": "pont_1_zoom_jeu.webp",
+      "sha256": "0f7b7b3832529012b3660f56cb11e9e01f4c77e0e08e6a0edbc898986cb71f72",
+      "original_png_sha256": "6a095317014158f037a792f1bf3b43112c8dc3ae5053832c163b182ca167bb81"
+    },
+    {
+      "file": "pont_2_zoom_jeu.webp",
+      "sha256": "a9e55452ab22104e461381b5034bd793851eacd02a908bb5b5c53fae23440dfb",
+      "original_png_sha256": "0951e4df4aa11a1ce96253e313161f47d9b3aca60c155292c00009f54cd09e79"
+    },
+    {
+      "file": "pont_3_zoom_jeu.webp",
+      "sha256": "8a7ba1c612f40f38fc052ffccc7b618fd5e2e81bf10ac445620e382fbb62f55b",
+      "original_png_sha256": "7821f0551c30ef72ac213be1d67494549f8fcac91ea688ca2a2d2a683273d790"
+    },
+    {
+      "file": "socle_a1_zoom_jeu.webp",
+      "sha256": "80d5da3eaa205c18590dcf261e83c8e848df79151c052fa1ccd5d1c60248b0ca",
+      "original_png_sha256": "04b44da57ef1bb31bc67c75674d2cc50c8eeae01305d0fcdab365e1c1a508f74"
+    },
+    {
+      "file": "socle_a2_zoom_jeu.webp",
+      "sha256": "6df16bf96a1ecb124ba3b55d8e5610a6758614478382d2f568abcc4bd34f90b4",
+      "original_png_sha256": "a6acd96dd364a08099b2e6b9eeb61af2e177a534d85ceca1efb52ef30b539562"
+    },
+    {
+      "file": "socle_c2_zoom_jeu.webp",
+      "sha256": "7e41b94a155c695ed5c867c4f108e606e6a44e5b566419a6d66514acb859aa73",
+      "original_png_sha256": "a88f45d0c12d1b4a77f11b30b35d0222d3eea847565ccfbf957dac02a2649b50"
+    }
+  ],
+  "world": [
+    5016,
+    2508
+  ],
+  "native_size": [
+    3762,
+    1881
+  ],
+  "game_size": [
+    11286,
+    5643
+  ],
+  "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+  "plan_sha256": "ca100ac196329c27edf6ded7f35d11445bc960b7e052f290c623b33136cf5f7e",
+  "master_sha256": "4d62ca76d03af1553538e35ce8c89f9a8f8fcddbae43ff3d976bf12111dccb0a",
+  "regions": 8,
+  "cover_counts": {
+    "z1": 3,
+    "z2": 3,
+    "finale": 4,
+    "refuge": 1
+  },
+  "cover_width_world_approx": [
+    114.04,
+    155.5
+  ],
+  "pad_diameter_world_approx": [
+    180.22,
+    198.56
+  ],
+  "pad_clearance_visual_checked_world": 120,
+  "free_courts_world": [
+    600,
+    600
+  ],
+  "free_finale_world": [
+    1000,
+    1000
+  ],
+  "collision_reference_bytes": 341829,
+  "collision_reference_sha256": "abc6d76136471bb60821d5ccc7e85368f781a86f863fdb9ada3f2152e6043f2f",
+  "native_sprites_unchanged": true,
+  "profile_read_only": true,
+  "chapter5_sprites_created": false,
+  "corruption_is_decorative": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false
+}

@@ -522,6 +522,11 @@ Plan validé5016 ×3344 conservé : trois salles est-ouest, arche puis escalier 
 
 Composition validée et plan figé3344 ×5016 : trois rues sud→nord, trois traverses, six arches ouvertes à runes sombres (seuils209–238u), parvis libre1600 ×1000u hors socle vide et treize abris mesurés130–159u. Douze régions réellement redessinées, deux tuiles finales, qualité conforme35/35 et fidélité0,972 ; traitement de netteté borné pour préserver le pavage. Sept captures au zoom réel avec les sprites existants, import Godot et contrôle assets sans erreur. Référence entière légère836 ×1254 à peindre par le propriétaire, retourPNG au même cadrage ; recette et empreinte dans source/collision_reference.json. Les seuils, escaliers et sols violets restent praticables ; Claude raccordera collisions, autel, portes, gardien et campagne. Aucun masque créé ni nouveau sprite du chapitre5 ; aucun changement de src/, data/, du manifeste ou des cartes14 à21. Voir docs/maps/SANCTUAIRE_DES_RUNES.md.
 
+
+## Carte 23 — Les Quartiers suspendus : détail livré (Codex, 6 novembre)
+
+Composition corrigée validée et plan figé 5016 × 2508 : départ ouest en L, Z1 en croissant avec cours et ruines, Z2 fendu et passage intérieur, finale est libre 1000 × 1000u, refuge nord isolé. Trois ponts continus et trois paires de socles vides conservés ; cinq nappes violettes décoratives, sans B9. Huit régions réellement peintes, onze abris mesurés 114–156u, socles 180–199u avec dégagement contrôlé visuellement. Trois tuiles finales à 2,25px/u, qualité conforme 17/20, fidélité 0,993. Quatorze captures au zoom réel, import Godot et contrôle assets sans erreur. Référence entière légère 1254 × 627 à peindre par le propriétaire, retour PNG au même cadrage ; recette et SHA conservés. Aucun masque créé ni sprite du chapitre 5. Claude raccordera collisions, zones, téléporteurs, gardien et campagne. Aucun changement de src/, data/, du manifeste ou des cartes 14 à 22 dans le diff vers main. Voir [QUARTIERS_SUSPENDUS.md](maps/QUARTIERS_SUSPENDUS.md).
+
 ## Compétences et effets pixelfx par famille (lot 1, 6 novembre)
 
 Audit et attribution « Corrompu → compétence → effet pixelfx » : [design/VFX_COMPETENCES.md](design/VFX_COMPETENCES.md).
