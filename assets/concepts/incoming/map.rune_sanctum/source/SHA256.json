@@ -1,0 +1,11 @@
+{
+  ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "composition.png": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "job.json": "f183e84f85331135c04b75772640c875a7d991583458bcc188f050f81e5f8a35",
+  "source/PROMPT_ABRIS_COMPOSITION.txt": "00d740c5948255ddf5fac773cd085d20e7f36c7fe0d1b475bf066a4d16dbe284",
+  "source/PROMPT_ARCHES_TRAVERSES.txt": "a8e84e1b5ef88824a5fd6a6ca67c72930b6347a671c5f364d618fd73e61a8ffe",
+  "source/PROMPT_COMPOSITION.txt": "8efb18baf67e6705745049b652a6b820da6417679ed6d38417e565f9dbe80954",
+  "source/composition_review.json": "b4cfc13bbd8d15995b296fd5125ef7b02abbeb6e3c96bfce91de01c05db33542",
+  "source/generation.json": "13e6b707a1a39802f39ba58c38ba47ae23fb1f720bc978659db244321dfc4ecd",
+  "source/layout.png": "4e50c1d001d560cbff0d0ffad4194039ca35ea88bd1bbd4b7c91e6474d9dedce"
+}

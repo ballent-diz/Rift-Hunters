@@ -1,0 +1,953 @@
+{
+  "id": "map.rune_sanctum",
+  "map_number": 22,
+  "chapter": 5,
+  "title": "Le Sanctuaire des runes",
+  "world": [
+    3344,
+    5016
+  ],
+  "stage": "composition_a_valider",
+  "owner_approved": false,
+  "plan_locked": false,
+  "identity": "Pierre pâle, ardoise, cité éventrée, dorures ternies, bannières déchirées, violet sombre et magenta un peu plus présents que carte21.",
+  "mode": "Défense d’autel",
+  "mechanic": "B4 Portes runiques",
+  "start_pct": [
+    50,
+    88.5
+  ],
+  "ruined_market_hall_pct": [
+    50,
+    98
+  ],
+  "direction": "Sud → nord par trois rues reliées, pas de diagonale ni de plan rayonnant.",
+  "altar": {
+    "name": "Reliquaire du sanctuaire",
+    "center_pct": [
+      50,
+      18.8
+    ],
+    "painted_base_diameter_world": 280,
+    "painted_base": "Socle bas de pierre pâle, sobre, vide pour le reliquaire posé par le jeu ; pas de personnage, cristal ou effet lumineux peint.",
+    "base_scale_status": "Cible280u, socle de composition à calibrer dans les régions après validation."
+  },
+  "parvis": {
+    "polygon_pct": [
+      [
+        7,
+        9
+      ],
+      [
+        93,
+        9
+      ],
+      [
+        94,
+        31
+      ],
+      [
+        85,
+        34
+      ],
+      [
+        15,
+        34
+      ],
+      [
+        6,
+        31
+      ]
+    ],
+    "center_pct": [
+      50,
+      21
+    ],
+    "free_combat_extent_world": [
+      1600,
+      1000
+    ],
+    "free_combat_extent_center_pct": [
+      50,
+      20
+    ],
+    "sanctuary_facade_pct": [
+      [
+        17,
+        0
+      ],
+      [
+        83,
+        0
+      ],
+      [
+        83,
+        8
+      ],
+      [
+        17,
+        8
+      ]
+    ],
+    "closed_arena": false,
+    "free_floor_except_altar_base": true
+  },
+  "streets": [
+    {
+      "id": "west",
+      "name": "Rue ouest",
+      "centerline_pct": [
+        [
+          20,
+          86
+        ],
+        [
+          19,
+          78
+        ],
+        [
+          17.1,
+          71.6
+        ],
+        [
+          19,
+          58
+        ],
+        [
+          19,
+          48
+        ],
+        [
+          20,
+          40
+        ],
+        [
+          20,
+          32
+        ]
+      ],
+      "width_world_target": 300,
+      "pockets_pct": [
+        [
+          22,
+          83
+        ],
+        [
+          18,
+          63
+        ],
+        [
+          21,
+          45
+        ]
+      ],
+      "character": "Rue plus étroite, cours élargies aux trois abris, façades brisées."
+    },
+    {
+      "id": "central",
+      "name": "Grande avenue centrale",
+      "centerline_pct": [
+        [
+          50,
+          86
+        ],
+        [
+          50,
+          78
+        ],
+        [
+          50,
+          64.45
+        ],
+        [
+          50,
+          58
+        ],
+        [
+          50,
+          47
+        ],
+        [
+          50,
+          37.5
+        ],
+        [
+          50.3,
+          33.66
+        ]
+      ],
+      "width_world_target": 600,
+      "pockets_pct": [
+        [
+          50,
+          82
+        ],
+        [
+          49,
+          67
+        ],
+        [
+          51,
+          47
+        ]
+      ],
+      "character": "Grande avenue dallée, plusieurs dilatations de combat, passages sous deux arches."
+    },
+    {
+      "id": "east",
+      "name": "Rue est en escaliers",
+      "centerline_pct": [
+        [
+          80,
+          86
+        ],
+        [
+          81,
+          78
+        ],
+        [
+          81,
+          69
+        ],
+        [
+          81,
+          58
+        ],
+        [
+          80.86,
+          50.59
+        ],
+        [
+          80,
+          40
+        ],
+        [
+          80,
+          32
+        ]
+      ],
+      "width_world_target": 340,
+      "pockets_pct": [
+        [
+          83,
+          73
+        ],
+        [
+          83,
+          55
+        ],
+        [
+          82,
+          37
+        ]
+      ],
+      "stairs_flights_y_pct": [
+        [
+          79,
+          84
+        ],
+        [
+          61,
+          67
+        ],
+        [
+          42,
+          47
+        ]
+      ],
+      "step_depth_world": [
+        12,
+        16
+      ],
+      "character": "Trois volées fines entre de larges paliers, marches orientées vers le nord."
+    }
+  ],
+  "traverses": [
+    {
+      "id": "t1",
+      "name": "Traverse basse des halles",
+      "centerline_pct": [
+        [
+          20,
+          78
+        ],
+        [
+          50,
+          78
+        ],
+        [
+          64.8,
+          77.6
+        ],
+        [
+          80,
+          78
+        ]
+      ],
+      "width_world_target": 320
+    },
+    {
+      "id": "t2",
+      "name": "Traverse des cours",
+      "centerline_pct": [
+        [
+          20,
+          58
+        ],
+        [
+          50,
+          58
+        ],
+        [
+          80,
+          58
+        ]
+      ],
+      "width_world_target": 340
+    },
+    {
+      "id": "t3",
+      "name": "Traverse haute du sanctuaire",
+      "centerline_pct": [
+        [
+          20,
+          40
+        ],
+        [
+          35.6,
+          38.7
+        ],
+        [
+          50,
+          37.5
+        ],
+        [
+          66,
+          38
+        ],
+        [
+          80,
+          40
+        ]
+      ],
+      "width_world_target": 250,
+      "note": "Traverse haute infléchie au nord de l’abri central, sans changer de liaison entre les trois rues."
+    }
+  ],
+  "rune_gates": [
+    {
+      "id": "g01",
+      "center_pct": [
+        17.0898,
+        71.6146
+      ],
+      "passage_segment_pct": [
+        [
+          13.9648,
+          71.6146
+        ],
+        [
+          20.2148,
+          71.6146
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "west",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 209.0,
+      "geometry_scope": "Seuil clair proposé relevé entre les pieds sur composition ; à confirmer au détail puis sur les collisions du propriétaire."
+    },
+    {
+      "id": "g02",
+      "center_pct": [
+        49.9512,
+        64.4531
+      ],
+      "passage_segment_pct": [
+        [
+          46.7773,
+          64.4531
+        ],
+        [
+          53.125,
+          64.4531
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "central",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 212.27,
+      "geometry_scope": "Seuil clair proposé relevé entre les pieds sur composition ; à confirmer au détail puis sur les collisions du propriétaire."
+    },
+    {
+      "id": "g03",
+      "center_pct": [
+        80.8594,
+        50.5859
+      ],
+      "passage_segment_pct": [
+        [
+          77.6367,
+          50.5859
+        ],
+        [
+          84.082,
+          50.5859
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "east",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 215.53,
+      "geometry_scope": "Seuil clair proposé relevé entre les pieds sur composition ; à confirmer au détail puis sur les collisions du propriétaire."
+    },
+    {
+      "id": "g04",
+      "center_pct": [
+        35.5957,
+        38.7044
+      ],
+      "passage_segment_pct": [
+        [
+          32.9102,
+          37.3698
+        ],
+        [
+          38.2812,
+          40.0391
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "t3",
+      "orientation": "vertical",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 224.02,
+      "geometry_scope": "Seuil clair proposé relevé entre les pieds sur composition ; à confirmer au détail puis sur les collisions du propriétaire."
+    },
+    {
+      "id": "g05",
+      "center_pct": [
+        65.2832,
+        77.6042
+      ],
+      "passage_segment_pct": [
+        [
+          62.8906,
+          75.8464
+        ],
+        [
+          67.6758,
+          79.362
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "t1",
+      "orientation": "vertical",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 238.12,
+      "geometry_scope": "Seuil clair proposé relevé entre les pieds sur composition ; à confirmer au détail puis sur les collisions du propriétaire."
+    },
+    {
+      "id": "g06",
+      "center_pct": [
+        50.293,
+        33.6589
+      ],
+      "passage_segment_pct": [
+        [
+          47.0703,
+          33.6589
+        ],
+        [
+          53.5156,
+          33.6589
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "central",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 215.53,
+      "geometry_scope": "Seuil clair proposé relevé entre les pieds sur composition ; à confirmer au détail puis sur les collisions du propriétaire."
+    }
+  ],
+  "cover_rocks": [
+    {
+      "id": "a01",
+      "street": "west",
+      "center_pct": [
+        20.3,
+        82
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a02",
+      "street": "west",
+      "center_pct": [
+        17,
+        57.4
+      ],
+      "material": "charrette renversée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a03",
+      "street": "west",
+      "center_pct": [
+        14.6,
+        41.7
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a04",
+      "street": "central",
+      "center_pct": [
+        50.3,
+        84.1
+      ],
+      "material": "charrette renversée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a05",
+      "street": "central",
+      "center_pct": [
+        47.8,
+        70.8
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a06",
+      "street": "central",
+      "center_pct": [
+        48.3,
+        43.6
+      ],
+      "material": "fragment de statue ou colonne tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a07",
+      "street": "east",
+      "center_pct": [
+        86,
+        73.1
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a08",
+      "street": "east",
+      "center_pct": [
+        85,
+        56.3
+      ],
+      "material": "fontaine brisée compacte",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a09",
+      "street": "east",
+      "center_pct": [
+        87.9,
+        41.7
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a10",
+      "street": "parvis",
+      "center_pct": [
+        14.6,
+        13.6
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a11",
+      "street": "parvis",
+      "center_pct": [
+        87,
+        13.8
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a12",
+      "street": "parvis",
+      "center_pct": [
+        14.2,
+        27.4
+      ],
+      "material": "statue brisée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    },
+    {
+      "id": "a13",
+      "street": "parvis",
+      "center_pct": [
+        86.5,
+        27.6
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement proposé ; gabarit110–160u à fixer pendant les régions après validation."
+    }
+  ],
+  "decorative_corruption_pct": [
+    [
+      12,
+      35
+    ],
+    [
+      37,
+      52
+    ],
+    [
+      65,
+      72
+    ],
+    [
+      18,
+      55
+    ],
+    [
+      82,
+      68
+    ],
+    [
+      48,
+      43
+    ],
+    [
+      69,
+      18
+    ],
+    [
+      30,
+      84
+    ]
+  ],
+  "corruption_is_decorative": true,
+  "corrupted_ground_gameplay_zones_created": false,
+  "architecture_scale_world": {
+    "hunter_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "house_door_height": [
+      75,
+      90
+    ],
+    "city_gate_clear_width": [
+      200,
+      300
+    ]
+  },
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "detail_generated": false,
+  "chapter5_sprites_created": false,
+  "coordinate_basis": "Repères proposés relevés sur la composition1024 ×1536 au cadrage3344 ×5016, origine haut-gauche. Aucun plan.json verrouillé avant accord du propriétaire.",
+  "abstract_route_check": {
+    "all_six_gates_closed_connected": true,
+    "scope": "Graphe de liaison proposé, après relevé des centres : connectivité abstraite seulement, pas de navigation ni collision en jeu.",
+    "example_detour_pct": [
+      [
+        50,
+        91
+      ],
+      [
+        80,
+        86
+      ],
+      [
+        80,
+        58
+      ],
+      [
+        50,
+        58
+      ],
+      [
+        50,
+        40
+      ],
+      [
+        80,
+        40
+      ],
+      [
+        80,
+        32
+      ],
+      [
+        50,
+        24
+      ]
+    ],
+    "nodes": [
+      "start",
+      "parvis",
+      "w0",
+      "w1",
+      "w2",
+      "w3",
+      "c0",
+      "c1",
+      "c2",
+      "c3",
+      "e0",
+      "e1",
+      "e2",
+      "e3"
+    ],
+    "edges": [
+      {
+        "from": "start",
+        "to": "w0",
+        "gate": null
+      },
+      {
+        "from": "w0",
+        "to": "w1",
+        "gate": "g01"
+      },
+      {
+        "from": "w1",
+        "to": "w2",
+        "gate": null
+      },
+      {
+        "from": "w2",
+        "to": "w3",
+        "gate": null
+      },
+      {
+        "from": "w3",
+        "to": "parvis",
+        "gate": null
+      },
+      {
+        "from": "start",
+        "to": "c0",
+        "gate": null
+      },
+      {
+        "from": "c0",
+        "to": "c1",
+        "gate": "g02"
+      },
+      {
+        "from": "c1",
+        "to": "c2",
+        "gate": null
+      },
+      {
+        "from": "c2",
+        "to": "c3",
+        "gate": "g06"
+      },
+      {
+        "from": "c3",
+        "to": "parvis",
+        "gate": null
+      },
+      {
+        "from": "start",
+        "to": "e0",
+        "gate": null
+      },
+      {
+        "from": "e0",
+        "to": "e1",
+        "gate": null
+      },
+      {
+        "from": "e1",
+        "to": "e2",
+        "gate": "g03"
+      },
+      {
+        "from": "e2",
+        "to": "e3",
+        "gate": null
+      },
+      {
+        "from": "e3",
+        "to": "parvis",
+        "gate": null
+      },
+      {
+        "from": "w0",
+        "to": "c0",
+        "gate": null
+      },
+      {
+        "from": "c0",
+        "to": "e0",
+        "gate": "g05"
+      },
+      {
+        "from": "w1",
+        "to": "c1",
+        "gate": null
+      },
+      {
+        "from": "c1",
+        "to": "e1",
+        "gate": null
+      },
+      {
+        "from": "w2",
+        "to": "c2",
+        "gate": "g04"
+      },
+      {
+        "from": "c2",
+        "to": "e2",
+        "gate": null
+      }
+    ]
+  },
+  "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87"
+}

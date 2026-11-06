@@ -1,0 +1,30 @@
+{
+  "id": "map.rune_sanctum",
+  "map_number": 22,
+  "chapter": 5,
+  "title": "Le Sanctuaire des runes",
+  "world_size": [
+    3344,
+    5016
+  ],
+  "status": "wip",
+  "stage": "composition_a_valider",
+  "composition": "composition.png",
+  "composition_size": [
+    1024,
+    1536
+  ],
+  "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "review": "source/composition_review.json",
+  "owner_approved": false,
+  "plan_locked": false,
+  "detail_generated": false,
+  "regions_generated": false,
+  "quality_conforme": false,
+  "quality_scope": "Composition à valider ; contrôle conforme uniquement après les douze régions détaillées.",
+  "rune_gates": 6,
+  "covers": 13,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "chapter5_sprites_created": false
+}
