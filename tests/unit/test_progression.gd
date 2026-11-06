@@ -37,13 +37,13 @@ func test_tree_gates_prerequisites_and_coming_soon() -> void:
 	profile.add_currency("shards", 5000)
 	var whirlwind: SkillNodeData = _node(&"blade_slash_whirlwind")
 	check_eq(HunterTree.learned_rank(profile, _node(&"blade_cleaving_slash")), 1, "sort de départ connu")
-	check_eq(HunterTree.status(profile, whirlwind), HunterTree.Status.GATED, "palier : 1 victoire contre un boss")
-	profile.data["runs"]["won"] = 1
+	check_eq(HunterTree.status(profile, whirlwind), HunterTree.Status.GATED, "palier : 2 victoires contre un boss")
+	profile.data["runs"]["won"] = 2
 	check_eq(HunterTree.status(profile, whirlwind), HunterTree.Status.LEARNABLE, "palier atteint")
 	check_eq(HunterTree.status(profile, _node(&"abyss_singularity")), HunterTree.Status.LOCKED, "Singularité : passif requis")
 	check(HunterTree.learn(profile, _node(&"abyss_depths")), "passif de l'Abîme appris")
 	check_eq(HunterTree.status(profile, _node(&"abyss_singularity")), HunterTree.Status.LEARNABLE, "Singularité apprenable")
-	check_eq(HunterTree.status(profile, _node(&"blade_parry")), HunterTree.Status.GATED, "niveau IV : 3 victoires")
+	check_eq(HunterTree.status(profile, _node(&"blade_parry")), HunterTree.Status.GATED, "niveau IV : 4 victoires")
 	for id: StringName in GameDB.skill_nodes:
 		check(GameDB.skill_nodes[id].implemented, "%s réalisé" % id)
 
@@ -68,7 +68,7 @@ func test_tree_activation_spends_points() -> void:
 
 func test_tree_variants_are_exclusive_and_need_their_spell() -> void:
 	profile.add_currency("shards", 5000)
-	profile.data["runs"]["won"] = 1
+	profile.data["runs"]["won"] = 2
 	var slash: SkillNodeData = _node(&"blade_cleaving_slash")
 	var whirlwind: SkillNodeData = _node(&"blade_slash_whirlwind")
 	var thrust: SkillNodeData = _node(&"blade_slash_thrust")
@@ -112,7 +112,7 @@ func test_tree_effects_use_active_nodes_and_utilities() -> void:
 
 func test_tree_effects_apply_in_run() -> void:
 	profile.add_currency("shards", 5000)
-	profile.data["runs"]["won"] = 1
+	profile.data["runs"]["won"] = 2
 	for id: StringName in [&"echoes_veteran", &"echoes_third_seal", &"prism_lance_fan"]:
 		check(HunterTree.learn(profile, _node(id)), "apprentissage %s" % id)
 	check(HunterTree.activate(profile, _node(&"prism_lance_fan")), "Éventail actif")

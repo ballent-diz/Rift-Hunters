@@ -189,7 +189,7 @@ func test_card_walks_through_learn_activate_equip() -> void:
 	viewport.size = Vector2i(1280, 720)
 	host.add_child(viewport)
 	Profile.profile.set_preference("tree_guide_seen", "1")
-	Profile.profile.data["runs"]["won"] = 1
+	Profile.profile.data["runs"]["won"] = 2
 	var screen: Refuge = load(Router.REFUGE).instantiate()
 	viewport.add_child(screen)
 	screen.tabs.current_tab = 2
@@ -213,8 +213,8 @@ func test_card_walks_through_learn_activate_equip() -> void:
 	check_eq(states.call(), ["done", "done", "done"], "actif et équipé")
 	var parry: SkillNodeData = GameDB.skill_node(&"blade_parry")
 	var first: Dictionary = tab.steps_of(p, parry)[0]
-	check_eq(first["state"], "blocked", "Parade scellée tant que 3 boss ne sont pas vaincus")
-	check(str(first["detail"]).contains("3"), "la fiche dit combien de boss vaincre")
+	check_eq(first["state"], "blocked", "Parade scellée tant que 4 boss ne sont pas vaincus")
+	check(str(first["detail"]).contains("4"), "la fiche dit combien de boss vaincre")
 	screen.queue_free()
 	viewport.queue_free()
 	await _settle()
@@ -235,8 +235,8 @@ func test_board_places_variants_under_their_spell() -> void:
 	board.focus_branch = &"blade"
 	board.setup(Profile.profile, &"")
 	check(board.find_child("BoardLegend", true, false) != null, "légende des états sur le plateau")
-	check_eq(board.column_gate(3), 1, "2e sort : 1 boss à vaincre")
-	check_eq(board.column_gate(4), 3, "3e sort : 3 boss")
+	check_eq(board.column_gate(3), 2, "2e sort : 2 boss à vaincre")
+	check_eq(board.column_gate(4), 4, "3e sort : 4 boss")
 	var whirlwind: HunterTreeNode = board._buttons[&"blade_slash_whirlwind"]
 	check(whirlwind.tag == "", "variante scellée : pas de coût affiché")
 	var honed: HunterTreeNode = board._buttons[&"blade_honed_edge"]

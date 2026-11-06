@@ -301,7 +301,7 @@ static func unlock_all_for_testing(profile: ProfileData) -> void:
 		profile.set_tree_rank(id, node.max_rank())
 	for id: StringName in GameDB.echo_nodes:
 		profile.set_tree_rank(id, (GameDB.echo_nodes[id] as SkillNodeData).max_rank())
-	profile.data["runs"]["won"] = maxi(boss_wins(profile), 3)
+	profile.data["runs"]["won"] = maxi(boss_wins(profile), 10)
 	profile.data["hunter"]["test_points"] = 200
 	# Emplacements de sort 3 et 4 ouverts sans gagner leurs cartes (retour de test).
 	profile.data["hunter"]["test_mode"] = true
