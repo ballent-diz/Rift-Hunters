@@ -118,3 +118,5 @@ Seule la composition retenue, le croquis de disposition, les repères, les promp
 sont versionnés. Essais et retouches intermédiaires restent hors dépôt.
 Claude intégrera collisions, autel, portes runiques, gardien et campagne après la peinture du propriétaire.
 **Aucun masque de collisions créé. Aucun changement de `src/`, `data/`, du manifeste ni des cartes 14 à 21.**
+
+Poids total de la proposition, source retenue et aperçus compris : **10,33 Mo**.

@@ -1,7 +1,8 @@
 {
   "date": "2026-11-06",
   "stage": "composition_a_valider",
-  "main_base": "8d023a979d298be43d5d2c647b098325daa7e488",
+  "main_base": "0a479dfd4e58cbf03b2b6441be9b0f7e9f727272",
+  "branch_created_from": "8d023a979d298be43d5d2c647b098325daa7e488",
   "world": [
     3344,
     5016
