@@ -14,6 +14,8 @@ const SHORT := Color("ef8f8f")
 const LEGEND: Array[String] = ["locked", "learnable", "learned", "active"]
 const LEGEND_KEYS := {"locked": "TREE_STATE_LOCKED", "learnable": "C5_LEARNABLE", "learned": "TREE_STATE_LEARNED",
 	"active": "TREE_LEGEND_ACTIVE"}
+## Couleur du texte de chaque état (légende, rang des nœuds en grille).
+const STATE_COLORS := {"locked": MUTED, "upcoming": MUTED, "learnable": CYAN, "learned": PAPER, "active": GOLD}
 const PATHS: Array[StringName] = [&"blade", &"prism", &"abyss", &"bond"]
 const ACCENTS := {&"trunk": PAPER, &"blade": GOLD, &"prism": Color("74dce7"),
 	&"abyss": Color("b7a7df"), &"bond": Color("a5d4b5")}

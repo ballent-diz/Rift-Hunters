@@ -1726,7 +1726,7 @@ TREE_GUIDE_NEXT,Suivant,Next
 TREE_GUIDE_DONE,C'est parti !,Let's go!
 TREE_GUIDE_LATER,À gagner,To earn
 TREE_GUIDE_TITLE_1,"Votre arbre, votre build","Your tree, your build"
-TREE_GUIDE_BODY_1,"Le Chasseur progresse sur quatre voies et un tronc commun. Chaque voie se lit de gauche à droite : passifs, puis sorts, variantes et talents, jusqu'à la clé de voûte. Mélangez les voies comme vous voulez : c'est votre build.","The Hunter grows along four paths and a common trunk. Each path reads from left to right: passives, then spells, variants and talents, up to the keystone. Mix paths as you like: that is your build."
+TREE_GUIDE_BODY_1,"Le Chasseur progresse sur quatre voies et un tronc commun. Chaque colonne est une voie, lue de haut en bas : passifs, puis sorts, variantes et talents, jusqu'à la clé de voûte. Mélangez les voies comme vous voulez : c'est votre build.","The Hunter grows along four paths and a common trunk. Each column is a path, read from top to bottom: passives, then spells, variants and talents, up to the keystone. Mix paths as you like: that is your build."
 TREE_GUIDE_TITLE_2,① Apprendre avec les Éclats,① Learn with Shards
 TREE_GUIDE_BODY_2,"Les Éclats ◆ se gagnent en expédition. Sélectionnez un nœud qui brille (Apprenable), puis « Apprendre » : il est à vous pour toujours, dans tous vos builds. Un cadenas indique ce qui manque : un nœud précédent ou des boss à vaincre.","Shards ◆ are earned on expeditions. Select a glowing node (Learnable), then “Learn”: it is yours for good, in every build. A padlock shows what is missing: an earlier node or bosses to beat."
 TREE_GUIDE_TITLE_3,② Activer avec les Points,② Activate with Points
@@ -1736,6 +1736,11 @@ TREE_GUIDE_BODY_4,"Un sort actif se place sur une de vos touches de sort, dans l
 TREE_GUIDE_TITLE_5,"Choisir, c'est construire",Choosing is building
 TREE_GUIDE_BODY_5,"Chaque sort a deux variantes, A ou B : une seule active à la fois. Une seule clé de voûte par build. Les niveaux III à V s'ouvrent en battant des boss. Vous ne pourrez pas tout activer : choisissez ce qui va ensemble.","Each spell has two variants, A or B: only one active at a time. Only one keystone per build. Tiers III to V open up by beating bosses. You cannot activate everything: pick what works together."
 TREE_COLUMN_PASSIVES,Passifs,Passives
+TREE_VIEW_PATHS,Voies,Paths
+TREE_COLUMN_TRUNK_SHORT,Tronc,Trunk
+TREE_BRANCH_POINTS,%d pts actifs,%d active pts
+TREE_ROW_TIER,Niv. %s,Tier %s
+TREE_GRID_HINT,"Survol : détail. Clic : fiche et actions.","Hover: details. Click: card and actions."
 TREE_COLUMN_SPELL,Sort %d,Spell %d
 TREE_COLUMN_KEYSTONE,Clé de voûte,Keystone
 TREE_NOTE_VARIANTS,Variantes,Variants

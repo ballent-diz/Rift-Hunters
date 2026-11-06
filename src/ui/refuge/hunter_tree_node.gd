@@ -23,6 +23,9 @@ var caption: Label
 ## Étiquette sur le bas du cadre (coût en Éclats d'un nœud à apprendre) ; vide : rien.
 var tag: String = ""
 var tag_color: Color = HunterTreeSkin.CYAN
+## Grille (arbre du Chasseur, toutes voies côte à côte) : l'icône seule, sans légende ni coût ; le rang « appris/max »
+## en bas à droite, à la couleur de l'état. Le nom et le coût sont dans l'infobulle et la fiche.
+var compact := false
 
 var _tip: Array[String] = ["", "", "", ""]
 
@@ -91,12 +94,19 @@ func _make_custom_tooltip(_for_text: String) -> Object:
 
 ## Carré de l'icône : en haut, centré, la légende dessous.
 func emblem_rect() -> Rect2:
+	if compact:
+		var side: float = minf(size.x, size.y)
+		return Rect2((size - Vector2.ONE * side) * 0.5, Vector2.ONE * side)
 	var edge: float = maxf(minf(size.x - 8, size.y - caption_height), 16)
 	return Rect2(Vector2((size.x - edge) * 0.5, 0), Vector2.ONE * edge)
 
 
 ## Appelé par le plateau après chaque placement (un nœud de taille fixe ne reçoit pas toujours « resized »).
 func layout_caption() -> void:
+	caption.visible = not compact
+	if compact:
+		queue_redraw()
+		return
 	var rect: Rect2 = emblem_rect()
 	caption.max_lines_visible = 1 if caption_height < CAPTION_HEIGHT else 2
 	caption.position = Vector2(-6, rect.end.y + 3)
@@ -118,7 +128,8 @@ func _draw() -> void:
 		draw_rect(rect.grow(4), HunterTreeSkin.CYAN if picked else Color(ink, 0.8), false, 2.0 if picked else 1.0)
 	draw_texture_rect(border, rect, false, Color(1, 1, 1, 0.55 if faded else 1.0))
 	if portrait:
-		draw_texture_rect(portrait, rect.grow(-rect.size.x * 0.12), false, Color(1, 1, 1, 0.4 if faded else 1.0))
+		draw_texture_rect(portrait, rect.grow(-rect.size.x * 0.12), false,
+			Color(1, 1, 1, (0.62 if compact else 0.4) if faded else 1.0))
 	else:
 		_draw_symbol(rect, ink.darkened(0.45) if faded else ink)
 	if data.kind == SkillNodeData.Kind.VARIANT:
@@ -136,6 +147,9 @@ func _badge(center: Vector2, text: String, color: Color) -> void:
 
 
 func _draw_state(rect: Rect2) -> void:
+	if compact:
+		_draw_rank(rect)
+		return
 	var point: Vector2 = rect.end - Vector2(4, 4)
 	# Avec une étiquette de coût, le repère d'état du coin la gênerait : le cadre porte déjà l'état.
 	match "" if tag != "" else current:
@@ -159,6 +173,21 @@ func _draw_state(rect: Rect2) -> void:
 			HunterTreeSkin.GOLD if current == "active" else HunterTreeSkin.PAPER)
 	if tag != "":
 		_badge(Vector2(rect.get_center().x, rect.end.y - 3), tag, tag_color)
+
+
+## Rang en grille : « appris/max » en bas à droite (rien pour un nœud à un rang pas encore pris) ; ce qui est fermé
+## est seulement grisé.
+func _draw_rank(rect: Rect2) -> void:
+	if max_rank == 1 and rank == 0:
+		return
+	var color: Color = HunterTreeSkin.STATE_COLORS.get(current, HunterTreeSkin.MUTED)
+	var font: Font = UiKit.font(&"numbers")
+	var text: String = "%d/%d" % [rank, max_rank]
+	var width: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11).x + 6
+	var box := Rect2(rect.end - Vector2(width - 2, 12), Vector2(width, 14))
+	draw_rect(box, HunterTreeSkin.NIGHT)
+	draw_rect(box, Color(color, 0.8), false, 1.0)
+	draw_string(font, box.position + Vector2(3, 11), text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, color)
 
 
 func _draw_symbol(rect: Rect2, color: Color) -> void:

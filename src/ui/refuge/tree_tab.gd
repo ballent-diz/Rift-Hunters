@@ -2,7 +2,7 @@ extends RefugeTab
 ## Arbre du Chasseur au refuge, pensé pour comprendre d'un coup d'œil comment faire un build :
 ## - en-tête : voies, améliorations du refuge, Éclats (pour apprendre), Points libres (pour activer), builds, guide ;
 ## - bandeau des trois étapes (apprendre → activer → équiper) et légende des états des nœuds ;
-## - la voie choisie, de gauche à droite (HunterTreeBoard), et la fiche de la compétence avec son parcours pas à pas ;
+## - toutes les voies côte à côte en grille (HunterTreeBoard), et la fiche de la compétence avec son parcours pas à pas ;
 ## - la barre des sorts équipés en bas ; un guide en cinq pages à la première visite (TreeGuide).
 ## Les règles et les sauvegardes restent exclusivement dans HunterTree.
 
@@ -93,23 +93,17 @@ func _restore_focus(button: Control) -> void:
 		button.grab_focus()
 
 
-## Une ligne : voies à gauche ; Éclats, Points, builds et guide à droite.
+## Une ligne : grille des voies ou améliorations du refuge à gauche ; Éclats, Points, builds et guide à droite.
 func _header(p: ProfileData) -> HBoxContainer:
 	var row := HBoxContainer.new()
 	row.add_theme_constant_override("separation", 6)
-	for branch: StringName in HunterTreeSkin.PATHS:
-		var data: SkillBranchData = GameDB.skill_branches[branch]
-		var b: Button = HunterTreeSkin.button(tr(data.name_key), func() -> void:
-			_focused_branch = branch
-			_show_upgrades = false
-			refresh(), branch == _focused_branch and not _show_upgrades)
-		b.name = "Path_" + String(branch)
-		b.custom_minimum_size.x = 92
-		b.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-		b.tooltip_text = tr(data.desc_key)
-		if branch == _focused_branch and not _show_upgrades:
-			b.add_theme_color_override("font_color", HunterTreeSkin.accent(branch))
-		row.add_child(b)
+	# Toutes les voies sont sur la grille ; ce bouton y revient depuis les améliorations du refuge.
+	var paths: Button = HunterTreeSkin.button(tr("TREE_VIEW_PATHS"), func() -> void:
+		_show_upgrades = false
+		refresh(), not _show_upgrades)
+	paths.name = "PathsToggle"
+	paths.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	row.add_child(paths)
 	var upgrades: Button = HunterTreeSkin.button(tr("TREE_SKIN_REFUGE"), func() -> void:
 		_show_upgrades = true
 		refresh(), _show_upgrades)
@@ -150,7 +144,8 @@ func _header(p: ProfileData) -> HBoxContainer:
 func _tree_area(p: ProfileData) -> HunterTreeBoard:
 	var board := HunterTreeBoard.new()
 	board.name = "TreeBoard"
-	board.focus_branch = _focused_branch
+	var picked: SkillNodeData = GameDB.skill_node(_selected)
+	board.focus_branch = picked.branch if picked else _focused_branch
 	board.setup(p, _selected)
 	board.node_selected.connect(_select)
 	return board
