@@ -90,7 +90,8 @@ func technique(enemy: Enemy, kind: StringName, params: Dictionary = {}) -> void:
 		return
 	var family: StringName = family_of(enemy)
 	_last_kind[source] = [kind, family, boss]
-	_play_all(entry.get("cast"), family, enemy.position, boss)
+	var at: Vector2 = ctx.player.global_position if entry.get("at", "") == "target" and ctx.player else enemy.position
+	_play_all(entry.get("cast"), family, at, boss)
 	if entry.has("state"):
 		var time: float = float(entry.get("time", params.get(str(entry.get("param", "duration")), 3.0)))
 		for effect: Variant in (entry["state"] if entry["state"] is Array else [entry["state"]]):

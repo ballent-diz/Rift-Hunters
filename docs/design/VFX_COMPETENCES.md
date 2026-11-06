@@ -1,8 +1,9 @@
 # Compétences et effets visuels par famille (lot 1 : audit et attribution)
 
 Statut : **validé par le propriétaire le 6 novembre 2026** (règle des éléments, attributions ; effets peints du
-chapitre 3 conservés, armure qui se fend du Gardien d'écorce et impacts de tir retenus). **Lot 2 livré** : chapitres 1
-et 2 et leurs boss (`assets/vfx/pixelfx/techniques.json`, `PixelFx.technique/impact/shot/state`). Lot 3 à faire.
+chapitre 3 conservés, armure qui se fend du Gardien d'écorce et impacts de tir retenus). **Lots 2 et 3 livrés** :
+tous les chapitres et leurs boss (`assets/vfx/pixelfx/techniques.json`, `PixelFx.technique/impact/shot/state`) ;
+armure qui se fend du Gardien d'écorce codée (3 s, dégâts subis × 1,5) ; effets longs allégés (une image sur deux).
 Demande : chaque famille de Corrompus, ses élites et ses boss ont leurs compétences ; il faut coder celles qui
 manquent et donner à chaque compétence une animation pixelfx (MIT, `tools/art/build_pixelfx.py`) **raccord avec la
 famille** : un monstre de feu ne lance pas une attaque d'eau.

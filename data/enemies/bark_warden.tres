@@ -40,7 +40,9 @@ telegraph = 0.5
 damage = 0.0
 params = {
 "radius": 240.0,
-"duration": 4.0
+"duration": 4.0,
+"crack_time": 3.0,
+"crack_mult": 1.5
 }
 
 [resource]

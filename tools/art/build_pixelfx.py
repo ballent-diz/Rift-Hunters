@@ -20,6 +20,36 @@ ROOT = Path(__file__).resolve().parents[2]
 CONFIG = ROOT / "tools" / "art" / "pixelfx" / "families.json"
 OUT = ROOT / "assets" / "vfx" / "pixelfx"
 TECHNIQUES = OUT / "techniques.json"
+## Effets longs : une image sur deux (cadence divisée par deux) au-delà de ce nombre d'images, pour alléger le dépôt.
+THIN_ABOVE = 40
+SHEET_COLUMNS = 12
+
+
+def thin(png, data_path):
+    """Garde une image sur deux d'une feuille longue et la repaquette en grille (cadres, cadence et pivot mis à jour)."""
+    from PIL import Image
+    data = json.loads(data_path.read_text(encoding="utf-8"))
+    frames = data["frames"] if isinstance(data["frames"], list) else list(data["frames"].values())
+    meta = data["meta"]["pixelfx"]
+    if len(frames) <= THIN_ABOVE or meta.get("thinned"):
+        return
+    kept = frames[::2]
+    sheet = Image.open(png).convert("RGBA")
+    w = max(f["frame"]["w"] for f in kept)
+    h = max(f["frame"]["h"] for f in kept)
+    cols = min(SHEET_COLUMNS, len(kept))
+    out = Image.new("RGBA", (w * cols, h * ((len(kept) + cols - 1) // cols)))
+    new_frames = []
+    for i, f in enumerate(kept):
+        r = f["frame"]
+        x, y = (i % cols) * w, (i // cols) * h
+        out.paste(sheet.crop((r["x"], r["y"], r["x"] + r["w"], r["y"] + r["h"])), (x, y))
+        new_frames.append(dict(f, frame={"x": x, "y": y, "w": r["w"], "h": r["h"]}))
+    out.save(png, optimize=True)
+    data["frames"] = new_frames
+    meta["fps"] = meta["fps"] / 2.0
+    meta["thinned"] = True
+    data_path.write_text(json.dumps(data), encoding="utf-8")
 
 
 def enemy_family(enemy_id):
@@ -32,7 +62,7 @@ def effects_of(entry):
     """Noms d'effets d'une entrée {moment: nom ou [noms]} (les clés time et param ne sont pas des effets)."""
     names = []
     for moment, value in entry.items():
-        if moment in ("time", "param"):
+        if moment in ("time", "param", "at"):
             continue
         names.extend(value if isinstance(value, list) else [value])
     return names
@@ -62,6 +92,7 @@ def render(repo, effect, spec, family, palette):
         folder.mkdir(parents=True, exist_ok=True)
         for ext in ("png", "json"):
             shutil.copy(Path(tmp) / spec["source"] / f"{name}.{ext}", folder / f"{family}.{ext}")
+    thin(folder / f"{family}.png", folder / f"{family}.json")
     print(f"{effect}/{family}")
 
 
@@ -80,6 +111,8 @@ def main() -> None:
     for effect, spec, family in jobs:
         if force or not (OUT / effect / f"{family}.png").exists():
             render(repo, effect, spec, family, config["families"][family])
+        else:
+            thin(OUT / effect / f"{family}.png", OUT / effect / f"{family}.json")
 
 if __name__ == "__main__":
     main()

@@ -74,13 +74,14 @@ func test_technique_catalog_respects_family_elements() -> void:
 	var common: Array = catalog["common"]
 	var check_entry := func(owner: String, family: String, entry: Dictionary) -> void:
 		for moment: String in entry:
-			if moment in ["time", "param"]:
+			if moment in ["time", "param", "at"]:
 				continue
 			var names: Array = entry[moment] if entry[moment] is Array else [entry[moment]]
 			for effect: String in names:
 				var source: String = str((effects.get(effect, {}) as Dictionary).get("source", "impacts/" + effect))
 				var category: String = source.get_slice("/", 0)
-				check(category in common or category in (catalog["allowed"][family] as Array),
+				var allowed: bool = "%s/%s" % [owner, effect] in (catalog.get("exceptions", []) as Array)
+				check(allowed or category in common or category in (catalog["allowed"][family] as Array),
 					"%s (%s) : %s hors de l'élément de la famille" % [owner, family, source])
 				var base: String = PixelFx.ROOT % [effect, family]
 				check(ResourceLoader.exists(base + ".png"), "feuille %s/%s" % [effect, family])
@@ -128,3 +129,20 @@ func _states(fx: PixelFx) -> int:
 		if effect.has("follow"):
 			count += 1
 	return count
+
+
+## Armure qui se fend (E8, Gardien d'écorce) : son bouclier tombé, il encaisse davantage quelques secondes.
+func test_bark_warden_armor_cracks_after_its_shield() -> void:
+	var warden: Enemy = RunFixture.spawn(run, &"bark_warden", Vector2(150, 0))
+	RunFixture.spawn(run, &"mire_leech", Vector2(190, 0))
+	var shield: EnemyTechniqueData = warden.data.techniques[1]
+	check(run.ctx.enemies.marsh.technique_ally_shield(warden, shield, Vector2.ZERO), "bouclier levé")
+	var duration: float = float(shield.params["duration"])
+	for i: int in int((duration + 0.5) * 60.0):
+		run.ctx.time += 1.0 / 60.0
+		run.ctx.enemies.step(1.0 / 60.0)
+	check_eq(warden.extra_damage_taken, 1.5, "écorce fendue : dégâts subis × 1,5")
+	for i: int in int(3.5 * 60.0):
+		run.ctx.time += 1.0 / 60.0
+		run.ctx.enemies.step(1.0 / 60.0)
+	check_eq(warden.extra_damage_taken, 1.0, "puis l'écorce se referme")
