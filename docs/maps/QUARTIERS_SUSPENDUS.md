@@ -1,136 +1,143 @@
 # Carte 23 — Les Quartiers suspendus
 
-**Plan général conservé par le propriétaire ; composition corrigée le 6 novembre 2026, avant le détail.**
-`suspended_quarters`, chapitre5, Cité de la Faille. **Vagues par zone ; B6 Téléporteurs de faille.**
-Branche `codex/carte-23-quartiers-suspendus`, depuis main actualisé (carte22 fusionnée, PR116).
+**Détail graphique livré le 6 novembre 2026, sur la composition corrigée validée par le propriétaire.**
+`suspended_quarters`, chapitre 5, Cité de la Faille. Vagues par zone, **B6 Téléporteurs de faille**.
+Format **5016 × 2508 unités**, parcours ouest → est.
 
-![Composition entière des Quartiers suspendus](../previews/suspended-quarters/composition.webp)
+![Détail entier](../previews/suspended-quarters/detail.webp)
 
-## Identité et composition
+## Plan conservé
 
-La pierre pâle, l’ardoise, les dorures ternies et les bannières déchirées reprennent
-les [Faubourgs brisés](FAUBOURGS_BRISES.md) et le [Sanctuaire des runes](SANCTUAIRE_DES_RUNES.md).
-La corruption violet sombre et magenta se concentre dans **cinq nappes distinctes** sur les dalles,
-séparées par de grandes surfaces de pierre pâle saine.
-Les veines peintes au sol restent **praticables et décoratives** : aucune zone B9.
-Aucune neige, lave ou végétation de marais. Lumière haut-gauche et liseré violet bas-droite.
+L’identité des [Faubourgs brisés](FAUBOURGS_BRISES.md) et du
+[Sanctuaire des runes](SANCTUAIRE_DES_RUNES.md) est conservée : pierre pâle, ardoise,
+dorures ternies, bannières déchirées, lumière haut-gauche et liseré violet bas-droite.
+Les fondations arrachées plongent dans un vide violet sombre aux bords nets.
 
-Des quartiers entiers flottent au-dessus d’un vide violet très sombre : cours et places restent horizontales,
-les falaises montrent dessous leurs racines de maçonnerie, caves rompues et fondations arrachées.
-Le bord praticable est net ; le vide ne ressemble pas à un sol violet.
-Le cadrage entier est **2:1, 5016 ×2508 unités**, composition **1536 ×768 pixels**.
-Seules les bandes techniques extérieures au monde ont été retirées de la génération ; aucun îlot recadré.
+Quatre îlots principaux, trois ponts continus et un refuge au nord :
 
-Le parcours principal **ouest→est** utilise quatre îlots et trois ponts, sans téléporteur obligatoire.
-Le cinquième îlot est un petit refuge au nord, sans pont ni liaison à pied.
-Le départ, les trois ponts de parcours et les six socles conservent leurs coordonnées.
-Leurs régions graphiques verrouillées ont été conservées **pixel pour pixel**, comme le repère de départ
-([empreintes avant/après](../../assets/concepts/incoming/map.suspended_quarters/source/composition_correction.json)).
-Il n’y a ni diagonale de ville, ni trois rues parallèles, ni plan rayonnant.
+- **Départ ouest en L**, place dégagée au sud, départ à **10,9649 % ; 73,7640 %**.
+- **Z1 en croissant**, pâté de deux maisons effondrées au nord et petite ruine en L au sud-ouest.
+  Deux cours et des détours autour des constructions ; dégagement réservé de **600 × 600u**.
+- **Z2 fendu**, faille intérieure infranchissable et court passage de pierre nord–sud.
+  Maison effondrée à contourner dans la cour basse ; dégagement réservé de **600 × 600u**.
+- **Finale à l’est**, place ouverte avec noyau **1000 × 1000u**, centre **86,3238 % ; 58,6124 %**.
+  Aucun bâtiment ni abri dans ce noyau, aucun cercle de combat, enceinte ou gardien peint.
+- **Refuge au nord**, accessible uniquement par la paire C ; aucun accès à pied.
 
-![Plan : zones, ponts, paires et emprise finale](../previews/suspended-quarters/plan_annote.webp)
+Les trois ponts suffisent pour tout le parcours principal. Les centres, les berges d’arrivée,
+les segments de fermeture et les gabarits validés sont conservés ; dessus praticables d’environ
+**232 / 232 / 202u**, hors parapets. Le court passage intérieur de Z2 vise **180u**.
+Le détail remplace les grandes dalles de composition par de petits pavés et des planches fines.
 
-Les polygones et repères proposés sont dans
-[`source/composition_review.json`](../../assets/concepts/incoming/map.suspended_quarters/source/composition_review.json).
-Les pourcentages partent du coin haut-gauche de la carte entière. **Pas de `plan.json` figé avant l’accord du propriétaire.**
+La corruption est concentrée en **cinq nappes distinctes** : départ ouest, cour Z1, cour Z2,
+finale et refuge. Les dalles violettes restent **plates, praticables et décoratives**, sans effet B9.
+Le gouffre intérieur, avec profondeur et maçonnerie rompue, se distingue de ces sols.
 
-## Corrections de la composition
+![Plan annoté : départ, zones, ponts, paires et finale](../previews/suspended-quarters/plan_annote.webp)
 
-- **Îlot ouest en L** : angle nord-ouest arraché, bras nord portant A1 et grande place de départ au sud conservés.
-- **Z1 en croissant** : anse de vide à l’est, bras inférieur toujours relié au corps de l’îlot. Un pâté de deux maisons effondrées au nord et une petite ruine en L au sud-ouest créent des détours et deux cours ; la cour principale garde **600 ×600u** entièrement libres.
-- **Z2 fendu** : faille intérieure noire à bords francs et **court passage de pierre nord→sud**. Une maison écroulée dans la cour basse se contourne ; le dégagement de combat reste **600 ×600u**. Ce passage interne ne remplace ni ne déplace les trois ponts entre îlots.
-- **Finale** : îlot est et noyau **1000 ×1000u** conservés, sans bâtiment ni abri dans ce noyau.
+Le [`plan.json` figé](../../assets/concepts/incoming/map.suspended_quarters/plan.json) contient les contours
+indicatifs des îlots et zones, les cours libres, les trois blocs d’architecture intérieure, la faille et son
+passage, les cinq nappes, le départ, les ponts et segments de barrière, les socles/jumeaux et les abris.
+Pourcentages depuis le coin haut-gauche de l’image entière. Ces repères graphiques ne remplacent pas
+la peinture des collisions ni les essais de circulation en jeu.
 
-La corruption forme cinq nappes lisibles : **C01 au départ ouest, C02 dans la cour Z1, C03 dans la cour Z2,
-C04 sur la place finale, C05 sur le refuge nord**. Leur contour de matériau figure dans le fichier de revue.
-Ce sont des sols plats praticables, sans mécanique B9. La faille intérieure est un vrai gouffre sombre,
-avec profondeur et fondations rompues : elle se distingue des nappes de dalles violettes.
+## Socles et abris
 
-## Cheminement et espaces libres
-
-| Repère | Proposition |
-| --- | --- |
-| Départ | **10,96 % ; 73,76 %**, grande place de l’îlot ouest, devant les façades effondrées |
-| P1 | Pont de pierre vers Z1, centre **22,59 % ; 58,14 %**, sol continu |
-| Z1 | Cours des fondations, premier îlot central ; noyau ouvert **600 ×600u**, trois abris |
-| P2 | Passerelle de bois vers Z2, centre **47,20 % ; 48,24 %**, sol continu |
-| Z2 | Place des charpentes, second îlot central ; noyau ouvert **600 ×600u**, trois abris |
-| P3 | Pont de pierre vers la finale, centre **71,09 % ; 50,91 %**, sol continu |
-| Finale | Grand îlot est, place ouverte ; noyau libre **1000 ×1000u**, centre **86,32 % ; 58,61 %** |
-| Refuge nord | Cinquième îlot, atteint uniquement par la paireC ; sol libre autour du socle et un abri |
-
-Les trois tabliers sont courts, visibles et ancrés aux deux berges. Les fractures restent aux bords,
-sans trou dans le passage. Largeur du dessus libre, hors parapets : **231,86u /231,86u /202,47u**.
-Chaque segment transversal est donné dans le fichier de revue pour la future barrière du jeu.
-Ces mesures sont graphiques ; aucune collision ni navigation en jeu n’est créée.
-
-Le noyau de la finale est dégagé de bâtiments et d’abris. Pas de cercle de combat, de boss, de socle d’autel
-ou de mur d’enceinte peint. Le carré clair sur le **plan annoté seulement** indique son emprise utile.
-
-## Trois paires de socles vides
-
-Les six socles sont bas, au sol, avec centre pavé et runes gravées sombres.
-**Aucun vortex, effet d’énergie ou anneau lumineux peint.** Les couleurs et lignes de paire apparaissent
-uniquement sur le plan de revue. Le jeu fournit les effets et le lien entre les jumeaux.
+Les six socles sont bas, vides, praticables, avec centre pavé et gravures sombres.
+Leurs centres validés et les trois paires sont conservés ; aucun vortex ni effet lumineux peint.
 
 | Paire | Socle | Îlot | Centre (%) | Jumeau |
 | --- | --- | --- | --- | --- |
-| A | A1 | Départ ouest, recoin nord-est de la place | **14,53 ;50,55** | A2 |
-| A | A2 | Z2, partie haute | **60,12 ;25,26** | A1 |
-| B | B1 | Z1, recoin sud-est | **38,37 ;82,49** | B2 |
-| B | B2 | Finale, partie haute | **85,81 ;24,93** | B1 |
-| C | C1 | Z2, partie basse | **60,09 ;68,23** | C2 |
-| C | C2 | Refuge nord | **34,71 ;18,56** | C1 |
+| A | A1 | Départ ouest | 14,5338 ; 50,5519 | A2 |
+| A | A2 | Z2, partie haute | 60,1237 ; 25,2604 | A1 |
+| B | B1 | Z1, partie basse | 38,3697 ; 82,4865 | B2 |
+| B | B2 | Finale, partie haute | 85,8073 ; 24,9349 | B1 |
+| C | C1 | Z2, partie basse | 60,0911 ; 68,2292 | C2 |
+| C | C2 | Refuge nord | 34,7127 ; 18,5563 | C1 |
 
-Diamètres relevés sur la composition : **178,63 à199,20u**, cible180u, intervalle autorisé160–200u.
-Les six socles restent strictement identiques à la proposition précédente ; chaque emplacement propose
-au moins120u de sol libre au-delà du socle, à confirmer au détail puis sur la peinture des collisions.
-Les bases ne sont pas des obstacles. Le refuge ne possède aucun accès à pied, même discret.
+Diamètres graphiques relevés sur le détail : **180 à 199u**, intervalle demandé 160–200u.
+Les gros gravats proches sont retirés et les parapets avant C1/C2 abaissés et amincis pour préserver
+**120u de dégagement au-delà de la base**, contrôlés visuellement ; le propriétaire confirmera
+le détourage sur sa peinture. Aucun socle déplacé et aucun nouveau pont.
+[Mesures A/B](../previews/suspended-quarters/pads0_mesures.webp),
+[mesures C](../previews/suspended-quarters/pads1_mesures.webp).
 
-**Point de raccordement pour Claude :** les paires entre îlots doivent respecter la progression des zones
-ouvertes et ne pas court-circuiter les vagues ou leurs barrières. Cette proposition donne les jumeaux et
-les emplacements ; aucun comportement de téléportation n’est codé ici.
+**Onze abris : 3 en Z1, 3 en Z2, 4 sur la finale et 1 au refuge.**
+Pans de mur bas, colonnes tombées, cloche et charrette renversées, avec ombres portées.
+Largeurs graphiques **114 à 156u**, en comptant les semelles, roues et grosses cales.
+Relevés manuels à environ 2u près ; ombres et petits éclats plats du dallage exclus.
+Les pieds ont été affinés localement, sans modifier les cours, les ponts ou les emplacements des socles.
+[Planche 1](../previews/suspended-quarters/covers0_mesures.webp),
+[planche 2](../previews/suspended-quarters/covers1_mesures.webp),
+[planche 3](../previews/suspended-quarters/covers2_mesures.webp),
+[registre des mesures](../../assets/concepts/incoming/map.suspended_quarters/source/detail_measurements.json).
 
-## Abris, échelle et captures
+Claude devra respecter la progression des vagues lors de l’activation des téléporteurs entre îlots :
+une paire ne doit pas permettre d’éviter une zone encore fermée. Aucun comportement n’est codé par ce lot.
 
-**Onze abris proposés : 3 en Z1, 3 en Z2, 4 sur la finale et1 au refuge.**
-Pans de mur, colonnes tombées, statue brisée et charrette renversée ; ombres portées et faces éclairées.
-Leurs pieds sont relevés sur la composition corrigée ; les abris proches des nouvelles ruines sont hors des cours réservées. **Le gabarit final110–160u et les matières seront calibrés
-dans les régions après validation**, en conservant ces emplacements et les noyaux ouverts.
-Aucun abri sur les ponts ou sur les socles.
+## Détail, échelle et qualité
 
-Échelle visée : Chasseur52u, marches12–16u, dalles au plus26u, colonnes30–45u,
-portes ordinaires75–90u. Le sol et l’architecture de la composition restent provisoires :
-**les grandes dalles des ponts seront remplacées par de petits pavés pendant la passe de détail.**
+**Huit régions réellement repeintes**, en grille 4 × 2 : carrés de 1574u, cœur de 1254u et marges de 160u.
+La composition reste figée ; les régions remplacent les composants grossiers par du détail neuf.
+Assemblage par raccord de faible différence, calibration native, puis retouches peintes des abris et dégagements.
+Le seul master détaillé retenu est sans perte, **3762 × 1881 pixels** ; les essais, guides et régions
+intermédiaires restent hors dépôt. Prompts, empreintes et recadrages dans
+[`regions_provenance.json`](../../assets/concepts/incoming/map.suspended_quarters/source/regions_provenance.json).
 
-Le [banc de capture](../../tools/art/preview_suspended_quarters.tscn) emploie les sprites natifs,
-la caméra réelle et un profil en lecture seule, sans partie ni sauvegarde :
+Présentation **11286 × 5643 pixels**, en trois tuiles **3762 × 5643**, soit **2,25 px/u**.
+Encodage final WebP sans perte pour conserver le grain du dessin ; correction locale de netteté à résidu
+atténué (poids 1/12), avec une variation arrondie d’au plus un niveau RVB. Aucun agrandissement de la seule composition n’est livré comme carte finale.
+Recette reproductible :
 
-- [Pont de pierre ouest](../previews/suspended-quarters/pont_1_zoom_jeu.webp), [passerelle de bois](../previews/suspended-quarters/pont_2_zoom_jeu.webp), [pont est](../previews/suspended-quarters/pont_3_zoom_jeu.webp)
-- [Nouveau passage sur la faille intérieure](../previews/suspended-quarters/faille_interieure_zoom_jeu.webp), [cour et pâté de maisons intérieur](../previews/suspended-quarters/cour_interieure_zoom_jeu.webp)
-- [Chasseur et Écho près du socle A1](../previews/suspended-quarters/socle_a1_zoom_jeu.webp), [socle C2 du refuge](../previews/suspended-quarters/socle_c2_zoom_jeu.webp)
-- [Lisibilité sur dalles](../previews/suspended-quarters/lisibilite_dalles.webp), [corruption](../previews/suspended-quarters/lisibilite_corruption.webp), [près du vide](../previews/suspended-quarters/lisibilite_vide.webp)
+```bash
+python3 tools/art/build_suspended_quarters.py --present \
+  --work <dossier-hors-depot> --model <realesr_general_x4v3_0.2.onnx> \
+  --residual-limit 0.5 --lossless
+```
 
-Témoins : Éclat errant, Sentinelle de verre, Golem de quartz, Éclat du silence, Chevalier de glace,
-Héraut du silence, avec le Chasseur et un Écho. Aucun sprite du chapitre5 créé.
-Onze captures1280 ×720 : composition agrandie pour la disposition et le contraste,
-**pas une preuve de finesse finale ni une simulation de déplacements ou de combat**.
-Import Godot headless, captures, lint du banc et contrôle assets :
-[`controle_composition.json`](../previews/suspended-quarters/controle_composition.json).
+Le [rapport qualité](../previews/suspended-quarters/qualite.json) est **conforme**, avec les seuils du projet inchangés :
+**17/20 secteurs**, part lisse **0,104**, détails fins **393,577**, détails moyens **104,864**
+par 100 × 100u, fidélité au plan **0,993**.
+Les trois secteurs hors bande sont majoritairement du vide aux bords de la carte ; ils restent dans le rapport. Aucun seuil ni contenu du gouffre n’a été modifié pour les exclure.
+Le [diagnostic relatif de netteté](../previews/suspended-quarters/nettete_relative.webp) et son registre sont conservés :
+214 cases sur 377 restent sous la référence initiale de ce diagnostic. La correction plus forte
+atténuait aussi le grain des joints ; elle n’est pas retenue. Le traitement final reste très faible,
+et les captures ainsi que la comparaison à la référence permettent de juger le détail effectif.
+Ce diagnostic relatif est distinct du rapport de conformité ci-dessus.
 
-## Après la validation
+La [comparaison avec les Ruines](../previews/suspended-quarters/comparaison_echelle.webp) conserve
+**1 pixel = 1 unité**, avec des extraits de 560 × 420u ; disposition verticale pour rester sous 1600px de large.
+Repères : Chasseur environ 52u, pavés 15–26u, marches 12–16u, portes ordinaires 75–90u, colonnes 30–45u.
 
-1. Figer `plan.json` depuis la composition corrigée, avec départ, contours en L/croissant, zones, faille et passage intérieur, bâtiments, cinq nappes, ponts/segments, socles/jumeaux, abris et noyau final.
-2. Contrôler un secteur témoin, puis peindre **huit régions** au vrai détail des Ruines,
-   sans recomposer ; assembler les trois tuiles de présentation à2,25px/u et fournir
-   `check_map_quality` **conforme** ainsi que la comparaison d’échelle.
-3. Envoyer l’image entière légère des collisions avec recette et empreinte, retour PNG au même cadrage.
-   Le **vide, les falaises, les ruines et les abris** seront bloquants ; **ponts et socles** resteront praticables.
+## Captures et vérifications
 
-Le plan général a été conservé par le propriétaire ; cette révision présente les corrections demandées avant le détail.
-Aucun rapport de qualité finale, aucune tuile finale ni masque de collisions à ce stade.
-La source de composition retenue et ses repères/prompts sont versionnés ; essais et recadrages intermédiaires restent hors dépôt.
-Claude intégrera ensuite collisions, zones, téléporteurs, gardien et campagne.
-**Aucune modification de `src/`, `data/`, du manifeste ou des cartes14 à22 par ce lot.**
+Le [banc Godot](../../tools/art/preview_suspended_quarters.tscn) charge les trois tuiles finales,
+les sprites natifs et la caméra du jeu, avec profil en lecture seule. **Quatorze captures 1280 × 720** :
 
-Poids total de la proposition corrigée, source retenue et aperçus compris : **10,49 Mo**.
+- [Ensemble](../previews/suspended-quarters/ensemble_720p.webp), [départ](../previews/suspended-quarters/depart_zoom_jeu.webp), [finale](../previews/suspended-quarters/finale_zoom_jeu.webp).
+- [Pont ouest](../previews/suspended-quarters/pont_1_zoom_jeu.webp), [passerelle](../previews/suspended-quarters/pont_2_zoom_jeu.webp), [pont est](../previews/suspended-quarters/pont_3_zoom_jeu.webp), [passage intérieur](../previews/suspended-quarters/faille_interieure_zoom_jeu.webp).
+- [Socle A1](../previews/suspended-quarters/socle_a1_zoom_jeu.webp), [A2](../previews/suspended-quarters/socle_a2_zoom_jeu.webp), [refuge C2](../previews/suspended-quarters/socle_c2_zoom_jeu.webp), [cour intérieure](../previews/suspended-quarters/cour_interieure_zoom_jeu.webp).
+- Lisibilité sur [dalles](../previews/suspended-quarters/lisibilite_dalles.webp), [corruption](../previews/suspended-quarters/lisibilite_corruption.webp), [près du vide](../previews/suspended-quarters/lisibilite_vide.webp).
+
+Témoins : Chasseur, Écho, Éclat errant, Sentinelle de verre, Golem de quartz,
+Éclat du silence, Chevalier de glace et Héraut du silence. Aucun sprite du chapitre 5 créé.
+Import Godot headless, captures, contrôle assets et lint :
+[`controle_detail.json`](../previews/suspended-quarters/controle_detail.json).
+Les captures contrôlent le visuel ; elles ne valident pas les collisions, la navigation ou le combat.
+
+## Collisions et raccordement
+
+[**Image entière légère à peindre**](../previews/suspended-quarters/reference_collisions.jpg) :
+**1254 × 627 pixels, 341829 octets**, même cadrage entier que le plan et le détail, **4u/px**.
+Retour attendu : **PNG 1254 × 627, sans recadrage ni redimensionnement**.
+Peindre en rouge translucide le vide, les falaises, les bâtiments, murs et abris bloquants.
+Garder praticables les **trois ponts**, le **court passage intérieur**, les **six socles** et les **dalles violettes**.
+Ne pas fermer le passage sous un élément de décor surélevé.
+
+La recette et les empreintes des trois tuiles sources et de la référence figurent dans
+[`source/collision_reference.json`](../../assets/concepts/incoming/map.suspended_quarters/source/collision_reference.json).
+**Aucun masque de collisions créé.** Claude raccordera ensuite collisions, zones, téléporteurs, gardien et campagne.
+Les collisions, l’intégration et les sprites du chapitre 5 restent à livrer par leurs chantiers respectifs.
+
+Aucune modification de `src/`, `data/`, du manifeste ni des cartes 14 à 22 dans le diff vers main.
+Poids des fichiers de la livraison carte 23, sources retenues et aperçus compris : **87,14 Mo**.

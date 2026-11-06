@@ -7,10 +7,10 @@
     5016,
     2508
   ],
-  "stage": "composition_corrigee_a_valider",
-  "owner_approved": false,
-  "plan_locked": false,
-  "detail_generated": false,
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "plan_locked": true,
+  "detail_generated": true,
   "mode": "Vagues par zone",
   "mechanic": "B6 Téléporteurs de faille",
   "identity": "Pierre pâle et ardoise éventrées, dorures ternies, bannières déchirées, veines violet sombre et magenta plus présentes que carte22 ; îlots arrachés avec soubassements rocheux au-dessus du vide.",
@@ -1051,7 +1051,7 @@
         ]
       ],
       "width_world_measured_composition": 231.86,
-      "geometry_scope": "Largeur du dessus praticable relevée entre les parapets ; composition seulement, aucune collision ni barrière ajoutée."
+      "geometry_scope": "Tablier de présentation redessiné en composants fins, continu aux deux berges ; gabarit et segment de barrière validés conservés. Aucune collision ni barrière créée."
     },
     {
       "id": "p2",
@@ -1092,7 +1092,7 @@
         ]
       ],
       "width_world_measured_composition": 231.86,
-      "geometry_scope": "Largeur du dessus praticable relevée entre les parapets ; composition seulement, aucune collision ni barrière ajoutée."
+      "geometry_scope": "Tablier de présentation redessiné en composants fins, continu aux deux berges ; gabarit et segment de barrière validés conservés. Aucune collision ni barrière créée."
     },
     {
       "id": "p3",
@@ -1133,7 +1133,7 @@
         ]
       ],
       "width_world_measured_composition": 202.47,
-      "geometry_scope": "Largeur du dessus praticable relevée entre les parapets ; composition seulement, aucune collision ni barrière ajoutée."
+      "geometry_scope": "Tablier de présentation redessiné en composants fins, continu aux deux berges ; gabarit et segment de barrière validés conservés. Aucune collision ni barrière créée."
     }
   ],
   "teleporters": [
@@ -1154,7 +1154,15 @@
       "clearance_from_base_edge_world": 120,
       "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
       "diameter_world_measured_composition": 187.56,
-      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+      "geometry_scope": "Socle source conservé au même centre validé ; diamètre relevé graphiquement à environ2u près. Dégagement périphérique120u contrôlé visuellement après retrait des gravats et abaissement des parapets proches ; contrôler le détourage sur la peinture du propriétaire.",
+      "graphic_bounds_world_approx": [
+        636.91,
+        1178.93,
+        821.12,
+        1357.55
+      ],
+      "diameter_world_measured_detail_approx": 184.21,
+      "clearance_visual_checked": true
     },
     {
       "id": "a2",
@@ -1173,7 +1181,15 @@
       "clearance_from_base_edge_world": 120,
       "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
       "diameter_world_measured_composition": 199.2,
-      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+      "geometry_scope": "Socle source conservé au même centre validé ; diamètre relevé graphiquement à environ2u près. Dégagement périphérique120u contrôlé visuellement après retrait des gravats et abaissement des parapets proches ; contrôler le détourage sur la peinture du propriétaire.",
+      "graphic_bounds_world_approx": [
+        2922.1,
+        543.02,
+        3111.9,
+        726.43
+      ],
+      "diameter_world_measured_detail_approx": 189.79,
+      "clearance_visual_checked": true
     },
     {
       "id": "b1",
@@ -1192,7 +1208,15 @@
       "clearance_from_base_edge_world": 120,
       "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
       "diameter_world_measured_composition": 185.33,
-      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+      "geometry_scope": "Socle source conservé au même centre validé ; diamètre relevé graphiquement à environ2u près. Dégagement périphérique120u contrôlé visuellement après retrait des gravats et abaissement des parapets proches ; contrôler le détourage sur la peinture du propriétaire.",
+      "graphic_bounds_world_approx": [
+        1834.91,
+        1979.05,
+        2021.51,
+        2158.47
+      ],
+      "diameter_world_measured_detail_approx": 186.6,
+      "clearance_visual_checked": true
     },
     {
       "id": "b2",
@@ -1211,7 +1235,15 @@
       "clearance_from_base_edge_world": 120,
       "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
       "diameter_world_measured_composition": 195.94,
-      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+      "geometry_scope": "Socle source conservé au même centre validé ; diamètre relevé graphiquement à environ2u près. Dégagement périphérique120u contrôlé visuellement après retrait des gravats et abaissement des parapets proches ; contrôler le détourage sur la peinture du propriétaire.",
+      "graphic_bounds_world_approx": [
+        4200.03,
+        528.48,
+        4398.59,
+        719.86
+      ],
+      "diameter_world_measured_detail_approx": 198.56,
+      "clearance_visual_checked": true
     },
     {
       "id": "c1",
@@ -1230,7 +1262,15 @@
       "clearance_from_base_edge_world": 120,
       "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
       "diameter_world_measured_composition": 189.41,
-      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+      "geometry_scope": "Socle source conservé au même centre validé ; diamètre relevé graphiquement à environ2u près. Dégagement périphérique120u contrôlé visuellement après retrait des gravats et abaissement des parapets proches ; contrôler le détourage sur la peinture du propriétaire.",
+      "graphic_bounds_world_approx": [
+        2906.12,
+        1622.27,
+        3103.88,
+        1800.9
+      ],
+      "diameter_world_measured_detail_approx": 197.77,
+      "clearance_visual_checked": true
     },
     {
       "id": "c2",
@@ -1249,7 +1289,15 @@
       "clearance_from_base_edge_world": 120,
       "painted_state": "Socle bas vide de pierre runique, praticable ; runes sombres discrètes ; aucun vortex, anneau lumineux ou effet peint.",
       "diameter_world_measured_composition": 178.63,
-      "geometry_scope": "Socle vide relevé sur la composition ; dégagement120u proposé, à confirmer au détail et sur les collisions."
+      "geometry_scope": "Socle source conservé au même centre validé ; diamètre relevé graphiquement à environ2u près. Dégagement périphérique120u contrôlé visuellement après retrait des gravats et abaissement des parapets proches ; contrôler le détourage sur la peinture du propriétaire.",
+      "graphic_bounds_world_approx": [
+        1649.88,
+        379.67,
+        1830.1,
+        558.29
+      ],
+      "diameter_world_measured_detail_approx": 180.22,
+      "clearance_visual_checked": true
     }
   ],
   "cover_rocks": [
@@ -1257,8 +1305,8 @@
       "id": "a01",
       "island": "z1",
       "center_pct": [
-        27.7995,
-        48.0469
+        27.8948,
+        48.6567
       ],
       "material": "pan de mur bas",
       "width_world_target": 140,
@@ -1266,18 +1314,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         27.9297,
         44.9219
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        1332.62,
+        1123.02,
+        1465.79,
+        1220.31
+      ],
+      "approved_reference_pct": [
+        27.7995,
+        48.0469
+      ],
+      "width_world_measured_detail_approx": 133.17
     },
     {
       "id": "a02",
       "island": "z1",
       "center_pct": [
-        32.3568,
-        86.4583
+        32.1024,
+        86.75
       ],
       "material": "pan de mur bas",
       "width_world_target": 140,
@@ -1285,18 +1344,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         42.5781,
         61.7188
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        1542.87,
+        2068.84,
+        1677.64,
+        2175.69
+      ],
+      "approved_reference_pct": [
+        32.3568,
+        86.4583
+      ],
+      "width_world_measured_detail_approx": 134.77
     },
     {
       "id": "a03",
       "island": "z1",
       "center_pct": [
-        40.6901,
-        44.0104
+        40.6981,
+        44.1116
       ],
       "material": "colonne tombée",
       "width_world_target": 140,
@@ -1304,18 +1374,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         40.7552,
         43.8802
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        1974.43,
+        1004.24,
+        2108.4,
+        1106.32
+      ],
+      "approved_reference_pct": [
+        40.6901,
+        44.0104
+      ],
+      "width_world_measured_detail_approx": 133.97
     },
     {
       "id": "a04",
       "island": "z2",
       "center_pct": [
-        52.4089,
-        29.4271
+        52.2261,
+        29.8461
       ],
       "material": "colonne tombée",
       "width_world_target": 140,
@@ -1323,18 +1404,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         52.474,
         29.6875
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        2542.31,
+        628.92,
+        2697.01,
+        748.54
+      ],
+      "approved_reference_pct": [
+        52.4089,
+        29.4271
+      ],
+      "width_world_measured_detail_approx": 154.7
     },
     {
       "id": "a05",
       "island": "z2",
       "center_pct": [
-        65.625,
-        30.2083
+        65.9906,
+        30.8501
       ],
       "material": "charrette renversée",
       "width_world_target": 140,
@@ -1342,18 +1434,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         65.8854,
         38.2812
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        3232.34,
+        668.45,
+        3387.84,
+        773.72
+      ],
+      "approved_reference_pct": [
+        65.625,
+        30.2083
+      ],
+      "width_world_measured_detail_approx": 155.5
     },
     {
       "id": "a06",
       "island": "z2",
       "center_pct": [
-        54.6224,
-        73.5677
+        54.8052,
+        74.0187
       ],
       "material": "pan de mur bas",
       "width_world_target": 140,
@@ -1361,18 +1464,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         52.3438,
         68.8802
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        2686.03,
+        1751.12,
+        2812.03,
+        1856.39
+      ],
+      "approved_reference_pct": [
+        54.6224,
+        73.5677
+      ],
+      "width_world_measured_detail_approx": 126.0
     },
     {
       "id": "a07",
       "island": "finale",
       "center_pct": [
-        78.6458,
-        29.6875
+        78.6061,
+        29.7249
       ],
       "material": "colonne tombée",
       "width_world_target": 140,
@@ -1380,18 +1494,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         78.6458,
         29.6875
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        3874.3,
+        645.03,
+        4011.46,
+        745.5
+      ],
+      "approved_reference_pct": [
+        78.6458,
+        29.6875
+      ],
+      "width_world_measured_detail_approx": 137.16
     },
     {
       "id": "a08",
       "island": "finale",
       "center_pct": [
-        93.8802,
-        31.25
+        93.8324,
+        31.3194
       ],
       "material": "statue brisée",
       "width_world_target": 140,
@@ -1399,18 +1524,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         93.8802,
         31.25
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        4633.67,
+        675.44,
+        4779.6,
+        785.49
+      ],
+      "approved_reference_pct": [
+        93.8802,
+        31.25
+      ],
+      "width_world_measured_detail_approx": 145.93
     },
     {
       "id": "a09",
       "island": "finale",
       "center_pct": [
-        77.7995,
-        87.6302
+        78.0062,
+        86.9047
       ],
       "material": "colonne tombée",
       "width_world_target": 140,
@@ -1418,18 +1554,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         77.7995,
         87.6302
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        3852.58,
+        2098.23,
+        3973.0,
+        2179.57
+      ],
+      "approved_reference_pct": [
+        77.7995,
+        87.6302
+      ],
+      "width_world_measured_detail_approx": 120.41
     },
     {
       "id": "a10",
       "island": "finale",
       "center_pct": [
-        93.75,
-        88.0208
+        93.2254,
+        87.327
       ],
       "material": "pan de mur bas",
       "width_world_target": 140,
@@ -1437,18 +1584,29 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         93.75,
         88.0208
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        4619.17,
+        2110.42,
+        4733.2,
+        2190.16
+      ],
+      "approved_reference_pct": [
+        93.75,
+        88.0208
+      ],
+      "width_world_measured_detail_approx": 114.04
     },
     {
       "id": "a11",
       "island": "refuge",
       "center_pct": [
-        41.9271,
-        23.5677
+        41.8238,
+        22.683
       ],
       "material": "pan de mur bas",
       "width_world_target": 140,
@@ -1456,11 +1614,22 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "geometry_scope": "Relevé graphique manuel de toute la silhouette solide, semelle/roues/grosses cales comprises, ombre et petits éclats de sol exclus ; précision environ2u. Pied affiné localement au détail, sans recomposition ; détourage final par le propriétaire.",
       "previous_composition_reference_pct": [
         41.9271,
         23.5677
-      ]
+      ],
+      "graphic_bounds_world_approx": [
+        2031.69,
+        501.91,
+        2164.07,
+        568.89
+      ],
+      "approved_reference_pct": [
+        41.9271,
+        23.5677
+      ],
+      "width_world_measured_detail_approx": 132.38
     }
   ],
   "architecture_scale_world": {
@@ -1490,12 +1659,12 @@
     "Le refuge ne possède ni pont ni autre accès à pied : paireC seule.",
     "Les trois ponts assurent tout le parcours principal sans téléporteur."
   ],
-  "coordinate_basis": "Proposition en pourcentages du cadrage entier5016×2508, origine haut-gauche ; relevés à confirmer sur la composition retenue puis au détail.",
+  "coordinate_basis": "Plan validé5016×2508, pourcentages depuis le coin haut-gauche, composition figée. Silhouettes, ruines, cinq nappes, ponts, socles, départ et emprises utiles conservés.",
   "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
   "review_limitations": [
-    "La composition est agrandie dans les captures pour vérifier la disposition et la lisibilité des sprites ; le sol, l’architecture et les abris recevront leur finesse et leur gabarit final dans huit régions après validation.",
-    "Pas de plan.json verrouillé, de tuiles finales, de rapport qualité final ni de masque de collisions à ce stade.",
-    "Les dégagements exacts des socles seront mesurés sur le détail puis contrôlés sur les collisions peintes par le propriétaire."
+    "Repères et emprises graphiques, sans collision ni navigation. Le propriétaire peint les collisions ; Claude intègre ensuite zones, barrières, téléporteurs et gardien.",
+    "Captures au zoom réel avec sprites natifs : contrôle visuel, sans simulation de combat ni validation des déplacements.",
+    "Aucun sprite du chapitre5 livré par ce lot."
   ],
   "interior_passages": [
     {
@@ -1527,7 +1696,8 @@
       "width_world_measured_composition_approx": 150,
       "width_world_target_detail": 180,
       "walkable": true,
-      "scope": "Passage à l’intérieur de Z2 ; ne remplace ni ne déplace aucun des trois ponts entre îlots. Gabarit précis à contrôler au détail."
+      "scope": "Court tablier nord–sud praticable, détaillé avec petits pavés ; même position validée, élargissement local du sol jusqu’au gabarit180u, distinct des trois ponts entre îlots.",
+      "width_world_measured_detail_approx": 180
     }
   ],
   "interior_architecture": [
@@ -1553,7 +1723,7 @@
           49.7396
         ]
       ],
-      "scope": "Emprise graphique indicative, toit compris ; détails et détourage après validation."
+      "scope": "Emprise graphique conservée et détaillée à l’échelle du Chasseur ; contour exact des pieds à peindre par le propriétaire."
     },
     {
       "id": "r2",
@@ -1577,7 +1747,7 @@
           89.5833
         ]
       ],
-      "scope": "Emprise graphique indicative, toit compris ; détails et détourage après validation."
+      "scope": "Emprise graphique conservée et détaillée à l’échelle du Chasseur ; contour exact des pieds à peindre par le propriétaire."
     },
     {
       "id": "r3",
@@ -1601,7 +1771,7 @@
           69.401
         ]
       ],
-      "scope": "Emprise graphique indicative, toit compris ; détails et détourage après validation."
+      "scope": "Emprise graphique conservée et détaillée à l’échelle du Chasseur ; contour exact des pieds à peindre par le propriétaire."
     }
   ],
   "decorative_corruption_patches": [
@@ -1640,7 +1810,7 @@
       ],
       "walkable": true,
       "gameplay_B9": false,
-      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+      "geometry_scope": "Nappe graphique conservée au même emplacement, dallage violet praticable et décoratif, sans effetB9."
     },
     {
       "id": "c02",
@@ -1677,7 +1847,7 @@
       ],
       "walkable": true,
       "gameplay_B9": false,
-      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+      "geometry_scope": "Nappe graphique conservée au même emplacement, dallage violet praticable et décoratif, sans effetB9."
     },
     {
       "id": "c03",
@@ -1714,7 +1884,7 @@
       ],
       "walkable": true,
       "gameplay_B9": false,
-      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+      "geometry_scope": "Nappe graphique conservée au même emplacement, dallage violet praticable et décoratif, sans effetB9."
     },
     {
       "id": "c04",
@@ -1755,7 +1925,7 @@
       ],
       "walkable": true,
       "gameplay_B9": false,
-      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+      "geometry_scope": "Nappe graphique conservée au même emplacement, dallage violet praticable et décoratif, sans effetB9."
     },
     {
       "id": "c05",
@@ -1792,7 +1962,7 @@
       ],
       "walkable": true,
       "gameplay_B9": false,
-      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+      "geometry_scope": "Nappe graphique conservée au même emplacement, dallage violet praticable et décoratif, sans effetB9."
     }
   ],
   "corruption_distribution": "Cinq nappes distinctes, sols pâles majoritairement sains entre elles ; pas de corruption uniforme.",
@@ -1804,5 +1974,18 @@
     "teleporters_unchanged": true,
     "start_unchanged": true,
     "pixels_proof": "composition_correction.json"
-  }
+  },
+  "identity_approved": true,
+  "owner_approval_date": "2026-11-06",
+  "owner_feedback": "Le propriétaire demande « démarres la passe au détail » sur la composition corrigée.",
+  "detail_constraints": [
+    "Huit régions réellement peintes, sans recomposer les cinq îlots, le L ouest, le croissantZ1 ni la faille interneZ2.",
+    "Trois ponts entre îlots et passage intérieur continus et praticables, mêmes gabarits/positions.",
+    "Six socles160–200u vides, mêmes centres et jumeaux, runes sombres, dégagement120u au-delà de la base ; aucune énergie peinte.",
+    "Trois blocs de ruines intérieures et cinq nappes distinctes de dalles violettes praticables ; pas de B9.",
+    "Cours600×600u par zone et noyau final1000×1000u, sans architecture ni abri dans ces emprises.",
+    "Onze abris110–160u inclus socles/roues, hors ponts et dégagements des socles.",
+    "Hunter52u, pavés15–26u, marches12–16u, portes75–90u, colonnes30–45u, lumière haut-gauche, liseré violet bas-droite.",
+    "Vide noir-violet bloquant, bords nets, aucun accès à pied au refuge nord, aucune route hors cadre."
+  ]
 }

@@ -7,22 +7,22 @@
     5016,
     2508
   ],
-  "status": "wip",
-  "stage": "composition_corrigee_a_valider",
+  "status": "final",
+  "stage": "detail_graphique_livre",
   "composition": "composition.png",
   "composition_size": [
     1536,
     768
   ],
   "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
-  "review": "source/composition_review.json",
-  "owner_approved": false,
-  "plan_locked": false,
-  "detail_generated": false,
-  "regions_generated": false,
+  "review": "plan.json",
+  "owner_approved": true,
+  "plan_locked": true,
+  "detail_generated": true,
+  "regions_generated": true,
   "regions_expected": 8,
-  "quality_conforme": false,
-  "quality_scope": "Composition corrigée uniquement ; finesse finale et gabarits précis à établir après huit régions.",
+  "quality_conforme": true,
+  "quality_scope": "Détail peint par huit régions, tuiles finales2,25px/u, rapport conforme et quatorze captures au zoom réel.",
   "islands": 5,
   "main_islands": 4,
   "secondary_islands": 1,
@@ -39,5 +39,15 @@
   "decorative_corruption_patches": 5,
   "interior_architecture_blocks": 3,
   "interior_crossings": 1,
-  "protected_landmarks_unchanged": true
+  "protected_landmarks_unchanged": true,
+  "owner_approval_date": "2026-11-06",
+  "plan": "plan.json",
+  "regions_delivered": 8,
+  "source": "source/map_detailed.webp",
+  "presentation_tiles": [
+    "assets/environments/suspended_quarters/map.webp",
+    "assets/environments/suspended_quarters/map_1.webp",
+    "assets/environments/suspended_quarters/map_2.webp"
+  ],
+  "collision_reference": "source/collision_reference.json"
 }

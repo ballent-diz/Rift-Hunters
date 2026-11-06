@@ -1,0 +1,374 @@
+{
+  "date": "2026-11-06",
+  "world": [
+    5016,
+    2508
+  ],
+  "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+  "plan_sha256": "ca100ac196329c27edf6ded7f35d11445bc960b7e052f290c623b33136cf5f7e",
+  "native_density": 0.75,
+  "native_size": [
+    3762,
+    1881
+  ],
+  "retained_sha256": "4d62ca76d03af1553538e35ce8c89f9a8f8fcddbae43ff3d976bf12111dccb0a",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1414.0
+      ],
+      "square_world": [
+        -160.0,
+        -160.0,
+        1414.0,
+        1414.0
+      ],
+      "generated_sha256": "209123502b478d357749ac984fdd7c377fa5f9d5eb6eae0d8eefe47bcc1dcbbf",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "4c1d1efb5ac974b7ba1bf89bfa285dd65957c1e1a07653fe9d9273512716936c",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\n\nREGION r0_0: Mostly plain deep dark-purple abyss. Only the upper arm of the WEST L-SHAPED island enters from below. Keep the removed northwest quarter EMPTY VOID; do not restore the old oval or paint a house there. BaseA1 is near the lower end of this crop, hollow and empty at its given center; keep surrounding walkway. No covers or new buildings. Preserve the same cropped edges.\nExact existing landmarks in LOCAL percentages of this square (target overall cover width8.9%, Hunter3.3%):\n{\"covers\": [{\"id\": \"a01\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [98.76, 86.72], \"target_width_local_pct\": 8.9}], \"pads\": [{\"id\": \"a1\", \"center_local_pct\": [56.48, 90.71], \"diameter_local_pct\": 11.5, \"clear_radius_local_pct\": 13.7}], \"bridges\": [], \"interior_crossings\": []}\nImage3 is the already painted sample sector: use ONLY its fine stone/slate finish and colors, never copy its buildings, bases or layout.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.14998626708984375,
+          397.0527648925781,
+          109.30538177490234
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1414.0
+      ],
+      "square_world": [
+        1094.0,
+        -160.0,
+        2668.0,
+        1414.0
+      ],
+      "generated_sha256": "bc233a79edee04d2eb8f42370a3d0e68e5b37fad1897a5863b92eb03a271f51f",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "f4f77ab6bdee6ebd74e97fa97e8d14aafa6925140b414cbdff11e857b3a4824e",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\n\nREGION r0_1: The complete small NORTH REFUGE floats in the upper half, with one empty baseC2 and ONE compact low wallA11. It has NO BRIDGE to any other island. The upper part of crescent islandZ1 enters below: retain its interior two-house block and its small coversA01/A03, same footprints, do not merge them into a perimeter wall. Rebuild houses with small doors and fine tiles. Keep the free main courtyard below empty and wide. At right is partial bridgeP2, same landing and width. The one C05 violet corruption patch on refuge stays separate from partial C02 below, not widespread purple cracks.\nExact existing landmarks in LOCAL percentages of this square (target overall cover width8.9%, Hunter3.3%):\n{\"covers\": [{\"id\": \"a01\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [19.09, 86.72], \"target_width_local_pct\": 8.9}, {\"id\": \"a03\", \"material\": \"colonne tombée\", \"foot_local_pct\": [60.17, 80.29], \"target_width_local_pct\": 8.9}, {\"id\": \"a04\", \"material\": \"colonne tombée\", \"foot_local_pct\": [97.51, 57.05], \"target_width_local_pct\": 8.9}, {\"id\": \"a11\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [64.11, 47.72], \"target_width_local_pct\": 8.9}], \"pads\": [{\"id\": \"c2\", \"center_local_pct\": [41.12, 39.73], \"diameter_local_pct\": 11.5, \"clear_radius_local_pct\": 13.7}], \"bridges\": [{\"id\": \"p2\", \"center_local_pct\": [80.91, 87.03], \"segment_local_pct\": [[80.91, 79.67], [80.91, 94.4]]}], \"interior_crossings\": []}\nImage3 is the already painted sample sector: use ONLY its fine stone/slate finish and colors, never copy its buildings, bases or layout.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.07149505615234375,
+          429.49676513671875,
+          106.60171508789062
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1414.0
+      ],
+      "square_world": [
+        2348.0,
+        -160.0,
+        3922.0,
+        1414.0
+      ],
+      "generated_sha256": "a492e8995b4deeed6d2d0fe6e900e477dc7b88d32e34a96636497a4e7f3f32f3",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "98624634ed45803c4dc4de4b06dc08c61a03165febe3c73fabaafd9c8e8c8cc3",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\nREGION r0_2: upper split islandZ2, dark inner fissure and the same short NORTH–SOUTH stone crossing centered27.80%,70.54% of this crop; retain both landing endpoints, rebuild its clear deck about180worldunits wide. Empty baseA2 center42.43%,50.41%, diameter180–195u, do not shift it; keep its120u clearance. Exactly TWO covers in this region: fallen columnA04 ground foot17.84%,57.05%, compact whole base about140u wide; overturned cartA05 foot59.96%,58.30%, same140u INCLUDING wheels and shortened shafts, ensure its left edge stays clear of A2. Partial original bridgesP2 near1.24%,87.03% andP3 near77.39%,91.29% stay exactly aligned, widths232u and202u, clear decks between their rails. The main combat court is at bottom, free ground with only the one existing corruption patch partially visible. No extra buildings, covers or circles. Keep the abyss above the island plain, deep dark purple, with no speckles or artificial texture.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.06072998046875,
+          430.4623603820801,
+          113.94023895263672
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3602.0,
+        0.0,
+        5016,
+        1414.0
+      ],
+      "square_world": [
+        3602.0,
+        -160.0,
+        5176.0,
+        1414.0
+      ],
+      "generated_sha256": "9787cb3d0445dcd96f3265d8416c597110924d5295fdfb20a2a0ab91cb4acefd",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "a02d7c842fa9d6e6f5354ce674083d5086610c856f6d28bc4785a0be70db4be6",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\n\nREGION r0_3: Upper part of the large EASTERN FINALE island, empty baseB2 at given center, TWO compact northern coversA07/A08 only. The huge open1000×1000unit final core extends below, keep it entirely empty of new buildings/covers. NO central altar, statue, boss circle, fountain, arena wall, additional circle or decoration. Buildings remain at existing perimeter corners only. Partial bridgeP3 enters from left and stays fully continuous, clear width202u. Fine pale paving, clean outside the existing C04 patch partly below.\nExact existing landmarks in LOCAL percentages of this square (target overall cover width8.9%, Hunter3.3%):\n{\"covers\": [{\"id\": \"a07\", \"material\": \"colonne tombée\", \"foot_local_pct\": [21.78, 57.47], \"target_width_local_pct\": 8.9}, {\"id\": \"a08\", \"material\": \"statue brisée\", \"foot_local_pct\": [70.33, 59.96], \"target_width_local_pct\": 8.9}], \"pads\": [{\"id\": \"b2\", \"center_local_pct\": [44.61, 49.9], \"diameter_local_pct\": 11.5, \"clear_radius_local_pct\": 13.7}], \"bridges\": [], \"interior_crossings\": []}\nImage3 is the already painted sample sector: use ONLY its fine stone/slate finish and colors, never copy its buildings, bases or layout.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.029285430908203125,
+          435.67657470703125,
+          115.29207229614258
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        1094.0,
+        1414.0,
+        2508
+      ],
+      "square_world": [
+        -160.0,
+        1094.0,
+        1414.0,
+        2668.0
+      ],
+      "generated_sha256": "3dbaaabad6595a569af30452ede6b28e0f8cc0f30a46a21d5ac08423c3ecc47f",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "55b65e0da49a59c0d781283933c0c95951662c3038357c4c22d7c0229f975558",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\n\nREGION r1_0: Lower main body of the WEST L-SHAPED starting island, same huge empty southern starting plaza. Upper right arm and empty baseA1 must retain their exact layout; do not fill the missing northwest corner into an oval. Keep old ruined roofs on the bottom boundary inside their existing footprints, human-size doors. The first stone bridgeP1 is at right, clear floor232u, fully continuous; only its existing side parapets. One C01 flat purple corruption patch only. No extra cover, building or circle on the starting ground. The very bottom margin is outside-world guide padding and will be discarded.\nExact existing landmarks in LOCAL percentages of this square (target overall cover width8.9%, Hunter3.3%):\n{\"covers\": [{\"id\": \"a01\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [98.76, 7.05], \"target_width_local_pct\": 8.9}], \"pads\": [{\"id\": \"a1\", \"center_local_pct\": [56.48, 11.04], \"diameter_local_pct\": 11.5, \"clear_radius_local_pct\": 13.7}], \"bridges\": [{\"id\": \"p1\", \"center_local_pct\": [82.16, 23.13], \"segment_local_pct\": [[82.16, 15.77], [82.16, 30.5]]}], \"interior_crossings\": []}\nImage3 is the already painted sample sector: use ONLY its fine stone/slate finish and colors, never copy its buildings, bases or layout.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 20,
+        "median_smooth_fine_medium": [
+          0.1100006103515625,
+          401.1082649230957,
+          103.12557220458984
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2508
+      ],
+      "square_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2668.0
+      ],
+      "generated_sha256": "eb4d5ff5ac2302f8b5a4f16cec7c6e0eeaa551aac42fb0a1cf1fdca1f8e7170f",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "2c62b0bdd2f97426934cf0b1358693e6a9e9a069615d35245eb94c427a305014",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\n\nREGION r1_1: Main CRESCENT islandZ1: the concave bay opens to the EAST, retain its exact cliff boundary and continuous wide ground to its left. Do not fill it into an oval or cut the southern arm off. Keep the existing interior two-house block at top and the separate small southwest ruin, with walkable circuits around them. Main600×600unit court remains empty except ONE FLAT corruption patchC02. Empty baseB1 in lower right recess at same center,160–200u diameter,120u empty ground beyond rim. Exactly THREE existing compact coversA01/A02/A03 where shown; upper ones may be clipped by this crop. Shrink the ENTIRE solid cover bases/shafts to140u, not just their centers. Do not add a fourth cover, house or stairs. Partial P1/P2 bridge landings at upper edges stay aligned.\nExact existing landmarks in LOCAL percentages of this square (target overall cover width8.9%, Hunter3.3%):\n{\"covers\": [{\"id\": \"a01\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [19.09, 7.05], \"target_width_local_pct\": 8.9}, {\"id\": \"a02\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [33.61, 68.26], \"target_width_local_pct\": 8.9}, {\"id\": \"a03\", \"material\": \"colonne tombée\", \"foot_local_pct\": [60.17, 0.62], \"target_width_local_pct\": 8.9}], \"pads\": [{\"id\": \"b1\", \"center_local_pct\": [52.77, 61.93], \"diameter_local_pct\": 11.5, \"clear_radius_local_pct\": 13.7}], \"bridges\": [{\"id\": \"p1\", \"center_local_pct\": [2.49, 23.13], \"segment_local_pct\": [[2.49, 15.77], [2.49, 30.5]]}, {\"id\": \"p2\", \"center_local_pct\": [80.91, 7.36], \"segment_local_pct\": [[80.91, -0.0], [80.91, 14.73]]}], \"interior_crossings\": []}\nImage3 is the already painted sample sector: use ONLY its fine stone/slate finish and colors, never copy its buildings, bases or layout.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.3295440673828125,
+          345.68309783935547,
+          81.11000061035156
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2508
+      ],
+      "square_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2668.0
+      ],
+      "generated_sha256": "31170ab65a31aa34f48719343fe63fd5542d0ee34aaf502243437d569d07e072",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "385ee94cdf681f7ad026b9a27238a52658e7f64a5b0bb6de700e5c4dc9b89edd",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\n\nREGION r1_2: Lower body of the internally SPLIT islandZ2, same600×600unit clear fighting court, same interior ruined house at LEFT with clear walking space around it. Keep ONE compact low wallA06 below-left of empty baseC1; the whole cover and rubble width140u and at least120u from the base OUTER RIM. Keep baseC1 empty, no vortex. Partial C03 flat purple stain above is the only corruption material here. The interior fissure/stone crossing may be cut by the upper edge; retain it if visible, never bridge the entire chasm with new ground. Partial external P2 and P3 bridges at the upper sides remain continuous with their existing widths and landings. The bottom edge shows torn rocky foundations above the abyss, NOT a door or route into it.\nExact existing landmarks in LOCAL percentages of this square (target overall cover width8.9%, Hunter3.3%):\n{\"covers\": [{\"id\": \"a06\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [24.9, 47.72], \"target_width_local_pct\": 8.9}, {\"id\": \"a09\", \"material\": \"colonne tombée\", \"foot_local_pct\": [98.76, 70.12], \"target_width_local_pct\": 8.9}], \"pads\": [{\"id\": \"c1\", \"center_local_pct\": [42.32, 39.21], \"diameter_local_pct\": 11.5, \"clear_radius_local_pct\": 13.7}], \"bridges\": [{\"id\": \"p2\", \"center_local_pct\": [1.24, 7.36], \"segment_local_pct\": [[1.24, -0.0], [1.24, 14.73]]}, {\"id\": \"p3\", \"center_local_pct\": [77.39, 11.62], \"segment_local_pct\": [[77.39, 5.19], [77.39, 18.05]]}], \"interior_crossings\": []}\nImage3 is the already painted sample sector: use ONLY its fine stone/slate finish and colors, never copy its buildings, bases or layout.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 120,
+        "median_smooth_fine_medium": [
+          0.1915130615234375,
+          401.49450302124023,
+          98.876953125
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3602.0,
+        1094.0,
+        5016,
+        2508
+      ],
+      "square_world": [
+        3602.0,
+        1094.0,
+        5176.0,
+        2668.0
+      ],
+      "generated_sha256": "0abedefcff036e584491d8473e75972a6b690c2ba71f44f88e2d97d22046c4b5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "7b29e1bc2eb9d06625786d31c60113be82646aec84a299be6572911aba22bbe3",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "Repaint this APPROVED FROZEN region of map23 \"Les Quartiers suspendus\", Rift Hunters, with genuinely NEW FINE PAINTED DETAIL. Image1 is the EXACT layout to retain, image2 only the Waterfall Ruins DETAIL-SCALE/FINISH reference at the same world zoom; retain ALL colors/materials from image1, NOT the greenery/water from image2. This square represents1574×1574worldunits. Same full square frame, maximum resolution, at least1254×1254pixels. No text, character, HUD, watermark, border or guides.\n\nLOCK TERRAIN AND LANDMARKS: same positions, same exact island outlines, abyss boundaries and foundation drop, building silhouettes, ground clearings, bridge widths/endpoints, runic base centers, five corruption-material boundaries. Do NOT move an island, fill the abyss, paint new bridges, add an obstacle, pillar or extra ruin. This is one overlapping crop of a continuous map; keep forms and colors aligned on ALL four edges. Any edge stretching is technical padding outside the map, not a new terrain feature, preserve its existing silhouette.\n\nSCALE SET HERE: Hunter52worldunits would be41pixels high in a1254pixel output. Rebuild ALL paving with many crisp small stones15–26u (12–21pixels), NOT the huge slabs of the composition. Stairs12–16u (10–13pixels depth), house doors75–90u (60–72pixels high), ordinary column shafts30–45u (24–36pixels wide). Rebuild existing house footprints with small fine masonry, tiny slate tiles, finer windows and beams, without enlarging the footprint. Detailed texture is painted, not pixel noise, not smooth plastic or photorealism. Pale limestone/slate, muted tarnished gold, torn purple cloth, top-left light and subtle violet lower-right rim.\n\nEMPTY RUNIC BASES are WALKABLE circles160–200u diameter: retain exact centers/shape, keep only dark engraved runes, empty paved center, low rim. NO vortex, crystal, aura, glowing ring or standing pillar. Keep120u clear ground BEYOND each base rim; a cover near its clearance can get a shorter shaft/base but no scenery may invade the empty surroundings. COVERS stay solid compact silhouettes110–160u wide, including EVERY base, wheel, axle, shaft and rubble piece; aim140u width, about112pixels, never huge. Keep their ground feet on their given landmarks, illuminated upper-left and cast shadow lower-right. No new covers.\n\nEvery existing bridge deck and the interior stone crossing remain fully continuous, walkable and flat, with fine small pavings/planks. No gap in the middle, no wall or debris across a passage. Black-violet abyss is blocked terrain with sharp cliff drop; five violet/magenta corruption patches are flat WALKABLE stained paving, never holes. No purple crack carpet on clean paving outside these existing patches; no new corruption patches, no snow, lava, swamp vegetation or orange effects.\n\nOpen600×600u courts and1000×1000u finale core remain free of buildings/covers. All architectural details stay inside existing silhouettes, with clear alleys around interior ruins. Preserve same overhead camera and the existing frame exactly.\n\n\nREGION r1_3: Lower part of the large EASTERN FINAL plaza, keep the1000×1000unit core fully open, with its ONE existing FLAT corruption patchC04 and clean fine paving elsewhere. Exactly TWO lower edge compact coversA09/A10,110–160u overall including full bases. NO TELEPORT BASE IN THIS CROP: the existing northern B2 is outside the image, do not invent another circle. No altar, arena circle, center statue, fountain, boss, ruin, wall or extra cover inside the open plaza. Retain all island cliff boundaries, exposed broken foundations, palette and dark void. Bottom technical padding outside the world is removed at assembly.\nExact existing landmarks in LOCAL percentages of this square (target overall cover width8.9%, Hunter3.3%):\n{\"covers\": [{\"id\": \"a09\", \"material\": \"colonne tombée\", \"foot_local_pct\": [19.09, 70.12], \"target_width_local_pct\": 8.9}, {\"id\": \"a10\", \"material\": \"pan de mur bas\", \"foot_local_pct\": [69.92, 70.75], \"target_width_local_pct\": 8.9}], \"pads\": [], \"bridges\": [], \"interior_crossings\": []}\nImage3 is the already painted sample sector: use ONLY its fine stone/slate finish and colors, never copy its buildings, bases or layout.",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.08040237426757812,
+          441.85638427734375,
+          107.18107223510742
+        ],
+        "regional_reference_bands_met": true
+      }
+    }
+  ],
+  "pixels_lossless_verified": true,
+  "method": "Huit régions carrées peintes de1574u ; marges extraites, calibration native et raccord de faible différence.",
+  "retained_source": "map_detailed.webp",
+  "intermediates": "Guides, régions et retouches hors dépôt ; seul le master retenu est versionné.",
+  "local_painted_corrections": [
+    {
+      "scope": "pads0",
+      "source_sha256": "af013907a6c178206c5f57a22542c8bbaf61f8a8f601d7892b1571574e556104",
+      "prompt": "Retouche locale de cette planche2×2 de Rift Hunters. Image1=peinture source, image2=guide. Même résolution et quatre cadrages, facture peinte pierre pâle/ardoise/dorures ternies, lumière haut-gauche et liseré violet bas-droite. Chaque case627px représente500×500unités. NE PAS TOUCHER au socle runique au centre : position, dimensions, runes, dessin et centre PAVÉ restent identiques, sans énergie. Corriger SEULEMENT le dégagement autour : le disque CYAN représente440unités de diamètre TOTAL et doit être entièrement praticable, avec le socle plat en son centre et des petits pavés autour. Retirer les gros cailloux/cubes, parties de murs/parapets et grands débris qui EMPIÈTENT DANS ce disque, remettre à leur place le même dallage fin. Le mur de façade en haut-droite reste à sa place : rendre ses gros gravats de pied plus petits et les reculer hors du disque sans bouger le bâtiment. Pour les socles près de la falaise, surtout les DEUX cases de pads1 : ABAISSER et AMINCIR le PARAPET AVANT (celui en BAS de la case) jusqu’à une bordure très basse et mince posée AU MÊME BORD EXTÉRIEUR, afin de gagner de la surface de pavés DANS le disque. Conserver exactement la silhouette extérieure de l’îlot et ses fondations ; ne pas déplacer la falaise, ne pas remplir le vide, ne pas agrandir l’îlot ni ajouter de pont. Le disque doit avoir du sol jusqu’à sa circonférence ; le petit rebord de protection se trouve juste en dehors. Garder les mêmes grosses formes et caméra ; détails petits, pas de nouveau décor. Les cases vides restent vides. Supprimer toutes annotations JAUNES/CYAN du résultat. Pas de texte, pas de personnages, pas de halos ni de nouveau socle. Ne jamais changer d’échelle de cadrage.",
+      "objects": [
+        "a1",
+        "a2",
+        "b1",
+        "b2"
+      ],
+      "method": "Réinsertion locale de la peinture du dégagement ; centre et dessin du socle source protégés ; fondu de14u."
+    },
+    {
+      "scope": "pads1",
+      "source_sha256": "c8d1e959fe4db87aff8c7a98af4253107a9d0d5038cf570216860004bafdf646",
+      "prompt": "Retouche locale de cette planche2×2 de Rift Hunters. Image1=peinture source, image2=guide. Même résolution et quatre cadrages, facture peinte pierre pâle/ardoise/dorures ternies, lumière haut-gauche et liseré violet bas-droite. Chaque case627px représente500×500unités. NE PAS TOUCHER au socle runique au centre : position, dimensions, runes, dessin et centre PAVÉ restent identiques, sans énergie. Corriger SEULEMENT le dégagement autour : le disque CYAN représente440unités de diamètre TOTAL et doit être entièrement praticable, avec le socle plat en son centre et des petits pavés autour. Retirer les gros cailloux/cubes, parties de murs/parapets et grands débris qui EMPIÈTENT DANS ce disque, remettre à leur place le même dallage fin. Le mur de façade en haut-droite reste à sa place : rendre ses gros gravats de pied plus petits et les reculer hors du disque sans bouger le bâtiment. Pour les socles près de la falaise, surtout les DEUX cases de pads1 : ABAISSER et AMINCIR le PARAPET AVANT (celui en BAS de la case) jusqu’à une bordure très basse et mince posée AU MÊME BORD EXTÉRIEUR, afin de gagner de la surface de pavés DANS le disque. Conserver exactement la silhouette extérieure de l’îlot et ses fondations ; ne pas déplacer la falaise, ne pas remplir le vide, ne pas agrandir l’îlot ni ajouter de pont. Le disque doit avoir du sol jusqu’à sa circonférence ; le petit rebord de protection se trouve juste en dehors. Garder les mêmes grosses formes et caméra ; détails petits, pas de nouveau décor. Les cases vides restent vides. Supprimer toutes annotations JAUNES/CYAN du résultat. Pas de texte, pas de personnages, pas de halos ni de nouveau socle. Ne jamais changer d’échelle de cadrage.",
+      "objects": [
+        "c1",
+        "c2"
+      ],
+      "method": "Réinsertion locale de la peinture du dégagement ; centre et dessin du socle source protégés ; fondu de14u."
+    },
+    {
+      "scope": "covers0",
+      "source_sha256": "bf5aa1ac9da3ed1831a0a6c7427da7463f40e6a0cf55070610dc6d510df6c741",
+      "prompt": "Retouche locale de cette planche2×2 de Rift Hunters. Image1=peinture source, image2=guide. Même résolution et quatre cadrages, facture peinte pierre pâle/ardoise/dorures ternies, lumière haut-gauche et liseré violet bas-droite. Chaque case627px représente500×500unités. Ramener la silhouette SOLIDE ENTIÈRE de chaque abri dans son rectangle JAUNE, bases/roues/brancards/débris bloquants COMPRIS, largeur176pixels soit140unités, hauteur128pixels soit102unités, pied sur la base du rectangle. Viser170–180px de largeur, jamais moins de145 ou plus de195px. Remplir de pavés fins l’ancienne empreinte qui déborde. Le petit mur en haut gauche de covers0 doit être ÉLARGI pour remplir le rectangle ; les gros socles de colonnes et tas de blocs doivent être RÉDUITS. Garder leur matériau et leur pose (mur bas, colonne tombée, charrette retournée, cloche tombée), chaque case reste reconnaissable. Pas de nouveaux gravats hors gabarit. Ne changer ni les bâtiments autour ni les falaises ni le sol loin de l’objet. Garder la taille des pavés15–26unités, le même zoom et le cadrage exact. La caseHAUT-DROITE(a02) est DÉJÀ BONNE, la conserver exactement. Supprimer toutes annotations JAUNES/CYAN du résultat. Pas de texte, pas de personnages, pas de halos ni de nouveau socle. Ne jamais changer d’échelle de cadrage.",
+      "objects": [
+        "a01"
+      ],
+      "method": "Recadrage500u et réinsertion locale avec fondu de14pixels ; aucun changement d’échelle de l’objet par script."
+    },
+    {
+      "scope": "covers1",
+      "source_sha256": "e8753502a4120bbd51d2f81f01cce4901255622a87477ce5dad6c2a6bf4aa5ac",
+      "prompt": "Retouche locale de cette planche2×2 de Rift Hunters. Image1=peinture source, image2=guide. Même résolution et quatre cadrages, facture peinte pierre pâle/ardoise/dorures ternies, lumière haut-gauche et liseré violet bas-droite. Chaque case627px représente500×500unités. Ramener la silhouette SOLIDE ENTIÈRE de chaque abri dans son rectangle JAUNE, bases/roues/brancards/débris bloquants COMPRIS, largeur176pixels soit140unités, hauteur128pixels soit102unités, pied sur la base du rectangle. Viser170–180px de largeur, jamais moins de145 ou plus de195px. Remplir de pavés fins l’ancienne empreinte qui déborde. Le petit mur en haut gauche de covers0 doit être ÉLARGI pour remplir le rectangle ; les gros socles de colonnes et tas de blocs doivent être RÉDUITS. Garder leur matériau et leur pose (mur bas, colonne tombée, charrette retournée, cloche tombée), chaque case reste reconnaissable. Pas de nouveaux gravats hors gabarit. Ne changer ni les bâtiments autour ni les falaises ni le sol loin de l’objet. Garder la taille des pavés15–26unités, le même zoom et le cadrage exact. La caseHAUT-DROITE(a06) est DÉJÀ BONNE, la conserver exactement. Dans la caseHAUT-GAUCHE(a05) de covers1, pied placé5% de case plus ÀDROITE selon le jaune, pour dégager le socle de téléporteur à gauche ; supprimer entièrement l’ancienne silhouette plus àgauche. Supprimer toutes annotations JAUNES/CYAN du résultat. Pas de texte, pas de personnages, pas de halos ni de nouveau socle. Ne jamais changer d’échelle de cadrage.",
+      "objects": [
+        "a05"
+      ],
+      "method": "Recadrage500u et réinsertion locale avec fondu de14pixels ; aucun changement d’échelle de l’objet par script."
+    },
+    {
+      "scope": "compact1",
+      "source_sha256": "9021467329dbdf21ac40dfdfd2c1a32312e7b386913f64ee23be8a2d5542f7a3",
+      "prompt": "CORRECTION OBLIGATOIRE de la TAILLE des petits obstacles sur cette planche2×2. Image1=actuel, image2=rectanglecible. Les objets sont TOUJOURS TROP GRANDS. RÉDUIRE TRÈS VISIBLEMENT de30à35% la LARGEUR ET la HAUTEUR DE CHAQUE OBJET ISOLÉ, avec TOUTES ses grosses pierres de base et supports. Le résultat doit être BEAUCOUP PLUS PETIT que l’objetactuel, maximum150pixels de large dans une case627pixels. Chaque case=500unités, taille visée120unités. Faire tenir TOUTE LA SILHOUETTE SOLIDE dans le rectangleJAUNE150×112pixels, pied au bordbas414, centre313. Pas de grosse semelle ni gros blocs ajoutés ni gravats horsdurectangle ; chaque colonne peut reposer directement sur deux toutes petites cales. Le mur du refuge devient un petit murbas de trois pierres de long, jamais une grande barricade. Remplacer l’ancienne silhouette par du même pavage fin. Conserver EXACTEMENT les façades, parapets de bordure, dalles et falaises, le cadrage et le zoom de chaque case. Pas de changement d’échelle de la scène ni du bâtiment derrière ; SEUL L’OBJET ISOLÉ RÉTRÉCIT. Même facture pierrepâle ardoise dorureternie, lumièrehaut-gauche. Aucun texte ni repère jaune danslerésultat. La casevide reste vide.",
+      "objects": [
+        "a09",
+        "a10",
+        "a11"
+      ],
+      "method": "Recadrage500u et réinsertion locale avec fondu de14pixels ; aucun changement d’échelle de l’objet par script."
+    },
+    {
+      "scope": "enlarge",
+      "source_sha256": "a7bc579d90dceb0de890dca80e288aa1242e26803ac6dc2836b980171f4723d6",
+      "prompt": "Les quatre objets isolés sont maintenant TROP PETITS. Corriger UNIQUEMENT ces quatre petits abris : AGRANDIR LEUR SILHOUETTE SOLIDE DE40À55% (pas le décor), les rendre VISUELLEMENT PLUS GRANDS pour occuper presque TOUT le rectangleJAUNE de174pixels de large. Viser165à180pixels de large par objet avec toutes ses cales, contre seulement100à120actuellement. Cases627pixels=500unités. Première colonne hautgauche+40%, seconde hautdroite+65%, blocbasgauche+45%, clochebasdroite+40%. Le pied doit finir à414pixels du haut de chaque case, centrehorizontal313. La largeur DOIT atteindre au moins145pixels, ne jamais dépasser195pixels. Garder TOUT le reste STRICTEMENT identique : pavés fins, maisons à leur taille actuelle, falaises, parapets, teinte, cadrage, zoom de chaque case. Pas de nouveaux objets, pas de semelles surdimensionnées, chaque objet a ses toutes petites cales. Image1=source à corriger, image2=rectangle guide de la nouvelle taille. Aucun texte ni marque jaune dans le résultat.",
+      "objects": [
+        "a03",
+        "a04",
+        "a07",
+        "a08"
+      ],
+      "method": "Recadrage500u et réinsertion locale avec fondu de14pixels ; aucun changement d’échelle de l’objet par script."
+    }
+  ]
+}

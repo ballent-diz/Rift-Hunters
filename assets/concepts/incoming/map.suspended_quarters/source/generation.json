@@ -1,130 +1,153 @@
 {
   "date": "2026-11-06",
   "tool": "image_gen.imagegen",
-  "stage": "composition_corrigee_a_valider",
-  "owner_approved": false,
-  "plan_locked": false,
-  "detail_generated": false,
-  "initial_generated_sha256": "028252e8c5b001f352560a58e6e5ed17e35953e91c793d4a3ee131f2c1060dc5",
-  "initial_size": [
-    1536,
-    1024
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "identity_approved": true,
+  "plan_locked": true,
+  "detail_generated": true,
+  "regions": 8,
+  "world": [
+    5016,
+    2508
   ],
-  "retained_size": [
-    1536,
-    768
-  ],
-  "technical_crop": [
-    0,
-    128,
-    1536,
-    896
-  ],
-  "technical_crop_scope": "Seules les bandes extérieures au monde sont retirées ; tous les îlots et leurs soubassements restent dans le cadrage2:1 prévu.",
-  "retained_composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
-  "layout_sha256": "4184779a497353fe6c96281e147927ee71490b75ce3c7f6f1ee5fab0f59664a3",
-  "style_references": [
-    {
-      "map": 21,
-      "path": "docs/previews/shattered-outskirts/detail.webp",
-      "sha256": "79e398042698a7cc23b914cfb7a607e38e6984e14bd6c94383bb0fa6dddcf147"
-    },
-    {
-      "map": 22,
-      "path": "docs/previews/rune-sanctum/detail.webp",
-      "sha256": "eae825e4734adcdc14ab18be288301a8099df8469adff1b095a21f96d5c588af"
-    }
-  ],
-  "local_corrections": [
-    {
-      "id": "bridges1",
-      "source_pixels": [
-        239.82296650717706,
-        469.82296650717706,
-        454.17703349282294,
-        684.1770334928229
-      ],
-      "generated_sha256": "d102db7f50974db8ba2eb4083b044684ba0ed986879a3b89898b8335a17bc303",
-      "input_sha256": "42da0af9832a6c34b60f23958f93645e1a4a2193163035d4a661471ead3f57b9",
-      "guide_sha256": "c5fb78d7593df539f4b7631df69f37da5cd817c6a8f62d57a2411f2ae77f8b5d",
-      "prompt": "PROMPT_BRIDGES.txt",
-      "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
-    },
-    {
-      "id": "bridges2",
-      "source_pixels": [
-        617.8229665071771,
-        392.82296650717706,
-        832.1770334928229,
-        607.1770334928229
-      ],
-      "generated_sha256": "d102db7f50974db8ba2eb4083b044684ba0ed986879a3b89898b8335a17bc303",
-      "input_sha256": "42da0af9832a6c34b60f23958f93645e1a4a2193163035d4a661471ead3f57b9",
-      "guide_sha256": "c5fb78d7593df539f4b7631df69f37da5cd817c6a8f62d57a2411f2ae77f8b5d",
-      "prompt": "PROMPT_BRIDGES.txt",
-      "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
-    },
-    {
-      "id": "bridges3",
-      "source_pixels": [
-        984.8229665071771,
-        405.82296650717706,
-        1199.177033492823,
-        620.1770334928229
-      ],
-      "generated_sha256": "d102db7f50974db8ba2eb4083b044684ba0ed986879a3b89898b8335a17bc303",
-      "input_sha256": "42da0af9832a6c34b60f23958f93645e1a4a2193163035d4a661471ead3f57b9",
-      "guide_sha256": "c5fb78d7593df539f4b7631df69f37da5cd817c6a8f62d57a2411f2ae77f8b5d",
-      "prompt": "PROMPT_BRIDGES.txt",
-      "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
-    },
-    {
-      "id": "pads1",
-      "source_pixels": [
-        99.82296650717704,
-        392.82296650717706,
-        314.17703349282294,
-        607.1770334928229
-      ],
-      "generated_sha256": "ee0c9f0cf419fa917d5c1b065946bfeca59d421399edca2267b0086a88965f83",
-      "input_sha256": "7c5b272566f866cdc9d34a487c67aab9a8d5b5271d45a36cfd95f263ba4fc6d5",
-      "guide_sha256": "fd62648b296eabebed10a8decbeac1c1d4b91b90f6a2f052f117e5187335e630",
-      "prompt": "PROMPT_PADS.txt",
-      "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
-    },
-    {
-      "id": "pads2",
-      "source_pixels": [
-        411.82296650717706,
-        142.82296650717706,
-        626.1770334928229,
-        357.17703349282294
-      ],
-      "generated_sha256": "ee0c9f0cf419fa917d5c1b065946bfeca59d421399edca2267b0086a88965f83",
-      "input_sha256": "7c5b272566f866cdc9d34a487c67aab9a8d5b5271d45a36cfd95f263ba4fc6d5",
-      "guide_sha256": "fd62648b296eabebed10a8decbeac1c1d4b91b90f6a2f052f117e5187335e630",
-      "prompt": "PROMPT_PADS.txt",
-      "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
-    },
-    {
-      "id": "pads3",
-      "source_pixels": [
-        487.82296650717706,
-        667.8229665071771,
-        702.1770334928229,
-        882.1770334928229
-      ],
-      "generated_sha256": "ee0c9f0cf419fa917d5c1b065946bfeca59d421399edca2267b0086a88965f83",
-      "input_sha256": "7c5b272566f866cdc9d34a487c67aab9a8d5b5271d45a36cfd95f263ba4fc6d5",
-      "guide_sha256": "fd62648b296eabebed10a8decbeac1c1d4b91b90f6a2f052f117e5187335e630",
-      "prompt": "PROMPT_PADS.txt",
-      "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
-    }
-  ],
+  "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+  "plan_sha256": "ca100ac196329c27edf6ded7f35d11445bc960b7e052f290c623b33136cf5f7e",
+  "retained_master_sha256": "4d62ca76d03af1553538e35ce8c89f9a8f8fcddbae43ff3d976bf12111dccb0a",
+  "regions_provenance": "regions_provenance.json",
+  "detail_recipe": "detail_recipe.json",
+  "collision_reference": "collision_reference.json",
+  "composition_history": {
+    "date": "2026-11-06",
+    "tool": "image_gen.imagegen",
+    "stage": "composition_corrigee_a_valider",
+    "owner_approved": false,
+    "plan_locked": false,
+    "detail_generated": false,
+    "initial_generated_sha256": "028252e8c5b001f352560a58e6e5ed17e35953e91c793d4a3ee131f2c1060dc5",
+    "initial_size": [
+      1536,
+      1024
+    ],
+    "retained_size": [
+      1536,
+      768
+    ],
+    "technical_crop": [
+      0,
+      128,
+      1536,
+      896
+    ],
+    "technical_crop_scope": "Seules les bandes extérieures au monde sont retirées ; tous les îlots et leurs soubassements restent dans le cadrage2:1 prévu.",
+    "retained_composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+    "layout_sha256": "4184779a497353fe6c96281e147927ee71490b75ce3c7f6f1ee5fab0f59664a3",
+    "style_references": [
+      {
+        "map": 21,
+        "path": "docs/previews/shattered-outskirts/detail.webp",
+        "sha256": "79e398042698a7cc23b914cfb7a607e38e6984e14bd6c94383bb0fa6dddcf147"
+      },
+      {
+        "map": 22,
+        "path": "docs/previews/rune-sanctum/detail.webp",
+        "sha256": "eae825e4734adcdc14ab18be288301a8099df8469adff1b095a21f96d5c588af"
+      }
+    ],
+    "local_corrections": [
+      {
+        "id": "bridges1",
+        "source_pixels": [
+          239.82296650717706,
+          469.82296650717706,
+          454.17703349282294,
+          684.1770334928229
+        ],
+        "generated_sha256": "d102db7f50974db8ba2eb4083b044684ba0ed986879a3b89898b8335a17bc303",
+        "input_sha256": "42da0af9832a6c34b60f23958f93645e1a4a2193163035d4a661471ead3f57b9",
+        "guide_sha256": "c5fb78d7593df539f4b7631df69f37da5cd817c6a8f62d57a2411f2ae77f8b5d",
+        "prompt": "PROMPT_BRIDGES.txt",
+        "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
+      },
+      {
+        "id": "bridges2",
+        "source_pixels": [
+          617.8229665071771,
+          392.82296650717706,
+          832.1770334928229,
+          607.1770334928229
+        ],
+        "generated_sha256": "d102db7f50974db8ba2eb4083b044684ba0ed986879a3b89898b8335a17bc303",
+        "input_sha256": "42da0af9832a6c34b60f23958f93645e1a4a2193163035d4a661471ead3f57b9",
+        "guide_sha256": "c5fb78d7593df539f4b7631df69f37da5cd817c6a8f62d57a2411f2ae77f8b5d",
+        "prompt": "PROMPT_BRIDGES.txt",
+        "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
+      },
+      {
+        "id": "bridges3",
+        "source_pixels": [
+          984.8229665071771,
+          405.82296650717706,
+          1199.177033492823,
+          620.1770334928229
+        ],
+        "generated_sha256": "d102db7f50974db8ba2eb4083b044684ba0ed986879a3b89898b8335a17bc303",
+        "input_sha256": "42da0af9832a6c34b60f23958f93645e1a4a2193163035d4a661471ead3f57b9",
+        "guide_sha256": "c5fb78d7593df539f4b7631df69f37da5cd817c6a8f62d57a2411f2ae77f8b5d",
+        "prompt": "PROMPT_BRIDGES.txt",
+        "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
+      },
+      {
+        "id": "pads1",
+        "source_pixels": [
+          99.82296650717704,
+          392.82296650717706,
+          314.17703349282294,
+          607.1770334928229
+        ],
+        "generated_sha256": "ee0c9f0cf419fa917d5c1b065946bfeca59d421399edca2267b0086a88965f83",
+        "input_sha256": "7c5b272566f866cdc9d34a487c67aab9a8d5b5271d45a36cfd95f263ba4fc6d5",
+        "guide_sha256": "fd62648b296eabebed10a8decbeac1c1d4b91b90f6a2f052f117e5187335e630",
+        "prompt": "PROMPT_PADS.txt",
+        "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
+      },
+      {
+        "id": "pads2",
+        "source_pixels": [
+          411.82296650717706,
+          142.82296650717706,
+          626.1770334928229,
+          357.17703349282294
+        ],
+        "generated_sha256": "ee0c9f0cf419fa917d5c1b065946bfeca59d421399edca2267b0086a88965f83",
+        "input_sha256": "7c5b272566f866cdc9d34a487c67aab9a8d5b5271d45a36cfd95f263ba4fc6d5",
+        "guide_sha256": "fd62648b296eabebed10a8decbeac1c1d4b91b90f6a2f052f117e5187335e630",
+        "prompt": "PROMPT_PADS.txt",
+        "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
+      },
+      {
+        "id": "pads3",
+        "source_pixels": [
+          487.82296650717706,
+          667.8229665071771,
+          702.1770334928229,
+          882.1770334928229
+        ],
+        "generated_sha256": "ee0c9f0cf419fa917d5c1b065946bfeca59d421399edca2267b0086a88965f83",
+        "input_sha256": "7c5b272566f866cdc9d34a487c67aab9a8d5b5271d45a36cfd95f263ba4fc6d5",
+        "guide_sha256": "fd62648b296eabebed10a8decbeac1c1d4b91b90f6a2f052f117e5187335e630",
+        "prompt": "PROMPT_PADS.txt",
+        "scope": "Réinsertion locale de la peinture, fondu7px ; reste du cadrage conservé."
+      }
+    ],
+    "intermediates_in_git": false,
+    "collision_mask_created": false,
+    "runtime_integrated": false,
+    "composition_correction": "composition_correction.json",
+    "initial_layout_sha256": "8f2559868b3ee0158a2bf202aca18628516ee6096b66052c2fe3b206452bcae4",
+    "layout_scope": "Schéma technique actuel des repères retenus, redessiné depuis la revue corrigée ; guides de retouche intermédiaires hors dépôt."
+  },
   "intermediates_in_git": false,
   "collision_mask_created": false,
-  "runtime_integrated": false,
-  "composition_correction": "composition_correction.json",
-  "initial_layout_sha256": "8f2559868b3ee0158a2bf202aca18628516ee6096b66052c2fe3b206452bcae4",
-  "layout_scope": "Schéma technique actuel des repères retenus, redessiné depuis la revue corrigée ; guides de retouche intermédiaires hors dépôt."
+  "runtime_integrated": false
 }
