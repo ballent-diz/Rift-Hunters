@@ -189,7 +189,7 @@ func _check_phase() -> void:
 	busy_time = p.transition_time
 	_next_pattern_time = ctx.time + p.transition_time + 1.0
 	ctx.hazards.add_ring(boss.position, 520.0, 700.0, 30.0, 10.0 * ctx.difficulty.enemy_damage_mult, true, data.id,
-		[ctx.rng.randf() * TAU], 0.5, [], p.transition_time * 0.5)
+		[ctx.rng.randf() * TAU], 0.5, [], p.transition_time * 0.5, PixelFx.family_of(boss))
 	ctx.fx.burst(boss.position, boss.radius * 2.0, Color(0.8, 0.3, 1.0, 0.5))
 	boss.visual.play_action(p.transition_animation)
 	_clear_indicators()
@@ -343,7 +343,7 @@ func _pattern_shadow_wave(pattern: BossPatternData) -> void:
 				gaps.append(ctx.rng.randf() * TAU)
 			ctx.hazards.add_ring(boss.position, float(pattern.params.get("speed", 230.0)), 1000.0,
 				float(pattern.params.get("thickness", 26.0)), _damage(pattern), true, data.id, gaps,
-				float(pattern.params.get("gap_width", 0.38)), [], pattern.telegraph)
+				float(pattern.params.get("gap_width", 0.38)), [], pattern.telegraph, PixelFx.family_of(boss))
 		)
 	busy_time = pattern.telegraph + 0.4
 
@@ -457,7 +457,8 @@ func _pattern_quake(pattern: BossPatternData) -> void:
 	for w: int in int(pattern.params.get("waves", 1)):
 		schedule(w * float(pattern.params.get("wave_gap", 0.8)), func() -> void:
 			ctx.hazards.add_ring(boss.position, float(pattern.params.get("speed", 200.0)), 900.0,
-				float(pattern.params.get("thickness", 18.0)), _damage(pattern), true, data.id, [], 0.0, [], pattern.telegraph)
+				float(pattern.params.get("thickness", 18.0)), _damage(pattern), true, data.id, [], 0.0, [], pattern.telegraph,
+				PixelFx.family_of(boss))
 		)
 	busy_time = pattern.telegraph + 0.3
 
@@ -558,7 +559,8 @@ func _pattern_skyfall(pattern: BossPatternData) -> void:
 			for w: int in int(pattern.params.get("rings", 2)):
 				schedule(w * 0.5, func() -> void:
 					ctx.hazards.add_ring(target, float(pattern.params.get("ring_speed", 260.0)), 900.0, 24.0,
-						_damage(pattern) * 0.5, true, data.id, [ctx.rng.randf() * TAU, ctx.rng.randf() * TAU], 0.45, [], 0.0))
+						_damage(pattern) * 0.5, true, data.id, [ctx.rng.randf() * TAU, ctx.rng.randf() * TAU], 0.45, [], 0.0,
+						PixelFx.family_of(boss)))
 			if ctx.burn:
 				ctx.burn.add_plate(target, radius, float(pattern.params.get("burn_time", 6.0)))))
 

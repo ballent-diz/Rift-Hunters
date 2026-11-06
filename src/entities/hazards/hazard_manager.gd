@@ -7,6 +7,15 @@ enum Kind { CIRCLE, RING, BEAM, WELL, ZONE, CONE }
 
 const DANGER := Color(1.0, 0.25, 0.6)
 const FRIENDLY := Color(0.5, 0.9, 1.0)
+## Sorts en cercle des boss (retour de test : impossibles à esquiver) : tout anneau hostile garde au moins une brèche
+## à portée du Chasseur (à moins de RING_GAP_REACH radians de sa direction) et une autre à l'opposé, d'une demi-largeur
+## d'au moins RING_MIN_GAP ; les couloirs sûrs se dessinent dès l'annonce.
+const RING_GAP_REACH := 0.9
+const RING_MIN_GAP := 0.42
+const SAFE := Color(0.45, 1.0, 0.6)
+const SAFE_EDGE := Color(0.02, 0.12, 0.08)
+## Intervalle entre deux bouffées de poussière (pixelfx) le long du front d'un anneau de boss.
+const RING_DUST_INTERVAL := 0.12
 
 var ctx: RunContext
 var hazards: Array[Dictionary] = []
@@ -41,10 +50,31 @@ func add_cone(pos: Vector2, direction: Vector2, radius: float, half_angle: float
 ## Anneau qui s'étend. gaps : angles (rad) des brèches sûres, gap_width : demi-largeur angulaire.
 func add_ring(center: Vector2, speed: float, max_radius: float, thickness: float, damage: float, hostile: bool,
 		source_id: StringName, gaps: Array = [], gap_width: float = 0.35, statuses: Array[StatusApplication] = [],
-		delay: float = 0.6) -> void:
+		delay: float = 0.6, family: StringName = &"") -> void:
+	if hostile:
+		gaps = fair_gaps(center, gaps)
+		gap_width = maxf(gap_width, RING_MIN_GAP)
 	hazards.append({"kind": Kind.RING, "pos": center, "radius": 0.0, "speed": speed, "max": max_radius,
 		"thickness": thickness, "damage": damage, "hostile": hostile, "source": source_id, "gaps": gaps,
-		"gap_width": gap_width, "statuses": statuses, "hit": {}, "delay": delay, "total": delay, "life": 99.0})
+		"gap_width": gap_width, "statuses": statuses, "hit": {}, "delay": delay, "total": delay, "life": 99.0,
+		"family": family, "dust": 0.0})
+	if hostile and family != &"" and ctx.pixel_fx:
+		ctx.pixel_fx.ring_charge(center, family, delay)
+
+
+## Brèches d'un anneau hostile : celles prévues, plus (ou à la place de la première) une brèche à portée du Chasseur ;
+## sans brèche prévue, une seconde à l'opposé.
+func fair_gaps(center: Vector2, gaps: Array) -> Array:
+	var result: Array = gaps.duplicate()
+	var toward: float = (ctx.player.global_position - center).angle() if ctx.player else 0.0
+	var near: float = toward + ctx.rng.randf_range(-RING_GAP_REACH, RING_GAP_REACH) * 0.8
+	if result.is_empty():
+		return [near, near + PI]
+	for gap: float in result:
+		if absf(wrapf(gap - toward, -PI, PI)) <= RING_GAP_REACH:
+			return result
+	result[0] = near
+	return result
 
 
 ## Rayon : télégraphe pendant delay, puis actif pendant duration (dégâts par tick).
@@ -171,8 +201,16 @@ func in_cone(h: Dictionary, pos: Vector2, margin: float) -> bool:
 func _step_ring(h: Dictionary, delta: float) -> bool:
 	if float(h["delay"]) > 0.0:
 		h["delay"] = float(h["delay"]) - delta
+		if float(h["delay"]) <= 0.0:
+			_ring_fx(h, true)
 		return true
+	if float(h["radius"]) <= 0.0 and float(h["total"]) <= 0.0:
+		_ring_fx(h, true)
 	h["radius"] = float(h["radius"]) + float(h["speed"]) * delta
+	h["dust"] = float(h["dust"]) - delta
+	if float(h["dust"]) <= 0.0:
+		h["dust"] = RING_DUST_INTERVAL
+		_ring_fx(h, false)
 	var r: float = h["radius"]
 	var half: float = float(h["thickness"]) * 0.5
 	var center: Vector2 = h["pos"]
@@ -191,6 +229,48 @@ func _step_ring(h: Dictionary, delta: float) -> bool:
 			h["hit"][id] = true
 			_hit_enemy(enemy, h)
 	return r < float(h["max"])
+
+
+## Animations pixelfx d'un anneau de boss : onde de choc au départ (`start`), poussière le long du front ensuite.
+func _ring_fx(h: Dictionary, start: bool) -> void:
+	var family: StringName = h.get("family", &"")
+	if family == &"" or ctx.pixel_fx == null:
+		return
+	if start:
+		ctx.pixel_fx.ring_burst(h["pos"], family)
+	else:
+		ctx.pixel_fx.ring_dust(h["pos"], float(h["radius"]), family, func(angle: float) -> bool: return _in_gap(h, angle))
+
+
+## Couloirs sûrs d'un anneau hostile : un secteur clair par brèche, du boss jusqu'à la portée de l'anneau.
+func _draw_safe_lanes(canvas: CanvasItem, h: Dictionary) -> void:
+	var center: Vector2 = h["pos"]
+	var inner: float = maxf(float(h["radius"]) - 40.0, 50.0)
+	var outer: float = h["max"]
+	if inner >= outer:
+		return
+	var width: float = h["gap_width"]
+	var fade: float = 1.0 - float(h["radius"]) / maxf(outer, 1.0)
+	for gap: float in h["gaps"]:
+		var points := PackedVector2Array()
+		for k: int in 9:
+			points.append(center + Vector2.RIGHT.rotated(gap - width + width * 2.0 * k / 8.0) * inner)
+		for k: int in 9:
+			points.append(center + Vector2.RIGHT.rotated(gap + width - width * 2.0 * k / 8.0) * outer)
+		canvas.draw_colored_polygon(points, Color(SAFE, 0.16 * fade + 0.06))
+		for side: float in [-width, width]:
+			var dir := Vector2.RIGHT.rotated(gap + side)
+			canvas.draw_line(center + dir * inner, center + dir * outer, Color(SAFE_EDGE, 0.5 * fade + 0.15), 5.0)
+			canvas.draw_line(center + dir * inner, center + dir * outer, Color(SAFE, 0.75 * fade + 0.2), 2.0)
+
+
+func _draw_gapped_arc(canvas: CanvasItem, h: Dictionary, radius: float, color: Color, width: float) -> void:
+	var segments: int = 64
+	for s: int in segments:
+		var a0: float = TAU * s / segments
+		var a1: float = TAU * (s + 1) / segments
+		if not _in_gap(h, (a0 + a1) * 0.5):
+			canvas.draw_arc(h["pos"], radius, a0, a1, 3, color, width)
 
 
 func _in_gap(h: Dictionary, angle: float) -> bool:
@@ -372,8 +452,15 @@ func _draw_sector(canvas: CanvasItem, h: Dictionary, radius: float, color: Color
 func _draw_ring(canvas: CanvasItem, h: Dictionary) -> void:
 	var color: Color = DANGER if h["hostile"] else Color(1.0, 0.65, 0.3)
 	var center: Vector2 = h["pos"]
+	if h["hostile"]:
+		_draw_safe_lanes(canvas, h)
 	if float(h["delay"]) > 0.0:
 		canvas.draw_arc(center, 40.0, 0.0, TAU, 32, Color(color, 0.8), 3.0)
+		if h["hostile"] and ctx.player:
+			# Annonce : l'anneau à venir, à la distance du Chasseur, brèches comprises.
+			var reach: float = minf(center.distance_to(ctx.player.global_position), float(h["max"]))
+			var alpha: float = 0.35 + 0.25 * (1.0 - float(h["delay"]) / maxf(float(h["total"]), 0.01))
+			_draw_gapped_arc(canvas, h, reach, Color(color, alpha), 3.0)
 		return
 	var r: float = h["radius"]
 	var segments: int = 64

@@ -28,6 +28,9 @@ const GROUPS: Array = [
 ## Le bandeau « Prochaine étape » accompagne les premières parties.
 const GUIDE_RUNS := 5
 
+## Marge du cadre et largeur maximale du refuge (centré au-delà).
+const MARGIN := 28
+const MAX_WIDTH := 1800.0
 var tabs: TabContainer
 var _currencies: HBoxContainer
 var _warning: Label
@@ -46,10 +49,13 @@ func _ready() -> void:
 	set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	MenuSkin.background(self)
 	var margin := MarginContainer.new()
+	margin.name = "Frame"
 	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	for side: String in ["left", "right", "top", "bottom"]:
-		margin.add_theme_constant_override("margin_" + side, 28)
+		margin.add_theme_constant_override("margin_" + side, MARGIN)
 	add_child(margin)
+	resized.connect(_center_frame.bind(margin))
+	_center_frame(margin)
 	var root := VBoxContainer.new()
 	root.add_theme_constant_override("separation", 18)
 	margin.add_child(root)
@@ -145,6 +151,13 @@ func group_of(index: int) -> int:
 
 
 ## Boutons construits une fois (le focus de la manette tient d'un clic à l'autre) ; refresh n'ajuste que l'état.
+## Écran très large (ultra-large) : le refuge garde au plus MAX_WIDTH de large, centré (retour de test).
+func _center_frame(margin: MarginContainer) -> void:
+	var side: int = maxi(MARGIN, int((size.x - MAX_WIDTH) * 0.5))
+	margin.add_theme_constant_override("margin_left", side)
+	margin.add_theme_constant_override("margin_right", side)
+
+
 func _build_nav() -> void:
 	for g: int in GROUPS.size():
 		var group_button: Button = _nav_button(20)

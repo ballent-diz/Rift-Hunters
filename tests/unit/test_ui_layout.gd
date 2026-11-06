@@ -28,3 +28,26 @@ func test_menus_fill_screen_when_built_in_tree() -> void:
 		var expected: Vector2 = host.get_viewport().get_visible_rect().size
 		check(screen.size.is_equal_approx(expected), "%s couvre l'écran (%s / %s)" % [path, screen.size, expected])
 		screen.queue_free()
+
+
+## Retour de test : la fenêtre tient dans l'écran utilisable et y est centrée (petit écran, mise à l'échelle Windows).
+func test_window_fits_and_is_centered_on_small_screens() -> void:
+	var laptop := Rect2i(0, 0, 1366, 728)
+	var rect: Rect2i = Settings.fitted_window(laptop, Vector2i(1600, 900))
+	check(laptop.encloses(rect), "fenêtre entièrement dans l'écran : %s" % rect)
+	check(absi(rect.get_center().x - laptop.get_center().x) <= 1 and absi(rect.get_center().y - laptop.get_center().y) <= 1,
+		"fenêtre centrée")
+	check(absf(float(rect.size.x) / rect.size.y - 16.0 / 9.0) < 0.02, "rapport 16:9 gardé")
+	var scaled := Rect2i(0, 0, 1280, 680)
+	check(scaled.encloses(Settings.fitted_window(scaled, Vector2i(1600, 900))), "écran mis à l'échelle 150 % : tient")
+	var big := Rect2i(0, 0, 2560, 1400)
+	check_eq(Settings.fitted_window(big, Vector2i(1600, 900)).size, Vector2i(1600, 900), "grand écran : taille d'origine")
+
+
+## L'écran titre ne laisse pas de bandes noires sur un écran d'un autre format (fond recadré derrière l'image).
+func test_main_menu_backdrop_covers_the_screen() -> void:
+	var menu: Control = load(Router.MAIN_MENU).instantiate()
+	host.add_child(menu)
+	var backdrop: TextureRect = menu.get_node("Backdrop")
+	check(backdrop != null and backdrop.stretch_mode == TextureRect.STRETCH_KEEP_ASPECT_COVERED, "fond recadré qui couvre")
+	menu.queue_free()

@@ -48,8 +48,10 @@ func test_tree_and_upgrades_fit_720p_in_both_languages() -> void:
 				check_eq(tab.find_children("SpellSlot*", "Button", true, false).size(), 4, "quatre emplacements")
 				if not utilities:
 					var plan: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
-					var expected: int = HunterTree.nodes_of_branch(&"trunk").size() + HunterTree.nodes_of_branch(&"blade").size()
-					check_eq(plan._buttons.size(), expected, "tronc commun et voie entière présents")
+					var expected: int = 0
+					for branch: StringName in HunterTreeBoard.BRANCHES:
+						expected += HunterTree.nodes_of_branch(branch).size()
+					check_eq(plan._buttons.size(), expected, "tronc commun et les quatre voies sur la grille")
 				# Le moteur sans affichage fournit une police factice (hauteur 3× la taille).
 				# Les assertions géométriques sont aussi exécutées avec le moteur graphique réel.
 				if DisplayServer.get_name() == "headless":
@@ -125,7 +127,8 @@ func test_all_24_spell_and_talent_icons_are_imported() -> void:
 	check_eq(count, 24, "12 sorts, 8 transformants et 4 clés de voûte")
 
 
-func test_each_path_fits_without_scrolling() -> void:
+## Grille : toutes les voies côte à côte, sans défilement, chaque icône lisible et visible.
+func test_every_path_fits_side_by_side() -> void:
 	var viewport := SubViewport.new()
 	viewport.size = Vector2i(1280, 720)
 	host.add_child(viewport)
@@ -133,23 +136,22 @@ func test_each_path_fits_without_scrolling() -> void:
 	viewport.add_child(screen)
 	screen.tabs.current_tab = 2
 	var tab: RefugeTab = screen.tabs.get_child(2)
+	screen.refresh_current()
+	await _settle()
+	check(tab.find_child("TreeScroll", true, false) == null, "aucun défilement dans l'arbre")
+	var plan: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
 	for branch: StringName in HunterTreeSkin.PATHS:
-		tab._focused_branch = branch
-		screen.refresh_current()
-		await _settle()
-		check(tab.find_child("TreeScroll", true, false) == null, "aucun défilement dans l'arbre : %s" % branch)
-		var plan: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
 		for data: SkillNodeData in HunterTree.nodes_of_branch(branch):
 			var button: HunterTreeNode = plan._buttons[data.id]
-			check(not button.caption.text.is_empty(), "nom sous l'icône : %s" % data.id)
+			check(button.compact and not button.tooltip_text.is_empty(), "icône seule, nom au survol : %s" % data.id)
 			# Police factice en mode sans affichage : la géométrie se vérifie avec le moteur graphique réel.
 			if DisplayServer.get_name() != "headless":
-				check(button.emblem_rect().size.x >= 40, "icône lisible : %s" % data.id)
+				check(button.emblem_rect().size.x >= 32, "icône lisible : %s" % data.id)
 				check(plan.get_global_rect().encloses(button.get_global_rect()), "nœud visible : %s" % data.id)
-		check(tab.get_combined_minimum_size().x <= tab.size.x, "voie sans débordement horizontal")
-		if DisplayServer.get_name() != "headless":
-			check(tab.get_combined_minimum_size().y <= tab.size.y, "voie sans débordement vertical")
-			check(Rect2(Vector2.ZERO, Vector2(viewport.size)).encloses(tab.get_global_rect()), "voie dans la fenêtre")
+	check(tab.get_combined_minimum_size().x <= tab.size.x, "grille sans débordement horizontal")
+	if DisplayServer.get_name() != "headless":
+		check(tab.get_combined_minimum_size().y <= tab.size.y, "grille sans débordement vertical")
+		check(Rect2(Vector2.ZERO, Vector2(viewport.size)).encloses(tab.get_global_rect()), "grille dans la fenêtre")
 	screen.queue_free()
 	viewport.queue_free()
 	await _settle()
@@ -189,7 +191,7 @@ func test_card_walks_through_learn_activate_equip() -> void:
 	viewport.size = Vector2i(1280, 720)
 	host.add_child(viewport)
 	Profile.profile.set_preference("tree_guide_seen", "1")
-	Profile.profile.data["runs"]["won"] = 1
+	Profile.profile.data["runs"]["won"] = 2
 	var screen: Refuge = load(Router.REFUGE).instantiate()
 	viewport.add_child(screen)
 	screen.tabs.current_tab = 2
@@ -213,34 +215,31 @@ func test_card_walks_through_learn_activate_equip() -> void:
 	check_eq(states.call(), ["done", "done", "done"], "actif et équipé")
 	var parry: SkillNodeData = GameDB.skill_node(&"blade_parry")
 	var first: Dictionary = tab.steps_of(p, parry)[0]
-	check_eq(first["state"], "blocked", "Parade scellée tant que 3 boss ne sont pas vaincus")
-	check(str(first["detail"]).contains("3"), "la fiche dit combien de boss vaincre")
+	check_eq(first["state"], "blocked", "Parade scellée tant que 4 boss ne sont pas vaincus")
+	check(str(first["detail"]).contains("4"), "la fiche dit combien de boss vaincre")
 	screen.queue_free()
 	viewport.queue_free()
 	await _settle()
 
 
 func test_board_places_variants_under_their_spell() -> void:
-	for branch: StringName in HunterTreeSkin.PATHS:
+	for branch: StringName in HunterTreeBoard.BRANCHES:
 		var cells: Dictionary = {}
 		for data: SkillNodeData in HunterTree.nodes_of_branch(branch):
-			var cell: Vector2i = HunterTreeBoard.slot_of(data)
+			var cell: Vector2 = HunterTreeBoard.cell_of(data)
+			check(not cells.has(cell), "%s : une case par nœud (%s)" % [data.id, cell])
+			cells[cell] = data.id
+			check(cell.x >= 0.0 and cell.x < HunterTreeBoard.units(branch), "%s dans sa colonne" % data.id)
+			check_eq(int(cell.y), data.tier, "%s sur la ligne de son niveau" % data.id)
 			if data.kind == SkillNodeData.Kind.VARIANT:
 				var spell: SkillNodeData = HunterTree.spell_node(data.spell_id)
-				check_eq(cell, HunterTreeBoard.slot_of(spell) + Vector2i(0, 1), "%s sous son sort" % data.id)
-			elif data.kind in [SkillNodeData.Kind.SPELL, SkillNodeData.Kind.KEYSTONE, SkillNodeData.Kind.TRANSFORM]:
-				check(not cells.has(cell), "%s : une case par sort, talent ou clé" % data.id)
-				cells[cell] = data.id
+				check_eq(int(cell.y), int(HunterTreeBoard.cell_of(spell).y) + 1, "%s juste sous la ligne de son sort" % data.id)
 	var board := HunterTreeBoard.new()
-	board.focus_branch = &"blade"
 	board.setup(Profile.profile, &"")
 	check(board.find_child("BoardLegend", true, false) != null, "légende des états sur le plateau")
-	check_eq(board.column_gate(3), 1, "2e sort : 1 boss à vaincre")
-	check_eq(board.column_gate(4), 3, "3e sort : 3 boss")
-	var whirlwind: HunterTreeNode = board._buttons[&"blade_slash_whirlwind"]
-	check(whirlwind.tag == "", "variante scellée : pas de coût affiché")
-	var honed: HunterTreeNode = board._buttons[&"blade_honed_edge"]
-	check(honed.tag.contains("40"), "passif à apprendre : coût en Éclats sur le nœud")
+	check_eq(board.row_gate(2), 2, "niveau III : 2 boss à vaincre")
+	check_eq(board.row_gate(3), 4, "niveau IV : 4 boss")
+	check(board._buttons.size() > 50, "toutes les voies présentes")
 	board.free()
 
 
