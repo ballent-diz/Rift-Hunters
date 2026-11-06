@@ -1,0 +1,1418 @@
+{
+  "id": "map.rune_sanctum",
+  "map_number": 22,
+  "chapter": 5,
+  "title": "Le Sanctuaire des runes",
+  "world": [
+    3344,
+    5016
+  ],
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "plan_locked": true,
+  "identity": "Pierre pâle, ardoise, cité éventrée, dorures ternies, bannières déchirées, violet sombre et magenta un peu plus présents que carte21.",
+  "mode": "Défense d’autel",
+  "mechanic": "B4 Portes runiques",
+  "start_pct": [
+    50,
+    88.5
+  ],
+  "ruined_market_hall_pct": [
+    50,
+    98
+  ],
+  "direction": "Sud → nord par trois rues reliées, pas de diagonale ni de plan rayonnant.",
+  "altar": {
+    "name": "Reliquaire du sanctuaire",
+    "center_pct": [
+      50,
+      18.8
+    ],
+    "painted_base_diameter_world": 280,
+    "painted_base": "Socle bas de pierre pâle, sobre, vide pour le reliquaire posé par le jeu ; pas de personnage, cristal ou effet lumineux peint.",
+    "base_scale_status": "Socle original conservé à sa position validée, diamètre relevé environ290u pour une cible280u ; vide, sans reliquaire du jeu peint."
+  },
+  "parvis": {
+    "polygon_pct": [
+      [
+        7,
+        9
+      ],
+      [
+        93,
+        9
+      ],
+      [
+        94,
+        31
+      ],
+      [
+        85,
+        34
+      ],
+      [
+        15,
+        34
+      ],
+      [
+        6,
+        31
+      ]
+    ],
+    "center_pct": [
+      50,
+      21
+    ],
+    "free_combat_extent_world": [
+      1600,
+      1000
+    ],
+    "free_combat_extent_center_pct": [
+      50,
+      20
+    ],
+    "sanctuary_facade_pct": [
+      [
+        17,
+        0
+      ],
+      [
+        83,
+        0
+      ],
+      [
+        83,
+        8
+      ],
+      [
+        17,
+        8
+      ]
+    ],
+    "closed_arena": false,
+    "free_floor_except_altar_base": true
+  },
+  "streets": [
+    {
+      "id": "west",
+      "name": "Rue ouest",
+      "centerline_pct": [
+        [
+          20,
+          86
+        ],
+        [
+          19,
+          78
+        ],
+        [
+          17.1,
+          71.6
+        ],
+        [
+          19,
+          58
+        ],
+        [
+          19,
+          48
+        ],
+        [
+          20,
+          40
+        ],
+        [
+          20,
+          32
+        ]
+      ],
+      "width_world_target": 300,
+      "pockets_pct": [
+        [
+          22,
+          83
+        ],
+        [
+          18,
+          63
+        ],
+        [
+          21,
+          45
+        ]
+      ],
+      "character": "Rue plus étroite, cours élargies aux trois abris, façades brisées."
+    },
+    {
+      "id": "central",
+      "name": "Grande avenue centrale",
+      "centerline_pct": [
+        [
+          50,
+          86
+        ],
+        [
+          50,
+          78
+        ],
+        [
+          50,
+          64.45
+        ],
+        [
+          50,
+          58
+        ],
+        [
+          50,
+          47
+        ],
+        [
+          50,
+          37.5
+        ],
+        [
+          50.3,
+          33.66
+        ]
+      ],
+      "width_world_target": 600,
+      "pockets_pct": [
+        [
+          50,
+          82
+        ],
+        [
+          49,
+          67
+        ],
+        [
+          51,
+          47
+        ]
+      ],
+      "character": "Grande avenue dallée, plusieurs dilatations de combat, passages sous deux arches."
+    },
+    {
+      "id": "east",
+      "name": "Rue est en escaliers",
+      "centerline_pct": [
+        [
+          80,
+          86
+        ],
+        [
+          81,
+          78
+        ],
+        [
+          81,
+          69
+        ],
+        [
+          81,
+          58
+        ],
+        [
+          80.86,
+          50.59
+        ],
+        [
+          80,
+          40
+        ],
+        [
+          80,
+          32
+        ]
+      ],
+      "width_world_target": 340,
+      "pockets_pct": [
+        [
+          83,
+          73
+        ],
+        [
+          83,
+          55
+        ],
+        [
+          82,
+          37
+        ]
+      ],
+      "stairs_flights_y_pct": [
+        [
+          32,
+          37
+        ],
+        [
+          60.5,
+          67
+        ],
+        [
+          78,
+          85
+        ]
+      ],
+      "step_depth_world": [
+        12,
+        16
+      ],
+      "character": "Trois volées fines entre de larges paliers, marches orientées vers le nord.",
+      "initial_sketch_stairs_flights_y_pct": [
+        [
+          79,
+          84
+        ],
+        [
+          61,
+          67
+        ],
+        [
+          42,
+          47
+        ]
+      ],
+      "stairs_geometry_scope": "Emprises graphiques relevées sur le détail au même emplacement que la composition validée ; correction des anciennes valeurs du croquis, sans déplacer les marches."
+    }
+  ],
+  "traverses": [
+    {
+      "id": "t1",
+      "name": "Traverse basse des halles",
+      "centerline_pct": [
+        [
+          20,
+          78
+        ],
+        [
+          50,
+          78
+        ],
+        [
+          64.8,
+          77.6
+        ],
+        [
+          80,
+          78
+        ]
+      ],
+      "width_world_target": 320
+    },
+    {
+      "id": "t2",
+      "name": "Traverse des cours",
+      "centerline_pct": [
+        [
+          20,
+          58
+        ],
+        [
+          50,
+          58
+        ],
+        [
+          80,
+          58
+        ]
+      ],
+      "width_world_target": 340
+    },
+    {
+      "id": "t3",
+      "name": "Traverse haute du sanctuaire",
+      "centerline_pct": [
+        [
+          20,
+          40
+        ],
+        [
+          35.6,
+          38.7
+        ],
+        [
+          50,
+          37.5
+        ],
+        [
+          66,
+          38
+        ],
+        [
+          80,
+          40
+        ]
+      ],
+      "width_world_target": 250,
+      "note": "Traverse haute infléchie au nord de l’abri central, sans changer de liaison entre les trois rues."
+    }
+  ],
+  "rune_gates": [
+    {
+      "id": "g01",
+      "center_pct": [
+        17.0898,
+        71.6146
+      ],
+      "passage_segment_pct": [
+        [
+          13.9648,
+          71.6146
+        ],
+        [
+          20.2148,
+          71.6146
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "west",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 209.0,
+      "geometry_scope": "Segment conservé depuis la composition validée, superposé au seuil clair du détail entre les pieds ; largeur200–300u. À raccorder après détourage des collisions par le propriétaire, aucune navigation validée.",
+      "width_world_measured_detail": 209.0
+    },
+    {
+      "id": "g02",
+      "center_pct": [
+        49.9512,
+        64.4531
+      ],
+      "passage_segment_pct": [
+        [
+          46.7773,
+          64.4531
+        ],
+        [
+          53.125,
+          64.4531
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "central",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 212.27,
+      "geometry_scope": "Segment conservé depuis la composition validée, superposé au seuil clair du détail entre les pieds ; largeur200–300u. À raccorder après détourage des collisions par le propriétaire, aucune navigation validée.",
+      "width_world_measured_detail": 212.27
+    },
+    {
+      "id": "g03",
+      "center_pct": [
+        80.8594,
+        50.5859
+      ],
+      "passage_segment_pct": [
+        [
+          77.6367,
+          50.5859
+        ],
+        [
+          84.082,
+          50.5859
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "east",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 215.53,
+      "geometry_scope": "Segment conservé depuis la composition validée, superposé au seuil clair du détail entre les pieds ; largeur200–300u. À raccorder après détourage des collisions par le propriétaire, aucune navigation validée.",
+      "width_world_measured_detail": 215.53
+    },
+    {
+      "id": "g04",
+      "center_pct": [
+        35.5957,
+        38.7044
+      ],
+      "passage_segment_pct": [
+        [
+          32.9102,
+          37.3698
+        ],
+        [
+          38.2812,
+          40.0391
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "t3",
+      "orientation": "vertical",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 224.02,
+      "geometry_scope": "Segment conservé depuis la composition validée, superposé au seuil clair du détail entre les pieds ; largeur200–300u. À raccorder après détourage des collisions par le propriétaire, aucune navigation validée.",
+      "width_world_measured_detail": 224.02
+    },
+    {
+      "id": "g05",
+      "center_pct": [
+        65.2832,
+        77.6042
+      ],
+      "passage_segment_pct": [
+        [
+          62.8906,
+          75.8464
+        ],
+        [
+          67.6758,
+          79.362
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "t1",
+      "orientation": "vertical",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 238.12,
+      "geometry_scope": "Segment conservé depuis la composition validée, superposé au seuil clair du détail entre les pieds ; largeur200–300u. À raccorder après détourage des collisions par le propriétaire, aucune navigation validée.",
+      "width_world_measured_detail": 238.12
+    },
+    {
+      "id": "g06",
+      "center_pct": [
+        50.293,
+        33.6589
+      ],
+      "passage_segment_pct": [
+        [
+          47.0703,
+          33.6589
+        ],
+        [
+          53.5156,
+          33.6589
+        ]
+      ],
+      "width_world_target": 250,
+      "width_world_allowed": [
+        200,
+        300
+      ],
+      "route": "central",
+      "orientation": "horizontal",
+      "painted_state": "Arche ouverte, sol continu, runes gravées sombres et discrètes. Aucun battant ni rideau peint.",
+      "energy_curtain_drawn_by_runtime": true,
+      "width_world_measured_composition": 215.53,
+      "geometry_scope": "Segment conservé depuis la composition validée, superposé au seuil clair du détail entre les pieds ; largeur200–300u. À raccorder après détourage des collisions par le propriétaire, aucune navigation validée.",
+      "width_world_measured_detail": 215.53
+    }
+  ],
+  "cover_rocks": [
+    {
+      "id": "a01",
+      "street": "west",
+      "center_pct": [
+        20.0496,
+        82.6865
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        20.3,
+        82
+      ],
+      "solid_bounds_world": [
+        593.9,
+        3984.87,
+        747.01,
+        4147.55
+      ],
+      "width_world_measured": 153.11,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a02",
+      "street": "west",
+      "center_pct": [
+        16.8211,
+        57.4029
+      ],
+      "material": "charrette renversée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        17,
+        57.4
+      ],
+      "solid_bounds_world": [
+        494.72,
+        2750.14,
+        630.28,
+        2879.33
+      ],
+      "width_world_measured": 135.57,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a03",
+      "street": "west",
+      "center_pct": [
+        14.5165,
+        41.7347
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        14.6,
+        41.7
+      ],
+      "solid_bounds_world": [
+        420.04,
+        1978.58,
+        550.82,
+        2093.41
+      ],
+      "width_world_measured": 130.78,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a04",
+      "street": "central",
+      "center_pct": [
+        50.2404,
+        83.8962
+      ],
+      "material": "charrette renversée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        50.3,
+        84.1
+      ],
+      "solid_bounds_world": [
+        1611.46,
+        4094.2,
+        1748.62,
+        4208.23
+      ],
+      "width_world_measured": 137.16,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a05",
+      "street": "central",
+      "center_pct": [
+        47.335,
+        71.1685
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        47.8,
+        70.8
+      ],
+      "solid_bounds_world": [
+        1505.53,
+        3444.61,
+        1660.23,
+        3569.81
+      ],
+      "width_world_measured": 154.7,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a06",
+      "street": "central",
+      "center_pct": [
+        47.8708,
+        43.9367
+      ],
+      "material": "fragment de statue ou colonne tombée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        48.3,
+        43.6
+      ],
+      "solid_bounds_world": [
+        1523.84,
+        2068.3,
+        1677.75,
+        2203.87
+      ],
+      "width_world_measured": 153.91,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a07",
+      "street": "east",
+      "center_pct": [
+        85.6304,
+        73.2777
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        86,
+        73.1
+      ],
+      "solid_bounds_world": [
+        2789.32,
+        3532.87,
+        2937.64,
+        3675.61
+      ],
+      "width_world_measured": 148.33,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a08",
+      "street": "east",
+      "center_pct": [
+        84.6661,
+        56.0644
+      ],
+      "material": "fontaine brisée compacte",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        85,
+        56.3
+      ],
+      "solid_bounds_world": [
+        2766.24,
+        2701.34,
+        2896.23,
+        2812.19
+      ],
+      "width_world_measured": 129.98,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a09",
+      "street": "east",
+      "center_pct": [
+        87.8404,
+        41.9572
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        87.9,
+        41.7
+      ],
+      "solid_bounds_world": [
+        2864.81,
+        1962.63,
+        3009.95,
+        2104.57
+      ],
+      "width_world_measured": 145.14,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a10",
+      "street": "parvis",
+      "center_pct": [
+        14.5165,
+        13.73
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        14.6,
+        13.6
+      ],
+      "solid_bounds_world": [
+        405.69,
+        573.87,
+        565.18,
+        688.7
+      ],
+      "width_world_measured": 159.49,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a11",
+      "street": "parvis",
+      "center_pct": [
+        86.5708,
+        14.0254
+      ],
+      "material": "colonne tombée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        87,
+        13.8
+      ],
+      "solid_bounds_world": [
+        2816.38,
+        591.87,
+        2973.47,
+        703.52
+      ],
+      "width_world_measured": 157.1,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a12",
+      "street": "parvis",
+      "center_pct": [
+        13.9973,
+        27.3075
+      ],
+      "material": "statue brisée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        14.2,
+        27.4
+      ],
+      "solid_bounds_world": [
+        401.08,
+        1274.85,
+        535.06,
+        1369.74
+      ],
+      "width_world_measured": 133.97,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    },
+    {
+      "id": "a13",
+      "street": "parvis",
+      "center_pct": [
+        85.8442,
+        27.5075
+      ],
+      "material": "colonne brisée",
+      "width_world_target": 145,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "on_gate_passage": false,
+      "on_narrow_traverse": false,
+      "scale_status": "Emplacement figé ; abri110–160u à préciser dans le détail, cible140u.",
+      "approved_reference_pct": [
+        86.5,
+        27.6
+      ],
+      "solid_bounds_world": [
+        2803.64,
+        1255.37,
+        2937.62,
+        1379.77
+      ],
+      "width_world_measured": 133.97,
+      "geometry_scope": "Pied et boîte solide relevés sur la peinture, socle/roues/brancards inclus hors ombre ; même emplacement de combat, aucune collision créée."
+    }
+  ],
+  "decorative_corruption_pct": [
+    [
+      12,
+      35
+    ],
+    [
+      37,
+      52
+    ],
+    [
+      65,
+      72
+    ],
+    [
+      18,
+      55
+    ],
+    [
+      82,
+      68
+    ],
+    [
+      48,
+      43
+    ],
+    [
+      69,
+      18
+    ],
+    [
+      30,
+      84
+    ]
+  ],
+  "corruption_is_decorative": true,
+  "corrupted_ground_gameplay_zones_created": false,
+  "architecture_scale_world": {
+    "hunter_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "house_door_height": [
+      75,
+      90
+    ],
+    "city_gate_clear_width": [
+      200,
+      300
+    ]
+  },
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "detail_generated": true,
+  "chapter5_sprites_created": false,
+  "coordinate_basis": "Pourcentages du cadrage3344 ×5016 validé, origine haut-gauche. Composition figée, aucune nouvelle rue ni modification du parcours.",
+  "abstract_route_check": {
+    "all_six_gates_closed_connected": true,
+    "scope": "Graphe de liaison proposé, après relevé des centres : connectivité abstraite seulement, pas de navigation ni collision en jeu.",
+    "example_detour_pct": [
+      [
+        50,
+        91
+      ],
+      [
+        80,
+        86
+      ],
+      [
+        80,
+        58
+      ],
+      [
+        50,
+        58
+      ],
+      [
+        50,
+        40
+      ],
+      [
+        80,
+        40
+      ],
+      [
+        80,
+        32
+      ],
+      [
+        50,
+        24
+      ]
+    ],
+    "nodes": [
+      "start",
+      "parvis",
+      "w0",
+      "w1",
+      "w2",
+      "w3",
+      "c0",
+      "c1",
+      "c2",
+      "c3",
+      "e0",
+      "e1",
+      "e2",
+      "e3"
+    ],
+    "edges": [
+      {
+        "from": "start",
+        "to": "w0",
+        "gate": null
+      },
+      {
+        "from": "w0",
+        "to": "w1",
+        "gate": "g01"
+      },
+      {
+        "from": "w1",
+        "to": "w2",
+        "gate": null
+      },
+      {
+        "from": "w2",
+        "to": "w3",
+        "gate": null
+      },
+      {
+        "from": "w3",
+        "to": "parvis",
+        "gate": null
+      },
+      {
+        "from": "start",
+        "to": "c0",
+        "gate": null
+      },
+      {
+        "from": "c0",
+        "to": "c1",
+        "gate": "g02"
+      },
+      {
+        "from": "c1",
+        "to": "c2",
+        "gate": null
+      },
+      {
+        "from": "c2",
+        "to": "c3",
+        "gate": "g06"
+      },
+      {
+        "from": "c3",
+        "to": "parvis",
+        "gate": null
+      },
+      {
+        "from": "start",
+        "to": "e0",
+        "gate": null
+      },
+      {
+        "from": "e0",
+        "to": "e1",
+        "gate": null
+      },
+      {
+        "from": "e1",
+        "to": "e2",
+        "gate": "g03"
+      },
+      {
+        "from": "e2",
+        "to": "e3",
+        "gate": null
+      },
+      {
+        "from": "e3",
+        "to": "parvis",
+        "gate": null
+      },
+      {
+        "from": "w0",
+        "to": "c0",
+        "gate": null
+      },
+      {
+        "from": "c0",
+        "to": "e0",
+        "gate": "g05"
+      },
+      {
+        "from": "w1",
+        "to": "c1",
+        "gate": null
+      },
+      {
+        "from": "c1",
+        "to": "e1",
+        "gate": null
+      },
+      {
+        "from": "w2",
+        "to": "c2",
+        "gate": "g04"
+      },
+      {
+        "from": "c2",
+        "to": "e2",
+        "gate": null
+      }
+    ]
+  },
+  "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "identity_approved": true,
+  "owner_approval_date": "2026-11-06",
+  "owner_feedback": "Le propriétaire demande « lance la passe au détail » après présentation de la composition complète et des captures.",
+  "detail_constraints": [
+    "Conserver trois rues, trois traverses, six portes ouvertes, mêmes seuils200–300u, segments inchangés.",
+    "Aucune énergie peinte, runes sombres gravées seulement.",
+    "Socle vide diamètre280u, parvis libre1600 ×1000u hors seul socle.",
+    "Treize abris110–160u aux mêmes emplacements, jamais sous une arche ni sur une traverse.",
+    "Pavés15–26u, marches12–16u, colonnes ordinaires30–45u, portes de maison75–90u ; arches de ville plus hautes autorisées.",
+    "Corruption décorative toujours praticable, pas de B9 ni de trou."
+  ],
+  "cover_geometry_refinement": {
+    "method": "Relevé visuel des silhouettes solides complètes des dessins de correction et projection de cadrage vers le master ; précision environ1,3u, emplacements de combat conservés.",
+    "checks": [
+      {
+        "id": "a01",
+        "generated_bbox_pixels": [
+          207,
+          253,
+          399,
+          457
+        ],
+        "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          593.9,
+          3984.87,
+          747.01,
+          4147.55
+        ],
+        "width_world": 153.11,
+        "foot_refinement_world": 35.44
+      },
+      {
+        "id": "a02",
+        "generated_bbox_pixels": [
+          221,
+          252,
+          391,
+          414
+        ],
+        "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          494.72,
+          2750.14,
+          630.28,
+          2879.33
+        ],
+        "width_world": 135.57,
+        "foot_refinement_world": 5.98
+      },
+      {
+        "id": "a03",
+        "generated_bbox_pixels": [
+          855,
+          272,
+          1019,
+          416
+        ],
+        "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          420.04,
+          1978.58,
+          550.82,
+          2093.41
+        ],
+        "width_world": 130.78,
+        "foot_refinement_world": 3.29
+      },
+      {
+        "id": "a04",
+        "generated_bbox_pixels": [
+          225,
+          885,
+          397,
+          1028
+        ],
+        "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          1611.46,
+          4094.2,
+          1748.62,
+          4208.23
+        ],
+        "width_world": 137.16,
+        "foot_refinement_world": 10.42
+      },
+      {
+        "id": "a05",
+        "generated_bbox_pixels": [
+          197,
+          280,
+          391,
+          437
+        ],
+        "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          1505.53,
+          3444.61,
+          1660.23,
+          3569.81
+        ],
+        "width_world": 154.7,
+        "foot_refinement_world": 24.16
+      },
+      {
+        "id": "a06",
+        "generated_bbox_pixels": [
+          826,
+          265,
+          1019,
+          435
+        ],
+        "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          1523.84,
+          2068.3,
+          1677.75,
+          2203.87
+        ],
+        "width_world": 153.91,
+        "foot_refinement_world": 22.17
+      },
+      {
+        "id": "a07",
+        "generated_bbox_pixels": [
+          205,
+          873,
+          391,
+          1052
+        ],
+        "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          2789.32,
+          3532.87,
+          2937.64,
+          3675.61
+        ],
+        "width_world": 148.33,
+        "foot_refinement_world": 15.24
+      },
+      {
+        "id": "a08",
+        "generated_bbox_pixels": [
+          845,
+          887,
+          1008,
+          1026
+        ],
+        "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          2766.24,
+          2701.34,
+          2896.23,
+          2812.19
+        ],
+        "width_world": 129.98,
+        "foot_refinement_world": 16.26
+      },
+      {
+        "id": "a09",
+        "generated_bbox_pixels": [
+          220,
+          252,
+          402,
+          430
+        ],
+        "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          2864.81,
+          1962.63,
+          3009.95,
+          2104.57
+        ],
+        "width_world": 145.14,
+        "foot_refinement_world": 13.06
+      },
+      {
+        "id": "a10",
+        "generated_bbox_pixels": [
+          210,
+          278,
+          410,
+          422
+        ],
+        "generated_sha256": "78f9b9356b044fdf7d30b0aefa1feab0520aa01bf5840715c184703e61d3c5d7",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          405.69,
+          573.87,
+          565.18,
+          688.7
+        ],
+        "width_world": 159.49,
+        "foot_refinement_world": 7.1
+      },
+      {
+        "id": "a11",
+        "generated_bbox_pixels": [
+          197,
+          915,
+          394,
+          1055
+        ],
+        "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          2816.38,
+          591.87,
+          2973.47,
+          703.52
+        ],
+        "width_world": 157.1,
+        "foot_refinement_world": 18.27
+      },
+      {
+        "id": "a12",
+        "generated_bbox_pixels": [
+          442,
+          578,
+          778,
+          816
+        ],
+        "generated_sha256": "8cb93b677e2d09a1b7a5f6f726525ebd1a2887d852dbc9b003bd575b85584066",
+        "generated_density": 2.508,
+        "solid_bounds_world": [
+          401.08,
+          1274.85,
+          535.06,
+          1369.74
+        ],
+        "width_world": 133.97,
+        "foot_refinement_world": 8.21
+      },
+      {
+        "id": "a13",
+        "generated_bbox_pixels": [
+          202,
+          252,
+          370,
+          408
+        ],
+        "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+        "generated_density": 1.254,
+        "solid_bounds_world": [
+          2803.64,
+          1255.37,
+          2937.62,
+          1379.77
+        ],
+        "width_world": 133.97,
+        "foot_refinement_world": 22.42
+      }
+    ]
+  },
+  "regions_generated": 12,
+  "architecture_scale_review": {
+    "scope": "Contrôle visuel sur dessins et captures au zoom natif du jeu ; précision native1,33u, aucune mesure de collision ou navigation.",
+    "hunter_height_world": 52,
+    "middle_stair_tread_pitch_world_approx": 16,
+    "middle_stair_source_pitch_pixels": 13,
+    "middle_stair_source_density": 0.7966963151207116,
+    "house_market_door_leaf_height_world_approx": 85,
+    "paving_module_world_approx": [
+      15,
+      26
+    ],
+    "ordinary_columns_width_world_approx": [
+      30,
+      45
+    ],
+    "gate_passage_widths_world": [
+      209.0,
+      212.27,
+      215.53,
+      224.02,
+      238.12,
+      215.53
+    ]
+  }
+}

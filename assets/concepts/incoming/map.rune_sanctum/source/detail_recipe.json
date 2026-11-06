@@ -1,0 +1,80 @@
+{
+  "world": [
+    3344,
+    5016
+  ],
+  "native_size": [
+    2508,
+    3762
+  ],
+  "game_size": [
+    7524,
+    11286
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "retained_master_sha256": "e9b02e908506d5b39ffb379837755a6551f0d0f2005abe5dfd555afb307515f6",
+  "regions_provenance": "regions_provenance.json",
+  "native_antialias_radius_pixels": 0.0,
+  "presentation": "Détail peint par régions, anticrénelage natif0.0px, Lanczos ×3 et correction locale des cases douces seulement.",
+  "encoding": {
+    "format": "WebP",
+    "quality": 98,
+    "method": 6
+  },
+  "tile_bytes": [
+    15585268,
+    15444438
+  ],
+  "tiles_sha256": {
+    "map.webp": "7b90e8fa09275c494132760b397b10971d79b52457d7102fae34a0e282e007e4",
+    "map_1.webp": "354ac73a368c70055b0ac29bb2342da79fff73055fe4cadc7f24a9b6a5f694e2"
+  },
+  "sharpness_repair": {
+    "method": "Real-ESRGAN x4v3, débruitage0,2 ; résidu RVB limité à6/255 pour préserver les joints et couleurs du dallage ; cases douces seulement.",
+    "max_rgb_delta_before_encoding": 6,
+    "unbounded_result_rejected": "Les captures révélaient des plages de pavés réinterprétés ; ce traitement n’est pas retenu.",
+    "model": "realesr_general_x4v3_0.2.onnx",
+    "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+    "initial_cells": 8,
+    "initial_reference": 0.0005431340541690588,
+    "remaining_cells_frozen_reference": 0,
+    "valid_cells": 620,
+    "selected_cells_row_col": [
+      [
+        0,
+        10
+      ],
+      [
+        16,
+        11
+      ],
+      [
+        17,
+        9
+      ],
+      [
+        19,
+        10
+      ],
+      [
+        20,
+        10
+      ],
+      [
+        20,
+        11
+      ],
+      [
+        21,
+        11
+      ],
+      [
+        22,
+        11
+      ]
+    ],
+    "blocks": 19,
+    "remaining_cells_frozen_reference_after_encoding": 0
+  }
+}

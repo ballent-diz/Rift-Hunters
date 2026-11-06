@@ -1,0 +1,102 @@
+{
+  "corrections": [
+    {
+      "id": "a02",
+      "box_world": [
+        318.48,
+        2549.1839999999997,
+        818.48,
+        3049.1839999999997
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a03",
+      "box_world": [
+        238.22399999999993,
+        1761.672,
+        738.2239999999999,
+        2261.672
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        1432.0319999999997,
+        3888.455999999999,
+        1932.0319999999997,
+        4388.455999999999
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        2592.3999999999996,
+        2494.008,
+        3092.3999999999996,
+        2994.008
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        238.22399999999993,
+        352.17599999999993,
+        738.2239999999999,
+        852.1759999999999
+      ],
+      "generated_sha256": "78f9b9356b044fdf7d30b0aefa1feab0520aa01bf5840715c184703e61d3c5d7",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche exacte de DEUX petits objets de la rangée du HAUT seulement de cette planche2×2. Ne pas réduire davantage : ils sont devenus trop petits. Les AGRANDIR de35% à40% : en haut gauche le fragment de colonne et SON SOCLE, en haut droite la statue allongée et SON SOCLE. Dans chaque case627×627, chaque objet complet doit remplir le cadre JAUNE (180px de large,144px de haut) du deuxième guide : contour solide entre170 et190pixels de large. Le pied reste sur la ligne basse du cadre ày399. Les objets actuels ne font que127px : il FAUT les élargir à180px, y compris leurs socles. Formes inchangées, même pierre pâle et dorures ternies, lumière haut-gauche. N'ajouter ni débris supplémentaires ni personnage. Les DEUX cases du BAS restent absolument identiques. Le sol et les murs extérieurs restent identiques. Même cadrage1254×1254, supprimer toutes annotations jaunes.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a12",
+      "box_world": [
+        224.84799999999996,
+        1044.3839999999998,
+        724.848,
+        1544.3839999999998
+      ],
+      "generated_sha256": "8cb93b677e2d09a1b7a5f6f726525ebd1a2887d852dbc9b003bd575b85584066",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Corriger seulement la taille de cette statue tombée ET son socle, sans changer le cadrage. Actuellement trop grande, réduire la largeur de la silhouette SOLIDE ENTIÈRE d'environ20%, afin que statue+socle tiennent intégralement dans le rectangle jaune du guide, largeur180px sur image627px, soit28.7% de la largeur de l'image. Le pied reste au même niveau y426px. Rétrécir aussi le SOCLE, remplir l'ancienne empreinte avec les mêmes pavés. Garder toute la scène, les murs, les pavés et le décor latéral inchangés. Aucune statue supplémentaire, aucun débris supplémentaire. Palette pierre pâle, même peinture. Résultat carré, même cadrage entier, enlever le rectangle jaune.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    }
+  ],
+  "gate_and_stair_pixels_unchanged": true,
+  "collision_mask_created": false
+}

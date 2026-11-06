@@ -1,104 +1,133 @@
 {
   "date": "2026-11-06",
   "tool": "image_gen.imagegen",
-  "stage": "composition_a_valider",
-  "original_generation_sha256": "c72b5da426724acd1efb05e424d5016a472a594610087be3e79b8bd8a40504e8",
-  "retained_composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
-  "size": [
-    1024,
-    1536
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "identity_approved": true,
+  "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "plan_sha256": "001212509327b1be46ff86ca539b7b7245d8a0b539d0ed31051ecce38f3da401",
+  "master_sha256": "e9b02e908506d5b39ffb379837755a6551f0d0f2005abe5dfd555afb307515f6",
+  "world": [
+    3344,
+    5016
   ],
-  "reference_style": {
-    "map": 21,
-    "commit": "778eefbde634b8de5056d4c0b15d91e45904378a",
-    "path": "docs/previews/shattered-outskirts/detail.webp",
-    "sha256": "79e398042698a7cc23b914cfb7a607e38e6984e14bd6c94383bb0fa6dddcf147",
-    "scope": "Identité, palette, facture et caméra seulement ; aucun plan copié."
+  "native_size": [
+    2508,
+    3762
+  ],
+  "regions": 12,
+  "region_provenance": "regions_provenance.json",
+  "local_object_corrections": "object_corrections.json",
+  "compact_object_corrections": "compact_object_corrections.json",
+  "cover_measurements": "cover_measurements.json",
+  "detail_recipe": "detail_recipe.json",
+  "initial_composition_generation": {
+    "date": "2026-11-06",
+    "tool": "image_gen.imagegen",
+    "stage": "composition_a_valider",
+    "original_generation_sha256": "c72b5da426724acd1efb05e424d5016a472a594610087be3e79b8bd8a40504e8",
+    "retained_composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+    "size": [
+      1024,
+      1536
+    ],
+    "reference_style": {
+      "map": 21,
+      "commit": "778eefbde634b8de5056d4c0b15d91e45904378a",
+      "path": "docs/previews/shattered-outskirts/detail.webp",
+      "sha256": "79e398042698a7cc23b914cfb7a607e38e6984e14bd6c94383bb0fa6dddcf147",
+      "scope": "Identité, palette, facture et caméra seulement ; aucun plan copié."
+    },
+    "layout_guide_sha256": "4e50c1d001d560cbff0d0ffad4194039ca35ea88bd1bbd4b7c91e6474d9dedce",
+    "local_cover_repair": [
+      {
+        "id": "avenue_haut",
+        "target_pixels": [
+          432,
+          550,
+          542,
+          720
+        ],
+        "generated_sha256": "4b322d9c0c8ff466fe98c015e3b2581e981d7ab60503a5ddb3131218b84a6c44",
+        "prompt": "PROMPT_ABRIS_COMPOSITION.txt",
+        "method": "Réinsertion technique limitée au recadrage, fondu7px ; reste du cadrage inchangé."
+      },
+      {
+        "id": "avenue_bas",
+        "target_pixels": [
+          465,
+          1185,
+          578,
+          1315
+        ],
+        "generated_sha256": "4b322d9c0c8ff466fe98c015e3b2581e981d7ab60503a5ddb3131218b84a6c44",
+        "prompt": "PROMPT_ABRIS_COMPOSITION.txt",
+        "method": "Réinsertion technique limitée au recadrage, fondu7px ; reste du cadrage inchangé."
+      },
+      {
+        "id": "ouest_charrette",
+        "target_pixels": [
+          118,
+          790,
+          225,
+          900
+        ],
+        "generated_sha256": "4b322d9c0c8ff466fe98c015e3b2581e981d7ab60503a5ddb3131218b84a6c44",
+        "prompt": "PROMPT_ABRIS_COMPOSITION.txt",
+        "method": "Réinsertion technique limitée au recadrage, fondu7px ; reste du cadrage inchangé."
+      }
+    ],
+    "owner_approved": false,
+    "plan_locked": false,
+    "detail_generated": false,
+    "runtime_integrated": false,
+    "intermediates_in_git": false,
+    "local_arch_repairs": [
+      {
+        "id": "g04",
+        "crop_pixels": [
+          230,
+          450,
+          470,
+          690
+        ],
+        "target_pixels": [
+          292,
+          488,
+          410,
+          675
+        ],
+        "input_sha256": "920a9cff231ef2cf36c2fcd6aada17ca74e0c0d69f6c035b170aa622694aeb7b",
+        "guide_sha256": "5cc899e4c526b4982e3f815a6bccfca207db338118aa308646df12e7e9904019",
+        "generated_sha256": "c8d9e66be3b9552fd7da126d41196c547e4884518ad1247c971f5395ed5256f3",
+        "prompt": "PROMPT_ARCHES_TRAVERSES.txt",
+        "scope": "Deux arches creuses vues de trois quarts, même traverse ; seuls leurs recadrages sont réinsérés."
+      },
+      {
+        "id": "g05",
+        "crop_pixels": [
+          550,
+          1060,
+          790,
+          1300
+        ],
+        "target_pixels": [
+          610,
+          1080,
+          728,
+          1268
+        ],
+        "input_sha256": "920a9cff231ef2cf36c2fcd6aada17ca74e0c0d69f6c035b170aa622694aeb7b",
+        "guide_sha256": "5cc899e4c526b4982e3f815a6bccfca207db338118aa308646df12e7e9904019",
+        "generated_sha256": "c8d9e66be3b9552fd7da126d41196c547e4884518ad1247c971f5395ed5256f3",
+        "prompt": "PROMPT_ARCHES_TRAVERSES.txt",
+        "scope": "Deux arches creuses vues de trois quarts, même traverse ; seuls leurs recadrages sont réinsérés."
+      }
+    ]
   },
-  "layout_guide_sha256": "4e50c1d001d560cbff0d0ffad4194039ca35ea88bd1bbd4b7c91e6474d9dedce",
-  "local_cover_repair": [
-    {
-      "id": "avenue_haut",
-      "target_pixels": [
-        432,
-        550,
-        542,
-        720
-      ],
-      "generated_sha256": "4b322d9c0c8ff466fe98c015e3b2581e981d7ab60503a5ddb3131218b84a6c44",
-      "prompt": "PROMPT_ABRIS_COMPOSITION.txt",
-      "method": "Réinsertion technique limitée au recadrage, fondu7px ; reste du cadrage inchangé."
-    },
-    {
-      "id": "avenue_bas",
-      "target_pixels": [
-        465,
-        1185,
-        578,
-        1315
-      ],
-      "generated_sha256": "4b322d9c0c8ff466fe98c015e3b2581e981d7ab60503a5ddb3131218b84a6c44",
-      "prompt": "PROMPT_ABRIS_COMPOSITION.txt",
-      "method": "Réinsertion technique limitée au recadrage, fondu7px ; reste du cadrage inchangé."
-    },
-    {
-      "id": "ouest_charrette",
-      "target_pixels": [
-        118,
-        790,
-        225,
-        900
-      ],
-      "generated_sha256": "4b322d9c0c8ff466fe98c015e3b2581e981d7ab60503a5ddb3131218b84a6c44",
-      "prompt": "PROMPT_ABRIS_COMPOSITION.txt",
-      "method": "Réinsertion technique limitée au recadrage, fondu7px ; reste du cadrage inchangé."
-    }
-  ],
-  "owner_approved": false,
-  "plan_locked": false,
-  "detail_generated": false,
+  "detail_generated": true,
+  "collision_mask_created": false,
   "runtime_integrated": false,
-  "intermediates_in_git": false,
-  "local_arch_repairs": [
-    {
-      "id": "g04",
-      "crop_pixels": [
-        230,
-        450,
-        470,
-        690
-      ],
-      "target_pixels": [
-        292,
-        488,
-        410,
-        675
-      ],
-      "input_sha256": "920a9cff231ef2cf36c2fcd6aada17ca74e0c0d69f6c035b170aa622694aeb7b",
-      "guide_sha256": "5cc899e4c526b4982e3f815a6bccfca207db338118aa308646df12e7e9904019",
-      "generated_sha256": "c8d9e66be3b9552fd7da126d41196c547e4884518ad1247c971f5395ed5256f3",
-      "prompt": "PROMPT_ARCHES_TRAVERSES.txt",
-      "scope": "Deux arches creuses vues de trois quarts, même traverse ; seuls leurs recadrages sont réinsérés."
-    },
-    {
-      "id": "g05",
-      "crop_pixels": [
-        550,
-        1060,
-        790,
-        1300
-      ],
-      "target_pixels": [
-        610,
-        1080,
-        728,
-        1268
-      ],
-      "input_sha256": "920a9cff231ef2cf36c2fcd6aada17ca74e0c0d69f6c035b170aa622694aeb7b",
-      "guide_sha256": "5cc899e4c526b4982e3f815a6bccfca207db338118aa308646df12e7e9904019",
-      "generated_sha256": "c8d9e66be3b9552fd7da126d41196c547e4884518ad1247c971f5395ed5256f3",
-      "prompt": "PROMPT_ARCHES_TRAVERSES.txt",
-      "scope": "Deux arches creuses vues de trois quarts, même traverse ; seuls leurs recadrages sont réinsérés."
-    }
-  ]
+  "chapter5_sprites_created": false,
+  "intermediates_in_git": false
 }

@@ -1,122 +1,122 @@
 # Carte 22 — Le Sanctuaire des runes
 
-**Composition proposée au propriétaire — 6 novembre 2026. Le détail graphique attend sa validation.**
-`rune_sanctum`, chapitre 5, Cité de la Faille. Mode : **défense d’autel** ; B4 **Portes runiques**.
-Branche `codex/carte-22-sanctuaire-runes`, créée depuis main actualisé.
+**Détail graphique livré le 6 novembre 2026, après validation de la composition par le propriétaire.**
+`rune_sanctum`, chapitre 5, Cité de la Faille. Défense d’autel ; B4 **Portes runiques**.
 
-![Composition entière du Sanctuaire des runes](../previews/rune-sanctum/composition.webp)
+![Carte entière détaillée](../previews/rune-sanctum/detail.webp)
 
-## Identité et proposition
+## Plan conservé
 
-La ville reprend l’identité validée des [Faubourgs brisés](https://github.com/ballent-diz/Rift-Hunters/blob/778eefbde634b8de5056d4c0b15d91e45904378a/docs/maps/FAUBOURGS_BRISES.md) :
-pierre pâle, ardoise, charpentes et façades éventrées, dorures ternies, bannières déchirées,
-lumière haut-gauche et liseré violet bas-droite. Les veines et taches de corruption violet sombre
-et magenta sont davantage présentes. Elles restent du **décor praticable** : cette carte ne crée
-pas de zones B9 ni d’effet de renforcement. Aucune neige, lave ou végétation de marais.
-La carte 21 sert de référence de facture et de palette, sans reprendre son parcours.
+Pierre pâle et ardoise, façades éventrées, dorures ternies, bannières déchirées,
+lumière haut-gauche et liseré violet bas-droite : la facture reprend celle des
+[Faubourgs brisés](FAUBOURGS_BRISES.md). Le violet sombre et le magenta sont plus présents.
+Ces veines restent du **décor praticable**, sans zones B9 ni renforcement. Aucune neige, lave ou végétation de marais.
 
-Monde **3344 × 5016 unités**, portrait **2:3**, composition entière **1024 × 1536 pixels**.
-Parcours du **sud vers le nord**, par trois rues reliées, différent de la diagonale des Faubourgs
-et des îles ou plans rayonnants des anciennes défenses d’autel.
+Monde **3344 × 5016 unités**, portrait **2:3**. Le parcours sud→nord et les emplacements validés
+sont conservés dans [`plan.json`](../../assets/concepts/incoming/map.rune_sanctum/plan.json) :
 
-Le propriétaire valide ici **rues, traverses, six arches, parvis, socle et départ**.
-Les repères proposés figurent dans
-[`source/composition_review.json`](../../assets/concepts/incoming/map.rune_sanctum/source/composition_review.json),
-en pourcentages depuis le coin haut-gauche. **Aucun `plan.json` n’est verrouillé avant cet accord.**
-
-![Plan de revue : rues, traverses et six seuils](../previews/rune-sanctum/plan_annote.webp)
-
-## Du départ au reliquaire
-
-| Repère | Proposition |
+| Repère | Emplacement |
 | --- | --- |
-| Départ | **50 % ; 88,5 %**, place sud devant les ruines de la halle ; le décor ferme le bord inférieur |
-| Rue ouest | Plus étroite, cours latérales élargies pour ses trois abris, G01 dans la rue |
-| Avenue centrale | Voie dallée large, trois abris hors des traverses, G02 puis G06 vers le parvis |
-| Rue est | Rue en escaliers, trois volées et des paliers élargis ; G03 sur un palier, trois abris latéraux |
-| Traverse basse | Vers 78 % de hauteur, relie les trois rues ; G05 entre avenue et rue est |
-| Traverse médiane | Vers 58 %, relie les trois rues et reste sans porte |
-| Traverse haute | Vers 38–40 %, passe par G04 à l’ouest, puis au nord de l’abri central, rejoint le palier est |
-| Parvis | Nord, grande place dégagée adossée à la façade du sanctuaire en bordure |
-| Socle du reliquaire | **50 % ; 18,8 %**, cible **280 unités** de diamètre ; socle peint vide pour l’objet du jeu |
-| Emprise de combat | Proposition **1600 × 1000 unités**, centre **50 % ; 20 %**, libre hors du seul socle de l’autel |
+| Départ | **50 % ; 88,5 %**, grande place devant la halle en ruine au sud |
+| Rue ouest | Rue étroite avec cours élargies ; G01 et trois abris |
+| Avenue centrale | Grande voie dallée ; G02, G06 et trois abris |
+| Rue est | Trois volées d’escaliers, paliers et trois abris ; G03 sur un palier |
+| Traverses | Basse vers 78 %, médiane vers 58 %, haute vers 38–40 % |
+| Parvis | Nord, adossé à la façade du sanctuaire, sans enceinte d’arène |
+| Socle vide | **50 % ; 18,8 %**, diamètre peint environ 290u, cible 280u ; le jeu pose le reliquaire |
+| Espace de combat | **1600 × 1000u**, centre **50 % ; 20 %**, libre hors du seul socle |
 
-Les trois rues se rejoignent par la place sud et par le parvis nord. La rue est montre des marches
-fines et de vrais paliers, avec les raccords latéraux au sol ; aucune fosse ou glace praticable.
-Le socle reste le seul repère central du parvis. Aucun reliquaire, cristal, personnage, cercle de combat
-ou effet d’autel n’est peint dessus.
+![Plan annoté du détail](../previews/rune-sanctum/plan_annote.webp)
 
-## Six arches ouvertes, runes sombres
+Aucun personnage, cristal, effet d’autel ou cercle de combat n’est peint sur le socle.
+Les anciennes coordonnées de croquis des volées ont été corrigées dans les métadonnées d’après
+les marches de l’image validée : **32–37 %, 60,5–67 %, 78–85 %**, sans déplacer les escaliers.
 
-Chaque porte est une arche creuse à deux pieds, avec du dallage continu dessous. Les quatre portes
-des rues s’ouvrent vers le sud ; les deux portes des traverses sont obliques dans l’autre sens,
-pour laisser lire leur ouverture. Les runes sont sombres et discrètes : le jeu les allume.
-Les retours de mur raccordent les pieds au décor voisin ; les détours passent par les autres rues.
-**Aucun battant, barreau ou rideau d’énergie fermé n’est peint.**
+## Six portes ouvertes
 
-Les segments ci-dessous sont relevés graphiquement entre les pieds, pour la composition ; ils ne
-sont pas des collisions ou des placements runtime. Cible du passage : **200–300 unités**, avec
-recalage au détail puis contrôle sur la peinture du propriétaire.
+Les arches portent des runes gravées sombres. Le dallage reste continu sous chacune ; aucun battant,
+barreau ou rideau d’énergie n’est peint. Le jeu ferme exactement leur segment de passage.
+Les quatre arches des rues font face au sud ; les deux arches des traverses sont vues de trois quarts.
 
-| Porte | Rue ou traverse | Centre (%) | Segment de passage, deux points (%) | Largeur relevée (u) |
+| Porte | Rue/traverse | Centre (%) | Segment, deux points (%) | Largeur (u) |
 | --- | --- | --- | --- | ---: |
-| G01 | west | 17.09 ; 71.61 | (13.96 ; 71.61) → (20.21 ; 71.61) | 209.00 |
-| G02 | central | 49.95 ; 64.45 | (46.78 ; 64.45) → (53.12 ; 64.45) | 212.27 |
-| G03 | east | 80.86 ; 50.59 | (77.64 ; 50.59) → (84.08 ; 50.59) | 215.53 |
-| G04 | t3 | 35.60 ; 38.70 | (32.91 ; 37.37) → (38.28 ; 40.04) | 224.02 |
-| G05 | t1 | 65.28 ; 77.60 | (62.89 ; 75.85) → (67.68 ; 79.36) | 238.12 |
-| G06 | central | 50.29 ; 33.66 | (47.07 ; 33.66) → (53.52 ; 33.66) | 215.53 |
+| G01 | ouest | 17,09 ; 71,61 | (13,96 ; 71,61) → (20,21 ; 71,61) | 209,00 |
+| G02 | centrale | 49,95 ; 64,45 | (46,78 ; 64,45) → (53,13 ; 64,45) | 212,27 |
+| G03 | est | 80,86 ; 50,59 | (77,64 ; 50,59) → (84,08 ; 50,59) | 215,53 |
+| G04 | traverse haute | 35,60 ; 38,70 | (32,91 ; 37,37) → (38,28 ; 40,04) | 224,02 |
+| G05 | traverse basse | 65,28 ; 77,60 | (62,89 ; 75,85) → (67,68 ; 79,36) | 238,12 |
+| G06 | centrale | 50,29 ; 33,66 | (47,07 ; 33,66) → (53,52 ; 33,66) | 215,53 |
 
-Les trois traverses et la répartition des portes permettent de contourner chaque fermeture.
-Le **graphe abstrait du plan reste connecté même avec les six portes fermées** : depuis le sud,
-prendre la rue est jusqu’à la traverse médiane, rejoindre l’avenue au-dessus de G02, puis prendre
-la traverse haute vers la rue est ou remonter à l’ouest pour gagner le parvis. G04 et G05 ferment
-leurs traverses respectives, mais la traverse médiane reste ouverte.
-Ce contrôle concerne les liaisons du croquis ; **aucune navigation en jeu ou collision n’est simulée**.
+[Planche des six seuils superposés au dessin](../previews/rune-sanctum/portes_echelle.webp).
+Segments conservés depuis la composition et contrôlés sur le sol dégagé du détail.
+Le graphe abstrait reste connecté avec les six portes fermées : monter à l’est jusqu’à la traverse
+médiane, rejoindre l’avenue au-dessus de G02, puis la traverse haute et le parvis par les rues latérales.
+Ce contrôle porte sur les liaisons du plan ; la navigation réelle dépendra des collisions du propriétaire.
 
-## Treize abris et échelle
+## Échelle et lisibilité
 
-**Trois abris par rue, quatre sur le parvis** : statues ou fragments renversés, fontaine brisée,
-colonnes rompues et charrettes renversées. Les deux abris de l’avenue proches des traverses ont été
-replacés sur la composition ; les entrées des arches restent dégagées.
-Les emplacements sont proposés dans le fichier de revue. Les grands objets de composition restent
-provisoires : **la largeur finale de chaque abri sera 110–160 unités**, à fixer lors des régions.
+**Treize abris : trois par rue, quatre sur le parvis.** Les silhouettes solides complètes,
+socles, roues et brancards compris, mesurent environ **130 à 159u** ; ombres exclues.
+Les pieds ont été affinés de moins de 90u dans les mêmes emplacements de combat.
+Aucun abri sous une arche, sur une traverse étroite ou dans le cœur de combat du parvis.
+Un petit pilier ajouté par la génération dans la place de départ a été retiré.
 
-Même repère que la bible : Chasseur environ **52 unités**, marches **12–16**, dalles **26 au plus**,
-colonnes **30–45**, portes de maison **75–90**. Les portes runiques sont des portes de ville plus
-hautes ; leurs pierres et leurs marches garderont l’échelle du Chasseur. Le socle sera calibré
-à environ 280 unités pendant le détail.
-
-Le banc [preview_rune_sanctum.tscn](../../tools/art/preview_rune_sanctum.tscn) utilise les sprites natifs,
-le zoom réel du jeu et un profil en lecture seule, sans partie ni écriture de sauvegarde :
-
+- [Treize abris au même zoom, avec leurs mesures](../previews/rune-sanctum/abris_echelle.webp)
+- [Comparaison détail / composition / Ruines à 1 pixel par unité](../previews/rune-sanctum/comparaison_echelle.webp)
 - [Chasseur et Écho sous une arche de rue](../previews/rune-sanctum/arche_rue_zoom_jeu.webp)
 - [Chasseur et Écho sous une arche de traverse](../previews/rune-sanctum/arche_traverse_zoom_jeu.webp)
 - [Chasseur et Écho sur l’escalier est](../previews/rune-sanctum/escalier_zoom_jeu.webp)
-- [Socle du reliquaire et espace du parvis](../previews/rune-sanctum/autel_zoom_jeu.webp)
+- [Socle et parvis au zoom réel](../previews/rune-sanctum/autel_zoom_jeu.webp)
 - [Lisibilité sur dalles](../previews/rune-sanctum/lisibilite_dalles.webp)
 - [Lisibilité sur corruption](../previews/rune-sanctum/lisibilite_corruption.webp)
 
-Témoins : Éclat errant, Sentinelle de verre, Golem de quartz (chapitre 3), Éclat du silence,
-Chevalier de glace et Héraut du silence (chapitre 4), avec le Chasseur et un Écho.
-Aucun nouveau sprite du chapitre 5 livré. Les sept captures font **1280 × 720**.
-Le terrain est encore la composition agrandie : **sa finesse est provisoire**.
-Import Godot, captures, lint du banc et contrôle des assets : voir
-[controle_composition.json](../previews/rune-sanctum/controle_composition.json).
-Aucun rapport `check_map_quality` conforme n’est revendiqué à ce stade.
+Repères de la bible : Chasseur environ 52u, marches 12–16u, dalles au plus 26u,
+colonnes ordinaires 30–45u, portes de maison 75–90u. Les arches sont des portes de ville,
+plus hautes ; leurs pierres gardent l’échelle humaine. La porte de la halle a été réduite à environ 85u.
+La volée médiane a reçu une retouche peinte pour espacer les marches vers 16u
+(précision du master : 1,33u par pixel).
 
-## Après validation du propriétaire
+Le [banc de capture](../../tools/art/preview_rune_sanctum.tscn) charge les **deux tuiles finales**, les sprites
+natifs et la caméra réelle dans un profil en lecture seule. Témoins : Éclat errant, Sentinelle de verre,
+Golem de quartz, Éclat du silence, Chevalier de glace, Héraut du silence, Chasseur et Écho.
+Aucun sprite du chapitre 5 créé ; ceux-ci restent à livrer séparément.
 
-1. Figer `plan.json` : départ, socle, parvis, rues, traverses, six centres et segments de portes, treize abris.
-2. Contrôler un secteur témoin à l’échelle, puis redessiner **douze régions** au vrai détail des Ruines,
-   assembler et fournir le rapport `check_map_quality` **conforme** et la comparaison d’échelle.
-3. Remettre une image entière légère de référence des collisions avec recette et empreinte dans
-   `source/collision_reference.json` ; retour du propriétaire en PNG, même cadrage et dimensions.
-   Les six passages sous les arches resteront praticables : le jeu les ferme temporairement.
+## Fabrication et contrôles
 
-Seule la composition retenue, le croquis de disposition, les repères, les prompts et leurs empreintes
-sont versionnés. Essais et retouches intermédiaires restent hors dépôt.
-Claude intégrera collisions, autel, portes runiques, gardien et campagne après la peinture du propriétaire.
-**Aucun masque de collisions créé. Aucun changement de `src/`, `data/`, du manifeste ni des cartes 14 à 21.**
+**Douze régions réellement redessinées**, carrés de travail de 1574u, sorties de 1254px de côté
+(0,797px/u). Recadrage des marges techniques, assemblage sans déplacement du plan et retouches
+locales peintes des marches et objets ; aucune génération intermédiaire versionnée.
+Master retenu sans perte : **2508 × 3762px**, 0,75px/u.
+Présentation à 2,25px/u : **7524 × 11286px**, deux WebP de **3762 × 11286px**, qualité 98.
+La correction locale des cases douces intervient sur le détail déjà peint ; elle ne remplace pas les régions.
+Son résidu RVB est plafonné à 6/255 pour conserver les joints et les couleurs du dallage.
+Le traitement non borné a été écarté après inspection des captures.
 
-Poids total de la proposition, source retenue et aperçus compris : **10,33 Mo**.
+[`check_map_quality` conforme](../previews/rune-sanctum/qualite.json), seuils inchangés :
+**35/35 secteurs**, fidélité au plan **0,972**, médianes **411,730 détails fins** et **108,919 détails moyens**
+par 100×100u, part lisse **0,083**.
+[Carte de netteté relative](../previews/rune-sanctum/nettete_relative.webp).
+Import Godot headless, sept captures 1280 × 720, contrôle assets, lint du banc et compilation Python :
+[`controle_detail.json`](../previews/rune-sanctum/controle_detail.json).
+Ces captures vérifient le chargement, l’échelle et la lisibilité ; elles ne simulent pas une partie.
+
+Recette et provenance : `source/regions_provenance.json`, `source/detail_recipe.json`,
+`source/cover_measurements.json` et `source/SHA256.json`.
+Le [constructeur dédié](../../tools/art/build_rune_sanctum.py) reconstruit les deux tuiles depuis le master retenu.
+
+## Collisions et raccordement
+
+[**Image entière légère à peindre — JPG 836 × 1254**](../previews/rune-sanctum/reference_collisions.jpg).
+Quatre unités par pixel, sans recadrage. Recette, poids et empreinte :
+[`source/collision_reference.json`](../../assets/concepts/incoming/map.rune_sanctum/source/collision_reference.json).
+Retour attendu : **PNG 836 × 1254**, même cadrage, sans redimensionnement.
+
+Peindre en rouge translucide les maisons, murs, pieds des arches, piliers et abris qui bloquent.
+**Laisser praticables les six seuils sous les arches**, les traverses, les escaliers et tous les sols violets.
+La couronne d’une arche passe au-dessus du joueur : elle ne ferme pas son seuil dans le masque.
+Le jeu gère les fermetures temporaires ; Claude raccordera le socle de l’autel selon son emprise.
+
+Aucun masque peint par Codex. Claude intégrera collisions, autel, portes, gardien et campagne.
+**Aucune modification de `src/`, `data/`, du manifeste ni des cartes 14 à 21 par ce lot.**
+
+Poids total des fichiers livrés par la PR, sources et aperçus compris : **66,14 Mo**.
