@@ -67,6 +67,13 @@ func aim_point() -> Vector2:
 	return facing_aim(ctx, origin)
 
 
+func aims_freely() -> bool:
+	if Settings.uses_mouse():
+		return true
+	return Settings.using_gamepad \
+		and Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)).length() > 0.3
+
+
 static func facing_aim(p_ctx: RunContext, origin: Vector2) -> Vector2:
 	var facing: Vector2 = p_ctx.player.facing
 	var best: Enemy = null
