@@ -11,7 +11,7 @@ desc_key = "MAP_OBJ_CLEAR_DESC"
 stat_key = &"victories"
 threshold = 1.0
 compare = 0
-reward_shards = 50
+reward_shards = 30
 
 [sub_resource type="Resource" id="map_1_normal_2"]
 script = ExtResource("3")
@@ -20,7 +20,7 @@ desc_key = "MAP_OBJ_DAMAGE_DESC"
 stat_key = &"damage_taken"
 threshold = 400.0
 compare = 1
-reward_shards = 80
+reward_shards = 40
 
 [sub_resource type="Resource" id="map_1_normal_3"]
 script = ExtResource("3")
@@ -30,7 +30,7 @@ stat_key = &"boss_fight_time"
 threshold = 120.0
 compare = 1
 duration = true
-reward_shards = 80
+reward_shards = 40
 
 [sub_resource type="Resource" id="map_1_nightmare_1"]
 script = ExtResource("3")
@@ -62,7 +62,7 @@ reward_shards = 150
 [sub_resource type="Resource" id="map_1"]
 script = ExtResource("2")
 arena_id = &"three_rifts"
-first_victory_shards = 150
+first_victory_shards = 60
 nightmare_first_victory_shards = 250
 objectives = Array[ExtResource("3")]([SubResource("map_1_normal_1"), SubResource("map_1_normal_2"), SubResource("map_1_normal_3")])
 nightmare_objectives = Array[ExtResource("3")]([SubResource("map_1_nightmare_1"), SubResource("map_1_nightmare_2"), SubResource("map_1_nightmare_3")])

@@ -15,6 +15,6 @@ requires_victory = true
 min_difficulty = 0
 max_team_size = -1
 hidden = false
-reward_shards = 100
+reward_shards = 30
 reward_essence = 10
 reward_unlocks = []

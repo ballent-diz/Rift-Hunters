@@ -178,6 +178,10 @@ func _on_finished(result: Dictionary) -> void:
 		1 if result["victory"] else 0, int(result["time"]), result["level"], result["kills"], int(boss_time), boss_ratio,
 		int(counters.get("damage_taken", 0))])
 	print("Récompenses : ", _run.rewards)
+	# Économie : ce que cette partie rapporterait à un profil neuf (première partie sur la carte).
+	var fresh := ProfileData.new()
+	var applied: Dictionary = MetaProgression.apply_run_result(fresh, result)
+	print("Profil neuf : %d Éclats · %s" % [fresh.shards(), " | ".join(applied["lines"])])
 	get_tree().quit(0)
 
 

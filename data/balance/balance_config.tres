@@ -26,6 +26,8 @@ knockback = 40.0
 
 [resource]
 script = ExtResource("1")
+shards_per_minute = 6.0
+shards_per_kill = 0.06
 capture_chance = 0.0
 base_team_slots = 3
 disabled_features = Array[StringName]([&"relics", &"chests", &"evolutions", &"team_seal", &"captures"])
