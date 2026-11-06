@@ -157,6 +157,7 @@ func step(delta: float) -> void:
 			_ready_at[pattern] = ctx.time + pattern.cooldown
 			Audio.play_sfx(&"boss_telegraph")
 			call("_pattern_" + String(pattern.kind), pattern)
+			if ctx.pixel_fx: ctx.pixel_fx.technique(boss, pattern.kind, pattern.params)
 			boss.visual.play_action(StringName(pattern.params.get("anim", PATTERN_ANIMATIONS.get(pattern.kind, &"attack"))))
 			ctx.stats.add(&"boss_patterns")
 		_next_pattern_time = ctx.time + phase().pattern_interval * (0.7 if enraged else 1.0)
@@ -395,6 +396,7 @@ func _release_absorbed() -> void:
 		var dir := Vector2.RIGHT.rotated(offset + TAU * i / count)
 		ctx.projectiles.spawn_hostile(boss.position + dir * boss.radius, dir, 170.0, damage, data.id, 9.0, 6.0)
 	ctx.stats.set_max(&"boss_absorbed_max", float(boss.absorbed_count))
+	if ctx.pixel_fx: ctx.pixel_fx.technique(boss, &"absorb_release")
 	heart_time = 3.0
 	Audio.play_sfx(&"heart_exposed")
 	ctx.fx.text(boss.position + Vector2(0, -boss.radius - 20.0), tr("BOSS_HEART_EXPOSED"), Color(1.0, 0.8, 1.0))

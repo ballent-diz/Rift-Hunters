@@ -1,6 +1,9 @@
 # Compétences et effets visuels par famille (lot 1 : audit et attribution)
 
-Statut : **proposition du 6 novembre 2026, à valider par le propriétaire** avant le code (lots 2 et 3).
+Statut : **validé par le propriétaire le 6 novembre 2026** (règle des éléments, attributions ; effets peints du
+chapitre 3 conservés, armure qui se fend du Gardien d'écorce et impacts de tir retenus). **Lots 2 et 3 livrés** :
+tous les chapitres et leurs boss (`assets/vfx/pixelfx/techniques.json`, `PixelFx.technique/impact/shot/state`) ;
+armure qui se fend du Gardien d'écorce codée (3 s, dégâts subis × 1,5) ; effets longs allégés (une image sur deux).
 Demande : chaque famille de Corrompus, ses élites et ses boss ont leurs compétences ; il faut coder celles qui
 manquent et donner à chaque compétence une animation pixelfx (MIT, `tools/art/build_pixelfx.py`) **raccord avec la
 famille** : un monstre de feu ne lance pas une attaque d'eau.
@@ -128,7 +131,7 @@ ice/icicle-fall (glace). Anneaux : charge, onde et poussière déjà livrées (P
 | Boss (carte, famille) | Mécanique phare | Effet pixelfx propre |
 |---|---|---|
 | Nébulorax (1, violets) | Absorption | état : shadow/black-hole pendant l'aspiration · effet : shadow/dark-explosion au recrachat |
-| Astravorn (2, Hautes Terres) | Couronne d'astres | état : arcane/star-fall sur chaque astre · rayon du vide : shadow/void-orb à la source |
+| Astravorn (2, violets : ses attaques sont celles du vide) | Couronne d'astres | état : arcane/star-fall sur chaque astre · rayon du vide : shadow/void-orb à la source |
 | Sentinelle des racines (3, violets) | Séisme | nature/quake (au départ de chaque anneau) |
 | Chimère des brumes (4, Hautes Terres) | Voile de brume | état : weather/fog autour d'elle · effet : lightning/zap-hit sur chaque lanterne brisée |
 | Dévoreur des Sources (5) | Orbes de source | **effets peints conservés** |

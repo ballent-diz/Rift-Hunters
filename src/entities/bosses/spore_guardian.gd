@@ -58,6 +58,8 @@ func _on_beam_crossed(target: Enemy) -> void:
 
 
 func burn() -> void:
+	if ctx.pixel_fx:
+		ctx.pixel_fx.technique(boss(), &"spore_veil_burn")
 	var seconds: float = float(veil["burn"])
 	veil["down_until"] = ctx.time + seconds + float(veil["regrow"])
 	brain.stun(seconds)

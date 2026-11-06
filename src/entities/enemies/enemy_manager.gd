@@ -153,6 +153,7 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 		enemy.visual.set_tint(tint)
 	add_child(enemy)
 	list.append(enemy)
+	if ctx.pixel_fx: ctx.pixel_fx.spawned(enemy)
 	grid.insert(enemy, enemy.position)
 	if data.brain == EnemyData.Brain.STATIC:
 		enemy.is_obstacle = true
@@ -415,7 +416,7 @@ func _tick_summoner(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist
 		return
 	for i: int in int(attack.params.get("count", 3)):
 		spawn(spawned, enemy.position + Vector2.RIGHT.rotated(TAU * i / 3.0 + ctx.rng.randf()) * (enemy.radius + 14.0))
-	ctx.fx.ring(enemy.position, enemy.radius * 1.6, Color(0.8, 0.4, 0.9, 0.6), 0.3)
+	if ctx.pixel_fx: ctx.pixel_fx.technique(enemy, &"summon")
 
 
 ## Rôdeur : se fige, télégraphie un point derrière le Chasseur puis s'y téléporte.
@@ -432,6 +433,7 @@ func _tick_blinker(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist:
 				enemy.aim_dir = target_pos + dir * float(attack.params.get("behind", 70.0))
 				ctx.fx.ring(enemy.aim_dir, enemy.radius + 8.0, Color(1.0, 0.25, 0.6, 0.9), enemy.state_timer)
 				enemy.visual.modulate.a = 0.45
+				if ctx.pixel_fx: ctx.pixel_fx.technique(enemy, &"blink")
 		Enemy.State.WINDUP:
 			enemy.velocity = Vector2.ZERO
 			enemy.state_timer -= delta
@@ -440,7 +442,7 @@ func _tick_blinker(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist:
 				enemy.state = Enemy.State.RECOVER
 				enemy.state_timer = 0.4
 				enemy.visual.modulate.a = 1.0
-				ctx.fx.burst(enemy.position, enemy.radius * 1.5, Color(0.6, 0.2, 0.8, 0.5))
+				if ctx.pixel_fx: ctx.pixel_fx.moment(enemy, &"blink", "impact", enemy.position)
 		_:
 			enemy.velocity = Vector2.ZERO
 			enemy.state_timer -= delta
@@ -996,4 +998,3 @@ func _step_pending_plates() -> void:
 			ctx.burn.add_plate(plate["pos"], plate["radius"], plate["duration"])
 			_pending_plates.remove_at(i)
 		i -= 1
-

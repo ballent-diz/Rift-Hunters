@@ -1,0 +1,834 @@
+{
+	"note": "Effets pixelfx des compétences des Corrompus et des boss (docs/design/VFX_COMPETENCES.md). Lu par le jeu (PixelFx) et par tools/art/build_pixelfx.py, qui génère chaque effet dans la palette de chaque famille qui l'utilise. Moments : cast (au lancement, sur le lanceur), impact (quand sa zone frappe), state (en boucle sur le lanceur, time secondes ou le paramètre duration ; -1 : jusqu'à sa mort), release (moment propre à la compétence), shot (tir qui touche) ; at: target joue l'annonce sur le Chasseur. exceptions : effets hors élément validés par le propriétaire (« lanceur/effet »).",
+	"common": [
+		"impacts",
+		"spawn",
+		"status",
+		"melee"
+	],
+	"allowed": {
+		"violet": [
+			"shadow",
+			"arcane"
+		],
+		"highlands": [
+			"lightning",
+			"nature",
+			"weather"
+		],
+		"calcines": [
+			"fire",
+			"explosions"
+		],
+		"magma": [
+			"fire",
+			"explosions"
+		],
+		"enlises": [
+			"nature",
+			"water"
+		],
+		"reflets": [
+			"arcane",
+			"ice",
+			"pickups",
+			"holy"
+		],
+		"givres": [
+			"ice",
+			"weather"
+		],
+		"silence": [
+			"ice",
+			"shadow",
+			"arcane"
+		]
+	},
+	"effects": {
+		"shadow_hands": {
+			"source": "shadow/grasping-hands",
+			"opts": {
+				"seed": 11
+			}
+		},
+		"summon_rise": {
+			"source": "spawn/summon-rise",
+			"opts": {
+				"seed": 12
+			}
+		},
+		"blink_out": {
+			"source": "arcane/blink-out",
+			"opts": {
+				"seed": 13
+			},
+			"speed": 1.4
+		},
+		"blink_in": {
+			"source": "arcane/blink-in",
+			"opts": {
+				"seed": 14
+			},
+			"speed": 1.4
+		},
+		"rune_circle": {
+			"source": "arcane/rune-circle",
+			"opts": {
+				"seed": 15
+			}
+		},
+		"mana_burst": {
+			"source": "arcane/mana-burst",
+			"opts": {
+				"seed": 16
+			},
+			"speed": 1.5,
+			"scale": 0.6
+		},
+		"quake": {
+			"source": "nature/quake",
+			"opts": {
+				"seed": 17
+			},
+			"speed": 1.5
+		},
+		"earth_spike": {
+			"source": "nature/earth-spike",
+			"opts": {
+				"seed": 18
+			},
+			"speed": 1.3
+		},
+		"thunderclap": {
+			"source": "lightning/thunderclap",
+			"opts": {
+				"seed": 19
+			},
+			"speed": 1.3
+		},
+		"lightning_strike": {
+			"source": "lightning/lightning-strike",
+			"opts": {
+				"seed": 20
+			},
+			"speed": 1.3
+		},
+		"zap_hit": {
+			"source": "lightning/zap-hit",
+			"opts": {
+				"seed": 21
+			},
+			"speed": 1.4,
+			"scale": 0.7
+		},
+		"smoke_bomb": {
+			"source": "explosions/smoke-bomb",
+			"opts": {
+				"seed": 22
+			},
+			"speed": 1.6
+		},
+		"smoke_puff": {
+			"source": "explosions/smoke-bomb",
+			"opts": {
+				"seed": 23
+			},
+			"speed": 2.0,
+			"scale": 0.5
+		},
+		"flame_pillar": {
+			"source": "fire/flame-pillar",
+			"opts": {
+				"seed": 24
+			},
+			"speed": 1.4
+		},
+		"spirit_flame": {
+			"source": "fire/spirit-flame",
+			"opts": {
+				"seed": 25
+			}
+		},
+		"rage": {
+			"source": "status/rage",
+			"opts": {
+				"seed": 26
+			}
+		},
+		"egg_hatch": {
+			"source": "spawn/egg-hatch",
+			"opts": {
+				"seed": 27
+			},
+			"speed": 1.4
+		},
+		"spin_slash": {
+			"source": "melee/spin-slash",
+			"opts": {
+				"seed": 28
+			},
+			"speed": 1.3
+		},
+		"fire_ring": {
+			"source": "fire/fire-ring",
+			"opts": {
+				"seed": 29
+			}
+		},
+		"torch": {
+			"source": "fire/torch",
+			"opts": {
+				"seed": 30
+			}
+		},
+		"dirt_explosion": {
+			"source": "explosions/dirt-explosion",
+			"opts": {
+				"seed": 31
+			},
+			"speed": 1.4
+		},
+		"brazier": {
+			"source": "fire/brazier",
+			"opts": {
+				"seed": 32
+			}
+		},
+		"fire_breath": {
+			"source": "fire/fire-breath",
+			"opts": {
+				"seed": 33
+			},
+			"speed": 1.2
+		},
+		"meteor": {
+			"source": "fire/meteor",
+			"opts": {
+				"seed": 34
+			},
+			"speed": 1.5
+		},
+		"small_explosion": {
+			"source": "explosions/small-explosion",
+			"opts": {
+				"seed": 35
+			},
+			"speed": 1.5,
+			"scale": 0.7
+		},
+		"black_hole": {
+			"source": "shadow/black-hole",
+			"opts": {
+				"seed": 36
+			}
+		},
+		"dark_explosion": {
+			"source": "shadow/dark-explosion",
+			"opts": {
+				"seed": 37
+			},
+			"speed": 1.4
+		},
+		"star_fall": {
+			"source": "arcane/star-fall",
+			"opts": {
+				"seed": 38
+			},
+			"speed": 1.2
+		},
+		"void_orb": {
+			"source": "shadow/void-orb",
+			"opts": {
+				"seed": 39
+			}
+		},
+		"fog": {
+			"source": "weather/fog",
+			"opts": {
+				"seed": 40
+			}
+		},
+		"stunned": {
+			"source": "status/stunned",
+			"opts": {
+				"seed": 41
+			}
+		},
+		"sword_slash": {
+			"source": "melee/sword-slash",
+			"opts": {
+				"seed": 42
+			},
+			"speed": 1.4
+		},
+		"claw_swipe": {
+			"source": "melee/claw-swipe",
+			"opts": {
+				"seed": 43
+			},
+			"speed": 1.3
+		},
+		"heavy_cleave": {
+			"source": "melee/heavy-cleave",
+			"opts": {
+				"seed": 44
+			},
+			"speed": 1.3
+		},
+		"boulder": {
+			"source": "nature/boulder",
+			"opts": {
+				"seed": 45
+			},
+			"speed": 1.4
+		},
+		"snowflake_burst": {
+			"source": "ice/snowflake-burst",
+			"opts": {
+				"seed": 61
+			},
+			"speed": 1.4
+		},
+		"freeze": {
+			"source": "ice/freeze",
+			"opts": {
+				"seed": 62
+			},
+			"speed": 1.3
+		},
+		"blizzard": {
+			"source": "weather/blizzard",
+			"opts": {
+				"seed": 63
+			}
+		},
+		"frost_breath": {
+			"source": "ice/frost-breath",
+			"opts": {
+				"seed": 64
+			},
+			"speed": 1.2
+		},
+		"ice_shatter": {
+			"source": "ice/ice-shatter",
+			"opts": {
+				"seed": 65
+			},
+			"speed": 1.4
+		},
+		"ice_shatter_small": {
+			"source": "ice/ice-shatter",
+			"opts": {
+				"seed": 66
+			},
+			"speed": 1.8,
+			"scale": 0.55
+		},
+		"icicle_fall": {
+			"source": "ice/icicle-fall",
+			"opts": {
+				"seed": 67
+			},
+			"speed": 1.4
+		},
+		"ice_spikes": {
+			"source": "ice/ice-spikes",
+			"opts": {
+				"seed": 68
+			},
+			"speed": 1.4
+		},
+		"hex_sigil": {
+			"source": "shadow/hex-sigil",
+			"opts": {
+				"seed": 69
+			}
+		},
+		"arcane_missiles": {
+			"source": "arcane/arcane-missiles",
+			"opts": {
+				"seed": 70
+			},
+			"speed": 1.3
+		},
+		"blizzard_vortex": {
+			"source": "ice/blizzard-vortex",
+			"opts": {
+				"seed": 71
+			}
+		},
+		"frost_nova": {
+			"source": "ice/frost-nova",
+			"opts": {
+				"seed": 72
+			},
+			"speed": 1.3
+		},
+		"soul_drain": {
+			"source": "shadow/soul-drain",
+			"opts": {
+				"seed": 73
+			}
+		},
+		"healing_bloom": {
+			"source": "nature/healing-bloom",
+			"opts": {
+				"seed": 74
+			}
+		},
+		"shield_block": {
+			"source": "impacts/shield-block",
+			"opts": {
+				"seed": 75
+			},
+			"speed": 1.3
+		},
+		"thorns": {
+			"source": "nature/thorns",
+			"opts": {
+				"seed": 76
+			},
+			"speed": 1.3
+		},
+		"root_snare": {
+			"source": "nature/root-snare",
+			"opts": {
+				"seed": 77
+			},
+			"speed": 1.3
+		},
+		"splash": {
+			"source": "water/splash",
+			"opts": {
+				"seed": 78
+			},
+			"speed": 1.3
+		},
+		"geyser": {
+			"source": "water/geyser",
+			"opts": {
+				"seed": 79
+			},
+			"speed": 1.3
+		},
+		"spore_burst": {
+			"source": "nature/spore-burst",
+			"opts": {
+				"seed": 80
+			}
+		},
+		"poison_cloud": {
+			"source": "nature/poison-cloud",
+			"opts": {
+				"seed": 81
+			},
+			"speed": 1.3
+		},
+		"portal": {
+			"source": "arcane/portal",
+			"opts": {
+				"seed": 82
+			},
+			"speed": 1.4
+		}
+	},
+	"enemies": {
+		"broodmother": {
+			"burrow": {
+				"impact": "shadow_hands"
+			},
+			"summon": {
+				"cast": "summon_rise"
+			}
+		},
+		"shade_stalker": {
+			"blink": {
+				"cast": "blink_out",
+				"impact": "blink_in"
+			}
+		},
+		"crystal_warden": {
+			"spawn": {
+				"state": "rune_circle",
+				"time": -1
+			}
+		},
+		"spitter": {
+			"shot": {
+				"shot": "mana_burst"
+			}
+		},
+		"menhir_warden": {
+			"burrow": {
+				"impact": [
+					"quake",
+					"earth_spike"
+				]
+			}
+		},
+		"peak_chimera": {
+			"leap": {
+				"impact": "thunderclap"
+			}
+		},
+		"storm_knight": {
+			"leap": {
+				"impact": "lightning_strike"
+			}
+		},
+		"ash_newt": {
+			"shot": {
+				"shot": "zap_hit"
+			}
+		},
+		"silver_harpy": {
+			"shot": {
+				"shot": "zap_hit"
+			}
+		},
+		"ash_hound": {
+			"leap": {
+				"impact": "smoke_bomb"
+			}
+		},
+		"pyre_brute": {
+			"burn_slam": {
+				"impact": "flame_pillar"
+			},
+			"rage": {
+				"state": [
+					"rage",
+					"spirit_flame"
+				],
+				"time": -1
+			}
+		},
+		"ashen_widow": {
+			"lay_eggs": {
+				"cast": "egg_hatch"
+			},
+			"shot": {
+				"shot": "smoke_puff"
+			}
+		},
+		"cinder_knight": {
+			"charge": {
+				"cast": "torch",
+				"impact": [
+					"spin_slash",
+					"fire_ring"
+				]
+			}
+		},
+		"smoke_wisp": {
+			"shot": {
+				"shot": "smoke_puff"
+			}
+		},
+		"lava_lurker": {
+			"burrow": {
+				"impact": [
+					"flame_pillar",
+					"dirt_explosion"
+				]
+			}
+		},
+		"caldera_titan": {
+			"eruption": {
+				"impact": "flame_pillar",
+				"state": "brazier",
+				"param": "crater_window"
+			}
+		},
+		"flame_wyrmling": {
+			"breath": {
+				"impact": "fire_breath"
+			},
+			"leap": {
+				"impact": "meteor"
+			}
+		},
+		"slag_matron": {
+			"brood": {
+				"cast": "summon_rise"
+			},
+			"molt": {
+				"cast": [
+					"dirt_explosion",
+					"fire_ring"
+				]
+			}
+		},
+		"ember_spitter": {
+			"shot": {
+				"shot": "small_explosion"
+			}
+		},
+		"blizzard_wolf": {
+			"charge": {
+				"cast": "snowflake_burst"
+			}
+		},
+		"frost_shaman": {
+			"ice_prison": {
+				"cast": "freeze",
+				"at": "target"
+			},
+			"frost_mist": {
+				"state": "blizzard"
+			},
+			"snuff": {
+				"cast": "frost_breath"
+			}
+		},
+		"peak_yeti": {
+			"avalanche": {
+				"cast": "snowflake_burst"
+			},
+			"leap": {
+				"impact": [
+					"ring_dust",
+					"snowflake_burst"
+				]
+			},
+			"rage": {
+				"state": "rage",
+				"time": -1
+			}
+		},
+		"rime_archer": {
+			"hail": {
+				"impact": "icicle_fall"
+			},
+			"shot": {
+				"shot": "ice_shatter_small"
+			}
+		},
+		"icebreaker": {
+			"burrow": {
+				"impact": "ice_spikes"
+			}
+		},
+		"silence_herald": {
+			"hush": {
+				"state": "hex_sigil"
+			},
+			"spell_echo": {
+				"cast": [
+					"mana_burst",
+					"arcane_missiles"
+				]
+			}
+		},
+		"frost_mammoth": {
+			"trample": {
+				"cast": "ice_shatter",
+				"impact": "ring_burst"
+			},
+			"ice_crack": {
+				"impact": "ice_spikes"
+			}
+		},
+		"snow_witch": {
+			"blizzard_call": {
+				"state": "blizzard_vortex"
+			},
+			"clones": {
+				"cast": "blink_in"
+			},
+			"blink": {
+				"cast": "blink_out"
+			}
+		},
+		"frozen_sentry": {
+			"shot": {
+				"shot": "ice_shatter_small"
+			}
+		},
+		"spore_mother": {
+			"heal_aura": {
+				"state": "healing_bloom"
+			}
+		},
+		"bark_warden": {
+			"armor_crack": {
+				"cast": [
+					"shield_block",
+					"thorns"
+				]
+			}
+		}
+	},
+	"boss_families": {
+		"nebulorax": "violet",
+		"astravorn": "violet",
+		"root_sentinel": "violet",
+		"mist_chimera": "highlands",
+		"pyre_guardian": "calcines",
+		"cinder_champion": "calcines",
+		"widow_queen": "calcines",
+		"slag_matriarch": "magma",
+		"pyrevorn": "magma",
+		"bark_colossus": "enlises",
+		"marsh_maw_guardian": "enlises",
+		"spore_matriarch": "enlises",
+		"portal_lady": "reflets",
+		"peak_patriarch": "givres",
+		"rime_elder": "givres",
+		"blizzard_alpha": "givres",
+		"nivorath": "silence"
+	},
+	"boss_common": {
+		"claw": {
+			"impact": "claw_swipe"
+		},
+		"sweep": {
+			"impact": "heavy_cleave"
+		},
+		"slam": {
+			"impact": "ring_burst"
+		},
+		"charge": {
+			"impact": "ring_dust"
+		},
+		"summon": {
+			"cast": "summon_rise"
+		}
+	},
+	"bosses": {
+		"nebulorax": {
+			"absorb": {
+				"state": "black_hole"
+			},
+			"absorb_release": {
+				"cast": "dark_explosion"
+			},
+			"void_beam": {
+				"cast": "void_orb"
+			}
+		},
+		"astravorn": {
+			"star_crown": {
+				"cast": "star_fall"
+			},
+			"void_beam": {
+				"cast": "void_orb"
+			}
+		},
+		"mist_chimera": {
+			"mist_veil": {
+				"state": "fog",
+				"time": 6
+			},
+			"mist_lantern": {
+				"cast": "zap_hit"
+			}
+		},
+		"pyre_guardian": {
+			"pyre_ram": {
+				"cast": "smoke_bomb"
+			}
+		},
+		"cinder_champion": {
+			"duel_circle": {
+				"state": "fire_ring",
+				"time": 8
+			}
+		},
+		"widow_queen": {
+			"silk_threads": {
+				"cast": "smoke_bomb"
+			}
+		},
+		"slag_matriarch": {
+			"slag_rain": {
+				"impact": "meteor"
+			}
+		},
+		"pyrevorn": {
+			"crater_sequence": {
+				"impact": "flame_pillar"
+			},
+			"skyfall": {
+				"impact": "meteor"
+			},
+			"rock_rain": {
+				"impact": "meteor"
+			},
+			"eye_beam": {
+				"cast": "spirit_flame"
+			}
+		},
+		"bark_colossus": {
+			"bark_guard": {
+				"cast": "shield_block"
+			},
+			"root_snare": {
+				"impact": "root_snare"
+			}
+		},
+		"marsh_maw_guardian": {
+			"maw_dive": {
+				"cast": "splash",
+				"impact": "geyser"
+			}
+		},
+		"spore_matriarch": {
+			"spore_veil": {
+				"state": "spore_burst",
+				"time": 14
+			},
+			"spore_veil_burn": {
+				"cast": "poison_cloud"
+			}
+		},
+		"portal_lady": {
+			"portal_hop": {
+				"cast": "portal"
+			}
+		},
+		"peak_patriarch": {
+			"avalanche": {
+				"cast": "ice_shatter"
+			}
+		},
+		"rime_elder": {
+			"deep_freeze_release": {
+				"cast": "frost_nova"
+			},
+			"deep_freeze_shelter": {
+				"cast": "brazier"
+			}
+		},
+		"blizzard_alpha": {
+			"storm_hunt": {
+				"state": "blizzard",
+				"time": 8,
+				"cast": "snowflake_burst"
+			}
+		},
+		"nivorath": {
+			"spell_capture": {
+				"state": "soul_drain"
+			},
+			"spell_capture_release": {
+				"cast": "arcane_missiles"
+			},
+			"ice_spikes": {
+				"impact": "ice_spikes"
+			},
+			"shatter_floor": {
+				"impact": "ice_shatter"
+			},
+			"frozen_dive": {
+				"impact": "ice_shatter"
+			},
+			"breath": {
+				"impact": "frost_breath"
+			}
+		}
+	},
+	"exceptions": [
+		"rime_elder/brazier"
+	]
+}

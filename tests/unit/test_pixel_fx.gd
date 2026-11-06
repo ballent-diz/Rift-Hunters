@@ -64,3 +64,85 @@ func test_boss_rings_keep_a_reachable_gap() -> void:
 		ctx.hazards.step(1.0 / 60.0)
 	check_eq(player.hp, hp, "dans la brèche : pas touché")
 	check(ctx.pixel_fx.active_count() >= 2, "onde de choc et poussière le long du front")
+
+
+## Compétences (docs/design/VFX_COMPETENCES.md) : chaque effet du catalogue existe, appartient à une catégorie permise
+## pour la famille du lanceur (un Corrompu de feu ne lance pas un effet d'eau) et a sa feuille dans sa palette.
+func test_technique_catalog_respects_family_elements() -> void:
+	var catalog: Dictionary = PixelFx.catalog()
+	var effects: Dictionary = catalog["effects"]
+	var common: Array = catalog["common"]
+	var check_entry := func(owner: String, family: String, entry: Dictionary) -> void:
+		for moment: String in entry:
+			if moment in ["time", "param", "at"]:
+				continue
+			var names: Array = entry[moment] if entry[moment] is Array else [entry[moment]]
+			for effect: String in names:
+				var source: String = str((effects.get(effect, {}) as Dictionary).get("source", "impacts/" + effect))
+				var category: String = source.get_slice("/", 0)
+				var allowed: bool = "%s/%s" % [owner, effect] in (catalog.get("exceptions", []) as Array)
+				check(allowed or category in common or category in (catalog["allowed"][family] as Array),
+					"%s (%s) : %s hors de l'élément de la famille" % [owner, family, source])
+				var base: String = PixelFx.ROOT % [effect, family]
+				check(ResourceLoader.exists(base + ".png"), "feuille %s/%s" % [effect, family])
+	for enemy_id: String in catalog["enemies"]:
+		var data: EnemyData = GameDB.enemies.get(StringName(enemy_id))
+		check(data != null, "Corrompu du catalogue : %s" % enemy_id)
+		if data:
+			for kind: String in catalog["enemies"][enemy_id]:
+				check_entry.call(enemy_id, String(data.family), catalog["enemies"][enemy_id][kind])
+	for boss_id: String in catalog["boss_families"]:
+		check(GameDB.boss(StringName(boss_id)) != null, "boss du catalogue : %s" % boss_id)
+		var family: String = catalog["boss_families"][boss_id]
+		for entry: Dictionary in (catalog["boss_common"] as Dictionary).values():
+			check_entry.call(boss_id, family, entry)
+		for kind: String in (catalog["bosses"] as Dictionary).get(boss_id, {}):
+			check_entry.call(boss_id, family, catalog["bosses"][boss_id][kind])
+
+
+func test_technique_effects_cast_impact_and_state() -> void:
+	var ctx: RunContext = run.ctx
+	var fx: PixelFx = ctx.pixel_fx
+	fx._active.clear()
+	var brute: Enemy = RunFixture.spawn(run, &"pyre_brute", Vector2(200, 0))
+	fx.technique(brute, &"burn_slam")
+	fx.impact(&"pyre_brute", Vector2(220, 0))
+	check_eq(fx.active_count(), 1, "Bûcher écrasé : colonne de flammes à l'impact")
+	fx.technique(brute, &"rage")
+	check_eq(_states(fx), 2, "Rage : deux états en boucle")
+	for i: int in 240:
+		fx.step(1.0 / 60.0)
+	check_eq(_states(fx), 2, "les états durent tant que la Brute vit")
+	brute.alive = false
+	fx.step(1.0 / 60.0)
+	check_eq(_states(fx), 0, "à sa mort, ses états s'arrêtent")
+	var before: int = fx.active_count()
+	fx.technique(brute, &"unknown_kind")
+	check_eq(fx.active_count(), before, "compétence sans effet prévu : rien")
+	var boss_family: StringName = PixelFx.family_of(RunFixture.spawn(run, &"ash_hound", Vector2(400, 0)))
+	check_eq(boss_family, &"calcines", "famille d'un Corrompu : la sienne")
+
+
+func _states(fx: PixelFx) -> int:
+	var count: int = 0
+	for effect: Dictionary in fx._active:
+		if effect.has("follow"):
+			count += 1
+	return count
+
+
+## Armure qui se fend (E8, Gardien d'écorce) : son bouclier tombé, il encaisse davantage quelques secondes.
+func test_bark_warden_armor_cracks_after_its_shield() -> void:
+	var warden: Enemy = RunFixture.spawn(run, &"bark_warden", Vector2(150, 0))
+	RunFixture.spawn(run, &"mire_leech", Vector2(190, 0))
+	var shield: EnemyTechniqueData = warden.data.techniques[1]
+	check(run.ctx.enemies.marsh.technique_ally_shield(warden, shield, Vector2.ZERO), "bouclier levé")
+	var duration: float = float(shield.params["duration"])
+	for i: int in int((duration + 0.5) * 60.0):
+		run.ctx.time += 1.0 / 60.0
+		run.ctx.enemies.step(1.0 / 60.0)
+	check_eq(warden.extra_damage_taken, 1.5, "écorce fendue : dégâts subis × 1,5")
+	for i: int in int(3.5 * 60.0):
+		run.ctx.time += 1.0 / 60.0
+		run.ctx.enemies.step(1.0 / 60.0)
+	check_eq(warden.extra_damage_taken, 1.0, "puis l'écorce se referme")
