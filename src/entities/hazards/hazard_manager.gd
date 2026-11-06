@@ -181,6 +181,8 @@ func _step_cone(h: Dictionary, delta: float) -> bool:
 		h["delay"] = float(h["delay"]) - delta
 		if float(h["delay"]) <= 0.0:
 			var player: Player = ctx.player
+			if ctx.pixel_fx:
+				ctx.pixel_fx.impact(h["source"], (h["pos"] as Vector2) + (h["dir"] as Vector2) * float(h["radius"]) * 0.4)
 			# Souffle : un abri entre la source et le Chasseur le protège.
 			if in_cone(h, player.global_position, player.radius * 0.5) and ctx.obstacles.line_clear(h["pos"],
 					player.global_position):
@@ -347,6 +349,8 @@ func _strike_area(h: Dictionary, center: Vector2, radius: float) -> void:
 		if player.global_position.distance_to(center) < radius + player.radius * 0.5:
 			ctx.combat.damage_player(float(h["damage"]), h["source"])
 		ctx.fx.burst(center, radius, Color(1.0, 0.3, 0.7, 0.4))
+		if ctx.pixel_fx:
+			ctx.pixel_fx.impact(h["source"], center)
 	else:
 		for enemy: Enemy in ctx.enemies.query_radius(center, radius):
 			_hit_enemy(enemy, h)

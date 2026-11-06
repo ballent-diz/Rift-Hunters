@@ -525,6 +525,7 @@ Composition validée et plan figé3344 ×5016 : trois rues sud→nord, trois tra
 ## Compétences et effets pixelfx par famille (lot 1, 6 novembre)
 
 Audit et attribution « Corrompu → compétence → effet pixelfx » : [design/VFX_COMPETENCES.md](design/VFX_COMPETENCES.md).
-Toutes les techniques déclarées sont codées ; seule manque l'armure qui se fend du Gardien d'écorce. **En attente de
-la validation du propriétaire** (éléments par famille, attributions, effets peints du chapitre 3 conservés ou non),
-puis lot 2 (chapitres 1 et 2) et lot 3 (chapitres 3 et 4).
+Validé le 6 novembre. **Lot 2 livré** (chapitres 1 et 2 et leurs boss) : catalogue `assets/vfx/pixelfx/techniques.json`
+(lu par le jeu et par `tools/art/build_pixelfx.py`, qui ne génère que les feuilles utilisées), moments annonce, impact
+(zone qui frappe), état (boucle qui suit le lanceur), tir. **Lot 3 à faire** : Givrés, Échos du silence, compléments du
+chapitre 3, armure qui se fend du Gardien d'écorce, boss des chapitres 3 et 4.
