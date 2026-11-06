@@ -1,7 +1,7 @@
 {
   "date": "2026-11-06",
-  "stage": "composition_a_valider",
-  "main_base": "3a9520ac8bf3ad3d96606713c0e0b4856fd49d24",
+  "stage": "composition_corrigee_a_valider",
+  "main_base": "83efa6e5aca19a8eef96057c2f4bd78aa083f8cd",
   "owner_approved": false,
   "plan_locked": false,
   "detail_generated": false,
@@ -38,7 +38,7 @@
         "1280x720",
         "res://tools/art/preview_suspended_quarters.tscn",
         "--",
-        "--out=/workspace/.rift-art/map23/captures"
+        "--out=/workspace/.rift-art/map23/correction/captures"
       ],
       "exit_code": 0,
       "log_sha256": "3138d49b61f2e92b5d4314fca801cf497630c23cc54f3a001552c19026367f51"
@@ -74,59 +74,69 @@
   },
   "captures": [
     {
+      "file": "cour_interieure_zoom_jeu.webp",
+      "sha256": "bad7d9e151cb66e1b2414b49e8846f06da09b6f2ee6ecc61ee75775cbc623d0e",
+      "original_png_sha256": "f7cbe75bf528054625b7909746d3294e362701c27dcb8713448d0e455de47ded"
+    },
+    {
       "file": "ensemble_720p.webp",
-      "sha256": "a14502552df0d4addda2ba3ea1b3bf754f2cf9e785dca0dcd58183c475030202",
-      "original_png_sha256": "4cda3afb61f3e4572db1f2dcc08e8be4978894434bd157e3c3128c491ff038bb"
+      "sha256": "3d0b34893cd2a4a68d14a7ff2cd7e90e9998a1fa31ea68d8db9ee7106e078500",
+      "original_png_sha256": "5182e140e8e15ab41a0c389d99755418d07c8d2f1cd246688a0db52f2055e3c6"
+    },
+    {
+      "file": "faille_interieure_zoom_jeu.webp",
+      "sha256": "65175076405969a2ee0a8775a94ecaa4fa31f6298466cab5bfc175a9eded3e95",
+      "original_png_sha256": "05cbe5033ce122327dcab09cc7794c67255d989bbb10f3e6321bfc6cda3972dc"
     },
     {
       "file": "lisibilite_corruption.webp",
-      "sha256": "7fe78f4d9aeafc408b238907274a4a2453e6e496586b5a79463d7840bec53b24",
-      "original_png_sha256": "60ee4c70bd616e20544dd7df43765457b777f18269aa1e3f75dcf931bb9daebe"
+      "sha256": "61da42b8e4926e400bd8782a563dce066d1738f289f6b2cd79d85b7fa289fdb5",
+      "original_png_sha256": "eb258d6358be4c10539438aa1b63aa3ad32e8431dafaeb87f5488aff9b98599e"
     },
     {
       "file": "lisibilite_dalles.webp",
-      "sha256": "d06522d123d6f6c5eeb626463e19e9ace49c64d75d8d49fe80a1d02f26d83394",
-      "original_png_sha256": "c7b3e54813ca3f92902d39cfc144c197f0637cb27cd7003b5e8094c1fe00da63"
+      "sha256": "335d3a5154711138eda73dcc31ccd956980965de2f9844650b8a41d120959ba5",
+      "original_png_sha256": "18b8948ff23e1c27b171f7ab86a5e0d342a78b811d7a242a023f74f4e9361869"
     },
     {
       "file": "lisibilite_vide.webp",
-      "sha256": "9a655fa27f05ce2d3e550dbe96417cebd19aa935bcb16c6900d41848c0418d6b",
-      "original_png_sha256": "cb27d80ed6bb476113bd8795b165246f10381742d556a89c81c499a9af973d73"
+      "sha256": "e5ba32eb861d203cb80a4a9a2847b702219e766df5109839288d0977dfeab5b9",
+      "original_png_sha256": "0cbfee6e83ca9878238f684856645bcbe6f5c2b500c114241300a23dc20d18ae"
     },
     {
       "file": "pont_1_zoom_jeu.webp",
-      "sha256": "004d1eb4838c8d8638733455dbfb6a906c3407e5c2c669955b537721298573fa",
-      "original_png_sha256": "579404a63fd29dedce48441c03d5f453931b2c9428fdc59a8897a5467c32ecc0"
+      "sha256": "6ff7a8135065568f23d66a8e87f3b574693a0b03e0d2cbf95f68c8af010ab4dd",
+      "original_png_sha256": "2931828c0083eefa15556ba650eed5aeed04a77cb63f9c2d370668323c7afdfe"
     },
     {
       "file": "pont_2_zoom_jeu.webp",
-      "sha256": "ece9a92d2bd0e0f3b47ec60103e1aee0f6067a2079eacc81e363124fbddf76bd",
-      "original_png_sha256": "89d63eff29f9e060dae9751bdf821a33f4ebb7bec514b18350fa3d7c7e5eecd4"
+      "sha256": "459e1be10568c45530d5f9aafcb9c51045b18507a3d3df6e721afd628b32c1b0",
+      "original_png_sha256": "371bfd82acdf39eacffba02b56fae367e160ed5f3dc71f9d014a5739a174f960"
     },
     {
       "file": "pont_3_zoom_jeu.webp",
-      "sha256": "1a3100340a5b9779c95478cfb14652dee3efd8403d02a71eeb45786e12dee221",
-      "original_png_sha256": "e1da5e397ba14a1de023fa1fd100446f6a161b5b381089559718e244efc1288b"
+      "sha256": "b9f6158440f0cb6a98a346471574ce878bf0e4c6039d46f9ebccf80143b4ba63",
+      "original_png_sha256": "dc501968bdd1cd5eea918bff00dc47bae24e7bbe72597b338b8cb68cd0155f23"
     },
     {
       "file": "socle_a1_zoom_jeu.webp",
-      "sha256": "d7bdc597a42324dff484cfd31c12631f960e6da12450ab49bb040dffdc61f949",
-      "original_png_sha256": "7fbd02994e11fa1606f7f8746ac934503f6b3127ec13636eca758ce0e3a84e8c"
+      "sha256": "04a82ba2aa808a7f015fa59973f6c6d49ac862cae3b7f694c5c955ed8fad371d",
+      "original_png_sha256": "907f1308883257531d2b9625042806b32e58ce058014b2e67936368bafcae7f5"
     },
     {
       "file": "socle_c2_zoom_jeu.webp",
-      "sha256": "50cce34567363c9053356112b195f6fd12f77d6e26625032e0fc1a24c36f77ee",
-      "original_png_sha256": "f70384eb8f795f080cfdda824b02409490497e6829729f3dc380e0cac44a8d7a"
+      "sha256": "dfabb30615f2be947b0975971dd7a2712535acbd00340427922a0d079942647c",
+      "original_png_sha256": "86dfa89f84580648d37bad3dde2577cb1501b3553a7b2ab1f0ef911cd62447c0"
     }
   ],
   "capture_receipt": {
     "camera_zoom": 1.3333,
     "collision_mask_created": false,
-    "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+    "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
     "detail_generated": false,
     "native_sprites_unchanged": true,
     "profile_read_only": true,
-    "review_sha256": "a3ca2cfbb843388dff9317f9a8a9bd4f6861b5382059616c227882cfa9ac392d",
+    "review_sha256": "5dacfe14b9d1dac871f66180606a8a4e8b10a348135a8350f0e0a6abc9ae285b",
     "runtime_integrated": false,
     "scope": "composition_a_valider",
     "viewport": [
@@ -142,8 +152,8 @@
       "silence_herald"
     ]
   },
-  "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
-  "review_sha256": "a3ca2cfbb843388dff9317f9a8a9bd4f6861b5382059616c227882cfa9ac392d",
+  "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+  "review_sha256": "5dacfe14b9d1dac871f66180606a8a4e8b10a348135a8350f0e0a6abc9ae285b",
   "islands": 5,
   "main_islands": 4,
   "secondary_islands": 1,
@@ -178,5 +188,54 @@
   "collision_mask_created": false,
   "runtime_integrated": false,
   "navigation_or_combat_tested": false,
-  "chapter5_sprites_created": false
+  "chapter5_sprites_created": false,
+  "overall_layout_kept_by_owner": true,
+  "island_silhouettes": [
+    "L",
+    "croissant",
+    "faille intérieure",
+    "place finale ouverte",
+    "refuge isolé"
+  ],
+  "interior_architecture_blocks": 3,
+  "interior_crossings": 1,
+  "decorative_corruption_patches": 5,
+  "graphic_landmark_pixels_identical": true,
+  "locked_graphic_regions": 10,
+  "locked_landmark_proof": "../../../assets/concepts/incoming/map.suspended_quarters/source/composition_correction.json",
+  "free_court_checks": [
+    {
+      "zone": "z1",
+      "core_pixels": [
+        410.134099291866,
+        397.134163291866,
+        593.866156708134,
+        580.8662207081339
+      ],
+      "world_size": [
+        600,
+        600
+      ],
+      "architecture_and_covers_outside": true,
+      "scope": "Relevés graphiques et vue annotée, pas de navigation ni de collisions testées."
+    },
+    {
+      "zone": "z2",
+      "core_pixels": [
+        845.133907291866,
+        320.13371529186605,
+        1028.865964708134,
+        503.865772708134
+      ],
+      "world_size": [
+        600,
+        600
+      ],
+      "architecture_and_covers_outside": true,
+      "scope": "Relevés graphiques et vue annotée, pas de navigation ni de collisions testées."
+    }
+  ],
+  "reserved_court_corners_inside_islands": true,
+  "teleporter_centers_inside_islands": true,
+  "start_inside_island": true
 }

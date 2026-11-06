@@ -8,13 +8,13 @@
     2508
   ],
   "status": "wip",
-  "stage": "composition_a_valider",
+  "stage": "composition_corrigee_a_valider",
   "composition": "composition.png",
   "composition_size": [
     1536,
     768
   ],
-  "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+  "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
   "review": "source/composition_review.json",
   "owner_approved": false,
   "plan_locked": false,
@@ -22,7 +22,7 @@
   "regions_generated": false,
   "regions_expected": 8,
   "quality_conforme": false,
-  "quality_scope": "Composition seulement ; finesse finale et qualité conforme à établir après les huit régions.",
+  "quality_scope": "Composition corrigée uniquement ; finesse finale et gabarits précis à établir après huit régions.",
   "islands": 5,
   "main_islands": 4,
   "secondary_islands": 1,
@@ -32,5 +32,12 @@
   "covers": 11,
   "collision_mask_created": false,
   "runtime_integrated": false,
-  "chapter5_sprites_created": false
+  "chapter5_sprites_created": false,
+  "overall_layout_kept_by_owner": true,
+  "owner_correction_applied": true,
+  "owner_correction_date": "2026-11-06",
+  "decorative_corruption_patches": 5,
+  "interior_architecture_blocks": 3,
+  "interior_crossings": 1,
+  "protected_landmarks_unchanged": true
 }

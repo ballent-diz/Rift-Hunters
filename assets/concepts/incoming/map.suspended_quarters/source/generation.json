@@ -1,7 +1,7 @@
 {
   "date": "2026-11-06",
   "tool": "image_gen.imagegen",
-  "stage": "composition_a_valider",
+  "stage": "composition_corrigee_a_valider",
   "owner_approved": false,
   "plan_locked": false,
   "detail_generated": false,
@@ -21,8 +21,8 @@
     896
   ],
   "technical_crop_scope": "Seules les bandes extérieures au monde sont retirées ; tous les îlots et leurs soubassements restent dans le cadrage2:1 prévu.",
-  "retained_composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
-  "layout_sha256": "8f2559868b3ee0158a2bf202aca18628516ee6096b66052c2fe3b206452bcae4",
+  "retained_composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+  "layout_sha256": "4184779a497353fe6c96281e147927ee71490b75ce3c7f6f1ee5fab0f59664a3",
   "style_references": [
     {
       "map": 21,
@@ -123,5 +123,8 @@
   ],
   "intermediates_in_git": false,
   "collision_mask_created": false,
-  "runtime_integrated": false
+  "runtime_integrated": false,
+  "composition_correction": "composition_correction.json",
+  "initial_layout_sha256": "8f2559868b3ee0158a2bf202aca18628516ee6096b66052c2fe3b206452bcae4",
+  "layout_scope": "Schéma technique actuel des repères retenus, redessiné depuis la revue corrigée ; guides de retouche intermédiaires hors dépôt."
 }

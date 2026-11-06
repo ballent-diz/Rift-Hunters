@@ -7,7 +7,7 @@
     5016,
     2508
   ],
-  "stage": "composition_a_valider",
+  "stage": "composition_corrigee_a_valider",
   "owner_approved": false,
   "plan_locked": false,
   "detail_generated": false,
@@ -24,6 +24,110 @@
       "id": "west",
       "name": "Départ ouest",
       "polygon_pct": [
+        [
+          11.0026,
+          36.1979
+        ],
+        [
+          12.3698,
+          35.1562
+        ],
+        [
+          14.7135,
+          36.0677
+        ],
+        [
+          17.2526,
+          38.9323
+        ],
+        [
+          18.9453,
+          41.9271
+        ],
+        [
+          19.5964,
+          46.6146
+        ],
+        [
+          19.987,
+          54.4271
+        ],
+        [
+          19.987,
+          63.4115
+        ],
+        [
+          19.6615,
+          68.2292
+        ],
+        [
+          19.5312,
+          77.9948
+        ],
+        [
+          18.8802,
+          86.5885
+        ],
+        [
+          16.7969,
+          91.1458
+        ],
+        [
+          13.151,
+          93.3594
+        ],
+        [
+          9.5703,
+          92.8385
+        ],
+        [
+          6.3151,
+          89.7135
+        ],
+        [
+          3.5807,
+          86.1979
+        ],
+        [
+          2.4089,
+          80.4688
+        ],
+        [
+          1.6276,
+          74.7396
+        ],
+        [
+          1.4323,
+          68.4896
+        ],
+        [
+          2.0182,
+          60.5469
+        ],
+        [
+          4.9479,
+          58.2031
+        ],
+        [
+          7.9427,
+          56.901
+        ],
+        [
+          9.1797,
+          53.5156
+        ],
+        [
+          9.5703,
+          47.526
+        ],
+        [
+          9.375,
+          41.0156
+        ]
+      ],
+      "secondary": false,
+      "walk_reachable": true,
+      "previous_sketch_polygon_pct": [
         [
           2.193,
           39.075
@@ -69,13 +173,141 @@
           57.4163
         ]
       ],
-      "secondary": false,
-      "walk_reachable": true
+      "geometry_scope": "Contour de sol indicatif relevé sur la composition corrigée, sans masque ; détourage exact par le propriétaire après détail.",
+      "silhouette": "L, angle nord-ouest arraché"
     },
     {
       "id": "z1",
       "name": "Z1 · Cours des fondations",
       "polygon_pct": [
+        [
+          25.5208,
+          39.1927
+        ],
+        [
+          27.5391,
+          37.5
+        ],
+        [
+          30.4688,
+          37.7604
+        ],
+        [
+          33.8542,
+          38.4115
+        ],
+        [
+          36.7839,
+          37.1094
+        ],
+        [
+          40.2344,
+          39.4531
+        ],
+        [
+          42.2526,
+          42.4479
+        ],
+        [
+          43.4896,
+          46.7448
+        ],
+        [
+          44.0104,
+          51.8229
+        ],
+        [
+          43.2943,
+          55.4688
+        ],
+        [
+          41.862,
+          57.4219
+        ],
+        [
+          41.2109,
+          59.6354
+        ],
+        [
+          40.6901,
+          62.8906
+        ],
+        [
+          40.8203,
+          66.4062
+        ],
+        [
+          41.862,
+          70.0521
+        ],
+        [
+          43.3594,
+          72.7865
+        ],
+        [
+          44.6615,
+          75.651
+        ],
+        [
+          44.5312,
+          80.0781
+        ],
+        [
+          43.3594,
+          85.9375
+        ],
+        [
+          41.0807,
+          90.2344
+        ],
+        [
+          38.2812,
+          93.4896
+        ],
+        [
+          34.8958,
+          94.6615
+        ],
+        [
+          30.8594,
+          93.75
+        ],
+        [
+          27.474,
+          91.1458
+        ],
+        [
+          25.5208,
+          87.2396
+        ],
+        [
+          24.6094,
+          81.25
+        ],
+        [
+          24.2839,
+          74.349
+        ],
+        [
+          24.2188,
+          67.5781
+        ],
+        [
+          24.4792,
+          61.0677
+        ],
+        [
+          24.8698,
+          53.776
+        ],
+        [
+          25.3255,
+          46.3542
+        ]
+      ],
+      "secondary": false,
+      "walk_reachable": true,
+      "previous_sketch_polygon_pct": [
         [
           25.9171,
           39.8724
@@ -121,13 +353,129 @@
           57.0175
         ]
       ],
-      "secondary": false,
-      "walk_reachable": true
+      "geometry_scope": "Contour de sol indicatif relevé sur la composition corrigée, sans masque ; détourage exact par le propriétaire après détail.",
+      "silhouette": "Croissant ouvert vers l’est, bras inférieur relié au reste du sol"
     },
     {
       "id": "z2",
       "name": "Z2 · Place des charpentes",
       "polygon_pct": [
+        [
+          50.651,
+          25.3906
+        ],
+        [
+          52.0833,
+          22.3958
+        ],
+        [
+          55.0781,
+          20.4427
+        ],
+        [
+          57.8125,
+          19.9219
+        ],
+        [
+          61.4583,
+          20.3125
+        ],
+        [
+          64.4531,
+          22.7865
+        ],
+        [
+          66.6016,
+          25.9115
+        ],
+        [
+          68.0339,
+          29.9479
+        ],
+        [
+          68.8151,
+          34.7656
+        ],
+        [
+          69.401,
+          41.1458
+        ],
+        [
+          69.2708,
+          48.0469
+        ],
+        [
+          69.3359,
+          54.9479
+        ],
+        [
+          68.9453,
+          61.1979
+        ],
+        [
+          68.0339,
+          67.5781
+        ],
+        [
+          66.9271,
+          72.1354
+        ],
+        [
+          65.2344,
+          75.5208
+        ],
+        [
+          62.3047,
+          78.9062
+        ],
+        [
+          59.375,
+          79.9479
+        ],
+        [
+          56.5104,
+          78.9062
+        ],
+        [
+          53.776,
+          76.4323
+        ],
+        [
+          51.5625,
+          72.3958
+        ],
+        [
+          50.1302,
+          67.7083
+        ],
+        [
+          49.1536,
+          62.5
+        ],
+        [
+          48.6979,
+          56.6406
+        ],
+        [
+          48.6328,
+          50.3906
+        ],
+        [
+          48.6979,
+          44.2708
+        ],
+        [
+          48.8281,
+          38.151
+        ],
+        [
+          49.1536,
+          31.901
+        ]
+      ],
+      "secondary": false,
+      "walk_reachable": true,
+      "previous_sketch_polygon_pct": [
         [
           50.8373,
           18.3413
@@ -177,8 +525,102 @@
           29.5056
         ]
       ],
-      "secondary": false,
-      "walk_reachable": true
+      "geometry_scope": "Contour de sol indicatif relevé sur la composition corrigée, sans masque ; détourage exact par le propriétaire après détail.",
+      "silhouette": "Îlot fendu intérieurement, deux rives reliées par un passage court",
+      "interior_void_polygons_pct": [
+        [
+          [
+            48.9583,
+            35.9375
+          ],
+          [
+            51.8229,
+            34.7656
+          ],
+          [
+            53.8411,
+            35.026
+          ],
+          [
+            53.9062,
+            40.7552
+          ],
+          [
+            52.6693,
+            40.2344
+          ],
+          [
+            51.1719,
+            42.0573
+          ],
+          [
+            48.9583,
+            41.1458
+          ]
+        ],
+        [
+          [
+            57.0312,
+            35.026
+          ],
+          [
+            59.1146,
+            35.8073
+          ],
+          [
+            60.5469,
+            34.6354
+          ],
+          [
+            62.6302,
+            35.1562
+          ],
+          [
+            64.0625,
+            36.4583
+          ],
+          [
+            65.6901,
+            34.8958
+          ],
+          [
+            67.3828,
+            36.0677
+          ],
+          [
+            66.9922,
+            39.5833
+          ],
+          [
+            65.625,
+            39.974
+          ],
+          [
+            63.9974,
+            38.8021
+          ],
+          [
+            62.5651,
+            40.1042
+          ],
+          [
+            61.1328,
+            40.3646
+          ],
+          [
+            59.3099,
+            39.5833
+          ],
+          [
+            57.8125,
+            41.276
+          ],
+          [
+            57.0964,
+            41.0156
+          ]
+        ]
+      ]
     },
     {
       "id": "finale",
@@ -234,7 +676,8 @@
         ]
       ],
       "secondary": false,
-      "walk_reachable": true
+      "walk_reachable": true,
+      "silhouette": "Grand îlot de place ouverte"
     },
     {
       "id": "refuge",
@@ -278,7 +721,8 @@
         ]
       ],
       "secondary": true,
-      "walk_reachable": false
+      "walk_reachable": false,
+      "silhouette": "Petit refuge isolé au nord"
     }
   ],
   "zones": [
@@ -288,53 +732,133 @@
       "name": "Cours des fondations",
       "polygon_pct": [
         [
-          25.9171,
-          39.8724
+          25.5208,
+          39.1927
         ],
         [
-          30.9011,
-          35.4864
+          27.5391,
+          37.5
         ],
         [
-          40.4705,
-          36.6826
+          30.4688,
+          37.7604
         ],
         [
-          45.2552,
-          41.4673
+          33.8542,
+          38.4115
         ],
         [
-          46.4514,
-          55.8214
+          36.7839,
+          37.1094
         ],
         [
-          45.6539,
-          78.1499
+          40.2344,
+          39.4531
         ],
         [
-          42.4641,
-          93.7002
+          42.2526,
+          42.4479
         ],
         [
-          34.689,
-          96.4912
+          43.4896,
+          46.7448
         ],
         [
-          26.7145,
-          92.1053
+          44.0104,
+          51.8229
         ],
         [
-          23.9234,
-          80.5423
+          43.2943,
+          55.4688
         ],
         [
-          23.9234,
-          57.0175
+          41.862,
+          57.4219
+        ],
+        [
+          41.2109,
+          59.6354
+        ],
+        [
+          40.6901,
+          62.8906
+        ],
+        [
+          40.8203,
+          66.4062
+        ],
+        [
+          41.862,
+          70.0521
+        ],
+        [
+          43.3594,
+          72.7865
+        ],
+        [
+          44.6615,
+          75.651
+        ],
+        [
+          44.5312,
+          80.0781
+        ],
+        [
+          43.3594,
+          85.9375
+        ],
+        [
+          41.0807,
+          90.2344
+        ],
+        [
+          38.2812,
+          93.4896
+        ],
+        [
+          34.8958,
+          94.6615
+        ],
+        [
+          30.8594,
+          93.75
+        ],
+        [
+          27.474,
+          91.1458
+        ],
+        [
+          25.5208,
+          87.2396
+        ],
+        [
+          24.6094,
+          81.25
+        ],
+        [
+          24.2839,
+          74.349
+        ],
+        [
+          24.2188,
+          67.5781
+        ],
+        [
+          24.4792,
+          61.0677
+        ],
+        [
+          24.8698,
+          53.776
+        ],
+        [
+          25.3255,
+          46.3542
         ]
       ],
       "open_core_center_pct": [
-        34.8884,
-        62.9984
+        32.6823,
+        63.6719
       ],
       "open_core_world": [
         600,
@@ -347,57 +871,121 @@
       "name": "Place des charpentes",
       "polygon_pct": [
         [
-          50.8373,
-          18.3413
+          50.651,
+          25.3906
         ],
         [
-          55.4226,
-          10.3668
+          52.0833,
+          22.3958
         ],
         [
-          65.3907,
-          11.563
+          55.0781,
+          20.4427
         ],
         [
-          69.5774,
-          21.5311
+          57.8125,
+          19.9219
         ],
         [
-          70.5742,
-          40.2711
+          61.4583,
+          20.3125
         ],
         [
-          70.1754,
-          59.8086
+          64.4531,
+          22.7865
         ],
         [
-          67.5837,
-          77.3525
+          66.6016,
+          25.9115
         ],
         [
-          60.4067,
-          82.9346
+          68.0339,
+          29.9479
         ],
         [
-          52.8309,
-          77.7512
+          68.8151,
+          34.7656
         ],
         [
-          49.0431,
-          66.5869
+          69.401,
+          41.1458
         ],
         [
-          48.8437,
-          46.6507
+          69.2708,
+          48.0469
         ],
         [
-          49.6411,
-          29.5056
+          69.3359,
+          54.9479
+        ],
+        [
+          68.9453,
+          61.1979
+        ],
+        [
+          68.0339,
+          67.5781
+        ],
+        [
+          66.9271,
+          72.1354
+        ],
+        [
+          65.2344,
+          75.5208
+        ],
+        [
+          62.3047,
+          78.9062
+        ],
+        [
+          59.375,
+          79.9479
+        ],
+        [
+          56.5104,
+          78.9062
+        ],
+        [
+          53.776,
+          76.4323
+        ],
+        [
+          51.5625,
+          72.3958
+        ],
+        [
+          50.1302,
+          67.7083
+        ],
+        [
+          49.1536,
+          62.5
+        ],
+        [
+          48.6979,
+          56.6406
+        ],
+        [
+          48.6328,
+          50.3906
+        ],
+        [
+          48.6979,
+          44.2708
+        ],
+        [
+          48.8281,
+          38.151
+        ],
+        [
+          49.1536,
+          31.901
         ]
       ],
       "open_core_center_pct": [
-        61.0048,
-        53.0303
+        61.0026,
+        53.6458
       ],
       "open_core_world": [
         600,
@@ -669,8 +1257,8 @@
       "id": "a01",
       "island": "z1",
       "center_pct": [
-        27.9297,
-        44.9219
+        27.7995,
+        48.0469
       ],
       "material": "pan de mur bas",
       "width_world_target": 140,
@@ -678,29 +1266,37 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        27.9297,
+        44.9219
+      ]
     },
     {
       "id": "a02",
       "island": "z1",
       "center_pct": [
-        42.5781,
-        61.7188
+        32.3568,
+        86.4583
       ],
-      "material": "charrette renversée",
+      "material": "pan de mur bas",
       "width_world_target": 140,
       "width_world_allowed": [
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        42.5781,
+        61.7188
+      ]
     },
     {
       "id": "a03",
       "island": "z1",
       "center_pct": [
-        40.7552,
-        43.8802
+        40.6901,
+        44.0104
       ],
       "material": "colonne tombée",
       "width_world_target": 140,
@@ -708,44 +1304,56 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        40.7552,
+        43.8802
+      ]
     },
     {
       "id": "a04",
       "island": "z2",
       "center_pct": [
-        52.474,
-        29.6875
+        52.4089,
+        29.4271
       ],
-      "material": "statue brisée",
+      "material": "colonne tombée",
       "width_world_target": 140,
       "width_world_allowed": [
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        52.474,
+        29.6875
+      ]
     },
     {
       "id": "a05",
       "island": "z2",
       "center_pct": [
-        65.8854,
-        38.2812
+        65.625,
+        30.2083
       ],
-      "material": "cloche tombée",
+      "material": "charrette renversée",
       "width_world_target": 140,
       "width_world_allowed": [
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        65.8854,
+        38.2812
+      ]
     },
     {
       "id": "a06",
       "island": "z2",
       "center_pct": [
-        52.3438,
-        68.8802
+        54.6224,
+        73.5677
       ],
       "material": "pan de mur bas",
       "width_world_target": 140,
@@ -753,7 +1361,11 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        52.3438,
+        68.8802
+      ]
     },
     {
       "id": "a07",
@@ -768,7 +1380,11 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        78.6458,
+        29.6875
+      ]
     },
     {
       "id": "a08",
@@ -783,7 +1399,11 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        93.8802,
+        31.25
+      ]
     },
     {
       "id": "a09",
@@ -792,13 +1412,17 @@
         77.7995,
         87.6302
       ],
-      "material": "cloche tombée",
+      "material": "colonne tombée",
       "width_world_target": 140,
       "width_world_allowed": [
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        77.7995,
+        87.6302
+      ]
     },
     {
       "id": "a10",
@@ -807,13 +1431,17 @@
         93.75,
         88.0208
       ],
-      "material": "charrette renversée",
+      "material": "pan de mur bas",
       "width_world_target": 140,
       "width_world_allowed": [
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        93.75,
+        88.0208
+      ]
     },
     {
       "id": "a11",
@@ -828,7 +1456,11 @@
         110,
         160
       ],
-      "geometry_scope": "Pied proposé relevé sur la composition, gabarit final110–160u à calibrer pendant les régions."
+      "geometry_scope": "Pied proposé relevé après correction de la composition, hors des deux cours600×600u et du noyau final ; gabarit final110–160u à calibrer au détail.",
+      "previous_composition_reference_pct": [
+        41.9271,
+        23.5677
+      ]
     }
   ],
   "architecture_scale_world": {
@@ -859,10 +1491,318 @@
     "Les trois ponts assurent tout le parcours principal sans téléporteur."
   ],
   "coordinate_basis": "Proposition en pourcentages du cadrage entier5016×2508, origine haut-gauche ; relevés à confirmer sur la composition retenue puis au détail.",
-  "composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+  "composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
   "review_limitations": [
     "La composition est agrandie dans les captures pour vérifier la disposition et la lisibilité des sprites ; le sol, l’architecture et les abris recevront leur finesse et leur gabarit final dans huit régions après validation.",
     "Pas de plan.json verrouillé, de tuiles finales, de rapport qualité final ni de masque de collisions à ce stade.",
     "Les dégagements exacts des socles seront mesurés sur le détail puis contrôlés sur les collisions peintes par le propriétaire."
-  ]
+  ],
+  "interior_passages": [
+    {
+      "id": "interior_crossing",
+      "island": "z2",
+      "name": "Passage de pierre sur la faille intérieure",
+      "center_pct": [
+        55.5339,
+        37.8906
+      ],
+      "deck_polygon_pct": [
+        [
+          54.0365,
+          34.6354
+        ],
+        [
+          57.0312,
+          34.6354
+        ],
+        [
+          57.0312,
+          41.9271
+        ],
+        [
+          54.0365,
+          41.9271
+        ]
+      ],
+      "width_world_measured_composition_approx": 150,
+      "width_world_target_detail": 180,
+      "walkable": true,
+      "scope": "Passage à l’intérieur de Z2 ; ne remplace ni ne déplace aucun des trois ponts entre îlots. Gabarit précis à contrôler au détail."
+    }
+  ],
+  "interior_architecture": [
+    {
+      "id": "r1",
+      "island": "z1",
+      "name": "Pâté de deux maisons effondrées à contourner, cour principale au sud",
+      "silhouette_polygon_pct": [
+        [
+          29.6224,
+          40.3646
+        ],
+        [
+          36.263,
+          40.3646
+        ],
+        [
+          36.263,
+          49.7396
+        ],
+        [
+          29.6224,
+          49.7396
+        ]
+      ],
+      "scope": "Emprise graphique indicative, toit compris ; détails et détourage après validation."
+    },
+    {
+      "id": "r2",
+      "island": "z1",
+      "name": "Petite ruine en L dans la cour sud-ouest",
+      "silhouette_polygon_pct": [
+        [
+          25.3255,
+          82.4219
+        ],
+        [
+          28.776,
+          82.4219
+        ],
+        [
+          28.776,
+          89.5833
+        ],
+        [
+          25.3255,
+          89.5833
+        ]
+      ],
+      "scope": "Emprise graphique indicative, toit compris ; détails et détourage après validation."
+    },
+    {
+      "id": "r3",
+      "island": "z2",
+      "name": "Maison effondrée dans la cour inférieure, boucle autour de son emprise",
+      "silhouette_polygon_pct": [
+        [
+          49.349,
+          60.026
+        ],
+        [
+          54.1016,
+          60.026
+        ],
+        [
+          54.1016,
+          69.401
+        ],
+        [
+          49.349,
+          69.401
+        ]
+      ],
+      "scope": "Emprise graphique indicative, toit compris ; détails et détourage après validation."
+    }
+  ],
+  "decorative_corruption_patches": [
+    {
+      "id": "c01",
+      "island": "west",
+      "polygon_pct": [
+        [
+          13.4115,
+          61.0677
+        ],
+        [
+          16.0807,
+          59.8958
+        ],
+        [
+          18.099,
+          62.2396
+        ],
+        [
+          18.4245,
+          66.9271
+        ],
+        [
+          16.6016,
+          70.1823
+        ],
+        [
+          14.1276,
+          68.75
+        ],
+        [
+          12.8255,
+          65.1042
+        ]
+      ],
+      "walkable": true,
+      "gameplay_B9": false,
+      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+    },
+    {
+      "id": "c02",
+      "island": "z1",
+      "polygon_pct": [
+        [
+          29.0365,
+          55.3385
+        ],
+        [
+          31.1198,
+          53.5156
+        ],
+        [
+          33.8542,
+          54.9479
+        ],
+        [
+          35.1562,
+          59.7656
+        ],
+        [
+          33.5938,
+          64.4531
+        ],
+        [
+          30.7943,
+          65.2344
+        ],
+        [
+          28.4505,
+          61.849
+        ]
+      ],
+      "walkable": true,
+      "gameplay_B9": false,
+      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+    },
+    {
+      "id": "c03",
+      "island": "z2",
+      "polygon_pct": [
+        [
+          61.7188,
+          49.349
+        ],
+        [
+          64.0625,
+          48.0469
+        ],
+        [
+          65.8854,
+          50.7812
+        ],
+        [
+          66.5365,
+          55.2083
+        ],
+        [
+          64.9089,
+          58.724
+        ],
+        [
+          62.8255,
+          57.5521
+        ],
+        [
+          61.1979,
+          53.2552
+        ]
+      ],
+      "walkable": true,
+      "gameplay_B9": false,
+      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+    },
+    {
+      "id": "c04",
+      "island": "finale",
+      "polygon_pct": [
+        [
+          86.5885,
+          59.7656
+        ],
+        [
+          89.0625,
+          57.6823
+        ],
+        [
+          91.9922,
+          59.6354
+        ],
+        [
+          93.4896,
+          64.5833
+        ],
+        [
+          92.0573,
+          69.1406
+        ],
+        [
+          89.1276,
+          70.0521
+        ],
+        [
+          86.263,
+          67.0573
+        ],
+        [
+          85.6771,
+          63.151
+        ]
+      ],
+      "walkable": true,
+      "gameplay_B9": false,
+      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+    },
+    {
+      "id": "c05",
+      "island": "refuge",
+      "polygon_pct": [
+        [
+          28.776,
+          14.4531
+        ],
+        [
+          30.4688,
+          13.4115
+        ],
+        [
+          32.0312,
+          15.7552
+        ],
+        [
+          31.7708,
+          19.9219
+        ],
+        [
+          29.9479,
+          22.6562
+        ],
+        [
+          28.3854,
+          19.5312
+        ],
+        [
+          28.0599,
+          16.6667
+        ]
+      ],
+      "walkable": true,
+      "gameplay_B9": false,
+      "geometry_scope": "Emprise de matériau proposée, lisible sur composition ; limites fines à relever au détail."
+    }
+  ],
+  "corruption_distribution": "Cinq nappes distinctes, sols pâles majoritairement sains entre elles ; pas de corruption uniforme.",
+  "overall_layout_kept_by_owner": true,
+  "owner_correction_date": "2026-11-06",
+  "owner_correction_request": "Varier les silhouettes des îlots, ajouter architecture et cours à contourner en Z1/Z2, regrouper la corruption en4–6nappes ; ponts, socles et départ inchangés.",
+  "locked_landmarks": {
+    "bridges_unchanged": true,
+    "teleporters_unchanged": true,
+    "start_unchanged": true,
+    "pixels_proof": "composition_correction.json"
+  }
 }

@@ -102,7 +102,7 @@ func _capture() -> void:
 	add_child(_caption)
 	_world.scale = Vector2.ONE * (1180.0 / 5016.0)
 	_world.position = Vector2(50, 65)
-	_caption.text = "CARTE 23 · QUARTIERS SUSPENDUS · COMPOSITION ENTIÈRE À VALIDER"
+	_caption.text = "CARTE 23 · QUARTIERS SUSPENDUS · COMPOSITION CORRIGÉE"
 	await _save("ensemble_720p")
 	_actors = Node2D.new()
 	_actors.y_sort_enabled = true
@@ -117,10 +117,13 @@ func _capture() -> void:
 	for teleport: Dictionary in proposal.teleporters:
 		if teleport.id == "a1" or teleport.id == "c2":
 			scenes.append(["socle_" + String(teleport.id), teleport.center_pct])
+	for passage: Dictionary in proposal.get("interior_passages", []):
+		scenes.append(["faille_interieure", passage.center_pct])
+	scenes.append(["cour_interieure", [31.8979, 55.0239]])
 	for spec: Array in scenes:
 		var center := Vector2(spec[1][0] * 50.16, spec[1][1] * 25.08)
 		_camera(center)
-		if String(spec[0]).begins_with("pont"):
+		if String(spec[0]).begins_with("pont") or spec[0] == "faille_interieure":
 			_hunter.position = center + Vector2(-42, -25)
 			_echo.position = center + Vector2(45, 25)
 		elif spec[0] == "socle_c2":
@@ -131,8 +134,8 @@ func _capture() -> void:
 			_echo.position = center + Vector2(115, 25)
 		_caption.text = "COMPOSITION 23 · %s · CHASSEUR / ÉCHO · ZOOM RÉEL · DÉTAIL À VENIR" % String(spec[0]).to_upper()
 		await _save(String(spec[0]) + "_zoom_jeu")
-	await _witnesses(Vector2(1750, 1560), "dalles")
-	await _witnesses(Vector2(1660, 1880), "corruption")
+	await _witnesses(Vector2(1698, 1789), "dalles")
+	await _witnesses(Vector2(1585, 1515), "corruption")
 	await _witnesses(Vector2(3380, 1420), "vide")
 	var receipt := {"viewport": [1280, 720], "camera_zoom": GameDB.balance.camera_zoom,
 		"composition_sha256": FileAccess.get_sha256(COMPOSITION), "scope": "composition_a_valider",

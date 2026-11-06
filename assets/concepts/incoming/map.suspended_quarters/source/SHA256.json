@@ -1,12 +1,15 @@
 {
   ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-  "composition.png": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
-  "job.json": "31f140eff35ae5ad3221188d39beec53328eeee275383c6a34e6ba7d7a5920a4",
+  "composition.png": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+  "job.json": "5721a58e97d6592fafc9fb72899c40684303367c9bdbf015786317a29f0db0cf",
   "source/PROMPT_BRIDGES.txt": "f89411c4bd61822dfcbd6c70a7c2f9a921642eb4584a7b95ceebddd1edecae97",
   "source/PROMPT_COMPOSITION.txt": "7514b5b2235157ed8a15db05db65a9ae3be65c047bb51b80ea336ba58755e831",
+  "source/PROMPT_CORRECTION_COMPOSITION.txt": "8cc3221780d1a4742a066d75b419f3d74a676d76fc8d15ca4a44fc96bebc8aa8",
+  "source/PROMPT_COURS_CORRECTION.txt": "a889a09ec017fc6b0d1eecd352eadb5bd1571f5973600a3af3c8509128fffea0",
   "source/PROMPT_PADS.txt": "81bd1a244d32696f141f8e8448c3b542a170cb0405ec8aa45ae48a5d92e36d4f",
-  "source/composition_measurements.json": "9e337cbfa1a630b52fc5a97f992eaf2ec3dc2a16b78cb105cbb37d88041f5c77",
-  "source/composition_review.json": "a3ca2cfbb843388dff9317f9a8a9bd4f6861b5382059616c227882cfa9ac392d",
-  "source/generation.json": "018a0f63491bff6acb3fe367ddb147c5628803ae43e7009c0c1b52785f0406a6",
-  "source/layout.png": "8f2559868b3ee0158a2bf202aca18628516ee6096b66052c2fe3b206452bcae4"
+  "source/composition_correction.json": "daf3520221c125f6c8f359a12df884c76b7a03d7cab362d878c633e15033e187",
+  "source/composition_measurements.json": "f31adc860f5c39d25ba795decd13228d5bb4b758a04753a4931e3ecf5c2b9f3f",
+  "source/composition_review.json": "5dacfe14b9d1dac871f66180606a8a4e8b10a348135a8350f0e0a6abc9ae285b",
+  "source/generation.json": "c2c954a81ea013e69fa52d6ad2eb68384d613bb5b6085302bb69b1a629936823",
+  "source/layout.png": "4184779a497353fe6c96281e147927ee71490b75ce3c7f6f1ee5fab0f59664a3"
 }

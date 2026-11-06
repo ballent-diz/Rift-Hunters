@@ -66,5 +66,40 @@
     231.86,
     202.47
   ],
-  "scope": "Relevés de composition ; précision3,27u par pixel, pas de collision ou navigation validée."
+  "scope": "Relevés de composition ; précision3,27u par pixel, pas de collision ou navigation validée.",
+  "revision": "Correction des silhouettes, cours intérieures et cinq nappes",
+  "free_court_checks": [
+    {
+      "zone": "z1",
+      "core_pixels": [
+        410.134099291866,
+        397.134163291866,
+        593.866156708134,
+        580.8662207081339
+      ],
+      "world_size": [
+        600,
+        600
+      ],
+      "architecture_and_covers_outside": true,
+      "scope": "Relevés graphiques et vue annotée, pas de navigation ni de collisions testées."
+    },
+    {
+      "zone": "z2",
+      "core_pixels": [
+        845.133907291866,
+        320.13371529186605,
+        1028.865964708134,
+        503.865772708134
+      ],
+      "world_size": [
+        600,
+        600
+      ],
+      "architecture_and_covers_outside": true,
+      "scope": "Relevés graphiques et vue annotée, pas de navigation ni de collisions testées."
+    }
+  ],
+  "locked_regions_proof": "composition_correction.json",
+  "graphic_landmarks_identical": true
 }
