@@ -1,0 +1,51 @@
+# Vérifications automatiques du jeu à chaque pull request et à chaque fusion dans main :
+# import Godot, scripts, tests unitaires, persistance, assets, partie jouée par le bot, lint (tools/run_tests.sh).
+name: Tests
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: tests-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GODOT_VERSION: 4.3-stable
+      # Machines partagées plus lentes : le test de charge ne signale que les régressions graves.
+      PERF_BUDGET_MS: "30"
+      STEP_TIMEOUT: "1500"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Installer gdtoolkit
+        run: pip install --quiet "gdtoolkit==4.*"
+
+      - name: Installer Godot
+        run: |
+          curl -sSL --retry 4 -o godot.zip \
+            "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          unzip -q godot.zip -d "$HOME/godot"
+          rm godot.zip
+          echo "GODOT=$HOME/godot/Godot_v${GODOT_VERSION}_linux.x86_64" >> "$GITHUB_ENV"
+
+      # Les images importées (cartes de plusieurs Mo) sont gardées d'une exécution à l'autre.
+      - name: Cache des imports Godot
+        uses: actions/cache@v4
+        with:
+          path: .godot/imported
+          key: godot-imports-${{ hashFiles('**/*.import', 'project.godot') }}
+          restore-keys: godot-imports-
+
+      - name: Vérifications (tools/run_tests.sh)
+        run: tools/run_tests.sh all
