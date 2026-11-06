@@ -246,6 +246,7 @@ EXPEDITION_STARTER,Écho de départ,Starting Echo
 EXPEDITION_TEAM,Équipe d'Échos (%d/%d),Echo team (%d/%d)
 EXPEDITION_TEAM_HINT,Cliquez sur un Écho pour l'ajouter à l'équipe ou l'en retirer. Le premier mène l'équipe. Chaque carte gagnée débloque un nouvel Écho.,Click an Echo to add it to the team or remove it. The first one leads the team. Each map won unlocks a new Echo.
 EXPEDITION_MASTERY,Maîtrise : niveau %d,Mastery: level %d
+EXPEDITION_ECHO_SPELL,"%s — sort actif, %s : %s","%s — active spell, %s: %s"
 EXPEDITION_LOCKED,Verrouillé,Locked
 EXPEDITION_UNLOCK_BY,Pour le débloquer : %s,To unlock: %s
 EXPEDITION_PALETTE,Teinte rare,Rare hue

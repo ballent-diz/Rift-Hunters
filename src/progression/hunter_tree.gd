@@ -246,7 +246,7 @@ static func slot_unlock_arena(slot: int) -> StringName:
 
 static func slot_unlocked(profile: ProfileData, slot: int) -> bool:
 	var arena_id: StringName = slot_unlock_arena(slot)
-	return arena_id == &"" or Campaign.wins(profile, arena_id) > 0
+	return arena_id == &"" or Campaign.wins(profile, arena_id) > 0 or bool(profile.data["hunter"].get("test_mode", false))
 
 
 ## Équipe un sort actif sur un emplacement ouvert (échange avec l'emplacement qu'il occupait).
@@ -303,6 +303,8 @@ static func unlock_all_for_testing(profile: ProfileData) -> void:
 		profile.set_tree_rank(id, (GameDB.echo_nodes[id] as SkillNodeData).max_rank())
 	profile.data["runs"]["won"] = maxi(boss_wins(profile), 3)
 	profile.data["hunter"]["test_points"] = 200
+	# Emplacements de sort 3 et 4 ouverts sans gagner leurs cartes (retour de test).
+	profile.data["hunter"]["test_mode"] = true
 	Campaign.unlock_all_for_testing(profile)
 	profile.add_currency("shards", 10000)
 

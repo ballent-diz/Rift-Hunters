@@ -50,6 +50,10 @@ var _playlist_context: String = ""
 var _prefetched: Dictionary = {}
 var _next_track: String = ""
 var _loading: Dictionary = {}
+## Morceaux joués pendant la carte en cours et la précédente : une carte n'en reprend aucun de la précédente
+## (retour de test), tant qu'il en reste d'autres.
+var _map_tracks: Array[String] = []
+var _last_map_tracks: Array[String] = []
 
 
 func _ready() -> void:
@@ -159,7 +163,7 @@ func play_context(context: String) -> void:
 	var id: String = str(_prefetched.get(context, ""))
 	_prefetched.erase(context)
 	if not ids.has(id):
-		id = ids[_rng.randi() % ids.size()]
+		id = _pick(ids)
 	if id == current_track_id and _players[_active].playing:
 		return
 	_play_track(id)
@@ -172,7 +176,7 @@ func prefetch(context: String) -> void:
 	var ids: Array[String] = tracks_for(resolve_context(context))
 	if ids.is_empty():
 		return
-	var id: String = ids[_rng.randi() % ids.size()]
+	var id: String = _pick(ids)
 	_prefetched[context] = id
 	_request(str(music_tracks[id]["path"]))
 
@@ -201,7 +205,24 @@ func next_track_id(context: String, previous: String) -> String:
 		return ""
 	if ids.size() > 1:
 		ids.erase(previous)
-	return ids[_rng.randi() % ids.size()]
+	return _pick(ids)
+
+
+## Nouvelle carte : ses morceaux devront différer de ceux de la carte qui s'achève.
+func begin_map() -> void:
+	_last_map_tracks = _map_tracks
+	_map_tracks = []
+	_prefetched.clear()
+
+
+## Au hasard parmi `ids`, en écartant les morceaux de la carte précédente quand il en reste d'autres.
+func _pick(ids: Array[String]) -> String:
+	var fresh: Array[String] = []
+	for id: String in ids:
+		if not _last_map_tracks.has(id):
+			fresh.append(id)
+	var pool: Array[String] = fresh if not fresh.is_empty() else ids
+	return pool[_rng.randi() % pool.size()]
 
 
 func _on_track_finished(player: AudioStreamPlayer) -> void:
@@ -222,6 +243,8 @@ func _play_track(id: String) -> void:
 	if stream == null:
 		return
 	current_track_id = id
+	if not _map_tracks.has(id):
+		_map_tracks.append(id)
 	current_bpm = float(track.get("bpm", 0.0))
 	current_beat_offset = float(track.get("beat_offset", 0.0))
 	_last_beat = -1

@@ -5,6 +5,10 @@ extends Node2D
 const DISSOLVE_TIME := 1.2
 const APPEAR_TIME := 0.5
 const GLOW := Color(0.72, 0.79, 1.0)
+## Flèche de route stable (retour de test) : elle ne suit un nouveau cap que s'il s'écarte de plus de ROUTE_DEADZONE
+## (radians) de celui qu'elle montre, et elle y tourne en douceur (ROUTE_TURN_TIME).
+const ROUTE_DEADZONE := 0.45
+const ROUTE_TURN_TIME := 0.3
 
 var ctx: RunContext
 var _time: float = 0.0
@@ -14,6 +18,9 @@ var _previous: Array[bool] = []
 var _curtains: Array[RiftWallVisual] = []
 var _version: int = -1
 var _dirty: bool = true
+## Cap montré par la flèche de route et cap visé (zéro : pas de flèche).
+var _route_dir := Vector2.ZERO
+var _route_goal := Vector2.ZERO
 
 
 func setup(p_ctx: RunContext) -> void:
@@ -47,6 +54,7 @@ func _process(delta: float) -> void:
 		_appearing[index] = minf(APPEAR_TIME, float(_appearing[index]) + delta)
 	if _dirty:
 		_rebuild()
+	_steer_route(delta)
 	for curtain: RiftWallVisual in _curtains:
 		var id: int = curtain.members[0]
 		var strength: float = 1.0
@@ -87,14 +95,27 @@ func _draw() -> void:
 		_draw_route()
 
 
+func _steer_route(delta: float) -> void:
+	var dir: Vector2 = ctx.objective_direction(ctx.player.global_position) if ctx.player else Vector2.ZERO
+	if dir == Vector2.ZERO:
+		_route_dir = Vector2.ZERO
+		_route_goal = Vector2.ZERO
+		return
+	if _route_dir == Vector2.ZERO:
+		_route_dir = dir
+		_route_goal = dir
+		return
+	if absf(_route_goal.angle_to(dir)) > ROUTE_DEADZONE:
+		_route_goal = dir
+	_route_dir = _route_dir.slerp(_route_goal, 1.0 - exp(-delta / ROUTE_TURN_TIME)).normalized()
+
+
 ## Chevrons autour du Chasseur dans la direction de la route à suivre.
 func _draw_route() -> void:
-	if ctx.player == null:
+	if ctx.player == null or _route_dir == Vector2.ZERO:
 		return
 	var pos: Vector2 = ctx.player.global_position
-	var dir: Vector2 = ctx.objective_direction(pos)
-	if dir == Vector2.ZERO:
-		return
+	var dir: Vector2 = _route_dir
 	var bob: float = 2.0 * sin(_time * 2.4)
 	for k: int in 2:
 		var tip: Vector2 = pos + dir * (58.0 + 14.0 * k + bob)

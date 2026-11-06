@@ -50,7 +50,14 @@ func _check(id: StringName, places: Dictionary) -> void:
 
 func test_storm_highlands_landmarks_are_reachable() -> void:
 	_check(&"storm_highlands", {"place centrale": Vector2(-11, -323), "cour du bas": Vector2(167, 1505),
-		"sanctuaire": Vector2(1710, -225), "champ de basalte": Vector2(-1605, 752), "menhirs": Vector2(-11, -1928)})
+		"sanctuaire": Vector2(1710, -225), "champ de basalte": Vector2(-1605, 752), "menhirs": Vector2(-11, -1928),
+		"faille de l'est": Vector2(1280, -60)})
+	# Retour de test : la faille de l'est était dans le sanctuaire, derrière l'escalier ; elle est sur la route dégagée.
+	var arena: ArenaData = GameDB.arena(&"storm_highlands")
+	var ground := ArenaGround.new()
+	ground.setup(arena, 7)
+	check(not ground.obstacle_field().blocks(arena.rift_points[3], 150.0), "faille de l'est : place libre autour")
+	ground.free()
 
 
 func test_three_rifts_landmarks_are_reachable() -> void:

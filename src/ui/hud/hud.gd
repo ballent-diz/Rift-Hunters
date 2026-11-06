@@ -12,6 +12,10 @@ const SPELL_SLOT := 64.0
 const SPELL_GAP := 34.0
 ## Durée d'affichage d'une fiche de mécanique.
 const CARD_TIME := 8.0
+## Bandeau d'annonce : durée minimale, caractères lus par seconde, durée maximale.
+const BANNER_MIN := 3.5
+const BANNER_READ := 15.0
+const BANNER_MAX := 9.0
 
 var ctx: RunContext
 ## Astuces de la première expédition (déclenchées par les actions du joueur).
@@ -23,6 +27,7 @@ var _banner_text: String = ""
 var _card_key: String = ""
 var _card_time: float = 0.0
 var _banner_time: float = 0.0
+var _banner_queue: Array[String] = []
 var _icons: Dictionary = {}
 var _beat: float = 0.0
 var _tip_text: String = ""
@@ -71,13 +76,28 @@ func _on_event_started(key: String) -> void:
 	banner(tr(key))
 
 
+## Bandeau : affiché le temps de le lire (BANNER_MIN + longueur / BANNER_READ, plafonné) ; une annonce qui arrive
+## pendant qu'une autre est lue attend son tour au lieu de l'effacer.
 func banner(text: String) -> void:
+	if text == "" or text == _banner_text and _banner_time > 1.0 or _banner_queue.has(text):
+		return
+	if _banner_time > 1.0:
+		if _banner_queue.size() >= 3:
+			_banner_queue.pop_front()
+		_banner_queue.append(text)
+		return
+	_show_banner(text)
+
+
+func _show_banner(text: String) -> void:
 	_banner_text = text
-	_banner_time = 3.0
+	_banner_time = clampf(BANNER_MIN + text.length() / BANNER_READ, BANNER_MIN, BANNER_MAX)
 
 
 func _process(delta: float) -> void:
 	_banner_time = maxf(_banner_time - delta, 0.0)
+	if _banner_time <= 0.0 and not _banner_queue.is_empty():
+		_show_banner(_banner_queue.pop_front())
 	_card_time = maxf(_card_time - delta, 0.0)
 	_beat = maxf(_beat - delta * 4.0, 0.0)
 	tutorial.step(delta)
