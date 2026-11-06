@@ -22,7 +22,9 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   blocage). À mesurer en priorité avec le point des performances.
 - [x] **Objectifs en jaune** : les phrases restent à peine une seconde à l'écran, pas le temps de les lire. Corrigé
   le 6 novembre : 3,5 à 9 s selon la longueur, et une annonce ne chasse plus la précédente (file d'attente).
-- [ ] **Sorts de boss en cercle de 360°** : impossibles à esquiver.
+- [x] **Sorts de boss en cercle de 360°** : impossibles à esquiver. Corrigé le 6 novembre : tout anneau de boss garde
+  une brèche du côté du Chasseur (et une à l'opposé), les couloirs sûrs sont dessinés en vert dès l'annonce avec
+  l'anneau à venir ; animations pixelfx aux couleurs de la famille du boss (charge, onde de choc, poussière du front).
 - [x] **Sorts visés en mode clavier** : les sorts qui se visaient à la souris doivent se lancer sur le Chasseur
   (ex. Singularité doit s'activer sur le personnage, pas à un endroit au hasard de la carte). Corrigé le 6 novembre :
   au clavier seul, Singularité, Cristal, Failles jumelles, Rupture et Appel de meute partent sur le Chasseur,

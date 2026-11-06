@@ -2,7 +2,10 @@
 	"note": "Palettes par famille de monstres (du plus sombre au plus clair, le blanc reste le cœur de l'effet). Effets pixelfx (MIT) générés par tools/art/build_pixelfx.py ; une feuille par effet et par famille dans assets/vfx/pixelfx/.",
 	"effects": {
 		"hit": {"source": "impacts/hit-spark", "opts": {"seed": 4}},
-		"death": {"source": "spawn/poof", "opts": {"seed": 3}}
+		"death": {"source": "spawn/poof", "opts": {"seed": 3}},
+		"ring_charge": {"source": "explosions/implosion", "opts": {"seed": 5}},
+		"ring_burst": {"source": "impacts/ground-slam", "opts": {"seed": 6}},
+		"ring_dust": {"source": "impacts/heavy-landing", "opts": {"seed": 7}}
 	},
 	"families": {
 		"violet": ["#1d0b2e", "#3e1763", "#6b2a9e", "#9b4fd1", "#c48cf0", "#e6c8ff", "#ffffff"],
