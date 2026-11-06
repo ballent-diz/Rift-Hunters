@@ -65,6 +65,8 @@ func spell_capture(pattern: BossPatternData) -> void:
 
 
 func _release() -> void:
+	if ctx.pixel_fx:
+		ctx.pixel_fx.technique(boss(), &"spell_capture_release")
 	var count: int = capture["count"]
 	var damage: float = capture["damage"]
 	var per: int = capture["per"]

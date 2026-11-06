@@ -44,6 +44,20 @@ func technique_ally_shield(enemy: Enemy, technique: EnemyTechniqueData, _player_
 		return false
 	enemy.technique_busy = duration
 	ctx.fx.ring(enemy.position, radius, Color(0.55, 0.95, 0.6, 0.7), 0.5)
+	# Armure qui se fend (E8, Gardien d'écorce) : le bouclier tombé, son écorce reste fendue `crack_time` secondes
+	# (défense retirée, dégâts subis × `crack_mult`) : la fenêtre pour le frapper.
+	var crack: float = float(technique.params.get("crack_time", 0.0))
+	if crack > 0.0:
+		m._later(enemy, duration, func() -> void:
+			var defense: float = enemy.base_defense
+			enemy.base_defense = 0.0
+			enemy.extra_damage_taken = float(technique.params.get("crack_mult", 1.5))
+			ctx.fx.text(enemy.position + Vector2(0, -enemy.radius - 24.0), tr("ENEMY_WEAK_POINT"), Color(0.75, 1.0, 0.6))
+			if ctx.pixel_fx:
+				ctx.pixel_fx.technique(enemy, &"armor_crack")
+			m._later(enemy, crack, func() -> void:
+				enemy.base_defense = defense
+				enemy.extra_damage_taken = 1.0))
 	return true
 
 

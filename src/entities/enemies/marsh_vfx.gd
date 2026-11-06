@@ -23,8 +23,10 @@ func _painted() -> PaintedVfx:
 	return ctx.painted if ctx and ctx.painted and is_instance_valid(ctx.painted) else null
 
 
-## Appelé après chaque technique réussie : coups et boucles dont la géométrie se lit dans la technique.
+## Appelé après chaque technique réussie : effets pixelfx de la compétence (tous chapitres), puis coups et boucles
+## peints dont la géométrie se lit dans la technique.
 func technique(enemy: Enemy, technique_data: EnemyTechniqueData, player_pos: Vector2) -> void:
+	if ctx.pixel_fx: ctx.pixel_fx.technique(enemy, technique_data.kind, technique_data.params)
 	var painted: PaintedVfx = _painted()
 	if painted == null or enemy.data == null:
 		return

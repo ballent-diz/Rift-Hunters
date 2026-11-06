@@ -526,3 +526,12 @@ Composition validée et plan figé3344 ×5016 : trois rues sud→nord, trois tra
 ## Carte 23 — Les Quartiers suspendus : composition corrigée (Codex, 6 novembre)
 
 Plan général conservé par le propriétaire5016 ×2508 ouest→est : quatre îlots et trois ponts de parcours inchangés, refuge nord sans accès à pied, trois paires de socles et départ conservés. Corrections réalisées avant le détail : îlot ouest enL, Z1 en croissant, Z2 fendu par un gouffre intérieur avec court passage de pierre ; trois blocs de maisons/ruines à contourner et cours intérieures ; cinq nappes de corruption distinctes, sols sains entre elles. Dégagements600 ×600u par zone et1000 ×1000u en finale, hors bâtiments et abris. Les pixels des trois ponts, six socles et repère de départ sont identiques à la précédente proposition (empreintes conservées). Onze captures au zoom réel, import Godot/lint/contrôle assets sans erreur. Finesse et gabarits des abris restent provisoires ; prochaine étape après revue : plan figé, huit régions détaillées puis contrôle qualité conforme et référence des collisions. Aucun masque ni nouvelle mécanique codée. Voir docs/maps/QUARTIERS_SUSPENDUS.md. Aucun changement de src/, data/, du manifeste ou des cartes14 à22.
+
+## Compétences et effets pixelfx par famille (lot 1, 6 novembre)
+
+Audit et attribution « Corrompu → compétence → effet pixelfx » : [design/VFX_COMPETENCES.md](design/VFX_COMPETENCES.md).
+Validé le 6 novembre. **Lot 2 livré** (chapitres 1 et 2 et leurs boss) : catalogue `assets/vfx/pixelfx/techniques.json`
+(lu par le jeu et par `tools/art/build_pixelfx.py`, qui ne génère que les feuilles utilisées), moments annonce, impact
+(zone qui frappe), état (boucle qui suit le lanceur), tir. **Lot 3 livré** : Givrés, Échos du silence, aura de la Mère-spore,
+armure qui se fend du Gardien d'écorce (E8), boss des chapitres 3 et 4 (hors Glauquemire et Dévoreur des Sources,
+peints) ; feuilles de plus de 40 images allégées (une sur deux).

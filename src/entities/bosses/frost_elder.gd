@@ -57,6 +57,10 @@ func _release() -> void:
 	var pos: Vector2 = freeze["pos"]
 	var sheltered: bool = ctx.player.global_position.distance_to(pos) <= float(freeze["radius"])
 	ctx.fx.ring(boss().position, 900.0, Color(RIME, 0.7), 0.5)
+	if ctx.pixel_fx:
+		ctx.pixel_fx.technique(boss(), &"deep_freeze_release")
+		if int(freeze["keep"]) >= 0:
+			ctx.pixel_fx.moment(boss(), &"deep_freeze_shelter", "cast", pos)
 	ctx.fx.debris(ctx.player.global_position, RIME, 12)
 	if ctx.player.alive and not sheltered:
 		ctx.combat.damage_player(float(freeze["damage"]), boss().boss_data.id)
