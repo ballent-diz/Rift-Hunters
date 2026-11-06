@@ -6,6 +6,10 @@ signal changed
 const FORMAT_VERSION := 1
 const SUPPORTED_LOCALES: Array[String] = ["fr", "en"]
 
+## Fenêtre au démarrage : part de l'écran utilisable au plus, et taille minimale (fit_window).
+const WINDOW_SCREEN_SHARE := 0.9
+const WINDOW_MIN := Vector2i(960, 540)
+
 var path: String = "user://settings.json"
 var locale: String = ""
 var master_volume: float = 0.8
@@ -36,6 +40,7 @@ func _ready() -> void:
 	InputSetup.ensure_actions()
 	load_settings()
 	apply()
+	fit_window()
 
 
 func load_settings() -> void:
@@ -106,8 +111,31 @@ func apply() -> void:
 			# Fenêtre agrandie ou réduite = mode fenêtré : on ne la remet pas à sa taille d'origine à chaque réglage.
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if fullscreen
 				else DisplayServer.WINDOW_MODE_WINDOWED)
+			if not fullscreen:
+				fit_window()
 		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if vsync else DisplayServer.VSYNC_DISABLED)
 	changed.emit()
+
+
+## Fenêtre entièrement visible et centrée (retour de test : sur un petit écran ou avec une mise à l'échelle Windows,
+## la fenêtre de 1600 × 900 débordait et une partie des menus était hors de portée).
+func fit_window() -> void:
+	if DisplayServer.get_name() == "headless" or DisplayServer.window_get_mode() != DisplayServer.WINDOW_MODE_WINDOWED:
+		return
+	var screen: int = DisplayServer.window_get_current_screen()
+	var rect: Rect2i = fitted_window(DisplayServer.screen_get_usable_rect(screen), DisplayServer.window_get_size())
+	DisplayServer.window_set_size(rect.size)
+	DisplayServer.window_set_position(rect.position)
+
+
+## Taille et position d'une fenêtre `wanted` dans la zone utile de l'écran `usable` : réduite au besoin (90 % de la
+## zone au plus, rapport 16:9 gardé, jamais sous 960 × 540 si l'écran le permet), puis centrée.
+static func fitted_window(usable: Rect2i, wanted: Vector2i) -> Rect2i:
+	var room := Vector2(usable.size) * WINDOW_SCREEN_SHARE
+	var ratio: float = minf(1.0, minf(room.x / maxf(wanted.x, 1.0), room.y / maxf(wanted.y, 1.0)))
+	var size := Vector2i((Vector2(wanted) * ratio).round())
+	size = size.max(WINDOW_MIN.min(usable.size))
+	return Rect2i(usable.position + (usable.size - size) / 2, size)
 
 
 static func is_fullscreen_mode(mode: DisplayServer.WindowMode) -> bool:

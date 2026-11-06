@@ -35,6 +35,18 @@ func _build() -> void:
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(bg)
+	# Écran d'un autre format que l'image (5:4, ultra-large) : les bandes reprennent l'image, assombrie et recadrée,
+	# pour que le menu reste centré sans bandes noires (retour de test).
+	var backdrop := TextureRect.new()
+	backdrop.name = "Backdrop"
+	backdrop.texture = MENU_ART
+	backdrop.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	backdrop.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
+	backdrop.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	backdrop.modulate = Color(0.22, 0.2, 0.28)
+	backdrop.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	backdrop.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(backdrop)
 	_canvas = Control.new()
 	_canvas.name = "MenuCanvas"
 	_canvas.size = DESIGN_SIZE

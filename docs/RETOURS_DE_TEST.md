@@ -4,7 +4,10 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 
 ## Session du 3 novembre 2026
 
-- [ ] **Menus pas centrés, fenêtre pas entièrement accessible** : une partie des menus est hors de portée.
+- [x] **Menus pas centrés, fenêtre pas entièrement accessible** : une partie des menus est hors de portée. Corrigé le
+  6 novembre : la fenêtre (1600 × 900) est réduite à 90 % de l'écran utilisable au besoin et centrée au lancement ;
+  l'écran titre n'a plus de bandes noires (fond recadré) ; le refuge reste centré sur écran ultra-large. À confirmer
+  sur le PC du propriétaire.
 - [ ] **Économie trop généreuse au début** : 1 023 Éclats à la fin de la carte 1, et déjà beaucoup de passifs
   accessibles. Revoir les gains de la carte 1 et le coût et l'ordre de déblocage des passifs.
 - [x] **Sélection des Échos** : ajouter une brève description du sort actif de chaque Écho. Corrigé le 6 novembre :
