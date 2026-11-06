@@ -1,0 +1,389 @@
+{
+  "date": "2026-11-06",
+  "corrections": [
+    {
+      "id": "a01",
+      "kind": "cover",
+      "box_world": [
+        428.832,
+        3783.12,
+        928.832,
+        4283.12
+      ],
+      "foot_reference_world": [
+        678.832,
+        4113.12
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a02",
+      "kind": "cover",
+      "box_world": [
+        318.48,
+        2549.1839999999997,
+        818.48,
+        3049.1839999999997
+      ],
+      "foot_reference_world": [
+        568.48,
+        2879.1839999999997
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a03",
+      "kind": "cover",
+      "box_world": [
+        238.22399999999993,
+        1761.672,
+        738.2239999999999,
+        2261.672
+      ],
+      "foot_reference_world": [
+        488.22399999999993,
+        2091.672
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a04",
+      "kind": "cover",
+      "box_world": [
+        1432.0319999999997,
+        3888.455999999999,
+        1932.0319999999997,
+        4388.455999999999
+      ],
+      "foot_reference_world": [
+        1682.0319999999997,
+        4218.455999999999
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a05",
+      "kind": "cover",
+      "box_world": [
+        1348.4319999999998,
+        3221.3279999999995,
+        1848.4319999999998,
+        3721.3279999999995
+      ],
+      "foot_reference_world": [
+        1598.4319999999998,
+        3551.3279999999995
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a06",
+      "kind": "cover",
+      "box_world": [
+        1365.1519999999998,
+        1856.976,
+        1865.1519999999998,
+        2356.976
+      ],
+      "foot_reference_world": [
+        1615.1519999999998,
+        2186.976
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a07",
+      "kind": "cover",
+      "box_world": [
+        2625.8399999999997,
+        3336.6959999999995,
+        3125.8399999999997,
+        3836.6959999999995
+      ],
+      "foot_reference_world": [
+        2875.8399999999997,
+        3666.6959999999995
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a08",
+      "kind": "cover",
+      "box_world": [
+        2592.3999999999996,
+        2494.008,
+        3092.3999999999996,
+        2994.008
+      ],
+      "foot_reference_world": [
+        2842.3999999999996,
+        2824.008
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a09",
+      "kind": "cover",
+      "box_world": [
+        2689.376,
+        1761.672,
+        3189.376,
+        2261.672
+      ],
+      "foot_reference_world": [
+        2939.376,
+        2091.672
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a10",
+      "kind": "cover",
+      "box_world": [
+        238.22399999999993,
+        352.17599999999993,
+        738.2239999999999,
+        852.1759999999999
+      ],
+      "foot_reference_world": [
+        488.22399999999993,
+        682.1759999999999
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a11",
+      "kind": "cover",
+      "box_world": [
+        2659.2799999999997,
+        362.20799999999997,
+        3159.2799999999997,
+        862.208
+      ],
+      "foot_reference_world": [
+        2909.2799999999997,
+        692.208
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a12",
+      "kind": "cover",
+      "box_world": [
+        224.84799999999996,
+        1044.3839999999998,
+        724.848,
+        1544.3839999999998
+      ],
+      "foot_reference_world": [
+        474.84799999999996,
+        1374.3839999999998
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a13",
+      "kind": "cover",
+      "box_world": [
+        2642.56,
+        1054.416,
+        3142.56,
+        1554.416
+      ],
+      "foot_reference_world": [
+        2892.56,
+        1384.416
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "9232106faea12a4509c99a3c67568db2c69516d6ec363d121aebfdb4e22a836b",
+      "guide_sha256": "a82187a8deb46cb9e4c0605cd3b7e2b883aea750f1615b41917995471dbd08a0",
+      "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page3",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "altar",
+      "kind": "plinth",
+      "method": "Socle vide retenu à sa position et son gabarit originaux ; pixels du master non modifiés."
+    },
+    {
+      "id": "market_door",
+      "kind": "door",
+      "box_world": [
+        1418,
+        4640,
+        1918,
+        5140
+      ],
+      "foot_reference_world": [
+        1668,
+        4970
+      ],
+      "target_width_world": 62,
+      "target_height_world": 85,
+      "input_sha256": "9232106faea12a4509c99a3c67568db2c69516d6ec363d121aebfdb4e22a836b",
+      "guide_sha256": "a82187a8deb46cb9e4c0605cd3b7e2b883aea750f1615b41917995471dbd08a0",
+      "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page3",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "clear_start",
+      "kind": "clear_floor",
+      "box_world": [
+        468,
+        4159,
+        968,
+        4659
+      ],
+      "foot_reference_world": [
+        718,
+        4489
+      ],
+      "target_width_world": 0,
+      "target_height_world": 0,
+      "input_sha256": "9232106faea12a4509c99a3c67568db2c69516d6ec363d121aebfdb4e22a836b",
+      "guide_sha256": "a82187a8deb46cb9e4c0605cd3b7e2b883aea750f1615b41917995471dbd08a0",
+      "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page3",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    }
+  ],
+  "gate_and_stair_pixels_unchanged": true,
+  "empty_plinth_pixels_unchanged": true,
+  "collision_mask_created": false,
+  "intermediates_in_git": false
+}

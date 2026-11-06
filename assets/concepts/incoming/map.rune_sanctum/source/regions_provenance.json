@@ -1,0 +1,933 @@
+{
+  "date": "2026-11-06",
+  "world": [
+    3344,
+    5016
+  ],
+  "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "plan_sha256": "001212509327b1be46ff86ca539b7b7245d8a0b539d0ed31051ecce38f3da401",
+  "native_density": 0.75,
+  "native_size": [
+    2508,
+    3762
+  ],
+  "retained_sha256": "e9b02e908506d5b39ffb379837755a6551f0d0f2005abe5dfd555afb307515f6",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1274.7,
+        1414.0
+      ],
+      "square_world": [
+        -160.0,
+        -160.0,
+        1414.0,
+        1414.0
+      ],
+      "generated_sha256": "d5ccb0ec738654e4a2fdf2031e19f286ef4e7fdc73b7505cb174f9d7f3feebb3",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "9628767c3ffc3a44b0f310d167147a34c670f71a0825b03dfdd31fcb1c6e4d55",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r0_0",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.08899688720703125,
+          442.2426223754883,
+          110.27097702026367
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        954.7,
+        0.0,
+        2389.3,
+        1414.0
+      ],
+      "square_world": [
+        954.7,
+        -160.0,
+        2528.7,
+        1414.0
+      ],
+      "generated_sha256": "aff2112a2c55a637c5c69d89c3894ca041fd15f37445578d7cbb43e18d432990",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "180c5e1c155f44a460ddb8d78ebb3ad2156588db811bfeef2b8f4c303d8c4fcc",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r0_1",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.07645416259765625,
+          382.37571716308594,
+          117.4163818359375
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2069.3,
+        0.0,
+        3344,
+        1414.0
+      ],
+      "square_world": [
+        2069.3,
+        -160.0,
+        3643.3,
+        1414.0
+      ],
+      "generated_sha256": "1c593906a9829ddeb080cc3a7f0e1be18d651db5804f9a11bf2f6d9e31de20bb",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "8778031a8947c18dfe981f4f17d54da05b8115870e989228525f28328a888ea4",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r0_2",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.059539794921875,
+          416.55778884887695,
+          110.85033416748047
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        1094.0,
+        1274.7,
+        2668.0
+      ],
+      "square_world": [
+        -160.0,
+        1094.0,
+        1414.0,
+        2668.0
+      ],
+      "generated_sha256": "73fb6188d1c302300f8c60082cf715c8e50cf8b5e9b5fc982ca7bd4f4db99e52",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "01c26fb148214d8f7275269d6e00f546e5e1089bbbb8b271e6048e1814eb6576",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r1_0",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.06695556640625,
+          446.29812240600586,
+          112.58840560913086
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        954.7,
+        1094.0,
+        2389.3,
+        2668.0
+      ],
+      "square_world": [
+        954.7,
+        1094.0,
+        2528.7,
+        2668.0
+      ],
+      "generated_sha256": "511798a3e3c86024bcc683a97852fe5167b9d23d8796d4dbf2624f4afa5c8d5d",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "ceaeaae67f8ef214a082d1c6988028d93cca4ec718a30c7612d78d1a2a52306d",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r1_1",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.06261825561523438,
+          428.5311698913574,
+          112.58840560913086
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2069.3,
+        1094.0,
+        3344,
+        2668.0
+      ],
+      "square_world": [
+        2069.3,
+        1094.0,
+        3643.3,
+        2668.0
+      ],
+      "generated_sha256": "a06eddd425f7a63fd3d54ef71d6eef9975141bf7402b980f4fe57dc0fa27f9a8",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "c3872b69ff3a19c044bd1a718dda3d222aeee0429a53852628cdc0b0e95b390a",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r1_2",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.047245025634765625,
+          464.83755111694336,
+          108.33978652954102
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2348.0,
+        1274.7,
+        3922.0
+      ],
+      "square_world": [
+        -160.0,
+        2348.0,
+        1414.0,
+        3922.0
+      ],
+      "generated_sha256": "44238e6e8b33273f42faaccff32dde194215465d67db97b14faed3bf8839e6e0",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "ad013f6ea4b0db0e8fdc89352c027a70597a17e549f2641d40cf1e08533671e2",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r2_0",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.06745147705078125,
+          422.15824127197266,
+          107.95354843139648
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        954.7,
+        2348.0,
+        2389.3,
+        3922.0
+      ],
+      "square_world": [
+        954.7,
+        2348.0,
+        2528.7,
+        3922.0
+      ],
+      "generated_sha256": "065f9fef7b61b390ea7af09c841315e1534187536fba93990a95c1bc9bd58ccc",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "3d46589a63badf53ffeec33b4af178bd3905b6ee22f04c02d4165c297afd03f1",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r2_1",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.03971099853515625,
+          435.09721755981445,
+          116.64390563964844
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2069.3,
+        2348.0,
+        3344,
+        3922.0
+      ],
+      "square_world": [
+        2069.3,
+        2348.0,
+        3643.3,
+        3922.0
+      ],
+      "generated_sha256": "d64be7b676e3f0667caf33ef297daf070133a267de3b995d350e1ae32deaf93e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "46323fc171241241ff4684c3f7944a3c0754bc53f3d4cbf90099f9f91400d659",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r2_2",
+      "local_instructions": "Correction peinte locale du pas de marche, cible12–16u, 24marches dans la volée médiane ; cadrage et garde-corps inchangés.",
+      "initial_generation_sha256": "0ec4e5d2d888b62ca586c46a2d73bac7170461688a62144facaaf2f4bcbab287",
+      "correction_prompt": "LOCAL STAIR TREAD PITCH CORRECTION ONLY. Image1 exact paintedcityregion, image2sameimage with TWENTY-FOUR STEP SPACING GUIDES drawn yellow on EXISTING centralstairflight. Replace ONLY the existing overlythin numerous treads inside the existing stairbody with24evenlyspaced FINELY PAINTED stone treads matching guidepositions. Keep EXACT same top/bottom landing endpoints, overallflightheight/width/position, both balustrades/sidepiers, buildings, doors, rune arches, allfloorandcovers outside stairs IDENTICAL. Treaddepth12–16worldunits (thisimage1574u square), not hairline9u steps, not thickgiantblocks. Fine smallstonejoints and weatherededges on eachnewtread. NO yellow lines in final, guidestranslate to darkrisers/palestepfaces, samepaintedmaterial, controlledcrispdetail. No extrasstairs, gates, props, labels orcharacters. Same square1254x1254 minimum; no reframing.",
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.0452117919921875,
+          455.95407485961914,
+          107.18107223510742
+        ],
+        "regional_reference_bands_met": false
+      }
+    },
+    {
+      "name": "r3_0",
+      "crop_world": [
+        0.0,
+        3602.0,
+        1274.7,
+        5016
+      ],
+      "square_world": [
+        -160.0,
+        3602.0,
+        1414.0,
+        5176.0
+      ],
+      "generated_sha256": "0fd939b1593efef93b5929e032911f03539995bd4ece3fdf1883638b5ca68a17",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "1554e5a6b11a87eea857f1208780df2e500939bd50ffd2e3444ea5ee86a6b163",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r3_0",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.083038330078125,
+          397.6321220397949,
+          109.69161987304688
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_1",
+      "crop_world": [
+        954.7,
+        3602.0,
+        2389.3,
+        5016
+      ],
+      "square_world": [
+        954.7,
+        3602.0,
+        2528.7,
+        5176.0
+      ],
+      "generated_sha256": "31425a8f18f215b62b9aaed906df0718d517dea222e9337aa4ff3e228696d833",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "2f1bf837baefcc30fe31d8b54feb4d65d8bb35d7ea28822c38ec93e2cba97849",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r3_1",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.1060028076171875,
+          399.5633125305176,
+          107.95354843139648
+        ],
+        "regional_reference_bands_met": true
+      }
+    },
+    {
+      "name": "r3_2",
+      "crop_world": [
+        2069.3,
+        3602.0,
+        3344,
+        5016
+      ],
+      "square_world": [
+        2069.3,
+        3602.0,
+        3643.3,
+        5176.0
+      ],
+      "generated_sha256": "37891f29e1e28f318a17d34d3d567f7a433aca06a0bc7550a68e5934495d9f37",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "input_sha256": "da4c745eaae907d84d89e406e5908f3a0b2bbd37d80925f678c880d2af5c7e48",
+      "scale_reference_sha256": "86507447521dbe39f2bb3d300a62120d7a75631591b7b1374e0b72eaacbc8e25",
+      "prompt": "region_instructions.json#r3_2",
+      "local_instructions": null,
+      "initial_generation_sha256": null,
+      "correction_prompt": null,
+      "sharpness": {
+        "percent": 0,
+        "median_smooth_fine_medium": [
+          0.15578842163085938,
+          397.6321220397949,
+          103.12557220458984
+        ],
+        "regional_reference_bands_met": true
+      }
+    }
+  ],
+  "pixels_lossless_verified": true,
+  "method": "Douze régions carrées peintes de1574u ; marges extraites, calibration native et raccord de faible différence.",
+  "retained_source": "map_detailed.webp",
+  "intermediates": "Guides, régions et retouches hors dépôt ; seul le master retenu est versionné.",
+  "local_object_corrections": [
+    {
+      "id": "a01",
+      "kind": "cover",
+      "box_world": [
+        428.832,
+        3783.12,
+        928.832,
+        4283.12
+      ],
+      "foot_reference_world": [
+        678.832,
+        4113.12
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a02",
+      "kind": "cover",
+      "box_world": [
+        318.48,
+        2549.1839999999997,
+        818.48,
+        3049.1839999999997
+      ],
+      "foot_reference_world": [
+        568.48,
+        2879.1839999999997
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a03",
+      "kind": "cover",
+      "box_world": [
+        238.22399999999993,
+        1761.672,
+        738.2239999999999,
+        2261.672
+      ],
+      "foot_reference_world": [
+        488.22399999999993,
+        2091.672
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a04",
+      "kind": "cover",
+      "box_world": [
+        1432.0319999999997,
+        3888.455999999999,
+        1932.0319999999997,
+        4388.455999999999
+      ],
+      "foot_reference_world": [
+        1682.0319999999997,
+        4218.455999999999
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "b800580421784a4d025c743f5c8bbe4c2e4115b574a80df5ac41558b6b23c75a",
+      "guide_sha256": "5ffd93965e19b6e685685d8d705b9f6b6afdf6e9dc59edc7253c1067771b0bc1",
+      "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page0",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a05",
+      "kind": "cover",
+      "box_world": [
+        1348.4319999999998,
+        3221.3279999999995,
+        1848.4319999999998,
+        3721.3279999999995
+      ],
+      "foot_reference_world": [
+        1598.4319999999998,
+        3551.3279999999995
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a06",
+      "kind": "cover",
+      "box_world": [
+        1365.1519999999998,
+        1856.976,
+        1865.1519999999998,
+        2356.976
+      ],
+      "foot_reference_world": [
+        1615.1519999999998,
+        2186.976
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a07",
+      "kind": "cover",
+      "box_world": [
+        2625.8399999999997,
+        3336.6959999999995,
+        3125.8399999999997,
+        3836.6959999999995
+      ],
+      "foot_reference_world": [
+        2875.8399999999997,
+        3666.6959999999995
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a08",
+      "kind": "cover",
+      "box_world": [
+        2592.3999999999996,
+        2494.008,
+        3092.3999999999996,
+        2994.008
+      ],
+      "foot_reference_world": [
+        2842.3999999999996,
+        2824.008
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "a051922a469220c389f792dd785f96b2ef47d7cde23f2e3b4735c7e767697198",
+      "guide_sha256": "69ed83b7af53de7bca3e227819eae5372791bf14b05f9b072fdc5deaed5dcdfd",
+      "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page1",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a09",
+      "kind": "cover",
+      "box_world": [
+        2689.376,
+        1761.672,
+        3189.376,
+        2261.672
+      ],
+      "foot_reference_world": [
+        2939.376,
+        2091.672
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a10",
+      "kind": "cover",
+      "box_world": [
+        238.22399999999993,
+        352.17599999999993,
+        738.2239999999999,
+        852.1759999999999
+      ],
+      "foot_reference_world": [
+        488.22399999999993,
+        682.1759999999999
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a11",
+      "kind": "cover",
+      "box_world": [
+        2659.2799999999997,
+        362.20799999999997,
+        3159.2799999999997,
+        862.208
+      ],
+      "foot_reference_world": [
+        2909.2799999999997,
+        692.208
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a12",
+      "kind": "cover",
+      "box_world": [
+        224.84799999999996,
+        1044.3839999999998,
+        724.848,
+        1544.3839999999998
+      ],
+      "foot_reference_world": [
+        474.84799999999996,
+        1374.3839999999998
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "263f65aa9e815a4a3e49d36c222273104495081bc4fcb772f5b1a1e6c93605ef",
+      "guide_sha256": "de111d07d8180e4d1f01a03791afcdc42e67864b6ecb5586a099eae554c9463a",
+      "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page2",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "a13",
+      "kind": "cover",
+      "box_world": [
+        2642.56,
+        1054.416,
+        3142.56,
+        1554.416
+      ],
+      "foot_reference_world": [
+        2892.56,
+        1384.416
+      ],
+      "target_width_world": 145,
+      "target_height_world": 120,
+      "input_sha256": "9232106faea12a4509c99a3c67568db2c69516d6ec363d121aebfdb4e22a836b",
+      "guide_sha256": "a82187a8deb46cb9e4c0605cd3b7e2b883aea750f1615b41917995471dbd08a0",
+      "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page3",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "altar",
+      "kind": "plinth",
+      "method": "Socle vide retenu à sa position et son gabarit originaux ; pixels du master non modifiés."
+    },
+    {
+      "id": "market_door",
+      "kind": "door",
+      "box_world": [
+        1418,
+        4640,
+        1918,
+        5140
+      ],
+      "foot_reference_world": [
+        1668,
+        4970
+      ],
+      "target_width_world": 62,
+      "target_height_world": 85,
+      "input_sha256": "9232106faea12a4509c99a3c67568db2c69516d6ec363d121aebfdb4e22a836b",
+      "guide_sha256": "a82187a8deb46cb9e4c0605cd3b7e2b883aea750f1615b41917995471dbd08a0",
+      "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page3",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    },
+    {
+      "id": "clear_start",
+      "kind": "clear_floor",
+      "box_world": [
+        468,
+        4159,
+        968,
+        4659
+      ],
+      "foot_reference_world": [
+        718,
+        4489
+      ],
+      "target_width_world": 0,
+      "target_height_world": 0,
+      "input_sha256": "9232106faea12a4509c99a3c67568db2c69516d6ec363d121aebfdb4e22a836b",
+      "guide_sha256": "a82187a8deb46cb9e4c0605cd3b7e2b883aea750f1615b41917995471dbd08a0",
+      "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+      "generated_dimensions": [
+        1254,
+        1254
+      ],
+      "prompt": "PROMPT_OBJETS_DETAIL.txt#page3",
+      "method": "Remplacement peint limité à l’ancienne silhouette et au nouveau gabarit, fondu18u ; arches et trois volées protégées."
+    }
+  ],
+  "compact_object_corrections": [
+    {
+      "id": "a02",
+      "box_world": [
+        318.48,
+        2549.1839999999997,
+        818.48,
+        3049.1839999999997
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a03",
+      "box_world": [
+        238.22399999999993,
+        1761.672,
+        738.2239999999999,
+        2261.672
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a04",
+      "box_world": [
+        1432.0319999999997,
+        3888.455999999999,
+        1932.0319999999997,
+        4388.455999999999
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a08",
+      "box_world": [
+        2592.3999999999996,
+        2494.008,
+        3092.3999999999996,
+        2994.008
+      ],
+      "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche technique précise d'une planche 2×2 : silhouettes solides entières ramenées dans un gabarit169×143px par case627px représentant500u ; cible165px, socles/roues/brancards inclus. Sol environnant, murs et cadrage conservés. Guides jaunes/roses retirés.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a10",
+      "box_world": [
+        238.22399999999993,
+        352.17599999999993,
+        738.2239999999999,
+        852.1759999999999
+      ],
+      "generated_sha256": "78f9b9356b044fdf7d30b0aefa1feab0520aa01bf5840715c184703e61d3c5d7",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Retouche exacte de DEUX petits objets de la rangée du HAUT seulement de cette planche2×2. Ne pas réduire davantage : ils sont devenus trop petits. Les AGRANDIR de35% à40% : en haut gauche le fragment de colonne et SON SOCLE, en haut droite la statue allongée et SON SOCLE. Dans chaque case627×627, chaque objet complet doit remplir le cadre JAUNE (180px de large,144px de haut) du deuxième guide : contour solide entre170 et190pixels de large. Le pied reste sur la ligne basse du cadre ày399. Les objets actuels ne font que127px : il FAUT les élargir à180px, y compris leurs socles. Formes inchangées, même pierre pâle et dorures ternies, lumière haut-gauche. N'ajouter ni débris supplémentaires ni personnage. Les DEUX cases du BAS restent absolument identiques. Le sol et les murs extérieurs restent identiques. Même cadrage1254×1254, supprimer toutes annotations jaunes.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    },
+    {
+      "id": "a12",
+      "box_world": [
+        224.84799999999996,
+        1044.3839999999998,
+        724.848,
+        1544.3839999999998
+      ],
+      "generated_sha256": "8cb93b677e2d09a1b7a5f6f726525ebd1a2887d852dbc9b003bd575b85584066",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "prompt": "Corriger seulement la taille de cette statue tombée ET son socle, sans changer le cadrage. Actuellement trop grande, réduire la largeur de la silhouette SOLIDE ENTIÈRE d'environ20%, afin que statue+socle tiennent intégralement dans le rectangle jaune du guide, largeur180px sur image627px, soit28.7% de la largeur de l'image. Le pied reste au même niveau y426px. Rétrécir aussi le SOCLE, remplir l'ancienne empreinte avec les mêmes pavés. Garder toute la scène, les murs, les pavés et le décor latéral inchangés. Aucune statue supplémentaire, aucun débris supplémentaire. Palette pierre pâle, même peinture. Résultat carré, même cadrage entier, enlever le rectangle jaune.",
+      "method": "Réinsertion locale de la peinture de gabarit ; fondu18u, arches et escaliers protégés."
+    }
+  ]
+}

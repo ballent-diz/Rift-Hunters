@@ -1,0 +1,23 @@
+{
+  ".gdignore": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "composition.png": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "job.json": "0d0ee744baca5ef78a0c4e22eca77a8c81b0a3356ad21460fe44a908e0e2c85c",
+  "plan.json": "001212509327b1be46ff86ca539b7b7245d8a0b539d0ed31051ecce38f3da401",
+  "source/PROMPT_ABRIS_COMPOSITION.txt": "00d740c5948255ddf5fac773cd085d20e7f36c7fe0d1b475bf066a4d16dbe284",
+  "source/PROMPT_ARCHES_TRAVERSES.txt": "a8e84e1b5ef88824a5fd6a6ca67c72930b6347a671c5f364d618fd73e61a8ffe",
+  "source/PROMPT_COMPOSITION.txt": "8efb18baf67e6705745049b652a6b820da6417679ed6d38417e565f9dbe80954",
+  "source/PROMPT_DETAIL.txt": "c8d88c78ef1c337602498c030d5d14cd6436e88e94a0637dc9ba2b73b9696ebd",
+  "source/PROMPT_MARCHES.txt": "4a2e901297926cd5aae0ffc8bcacf2d61d326f66d44ec1a47bd5389c6448a94e",
+  "source/PROMPT_OBJETS_DETAIL.txt": "b0916bd2aac837ba611534562dcacfc0441feb498c81dda6d77f78a6934841d2",
+  "source/collision_reference.json": "a4265eb20611ecfa65b1bcea1b1f6cf2da3a0f856cfce47bad3894bb82aad95b",
+  "source/compact_object_corrections.json": "a2acd55029969d25a248cd2f6ea8b406418355e750b823ef41d45492345b8512",
+  "source/cover_measurements.json": "8ce7fd1aa86e629e9c538c673aaafe653b4616751ee68cb3c9c958d3d469c406",
+  "source/detail_recipe.json": "70d3c400b52c4b481b39a5c803fe77a32eb8c0db2efeb19f227e71e7f3aaab63",
+  "source/generation.json": "66e8d7747e7b4f1255657e86e0817e5403fea2e126e412cd5640b5ba85aac5d5",
+  "source/layout.png": "4e50c1d001d560cbff0d0ffad4194039ca35ea88bd1bbd4b7c91e6474d9dedce",
+  "source/map_detailed.webp": "e9b02e908506d5b39ffb379837755a6551f0d0f2005abe5dfd555afb307515f6",
+  "source/object_corrections.json": "869101bafe36df01685a10cd2acf3393e68796342e9f13e2e11c09695b3b3ca2",
+  "source/region_instructions.json": "2b245d11d416a1de505a9c1a2e2aed865e67cf2392d16714a7ed4485f4664d6b",
+  "source/regions_provenance.json": "7cdff32729ea2efd2a4c29d013845e20da4384d324918c981f4c8052d95ae031",
+  "source/sharpness_repair.json": "3f61a8113f6c9eece724686944415fce63a87ec118cf2a652d64f938a0be4341"
+}

@@ -1,0 +1,51 @@
+{
+  "date": "2026-11-06",
+  "reference": "docs/previews/rune-sanctum/reference_collisions.jpg",
+  "sha256": "9e8b37fff8ae1afc96cee68c88f9c0acd1af73395ac10dde6934ac16a94f357b",
+  "bytes": 601820,
+  "size": [
+    836,
+    1254
+  ],
+  "world": [
+    3344,
+    5016
+  ],
+  "world_units_per_pixel": 4,
+  "whole_map": true,
+  "crop": null,
+  "origin": "Coin haut-gauche ; cadrage entier identique au plan validé et au détail.",
+  "recipe": {
+    "source_tiles_left_to_right": [
+      {
+        "path": "assets/environments/rune_sanctum/map.webp",
+        "sha256": "7b90e8fa09275c494132760b397b10971d79b52457d7102fae34a0e282e007e4"
+      },
+      {
+        "path": "assets/environments/rune_sanctum/map_1.webp",
+        "sha256": "354ac73a368c70055b0ac29bb2342da79fff73055fe4cadc7f24a9b6a5f694e2"
+      }
+    ],
+    "assembly_size": [
+      7524,
+      11286
+    ],
+    "resize": "Lanczos",
+    "format": "JPEG",
+    "quality": 85,
+    "subsampling": 0,
+    "optimize": true
+  },
+  "expected_return": {
+    "format": "PNG",
+    "size": [
+      836,
+      1254
+    ],
+    "same_framing": true,
+    "resize_allowed": false,
+    "paint": "Rouge translucide sur maisons, murs, pieds des arches, piliers, halle, façade du sanctuaire et treize abris bloquants. Garder PRATICABLES les six seuils sous les arches, les trois traverses, les escaliers et les sols violets décoratifs. Les arches sont ouvertes : le jeu ferme leurs segments temporairement. Ne pas peindre la couronne de l’arche comme un mur qui ferme son passage. Le socle central est l’autel, à raccorder par Claude selon son emprise."
+  },
+  "collision_mask_created": false,
+  "runtime_integrated": false
+}

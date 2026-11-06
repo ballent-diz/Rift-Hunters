@@ -1,0 +1,43 @@
+{
+  "id": "map.rune_sanctum",
+  "map_number": 22,
+  "chapter": 5,
+  "title": "Le Sanctuaire des runes",
+  "world_size": [
+    3344,
+    5016
+  ],
+  "status": "final",
+  "stage": "detail_graphique_livre",
+  "composition": "composition.png",
+  "composition_size": [
+    1024,
+    1536
+  ],
+  "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "review": "plan.json",
+  "owner_approved": true,
+  "plan_locked": true,
+  "detail_generated": true,
+  "regions_generated": 12,
+  "quality_conforme": true,
+  "quality_scope": "Contrôle des deux tuiles livrées, seuils inchangés ; voir docs/previews/rune-sanctum/qualite.json.",
+  "rune_gates": 6,
+  "covers": 13,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "chapter5_sprites_created": false,
+  "owner_approval_date": "2026-11-06",
+  "plan": "plan.json",
+  "native_size": [
+    2508,
+    3762
+  ],
+  "game_size": [
+    7524,
+    11286
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "collision_reference": "source/collision_reference.json"
+}

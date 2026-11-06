@@ -1,0 +1,249 @@
+[
+  {
+    "id": "a01",
+    "generated_bbox_pixels": [
+      207,
+      253,
+      399,
+      457
+    ],
+    "generated_sha256": "e3a2f9b1358e67f466693318c34f4020af476183df9e1be12e45ed790a0245a6",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      593.9,
+      3984.87,
+      747.01,
+      4147.55
+    ],
+    "width_world": 153.11,
+    "foot_refinement_world": 35.44
+  },
+  {
+    "id": "a02",
+    "generated_bbox_pixels": [
+      221,
+      252,
+      391,
+      414
+    ],
+    "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      494.72,
+      2750.14,
+      630.28,
+      2879.33
+    ],
+    "width_world": 135.57,
+    "foot_refinement_world": 5.98
+  },
+  {
+    "id": "a03",
+    "generated_bbox_pixels": [
+      855,
+      272,
+      1019,
+      416
+    ],
+    "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      420.04,
+      1978.58,
+      550.82,
+      2093.41
+    ],
+    "width_world": 130.78,
+    "foot_refinement_world": 3.29
+  },
+  {
+    "id": "a04",
+    "generated_bbox_pixels": [
+      225,
+      885,
+      397,
+      1028
+    ],
+    "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      1611.46,
+      4094.2,
+      1748.62,
+      4208.23
+    ],
+    "width_world": 137.16,
+    "foot_refinement_world": 10.42
+  },
+  {
+    "id": "a05",
+    "generated_bbox_pixels": [
+      197,
+      280,
+      391,
+      437
+    ],
+    "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      1505.53,
+      3444.61,
+      1660.23,
+      3569.81
+    ],
+    "width_world": 154.7,
+    "foot_refinement_world": 24.16
+  },
+  {
+    "id": "a06",
+    "generated_bbox_pixels": [
+      826,
+      265,
+      1019,
+      435
+    ],
+    "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      1523.84,
+      2068.3,
+      1677.75,
+      2203.87
+    ],
+    "width_world": 153.91,
+    "foot_refinement_world": 22.17
+  },
+  {
+    "id": "a07",
+    "generated_bbox_pixels": [
+      205,
+      873,
+      391,
+      1052
+    ],
+    "generated_sha256": "c1529b0a84519288fc214fb685e571ab5e4380b825c5f82105960bc959354e2e",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      2789.32,
+      3532.87,
+      2937.64,
+      3675.61
+    ],
+    "width_world": 148.33,
+    "foot_refinement_world": 15.24
+  },
+  {
+    "id": "a08",
+    "generated_bbox_pixels": [
+      845,
+      887,
+      1008,
+      1026
+    ],
+    "generated_sha256": "ce0258f130ba372c7544bf1dc722e5aeb65648e01dfbb57baac32b944f21c475",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      2766.24,
+      2701.34,
+      2896.23,
+      2812.19
+    ],
+    "width_world": 129.98,
+    "foot_refinement_world": 16.26
+  },
+  {
+    "id": "a09",
+    "generated_bbox_pixels": [
+      220,
+      252,
+      402,
+      430
+    ],
+    "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      2864.81,
+      1962.63,
+      3009.95,
+      2104.57
+    ],
+    "width_world": 145.14,
+    "foot_refinement_world": 13.06
+  },
+  {
+    "id": "a10",
+    "generated_bbox_pixels": [
+      210,
+      278,
+      410,
+      422
+    ],
+    "generated_sha256": "78f9b9356b044fdf7d30b0aefa1feab0520aa01bf5840715c184703e61d3c5d7",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      405.69,
+      573.87,
+      565.18,
+      688.7
+    ],
+    "width_world": 159.49,
+    "foot_refinement_world": 7.1
+  },
+  {
+    "id": "a11",
+    "generated_bbox_pixels": [
+      197,
+      915,
+      394,
+      1055
+    ],
+    "generated_sha256": "d189a86cf9198fa528fd2cebc06d4389bd9284bb7071c56b3b36bbf0b4abe7e5",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      2816.38,
+      591.87,
+      2973.47,
+      703.52
+    ],
+    "width_world": 157.1,
+    "foot_refinement_world": 18.27
+  },
+  {
+    "id": "a12",
+    "generated_bbox_pixels": [
+      442,
+      578,
+      778,
+      816
+    ],
+    "generated_sha256": "8cb93b677e2d09a1b7a5f6f726525ebd1a2887d852dbc9b003bd575b85584066",
+    "generated_density": 2.508,
+    "solid_bounds_world": [
+      401.08,
+      1274.85,
+      535.06,
+      1369.74
+    ],
+    "width_world": 133.97,
+    "foot_refinement_world": 8.21
+  },
+  {
+    "id": "a13",
+    "generated_bbox_pixels": [
+      202,
+      252,
+      370,
+      408
+    ],
+    "generated_sha256": "f59bf6e155be4e3424d602c998ad5536c4db885ebba72611c2fafbebb4350d75",
+    "generated_density": 1.254,
+    "solid_bounds_world": [
+      2803.64,
+      1255.37,
+      2937.62,
+      1379.77
+    ],
+    "width_world": 133.97,
+    "foot_refinement_world": 22.42
+  }
+]

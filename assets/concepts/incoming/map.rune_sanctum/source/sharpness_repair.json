@@ -1,0 +1,47 @@
+{
+  "method": "Real-ESRGAN x4v3, débruitage0,2 ; résidu RVB limité à6/255 pour préserver les joints et couleurs du dallage ; cases douces seulement.",
+  "max_rgb_delta_before_encoding": 6,
+  "unbounded_result_rejected": "Les captures révélaient des plages de pavés réinterprétés ; ce traitement n’est pas retenu.",
+  "model": "realesr_general_x4v3_0.2.onnx",
+  "model_sha256": "7ffe4ee0150be812ff3d06f17a100dc93dd89e53e2d053ee82723eccbb001f32",
+  "initial_cells": 8,
+  "initial_reference": 0.0005431340541690588,
+  "remaining_cells_frozen_reference": 0,
+  "valid_cells": 620,
+  "selected_cells_row_col": [
+    [
+      0,
+      10
+    ],
+    [
+      16,
+      11
+    ],
+    [
+      17,
+      9
+    ],
+    [
+      19,
+      10
+    ],
+    [
+      20,
+      10
+    ],
+    [
+      20,
+      11
+    ],
+    [
+      21,
+      11
+    ],
+    [
+      22,
+      11
+    ]
+  ],
+  "blocks": 19,
+  "remaining_cells_frozen_reference_after_encoding": 0
+}

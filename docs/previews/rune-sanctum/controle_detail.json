@@ -1,0 +1,201 @@
+{
+  "date": "2026-11-06",
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "identity_approved": true,
+  "plan_locked": true,
+  "main_base": "fb170263e83f154d342be848b7e689e15445cdf0",
+  "checks": [
+    {
+      "name": "godot_import",
+      "command": [
+        "godot",
+        "--headless",
+        "--import",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy"
+      ],
+      "exit_code": 0,
+      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
+    },
+    {
+      "name": "captures",
+      "command": [
+        "xvfb-run",
+        "-a",
+        "-s",
+        "-screen 0 1280x720x24",
+        "godot",
+        "--path",
+        ".",
+        "--audio-driver",
+        "Dummy",
+        "--resolution",
+        "1280x720",
+        "res://tools/art/preview_rune_sanctum.tscn",
+        "--",
+        "--out=/workspace/.rift-art/map22/detail/captures"
+      ],
+      "exit_code": 0,
+      "log_sha256": "063114dda01df12774f219a55ced0527d61f4533094a0168d495b9518684a2d2"
+    },
+    {
+      "name": "assets",
+      "command": [
+        "tools/run_tests.sh",
+        "assets"
+      ],
+      "exit_code": 0,
+      "log_sha256": "0d1d6045af18643d6b6638ad5050296028b9cee68cff06829a39cf79b4b4c075"
+    },
+    {
+      "name": "gdlint",
+      "command": [
+        "gdlint",
+        "tools/art/preview_rune_sanctum.gd"
+      ],
+      "exit_code": 0,
+      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
+    },
+    {
+      "name": "python_compile",
+      "command": [
+        "python",
+        "-m",
+        "py_compile",
+        "tools/art/build_rune_sanctum.py"
+      ],
+      "exit_code": 0,
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "assets": {
+    "total": 451,
+    "valid": 449,
+    "placeholders": 2,
+    "errors": 0,
+    "preexisting_placeholders": [
+      "object.training_dummy",
+      "object.crystal_mirror"
+    ]
+  },
+  "quality_conforme": true,
+  "quality_report": "qualite.json",
+  "quality_sectors": 35,
+  "quality_sectors_conforme": 35,
+  "quality_thresholds_unchanged": true,
+  "capture_receipt": {
+    "camera_zoom": 1.3333,
+    "chapter5_sprites_created": false,
+    "collision_mask_created": false,
+    "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+    "native_sprites_unchanged": true,
+    "plan_sha256": "001212509327b1be46ff86ca539b7b7245d8a0b539d0ed31051ecce38f3da401",
+    "profile_read_only": true,
+    "runtime_integrated": false,
+    "scope": "detail_graphique",
+    "tiles_sha256": [
+      "7b90e8fa09275c494132760b397b10971d79b52457d7102fae34a0e282e007e4",
+      "354ac73a368c70055b0ac29bb2342da79fff73055fe4cadc7f24a9b6a5f694e2"
+    ],
+    "viewport": [
+      1280,
+      720
+    ],
+    "witness_ids": [
+      "wandering_shard",
+      "glass_sentinel",
+      "quartz_golem",
+      "hush_shard",
+      "ice_knight",
+      "silence_herald"
+    ]
+  },
+  "captures": [
+    {
+      "file": "arche_rue_zoom_jeu.webp",
+      "sha256": "e4bec445a267fcea32ca072c913951c0e919fb6783f44d8e9d21f9366777d793",
+      "original_png_sha256": "d05f9fe0239ebbf55cfa8ed266825ff2418dfaf3cfef388033cb6432a473700d"
+    },
+    {
+      "file": "arche_traverse_zoom_jeu.webp",
+      "sha256": "a48a20919bde71ff96d6db5d9b549719034a3938a088663fc68e54507032f995",
+      "original_png_sha256": "e9ffa2a8252de082a9ab8ef6d4a08d5175d1a59277633fc1419b837506d244ed"
+    },
+    {
+      "file": "autel_zoom_jeu.webp",
+      "sha256": "73bf39b782e0cf5aeffea75f5553fc3453a163095ec1a62d5fa922dc9818a683",
+      "original_png_sha256": "de3ed6aec65c9196f891fa8807a6353718e97e3eeb71190d25fcb80645070caf"
+    },
+    {
+      "file": "ensemble_720p.webp",
+      "sha256": "c2cf8f29742d99ab69da3450fb6fc7a11194e7afd9816e3cb3eec180a35e8103",
+      "original_png_sha256": "98e5aba77922a045ed85cf3296b7359c96f2f60c4965120a0a893ad16f49749d"
+    },
+    {
+      "file": "escalier_zoom_jeu.webp",
+      "sha256": "960dfe3bfe3904e6ed13485c717a04bc3ee8e3a89df453f1ecb86341a2b08897",
+      "original_png_sha256": "2684d77675f54005b8532371e6116164bee7c83a95eb9d828510f8018f2d8f87"
+    },
+    {
+      "file": "lisibilite_corruption.webp",
+      "sha256": "566d3fd9e69278a2b28cd7797a1f948ec8515abd632c6878cf7cd73efb06d5d4",
+      "original_png_sha256": "f29f50d866f2b3dc97109489a5540de4280694b9e9a57ab7e5781d0d8ec99871"
+    },
+    {
+      "file": "lisibilite_dalles.webp",
+      "sha256": "394ad71ed644ff00af0f7af6345a9e76381203a7e42eb509b8d2b116bfe4ed32",
+      "original_png_sha256": "b844018ba3681f7eb5ccc253691b8f1302aef47729515d6c4393cc02610e7efa"
+    }
+  ],
+  "world": [
+    3344,
+    5016
+  ],
+  "native_size": [
+    2508,
+    3762
+  ],
+  "game_size": [
+    7524,
+    11286
+  ],
+  "composition_sha256": "1021268697fb502960d8622b86c521283e636bfa777fb39e8e1da7d28148bd87",
+  "plan_sha256": "001212509327b1be46ff86ca539b7b7245d8a0b539d0ed31051ecce38f3da401",
+  "master_sha256": "e9b02e908506d5b39ffb379837755a6551f0d0f2005abe5dfd555afb307515f6",
+  "regions": 12,
+  "cover_counts": {
+    "west": 3,
+    "central": 3,
+    "east": 3,
+    "parvis": 4
+  },
+  "cover_width_world_range": [
+    129.98,
+    159.49
+  ],
+  "rune_gates": 6,
+  "rune_gate_clear_width_range": [
+    209.0,
+    238.12
+  ],
+  "gate_pixels_unchanged_by_object_corrections": true,
+  "stair_pixels_unchanged_by_object_corrections": true,
+  "free_combat_extent_world": [
+    1600,
+    1000
+  ],
+  "free_combat_extent_has_no_cover": true,
+  "empty_altar_base": true,
+  "collision_reference_bytes": 601820,
+  "collision_reference_sha256": "9e8b37fff8ae1afc96cee68c88f9c0acd1af73395ac10dde6934ac16a94f357b",
+  "native_sprites_unchanged": true,
+  "profile_read_only": true,
+  "chapter5_sprites_created": false,
+  "corruption_is_decorative": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false
+}
