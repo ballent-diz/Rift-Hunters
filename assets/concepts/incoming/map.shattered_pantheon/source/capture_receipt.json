@@ -1,0 +1,98 @@
+{
+  "composition_sha256": "8d1411dd363eb89280f1c1fdd498b082a751a11bb43662e517dcb8d264b3354b",
+  "plan_sha256": "b614edaf3fe392b2ef8f3b6e2a4201f2e2730a7e6cce46567c69382167674f9f",
+  "tiles_sha256": [
+    "1a8ad632689b9b9ce0c2cc023dcf448b5e671554a22963d816c3fbb9c4421d37",
+    "7e1abae956054238106a8dca8c48a373f1f3689d2b3d98857923af0625b3e372",
+    "a30611d216cd09dee7c22a303d68f8ff11adc1f5a728e44088eaacc02f68c3fb"
+  ],
+  "viewport": [
+    1280,
+    720
+  ],
+  "camera_zoom": 1.3333,
+  "native_sprites_unchanged": true,
+  "sheet_source": "Entrées et images du manifeste de main, 79198570c705d57116effd4c91c7188d9c93e15c",
+  "witness_ids": [
+    "player.hunter",
+    "monster.glimmerwing",
+    "enemy.wandering_shard",
+    "enemy.glass_sentinel",
+    "enemy.quartz_golem",
+    "enemy.hush_shard",
+    "enemy.ice_knight",
+    "enemy.silence_herald"
+  ],
+  "captures": [
+    {
+      "file": "alcove_est_zoom_jeu.webp",
+      "sha256": "6650b3b0b095b841574e5b9671b59e35261cf0e52d1a7ae3fb8682f928a1fa7b",
+      "original_png_sha256": "719c88b70e6ed778f85562005f2fa4baf961c5656e06aad4c86bd0678b5423b5"
+    },
+    {
+      "file": "alcove_nord_zoom_jeu.webp",
+      "sha256": "4ca4dabcda59a1d9fd3cfac49672fd7125ec8175b21471061b75b34f3a1dc707",
+      "original_png_sha256": "d1de1e10b5204059e6801603a822fc5ea72c9149603c8ad12676ca0706476075"
+    },
+    {
+      "file": "alcove_ouest_zoom_jeu.webp",
+      "sha256": "37b656716f859f006f0141ba21108f245ba77bab9f8e05234648d826ce6bb599",
+      "original_png_sha256": "9047a60e988e1c34ab03312a4bbadb360f07bf6f6c418c1143314dc589fe219e"
+    },
+    {
+      "file": "depart_zoom_jeu.webp",
+      "sha256": "c9eade1a8ba5f9751dad5b669a6e69d45d5e48f0da4c4aa9cb00cc91d8704572",
+      "original_png_sha256": "0e3f551acd799d2d77888653aeab16339921dd13a4d7c1f031de56eaca87fc4e"
+    },
+    {
+      "file": "ensemble_720p.webp",
+      "sha256": "7c592afd5fa484e01486fcc81368efa7cb1ca00ff6d8df07f6212100a5fab344",
+      "original_png_sha256": "e73ed8a4b5305676404ede0e511799418dbd97edb163c78b73e2ab63ec2d7517"
+    },
+    {
+      "file": "lisibilite_corruption.webp",
+      "sha256": "39f089d75a09df9729b1ec7e3087cfda0393f338ff99392b71e5ce9693c86975",
+      "original_png_sha256": "d8f850d8df3e86b50f88fc42967ad08fbd79f6dca5dbf00c858f6513835acf8b"
+    },
+    {
+      "file": "lisibilite_dalles.webp",
+      "sha256": "cdfa66099f293c72dc1d6a3c08eead79f825bb11a395ad94f93a91d05c72aad8",
+      "original_png_sha256": "b9092d2d572e05d0485bb556edbf591fc6d9927b2ad95edd5e9ca654146510c1"
+    },
+    {
+      "file": "passage_ne_zoom_jeu.webp",
+      "sha256": "ff120b37b838679d14f3968a9530be7020b8e203067f4f4116c6c9a14532d399",
+      "original_png_sha256": "0dc48c29e991c76017eb048429662d84fd10104485508401e16fa30553b0792b"
+    },
+    {
+      "file": "passage_nw_zoom_jeu.webp",
+      "sha256": "59bf451ad43605b3b5e93b7577c4feb280b6ced0761f1b1c6e0b89105e7ca360",
+      "original_png_sha256": "574bea47f34e4fd61187e7b517c387a09dda9a6377f576de5450793805ecddf0"
+    },
+    {
+      "file": "passage_se_zoom_jeu.webp",
+      "sha256": "73fd603d5613c6953c25ac2978a05a450db7b6d2d5fc49bbfc51795dbf4090b4",
+      "original_png_sha256": "1cdb12efc72feccc2d62209ec337a3924551dc9cbaa1727a9d73fa2762ac6e8c"
+    },
+    {
+      "file": "passage_sw_zoom_jeu.webp",
+      "sha256": "720d8feb01406b9729cf316070eb327578089939cb2135927aedd238ef8aa966",
+      "original_png_sha256": "0b621d7c20ea51020beaed1e1ffc8fbe5024ddfcd359c896370b2a68dc245ab0"
+    },
+    {
+      "file": "pilier_central_zoom_jeu.webp",
+      "sha256": "1a2e88cb4f2359aa366edbeb6a93a8960674e18d96c4289fd308b2c5751d2b7e",
+      "original_png_sha256": "cb8b87d96cb7a0129936cd48dad99d352cc7b0cc18f9c69dd3cc4bd2a5302e61"
+    },
+    {
+      "file": "socle_zoom_jeu.webp",
+      "sha256": "258eccb35e6f08630657085b69d071155caf3974451e777fa06db515e23dd5c8",
+      "original_png_sha256": "34769afe65e80374031765a603740988b484de7cdb2c50a66e6ab05922eccbc2"
+    }
+  ],
+  "scope": "banc statique de détail, aucune partie ni profil écrit",
+  "runtime_integrated": false,
+  "collision_mask_created": false,
+  "navigation_or_combat_tested": false,
+  "plan_hash_convention": "UTF-8, fins de ligne LF"
+}

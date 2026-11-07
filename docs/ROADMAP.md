@@ -1,5 +1,23 @@
 # Rift Hunters — feuille de route
 
+## Carte 24 — Le Panthéon brisé : détail livré, collisions à peindre (Codex, 7 novembre 2026)
+
+Commande du propriétaire : `shattered_pantheon`, chapitre 5, monde 4400 × 4400 unités.
+Avenue en anneau, quatre quartiers et cours des failles, place centrale en contrebas,
+11 socles de statues vides et trois autels d'Échos piégés. Composition conservée par le propriétaire,
+avec ajout demandé d'un petit pilier central. Plan figé, détail redessiné par seize régions,
+référence légère des collisions et captures d'échelle : `docs/maps/PANTHEON_BRISE.md`.
+Masque à peindre par le propriétaire ; intégration des failles, statues, Échos piégés,
+gardien et campagne à Claude. Aucune validation de navigation ou de combat dans ce lot.
+Sans changement de `src/`, `data/`, du manifeste ni des cartes 14 à 23.
+
+## Carte 20 — Le Cœur du Silence : à refaire (décision du propriétaire, 7 novembre 2026)
+
+La dernière île n'est pas considérée accessible et le propriétaire rejette cette version.
+Reprendre la composition avec une liaison claire vers chaque île ; ne pas solliciter de peinture
+des collisions sur l'ancienne référence. Retirée du paquet local des cartes en attente de collisions.
+Ce constat ne modifie pas les fichiers de la carte 20 dans le présent lot de la carte 24.
+
 ## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
 
 - Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses. Sources originales conservées ; toutes les entrées de main préservées lors du merge du 3 novembre. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.

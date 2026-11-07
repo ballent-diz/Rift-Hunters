@@ -1,0 +1,616 @@
+{
+  "date": "2026-11-07",
+  "before_sha256": "9b0044a76c190532a3c36f13d526587ea6dca4f8beee7a2d3914c989baa8fe31",
+  "master_sha256": "2f2d78b540de52ad712baf6541e7bf3383b9da5e65987535777338c58b38579d",
+  "native_size": [
+    3300,
+    3300
+  ],
+  "batches": [
+    {
+      "batch": 0,
+      "generated_sha256": "5e84294d40b6a959941fa22f819c2747e67381f2c4aba92cf110f9576bc59843",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "abri_01",
+          "kind": "cover",
+          "center_pct": [
+            17.1,
+            24.5
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            414,
+            618,
+            714,
+            918
+          ]
+        },
+        {
+          "id": "abri_02",
+          "kind": "cover",
+          "center_pct": [
+            27.9,
+            20.2
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            771,
+            477,
+            1071,
+            777
+          ]
+        },
+        {
+          "id": "abri_03",
+          "kind": "cover",
+          "center_pct": [
+            36.3,
+            19.6
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            1048,
+            457,
+            1348,
+            757
+          ]
+        },
+        {
+          "id": "abri_04",
+          "kind": "cover",
+          "center_pct": [
+            60,
+            25.4
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            1830,
+            648,
+            2130,
+            948
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This input is a 2x2 GRID of FOUR independent square LOCAL MAP PATCHES, not one scene. Keep the exact two-by-two grid, all FOUR panel borders and all background perspective/architecture EXACTLY aligned, no new frame or labels. Each panel represents400x400 world units. Only correct one foreground cover object per panel.\nTOP LEFT: abri_01; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nTOP RIGHT: abri_02; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM LEFT: abri_03; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM RIGHT: abri_04; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nIMPORTANT: restore the ordinary small paving where the old larger object stood; leave all surrounding walls, stairs, columns and pavement design untouched. The output should look like the SAME four map patches, with correctly SMALLER covers. Do not scale down a whole panel, crop, move architecture or add routes. Maintain pale limestone/slate/dull gold, fine weathered stone grain, top-left light and small bottom-right shadow. No magical effects, figures, text, holes, weeds or new objects. The main cover footprint must be fully contained within the central40% of each panel horizontally. Keep source object identity and the SAME number of primary cover objects (one per panel). Output the FULL square grid at1254x1254 or larger with four equal square quadrants, no crop."
+    },
+    {
+      "batch": 1,
+      "generated_sha256": "d011c3678fcadc02e04ca54cd0520f18d3bcfcc3388742fbee81c0fa2d5b3235",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "abri_05",
+          "kind": "cover",
+          "center_pct": [
+            71.3,
+            20.4
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            2203,
+            483,
+            2503,
+            783
+          ]
+        },
+        {
+          "id": "abri_06",
+          "kind": "cover",
+          "center_pct": [
+            80.8,
+            20.4
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            2516,
+            483,
+            2816,
+            783
+          ]
+        },
+        {
+          "id": "abri_07",
+          "kind": "cover",
+          "center_pct": [
+            16.3,
+            63
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            388,
+            1889,
+            688,
+            2189
+          ]
+        },
+        {
+          "id": "abri_08",
+          "kind": "cover",
+          "center_pct": [
+            28,
+            75.7
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            774,
+            2308,
+            1074,
+            2608
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This input is a 2x2 GRID of FOUR independent square LOCAL MAP PATCHES, not one scene. Keep the exact two-by-two grid, all FOUR panel borders and all background perspective/architecture EXACTLY aligned, no new frame or labels. Each panel represents400x400 world units. Only correct one foreground cover object per panel.\nTOP LEFT: abri_05; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nTOP RIGHT: abri_06; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM LEFT: abri_07; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM RIGHT: abri_08; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nIMPORTANT: restore the ordinary small paving where the old larger object stood; leave all surrounding walls, stairs, columns and pavement design untouched. The output should look like the SAME four map patches, with correctly SMALLER covers. Do not scale down a whole panel, crop, move architecture or add routes. Maintain pale limestone/slate/dull gold, fine weathered stone grain, top-left light and small bottom-right shadow. No magical effects, figures, text, holes, weeds or new objects. The main cover footprint must be fully contained within the central40% of each panel horizontally. Keep source object identity and the SAME number of primary cover objects (one per panel). Output the FULL square grid at1254x1254 or larger with four equal square quadrants, no crop."
+    },
+    {
+      "batch": 2,
+      "generated_sha256": "6872d92232a148d2d7ddfafd6c42a36657ae204d1e025bf83b526e98a0d90dd4",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "abri_09",
+          "kind": "cover",
+          "center_pct": [
+            36.4,
+            75
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": true,
+          "native_box": [
+            1051,
+            2285,
+            1351,
+            2585
+          ]
+        },
+        {
+          "id": "abri_10",
+          "kind": "cover",
+          "center_pct": [
+            82.8,
+            63
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            2582,
+            1889,
+            2882,
+            2189
+          ]
+        },
+        {
+          "id": "abri_11",
+          "kind": "cover",
+          "center_pct": [
+            71.8,
+            75.5
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            2219,
+            2302,
+            2519,
+            2602
+          ]
+        },
+        {
+          "id": "abri_12",
+          "kind": "cover",
+          "center_pct": [
+            64.3,
+            75
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            1972,
+            2285,
+            2272,
+            2585
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This input is a 2x2 GRID of FOUR independent square LOCAL MAP PATCHES, not one scene. Keep the exact two-by-two grid, all FOUR panel borders and all background perspective/architecture EXACTLY aligned, no new frame or labels. Each panel represents400x400 world units. Only correct one foreground cover object per panel.\nTOP LEFT: abri_09; Currently missing: ADD one compact fallen limestone column fragment on the free paving near panel50%x,63%y. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nTOP RIGHT: abri_10; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM LEFT: abri_11; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM RIGHT: abri_12; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nIMPORTANT: restore the ordinary small paving where the old larger object stood; leave all surrounding walls, stairs, columns and pavement design untouched. The output should look like the SAME four map patches, with correctly SMALLER covers. Do not scale down a whole panel, crop, move architecture or add routes. Maintain pale limestone/slate/dull gold, fine weathered stone grain, top-left light and small bottom-right shadow. No magical effects, figures, text, holes, weeds or new objects. The main cover footprint must be fully contained within the central40% of each panel horizontally. Keep source object identity and the SAME number of primary cover objects (one per panel). Output the FULL square grid at1254x1254 or larger with four equal square quadrants, no crop."
+    },
+    {
+      "batch": 3,
+      "generated_sha256": "79de960a6398255c14d9a0a8f92c34f169052c563fcd3f1dd19f08786c471312",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "abri_13",
+          "kind": "cover",
+          "center_pct": [
+            42,
+            34.5
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            1236,
+            948,
+            1536,
+            1248
+          ]
+        },
+        {
+          "id": "abri_14",
+          "kind": "cover",
+          "center_pct": [
+            56,
+            34.5
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            1698,
+            948,
+            1998,
+            1248
+          ]
+        },
+        {
+          "id": "abri_15",
+          "kind": "cover",
+          "center_pct": [
+            32.7,
+            53.7
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            929,
+            1582,
+            1229,
+            1882
+          ]
+        },
+        {
+          "id": "abri_16",
+          "kind": "cover",
+          "center_pct": [
+            65.5,
+            53.7
+          ],
+          "target_width_world": 135,
+          "target_height_world": 90,
+          "missing": false,
+          "native_box": [
+            2012,
+            1582,
+            2312,
+            1882
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This input is a 2x2 GRID of FOUR independent square LOCAL MAP PATCHES, not one scene. Keep the exact two-by-two grid, all FOUR panel borders and all background perspective/architecture EXACTLY aligned, no new frame or labels. Each panel represents400x400 world units. Only correct one foreground cover object per panel.\nTOP LEFT: abri_13; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nTOP RIGHT: abri_14; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM LEFT: abri_15; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nBOTTOM RIGHT: abri_16; The existing main freestanding broken cover object nearest panel center is TOO LARGE. SHRINK that whole solid object, including every drum, block, foot, wheel and associated chunky rubble, to a compact silhouette. Target WHOLE width135world units =33.75% of THIS PANEL width. Preserve the same foot location near50%x,63%y. Keep a short low obstacle, not a building. No additional scattered rubble.\nIMPORTANT: restore the ordinary small paving where the old larger object stood; leave all surrounding walls, stairs, columns and pavement design untouched. The output should look like the SAME four map patches, with correctly SMALLER covers. Do not scale down a whole panel, crop, move architecture or add routes. Maintain pale limestone/slate/dull gold, fine weathered stone grain, top-left light and small bottom-right shadow. No magical effects, figures, text, holes, weeds or new objects. The main cover footprint must be fully contained within the central40% of each panel horizontally. Keep source object identity and the SAME number of primary cover objects (one per panel). Output the FULL square grid at1254x1254 or larger with four equal square quadrants, no crop."
+    },
+    {
+      "batch": 4,
+      "generated_sha256": "2daed4b997583d38ea064f3405e6fe43a2ea9970e07700a27be5e96b55496870",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "S01",
+          "kind": "statue_base",
+          "center_pct": [
+            30.5,
+            8.6
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            856,
+            94,
+            1156,
+            394
+          ]
+        },
+        {
+          "id": "S02",
+          "kind": "statue_base",
+          "center_pct": [
+            69.4,
+            8.6
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            2140,
+            94,
+            2440,
+            394
+          ]
+        },
+        {
+          "id": "S03",
+          "kind": "statue_base",
+          "center_pct": [
+            8.1,
+            27.5
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            117,
+            718,
+            417,
+            1018
+          ]
+        },
+        {
+          "id": "S04",
+          "kind": "statue_base",
+          "center_pct": [
+            91.9,
+            27.5
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            2883,
+            718,
+            3183,
+            1018
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Edit target: this 2x2 sheet of FOUR independent LOCAL GAME MAP PATCHES. Keep exact equal quadrants and all original architecture positions. Each quadrant represents 400x400 world units. Change only the central freestanding prop in each occupied quadrant.\nTOP LEFT (S01): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nTOP RIGHT (S02): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nBOTTOM LEFT (S03): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nBOTTOM RIGHT (S04): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\n\nRestore ordinary fine paving where the former large prop stood. Preserve all surrounding walls, stairs, architecture, doors, other columns, paths, corruption, palette and lighting exactly. Do not resize whole scene or move architecture. Maintain detailed hand-painted game texture and sharp small paving. No labels, grid borders, characters, effects or additional objects. Return the full square sheet with exactly equal quadrants.\n\nPASSE DE CALIBRAGE :\nUse case: precise-object-edit. This sheet has four equal local map quadrants. Correct ONLY the small EMPTY solid statue pedestal nearest the center of each quadrant. Each empty pedestal came out slightly too small. ENLARGE ITS WHOLE STONE BASE WIDTH BY 25 PERCENT, from current approximately21% of its quadrant width to27% of its quadrant width. Keep its foot location, low height, empty flat top, design and material. Expand its horizontal width rather than making a taller tower. The whole base including stepped foot should be roughly one quarter of quadrant width. Preserve surrounding paving and ALL architecture and routes.  No other changes, no added objects, labels, effects, statues or borders. Return exact same full 2x2 square framing."
+    },
+    {
+      "batch": 5,
+      "generated_sha256": "191a3ff28bd7e3b0900ae77ee008498ebf964498c39fef7cc499e211aa6d3525",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "S05",
+          "kind": "statue_base",
+          "center_pct": [
+            7.8,
+            64
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            107,
+            1922,
+            407,
+            2222
+          ]
+        },
+        {
+          "id": "S06",
+          "kind": "statue_base",
+          "center_pct": [
+            92.2,
+            64
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            2893,
+            1922,
+            3193,
+            2222
+          ]
+        },
+        {
+          "id": "S07",
+          "kind": "statue_base",
+          "center_pct": [
+            30.5,
+            85.6
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            856,
+            2635,
+            1156,
+            2935
+          ]
+        },
+        {
+          "id": "S08",
+          "kind": "statue_base",
+          "center_pct": [
+            69.5,
+            85.6
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            2144,
+            2635,
+            2444,
+            2935
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Edit target: this 2x2 sheet of FOUR independent LOCAL GAME MAP PATCHES. Keep exact equal quadrants and all original architecture positions. Each quadrant represents 400x400 world units. Change only the central freestanding prop in each occupied quadrant.\nTOP LEFT (S05): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nTOP RIGHT (S06): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nBOTTOM LEFT (S07): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nBOTTOM RIGHT (S08): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\n\nRestore ordinary fine paving where the former large prop stood. Preserve all surrounding walls, stairs, architecture, doors, other columns, paths, corruption, palette and lighting exactly. Do not resize whole scene or move architecture. Maintain detailed hand-painted game texture and sharp small paving. No labels, grid borders, characters, effects or additional objects. Return the full square sheet with exactly equal quadrants.\n\nPASSE DE CALIBRAGE :\nUse case: precise-object-edit. This sheet has four equal local map quadrants. Correct ONLY the small EMPTY solid statue pedestal nearest the center of each quadrant. Each empty pedestal came out slightly too small. ENLARGE ITS WHOLE STONE BASE WIDTH BY 25 PERCENT, from current approximately21% of its quadrant width to27% of its quadrant width. Keep its foot location, low height, empty flat top, design and material. Expand its horizontal width rather than making a taller tower. The whole base including stepped foot should be roughly one quarter of quadrant width. Preserve surrounding paving and ALL architecture and routes.  No other changes, no added objects, labels, effects, statues or borders. Return exact same full 2x2 square framing."
+    },
+    {
+      "batch": 6,
+      "generated_sha256": "841ac5a87b0d0ad5c42ee162f849c45025104d696a71381a02d1c3ea40a97b5e",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "S09",
+          "kind": "statue_base",
+          "center_pct": [
+            34.8,
+            26.1
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            998,
+            671,
+            1298,
+            971
+          ]
+        },
+        {
+          "id": "S10",
+          "kind": "statue_base",
+          "center_pct": [
+            65.2,
+            26.1
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            2002,
+            671,
+            2302,
+            971
+          ]
+        },
+        {
+          "id": "S11",
+          "kind": "statue_base",
+          "center_pct": [
+            50.2,
+            66.1
+          ],
+          "target_width_world": 110,
+          "target_height_world": 40,
+          "native_box": [
+            1507,
+            1991,
+            1807,
+            2291
+          ]
+        },
+        {
+          "id": "A_N",
+          "kind": "walkable_altar",
+          "center_pct": [
+            50,
+            18
+          ],
+          "target_width_world": 140,
+          "target_height_world": 10,
+          "native_box": [
+            1500,
+            404,
+            1800,
+            704
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Edit target: this 2x2 sheet of FOUR independent LOCAL GAME MAP PATCHES. Keep exact equal quadrants and all original architecture positions. Each quadrant represents 400x400 world units. Change only the central freestanding prop in each occupied quadrant.\nTOP LEFT (S09): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nTOP RIGHT (S10): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nBOTTOM LEFT (S11): Reduce the EMPTY square limestone statue pedestal to 110 world units =27.5% quadrant width INCLUDING whole blocking base, about40units high. Keep its foot center at x50%,y63% of quadrant. Empty flat top, small restrained gold edges, solid blocking stone sides. No statue, no new objects.\nBOTTOM RIGHT (A_N): Replace the central raised square altar by a FLAT WALKABLE engraved stone altar,140worldunits=35%quadrant width, maximum10units high, top nearly flush with paving. Dark very discreet runes on flat empty surface, no light, no cage, no tall steps. Foot centerx50%,y63%.\n\nRestore ordinary fine paving where the former large prop stood. Preserve all surrounding walls, stairs, architecture, doors, other columns, paths, corruption, palette and lighting exactly. Do not resize whole scene or move architecture. Maintain detailed hand-painted game texture and sharp small paving. No labels, grid borders, characters, effects or additional objects. Return the full square sheet with exactly equal quadrants.\n\nPASSE DE CALIBRAGE :\nUse case: precise-object-edit. This sheet has four equal local map quadrants. Correct ONLY the small EMPTY solid statue pedestal nearest the center of each of the first three quadrants (top left, top right, bottom left). Each empty pedestal came out slightly too small. ENLARGE ITS WHOLE STONE BASE WIDTH BY 25 PERCENT, from current approximately21% of its quadrant width to27% of its quadrant width. Keep its foot location, low height, empty flat top, design and material. Expand its horizontal width rather than making a taller tower. The whole base including stepped foot should be roughly one quarter of quadrant width. Preserve surrounding paving and ALL architecture and routes. The bottom right quadrant contains a flat runic altar: preserve that entire quadrant exactly. No other changes, no added objects, labels, effects, statues or borders. Return exact same full 2x2 square framing."
+    },
+    {
+      "batch": 7,
+      "generated_sha256": "cd30a809a64cfaf6d5f19ef903fbbd5d3a4aef57c789448ef593f2b4bfe96764",
+      "size": [
+        1254,
+        1254
+      ],
+      "items": [
+        {
+          "id": "A_W",
+          "kind": "walkable_altar",
+          "center_pct": [
+            18.6,
+            48.6
+          ],
+          "target_width_world": 140,
+          "target_height_world": 10,
+          "native_box": [
+            464,
+            1414,
+            764,
+            1714
+          ]
+        },
+        {
+          "id": "A_E",
+          "kind": "walkable_altar",
+          "center_pct": [
+            81.4,
+            48.6
+          ],
+          "target_width_world": 140,
+          "target_height_world": 10,
+          "native_box": [
+            2536,
+            1414,
+            2836,
+            1714
+          ]
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Edit target: this 2x2 sheet of FOUR independent LOCAL GAME MAP PATCHES. Keep exact equal quadrants and all original architecture positions. Each quadrant represents 400x400 world units. Change only the central freestanding prop in each occupied quadrant.\nTOP LEFT (A_W): Replace the central raised square altar by a FLAT WALKABLE engraved stone altar,140worldunits=35%quadrant width, maximum10units high, top nearly flush with paving. Dark very discreet runes on flat empty surface, no light, no cage, no tall steps. Foot centerx50%,y63%.\nTOP RIGHT (A_E): Replace the central raised square altar by a FLAT WALKABLE engraved stone altar,140worldunits=35%quadrant width, maximum10units high, top nearly flush with paving. Dark very discreet runes on flat empty surface, no light, no cage, no tall steps. Foot centerx50%,y63%.\nKeep the two lower blank dark quadrants entirely blank.\nRestore ordinary fine paving where the former large prop stood. Preserve all surrounding walls, stairs, architecture, doors, other columns, paths, corruption, palette and lighting exactly. Do not resize whole scene or move architecture. Maintain detailed hand-painted game texture and sharp small paving. No labels, grid borders, characters, effects or additional objects. Return the full square sheet with exactly equal quadrants."
+    }
+  ],
+  "base_size_calibration": [
+    {
+      "batch": 4,
+      "firstpass_sha256": "d847bfeda84d29536c1eb5fe42af963352477822fd9c9e121d09a8ac154662fe",
+      "final_sha256": "2daed4b997583d38ea064f3405e6fe43a2ea9970e07700a27be5e96b55496870"
+    },
+    {
+      "batch": 5,
+      "firstpass_sha256": "02286d3aaab6b4befd20c5d52cad574cfb43c1a29e052ac995bc854e335c4281",
+      "final_sha256": "191a3ff28bd7e3b0900ae77ee008498ebf964498c39fef7cc499e211aa6d3525"
+    },
+    {
+      "batch": 6,
+      "firstpass_sha256": "3628a1147f8f1153c01b56d53b0cc3090cbb7fa8ffde6315b9fb3a0deb098492",
+      "final_sha256": "841ac5a87b0d0ad5c42ee162f849c45025104d696a71381a02d1c3ea40a97b5e"
+    }
+  ],
+  "method": "Quadrants indépendants rééchantillonnés à 300 px natifs, bord fondu sur 12 px.",
+  "outside_patches_unchanged": true,
+  "central_pillar_unchanged": true,
+  "note": "Réduction des abris et socles, ajout de l'abri 09, autels abaissés ; plan approuvé conservé."
+}

@@ -1,0 +1,32 @@
+{
+  "native_size": [
+    3300,
+    3300
+  ],
+  "game_size": [
+    9900,
+    9900
+  ],
+  "density": 2.25,
+  "source": "map_detailed.webp",
+  "source_sha256": "2f2d78b540de52ad712baf6541e7bf3383b9da5e65987535777338c58b38579d",
+  "presentation": "Lanczos ×3 du vrai détail par régions ; tuiles WebP sans perte.",
+  "tiles": [
+    {
+      "path": "assets\\environments\\shattered_pantheon\\map.webp",
+      "sha256": "1a8ad632689b9b9ce0c2cc023dcf448b5e671554a22963d816c3fbb9c4421d37",
+      "bytes": 30461460
+    },
+    {
+      "path": "assets\\environments\\shattered_pantheon\\map_1.webp",
+      "sha256": "7e1abae956054238106a8dca8c48a373f1f3689d2b3d98857923af0625b3e372",
+      "bytes": 29762166
+    },
+    {
+      "path": "assets\\environments\\shattered_pantheon\\map_2.webp",
+      "sha256": "a30611d216cd09dee7c22a303d68f8ff11adc1f5a728e44088eaacc02f68c3fb",
+      "bytes": 29892776
+    }
+  ],
+  "quality_conforme": true
+}
