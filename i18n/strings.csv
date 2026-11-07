@@ -1216,9 +1216,10 @@ EXPEDITION_SURVIVAL_TAG,Survie,Survival
 EXPEDITION_SURVIVAL_NOTE,Épreuve d'endurance pour le score : tenez jusqu'au Dévoreur.,Endurance trial for score: hold out until the Devourer.
 EXPEDITION_WITH,Équipe : %s,Team: %s
 FINALE_TRAVEL_PLAZA,Les failles sont refermées : rejoignez la place centrale.,The rifts are sealed: reach the central square.
-RIFTS_INTRO,Refermez les %d failles : détruisez-les pour arrêter les Corrompus.,Seal the %d rifts: destroy them to stop the Corrupted.
+RIFTS_INTRO,"Refermez les %d failles, une à une : chaque faille détruite ouvre la suivante.","Seal the %d rifts, one at a time: each rift destroyed opens the next."
 RIFTS_PROGRESS,Failles refermées : %d / %d,Rifts sealed: %d / %d
 RIFT_CLOSED_BANNER,Faille refermée ! (%d / %d),Rift sealed! (%d / %d)
+RIFT_OPENED_BANNER,Une nouvelle faille s'ouvre ! (%d/%d),A new rift opens! (%d/%d)
 ENEMY_RIFT_BREACH_NAME,Faille,Rift Breach
 ENEMY_RIFT_BREACH_DESC,Déchirure ouverte sur la Faille : des Corrompus en sortent tant qu'on ne l'a pas détruite.,A tear opened onto the Rift: Corrupted pour out of it until it is destroyed.
 ENEMY_MIRE_LEECH_NAME,Sangsue des vases,Mire Leech

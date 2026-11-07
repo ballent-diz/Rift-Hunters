@@ -530,3 +530,14 @@ Validé le 6 novembre. **Lot 2 livré** (chapitres 1 et 2 et leurs boss) : catal
 (zone qui frappe), état (boucle qui suit le lanceur), tir. **Lot 3 livré** : Givrés, Échos du silence, aura de la Mère-spore,
 armure qui se fend du Gardien d'écorce (E8), boss des chapitres 3 et 4 (hors Glauquemire et Dévoreur des Sources,
 peints) ; feuilles de plus de 40 images allégées (une sur deux).
+
+## Failles une par une + performance des grandes hordes (7 novembre)
+
+- **Failles séquentielles** (décision du propriétaire) : une seule faille ouverte à la fois ; refermée, la suivante (la plus
+  proche du Chasseur) s'ouvre 2,5 s plus tard (bannière « Une nouvelle faille s'ouvre ! »). Elle crache pour toutes :
+  `BalanceConfig.rift_single_spawn_mult` = 1,5 (2,5 était trop dur : 0/3 aux Hautes Terres). Bot profil d'étape, 3 graines :
+  Hautes Terres 3/3 (389-467 s), Col des braseros 3/3, Temple des marées 3/3.
+- **Performance** (horde de 400 Corrompus, simulation 11-13 → 7,9 ms/pas, ennemis 10,8 → 6,6) : cache du pas suivant par
+  cellule dans `FlowField`, cerveaux décalés une image sur deux au-delà de 120 Corrompus (`EnemyManager.STAGGER_FROM`,
+  jamais pendant une technique), marqueurs de statut extraits dans `EnemyMarkers` et limités à l'écran, halos hors écran
+  non dessinés. Piste suivante si besoin : décaler aussi `push_out` et la séparation.

@@ -84,6 +84,8 @@ extends Resource
 @export var mini_boss_cooldown_mult: float = 0.65
 @export_group("Récompenses")
 @export var shards_per_minute: float = 8.0
+## Mode failles : une seule faille ouverte à la fois, qui crache ce multiple de ArenaData.rift_spawn_rate.
+@export var rift_single_spawn_mult: float = 1.5
 @export var shards_per_elite: float = 6.0
 @export var shards_per_kill: float = 0.1
 @export var essence_per_elite: int = 1
