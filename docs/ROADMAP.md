@@ -1,5 +1,12 @@
 # Rift Hunters — feuille de route
 
+## Sprites chapitre 5 — Les Déchus : livrés (Codex, 8 novembre 2026)
+
+Sept monstres de la Cité de la Faille, dix planches et 144 poses : trois normaux, un arbalétrier
+avec technique, trois élites avec deux techniques chacune. Cellules 64 px, échelle 0,5 ; planche A
+en référence des suivantes. Capture au zoom réel sur les Faubourgs brisés avec Chasseur et Écho.
+Sept assets validés, 144 poses auditées, captures et mouvement au zoom réel sur la carte 21 livrés. Fiche : docs/art/DECHUS_CHAPITRE5.md. Claude intégrera les comportements ; aucune modification de src/ ou data/ dans ce lot.
+
 ## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
 
 - Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses. Sources originales conservées ; toutes les entrées de main préservées lors du merge du 3 novembre. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.

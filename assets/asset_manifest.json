@@ -15167,6 +15167,335 @@
 			"minimap": "res://assets/environments/storm_lake/minimap.webp",
 			"menu_preview": "res://assets/ui/expedition/storm_lake.png",
 			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"enemy.fallen_militia": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.fallen_militia/job.json",
+			"sheet": "res://assets/sprites/enemies/fallen_militia/fallen_militia_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/fallen_militia.png"
+		},
+		"enemy.corrupted_hound": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.corrupted_hound/job.json",
+			"sheet": "res://assets/sprites/enemies/corrupted_hound/corrupted_hound_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/corrupted_hound.png"
+		},
+		"enemy.lantern_wraith": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.lantern_wraith/job.json",
+			"sheet": "res://assets/sprites/enemies/lantern_wraith/lantern_wraith_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				58
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/lantern_wraith.png"
+		},
+		"enemy.fallen_crossbowman": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.fallen_crossbowman/job.json",
+			"sheet": "res://assets/sprites/enemies/fallen_crossbowman/fallen_crossbowman_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"corrupted_bolt": {
+					"row": 2,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/fallen_crossbowman.png"
+		},
+		"enemy.fallen_captain": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.fallen_captain/job.json",
+			"sheet": "res://assets/sprites/enemies/fallen_captain/fallen_captain_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"shield_wall": {
+					"row": 3,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"rallying_cry": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/fallen_captain.png"
+		},
+		"enemy.rift_herald": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rift_herald/job.json",
+			"sheet": "res://assets/sprites/enemies/rift_herald/rift_herald_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"soul_link": {
+					"row": 3,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"corruption_seal": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/rift_herald.png"
+		},
+		"enemy.cobble_golem": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.cobble_golem/job.json",
+			"sheet": "res://assets/sprites/enemies/cobble_golem/cobble_golem_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"tunnel": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"slab_armor": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/cobble_golem.png"
 		}
 	}
 }
