@@ -37,6 +37,9 @@ var _target_cell := Vector2i(-1, -1)
 ## Case de sortie déjà cherchée pour chaque case injoignable (index de case → case, (-1, -1) si aucune), valable
 ## jusqu'au prochain calcul des distances : sans elle, chaque ennemi coincé refait la recherche à chaque image.
 var _escape: Dictionary = {}
+## Case voisine visée depuis chaque case joignable (index, -1 : aucune, -2 : pas encore cherchée), valable jusqu'au
+## prochain calcul : les Corrompus d'une même case partagent la recherche (horde : 400 ennemis, une poignée de cases).
+var _next := PackedInt32Array()
 ## Décor (pour sortir d'un recoin en ligne droite dégagée).
 var _obstacles: ObstacleField
 
@@ -51,6 +54,8 @@ func setup(obstacles: ObstacleField, rect: Rect2, p_cell_size: float = CELL) -> 
 	_walkable.resize(count)
 	_dist.resize(count)
 	_dist.fill(UNREACHED)
+	_next.resize(count)
+	_next.fill(-2)
 	for y: int in size.y:
 		for x: int in size.x:
 			var center: Vector2 = cell_center(Vector2i(x, y))
@@ -64,6 +69,7 @@ func apply_walls(obstacles: ObstacleField) -> void:
 	if obstacles.walls_version == _walls_version:
 		return
 	_walls_version = obstacles.walls_version
+	_next.fill(-2)
 	while _released_seen < obstacles.released.size():
 		_reopen(obstacles, obstacles.released[_released_seen])
 		_released_seen += 1
@@ -147,6 +153,7 @@ func update(target: Vector2) -> void:
 		return
 	_target_cell = start
 	_escape.clear()
+	_next.fill(-2)
 	_dist.fill(UNREACHED)
 	var w: int = size.x
 	var first: int = start.y * w + start.x
@@ -186,14 +193,8 @@ func update(target: Vector2) -> void:
 
 ## Direction de déplacement vers la cible depuis `pos` ; `direct` = ligne droite (utilisée près de la cible,
 ## en terrain dégagé ou hors de la carte).
-func direction(pos: Vector2, direct: Vector2) -> Vector2:
-	var cell: Vector2i = cell_of(pos)
-	if not _in_bounds(cell):
-		return direct
-	var here: int = _dist[cell.y * size.x + cell.x]
-	if here <= maxi(1,roundi(NEAR_COST * CELL / cell_size)):
-		return direct
-	# Case injoignable (dans la marge d'un obstacle) : on rejoint la case voisine la plus proche de la cible.
+## Case voisine (jusqu'à deux pas) la plus proche de la cible, plus proche que `here` ; (-1, -1) si aucune.
+func _best_neighbor(cell: Vector2i, here: int) -> Vector2i:
 	var best: int = here
 	var best_cell := Vector2i(-1, -1)
 	for dy: int in range(-2, 3):
@@ -209,8 +210,26 @@ func direction(pos: Vector2, direct: Vector2) -> Vector2:
 				continue
 			best = value
 			best_cell = c
+	return best_cell
+
+
+func direction(pos: Vector2, direct: Vector2) -> Vector2:
+	var cell: Vector2i = cell_of(pos)
+	if not _in_bounds(cell):
+		return direct
+	var here: int = _dist[cell.y * size.x + cell.x]
+	if here <= maxi(1,roundi(NEAR_COST * CELL / cell_size)):
+		return direct
+	# Case injoignable (dans la marge d'un obstacle) : on rejoint la case voisine la plus proche de la cible.
+	var index: int = cell.y * size.x + cell.x
+	var best_cell := Vector2i(-1, -1)
+	var known: int = _next[index]
+	if known == -2:
+		best_cell = _best_neighbor(cell, here)
+		_next[index] = best_cell.y * size.x + best_cell.x if best_cell.x >= 0 else -1
+	elif known >= 0:
+		best_cell = Vector2i(known % size.x, known / size.x)
 	if best_cell.x < 0 and here == UNREACHED:
-		var index: int = cell.y * size.x + cell.x
 		var cached: Vector2i = _escape.get(index, Vector2i(-2, -2))
 		# Réutilisée si elle reste en vue depuis cette position (un ennemi voisin dans la même case l'a trouvée).
 		if cached.x == -1 or (cached.x >= 0 and (_obstacles == null or _obstacles.line_clear(pos, cell_center(cached)))):
