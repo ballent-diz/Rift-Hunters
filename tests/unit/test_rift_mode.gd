@@ -25,9 +25,11 @@ func test_rifts_are_targetable_structures_that_spawn_enemies() -> void:
 	var ctx: RunContext = run.ctx
 	check(ctx.rifts != null, "Hautes Terres : mode failles")
 	check_eq(ctx.rifts.total(), 4, "quatre failles")
+	check_eq(ctx.rifts.open_rifts().size(), 1, "une seule faille ouverte à la fois")
+	for point: Vector2 in ctx.arena.rift_points:
+		check(not ctx.obstacles.blocks(point, 0.0), "faille posée sur un sol praticable")
 	for rift: Enemy in ctx.rifts.rifts:
 		check(rift.is_target(), "faille ciblée par les attaques automatiques")
-		check(not ctx.obstacles.blocks(rift.position, 0.0), "faille posée sur un sol praticable")
 	var rift: Enemy = ctx.rifts.rifts[0]
 	ctx.player.global_position = rift.position + Vector2(120, 0)
 	check_eq(ctx.enemies.find_nearest(ctx.player.global_position, 400.0), rift, "le Chasseur vise la faille proche")
@@ -42,8 +44,9 @@ func test_rifts_are_targetable_structures_that_spawn_enemies() -> void:
 func test_closing_all_rifts_calls_to_the_walled_plaza() -> void:
 	var ctx: RunContext = run.ctx
 	check(ctx.finale.walled(), "place centrale murée")
-	for i: int in ctx.rifts.rifts.size():
-		var rift: Enemy = ctx.rifts.rifts[i]
+	for i: int in ctx.rifts.total():
+		check_eq(ctx.rifts.open_rifts().size(), 1, "faille %d : seule ouverte" % (i + 1))
+		var rift: Enemy = ctx.rifts.open_rifts()[0]
 		var info := DamageInfo.new()
 		info.amount = rift.max_hp * 10.0
 		ctx.combat.deal_damage(rift, info)
@@ -51,6 +54,8 @@ func test_closing_all_rifts_calls_to_the_walled_plaza() -> void:
 		check_eq(ctx.rifts.closed, i + 1, "faille refermée : %d" % (i + 1))
 		if i < 3:
 			check_eq(ctx.finale.state, ArenaFinale.State.WAVES, "pas de finale avant la dernière faille")
+			check(ctx.rifts.open_rifts().is_empty(), "un répit avant la faille suivante")
+			ctx.rifts.step(RiftDirector.OPEN_DELAY + 0.1)
 	check_eq(ctx.finale.state, ArenaFinale.State.TRAVEL, "appel vers la place centrale")
 	check_eq(ctx.stats.get_value(&"rifts_closed"), 4.0, "failles comptées")
 	ctx.player.global_position = ctx.arena.finale_center + Vector2(150, 0)
