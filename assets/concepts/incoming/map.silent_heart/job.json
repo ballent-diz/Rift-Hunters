@@ -8,13 +8,13 @@
     3344
   ],
   "status": "final",
-  "stage": "detail_graphique_livre",
+  "stage": "detail_retouche_locale_livre",
   "composition": "composition.png",
   "composition_size": [
     1536,
     1024
   ],
-  "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+  "composition_sha256": "0945f1b63f5c841fd1dd161762e42d8df6d05884c6f5c5fd6e99c79853e87a84",
   "review": "plan.json",
   "owner_approved": true,
   "plan_locked": true,
@@ -22,8 +22,8 @@
   "regions_generated": 12,
   "quality_conforme": true,
   "quality_scope": "35secteurs, seuils inchangés de check_map_quality ; voir docs/previews/silent-heart/qualite.json.",
-  "slippery_ice": 7,
-  "cover_rocks": 11,
+  "slippery_ice": 10,
+  "cover_rocks": 16,
   "runtime_integrated": false,
   "collision_mask_created": false,
   "owner_approval_date": "2026-11-05",
@@ -38,5 +38,6 @@
   ],
   "native_density": 0.75,
   "presentation_density": 2.25,
-  "collision_reference": "source/collision_reference.json"
+  "collision_reference": "source/collision_reference.json",
+  "local_revision": "source/local_access_revision.json"
 }

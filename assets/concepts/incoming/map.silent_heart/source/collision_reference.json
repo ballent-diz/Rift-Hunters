@@ -1,12 +1,11 @@
 {
-  "date": "2026-11-05",
   "reference": "docs/previews/silent-heart/reference_collisions.jpg",
-  "sha256": "a54c1b7042d1112c7c73dbb87fc64988b4b6f17ad53420f276a7247edefdf0ea",
-  "bytes": 548935,
+  "sha256": "c441cbabe4060faef2e78d51c86ba02e72cf2bb6eabfdfe05bce8b9eba2de1bc",
   "size": [
     1254,
     836
   ],
+  "bytes": 548655,
   "world": [
     5016,
     3344
@@ -14,32 +13,12 @@
   "world_units_per_pixel": 4,
   "whole_map": true,
   "crop": null,
-  "origin": "Coin haut-gauche, même cadrage que composition et détail.",
-  "recipe": {
-    "source_tiles_left_to_right": [
-      {
-        "path": "assets/environments/silent_heart/map.webp",
-        "sha256": "e2aa0c7d35d642486d5e3c64eecfd07f963b05322986f5aace3d74fcebb493f4"
-      },
-      {
-        "path": "assets/environments/silent_heart/map_1.webp",
-        "sha256": "29f9e0f8d34badbd69fc407fc93642ca4d6f754fc61e5d2b42c7996e76d13cfc"
-      },
-      {
-        "path": "assets/environments/silent_heart/map_2.webp",
-        "sha256": "ca95f404ec45eced117a76096db9e097d668fc69cce5fc0db31dce53b3dbb8c6"
-      }
-    ],
-    "assembly_size": [
-      11286,
-      7524
-    ],
-    "resize": "Lanczos",
-    "format": "JPEG",
-    "quality": 85,
-    "subsampling": 0,
-    "optimize": true
-  },
+  "source": "Tuiles finales retenues, carte entière, réduction Lanczos, JPEG85 4:4:4.",
+  "tiles_sha256": [
+    "0338062fb27678e766cff7fd09baac56f306d1b2db9eb6b685ad3fd70f8d0c71",
+    "f9e508d4e8bf3122a4c46356871a1036729705883133d80b6d168979415cf472",
+    "0670c8a6958d7a16aefe64e02ee7152ebd4ede8d1dd44f77fe64233cb92c95e7"
+  ],
   "expected_return": {
     "format": "PNG",
     "size": [
@@ -47,9 +26,9 @@
       836
     ],
     "same_framing": true,
-    "resize_allowed": false,
-    "paint": "Rouge translucide sur obstacles bloquants ; toutes les plaques B1 restent praticables, les sols des deux ouvrages aussi. Gouffres sombres dessous bloquants."
+    "paint": "Obstacles, parois et gouffres bloquants ; chaussée enneigée, deux raccords et dix plaques de glace praticables."
   },
+  "replaces_previous_reference": true,
   "collision_mask_created": false,
   "runtime_integrated": false
 }

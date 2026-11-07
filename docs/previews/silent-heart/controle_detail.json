@@ -1,205 +1,150 @@
 {
-  "date": "2026-11-05",
-  "stage": "detail_graphique_livre",
-  "owner_approved": true,
-  "plan_locked": true,
-  "main_base": "320ab5870e5664de642dfe89fae62377474703f4",
-  "checks": [
-    {
-      "name": "godot_import",
-      "command": [
-        "godot",
-        "--headless",
-        "--import",
-        "--path",
-        "."
-      ],
-      "exit_code": 0,
-      "log_sha256": "552a8b7308afeeaa13d27772382204c907145770b2a7869b3a14c79bb747cffa"
-    },
-    {
-      "name": "captures",
-      "command": [
-        "xvfb-run",
-        "-a",
-        "-s",
-        "-screen 0 1280x720x24",
-        "godot",
-        "--path",
-        ".",
-        "--audio-driver",
-        "Dummy",
-        "--resolution",
-        "1280x720",
-        "res://tools/art/preview_silent_heart.tscn",
-        "--",
-        "--detail",
-        "--out=/workspace/.rift-art/map20/detail/captures"
-      ],
-      "exit_code": 0,
-      "log_sha256": "7d729f1f6a370ae07c525f4d2f0a1b7509665f5640ae8a13268193f0177a1701"
-    },
-    {
-      "name": "assets",
-      "command": [
-        "tools/run_tests.sh",
-        "assets"
-      ],
-      "exit_code": 0,
-      "log_sha256": "74d7264177dc00147b870d83eb09138b84f2148914d7de4320ee141b581f8b1d"
-    },
-    {
-      "name": "gdlint",
-      "command": [
-        "gdlint",
-        "tools/art/preview_silent_heart.gd"
-      ],
-      "exit_code": 0,
-      "log_sha256": "d2f45ecead8ebe024d64d724cef92d4c7b89f8d0150b30b296320bddb760e4be"
-    },
-    {
-      "name": "python_compile",
-      "command": [
-        "python",
-        "-m",
-        "py_compile",
-        "tools/art/build_silent_heart.py"
-      ],
-      "exit_code": 0
-    }
+  "date": "2026-11-07",
+  "scope": "Retouche locale du chemin et des centres, remplace le reçu graphique du5novembre.",
+  "quality": {
+    "world": [
+      5016,
+      3344
+    ],
+    "checks": [
+      {
+        "name": "densité (pixels par unité)",
+        "value": 2.25,
+        "min": 2.183,
+        "max": 2.317,
+        "ok": true
+      },
+      {
+        "name": "part lisse (médiane)",
+        "value": 0.122,
+        "min": 0.0,
+        "max": 0.27,
+        "ok": true
+      },
+      {
+        "name": "détails fins / 100×100 u (médiane)",
+        "value": 382.376,
+        "min": 329.944,
+        "max": 446.395,
+        "ok": true
+      },
+      {
+        "name": "détails moyens / 100×100 u (médiane)",
+        "value": 98.877,
+        "min": 90.94,
+        "max": 123.036,
+        "ok": true
+      },
+      {
+        "name": "secteurs conformes (part)",
+        "value": 1.0,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      },
+      {
+        "name": "fidélité au plan validé (corrélation)",
+        "value": 0.965,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      }
+    ],
+    "sectors_out": [],
+    "ok": true
+  },
+  "plan_sha256": "81e28c18971fae333a55172b90b965a1275ccfa21438ef1184fbf65e08ce00d7",
+  "text_hash_convention": "UTF-8, fins de ligne LF",
+  "master_sha256": "898106eb8b0d2b220453892832d46c5bece1b960c8e96d58e0104f4f60a96622",
+  "tiles_sha256": [
+    "0338062fb27678e766cff7fd09baac56f306d1b2db9eb6b685ad3fd70f8d0c71",
+    "f9e508d4e8bf3122a4c46356871a1036729705883133d80b6d168979415cf472",
+    "0670c8a6958d7a16aefe64e02ee7152ebd4ede8d1dd44f77fe64233cb92c95e7"
   ],
-  "assets": {
-    "total": 450,
-    "valid": 448,
-    "placeholders": 2,
-    "errors": 0,
-    "preexisting_placeholders": [
-      "object.training_dummy",
-      "object.crystal_mirror"
-    ]
-  },
-  "quality_conforme": true,
-  "quality_report": "qualite.json",
-  "quality_sectors": 35,
-  "quality_sectors_conforme": 35,
-  "quality_thresholds_unchanged": true,
-  "capture_receipt": {
-    "camera_zoom": 1.3333,
-    "collision_mask_created": false,
-    "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
-    "native_sprites_unchanged": true,
-    "profile_read_only": true,
-    "review_sha256": "35bf9ac6fc9c142e1030dd5266bd5e992841b78011c10d6eca00260febb9adbc",
-    "runtime_integrated": false,
-    "scope": "detail_graphique",
-    "viewport": [
-      1280,
-      720
-    ]
-  },
+  "godot_version": "4.3-stable",
+  "isolated_import_exit_code": 0,
+  "imported_textures_loaded": 3,
+  "static_capture_exit_code": 0,
   "captures": [
     {
-      "file": "abri_zoom_jeu.webp",
-      "sha256": "6a663c8fba8432ceb3dea385938c1d9a4fc98eaba7f17c29df568c7ed13948f5",
-      "original_png_sha256": "b55d5f60359887d4a5e6f4fa29518b71b24df071a0624ede7771cab28bd849a5"
+      "path": "abri_central.webp",
+      "sha256": "51b6c986e2081e251ddcffe48230b0a2124553a72f96a64d7a311e133884d40c",
+      "png_sha256": "a253e0712e8c811c221c5ccf7421a3279fb451d01aab22904cf7bdeb776f76ca"
     },
     {
-      "file": "cristal_zoom_jeu.webp",
-      "sha256": "d889d82e40d77159fabe3436ae99f5efeca3b0bebd9037ac1786997a54542ef9",
-      "original_png_sha256": "9cf9844227cdf472fcf009747e31a46e1926ae113ae6cc20dc3fe034526ad354"
+      "path": "centre_est.webp",
+      "sha256": "fa5dc96974a7471448246c0dbf1a882a3633af9a4adcdacb706e7d08d0a5eacc",
+      "png_sha256": "67e763ba1ac8ecc252a1f2d1040594683f247e0568f2b8121bcf098774a13fac"
     },
     {
-      "file": "depart_zoom_jeu.webp",
-      "sha256": "9345faa7e83fb32b7c8ad333b4eda722c255c8efe29da6609c524f31d5106dbf",
-      "original_png_sha256": "1dc67d02bb876bf102da2efed69a9c39a4fd3f29c34148e347cc02a6cabea047"
+      "path": "centre_milieu.webp",
+      "sha256": "d3bdec638efd123535b4d99e58d9b965ba54afe2036ced45b9ba8b265e137833",
+      "png_sha256": "1cf816477184e3c5bb730c72dac73001e939c77a0e3d8997fd89c6d4360d83b5"
     },
     {
-      "file": "ensemble_720p.webp",
-      "sha256": "0ed64edd30e3b7f746183a67917b5a9c8267094a50d855dfb85aae796a23a68e",
-      "original_png_sha256": "88639420d2cdc88051b02fe8c087b47163429e723738c44421fd4920cc3c4860"
+      "path": "centre_ouest.webp",
+      "sha256": "8df13b302a07a20a528976eaeb9d17287ff46b00595a5c30dd82ec42ac51b02a",
+      "png_sha256": "053e1d717b73820ef57ee44950cde7509466d5803212abfa266326317485fe2b"
     },
     {
-      "file": "escalier_zoom_jeu.webp",
-      "sha256": "4e45d22ab5cfd1fb3460d68e60a034ad3685ec45f2af2609d4632f5493826377",
-      "original_png_sha256": "1ee54004432a783d531cf78c01f35019766298a4181fa4bcf1219b7221e09325"
+      "path": "chemin_centre.webp",
+      "sha256": "83e66e93ff3a067a8066838ae8992d0ffcb79fbd1b8c0bae14788f5e8977e91a",
+      "png_sha256": "c2f9141c61e688616d4fbf8fc2e946321538597eb6dbbe284e45caa074d7229c"
     },
     {
-      "file": "nivorath_glace.webp",
-      "sha256": "a61a5a5d3092160ebc983a4649875ff16c76e45eadbde407bf21156e35462344",
-      "original_png_sha256": "98c542982b5e4040016e962beb816061351ca68c2c6fdac61f3a35b631a10adf"
+      "path": "chemin_entree_est.webp",
+      "sha256": "241c077e5a2769ef0fe3f015c63384d032c190f5a986b58abbdba34304b798e2",
+      "png_sha256": "43ccb0a82337dae2c0ac981bab7c5f15075e2ea8103582a65a99e1ef95ccc20a"
     },
     {
-      "file": "nivorath_neige.webp",
-      "sha256": "6b9ddbb56ee36cd79c4963898aa9142b9ea091c6988727c5406fc92338438f1a",
-      "original_png_sha256": "27ef37928a0fba7a3ef3963a05978dff4bf45a26e3ecd64edd7f67b471c558b7"
+      "path": "chemin_sortie_ouest.webp",
+      "sha256": "0d346a466cabdd48cd84c670a8e278e1cca682526e7eb20cbef5738705eb9a7f",
+      "png_sha256": "a303396a228752e5d832017b8f3d5a3414d77e809bf817a91a324d7f844c8c60"
     },
     {
-      "file": "reference_ruines_zoom_jeu.webp",
-      "sha256": "6bcbc09c5cc01bef12452c0172ad25728e62781a36b295cf66489817fc46533f",
-      "original_png_sha256": "7be3d11211ee8a5c9496e093106b29f58d623d4e9622057073b556397b2bd9a8"
-    },
-    {
-      "file": "silence_glace.webp",
-      "sha256": "1bcc3633da195b71f2504adfdd23f3c1a526fe13b2212fadc73f5777204eb25d",
-      "original_png_sha256": "b836bd0ff019f51ea0f9543c9f3df3af431dfe034502117576ab0a08359af8e0"
-    },
-    {
-      "file": "silence_neige.webp",
-      "sha256": "fa3f98f2bfb1a8c1e8794dd248a050ebd3c0202ba500249c97cca229905d7aa5",
-      "original_png_sha256": "002aa5a7b6ccbef64271e6bb7c931c49bc392d321dcdae298071486665bc6529"
-    },
-    {
-      "file": "tunnel_zoom_jeu.webp",
-      "sha256": "dc058b3b641a74451a851bbe876bbfb666fbeaa5f421a97e86638dde97116f51",
-      "original_png_sha256": "a8eca6f1c2e46cbfe6f89b03bc03f816a1a14ee99685622d4651f496c2c139ed"
+      "path": "ensemble_720p.webp",
+      "sha256": "496bd05cb25751815ab5ff5958ea684f18a2864893228da4425c98a116c7a213",
+      "png_sha256": "76417d759ea456f7c8752d6c8c4f52855de0c6aed5ad962d63db4dbac50dd885"
     }
   ],
-  "world": [
-    5016,
-    3344
+  "viewport": [
+    1280,
+    720
   ],
-  "native_size": [
-    3762,
-    2508
+  "zoom": 1.3333,
+  "sprites_unchanged": [
+    "player.hunter",
+    "enemy.snow_wraith"
   ],
-  "game_size": [
-    11286,
-    7524
-  ],
-  "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
-  "plan_sha256": "35bf9ac6fc9c142e1030dd5266bd5e992841b78011c10d6eca00260febb9adbc",
-  "master_sha256": "6808ca7c284241b9e220e19d75d743916d322cd39c0f2e9542894fd8679c0084",
-  "regions": 12,
-  "local_cover_paintings": 11,
-  "compact_cover_refinements": 3,
-  "local_border_paintings": 6,
-  "cover_counts": {
-    "z1": 3,
-    "z2": 3,
-    "cathedral": 5
+  "sharpness": {
+    "reference": 0.0061868950724601746,
+    "reference_percentile": 80,
+    "blur_ratio": 0.6,
+    "flagged": 385,
+    "valid": 620,
+    "share": 0.6209677419354839,
+    "limit": 0.05,
+    "ok": false,
+    "before_same_diagnostic": {
+      "reference": 0.007223418913781643,
+      "flagged": 422,
+      "valid": 620,
+      "share": 0.6806451612903226,
+      "ok": false
+    },
+    "historical_frozen_reference": {
+      "reference": 0.000914582924451679,
+      "before_flagged": 0,
+      "after_flagged": 5
+    },
+    "scope_note": "Seuils inchangés. Diagnostic adaptatif comparé à la livraison précédente ; ce diagnostic est distinct du contrôle absolu check_map_quality. La retouche locale conserve la présentation précédente hors emprises."
   },
-  "cover_target_width_world": 140,
-  "compact_cover_target_world": 125,
-  "slippery_ice": 7,
-  "polygons_simple": true,
-  "cover_centers_outside_slippery_ice": true,
-  "firm_combat_core_world": [
-    1250,
-    1400
-  ],
-  "west_crystal_pct": [
-    7.5,
-    58
-  ],
-  "start_pct": [
-    92,
-    24
-  ],
-  "collision_reference_bytes": 548935,
-  "collision_reference_sha256": "a54c1b7042d1112c7c73dbb87fc64988b4b6f17ad53420f276a7247edefdf0ea",
-  "native_sprites_unchanged": true,
-  "profile_read_only": true,
+  "python_compile_exit_code": 0,
+  "gdscript_lint_exit_code": 0,
+  "outside_changed_support_pixels_identical": true,
+  "changed_support_share": 0.0843,
   "collision_mask_created": false,
   "runtime_integrated": false,
-  "navigation_or_combat_tested": false
+  "navigation_or_combat_tested": false,
+  "limits": "Trois cadrages vérifient graphiquement les raccords et le tablier ; la circulation réelle attend les collisions peintes et leur intégration."
 }

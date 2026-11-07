@@ -1,0 +1,227 @@
+{
+  "date": "2026-11-07",
+  "world": [
+    5016,
+    3344
+  ],
+  "native_size": [
+    3762,
+    2508
+  ],
+  "game_size": [
+    11286,
+    7524
+  ],
+  "generator": "Outil imagegen intégré ; quatre retouches du détail existant, aucune recomposition.",
+  "before_master_sha256": "6808ca7c284241b9e220e19d75d743916d322cd39c0f2e9542894fd8679c0084",
+  "master_sha256": "898106eb8b0d2b220453892832d46c5bece1b960c8e96d58e0104f4f60a96622",
+  "before_composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+  "composition_sha256": "0945f1b63f5c841fd1dd161762e42d8df6d05884c6f5c5fd6e99c79853e87a84",
+  "plan_sha256": "81e28c18971fae333a55172b90b965a1275ccfa21438ef1184fbf65e08ce00d7",
+  "text_hash_convention": "UTF-8, fins de ligne LF",
+  "before_tiles_sha256": [
+    "e2aa0c7d35d642486d5e3c64eecfd07f963b05322986f5aace3d74fcebb493f4",
+    "29f9e0f8d34badbd69fc407fc93642ca4d6f754fc61e5d2b42c7996e76d13cfc",
+    "ca95f404ec45eced117a76096db9e097d668fc69cce5fc0db31dce53b3dbb8c6"
+  ],
+  "tiles_sha256": [
+    "0338062fb27678e766cff7fd09baac56f306d1b2db9eb6b685ad3fd70f8d0c71",
+    "f9e508d4e8bf3122a4c46356871a1036729705883133d80b6d168979415cf472",
+    "0670c8a6958d7a16aefe64e02ee7152ebd4ede8d1dd44f77fe64233cb92c95e7"
+  ],
+  "patches": [
+    {
+      "id": "path",
+      "native_box": [
+        1280,
+        1055,
+        2105,
+        1880
+      ],
+      "world_box": [
+        1706.6666666666667,
+        1406.6666666666667,
+        2806.6666666666665,
+        2506.6666666666665
+      ],
+      "input_sha256": "f8de2e2cd5afa410db426b334c2bb9689acc09aa8ac6425045e983372df768dd",
+      "guide_sha256": "5f2b022e8481a41fab4267ea41c4d8833c7c6f733292cb4360ab82621b1fecd9",
+      "generated_sha256": "0c11e5a569de2818d0a1e20c597f886d9b7efa62e5fee58694f3382b4e778b72",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.14,
+      "prompt": "Use case: precise-object-edit. Asset: LOCAL retouch of existing Rift Hunters icy cavern map. Image1 is the precise edit target; image2 is ONLY a technical guide of the SAME crop: GREEN rectangle indicates the walkable path width, YELLOW line the left-right crossing. Do not draw any guide lines in final.\nReplace the confusing thin striped staircase/grate over the chasm with a CLEAR SOLID CONTINUOUS snow-dusted ice-rock causeway running HORIZONTALLY LEFT TO RIGHT across the chasm. It must join the flat floor of the large WEST chamber on the left directly to the flat floor of the MIDDLE chamber on the right. A smooth nearly level flat snowy deck, no vertical grating, no deep staircase, no hole, no gap or wall at either end. Extend clean broad snowy landings into BOTH existing floors. The usable deck is about290worldunits from upper to lower edge, as indicated by green box, around26%of crop width. This crop represents1100x1100worldunits; a human52units. A solid ice-rock arch can support the deck over the dark chasm below, keep the chasm dark underneath and the frozen waterfall above. No blockers on walking surface, no pillars at the two mouths. Keep path lighter than chasm, with clearly readable floor continuity.\nPreserve the entire surrounding cavern, frozen waterfall, rock at upper-right, large walls and original palette and extremely fine frost texture at identical positions. No new rooms, no framing/crop changes, no added effects, characters, text or symbols. This is a small local fix of a finished detailed map, not a new map. Return same square crop at1254pixels or larger.",
+      "ice": [],
+      "covers": []
+    },
+    {
+      "id": "west",
+      "native_box": [
+        453,
+        917,
+        1278,
+        1742
+      ],
+      "world_box": [
+        604,
+        1222.6666666666667,
+        1704,
+        2322.6666666666665
+      ],
+      "input_sha256": "83db522a6556692adda50700e8d7bddfbcd1711d99ca95f94a6395a31839cfcf",
+      "guide_sha256": "b36666f7642d88c594ffe2d9f58a1e76026109aad29455af2f53ba539c9d78b8",
+      "generated_sha256": "572b2460e3540d474ccb2d057e93cf6759d989f9d40731e937cfe2c37d1f09ac",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.14,
+      "prompt": "Use case: precise-object-edit. Asset: LOCAL retouch of the finished Rift Hunters snowy cave map, not a new map. Image1 is the exact edit target; image2 is ONLY a technical placement guide of the same crop. Keep all original scenery at exactly the same positions, scale, lighting, fine frost texture and blue/violet icy palette. Crop represents1100x1100worldunits. Keep original peripheral ice sheets and rocks unchanged.\nAdd ONE irregular FLAT smooth translucent CYAN ICE PATCH inside the green circle, about380worldunits across. Smooth shiny cyan material like existing peripheral patches, thin whitish boundary flush with snowy floor, subtle hairline scratches. This is WALKABLE slippery ice, no hole, water, raisedrim, spikes or dark crack. Keep snowy bypass room around all sides.\nAdd exactly 2 SMALL compact solid blue ICE-ROCK COVER BLOCKS at the pink marked boxes. Each WHOLE footprint is110–160worldunits wide, target140units=12.7%of cropwidth; low upright broken ice rock, 80–110units high, clearly blocking, short coherent ground shadow. No spreading pile of rubble, towers or extra objects. The pink square bottom marks each rock foot center; don't move the footprints. Keep wide clear snow routes between blocks and ice, no wall or linear barricade.\nRemove all guide marks from final. Preserve everything beyond these few additions exactly. Do not repaint or simplify all the snow, move walls, crop, zoom, change perspective, add figures or effects. Match the fine finished frost/stone texture of the original. Full square image1254px or larger.",
+      "ice": [
+        {
+          "id": "i08",
+          "center_pct": [
+            23,
+            48
+          ],
+          "diameter_world": 380
+        }
+      ],
+      "covers": [
+        {
+          "id": "a12",
+          "center_pct": [
+            18,
+            58
+          ]
+        },
+        {
+          "id": "a13",
+          "center_pct": [
+            28,
+            60
+          ]
+        }
+      ]
+    },
+    {
+      "id": "middle",
+      "native_box": [
+        1732,
+        979,
+        2557,
+        1804
+      ],
+      "world_box": [
+        2309.3333333333335,
+        1305.3333333333333,
+        3409.3333333333335,
+        2405.3333333333335
+      ],
+      "input_sha256": "b19adbfee7b9e4c8043da071ab21dcfe6db851af353038b523303e1b0662a0b8",
+      "guide_sha256": "cc52d85c35b9aeda38f114044937d6ed1fe77aa92ce7e6dba201e87ad9c36394",
+      "generated_sha256": "9b069952dbd6ea6e01a81cac8a8a4524351ef02ecd24764bcedf230be035b651",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.14,
+      "prompt": "Use case: precise-object-edit. Asset: LOCAL retouch of the finished Rift Hunters snowy cave map, not a new map. Image1 is the exact edit target; image2 is ONLY a technical placement guide of the same crop. Keep all original scenery at exactly the same positions, scale, lighting, fine frost texture and blue/violet icy palette. Crop represents1100x1100worldunits. Keep original peripheral ice sheets and rocks unchanged.\nAdd ONE irregular FLAT smooth translucent CYAN ICE PATCH inside the green circle, about330worldunits across. Smooth shiny cyan material like existing peripheral patches, thin whitish boundary flush with snowy floor, subtle hairline scratches. This is WALKABLE slippery ice, no hole, water, raisedrim, spikes or dark crack. Keep snowy bypass room around all sides.\nAdd exactly 1 SMALL compact solid blue ICE-ROCK COVER BLOCK at the pink marked boxes. Each WHOLE footprint is110–160worldunits wide, target140units=12.7%of cropwidth; low upright broken ice rock, 80–110units high, clearly blocking, short coherent ground shadow. No spreading pile of rubble, towers or extra objects. The pink square bottom marks each rock foot center; don't move the footprints. Keep wide clear snow routes between blocks and ice, no wall or linear barricade.\nRemove all guide marks from final. Preserve everything beyond these few additions exactly. Do not repaint or simplify all the snow, move walls, crop, zoom, change perspective, add figures or effects. Match the fine finished frost/stone texture of the original. Full square image1254px or larger.",
+      "ice": [
+        {
+          "id": "i09",
+          "center_pct": [
+            57,
+            54
+          ],
+          "diameter_world": 330
+        }
+      ],
+      "covers": [
+        {
+          "id": "a14",
+          "center_pct": [
+            59,
+            63
+          ]
+        }
+      ]
+    },
+    {
+      "id": "east",
+      "native_box": [
+        2860,
+        1042,
+        3685,
+        1867
+      ],
+      "world_box": [
+        3813.3333333333335,
+        1389.3333333333333,
+        4913.333333333333,
+        2489.3333333333335
+      ],
+      "input_sha256": "f6c004b05792203be382300fc2dcb10cdde2f1a4b55dca81b659bd7be615c322",
+      "guide_sha256": "a7f0f8405c056978da164c95ae806f269947ca9e0972cbf1938a4f449f460d72",
+      "generated_sha256": "866b8a0721a19697046047090fbdfe617226c69e2ddbbd1b6fa1bd9b0d132c92",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 1.14,
+      "prompt": "Use case: precise-object-edit. Asset: LOCAL retouch of the finished Rift Hunters snowy cave map, not a new map. Image1 is the exact edit target; image2 is ONLY a technical placement guide of the same crop. Keep all original scenery at exactly the same positions, scale, lighting, fine frost texture and blue/violet icy palette. Crop represents1100x1100worldunits. Keep original peripheral ice sheets and rocks unchanged.\nAdd ONE irregular FLAT smooth translucent CYAN ICE PATCH inside the green circle, about380worldunits across. Smooth shiny cyan material like existing peripheral patches, thin whitish boundary flush with snowy floor, subtle hairline scratches. This is WALKABLE slippery ice, no hole, water, raisedrim, spikes or dark crack. Keep snowy bypass room around all sides.\nAdd exactly 2 SMALL compact solid blue ICE-ROCK COVER BLOCKS at the pink marked boxes. Each WHOLE footprint is110–160worldunits wide, target140units=12.7%of cropwidth; low upright broken ice rock, 80–110units high, clearly blocking, short coherent ground shadow. No spreading pile of rubble, towers or extra objects. The pink square bottom marks each rock foot center; don't move the footprints. Keep wide clear snow routes between blocks and ice, no wall or linear barricade.\nRemove all guide marks from final. Preserve everything beyond these few additions exactly. Do not repaint or simplify all the snow, move walls, crop, zoom, change perspective, add figures or effects. Match the fine finished frost/stone texture of the original. Full square image1254px or larger.",
+      "ice": [
+        {
+          "id": "i10",
+          "center_pct": [
+            86,
+            58
+          ],
+          "diameter_world": 380
+        }
+      ],
+      "covers": [
+        {
+          "id": "a15",
+          "center_pct": [
+            88,
+            50
+          ]
+        },
+        {
+          "id": "a16",
+          "center_pct": [
+            87,
+            68
+          ]
+        }
+      ]
+    }
+  ],
+  "mask_recipe": "Chemin : rectangle monde (1840,1730)–(2590,2180). Glace : rayon diamètre/2+50u. Abris : boîte native x±85,y−150..+45px. Fondu natif9px.",
+  "changed_pixel_share": 0.0843,
+  "outside_patches_pixels_identical": true,
+  "source_and_tiles_lossless": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false,
+  "new_ice_material_measurements": [
+    {
+      "id": "i08",
+      "diameter_world": 425.3,
+      "vertices": 72
+    },
+    {
+      "id": "i09",
+      "diameter_world": 330.7,
+      "vertices": 72
+    },
+    {
+      "id": "i10",
+      "diameter_world": 374.7,
+      "vertices": 72
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "reference": 0.0061868950724601746,
+  "reference_percentile": 80,
+  "blur_ratio": 0.6,
+  "flagged": 385,
+  "valid": 620,
+  "share": 0.6209677419354839,
+  "limit": 0.05,
+  "ok": false,
+  "before_same_diagnostic": {
+    "reference": 0.007223418913781643,
+    "flagged": 422,
+    "valid": 620,
+    "share": 0.6806451612903226,
+    "ok": false
+  },
+  "historical_frozen_reference": {
+    "reference": 0.000914582924451679,
+    "before_flagged": 0,
+    "after_flagged": 5
+  },
+  "scope_note": "Seuils inchangés. Diagnostic adaptatif comparé à la livraison précédente ; ce diagnostic est distinct du contrôle absolu check_map_quality. La retouche locale conserve la présentation précédente hors emprises."
+}
