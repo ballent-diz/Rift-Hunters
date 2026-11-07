@@ -1,0 +1,316 @@
+{
+  "date": "2026-11-07",
+  "composition_sha256": "c0a1050cd12633f2ef3ca7c9810d898c70e7b3bb96ab1b3bfcf0665f996cb105",
+  "plan_sha256": "acc19efbb9405e76ae455e45bf0184c3979ee4efec6e1c6da5eca53f7d97c8dd",
+  "master_sha256": "f1598a5613cfadb1a14ebc9631a1c9574c40d39fe3db8e3c9eff751a8c0bbe6d",
+  "quality": {
+    "world": [
+      5016,
+      5016
+    ],
+    "checks": [
+      {
+        "name": "densité (pixels par unité)",
+        "value": 2.25,
+        "min": 2.183,
+        "max": 2.317,
+        "ok": true
+      },
+      {
+        "name": "part lisse (médiane)",
+        "value": 0.174,
+        "min": 0.0,
+        "max": 0.27,
+        "ok": true
+      },
+      {
+        "name": "détails fins / 100×100 u (médiane)",
+        "value": 392.804,
+        "min": 329.944,
+        "max": 446.395,
+        "ok": true
+      },
+      {
+        "name": "détails moyens / 100×100 u (médiane)",
+        "value": 93.47,
+        "min": 90.94,
+        "max": 123.036,
+        "ok": true
+      },
+      {
+        "name": "secteurs conformes (part)",
+        "value": 0.918,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      },
+      {
+        "name": "fidélité au plan validé (corrélation)",
+        "value": 0.978,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      }
+    ],
+    "sectors_out": [
+      {
+        "x": 0,
+        "y": 0,
+        "smooth": 0.548,
+        "fine": 233,
+        "medium": 63
+      },
+      {
+        "x": 2400,
+        "y": 1600,
+        "smooth": 0.054,
+        "fine": 504,
+        "medium": 142
+      },
+      {
+        "x": 4800,
+        "y": 4000,
+        "smooth": 0.493,
+        "fine": 235,
+        "medium": 65
+      },
+      {
+        "x": 4800,
+        "y": 4800,
+        "smooth": 0.676,
+        "fine": 172,
+        "medium": 50
+      }
+    ],
+    "ok": true
+  },
+  "relative_sharpness": {
+    "date": "2026-11-07",
+    "stage": "Tuiles finales encodées",
+    "reference_percentile": 80,
+    "reference": 0.0023662634193897247,
+    "blur_ratio": 0.6,
+    "flagged_cells": 42,
+    "valid_cells": 949,
+    "share": 0.044257112750263436,
+    "limit": 0.05,
+    "ok": true,
+    "cell_world": 160,
+    "thresholds_changed": false
+  },
+  "godot_version": "4.3.stable.official.77dcf97d8",
+  "isolated_project": true,
+  "player_profile_loaded": false,
+  "imported_textures": 3,
+  "import_errors": false,
+  "load_errors": false,
+  "capture_errors": false,
+  "import_log_sha256": "4baf4c984becce5dc78acadc5991bc9c3b4bd96a2d38767ac14365b6aa36486c",
+  "load_log_sha256": "4d5bcdc9f832a2f32017e3e4a19a9d5a962cad38f96409556f5bf31e092e6a11",
+  "capture_log_sha256": "193d51c1ad4dbf18541e88d4a848f15c5ceab39bc5d78f184a2c3a3ec653b27c",
+  "viewport": [
+    1280,
+    720
+  ],
+  "zoom": 1.3333,
+  "capture_count": 23,
+  "captures": [
+    {
+      "file": "docs/previews/rift-eye/a16_abri_interieur.webp",
+      "sha256": "38ec091836a3902b5a525d6b3aea3c8a1540580874536f813a245a9570f99951"
+    },
+    {
+      "file": "docs/previews/rift-eye/a17_abri_interieur.webp",
+      "sha256": "1e4264aa3e04ad3d818d43ba25cd01fc90360c1a5ac223b1209a418e885c2934"
+    },
+    {
+      "file": "docs/previews/rift-eye/a18_abri_interieur.webp",
+      "sha256": "1664ffb66e486cb51502296160451a2eb8ddd2e95d25c9d1ee030250ba18f6c4"
+    },
+    {
+      "file": "docs/previews/rift-eye/a19_abri_interieur.webp",
+      "sha256": "5b4bd28562945521651aa57ffd777a3065f92d8f2ba6ddadeac57dc953d15b83"
+    },
+    {
+      "file": "docs/previews/rift-eye/arene_centre.webp",
+      "sha256": "6158c21fda7c6207d618500cdd937790951ed4da78168b0e5538f78c62ff4d0d"
+    },
+    {
+      "file": "docs/previews/rift-eye/ash_brique.webp",
+      "sha256": "df656d5f6e16811526337623f1368ab3fda8ee271e89406a5d2316c331db1e3d"
+    },
+    {
+      "file": "docs/previews/rift-eye/ash_matiere.webp",
+      "sha256": "c530826d01e95ec5dc38696cf55ee90661ac2f652dba112a183d81528839b95e"
+    },
+    {
+      "file": "docs/previews/rift-eye/city_brique.webp",
+      "sha256": "9ca9610a4ec5408aaab2e8e77453e572be4fb389abb0d9c91bedd2d511ec265f"
+    },
+    {
+      "file": "docs/previews/rift-eye/city_matiere.webp",
+      "sha256": "7a0f6a5eb9c9c0106cd983c2643287261033710a6ecc511beb105500642fc860"
+    },
+    {
+      "file": "docs/previews/rift-eye/depart_zoom_jeu.webp",
+      "sha256": "87cb4eae99934386d5a96af031ed65a84e7b6799f6467253e6f021a293662ef6"
+    },
+    {
+      "file": "docs/previews/rift-eye/devoreur_gabarit.webp",
+      "sha256": "444f44308ec6c2844d835a845996953effc7b643f58d3ed6632886c198b13bdd"
+    },
+    {
+      "file": "docs/previews/rift-eye/ensemble_720p.webp",
+      "sha256": "edf564bd53594ee9494ad008478a7e821afc79dc05b40754b38d264243c9350e"
+    },
+    {
+      "file": "docs/previews/rift-eye/glacier_brique.webp",
+      "sha256": "729ae987b5ceb44ab9f3d0516c6a265b27f671db80ee0cec0faa0842c7a7a485"
+    },
+    {
+      "file": "docs/previews/rift-eye/glacier_matiere.webp",
+      "sha256": "ec2bceb365730f737ecdd885e51099c11aae00c95f2ce97e298e5c7ff7226935"
+    },
+    {
+      "file": "docs/previews/rift-eye/marsh_brique.webp",
+      "sha256": "1120bbb17d4a8cc8c6b2ed2af6dc730fb5a694788e9d390a63e8be2500e0ab51"
+    },
+    {
+      "file": "docs/previews/rift-eye/marsh_matiere.webp",
+      "sha256": "fd25c6d2cb27791c3131a5080855bfcb9eaa3e5a3833dbbf77d7a44cb9aecea8"
+    },
+    {
+      "file": "docs/previews/rift-eye/p01_passage.webp",
+      "sha256": "034fa5430bebebf311c531a71d3e9ad9a676c1279d6723a437584836236c2911"
+    },
+    {
+      "file": "docs/previews/rift-eye/p02_passage.webp",
+      "sha256": "4cbb8898d2b701e3ee64459cdb72b3a1581e1fd6484a778dfa10ffc75abbde69"
+    },
+    {
+      "file": "docs/previews/rift-eye/p03_passage.webp",
+      "sha256": "bfa212354e5e0acbe346a5db890bca451c52977b22edb4975dae555c09ee9c68"
+    },
+    {
+      "file": "docs/previews/rift-eye/p04_passage.webp",
+      "sha256": "6affdc81a2c219637b6b766c4e9f1de315c8da22372461120bdce6f262d0c77a"
+    },
+    {
+      "file": "docs/previews/rift-eye/p05_passage.webp",
+      "sha256": "78ed8c1c86742613d0d18d8c284e5b5e43fb18f43cfb3bcb364a6efa36eb5ed5"
+    },
+    {
+      "file": "docs/previews/rift-eye/val_brique.webp",
+      "sha256": "057c63905a257bfe68437efa39379fed62ac95b0b2240d52434c7b74725c58a8"
+    },
+    {
+      "file": "docs/previews/rift-eye/val_matiere.webp",
+      "sha256": "32ace9d04a02472a1659d115ebc6ab48769d738641cb5d2934ee5afb94250623"
+    }
+  ],
+  "actors": {
+    "player.hunter": {
+      "sheet": "res://assets/sprites/players/hunter/hunter_sheet.png",
+      "cell": [
+        96,
+        80
+      ],
+      "anchor": [
+        48,
+        74
+      ],
+      "scale": 0.65
+    },
+    "monster.glimmerwing": {
+      "sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_sheet.png",
+      "cell": [
+        96,
+        88
+      ],
+      "anchor": [
+        48,
+        82
+      ],
+      "scale": 0.65
+    },
+    "enemy.husk": {
+      "sheet": "res://assets/sprites/enemies/husk/husk_sheet.png",
+      "cell": [
+        97,
+        76
+      ],
+      "anchor": [
+        49,
+        71
+      ],
+      "scale": 0.75
+    },
+    "enemy.cinder_knight": {
+      "sheet": "res://assets/sprites/enemies/cinder_knight/cinder_knight_sheet.png",
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5
+    },
+    "enemy.glass_sentinel": {
+      "sheet": "res://assets/sprites/enemies/glass_sentinel/glass_sentinel_sheet.png",
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5
+    },
+    "enemy.ice_knight": {
+      "sheet": "res://assets/sprites/enemies/ice_knight/ice_knight_sheet.png",
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        128,
+        238
+      ],
+      "scale": 0.5
+    },
+    "enemy.rift_breach": {
+      "sheet": "res://assets/sprites/enemies/rift_breach/rift_breach_sheet.png",
+      "cell": [
+        192,
+        192
+      ],
+      "anchor": [
+        96,
+        174
+      ],
+      "scale": 0.75
+    },
+    "boss.source_devourer": {
+      "sheet": "res://assets/sprites/bosses/source_devourer/source_devourer_sheet.png",
+      "cell": [
+        512,
+        512
+      ],
+      "anchor": [
+        256,
+        480
+      ],
+      "scale": 1
+    }
+  },
+  "chapter5_sprite_limit": "enemy.rift_breach = témoin provisoire ; aucun sprite propre au chapitre5 encore livré dans le dépôt.",
+  "chapter5_native_sprites_readability_checked": false,
+  "navigation_tested": false,
+  "combat_tested": false,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "text_hash_convention": "UTF-8, fins de ligne LF"
+}

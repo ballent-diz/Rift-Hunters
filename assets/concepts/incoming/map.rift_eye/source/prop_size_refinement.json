@@ -1,0 +1,863 @@
+{
+  "date": "2026-11-07",
+  "before_sha256": "04249c413fb25cbced2ef14116213d46e0f11c24948bd793a61367abd6226fc1",
+  "master_sha256": "0fcea6cd4215d0ed6157f0637bcb12af2d79df10f8f038a01ff62893e5921c01",
+  "patches": [
+    {
+      "batch": 0,
+      "generated_sha256": "b6ebefbcd0a4d6f93ee471296432b71eadc0b58c6ff3c6c180c5074e83ff0031",
+      "items": [
+        {
+          "id": "a01",
+          "zone": "val",
+          "pixel_reference": [
+            259,
+            883
+          ],
+          "center_pct": [
+            20.6539,
+            70.4147
+          ],
+          "center_world": [
+            -1472,
+            1024
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            607,
+            2424,
+            947,
+            2764
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a02",
+          "zone": "val",
+          "pixel_reference": [
+            153,
+            995
+          ],
+          "center_pct": [
+            12.201,
+            79.3461
+          ],
+          "center_world": [
+            -1896,
+            1472
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            289,
+            2760,
+            629,
+            3100
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a03",
+          "zone": "val",
+          "pixel_reference": [
+            335,
+            1057
+          ],
+          "center_pct": [
+            26.7145,
+            84.2903
+          ],
+          "center_world": [
+            -1168,
+            1720
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            835,
+            2946,
+            1175,
+            3286
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a04",
+          "zone": "ash",
+          "pixel_reference": [
+            61,
+            447
+          ],
+          "center_pct": [
+            4.8644,
+            35.6459
+          ],
+          "center_world": [
+            -2264,
+            -720
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            13,
+            1116,
+            353,
+            1456
+          ],
+          "target_width_fraction": 0.3088235294117647
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This image is a2x2sheet of independent local game-map patches. Maintain exact equal quadrant frames, camera, background paving, lighting and all terrain boundaries. CHANGE ONLY THE ORIGINAL PRIMARY FREESTANDING OBSTACLE in each occupied quadrant.\nFor each quadrant, take the ENTIRE existing main freestanding structure/cluster nearest the center (all its attached pillars, barrel/stump, solid wall pieces, feet and large rubble belong to this ONE target) and SHRINK ITS WHOLE FOOTPRINT TO HALF ITS CURRENT WIDTH, maintaining the same center of its GROUND FOOTPRINT. Rebuild it as ONE compact protective block/stump/fragment. Keep the existing material and design recognizable. Its entire new width should beabout140worldunits, roughly31%of quadrant width; each quadrant represents453worldunits.\nCrucial: FIRST REMOVE THE ENTIRE OLD OVERSIZED STRUCTURE and reconstruct ordinary continuous small paving/earth where it stood. Then place ONE smaller coherent cover there. NO part of the old large object is to survive behind it as a platform, low slab, upright column or big rubble pile. Do NOT add a small NEW object IN FRONT of a remaining big OLD one. There must be exactly ONE standalone target structure per occupied quadrant after editing, not a big one plus a small one. Preserve unrelated distant walls at frame edges and perimeter vegetation, but remove all pieces attached to the original central target mass.\nTOP LEFT target a01: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nTOP RIGHT target a02: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM LEFT target a03: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM RIGHT target a04: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nKeep all corrected covers at their existing locations, especially arena covers stay INSIDE the arena, not on the rim. No new rocks, props, magic, labels or figures. No grid, no frames. Full same square sheet1254px or more."
+    },
+    {
+      "batch": 1,
+      "generated_sha256": "21fb35665243be0ace827995f611164fdf45947e9d71b8ab164c9772eecaeafd",
+      "items": [
+        {
+          "id": "a05",
+          "zone": "ash",
+          "pixel_reference": [
+            206,
+            326
+          ],
+          "center_pct": [
+            16.4274,
+            25.9968
+          ],
+          "center_world": [
+            -1684,
+            -1204
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            448,
+            753,
+            788,
+            1093
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a06",
+          "zone": "ash",
+          "pixel_reference": [
+            224,
+            498
+          ],
+          "center_pct": [
+            17.8628,
+            39.7129
+          ],
+          "center_world": [
+            -1612,
+            -516
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            502,
+            1269,
+            842,
+            1609
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a07",
+          "zone": "marsh",
+          "pixel_reference": [
+            548,
+            174
+          ],
+          "center_pct": [
+            43.7002,
+            13.8756
+          ],
+          "center_world": [
+            -316,
+            -1812
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            1474,
+            297,
+            1814,
+            637
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a08",
+          "zone": "marsh",
+          "pixel_reference": [
+            665,
+            77
+          ],
+          "center_pct": [
+            53.0303,
+            6.1404
+          ],
+          "center_world": [
+            152,
+            -2200
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            1825,
+            6,
+            2165,
+            346
+          ],
+          "target_width_fraction": 0.3088235294117647
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This image is a2x2sheet of independent local game-map patches. Maintain exact equal quadrant frames, camera, background paving, lighting and all terrain boundaries. CHANGE ONLY THE ORIGINAL PRIMARY FREESTANDING OBSTACLE in each occupied quadrant.\nFor each quadrant, take the ENTIRE existing main freestanding structure/cluster nearest the center (all its attached pillars, barrel/stump, solid wall pieces, feet and large rubble belong to this ONE target) and SHRINK ITS WHOLE FOOTPRINT TO HALF ITS CURRENT WIDTH, maintaining the same center of its GROUND FOOTPRINT. Rebuild it as ONE compact protective block/stump/fragment. Keep the existing material and design recognizable. Its entire new width should beabout140worldunits, roughly31%of quadrant width; each quadrant represents453worldunits.\nCrucial: FIRST REMOVE THE ENTIRE OLD OVERSIZED STRUCTURE and reconstruct ordinary continuous small paving/earth where it stood. Then place ONE smaller coherent cover there. NO part of the old large object is to survive behind it as a platform, low slab, upright column or big rubble pile. Do NOT add a small NEW object IN FRONT of a remaining big OLD one. There must be exactly ONE standalone target structure per occupied quadrant after editing, not a big one plus a small one. Preserve unrelated distant walls at frame edges and perimeter vegetation, but remove all pieces attached to the original central target mass.\nTOP LEFT target a05: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nTOP RIGHT target a06: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM LEFT target a07: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM RIGHT target a08: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nKeep all corrected covers at their existing locations, especially arena covers stay INSIDE the arena, not on the rim. No new rocks, props, magic, labels or figures. No grid, no frames. Full same square sheet1254px or more."
+    },
+    {
+      "batch": 2,
+      "generated_sha256": "3d8734a44c920ab0263ee4ea54ae1ed80662a8f377256bff5fb58cc68bcf83e0",
+      "items": [
+        {
+          "id": "a09",
+          "zone": "marsh",
+          "pixel_reference": [
+            755,
+            203
+          ],
+          "center_pct": [
+            60.2073,
+            16.1882
+          ],
+          "center_world": [
+            512,
+            -1696
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            2095,
+            384,
+            2435,
+            724
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a10",
+          "zone": "glacier",
+          "pixel_reference": [
+            1086,
+            341
+          ],
+          "center_pct": [
+            86.6029,
+            27.193
+          ],
+          "center_world": [
+            1836,
+            -1144
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            3088,
+            798,
+            3428,
+            1138
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a11",
+          "zone": "glacier",
+          "pixel_reference": [
+            973,
+            449
+          ],
+          "center_pct": [
+            77.5917,
+            35.8054
+          ],
+          "center_world": [
+            1384,
+            -712
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            2749,
+            1122,
+            3089,
+            1462
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a12",
+          "zone": "glacier",
+          "pixel_reference": [
+            1172,
+            501
+          ],
+          "center_pct": [
+            93.4609,
+            39.9522
+          ],
+          "center_world": [
+            2180,
+            -504
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            3346,
+            1278,
+            3686,
+            1618
+          ],
+          "target_width_fraction": 0.3088235294117647
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This image is a2x2sheet of independent local game-map patches. Maintain exact equal quadrant frames, camera, background paving, lighting and all terrain boundaries. CHANGE ONLY THE ORIGINAL PRIMARY FREESTANDING OBSTACLE in each occupied quadrant.\nFor each quadrant, take the ENTIRE existing main freestanding structure/cluster nearest the center (all its attached pillars, barrel/stump, solid wall pieces, feet and large rubble belong to this ONE target) and SHRINK ITS WHOLE FOOTPRINT TO HALF ITS CURRENT WIDTH, maintaining the same center of its GROUND FOOTPRINT. Rebuild it as ONE compact protective block/stump/fragment. Keep the existing material and design recognizable. Its entire new width should beabout140worldunits, roughly31%of quadrant width; each quadrant represents453worldunits.\nCrucial: FIRST REMOVE THE ENTIRE OLD OVERSIZED STRUCTURE and reconstruct ordinary continuous small paving/earth where it stood. Then place ONE smaller coherent cover there. NO part of the old large object is to survive behind it as a platform, low slab, upright column or big rubble pile. Do NOT add a small NEW object IN FRONT of a remaining big OLD one. There must be exactly ONE standalone target structure per occupied quadrant after editing, not a big one plus a small one. Preserve unrelated distant walls at frame edges and perimeter vegetation, but remove all pieces attached to the original central target mass.\nTOP LEFT target a09: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nTOP RIGHT target a10: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM LEFT target a11: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM RIGHT target a12: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nKeep all corrected covers at their existing locations, especially arena covers stay INSIDE the arena, not on the rim. No new rocks, props, magic, labels or figures. No grid, no frames. Full same square sheet1254px or more."
+    },
+    {
+      "batch": 3,
+      "generated_sha256": "3fb1732b2136627d19fb84090af8bedb66bbd6348536f20ca7c785d4b82825e9",
+      "items": [
+        {
+          "id": "a13",
+          "zone": "city",
+          "pixel_reference": [
+            970,
+            776
+          ],
+          "center_pct": [
+            77.3525,
+            61.882
+          ],
+          "center_world": [
+            1372,
+            596
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            2740,
+            2103,
+            3080,
+            2443
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a14",
+          "zone": "city",
+          "pixel_reference": [
+            852,
+            902
+          ],
+          "center_pct": [
+            67.9426,
+            71.9298
+          ],
+          "center_world": [
+            900,
+            1100
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            2386,
+            2481,
+            2726,
+            2821
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a15",
+          "zone": "city",
+          "pixel_reference": [
+            1017,
+            946
+          ],
+          "center_pct": [
+            81.1005,
+            75.4386
+          ],
+          "center_world": [
+            1560,
+            1276
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": false,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            2881,
+            2613,
+            3221,
+            2953
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a16",
+          "zone": "eye",
+          "pixel_reference": [
+            532,
+            487
+          ],
+          "center_pct": [
+            42.4242,
+            38.8357
+          ],
+          "center_world": [
+            -380,
+            -560
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": true,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            1426,
+            1236,
+            1766,
+            1576
+          ],
+          "target_width_fraction": 0.3088235294117647
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This image is a2x2sheet of independent local game-map patches. Maintain exact equal quadrant frames, camera, background paving, lighting and all terrain boundaries. CHANGE ONLY THE ORIGINAL PRIMARY FREESTANDING OBSTACLE in each occupied quadrant.\nFor each quadrant, take the ENTIRE existing main freestanding structure/cluster nearest the center (all its attached pillars, barrel/stump, solid wall pieces, feet and large rubble belong to this ONE target) and SHRINK ITS WHOLE FOOTPRINT TO HALF ITS CURRENT WIDTH, maintaining the same center of its GROUND FOOTPRINT. Rebuild it as ONE compact protective block/stump/fragment. Keep the existing material and design recognizable. Its entire new width should beabout140worldunits, roughly31%of quadrant width; each quadrant represents453worldunits.\nCrucial: FIRST REMOVE THE ENTIRE OLD OVERSIZED STRUCTURE and reconstruct ordinary continuous small paving/earth where it stood. Then place ONE smaller coherent cover there. NO part of the old large object is to survive behind it as a platform, low slab, upright column or big rubble pile. Do NOT add a small NEW object IN FRONT of a remaining big OLD one. There must be exactly ONE standalone target structure per occupied quadrant after editing, not a big one plus a small one. Preserve unrelated distant walls at frame edges and perimeter vegetation, but remove all pieces attached to the original central target mass.\nTOP LEFT target a13: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nTOP RIGHT target a14: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM LEFT target a15: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM RIGHT target a16: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nKeep all corrected covers at their existing locations, especially arena covers stay INSIDE the arena, not on the rim. No new rocks, props, magic, labels or figures. No grid, no frames. Full same square sheet1254px or more."
+    },
+    {
+      "batch": 4,
+      "generated_sha256": "eec5a0dff0718f791fd1ffb97fce3b5f25a966c448338ff2c43c52f7eee658c1",
+      "items": [
+        {
+          "id": "a17",
+          "zone": "eye",
+          "pixel_reference": [
+            715,
+            492
+          ],
+          "center_pct": [
+            57.0175,
+            39.2344
+          ],
+          "center_world": [
+            352,
+            -540
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": true,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            1975,
+            1251,
+            2315,
+            1591
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a18",
+          "zone": "eye",
+          "pixel_reference": [
+            522,
+            635
+          ],
+          "center_pct": [
+            41.6268,
+            50.638
+          ],
+          "center_world": [
+            -420,
+            32
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": true,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            1396,
+            1680,
+            1736,
+            2020
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "a19",
+          "zone": "eye",
+          "pixel_reference": [
+            718,
+            640
+          ],
+          "center_pct": [
+            57.2568,
+            51.0367
+          ],
+          "center_world": [
+            364,
+            52
+          ],
+          "width_world_target": [
+            110,
+            160
+          ],
+          "width_world_target_nominal": 140,
+          "blocking": true,
+          "owner_inside_arena": true,
+          "scale_scope": "Pied et emplacement approuvés conservés ; corps solide recalibré au gabarit du Chasseur pendant le détail.",
+          "kind": "cover",
+          "target_width": 140,
+          "native_box": [
+            1984,
+            1695,
+            2324,
+            2035
+          ],
+          "target_width_fraction": 0.3088235294117647
+        },
+        {
+          "id": "r01",
+          "pixel_reference": [
+            624,
+            385
+          ],
+          "center_pct": [
+            49.7608,
+            30.7018
+          ],
+          "center_world": [
+            -12,
+            -968
+          ],
+          "width_world_target": [
+            110,
+            140
+          ],
+          "blocking": true,
+          "kind": "anchor",
+          "target_width": 120,
+          "native_box": [
+            1702,
+            930,
+            2042,
+            1270
+          ],
+          "target_width_fraction": 0.2647058823529412
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. This image is a2x2sheet of independent local game-map patches. Maintain exact equal quadrant frames, camera, background paving, lighting and all terrain boundaries. CHANGE ONLY THE ORIGINAL PRIMARY FREESTANDING OBSTACLE in each occupied quadrant.\nFor each quadrant, take the ENTIRE existing main freestanding structure/cluster nearest the center (all its attached pillars, barrel/stump, solid wall pieces, feet and large rubble belong to this ONE target) and SHRINK ITS WHOLE FOOTPRINT TO HALF ITS CURRENT WIDTH, maintaining the same center of its GROUND FOOTPRINT. Rebuild it as ONE compact protective block/stump/fragment. Keep the existing material and design recognizable. Its entire new width should beabout140worldunits, roughly31%of quadrant width; each quadrant represents453worldunits.\nCrucial: FIRST REMOVE THE ENTIRE OLD OVERSIZED STRUCTURE and reconstruct ordinary continuous small paving/earth where it stood. Then place ONE smaller coherent cover there. NO part of the old large object is to survive behind it as a platform, low slab, upright column or big rubble pile. Do NOT add a small NEW object IN FRONT of a remaining big OLD one. There must be exactly ONE standalone target structure per occupied quadrant after editing, not a big one plus a small one. Preserve unrelated distant walls at frame edges and perimeter vegetation, but remove all pieces attached to the original central target mass.\nTOP LEFT target a17: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nTOP RIGHT target a18: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM LEFT target a19: one compact solid protective cover,110–160worldunits wide INCLUDING every attached chunk, low90–110units high, same old ground footprint center.\nBOTTOM RIGHT target r01: the glowing purple crystal-anchor is the exception: reduce its WHOLE base to120worldunits, about26%of quadrant width, preserve purple crystal and original ground foot. It remains ONE pillar.\nKeep all corrected covers at their existing locations, especially arena covers stay INSIDE the arena, not on the rim. No new rocks, props, magic, labels or figures. No grid, no frames. Full same square sheet1254px or more."
+    },
+    {
+      "batch": 5,
+      "generated_sha256": "d006b83f397b4c0b8fa152bd616a9e20ff7c01ca0d62f1660f398ab006ce0039",
+      "items": [
+        {
+          "id": "r02",
+          "pixel_reference": [
+            804,
+            477
+          ],
+          "center_pct": [
+            64.1148,
+            38.0383
+          ],
+          "center_world": [
+            708,
+            -600
+          ],
+          "width_world_target": [
+            110,
+            140
+          ],
+          "blocking": true,
+          "kind": "anchor",
+          "target_width": 120,
+          "native_box": [
+            2242,
+            1206,
+            2582,
+            1546
+          ],
+          "target_width_fraction": 0.2647058823529412
+        },
+        {
+          "id": "r03",
+          "pixel_reference": [
+            805,
+            681
+          ],
+          "center_pct": [
+            64.1946,
+            54.3062
+          ],
+          "center_world": [
+            712,
+            216
+          ],
+          "width_world_target": [
+            110,
+            140
+          ],
+          "blocking": true,
+          "kind": "anchor",
+          "target_width": 120,
+          "native_box": [
+            2245,
+            1818,
+            2585,
+            2158
+          ],
+          "target_width_fraction": 0.2647058823529412
+        },
+        {
+          "id": "r04",
+          "pixel_reference": [
+            630,
+            776
+          ],
+          "center_pct": [
+            50.2392,
+            61.882
+          ],
+          "center_world": [
+            12,
+            596
+          ],
+          "width_world_target": [
+            110,
+            140
+          ],
+          "blocking": true,
+          "kind": "anchor",
+          "target_width": 120,
+          "native_box": [
+            1720,
+            2103,
+            2060,
+            2443
+          ],
+          "target_width_fraction": 0.2647058823529412
+        },
+        {
+          "id": "r05",
+          "pixel_reference": [
+            436,
+            687
+          ],
+          "center_pct": [
+            34.7687,
+            54.7847
+          ],
+          "center_world": [
+            -764,
+            240
+          ],
+          "width_world_target": [
+            110,
+            140
+          ],
+          "blocking": true,
+          "kind": "anchor",
+          "target_width": 120,
+          "native_box": [
+            1138,
+            1836,
+            1478,
+            2176
+          ],
+          "target_width_fraction": 0.2647058823529412
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Image1 is a2x2 sheet of FOUR independent LOCAL MAP PATCHES, NOT one scene. Image2 is SAME sheet with exact CYAN TARGET BOXES for object size. Keep exact equal quadrants, all surrounding architecture, paths, terrain material and positions. Each quadrant represents453.33x453.33worldunits.\nTOP LEFT r02: Reduce the WHOLE BASE of the glowing rift-anchor pillar to120worldunits=26.5%quadrant width. Keep the same glowing purple crystal and recognizable support. Preserve moderate height and broad solid foot; no extra anchor. KEEP ITS FOOT at center of cyanbox bottom, near x50%,y66.2%of quadrant. Restore fine flat original floor where its oversized old body stood. Do not move the obstacle toward walls or arena sides.\nTOP RIGHT r03: Reduce the WHOLE BASE of the glowing rift-anchor pillar to120worldunits=26.5%quadrant width. Keep the same glowing purple crystal and recognizable support. Preserve moderate height and broad solid foot; no extra anchor. KEEP ITS FOOT at center of cyanbox bottom, near x50%,y66.2%of quadrant. Restore fine flat original floor where its oversized old body stood. Do not move the obstacle toward walls or arena sides.\nBOTTOM LEFT r04: Reduce the WHOLE BASE of the glowing rift-anchor pillar to120worldunits=26.5%quadrant width. Keep the same glowing purple crystal and recognizable support. Preserve moderate height and broad solid foot; no extra anchor. KEEP ITS FOOT at center of cyanbox bottom, near x50%,y66.2%of quadrant. Restore fine flat original floor where its oversized old body stood. Do not move the obstacle toward walls or arena sides.\nBOTTOM RIGHT r05: Reduce the WHOLE BASE of the glowing rift-anchor pillar to120worldunits=26.5%quadrant width. Keep the same glowing purple crystal and recognizable support. Preserve moderate height and broad solid foot; no extra anchor. KEEP ITS FOOT at center of cyanbox bottom, near x50%,y66.2%of quadrant. Restore fine flat original floor where its oversized old body stood. Do not move the obstacle toward walls or arena sides.\n\nThere must be EXACTLY one resized primary target object in each occupied quadrant; do not add new objects. Keep all surrounding original terrain, original other wall/rock/plant masses unchanged. Each target stays at its current floor foot, no new paths or blockers. Preserve very fine existing texture, palette, light and coherent shadows. Remove the cyan boxes and text from final. Return whole square sheet with exactly equal quadrants and identical framing,1254x1254or more."
+    },
+    {
+      "batch": 6,
+      "generated_sha256": "045511a496e5a1bf491cb7aa522634ef23ba8fac306d9d390815a5ecf248c178",
+      "items": [
+        {
+          "id": "r06",
+          "pixel_reference": [
+            437,
+            480
+          ],
+          "center_pct": [
+            34.8485,
+            38.2775
+          ],
+          "center_world": [
+            -760,
+            -588
+          ],
+          "width_world_target": [
+            110,
+            140
+          ],
+          "blocking": true,
+          "kind": "anchor",
+          "target_width": 120,
+          "native_box": [
+            1141,
+            1215,
+            1481,
+            1555
+          ],
+          "target_width_fraction": 0.2647058823529412
+        }
+      ],
+      "prompt": "Use case: precise-object-edit. Image1 is a2x2 sheet of FOUR independent LOCAL MAP PATCHES, NOT one scene. Image2 is SAME sheet with exact CYAN TARGET BOXES for object size. Keep exact equal quadrants, all surrounding architecture, paths, terrain material and positions. Each quadrant represents453.33x453.33worldunits.\nTOP LEFT r06: Reduce the WHOLE BASE of the glowing rift-anchor pillar to120worldunits=26.5%quadrant width. Keep the same glowing purple crystal and recognizable support. Preserve moderate height and broad solid foot; no extra anchor. KEEP ITS FOOT at center of cyanbox bottom, near x50%,y66.2%of quadrant. Restore fine flat original floor where its oversized old body stood. Do not move the obstacle toward walls or arena sides.\nUnused quadrants must remain completely blank dark.\nThere must be EXACTLY one resized primary target object in each occupied quadrant; do not add new objects. Keep all surrounding original terrain, original other wall/rock/plant masses unchanged. Each target stays at its current floor foot, no new paths or blockers. Preserve very fine existing texture, palette, light and coherent shadows. Remove the cyan boxes and text from final. Return whole square sheet with exactly equal quadrants and identical framing,1254x1254or more."
+    }
+  ],
+  "count": 25,
+  "mask_recipe": "340px natifs ; abris rectangle(25,15,315,290), ancres(85,15,255,270), fondu6px.",
+  "outside_patches_pixels_identical": true,
+  "layout_preserved": true,
+  "arena_covers_remain_inside": true,
+  "collision_mask_created": false
+}

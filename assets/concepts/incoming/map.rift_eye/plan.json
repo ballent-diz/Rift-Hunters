@@ -8,7 +8,7 @@
     5016
   ],
   "mode": "Vagues par cinq zones, puis Dévoreur final",
-  "stage": "plan_fige_detail_en_cours",
+  "stage": "detail_graphique_livre_attente_collisions",
   "owner_approved": true,
   "plan_locked": true,
   "owner_approval_date": "2026-11-07",
@@ -1233,18 +1233,87 @@
       "zone": "val",
       "type": "ford",
       "pixel_reference": [
+        175,
+        929
+      ],
+      "center_pct": [
+        13.9553,
+        74.0829
+      ],
+      "center_world": [
+        -1808,
+        1208
+      ],
+      "polygon_pct": [
+        [
+          12.8389,
+          74.1627
+        ],
+        [
+          12.6794,
+          74.0032
+        ],
+        [
+          12.8389,
+          73.8437
+        ],
+        [
+          14.5933,
+          72.5678
+        ],
+        [
+          16.4274,
+          71.7703
+        ],
+        [
+          17.2249,
+          71.7703
+        ],
+        [
+          17.7033,
+          71.8501
+        ],
+        [
+          18.2616,
+          72.0096
+        ],
+        [
+          18.3413,
+          72.0893
+        ],
+        [
+          18.3413,
+          74.0032
+        ],
+        [
+          18.2616,
+          74.0829
+        ],
+        [
+          15.4705,
+          74.9601
+        ],
+        [
+          15.311,
+          74.9601
+        ],
+        [
+          13.3174,
+          74.3222
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         188,
         783
       ],
-      "center_pct": [
-        14.992,
-        62.4402
-      ],
-      "center_world": [
-        -1756,
-        624
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           17.2648,
           62.4402
@@ -1310,31 +1379,159 @@
           62.0107
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          -1864,
+          1212
+        ],
+        [
+          -1872,
+          1204
+        ],
+        [
+          -1864,
+          1196
+        ],
+        [
+          -1776,
+          1132
+        ],
+        [
+          -1684,
+          1092
+        ],
+        [
+          -1644,
+          1092
+        ],
+        [
+          -1620,
+          1096
+        ],
+        [
+          -1592,
+          1104
+        ],
+        [
+          -1588,
+          1108
+        ],
+        [
+          -1588,
+          1204
+        ],
+        [
+          -1592,
+          1208
+        ],
+        [
+          -1732,
+          1252
+        ],
+        [
+          -1740,
+          1252
+        ],
+        [
+          -1840,
+          1220
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        284,
+        160
+      ]
     },
     {
       "id": "s02",
       "zone": "val",
       "type": "ford",
       "pixel_reference": [
+        294,
+        954
+      ],
+      "center_pct": [
+        23.445,
+        76.0766
+      ],
+      "center_world": [
+        -1332,
+        1308
+      ],
+      "polygon_pct": [
+        [
+          23.764,
+          78.1499
+        ],
+        [
+          21.4514,
+          77.5917
+        ],
+        [
+          20.7337,
+          76.874
+        ],
+        [
+          20.7337,
+          76.6348
+        ],
+        [
+          20.9729,
+          75.9171
+        ],
+        [
+          21.2919,
+          75.2791
+        ],
+        [
+          21.3716,
+          75.1994
+        ],
+        [
+          21.6906,
+          74.9601
+        ],
+        [
+          24.0829,
+          74.4817
+        ],
+        [
+          24.1627,
+          74.4817
+        ],
+        [
+          27.7512,
+          75.1196
+        ],
+        [
+          27.8309,
+          75.1994
+        ],
+        [
+          27.8309,
+          76.4753
+        ],
+        [
+          27.7512,
+          76.555
+        ],
+        [
+          23.9234,
+          78.1499
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         252,
         927
       ],
-      "center_pct": [
-        20.0957,
-        73.9234
-      ],
-      "center_world": [
-        -1500,
-        1200
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           22.7671,
           73.9234
@@ -1400,31 +1597,183 @@
           73.494
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          -1316,
+          1412
+        ],
+        [
+          -1432,
+          1384
+        ],
+        [
+          -1468,
+          1348
+        ],
+        [
+          -1468,
+          1336
+        ],
+        [
+          -1456,
+          1300
+        ],
+        [
+          -1440,
+          1268
+        ],
+        [
+          -1436,
+          1264
+        ],
+        [
+          -1420,
+          1252
+        ],
+        [
+          -1300,
+          1228
+        ],
+        [
+          -1296,
+          1228
+        ],
+        [
+          -1116,
+          1260
+        ],
+        [
+          -1112,
+          1264
+        ],
+        [
+          -1112,
+          1328
+        ],
+        [
+          -1116,
+          1332
+        ],
+        [
+          -1308,
+          1412
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        356,
+        184
+      ]
     },
     {
       "id": "s03",
       "zone": "val",
       "type": "ford",
       "pixel_reference": [
+        241,
+        1016
+      ],
+      "center_pct": [
+        19.2185,
+        81.0207
+      ],
+      "center_world": [
+        -1544,
+        1556
+      ],
+      "polygon_pct": [
+        [
+          20.1754,
+          78.9474
+        ],
+        [
+          20.8134,
+          78.8676
+        ],
+        [
+          21.4514,
+          78.8676
+        ],
+        [
+          22.3285,
+          79.1069
+        ],
+        [
+          22.7273,
+          79.3461
+        ],
+        [
+          22.9665,
+          79.5056
+        ],
+        [
+          23.126,
+          79.6651
+        ],
+        [
+          23.6045,
+          80.5423
+        ],
+        [
+          23.6045,
+          81.3397
+        ],
+        [
+          23.3652,
+          81.8182
+        ],
+        [
+          23.126,
+          82.0574
+        ],
+        [
+          20.8134,
+          82.7751
+        ],
+        [
+          20.4944,
+          82.7751
+        ],
+        [
+          19.2185,
+          82.3764
+        ],
+        [
+          18.9793,
+          82.2169
+        ],
+        [
+          18.74,
+          81.9777
+        ],
+        [
+          18.0223,
+          81.1802
+        ],
+        [
+          17.9426,
+          81.0207
+        ],
+        [
+          18.3413,
+          80.3828
+        ],
+        [
+          18.4211,
+          80.303
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         386,
         1065
       ],
-      "center_pct": [
-        30.7815,
-        84.9282
-      ],
-      "center_world": [
-        -964,
-        1752
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           33.4928,
           84.9282
@@ -1490,31 +1839,195 @@
           84.4681
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          -1496,
+          1452
+        ],
+        [
+          -1464,
+          1448
+        ],
+        [
+          -1432,
+          1448
+        ],
+        [
+          -1388,
+          1460
+        ],
+        [
+          -1368,
+          1472
+        ],
+        [
+          -1356,
+          1480
+        ],
+        [
+          -1348,
+          1488
+        ],
+        [
+          -1324,
+          1532
+        ],
+        [
+          -1324,
+          1572
+        ],
+        [
+          -1336,
+          1596
+        ],
+        [
+          -1348,
+          1608
+        ],
+        [
+          -1464,
+          1644
+        ],
+        [
+          -1480,
+          1644
+        ],
+        [
+          -1544,
+          1624
+        ],
+        [
+          -1556,
+          1616
+        ],
+        [
+          -1568,
+          1604
+        ],
+        [
+          -1604,
+          1564
+        ],
+        [
+          -1608,
+          1556
+        ],
+        [
+          -1588,
+          1524
+        ],
+        [
+          -1584,
+          1520
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        284,
+        196
+      ]
     },
     {
       "id": "s04",
       "zone": "ash",
       "type": "hot_ground",
       "pixel_reference": [
+        135,
+        377
+      ],
+      "center_pct": [
+        10.7656,
+        30.0638
+      ],
+      "center_world": [
+        -1968,
+        -1000
+      ],
+      "polygon_pct": [
+        [
+          10.925,
+          32.6954
+        ],
+        [
+          9.4099,
+          32.3764
+        ],
+        [
+          7.8947,
+          31.4195
+        ],
+        [
+          7.815,
+          31.3397
+        ],
+        [
+          7.6555,
+          31.1005
+        ],
+        [
+          8.2137,
+          29.9841
+        ],
+        [
+          8.9314,
+          29.2663
+        ],
+        [
+          9.8884,
+          28.7879
+        ],
+        [
+          10.1276,
+          28.7081
+        ],
+        [
+          12.3604,
+          28.0702
+        ],
+        [
+          13.1579,
+          28.5486
+        ],
+        [
+          14.2743,
+          29.2663
+        ],
+        [
+          14.4338,
+          29.4258
+        ],
+        [
+          14.9123,
+          30.1435
+        ],
+        [
+          14.4338,
+          30.8612
+        ],
+        [
+          14.1148,
+          31.26
+        ],
+        [
+          14.0351,
+          31.3397
+        ],
+        [
+          13.0781,
+          32.2169
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         140,
         351
       ],
-      "center_pct": [
-        11.1643,
-        27.9904
-      ],
-      "center_world": [
-        -1948,
-        -1104
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           13.8357,
           27.9904
@@ -1580,31 +2093,195 @@
           27.561
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          -1960,
+          -868
+        ],
+        [
+          -2036,
+          -884
+        ],
+        [
+          -2112,
+          -932
+        ],
+        [
+          -2116,
+          -936
+        ],
+        [
+          -2124,
+          -948
+        ],
+        [
+          -2096,
+          -1004
+        ],
+        [
+          -2060,
+          -1040
+        ],
+        [
+          -2012,
+          -1064
+        ],
+        [
+          -2000,
+          -1068
+        ],
+        [
+          -1888,
+          -1100
+        ],
+        [
+          -1848,
+          -1076
+        ],
+        [
+          -1792,
+          -1040
+        ],
+        [
+          -1784,
+          -1032
+        ],
+        [
+          -1760,
+          -996
+        ],
+        [
+          -1784,
+          -960
+        ],
+        [
+          -1800,
+          -940
+        ],
+        [
+          -1804,
+          -936
+        ],
+        [
+          -1852,
+          -892
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        364,
+        232
+      ]
     },
     {
       "id": "s05",
       "zone": "ash",
       "type": "hot_ground",
       "pixel_reference": [
+        224,
+        409
+      ],
+      "center_pct": [
+        17.8628,
+        32.6156
+      ],
+      "center_world": [
+        -1612,
+        -872
+      ],
+      "polygon_pct": [
+        [
+          18.5008,
+          30.2233
+        ],
+        [
+          19.9362,
+          30.7815
+        ],
+        [
+          20.0159,
+          30.8612
+        ],
+        [
+          20.4147,
+          31.3397
+        ],
+        [
+          20.7337,
+          31.8979
+        ],
+        [
+          20.8931,
+          32.2169
+        ],
+        [
+          20.9729,
+          32.5359
+        ],
+        [
+          20.2552,
+          33.7321
+        ],
+        [
+          19.9362,
+          34.2105
+        ],
+        [
+          19.7767,
+          34.37
+        ],
+        [
+          16.8262,
+          34.689
+        ],
+        [
+          16.7464,
+          34.689
+        ],
+        [
+          15.7895,
+          34.2105
+        ],
+        [
+          14.992,
+          33.7321
+        ],
+        [
+          14.9123,
+          33.6523
+        ],
+        [
+          14.2743,
+          32.1372
+        ],
+        [
+          14.2743,
+          32.0574
+        ],
+        [
+          14.3541,
+          31.9777
+        ],
+        [
+          15.4705,
+          30.941
+        ],
+        [
+          16.8262,
+          30.5423
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         185,
         411
       ],
-      "center_pct": [
-        14.7528,
-        32.7751
-      ],
-      "center_world": [
-        -1768,
-        -864
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           17.2648,
           32.7751
@@ -1670,31 +2347,195 @@
           32.3303
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          -1580,
+          -992
+        ],
+        [
+          -1508,
+          -964
+        ],
+        [
+          -1504,
+          -960
+        ],
+        [
+          -1484,
+          -936
+        ],
+        [
+          -1468,
+          -908
+        ],
+        [
+          -1460,
+          -892
+        ],
+        [
+          -1456,
+          -876
+        ],
+        [
+          -1492,
+          -816
+        ],
+        [
+          -1508,
+          -792
+        ],
+        [
+          -1516,
+          -784
+        ],
+        [
+          -1664,
+          -768
+        ],
+        [
+          -1668,
+          -768
+        ],
+        [
+          -1716,
+          -792
+        ],
+        [
+          -1756,
+          -816
+        ],
+        [
+          -1760,
+          -820
+        ],
+        [
+          -1792,
+          -896
+        ],
+        [
+          -1792,
+          -900
+        ],
+        [
+          -1788,
+          -904
+        ],
+        [
+          -1732,
+          -956
+        ],
+        [
+          -1664,
+          -976
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        336,
+        224
+      ]
     },
     {
       "id": "s06",
       "zone": "ash",
       "type": "hot_ground",
       "pixel_reference": [
+        174,
+        468
+      ],
+      "center_pct": [
+        13.8756,
+        37.3206
+      ],
+      "center_world": [
+        -1812,
+        -636
+      ],
+      "polygon_pct": [
+        [
+          16.0287,
+          38.5965
+        ],
+        [
+          13.3174,
+          39.5534
+        ],
+        [
+          12.8389,
+          39.4737
+        ],
+        [
+          10.6061,
+          37.7193
+        ],
+        [
+          10.3668,
+          37.4801
+        ],
+        [
+          10.2073,
+          36.6826
+        ],
+        [
+          10.4466,
+          36.2041
+        ],
+        [
+          11.1643,
+          35.4864
+        ],
+        [
+          12.4402,
+          34.8485
+        ],
+        [
+          13.6364,
+          34.6093
+        ],
+        [
+          14.5933,
+          34.5295
+        ],
+        [
+          15.3907,
+          34.5295
+        ],
+        [
+          16.9856,
+          35.8054
+        ],
+        [
+          17.2249,
+          36.0447
+        ],
+        [
+          17.3046,
+          36.2041
+        ],
+        [
+          17.3844,
+          36.7624
+        ],
+        [
+          16.9856,
+          37.4801
+        ],
+        [
+          16.1085,
+          38.5167
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         143,
         462
       ],
-      "center_pct": [
-        11.4035,
-        36.8421
-      ],
-      "center_world": [
-        -1936,
-        -660
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           13.8756,
           36.8421
@@ -1760,31 +2601,191 @@
           36.4433
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          -1704,
+          -572
+        ],
+        [
+          -1840,
+          -524
+        ],
+        [
+          -1864,
+          -528
+        ],
+        [
+          -1976,
+          -616
+        ],
+        [
+          -1988,
+          -628
+        ],
+        [
+          -1996,
+          -668
+        ],
+        [
+          -1984,
+          -692
+        ],
+        [
+          -1948,
+          -728
+        ],
+        [
+          -1884,
+          -760
+        ],
+        [
+          -1824,
+          -772
+        ],
+        [
+          -1776,
+          -776
+        ],
+        [
+          -1736,
+          -776
+        ],
+        [
+          -1656,
+          -712
+        ],
+        [
+          -1644,
+          -700
+        ],
+        [
+          -1640,
+          -692
+        ],
+        [
+          -1636,
+          -664
+        ],
+        [
+          -1656,
+          -628
+        ],
+        [
+          -1700,
+          -576
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        360,
+        252
+      ]
     },
     {
       "id": "s07",
       "zone": "marsh",
       "type": "mud",
       "pixel_reference": [
+        607,
+        111
+      ],
+      "center_pct": [
+        48.4051,
+        8.8517
+      ],
+      "center_world": [
+        -80,
+        -2064
+      ],
+      "polygon_pct": [
+        [
+          50.4785,
+          10.1276
+        ],
+        [
+          48.2456,
+          10.6858
+        ],
+        [
+          47.4482,
+          10.5263
+        ],
+        [
+          46.7305,
+          10.3668
+        ],
+        [
+          46.4912,
+          10.2871
+        ],
+        [
+          46.1722,
+          10.1276
+        ],
+        [
+          45.7735,
+          9.7289
+        ],
+        [
+          45.2153,
+          8.9314
+        ],
+        [
+          45.4545,
+          8.2137
+        ],
+        [
+          45.5343,
+          8.134
+        ],
+        [
+          46.7305,
+          7.3365
+        ],
+        [
+          47.2887,
+          7.2568
+        ],
+        [
+          48.6443,
+          7.177
+        ],
+        [
+          49.362,
+          7.177
+        ],
+        [
+          50.7177,
+          7.5758
+        ],
+        [
+          50.7974,
+          7.6555
+        ],
+        [
+          51.2759,
+          8.6124
+        ],
+        [
+          51.1164,
+          9.0909
+        ],
+        [
+          50.5582,
+          10.0478
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         609,
         107
       ],
-      "center_pct": [
-        48.5646,
-        8.5327
-      ],
-      "center_world": [
-        -72,
-        -2080
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           51.555,
           8.5327
@@ -1850,31 +2851,199 @@
           8.0419
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          24,
+          -2000
+        ],
+        [
+          -88,
+          -1972
+        ],
+        [
+          -128,
+          -1980
+        ],
+        [
+          -164,
+          -1988
+        ],
+        [
+          -176,
+          -1992
+        ],
+        [
+          -192,
+          -2000
+        ],
+        [
+          -212,
+          -2020
+        ],
+        [
+          -240,
+          -2060
+        ],
+        [
+          -228,
+          -2096
+        ],
+        [
+          -224,
+          -2100
+        ],
+        [
+          -164,
+          -2140
+        ],
+        [
+          -136,
+          -2144
+        ],
+        [
+          -68,
+          -2148
+        ],
+        [
+          -32,
+          -2148
+        ],
+        [
+          36,
+          -2128
+        ],
+        [
+          40,
+          -2124
+        ],
+        [
+          64,
+          -2076
+        ],
+        [
+          56,
+          -2052
+        ],
+        [
+          28,
+          -2004
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        304,
+        176
+      ]
     },
     {
       "id": "s08",
       "zone": "marsh",
       "type": "mud",
       "pixel_reference": [
+        691,
+        134
+      ],
+      "center_pct": [
+        55.1037,
+        10.6858
+      ],
+      "center_world": [
+        256,
+        -1972
+      ],
+      "polygon_pct": [
+        [
+          52.2329,
+          9.5694
+        ],
+        [
+          54.6252,
+          9.0909
+        ],
+        [
+          55.8214,
+          9.1707
+        ],
+        [
+          56.8581,
+          9.4099
+        ],
+        [
+          57.6555,
+          10.1276
+        ],
+        [
+          57.7352,
+          10.2073
+        ],
+        [
+          57.815,
+          10.4466
+        ],
+        [
+          57.815,
+          10.925
+        ],
+        [
+          57.496,
+          11.882
+        ],
+        [
+          57.3365,
+          12.0415
+        ],
+        [
+          56.4593,
+          12.4402
+        ],
+        [
+          55.7416,
+          12.6794
+        ],
+        [
+          55.6619,
+          12.6794
+        ],
+        [
+          54.5455,
+          12.5997
+        ],
+        [
+          53.2695,
+          12.4402
+        ],
+        [
+          52.3923,
+          11.9617
+        ],
+        [
+          51.6746,
+          11.3238
+        ],
+        [
+          51.5152,
+          11.1643
+        ],
+        [
+          51.5949,
+          10.7656
+        ],
+        [
+          52.1531,
+          9.6491
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         690,
         131
       ],
-      "center_pct": [
-        55.0239,
-        10.4466
-      ],
-      "center_world": [
-        252,
-        -1984
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           57.6156,
           10.4466
@@ -1940,31 +3109,207 @@
           10.0018
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          112,
+          -2028
+        ],
+        [
+          232,
+          -2052
+        ],
+        [
+          292,
+          -2048
+        ],
+        [
+          344,
+          -2036
+        ],
+        [
+          384,
+          -2000
+        ],
+        [
+          388,
+          -1996
+        ],
+        [
+          392,
+          -1984
+        ],
+        [
+          392,
+          -1960
+        ],
+        [
+          376,
+          -1912
+        ],
+        [
+          368,
+          -1904
+        ],
+        [
+          324,
+          -1884
+        ],
+        [
+          288,
+          -1872
+        ],
+        [
+          284,
+          -1872
+        ],
+        [
+          228,
+          -1876
+        ],
+        [
+          164,
+          -1884
+        ],
+        [
+          120,
+          -1908
+        ],
+        [
+          84,
+          -1940
+        ],
+        [
+          76,
+          -1948
+        ],
+        [
+          80,
+          -1968
+        ],
+        [
+          108,
+          -2024
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        316,
+        180
+      ]
     },
     {
       "id": "s09",
       "zone": "marsh",
       "type": "mud",
       "pixel_reference": [
+        636,
+        186
+      ],
+      "center_pct": [
+        50.7177,
+        14.8325
+      ],
+      "center_world": [
+        36,
+        -1764
+      ],
+      "polygon_pct": [
+        [
+          51.4354,
+          16.6667
+        ],
+        [
+          48.0861,
+          16.1085
+        ],
+        [
+          47.3684,
+          15.7895
+        ],
+        [
+          47.0494,
+          15.4705
+        ],
+        [
+          47.0494,
+          15.3907
+        ],
+        [
+          47.1292,
+          14.5933
+        ],
+        [
+          47.3684,
+          14.1946
+        ],
+        [
+          47.7671,
+          13.6364
+        ],
+        [
+          47.9266,
+          13.4769
+        ],
+        [
+          48.6443,
+          13.2376
+        ],
+        [
+          49.362,
+          13.0781
+        ],
+        [
+          50.5582,
+          12.8389
+        ],
+        [
+          51.0367,
+          12.8389
+        ],
+        [
+          51.6746,
+          12.9984
+        ],
+        [
+          52.4721,
+          13.3174
+        ],
+        [
+          53.0303,
+          13.5566
+        ],
+        [
+          53.429,
+          13.9553
+        ],
+        [
+          53.5088,
+          14.4338
+        ],
+        [
+          53.5088,
+          14.9123
+        ],
+        [
+          53.1898,
+          15.2313
+        ],
+        [
+          52.7113,
+          15.63
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         638,
         193
       ],
-      "center_pct": [
-        50.8772,
-        15.3907
-      ],
-      "center_world": [
-        44,
-        -1736
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           53.429,
           15.3907
@@ -2030,13 +3375,96 @@
           14.946
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          72,
+          -1672
+        ],
+        [
+          -96,
+          -1700
+        ],
+        [
+          -132,
+          -1716
+        ],
+        [
+          -148,
+          -1732
+        ],
+        [
+          -148,
+          -1736
+        ],
+        [
+          -144,
+          -1776
+        ],
+        [
+          -132,
+          -1796
+        ],
+        [
+          -112,
+          -1824
+        ],
+        [
+          -104,
+          -1832
+        ],
+        [
+          -68,
+          -1844
+        ],
+        [
+          -32,
+          -1852
+        ],
+        [
+          28,
+          -1864
+        ],
+        [
+          52,
+          -1864
+        ],
+        [
+          84,
+          -1856
+        ],
+        [
+          124,
+          -1840
+        ],
+        [
+          152,
+          -1828
+        ],
+        [
+          172,
+          -1808
+        ],
+        [
+          176,
+          -1784
+        ],
+        [
+          176,
+          -1760
+        ],
+        [
+          160,
+          -1744
+        ],
+        [
+          136,
+          -1724
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        324,
+        192
+      ]
     },
     {
       "id": "s10",
@@ -2044,17 +3472,114 @@
       "type": "ice",
       "pixel_reference": [
         1025,
-        379
+        383
       ],
       "center_pct": [
         81.7384,
-        30.2233
+        30.5423
       ],
       "center_world": [
         1592,
-        -992
+        -976
       ],
       "polygon_pct": [
+        [
+          79.2663,
+          31.5789
+        ],
+        [
+          79.1866,
+          31.4992
+        ],
+        [
+          78.8676,
+          30.2233
+        ],
+        [
+          78.8676,
+          30.1435
+        ],
+        [
+          79.1866,
+          29.8246
+        ],
+        [
+          80.4625,
+          28.8676
+        ],
+        [
+          81.6587,
+          28.6284
+        ],
+        [
+          82.5359,
+          28.5486
+        ],
+        [
+          83.0144,
+          28.6284
+        ],
+        [
+          83.9713,
+          28.9474
+        ],
+        [
+          84.689,
+          29.6651
+        ],
+        [
+          84.7687,
+          30.4625
+        ],
+        [
+          84.689,
+          30.7815
+        ],
+        [
+          84.5295,
+          31.1005
+        ],
+        [
+          84.2105,
+          31.4195
+        ],
+        [
+          83.7321,
+          31.8182
+        ],
+        [
+          82.8549,
+          32.1372
+        ],
+        [
+          82.2169,
+          32.2967
+        ],
+        [
+          81.3397,
+          32.2967
+        ],
+        [
+          80.4625,
+          32.2169
+        ],
+        [
+          80.1435,
+          32.0574
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
+        1025,
+        379
+      ],
+      "composition_polygon_pct": [
         [
           84.9282,
           30.2233
@@ -2120,31 +3645,211 @@
           29.5791
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          1468,
+          -924
+        ],
+        [
+          1464,
+          -928
+        ],
+        [
+          1448,
+          -992
+        ],
+        [
+          1448,
+          -996
+        ],
+        [
+          1464,
+          -1012
+        ],
+        [
+          1528,
+          -1060
+        ],
+        [
+          1588,
+          -1072
+        ],
+        [
+          1632,
+          -1076
+        ],
+        [
+          1656,
+          -1072
+        ],
+        [
+          1704,
+          -1056
+        ],
+        [
+          1740,
+          -1020
+        ],
+        [
+          1744,
+          -980
+        ],
+        [
+          1740,
+          -964
+        ],
+        [
+          1732,
+          -948
+        ],
+        [
+          1716,
+          -932
+        ],
+        [
+          1692,
+          -912
+        ],
+        [
+          1648,
+          -896
+        ],
+        [
+          1616,
+          -888
+        ],
+        [
+          1572,
+          -888
+        ],
+        [
+          1528,
+          -892
+        ],
+        [
+          1512,
+          -900
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        296,
+        188
+      ]
     },
     {
       "id": "s11",
       "zone": "glacier",
       "type": "ice",
       "pixel_reference": [
+        1109,
+        409
+      ],
+      "center_pct": [
+        88.437,
+        32.6156
+      ],
+      "center_world": [
+        1928,
+        -872
+      ],
+      "polygon_pct": [
+        [
+          85.5662,
+          32.1372
+        ],
+        [
+          86.6826,
+          31.0207
+        ],
+        [
+          86.8421,
+          30.941
+        ],
+        [
+          87.8788,
+          30.622
+        ],
+        [
+          88.8357,
+          30.7018
+        ],
+        [
+          90.3509,
+          30.941
+        ],
+        [
+          90.7496,
+          31.1802
+        ],
+        [
+          90.8293,
+          31.26
+        ],
+        [
+          91.6268,
+          32.2169
+        ],
+        [
+          91.6268,
+          32.8549
+        ],
+        [
+          91.2281,
+          33.3333
+        ],
+        [
+          90.9888,
+          33.5726
+        ],
+        [
+          90.6699,
+          33.7321
+        ],
+        [
+          89.9522,
+          34.051
+        ],
+        [
+          89.6332,
+          34.1308
+        ],
+        [
+          89.2344,
+          34.2105
+        ],
+        [
+          87.9585,
+          34.2105
+        ],
+        [
+          87.3206,
+          34.051
+        ],
+        [
+          86.2041,
+          33.4928
+        ],
+        [
+          85.9649,
+          33.2536
+        ],
+        [
+          85.5662,
+          32.3764
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         1105,
         412
       ],
-      "center_pct": [
-        88.118,
-        32.8549
-      ],
-      "center_world": [
-        1912,
-        -860
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           91.0686,
           32.8549
@@ -2210,31 +3915,215 @@
           32.226
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          1784,
+          -896
+        ],
+        [
+          1840,
+          -952
+        ],
+        [
+          1848,
+          -956
+        ],
+        [
+          1900,
+          -972
+        ],
+        [
+          1948,
+          -968
+        ],
+        [
+          2024,
+          -956
+        ],
+        [
+          2044,
+          -944
+        ],
+        [
+          2048,
+          -940
+        ],
+        [
+          2088,
+          -892
+        ],
+        [
+          2088,
+          -860
+        ],
+        [
+          2068,
+          -836
+        ],
+        [
+          2056,
+          -824
+        ],
+        [
+          2040,
+          -816
+        ],
+        [
+          2004,
+          -800
+        ],
+        [
+          1988,
+          -796
+        ],
+        [
+          1968,
+          -792
+        ],
+        [
+          1904,
+          -792
+        ],
+        [
+          1872,
+          -800
+        ],
+        [
+          1816,
+          -828
+        ],
+        [
+          1804,
+          -840
+        ],
+        [
+          1784,
+          -884
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        304,
+        180
+      ]
     },
     {
       "id": "s12",
       "zone": "glacier",
       "type": "ice",
       "pixel_reference": [
+        1065,
+        459
+      ],
+      "center_pct": [
+        84.9282,
+        36.6029
+      ],
+      "center_world": [
+        1752,
+        -672
+      ],
+      "polygon_pct": [
+        [
+          84.6093,
+          34.7687
+        ],
+        [
+          86.8421,
+          34.8485
+        ],
+        [
+          87.6396,
+          35.4067
+        ],
+        [
+          87.7193,
+          35.4864
+        ],
+        [
+          88.2775,
+          36.1244
+        ],
+        [
+          88.437,
+          36.4434
+        ],
+        [
+          88.2775,
+          37.0016
+        ],
+        [
+          88.1978,
+          37.2408
+        ],
+        [
+          87.9585,
+          37.4801
+        ],
+        [
+          87.3206,
+          38.0383
+        ],
+        [
+          86.3636,
+          38.5167
+        ],
+        [
+          86.1244,
+          38.5965
+        ],
+        [
+          84.2903,
+          38.5965
+        ],
+        [
+          83.1738,
+          38.118
+        ],
+        [
+          83.0144,
+          38.0383
+        ],
+        [
+          82.0574,
+          37.4003
+        ],
+        [
+          81.9777,
+          37.3206
+        ],
+        [
+          81.8182,
+          36.6826
+        ],
+        [
+          81.8182,
+          36.6029
+        ],
+        [
+          83.0941,
+          35.2472
+        ],
+        [
+          83.1738,
+          35.1675
+        ],
+        [
+          84.2105,
+          34.8485
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         1060,
         458
       ],
-      "center_pct": [
-        84.5295,
-        36.5231
-      ],
-      "center_world": [
-        1732,
-        -676
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           87.4402,
           36.5231
@@ -2300,31 +4189,207 @@
           35.9556
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          1736,
+          -764
+        ],
+        [
+          1848,
+          -760
+        ],
+        [
+          1888,
+          -732
+        ],
+        [
+          1892,
+          -728
+        ],
+        [
+          1920,
+          -696
+        ],
+        [
+          1928,
+          -680
+        ],
+        [
+          1920,
+          -652
+        ],
+        [
+          1916,
+          -640
+        ],
+        [
+          1904,
+          -628
+        ],
+        [
+          1872,
+          -600
+        ],
+        [
+          1824,
+          -576
+        ],
+        [
+          1812,
+          -572
+        ],
+        [
+          1720,
+          -572
+        ],
+        [
+          1664,
+          -596
+        ],
+        [
+          1656,
+          -600
+        ],
+        [
+          1608,
+          -632
+        ],
+        [
+          1604,
+          -636
+        ],
+        [
+          1596,
+          -668
+        ],
+        [
+          1596,
+          -672
+        ],
+        [
+          1660,
+          -740
+        ],
+        [
+          1664,
+          -744
+        ],
+        [
+          1716,
+          -760
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        332,
+        192
+      ]
     },
     {
       "id": "s13",
       "zone": "city",
       "type": "corruption",
       "pixel_reference": [
+        913,
+        819
+      ],
+      "center_pct": [
+        72.807,
+        65.311
+      ],
+      "center_world": [
+        1144,
+        768
+      ],
+      "polygon_pct": [
+        [
+          76.0766,
+          66.5072
+        ],
+        [
+          74.3222,
+          67.3046
+        ],
+        [
+          74.0032,
+          67.3844
+        ],
+        [
+          72.8868,
+          67.6236
+        ],
+        [
+          72.488,
+          67.6236
+        ],
+        [
+          70.4147,
+          66.9856
+        ],
+        [
+          70.3349,
+          66.9059
+        ],
+        [
+          70.4147,
+          66.5072
+        ],
+        [
+          70.6539,
+          65.63
+        ],
+        [
+          71.5311,
+          64.2743
+        ],
+        [
+          71.6108,
+          64.1946
+        ],
+        [
+          72.4083,
+          63.9553
+        ],
+        [
+          73.2057,
+          63.8756
+        ],
+        [
+          74.4019,
+          63.9553
+        ],
+        [
+          76.874,
+          64.4338
+        ],
+        [
+          77.0335,
+          64.5136
+        ],
+        [
+          77.193,
+          64.673
+        ],
+        [
+          77.193,
+          64.8325
+        ],
+        [
+          76.6348,
+          65.949
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         912,
         826
       ],
-      "center_pct": [
-        72.7273,
-        65.8692
-      ],
-      "center_world": [
-        1140,
-        796
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           75.3987,
           65.8692
@@ -2390,31 +4455,183 @@
           65.4244
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          1308,
+          828
+        ],
+        [
+          1220,
+          868
+        ],
+        [
+          1204,
+          872
+        ],
+        [
+          1148,
+          884
+        ],
+        [
+          1128,
+          884
+        ],
+        [
+          1024,
+          852
+        ],
+        [
+          1020,
+          848
+        ],
+        [
+          1024,
+          828
+        ],
+        [
+          1036,
+          784
+        ],
+        [
+          1080,
+          716
+        ],
+        [
+          1084,
+          712
+        ],
+        [
+          1124,
+          700
+        ],
+        [
+          1164,
+          696
+        ],
+        [
+          1224,
+          700
+        ],
+        [
+          1348,
+          724
+        ],
+        [
+          1356,
+          728
+        ],
+        [
+          1364,
+          736
+        ],
+        [
+          1364,
+          744
+        ],
+        [
+          1336,
+          800
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        344,
+        188
+      ]
     },
     {
       "id": "s14",
       "zone": "city",
       "type": "corruption",
       "pixel_reference": [
+        1007,
+        859
+      ],
+      "center_pct": [
+        80.303,
+        68.5008
+      ],
+      "center_world": [
+        1520,
+        928
+      ],
+      "polygon_pct": [
+        [
+          81.3397,
+          69.378
+        ],
+        [
+          77.9107,
+          68.8198
+        ],
+        [
+          77.8309,
+          68.74
+        ],
+        [
+          77.4322,
+          67.4641
+        ],
+        [
+          77.512,
+          67.3046
+        ],
+        [
+          78.7879,
+          65.4705
+        ],
+        [
+          78.8676,
+          65.3907
+        ],
+        [
+          79.1069,
+          65.311
+        ],
+        [
+          81.8182,
+          65.7097
+        ],
+        [
+          82.5359,
+          65.8692
+        ],
+        [
+          83.9713,
+          66.9856
+        ],
+        [
+          84.051,
+          67.0654
+        ],
+        [
+          84.051,
+          67.1451
+        ],
+        [
+          82.9346,
+          68.6603
+        ],
+        [
+          82.3764,
+          69.2185
+        ],
+        [
+          82.1372,
+          69.2982
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         1008,
         866
       ],
-      "center_pct": [
-        80.3828,
-        69.059
-      ],
-      "center_world": [
-        1524,
-        956
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           82.9745,
           69.059
@@ -2480,31 +4697,163 @@
           68.5836
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          1572,
+          972
+        ],
+        [
+          1400,
+          944
+        ],
+        [
+          1396,
+          940
+        ],
+        [
+          1376,
+          876
+        ],
+        [
+          1380,
+          868
+        ],
+        [
+          1444,
+          776
+        ],
+        [
+          1448,
+          772
+        ],
+        [
+          1460,
+          768
+        ],
+        [
+          1596,
+          788
+        ],
+        [
+          1632,
+          796
+        ],
+        [
+          1704,
+          852
+        ],
+        [
+          1708,
+          856
+        ],
+        [
+          1708,
+          860
+        ],
+        [
+          1652,
+          936
+        ],
+        [
+          1624,
+          964
+        ],
+        [
+          1612,
+          968
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        332,
+        204
+      ]
     },
     {
       "id": "s15",
       "zone": "city",
       "type": "corruption",
       "pixel_reference": [
+        960,
+        899
+      ],
+      "center_pct": [
+        76.555,
+        71.6906
+      ],
+      "center_world": [
+        1332,
+        1088
+      ],
+      "polygon_pct": [
+        [
+          75.9171,
+          74.3222
+        ],
+        [
+          73.2855,
+          73.445
+        ],
+        [
+          73.126,
+          73.2855
+        ],
+        [
+          72.8868,
+          71.8501
+        ],
+        [
+          73.126,
+          71.6108
+        ],
+        [
+          74.9601,
+          70.0159
+        ],
+        [
+          77.9107,
+          69.7767
+        ],
+        [
+          78.2297,
+          69.9362
+        ],
+        [
+          78.6284,
+          70.1754
+        ],
+        [
+          80.303,
+          71.6906
+        ],
+        [
+          80.3828,
+          71.7703
+        ],
+        [
+          80.2233,
+          71.9298
+        ],
+        [
+          78.4689,
+          73.3652
+        ],
+        [
+          75.9968,
+          74.3222
+        ]
+      ],
+      "diameter_world_target_range": [
+        200,
+        450
+      ],
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Enveloppe de matière relevée sur le master détaillé (couleur, composante connexe puis enveloppe convexe), à ajuster par Claude pour la brique. Aucun contour de collision.",
+      "composition_pixel_reference": [
         953,
         945
       ],
-      "center_pct": [
-        75.9968,
-        75.3589
-      ],
-      "center_world": [
-        1304,
-        1272
-      ],
-      "polygon_pct": [
+      "composition_polygon_pct": [
         [
           78.4689,
           75.3589
@@ -2570,13 +4919,68 @@
           74.9294
         ]
       ],
-      "diameter_world_target_range": [
-        200,
-        450
+      "polygon_world": [
+        [
+          1300,
+          1220
+        ],
+        [
+          1168,
+          1176
+        ],
+        [
+          1160,
+          1168
+        ],
+        [
+          1148,
+          1096
+        ],
+        [
+          1160,
+          1084
+        ],
+        [
+          1252,
+          1004
+        ],
+        [
+          1400,
+          992
+        ],
+        [
+          1416,
+          1000
+        ],
+        [
+          1436,
+          1012
+        ],
+        [
+          1520,
+          1088
+        ],
+        [
+          1524,
+          1092
+        ],
+        [
+          1516,
+          1100
+        ],
+        [
+          1428,
+          1172
+        ],
+        [
+          1304,
+          1220
+        ]
       ],
-      "walkable": true,
-      "required_path": false,
-      "geometry_scope": "Enveloppe initiale de matière sur composition approuvée ; contour à recaler sur le détail, position conservée."
+      "measured_envelope_world": [
+        376,
+        228
+      ]
     }
   ],
   "platform": {
@@ -3321,8 +5725,10 @@
   "runtime_integrated": false,
   "navigation_or_combat_tested": false,
   "review_limits": [
-    "Polygones de zones et de matières : repères graphiques, aucun masque statique.",
-    "Gabarits réels et lisibilité des sprites à contrôler après dessin régional.",
-    "La place centrale comporte quatre abris bloquants expressément demandés."
-  ]
+    "Repères graphiques, sans masque de collision ni navigation.",
+    "Sprites natifs des chapitres1 à4 contrôlés en captures statiques ; sprites propres au chapitre5 absents, contrôle restant à compléter.",
+    "Quatre abris à l’intérieur de la surface de combat, selon l’image approuvée. Le disque de1400unités n’est pas entièrement vide.",
+    "Largeurs des accès et dégagements de combat à confronter au masque peint par le propriétaire."
+  ],
+  "detail_generated": true
 }

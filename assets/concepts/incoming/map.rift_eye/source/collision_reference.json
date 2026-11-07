@@ -1,0 +1,33 @@
+{
+  "reference": "docs/previews/rift-eye/reference_collisions.jpg",
+  "sha256": "068dee1a2d39e6fa4f14aa7d2f10b9530aaab377ca92fd282b4ac3057979233c",
+  "bytes": 998083,
+  "size": [
+    1254,
+    1254
+  ],
+  "world": [
+    5016,
+    5016
+  ],
+  "world_units_per_pixel": 4,
+  "whole_map": true,
+  "crop": null,
+  "master_sha256": "f1598a5613cfadb1a14ebc9631a1c9574c40d39fe3db8e3c9eff751a8c0bbe6d",
+  "tiles_sha256": [
+    "e086ee7cdef2454bc36f8485ae67c91cbc8ce52e093f6c2b718a6c1fbf36d5cf",
+    "5abf1c95fb4648a8a481305799050c25bbfcc4f38aac9bb1f4ee355b5bbba610",
+    "7c53648032e3344a7f5cf287ac076ddce5cc447ffc281c57bb4c1e5375e2e73d"
+  ],
+  "expected_return": {
+    "format": "PNG",
+    "size": [
+      1254,
+      1254
+    ],
+    "same_framing": true,
+    "paint": "Vide, fondations, piliers et abris bloquants ; passages, matières de terrain et sol de plateforme praticables."
+  },
+  "collision_mask_created": false,
+  "runtime_integrated": false
+}

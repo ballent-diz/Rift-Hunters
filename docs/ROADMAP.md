@@ -1,12 +1,13 @@
 # Rift Hunters — feuille de route
 
-## Carte 25 — L’Œil de la Faille : plan figé et détail en cours (Codex, 7 novembre 2026)
+## Carte 25 — L’Œil de la Faille : détail livré, collisions à peindre (Codex, 7 novembre 2026)
 
-Dernière carte du jeu : spirale horaire de 5016 × 5016 unités, cinq tronçons dans l’ordre des chapitres,
-puis plateforme centrale du Dévoreur final. Composition `c25.png` approuvée par le propriétaire,
-avec quatre abris à l’intérieur de l’arène. Plan figé ; seize régions de détail en cours.
-Fiche : `docs/maps/OEIL_DE_LA_FAILLE.md`. Référence des collisions après détail et contrôles.
-Sans modification de src/, data/, du manifeste ou des cartes 14 à 24.
+Composition c25.png approuvée, spirale de5016×5016unités et quatre abris à l’intérieur de l’arène.
+Seize régions de détail, abris/ancres recalibrés, rapport qualité conforme, import Godot et23captures.
+Plan : cinq zones, quinze matières, cinq passages, dix-neuf abris et six ancres.
+Référence légère1254×1254 à peindre ; Claude intègre après réception du masque.
+Contrôle restant : vrais sprites du chapitre5, absents du dépôt. Aucun changement de src/, data/,
+du manifeste ou des cartes14 à24. Fiche : `docs/maps/OEIL_DE_LA_FAILLE.md`.
 
 ## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
 
