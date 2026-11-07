@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Carte 20 — chemin et décors centraux livrés, collisions à peindre (Codex, 7 novembre 2026)
+
+Retouche locale demandée par le propriétaire : trois salles du Cœur du Silence conservées,
+passage de droite ouvert entre la salle est et l'îlot central, trois plaques de glace et cinq abris
+ajoutés vers le centre des salles. Plus de 91 % des pixels des tuiles sont identiques à la livraison précédente.
+Qualité conforme 35/35 secteurs, huit captures statiques ; fiche : `docs/maps/COEUR_DU_SILENCE.md`.
+Nouvelle référence légère des collisions à peindre par le propriétaire, puis raccordement par Claude.
+L'escalier de gauche près de la cascade est conservé à l'identique.
+Aucune navigation ni intégration jouable validée dans ce lot ; aucun changement de gameplay.
+
 ## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
 
 - Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses. Sources originales conservées ; toutes les entrées de main préservées lors du merge du 3 novembre. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.
