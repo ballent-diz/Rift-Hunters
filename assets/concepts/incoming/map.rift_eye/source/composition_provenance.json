@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-07",
+  "generator": "Outil imagegen intégré",
+  "approved_attachment": "c25.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "sha256": "c0a1050cd12633f2ef3ca7c9810d898c70e7b3bb96ab1b3bfcf0665f996cb105",
+  "generated_pixels_match_attachment": true,
+  "guide_sha256": "f2a988fbfb53be5e978b6397693b26094d43b1724d6e85fc973f9a249487a93d",
+  "style_montage_sha256": "e5fb3e01a294302b57d096ba0bb97244d456da4c9a4fd72e5d272999521249e0",
+  "variants_outside_repository": true,
+  "approved_change": "Quatre abris déplacés à l’intérieur de la surface de combat."
+}
