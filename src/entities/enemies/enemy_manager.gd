@@ -11,6 +11,8 @@ const CORPSE_HOLD := 0.35
 const CORPSE_FADE := 0.25
 
 ## Nuit (NightDirector) : seuls les ennemis visibles peuvent être ciblés ; vide = tout est visible.
+## Au-delà de ce nombre de Corrompus, les cerveaux tournent une image sur deux (moitié de la horde à chaque image).
+const STAGGER_FROM := 120
 var visibility: Callable
 var ctx: RunContext
 var list: Array[Enemy] = []
@@ -221,6 +223,7 @@ func step(delta: float) -> void:
 			_flow_timer = FLOW_REFRESH
 			ctx.flow.update(player_pos)
 	var count: int = list.size()
+	var stagger: bool = count > STAGGER_FROM
 	for i: int in count:
 		var enemy: Enemy = list[i]
 		if not enemy.alive:
@@ -238,7 +241,14 @@ func step(delta: float) -> void:
 			marsh.vanish(enemy)
 			continue
 		if not enemy.is_boss:
-			_tick_brain(enemy, delta, player_pos)
+			# Grande horde : chaque Corrompu réfléchit une image sur deux (pas de temps double) et avance à chaque image ;
+			# jamais pendant une technique (bond, charge…), qui reste fluide.
+			if not stagger or not enemy.motion.is_empty() or enemy.technique_busy > 0.0:
+				_tick_brain(enemy, delta, player_pos)
+			elif (i + _frame) % 2 == 0:
+				_tick_brain(enemy, delta * 2.0, player_pos, delta)
+			else:
+				enemy.position += enemy.velocity * delta
 			# Séparation : une moitié des ennemis par frame (alternance), correction complète.
 			if i % 2 == parity:
 				_separate(enemy)
@@ -304,7 +314,8 @@ func _apply_dot(enemy: Enemy, dot: Array) -> void:
 	ctx.combat.deal_damage(enemy, info)
 
 
-func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
+## `move_delta` : pas de déplacement quand le cerveau tourne une image sur deux (négatif : `delta`).
+func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2, move_delta: float = -1.0) -> void:
 	if not enemy.is_clone and not enemy.data.techniques.is_empty() and _tick_techniques(enemy, delta, player_pos):
 		return
 	var target_pos: Vector2 = player_pos
@@ -339,7 +350,7 @@ func _tick_brain(enemy: Enemy, delta: float, player_pos: Vector2) -> void:
 			_tick_warden(enemy, delta, dir, nav, dist, speed)
 	if ctx.ice:
 		ctx.ice.slide_enemy(enemy, speed, delta)
-	enemy.position += enemy.velocity * delta
+	enemy.position += enemy.velocity * (delta if move_delta < 0.0 else move_delta)
 
 
 func _tick_ranged(enemy: Enemy, delta: float, dir: Vector2, nav: Vector2, dist: float, speed: float) -> void:
@@ -635,9 +646,10 @@ func _view_rect() -> Rect2:
 
 func _draw() -> void:
 	var now: float = ctx.time
-	# Halos sous les élites et le boss (lisibilité de la menace).
+	var view: Rect2 = _view_rect().grow(400.0)
+	# Halos sous les élites et le boss (lisibilité de la menace), seulement autour de l'écran.
 	for enemy: Enemy in list:
-		if not enemy.alive:
+		if not enemy.alive or not view.has_point(enemy.position):
 			continue
 		marsh.draw_traits(self, enemy, now)
 		if enemy.alive and (enemy.is_elite or enemy.is_boss):
@@ -651,46 +663,7 @@ func _draw() -> void:
 
 
 func _draw_overlay() -> void:
-	# Marqueurs de statuts au-dessus des ennemis visibles (Fracture, Marques, Brûlure, Entrave).
-	var view: Rect2 = _view_rect()
-	if ctx.setup.info_unlocks.has("affixes"):
-		var font: Font = ThemeDB.fallback_font
-		for enemy: Enemy in list:
-			if enemy.alive and enemy.is_elite and view.has_point(enemy.position):
-				var names: PackedStringArray = []
-				for affix: EliteAffixData in enemy.affixes:
-					names.append(tr(affix.name_key))
-				var top: Vector2 = enemy.position + Vector2(-60, -enemy.radius - 18.0)
-				_overlay.draw_string_outline(font, top, " · ".join(names), HORIZONTAL_ALIGNMENT_CENTER, 120, 12, 3, Color.BLACK)
-				_overlay.draw_string(font, top, " · ".join(names), HORIZONTAL_ALIGNMENT_CENTER, 120, 12, Color(1.0, 0.8, 0.4))
-	for enemy: Enemy in list:
-		if not enemy.alive or enemy.statuses.is_empty() or not view.has_point(enemy.position):
-			continue
-		var top: Vector2 = enemy.position + Vector2(0, -enemy.radius - 7.0)
-		var x: float = -8.0
-		if enemy.statuses.has(&"fracture"):
-			_overlay.draw_line(top + Vector2(x - 3, -3), top + Vector2(x + 3, 3), Color(1.0, 0.55, 0.15), 2.0)
-			_overlay.draw_line(top + Vector2(x + 3, -3), top + Vector2(x - 1, 2), Color(1.0, 0.55, 0.15), 2.0)
-			x += 8.0
-		var marks: int = enemy.statuses.get_stacks(&"mark")
-		for m: int in mini(marks, 8):
-			_overlay.draw_circle(top + Vector2(x + m * 5.0, 0), 2.2, Color(0.55, 0.95, 1.0))
-		if marks > 0:
-			x += mini(marks, 8) * 5.0 + 3.0
-		if enemy.statuses.has(&"burn"):
-			_overlay.draw_circle(top + Vector2(x, 0), 3.0, Color(1.0, 0.4, 0.1))
-			x += 7.0
-		if enemy.statuses.has(&"slow"):
-			_overlay.draw_circle(top + Vector2(x, 0), 3.0, Color(0.6, 0.7, 1.0))
-			x += 7.0
-		if enemy.statuses.has(&"root"):
-			_overlay.draw_rect(Rect2(top + Vector2(x - 3, -3), Vector2(6, 6)), Color(0.45, 0.85, 0.35))
-			x += 8.0
-		if enemy.statuses.has(&"static"):
-			_overlay.draw_line(top + Vector2(x - 3, -3), top + Vector2(x + 3, 3), Color(1.0, 0.95, 0.4), 2.0)
-			x += 8.0
-		if enemy.statuses.has(&"warded"):
-			_overlay.draw_arc(top + Vector2(x, 0), 4.0, 0.0, TAU, 12, Color(0.55, 0.75, 1.0), 2.0)
+	EnemyMarkers.draw_statuses(_overlay, list, _view_rect(), ctx.setup.info_unlocks.has("affixes"))
 
 
 ## Techniques propres (EnemyTechniqueData, docs/design/MONSTRES.md) : immobile pendant l'exécution. Vrai tant qu'il est

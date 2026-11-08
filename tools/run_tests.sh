@@ -24,7 +24,14 @@ run_step() {
 }
 
 # Toujours réimporter : enregistre les nouvelles classes (class_name) et les traductions.
-timeout 300 "$GODOT" --headless --import --path . > "$LOG_DIR/import.log" 2>&1
+IMPORT_LIMIT="${IMPORT_TIMEOUT:-${STEP_TIMEOUT:-600}}"
+import_code=0
+timeout "$IMPORT_LIMIT" "$GODOT" --headless --import --path . > "$LOG_DIR/import.log" 2>&1 || import_code=$?
+if [ "$import_code" -ne 0 ]; then
+	cat "$LOG_DIR/import.log"
+	echo "❌ import Godot (code $import_code, limite ${IMPORT_LIMIT}s) : arrêt avant les tests."
+	exit "$import_code"
+fi
 
 if [[ "$MODE" == "all" || "$MODE" == "scripts" ]]; then
 	run_step scripts "$GODOT" --headless --path . res://tools/check_scripts.tscn

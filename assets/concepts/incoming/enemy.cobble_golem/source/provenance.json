@@ -1,0 +1,13 @@
+{
+  "generator": "Outil imagegen intégré, alpha demandé explicitement",
+  "date": "2026-11-07",
+  "family": "Les Déchus",
+  "id": "cobble_golem",
+  "planche_B_identity_reference": "Planche A du même monstre",
+  "A_refinement": false,
+  "discarded_trials_outside_repository": true,
+  "source_sha256": {
+    "planche_A.png": "e131dd49b4472c060adb443a52547e36909dea976408cff059c7d312870ead6f",
+    "planche_B.png": "a9e7ba5ed6cdc7079e2da87535335a35df1ed87de93a3941a830a206e43adcd3"
+  }
+}

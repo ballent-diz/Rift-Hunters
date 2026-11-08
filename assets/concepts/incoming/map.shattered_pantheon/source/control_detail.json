@@ -1,0 +1,122 @@
+{
+  "date": "2026-11-07",
+  "map": "shattered_pantheon",
+  "world": [
+    4400,
+    4400
+  ],
+  "owner_composition_approved": true,
+  "central_pillar_requested": true,
+  "quality": {
+    "world": [
+      4400,
+      4400
+    ],
+    "checks": [
+      {
+        "name": "densité (pixels par unité)",
+        "value": 2.25,
+        "min": 2.183,
+        "max": 2.317,
+        "ok": true
+      },
+      {
+        "name": "part lisse (médiane)",
+        "value": 0.147,
+        "min": 0.0,
+        "max": 0.27,
+        "ok": true
+      },
+      {
+        "name": "détails fins / 100×100 u (médiane)",
+        "value": 405.55,
+        "min": 329.944,
+        "max": 446.395,
+        "ok": true
+      },
+      {
+        "name": "détails moyens / 100×100 u (médiane)",
+        "value": 109.885,
+        "min": 90.94,
+        "max": 123.036,
+        "ok": true
+      },
+      {
+        "name": "secteurs conformes (part)",
+        "value": 1.0,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      },
+      {
+        "name": "fidélité au plan validé (corrélation)",
+        "value": 0.954,
+        "min": 0.85,
+        "max": 1.0,
+        "ok": true
+      }
+    ],
+    "sectors_out": [],
+    "ok": true
+  },
+  "native_master_sha256": "2f2d78b540de52ad712baf6541e7bf3383b9da5e65987535777338c58b38579d",
+  "plan_sha256": "b614edaf3fe392b2ef8f3b6e2a4201f2e2730a7e6cce46567c69382167674f9f",
+  "tiles": [
+    {
+      "path": "assets\\environments\\shattered_pantheon\\map.webp",
+      "sha256": "1a8ad632689b9b9ce0c2cc023dcf448b5e671554a22963d816c3fbb9c4421d37",
+      "bytes": 30461460
+    },
+    {
+      "path": "assets\\environments\\shattered_pantheon\\map_1.webp",
+      "sha256": "7e1abae956054238106a8dca8c48a373f1f3689d2b3d98857923af0625b3e372",
+      "bytes": 29762166
+    },
+    {
+      "path": "assets\\environments\\shattered_pantheon\\map_2.webp",
+      "sha256": "a30611d216cd09dee7c22a303d68f8ff11adc1f5a728e44088eaacc02f68c3fb",
+      "bytes": 29892776
+    }
+  ],
+  "sharpness": {
+    "date": "2026-11-07",
+    "stage": "detail_final_apres_retouche_des_accessoires",
+    "reference_percentile": 80,
+    "reference": 0.0007187873707152903,
+    "blur_ratio": 0.6,
+    "flagged_cells": 15,
+    "valid_cells": 729,
+    "share": 0.0205761316872428,
+    "limit": 0.05,
+    "ok": true,
+    "cell_world": 160.0,
+    "note": "Diagnostic relatif distinct des six critères absolus ; seuils et code inchangés."
+  },
+  "godot": {
+    "version": "4.3-stable",
+    "isolated_import_exit_code": 0,
+    "imported_textures_loaded": 3,
+    "texture_size_each": [
+      3300,
+      9900
+    ],
+    "static_capture_count": 13,
+    "static_capture_exit_code": 0
+  },
+  "checks": {
+    "python_compile_exit_code": 0,
+    "gdscript_lint_exit_code": 0,
+    "lossless_source": true,
+    "regions_painted": 16,
+    "local_prop_patches": 30,
+    "empty_statue_plinths": 11,
+    "flat_walkable_altars": 3,
+    "covers_by_quarter": 3,
+    "covers_on_plaza_including_pillar": 5
+  },
+  "scale_review": "Planches avec règle de 160 unités et treize cadrages avec sprites natifs inchangés. Dimensions cibles dans le plan ; gabarits praticables à confronter au masque peint.",
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false,
+  "scope": "Aucun changement de src/, data/, du manifeste ou des cartes 14 à 23."
+}

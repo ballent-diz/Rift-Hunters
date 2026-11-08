@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-07",
+  "stage": "detail_final_apres_retouche_des_accessoires",
+  "reference_percentile": 80,
+  "reference": 0.0007187873707152903,
+  "blur_ratio": 0.6,
+  "flagged_cells": 15,
+  "valid_cells": 729,
+  "share": 0.0205761316872428,
+  "limit": 0.05,
+  "ok": true,
+  "cell_world": 160.0,
+  "note": "Diagnostic relatif distinct des six critères absolus ; seuils et code inchangés."
+}

@@ -1,0 +1,230 @@
+{
+  "date": "2026-11-06",
+  "request": "Silhouettes variées, architecture dans les deux îlots de combat, cinq nappes lisibles ; ponts, socles et départ conservés.",
+  "previous_composition_sha256": "a85d99a24670c8c80abf2cfad4734081903ae02853bd6dc52f3bf3ac510fe785",
+  "retained_composition_sha256": "6c1ad9a831dbcea4620be1ca8f35c9bdb0256375ca594cd96f5c25ba594b4cfd",
+  "generated_sha256": "3271c9887c74b4bf9dcf422866b3c9afd3de8616fe1c01f137497fbcb062349d",
+  "generated_size": [
+    1536,
+    1024
+  ],
+  "technical_crop": [
+    0,
+    128,
+    1536,
+    896
+  ],
+  "local_court_corrections": [
+    {
+      "island": "z1",
+      "source_pixels": [
+        269.0,
+        254.0,
+        781.0,
+        766.0
+      ],
+      "retained_rectangles": [
+        [
+          400,
+          295,
+          572,
+          398
+        ],
+        [
+          403,
+          390,
+          456,
+          442
+        ],
+        [
+          410,
+          397,
+          594,
+          581
+        ],
+        [
+          374,
+          560,
+          578,
+          704
+        ],
+        [
+          576,
+          416,
+          708,
+          591
+        ]
+      ],
+      "generated_sha256": "b1ad4cd353498e2d19a99f59206bb15ca17dc114f8f1b6f2573f60430c4e69ae",
+      "prompt": "PROMPT_COURS_CORRECTION.txt",
+      "scope": "Retouches peintes de gabarits, cours dégagées et rive concave ; réinsertion technique locale, fondu7px."
+    },
+    {
+      "island": "z2",
+      "source_pixels": [
+        674.0,
+        119.0,
+        1186.0,
+        631.0
+      ],
+      "retained_rectangles": [
+        [
+          759,
+          427,
+          869,
+          552
+        ],
+        [
+          978,
+          435,
+          1040,
+          505
+        ],
+        [
+          776,
+          504,
+          881,
+          596
+        ],
+        [
+          845,
+          315,
+          1029,
+          499
+        ]
+      ],
+      "generated_sha256": "b1ad4cd353498e2d19a99f59206bb15ca17dc114f8f1b6f2573f60430c4e69ae",
+      "prompt": "PROMPT_COURS_CORRECTION.txt",
+      "scope": "Retouches peintes de gabarits, cours dégagées et rive concave ; réinsertion technique locale, fondu7px."
+    }
+  ],
+  "locked_regions": [
+    {
+      "id": "pont_1",
+      "box": [
+        281,
+        383,
+        408,
+        514
+      ],
+      "sha256_before": "5db19d704ea1069fde81734a2c71262ed2cc29e8f0bda1978c76b139c8b6a540",
+      "sha256_after": "5db19d704ea1069fde81734a2c71262ed2cc29e8f0bda1978c76b139c8b6a540",
+      "pixels_identical": true
+    },
+    {
+      "id": "pont_2",
+      "box": [
+        661,
+        305,
+        787,
+        435
+      ],
+      "sha256_before": "750b7008002246021235fcbc36bcf52198f60c0aaea6e0a9f8629a59ba0785de",
+      "sha256_after": "750b7008002246021235fcbc36bcf52198f60c0aaea6e0a9f8629a59ba0785de",
+      "pixels_identical": true
+    },
+    {
+      "id": "pont_3",
+      "box": [
+        1025,
+        329,
+        1157,
+        451
+      ],
+      "sha256_before": "0996f452220f0653347e187a6e76633509351fe32562d308770f751d19d3f393",
+      "sha256_after": "0996f452220f0653347e187a6e76633509351fe32562d308770f751d19d3f393",
+      "pixels_identical": true
+    },
+    {
+      "id": "socle_a1",
+      "box": [
+        186,
+        353,
+        260,
+        424
+      ],
+      "sha256_before": "a866f9070cc949543f231d57b93fb17b341ce226e09437be07f5d6f0d3217e97",
+      "sha256_after": "a866f9070cc949543f231d57b93fb17b341ce226e09437be07f5d6f0d3217e97",
+      "pixels_identical": true
+    },
+    {
+      "id": "socle_a2",
+      "box": [
+        887,
+        159,
+        961,
+        230
+      ],
+      "sha256_before": "bb8e5622c781dffa40964ff6706789f15a9fb558ec10cfc4d1b73fcd79577bbb",
+      "sha256_after": "bb8e5622c781dffa40964ff6706789f15a9fb558ec10cfc4d1b73fcd79577bbb",
+      "pixels_identical": true
+    },
+    {
+      "id": "socle_b1",
+      "box": [
+        552,
+        598,
+        626,
+        669
+      ],
+      "sha256_before": "b7405a2f96cfc0a87bf3c0423430348036df5f1c205041bf609b2f8290566e63",
+      "sha256_after": "b7405a2f96cfc0a87bf3c0423430348036df5f1c205041bf609b2f8290566e63",
+      "pixels_identical": true
+    },
+    {
+      "id": "socle_b2",
+      "box": [
+        1281,
+        157,
+        1355,
+        228
+      ],
+      "sha256_before": "4a71c2f06959031c39025142109674e13fd9a9c004b7a522b734a935610fdf5c",
+      "sha256_after": "4a71c2f06959031c39025142109674e13fd9a9c004b7a522b734a935610fdf5c",
+      "pixels_identical": true
+    },
+    {
+      "id": "socle_c1",
+      "box": [
+        886,
+        489,
+        960,
+        560
+      ],
+      "sha256_before": "7df7f285ca22354fca326f28e9cd168d84df41ba0d0cf3efda3e16f710623e82",
+      "sha256_after": "7df7f285ca22354fca326f28e9cd168d84df41ba0d0cf3efda3e16f710623e82",
+      "pixels_identical": true
+    },
+    {
+      "id": "socle_c2",
+      "box": [
+        496,
+        108,
+        570,
+        179
+      ],
+      "sha256_before": "72194ba38095c8a2e2dc836817e4aae39cea1c0ff22e08a64f114fe6f115d3be",
+      "sha256_after": "72194ba38095c8a2e2dc836817e4aae39cea1c0ff22e08a64f114fe6f115d3be",
+      "pixels_identical": true
+    },
+    {
+      "id": "depart",
+      "box": [
+        160,
+        559,
+        177,
+        576
+      ],
+      "sha256_before": "e10cf522e69a3bc9825531c927e5fab808595b3b41e4d2ebfd8b56347c36669c",
+      "sha256_after": "e10cf522e69a3bc9825531c927e5fab808595b3b41e4d2ebfd8b56347c36669c",
+      "pixels_identical": true
+    }
+  ],
+  "protected_pixels_verified": true,
+  "collision_mask_created": false,
+  "detail_generated": false,
+  "input_sha256": "74b7c71522e7fbaf6b6d9cc55cb71e4061dcbaf8d5e33a50d4163e0ca81c26f1",
+  "guide_sha256": "ce417a5b1c3135e0b05768e69bae7b0f73f3f1c816051e1cf93241df4bfd706c",
+  "local_court_input_sha256": "fb277a0b687e54c7956ee4e29f9941b2ec6f1f36d368e7406a213537f9fe3be5",
+  "local_court_guide_sha256": "cd5ce5150d9ddbaeed2eafdb0559211cbc7b003f7a7e79b1a710847aba316633"
+}
