@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Enfants de la Faille et Statue éveillée : livrés (Codex, 8 novembre 2026)
+
+Sept créatures pour les cartes 24 et 25, plus la Statue éveillée B8. Onze planches et 162 poses livrées.
+Gabarits supérieurs aux Violets du chapitre 1 ; Statue d’environ 110 unités adaptée aux socles de la carte 24.
+Captures sur la carte 22 avec Chasseur et Écho, Statue sur S01 carte 24 ; huit assets conformes.
+Sources, jobs et guide Claude : `docs/art/ENFANTS_DE_LA_FAILLE.md`. Aucun changement de src/ ou data/.
+Ensuite : Abyssarque, Dévoreur final, sept planches A à G demandées ; génération après livraison de ce lot.
+
 ## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
 
 - Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses. Sources originales conservées ; toutes les entrées de main préservées lors du merge du 3 novembre. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.

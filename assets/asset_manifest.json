@@ -15167,6 +15167,388 @@
 			"minimap": "res://assets/environments/storm_lake/minimap.webp",
 			"menu_preview": "res://assets/ui/expedition/storm_lake.png",
 			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"enemy.rift_larva": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rift_larva/job.json",
+			"sheet": "res://assets/sprites/enemies/rift_larva/rift_larva_sheet.png",
+			"cell": [
+				192,
+				192
+			],
+			"anchor": [
+				96,
+				164
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/rift_larva.png"
+		},
+		"enemy.drifting_eye": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.drifting_eye/job.json",
+			"sheet": "res://assets/sprites/enemies/drifting_eye/drifting_eye_sheet.png",
+			"cell": [
+				192,
+				192
+			],
+			"anchor": [
+				96,
+				164
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/drifting_eye.png"
+		},
+		"enemy.void_crawler": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.void_crawler/job.json",
+			"sheet": "res://assets/sprites/enemies/void_crawler/void_crawler_sheet.png",
+			"cell": [
+				192,
+				192
+			],
+			"anchor": [
+				96,
+				164
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/void_crawler.png"
+		},
+		"enemy.torn_shade": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.torn_shade/job.json",
+			"sheet": "res://assets/sprites/enemies/torn_shade/torn_shade_sheet.png",
+			"cell": [
+				192,
+				192
+			],
+			"anchor": [
+				96,
+				164
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"rift_step": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/torn_shade.png"
+		},
+		"enemy.portal_strider": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.portal_strider/job.json",
+			"sheet": "res://assets/sprites/enemies/portal_strider/portal_strider_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				228
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"opening": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"portal_jump": {
+					"row": 4,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/portal_strider.png"
+		},
+		"enemy.echo_mirror": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.echo_mirror/job.json",
+			"sheet": "res://assets/sprites/enemies/echo_mirror/echo_mirror_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				228
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"copy": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"reflection": {
+					"row": 4,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/echo_mirror.png"
+		},
+		"enemy.statue_keeper": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.statue_keeper/job.json",
+			"sheet": "res://assets/sprites/enemies/statue_keeper/statue_keeper_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				228
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"awaken_statues": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"stone_wave": {
+					"row": 4,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/statue_keeper.png"
+		},
+		"enemy.awakened_statue": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.awakened_statue/job.json",
+			"sheet": "res://assets/sprites/enemies/awakened_statue/awakened_statue_sheet.png",
+			"cell": [
+				320,
+				320
+			],
+			"anchor": [
+				160,
+				292
+			],
+			"scale": 0.5,
+			"animations": {
+				"dormant": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				},
+				"awaken": {
+					"row": 1,
+					"frames": 5,
+					"fps": 9,
+					"loop": false
+				},
+				"move": {
+					"row": 2,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"attack": {
+					"row": 3,
+					"frames": 6,
+					"fps": 9,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/awakened_statue.png"
 		}
 	}
 }
