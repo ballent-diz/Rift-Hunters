@@ -1,0 +1,403 @@
+{
+  "method": "Six colonnes réellement redessinées par imagegen ; poses recalées sur les hauteurs relatives du guide, puis assemblées sans redessin. La mort conserve la réduction de chaque pose du guide, aucun cadavre regonflé.",
+  "columns": [
+    {
+      "phase": "B",
+      "column": 1,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-7f744764-5688-47bd-89dc-fdc73e1b7923.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 1 of phase B. PHASE ROOTS AND CASCADES. Top = that column's ENTRY transformation stage; middle = roots/water IDLE; bottom = ROOT-LASH/WATER attack stage. Preserve increasing moss and roots in the top row, root-wrapped claws and short attached water spray during the attack. Do not restore bare A materials over these phase changes.",
+      "sha256": "24fed130cdd36db82ce3dfe37842860b1ed2c01458dce436497bd969bfe0333a"
+    },
+    {
+      "phase": "B",
+      "column": 2,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-bf66fca0-36f9-49d2-8d28-764fbf855229.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 2 of phase B. PHASE ROOTS AND CASCADES. Top = that column's ENTRY transformation stage; middle = roots/water IDLE; bottom = ROOT-LASH/WATER attack stage. Preserve increasing moss and roots in the top row, root-wrapped claws and short attached water spray during the attack. Do not restore bare A materials over these phase changes.",
+      "sha256": "e3f1c333052d822530c89ed808fa80977f855be9fe2212996629b226e32d35e8"
+    },
+    {
+      "phase": "B",
+      "column": 3,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-6b661497-e07c-4078-8d90-e0b89ebfee08.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 3 of phase B. PHASE ROOTS AND CASCADES. Top = that column's ENTRY transformation stage; middle = roots/water IDLE; bottom = ROOT-LASH/WATER attack stage. Preserve increasing moss and roots in the top row, root-wrapped claws and short attached water spray during the attack. Do not restore bare A materials over these phase changes.",
+      "sha256": "3edef0d19085ade984ee58e1d9bdbe8aea43335a4521660cec49c21f431dc7e3"
+    },
+    {
+      "phase": "B",
+      "column": 4,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-8bb23659-158b-45b1-9252-cc3ce5ba46bf.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 4 of phase B. PHASE ROOTS AND CASCADES. Top = that column's ENTRY transformation stage; middle = roots/water IDLE; bottom = ROOT-LASH/WATER attack stage. Preserve increasing moss and roots in the top row, root-wrapped claws and short attached water spray during the attack. Do not restore bare A materials over these phase changes.",
+      "sha256": "97190ac2de086bded866f77e2513601f2506e7be413831c6728a5b441b942d36"
+    },
+    {
+      "phase": "B",
+      "column": 5,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-0523db2e-734d-49c7-a73d-7a2aadb06ebc.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 5 of phase B. PHASE ROOTS AND CASCADES. Top = that column's ENTRY transformation stage; middle = roots/water IDLE; bottom = ROOT-LASH/WATER attack stage. Preserve increasing moss and roots in the top row, root-wrapped claws and short attached water spray during the attack. Do not restore bare A materials over these phase changes.",
+      "sha256": "9d4e7d95c482d4b64b1602ab47dc007754fca2fbb808a4a320a4fe95b15880ef"
+    },
+    {
+      "phase": "B",
+      "column": 6,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-636abb46-bd76-43be-b99e-e9b29918d869.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 6 of phase B. PHASE ROOTS AND CASCADES. Top = that column's ENTRY transformation stage; middle = roots/water IDLE; bottom = ROOT-LASH/WATER attack stage. Preserve increasing moss and roots in the top row, root-wrapped claws and short attached water spray during the attack. Do not restore bare A materials over these phase changes.",
+      "sha256": "35746008c8b0522240584ae124ac5170794a284ca74f702854520ec0e1f652b8"
+    }
+  ],
+  "registration": [
+    {
+      "row": 0,
+      "column": 0,
+      "generated_row": 0,
+      "reference_size": [
+        213,
+        182
+      ],
+      "fine_size": [
+        540,
+        456
+      ],
+      "registered_size": [
+        647,
+        546
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1973684210526316
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "generated_row": 1,
+      "reference_size": [
+        225,
+        186
+      ],
+      "fine_size": [
+        556,
+        453
+      ],
+      "registered_size": [
+        685,
+        558
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2317880794701987
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "generated_row": 2,
+      "reference_size": [
+        223,
+        183
+      ],
+      "fine_size": [
+        575,
+        450
+      ],
+      "registered_size": [
+        702,
+        549
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.22
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "generated_row": 0,
+      "reference_size": [
+        215,
+        182
+      ],
+      "fine_size": [
+        541,
+        449
+      ],
+      "registered_size": [
+        658,
+        546
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2160356347438752
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "generated_row": 1,
+      "reference_size": [
+        221,
+        184
+      ],
+      "fine_size": [
+        551,
+        452
+      ],
+      "registered_size": [
+        673,
+        552
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2212389380530972
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "generated_row": 2,
+      "reference_size": [
+        226,
+        180
+      ],
+      "fine_size": [
+        565,
+        453
+      ],
+      "registered_size": [
+        674,
+        540
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1920529801324504
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "generated_row": 0,
+      "reference_size": [
+        214,
+        183
+      ],
+      "fine_size": [
+        545,
+        458
+      ],
+      "registered_size": [
+        653,
+        549
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1986899563318778
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "generated_row": 1,
+      "reference_size": [
+        220,
+        184
+      ],
+      "fine_size": [
+        548,
+        465
+      ],
+      "registered_size": [
+        651,
+        552
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1870967741935483
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "generated_row": 2,
+      "reference_size": [
+        242,
+        185
+      ],
+      "fine_size": [
+        613,
+        472
+      ],
+      "registered_size": [
+        721,
+        555
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1758474576271187
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "generated_row": 0,
+      "reference_size": [
+        217,
+        185
+      ],
+      "fine_size": [
+        564,
+        483
+      ],
+      "registered_size": [
+        648,
+        555
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1490683229813665
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "generated_row": 1,
+      "reference_size": [
+        222,
+        184
+      ],
+      "fine_size": [
+        571,
+        472
+      ],
+      "registered_size": [
+        668,
+        552
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1694915254237288
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "generated_row": 2,
+      "reference_size": [
+        251,
+        196
+      ],
+      "fine_size": [
+        641,
+        495
+      ],
+      "registered_size": [
+        761,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.187878787878788
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "generated_row": 0,
+      "reference_size": [
+        223,
+        188
+      ],
+      "fine_size": [
+        571,
+        465
+      ],
+      "registered_size": [
+        693,
+        564
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2129032258064516
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "generated_row": 1,
+      "reference_size": [
+        225,
+        182
+      ],
+      "fine_size": [
+        562,
+        443
+      ],
+      "registered_size": [
+        693,
+        546
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2325056433408579
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "generated_row": 2,
+      "reference_size": [
+        229,
+        184
+      ],
+      "fine_size": [
+        587,
+        451
+      ],
+      "registered_size": [
+        718,
+        552
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2239467849223946
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "generated_row": 0,
+      "reference_size": [
+        225,
+        189
+      ],
+      "fine_size": [
+        622,
+        496
+      ],
+      "registered_size": [
+        711,
+        567
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1431451612903225
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "generated_row": 1,
+      "reference_size": [
+        226,
+        182
+      ],
+      "fine_size": [
+        615,
+        481
+      ],
+      "registered_size": [
+        698,
+        546
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.135135135135135
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "generated_row": 2,
+      "reference_size": [
+        221,
+        184
+      ],
+      "fine_size": [
+        593,
+        473
+      ],
+      "registered_size": [
+        692,
+        552
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1670190274841437
+    }
+  ],
+  "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+  "size": [
+    4854,
+    2427
+  ],
+  "row_order_correction": null
+}
