@@ -47,7 +47,7 @@ func test_map_points_stand_on_open_ground() -> void:
 		check(not ctx.obstacles.blocks(pos, 40.0, false), "cristal en %s : sol praticable" % pos)
 	for rect: Rect2 in arena.mud_zones:
 		check(not ctx.obstacles.blocks(rect.get_center(), 30.0, false), "vase praticable en %s" % rect.get_center())
-	check(not ctx.obstacles.blocks(arena.finale_center, 200.0, false), "centre de la terrasse dégagé")
+	check(not ctx.obstacles.blocks(arena.finale_center, 200.0 * arena.decor_scale, false), "centre de la terrasse dégagé")
 
 
 func test_terrace_is_reachable_from_the_start() -> void:

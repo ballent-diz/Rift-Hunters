@@ -39,8 +39,8 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   de leurs décors (`tools/art/build_expedition_previews.gd`).
 - [ ] **Carte 17, Col des braseros : équilibrage à reprendre** (détails : docs/ROADMAP.md, carte 17).
 - [ ] **Carte 18, Lac gelé des tempêtes : équilibrage à reprendre**, en commençant par l'Avalanche de l'élite Yéti des cimes (détails : docs/ROADMAP.md, carte 18).
-- [ ] **Proportions des cartes des chapitres 4 et 5** (8 novembre) : sur beaucoup de cartes des deux derniers chapitres,
+- [x] **Proportions des cartes des chapitres 4 et 5** (8 novembre) : sur beaucoup de cartes des deux derniers chapitres,
   les personnages paraissent beaucoup trop petits par rapport au décor (marches, dalles, colonnes, bâtiments trop
-  grands). À mesurer carte par carte contre l'échelle de docs/ART_BIBLE.md (Chasseur ≈ 52 unités, carte étalon : les
-  Ruines), puis passe de détail locale par Codex sans changer plans ni collisions (même méthode que le prompt
-  « Échelle des décors : cartes 15 et 4 » de docs/prompts/CODEX_EN_ATTENTE.md). Nouvelle session conseillée.
+  grands). Corrigé le 8 novembre : décor réduit par carte (`decor_scale` d'ArenaData) sans toucher aux personnages ;
+  mesures et facteurs dans docs/maps/ECHELLE_CHAPITRES_4_5.md (cartes 4, 15, 16 et 18 réduites ; 17 déjà à
+  l'échelle ; facteurs des cartes 19 à 25 notés pour leur intégration).

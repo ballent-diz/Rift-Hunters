@@ -72,6 +72,11 @@ extends Resource
 @export var environment_id: StringName = &""
 ## Multiplicateur du nombre d'éléments de décor (1 = densité prévue par le décor).
 @export var decor_density: float = 1.0
+## Échelle du décor peint (docs/maps/ECHELLE_CHAPITRES_4_5.md) : 0,8 réduit l'image, les collisions, la mini-carte et
+## toutes les positions de la carte à 80 %, pour mettre marches, dalles et colonnes à l'échelle des personnages.
+## Les .tres restent en coordonnées peintes (éditeur de niveau) ; GameDB charge la copie réduite (scaled_copy).
+## Personnages, vitesses, portées et rayons d'effet ne changent pas.
+@export_range(0.3, 1.0, 0.05) var decor_scale: float = 1.0
 @export var ground_color: Color = Color(0.11, 0.12, 0.18)
 @export var ground_detail_color: Color = Color(0.16, 0.17, 0.25)
 ## Arènes hors campagne seulement : les cartes d'un chapitre se débloquent en avançant (Campaign).
@@ -273,6 +278,61 @@ extends Resource
 @export var blizzard_gust: float = 5.0
 ## Poussée du vent pendant une rafale (unités par seconde).
 @export var blizzard_wind: float = 45.0
+
+## Copie en coordonnées du jeu (décor réduit de decor_scale) ; l'arène elle-même si l'échelle vaut 1.
+func scaled_copy() -> ArenaData:
+	if is_equal_approx(decor_scale, 1.0):
+		return self
+	var k: float = decor_scale
+	var a: ArenaData = duplicate()
+	a.size = size * k
+	a.finale_center = finale_center * k
+	a.finale_radii = finale_radii * k
+	a.finale_walls = _rects(finale_walls, k)
+	a.rift_points = _points(rift_points, k)
+	var scaled_zones: Array[LevelZoneData] = []
+	for zone: LevelZoneData in zones:
+		var z: LevelZoneData = zone.duplicate()
+		z.anchor = zone.anchor * k
+		z.exit_walls = _rects(zone.exit_walls, k)
+		scaled_zones.append(z)
+	a.zones = scaled_zones
+	a.altar_point = altar_point * k
+	a.altar_spawn_points = _points(altar_spawn_points, k)
+	a.slow_zones = _rects(slow_zones, k)
+	a.mud_zones = _rects(mud_zones, k)
+	a.tide_causeways = _rects(tide_causeways, k)
+	a.currents = _rects(currents, k)
+	a.flood_lanes = _rects(flood_lanes, k)
+	var plates: Array[Vector3] = []
+	for plate: Vector3 in burn_plates:
+		plates.append(plate * k)
+	a.burn_plates = plates
+	a.nest_points = _points(nest_points, k)
+	a.ember_pods = _points(ember_pods, k)
+	a.cover_rocks = _points(cover_rocks, k)
+	a.portal_pairs = _points(portal_pairs, k)
+	a.crystal_mirrors = _points(crystal_mirrors, k)
+	a.rockfall_vents = _points(rockfall_vents, k)
+	a.ice_patches = _rects(ice_patches, k)
+	a.braziers = _points(braziers, k)
+	a.firefly_glades = _points(firefly_glades, k)
+	return a
+
+
+static func _points(list: Array[Vector2], k: float) -> Array[Vector2]:
+	var out: Array[Vector2] = []
+	for p: Vector2 in list:
+		out.append(p * k)
+	return out
+
+
+static func _rects(list: Array[Rect2], k: float) -> Array[Rect2]:
+	var out: Array[Rect2] = []
+	for r: Rect2 in list:
+		out.append(Rect2(r.position * k, r.size * k))
+	return out
+
 
 ## L'arène se termine par une finale (cercle ou arène murée) plutôt que par un boss chronométré classique.
 func has_finale() -> bool:

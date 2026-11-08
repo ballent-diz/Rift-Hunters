@@ -42,7 +42,7 @@ func test_points_stand_on_open_ground_and_connect() -> void:
 		check(not ctx.obstacles.blocks(zone.anchor, 40.0, false), "centre de zone praticable : %s" % zone.anchor)
 	for glade: Vector2 in arena.firefly_glades:
 		check(not ctx.obstacles.blocks(glade, 20.0, false), "refuge du vent praticable : %s" % glade)
-	check(not ctx.obstacles.blocks(arena.finale_center, 200.0, false), "amphithéâtre dégagé")
+	check(not ctx.obstacles.blocks(arena.finale_center, 200.0 * arena.decor_scale, false), "amphithéâtre dégagé")
 	for i: int in ctx.obstacles.walls.size():
 		ctx.obstacles.set_wall_enabled(i, false)
 	var field := FlowField.new()

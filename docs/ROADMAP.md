@@ -610,3 +610,17 @@ Identité issue des cinq matières du voyage, cœur-œil central ; gabarit 450u 
 42 colonnes redessinées, 120 poses, sept feuilles de phase et sept icônes. Sept assets conformes dans Godot.
 Onze captures et un GIF, Chasseur et Écho inchangés ; guide Claude : `docs/art/ABYSSARQUE.md`.
 Aucun changement de src/, data/, maps ou collisions.
+
+## Échelle du décor par carte — chapitres 4 et 5, cartes 15 et 4 (8 novembre 2026)
+
+Décision (« solution 2 », validée) : les personnages ne grossissent pas ; une carte peinte trop grande se réduit en jeu
+par son réglage `decor_scale` (ArenaData, 1 par défaut). GameDB charge `ArenaData.scaled_copy()` : taille, finale,
+failles, zones, autel, terrains, plaques, nids, bulbes, abris, portails, cristaux, cratères, braseros et clairières
+réduits ; l'image, les collisions et la mini-carte suivent le rectangle de l'arène ; `ArenaGround` réduit départ et pas
+du champ. Les `.tres` restent en coordonnées peintes (éditeur de niveau inchangé) ; rayons d'effet, vitesses, portées
+et équilibrage inchangés. Mesures et facteurs : docs/maps/ECHELLE_CHAPITRES_4_5.md (avant/après :
+docs/maps/echelle_avant_apres.webp). Appliqué : mist_ford et survival_ford 0,8 ; marsh_heart 0,65 ;
+glacier_entry 0,9 ; storm_lake 0,7 ; brazier_pass déjà à l'échelle. À l'intégration des cartes 19 à 25 : rune_sanctum
+0,9, rift_eye 0,85, les autres 1. Bot (PROFILE=stage, normal, mossback et ashblade, 2 graines, 4 cartes) : 9/16
+victoires avant, 10/16 après, dégâts subis comparables : pas de réajustement. Le prompt Codex « Échelle des décors :
+cartes 15 et 4 » est retiré (réglé par la réduction).

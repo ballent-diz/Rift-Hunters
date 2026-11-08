@@ -46,7 +46,7 @@ func setup(p_arena: ArenaData, p_seed: int) -> void:
 func obstacle_field() -> ObstacleField:
 	var field := ObstacleField.new()
 	if environment != null and environment.is_map():
-		field.set_distance_field(environment.field_image, arena_rect(), environment.field_step)
+		field.set_distance_field(environment.field_image, arena_rect(), environment.field_step * arena.decor_scale)
 	for item: Dictionary in placements:
 		for c: Vector3 in item.get("colliders", []):
 			field.add(Vector2(c.x, c.y), c.z)
@@ -55,7 +55,7 @@ func obstacle_field() -> ObstacleField:
 
 ## Point de départ du joueur : dégagé sur une map dessinée, sinon le centre de l'arène.
 func player_start() -> Vector2:
-	return environment.start if environment != null and environment.is_map() else Vector2.ZERO
+	return environment.start * arena.decor_scale if environment != null and environment.is_map() else Vector2.ZERO
 
 
 func uses_placeholder() -> bool:

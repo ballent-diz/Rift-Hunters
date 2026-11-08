@@ -48,6 +48,8 @@ func load_all() -> void:
 	relics = _load_dir("relics")
 	synergies = _load_dir("synergies")
 	arenas = _load_dir("arenas")
+	for id: StringName in arenas:
+		arenas[id] = (arenas[id] as ArenaData).scaled_copy()
 	difficulties = _load_dir("difficulties")
 	skill_branches = _load_dir("progression/branches")
 	skill_nodes = _load_dir("progression/skill_tree")
