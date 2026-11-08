@@ -1,23 +1,29 @@
 class_name RiftDirector
 extends Node2D
-## Mode « fermeture de failles » (docs/design/LONGEVITE.md, lot D2) : des failles réparties sur la carte crachent des
-## Corrompus et des élites tant qu'elles sont ouvertes. Le Chasseur les referme en les détruisant, dans l'ordre qu'il
-## veut ; quand la dernière se referme, la finale (ArenaFinale) appelle vers l'arène du boss.
+## Mode « fermeture de failles » (docs/design/LONGEVITE.md, lot D2) : les failles s'ouvrent UNE PAR UNE (décision du
+## propriétaire, 7 novembre 2026) : tant que la faille ouverte crache des Corrompus et des élites, les autres restent
+## fermées ; refermée, la suivante (la plus proche du Chasseur) s'ouvre OPEN_DELAY secondes plus tard. Quand la
+## dernière se referme, la finale (ArenaFinale) appelle vers l'arène du boss.
 ## Dessine aussi les fissures et la petite jauge droite de chaque faille (visuels A3/D2).
 
 ## Part des PV max rendue au Chasseur à chaque faille refermée.
 const HEAL_RATIO := 0.15
+## Répit entre la fermeture d'une faille et l'ouverture de la suivante (secondes).
+const OPEN_DELAY := 2.5
 
 var ctx: RunContext
 var rifts: Array[Enemy] = []
 var closed: int = 0
 ## Navigation vers la faille ouverte la plus proche, puis vers l'arène (flèche de route).
 var guide: FlowField
+## Points des failles pas encore ouvertes ; compte à rebours avant la prochaine ouverture (négatif : aucune).
+var pending: Array[Vector2] = []
+var _open_in: float = -1.0
+var _rift_data: EnemyData
 var _budget: float = 0.0
 var _elite_timer: float = 0.0
 var _time: float = 0.0
 var _art: RiftPresentation
-
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
@@ -25,25 +31,41 @@ func setup(p_ctx: RunContext) -> void:
 	ctx.world.add_child(_art)
 	_art.setup(ctx)
 	z_index = 1
-	var data: EnemyData = GameDB.enemy(ctx.arena.rift_enemy_id)
-	if data == null:
+	_rift_data = GameDB.enemy(ctx.arena.rift_enemy_id)
+	if _rift_data == null:
 		push_error("Faille introuvable : %s" % ctx.arena.rift_enemy_id)
 		return
-	for point: Vector2 in ctx.arena.rift_points:
-		var rift: Enemy = ctx.enemies.spawn(data, point)
-		rift.max_hp *= ctx.arena.rift_hp_mult
-		rift.hp = rift.max_hp
-		rifts.append(rift)
+	pending.assign(ctx.arena.rift_points)
+	_open_next()
 	ctx.events.enemy_killed.connect(_on_enemy_killed)
 	guide = FlowField.new()
 	guide.avoid_transient = true
 	guide.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)
-	_elite_timer = ctx.arena.rift_elite_interval * 0.5
 	ctx.events.event_started.emit(TranslationServer.translate("RIFTS_INTRO") % total())
 
 
 func total() -> int:
-	return rifts.size()
+	return ctx.arena.rift_points.size()
+
+
+## Ouvre la faille en attente la plus proche du Chasseur.
+func _open_next() -> void:
+	if pending.is_empty():
+		return
+	var from: Vector2 = ctx.player.global_position if ctx.player else Vector2.ZERO
+	var best: int = 0
+	for i: int in pending.size():
+		if pending[i].distance_squared_to(from) < pending[best].distance_squared_to(from):
+			best = i
+	var rift: Enemy = ctx.enemies.spawn(_rift_data, pending[best])
+	pending.remove_at(best)
+	rift.max_hp *= ctx.arena.rift_hp_mult
+	rift.hp = rift.max_hp
+	rifts.append(rift)
+	_art.emerge(rift)
+	_elite_timer = ctx.arena.rift_elite_interval * 0.5
+	if rifts.size() > 1:
+		ctx.events.event_started.emit(TranslationServer.translate("RIFT_OPENED_BANNER") % [rifts.size(), total()])
 
 
 func open_rifts() -> Array[Enemy]:
@@ -57,11 +79,17 @@ func open_rifts() -> Array[Enemy]:
 func step(delta: float) -> void:
 	_time += delta
 	queue_redraw()
+	if _open_in >= 0.0:
+		_open_in -= delta
+		if _open_in < 0.0:
+			_open_next()
 	var open: Array[Enemy] = open_rifts()
 	var wave: WavePhaseData = ctx.spawner.current_wave()
 	if open.is_empty() or wave == null:
 		return
-	_budget = minf(_budget + ctx.arena.rift_spawn_rate * open.size() * ctx.difficulty.spawn_rate_mult * delta, 6.0)
+	# Une seule faille ouverte à la fois : elle crache pour toutes (pression proche de l'ancien mode simultané).
+	_budget = minf(_budget + ctx.arena.rift_spawn_rate * ctx.balance.rift_single_spawn_mult * open.size()
+		* ctx.difficulty.spawn_rate_mult * delta, 6.0)
 	var alive: int = ctx.enemies.count()
 	while _budget >= 1.0 and alive < ctx.spawner.current_cap():
 		_budget -= 1.0
@@ -122,6 +150,8 @@ func _on_enemy_killed(enemy: Enemy, _info: DamageInfo) -> void:
 	ctx.events.event_started.emit(TranslationServer.translate("RIFT_CLOSED_BANNER") % [closed, total()])
 	if closed >= total() and ctx.finale:
 		ctx.finale.start_travel()
+	elif not pending.is_empty():
+		_open_in = OPEN_DELAY
 
 
 func _draw() -> void:

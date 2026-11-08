@@ -1,0 +1,570 @@
+{
+  "date": "2026-11-08",
+  "generator": "Outil imagegen intégré",
+  "boss": "abyssarch",
+  "source_sheets": 7,
+  "painted_source_cells": 120,
+  "fine_redrawn_columns": 42,
+  "detail": [
+    {
+      "phase": "A",
+      "fine_columns": 6,
+      "source_size": [
+        4614,
+        2307
+      ],
+      "reused_keyframe": null,
+      "recipe_sha256": "3a7aaa65f49591553dc20d621f9273674162b88995f1810093300e19e50d8799"
+    },
+    {
+      "phase": "B",
+      "fine_columns": 6,
+      "source_size": [
+        4854,
+        2427
+      ],
+      "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+      "recipe_sha256": "5215839d7fb969183dcfb3343a125b1f10c5ad263e4ee171e3f5a3528032d63e"
+    },
+    {
+      "phase": "C",
+      "fine_columns": 6,
+      "source_size": [
+        4560,
+        2280
+      ],
+      "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+      "recipe_sha256": "c3acde44b4e0ba18c5faddca1b39ab09ef7fb2de9b843bd55a0ada105bab3b64"
+    },
+    {
+      "phase": "D",
+      "fine_columns": 6,
+      "source_size": [
+        5526,
+        2763
+      ],
+      "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+      "recipe_sha256": "5743656e9f0e2ca161d28e717b494ff33c3f1ea2496dc888f26c18c5327e06b0"
+    },
+    {
+      "phase": "E",
+      "fine_columns": 6,
+      "source_size": [
+        4692,
+        2346
+      ],
+      "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+      "recipe_sha256": "8841700ede7c114323695f2a1c2c5b44f0eaad574f6c513cab6611cd8825afb1"
+    },
+    {
+      "phase": "F",
+      "fine_columns": 6,
+      "source_size": [
+        5376,
+        2688
+      ],
+      "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+      "recipe_sha256": "44e27746c716a4585cc516b580bfe5e6cb9866f4639515ab76a2db73eea69029"
+    },
+    {
+      "phase": "G",
+      "fine_columns": 6,
+      "source_size": [
+        7008,
+        2336
+      ],
+      "reused_keyframe": "Première pose de mort : dernière pose entrée F réutilisée avant effondrement.",
+      "recipe_sha256": "c407b9888eb41e7c718c11e50f128a84fab57ec6bdbc9a6aee6945a94454020c"
+    }
+  ],
+  "runtime_reused_idle_pose": "F entrée colonne6",
+  "manifest_new_ids": [
+    "boss.abyssarch",
+    "boss.abyssarch.roots",
+    "boss.abyssarch.magma",
+    "boss.abyssarch.crystal",
+    "boss.abyssarch.ice",
+    "boss.abyssarch.rift",
+    "boss.abyssarch.death"
+  ],
+  "all_preexisting_entries_unchanged": true,
+  "runtime_cell": [
+    1408,
+    1152
+  ],
+  "runtime_anchor": [
+    704,
+    650
+  ],
+  "packing_anchor": [
+    704,
+    1100
+  ],
+  "scale": 0.5,
+  "boss_data_visual_scale_expected": 1.0,
+  "reference_height_world": 450,
+  "previous_devourers": {
+    "source_devourer": {
+      "height_world": 188,
+      "width_world": 244
+    },
+    "pyrevorn": {
+      "height_world": 148,
+      "width_world": 167
+    },
+    "glauquemire": {
+      "height_world": 75.5,
+      "width_world": 113
+    },
+    "nivorath": {
+      "height_world": 150,
+      "width_world": 146.5
+    },
+    "reference": "Première pose idle, boîte alpha des sprites existants multipliée par scale du manifeste ; aucun facteur de boss ajouté."
+  },
+  "ratio_to_previous_median": 3.0201342281879193,
+  "shared_colors": 32,
+  "texture_max_side": 8448,
+  "viewport": [
+    1280,
+    720
+  ],
+  "camera_zoom": 1.3333,
+  "context_view_zoom": 0.6667,
+  "boss_position_top_left_world": [
+    2492,
+    2272
+  ],
+  "witness_positions_relative_to_boss": [
+    [
+      -400,
+      0
+    ],
+    [
+      400,
+      0
+    ]
+  ],
+  "shadows": "Ellipses séparées, non peintes ; ombre du boss au niveau des appuis (+225u).",
+  "map25_verified_tiles": [
+    {
+      "path": "assets/environments/rift_eye/map.webp",
+      "sha256": "e086ee7cdef2454bc36f8485ae67c91cbc8ce52e093f6c2b718a6c1fbf36d5cf",
+      "bytes": 41267142
+    },
+    {
+      "path": "assets/environments/rift_eye/map_1.webp",
+      "sha256": "5abf1c95fb4648a8a481305799050c25bbfcc4f38aac9bb1f4ee355b5bbba610",
+      "bytes": 42736392
+    },
+    {
+      "path": "assets/environments/rift_eye/map_2.webp",
+      "sha256": "7c53648032e3344a7f5cf287ac076ddce5cc447ffc281c57bb4c1e5375e2e73d",
+      "bytes": 41729136
+    }
+  ],
+  "map25_sampling": "Régioninchangée[0,3000,3762,4800] de chaque tuile3762×11286 à2.25px/u",
+  "witnesses": {
+    "player.hunter": {
+      "entry": {
+        "status": "final",
+        "imported_from": "assets/concepts/incoming/player.hunter/job.json",
+        "sheet": "res://assets/sprites/players/hunter/hunter_sheet.png",
+        "cell": [
+          96,
+          80
+        ],
+        "anchor": [
+          48,
+          74
+        ],
+        "scale": 0.65,
+        "animations": {
+          "idle": {
+            "row": 0,
+            "frames": 6,
+            "fps": 7,
+            "loop": true
+          },
+          "move": {
+            "row": 1,
+            "frames": 6,
+            "fps": 10,
+            "loop": true
+          },
+          "attack": {
+            "row": 2,
+            "frames": 7,
+            "fps": 18,
+            "loop": false
+          },
+          "hurt": {
+            "row": 3,
+            "frames": 7,
+            "fps": 16,
+            "loop": false
+          },
+          "death": {
+            "row": 4,
+            "frames": 6,
+            "fps": 8,
+            "loop": false
+          },
+          "dash": {
+            "row": 2,
+            "frames": 7,
+            "fps": 18,
+            "loop": false
+          }
+        },
+        "icon": "res://assets/ui/icons/players/hunter.png"
+      },
+      "sheet_sha256": "99965593a5ce61179d9bc602b1a813bcd432614e0d0c692b77782d85705f9325"
+    },
+    "monster.glimmerwing": {
+      "entry": {
+        "status": "final",
+        "imported_from": "assets/concepts/incoming/monster.glimmerwing/job.json",
+        "sheet": "res://assets/sprites/monsters/glimmerwing/glimmerwing_sheet.png",
+        "cell": [
+          96,
+          88
+        ],
+        "anchor": [
+          48,
+          82
+        ],
+        "scale": 0.65,
+        "animations": {
+          "idle": {
+            "row": 0,
+            "frames": 4,
+            "fps": 6,
+            "loop": true
+          },
+          "move": {
+            "row": 1,
+            "frames": 4,
+            "fps": 8,
+            "loop": true
+          },
+          "attack": {
+            "row": 2,
+            "frames": 4,
+            "fps": 10,
+            "loop": false
+          },
+          "death": {
+            "row": 3,
+            "frames": 4,
+            "fps": 6,
+            "loop": false
+          },
+          "technique": {
+            "row": 2,
+            "frames": 4,
+            "fps": 10,
+            "loop": false
+          }
+        },
+        "icon": "res://assets/ui/icons/monsters/glimmerwing.png"
+      },
+      "sheet_sha256": "a9f3e4d706a9911031029014a45e5dc6decbf7ddb01146b150d88ceb18226a68"
+    },
+    "boss.nivorath": {
+      "entry": {
+        "status": "final",
+        "imported_from": "assets/concepts/incoming/boss.nivorath/job.json",
+        "sheet": "res://assets/sprites/bosses/nivorath/nivorath_sheet.png",
+        "cell": [
+          512,
+          512
+        ],
+        "anchor": [
+          256,
+          480
+        ],
+        "scale": 0.5,
+        "animations": {
+          "idle": {
+            "row": 0,
+            "frames": 6,
+            "fps": 8,
+            "loop": true
+          },
+          "move": {
+            "row": 1,
+            "frames": 6,
+            "fps": 10,
+            "loop": true
+          },
+          "attack": {
+            "row": 2,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "claw": {
+            "row": 3,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "ice_spikes": {
+            "row": 4,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "blizzard_breath": {
+            "row": 5,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "spell_capture": {
+            "row": 6,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "spell_release": {
+            "row": 7,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "death": {
+            "row": 8,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "transform": {
+            "row": 9,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "shatter_floor": {
+            "row": 10,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          },
+          "frozen_dive": {
+            "row": 11,
+            "frames": 6,
+            "fps": 12,
+            "loop": false
+          }
+        },
+        "icon": "res://assets/ui/icons/bosses/nivorath.png"
+      },
+      "sheet_sha256": "a5103df169ea9109a82460b6a134a42df1f5d38dd31067ce9786ac88d97ad8a2"
+    },
+    "boss.source_devourer": {
+      "entry": {
+        "status": "wip",
+        "imported_from": "assets/concepts/incoming/boss.source_devourer/job.json",
+        "sheet": "res://assets/sprites/bosses/source_devourer/source_devourer_sheet.png",
+        "cell": [
+          512,
+          512
+        ],
+        "anchor": [
+          256,
+          480
+        ],
+        "scale": 1,
+        "animations": {
+          "move": {
+            "row": 0,
+            "frames": 6,
+            "fps": 7,
+            "loop": true
+          },
+          "attack": {
+            "row": 1,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "death": {
+            "row": 2,
+            "frames": 6,
+            "fps": 8,
+            "loop": false
+          },
+          "idle": {
+            "row": 3,
+            "frames": 6,
+            "fps": 7,
+            "loop": true
+          },
+          "roar": {
+            "row": 4,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "heavy_slam": {
+            "row": 5,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "rift_breath": {
+            "row": 6,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "summon": {
+            "row": 7,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "root_sweep": {
+            "row": 8,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "transform": {
+            "row": 9,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "phase2_idle": {
+            "row": 10,
+            "frames": 6,
+            "fps": 7,
+            "loop": true
+          },
+          "phase2_attack": {
+            "row": 11,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "phase2_breath": {
+            "row": 12,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "phase2_slam": {
+            "row": 13,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          },
+          "hurt": {
+            "row": 14,
+            "frames": 6,
+            "fps": 9,
+            "loop": false
+          }
+        },
+        "icon": "res://assets/ui/icons/bosses/source_devourer.png"
+      },
+      "sheet_sha256": "425dfa621498a7a39a4fdd7b6410e11c2937bfdfad8948983db558ed8fe8c73e"
+    }
+  },
+  "validated_assets": [
+    {
+      "id": "boss.abyssarch",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "boss.abyssarch.roots",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "boss.abyssarch.magma",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "boss.abyssarch.crystal",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "boss.abyssarch.ice",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "boss.abyssarch.rift",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "boss.abyssarch.death",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "godot_version": "4.3.stable.official.77dcf97d8",
+  "import_errors": false,
+  "capture_errors": false,
+  "profile_loaded": false,
+  "gameplay_integrated": false,
+  "gameplay_tested": false,
+  "captures": [
+    {
+      "path": "docs/previews/abyssarque/abyssarch_base_zoom_jeu.png",
+      "sha256": "121c7076ef6356bb94d76267f5297691a229ac4d6d308159b91fad9d989d78c9"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_comparaison_devoreurs_zoom_jeu.png",
+      "sha256": "e2e87f06a5d01a4b72c3b73a7b971e32f52842e87163057ddea6d3d4a5502e60"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_contexte_abris.png",
+      "sha256": "770f374374b70d376c3a57847203de351d17fa64f93542d3fcbc5da7a6aa0b2c"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_cristal_zoom_jeu.png",
+      "sha256": "389d95ce045779fa64d651ddb71985d081e6b1e3c17f439456fa8b17750bfb9c"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_effondrement_zoom_jeu.png",
+      "sha256": "5195729a52a4e5125d76e841f865723ba02371568a2e90a19b2a96d35cc34e9e"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_faille_zoom_jeu.png",
+      "sha256": "681918ab89442ab9048e1af113dd6cb0f4155ebf49a43cd434e247a0e2e11aed"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_glace_zoom_jeu.png",
+      "sha256": "8806be30668c610ceb000c32d9dedee76afa88c484b1552c1fd0d8a7678d94d2"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_invocation_zoom_jeu.png",
+      "sha256": "dcedffd51b70bc06acac5623c1cc7bb24e9e313a8b5deadb1409fd90744e3e64"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_magma_zoom_jeu.png",
+      "sha256": "479e32fdb86962fdf00fe2c29f09768164d5a69a373b9bde6e7f2df228533d8d"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_oeil_ferme_zoom_jeu.png",
+      "sha256": "784b4a7e00ded8ef5e4fb5881844d0dda435affcfdfb85f977e3d9934f3cee49"
+    },
+    {
+      "path": "docs/previews/abyssarque/abyssarch_racines_zoom_jeu.png",
+      "sha256": "c677aef8c27f1f65d3d6baecd0f08da380bcb282a98731d444f0537711176ee4"
+    }
+  ],
+  "importer_regression_test": true,
+  "shared_palette_and_runtime_anchor_tests": true,
+  "import_failure_handling_test": true,
+  "text_hash_convention": "UTF-8, fins de ligne LF"
+}

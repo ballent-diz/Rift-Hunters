@@ -1,0 +1,403 @@
+{
+  "method": "Six colonnes réellement redessinées par imagegen ; poses recalées sur les hauteurs relatives du guide, puis assemblées sans redessin. La mort conserve la réduction de chaque pose du guide, aucun cadavre regonflé.",
+  "columns": [
+    {
+      "phase": "D",
+      "column": 1,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-6d70c8f1-b5ab-4626-b920-fef109352bd2.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 1 of phase D. PHASE CRYSTAL AND MIRRORS. Top = exact ENTRY stage progressively covering shoulders/arms in AMETHYST facets and broad VIOLET MIRROR PANELS; middle = crystal/mirror IDLE; bottom = exact prismatic attack stage. In the extended attack pose preserve the THREE sharp mirror planes close to the forearms. They remain attached, not rays. Keep the central magenta heart-eye and pale rib frame. Keep the purple phase materials of image1, do not restore green moss or orange magma from A. All extended panels must fit comfortably inside their own cell.",
+      "sha256": "fc1a6d5c899206f98c890fc31e01b90f4d27ddaf21a0b90be08dc936ec519166"
+    },
+    {
+      "phase": "D",
+      "column": 2,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-44fd5fc5-7d52-45cf-8435-f2dc35eb2699.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 2 of phase D. PHASE CRYSTAL AND MIRRORS. Top = exact ENTRY stage progressively covering shoulders/arms in AMETHYST facets and broad VIOLET MIRROR PANELS; middle = crystal/mirror IDLE; bottom = exact prismatic attack stage. In the extended attack pose preserve the THREE sharp mirror planes close to the forearms. They remain attached, not rays. Keep the central magenta heart-eye and pale rib frame. Keep the purple phase materials of image1, do not restore green moss or orange magma from A. All extended panels must fit comfortably inside their own cell.",
+      "sha256": "4e27abd92900734cb4fe4a96922c6cf019114814ff2e3d64f449137b3ef0d15e"
+    },
+    {
+      "phase": "D",
+      "column": 3,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-d94ea722-cba0-44e9-b682-1847cb68d036.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 3 of phase D. PHASE CRYSTAL AND MIRRORS. Top = exact ENTRY stage progressively covering shoulders/arms in AMETHYST facets and broad VIOLET MIRROR PANELS; middle = crystal/mirror IDLE; bottom = exact prismatic attack stage. In the extended attack pose preserve the THREE sharp mirror planes close to the forearms. They remain attached, not rays. Keep the central magenta heart-eye and pale rib frame. Keep the purple phase materials of image1, do not restore green moss or orange magma from A. All extended panels must fit comfortably inside their own cell.",
+      "sha256": "26285155355995b5a6693862aba8fbdc05a3da5a7f88ffbf0204c40f7e848a0d"
+    },
+    {
+      "phase": "D",
+      "column": 4,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-ab193452-d9ff-48a5-909e-3593819a8b22.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 4 of phase D. PHASE CRYSTAL AND MIRRORS. Top = exact ENTRY stage progressively covering shoulders/arms in AMETHYST facets and broad VIOLET MIRROR PANELS; middle = crystal/mirror IDLE; bottom = exact prismatic attack stage. In the extended attack pose preserve the THREE sharp mirror planes close to the forearms. They remain attached, not rays. Keep the central magenta heart-eye and pale rib frame. Keep the purple phase materials of image1, do not restore green moss or orange magma from A. All extended panels must fit comfortably inside their own cell.",
+      "sha256": "cd6a8691b4eca9d8b96ae90f834ab59459e3dcca38320e8d54dc21e960631459"
+    },
+    {
+      "phase": "D",
+      "column": 5,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-6c6a579d-779b-4c84-b51b-3fef585c8d4a.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 5 of phase D. PHASE CRYSTAL AND MIRRORS. Top = exact ENTRY stage progressively covering shoulders/arms in AMETHYST facets and broad VIOLET MIRROR PANELS; middle = crystal/mirror IDLE; bottom = exact prismatic attack stage. In the extended attack pose preserve the THREE sharp mirror planes close to the forearms. They remain attached, not rays. Keep the central magenta heart-eye and pale rib frame. Keep the purple phase materials of image1, do not restore green moss or orange magma from A. All extended panels must fit comfortably inside their own cell.",
+      "sha256": "8afecc4d5875843ef316857d8e48aa19c3b497a7e4d248dd0018eaad280f988e"
+    },
+    {
+      "phase": "D",
+      "column": 6,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-c792f7b8-6275-4d38-b896-6281b05e8ec7.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 6 of phase D. PHASE CRYSTAL AND MIRRORS. Top = exact ENTRY stage progressively covering shoulders/arms in AMETHYST facets and broad VIOLET MIRROR PANELS; middle = crystal/mirror IDLE; bottom = exact prismatic attack stage. In the extended attack pose preserve the THREE sharp mirror planes close to the forearms. They remain attached, not rays. Keep the central magenta heart-eye and pale rib frame. Keep the purple phase materials of image1, do not restore green moss or orange magma from A. All extended panels must fit comfortably inside their own cell.",
+      "sha256": "b8f83e47dd148acf99bc6124ffc5ca9d814811fcfd28a2c0f700e8f54ea6d42f"
+    }
+  ],
+  "registration": [
+    {
+      "row": 0,
+      "column": 0,
+      "generated_row": 0,
+      "reference_size": [
+        238,
+        196
+      ],
+      "fine_size": [
+        605,
+        504
+      ],
+      "registered_size": [
+        706,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1666666666666667
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "generated_row": 1,
+      "reference_size": [
+        238,
+        198
+      ],
+      "fine_size": [
+        608,
+        498
+      ],
+      "registered_size": [
+        725,
+        594
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1927710843373494
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "generated_row": 2,
+      "reference_size": [
+        239,
+        196
+      ],
+      "fine_size": [
+        613,
+        494
+      ],
+      "registered_size": [
+        730,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1902834008097165
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "generated_row": 0,
+      "reference_size": [
+        237,
+        196
+      ],
+      "fine_size": [
+        623,
+        500
+      ],
+      "registered_size": [
+        733,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.176
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "generated_row": 1,
+      "reference_size": [
+        236,
+        201
+      ],
+      "fine_size": [
+        609,
+        495
+      ],
+      "registered_size": [
+        742,
+        603
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2181818181818183
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "generated_row": 2,
+      "reference_size": [
+        236,
+        191
+      ],
+      "fine_size": [
+        623,
+        487
+      ],
+      "registered_size": [
+        733,
+        573
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1765913757700206
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "generated_row": 0,
+      "reference_size": [
+        238,
+        196
+      ],
+      "fine_size": [
+        624,
+        499
+      ],
+      "registered_size": [
+        735,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1783567134268538
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "generated_row": 1,
+      "reference_size": [
+        238,
+        203
+      ],
+      "fine_size": [
+        612,
+        520
+      ],
+      "registered_size": [
+        717,
+        609
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1711538461538462
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "generated_row": 2,
+      "reference_size": [
+        251,
+        195
+      ],
+      "fine_size": [
+        657,
+        483
+      ],
+      "registered_size": [
+        796,
+        585
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2111801242236024
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "generated_row": 0,
+      "reference_size": [
+        240,
+        196
+      ],
+      "fine_size": [
+        600,
+        496
+      ],
+      "registered_size": [
+        711,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.185483870967742
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "generated_row": 1,
+      "reference_size": [
+        239,
+        198
+      ],
+      "fine_size": [
+        599,
+        492
+      ],
+      "registered_size": [
+        723,
+        594
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2073170731707317
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "generated_row": 2,
+      "reference_size": [
+        294,
+        193
+      ],
+      "fine_size": [
+        719,
+        477
+      ],
+      "registered_size": [
+        873,
+        579
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2138364779874213
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "generated_row": 0,
+      "reference_size": [
+        239,
+        196
+      ],
+      "fine_size": [
+        622,
+        497
+      ],
+      "registered_size": [
+        736,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1830985915492958
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "generated_row": 1,
+      "reference_size": [
+        238,
+        194
+      ],
+      "fine_size": [
+        619,
+        489
+      ],
+      "registered_size": [
+        737,
+        582
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1901840490797546
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "generated_row": 2,
+      "reference_size": [
+        252,
+        193
+      ],
+      "fine_size": [
+        648,
+        475
+      ],
+      "registered_size": [
+        790,
+        579
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2189473684210526
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "generated_row": 0,
+      "reference_size": [
+        239,
+        197
+      ],
+      "fine_size": [
+        604,
+        479
+      ],
+      "registered_size": [
+        745,
+        591
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2338204592901878
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "generated_row": 1,
+      "reference_size": [
+        237,
+        194
+      ],
+      "fine_size": [
+        587,
+        478
+      ],
+      "registered_size": [
+        715,
+        582
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.217573221757322
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "generated_row": 2,
+      "reference_size": [
+        238,
+        198
+      ],
+      "fine_size": [
+        592,
+        475
+      ],
+      "registered_size": [
+        740,
+        594
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2505263157894737
+    }
+  ],
+  "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+  "size": [
+    5526,
+    2763
+  ],
+  "row_order_correction": null
+}

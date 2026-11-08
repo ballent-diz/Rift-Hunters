@@ -1,0 +1,22 @@
+{
+  "generator": "imagegen intégré",
+  "date": "2026-11-08",
+  "transparent_background_requested": true,
+  "selected_source": "planche.png",
+  "source_sha256": "f191a368e35608ebfc923155efa9fc66ea2750235a5e48b9d9f05fd126b42b4f",
+  "prompt": "PROMPT.txt",
+  "prompt_sha256_lf": "4670fe01dbc826760e31de8eee00a2ffb77d47e35cda3b52670e0832072ceb97",
+  "reference_images": [
+    {
+      "path": "assets/ui/menus/refuge-backdrop.png",
+      "role": "identité ou matière, pas cible de modification",
+      "sha256": "d4883fda8684e7738c125c8eb33fb5e67eb354726a54bb3d92925385992449ba"
+    },
+    {
+      "path": "assets/concepts/incoming/object.mirror_portal/source/planche.png",
+      "role": "identité ou matière, pas cible de modification",
+      "sha256": "1f1460c10bb7a7d89861d283c4eb71992391b9873e8948822bf0accf3c1420b8"
+    }
+  ],
+  "processing": "détourage et désolidarisation de l’ombre peinte ; cellules enregistrées ; palette prélevée ; aucune peinture procédurale"
+}

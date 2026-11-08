@@ -1,0 +1,81 @@
+{
+  "visual_id": "object.mirror_portal",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    232
+  ],
+  "scale": 0.5,
+  "target_height": 200,
+  "keep_size": true,
+  "registered_cells": true,
+  "status": "final",
+  "background": "alpha",
+  "preserve_alpha": true,
+  "colors": 0,
+  "outline": false,
+  "preview_zoom": 1,
+  "animations": [
+    {
+      "name": "active",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        4
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "name": "cooldown",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        4
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "name": "enter",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        4
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 10,
+      "loop": false
+    },
+    {
+      "name": "exit",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        4
+      ],
+      "row": 3,
+      "frames": 6,
+      "fps": 10,
+      "loop": false
+    }
+  ],
+  "aliases": {},
+  "empty_animations": [
+    {
+      "name": "hidden",
+      "fps": 12,
+      "loop": false
+    }
+  ],
+  "palette_note": "32 couleurs prélevées dans le décor, déjà appliquées dans poses.webp",
+  "source_recipe": "tools/art/import_painted_objects.py"
+}

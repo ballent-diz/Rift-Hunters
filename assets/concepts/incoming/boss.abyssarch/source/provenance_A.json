@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-08",
+  "tool": "image_gen intégré",
+  "original_generated_path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-faa0d287-efa1-449b-ae04-e5823ead5d7b.png",
+  "grid": [
+    6,
+    3
+  ],
+  "transparent_background": true,
+  "reference": "Carte25 et anciens Dévoreurs pour matières et contexte",
+  "retained_source_only": true,
+  "stage": "détail par six colonnes",
+  "final_source_is_assembled": true,
+  "detail_recipe": "detail_A.json"
+}
