@@ -27,7 +27,7 @@ Facteur = taille attendue (milieu de la fourchette d'`ART_BIBLE.md`) / taille me
 |---|---|---|---|---|
 | 1 Ruines des Cascades (étalon) | marches / pavés / pilier | 13 / 20 / 53 | 12-16 / 15-26 / 30-45 | 1 (référence) |
 | 4 Gué des Brumes (mist_ford) | dalles de la place, pavés du pont | 28-30 / 24 | 15-26 | **0,8** |
-| 15 Cœur des marais (marsh_heart) | marches centrales / dalles / colonnes | 21 / 36 / 75 | 14 / 20 / 38 | 1 (repeinte par Codex, prompt 2) |
+| 15 Cœur des marais (marsh_heart) | marches centrales / dalles / colonnes | 21 / 36 / 75 | 14 / 20 / 38 | 1 (repeinte par Codex, PR #136) |
 | 16 Entrée du Glacier (glacier_entry) | blocs de glace (abris), pas d'escalier ni de dallage | 160 × 210 | 110-160 | **0,9** |
 | 17 Col des Braseros (brazier_pass) | pavés du pont / marches / arche | 22 × 11 / 15 / 84-98 | — | 1 (à l'échelle) |
 | 18 Lac gelé des Tempêtes (storm_lake) | marches de l'escalier de bois / porte de cabane / caisse | 21 / 93 / 67 | 14 / 80 / 30-40 | **0,7** |
@@ -46,7 +46,7 @@ Test : `tests/unit/test_decor_scale.gd`.
 ## État
 
 - Appliqué en jeu : mist_ford et survival_ford (0,8), glacier_entry (0,9), storm_lake (0,7). brazier_pass reste à 1.
-- marsh_heart (carte 15) : non réduite à la demande du propriétaire, Codex la repeint (prompt 2). Une réduction
-  de 0,65 avait été essayée (ligne du haut des captures) avant cette consigne. Mesurer à nouveau après livraison.
+- marsh_heart (carte 15) : non réduite à la demande du propriétaire, escaliers et colonnes repeints par Codex
+  (PR #136). Une réduction de 0,65 avait été essayée avant cette consigne (ligne du haut des captures).
 - Cartes 19 à 25 pas encore intégrées : à l'intégration, poser `decor_scale` selon la colonne « Facteur »
   (rune_sanctum 0,9 ; rift_eye 0,85 ; les autres 1), puis valider par une capture au zoom réel.

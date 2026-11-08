@@ -5,24 +5,6 @@ dans l'ordre ; chacun est autonome. Rappel pour Codex : une branche par tâche d
 (AGENTS.md) ; si l'API GitHub le bloque, pousser la branche et donner son nom et son dernier commit : Claude ouvrira
 la PR.
 
-## 2. Échelle des décors : carte 15 (en cours chez Codex ; la partie carte 4 est annulée)
-
-```text
-Échelle des décors (docs/ART_BIBLE.md, section « Échelle des décors ») : le Chasseur mesure environ 52 unités de
-haut ; une marche fait 12 à 16 unités de profondeur, une dalle au plus 26, une porte 75 à 90 de haut, une colonne 30
-à 45 de large.
-
-Carte 15, Cœur des marais (marsh_heart) : escaliers et colonnes 3 à 4 fois trop grands (le Chasseur ne couvre
-qu'une marche et demie). Refais une passe de détail des régions concernées (escaliers sud, central et des berges,
-colonnes du temple et de la terrasse) avec des marches plus nombreuses et plus fines et des colonnes plus étroites,
-SANS changer le plan, les emprises, le cadrage ni ce qui est praticable : les collisions peintes par le propriétaire
-et l'intégration en jeu doivent rester valables. Même densité (2,25 px/unité), mêmes tuiles.
-
-Capture au zoom réel avec le Chasseur et Cendrelame posés sur un escalier, un dallage et près d'une colonne, contrôle
-qualité habituel (check_map_quality), et superposition avec l'ancien master pour prouver que les bords praticables
-n'ont pas bougé. Ne touche ni src/ ni data/.
-```
-
 ## 4. Barrières de zone peintes, une par chapitre
 
 ```text
@@ -63,6 +45,7 @@ changer règles ni minuteries.
 - Échelle des décors de la carte 4 et proportions des chapitres 4 et 5 : réglé le 8 novembre par la réduction du
   décor par carte (`decor_scale`, docs/maps/ECHELLE_CHAPITRES_4_5.md), sans repeindre. Proportions des cartes 16 à 25
   (ancien prompt 3) : sans objet.
+- Échelle des décors de la carte 15 (ancien prompt 2) : escaliers et colonnes repeints par Codex (PR #136).
 - Objets posés sur les cartes (miroirs-portails, cristaux, mannequin) : livrés par Codex (PR #131, fusionnée le
   8 novembre via #132) ; intégration en jeu à faire par Claude.
 - Carte 16 : corrections de la composition, devenues sans objet (carte détaillée et intégrée en jeu).
