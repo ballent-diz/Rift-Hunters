@@ -42,5 +42,5 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 - [x] **Proportions des cartes des chapitres 4 et 5** (8 novembre) : sur beaucoup de cartes des deux derniers chapitres,
   les personnages paraissent beaucoup trop petits par rapport au décor (marches, dalles, colonnes, bâtiments trop
   grands). Corrigé le 8 novembre : décor réduit par carte (`decor_scale` d'ArenaData) sans toucher aux personnages ;
-  mesures et facteurs dans docs/maps/ECHELLE_CHAPITRES_4_5.md (cartes 4, 15, 16 et 18 réduites ; 17 déjà à
-  l'échelle ; facteurs des cartes 19 à 25 notés pour leur intégration).
+  mesures et facteurs dans docs/maps/ECHELLE_CHAPITRES_4_5.md (cartes 4, 16 et 18 réduites ; 17 déjà à
+  l'échelle ; 15 repeinte par Codex ; facteurs des cartes 19 à 25 notés pour leur intégration).

@@ -619,8 +619,10 @@ failles, zones, autel, terrains, plaques, nids, bulbes, abris, portails, cristau
 réduits ; l'image, les collisions et la mini-carte suivent le rectangle de l'arène ; `ArenaGround` réduit départ et pas
 du champ. Les `.tres` restent en coordonnées peintes (éditeur de niveau inchangé) ; rayons d'effet, vitesses, portées
 et équilibrage inchangés. Mesures et facteurs : docs/maps/ECHELLE_CHAPITRES_4_5.md (avant/après :
-docs/maps/echelle_avant_apres.webp). Appliqué : mist_ford et survival_ford 0,8 ; marsh_heart 0,65 ;
+docs/maps/echelle_avant_apres.webp). Appliqué : mist_ford et survival_ford 0,8 ;
 glacier_entry 0,9 ; storm_lake 0,7 ; brazier_pass déjà à l'échelle. À l'intégration des cartes 19 à 25 : rune_sanctum
 0,9, rift_eye 0,85, les autres 1. Bot (PROFILE=stage, normal, mossback et ashblade, 2 graines, 4 cartes) : 9/16
-victoires avant, 10/16 après, dégâts subis comparables : pas de réajustement. Le prompt Codex « Échelle des décors :
-cartes 15 et 4 » est retiré (réglé par la réduction).
+victoires avant, 10/16 après, dégâts subis comparables : pas de réajustement. Carte 15 (marsh_heart) NON réduite : à la demande
+du propriétaire, Codex la repeint (prompt 2 de docs/prompts/CODEX_EN_ATTENTE.md, réduit à la carte 15 ; partie
+carte 4 annulée, réglée par decor_scale). Retirer le prompt 2 quand la carte 15 repeinte est livrée. Les chiffres du
+bot incluent un essai marsh_heart à 0,65 (ses 4 parties : 0/4 avant, 2/4 après).
