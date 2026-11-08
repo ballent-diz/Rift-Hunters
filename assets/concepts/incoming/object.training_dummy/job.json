@@ -1,0 +1,53 @@
+{
+  "visual_id": "object.training_dummy",
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    232
+  ],
+  "scale": 0.5,
+  "target_height": 140,
+  "keep_size": true,
+  "registered_cells": true,
+  "status": "final",
+  "background": "alpha",
+  "preserve_alpha": true,
+  "colors": 0,
+  "outline": false,
+  "preview_zoom": 1,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 8,
+      "loop": true
+    },
+    {
+      "name": "hit",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 14,
+      "loop": false
+    }
+  ],
+  "aliases": {
+    "hurt": "hit"
+  },
+  "empty_animations": [],
+  "palette_note": "32 couleurs prélevées dans le décor, déjà appliquées dans poses.webp",
+  "source_recipe": "tools/art/import_painted_objects.py"
+}

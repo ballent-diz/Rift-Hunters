@@ -1,0 +1,1516 @@
+{
+  "objects": {
+    "object.mirror_portal": {
+      "rgb_colors": 31,
+      "animations": {
+        "active": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "cooldown": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "enter": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "exit": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ]
+      },
+      "sheet_sha256": "57d9fa1d48737b9025e9f802b01a89f4ddc767b8875e97f22fe50305dad5b9fa"
+    },
+    "object.mirror_portal.sage": {
+      "rgb_colors": 30,
+      "animations": {
+        "active": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "cooldown": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "enter": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "exit": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ]
+      },
+      "sheet_sha256": "32a3ae7d886d9183eded5a781c82f28c893c3f41e1d32fbb957fc110bc3fa8d8"
+    },
+    "object.mirror_portal.pale_gold": {
+      "rgb_colors": 28,
+      "animations": {
+        "active": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "cooldown": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "enter": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "exit": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ]
+      },
+      "sheet_sha256": "603437f956e75afcc7204c8bfe773ff3242981113d31679e62e42937f9446f3a"
+    },
+    "object.mirror_portal.lilac_grey": {
+      "rgb_colors": 31,
+      "animations": {
+        "active": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "cooldown": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "enter": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ],
+        "exit": [
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          },
+          {
+            "bounds": [
+              56,
+              33,
+              224,
+              244
+            ],
+            "body_height_world": 100.0
+          }
+        ]
+      },
+      "sheet_sha256": "bc058c9843091a150a63705493e824f2070b8359a99ece21382631621dce20e2"
+    },
+    "object.crystal_mirror": {
+      "rgb_colors": 32,
+      "animations": {
+        "idle": [
+          {
+            "bounds": [
+              83,
+              89,
+              212,
+              237
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              82,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 72.5
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              212,
+              237
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              83,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              212,
+              237
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              212,
+              237
+            ],
+            "body_height_world": 72.0
+          }
+        ],
+        "charged": [
+          {
+            "bounds": [
+              83,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              82,
+              87,
+              212,
+              237
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              83,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              83,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              83,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              83,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 71.5
+          }
+        ],
+        "burst": [
+          {
+            "bounds": [
+              83,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              82,
+              88,
+              212,
+              237
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              83,
+              94,
+              212,
+              237
+            ],
+            "body_height_world": 69.0
+          },
+          {
+            "bounds": [
+              83,
+              108,
+              212,
+              237
+            ],
+            "body_height_world": 61.5
+          },
+          {
+            "bounds": [
+              83,
+              153,
+              212,
+              237
+            ],
+            "body_height_world": 39.5
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              212,
+              237
+            ],
+            "body_height_world": 27.0
+          }
+        ],
+        "debris": [
+          {
+            "bounds": [
+              82,
+              178,
+              212,
+              237
+            ],
+            "body_height_world": 27.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              212,
+              237
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              212,
+              237
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              212,
+              237
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              212,
+              237
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": null,
+            "body_height_world": 0.0
+          }
+        ]
+      },
+      "sheet_sha256": "480c8bea24f4fd089c43d700ddb5158e02deff77dfb575d847a4694cdb56ce3f"
+    },
+    "object.crystal_mirror.marsh_heart": {
+      "rgb_colors": 32,
+      "animations": {
+        "idle": [
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              82,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              82,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 72.0
+          }
+        ],
+        "charged": [
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 72.0
+          },
+          {
+            "bounds": [
+              82,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              82,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              82,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 71.5
+          }
+        ],
+        "burst": [
+          {
+            "bounds": [
+              83,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              82,
+              89,
+              203,
+              236
+            ],
+            "body_height_world": 71.5
+          },
+          {
+            "bounds": [
+              83,
+              96,
+              203,
+              236
+            ],
+            "body_height_world": 68.0
+          },
+          {
+            "bounds": [
+              82,
+              112,
+              203,
+              236
+            ],
+            "body_height_world": 60.0
+          },
+          {
+            "bounds": [
+              83,
+              153,
+              203,
+              236
+            ],
+            "body_height_world": 39.5
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              203,
+              236
+            ],
+            "body_height_world": 27.0
+          }
+        ],
+        "debris": [
+          {
+            "bounds": [
+              82,
+              178,
+              203,
+              236
+            ],
+            "body_height_world": 27.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              203,
+              236
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              203,
+              236
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              203,
+              236
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": [
+              82,
+              178,
+              203,
+              236
+            ],
+            "body_height_world": 0.0
+          },
+          {
+            "bounds": null,
+            "body_height_world": 0.0
+          }
+        ]
+      },
+      "sheet_sha256": "7c95fddeb5ec64ffe41f4fa97291e8aa5a1556dc5cbe9179a6771b591ccd91fa"
+    },
+    "object.training_dummy": {
+      "rgb_colors": 31,
+      "animations": {
+        "idle": [
+          {
+            "bounds": [
+              96,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              97,
+              93,
+              192,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              97,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              97,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              96,
+              93,
+              190,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              96,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          }
+        ],
+        "hit": [
+          {
+            "bounds": [
+              96,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              99,
+              94,
+              193,
+              234
+            ],
+            "body_height_world": 69.5
+          },
+          {
+            "bounds": [
+              102,
+              94,
+              194,
+              234
+            ],
+            "body_height_world": 69.5
+          },
+          {
+            "bounds": [
+              97,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              97,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          },
+          {
+            "bounds": [
+              96,
+              93,
+              191,
+              234
+            ],
+            "body_height_world": 70.0
+          }
+        ]
+      },
+      "sheet_sha256": "8a09b097f9414b868bdf0a51bf3bda767bcd35e9d86264707bb5fa2e5127d558"
+    }
+  },
+  "errors": [],
+  "states_preserved": true,
+  "static_portal_frames": true,
+  "dummy_foot_fixed": true,
+  "painted_source_cells": 72,
+  "runtime_pose_cells": 156,
+  "unchanged_old_manifest_entries": 449,
+  "modified_old_entries": [
+    "object.crystal_mirror",
+    "object.training_dummy"
+  ],
+  "reference_sha256": {
+    "assets/environments/reflection_wells/map.webp": "d6e4db4de92df6a48ddbd939b125984e5339655a511bb5be87fcdc215bc88c6b",
+    "assets/environments/reflection_wells/map_1.webp": "2bc38fe72e60a7ce5c29a75e06f63ec315faea1c6395289f16ac90e0783623cd",
+    "assets/environments/reflection_wells/map_2.webp": "02c6821045f265476b1513d6505f4295298bdbb5d97f78c3925b25a9427be256",
+    "assets/environments/crystal_gardens/map.webp": "b59e3fa69411e0d5e9ab72fb4ca28c633f0439187c0353e4e2de67efbcd95e8a",
+    "assets/environments/crystal_gardens/map_1.webp": "28fc2df91f9006dd8037fb97cf31493411f631524da95a0c11f2b62739d9c5c2",
+    "assets/environments/crystal_gardens/map_2.webp": "095e6b779aa35479f260bd5267e6bfb4c35d5bc56dc62a86b2d33e5af7437a2a",
+    "assets/environments/marsh_heart/map.webp": "bfe857d20f06cd995f3345f8649fc6307e26db7d009f8d3e5180eed368621af1",
+    "assets/environments/marsh_heart/map_1.webp": "fd95f7112fec8d98cb303cbc0b9ef01bca173a4b513e246a6c3baa2b842a375f",
+    "assets/ui/menus/refuge-backdrop.png": "d4883fda8684e7738c125c8eb33fb5e67eb354726a54bb3d92925385992449ba"
+  },
+  "zoom": 1.3333,
+  "scope": "banc statique, raccordement par Claude"
+}

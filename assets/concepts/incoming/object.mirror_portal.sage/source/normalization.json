@@ -1,0 +1,464 @@
+{
+  "source_sha256": "1f1460c10bb7a7d89861d283c4eb71992391b9873e8948822bf0accf3c1420b8",
+  "size": [
+    1536,
+    1024
+  ],
+  "poses": [
+    {
+      "row": 0,
+      "column": 0,
+      "source_region": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "body_bounds": [
+        75,
+        11,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "source_region": [
+        256,
+        0,
+        512,
+        256
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        228
+      ]
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "source_region": [
+        512,
+        0,
+        768,
+        256
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        228
+      ]
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "source_region": [
+        768,
+        0,
+        1024,
+        256
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "source_region": [
+        1024,
+        0,
+        1280,
+        256
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        227
+      ]
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "source_region": [
+        1280,
+        0,
+        1536,
+        256
+      ],
+      "body_bounds": [
+        75,
+        11,
+        221,
+        227
+      ]
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "source_region": [
+        0,
+        256,
+        256,
+        512
+      ],
+      "body_bounds": [
+        74,
+        12,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "source_region": [
+        256,
+        256,
+        512,
+        512
+      ],
+      "body_bounds": [
+        75,
+        11,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "source_region": [
+        512,
+        256,
+        768,
+        512
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "source_region": [
+        768,
+        256,
+        1024,
+        512
+      ],
+      "body_bounds": [
+        75,
+        11,
+        221,
+        227
+      ]
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "source_region": [
+        1024,
+        256,
+        1280,
+        512
+      ],
+      "body_bounds": [
+        75,
+        11,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "source_region": [
+        1280,
+        256,
+        1536,
+        512
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        227
+      ]
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "source_region": [
+        0,
+        512,
+        256,
+        768
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "source_region": [
+        256,
+        512,
+        512,
+        768
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        227
+      ]
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "source_region": [
+        512,
+        512,
+        768,
+        768
+      ],
+      "body_bounds": [
+        73,
+        11,
+        221,
+        227
+      ]
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "source_region": [
+        768,
+        512,
+        1024,
+        768
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        228
+      ]
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "source_region": [
+        1024,
+        512,
+        1280,
+        768
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        228
+      ]
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "source_region": [
+        1280,
+        512,
+        1536,
+        768
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        227
+      ]
+    },
+    {
+      "row": 3,
+      "column": 0,
+      "source_region": [
+        0,
+        768,
+        256,
+        1024
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        228
+      ]
+    },
+    {
+      "row": 3,
+      "column": 1,
+      "source_region": [
+        256,
+        768,
+        512,
+        1024
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        228
+      ]
+    },
+    {
+      "row": 3,
+      "column": 2,
+      "source_region": [
+        512,
+        768,
+        768,
+        1024
+      ],
+      "body_bounds": [
+        74,
+        11,
+        222,
+        227
+      ]
+    },
+    {
+      "row": 3,
+      "column": 3,
+      "source_region": [
+        768,
+        768,
+        1024,
+        1024
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        228
+      ]
+    },
+    {
+      "row": 3,
+      "column": 4,
+      "source_region": [
+        1024,
+        768,
+        1280,
+        1024
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        227
+      ]
+    },
+    {
+      "row": 3,
+      "column": 5,
+      "source_region": [
+        1280,
+        768,
+        1536,
+        1024
+      ],
+      "body_bounds": [
+        74,
+        11,
+        221,
+        228
+      ]
+    }
+  ],
+  "target_body_height_px": 200,
+  "scale": 0.5,
+  "factor": 0.9216589861751152,
+  "cell": [
+    256,
+    256
+  ],
+  "anchor": [
+    128,
+    232
+  ],
+  "source_anchors": [
+    [
+      145.5,
+      227.0
+    ],
+    [
+      146.5,
+      227.0
+    ],
+    [
+      146.0,
+      227.0
+    ],
+    [
+      145.5,
+      227.0
+    ],
+    [
+      146.0,
+      226.0
+    ],
+    [
+      145.5,
+      226.0
+    ]
+  ],
+  "resample": "NEAREST",
+  "cast_shadow": "ombre de la première pose détourée, alpha conservé",
+  "stable_frame": "cadre, mousse et ombre de active/0 ; seules vitre et gemme changent",
+  "water_polygon": [
+    [
+      135,
+      74
+    ],
+    [
+      150,
+      85
+    ],
+    [
+      161,
+      101
+    ],
+    [
+      162,
+      201
+    ],
+    [
+      102,
+      201
+    ],
+    [
+      102,
+      102
+    ],
+    [
+      115,
+      84
+    ]
+  ],
+  "source_visual_id": "object.mirror_portal"
+}

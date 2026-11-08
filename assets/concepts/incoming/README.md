@@ -77,6 +77,8 @@ Conseils pour les images :
 | `animations` | une entrée par image ; la 1re sert de référence d'échelle |
 | `aliases` | animations manquantes réutilisant une autre ligne, ex. `{"technique": "attack"}` |
 | `empty_animations` | poses runtime transparentes, sans source dessinée, ex. `[{"name":"death","fps":12,"loop":false}]` pour masquer le corps pendant une disparition commune |
+| `preserve_alpha` | avec `background: "alpha"`, conserve aussi les faibles opacités des ombres peintes ; sinon le détourage reste binaire |
+| `registered_cells` | avec `keep_size: true`, conserve les positions dans des cellules déjà normalisées aux dimensions du job ; évite de déplacer le pied ou de recentrer une ombre et des débris |
 | `frame_offsets` (par animation) | décalages graphiques `[x,y]` après ancrage, un par pose ; préserve une montée/piqué dans la cellule sans déplacer l’entité |
 | `source_scale` (par animation) | facteur positif de cadrage pour une planche complémentaire ; même facteur pour toute la rangée, sans regonfler les morts ni les poses accroupies |
 

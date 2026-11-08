@@ -1,0 +1,27 @@
+{
+  "generator": "imagegen intégré",
+  "date": "2026-11-08",
+  "transparent_background_requested": true,
+  "selected_source": "planche.png",
+  "source_sha256": "2ca87b986d2f841ec7b1a1f5d4ba30fc6991d07940aade1ebaea91d8fc4a73c4",
+  "prompt": "PROMPT.txt",
+  "prompt_sha256_lf": "8b7a56b81360f5f363472200d21ee5bea6e307b154b667dc7559d72aedb1b538",
+  "reference_images": [
+    {
+      "path": "assets/concepts/incoming/object.mirror_portal/source/references.png",
+      "role": "identité ou matière, pas cible de modification",
+      "sha256": "75a39570f4d0e1548291ac541ed6459e3dca113ae32eedcac1a97df108e9446e"
+    },
+    {
+      "path": "assets/concepts/incoming/object.mirror_portal/source/maps_overview.png",
+      "role": "identité ou matière, pas cible de modification",
+      "sha256": "823e913054c8a6de64bfa73d5f5e15f0560dea821fe7c94d117d4023c164597f"
+    },
+    {
+      "path": "assets/concepts/incoming/object.mirror_portal/source/planche.png",
+      "role": "identité ou matière, pas cible de modification",
+      "sha256": "1f1460c10bb7a7d89861d283c4eb71992391b9873e8948822bf0accf3c1420b8"
+    }
+  ],
+  "processing": "détourage et désolidarisation de l’ombre peinte ; cellules enregistrées ; palette prélevée ; aucune peinture procédurale"
+}

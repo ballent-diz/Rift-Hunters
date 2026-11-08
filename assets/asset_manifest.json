@@ -15000,49 +15000,64 @@
 			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		},
 		"object.training_dummy": {
-			"status": "planned",
-			"note": "Salle d'entraînement : mannequin (tronc cerclé de fer) ; forme provisoire en attendant.",
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.training_dummy/job.json",
+			"sheet": "res://assets/sprites/objects/training_dummy/training_dummy_sheet.png",
 			"cell": [
 				256,
 				256
 			],
 			"anchor": [
 				128,
-				238
-			],
-			"scale": 0.5,
-			"animations": {
-				"idle": {
-					"row": 0,
-					"frames": 1,
-					"fps": 1,
-					"loop": true
-				}
-			}
-		},
-		"object.crystal_mirror": {
-			"status": "planned",
-			"note": "Carte 13 : cristal-miroir à livrer par Codex (même gabarit que object.ember_pod) ; forme provisoire en attendant.",
-			"cell": [
-				256,
-				256
-			],
-			"anchor": [
-				128,
-				238
+				232
 			],
 			"scale": 0.5,
 			"animations": {
 				"idle": {
 					"row": 0,
 					"frames": 6,
-					"fps": 6,
+					"fps": 8,
 					"loop": true
 				},
-				"primed": {
+				"hit": {
 					"row": 1,
 					"frames": 6,
-					"fps": 12,
+					"fps": 14,
+					"loop": false
+				},
+				"hurt": {
+					"row": 1,
+					"frames": 6,
+					"fps": 14,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/training_dummy.png"
+		},
+		"object.crystal_mirror": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.crystal_mirror/job.json",
+			"sheet": "res://assets/sprites/objects/crystal_mirror/crystal_mirror_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"charged": {
+					"row": 1,
+					"frames": 6,
+					"fps": 7,
 					"loop": true
 				},
 				"burst": {
@@ -15050,8 +15065,27 @@
 					"frames": 6,
 					"fps": 12,
 					"loop": false
+				},
+				"debris": {
+					"row": 3,
+					"frames": 6,
+					"fps": 7,
+					"loop": false
+				},
+				"hidden": {
+					"row": 4,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"primed": {
+					"row": 1,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
 				}
-			}
+			},
+			"icon": "res://assets/ui/icons/objects/crystal_mirror.png"
 		},
 		"object.brazier": {
 			"status": "final",
@@ -15167,6 +15201,247 @@
 			"minimap": "res://assets/environments/storm_lake/minimap.webp",
 			"menu_preview": "res://assets/ui/expedition/storm_lake.png",
 			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"object.mirror_portal": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.mirror_portal/job.json",
+			"sheet": "res://assets/sprites/objects/mirror_portal/mirror_portal_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"active": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"cooldown": {
+					"row": 1,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"enter": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"exit": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"hidden": {
+					"row": 4,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/mirror_portal.png"
+		},
+		"object.mirror_portal.sage": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.mirror_portal.sage/job.json",
+			"sheet": "res://assets/sprites/objects/mirror_portal/mirror_portal_sage_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"active": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"cooldown": {
+					"row": 1,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"enter": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"exit": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"hidden": {
+					"row": 4,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/mirror_portal_sage.png"
+		},
+		"object.mirror_portal.pale_gold": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.mirror_portal.pale_gold/job.json",
+			"sheet": "res://assets/sprites/objects/mirror_portal/mirror_portal_pale_gold_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"active": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"cooldown": {
+					"row": 1,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"enter": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"exit": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"hidden": {
+					"row": 4,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/mirror_portal_pale_gold.png"
+		},
+		"object.mirror_portal.lilac_grey": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.mirror_portal.lilac_grey/job.json",
+			"sheet": "res://assets/sprites/objects/mirror_portal/mirror_portal_lilac_grey_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"active": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"cooldown": {
+					"row": 1,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"enter": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"exit": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"hidden": {
+					"row": 4,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/mirror_portal_lilac_grey.png"
+		},
+		"object.crystal_mirror.marsh_heart": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/object.crystal_mirror.marsh_heart/job.json",
+			"sheet": "res://assets/sprites/objects/crystal_mirror/crystal_mirror_marsh_heart_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				128,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 8,
+					"loop": true
+				},
+				"charged": {
+					"row": 1,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"burst": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"debris": {
+					"row": 3,
+					"frames": 6,
+					"fps": 7,
+					"loop": false
+				},
+				"hidden": {
+					"row": 4,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"primed": {
+					"row": 1,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/crystal_mirror_marsh_heart.png"
 		}
 	}
 }

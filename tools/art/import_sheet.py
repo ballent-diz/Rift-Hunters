@@ -45,11 +45,13 @@ from pixelforge.sheet import EntitySpec, make_icon, make_preview, _save  # noqa:
 from pixelforge.palette import OUTLINE, hexrgb  # noqa: E402
 
 
-def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 0, holes_min_area: int = 8) -> Image.Image:
+def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 0,
+                      holes_min_area: int = 8, preserve_alpha: bool = False) -> Image.Image:
     rgba = img.convert("RGBA")
     arr = np.array(rgba)
     if mode == "alpha":
-        arr[arr[:, :, 3] < 128, 3] = 0
+        if not preserve_alpha:
+            arr[arr[:, :, 3] < 128, 3] = 0
         return Image.fromarray(arr, "RGBA")
     if mode == "smooth":
         return _remove_smooth(arr, tolerance)
@@ -279,7 +281,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     for anim in animations:
         img = Image.open(os.path.join(job_dir, anim["source"]))
         img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)),
-                                int(job.get("holes", 0)), int(job.get("holes_min_area", 8)))
+                                int(job.get("holes", 0)), int(job.get("holes_min_area", 8)),
+                                bool(job.get("preserve_alpha", False)))
         if job.get("despill"):
             img = despill(img)
         if job.get("flip"):
@@ -290,7 +293,11 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"), anim.get("row"))
         if anim.get("isolate", job.get("isolate", False)):
             frames = [isolate_frame(fr) for fr in frames]
-        frames = [crop_alpha(fr) for fr in frames]
+        if job.get("registered_cells", False):
+            if not job.get("keep_size", False) or any(fr.size != (cw, ch) for fr in frames):
+                raise ValueError("registered_cells exige keep_size et des cellules aux dimensions du job")
+        else:
+            frames = [crop_alpha(fr) for fr in frames]
         sources.append((anim, frames))
     # Échelle commune : la hauteur médiane de l'animation de référence devient target_height.
     reference = sources[0][1]
@@ -344,7 +351,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
                 arr[:, :, :3] = np.array(rgb)
             if not job.get("preserve_alpha", False):
                 arr[:, :, 3] = np.where(alpha, 255, 0)
-            cell = place_in_cell(arr, (cw, ch), (ax, ay), int(job.get("hover", 0)), job.get("anchor_mode", "feet"))
+            cell = arr.copy() if job.get("registered_cells", False) else place_in_cell(
+                arr, (cw, ch), (ax, ay), int(job.get("hover", 0)), job.get("anchor_mode", "feet"))
             offsets = anim.get("frame_offsets", [])
             if i < len(offsets):
                 dx, dy = map(int, offsets[i])

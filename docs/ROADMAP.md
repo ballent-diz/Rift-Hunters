@@ -541,3 +541,7 @@ peints) ; feuilles de plus de 40 images allégées (une sur deux).
   cellule dans `FlowField`, cerveaux décalés une image sur deux au-delà de 120 Corrompus (`EnemyManager.STAGGER_FROM`,
   jamais pendant une technique), marqueurs de statut extraits dans `EnemyMarkers` et limités à l'écran, halos hors écran
   non dessinés. Piste suivante si besoin : décaler aussi `push_out` et la séparation.
+
+## Objets peints des cartes — livrés pour revue (Codex, 8 novembre)
+
+Branche `codex/objets-peints-cartes` : miroirs-portails de la carte 14 (quatre paires, états conservés), cristaux-miroirs adaptés aux cartes 13 et 15, mannequin de la salle d’entraînement. Sept variantes finales, quatre sources peintes, palettes prélevées sur leurs décors, jobs d’import, onze captures au zoom réel et quatre GIF. Audit des sprites et validation Godot conformes. Voir docs/art/OBJETS_PEINTS_CARTES.md. Claude raccordera les scènes ; aucun changement de src/, data/ ou des cartes. Les prochains abris seront peints dans les décors.
