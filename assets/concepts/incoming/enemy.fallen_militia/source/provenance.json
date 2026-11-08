@@ -1,0 +1,12 @@
+{
+  "generator": "Outil imagegen intégré, alpha demandé explicitement",
+  "date": "2026-11-07",
+  "family": "Les Déchus",
+  "id": "fallen_militia",
+  "planche_B_identity_reference": null,
+  "A_refinement": false,
+  "discarded_trials_outside_repository": true,
+  "source_sha256": {
+    "planche_A.png": "36b89cb7253ad55e2cc1b559dc919b026f08ec873f1350ca92e7c1dc07fd7624"
+  }
+}

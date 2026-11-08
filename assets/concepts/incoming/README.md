@@ -81,6 +81,8 @@ Conseils pour les images :
 | `registered_cells` | avec `keep_size: true`, conserve les positions dans des cellules déjà normalisées aux dimensions du job ; évite de déplacer le pied ou de recentrer une ombre et des débris |
 | `frame_offsets` (par animation) | décalages graphiques `[x,y]` après ancrage, un par pose ; préserve une montée/piqué dans la cellule sans déplacer l’entité |
 | `source_scale` (par animation) | facteur positif de cadrage pour une planche complémentaire ; même facteur pour toute la rangée, sans regonfler les morts ni les poses accroupies |
+| `palette_source` | image de palette commune, chemin relatif au job ; toutes les feuilles d'une créature gardent les mêmes couleurs |
+| `runtime_anchor` | point d'origine publié au manifeste, si différent de l'ancre de rangement des pieds ; permet un Dévoreur centré sans recentrer les poses de mort |
 
 
 ### Planches à plusieurs rangées (monstres à partir du chapitre 2)

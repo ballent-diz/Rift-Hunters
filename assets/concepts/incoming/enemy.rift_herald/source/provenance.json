@@ -1,0 +1,13 @@
+{
+  "generator": "Outil imagegen intégré, alpha demandé explicitement",
+  "date": "2026-11-07",
+  "family": "Les Déchus",
+  "id": "rift_herald",
+  "planche_B_identity_reference": "Planche A du même monstre",
+  "A_refinement": true,
+  "discarded_trials_outside_repository": true,
+  "source_sha256": {
+    "planche_A.png": "04115ccea5a9753245bdd434c4d63f4fffa61540655fe51c161ee0a82a097667",
+    "planche_B.png": "16ea0063ba234645870b1fd52660b8d39905491f8d0f6b713edb84b00e0ee5a8"
+  }
+}

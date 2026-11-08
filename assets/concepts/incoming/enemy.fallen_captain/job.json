@@ -1,0 +1,220 @@
+{
+  "visual_id": "enemy.fallen_captain",
+  "cell": [
+    64,
+    64
+  ],
+  "anchor": [
+    32,
+    54
+  ],
+  "scale": 0.5,
+  "target_height": 48,
+  "status": "final",
+  "background": "alpha",
+  "colors": 32,
+  "outline": false,
+  "flip": false,
+  "hover": 0,
+  "anchor_mode": "feet",
+  "animations": [
+    {
+      "name": "move",
+      "source": "planche_A.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "planche_A.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -1,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "death",
+      "source": "planche_A.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "shield_wall",
+      "source": "planche_B.webp",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 0,
+      "source_scale": 0.81516588,
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "frame_offsets": [
+        [
+          -2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "rallying_cry",
+      "source": "planche_B.webp",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 1,
+      "source_scale": 0.81516588,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  },
+  "family": "Les Déchus",
+  "chapter": 5,
+  "integration": "Claude : comportements et données ; aucun gameplay modifié par ce lot."
+}

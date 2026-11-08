@@ -1,0 +1,289 @@
+{
+  "method": "Six colonnes réellement redessinées par imagegen ; poses recalées sur les hauteurs relatives du guide, puis assemblées sans redessin. La mort conserve la réduction de chaque pose du guide, aucun cadavre regonflé.",
+  "columns": [
+    {
+      "phase": "G",
+      "column": 1,
+      "rows": 2,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-d5d7f17d-b2a0-43a7-82a5-731d58c711cf.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of TWO equally spaced frames, tall format about887×1774. Image1 is the exact column to refine: preserve EACH of its TWO DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 1 of sheet G. SHEET G DEATH, ONE COLUMN OF TWO POSES ONLY. Image1 gives the exact two successive death-stage poses: TOP is this column's COLLAPSE stage, BOTTOM is this column's EYE-CLOSING stage. Preserve their DIFFERENT HEIGHTS and very LOW baselines; the bottom is always a low remnant, never a standing boss. All of these are the FINAL naked-Rift form: black-violet void, magenta crystal/crown/claws, few pale fragments, NO moss, lava, blue ice or brown mud. Image2 is fine F, the final-form identity; image3 is fine A for underlying anatomy only. Keep the EXACT shrinking and folding stages of image1. If a pose is tiny or flat in image1, leave it TINY/FLAT with lots of empty space. Do NOT enlarge it to fill a cell. Last column bottom: CLOSED short magenta seam, NO visible pupil, just two dark fragments. No arena vortex or ground ring, no summoned creatures or explosions. Fine1–2pixel rendering appropriate for the full-size boss; smaller debris stays at this same underlying pixel scale.",
+      "sha256": "7e6a3883fad17ae1f4955ccbe4c12ae1e8a0ea6d09cc7ebf9570bf64ac486dae"
+    },
+    {
+      "phase": "G",
+      "column": 2,
+      "rows": 2,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-b80319ae-6678-404a-84d3-f33878c8c088.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of TWO equally spaced frames, tall format about887×1774. Image1 is the exact column to refine: preserve EACH of its TWO DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 2 of sheet G. SHEET G DEATH, ONE COLUMN OF TWO POSES ONLY. Image1 gives the exact two successive death-stage poses: TOP is this column's COLLAPSE stage, BOTTOM is this column's EYE-CLOSING stage. Preserve their DIFFERENT HEIGHTS and very LOW baselines; the bottom is always a low remnant, never a standing boss. All of these are the FINAL naked-Rift form: black-violet void, magenta crystal/crown/claws, few pale fragments, NO moss, lava, blue ice or brown mud. Image2 is fine F, the final-form identity; image3 is fine A for underlying anatomy only. Keep the EXACT shrinking and folding stages of image1. If a pose is tiny or flat in image1, leave it TINY/FLAT with lots of empty space. Do NOT enlarge it to fill a cell. Last column bottom: CLOSED short magenta seam, NO visible pupil, just two dark fragments. No arena vortex or ground ring, no summoned creatures or explosions. Fine1–2pixel rendering appropriate for the full-size boss; smaller debris stays at this same underlying pixel scale.",
+      "sha256": "5d4a9ea0a68bc47e2956af6c916171913f355ba0e3bbbe45bf9a11767a0cfc5b"
+    },
+    {
+      "phase": "G",
+      "column": 3,
+      "rows": 2,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-b9cea0e8-b46a-4b3c-87d9-54b5b009782a.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of TWO equally spaced frames, tall format about887×1774. Image1 is the exact column to refine: preserve EACH of its TWO DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 3 of sheet G. SHEET G DEATH, ONE COLUMN OF TWO POSES ONLY. Image1 gives the exact two successive death-stage poses: TOP is this column's COLLAPSE stage, BOTTOM is this column's EYE-CLOSING stage. Preserve their DIFFERENT HEIGHTS and very LOW baselines; the bottom is always a low remnant, never a standing boss. All of these are the FINAL naked-Rift form: black-violet void, magenta crystal/crown/claws, few pale fragments, NO moss, lava, blue ice or brown mud. Image2 is fine F, the final-form identity; image3 is fine A for underlying anatomy only. Keep the EXACT shrinking and folding stages of image1. If a pose is tiny or flat in image1, leave it TINY/FLAT with lots of empty space. Do NOT enlarge it to fill a cell. Last column bottom: CLOSED short magenta seam, NO visible pupil, just two dark fragments. No arena vortex or ground ring, no summoned creatures or explosions. Fine1–2pixel rendering appropriate for the full-size boss; smaller debris stays at this same underlying pixel scale.",
+      "sha256": "d1da81fe8eb5cb45e113d6ff60287f55c8a62be58aaf3d29cf9ee68ea66d31f2"
+    },
+    {
+      "phase": "G",
+      "column": 4,
+      "rows": 2,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-776e6f27-8dc1-46bb-9090-8b8919994f70.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of TWO equally spaced frames, tall format about887×1774. Image1 is the exact column to refine: preserve EACH of its TWO DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 4 of sheet G. SHEET G DEATH, ONE COLUMN OF TWO POSES ONLY. Image1 gives the exact two successive death-stage poses: TOP is this column's COLLAPSE stage, BOTTOM is this column's EYE-CLOSING stage. Preserve their DIFFERENT HEIGHTS and very LOW baselines; the bottom is always a low remnant, never a standing boss. All of these are the FINAL naked-Rift form: black-violet void, magenta crystal/crown/claws, few pale fragments, NO moss, lava, blue ice or brown mud. Image2 is fine F, the final-form identity; image3 is fine A for underlying anatomy only. Keep the EXACT shrinking and folding stages of image1. If a pose is tiny or flat in image1, leave it TINY/FLAT with lots of empty space. Do NOT enlarge it to fill a cell. Last column bottom: CLOSED short magenta seam, NO visible pupil, just two dark fragments. No arena vortex or ground ring, no summoned creatures or explosions. Fine1–2pixel rendering appropriate for the full-size boss; smaller debris stays at this same underlying pixel scale.",
+      "sha256": "df66f77ae521ace32105287e5edd4c17ccfbb162b503a095761e4235cdb765de"
+    },
+    {
+      "phase": "G",
+      "column": 5,
+      "rows": 2,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-65c41ffd-3f41-4d8f-ae87-0af16bacb8de.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of TWO equally spaced frames, tall format about887×1774. Image1 is the exact column to refine: preserve EACH of its TWO DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 5 of sheet G. SHEET G DEATH, ONE COLUMN OF TWO POSES ONLY. Image1 gives the exact two successive death-stage poses: TOP is this column's COLLAPSE stage, BOTTOM is this column's EYE-CLOSING stage. Preserve their DIFFERENT HEIGHTS and very LOW baselines; the bottom is always a low remnant, never a standing boss. All of these are the FINAL naked-Rift form: black-violet void, magenta crystal/crown/claws, few pale fragments, NO moss, lava, blue ice or brown mud. Image2 is fine F, the final-form identity; image3 is fine A for underlying anatomy only. Keep the EXACT shrinking and folding stages of image1. If a pose is tiny or flat in image1, leave it TINY/FLAT with lots of empty space. Do NOT enlarge it to fill a cell. Last column bottom: CLOSED short magenta seam, NO visible pupil, just two dark fragments. No arena vortex or ground ring, no summoned creatures or explosions. Fine1–2pixel rendering appropriate for the full-size boss; smaller debris stays at this same underlying pixel scale.",
+      "sha256": "c4013a2f1af69491ddf122e26942e744b2c69684b70df023bbd28dafb301f5b4"
+    },
+    {
+      "phase": "G",
+      "column": 6,
+      "rows": 2,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-ae4dc99e-723b-447d-a0e0-579e2e2e286a.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of TWO equally spaced frames, tall format about887×1774. Image1 is the exact column to refine: preserve EACH of its TWO DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 6 of sheet G. SHEET G DEATH, ONE COLUMN OF TWO POSES ONLY. Image1 gives the exact two successive death-stage poses: TOP is this column's COLLAPSE stage, BOTTOM is this column's EYE-CLOSING stage. Preserve their DIFFERENT HEIGHTS and very LOW baselines; the bottom is always a low remnant, never a standing boss. All of these are the FINAL naked-Rift form: black-violet void, magenta crystal/crown/claws, few pale fragments, NO moss, lava, blue ice or brown mud. Image2 is fine F, the final-form identity; image3 is fine A for underlying anatomy only. Keep the EXACT shrinking and folding stages of image1. If a pose is tiny or flat in image1, leave it TINY/FLAT with lots of empty space. Do NOT enlarge it to fill a cell. Last column bottom: CLOSED short magenta seam, NO visible pupil, just two dark fragments. No arena vortex or ground ring, no summoned creatures or explosions. Fine1–2pixel rendering appropriate for the full-size boss; smaller debris stays at this same underlying pixel scale.",
+      "sha256": "d9d2c3c700165198b5f2b4256d443b6222aef55c35e61cc5ae1eda4e1f9cfdf6"
+    }
+  ],
+  "registration": [
+    {
+      "row": 0,
+      "column": 0,
+      "generated_row": 0,
+      "reference_size": [
+        338,
+        310
+      ],
+      "fine_size": [
+        841,
+        760
+      ],
+      "registered_size": [
+        1029,
+        930
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2236842105263157
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "generated_row": 1,
+      "reference_size": [
+        193,
+        86
+      ],
+      "fine_size": [
+        473,
+        197
+      ],
+      "registered_size": [
+        619,
+        258
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.3096446700507614
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "generated_row": 0,
+      "reference_size": [
+        307,
+        279
+      ],
+      "fine_size": [
+        786,
+        691
+      ],
+      "registered_size": [
+        952,
+        837
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.211287988422576
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "generated_row": 1,
+      "reference_size": [
+        185,
+        79
+      ],
+      "fine_size": [
+        468,
+        191
+      ],
+      "registered_size": [
+        581,
+        237
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2408376963350785
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "generated_row": 0,
+      "reference_size": [
+        296,
+        227
+      ],
+      "fine_size": [
+        763,
+        595
+      ],
+      "registered_size": [
+        873,
+        681
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1445378151260504
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "generated_row": 1,
+      "reference_size": [
+        154,
+        65
+      ],
+      "fine_size": [
+        404,
+        173
+      ],
+      "registered_size": [
+        455,
+        195
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1271676300578035
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "generated_row": 0,
+      "reference_size": [
+        280,
+        165
+      ],
+      "fine_size": [
+        699,
+        421
+      ],
+      "registered_size": [
+        822,
+        495
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.175771971496437
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "generated_row": 1,
+      "reference_size": [
+        135,
+        57
+      ],
+      "fine_size": [
+        354,
+        157
+      ],
+      "registered_size": [
+        386,
+        171
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.089171974522293
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "generated_row": 0,
+      "reference_size": [
+        256,
+        119
+      ],
+      "fine_size": [
+        675,
+        326
+      ],
+      "registered_size": [
+        739,
+        357
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.0950920245398772
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "generated_row": 1,
+      "reference_size": [
+        109,
+        45
+      ],
+      "fine_size": [
+        281,
+        129
+      ],
+      "registered_size": [
+        294,
+        135
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.0465116279069768
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "generated_row": 0,
+      "reference_size": [
+        204,
+        82
+      ],
+      "fine_size": [
+        681,
+        288
+      ],
+      "registered_size": [
+        582,
+        246
+      ],
+      "reference_height_multiple": 3,
+      "factor": 0.8541666666666666
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "generated_row": 1,
+      "reference_size": [
+        101,
+        24
+      ],
+      "fine_size": [
+        309,
+        77
+      ],
+      "registered_size": [
+        289,
+        72
+      ],
+      "reference_height_multiple": 3,
+      "factor": 0.935064935064935
+    }
+  ],
+  "reused_keyframe": "Première pose de mort : dernière pose entrée F réutilisée avant effondrement.",
+  "size": [
+    7008,
+    2336
+  ],
+  "row_order_correction": null
+}

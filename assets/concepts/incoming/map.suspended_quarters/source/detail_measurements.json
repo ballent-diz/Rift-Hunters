@@ -1,0 +1,254 @@
+{
+  "date": "2026-11-06",
+  "method": "Relevés graphiques manuels sur recadrages500×500u,627×627px, silhouette entière des objets ; précision environ2u, pas une géométrie de collision.",
+  "covers_allowed_world": [
+    110,
+    160
+  ],
+  "pads_allowed_world": [
+    160,
+    200
+  ],
+  "pad_clearance_beyond_base_world": 120,
+  "clearance_scope": "Contrôle visuel sur le détail, à confirmer sur les collisions peintes ; aucune carte de collisions calculée.",
+  "measurements": [
+    {
+      "id": "a01",
+      "kind": "covers",
+      "width_world_approx": 133.17,
+      "graphic_bounds_world_approx": [
+        1332.62,
+        1123.02,
+        1465.79,
+        1220.31
+      ],
+      "board": "covers0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a02",
+      "kind": "covers",
+      "width_world_approx": 134.77,
+      "graphic_bounds_world_approx": [
+        1542.87,
+        2068.84,
+        1677.64,
+        2175.69
+      ],
+      "board": "covers0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a03",
+      "kind": "covers",
+      "width_world_approx": 133.97,
+      "graphic_bounds_world_approx": [
+        1974.43,
+        1004.24,
+        2108.4,
+        1106.32
+      ],
+      "board": "covers0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a04",
+      "kind": "covers",
+      "width_world_approx": 154.7,
+      "graphic_bounds_world_approx": [
+        2542.31,
+        628.92,
+        2697.01,
+        748.54
+      ],
+      "board": "covers0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a05",
+      "kind": "covers",
+      "width_world_approx": 155.5,
+      "graphic_bounds_world_approx": [
+        3232.34,
+        668.45,
+        3387.84,
+        773.72
+      ],
+      "board": "covers1.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a06",
+      "kind": "covers",
+      "width_world_approx": 126.0,
+      "graphic_bounds_world_approx": [
+        2686.03,
+        1751.12,
+        2812.03,
+        1856.39
+      ],
+      "board": "covers1.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a07",
+      "kind": "covers",
+      "width_world_approx": 137.16,
+      "graphic_bounds_world_approx": [
+        3874.3,
+        645.03,
+        4011.46,
+        745.5
+      ],
+      "board": "covers1.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a08",
+      "kind": "covers",
+      "width_world_approx": 145.93,
+      "graphic_bounds_world_approx": [
+        4633.67,
+        675.44,
+        4779.6,
+        785.49
+      ],
+      "board": "covers1.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a09",
+      "kind": "covers",
+      "width_world_approx": 120.41,
+      "graphic_bounds_world_approx": [
+        3852.58,
+        2098.23,
+        3973.0,
+        2179.57
+      ],
+      "board": "covers2.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a10",
+      "kind": "covers",
+      "width_world_approx": 114.04,
+      "graphic_bounds_world_approx": [
+        4619.17,
+        2110.42,
+        4733.2,
+        2190.16
+      ],
+      "board": "covers2.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a11",
+      "kind": "covers",
+      "width_world_approx": 132.38,
+      "graphic_bounds_world_approx": [
+        2031.69,
+        501.91,
+        2164.07,
+        568.89
+      ],
+      "board": "covers2.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a1",
+      "kind": "pads",
+      "width_world_approx": 184.21,
+      "graphic_bounds_world_approx": [
+        636.91,
+        1178.93,
+        821.12,
+        1357.55
+      ],
+      "board": "pads0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "a2",
+      "kind": "pads",
+      "width_world_approx": 189.79,
+      "graphic_bounds_world_approx": [
+        2922.1,
+        543.02,
+        3111.9,
+        726.43
+      ],
+      "board": "pads0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "b1",
+      "kind": "pads",
+      "width_world_approx": 186.6,
+      "graphic_bounds_world_approx": [
+        1834.91,
+        1979.05,
+        2021.51,
+        2158.47
+      ],
+      "board": "pads0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "b2",
+      "kind": "pads",
+      "width_world_approx": 198.56,
+      "graphic_bounds_world_approx": [
+        4200.03,
+        528.48,
+        4398.59,
+        719.86
+      ],
+      "board": "pads0.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "c1",
+      "kind": "pads",
+      "width_world_approx": 197.77,
+      "graphic_bounds_world_approx": [
+        2906.12,
+        1622.27,
+        3103.88,
+        1800.9
+      ],
+      "board": "pads1.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    },
+    {
+      "id": "c2",
+      "kind": "pads",
+      "width_world_approx": 180.22,
+      "graphic_bounds_world_approx": [
+        1649.88,
+        379.67,
+        1830.1,
+        558.29
+      ],
+      "board": "pads1.webp",
+      "case_world": 500,
+      "case_pixels": 627
+    }
+  ]
+}
