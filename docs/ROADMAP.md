@@ -548,3 +548,11 @@ peints) ; feuilles de plus de 40 images allégées (une sur deux).
   cellule dans `FlowField`, cerveaux décalés une image sur deux au-delà de 120 Corrompus (`EnemyManager.STAGGER_FROM`,
   jamais pendant une technique), marqueurs de statut extraits dans `EnemyMarkers` et limités à l'écran, halos hors écran
   non dessinés. Piste suivante si besoin : décaler aussi `push_out` et la séparation.
+
+## Abyssarque final : livré (Codex, 8 novembre 2026)
+
+Sept planches A à G pour le Dévoreur de la carte 25, après livraison des Enfants de la Faille (PR 129).
+Identité issue des cinq matières du voyage, cœur-œil central ; gabarit 450u (Nivorath actuel : 150u).
+42 colonnes redessinées, 120 poses, sept feuilles de phase et sept icônes. Sept assets conformes dans Godot.
+Onze captures et un GIF, Chasseur et Écho inchangés ; guide Claude : `docs/art/ABYSSARQUE.md`.
+Aucun changement de src/, data/, maps ou collisions.

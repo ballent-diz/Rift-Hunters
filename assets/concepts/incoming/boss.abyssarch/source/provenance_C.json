@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-08",
+  "tool": "image_gen intégré",
+  "original_generated_path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-6ab5da2c-3250-45af-9ce2-dbe349cf09b8.png",
+  "grid": [
+    6,
+    3
+  ],
+  "transparent_background": true,
+  "reference": "Planche A du même boss ; F finale aussi pour G",
+  "retained_source_only": true,
+  "stage": "détail par six colonnes",
+  "final_source_is_assembled": true,
+  "detail_recipe": "detail_C.json"
+}
