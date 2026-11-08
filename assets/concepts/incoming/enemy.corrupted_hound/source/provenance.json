@@ -1,0 +1,12 @@
+{
+  "generator": "Outil imagegen intégré, alpha demandé explicitement",
+  "date": "2026-11-07",
+  "family": "Les Déchus",
+  "id": "corrupted_hound",
+  "planche_B_identity_reference": null,
+  "A_refinement": true,
+  "discarded_trials_outside_repository": true,
+  "source_sha256": {
+    "planche_A.png": "293fabd1a1c0f7bc2acd6d8f4888d87bfee64bc9fa63f8f601ae12cad287dcf6"
+  }
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "visual_id": "enemy.fallen_militia",
+    "source_sheets": 1,
+    "painted_poses": 12,
+    "job": "assets/concepts/incoming/enemy.fallen_militia/job.json"
+  },
+  {
+    "visual_id": "enemy.corrupted_hound",
+    "source_sheets": 1,
+    "painted_poses": 12,
+    "job": "assets/concepts/incoming/enemy.corrupted_hound/job.json"
+  },
+  {
+    "visual_id": "enemy.lantern_wraith",
+    "source_sheets": 1,
+    "painted_poses": 12,
+    "job": "assets/concepts/incoming/enemy.lantern_wraith/job.json"
+  },
+  {
+    "visual_id": "enemy.fallen_crossbowman",
+    "source_sheets": 1,
+    "painted_poses": 18,
+    "job": "assets/concepts/incoming/enemy.fallen_crossbowman/job.json"
+  },
+  {
+    "visual_id": "enemy.fallen_captain",
+    "source_sheets": 2,
+    "painted_poses": 30,
+    "job": "assets/concepts/incoming/enemy.fallen_captain/job.json"
+  },
+  {
+    "visual_id": "enemy.rift_herald",
+    "source_sheets": 2,
+    "painted_poses": 30,
+    "job": "assets/concepts/incoming/enemy.rift_herald/job.json"
+  },
+  {
+    "visual_id": "enemy.cobble_golem",
+    "source_sheets": 2,
+    "painted_poses": 30,
+    "job": "assets/concepts/incoming/enemy.cobble_golem/job.json"
+  }
+]

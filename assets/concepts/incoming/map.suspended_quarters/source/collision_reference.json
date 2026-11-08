@@ -1,0 +1,55 @@
+{
+  "date": "2026-11-06",
+  "reference": "docs/previews/suspended-quarters/reference_collisions.jpg",
+  "sha256": "abc6d76136471bb60821d5ccc7e85368f781a86f863fdb9ada3f2152e6043f2f",
+  "bytes": 341829,
+  "size": [
+    1254,
+    627
+  ],
+  "world": [
+    5016,
+    2508
+  ],
+  "world_units_per_pixel": 4,
+  "whole_map": true,
+  "crop": null,
+  "origin": "Coin haut-gauche ; cadrage entier identique au plan validé et au détail.",
+  "recipe": {
+    "source_tiles_left_to_right": [
+      {
+        "path": "assets/environments/suspended_quarters/map.webp",
+        "sha256": "e6554402ee5f81a92c1ff4a7a686253897a1d5e30ccc39de55093be86c66f5c6"
+      },
+      {
+        "path": "assets/environments/suspended_quarters/map_1.webp",
+        "sha256": "cd9cde640f09c108b13d7d89350da26980f2f52c7558dfd0bacd12a39fea6645"
+      },
+      {
+        "path": "assets/environments/suspended_quarters/map_2.webp",
+        "sha256": "364a05b16519b86955a09e584da7d510e36c0d426ecb62a6f090afd48c3d38f5"
+      }
+    ],
+    "assembly_size": [
+      11286,
+      5643
+    ],
+    "resize": "Lanczos",
+    "format": "JPEG",
+    "quality": 85,
+    "subsampling": 0,
+    "optimize": true
+  },
+  "expected_return": {
+    "format": "PNG",
+    "size": [
+      1254,
+      627
+    ],
+    "same_framing": true,
+    "resize_allowed": false,
+    "paint": "Rouge translucide sur le vide, les falaises, bâtiments, murs et onze abris bloquants. Garder PRATICABLES les trois ponts de parcours, le court passage sur la faille intérieure, les six socles runiques et les cinq nappes de dalles violettes décoratives. Ne pas fermer un tablier sous son décor surélevé. Le refuge nord reste accessible uniquement par téléporteur."
+  },
+  "collision_mask_created": false,
+  "runtime_integrated": false
+}

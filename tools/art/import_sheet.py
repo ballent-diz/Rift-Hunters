@@ -315,7 +315,15 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     colors = int(job.get("colors", 32))
     all_frames = [fr for _, frs in scaled for fr in frs]
     palette_img = None
-    if colors > 0:
+    if colors > 0 and job.get("palette_source"):
+        # Plusieurs feuilles d'une même créature peuvent partager exactement les mêmes couleurs.
+        palette_path = os.path.join(job_dir, job["palette_source"])
+        palette_img = Image.open(palette_path).convert("RGB").quantize(
+            colors=colors, method=Image.Quantize.FASTOCTREE)
+        active = max(index for _, index in palette_img.getcolors()) + 1
+        values = palette_img.getpalette()[:active * 3]
+        palette_img.putpalette(values + values[-3:] * (256 - active))
+    elif colors > 0:
         strip_w = sum(fr.width for fr in all_frames)
         strip = Image.new("RGB", (strip_w, max(fr.height for fr in all_frames)), (0, 0, 0))
         x = 0
@@ -376,7 +384,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
         "imported_from": os.path.relpath(job_path, REPO).replace(os.sep, "/"),
         "sheet": "res://" + sheet_rel,
         "cell": [cw, ch],
-        "anchor": [ax, ay],
+        "anchor": list(job.get("runtime_anchor", [ax, ay])),
         "scale": job.get("scale", 1.0),
         "animations": entry_anims,
         "icon": "res://" + icon_rel,

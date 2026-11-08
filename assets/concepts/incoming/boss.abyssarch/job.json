@@ -1,0 +1,160 @@
+{
+  "visual_id": "boss.abyssarch",
+  "master_visual_id": "boss.abyssarch",
+  "phase": "A",
+  "cell": [
+    1408,
+    1152
+  ],
+  "anchor": [
+    704,
+    1100
+  ],
+  "runtime_anchor": [
+    704,
+    650
+  ],
+  "scale": 0.5,
+  "anchor_mode": "mass",
+  "target_height": 900,
+  "status": "final",
+  "background": "alpha",
+  "outline": false,
+  "colors": 32,
+  "palette_source": "palette.png",
+  "preview_zoom": 1,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "planche_A.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "move",
+      "source": "planche_A.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "planche_A.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "aliases": {},
+  "empty_animations": [
+    {
+      "name": "death",
+      "fps": 10,
+      "loop": false
+    }
+  ],
+  "integration": "Claude : changer le visual_id selon la phase. Mort : G/collapse, eye_close, hidden.",
+  "boss_size": "Référence 450u ; Nivorath existant 150u. Aucun multiplicateur de rang dans le banc.",
+  "phase_jobs": {
+    "B": "jobs/B.json",
+    "C": "jobs/C.json",
+    "D": "jobs/D.json",
+    "E": "jobs/E.json",
+    "F": "jobs/F.json",
+    "G": "jobs/G.json"
+  }
+}
