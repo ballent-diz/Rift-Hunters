@@ -23,7 +23,8 @@ Aucun lien avec une licence existante : noms, créatures, visuels et mécaniques
 7. **Une session par tâche** (économie de tokens) : chaque gros sujet se traite dans une session neuve. La mémoire du
    projet est dans le dépôt, pas dans la conversation : en fin de tâche, noter décisions et état dans
    `docs/ROADMAP.md` (et cocher `docs/RETOURS_DE_TEST.md`), pour que la session suivante reparte des fichiers.
-   Pendant l'exécution, pas de commentaires superflus ni de sorties longues ; un bilan court à la fin.
+   **Économie de tokens, dans toutes les sessions** : aucun commentaire pendant l'exécution (pas de narration des
+   étapes ni des notifications), sorties de commandes filtrées au strict nécessaire ; un seul bilan court à la fin.
 8. **Intégration continue** : chaque PR lance `.github/workflows/tests.yml` (même contenu que `tools/run_tests.sh`).
    Ne fusionner qu'avec la coche verte ; une croix rouge se corrige avant fusion.
 
