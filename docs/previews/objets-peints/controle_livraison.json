@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-08",
+  "generator": "imagegen intégré",
+  "variants": 7,
+  "painted_source_cells": 72,
+  "runtime_pose_cells_including_reuse_and_debris_fade": 156,
+  "runtime_texture_imports": 14,
+  "asset_validator": [
+    {
+      "id": "object.mirror_portal",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.mirror_portal.sage",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.mirror_portal.pale_gold",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.mirror_portal.lilac_grey",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.crystal_mirror",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.crystal_mirror.marsh_heart",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.training_dummy",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "import_errors": [],
+  "capture_errors": [],
+  "importer_regression": "test_import.py existant conforme ; alpha faible et cellules enregistrées vérifiés",
+  "gdscript_lint": "conforme avec gdlintrc du dépôt (130 caractères)",
+  "screenshots": [
+    "portail_original_zoom_jeu",
+    "portail_peint_zoom_jeu",
+    "portails_quatre_paires_zoom_jeu",
+    "portails_etats_zoom_jeu",
+    "cristal_13_original_zoom_jeu",
+    "cristal_13_peint_zoom_jeu",
+    "cristal_15_original_zoom_jeu",
+    "cristal_15_peint_zoom_jeu",
+    "cristal_13_etats_zoom_jeu",
+    "cristal_15_etats_zoom_jeu",
+    "mannequin_idle_hit_zoom_jeu"
+  ],
+  "gif_sampling_ms": 160,
+  "capture_size": [
+    1280,
+    720
+  ],
+  "camera_zoom": 1.3333,
+  "scope": "bancs visuels, aucun combat ni raccordement des scènes actuelles",
+  "training_ground": "rendu de ArenaGround._draw_placeholder repris à l’identique ; graine1729",
+  "original_source_sha256": {
+    "object.mirror_portal": "1f1460c10bb7a7d89861d283c4eb71992391b9873e8948822bf0accf3c1420b8",
+    "object.crystal_mirror": "2ca87b986d2f841ec7b1a1f5d4ba30fc6991d07940aade1ebaea91d8fc4a73c4",
+    "object.crystal_mirror.marsh_heart": "85ca807e082c17f9338c09c56b4fed8b864c6dc966a7322c041f27b51833693a",
+    "object.training_dummy": "f191a368e35608ebfc923155efa9fc66ea2750235a5e48b9d9f05fd126b42b4f"
+  },
+  "reference_sha256": {
+    "assets/environments/reflection_wells/map.webp": "d6e4db4de92df6a48ddbd939b125984e5339655a511bb5be87fcdc215bc88c6b",
+    "assets/environments/reflection_wells/map_1.webp": "2bc38fe72e60a7ce5c29a75e06f63ec315faea1c6395289f16ac90e0783623cd",
+    "assets/environments/reflection_wells/map_2.webp": "02c6821045f265476b1513d6505f4295298bdbb5d97f78c3925b25a9427be256",
+    "assets/environments/crystal_gardens/map.webp": "b59e3fa69411e0d5e9ab72fb4ca28c633f0439187c0353e4e2de67efbcd95e8a",
+    "assets/environments/crystal_gardens/map_1.webp": "28fc2df91f9006dd8037fb97cf31493411f631524da95a0c11f2b62739d9c5c2",
+    "assets/environments/crystal_gardens/map_2.webp": "095e6b779aa35479f260bd5267e6bfb4c35d5bc56dc62a86b2d33e5af7437a2a",
+    "assets/environments/marsh_heart/map.webp": "bfe857d20f06cd995f3345f8649fc6307e26db7d009f8d3e5180eed368621af1",
+    "assets/environments/marsh_heart/map_1.webp": "fd95f7112fec8d98cb303cbc0b9ef01bca173a4b513e246a6c3baa2b842a375f",
+    "assets/ui/menus/refuge-backdrop.png": "d4883fda8684e7738c125c8eb33fb5e67eb354726a54bb3d92925385992449ba"
+  },
+  "previews": {
+    "cristal_13_etats_zoom_jeu.png": 2121423,
+    "cristal_13_mouvement.gif": 1073585,
+    "cristal_13_original_zoom_jeu.png": 2118008,
+    "cristal_13_peint_zoom_jeu.png": 2120324,
+    "cristal_15_etats_zoom_jeu.png": 2181973,
+    "cristal_15_mouvement.gif": 967067,
+    "cristal_15_original_zoom_jeu.png": 2182336,
+    "cristal_15_peint_zoom_jeu.png": 2183726,
+    "mannequin_idle_hit_zoom_jeu.png": 54111,
+    "mannequin_mouvement.gif": 47910,
+    "object_crystal_mirror_import.png": 294142,
+    "object_crystal_mirror_marsh_heart_import.png": 281896,
+    "object_mirror_portal_import.png": 242365,
+    "object_mirror_portal_lilac_grey_import.png": 241910,
+    "object_mirror_portal_pale_gold_import.png": 242434,
+    "object_mirror_portal_sage_import.png": 242147,
+    "object_training_dummy_import.png": 91743,
+    "portails_etats_zoom_jeu.png": 2313332,
+    "portails_mouvement.gif": 1199828,
+    "portails_quatre_paires_zoom_jeu.png": 2276315,
+    "portail_original_zoom_jeu.png": 2453142,
+    "portail_peint_zoom_jeu.png": 2462014
+  }
+}

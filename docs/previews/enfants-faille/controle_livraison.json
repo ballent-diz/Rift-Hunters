@@ -1,0 +1,249 @@
+{
+  "date": "2026-11-08",
+  "generator": "Outil imagegen intégré",
+  "entities": 8,
+  "source_sheets": 11,
+  "painted_poses": 162,
+  "manifest_new_ids": [
+    "enemy.rift_larva",
+    "enemy.drifting_eye",
+    "enemy.void_crawler",
+    "enemy.torn_shade",
+    "enemy.portal_strider",
+    "enemy.echo_mirror",
+    "enemy.statue_keeper",
+    "enemy.awakened_statue"
+  ],
+  "all_preexisting_entries_unchanged": true,
+  "source_alpha_threshold": 128,
+  "runtime_cells": {
+    "normals": [
+      192,
+      192
+    ],
+    "elites": [
+      256,
+      256
+    ],
+    "statue": [
+      320,
+      320
+    ]
+  },
+  "manifest_scale": 0.5,
+  "elite_runtime_size_mult": 1.5,
+  "camera_zoom": 1.3333,
+  "viewport": [
+    1280,
+    720
+  ],
+  "measured_reference_sizes": {
+    "enemy.rift_larva": {
+      "reference_bounds": [
+        32,
+        57,
+        154,
+        165
+      ],
+      "visible_world": [
+        61.0,
+        54.0
+      ],
+      "rank_factor": 1
+    },
+    "enemy.drifting_eye": {
+      "reference_bounds": [
+        32,
+        43,
+        156,
+        153
+      ],
+      "visible_world": [
+        62.0,
+        55.0
+      ],
+      "rank_factor": 1
+    },
+    "enemy.void_crawler": {
+      "reference_bounds": [
+        19,
+        74,
+        164,
+        165
+      ],
+      "visible_world": [
+        72.5,
+        45.5
+      ],
+      "rank_factor": 1
+    },
+    "enemy.torn_shade": {
+      "reference_bounds": [
+        60,
+        52,
+        150,
+        165
+      ],
+      "visible_world": [
+        45.0,
+        56.5
+      ],
+      "rank_factor": 1
+    },
+    "enemy.portal_strider": {
+      "reference_bounds": [
+        70,
+        80,
+        203,
+        229
+      ],
+      "visible_world": [
+        99.75,
+        111.75
+      ],
+      "rank_factor": 1.5
+    },
+    "enemy.echo_mirror": {
+      "reference_bounds": [
+        96,
+        78,
+        212,
+        229
+      ],
+      "visible_world": [
+        87.0,
+        113.25
+      ],
+      "rank_factor": 1.5
+    },
+    "enemy.statue_keeper": {
+      "reference_bounds": [
+        66,
+        78,
+        193,
+        229
+      ],
+      "visible_world": [
+        95.25,
+        113.25
+      ],
+      "rank_factor": 1.5
+    },
+    "enemy.awakened_statue": {
+      "reference_bounds": [
+        72,
+        73,
+        192,
+        293
+      ],
+      "visible_world": [
+        60.0,
+        110.0
+      ],
+      "rank_factor": 1
+    }
+  },
+  "statue_plinth_test": {
+    "map": "shattered_pantheon",
+    "plinth": "S01",
+    "plan_center_top_left_world": [
+      1342,
+      378.4
+    ],
+    "feet_top_surface_world": [
+      1342,
+      398.4
+    ],
+    "offset_from_plan_center": [
+      0,
+      20
+    ],
+    "no_duplicate_painted_plinth": true
+  },
+  "asset_validator": "AssetValidator du dépôt, huit entrées du lot, projet isolé sans autoloads",
+  "validated_assets": [
+    {
+      "id": "enemy.rift_larva",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.drifting_eye",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.void_crawler",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.torn_shade",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.portal_strider",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.echo_mirror",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.statue_keeper",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.awakened_statue",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "godot_version": "4.3.stable.official.77dcf97d8",
+  "import_errors": false,
+  "capture_errors": false,
+  "profile_loaded": false,
+  "gameplay_integrated": false,
+  "gameplay_tested": false,
+  "capture_scope": "Banc statique, sources finales des cartes22 et24, échelles du manifeste et facteur élite1,5 existant.",
+  "captures": [
+    {
+      "path": "docs/previews/enfants-faille/enfants_attaques_zoom_jeu.png",
+      "sha256": "60f88a4bd0b404f6910a2c91a7c823d7035b9fe9813d19744885487cb7a8631d"
+    },
+    {
+      "path": "docs/previews/enfants-faille/enfants_corruption_zoom_jeu.png",
+      "sha256": "e8033da7c8513f76ddfcc1b37891a057bdec8df7932137a8bc9a6001ed0e873a"
+    },
+    {
+      "path": "docs/previews/enfants-faille/enfants_dalles_zoom_jeu.png",
+      "sha256": "96fa8344eec03fe212fddce669ab352948738e8a3cbe58800113bf378cefa43d"
+    },
+    {
+      "path": "docs/previews/enfants-faille/enfants_techniques_1_zoom_jeu.png",
+      "sha256": "46da0c7bc45bea1d3c2e8ffb5089c12d2134f236ad7f2c2a2c85453d49705391"
+    },
+    {
+      "path": "docs/previews/enfants-faille/enfants_techniques_2_zoom_jeu.png",
+      "sha256": "8708f1a0f19b563ce5f51c61af168052ff11f550b74d5cbd07688c53d6292db7"
+    },
+    {
+      "path": "docs/previews/enfants-faille/statue_socle_carte24_zoom_jeu.png",
+      "sha256": "54f7f5fd59de13322fee82bf1015dcd946f4f75be3d50558b2af985efc2e177e"
+    }
+  ],
+  "map22_tiles_sha256": [
+    "7b90e8fa09275c494132760b397b10971d79b52457d7102fae34a0e282e007e4",
+    "354ac73a368c70055b0ac29bb2342da79fff73055fe4cadc7f24a9b6a5f694e2"
+  ],
+  "map24_source_sha256": "2f2d78b540de52ad712baf6541e7bf3383b9da5e65987535777338c58b38579d",
+  "witnesses": [
+    "player.hunter",
+    "monster.glimmerwing"
+  ],
+  "text_hash_convention": "UTF-8, fins de ligne LF"
+}

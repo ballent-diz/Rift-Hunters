@@ -1,0 +1,247 @@
+{
+  "sheets": [
+    {
+      "source": "planche_A.png",
+      "sha256": "f274ffca2aa39540f701ff0d20d7a767e56cc063f3e970447398ad1809a3456a",
+      "size": [
+        1774,
+        887
+      ],
+      "alpha_threshold": 128,
+      "grid": [
+        6,
+        3
+      ],
+      "poses": [
+        {
+          "row": 0,
+          "column": 0,
+          "original_bounds": [
+            46,
+            30,
+            258,
+            274
+          ],
+          "components_kept": 1,
+          "source_pixels": 25291
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "original_bounds": [
+            344,
+            30,
+            553,
+            273
+          ],
+          "components_kept": 1,
+          "source_pixels": 24531
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "original_bounds": [
+            639,
+            29,
+            850,
+            266
+          ],
+          "components_kept": 1,
+          "source_pixels": 23657
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "original_bounds": [
+            938,
+            30,
+            1147,
+            274
+          ],
+          "components_kept": 1,
+          "source_pixels": 22982
+        },
+        {
+          "row": 0,
+          "column": 4,
+          "original_bounds": [
+            1234,
+            33,
+            1445,
+            276
+          ],
+          "components_kept": 1,
+          "source_pixels": 22969
+        },
+        {
+          "row": 0,
+          "column": 5,
+          "original_bounds": [
+            1530,
+            33,
+            1742,
+            274
+          ],
+          "components_kept": 1,
+          "source_pixels": 23193
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "original_bounds": [
+            41,
+            327,
+            266,
+            568
+          ],
+          "components_kept": 1,
+          "source_pixels": 25874
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "original_bounds": [
+            338,
+            335,
+            562,
+            568
+          ],
+          "components_kept": 1,
+          "source_pixels": 24144
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "original_bounds": [
+            635,
+            336,
+            857,
+            568
+          ],
+          "components_kept": 1,
+          "source_pixels": 23972
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "original_bounds": [
+            926,
+            329,
+            1165,
+            568
+          ],
+          "components_kept": 1,
+          "source_pixels": 25260
+        },
+        {
+          "row": 1,
+          "column": 4,
+          "original_bounds": [
+            1225,
+            334,
+            1436,
+            568
+          ],
+          "components_kept": 1,
+          "source_pixels": 25258
+        },
+        {
+          "row": 1,
+          "column": 5,
+          "original_bounds": [
+            1523,
+            330,
+            1724,
+            568
+          ],
+          "components_kept": 1,
+          "source_pixels": 24782
+        },
+        {
+          "row": 2,
+          "column": 0,
+          "original_bounds": [
+            34,
+            628,
+            246,
+            864
+          ],
+          "components_kept": 1,
+          "source_pixels": 26281
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "original_bounds": [
+            334,
+            628,
+            544,
+            864
+          ],
+          "components_kept": 1,
+          "source_pixels": 27342
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "original_bounds": [
+            630,
+            633,
+            841,
+            864
+          ],
+          "components_kept": 1,
+          "source_pixels": 26429
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "original_bounds": [
+            913,
+            629,
+            1159,
+            864
+          ],
+          "components_kept": 1,
+          "source_pixels": 29012
+        },
+        {
+          "row": 2,
+          "column": 4,
+          "original_bounds": [
+            1224,
+            631,
+            1440,
+            864
+          ],
+          "components_kept": 4,
+          "source_pixels": 26215
+        },
+        {
+          "row": 2,
+          "column": 5,
+          "original_bounds": [
+            1522,
+            628,
+            1725,
+            864
+          ],
+          "components_kept": 1,
+          "source_pixels": 24725
+        }
+      ]
+    }
+  ],
+  "packing": "Composantes alpha de chaque pose, grille carrée avec32px de marge, sans redessin.",
+  "reference_height_source": 243.0,
+  "source_scale_B": 1.0,
+  "target_height": 46,
+  "world_height_base": 23.0,
+  "native_cell": [
+    64,
+    64
+  ],
+  "text_hash_convention": "UTF-8, fins de ligne LF",
+  "same_scale_through_each_animation": true,
+  "death_and_tunnel_not_regrown": true
+}

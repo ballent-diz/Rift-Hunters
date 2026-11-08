@@ -1,0 +1,1856 @@
+{
+  "date": "2026-11-07",
+  "world": [
+    5016,
+    5016
+  ],
+  "native_size": [
+    3762,
+    3762
+  ],
+  "native_density": 0.75,
+  "composition_sha256": "c0a1050cd12633f2ef3ca7c9810d898c70e7b3bb96ab1b3bfcf0665f996cb105",
+  "plan_sha256": "acc19efbb9405e76ae455e45bf0184c3979ee4efec6e1c6da5eca53f7d97c8dd",
+  "text_hash_convention": "UTF-8, fins de ligne LF",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1414.0
+      ],
+      "square_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1414.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "generated_sha256": "7c4e3ba270dd014a69f1426b8da6130589e1886bfe76d5bbc0841a52e3355e1a",
+      "input_sha256": "51d029fa3b17e99fa481dc8a4f3733a49557c2cb267fe151b29c0712c56f2eec",
+      "scale_reference_sha256": "281b99140abb7ecadc8b53b4a4d2ef2fdaf0f5038dbe5562924f883299a1010d",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r0_0, exact square span1414worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.68%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a05 foot at 58.3%x,92.2%y.",
+      "calibration": {
+        "mode": "anticrenelage",
+        "amount": 0.25,
+        "score": 2.81414,
+        "medians": [
+          0.4446,
+          287.7474,
+          65.8536
+        ],
+        "sector_share": 0.5,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 3.7931,
+            "medians": [
+              0.4427,
+              294.5065,
+              65.4674
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 2.81414,
+            "medians": [
+              0.4446,
+              287.7474,
+              65.8536
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 2.95924,
+            "medians": [
+              0.4654,
+              261.6763,
+              63.1499
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 3.09629,
+            "medians": [
+              0.491,
+              238.6951,
+              61.4119
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 4.66968,
+            "medians": [
+              0.4298,
+              315.3634,
+              69.5229
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 4.59816,
+            "medians": [
+              0.4224,
+              326.1781,
+              72.6128
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 4.53089,
+            "medians": [
+              0.4169,
+              337.5721,
+              75.5095
+            ],
+            "sector_share": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1414.0
+      ],
+      "square_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1574.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "09fa93a9473a237ef7253946d5cf38bc053294ba5f7c8e3348133dad036ef9c2",
+      "input_sha256": "b392f4e092b41fb93639adc8b56dc02205c4d3deeaf7ded278936350a9c097ce",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r0_1, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a07 foot at 69.8%x,44.2%y; a08 foot at 99.5%x,19.6%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 120,
+        "score": 4.67383,
+        "medians": [
+          0.6155,
+          184.2356,
+          46.5417
+        ],
+        "sector_share": 0.25,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 5.14021,
+            "medians": [
+              0.6807,
+              135.3765,
+              40.7481
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 5.18631,
+            "medians": [
+              0.6859,
+              131.7072,
+              39.9756
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 5.30465,
+            "medians": [
+              0.7025,
+              118.9613,
+              39.9756
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 5.41177,
+            "medians": [
+              0.7149,
+              110.0779,
+              39.01
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 4.91803,
+            "medians": [
+              0.6511,
+              155.4608,
+              44.0311
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 4.78431,
+            "medians": [
+              0.6303,
+              170.9104,
+              45.1899
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 4.67383,
+            "medians": [
+              0.6155,
+              184.2356,
+              46.5417
+            ],
+            "sector_share": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1414.0
+      ],
+      "square_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1574.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "5d36c7d5e56949c793ab65f6b43f5fef4ca812c56bb8c5bda444f423f57d910d",
+      "input_sha256": "edb5e40c59b7cabd9018406a029eae6dfc6e2cd2fab88097cf926a47fbb44f8c",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r0_2, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a08 foot at 19.8%x,19.6%y; a09 foot at 42.7%x,51.6%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 120,
+        "score": 2.44112,
+        "medians": [
+          0.3168,
+          325.985,
+          78.2132
+        ],
+        "sector_share": 0.5,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 2.87227,
+            "medians": [
+              0.3605,
+              245.0681,
+              67.5917
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 2.90849,
+            "medians": [
+              0.3671,
+              239.8539,
+              66.8192
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 3.02113,
+            "medians": [
+              0.3917,
+              219.1901,
+              67.0123
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 3.13944,
+            "medians": [
+              0.4106,
+              202.9681,
+              64.888
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 2.65511,
+            "medians": [
+              0.3321,
+              279.4433,
+              73.3852
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 2.50573,
+            "medians": [
+              0.3151,
+              306.673,
+              77.6339
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 2.44112,
+            "medians": [
+              0.3168,
+              325.985,
+              78.2132
+            ],
+            "sector_share": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3602.0,
+        0.0,
+        5016,
+        1414.0
+      ],
+      "square_world": [
+        3602.0,
+        0.0,
+        5016.0,
+        1414.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "generated_sha256": "7bbbe8bb16fedf9da3797ae99834f799053ccb90f6135bf752a91877511fbdbb",
+      "input_sha256": "ab4e230eb13eabbd89ec3295a1248764bf01324df613e0201023d927e7fddb28",
+      "scale_reference_sha256": "281b99140abb7ecadc8b53b4a4d2ef2fdaf0f5038dbe5562924f883299a1010d",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r0_3, exact square span1414worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.68%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a10 foot at 52.5%x,96.5%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 80,
+        "score": 5.73133,
+        "medians": [
+          0.7739,
+          106.988,
+          28.0023
+        ],
+        "sector_share": 0.25,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 6.17432,
+            "medians": [
+              0.8151,
+              78.9857,
+              24.333
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 6.19222,
+            "medians": [
+              0.8176,
+              78.2132,
+              24.1399
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 6.31997,
+            "medians": [
+              0.8302,
+              70.1022,
+              23.9468
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 6.46139,
+            "medians": [
+              0.8399,
+              61.7981,
+              23.7536
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 5.9489,
+            "medians": [
+              0.7928,
+              92.6971,
+              25.878
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 5.73133,
+            "medians": [
+              0.7739,
+              106.988,
+              28.0023
+            ],
+            "sector_share": 0.25
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 5.76772,
+            "medians": [
+              0.7833,
+              108.9191,
+              26.2642
+            ],
+            "sector_share": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        1094.0,
+        1414.0,
+        2668.0
+      ],
+      "square_world": [
+        0.0,
+        1094.0,
+        1574.0,
+        2668.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "d4a95cf9b2098aa418cd0482f8c208372f4985dfad284c8ffe1943f3587d1967",
+      "input_sha256": "dfdf32c60006dd0688df3cbd399ca9485a2e9508679042d868028f0c7e08678c",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r1_0, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a04 foot at 15.5%x,44.1%y; a05 foot at 52.4%x,13.3%y; a06 foot at 56.9%x,57.1%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "anticrenelage",
+        "amount": 0.4,
+        "score": 1.05908,
+        "medians": [
+          0.1401,
+          374.4578,
+          103.5118
+        ],
+        "sector_share": 0.75,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.07577,
+            "medians": [
+              0.1055,
+              417.1371,
+              106.4086
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 1.06851,
+            "medians": [
+              0.1083,
+              410.9573,
+              105.2499
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 1.05908,
+            "medians": [
+              0.1401,
+              374.4578,
+              103.5118
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 1.16507,
+            "medians": [
+              0.1726,
+              343.5588,
+              100.615
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 1.17742,
+            "medians": [
+              0.0606,
+              449.9674,
+              111.6228
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 1.23809,
+            "medians": [
+              0.0358,
+              468.5068,
+              114.9058
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 1.28834,
+            "medians": [
+              0.0233,
+              480.2871,
+              119.1545
+            ],
+            "sector_share": 0.75
+          }
+        ]
+      }
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2668.0
+      ],
+      "square_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2668.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "b635b279a41033c2d5f7834bd9e79103526b6eec31970a0b4820769cb12532e0",
+      "input_sha256": "7903487a821104b748ef21a7441656ec028acd4f07dd130ad9ca4ea303fcfcbd",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r1_1, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a16 foot at 65.7%x,54.3%y; a18 foot at 63.2%x,91.9%y.",
+      "calibration": {
+        "mode": "anticrenelage",
+        "amount": 0.4,
+        "score": 1.0571,
+        "medians": [
+          0.1715,
+          401.8807,
+          110.4641
+        ],
+        "sector_share": 0.75,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.19963,
+            "medians": [
+              0.1121,
+              449.7743,
+              115.2921
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 1.17698,
+            "medians": [
+              0.1145,
+              442.822,
+              114.1334
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 1.0571,
+            "medians": [
+              0.1715,
+              401.8807,
+              110.4641
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 1.08998,
+            "medians": [
+              0.233,
+              356.1115,
+              107.5673
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 1.31165,
+            "medians": [
+              0.0566,
+              483.9563,
+              121.8581
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 1.38033,
+            "medians": [
+              0.0287,
+              507.71,
+              125.5274
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 3.42702,
+            "medians": [
+              0.0164,
+              520.2627,
+              129.5829
+            ],
+            "sector_share": 0.25
+          }
+        ]
+      }
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2668.0
+      ],
+      "square_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2668.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "c23a70cd19874042f37342206e77f8cf49cfaf8145a035b6b26c91755894d5bc",
+      "input_sha256": "8857b6553bbb1c9c4254d7e195ebfe7863e3ea4c47272375e3261d4b33e4b385",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r1_2, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a11 foot at 98.1%x,44.6%y; a17 foot at 32.5%x,55.5%y; a19 foot at 33.3%x,93.1%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 80,
+        "score": 2.13318,
+        "medians": [
+          0.2404,
+          381.217,
+          90.766
+        ],
+        "sector_share": 0.5,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 2.45506,
+            "medians": [
+              0.3436,
+              324.0538,
+              80.3375
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 2.47795,
+            "medians": [
+              0.3467,
+              320.9639,
+              79.1788
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 2.65009,
+            "medians": [
+              0.3853,
+              287.7474,
+              76.4751
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 2.84525,
+            "medians": [
+              0.43,
+              250.6685,
+              75.1233
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 2.25823,
+            "medians": [
+              0.283,
+              356.4978,
+              85.1655
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 2.13318,
+            "medians": [
+              0.2404,
+              381.217,
+              90.766
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 4.12348,
+            "medians": [
+              0.2129,
+              398.4046,
+              93.0834
+            ],
+            "sector_share": 0.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3602.0,
+        1094.0,
+        5016,
+        2668.0
+      ],
+      "square_world": [
+        3602.0,
+        1094.0,
+        5176.0,
+        2668.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "1fd08b310cdd4c6e25770819904ebbb4c7f859d716e7217cb69a2c4df8eff0eb",
+      "input_sha256": "798f42e2c62742d379bda805e8dbae44a357f470e7d761fe2da7543fc5f14d1d",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r1_3, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a10 foot at 47.1%x,17.2%y; a11 foot at 18.4%x,44.6%y; a12 foot at 69.0%x,57.8%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 120,
+        "score": 0.14658,
+        "medians": [
+          0.1287,
+          398.7908,
+          90.1866
+        ],
+        "sector_share": 1.0,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.42842,
+            "medians": [
+              0.2063,
+              311.6941,
+              79.3719
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 2.45842,
+            "medians": [
+              0.2111,
+              306.673,
+              77.827
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 2.58497,
+            "medians": [
+              0.2403,
+              273.0703,
+              76.6683
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 2.74659,
+            "medians": [
+              0.2682,
+              240.4332,
+              72.999
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 0.28101,
+            "medians": [
+              0.1685,
+              352.8285,
+              82.0756
+            ],
+            "sector_share": 1.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 0.16712,
+            "medians": [
+              0.143,
+              378.7065,
+              87.2898
+            ],
+            "sector_share": 1.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 0.14658,
+            "medians": [
+              0.1287,
+              398.7908,
+              90.1866
+            ],
+            "sector_share": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2348.0,
+        1414.0,
+        3922.0
+      ],
+      "square_world": [
+        0.0,
+        2348.0,
+        1574.0,
+        3922.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "d759d77ad1b30dce62cbdd099523a732abcc80e8eab435df3943e74b886878f0",
+      "input_sha256": "92394224b114fbe61d1f64426e2346abb636990e8cb8ea23796401889e47b128",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r2_0, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a01 foot at 65.8%x,75.2%y; a02 foot at 38.9%x,103.7%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 80,
+        "score": 1.10724,
+        "medians": [
+          0.1589,
+          405.55,
+          97.7182
+        ],
+        "sector_share": 0.75,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.24937,
+            "medians": [
+              0.2023,
+              341.4345,
+              89.9935
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 1.27823,
+            "medians": [
+              0.2053,
+              335.2547,
+              88.6416
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 1.42097,
+            "medians": [
+              0.2321,
+              291.996,
+              88.0623
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 1.53535,
+            "medians": [
+              0.259,
+              265.3456,
+              85.7449
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 1.10848,
+            "medians": [
+              0.1739,
+              380.0583,
+              94.4352
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 1.10724,
+            "medians": [
+              0.1589,
+              405.55,
+              97.7182
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 1.11658,
+            "medians": [
+              0.1524,
+              420.6133,
+              101.5806
+            ],
+            "sector_share": 0.75
+          }
+        ]
+      }
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        1094.0,
+        2348.0,
+        2668.0,
+        3922.0
+      ],
+      "square_world": [
+        1094.0,
+        2348.0,
+        2668.0,
+        3922.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "a6188f9f883fbf89427c6e745e52623fe20b7f3a6d51d829aea14b5a70973fd0",
+      "input_sha256": "f51b8ac20a38784767eb7231571e5981d42e8f7260a43efda73e770c116b1ce9",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r2_1, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a01 foot at -3.7%x,75.2%y; a18 foot at 63.2%x,12.2%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 40,
+        "score": 1.10261,
+        "medians": [
+          0.1951,
+          384.5,
+          93.6627
+        ],
+        "sector_share": 0.75,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.22805,
+            "medians": [
+              0.2452,
+              347.2281,
+              90.5728
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 1.2502,
+            "medians": [
+              0.2514,
+              339.1171,
+              90.766
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 1.37805,
+            "medians": [
+              0.2865,
+              308.6042,
+              88.6416
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 1.51692,
+            "medians": [
+              0.3194,
+              280.9882,
+              87.0967
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 1.10261,
+            "medians": [
+              0.1951,
+              384.5,
+              93.6627
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 2.15403,
+            "medians": [
+              0.1593,
+              418.489,
+              95.5939
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 2.16769,
+            "medians": [
+              0.1374,
+              440.3114,
+              100.8081
+            ],
+            "sector_share": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2348.0,
+        2348.0,
+        3922.0,
+        3922.0
+      ],
+      "square_world": [
+        2348.0,
+        2348.0,
+        3922.0,
+        3922.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "9b2792133cd7f0a7ebaca90e79e692f3878b2c24fc352282e9f53c437d7e218e",
+      "input_sha256": "3c7f90227c22837a0a11152acc1d18cb73d09042a33018db8fe474d7976f08b6",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r2_2, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a13 foot at 97.3%x,48.0%y; a14 foot at 67.3%x,80.1%y; a19 foot at 33.3%x,13.5%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "anticrenelage",
+        "amount": 0.5,
+        "score": 1.04128,
+        "medians": [
+          0.1553,
+          374.8441,
+          106.0224
+        ],
+        "sector_share": 0.75,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.21294,
+            "medians": [
+              0.0804,
+              462.327,
+              112.9746
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 1.19794,
+            "medians": [
+              0.0837,
+              456.5334,
+              112.5884
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 1.084,
+            "medians": [
+              0.1167,
+              413.8541,
+              110.0779
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 1.04128,
+            "medians": [
+              0.1553,
+              374.8441,
+              106.0224
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 1.30794,
+            "medians": [
+              0.0527,
+              490.9086,
+              118.7682
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 1.36615,
+            "medians": [
+              0.0376,
+              507.1306,
+              123.21
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 2.40224,
+            "medians": [
+              0.0302,
+              515.6279,
+              126.6861
+            ],
+            "sector_share": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "r2_3",
+      "crop_world": [
+        3602.0,
+        2348.0,
+        5016,
+        3922.0
+      ],
+      "square_world": [
+        3602.0,
+        2348.0,
+        5176.0,
+        3922.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "733cbc84780567a3df0594bdf64496bb9d96f1edf52f4f56ba8902b83ff64bb6",
+      "input_sha256": "0c12fc1615503ec1065ba371db74b829dab6d533a6c38d2c8c3dcdd6f26455e4",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r2_3, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a13 foot at 17.7%x,48.0%y; a15 foot at 29.6%x,91.2%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 120,
+        "score": 2.66682,
+        "medians": [
+          0.421,
+          302.4244,
+          73.1921
+        ],
+        "sector_share": 0.5,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 3.0435,
+            "medians": [
+              0.4793,
+              248.158,
+              61.605
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 3.07699,
+            "medians": [
+              0.4835,
+              243.1369,
+              60.8325
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 3.23159,
+            "medians": [
+              0.5134,
+              220.542,
+              58.5151
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 3.38252,
+            "medians": [
+              0.5381,
+              198.5264,
+              56.777
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 2.84248,
+            "medians": [
+              0.4502,
+              276.7396,
+              67.3985
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 2.72767,
+            "medians": [
+              0.4346,
+              293.3478,
+              71.454
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 2.66682,
+            "medians": [
+              0.421,
+              302.4244,
+              73.1921
+            ],
+            "sector_share": 0.5
+          }
+        ]
+      }
+    },
+    {
+      "name": "r3_0",
+      "crop_world": [
+        0.0,
+        3602.0,
+        1414.0,
+        5016
+      ],
+      "square_world": [
+        0.0,
+        3602.0,
+        1414.0,
+        5016.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "generated_sha256": "323cee00f7f59b9b2e86eb49a7e2f46d50c5811133c56f8584cf5b6ed569f708",
+      "input_sha256": "e83d21e57bd8704baccc100891f328fab16bc9cc7c200013aa3eb3e074d09331",
+      "scale_reference_sha256": "281b99140abb7ecadc8b53b4a4d2ef2fdaf0f5038dbe5562924f883299a1010d",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r3_0, exact square span1414worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.68%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a01 foot at 73.3%x,-5.0%y; a02 foot at 43.3%x,26.7%y; a03 foot at 94.8%x,44.3%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 120,
+        "score": 1.0363,
+        "medians": [
+          0.2319,
+          388.1693,
+          101.5806
+        ],
+        "sector_share": 0.75,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.24201,
+            "medians": [
+              0.241,
+              332.551,
+              94.4352
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 1.26737,
+            "medians": [
+              0.246,
+              326.5643,
+              93.4696
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 2.40962,
+            "medians": [
+              0.2775,
+              292.7685,
+              90.1866
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 2.54333,
+            "medians": [
+              0.3106,
+              269.5942,
+              87.8692
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 2.23296,
+            "medians": [
+              0.2778,
+              342.7863,
+              92.6971
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 2.10942,
+            "medians": [
+              0.2502,
+              371.7542,
+              97.332
+            ],
+            "sector_share": 0.5
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 1.0363,
+            "medians": [
+              0.2319,
+              388.1693,
+              101.5806
+            ],
+            "sector_share": 0.75
+          }
+        ]
+      }
+    },
+    {
+      "name": "r3_1",
+      "crop_world": [
+        1094.0,
+        3602.0,
+        2668.0,
+        5016
+      ],
+      "square_world": [
+        1094.0,
+        3602.0,
+        2668.0,
+        5176.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "6560bc58b8c8b6a0724919feb0755934c4c8e4a23279d9da74acaaef8bd47f75",
+      "input_sha256": "74084afff11be299a2e21f41f68c778106fb1063bf2162b0bf545dc0f08fda0b",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r3_1, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a01 foot at -3.7%x,-4.4%y; a03 foot at 15.6%x,39.8%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "brut",
+        "amount": 0,
+        "score": 0.06503,
+        "medians": [
+          0.1623,
+          371.7542,
+          103.7049
+        ],
+        "sector_share": 1.0,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 0.06503,
+            "medians": [
+              0.1623,
+              371.7542,
+              103.7049
+            ],
+            "sector_share": 1.0
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 0.09338,
+            "medians": [
+              0.1671,
+              363.2569,
+              102.9325
+            ],
+            "sector_share": 1.0
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 0.20773,
+            "medians": [
+              0.2117,
+              329.6542,
+              100.4219
+            ],
+            "sector_share": 1.0
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 1.35105,
+            "medians": [
+              0.263,
+              292.7685,
+              96.9458
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 0.10466,
+            "medians": [
+              0.1166,
+              425.6344,
+              108.9191
+            ],
+            "sector_share": 1.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 0.20357,
+            "medians": [
+              0.0874,
+              456.9197,
+              113.3609
+            ],
+            "sector_share": 1.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 0.25715,
+            "medians": [
+              0.0705,
+              475.8453,
+              115.4852
+            ],
+            "sector_share": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "name": "r3_2",
+      "crop_world": [
+        2348.0,
+        3602.0,
+        3922.0,
+        5016
+      ],
+      "square_world": [
+        2348.0,
+        3602.0,
+        3922.0,
+        5176.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "generated_sha256": "2c2534e75a6eca49ce63033b9b049197a1855626f4f552a4ce18fc56a4c6c899",
+      "input_sha256": "9ba09c8b1847eab7d2afcdc3abdc9bae99fbab2428ee9a85e2acb1910d5ec91e",
+      "scale_reference_sha256": "41b7f59e3881d6574a67934ef2ed1f5c40a83500ea53ce7e20192eaecbf3e181",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r3_2, exact square span1574worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.30%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a14 foot at 67.3%x,0.4%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 40,
+        "score": 1.06318,
+        "medians": [
+          0.1635,
+          398.2115,
+          101.3875
+        ],
+        "sector_share": 0.75,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 1.16361,
+            "medians": [
+              0.2048,
+              356.1115,
+              95.787
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 1.20169,
+            "medians": [
+              0.209,
+              347.2281,
+              94.049
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 1.31566,
+            "medians": [
+              0.2385,
+              315.7496,
+              91.5384
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 1.43186,
+            "medians": [
+              0.2691,
+              286.2024,
+              89.221
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 1.06318,
+            "medians": [
+              0.1635,
+              398.2115,
+              101.3875
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 1.11471,
+            "medians": [
+              0.1265,
+              428.3381,
+              109.4985
+            ],
+            "sector_share": 0.75
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 1.18761,
+            "medians": [
+              0.1035,
+              448.6156,
+              113.7471
+            ],
+            "sector_share": 0.75
+          }
+        ]
+      }
+    },
+    {
+      "name": "r3_3",
+      "crop_world": [
+        3602.0,
+        3602.0,
+        5016,
+        5016
+      ],
+      "square_world": [
+        3602.0,
+        3602.0,
+        5016.0,
+        5016.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "generated_sha256": "8ac6bfbbba8d00fbf6b0fb04dcd8bce08d938c36d634659d2a261895cbd752a0",
+      "input_sha256": "80825da6d598fc581bc6bf5165d3d5460193eba5a27390b13401f473fbc53829",
+      "scale_reference_sha256": "281b99140abb7ecadc8b53b4a4d2ef2fdaf0f5038dbe5562924f883299a1010d",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\n\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\n\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\n\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\n\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\n\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\n\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\n\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\n\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\n\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\n\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\n\ntexture (short grass strokes, earth grain, small paving joints and cracks).\n\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\n\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\n\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\n\nsmaller, more numerous components (stones, planks, tiles, branches).\n\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\n\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\n\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\n\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\n\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\n\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\n\n\n\n\nTHIS IS FINAL MAP25. Exactly match the APPROVED palette and silhouettes: five chapter fragments, dark violet void and eye swirls, NOT one uniform biome. The abyss stays deep empty space, not floor. Give existing nebula swirls fine natural electric filaments and tiny glints in their existing footprint, without uniform noise or new terrain. No new debris bridges or islands. The material scale must match image2: small15-26worldunit paving,12-16unit stair depth, tiny fine frost, ash, roots and crystalline cliff facets.\nThe four arena covers MUST remain INSIDE the playing field, at their current approved foot locations; never move them to the sides, never remove or duplicate them. Every ordinary solid cover body should be compact110-160worldunits (target140, roughly9%of a1574unit-wide region); if the coarse composition shows an oversized body, rebuild ONE smaller coherent body about140units wide INSIDE that footprint, same foot position, restore flat fine floor around it. No sprawling large rubble and no extra cover. The six glowing crystal-anchor pillars stay at the outer rim, width110-140units. Keep boss spawn middle empty; NO circle or boss painted. Do not turn the internal four blocks back into an entirely empty arena.\nAll marked chapter surfaces—shallow fords, hot crust, mud, smooth ice and corruption—remain FLAT WALKABLE floor, no new pit, ridge or waterbank. Keep their existing footprints. Existing narrow welds and southwest final neck join BOTH neighboring floors; no wall, high threshold or obstacle at either mouth. Preserve the route widths and endpoints. Solid foundation walls and void edges remain unmistakably blocked.\nOutput square at least1254x1254 native. Any black padding at extreme edges is outside the world and will be cropped; do not shift content to fill it. Do not print labels or characters. Fresh FINE ART, never simply sharpen or interpolate the crop.\nRegion r3_3, exact square span1414worldunits. Image2 is Ruins at the SAME units-per-pixel. A52unit hunter here is3.68%of image width. Existing cover feet in or just outside this crop (keep partial objects at edges, never drag them inside): a15 foot at 33.0%x,12.9%y.\nExisting violet nebula clouds: replace broad blurry concept shading with genuinely fine interwoven plasma filaments and tiny faceted energy ripples at5–12worldunit scale within the approved light bands. Keep their flowing directions and dark void gaps. No uniform noise or stars used as a filter, no new solid terrain. The void must remain void, with coherent detailed painted energy rather than a smooth plastic gradient.",
+      "calibration": {
+        "mode": "nettete",
+        "amount": 120,
+        "score": 7.01218,
+        "medians": [
+          0.8144,
+          92.3109,
+          24.5261
+        ],
+        "sector_share": 0.0,
+        "trials": [
+          {
+            "mode": "brut",
+            "amount": 0,
+            "score": 7.37977,
+            "medians": [
+              0.8535,
+              67.5917,
+              23.9468
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.25,
+            "score": 7.38361,
+            "medians": [
+              0.8545,
+              68.171,
+              23.5605
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.4,
+            "score": 7.5477,
+            "medians": [
+              0.8659,
+              58.5151,
+              23.5605
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "anticrenelage",
+            "amount": 0.5,
+            "score": 7.74974,
+            "medians": [
+              0.8799,
+              49.6316,
+              22.788
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 40,
+            "score": 7.06022,
+            "medians": [
+              0.8267,
+              83.6205,
+              26.8435
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 80,
+            "score": 7.0981,
+            "medians": [
+              0.827,
+              84.393,
+              25.1055
+            ],
+            "sector_share": 0.0
+          },
+          {
+            "mode": "nettete",
+            "amount": 120,
+            "score": 7.01218,
+            "medians": [
+              0.8144,
+              92.3109,
+              24.5261
+            ],
+            "sector_share": 0.0
+          }
+        ]
+      }
+    }
+  ],
+  "assembly": "Raccords de faible différence map_seams, détails natifs calibrés par région.",
+  "calibration_limits": {
+    "antialias_native_radius_max": 0.5,
+    "unsharp_radius_native": 1,
+    "unsharp_percent_max": 120,
+    "thresholds_changed": false
+  },
+  "master_sha256": "f1598a5613cfadb1a14ebc9631a1c9574c40d39fe3db8e3c9eff751a8c0bbe6d",
+  "native_pixels_lossless_verified": true,
+  "intermediates": "Guides, régions et essais hors dépôt ; un seul master retenu.",
+  "assembled_master_sha256": "04249c413fb25cbced2ef14116213d46e0f11c24948bd793a61367abd6226fc1",
+  "size_refinement": "prop_size_refinement.json",
+  "after_props_master_sha256": "0fcea6cd4215d0ed6157f0637bcb12af2d79df10f8f038a01ff62893e5921c01",
+  "void_refinement": "void_detail_refinement.json",
+  "plan_at_generation_sha256": "8fe259d60d7237e82869aa07c804a823241fad33e82642543c016689f72f9419"
+}

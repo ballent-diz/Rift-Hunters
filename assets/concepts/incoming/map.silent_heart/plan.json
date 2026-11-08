@@ -7,7 +7,7 @@
     5016,
     3344
   ],
-  "stage": "detail_graphique_livre",
+  "stage": "detail_retouche_locale_livre",
   "owner_approved": true,
   "plan_locked": true,
   "start_pct": [
@@ -202,7 +202,8 @@
       "diameters_world": [
         1250,
         1400
-      ]
+      ],
+      "revision_note": "Repère historique de la clairière, plus entièrement vide ni uniquement en neige ferme : glace et deux petits abris centraux autorisés."
     },
     "back_decoration_pct": [
       7.5,
@@ -224,29 +225,30 @@
   "passages": [
     {
       "id": "tunnel",
-      "kind": "Arche de glace est → milieu, sol apparent et praticable",
+      "kind": "Chaussée enneigée ouverte à gauche et à droite ; deux murets fermant les raccords retirés",
       "centerline_pct": [
         [
-          77,
+          78.4,
           57
         ],
         [
-          70,
+          67.8,
           57
         ]
       ],
       "barrier_line_pct": [
         [
           73,
-          53
+          52.7
         ],
         [
           73,
-          61
+          61.3
         ]
       ],
-      "width_world_target": 267,
-      "underside": "Gouffre sombre infranchissable : vide profond, bords cassés ; sol du passage clair, continu et soutenu."
+      "width_world_target": 290,
+      "underside": "Gouffre sombre infranchissable : vide profond, bords cassés ; sol du passage clair, continu et soutenu.",
+      "measurement_status": "Lisibilité graphique contrôlée sur capture ; largeur de navigation à valider après peinture des collisions."
     },
     {
       "id": "waterfall_stair",
@@ -666,7 +668,16 @@
           18.1
         ]
       ],
-      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique."
+      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique.",
+      "center_pct": [
+        79.7315,
+        22.7672
+      ],
+      "center_basis": "Centre approximatif de la boîte du contour de matière existant, sans déplacement de plaque.",
+      "center_world": [
+        1491.3,
+        -910.7
+      ]
     },
     {
       "id": "i02",
@@ -1602,7 +1613,16 @@
           60
         ]
       ],
-      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique."
+      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique.",
+      "center_pct": [
+        92.5704,
+        66.2081
+      ],
+      "center_basis": "Centre approximatif de la boîte du contour de matière existant, sans déplacement de plaque.",
+      "center_world": [
+        2135.3,
+        542.0
+      ]
     },
     {
       "id": "i03",
@@ -2746,7 +2766,16 @@
           33.2
         ]
       ],
-      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique."
+      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique.",
+      "center_pct": [
+        55.1568,
+        35.4665
+      ],
+      "center_basis": "Centre approximatif de la boîte du contour de matière existant, sans déplacement de plaque.",
+      "center_world": [
+        258.7,
+        -486.0
+      ]
     },
     {
       "id": "i04",
@@ -3574,7 +3603,16 @@
           68
         ]
       ],
-      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique."
+      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique.",
+      "center_pct": [
+        65.2711,
+        69.9162
+      ],
+      "center_basis": "Centre approximatif de la boîte du contour de matière existant, sans déplacement de plaque.",
+      "center_world": [
+        766.0,
+        666.0
+      ]
     },
     {
       "id": "i05",
@@ -4082,7 +4120,16 @@
           22
         ]
       ],
-      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique."
+      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique.",
+      "center_pct": [
+        9.277,
+        23.9832
+      ],
+      "center_basis": "Centre approximatif de la boîte du contour de matière existant, sans déplacement de plaque.",
+      "center_world": [
+        -2042.7,
+        -870.0
+      ]
     },
     {
       "id": "i06",
@@ -4862,7 +4909,16 @@
           76.8
         ]
       ],
-      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique."
+      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique.",
+      "center_pct": [
+        9.9016,
+        79.8844
+      ],
+      "center_basis": "Centre approximatif de la boîte du contour de matière existant, sans déplacement de plaque.",
+      "center_world": [
+        -2011.3,
+        999.3
+      ]
     },
     {
       "id": "i07",
@@ -5446,7 +5502,952 @@
           21.3
         ]
       ],
-      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique."
+      "geometry_scope": "Surface B1 lisse praticable relevée sur le détail ; même emplacement validé, aucun masque statique.",
+      "center_pct": [
+        32.8814,
+        23.3054
+      ],
+      "center_basis": "Centre approximatif de la boîte du contour de matière existant, sans déplacement de plaque.",
+      "center_world": [
+        -858.7,
+        -892.7
+      ]
+    },
+    {
+      "id": "i08",
+      "center_pct": [
+        23,
+        48
+      ],
+      "diameter_world": 380,
+      "zone": "cathedral",
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Contour graphique cyan du master retouché, 72 rayons et fermeture des trous de texture ; aucun masque de collision.",
+      "owner_added": true,
+      "polygon_pct": [
+        [
+          26.555,
+          49.681
+        ],
+        [
+          26.2095,
+          50.1196
+        ],
+        [
+          26.0766,
+          50.5183
+        ],
+        [
+          25.9702,
+          50.9171
+        ],
+        [
+          25.7576,
+          51.236
+        ],
+        [
+          25.4918,
+          51.5152
+        ],
+        [
+          25.2259,
+          51.6746
+        ],
+        [
+          24.7741,
+          51.6348
+        ],
+        [
+          24.4817,
+          51.6746
+        ],
+        [
+          24.269,
+          51.7544
+        ],
+        [
+          24.0829,
+          51.7943
+        ],
+        [
+          23.9234,
+          51.874
+        ],
+        [
+          23.7905,
+          51.9936
+        ],
+        [
+          23.631,
+          52.0734
+        ],
+        [
+          23.4981,
+          52.2329
+        ],
+        [
+          23.3652,
+          52.3525
+        ],
+        [
+          23.2057,
+          52.4721
+        ],
+        [
+          23.0728,
+          52.7512
+        ],
+        [
+          22.8868,
+          52.9107
+        ],
+        [
+          22.7007,
+          53.11
+        ],
+        [
+          22.4615,
+          53.2297
+        ],
+        [
+          22.2488,
+          53.2695
+        ],
+        [
+          22.0096,
+          53.2695
+        ],
+        [
+          21.7969,
+          53.2297
+        ],
+        [
+          21.5577,
+          53.1499
+        ],
+        [
+          21.3184,
+          53.0303
+        ],
+        [
+          21.1058,
+          52.8708
+        ],
+        [
+          20.9197,
+          52.6316
+        ],
+        [
+          20.7868,
+          52.3126
+        ],
+        [
+          20.6805,
+          51.9936
+        ],
+        [
+          20.6007,
+          51.6348
+        ],
+        [
+          20.4678,
+          51.3955
+        ],
+        [
+          20.2286,
+          51.1164
+        ],
+        [
+          19.9096,
+          50.8772
+        ],
+        [
+          19.7236,
+          50.5183
+        ],
+        [
+          19.8033,
+          50.0797
+        ],
+        [
+          19.9096,
+          49.681
+        ],
+        [
+          19.9362,
+          49.2823
+        ],
+        [
+          19.6172,
+          48.8038
+        ],
+        [
+          18.8729,
+          48.0463
+        ],
+        [
+          18.74,
+          47.4083
+        ],
+        [
+          18.9527,
+          46.9298
+        ],
+        [
+          19.2185,
+          46.4912
+        ],
+        [
+          19.5641,
+          46.1722
+        ],
+        [
+          19.9096,
+          45.933
+        ],
+        [
+          20.2286,
+          45.6938
+        ],
+        [
+          20.5476,
+          45.4944
+        ],
+        [
+          20.7868,
+          45.1754
+        ],
+        [
+          20.9995,
+          44.7368
+        ],
+        [
+          21.8767,
+          46.3716
+        ],
+        [
+          22.0627,
+          46.2919
+        ],
+        [
+          22.2488,
+          46.0925
+        ],
+        [
+          22.4615,
+          45.933
+        ],
+        [
+          22.6741,
+          46.0925
+        ],
+        [
+          22.8868,
+          46.0128
+        ],
+        [
+          23.0994,
+          46.0128
+        ],
+        [
+          23.0197,
+          48.6443
+        ],
+        [
+          23.0728,
+          48.6443
+        ],
+        [
+          23.1526,
+          48.6045
+        ],
+        [
+          23.2589,
+          48.5247
+        ],
+        [
+          23.3652,
+          48.4848
+        ],
+        [
+          23.4716,
+          48.445
+        ],
+        [
+          23.6842,
+          48.2855
+        ],
+        [
+          23.9234,
+          48.126
+        ],
+        [
+          24.2424,
+          47.9665
+        ],
+        [
+          26.1031,
+          46.2919
+        ],
+        [
+          26.4221,
+          46.6108
+        ],
+        [
+          26.6614,
+          47.0494
+        ],
+        [
+          26.9537,
+          47.4482
+        ],
+        [
+          27.1664,
+          47.9665
+        ],
+        [
+          27.0867,
+          48.5646
+        ],
+        [
+          26.874,
+          49.1627
+        ]
+      ],
+      "material_center_pct": [
+        22.8892,
+        49.6758
+      ],
+      "diameter_world_measured": 425.3,
+      "center_world": [
+        -1354.3,
+        -66.9
+      ]
+    },
+    {
+      "id": "i09",
+      "center_pct": [
+        57,
+        54
+      ],
+      "diameter_world": 330,
+      "zone": "z2",
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Contour graphique cyan du master retouché, 72 rayons et fermeture des trous de texture ; aucun masque de collision.",
+      "owner_added": true,
+      "polygon_pct": [
+        [
+          60.2339,
+          53.7081
+        ],
+        [
+          60.101,
+          54.1069
+        ],
+        [
+          59.9681,
+          54.5056
+        ],
+        [
+          59.8618,
+          54.8644
+        ],
+        [
+          59.7023,
+          55.1435
+        ],
+        [
+          59.5162,
+          55.4226
+        ],
+        [
+          59.3036,
+          55.6619
+        ],
+        [
+          59.0377,
+          55.7815
+        ],
+        [
+          58.7719,
+          55.8612
+        ],
+        [
+          58.4795,
+          55.8612
+        ],
+        [
+          58.2669,
+          55.8612
+        ],
+        [
+          58.0808,
+          55.9011
+        ],
+        [
+          57.9213,
+          55.941
+        ],
+        [
+          57.7618,
+          56.0207
+        ],
+        [
+          57.6289,
+          56.1005
+        ],
+        [
+          57.496,
+          56.2201
+        ],
+        [
+          57.3631,
+          56.3397
+        ],
+        [
+          57.2036,
+          56.4992
+        ],
+        [
+          57.0441,
+          56.8182
+        ],
+        [
+          56.8581,
+          57.177
+        ],
+        [
+          56.6188,
+          57.496
+        ],
+        [
+          56.353,
+          57.6954
+        ],
+        [
+          56.0606,
+          57.815
+        ],
+        [
+          55.7416,
+          57.8947
+        ],
+        [
+          55.4758,
+          57.815
+        ],
+        [
+          55.1834,
+          57.7352
+        ],
+        [
+          54.9176,
+          57.5359
+        ],
+        [
+          54.6518,
+          57.2967
+        ],
+        [
+          54.4657,
+          56.9777
+        ],
+        [
+          54.3594,
+          56.5391
+        ],
+        [
+          54.1999,
+          56.1802
+        ],
+        [
+          54.0138,
+          55.8214
+        ],
+        [
+          53.8012,
+          55.5024
+        ],
+        [
+          53.7746,
+          55.0239
+        ],
+        [
+          53.748,
+          54.5853
+        ],
+        [
+          53.9872,
+          54.1069
+        ],
+        [
+          54.3062,
+          53.7081
+        ],
+        [
+          54.5986,
+          53.3892
+        ],
+        [
+          54.6784,
+          53.0702
+        ],
+        [
+          54.7315,
+          52.7911
+        ],
+        [
+          54.7581,
+          52.4721
+        ],
+        [
+          54.7049,
+          52.0734
+        ],
+        [
+          54.8644,
+          51.8341
+        ],
+        [
+          55.0239,
+          51.5949
+        ],
+        [
+          55.1834,
+          51.3557
+        ],
+        [
+          55.3695,
+          51.1962
+        ],
+        [
+          55.5556,
+          51.0367
+        ],
+        [
+          55.715,
+          50.8772
+        ],
+        [
+          55.9277,
+          50.7974
+        ],
+        [
+          56.1138,
+          50.7177
+        ],
+        [
+          56.2998,
+          50.638
+        ],
+        [
+          56.5125,
+          50.6778
+        ],
+        [
+          56.672,
+          50.5981
+        ],
+        [
+          56.8846,
+          50.6778
+        ],
+        [
+          57.0441,
+          50.6778
+        ],
+        [
+          57.2302,
+          50.5981
+        ],
+        [
+          57.4428,
+          50.3589
+        ],
+        [
+          57.7352,
+          49.9203
+        ],
+        [
+          58.0011,
+          49.7608
+        ],
+        [
+          58.32,
+          49.6013
+        ],
+        [
+          58.639,
+          49.5614
+        ],
+        [
+          58.958,
+          49.6411
+        ],
+        [
+          59.277,
+          49.7608
+        ],
+        [
+          59.5162,
+          50.0
+        ],
+        [
+          59.596,
+          50.5183
+        ],
+        [
+          59.5694,
+          51.0766
+        ],
+        [
+          59.5162,
+          51.5949
+        ],
+        [
+          59.6225,
+          51.9139
+        ],
+        [
+          59.8352,
+          52.193
+        ],
+        [
+          60.0478,
+          52.512
+        ],
+        [
+          60.2605,
+          52.8708
+        ],
+        [
+          60.2871,
+          53.2695
+        ]
+      ],
+      "material_center_pct": [
+        57.0487,
+        53.7123
+      ],
+      "diameter_world_measured": 330.7,
+      "center_world": [
+        351.1,
+        133.8
+      ]
+    },
+    {
+      "id": "i10",
+      "center_pct": [
+        86,
+        58
+      ],
+      "diameter_world": 380,
+      "zone": "z1",
+      "walkable": true,
+      "required_path": false,
+      "geometry_scope": "Contour graphique cyan du master retouché, 72 rayons et fermeture des trous de texture ; aucun masque de collision.",
+      "owner_added": true,
+      "polygon_pct": [
+        [
+          89.261,
+          57.6156
+        ],
+        [
+          89.075,
+          58.0941
+        ],
+        [
+          88.9952,
+          58.5327
+        ],
+        [
+          88.9952,
+          58.9713
+        ],
+        [
+          88.9952,
+          59.4498
+        ],
+        [
+          88.8623,
+          59.8884
+        ],
+        [
+          88.6497,
+          60.2472
+        ],
+        [
+          88.3838,
+          60.5263
+        ],
+        [
+          88.0914,
+          60.7257
+        ],
+        [
+          87.7459,
+          60.8054
+        ],
+        [
+          87.4269,
+          60.8453
+        ],
+        [
+          87.1611,
+          60.925
+        ],
+        [
+          86.9484,
+          61.0447
+        ],
+        [
+          86.7358,
+          61.2041
+        ],
+        [
+          86.5497,
+          61.4035
+        ],
+        [
+          86.3636,
+          61.7225
+        ],
+        [
+          86.151,
+          62.0813
+        ],
+        [
+          85.9117,
+          62.3604
+        ],
+        [
+          85.6194,
+          62.5997
+        ],
+        [
+          85.327,
+          62.7193
+        ],
+        [
+          85.008,
+          62.7592
+        ],
+        [
+          84.689,
+          62.799
+        ],
+        [
+          84.37,
+          62.7592
+        ],
+        [
+          84.0776,
+          62.5997
+        ],
+        [
+          83.7852,
+          62.4402
+        ],
+        [
+          83.5194,
+          62.1212
+        ],
+        [
+          83.3068,
+          61.7624
+        ],
+        [
+          83.2004,
+          61.244
+        ],
+        [
+          83.1738,
+          60.6858
+        ],
+        [
+          83.0675,
+          60.2871
+        ],
+        [
+          82.9346,
+          59.9681
+        ],
+        [
+          82.722,
+          59.6491
+        ],
+        [
+          82.4827,
+          59.3301
+        ],
+        [
+          82.2435,
+          58.9713
+        ],
+        [
+          82.084,
+          58.5726
+        ],
+        [
+          82.0308,
+          58.0941
+        ],
+        [
+          82.0574,
+          57.6156
+        ],
+        [
+          82.2169,
+          57.177
+        ],
+        [
+          82.403,
+          56.7783
+        ],
+        [
+          82.5359,
+          56.3796
+        ],
+        [
+          82.589,
+          55.9809
+        ],
+        [
+          82.6422,
+          55.5423
+        ],
+        [
+          82.6954,
+          55.1037
+        ],
+        [
+          82.8283,
+          54.7049
+        ],
+        [
+          83.0144,
+          54.3461
+        ],
+        [
+          83.2802,
+          54.1069
+        ],
+        [
+          83.546,
+          53.9474
+        ],
+        [
+          83.865,
+          53.8278
+        ],
+        [
+          84.1308,
+          53.748
+        ],
+        [
+          84.37,
+          53.6284
+        ],
+        [
+          84.6093,
+          53.429
+        ],
+        [
+          84.8485,
+          53.2297
+        ],
+        [
+          85.0611,
+          52.8708
+        ],
+        [
+          85.327,
+          52.6316
+        ],
+        [
+          85.6194,
+          52.4721
+        ],
+        [
+          85.9383,
+          52.3923
+        ],
+        [
+          86.2307,
+          52.3923
+        ],
+        [
+          86.5497,
+          52.4721
+        ],
+        [
+          86.8421,
+          52.6316
+        ],
+        [
+          87.1079,
+          52.8708
+        ],
+        [
+          87.3206,
+          53.2297
+        ],
+        [
+          87.4269,
+          53.748
+        ],
+        [
+          87.4801,
+          54.3062
+        ],
+        [
+          87.5864,
+          54.6651
+        ],
+        [
+          87.7725,
+          54.9043
+        ],
+        [
+          87.9851,
+          55.1435
+        ],
+        [
+          88.3041,
+          55.303
+        ],
+        [
+          88.7294,
+          55.4625
+        ],
+        [
+          89.075,
+          55.7416
+        ],
+        [
+          89.3408,
+          56.1404
+        ],
+        [
+          89.4471,
+          56.6188
+        ],
+        [
+          89.4737,
+          57.1372
+        ]
+      ],
+      "material_center_pct": [
+        85.6237,
+        57.6266
+      ],
+      "diameter_world_measured": 374.7,
+      "center_world": [
+        1805.8,
+        267.5
+      ]
     }
   ],
   "cover_rocks": [
@@ -5468,7 +6469,11 @@
         78.8,
         47.4
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        1444.6,
+        -39.9
+      ]
     },
     {
       "id": "a02",
@@ -5489,7 +6494,11 @@
         39.8
       ],
       "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
-      "final_connected_width_world_target": 125
+      "final_connected_width_world_target": 125,
+      "center_world": [
+        2006.4,
+        -266.1
+      ]
     },
     {
       "id": "a03",
@@ -5509,7 +6518,11 @@
         78.45,
         73.8
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        1427.1,
+        851.9
+      ]
     },
     {
       "id": "a04",
@@ -5530,7 +6543,11 @@
         52
       ],
       "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
-      "final_connected_width_world_target": 125
+      "final_connected_width_world_target": 125,
+      "center_world": [
+        -10.0,
+        108.9
+      ]
     },
     {
       "id": "a05",
@@ -5550,7 +6567,11 @@
         61.8,
         43.55
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        591.9,
+        -157.7
+      ]
     },
     {
       "id": "a06",
@@ -5571,7 +6592,11 @@
         75
       ],
       "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
-      "final_connected_width_world_target": 125
+      "final_connected_width_world_target": 125,
+      "center_world": [
+        240.8,
+        906.0
+      ]
     },
     {
       "id": "a07",
@@ -5591,7 +6616,11 @@
         6.83,
         50.2
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        -2165.4,
+        20.7
+      ]
     },
     {
       "id": "a08",
@@ -5611,7 +6640,11 @@
         36.6,
         44.9
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        -672.1,
+        -114.5
+      ]
     },
     {
       "id": "a09",
@@ -5631,7 +6664,11 @@
         26.5,
         83.9
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        -1178.8,
+        1203.6
+      ]
     },
     {
       "id": "a10",
@@ -5651,7 +6688,11 @@
         6.1,
         33.8
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        -2202.0,
+        -459.7
+      ]
     },
     {
       "id": "a11",
@@ -5671,7 +6712,111 @@
         34.3,
         73.6
       ],
-      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé."
+      "coordinate_scope": "Pied au sol recalé sur le bloc détaillé, sans déplacement du bloc dans la salle ; repère initial conservé.",
+      "center_world": [
+        -787.5,
+        868.2
+      ]
+    },
+    {
+      "id": "a12",
+      "center_pct": [
+        18,
+        58
+      ],
+      "zone": "cathedral",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "on_slippery_ice": false,
+      "owner_added": true,
+      "center_world": [
+        -1605.1,
+        267.5
+      ]
+    },
+    {
+      "id": "a13",
+      "center_pct": [
+        28,
+        60
+      ],
+      "zone": "cathedral",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "on_slippery_ice": false,
+      "owner_added": true,
+      "center_world": [
+        -1103.5,
+        334.4
+      ]
+    },
+    {
+      "id": "a14",
+      "center_pct": [
+        59,
+        63
+      ],
+      "zone": "z2",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "on_slippery_ice": false,
+      "owner_added": true,
+      "center_world": [
+        451.4,
+        434.7
+      ]
+    },
+    {
+      "id": "a15",
+      "center_pct": [
+        88,
+        50
+      ],
+      "zone": "z1",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "on_slippery_ice": false,
+      "owner_added": true,
+      "center_world": [
+        1906.1,
+        0.0
+      ]
+    },
+    {
+      "id": "a16",
+      "center_pct": [
+        87,
+        68
+      ],
+      "zone": "z1",
+      "width_world_target": 140,
+      "width_world_allowed": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "on_slippery_ice": false,
+      "owner_added": true,
+      "center_world": [
+        1855.9,
+        601.9
+      ]
     }
   ],
   "runtime_integrated": false,
@@ -5684,7 +6829,7 @@
     "éclatement et plongée phase3"
   ],
   "coordinate_basis": "Repères graphiques en % du cadrage5016 ×3344 validé, origine haut-gauche ; aucun masque de collisions. Contours B1 à recaler finement sur les seules limites de matériau après détail, sans déplacer les plaques.",
-  "composition_sha256": "878eb7552845984081fded823059dca1201446acfee20a6c2bc9b39c5ba0960c",
+  "composition_sha256": "281e8545747cf8f2421b904bda25101082cc44e3bcd384bee407b8d82d20d657",
   "owner_approval_date": "2026-11-05",
   "owner_feedback": "Plan validé : trois salles est-ouest, arche puis escalier de cascade, cathédrale ouest et sept plaques périphériques ; cinq corrections autorisées pendant le détail.",
   "start_description": "Salle est, sous la crevasse lumineuse haut-droite ; aucune autre ouverture ni passage est ajouté.",
@@ -5742,5 +6887,12 @@
       }
     ],
     "master_sha256": "6808ca7c284241b9e220e19d75d743916d322cd39c0f2e9542894fd8679c0084"
+  },
+  "owner_local_revision": {
+    "date": "2026-11-07",
+    "approved_scope": "Ouvrir le passage de DROITE, entre salle est et îlot central ; conserver l'escalier de gauche près de la cascade, la glace et les obstacles centraux ajoutés.",
+    "preserve_layout": true,
+    "collision_mask_created": false,
+    "supersedes": "Sept plaques seulement et noyau final entièrement en neige ferme : ajout central autorisé par le propriétaire."
   }
 }

@@ -1,0 +1,35 @@
+{
+  "reference": "docs/previews/shattered-pantheon/reference_collisions.jpg",
+  "sha256": "77f84124395a59663070fdcfbb19b0ed577c6823b77caa3e8072355af70ae8ff",
+  "bytes": 766164,
+  "size": [
+    1100,
+    1100
+  ],
+  "world": [
+    4400,
+    4400
+  ],
+  "world_units_per_pixel": 4,
+  "whole_map": true,
+  "crop": null,
+  "master_sha256": "2f2d78b540de52ad712baf6541e7bf3383b9da5e65987535777338c58b38579d",
+  "tiles_sha256": [
+    "1a8ad632689b9b9ce0c2cc023dcf448b5e671554a22963d816c3fbb9c4421d37",
+    "7e1abae956054238106a8dca8c48a373f1f3689d2b3d98857923af0625b3e372",
+    "a30611d216cd09dee7c22a303d68f8ff11adc1f5a728e44088eaacc02f68c3fb"
+  ],
+  "recipe": "Master natif retenu, réduction Lanczos, JPEG85 sans sous-échantillonnage.",
+  "expected_return": {
+    "format": "PNG",
+    "size": [
+      1100,
+      1100
+    ],
+    "same_framing": true,
+    "resize_allowed": false,
+    "paint": "Rouge translucide sur bâtiments, murs, socles de statues, abris et pilier ; accès, cours, autels et place praticables."
+  },
+  "collision_mask_created": false,
+  "runtime_integrated": false
+}

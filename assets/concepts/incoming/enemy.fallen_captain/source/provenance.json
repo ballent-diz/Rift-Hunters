@@ -1,0 +1,13 @@
+{
+  "generator": "Outil imagegen intégré, alpha demandé explicitement",
+  "date": "2026-11-07",
+  "family": "Les Déchus",
+  "id": "fallen_captain",
+  "planche_B_identity_reference": "Planche A du même monstre",
+  "A_refinement": false,
+  "discarded_trials_outside_repository": true,
+  "source_sha256": {
+    "planche_A.png": "ece9e413e08a5aa9f189d0609dc2005a543de882fbc9aebdcc0961bfbccfaaa7",
+    "planche_B.png": "0a793a9ccc8a5d6f8c39034cc3237819d62cda1242c8e7b07df326c040d158f2"
+  }
+}
