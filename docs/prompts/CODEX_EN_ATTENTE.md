@@ -47,6 +47,35 @@ d'une colonne, contrôle qualité habituel (check_map_quality), et superposition
 les bords praticables n'ont pas bougé. Ne touche ni src/ ni data/.
 ```
 
+## 3. Proportions des cartes des chapitres 4 et 5 (cartes 16 à 25)
+
+```text
+Proportions des décors, chapitres 4 et 5 : le propriétaire constate en jeu que, sur beaucoup de cartes des deux
+derniers chapitres, les personnages paraissent beaucoup trop petits : marches, dalles, colonnes, portes, bâtiments,
+statues et rochers sont peints à une échelle trop grande. Référence (docs/ART_BIBLE.md, « Échelle des décors ») :
+le Chasseur mesure environ 52 unités ; marche 12 à 16 unités de profondeur, dalle 15 à 26, porte 75 à 90 de haut,
+colonne 30 à 45 de large, arbre 120 à 200 ; carte étalon : les Ruines des Cascades (cascade_ruins).
+
+Cartes : glacier_entry (16), brazier_pass (17), storm_lake (18), lighthouse_floe (19), silent_heart (20),
+shattered_outskirts (21), rune_sanctum (22), suspended_quarters (23), shattered_pantheon (24), rift_eye (25).
+
+1) Audit d'abord, sans rien repeindre : pour chaque carte, mesure sur le master les éléments repères (marches,
+   dalles, portes, colonnes, fenêtres, statues, rochers, troncs) en unités du monde, compare à la bible et classe
+   la carte : conforme / à affiner / à reprendre. Planche par carte : capture au zoom réel (1,3333) avec le Chasseur
+   et Cendrelame posés sur un escalier, un dallage et près d'une porte ou d'une colonne, à côté de la même capture
+   sur les Ruines. Tableau récapitulatif dans docs/maps/ECHELLE_CHAPITRES_4_5.md. Livre l'audit en PR séparée et
+   attends la validation du propriétaire avant l'étape 2.
+2) Correction, carte par carte, dans l'ordre de priorité validé : passe de détail locale par régions
+   (tools/art/map_regions.py) avec marches plus nombreuses et plus fines, dalles plus petites, colonnes et portes
+   plus étroites, ornements à l'échelle. SANS changer le plan, les emprises, le cadrage ni ce qui est praticable :
+   les collisions peintes par le propriétaire (cartes 16 à 24) et l'intégration en jeu (cartes 16 à 18) doivent
+   rester valables. Même densité (2,25 px/unité), mêmes tuiles, mêmes dimensions.
+
+Pour chaque carte corrigée : check_map_quality conforme, superposition avec l'ancien master prouvant que les bords
+praticables n'ont pas bougé, captures avant/après au zoom réel. Une PR par carte (ou par paire de petites
+retouches), poids indiqué. Ne touche ni src/ ni data/ ni les collisions.
+```
+
 ## Déjà réglé (ne plus envoyer)
 
 - Carte 16 : corrections de la composition, devenues sans objet (carte détaillée et intégrée en jeu).
