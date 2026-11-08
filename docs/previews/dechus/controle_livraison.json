@@ -1,0 +1,106 @@
+{
+  "date": "2026-11-08",
+  "generator": "Outil imagegen intégré",
+  "entities": 7,
+  "source_sheets": 10,
+  "painted_poses": 144,
+  "manifest_new_ids": [
+    "enemy.fallen_militia",
+    "enemy.corrupted_hound",
+    "enemy.lantern_wraith",
+    "enemy.fallen_crossbowman",
+    "enemy.fallen_captain",
+    "enemy.rift_herald",
+    "enemy.cobble_golem"
+  ],
+  "all_preexisting_entries_unchanged": true,
+  "source_alpha_threshold": 128,
+  "runtime_cells": [
+    64,
+    64
+  ],
+  "manifest_scale": 0.5,
+  "elite_runtime_size_mult": 1.5,
+  "camera_zoom": 1.3333,
+  "viewport": [
+    1280,
+    720
+  ],
+  "asset_validator": "AssetValidator du dépôt, sept entrées du lot, projet isolé sans autoloads",
+  "validated_assets": [
+    {
+      "id": "enemy.fallen_militia",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.corrupted_hound",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.lantern_wraith",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.fallen_crossbowman",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.fallen_captain",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.rift_herald",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.cobble_golem",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "godot_version": "4.3.stable.official.77dcf97d8",
+  "import_errors": false,
+  "capture_errors": false,
+  "profile_loaded": false,
+  "gameplay_integrated": false,
+  "gameplay_tested": false,
+  "capture_scope": "Banc statique, sprites à leur échelle native ; facteur élite1,5 existant et ombres séparées du sprite.",
+  "captures": [
+    {
+      "path": "docs/previews/dechus/dechus_attaques_zoom_jeu.png",
+      "sha256": "74b26f4f83481efc9b049a471a7e7bf8681dc62385ed2043408a2c106d6ec348"
+    },
+    {
+      "path": "docs/previews/dechus/dechus_corruption_zoom_jeu.png",
+      "sha256": "1540d02076d61d28970ec5a26bd9b870dbd14703b181d000fbcfbf35f49dcf6e"
+    },
+    {
+      "path": "docs/previews/dechus/dechus_dalles_zoom_jeu.png",
+      "sha256": "ffd3d2e28f2b5c6d011bae25e2d6c45b8062c729ef7b91aa8f123dcf9708bb39"
+    },
+    {
+      "path": "docs/previews/dechus/dechus_techniques_1_zoom_jeu.png",
+      "sha256": "999b0231c8d92e22284ccf2d3905f91de48e6ea149dabcce376f183362dbf89f"
+    },
+    {
+      "path": "docs/previews/dechus/dechus_techniques_2_zoom_jeu.png",
+      "sha256": "5d1161c779beffa4f9ce5500f1b45030e27f7ff5a4d86590c87f8f562949e22e"
+    }
+  ],
+  "map21_tiles_sha256": [
+    "02e4a3053f90f14dd2e6aa6112675db6780e0ff57de26a95403587e1ac0877bb",
+    "0a11f2ecdbcb096a2351fa9202a5eba97123a288784f5b1dd1634903f0de63dc",
+    "67535f0eae5e245a82f7cb4f0199cd6f5c5e4735a87313a73eb1d0b40c340b2c"
+  ],
+  "witnesses": [
+    "player.hunter",
+    "monster.glimmerwing"
+  ],
+  "text_hash_convention": "UTF-8, fins de ligne LF"
+}

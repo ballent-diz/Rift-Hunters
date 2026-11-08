@@ -45,11 +45,13 @@ from pixelforge.sheet import EntitySpec, make_icon, make_preview, _save  # noqa:
 from pixelforge.palette import OUTLINE, hexrgb  # noqa: E402
 
 
-def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 0, holes_min_area: int = 8) -> Image.Image:
+def remove_background(img: Image.Image, mode: str, tolerance: int, holes: int = 0,
+                      holes_min_area: int = 8, preserve_alpha: bool = False) -> Image.Image:
     rgba = img.convert("RGBA")
     arr = np.array(rgba)
     if mode == "alpha":
-        arr[arr[:, :, 3] < 128, 3] = 0
+        if not preserve_alpha:
+            arr[arr[:, :, 3] < 128, 3] = 0
         return Image.fromarray(arr, "RGBA")
     if mode == "smooth":
         return _remove_smooth(arr, tolerance)
@@ -279,7 +281,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     for anim in animations:
         img = Image.open(os.path.join(job_dir, anim["source"]))
         img = remove_background(img, job.get("background", "auto"), int(job.get("tolerance", 60)),
-                                int(job.get("holes", 0)), int(job.get("holes_min_area", 8)))
+                                int(job.get("holes", 0)), int(job.get("holes_min_area", 8)),
+                                bool(job.get("preserve_alpha", False)))
         if job.get("despill"):
             img = despill(img)
         if job.get("flip"):
@@ -290,7 +293,11 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
             frames = split_frames(img, int(anim["frames"]), anim.get("layout", "auto"), anim.get("grid"), anim.get("row"))
         if anim.get("isolate", job.get("isolate", False)):
             frames = [isolate_frame(fr) for fr in frames]
-        frames = [crop_alpha(fr) for fr in frames]
+        if job.get("registered_cells", False):
+            if not job.get("keep_size", False) or any(fr.size != (cw, ch) for fr in frames):
+                raise ValueError("registered_cells exige keep_size et des cellules aux dimensions du job")
+        else:
+            frames = [crop_alpha(fr) for fr in frames]
         sources.append((anim, frames))
     # Échelle commune : la hauteur médiane de l'animation de référence devient target_height.
     reference = sources[0][1]
@@ -315,7 +322,15 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     colors = int(job.get("colors", 32))
     all_frames = [fr for _, frs in scaled for fr in frs]
     palette_img = None
-    if colors > 0:
+    if colors > 0 and job.get("palette_source"):
+        # Plusieurs feuilles d'une même créature peuvent partager exactement les mêmes couleurs.
+        palette_path = os.path.join(job_dir, job["palette_source"])
+        palette_img = Image.open(palette_path).convert("RGB").quantize(
+            colors=colors, method=Image.Quantize.FASTOCTREE)
+        active = max(index for _, index in palette_img.getcolors()) + 1
+        values = palette_img.getpalette()[:active * 3]
+        palette_img.putpalette(values + values[-3:] * (256 - active))
+    elif colors > 0:
         strip_w = sum(fr.width for fr in all_frames)
         strip = Image.new("RGB", (strip_w, max(fr.height for fr in all_frames)), (0, 0, 0))
         x = 0
@@ -344,7 +359,8 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
                 arr[:, :, :3] = np.array(rgb)
             if not job.get("preserve_alpha", False):
                 arr[:, :, 3] = np.where(alpha, 255, 0)
-            cell = place_in_cell(arr, (cw, ch), (ax, ay), int(job.get("hover", 0)), job.get("anchor_mode", "feet"))
+            cell = arr.copy() if job.get("registered_cells", False) else place_in_cell(
+                arr, (cw, ch), (ax, ay), int(job.get("hover", 0)), job.get("anchor_mode", "feet"))
             offsets = anim.get("frame_offsets", [])
             if i < len(offsets):
                 dx, dy = map(int, offsets[i])
@@ -376,7 +392,7 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
         "imported_from": os.path.relpath(job_path, REPO).replace(os.sep, "/"),
         "sheet": "res://" + sheet_rel,
         "cell": [cw, ch],
-        "anchor": [ax, ay],
+        "anchor": list(job.get("runtime_anchor", [ax, ay])),
         "scale": job.get("scale", 1.0),
         "animations": entry_anims,
         "icon": "res://" + icon_rel,

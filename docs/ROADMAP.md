@@ -9,6 +9,49 @@ Référence légère1254×1254 à peindre ; Claude intègre après réception du
 Contrôle restant : vrais sprites du chapitre5, absents du dépôt. Aucun changement de src/, data/,
 du manifeste ou des cartes14 à24. Fiche : `docs/maps/OEIL_DE_LA_FAILLE.md`.
 
+## Carte 20 — chemin et décors centraux livrés, collisions à peindre (Codex, 7 novembre 2026)
+
+Retouche locale demandée par le propriétaire : trois salles du Cœur du Silence conservées,
+passage de droite ouvert entre la salle est et l'îlot central, trois plaques de glace et cinq abris
+ajoutés vers le centre des salles. Plus de 91 % des pixels des tuiles sont identiques à la livraison précédente.
+Qualité conforme 35/35 secteurs, huit captures statiques ; fiche : `docs/maps/COEUR_DU_SILENCE.md`.
+Nouvelle référence légère des collisions à peindre par le propriétaire, puis raccordement par Claude.
+L'escalier de gauche près de la cascade est conservé à l'identique.
+Aucune navigation ni intégration jouable validée dans ce lot ; aucun changement de gameplay.
+
+## Carte 24 — Le Panthéon brisé : détail livré, collisions à peindre (Codex, 7 novembre 2026)
+
+Commande du propriétaire : `shattered_pantheon`, chapitre 5, monde 4400 × 4400 unités.
+Avenue en anneau, quatre quartiers et cours des failles, place centrale en contrebas,
+11 socles de statues vides et trois autels d'Échos piégés. Composition conservée par le propriétaire,
+avec ajout demandé d'un petit pilier central. Plan figé, détail redessiné par seize régions,
+référence légère des collisions et captures d'échelle : `docs/maps/PANTHEON_BRISE.md`.
+Masque à peindre par le propriétaire ; intégration des failles, statues, Échos piégés,
+gardien et campagne à Claude. Aucune validation de navigation ou de combat dans ce lot.
+Sans changement de `src/`, `data/`, du manifeste ni des cartes 14 à 23.
+
+## Carte 20 — Le Cœur du Silence : à refaire (décision du propriétaire, 7 novembre 2026)
+
+La dernière île n'est pas considérée accessible et le propriétaire rejette cette version.
+Reprendre la composition avec une liaison claire vers chaque île ; ne pas solliciter de peinture
+des collisions sur l'ancienne référence. Retirée du paquet local des cartes en attente de collisions.
+Ce constat ne modifie pas les fichiers de la carte 20 dans le présent lot de la carte 24.
+
+## Enfants de la Faille et Statue éveillée : livrés (Codex, 8 novembre 2026)
+
+Sept créatures pour les cartes 24 et 25, plus la Statue éveillée B8. Onze planches et 162 poses livrées.
+Gabarits supérieurs aux Violets du chapitre 1 ; Statue d’environ 110 unités adaptée aux socles de la carte 24.
+Captures sur la carte 22 avec Chasseur et Écho, Statue sur S01 carte 24 ; huit assets conformes.
+Sources, jobs et guide Claude : `docs/art/ENFANTS_DE_LA_FAILLE.md`. Aucun changement de src/ ou data/.
+Ensuite : Abyssarque, Dévoreur final, sept planches A à G demandées ; génération après livraison de ce lot.
+
+## Sprites chapitre 5 — Les Déchus : livrés (Codex, 8 novembre 2026)
+
+Sept monstres de la Cité de la Faille, dix planches et 144 poses : trois normaux, un arbalétrier
+avec technique, trois élites avec deux techniques chacune. Cellules 64 px, échelle 0,5 ; planche A
+en référence des suivantes. Capture au zoom réel sur les Faubourgs brisés avec Chasseur et Écho.
+Sept assets validés, 144 poses auditées, captures et mouvement au zoom réel sur la carte 21 livrés. Fiche : docs/art/DECHUS_CHAPITRE5.md. Claude intégrera les comportements ; aucune modification de src/ ou data/ dans ce lot.
+
 ## Images manquantes du jeu — en cours (Codex, 2 novembre 2026)
 
 - Lot 1 : **Livré (Codex)** — 14 ennemis, Nivorath et brasero, 31 planches / 414 poses. Sources originales conservées ; toutes les entrées de main préservées lors du merge du 3 novembre. Import, assets, art, audit des poses et captures 720p réussis. Raccords et revue artistique : `docs/art/MONSTRES_CHAPITRE4.md`.
@@ -531,6 +574,11 @@ Plan validé5016 ×3344 conservé : trois salles est-ouest, arche puis escalier 
 
 Composition validée et plan figé3344 ×5016 : trois rues sud→nord, trois traverses, six arches ouvertes à runes sombres (seuils209–238u), parvis libre1600 ×1000u hors socle vide et treize abris mesurés130–159u. Douze régions réellement redessinées, deux tuiles finales, qualité conforme35/35 et fidélité0,972 ; traitement de netteté borné pour préserver le pavage. Sept captures au zoom réel avec les sprites existants, import Godot et contrôle assets sans erreur. Référence entière légère836 ×1254 à peindre par le propriétaire, retourPNG au même cadrage ; recette et empreinte dans source/collision_reference.json. Les seuils, escaliers et sols violets restent praticables ; Claude raccordera collisions, autel, portes, gardien et campagne. Aucun masque créé ni nouveau sprite du chapitre5 ; aucun changement de src/, data/, du manifeste ou des cartes14 à21. Voir docs/maps/SANCTUAIRE_DES_RUNES.md.
 
+
+## Carte 23 — Les Quartiers suspendus : détail livré (Codex, 6 novembre)
+
+Composition corrigée validée et plan figé 5016 × 2508 : départ ouest en L, Z1 en croissant avec cours et ruines, Z2 fendu et passage intérieur, finale est libre 1000 × 1000u, refuge nord isolé. Trois ponts continus et trois paires de socles vides conservés ; cinq nappes violettes décoratives, sans B9. Huit régions réellement peintes, onze abris mesurés 114–156u, socles 180–199u avec dégagement contrôlé visuellement. Trois tuiles finales à 2,25px/u, qualité conforme 17/20, fidélité 0,993. Quatorze captures au zoom réel, import Godot et contrôle assets sans erreur. Référence entière légère 1254 × 627 à peindre par le propriétaire, retour PNG au même cadrage ; recette et SHA conservés. Aucun masque créé ni sprite du chapitre 5. Claude raccordera collisions, zones, téléporteurs, gardien et campagne. Aucun changement de src/, data/, du manifeste ou des cartes 14 à 22 dans le diff vers main. Voir [QUARTIERS_SUSPENDUS.md](maps/QUARTIERS_SUSPENDUS.md).
+
 ## Compétences et effets pixelfx par famille (lot 1, 6 novembre)
 
 Audit et attribution « Corrompu → compétence → effet pixelfx » : [design/VFX_COMPETENCES.md](design/VFX_COMPETENCES.md).
@@ -550,3 +598,15 @@ peints) ; feuilles de plus de 40 images allégées (une sur deux).
   cellule dans `FlowField`, cerveaux décalés une image sur deux au-delà de 120 Corrompus (`EnemyManager.STAGGER_FROM`,
   jamais pendant une technique), marqueurs de statut extraits dans `EnemyMarkers` et limités à l'écran, halos hors écran
   non dessinés. Piste suivante si besoin : décaler aussi `push_out` et la séparation.
+
+## Objets peints des cartes — livrés pour revue (Codex, 8 novembre)
+
+Branche `codex/objets-peints-cartes` : miroirs-portails de la carte 14 (quatre paires, états conservés), cristaux-miroirs adaptés aux cartes 13 et 15, mannequin de la salle d’entraînement. Sept variantes finales, quatre sources peintes, palettes prélevées sur leurs décors, jobs d’import, onze captures au zoom réel et quatre GIF. Audit des sprites et validation Godot conformes. Voir docs/art/OBJETS_PEINTS_CARTES.md. Claude raccordera les scènes ; aucun changement de src/, data/ ou des cartes. Les prochains abris seront peints dans les décors.
+
+## Abyssarque final : livré (Codex, 8 novembre 2026)
+
+Sept planches A à G pour le Dévoreur de la carte 25, après livraison des Enfants de la Faille (PR 129).
+Identité issue des cinq matières du voyage, cœur-œil central ; gabarit 450u (Nivorath actuel : 150u).
+42 colonnes redessinées, 120 poses, sept feuilles de phase et sept icônes. Sept assets conformes dans Godot.
+Onze captures et un GIF, Chasseur et Écho inchangés ; guide Claude : `docs/art/ABYSSARQUE.md`.
+Aucun changement de src/, data/, maps ou collisions.

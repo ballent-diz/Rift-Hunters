@@ -1,0 +1,12 @@
+{
+  "generator": "Outil imagegen intégré, alpha demandé explicitement",
+  "date": "2026-11-07",
+  "family": "Les Déchus",
+  "id": "lantern_wraith",
+  "planche_B_identity_reference": null,
+  "A_refinement": true,
+  "discarded_trials_outside_repository": true,
+  "source_sha256": {
+    "planche_A.png": "bd4a48944a087c1a29e16667b32f40a5dca7e674a47f09ffd41ceed521297956"
+  }
+}

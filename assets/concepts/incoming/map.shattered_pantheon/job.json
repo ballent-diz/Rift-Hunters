@@ -1,0 +1,19 @@
+{
+  "id": "map.shattered_pantheon",
+  "status": "wip",
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "plan_locked": true,
+  "world": [
+    4400,
+    4400
+  ],
+  "composition": "composition.png",
+  "plan": "plan.json",
+  "generator": "outil intégré imagegen",
+  "source_policy": "Une seule composition retenue ; essais hors dépôt.",
+  "detail_generated": true,
+  "quality_final_conforme": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false
+}

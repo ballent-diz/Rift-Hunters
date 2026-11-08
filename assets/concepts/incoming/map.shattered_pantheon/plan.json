@@ -1,0 +1,843 @@
+{
+  "id": "map.shattered_pantheon",
+  "map_number": 24,
+  "chapter": 5,
+  "title": "Le Panthéon brisé",
+  "world": [
+    4400,
+    4400
+  ],
+  "mode": "Fermeture de quatre failles puis gardien",
+  "mechanics": [
+    "B8 Statues qui s’éveillent",
+    "B10 Échos piégés"
+  ],
+  "stage": "detail_graphique_livre",
+  "owner_approved": true,
+  "plan_locked": true,
+  "owner_approval_date": "2026-11-07",
+  "owner_feedback": [
+    "ajoute un osbtacle en au centre de la map, genre un pilier",
+    "sinon elle est bien comme ca"
+  ],
+  "approval_scope": "Composition conservée et pilier demandé ; détail livré séparément, collisions à peindre.",
+  "composition_sha256": "8d1411dd363eb89280f1c1fdd498b082a751a11bb43662e517dcb8d264b3354b",
+  "coordinate_basis": "Pourcentages depuis le coin haut-gauche ; centres graphiques approximatifs. Coordonnées world centrées : pct × 44 − 2200.",
+  "start_pct": [
+    50,
+    88.5
+  ],
+  "avenue": {
+    "kind": "anneau_continu",
+    "center_pct": [
+      50,
+      50
+    ],
+    "direct_access_to_plaza": false
+  },
+  "courts": [
+    {
+      "id": "NW",
+      "rift_center_pct": [
+        26,
+        29.5
+      ],
+      "free_diameter_world_min": 600,
+      "rift_painted": false,
+      "rift_center_world": [
+        -1056,
+        -902.0
+      ]
+    },
+    {
+      "id": "NE",
+      "rift_center_pct": [
+        75,
+        30
+      ],
+      "free_diameter_world_min": 600,
+      "rift_painted": false,
+      "rift_center_world": [
+        1100,
+        -880
+      ]
+    },
+    {
+      "id": "SW",
+      "rift_center_pct": [
+        27,
+        66
+      ],
+      "free_diameter_world_min": 600,
+      "rift_painted": false,
+      "rift_center_world": [
+        -1012,
+        704
+      ]
+    },
+    {
+      "id": "SE",
+      "rift_center_pct": [
+        75,
+        66
+      ],
+      "free_diameter_world_min": 600,
+      "rift_painted": false,
+      "rift_center_world": [
+        1100,
+        704
+      ]
+    }
+  ],
+  "passages": [
+    {
+      "id": "NW_avenue",
+      "quarter": "NW",
+      "center_pct": [
+        13.5,
+        28
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        -1606.0,
+        -968
+      ]
+    },
+    {
+      "id": "NW_place",
+      "quarter": "NW",
+      "center_pct": [
+        35,
+        36.5
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        -660,
+        -594.0
+      ]
+    },
+    {
+      "id": "NE_avenue",
+      "quarter": "NE",
+      "center_pct": [
+        86.5,
+        28
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        1606.0,
+        -968
+      ]
+    },
+    {
+      "id": "NE_place",
+      "quarter": "NE",
+      "center_pct": [
+        65,
+        36.5
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        660,
+        -594.0
+      ]
+    },
+    {
+      "id": "SW_avenue",
+      "quarter": "SW",
+      "center_pct": [
+        13.5,
+        70.5
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        -1606.0,
+        902.0
+      ]
+    },
+    {
+      "id": "SW_place",
+      "quarter": "SW",
+      "center_pct": [
+        35,
+        60
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        -660,
+        440
+      ]
+    },
+    {
+      "id": "SE_avenue",
+      "quarter": "SE",
+      "center_pct": [
+        86.5,
+        70.5
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        1606.0,
+        902.0
+      ]
+    },
+    {
+      "id": "SE_place",
+      "quarter": "SE",
+      "center_pct": [
+        65,
+        60
+      ],
+      "width_world_target": [
+        200,
+        300
+      ],
+      "width_world_target_nominal": 250,
+      "measurement_status": "centre relevé sur composition ; largeur à vérifier sur le détail et les collisions",
+      "center_world": [
+        660,
+        440
+      ]
+    }
+  ],
+  "central_plaza": {
+    "kind": "place_irreguliere_en_contrebas",
+    "core_rect_pct": [
+      38.6,
+      39,
+      61.4,
+      61.8
+    ],
+    "core_world_size": [
+      1003.2,
+      1003.2
+    ],
+    "fully_unobstructed": false,
+    "explicit_owner_exception": "Le propriétaire a demandé un pilier-abri au centre. Le noyau est praticable autour de son pied ; ne pas prétendre que tout ce carré est vide.",
+    "painted_circle": false,
+    "painted_boss_enclosure": false
+  },
+  "statue_plinths": [
+    {
+      "id": "S01",
+      "center_pct": [
+        30.5,
+        8.6
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        -858.0,
+        -1821.6
+      ]
+    },
+    {
+      "id": "S02",
+      "center_pct": [
+        69.4,
+        8.6
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        853.6,
+        -1821.6
+      ]
+    },
+    {
+      "id": "S03",
+      "center_pct": [
+        8.1,
+        27.5
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        -1843.6,
+        -990.0
+      ]
+    },
+    {
+      "id": "S04",
+      "center_pct": [
+        91.9,
+        27.5
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        1843.6,
+        -990.0
+      ]
+    },
+    {
+      "id": "S05",
+      "center_pct": [
+        7.8,
+        64
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        -1856.8,
+        616
+      ]
+    },
+    {
+      "id": "S06",
+      "center_pct": [
+        92.2,
+        64
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        1856.8,
+        616
+      ]
+    },
+    {
+      "id": "S07",
+      "center_pct": [
+        30.5,
+        85.6
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        -858.0,
+        1566.4
+      ]
+    },
+    {
+      "id": "S08",
+      "center_pct": [
+        69.5,
+        85.6
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        858.0,
+        1566.4
+      ]
+    },
+    {
+      "id": "S09",
+      "center_pct": [
+        34.8,
+        26.1
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        -668.8,
+        -1051.6
+      ]
+    },
+    {
+      "id": "S10",
+      "center_pct": [
+        65.2,
+        26.1
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        668.8,
+        -1051.6
+      ]
+    },
+    {
+      "id": "S11",
+      "center_pct": [
+        50.2,
+        66.1
+      ],
+      "side_world_target": [
+        90,
+        130
+      ],
+      "blocking": true,
+      "empty": true,
+      "statue_painted": false,
+      "center_world": [
+        8.8,
+        708.4
+      ]
+    }
+  ],
+  "echo_altars": [
+    {
+      "id": "A_N",
+      "center_pct": [
+        50,
+        18
+      ],
+      "width_world_target": 140,
+      "walkable": true,
+      "empty": true,
+      "forecourt_depth_world_min": 300,
+      "gallery_dead_end": true,
+      "cage_painted": false,
+      "center_world": [
+        0,
+        -1408
+      ]
+    },
+    {
+      "id": "A_W",
+      "center_pct": [
+        18.6,
+        48.6
+      ],
+      "width_world_target": 140,
+      "walkable": true,
+      "empty": true,
+      "forecourt_depth_world_min": 300,
+      "gallery_dead_end": true,
+      "cage_painted": false,
+      "center_world": [
+        -1381.6,
+        -61.6
+      ]
+    },
+    {
+      "id": "A_E",
+      "center_pct": [
+        81.4,
+        48.6
+      ],
+      "width_world_target": 140,
+      "walkable": true,
+      "empty": true,
+      "forecourt_depth_world_min": 300,
+      "gallery_dead_end": true,
+      "cage_painted": false,
+      "center_world": [
+        1381.6,
+        -61.6
+      ]
+    }
+  ],
+  "covers": [
+    {
+      "id": "abri_01",
+      "zone": "NW",
+      "center_pct": [
+        17.1,
+        24.5
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -1447.6,
+        -1122.0
+      ]
+    },
+    {
+      "id": "abri_02",
+      "zone": "NW",
+      "center_pct": [
+        27.9,
+        20.2
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -972.4,
+        -1311.2
+      ]
+    },
+    {
+      "id": "abri_03",
+      "zone": "NW",
+      "center_pct": [
+        36.3,
+        19.6
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -602.8,
+        -1337.6
+      ]
+    },
+    {
+      "id": "abri_04",
+      "zone": "NE",
+      "center_pct": [
+        60,
+        25.4
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        440,
+        -1082.4
+      ]
+    },
+    {
+      "id": "abri_05",
+      "zone": "NE",
+      "center_pct": [
+        71.3,
+        20.4
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        937.2,
+        -1302.4
+      ]
+    },
+    {
+      "id": "abri_06",
+      "zone": "NE",
+      "center_pct": [
+        80.8,
+        20.4
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        1355.2,
+        -1302.4
+      ]
+    },
+    {
+      "id": "abri_07",
+      "zone": "SW",
+      "center_pct": [
+        16.3,
+        63
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -1482.8,
+        572
+      ]
+    },
+    {
+      "id": "abri_08",
+      "zone": "SW",
+      "center_pct": [
+        28,
+        75.7
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -968,
+        1130.8
+      ]
+    },
+    {
+      "id": "abri_09",
+      "zone": "SW",
+      "center_pct": [
+        36.4,
+        75
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -598.4,
+        1100
+      ]
+    },
+    {
+      "id": "abri_10",
+      "zone": "SE",
+      "center_pct": [
+        82.8,
+        63
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        1443.2,
+        572
+      ]
+    },
+    {
+      "id": "abri_11",
+      "zone": "SE",
+      "center_pct": [
+        71.8,
+        75.5
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        959.2,
+        1122.0
+      ]
+    },
+    {
+      "id": "abri_12",
+      "zone": "SE",
+      "center_pct": [
+        64.3,
+        75
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        629.2,
+        1100
+      ]
+    },
+    {
+      "id": "abri_13",
+      "zone": "place",
+      "center_pct": [
+        42,
+        34.5
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -352,
+        -682.0
+      ]
+    },
+    {
+      "id": "abri_14",
+      "zone": "place",
+      "center_pct": [
+        56,
+        34.5
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        264,
+        -682.0
+      ]
+    },
+    {
+      "id": "abri_15",
+      "zone": "place",
+      "center_pct": [
+        32.7,
+        53.7
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        -761.2,
+        162.8
+      ]
+    },
+    {
+      "id": "abri_16",
+      "zone": "place",
+      "center_pct": [
+        65.5,
+        53.7
+      ],
+      "width_world_target": [
+        110,
+        160
+      ],
+      "blocking": true,
+      "center_world": [
+        682.0,
+        162.8
+      ]
+    },
+    {
+      "id": "pilier_central",
+      "zone": "place",
+      "center_pct": [
+        49.8,
+        52.1
+      ],
+      "width_world_target": [
+        110,
+        140
+      ],
+      "height_world_target": [
+        100,
+        130
+      ],
+      "blocking": true,
+      "owner_added": true,
+      "note": "Petit pilier brisé demandé explicitement au centre ; ne pas le transformer en tour.",
+      "center_world": [
+        -8.8,
+        92.4
+      ]
+    }
+  ],
+  "cover_count_by_zone": {
+    "NW": 3,
+    "NE": 3,
+    "SW": 3,
+    "SE": 3,
+    "place": 5
+  },
+  "architecture_scale_world": {
+    "hunter_height": 52,
+    "step_depth": [
+      12,
+      16
+    ],
+    "paving_max": 26,
+    "column_width": [
+      30,
+      45
+    ],
+    "ordinary_door_height": [
+      75,
+      90
+    ]
+  },
+  "corruption": "Nappes de dallage violet/magenta plates et praticables ; pas de trous ni d’effets gameplay peints.",
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "navigation_or_combat_tested": false,
+  "review_limits": [
+    "Les centres sont des repères graphiques approximatifs, pas des collisions.",
+    "Passages, alcôves et gabarits à contrôler après détail, puis par peinture et circulation en jeu.",
+    "Le socle de statue est bloquant ; l’autel runique reste praticable.",
+    "Aucune statue, cage ou faille interactive peinte."
+  ],
+  "detail_generated": true,
+  "start_world": [
+    0,
+    1694.0
+  ]
+}

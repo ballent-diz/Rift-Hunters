@@ -1,0 +1,402 @@
+{
+  "method": "Six colonnes réellement redessinées par imagegen ; poses recalées sur les hauteurs relatives du guide, puis assemblées sans redessin. La mort conserve la réduction de chaque pose du guide, aucun cadavre regonflé.",
+  "columns": [
+    {
+      "phase": "A",
+      "column": 1,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-4432744b-fd64-4cba-9a4a-40b57e2862b2.png",
+      "prompt": "Use case: precise-object-edit. Refine this exact THREE-POSE VERTICAL COLUMN of Abyssarch, the final Rift Hunters boss, into finely detailed production pixel art. Output a LARGE vertical image roughly724×2172, ONE COLUMN × THREE equally sized cells, true transparent background. The creature fills roughly70–75% of each cell width, leaving broad empty gutters. Maintain EXACTLY these three poses (top idle1, middle move1, bottom claw-attack neutral1), silhouettes, camera, anatomy and relative body size; do not add/remove limbs, change eye placement or invent a different creature.\nIMPORTANT this is a genuine finer-detail redraw at the larger resolution, NOT a nearest enlargement of the coarse input pixels. Use fine1–2pixel clusters at this output resolution, crisp tiny beveled limestone edges, thin chiselled cracks, small but grouped moss leaves, clean root fibres, faceted crown ice, articulated pale claw plates and carefully separated tiny magenta sutures. Keep large forms readable and areas calm; do not add noisy grain, speckles, microtext, symbols or extra ornaments. Upper-left light, violet lower-right selective rim. Keep about32 coherent colors; no smooth painting or antialias blur.\nPreserve material positions: IMAGE-LEFT mossy stone shoulder and short water trickle; IMAGE-RIGHT charred basalt with ember-orange fissures; lower roots and purple crystal; THREE blue-white ice crown spikes; broken pale limestone ribs around ONE central MAGENTA HEART-EYE, pale tiny pupil. Opaque painted body and alpha-zero gaps. No floor, shadow, text, frame borders, scenery, circle, zone, ray or surrounding glow. All claws/crown/feet fully contained. This fine column will be assembled with five other columns into the final6×3 sprite sheet.",
+      "sha256": "ca7c63ffd6e342064266a03fe46865fa803bf143e8b2aaa2b73a9c129cfb8768"
+    },
+    {
+      "phase": "A",
+      "column": 2,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-6cfd24db-68d1-4906-a216-7a81a2f60696.png",
+      "prompt": "Use case: precise-object-edit. Refine this exact THREE-POSE VERTICAL COLUMN of Abyssarch, the final Rift Hunters boss, into finely detailed production pixel art. Output a LARGE vertical image roughly724×2172, ONE COLUMN × THREE equally sized cells, true transparent background. The creature fills roughly70–75% of each cell width, leaving broad empty gutters. Maintain EXACTLY these three poses (top idle2, middle move2, bottom CLAW ATTACK pose2), silhouettes, camera, anatomy and relative body size; do not add/remove limbs, change eye placement or invent a different creature.\nIMPORTANT this is a genuine finer-detail redraw at the larger resolution, NOT a nearest enlargement of the coarse input pixels. Use fine1–2pixel clusters at this output resolution, crisp tiny beveled limestone edges, thin chiselled cracks, small but grouped moss leaves, clean root fibres, faceted crown ice, articulated pale claw plates and carefully separated tiny magenta sutures. Keep large forms readable and areas calm; do not add noisy grain, speckles, microtext, symbols or extra ornaments. Upper-left light, violet lower-right selective rim. Keep about32 coherent colors; no smooth painting or antialias blur.\nPreserve material positions: IMAGE-LEFT mossy stone shoulder and short water trickle; IMAGE-RIGHT charred basalt with ember-orange fissures; lower roots and purple crystal; THREE blue-white ice crown spikes; broken pale limestone ribs around ONE central MAGENTA HEART-EYE, pale tiny pupil. Opaque painted body and alpha-zero gaps. No floor, shadow, text, frame borders, scenery, circle, zone, ray or surrounding glow. All claws/crown/feet fully contained. This fine column will be assembled with five other columns into the final6×3 sprite sheet. Image1 is the exact target column 2, preserve each of its THREE DISTINCT POSES, including its specific claw windup/slash/recovery. Image2 is the approved FINE column1: match its NEW fine texture scale, material colors and exact anatomy, NOT its neutral poses. All columns must be one consistent animation, with same basic body height as image2. No copying three neutral frames when target shows action.",
+      "sha256": "478f2dfc1adb30288e29f562227eedd7714c574ef0f4f2d40ae00bf3a18fd88d"
+    },
+    {
+      "phase": "A",
+      "column": 3,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-626cd0d9-1103-49c0-8f43-66a7c56eaef3.png",
+      "prompt": "Use case: precise-object-edit. Refine this exact THREE-POSE VERTICAL COLUMN of Abyssarch, the final Rift Hunters boss, into finely detailed production pixel art. Output a LARGE vertical image roughly724×2172, ONE COLUMN × THREE equally sized cells, true transparent background. The creature fills roughly70–75% of each cell width, leaving broad empty gutters. Maintain EXACTLY these three poses (top idle3, middle move3, bottom CLAW ATTACK pose3), silhouettes, camera, anatomy and relative body size; do not add/remove limbs, change eye placement or invent a different creature.\nIMPORTANT this is a genuine finer-detail redraw at the larger resolution, NOT a nearest enlargement of the coarse input pixels. Use fine1–2pixel clusters at this output resolution, crisp tiny beveled limestone edges, thin chiselled cracks, small but grouped moss leaves, clean root fibres, faceted crown ice, articulated pale claw plates and carefully separated tiny magenta sutures. Keep large forms readable and areas calm; do not add noisy grain, speckles, microtext, symbols or extra ornaments. Upper-left light, violet lower-right selective rim. Keep about32 coherent colors; no smooth painting or antialias blur.\nPreserve material positions: IMAGE-LEFT mossy stone shoulder and short water trickle; IMAGE-RIGHT charred basalt with ember-orange fissures; lower roots and purple crystal; THREE blue-white ice crown spikes; broken pale limestone ribs around ONE central MAGENTA HEART-EYE, pale tiny pupil. Opaque painted body and alpha-zero gaps. No floor, shadow, text, frame borders, scenery, circle, zone, ray or surrounding glow. All claws/crown/feet fully contained. This fine column will be assembled with five other columns into the final6×3 sprite sheet. Image1 is the exact target column 3, preserve each of its THREE DISTINCT POSES, including its specific claw windup/slash/recovery. Image2 is the approved FINE column1: match its NEW fine texture scale, material colors and exact anatomy, NOT its neutral poses. All columns must be one consistent animation, with same basic body height as image2. No copying three neutral frames when target shows action.",
+      "sha256": "6a64244c7fbff8428219b5fa11653696ef4a264409c1ce207e7858903892f18f"
+    },
+    {
+      "phase": "A",
+      "column": 4,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-1d7e03a1-9174-478f-8e0f-8bf8e7b4815a.png",
+      "prompt": "Use case: precise-object-edit. Refine this exact THREE-POSE VERTICAL COLUMN of Abyssarch, the final Rift Hunters boss, into finely detailed production pixel art. Output a LARGE vertical image roughly724×2172, ONE COLUMN × THREE equally sized cells, true transparent background. The creature fills roughly70–75% of each cell width, leaving broad empty gutters. Maintain EXACTLY these three poses (top idle4, middle move4, bottom CLAW ATTACK pose4), silhouettes, camera, anatomy and relative body size; do not add/remove limbs, change eye placement or invent a different creature.\nIMPORTANT this is a genuine finer-detail redraw at the larger resolution, NOT a nearest enlargement of the coarse input pixels. Use fine1–2pixel clusters at this output resolution, crisp tiny beveled limestone edges, thin chiselled cracks, small but grouped moss leaves, clean root fibres, faceted crown ice, articulated pale claw plates and carefully separated tiny magenta sutures. Keep large forms readable and areas calm; do not add noisy grain, speckles, microtext, symbols or extra ornaments. Upper-left light, violet lower-right selective rim. Keep about32 coherent colors; no smooth painting or antialias blur.\nPreserve material positions: IMAGE-LEFT mossy stone shoulder and short water trickle; IMAGE-RIGHT charred basalt with ember-orange fissures; lower roots and purple crystal; THREE blue-white ice crown spikes; broken pale limestone ribs around ONE central MAGENTA HEART-EYE, pale tiny pupil. Opaque painted body and alpha-zero gaps. No floor, shadow, text, frame borders, scenery, circle, zone, ray or surrounding glow. All claws/crown/feet fully contained. This fine column will be assembled with five other columns into the final6×3 sprite sheet. Image1 is the exact target column 4, preserve each of its THREE DISTINCT POSES, including its specific claw windup/slash/recovery. Image2 is the approved FINE column1: match its NEW fine texture scale, material colors and exact anatomy, NOT its neutral poses. All columns must be one consistent animation, with same basic body height as image2. No copying three neutral frames when target shows action.",
+      "sha256": "22604f88897ee4ef4c505cca17fcc3ef70b69557d0ee1a38481f925dcebf5da5"
+    },
+    {
+      "phase": "A",
+      "column": 5,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-0de1acaa-e5e8-45c6-8ac6-efab153235e4.png",
+      "prompt": "Use case: precise-object-edit. Refine this exact THREE-POSE VERTICAL COLUMN of Abyssarch, the final Rift Hunters boss, into finely detailed production pixel art. Output a LARGE vertical image roughly724×2172, ONE COLUMN × THREE equally sized cells, true transparent background. The creature fills roughly70–75% of each cell width, leaving broad empty gutters. Maintain EXACTLY these three poses (top idle5, middle move5, bottom CLAW ATTACK pose5), silhouettes, camera, anatomy and relative body size; do not add/remove limbs, change eye placement or invent a different creature.\nIMPORTANT this is a genuine finer-detail redraw at the larger resolution, NOT a nearest enlargement of the coarse input pixels. Use fine1–2pixel clusters at this output resolution, crisp tiny beveled limestone edges, thin chiselled cracks, small but grouped moss leaves, clean root fibres, faceted crown ice, articulated pale claw plates and carefully separated tiny magenta sutures. Keep large forms readable and areas calm; do not add noisy grain, speckles, microtext, symbols or extra ornaments. Upper-left light, violet lower-right selective rim. Keep about32 coherent colors; no smooth painting or antialias blur.\nPreserve material positions: IMAGE-LEFT mossy stone shoulder and short water trickle; IMAGE-RIGHT charred basalt with ember-orange fissures; lower roots and purple crystal; THREE blue-white ice crown spikes; broken pale limestone ribs around ONE central MAGENTA HEART-EYE, pale tiny pupil. Opaque painted body and alpha-zero gaps. No floor, shadow, text, frame borders, scenery, circle, zone, ray or surrounding glow. All claws/crown/feet fully contained. This fine column will be assembled with five other columns into the final6×3 sprite sheet. Image1 is the exact target column 5, preserve each of its THREE DISTINCT POSES, including its specific claw windup/slash/recovery. Image2 is the approved FINE column1: match its NEW fine texture scale, material colors and exact anatomy, NOT its neutral poses. All columns must be one consistent animation, with same basic body height as image2. No copying three neutral frames when target shows action.",
+      "sha256": "1fc5d6b0757a7480e55d5ff71b1ac840c8929820b78496f6761a395498527bee"
+    },
+    {
+      "phase": "A",
+      "column": 6,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-176f62e6-8297-42ea-ab6c-0aaccef132a2.png",
+      "prompt": "Use case: precise-object-edit. Refine this exact THREE-POSE VERTICAL COLUMN of Abyssarch, the final Rift Hunters boss, into finely detailed production pixel art. Output a LARGE vertical image roughly724×2172, ONE COLUMN × THREE equally sized cells, true transparent background. The creature fills roughly70–75% of each cell width, leaving broad empty gutters. Maintain EXACTLY these three poses (top idle6, middle move6, bottom CLAW ATTACK pose6), silhouettes, camera, anatomy and relative body size; do not add/remove limbs, change eye placement or invent a different creature.\nIMPORTANT this is a genuine finer-detail redraw at the larger resolution, NOT a nearest enlargement of the coarse input pixels. Use fine1–2pixel clusters at this output resolution, crisp tiny beveled limestone edges, thin chiselled cracks, small but grouped moss leaves, clean root fibres, faceted crown ice, articulated pale claw plates and carefully separated tiny magenta sutures. Keep large forms readable and areas calm; do not add noisy grain, speckles, microtext, symbols or extra ornaments. Upper-left light, violet lower-right selective rim. Keep about32 coherent colors; no smooth painting or antialias blur.\nPreserve material positions: IMAGE-LEFT mossy stone shoulder and short water trickle; IMAGE-RIGHT charred basalt with ember-orange fissures; lower roots and purple crystal; THREE blue-white ice crown spikes; broken pale limestone ribs around ONE central MAGENTA HEART-EYE, pale tiny pupil. Opaque painted body and alpha-zero gaps. No floor, shadow, text, frame borders, scenery, circle, zone, ray or surrounding glow. All claws/crown/feet fully contained. This fine column will be assembled with five other columns into the final6×3 sprite sheet. Image1 is the exact target column 6, preserve each of its THREE DISTINCT POSES, including its specific claw windup/slash/recovery. Image2 is the approved FINE column1: match its NEW fine texture scale, material colors and exact anatomy, NOT its neutral poses. All columns must be one consistent animation, with same basic body height as image2. No copying three neutral frames when target shows action.",
+      "sha256": "e96c4e26e7ceea442effe4a122efef517adbd6ef0f953b617d371289fe680c7a"
+    }
+  ],
+  "registration": [
+    {
+      "row": 0,
+      "column": 0,
+      "generated_row": 0,
+      "reference_size": [
+        209,
+        183
+      ],
+      "fine_size": [
+        523,
+        459
+      ],
+      "registered_size": [
+        626,
+        549
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.196078431372549
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "generated_row": 1,
+      "reference_size": [
+        207,
+        181
+      ],
+      "fine_size": [
+        521,
+        459
+      ],
+      "registered_size": [
+        616,
+        543
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1830065359477124
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "generated_row": 2,
+      "reference_size": [
+        208,
+        182
+      ],
+      "fine_size": [
+        522,
+        459
+      ],
+      "registered_size": [
+        621,
+        546
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1895424836601307
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "generated_row": 0,
+      "reference_size": [
+        207,
+        183
+      ],
+      "fine_size": [
+        527,
+        455
+      ],
+      "registered_size": [
+        636,
+        549
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2065934065934065
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "generated_row": 2,
+      "reference_size": [
+        208,
+        180
+      ],
+      "fine_size": [
+        537,
+        467
+      ],
+      "registered_size": [
+        621,
+        540
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1563169164882228
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "generated_row": 1,
+      "reference_size": [
+        205,
+        178
+      ],
+      "fine_size": [
+        526,
+        465
+      ],
+      "registered_size": [
+        604,
+        534
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1483870967741936
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "generated_row": 0,
+      "reference_size": [
+        206,
+        183
+      ],
+      "fine_size": [
+        530,
+        458
+      ],
+      "registered_size": [
+        635,
+        549
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1986899563318778
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "generated_row": 1,
+      "reference_size": [
+        208,
+        180
+      ],
+      "fine_size": [
+        554,
+        450
+      ],
+      "registered_size": [
+        665,
+        540
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "generated_row": 2,
+      "reference_size": [
+        211,
+        184
+      ],
+      "fine_size": [
+        524,
+        465
+      ],
+      "registered_size": [
+        622,
+        552
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1870967741935483
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "generated_row": 0,
+      "reference_size": [
+        209,
+        184
+      ],
+      "fine_size": [
+        594,
+        503
+      ],
+      "registered_size": [
+        652,
+        552
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.0974155069582505
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "generated_row": 1,
+      "reference_size": [
+        219,
+        179
+      ],
+      "fine_size": [
+        631,
+        470
+      ],
+      "registered_size": [
+        721,
+        537
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1425531914893616
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "generated_row": 2,
+      "reference_size": [
+        213,
+        180
+      ],
+      "fine_size": [
+        601,
+        494
+      ],
+      "registered_size": [
+        657,
+        540
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.0931174089068827
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "generated_row": 0,
+      "reference_size": [
+        207,
+        182
+      ],
+      "fine_size": [
+        525,
+        460
+      ],
+      "registered_size": [
+        623,
+        546
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1869565217391305
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "generated_row": 1,
+      "reference_size": [
+        220,
+        179
+      ],
+      "fine_size": [
+        552,
+        445
+      ],
+      "registered_size": [
+        666,
+        537
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2067415730337079
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "generated_row": 2,
+      "reference_size": [
+        212,
+        177
+      ],
+      "fine_size": [
+        568,
+        454
+      ],
+      "registered_size": [
+        664,
+        531
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.169603524229075
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "generated_row": 0,
+      "reference_size": [
+        208,
+        182
+      ],
+      "fine_size": [
+        556,
+        459
+      ],
+      "registered_size": [
+        661,
+        546
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1895424836601307
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "generated_row": 1,
+      "reference_size": [
+        209,
+        178
+      ],
+      "fine_size": [
+        596,
+        447
+      ],
+      "registered_size": [
+        712,
+        534
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1946308724832215
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "generated_row": 2,
+      "reference_size": [
+        210,
+        180
+      ],
+      "fine_size": [
+        551,
+        451
+      ],
+      "registered_size": [
+        660,
+        540
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1973392461197339
+    }
+  ],
+  "size": [
+    4614,
+    2307
+  ],
+  "row_order_correction": "A colonne2 : les deux poses de déplacement et anticipation étaient inversées ; rangement corrigé."
+}
