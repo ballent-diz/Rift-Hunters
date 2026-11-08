@@ -59,6 +59,9 @@ def check(output):
             assert death["frames"] == 1 and not death["loop"]
             assert not image.crop((0, death["row"] * side, side, (death["row"] + 1) * side)).getbbox()
         hashes = json.loads((folder / "source/SHA256.json").read_text(encoding="utf-8"))
+        icon = Image.open(ROOT / entry["icon"].removeprefix("res://")).convert("RGBA")
+        icon_box = icon.getbbox()
+        assert icon.size == (64, 64) and icon_box and min(icon_box[:2]) >= 3 and max(icon_box[2:]) <= 61
         for filename, value in hashes.items():
             if digest(folder / "source" / filename) != value:
                 failures.append(key + " : empreinte source " + filename)

@@ -98,4 +98,7 @@ validateur standard `AssetValidator`, marges de deux pixels, palettes, alpha, an
 affaissement, disparition et empreintes des sources ; compilation Python et lint GDScript réussis.
 [Audit](../previews/enfants-faille/audit_sprites.json) · [Reçu](../previews/enfants-faille/controle_livraison.json).
 Les huit nouvelles entrées du manifeste préservent toutes les entrées antérieures.
+Les icônes 64² montrent le corps entier, réduit au plus proche avec une marge de trois pixels.
+Le script de vérification respecte désormais `IMPORT_TIMEOUT` ou `STEP_TIMEOUT` pour l'import Godot
+et s'arrête si cet import échoue ; il ne poursuit plus les tests après une réimportation interrompue à cinq minutes.
 **Aucun fichier de `src/`, `data/`, aucune map ou collision modifiés.**

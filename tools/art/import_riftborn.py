@@ -24,6 +24,20 @@ def strip(poses, path):
     image.save(path, lossless=True, exact=True, method=4)
 
 
+def fit_icon(entry, statue):
+    image = Image.open(ROOT / entry['sheet'].removeprefix('res://')).convert('RGBA')
+    width, height = entry['cell']
+    row = entry['animations']['dormant' if statue else 'move']['row']
+    pose = image.crop((0, row * height, width, (row + 1) * height))
+    pose = pose.crop(pose.getbbox())
+    factor = 58 / max(pose.size)
+    pose = pose.resize((max(1, round(pose.width * factor)), max(1, round(pose.height * factor))),
+                       Image.Resampling.NEAREST)
+    icon = Image.new('RGBA', (64, 64))
+    icon.paste(pose, ((64 - pose.width) // 2, (64 - pose.height) // 2))
+    icon.save(ROOT / entry['icon'].removeprefix('res://'))
+
+
 def import_one(identifier, preview_dir):
     folder = ROOT / 'assets/concepts/incoming' / ('enemy.' + identifier)
     statue = identifier == 'awakened_statue'
@@ -91,6 +105,7 @@ def import_one(identifier, preview_dir):
     write(folder / 'job.json', job)
     if changed:
         entry = import_sheet.run(str(folder / 'job.json'), preview_dir=str(preview_dir))
+    fit_icon(entry, statue)
     write(folder / 'source/normalization.json', {'sheets': [v for v in [info_a, info_b] if v],
           'packing': 'Composantes alpha, marge de 32 pixels, sans redessin.', 'reference_height_source': reference_height,
           'source_scale_B': scale_b, 'target_height': target, 'world_height_base': target * .5, 'native_cell': [side, side],
