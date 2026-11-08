@@ -599,6 +599,9 @@ peints) ; feuilles de plus de 40 images allégées (une sur deux).
   jamais pendant une technique), marqueurs de statut extraits dans `EnemyMarkers` et limités à l'écran, halos hors écran
   non dessinés. Piste suivante si besoin : décaler aussi `push_out` et la séparation.
 
+## Échelle du Cœur des marais — livré (Codex, 8 novembre)
+
+Carte 15 uniquement, à la demande du propriétaire : onze régions retouchées, cinq escaliers à neuf ou dix marches (13,75–14,67 unités), 55 colonnes calibrées à 38 unités hors socle. Plan, emprises, collisions peintes, champ et coordonnées conservés. Deux tuiles 2,25 px/unité sans perte ; aucun pixel modifié hors retouche. Qualité conforme 35/35, import et chargement Godot sans erreur, quatorze captures avec Chasseur et Cendrelame, superpositions et preuve numérique. Essais de combat laissés au propriétaire. Voir [la fiche](maps/COEUR_DES_MARAIS.md). Le Gué des Brumes est laissé de côté.
 ## Objets peints des cartes — livrés pour revue (Codex, 8 novembre)
 
 Branche `codex/objets-peints-cartes` : miroirs-portails de la carte 14 (quatre paires, états conservés), cristaux-miroirs adaptés aux cartes 13 et 15, mannequin de la salle d’entraînement. Sept variantes finales, quatre sources peintes, palettes prélevées sur leurs décors, jobs d’import, onze captures au zoom réel et quatre GIF. Audit des sprites et validation Godot conformes. Voir docs/art/OBJETS_PEINTS_CARTES.md. Claude raccordera les scènes ; aucun changement de src/, data/ ou des cartes. Les prochains abris seront peints dans les décors.

@@ -1,0 +1,2144 @@
+{
+  "date": "2026-11-08",
+  "generator": "imagegen intÃ©grÃ©",
+  "baseline_commit": "a372f55f76eb8352874513422b0b206ef01b539e",
+  "master_path": "assets/concepts/incoming/map.marsh_heart/source/map_detailed.webp",
+  "baseline_sha256": {
+    "assets/environments/marsh_heart/field.png": "0d9812e59a12d255fd23de09b3921ef5f8f718dee3e8e1e9a50b7a72df91a630",
+    "assets/environments/marsh_heart/map.webp": "bfe857d20f06cd995f3345f8649fc6307e26db7d009f8d3e5180eed368621af1",
+    "assets/environments/marsh_heart/map_1.webp": "fd95f7112fec8d98cb303cbc0b9ef01bca173a4b513e246a6c3baa2b842a375f",
+    "assets/environments/marsh_heart/minimap.webp": "777042d05fe514bd0fc3e81358fd54cbfe2334273dd959070ac94341c249621d",
+    "assets/concepts/incoming/map.marsh_heart/collision/collision.png": "c40a27b82833f888cf6ebaaa259109e8b0b0cca1bbcf1b3d552de9a85bb42d2c",
+    "assets/concepts/incoming/map.marsh_heart/collision/painted.webp": "8f139a822ff6827e9ab7ffd801cf4dcfe12da1534fce6225c4fbdaa80eabb452",
+    "assets/concepts/incoming/map.marsh_heart/source/map_detailed.webp": "d1fc561344117768c205a01f4e8d027387ea673bdde1c169cf9924f46f927ff2"
+  },
+  "world": [
+    3344,
+    5016
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "edit_mask": "edit_mask.png",
+  "edit_mask_role": "zones de retouche graphique, jamais une collision",
+  "regions": {
+    "central": {
+      "world_crop": [
+        1250,
+        1730,
+        850,
+        500
+      ],
+      "input_size": [
+        1530,
+        900
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-9570064e-5007-48b0-a856-d0347d1572b1.png",
+      "generated_size": [
+        1635,
+        962
+      ],
+      "generated_sha256": "05e6b4e2bc65e8e8b036c4cb6f7815df42c22225fb1e38a45401eb0727f73f31",
+      "prompt": "PROMPT_central.txt"
+    },
+    "sud": {
+      "world_crop": [
+        1270,
+        2950,
+        840,
+        480
+      ],
+      "input_size": [
+        1512,
+        864
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-ef582d6e-0e3f-40ea-a4f2-950bdee99f4a.png",
+      "generated_size": [
+        1659,
+        948
+      ],
+      "generated_sha256": "d0789551ebe481c1cf64343ed1924bd454448d2621e2fe919f0fb8b0560dc465",
+      "prompt": "PROMPT_sud.txt"
+    },
+    "entree": {
+      "world_crop": [
+        1330,
+        4520,
+        700,
+        450
+      ],
+      "input_size": [
+        1260,
+        810
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-00b645a2-9ab3-4129-b8a3-d8ea9e404152.png",
+      "generated_size": [
+        1564,
+        1006
+      ],
+      "generated_sha256": "34d7c2b1586964e0d606afda51a961df4d737e3ed8afebb9e18ac9ea46b8f0d1",
+      "prompt": "PROMPT_entree.txt"
+    },
+    "berge_ouest": {
+      "world_crop": [
+        300,
+        1520,
+        800,
+        600
+      ],
+      "input_size": [
+        1440,
+        1080
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-eafdd8a9-52c5-4b4f-944c-fad92ce204cf.png",
+      "generated_size": [
+        1448,
+        1086
+      ],
+      "generated_sha256": "25816f88f635bbe8c06cd85bf199e94dbda554baa52c3605e889a4e4955d7849",
+      "prompt": "PROMPT_berge_ouest.txt"
+    },
+    "berge_est": {
+      "world_crop": [
+        2240,
+        1520,
+        800,
+        600
+      ],
+      "input_size": [
+        1440,
+        1080
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-867f698d-bebd-4815-b187-e48c9670388f.png",
+      "generated_size": [
+        1448,
+        1086
+      ],
+      "generated_sha256": "3b3d101d7316f6cdb4901440a21360ac06f9fd454cf57496613b1fa997db6d42",
+      "prompt": "PROMPT_berge_est.txt"
+    },
+    "temple_ouest": {
+      "world_crop": [
+        0,
+        1600,
+        1672,
+        1672
+      ],
+      "input_size": [
+        2256,
+        2256
+      ],
+      "input_density": 1.3492822966507176,
+      "generated_file": "exec-c6c9b730-c9c1-4d6b-8448-4f9f58460368.png",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "cea362eb740effb2526e6002c81dffc1e00090caba235a840711c8670a45128f",
+      "prompt": "PROMPT_temple_ouest.txt"
+    },
+    "temple_est": {
+      "world_crop": [
+        1672,
+        1600,
+        1672,
+        1672
+      ],
+      "input_size": [
+        2256,
+        2256
+      ],
+      "input_density": 1.3492822966507176,
+      "generated_file": "exec-77150b70-c594-442d-9d8b-feedb5c16a13.png",
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "b9dc0683ce78f8fd6052d57348eda687dfd2ab706e2e400073461ab4c8c7fedf",
+      "prompt": "PROMPT_temple_est.txt"
+    },
+    "terrasse_ouest": {
+      "world_crop": [
+        0,
+        400,
+        700,
+        1200
+      ],
+      "input_size": [
+        1260,
+        2160
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-41131d08-1752-4aba-9b4a-99c0b8cdbf06.png",
+      "generated_size": [
+        958,
+        1641
+      ],
+      "generated_sha256": "8a843968a381aacd4f7e920534b5e3e67c38fb7c7abd46cc98760df1e61caaac",
+      "prompt": "PROMPT_terrasse_ouest.txt"
+    },
+    "terrasse_est": {
+      "world_crop": [
+        2644,
+        400,
+        700,
+        1200
+      ],
+      "input_size": [
+        1260,
+        2160
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-b58c1a7b-bbc9-40ce-9a0e-b21af4b1fe1c.png",
+      "generated_size": [
+        958,
+        1641
+      ],
+      "generated_sha256": "3749a316fc054812fd96e8af9b156062c6918307a60c11b1f62433a5c5fcd305",
+      "prompt": "PROMPT_terrasse_est.txt"
+    },
+    "terrasse_nord_ouest": {
+      "world_crop": [
+        0,
+        0,
+        1672,
+        650
+      ],
+      "input_size": [
+        3010,
+        1170
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-5ac8e969-703d-48d0-b66c-32e0541de3b9.png",
+      "generated_size": [
+        2010,
+        782
+      ],
+      "generated_sha256": "c1fe0af8abb8a7c4cb9bb4f2a17eff1b416625671ff31406c68815ad9e5e5d1c",
+      "prompt": "PROMPT_terrasse_nord_ouest.txt"
+    },
+    "terrasse_nord_est": {
+      "world_crop": [
+        1672,
+        0,
+        1672,
+        650
+      ],
+      "input_size": [
+        3010,
+        1170
+      ],
+      "input_density": 1.8,
+      "generated_file": "exec-85629d75-13c3-437d-8312-7d01e1093b07.png",
+      "generated_size": [
+        2010,
+        782
+      ],
+      "generated_sha256": "e976adf70e1cbeef00b5958c7b63e1318c206be562c9526ff71fb857be7a4af8",
+      "prompt": "PROMPT_terrasse_nord_est.txt"
+    }
+  },
+  "flights": {
+    "central": {
+      "target": [
+        [
+          480,
+          397
+        ],
+        [
+          1000,
+          397
+        ],
+        [
+          1000,
+          632
+        ],
+        [
+          480,
+          632
+        ]
+      ],
+      "source": [
+        [
+          514,
+          445
+        ],
+        [
+          1069,
+          445
+        ],
+        [
+          1069,
+          687
+        ],
+        [
+          514,
+          687
+        ]
+      ],
+      "world_polygon": [
+        [
+          1516.6666666666667,
+          1950.5555555555557
+        ],
+        [
+          1805.5555555555557,
+          1950.5555555555557
+        ],
+        [
+          1805.5555555555557,
+          2081.1111111111113
+        ],
+        [
+          1516.6666666666667,
+          2081.1111111111113
+        ]
+      ],
+      "source_detected_boundaries": [
+        0,
+        20,
+        63,
+        106,
+        149,
+        191,
+        234,
+        276,
+        318,
+        360,
+        399
+      ],
+      "selected_source_polygon": [
+        [
+          514.0,
+          445.0
+        ],
+        [
+          1069.0,
+          445.0
+        ],
+        [
+          1069.0,
+          663.3458646616541
+        ],
+        [
+          514.0,
+          663.3458646616541
+        ]
+      ],
+      "depth_world": 130.55555555555566,
+      "selected_treads": 9,
+      "nominal_tread_depth": 14.506172839506185
+    },
+    "sud": {
+      "target": [
+        [
+          461,
+          350
+        ],
+        [
+          990,
+          350
+        ],
+        [
+          990,
+          584
+        ],
+        [
+          461,
+          584
+        ]
+      ],
+      "source": [
+        [
+          491,
+          385
+        ],
+        [
+          1061,
+          385
+        ],
+        [
+          1061,
+          647
+        ],
+        [
+          491,
+          647
+        ]
+      ],
+      "world_polygon": [
+        [
+          1526.111111111111,
+          3144.4444444444443
+        ],
+        [
+          1820.0,
+          3144.4444444444443
+        ],
+        [
+          1820.0,
+          3274.4444444444443
+        ],
+        [
+          1526.111111111111,
+          3274.4444444444443
+        ]
+      ],
+      "source_detected_boundaries": [
+        0,
+        36,
+        77,
+        117,
+        157,
+        198,
+        238,
+        278,
+        318,
+        358,
+        397,
+        399
+      ],
+      "selected_source_polygon": [
+        [
+          491.0,
+          408.6390977443609
+        ],
+        [
+          1061.0,
+          408.6390977443609
+        ],
+        [
+          1061.0,
+          645.68671679198
+        ],
+        [
+          491.0,
+          645.68671679198
+        ]
+      ],
+      "depth_world": 130.0,
+      "selected_treads": 9,
+      "nominal_tread_depth": 14.444444444444445
+    },
+    "entree": {
+      "target": [
+        [
+          398,
+          175
+        ],
+        [
+          816,
+          175
+        ],
+        [
+          816,
+          405
+        ],
+        [
+          398,
+          405
+        ]
+      ],
+      "source": [
+        [
+          480,
+          215
+        ],
+        [
+          1014,
+          215
+        ],
+        [
+          1014,
+          515
+        ],
+        [
+          480,
+          515
+        ]
+      ],
+      "world_polygon": [
+        [
+          1551.111111111111,
+          4617.222222222223
+        ],
+        [
+          1783.3333333333333,
+          4617.222222222223
+        ],
+        [
+          1783.3333333333333,
+          4745.0
+        ],
+        [
+          1551.111111111111,
+          4745.0
+        ]
+      ],
+      "source_detected_boundaries": [
+        0,
+        42,
+        83,
+        124,
+        166,
+        206,
+        247,
+        288,
+        328,
+        368,
+        399
+      ],
+      "selected_source_polygon": [
+        [
+          480.0,
+          215.0
+        ],
+        [
+          1014.0,
+          215.0
+        ],
+        [
+          1014.0,
+          491.69172932330827
+        ],
+        [
+          480.0,
+          491.69172932330827
+        ]
+      ],
+      "depth_world": 127.77777777777737,
+      "selected_treads": 9,
+      "nominal_tread_depth": 14.197530864197486
+    },
+    "berge_ouest": {
+      "target": [
+        [
+          515,
+          352
+        ],
+        [
+          798,
+          469
+        ],
+        [
+          695,
+          690
+        ],
+        [
+          392,
+          571
+        ]
+      ],
+      "source": [
+        [
+          506,
+          354
+        ],
+        [
+          823,
+          484
+        ],
+        [
+          743,
+          714
+        ],
+        [
+          418,
+          580
+        ]
+      ],
+      "world_polygon": [
+        [
+          586.1111111111111,
+          1715.5555555555557
+        ],
+        [
+          743.3333333333333,
+          1780.5555555555557
+        ],
+        [
+          686.1111111111111,
+          1903.3333333333333
+        ],
+        [
+          517.7777777777778,
+          1837.2222222222222
+        ]
+      ],
+      "source_detected_boundaries": [
+        0,
+        34,
+        74,
+        113,
+        152,
+        191,
+        228,
+        264,
+        301,
+        338,
+        375,
+        399
+      ],
+      "selected_source_polygon": [
+        [
+          506.0,
+          354.0
+        ],
+        [
+          823.0,
+          484.0
+        ],
+        [
+          747.812030075188,
+          700.1654135338346
+        ],
+        [
+          423.29323308270676,
+          566.406015037594
+        ]
+      ],
+      "depth_world": 137.50025974220702,
+      "selected_treads": 10,
+      "nominal_tread_depth": 13.750025974220701
+    },
+    "berge_est": {
+      "target": [
+        [
+          644,
+          486
+        ],
+        [
+          974,
+          346
+        ],
+        [
+          1045,
+          572
+        ],
+        [
+          714,
+          714
+        ]
+      ],
+      "source": [
+        [
+          617,
+          486
+        ],
+        [
+          978,
+          344
+        ],
+        [
+          1063,
+          574
+        ],
+        [
+          701,
+          714
+        ]
+      ],
+      "world_polygon": [
+        [
+          2597.777777777778,
+          1790.0
+        ],
+        [
+          2781.1111111111113,
+          1712.2222222222222
+        ],
+        [
+          2820.5555555555557,
+          1837.7777777777778
+        ],
+        [
+          2636.6666666666665,
+          1916.6666666666665
+        ]
+      ],
+      "source_detected_boundaries": [
+        0,
+        28,
+        69,
+        108,
+        147,
+        185,
+        223,
+        261,
+        300,
+        341,
+        381,
+        399
+      ],
+      "selected_source_polygon": [
+        [
+          622.8947368421053,
+          502.0
+        ],
+        [
+          983.9649122807018,
+          360.140350877193
+        ],
+        [
+          1059.1654135338347,
+          563.624060150376
+        ],
+        [
+          697.2105263157895,
+          703.7142857142858
+        ]
+      ],
+      "depth_world": 132.0538718586809,
+      "selected_treads": 9,
+      "nominal_tread_depth": 14.672652428742323
+    }
+  },
+  "column_regions": {
+    "native_rectangles": [
+      [
+        1484,
+        0,
+        1644,
+        153
+      ],
+      [
+        2227,
+        0,
+        2370,
+        102
+      ],
+      [
+        746,
+        2,
+        831,
+        107
+      ],
+      [
+        129,
+        10,
+        202,
+        115
+      ],
+      [
+        979,
+        24,
+        1074,
+        129
+      ],
+      [
+        897,
+        55,
+        952,
+        101
+      ],
+      [
+        1300,
+        64,
+        1370,
+        125
+      ],
+      [
+        55,
+        120,
+        173,
+        207
+      ],
+      [
+        1410,
+        142,
+        1467,
+        193
+      ],
+      [
+        1650,
+        146,
+        1725,
+        215
+      ],
+      [
+        446,
+        148,
+        521,
+        329
+      ],
+      [
+        301,
+        155,
+        404,
+        243
+      ],
+      [
+        782,
+        158,
+        858,
+        219
+      ],
+      [
+        2386,
+        172,
+        2464,
+        261
+      ],
+      [
+        1864,
+        231,
+        1913,
+        286
+      ],
+      [
+        1974,
+        142,
+        2062,
+        305
+      ],
+      [
+        83,
+        261,
+        154,
+        351
+      ],
+      [
+        87,
+        558,
+        186,
+        666
+      ],
+      [
+        52,
+        908,
+        166,
+        1031
+      ],
+      [
+        2332,
+        908,
+        2475,
+        1022
+      ],
+      [
+        2417,
+        1215,
+        2495,
+        1307
+      ],
+      [
+        64,
+        1241,
+        181,
+        1330
+      ],
+      [
+        2373,
+        1382,
+        2454,
+        1470
+      ],
+      [
+        104,
+        1383,
+        199,
+        1462
+      ],
+      [
+        1877,
+        1574,
+        1983,
+        1681
+      ],
+      [
+        518,
+        1575,
+        640,
+        1681
+      ],
+      [
+        1377,
+        1585,
+        1517,
+        1730
+      ],
+      [
+        647,
+        1609,
+        732,
+        1709
+      ],
+      [
+        1765,
+        1613,
+        1870,
+        1714
+      ],
+      [
+        1999,
+        2093,
+        2133,
+        2207
+      ],
+      [
+        1499,
+        2306,
+        1583,
+        2385
+      ],
+      [
+        148,
+        2309,
+        259,
+        2389
+      ],
+      [
+        770,
+        2393,
+        861,
+        2458
+      ],
+      [
+        1468,
+        3681,
+        1526,
+        3732
+      ],
+      [
+        1408,
+        1381,
+        1475,
+        1487
+      ],
+      [
+        1021,
+        1381,
+        1144,
+        1565
+      ],
+      [
+        1348,
+        1441,
+        1408,
+        1565
+      ],
+      [
+        1046,
+        2306,
+        1117,
+        2462
+      ],
+      [
+        1393,
+        2306,
+        1465,
+        2462
+      ],
+      [
+        1025,
+        3405,
+        1087,
+        3496
+      ],
+      [
+        1418,
+        3405,
+        1481,
+        3496
+      ],
+      [
+        1092,
+        3441,
+        1154,
+        3569
+      ],
+      [
+        1356,
+        3441,
+        1418,
+        3569
+      ],
+      [
+        998,
+        3517,
+        1081,
+        3665
+      ],
+      [
+        1422,
+        3517,
+        1504,
+        3665
+      ],
+      [
+        220,
+        332,
+        305,
+        460
+      ],
+      [
+        600,
+        75,
+        685,
+        285
+      ],
+      [
+        2111,
+        295,
+        2390,
+        602
+      ],
+      [
+        220,
+        1062,
+        423,
+        1443
+      ],
+      [
+        538,
+        1305,
+        628,
+        1465
+      ],
+      [
+        1880,
+        1302,
+        1970,
+        1462
+      ],
+      [
+        2080,
+        1072,
+        2360,
+        1443
+      ],
+      [
+        682,
+        1407,
+        855,
+        1576
+      ],
+      [
+        1640,
+        1409,
+        1812,
+        1572
+      ],
+      [
+        315,
+        1598,
+        455,
+        1842
+      ],
+      [
+        88,
+        1685,
+        175,
+        1810
+      ],
+      [
+        392,
+        1892,
+        480,
+        2038
+      ],
+      [
+        842,
+        1872,
+        928,
+        2018
+      ],
+      [
+        905,
+        1586,
+        1085,
+        1832
+      ],
+      [
+        502,
+        1982,
+        812,
+        2205
+      ],
+      [
+        370,
+        2105,
+        462,
+        2265
+      ],
+      [
+        425,
+        2300,
+        512,
+        2462
+      ],
+      [
+        1025,
+        2110,
+        1122,
+        2275
+      ],
+      [
+        1520,
+        1688,
+        1605,
+        1838
+      ],
+      [
+        2100,
+        1595,
+        2185,
+        1762
+      ],
+      [
+        2282,
+        1678,
+        2375,
+        1850
+      ],
+      [
+        2035,
+        1890,
+        2118,
+        2052
+      ],
+      [
+        1578,
+        1868,
+        1662,
+        2025
+      ],
+      [
+        1731,
+        2010,
+        1853,
+        2175
+      ],
+      [
+        1875,
+        1958,
+        1968,
+        2148
+      ],
+      [
+        1385,
+        2048,
+        1545,
+        2265
+      ],
+      [
+        1955,
+        2302,
+        2040,
+        2468
+      ]
+    ],
+    "source_selection": "densité native et marge disponibles"
+  },
+  "preserved_gameplay": "composition, plan, field, collision et peinture du propriÃ©taire byte-identiques",
+  "proof_scope": "RGB identique hors masque de retouche ; changements de projection des fÃ»ts et de joints de marches autorisÃ©s",
+  "raw_region_sources": "intermÃ©diaires hors Git ; art retenu dans le master natif sans perte",
+  "column_registration": [
+    {
+      "native_rectangle": [
+        2227,
+        0,
+        2370,
+        102
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        -21.333333333333332
+      ],
+      "old_cap_width_world": 70.66666666666667,
+      "generated_cap_width_world": 37.333333333333336,
+      "scale_x": 1.0178571428571428,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        746,
+        2,
+        831,
+        107
+      ],
+      "shift_world": [
+        -8.0,
+        -8.0
+      ],
+      "old_cap_width_world": 61.333333333333336,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        129,
+        10,
+        202,
+        115
+      ],
+      "shift_world": [
+        0.6666666666666666,
+        -10.666666666666666
+      ],
+      "old_cap_width_world": 82.66666666666667,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        979,
+        24,
+        1074,
+        129
+      ],
+      "shift_world": [
+        -3.3333333333333335,
+        13.333333333333334
+      ],
+      "old_cap_width_world": 46.666666666666664,
+      "generated_cap_width_world": 42.666666666666664,
+      "scale_x": 0.890625,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        897,
+        55,
+        952,
+        101
+      ],
+      "shift_world": [
+        4.666666666666667,
+        0.0
+      ],
+      "old_cap_width_world": 37.333333333333336,
+      "generated_cap_width_world": 33.333333333333336,
+      "scale_x": 1.14,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1300,
+        64,
+        1370,
+        125
+      ],
+      "shift_world": [
+        1.3333333333333333,
+        -1.3333333333333333
+      ],
+      "old_cap_width_world": 40.0,
+      "generated_cap_width_world": 26.666666666666668,
+      "scale_x": 1.425,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        55,
+        120,
+        173,
+        207
+      ],
+      "shift_world": [
+        -2.0,
+        -14.666666666666666
+      ],
+      "old_cap_width_world": 66.66666666666667,
+      "generated_cap_width_world": 38.666666666666664,
+      "scale_x": 0.9827586206896552,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1410,
+        142,
+        1467,
+        193
+      ],
+      "shift_world": [
+        -12.666666666666666,
+        -5.333333333333333
+      ],
+      "old_cap_width_world": 34.666666666666664,
+      "generated_cap_width_world": 33.333333333333336,
+      "scale_x": 1.14,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1650,
+        146,
+        1725,
+        215
+      ],
+      "shift_world": [
+        0.6666666666666666,
+        -1.3333333333333333
+      ],
+      "old_cap_width_world": 49.333333333333336,
+      "generated_cap_width_world": 32.0,
+      "scale_x": 1.1875,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        446,
+        148,
+        521,
+        329
+      ],
+      "shift_world": [
+        2.0,
+        -17.333333333333332
+      ],
+      "old_cap_width_world": 84.0,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        301,
+        155,
+        404,
+        243
+      ],
+      "shift_world": [
+        -1.3333333333333333,
+        -12.0
+      ],
+      "old_cap_width_world": 77.33333333333333,
+      "generated_cap_width_world": 42.666666666666664,
+      "scale_x": 0.890625,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        782,
+        158,
+        858,
+        219
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        0.0
+      ],
+      "old_cap_width_world": 45.333333333333336,
+      "generated_cap_width_world": 36.0,
+      "scale_x": 1.0555555555555556,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        2386,
+        172,
+        2464,
+        261
+      ],
+      "shift_world": [
+        -2.6666666666666665,
+        -6.666666666666667
+      ],
+      "old_cap_width_world": 65.33333333333333,
+      "generated_cap_width_world": 41.333333333333336,
+      "scale_x": 0.9193548387096774,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1864,
+        231,
+        1913,
+        286
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        -1.3333333333333333
+      ],
+      "old_cap_width_world": 52.0,
+      "generated_cap_width_world": 34.666666666666664,
+      "scale_x": 1.0961538461538463,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1974,
+        142,
+        2062,
+        305
+      ],
+      "shift_world": [
+        -8.0,
+        -4.0
+      ],
+      "old_cap_width_world": 73.33333333333333,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        83,
+        261,
+        154,
+        351
+      ],
+      "shift_world": [
+        3.3333333333333335,
+        -14.666666666666666
+      ],
+      "old_cap_width_world": 69.33333333333333,
+      "generated_cap_width_world": 41.333333333333336,
+      "scale_x": 0.9193548387096774,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        87,
+        558,
+        186,
+        666
+      ],
+      "shift_world": [
+        0.6666666666666666,
+        -12.0
+      ],
+      "old_cap_width_world": 76.0,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        52,
+        908,
+        166,
+        1031
+      ],
+      "shift_world": [
+        2.6666666666666665,
+        -10.666666666666666
+      ],
+      "old_cap_width_world": 82.66666666666667,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        2332,
+        908,
+        2475,
+        1022
+      ],
+      "shift_world": [
+        4.0,
+        -10.666666666666666
+      ],
+      "old_cap_width_world": 80.0,
+      "generated_cap_width_world": 42.666666666666664,
+      "scale_x": 0.890625,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        2417,
+        1215,
+        2495,
+        1307
+      ],
+      "shift_world": [
+        0.6666666666666666,
+        -13.333333333333334
+      ],
+      "old_cap_width_world": 68.0,
+      "generated_cap_width_world": 42.666666666666664,
+      "scale_x": 0.890625,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        64,
+        1241,
+        181,
+        1330
+      ],
+      "shift_world": [
+        -4.666666666666667,
+        -2.6666666666666665
+      ],
+      "old_cap_width_world": 68.0,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        2373,
+        1382,
+        2454,
+        1470
+      ],
+      "shift_world": [
+        -4.0,
+        -13.333333333333334
+      ],
+      "old_cap_width_world": 77.33333333333333,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        104,
+        1383,
+        199,
+        1462
+      ],
+      "shift_world": [
+        0.0,
+        -12.0
+      ],
+      "old_cap_width_world": 74.66666666666667,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1877,
+        1574,
+        1983,
+        1681
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        -13.333333333333334
+      ],
+      "old_cap_width_world": 69.33333333333333,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        518,
+        1575,
+        640,
+        1681
+      ],
+      "shift_world": [
+        0.0,
+        -14.666666666666666
+      ],
+      "old_cap_width_world": 70.66666666666667,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        647,
+        1609,
+        732,
+        1709
+      ],
+      "shift_world": [
+        0.0,
+        -13.333333333333334
+      ],
+      "old_cap_width_world": 68.0,
+      "generated_cap_width_world": 41.333333333333336,
+      "scale_x": 0.9193548387096774,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1765,
+        1613,
+        1870,
+        1714
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        -9.333333333333334
+      ],
+      "old_cap_width_world": 69.33333333333333,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1999,
+        2093,
+        2133,
+        2207
+      ],
+      "shift_world": [
+        -1.3333333333333333,
+        -16.0
+      ],
+      "old_cap_width_world": 74.66666666666667,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1499,
+        2306,
+        1583,
+        2385
+      ],
+      "shift_world": [
+        -18.666666666666668,
+        -14.666666666666666
+      ],
+      "old_cap_width_world": 30.666666666666668,
+      "generated_cap_width_world": 20.0,
+      "scale_x": 1,
+      "calibrated_cap_width_world": 20.0
+    },
+    {
+      "native_rectangle": [
+        148,
+        2309,
+        259,
+        2389
+      ],
+      "shift_world": [
+        -12.666666666666666,
+        -16.0
+      ],
+      "old_cap_width_world": 60.0,
+      "generated_cap_width_world": 32.0,
+      "scale_x": 1.1875,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        770,
+        2393,
+        861,
+        2458
+      ],
+      "shift_world": [
+        -3.3333333333333335,
+        -16.0
+      ],
+      "old_cap_width_world": 81.33333333333333,
+      "generated_cap_width_world": 48.0,
+      "scale_x": 0.7916666666666666,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1468,
+        3681,
+        1526,
+        3732
+      ],
+      "shift_world": [
+        4.666666666666667,
+        0.0
+      ],
+      "old_cap_width_world": 46.666666666666664,
+      "generated_cap_width_world": 56.0,
+      "scale_x": 1,
+      "calibrated_cap_width_world": 56.0
+    },
+    {
+      "native_rectangle": [
+        1408,
+        1381,
+        1475,
+        1487
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        -10.666666666666666
+      ],
+      "old_cap_width_world": 69.33333333333333,
+      "generated_cap_width_world": 33.333333333333336,
+      "scale_x": 1.14,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1348,
+        1441,
+        1408,
+        1565
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        22.666666666666668
+      ],
+      "old_cap_width_world": 52.0,
+      "generated_cap_width_world": 29.333333333333332,
+      "scale_x": 1.2954545454545454,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1046,
+        2306,
+        1117,
+        2462
+      ],
+      "shift_world": [
+        4.666666666666667,
+        -8.0
+      ],
+      "old_cap_width_world": 72.0,
+      "generated_cap_width_world": 38.666666666666664,
+      "scale_x": 0.9827586206896552,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1393,
+        2306,
+        1465,
+        2462
+      ],
+      "shift_world": [
+        15.333333333333334,
+        -5.333333333333333
+      ],
+      "old_cap_width_world": 66.66666666666667,
+      "generated_cap_width_world": 38.666666666666664,
+      "scale_x": 0.9827586206896552,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1025,
+        3405,
+        1087,
+        3496
+      ],
+      "shift_world": [
+        1.3333333333333333,
+        4.0
+      ],
+      "old_cap_width_world": 62.666666666666664,
+      "generated_cap_width_world": 41.333333333333336,
+      "scale_x": 0.9193548387096774,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1418,
+        3405,
+        1481,
+        3496
+      ],
+      "shift_world": [
+        12.666666666666666,
+        -5.333333333333333
+      ],
+      "old_cap_width_world": 61.333333333333336,
+      "generated_cap_width_world": 38.666666666666664,
+      "scale_x": 0.9827586206896552,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1092,
+        3441,
+        1154,
+        3569
+      ],
+      "shift_world": [
+        3.3333333333333335,
+        -2.6666666666666665
+      ],
+      "old_cap_width_world": 62.666666666666664,
+      "generated_cap_width_world": 37.333333333333336,
+      "scale_x": 1.0178571428571428,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1356,
+        3441,
+        1418,
+        3569
+      ],
+      "shift_world": [
+        12.0,
+        -4.0
+      ],
+      "old_cap_width_world": 65.33333333333333,
+      "generated_cap_width_world": 38.666666666666664,
+      "scale_x": 0.9827586206896552,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        998,
+        3517,
+        1081,
+        3665
+      ],
+      "shift_world": [
+        2.0,
+        2.6666666666666665
+      ],
+      "old_cap_width_world": 81.33333333333333,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1422,
+        3517,
+        1504,
+        3665
+      ],
+      "shift_world": [
+        11.333333333333334,
+        2.6666666666666665
+      ],
+      "old_cap_width_world": 84.0,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        220,
+        332,
+        305,
+        460
+      ],
+      "shift_world": [
+        -1.3333333333333333,
+        -6.666666666666667
+      ],
+      "old_cap_width_world": 70.66666666666667,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        538,
+        1305,
+        628,
+        1465
+      ],
+      "shift_world": [
+        4.666666666666667,
+        -6.666666666666667
+      ],
+      "old_cap_width_world": 76.0,
+      "generated_cap_width_world": 40.0,
+      "scale_x": 0.95,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1880,
+        1302,
+        1970,
+        1462
+      ],
+      "shift_world": [
+        -6.666666666666667,
+        16.0
+      ],
+      "old_cap_width_world": 100.0,
+      "generated_cap_width_world": 86.66666666666667,
+      "scale_x": 1,
+      "calibrated_cap_width_world": 86.66666666666667
+    },
+    {
+      "native_rectangle": [
+        682,
+        1407,
+        855,
+        1576
+      ],
+      "shift_world": [
+        4.0,
+        -17.333333333333332
+      ],
+      "old_cap_width_world": 57.333333333333336,
+      "generated_cap_width_world": 41.333333333333336,
+      "scale_x": 0.9193548387096774,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1640,
+        1409,
+        1812,
+        1572
+      ],
+      "shift_world": [
+        0.0,
+        -5.333333333333333
+      ],
+      "old_cap_width_world": 37.333333333333336,
+      "generated_cap_width_world": 64.0,
+      "scale_x": 1,
+      "calibrated_cap_width_world": 64.0
+    },
+    {
+      "native_rectangle": [
+        88,
+        1685,
+        175,
+        1810
+      ],
+      "shift_world": [
+        -3.3333333333333335,
+        -16.0
+      ],
+      "old_cap_width_world": 73.33333333333333,
+      "generated_cap_width_world": 45.333333333333336,
+      "scale_x": 0.838235294117647,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        392,
+        1892,
+        480,
+        2038
+      ],
+      "shift_world": [
+        -2.6666666666666665,
+        -2.6666666666666665
+      ],
+      "old_cap_width_world": 69.33333333333333,
+      "generated_cap_width_world": 42.666666666666664,
+      "scale_x": 0.890625,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        842,
+        1872,
+        928,
+        2018
+      ],
+      "shift_world": [
+        -2.6666666666666665,
+        -22.666666666666668
+      ],
+      "old_cap_width_world": 58.666666666666664,
+      "generated_cap_width_world": 26.666666666666668,
+      "scale_x": 1.425,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        502,
+        1982,
+        812,
+        2205
+      ],
+      "shift_world": [
+        0.6666666666666666,
+        -13.333333333333334
+      ],
+      "old_cap_width_world": 74.66666666666667,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        370,
+        2105,
+        462,
+        2265
+      ],
+      "shift_world": [
+        3.3333333333333335,
+        4.0
+      ],
+      "old_cap_width_world": 76.0,
+      "generated_cap_width_world": 26.666666666666668,
+      "scale_x": 1.425,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        425,
+        2300,
+        512,
+        2462
+      ],
+      "shift_world": [
+        0.6666666666666666,
+        -4.0
+      ],
+      "old_cap_width_world": 72.0,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1025,
+        2110,
+        1122,
+        2275
+      ],
+      "shift_world": [
+        10.666666666666666,
+        -4.0
+      ],
+      "old_cap_width_world": 74.66666666666667,
+      "generated_cap_width_world": 34.666666666666664,
+      "scale_x": 1.0961538461538463,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1520,
+        1688,
+        1605,
+        1838
+      ],
+      "shift_world": [
+        0.0,
+        0.0
+      ],
+      "old_cap_width_world": 56.0,
+      "generated_cap_width_world": 42.666666666666664,
+      "scale_x": 0.890625,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        2100,
+        1595,
+        2185,
+        1762
+      ],
+      "shift_world": [
+        -2.0,
+        -16.0
+      ],
+      "old_cap_width_world": 72.0,
+      "generated_cap_width_world": 46.666666666666664,
+      "scale_x": 0.8142857142857143,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        2282,
+        1678,
+        2375,
+        1850
+      ],
+      "shift_world": [
+        0.6666666666666666,
+        0.0
+      ],
+      "old_cap_width_world": 84.0,
+      "generated_cap_width_world": 82.66666666666667,
+      "scale_x": 1,
+      "calibrated_cap_width_world": 82.66666666666667
+    },
+    {
+      "native_rectangle": [
+        2035,
+        1890,
+        2118,
+        2052
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        -4.0
+      ],
+      "old_cap_width_world": 69.33333333333333,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1731,
+        2010,
+        1853,
+        2175
+      ],
+      "shift_world": [
+        0.0,
+        -12.0
+      ],
+      "old_cap_width_world": 73.33333333333333,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1875,
+        1958,
+        1968,
+        2148
+      ],
+      "shift_world": [
+        16.0,
+        4.0
+      ],
+      "old_cap_width_world": 49.333333333333336,
+      "generated_cap_width_world": 76.0,
+      "scale_x": 1,
+      "calibrated_cap_width_world": 76.0
+    },
+    {
+      "native_rectangle": [
+        1385,
+        2048,
+        1545,
+        2265
+      ],
+      "shift_world": [
+        -1.3333333333333333,
+        -13.333333333333334
+      ],
+      "old_cap_width_world": 62.666666666666664,
+      "generated_cap_width_world": 44.0,
+      "scale_x": 0.8636363636363636,
+      "calibrated_cap_width_world": 38.0
+    },
+    {
+      "native_rectangle": [
+        1955,
+        2302,
+        2040,
+        2468
+      ],
+      "shift_world": [
+        -0.6666666666666666,
+        0.0
+      ],
+      "old_cap_width_world": 13.333333333333334,
+      "generated_cap_width_world": 14.666666666666666,
+      "scale_x": 1,
+      "calibrated_cap_width_world": 14.666666666666666
+    }
+  ],
+  "retained_master_sha256": "635d72dc7f393423b41b82c02119a604f86b08cc76f4106a980d896d97fbe8df",
+  "protected_sha256": {
+    "assets/asset_manifest.json": "f13006e662e3f8e8d04c73bbb73a4e01dddf5f2915f8756e55bf47e56b31d74b",
+    "assets/concepts/incoming/map.marsh_heart/composition.png": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
+    "assets/concepts/incoming/map.marsh_heart/plan.json": "0ab26324075093ca7f6b124147db5dc97c41e311b691905887532d16b7a74d49",
+    "assets/concepts/incoming/map.marsh_heart/collision/collision.png": "c40a27b82833f888cf6ebaaa259109e8b0b0cca1bbcf1b3d552de9a85bb42d2c",
+    "assets/concepts/incoming/map.marsh_heart/collision/painted.webp": "8f139a822ff6827e9ab7ffd801cf4dcfe12da1534fce6225c4fbdaa80eabb452",
+    "assets/environments/marsh_heart/field.png": "0d9812e59a12d255fd23de09b3921ef5f8f718dee3e8e1e9a50b7a72df91a630"
+  },
+  "protected_commit": "4f7079e7734f5eed67d5293846862abecdd6ce21"
+}

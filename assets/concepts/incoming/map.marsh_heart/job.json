@@ -1,7 +1,7 @@
 {
   "id": "map.marsh_heart",
   "status": "wip",
-  "stage": "detail_conforme_pret_pour_collisions",
+  "stage": "detail_echelle_corrigee_collisions_conservees",
   "world_size": [
     3344,
     5016
@@ -9,7 +9,7 @@
   "owner_approved": true,
   "plan_locked": true,
   "regions_generated": true,
-  "runtime_integrated": false,
+  "runtime_integrated": true,
   "composition": "composition.png",
   "source": "source/composition_source.png",
   "source_sha256": "8925bc415aabf6b12ea747001b98589df8b57d57fa9426d9975244b426b0599f",
@@ -28,7 +28,7 @@
   "detail_started": "2026-11-03",
   "detail_region_count": 12,
   "detail_part_count": 24,
-  "detail_build_tool": "tools/art/finish_marsh_heart.py",
+  "detail_build_tool": "tools/art/finish_marsh_scale.py",
   "detail_sample_verified": true,
   "detail_sample": {
     "region": "r2_1",
@@ -49,5 +49,9 @@
     2508,
     3762
   ],
-  "quality_report": "docs/previews/marsh-heart/qualite.json"
+  "quality_report": "docs/previews/marsh-heart/qualite.json",
+  "integration_preserved": true,
+  "scale_correction_date": "2026-11-08",
+  "scale_correction_recipe": "source/echelle/recipe.json",
+  "scale_correction_scope": "Carte 15 uniquement ; aucun changement de praticabilité, source et tuiles aux mêmes dimensions."
 }

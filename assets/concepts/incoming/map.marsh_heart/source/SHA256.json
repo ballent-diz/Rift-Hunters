@@ -1,6 +1,6 @@
 {
   "composition.png": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
-  "job.json": "80ce31113de9c6607666ef8b018a6ba1ed47250efab1c1c863b6694bf09eb05c",
+  "job.json": "35d42e5852912f19a5e2de67c43be830ca6b7c8da90703293c5ea4ec8b28226f",
   "plan.json": "188ced1a70e342d53b7e4a3e53c8fda79fef25b71e7336903dad21a3cca4fb53",
   "source/PROMPT_ARENE.txt": "d229e59baa63f587647610da0f61ae74ca3867392142e8a0bea7e1c51ef60f72",
   "source/PROMPT_COMPOSITION.txt": "e636031d5b50e020b4a9ff9996ed0f274463002bb085ab4f8e2d0b651a217f93",
@@ -9,7 +9,7 @@
   "source/PROMPT_SAMPLE_CORRECTION.txt": "15ecfee8541ce149400eef768bba5c2052292babf41f93663b5ad8e6883edd40",
   "source/collision_reference.json": "e117d91dcc67500bbec1abc1d54ae814a312d9ae6ee716818c540a4eab478c57",
   "source/composition_source.png": "8925bc415aabf6b12ea747001b98589df8b57d57fa9426d9975244b426b0599f",
-  "source/detail_recipe.json": "d9803a2b365c874fe68f8d3a9d28fec06ccc17437cd656fa12437031efdd9255",
-  "source/map_detailed.webp": "d1fc561344117768c205a01f4e8d027387ea673bdde1c169cf9924f46f927ff2",
-  "source/regions_provenance.json": "7be93bfe7d03fc677600410e8005447e75a7c9bc9579e03cb3028c0b302d7ac2"
+  "source/detail_recipe.json": "8800496e0244ce8d3fa85f894de7ed12492a73b02079b4a308629e5a6fff59bd",
+  "source/map_detailed.webp": "635d72dc7f393423b41b82c02119a604f86b08cc76f4106a980d896d97fbe8df",
+  "source/regions_provenance.json": "03e3ff6d2f703b3b5c8081de33455e1c1af5d18c770efaf5c1f64979fb1b0f1f"
 }

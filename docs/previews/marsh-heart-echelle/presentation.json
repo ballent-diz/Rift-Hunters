@@ -1,0 +1,38 @@
+{
+  "world": [
+    3344,
+    5016
+  ],
+  "density": 2.25,
+  "native_density": 0.75,
+  "baseline_commit": "a372f55f76eb8352874513422b0b206ef01b539e",
+  "tiles": [
+    {
+      "file": "map.webp",
+      "size": [
+        3762,
+        11286
+      ],
+      "bytes": 55472446,
+      "sha256": "b225956190ea6db4e599dcfd77db2be683c12db537742e6502e04d7b05909785",
+      "changed_pixels": 5616278,
+      "changed_outside_edit_mask": 0,
+      "lossless_roundtrip_verified": true
+    },
+    {
+      "file": "map_1.webp",
+      "size": [
+        3762,
+        11286
+      ],
+      "bytes": 55265366,
+      "sha256": "51d20d7aaaeaed71fe80d091abf4a5070b452214100cff523c08fe8ef67666a0",
+      "changed_pixels": 5752156,
+      "changed_outside_edit_mask": 0,
+      "lossless_roundtrip_verified": true
+    }
+  ],
+  "unchanged_runtime_pixels_outside_edit_mask": true,
+  "method": "delta du master natif présenté en Lanczos, appliqué seulement au masque ; WebP sans perte",
+  "no_synthetic_texture": true
+}

@@ -1,5 +1,74 @@
 # Cœur des marais — détail de la carte 15
 
+## Correction d’échelle — 8 novembre 2026
+
+**Carte 15 uniquement**, conformément à la dernière demande du propriétaire. Le Gué des Brumes n’est pas retouché.
+Onze régions ont reçu une passe de détail avec **imagegen intégré**, puis un raccordement dans les emprises
+existantes. Les cinq escaliers (central, sud, entrée sud et deux berges) comportent maintenant neuf ou dix marches,
+d’une profondeur nominale de **13,75 à 14,67 unités**. Cinquante-cinq colonnes ont une largeur calibrée à
+**38 unités**, chapiteau compris et socle exclu. Les massifs de ruines et leurs plinthes restent en place.
+
+![Escalier central, proportions corrigées](../previews/marsh-heart-echelle/central_apres_zoom_jeu.webp)
+
+### Comparaison et géométrie conservée
+
+- [Carte entière corrigée](../previews/marsh-heart-echelle/carte_detaillee.webp),
+  [alternance avant/après](../previews/marsh-heart-echelle/avant_apres.gif),
+  [superposition des deux masters](../previews/marsh-heart-echelle/superposition_ancien_master.webp).
+- [Superposition avec les contours de collision existants](../previews/marsh-heart-echelle/superposition_contours.webp),
+  [zones de retouche visuelle](../previews/marsh-heart-echelle/zones_retouche.webp),
+  [preuve numérique](../previews/marsh-heart-echelle/geometrie.json).
+- Captures **avant / après** au même cadrage :
+  [central avant](../previews/marsh-heart-echelle/central_avant_zoom_jeu.webp) /
+  [après](../previews/marsh-heart-echelle/central_apres_zoom_jeu.webp) ;
+  [sud avant](../previews/marsh-heart-echelle/sud_avant_zoom_jeu.webp) /
+  [après](../previews/marsh-heart-echelle/sud_apres_zoom_jeu.webp) ;
+  [entrée avant](../previews/marsh-heart-echelle/entree_avant_zoom_jeu.webp) /
+  [après](../previews/marsh-heart-echelle/entree_apres_zoom_jeu.webp) ;
+  [berge ouest avant](../previews/marsh-heart-echelle/berge_ouest_avant_zoom_jeu.webp) /
+  [après](../previews/marsh-heart-echelle/berge_ouest_apres_zoom_jeu.webp) ;
+  [berge est avant](../previews/marsh-heart-echelle/berge_est_avant_zoom_jeu.webp) /
+  [après](../previews/marsh-heart-echelle/berge_est_apres_zoom_jeu.webp) ;
+  [terrasse avant](../previews/marsh-heart-echelle/terrasse_avant_zoom_jeu.webp) /
+  [après](../previews/marsh-heart-echelle/terrasse_apres_zoom_jeu.webp) ;
+  [temple avant](../previews/marsh-heart-echelle/temple_avant_zoom_jeu.webp) /
+  [après](../previews/marsh-heart-echelle/temple_apres_zoom_jeu.webp).
+
+Les quatorze captures Godot font 1280 × 720, au zoom 1,3333, avec le Chasseur et Cendrelame issus du manifeste,
+sans changement de leur échelle. Elles vérifient escaliers, dallages et proximité des colonnes.
+Il s’agit d’un banc statique, sans essai de combat ou de circulation.
+
+Le monde reste **3344 × 5016 unités**, avec les mêmes deux tuiles de **3762 × 11286 pixels**, à **2,25 px/unité**.
+La peinture du propriétaire, `collision.png`, `field.png`, la mini-carte, le plan, la composition et le manifeste
+sont identiques octet par octet à la base. Les quadrilatères des escaliers et les quatre ponts sont conservés.
+Les pixels décodés du master et des tuiles sont identiques à l’ancien rendu **hors des zones de retouche**.
+Les silhouettes et joints des colonnes changent dans ces zones ; aucune limite de praticabilité n’est redessinée.
+La peinture existante masque une partie droite de l’escalier central : ce choix de collision est conservé.
+`src/`, `data/` et toutes les autres cartes restent inchangés.
+
+### Qualité et reconstruction de la version corrigée
+
+Le contrôle officiel sur les tuiles finales est **conforme : 35/35 secteurs**, densité 2,250,
+part lisse 0,107, détails fins 384,307, détails moyens 101,581, fidélité au plan 0,973.
+[Rapport](../previews/marsh-heart-echelle/qualite.json) ·
+[Comparaison officielle avec les Ruines](../previews/marsh-heart-echelle/echelle_reference.webp) ·
+[Import Godot et chargement de l’asset](../previews/marsh-heart-echelle/controle_livraison.json).
+L’import et les quatorze captures ne signalent aucune erreur.
+
+Le master retenu remplace `source/map_detailed.webp`. Les onze prompts exacts, repères d’emprise, empreintes,
+calibrations et masque de retouche sont dans `source/echelle/`. Les dessins intermédiaires restent hors Git.
+L’original est conservé dans l’historique au commit `a372f55f76eb8352874513422b0b206ef01b539e`.
+La recette actuelle remplace l’export historique décrit plus bas : elle applique uniquement le delta graphique
+du master aux anciennes tuiles et les encode **sans perte**, pour préserver leurs pixels hors retouche.
+
+```bash
+python3 tools/art/finish_marsh_scale.py --work /tmp/rift-marsh-scale
+python3 tools/art/check_marsh_scale.py --work /tmp/rift-marsh-scale-audit --out /tmp/geometrie.json
+```
+
+Les dépendances restent numpy et Pillow. Le banc reproductible est `tools/art/preview_marsh_scale.tscn` ;
+les paramètres sont documentés dans son script. Les sections suivantes décrivent la livraison historique.
+
 **Détail graphique livré le 3 novembre 2026.** La composition entière validée le 2 novembre et son plan restent figés : monde de **3344 × 5016 unités**, portrait 2:3. Douze régions ont été redessinées par vingt-quatre demi-régions, puis assemblées en un master continu. Deux tuiles de **3762 × 11286 pixels** livrent 2,25 pixels par unité.
 
 ![Carte détaillée entière](../previews/marsh-heart/carte_detaillee.webp)

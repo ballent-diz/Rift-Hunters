@@ -3,26 +3,36 @@
     3344,
     5016
   ],
+  "density": 2.25,
   "native_density": 0.75,
-  "presentation_density": 2.25,
-  "presentation": "Lanczos ×3 après redessin des régions ; aucune texture procédurale",
-  "tile_encoding": {
-    "format": "WebP",
-    "quality": 98,
-    "method": 6,
-    "lossless": false
-  },
-  "tile_bytes": [
-    18666346,
-    18437764
+  "baseline_commit": "a372f55f76eb8352874513422b0b206ef01b539e",
+  "tiles": [
+    {
+      "file": "map.webp",
+      "size": [
+        3762,
+        11286
+      ],
+      "bytes": 55472446,
+      "sha256": "b225956190ea6db4e599dcfd77db2be683c12db537742e6502e04d7b05909785",
+      "changed_pixels": 5616278,
+      "changed_outside_edit_mask": 0,
+      "lossless_roundtrip_verified": true
+    },
+    {
+      "file": "map_1.webp",
+      "size": [
+        3762,
+        11286
+      ],
+      "bytes": 55265366,
+      "sha256": "51d20d7aaaeaed71fe80d091abf4a5070b452214100cff523c08fe8ef67666a0",
+      "changed_pixels": 5752156,
+      "changed_outside_edit_mask": 0,
+      "lossless_roundtrip_verified": true
+    }
   ],
-  "relative_sharpness_diagnostic": {
-    "blurry_cells": 26,
-    "valid_cells": 620,
-    "blurry_share": 0.041935483870967745
-  },
-  "tiles_sha256": {
-    "map.webp": "bfe857d20f06cd995f3345f8649fc6307e26db7d009f8d3e5180eed368621af1",
-    "map_1.webp": "fd95f7112fec8d98cb303cbc0b9ef01bca173a4b513e246a6c3baa2b842a375f"
-  }
+  "unchanged_runtime_pixels_outside_edit_mask": true,
+  "method": "delta du master natif prÃ©sentÃ© en Lanczos, appliquÃ© seulement au masque ; WebP sans perte",
+  "no_synthetic_texture": true
 }

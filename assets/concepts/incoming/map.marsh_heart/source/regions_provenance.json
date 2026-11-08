@@ -662,12 +662,13 @@
   "generated_date": "2026-11-03",
   "generated_parts": 24,
   "retained_source": "map_detailed.webp",
-  "retained_sha256": "d1fc561344117768c205a01f4e8d027387ea673bdde1c169cf9924f46f927ff2",
+  "retained_sha256": "635d72dc7f393423b41b82c02119a604f86b08cc76f4106a980d896d97fbe8df",
   "retained_dimensions": [
     2508,
     3762
   ],
   "retained_density": 0.75,
   "pixels_lossless_verified": true,
-  "seam_method": "Chemin de différence minimale, raccord adouci sur un pixel natif"
+  "seam_method": "Chemin de différence minimale, raccord adouci sur un pixel natif",
+  "scale_correction": "echelle/recipe.json"
 }
