@@ -31,13 +31,31 @@ jobs:
       - name: Installer gdtoolkit
         run: pip install --quiet "gdtoolkit==4.*"
 
+      # Binaire Godot gardé en cache : évite les téléchargements tronqués des versions GitHub.
+      - name: Cache de Godot
+        id: godot-cache
+        uses: actions/cache@v4
+        with:
+          path: ~/godot
+          key: godot-${{ env.GODOT_VERSION }}-linux
+
       - name: Installer Godot
+        if: steps.godot-cache.outputs.cache-hit != 'true'
         run: |
-          curl -sSL --retry 4 -o godot.zip \
-            "https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          url="https://github.com/godotengine/godot/releases/download/${GODOT_VERSION}/Godot_v${GODOT_VERSION}_linux.x86_64.zip"
+          for attempt in 1 2 3 4 5; do
+            if curl -fsSL --retry 4 --retry-all-errors -o godot.zip "$url" && unzip -tq godot.zip; then
+              break
+            fi
+            echo "Téléchargement de Godot invalide (essai $attempt), nouvel essai."
+            rm -f godot.zip
+            sleep $((attempt * 10))
+          done
           unzip -q godot.zip -d "$HOME/godot"
           rm godot.zip
-          echo "GODOT=$HOME/godot/Godot_v${GODOT_VERSION}_linux.x86_64" >> "$GITHUB_ENV"
+
+      - name: Déclarer Godot
+        run: echo "GODOT=$HOME/godot/Godot_v${GODOT_VERSION}_linux.x86_64" >> "$GITHUB_ENV"
 
       # Les images importées (cartes de plusieurs Mo) sont gardées d'une exécution à l'autre.
       - name: Cache des imports Godot
