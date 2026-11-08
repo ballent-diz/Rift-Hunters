@@ -122,7 +122,9 @@ plus) ; les Ruines des Cascades (carte 1) sont la carte étalon.
 
 Chaque carte se valide sur une **capture au zoom réel** avec le Chasseur et un Écho posés sur un escalier, un dallage
 et près d'une porte ou d'une colonne. Écarts relevés le 3 novembre : carte 15 (escaliers et colonnes 3 à 4 fois trop
-grands) et carte 4 (dalles environ 2 fois trop grandes), à reprendre par une passe de détail sans changer le plan.
+grands, repeinte par Codex) et carte 4 (dalles environ 2 fois trop grandes, réglée le 8 novembre sans repeindre). Une
+carte trop grande se réduit en jeu par son réglage `decor_scale` (ArenaData), qui réduit l'image, les collisions, la mini-carte et toutes
+les positions de la carte (docs/maps/ECHELLE_CHAPITRES_4_5.md). À l'intégration d'une carte, mesurer et poser ce facteur.
 
 ## Objets posés sur les cartes — règle du propriétaire, 3 novembre 2026
 
