@@ -1,0 +1,175 @@
+{
+  "sheets": [
+    {
+      "source": "planche_A.png",
+      "sha256": "36b89cb7253ad55e2cc1b559dc919b026f08ec873f1350ca92e7c1dc07fd7624",
+      "size": [
+        2172,
+        724
+      ],
+      "alpha_threshold": 128,
+      "grid": [
+        6,
+        2
+      ],
+      "poses": [
+        {
+          "row": 0,
+          "column": 0,
+          "original_bounds": [
+            79,
+            28,
+            320,
+            330
+          ],
+          "components_kept": 1,
+          "source_pixels": 34744
+        },
+        {
+          "row": 0,
+          "column": 1,
+          "original_bounds": [
+            447,
+            24,
+            686,
+            318
+          ],
+          "components_kept": 1,
+          "source_pixels": 31767
+        },
+        {
+          "row": 0,
+          "column": 2,
+          "original_bounds": [
+            813,
+            24,
+            1046,
+            320
+          ],
+          "components_kept": 1,
+          "source_pixels": 32035
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "original_bounds": [
+            1165,
+            33,
+            1408,
+            326
+          ],
+          "components_kept": 1,
+          "source_pixels": 31422
+        },
+        {
+          "row": 0,
+          "column": 4,
+          "original_bounds": [
+            1527,
+            42,
+            1767,
+            325
+          ],
+          "components_kept": 1,
+          "source_pixels": 31573
+        },
+        {
+          "row": 0,
+          "column": 5,
+          "original_bounds": [
+            1893,
+            33,
+            2130,
+            323
+          ],
+          "components_kept": 1,
+          "source_pixels": 31861
+        },
+        {
+          "row": 1,
+          "column": 0,
+          "original_bounds": [
+            70,
+            417,
+            309,
+            685
+          ],
+          "components_kept": 1,
+          "source_pixels": 31712
+        },
+        {
+          "row": 1,
+          "column": 1,
+          "original_bounds": [
+            397,
+            422,
+            643,
+            685
+          ],
+          "components_kept": 1,
+          "source_pixels": 33433
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "original_bounds": [
+            759,
+            422,
+            1065,
+            686
+          ],
+          "components_kept": 1,
+          "source_pixels": 32255
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "original_bounds": [
+            1091,
+            435,
+            1438,
+            687
+          ],
+          "components_kept": 1,
+          "source_pixels": 32197
+        },
+        {
+          "row": 1,
+          "column": 4,
+          "original_bounds": [
+            1483,
+            421,
+            1744,
+            687
+          ],
+          "components_kept": 1,
+          "source_pixels": 32329
+        },
+        {
+          "row": 1,
+          "column": 5,
+          "original_bounds": [
+            1881,
+            417,
+            2120,
+            685
+          ],
+          "components_kept": 1,
+          "source_pixels": 31599
+        }
+      ]
+    }
+  ],
+  "packing": "Composantes alpha de chaque pose, grille carrée avec32px de marge, sans redessin.",
+  "reference_height_source": 293.5,
+  "source_scale_B": 1.0,
+  "target_height": 48,
+  "world_height_base": 24.0,
+  "native_cell": [
+    64,
+    64
+  ],
+  "text_hash_convention": "UTF-8, fins de ligne LF",
+  "same_scale_through_each_animation": true,
+  "death_and_tunnel_not_regrown": true
+}

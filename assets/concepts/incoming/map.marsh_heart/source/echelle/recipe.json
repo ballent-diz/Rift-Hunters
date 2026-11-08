@@ -2133,11 +2133,12 @@
   ],
   "retained_master_sha256": "635d72dc7f393423b41b82c02119a604f86b08cc76f4106a980d896d97fbe8df",
   "protected_sha256": {
-    "assets/asset_manifest.json": "eb2606674d0da20b055e5a32d5f78bd4be6a336569f2b61e43523e57376c394f",
+    "assets/asset_manifest.json": "f13006e662e3f8e8d04c73bbb73a4e01dddf5f2915f8756e55bf47e56b31d74b",
     "assets/concepts/incoming/map.marsh_heart/composition.png": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
     "assets/concepts/incoming/map.marsh_heart/plan.json": "0ab26324075093ca7f6b124147db5dc97c41e311b691905887532d16b7a74d49",
     "assets/concepts/incoming/map.marsh_heart/collision/collision.png": "c40a27b82833f888cf6ebaaa259109e8b0b0cca1bbcf1b3d552de9a85bb42d2c",
     "assets/concepts/incoming/map.marsh_heart/collision/painted.webp": "8f139a822ff6827e9ab7ffd801cf4dcfe12da1534fce6225c4fbdaa80eabb452",
     "assets/environments/marsh_heart/field.png": "0d9812e59a12d255fd23de09b3921ef5f8f718dee3e8e1e9a50b7a72df91a630"
-  }
+  },
+  "protected_commit": "4f7079e7734f5eed67d5293846862abecdd6ce21"
 }

@@ -13,7 +13,7 @@ def check(work):
     work=Path(work);work.mkdir(parents=True,exist_ok=True)
     recipe=json.loads((SCALE/'recipe.json').read_text(encoding='utf-8'))
     cache=work/'baseline';cache.mkdir(exist_ok=True)
-    baseline=recipe['baseline_commit']
+    baseline=recipe.get('protected_commit',recipe['baseline_commit'])
     old=Image.open(baseline_file(recipe,recipe['master_path'],cache)).convert('RGB')
     new=Image.open(SOURCE/'map_detailed.webp').convert('RGB')
     mask=Image.open(SCALE/'edit_mask.png').convert('L')
@@ -50,7 +50,8 @@ def check(work):
         assert count==0,box
         bridges.append({'world_rect':[x,y,w,h],'changed_master_pixels':count})
     return {'ok':True,'world':[3344,5016],'native_size':[2508,3762],'density':2.25,
-        'baseline_commit':baseline,'master_changed_pixels':int(changed.sum()),
+        'baseline_commit':recipe['baseline_commit'],'protected_comparison_commit':baseline,
+        'master_changed_pixels':int(changed.sum()),
         'master_changed_share':float(changed.mean()),'master_changed_outside_edit_mask':0,
         'protected_gameplay_files_byte_identical':protected,'bridges':bridges,'tiles':tiles,
         'forbidden_paths_changed':[],

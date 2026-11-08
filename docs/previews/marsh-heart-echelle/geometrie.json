@@ -10,11 +10,12 @@
   ],
   "density": 2.25,
   "baseline_commit": "a372f55f76eb8352874513422b0b206ef01b539e",
+  "protected_comparison_commit": "4f7079e7734f5eed67d5293846862abecdd6ce21",
   "master_changed_pixels": 1263607,
   "master_changed_share": 0.13392624727930696,
   "master_changed_outside_edit_mask": 0,
   "protected_gameplay_files_byte_identical": {
-    "assets/asset_manifest.json": "eb2606674d0da20b055e5a32d5f78bd4be6a336569f2b61e43523e57376c394f",
+    "assets/asset_manifest.json": "f13006e662e3f8e8d04c73bbb73a4e01dddf5f2915f8756e55bf47e56b31d74b",
     "assets/concepts/incoming/map.marsh_heart/composition.png": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
     "assets/concepts/incoming/map.marsh_heart/plan.json": "0ab26324075093ca7f6b124147db5dc97c41e311b691905887532d16b7a74d49",
     "assets/concepts/incoming/map.marsh_heart/collision/collision.png": "c40a27b82833f888cf6ebaaa259109e8b0b0cca1bbcf1b3d552de9a85bb42d2c",

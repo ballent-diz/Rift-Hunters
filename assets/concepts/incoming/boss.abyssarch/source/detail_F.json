@@ -1,0 +1,403 @@
+{
+  "method": "Six colonnes réellement redessinées par imagegen ; poses recalées sur les hauteurs relatives du guide, puis assemblées sans redessin. La mort conserve la réduction de chaque pose du guide, aucun cadavre regonflé.",
+  "columns": [
+    {
+      "phase": "F",
+      "column": 1,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-46d2d209-f799-47c3-9e46-81a33cddf4a5.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 1 of phase F. FINAL PHASE F: THE NAKED RIFT. Preserve BLACK-VIOLET exposed void ribs, MAGENTA crystal claws and crown, a few PALE limestone fragments at silhouette edges, and the HUGE fully OPEN heart-eye with bright pale iris/pupil contrast. Absolutely NO GREEN MOSS, ORANGE LAVA, BROWN MUD or BLUE ICE in the final-form middle/bottom cells. Use phase colors from image1, never materials from A. TOP cell is this column's shell-opening/eye-opening ENTRY pose. MIDDLE cell is this column's exact RAY AIM pose (eye/claws bracing and aiming left/center/right); draw NO ray. BOTTOM cell is this column's SUMMON pose: preserve its hands gathering, raising, open above shoulders, lowering or neutral according to image1. Where hands are up, keep BOTH ARMS UP AND WIDE like a conjurer, NOT the crossing claw slash of A. No actual summoned creatures, floor portals, rings or surrounding effects.",
+      "sha256": "fdb667d28695a54c270cecd5980c3c8119647ac69d1437aa02db41fb4662cff2"
+    },
+    {
+      "phase": "F",
+      "column": 2,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-d4df6efe-487c-45bb-8724-297c04b473cb.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 2 of phase F. FINAL PHASE F: THE NAKED RIFT. Preserve BLACK-VIOLET exposed void ribs, MAGENTA crystal claws and crown, a few PALE limestone fragments at silhouette edges, and the HUGE fully OPEN heart-eye with bright pale iris/pupil contrast. Absolutely NO GREEN MOSS, ORANGE LAVA, BROWN MUD or BLUE ICE in the final-form middle/bottom cells. Use phase colors from image1, never materials from A. TOP cell is this column's shell-opening/eye-opening ENTRY pose. MIDDLE cell is this column's exact RAY AIM pose (eye/claws bracing and aiming left/center/right); draw NO ray. BOTTOM cell is this column's SUMMON pose: preserve its hands gathering, raising, open above shoulders, lowering or neutral according to image1. Where hands are up, keep BOTH ARMS UP AND WIDE like a conjurer, NOT the crossing claw slash of A. No actual summoned creatures, floor portals, rings or surrounding effects.",
+      "sha256": "346bff9b3c95441b6e8fcee85e372aeda6cc08d53994a9ec0b9716a254096d96"
+    },
+    {
+      "phase": "F",
+      "column": 3,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-6ffea6e9-07f7-4990-9d41-40b3bc050c29.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 3 of phase F. FINAL PHASE F: THE NAKED RIFT. Preserve BLACK-VIOLET exposed void ribs, MAGENTA crystal claws and crown, a few PALE limestone fragments at silhouette edges, and the HUGE fully OPEN heart-eye with bright pale iris/pupil contrast. Absolutely NO GREEN MOSS, ORANGE LAVA, BROWN MUD or BLUE ICE in the final-form middle/bottom cells. Use phase colors from image1, never materials from A. TOP cell is this column's shell-opening/eye-opening ENTRY pose. MIDDLE cell is this column's exact RAY AIM pose (eye/claws bracing and aiming left/center/right); draw NO ray. BOTTOM cell is this column's SUMMON pose: preserve its hands gathering, raising, open above shoulders, lowering or neutral according to image1. Where hands are up, keep BOTH ARMS UP AND WIDE like a conjurer, NOT the crossing claw slash of A. No actual summoned creatures, floor portals, rings or surrounding effects.",
+      "sha256": "3a4dfa591124d51daf3930dbfcd8008b14745a41aa9344676e0577458eb0ea0e"
+    },
+    {
+      "phase": "F",
+      "column": 4,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-91f10873-3f04-4cf4-a45b-ee0a17464244.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 4 of phase F. FINAL PHASE F: THE NAKED RIFT. Preserve BLACK-VIOLET exposed void ribs, MAGENTA crystal claws and crown, a few PALE limestone fragments at silhouette edges, and the HUGE fully OPEN heart-eye with bright pale iris/pupil contrast. Absolutely NO GREEN MOSS, ORANGE LAVA, BROWN MUD or BLUE ICE in the final-form middle/bottom cells. Use phase colors from image1, never materials from A. TOP cell is this column's shell-opening/eye-opening ENTRY pose. MIDDLE cell is this column's exact RAY AIM pose (eye/claws bracing and aiming left/center/right); draw NO ray. BOTTOM cell is this column's SUMMON pose: preserve its hands gathering, raising, open above shoulders, lowering or neutral according to image1. Where hands are up, keep BOTH ARMS UP AND WIDE like a conjurer, NOT the crossing claw slash of A. No actual summoned creatures, floor portals, rings or surrounding effects.",
+      "sha256": "c9f5e7e02d1a0dbbab9dfd41053ad5731920438f8d7087cf8b31fd374d2f5566"
+    },
+    {
+      "phase": "F",
+      "column": 5,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-50b800ae-83e8-4562-a5e5-a38efa12faad.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 5 of phase F. FINAL PHASE F: THE NAKED RIFT. Preserve BLACK-VIOLET exposed void ribs, MAGENTA crystal claws and crown, a few PALE limestone fragments at silhouette edges, and the HUGE fully OPEN heart-eye with bright pale iris/pupil contrast. Absolutely NO GREEN MOSS, ORANGE LAVA, BROWN MUD or BLUE ICE in the final-form middle/bottom cells. Use phase colors from image1, never materials from A. TOP cell is this column's shell-opening/eye-opening ENTRY pose. MIDDLE cell is this column's exact RAY AIM pose (eye/claws bracing and aiming left/center/right); draw NO ray. BOTTOM cell is this column's SUMMON pose: preserve its hands gathering, raising, open above shoulders, lowering or neutral according to image1. Where hands are up, keep BOTH ARMS UP AND WIDE like a conjurer, NOT the crossing claw slash of A. No actual summoned creatures, floor portals, rings or surrounding effects.",
+      "sha256": "b3f5fe96c98b2ba9101bb36caa9b598a029276200c48945243efed465184b634"
+    },
+    {
+      "phase": "F",
+      "column": 6,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-92ce1836-7d88-42a6-b115-4a2202514e85.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 6 of phase F. FINAL PHASE F: THE NAKED RIFT. Preserve BLACK-VIOLET exposed void ribs, MAGENTA crystal claws and crown, a few PALE limestone fragments at silhouette edges, and the HUGE fully OPEN heart-eye with bright pale iris/pupil contrast. Absolutely NO GREEN MOSS, ORANGE LAVA, BROWN MUD or BLUE ICE in the final-form middle/bottom cells. Use phase colors from image1, never materials from A. TOP cell is this column's shell-opening/eye-opening ENTRY pose. MIDDLE cell is this column's exact RAY AIM pose (eye/claws bracing and aiming left/center/right); draw NO ray. BOTTOM cell is this column's SUMMON pose: preserve its hands gathering, raising, open above shoulders, lowering or neutral according to image1. Where hands are up, keep BOTH ARMS UP AND WIDE like a conjurer, NOT the crossing claw slash of A. No actual summoned creatures, floor portals, rings or surrounding effects.",
+      "sha256": "7295960560bdc34354390da24f0f34365dd0dad40defb9892ccb44f5ca8efb18"
+    }
+  ],
+  "registration": [
+    {
+      "row": 0,
+      "column": 0,
+      "generated_row": 0,
+      "reference_size": [
+        227,
+        195
+      ],
+      "fine_size": [
+        579,
+        502
+      ],
+      "registered_size": [
+        675,
+        585
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1653386454183268
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "generated_row": 1,
+      "reference_size": [
+        234,
+        188
+      ],
+      "fine_size": [
+        606,
+        488
+      ],
+      "registered_size": [
+        700,
+        564
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1557377049180328
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "generated_row": 2,
+      "reference_size": [
+        235,
+        192
+      ],
+      "fine_size": [
+        601,
+        484
+      ],
+      "registered_size": [
+        715,
+        576
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1900826446280992
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "generated_row": 0,
+      "reference_size": [
+        229,
+        195
+      ],
+      "fine_size": [
+        591,
+        491
+      ],
+      "registered_size": [
+        704,
+        585
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1914460285132382
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "generated_row": 1,
+      "reference_size": [
+        239,
+        189
+      ],
+      "fine_size": [
+        606,
+        471
+      ],
+      "registered_size": [
+        730,
+        567
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2038216560509554
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "generated_row": 2,
+      "reference_size": [
+        232,
+        194
+      ],
+      "fine_size": [
+        616,
+        495
+      ],
+      "registered_size": [
+        724,
+        582
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1757575757575758
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "generated_row": 0,
+      "reference_size": [
+        230,
+        192
+      ],
+      "fine_size": [
+        607,
+        505
+      ],
+      "registered_size": [
+        692,
+        576
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1405940594059405
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "generated_row": 1,
+      "reference_size": [
+        240,
+        188
+      ],
+      "fine_size": [
+        635,
+        491
+      ],
+      "registered_size": [
+        729,
+        564
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1486761710794298
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "generated_row": 2,
+      "reference_size": [
+        247,
+        198
+      ],
+      "fine_size": [
+        641,
+        499
+      ],
+      "registered_size": [
+        763,
+        594
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1903807615230462
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "generated_row": 0,
+      "reference_size": [
+        234,
+        194
+      ],
+      "fine_size": [
+        608,
+        488
+      ],
+      "registered_size": [
+        725,
+        582
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1926229508196722
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "generated_row": 1,
+      "reference_size": [
+        264,
+        189
+      ],
+      "fine_size": [
+        657,
+        475
+      ],
+      "registered_size": [
+        784,
+        567
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1936842105263157
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "generated_row": 2,
+      "reference_size": [
+        278,
+        198
+      ],
+      "fine_size": [
+        701,
+        491
+      ],
+      "registered_size": [
+        848,
+        594
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.209775967413442
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "generated_row": 0,
+      "reference_size": [
+        234,
+        192
+      ],
+      "fine_size": [
+        631,
+        508
+      ],
+      "registered_size": [
+        715,
+        576
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1338582677165354
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "generated_row": 1,
+      "reference_size": [
+        251,
+        189
+      ],
+      "fine_size": [
+        659,
+        491
+      ],
+      "registered_size": [
+        761,
+        567
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.154786150712831
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "generated_row": 2,
+      "reference_size": [
+        243,
+        195
+      ],
+      "fine_size": [
+        649,
+        505
+      ],
+      "registered_size": [
+        752,
+        585
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1584158415841583
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "generated_row": 0,
+      "reference_size": [
+        236,
+        193
+      ],
+      "fine_size": [
+        585,
+        486
+      ],
+      "registered_size": [
+        697,
+        579
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.191358024691358
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "generated_row": 1,
+      "reference_size": [
+        234,
+        188
+      ],
+      "fine_size": [
+        595,
+        485
+      ],
+      "registered_size": [
+        692,
+        564
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1628865979381444
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "generated_row": 2,
+      "reference_size": [
+        235,
+        192
+      ],
+      "fine_size": [
+        591,
+        470
+      ],
+      "registered_size": [
+        724,
+        576
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.225531914893617
+    }
+  ],
+  "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+  "size": [
+    5376,
+    2688
+  ],
+  "row_order_correction": null
+}

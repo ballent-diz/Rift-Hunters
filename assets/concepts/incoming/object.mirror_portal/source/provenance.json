@@ -1,0 +1,22 @@
+{
+  "generator": "imagegen intégré",
+  "date": "2026-11-08",
+  "transparent_background_requested": true,
+  "selected_source": "planche.png",
+  "source_sha256": "1f1460c10bb7a7d89861d283c4eb71992391b9873e8948822bf0accf3c1420b8",
+  "prompt": "PROMPT.txt",
+  "prompt_sha256_lf": "daf2fbadaa1f4f34c492b751ae45db9379ba5c33b8aa28910b4405980cf2ab0e",
+  "reference_images": [
+    {
+      "path": "assets/concepts/incoming/object.mirror_portal/source/references.png",
+      "role": "identité ou matière, pas cible de modification",
+      "sha256": "75a39570f4d0e1548291ac541ed6459e3dca113ae32eedcac1a97df108e9446e"
+    },
+    {
+      "path": "assets/concepts/incoming/object.mirror_portal/source/maps_overview.png",
+      "role": "identité ou matière, pas cible de modification",
+      "sha256": "823e913054c8a6de64bfa73d5f5e15f0560dea821fe7c94d117d4023c164597f"
+    }
+  ],
+  "processing": "détourage et désolidarisation de l’ombre peinte ; cellules enregistrées ; palette prélevée ; aucune peinture procédurale"
+}

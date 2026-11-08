@@ -1,0 +1,62 @@
+{
+  "world": [
+    5016,
+    5016
+  ],
+  "native_size": [
+    3762,
+    3762
+  ],
+  "game_size": [
+    11286,
+    11286
+  ],
+  "native_density": 0.75,
+  "presentation_density": 2.25,
+  "master_sha256": "f1598a5613cfadb1a14ebc9631a1c9574c40d39fe3db8e3c9eff751a8c0bbe6d",
+  "presentation": "Vrais détails par régions, Lanczos×3 et restauration locale des arêtes mesurée en RGB.",
+  "native_encoding": "WebP sans perte",
+  "tiles_encoding": {
+    "format": "WebP",
+    "mode": "near_lossless",
+    "near_lossless_level": 80,
+    "effort": 75,
+    "method": 4,
+    "documentation": "https://developers.google.com/speed/webp/docs/cwebp",
+    "measured_rgb_errors": [
+      {
+        "tile": 0,
+        "max_rgb_error": 1,
+        "mean_rgb_error": 0.4530526985314939
+      },
+      {
+        "tile": 1,
+        "max_rgb_error": 1,
+        "mean_rgb_error": 0.4675773265012845
+      },
+      {
+        "tile": 2,
+        "max_rgb_error": 1,
+        "mean_rgb_error": 0.44933413148808093
+      }
+    ]
+  },
+  "tiles": [
+    {
+      "path": "assets/environments/rift_eye/map.webp",
+      "sha256": "e086ee7cdef2454bc36f8485ae67c91cbc8ce52e093f6c2b718a6c1fbf36d5cf",
+      "bytes": 41267142
+    },
+    {
+      "path": "assets/environments/rift_eye/map_1.webp",
+      "sha256": "5abf1c95fb4648a8a481305799050c25bbfcc4f38aac9bb1f4ee355b5bbba610",
+      "bytes": 42736392
+    },
+    {
+      "path": "assets/environments/rift_eye/map_2.webp",
+      "sha256": "7c53648032e3344a7f5cf287ac076ddce5cc447ffc281c57bb4c1e5375e2e73d",
+      "bytes": 41729136
+    }
+  ],
+  "quality_conforme": true
+}

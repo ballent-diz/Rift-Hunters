@@ -1,0 +1,25 @@
+{
+  "id": "map.rift_eye",
+  "map_number": 25,
+  "chapter": 5,
+  "status": "wip",
+  "stage": "detail_graphique_livre_attente_collisions",
+  "world": [
+    5016,
+    5016
+  ],
+  "owner_approved": true,
+  "plan_locked": true,
+  "composition": "composition.png",
+  "composition_sha256": "c0a1050cd12633f2ef3ca7c9810d898c70e7b3bb96ab1b3bfcf0665f996cb105",
+  "plan": "plan.json",
+  "detail_generated": true,
+  "collision_mask_created": false,
+  "runtime_integrated": false,
+  "quality_conforme": true,
+  "sharpness_conforme": true,
+  "source": "source/map_detailed.webp",
+  "collision_reference": "docs/previews/rift-eye/reference_collisions.jpg",
+  "owner_approval_scope": "Composition uniquement ; essai final en jeu et peinture de collisions à réaliser.",
+  "chapter5_native_sprites_readability_checked": false
+}

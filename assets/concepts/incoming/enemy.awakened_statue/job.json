@@ -1,0 +1,160 @@
+{
+  "visual_id": "enemy.awakened_statue",
+  "cell": [
+    320,
+    320
+  ],
+  "anchor": [
+    160,
+    292
+  ],
+  "scale": 0.5,
+  "target_height": 220,
+  "status": "final",
+  "background": "alpha",
+  "colors": 32,
+  "outline": false,
+  "flip": false,
+  "hover": 0,
+  "preview_zoom": 1,
+  "anchor_mode": "feet",
+  "animations": [
+    {
+      "name": "dormant",
+      "source": "dormant.webp",
+      "grid": [
+        1,
+        1
+      ],
+      "frames": 1,
+      "fps": 1,
+      "loop": true,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "awaken",
+      "source": "awaken.webp",
+      "grid": [
+        5,
+        1
+      ],
+      "frames": 5,
+      "fps": 9,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -2,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "move",
+      "source": "move.webp",
+      "grid": [
+        6,
+        1
+      ],
+      "frames": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "attack",
+      "source": "attack.webp",
+      "grid": [
+        6,
+        1
+      ],
+      "frames": 6,
+      "fps": 9,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          -2,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "dormant"
+  },
+  "family": "Statue éveillée",
+  "chapter": 5,
+  "integration": "Claude : comportements, données et phases ; aucun src/ ni data/ modifié.",
+  "empty_animations": [
+    {
+      "name": "death",
+      "fps": 12,
+      "loop": false
+    }
+  ]
+}

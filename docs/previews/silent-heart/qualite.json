@@ -20,7 +20,7 @@
     },
     {
       "name": "détails fins / 100×100 u (médiane)",
-      "value": 386.238,
+      "value": 382.376,
       "min": 329.944,
       "max": 446.395,
       "ok": true
@@ -41,7 +41,7 @@
     },
     {
       "name": "fidélité au plan validé (corrélation)",
-      "value": 0.964,
+      "value": 0.966,
       "min": 0.85,
       "max": 1.0,
       "ok": true

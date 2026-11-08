@@ -1,0 +1,403 @@
+{
+  "method": "Six colonnes réellement redessinées par imagegen ; poses recalées sur les hauteurs relatives du guide, puis assemblées sans redessin. La mort conserve la réduction de chaque pose du guide, aucun cadavre regonflé.",
+  "columns": [
+    {
+      "phase": "E",
+      "column": 1,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-c8dd834f-1851-4159-a5d6-e7e342d5c07d.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 1 of phase E. PHASE ICE AND SILENCE. Top = exact ENTRY stage; middle = silent icy IDLE; bottom = the exact SILENCE attack stage. Preserve BLUE-WHITE icy shoulders/claws, fine chiseled glacier facets and the larger three-spire ICE crown. Keep the HEART-EYE hot MAGENTA, never cyan. Do not restore moss, brown roots or orange magma where image1 has frozen them. The attack is a restrained stiff outward gesture with local ice chips, not a different claw slash. No cone, fog cloud, expanding ring, ground ice or projectile.",
+      "sha256": "be5153ee726cb286f644787f7e4e60b081f43e641b5e87355e61d14b423d859b"
+    },
+    {
+      "phase": "E",
+      "column": 2,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-15b94268-f6f9-4df7-b609-e0695e736689.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 2 of phase E. PHASE ICE AND SILENCE. Top = exact ENTRY stage; middle = silent icy IDLE; bottom = the exact SILENCE attack stage. Preserve BLUE-WHITE icy shoulders/claws, fine chiseled glacier facets and the larger three-spire ICE crown. Keep the HEART-EYE hot MAGENTA, never cyan. Do not restore moss, brown roots or orange magma where image1 has frozen them. The attack is a restrained stiff outward gesture with local ice chips, not a different claw slash. No cone, fog cloud, expanding ring, ground ice or projectile.",
+      "sha256": "7a8290cedaee78b1a36f9cbcf9bf71bfd6dcf4360593b3e1b78c6ae6ca386b87"
+    },
+    {
+      "phase": "E",
+      "column": 3,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-181dc03f-f9b2-4149-baf0-014d118fd501.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 3 of phase E. PHASE ICE AND SILENCE. Top = exact ENTRY stage; middle = silent icy IDLE; bottom = the exact SILENCE attack stage. Preserve BLUE-WHITE icy shoulders/claws, fine chiseled glacier facets and the larger three-spire ICE crown. Keep the HEART-EYE hot MAGENTA, never cyan. Do not restore moss, brown roots or orange magma where image1 has frozen them. The attack is a restrained stiff outward gesture with local ice chips, not a different claw slash. No cone, fog cloud, expanding ring, ground ice or projectile.",
+      "sha256": "69d8bd8f29da9823332d0ee288afeda54e98e25c73d648dd29dda278319f451c"
+    },
+    {
+      "phase": "E",
+      "column": 4,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-ab9f8136-cd2f-478f-b5ee-ca0d1c01c690.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 4 of phase E. PHASE ICE AND SILENCE. Top = exact ENTRY stage; middle = silent icy IDLE; bottom = the exact SILENCE attack stage. Preserve BLUE-WHITE icy shoulders/claws, fine chiseled glacier facets and the larger three-spire ICE crown. Keep the HEART-EYE hot MAGENTA, never cyan. Do not restore moss, brown roots or orange magma where image1 has frozen them. The attack is a restrained stiff outward gesture with local ice chips, not a different claw slash. No cone, fog cloud, expanding ring, ground ice or projectile.",
+      "sha256": "5263095702e6996c639629d02fb74052c6c4841f21071af7fd02ee3bd39b0468"
+    },
+    {
+      "phase": "E",
+      "column": 5,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-acba761c-7dbb-4637-9f91-f815c45049c1.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 5 of phase E. PHASE ICE AND SILENCE. Top = exact ENTRY stage; middle = silent icy IDLE; bottom = the exact SILENCE attack stage. Preserve BLUE-WHITE icy shoulders/claws, fine chiseled glacier facets and the larger three-spire ICE crown. Keep the HEART-EYE hot MAGENTA, never cyan. Do not restore moss, brown roots or orange magma where image1 has frozen them. The attack is a restrained stiff outward gesture with local ice chips, not a different claw slash. No cone, fog cloud, expanding ring, ground ice or projectile.",
+      "sha256": "4dde86c2d79a4054405f8eb2e5b6b30581cf9b93f20254636b23fc83195bbb7b"
+    },
+    {
+      "phase": "E",
+      "column": 6,
+      "rows": 3,
+      "path": "C:\\Users\\petit\\.codex\\generated_images\\01a1a83f-9b15-7930-a1ba-a4ec66d847fa\\exec-1f85c4d4-24a3-4276-8517-7c94f81dd73b.png",
+      "prompt": "Use case: precise-object-edit. Fine-detail redraw of the exact supplied Abyssarch animation COLUMN, for the final Rift Hunters boss. TRUE TRANSPARENT background. Output ONE COLUMN of THREE equally spaced full-body frames, tall format about724×2172. Image1 is the exact column to refine: preserve EACH of its THREE DISTINCT poses, exact material colors for this PHASE, silhouette, central eye placement, limb count and relative sizes. Do not swap rows or copy neutral poses into action frames. Image2 is the approved fine A sheet: use the same new fine texture density, anatomy and rendering, but KEEP the phase materials and the specific poses of image1.\nGenuine finer-detail drawing, NOT enlargement of coarse pixels. Fine1–2pixel clusters, sharp clean bevels/cracks and material facets, clear dark outlines, grouped detail with calm large masses, disciplined~32color palette, upper-left light and violet lower-right rim. No soft painting, blur, noisy grain, microtext, ornaments or extra parts. Keep all crown tips, claws, feet and short attached effects inside cells with generous clear gutters. Opaque painted body and alpha0 holes/backdrop. Same underlying scale through the column; a crouch/death remnant must actually be SMALLER and LOWER, never enlarged to fill a cell. No floor, shadow, text, grid, scenery, ground circle, area zone, detached beam, ray, projectile or surrounding glow. Column 6 of phase E. PHASE ICE AND SILENCE. Top = exact ENTRY stage; middle = silent icy IDLE; bottom = the exact SILENCE attack stage. Preserve BLUE-WHITE icy shoulders/claws, fine chiseled glacier facets and the larger three-spire ICE crown. Keep the HEART-EYE hot MAGENTA, never cyan. Do not restore moss, brown roots or orange magma where image1 has frozen them. The attack is a restrained stiff outward gesture with local ice chips, not a different claw slash. No cone, fog cloud, expanding ring, ground ice or projectile.",
+      "sha256": "8d046cf53381300d8126e31fe7074fffd4f209a4f733b56b711bbc85a8de12e8"
+    }
+  ],
+  "registration": [
+    {
+      "row": 0,
+      "column": 0,
+      "generated_row": 0,
+      "reference_size": [
+        216,
+        181
+      ],
+      "fine_size": [
+        571,
+        497
+      ],
+      "registered_size": [
+        624,
+        543
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.0925553319919517
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "generated_row": 1,
+      "reference_size": [
+        213,
+        189
+      ],
+      "fine_size": [
+        579,
+        498
+      ],
+      "registered_size": [
+        659,
+        567
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1385542168674698
+    },
+    {
+      "row": 2,
+      "column": 0,
+      "generated_row": 2,
+      "reference_size": [
+        215,
+        191
+      ],
+      "fine_size": [
+        578,
+        486
+      ],
+      "registered_size": [
+        681,
+        573
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1790123456790123
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "generated_row": 0,
+      "reference_size": [
+        215,
+        183
+      ],
+      "fine_size": [
+        547,
+        471
+      ],
+      "registered_size": [
+        638,
+        549
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1656050955414012
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "generated_row": 1,
+      "reference_size": [
+        214,
+        192
+      ],
+      "fine_size": [
+        540,
+        482
+      ],
+      "registered_size": [
+        645,
+        576
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1950207468879668
+    },
+    {
+      "row": 2,
+      "column": 1,
+      "generated_row": 2,
+      "reference_size": [
+        213,
+        188
+      ],
+      "fine_size": [
+        549,
+        473
+      ],
+      "registered_size": [
+        655,
+        564
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1923890063424947
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "generated_row": 0,
+      "reference_size": [
+        215,
+        194
+      ],
+      "fine_size": [
+        587,
+        507
+      ],
+      "registered_size": [
+        674,
+        582
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1479289940828403
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "generated_row": 1,
+      "reference_size": [
+        216,
+        196
+      ],
+      "fine_size": [
+        590,
+        499
+      ],
+      "registered_size": [
+        695,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1783567134268538
+    },
+    {
+      "row": 2,
+      "column": 2,
+      "generated_row": 2,
+      "reference_size": [
+        231,
+        204
+      ],
+      "fine_size": [
+        645,
+        542
+      ],
+      "registered_size": [
+        728,
+        612
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1291512915129152
+    },
+    {
+      "row": 0,
+      "column": 3,
+      "generated_row": 0,
+      "reference_size": [
+        216,
+        199
+      ],
+      "fine_size": [
+        560,
+        514
+      ],
+      "registered_size": [
+        650,
+        597
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.16147859922179
+    },
+    {
+      "row": 1,
+      "column": 3,
+      "generated_row": 1,
+      "reference_size": [
+        224,
+        194
+      ],
+      "fine_size": [
+        591,
+        513
+      ],
+      "registered_size": [
+        670,
+        582
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1345029239766082
+    },
+    {
+      "row": 2,
+      "column": 3,
+      "generated_row": 2,
+      "reference_size": [
+        251,
+        196
+      ],
+      "fine_size": [
+        654,
+        524
+      ],
+      "registered_size": [
+        734,
+        588
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1221374045801527
+    },
+    {
+      "row": 0,
+      "column": 4,
+      "generated_row": 0,
+      "reference_size": [
+        214,
+        203
+      ],
+      "fine_size": [
+        545,
+        501
+      ],
+      "registered_size": [
+        662,
+        609
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.215568862275449
+    },
+    {
+      "row": 1,
+      "column": 4,
+      "generated_row": 1,
+      "reference_size": [
+        222,
+        187
+      ],
+      "fine_size": [
+        563,
+        460
+      ],
+      "registered_size": [
+        687,
+        561
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2195652173913043
+    },
+    {
+      "row": 2,
+      "column": 4,
+      "generated_row": 2,
+      "reference_size": [
+        216,
+        192
+      ],
+      "fine_size": [
+        549,
+        483
+      ],
+      "registered_size": [
+        655,
+        576
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1925465838509317
+    },
+    {
+      "row": 0,
+      "column": 5,
+      "generated_row": 0,
+      "reference_size": [
+        217,
+        211
+      ],
+      "fine_size": [
+        539,
+        498
+      ],
+      "registered_size": [
+        685,
+        633
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.2710843373493976
+    },
+    {
+      "row": 1,
+      "column": 5,
+      "generated_row": 1,
+      "reference_size": [
+        216,
+        186
+      ],
+      "fine_size": [
+        535,
+        474
+      ],
+      "registered_size": [
+        630,
+        558
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1772151898734178
+    },
+    {
+      "row": 2,
+      "column": 5,
+      "generated_row": 2,
+      "reference_size": [
+        216,
+        194
+      ],
+      "fine_size": [
+        564,
+        496
+      ],
+      "registered_size": [
+        662,
+        582
+      ],
+      "reference_height_multiple": 3,
+      "factor": 1.1733870967741935
+    }
+  ],
+  "reused_keyframe": "Première pose entrée : pose A/idle1 réutilisée au même gabarit monde pour démarrer depuis les cinq matières.",
+  "size": [
+    4692,
+    2346
+  ],
+  "row_order_correction": null
+}

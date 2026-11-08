@@ -1,0 +1,51 @@
+[
+  {
+    "phase": "A",
+    "visual_id": "boss.abyssarch",
+    "job": "assets/concepts/incoming/boss.abyssarch/job.json",
+    "source_sheets": 1,
+    "painted_poses": 18
+  },
+  {
+    "phase": "B",
+    "visual_id": "boss.abyssarch.roots",
+    "job": "assets/concepts/incoming/boss.abyssarch/jobs/B.json",
+    "source_sheets": 1,
+    "painted_poses": 18
+  },
+  {
+    "phase": "C",
+    "visual_id": "boss.abyssarch.magma",
+    "job": "assets/concepts/incoming/boss.abyssarch/jobs/C.json",
+    "source_sheets": 1,
+    "painted_poses": 18
+  },
+  {
+    "phase": "D",
+    "visual_id": "boss.abyssarch.crystal",
+    "job": "assets/concepts/incoming/boss.abyssarch/jobs/D.json",
+    "source_sheets": 1,
+    "painted_poses": 18
+  },
+  {
+    "phase": "E",
+    "visual_id": "boss.abyssarch.ice",
+    "job": "assets/concepts/incoming/boss.abyssarch/jobs/E.json",
+    "source_sheets": 1,
+    "painted_poses": 18
+  },
+  {
+    "phase": "F",
+    "visual_id": "boss.abyssarch.rift",
+    "job": "assets/concepts/incoming/boss.abyssarch/jobs/F.json",
+    "source_sheets": 1,
+    "painted_poses": 18
+  },
+  {
+    "phase": "G",
+    "visual_id": "boss.abyssarch.death",
+    "job": "assets/concepts/incoming/boss.abyssarch/jobs/G.json",
+    "source_sheets": 1,
+    "painted_poses": 12
+  }
+]

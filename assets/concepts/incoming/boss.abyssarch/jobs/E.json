@@ -1,0 +1,156 @@
+{
+  "visual_id": "boss.abyssarch.ice",
+  "master_visual_id": "boss.abyssarch",
+  "phase": "E",
+  "cell": [
+    1408,
+    1152
+  ],
+  "anchor": [
+    704,
+    1100
+  ],
+  "runtime_anchor": [
+    704,
+    650
+  ],
+  "scale": 0.5,
+  "anchor_mode": "mass",
+  "target_height": 990,
+  "status": "final",
+  "background": "alpha",
+  "outline": false,
+  "colors": 32,
+  "palette_source": "../palette.png",
+  "preview_zoom": 1,
+  "animations": [
+    {
+      "name": "ice_entry",
+      "source": "../planche_E.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "ice_idle",
+      "source": "../planche_E.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 8,
+      "loop": true,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "name": "ice_attack",
+      "source": "../planche_E.webp",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 10,
+      "loop": false,
+      "frame_offsets": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ]
+    }
+  ],
+  "aliases": {
+    "idle": "ice_idle",
+    "move": "ice_idle",
+    "attack": "ice_attack"
+  },
+  "empty_animations": [
+    {
+      "name": "death",
+      "fps": 10,
+      "loop": false
+    }
+  ],
+  "integration": "Claude : changer le visual_id selon la phase. Mort : G/collapse, eye_close, hidden.",
+  "boss_size": "Référence 450u ; Nivorath existant 150u. Aucun multiplicateur de rang dans le banc."
+}

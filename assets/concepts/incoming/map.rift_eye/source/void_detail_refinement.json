@@ -1,0 +1,275 @@
+{
+  "date": "2026-11-07",
+  "before_master_sha256": "0fcea6cd4215d0ed6157f0637bcb12af2d79df10f8f038a01ff62893e5921c01",
+  "master_sha256": "f1598a5613cfadb1a14ebc9631a1c9574c40d39fe3db8e3c9eff751a8c0bbe6d",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1414.0,
+        1414.0
+      ],
+      "generated_sha256": "438fb25c71dd891a291d14f5ab7a58cd3d0d15d2d9fceaf804fd2b9fbe53687b",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark."
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        1094.0,
+        0.0,
+        2668.0,
+        1414.0
+      ],
+      "generated_sha256": "3e6ad316c5cabcc377478dd4849f1ac6cfd13a4d3ef7644f539041a0aaf40f19",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2348.0,
+        0.0,
+        3922.0,
+        1414.0
+      ],
+      "generated_sha256": "1d5791d6f89d2cba1c6880cd80e14d18004770a5e8bc942301d8533ff922b733",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3602.0,
+        0.0,
+        5016,
+        1414.0
+      ],
+      "generated_sha256": "01360ae8cf9a679d7f9eddd094582e8bd0b7dcd72ae72c84774efedf60515607",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        1094.0,
+        1414.0,
+        2668.0
+      ],
+      "generated_sha256": "8cf151d9f2f87cba045258c0e6a3c9b4870037ad6705bb93dd132e918257f9c2",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        1094.0,
+        1094.0,
+        2668.0,
+        2668.0
+      ],
+      "generated_sha256": "eb6ccb4455c7a04e734193e49770cb98b746f85b9b3e4e95076e8d518a382210",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2348.0,
+        1094.0,
+        3922.0,
+        2668.0
+      ],
+      "generated_sha256": "a9a97ca3842711884d6b5f41982a9b3a6cd8c063f67adfe684b05a4f1d64610a",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3602.0,
+        1094.0,
+        5016,
+        2668.0
+      ],
+      "generated_sha256": "f2fb3d8d205c5ab733344a0bac79fd363a03eda99682187f691c4da813f77928",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2348.0,
+        1414.0,
+        3922.0
+      ],
+      "generated_sha256": "923764753d06afb1606279a0c82369c4c26163523bc078a3bb864b0b18479b1b",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        1094.0,
+        2348.0,
+        2668.0,
+        3922.0
+      ],
+      "generated_sha256": "a5e42e65b98218ec8665cee720d87757bb566438da3c0351240cb2041fe07198",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2348.0,
+        2348.0,
+        3922.0,
+        3922.0
+      ],
+      "generated_sha256": "11ce0db4a76bf0ae7a9b8a414ec0b9c54aba38adaca57b3db018d0dcee502eb6",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r2_3",
+      "crop_world": [
+        3602.0,
+        2348.0,
+        5016,
+        3922.0
+      ],
+      "generated_sha256": "17d964ea10efd7be499077de8b735d5461824de15e8bc59ba7a86af24a463f03",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r3_0",
+      "crop_world": [
+        0.0,
+        3602.0,
+        1414.0,
+        5016
+      ],
+      "generated_sha256": "5564e7698e41b77a66c7e1133f7f65faeefb93d31e073037558214be0e2ab98c",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r3_1",
+      "crop_world": [
+        1094.0,
+        3602.0,
+        2668.0,
+        5016
+      ],
+      "generated_sha256": "5e908d2d36264878c849da9f90ca8e9ae2ac29b33416d243d735c64526f80f79",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r3_2",
+      "crop_world": [
+        2348.0,
+        3602.0,
+        3922.0,
+        5016
+      ],
+      "generated_sha256": "33580cf86177a6f59a1751d53ab3822b5f1f3978963ba9eeac9c102fa7b4374b",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.7966963151207116,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    },
+    {
+      "name": "r3_3",
+      "crop_world": [
+        3602.0,
+        3602.0,
+        5016,
+        5016
+      ],
+      "generated_sha256": "45b061d0928d9672125e999346a20f2fb88f605b6af4ee607ccc0480c078b12c",
+      "size": [
+        1254,
+        1254
+      ],
+      "generated_density": 0.8868458274398868,
+      "prompt": "Use case: precise-object-edit. This is one already detailed region of the approved final Rift Hunters map. Keep EVERY SOLID island, ruin, tree, rock, cliff, pathway, silhouette, position and material exactly unchanged. Refine ONLY the DARK PURPLE COSMIC VOID background. Image2 is material-detail SCALE reference, not a request to put terrain in the void.\nThe current purple sky is too smoothly airbrushed. Repaint the void as a DEEPLY DARK VIOLET TURBULENT RIFT, with dense genuinely HAND-PAINTED microscopic plasma filaments, tiny ribbon eddies and crystalline dust glints following existing flow directions. Razor-clear intricate small5–12worldunit energy ripples plus finer1–3unit accents, at the same fine feature SCALE as reference cobbles, but entirely ethereal PURPLE LIGHT AND DARKNESS, never land. Every moderately lit purple nebula patch must have coherent visible small-scale turbulent structure instead of blurry smooth gradients. Restrained dark-purple contrast, luminosity localized in existing current bands, deep depth between filaments. Dark velvet gaps may stay near-black, but broad PURPLE CLOUDS should be intricately drawn, not smooth plastic.\nDo not apply a uniform grain, noise, stars grid or digital filter. This must be newly drawn coherent fractal rift-energy, not speckling everything. Do not turn void into rock, pavement, sea water, a bridge or walkable surface. Keep all EXISTING macroscopic currents, bright swirls, dark gaps and original overall color/light distribution fixed. No new big flare, islands, pathways or bright object. Preserve exact framing and all four edges for neighboring joins. Genuine new fine detail at1254x1254native or larger, not interpolation. No figures, labels, UI, frame or watermark.\nImportant: intricate nested5–12unit turbulent eddies must be visible across ALL the moderately lit violet clouds, including dim regions, with crisp dark channels between micro-filaments. Dense coherent drawing, not sparse stars floating over an airbrushed gradient. Keep overall background deeply violet and clearly abyssal, never pavement or a new surface. Every solid foreground pixel and camera placement remains the same."
+    }
+  ],
+  "mode": "Seize redessins de vraie matière du plasma, réinsertion au vide seulement.",
+  "gamma_void": 0.53,
+  "unsharp_percent_void": 120,
+  "unsharp_radius_native": 1,
+  "mask_recipe": "Polygones des sols et axes de passages protégés, plus matières solides G>max(R,B)×0,6 et V>15 ; dilatation15px, raccord de distance12px.",
+  "protected_share": 0.58176,
+  "all_floor_polygon_pixels_identical": true,
+  "all_protected_pixels_identical": true,
+  "new_noise_generated_by_code": false,
+  "thresholds_changed": false,
+  "collision_mask_created": false,
+  "runtime_integrated": false
+}

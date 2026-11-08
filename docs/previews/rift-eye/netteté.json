@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-07",
+  "stage": "Tuiles finales encodées",
+  "reference_percentile": 80,
+  "reference": 0.0023662634193897247,
+  "blur_ratio": 0.6,
+  "flagged_cells": 42,
+  "valid_cells": 949,
+  "share": 0.044257112750263436,
+  "limit": 0.05,
+  "ok": true,
+  "cell_world": 160,
+  "thresholds_changed": false
+}

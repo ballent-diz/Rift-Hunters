@@ -1,0 +1,396 @@
+{
+  "date": "2026-11-07",
+  "world": [
+    4400,
+    4400
+  ],
+  "native_size": [
+    3300,
+    3300
+  ],
+  "native_density": 0.75,
+  "composition_sha256": "8d1411dd363eb89280f1c1fdd498b082a751a11bb43662e517dcb8d264b3354b",
+  "plan_sha256": "b614edaf3fe392b2ef8f3b6e2a4201f2e2730a7e6cce46567c69382167674f9f",
+  "reference_scale_sha256": "c1ae756951af0d8f201390af6f07488b141a749ede66da42d2d3e73bac813ef7",
+  "regions": [
+    {
+      "name": "r0_0",
+      "crop_world": [
+        0.0,
+        0.0,
+        1260.0,
+        1260.0
+      ],
+      "square_world": [
+        0.0,
+        0.0,
+        1260.0,
+        1260.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "68ec148a0e09fce7983d15564f53298806bf9ca29bf28ea792b9fc9723b18eb3",
+      "generated_density": 0.9952380952380953,
+      "input_sha256": "19fa7b223980ce2653fefa87922b676c2b83ca5415205382b202eef86eb4f456",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP: Le Panthéon brisé, ruined pale-limestone and dark-slate city with dull gold and torn violet banners. Image1 is the ONLY region to repaint; image2 is quality/scale reference ONLY, do NOT copy its green vegetation, water, trees or ruins layout. Keep image1's pale rose-grey stone, slate and violet patches. This is square region r0_0 on approved4400x4400 map. Preserve every footprint and ALL open floor, openings/stairs, empty square plinths, flat rune altars, cover blocks and central SMALL pillar if visible. DO NOT add/remove/duplicate objects, or move any doorway or floor edge. Central pillar stays SMALL, not a monument. Redraw blurry small material detail as genuinely sharp, intricate weathered stone grain, tiny chips, fine mortar joints, wood grain, worn engraving, slate seams. Individual paving15-26world units, step12-16, ordinary pillar30-45width, human52height; retain landmark footprints but build with fine small components. Every edge must preserve original colors/geometry for overlap. Absolutely no haze or blur, oversmoothed plastic, broad smooth slabs, increased scale, new cracks splitting paths, new lit effects or characters. Output full square1254x1254 or larger, no border, no crop, no text.\n"
+    },
+    {
+      "name": "r0_1",
+      "crop_world": [
+        940.0,
+        0.0,
+        2360.0,
+        1260.0
+      ],
+      "square_world": [
+        940.0,
+        0.0,
+        2360.0,
+        1420.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "1a6e2cbac6944689bb1b54ace2fcda4805766a932c88fe9a8daf50a58cf638e9",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "2005faac459bb3d7d8ae179364ff2a7677dc9c8e609f80e58a08b5c0ad5f6a92",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP: Le Panthéon brisé, pale-limestone/slate ruined CITY with dull gold and torn violet banners. Image1 ONLY is the exact region; image2 Ruins is quality/SCALE ONLY, do NOT copy vegetation, water or layout. Keep image1 material hues, restrained violet/magenta corruption patches, overhead camera, top-left light and precise floor geometry. Square region r0_1, approved4400x4400 map. Preserve ALL every object positions and footprints, open floor, corridor mouths, stairs, all empty square statue pedestals and three FLAT rune altars, all fallen cover objects, central SMALL pillar if present. Never add or duplicate anything. Closed-end gallery back walls MUST stay closed: no shortcut to the center. Rebuild smooth enlarged paving into small15-26u cobbles and genuine fine crisp stone grain, tiny chips, mortar, slate seams; doors75-90u, ordinary columns30-45u width, stairs12-16u depth; hero52u not drawn. Fine balanced texture like reference, not noise or excessive stippling. Do not thicken walls or add rubble on clear floor. Preserve same silhouettes and colors along edges for seamless overlap. No blur, haze, plastic smoothness, upscale-only, new paths, holes, characters, glow, text or border. FULL square1254x1254 or larger; no crop.\n"
+    },
+    {
+      "name": "r0_2",
+      "crop_world": [
+        2040.0,
+        0.0,
+        3460.0,
+        1260.0
+      ],
+      "square_world": [
+        2040.0,
+        0.0,
+        3460.0,
+        1420.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "8be5e3f36f65f2f9d2cdbd9c0d9a9a34e6f53d54ca6ca972097a31f50f1db3cf",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "3063e230ebc018a0b1d506212112341bf8af931812e9bb579df12a768f908a56",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP: Le Panthéon brisé, pale-limestone/slate ruined CITY with dull gold and torn violet banners. Image1 ONLY is the exact region; image2 Ruins is quality/SCALE ONLY, do NOT copy vegetation, water or layout. Keep image1 material hues, restrained violet/magenta corruption patches, overhead camera, top-left light and precise floor geometry. Square region r0_2, approved4400x4400 map. Preserve ALL every object positions and footprints, open floor, corridor mouths, stairs, all empty square statue pedestals and three FLAT rune altars, all fallen cover objects, central SMALL pillar if present. Never add or duplicate anything. Closed-end gallery back walls MUST stay closed: no shortcut to the center. Rebuild smooth enlarged paving into small15-26u cobbles and genuine fine crisp stone grain, tiny chips, mortar, slate seams; doors75-90u, ordinary columns30-45u width, stairs12-16u depth; hero52u not drawn. Fine balanced texture like reference, not noise or excessive stippling. Do not thicken walls or add rubble on clear floor. Preserve same silhouettes and colors along edges for seamless overlap. No blur, haze, plastic smoothness, upscale-only, new paths, holes, characters, glow, text or border. FULL square1254x1254 or larger; no crop.\n"
+    },
+    {
+      "name": "r0_3",
+      "crop_world": [
+        3140.0,
+        0.0,
+        4400,
+        1260.0
+      ],
+      "square_world": [
+        3140.0,
+        0.0,
+        4400.0,
+        1260.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "babec17faa0fc46f9a29f31604ee23ba2ed129bb26476563bac54a6e7654ae79",
+      "generated_density": 0.9952380952380953,
+      "input_sha256": "d6579d63b7bc42d289aa9a1a8230fda7af74e722e6aed1ad7cb5cca0871c27e5",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP: Le Panthéon brisé, pale-limestone/slate ruined CITY with dull gold and torn violet banners. Image1 ONLY is the exact region; image2 Ruins is quality/SCALE ONLY, do NOT copy vegetation, water or layout. Keep image1 material hues, restrained violet/magenta corruption patches, overhead camera, top-left light and precise floor geometry. Square region r0_3, approved4400x4400 map. Preserve ALL every object positions and footprints, open floor, corridor mouths, stairs, all empty square statue pedestals and three FLAT rune altars, all fallen cover objects, central SMALL pillar if present. Never add or duplicate anything. Closed-end gallery back walls MUST stay closed: no shortcut to the center. Rebuild smooth enlarged paving into small15-26u cobbles and genuine fine crisp stone grain, tiny chips, mortar, slate seams; doors75-90u, ordinary columns30-45u width, stairs12-16u depth; hero52u not drawn. Fine balanced texture like reference, not noise or excessive stippling. Do not thicken walls or add rubble on clear floor. Preserve same silhouettes and colors along edges for seamless overlap. No blur, haze, plastic smoothness, upscale-only, new paths, holes, characters, glow, text or border. FULL square1254x1254 or larger; no crop.\n"
+    },
+    {
+      "name": "r1_0",
+      "crop_world": [
+        0.0,
+        940.0,
+        1260.0,
+        2360.0
+      ],
+      "square_world": [
+        0.0,
+        940.0,
+        1420.0,
+        2360.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "100d88e819b3d319526268b01b7d46fcc4fbcf375f9c60932aeac07f8d07cd78",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "196a179dd8f3526117587af274921844ae43836152b4c1e6176beed8eb76d70c",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP: Le Panthéon brisé, pale-limestone/slate ruined CITY with dull gold and torn violet banners. Image1 ONLY is the exact region; image2 Ruins is quality/SCALE ONLY, do NOT copy vegetation, water or layout. Keep image1 material hues, restrained violet/magenta corruption patches, overhead camera, top-left light and precise floor geometry. Square region r1_0, approved4400x4400 map. Preserve ALL every object positions and footprints, open floor, corridor mouths, stairs, all empty square statue pedestals and three FLAT rune altars, all fallen cover objects, central SMALL pillar if present. Never add or duplicate anything. Closed-end gallery back walls MUST stay closed: no shortcut to the center. Rebuild smooth enlarged paving into small15-26u cobbles and genuine fine crisp stone grain, tiny chips, mortar, slate seams; doors75-90u, ordinary columns30-45u width, stairs12-16u depth; hero52u not drawn. Fine balanced texture like reference, not noise or excessive stippling. Do not thicken walls or add rubble on clear floor. Preserve same silhouettes and colors along edges for seamless overlap. No blur, haze, plastic smoothness, upscale-only, new paths, holes, characters, glow, text or border. FULL square1254x1254 or larger; no crop.\n"
+    },
+    {
+      "name": "r1_1",
+      "crop_world": [
+        940.0,
+        940.0,
+        2360.0,
+        2360.0
+      ],
+      "square_world": [
+        940.0,
+        940.0,
+        2360.0,
+        2360.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "6edd185bf1f48b20bf3ef2dcb1ecbfffef4e4a4c2357e1a7a154ac4eae3743fd",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "753add3f95d891a785768b6528077085bc100ca53b207f4e85476e7b36d36b6c",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP: Le Panthéon brisé, ruined pale-limestone and dark-slate city with dull gold and torn violet banners. Image1 is the ONLY region to repaint; image2 is quality/scale reference ONLY, do NOT copy its green vegetation, water, trees or ruins layout. Keep image1's pale rose-grey stone, slate and violet patches. This is square region r1_1 on approved4400x4400 map. Preserve every footprint and ALL open floor, openings/stairs, empty square plinths, flat rune altars, cover blocks and central SMALL pillar if visible. DO NOT add/remove/duplicate objects, or move any doorway or floor edge. Central pillar stays SMALL, not a monument. Redraw blurry small material detail as genuinely sharp, intricate weathered stone grain, tiny chips, fine mortar joints, wood grain, worn engraving, slate seams. Individual paving15-26world units, step12-16, ordinary pillar30-45width, human52height; retain landmark footprints but build with fine small components. Every edge must preserve original colors/geometry for overlap. Absolutely no haze or blur, oversmoothed plastic, broad smooth slabs, increased scale, new cracks splitting paths, new lit effects or characters. Output full square1254x1254 or larger, no border, no crop, no text.\n"
+    },
+    {
+      "name": "r1_2",
+      "crop_world": [
+        2040.0,
+        940.0,
+        3460.0,
+        2360.0
+      ],
+      "square_world": [
+        2040.0,
+        940.0,
+        3460.0,
+        2360.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "b2ac7fd6015161dbbfd935ce8912fc2eec3d1326de4debdf8c37b410972da2f7",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "2bdf686e0bd6730c3c25d31063c7895dde60ad19a6bd82675d79c94f058b4d7a",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP24: PALE LIMESTONE/SLATE RUINED CITY, dull gold, torn violet banners; keep image1 identity and exact geometry. Image2 is quality/SCALE reference ONLY, NOT green theme. Repaint exact square region r1_2. Keep same open floors, all boundaries, staircase widths, alcove back walls CLOSED, empty square statue plinths, low flat empty rune altars, cover obstacles and SMALL central pillar if visible. Never move, add, duplicate or delete a landmark. No rubble on clear floor, no new doors/holes/shortcuts, no magic or characters. Dense precise fine small paving15-26u, mortar joints, stone grain, cracks, subtle chips; rebuild blurred materials as actual detail, not sharpening/upscale-only. Human52u not painted, ordinary column30-45u, stairs12-16u, doors75-90u. Preserve palette and shadows along all four edges for overlaps. Clean rich graphic fantasy finish like reference, but no excessive noise/stippling, no haze, blur, plastic surfaces, mosaic, text or border. Full square1254x1254 or larger, no crop.\n"
+    },
+    {
+      "name": "r1_3",
+      "crop_world": [
+        3140.0,
+        940.0,
+        4400,
+        2360.0
+      ],
+      "square_world": [
+        3140.0,
+        940.0,
+        4560.0,
+        2360.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "fba9fa0c03793e0f646e2133e735da023bbf9c1cc8874e6a4bc9b6dce63bf20d",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "a2594f074d7e7d472f9b8f9a13e3e89e7ff3e3c71c896cf34a17c781577f3996",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP24: PALE LIMESTONE/SLATE RUINED CITY, dull gold, torn violet banners; keep image1 identity and exact geometry. Image2 is quality/SCALE reference ONLY, NOT green theme. Repaint exact square region r1_3. Keep same open floors, all boundaries, staircase widths, alcove back walls CLOSED, empty square statue plinths, low flat empty rune altars, cover obstacles and SMALL central pillar if visible. Never move, add, duplicate or delete a landmark. No rubble on clear floor, no new doors/holes/shortcuts, no magic or characters. Dense precise fine small paving15-26u, mortar joints, stone grain, cracks, subtle chips; rebuild blurred materials as actual detail, not sharpening/upscale-only. Human52u not painted, ordinary column30-45u, stairs12-16u, doors75-90u. Preserve palette and shadows along all four edges for overlaps. Clean rich graphic fantasy finish like reference, but no excessive noise/stippling, no haze, blur, plastic surfaces, mosaic, text or border. Full square1254x1254 or larger, no crop.\n"
+    },
+    {
+      "name": "r2_0",
+      "crop_world": [
+        0.0,
+        2040.0,
+        1260.0,
+        3460.0
+      ],
+      "square_world": [
+        0.0,
+        2040.0,
+        1420.0,
+        3460.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "e41ab98922a7ec60e8d1be240fd000e91ffb5569fa329ae55dbb5f63aff5cf5b",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "cf36a333739ad20deca264e5469fc880258384d746fca4672c3a028bbb662fe4",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP24: PALE LIMESTONE/SLATE RUINED CITY, dull gold, torn violet banners; keep image1 identity and exact geometry. Image2 is quality/SCALE reference ONLY, NOT green theme. Repaint exact square region r2_0. Keep same open floors, all boundaries, staircase widths, alcove back walls CLOSED, empty square statue plinths, low flat empty rune altars, cover obstacles and SMALL central pillar if visible. Never move, add, duplicate or delete a landmark. No rubble on clear floor, no new doors/holes/shortcuts, no magic or characters. Dense precise fine small paving15-26u, mortar joints, stone grain, cracks, subtle chips; rebuild blurred materials as actual detail, not sharpening/upscale-only. Human52u not painted, ordinary column30-45u, stairs12-16u, doors75-90u. Preserve palette and shadows along all four edges for overlaps. Clean rich graphic fantasy finish like reference, but no excessive noise/stippling, no haze, blur, plastic surfaces, mosaic, text or border. Full square1254x1254 or larger, no crop.\n"
+    },
+    {
+      "name": "r2_1",
+      "crop_world": [
+        940.0,
+        2040.0,
+        2360.0,
+        3460.0
+      ],
+      "square_world": [
+        940.0,
+        2040.0,
+        2360.0,
+        3460.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "818bd36e1b5b5db27350f717dc9e7d5775b19be3694af6adb569dd2a6acba6c9",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "826727bbff94714a5ebe514003a78e13a61504bd0cb0713d03071351bf17a41b",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nSPECIFIC MAP24: PALE LIMESTONE/SLATE RUINED CITY, dull gold, torn violet banners; keep image1 identity and exact geometry. Image2 is quality/SCALE reference ONLY, NOT green theme. Repaint exact square region r2_1. Keep same open floors, all boundaries, staircase widths, alcove back walls CLOSED, empty square statue plinths, low flat empty rune altars, cover obstacles and SMALL central pillar if visible. Never move, add, duplicate or delete a landmark. No rubble on clear floor, no new doors/holes/shortcuts, no magic or characters. Dense precise fine small paving15-26u, mortar joints, stone grain, cracks, subtle chips; rebuild blurred materials as actual detail, not sharpening/upscale-only. Human52u not painted, ordinary column30-45u, stairs12-16u, doors75-90u. Preserve palette and shadows along all four edges for overlaps. Clean rich graphic fantasy finish like reference, but no excessive noise/stippling, no haze, blur, plastic surfaces, mosaic, text or border. Full square1254x1254 or larger, no crop.\n"
+    },
+    {
+      "name": "r2_2",
+      "crop_world": [
+        2040.0,
+        2040.0,
+        3460.0,
+        3460.0
+      ],
+      "square_world": [
+        2040.0,
+        2040.0,
+        3460.0,
+        3460.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "eb97b8a13ce429398362ec7ada2a60fd58dece372fa183a1c7e8b3ae0fa42c54",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "463d748df89dd0c64bc7c328bb7789f2a192f132402d710c93251e034aee37aa",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nMAP24 FROZEN REGION r2_2: pale limestone and dark slate ruined city, restrained dull gold, torn violet banners, existing flat violet/magenta corruption patches. Image1 is the EXACT square region to redraw. Image2 is quality and object SCALE ONLY, not green theme or layout. Keep all outlines, floor levels, closed gallery back walls, stairs, all empty square blocking statue plinths, low FLAT walkable rune altars, existing cover fragments and small central pillar if visible. NO added/removed/moved/duplicated objects. Nothing new on free floor, no new rubble, cracks cutting routes, holes, paths, magic, cages, statues, characters or UI. Truly rebuild fine stone grain, small15-26u paving, small joints and tiny chips, timber grain and slate seams. Normal door75-90u, ordinary column30-45u, stair12-16u, human52u not drawn. Keep exact camera, top-left light and original edge colors for overlap. Fine balanced crisp graphic fantasy finish, not noise or excessive stippling, plastic smoothing, blur, mosaic or upscale-only. Full square1254x1254 or larger, no crop, text or border.\n"
+    },
+    {
+      "name": "r2_3",
+      "crop_world": [
+        3140.0,
+        2040.0,
+        4400,
+        3460.0
+      ],
+      "square_world": [
+        3140.0,
+        2040.0,
+        4560.0,
+        3460.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "3110cd3fac97a83d6007863d969300a572e1bdb2c7d7f34eeac3acbb4fcdd788",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "086703a4ba7a089b06e9a0984bdf9cf2272e70128e7a75cf87a0f0b5d636bd58",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nMAP24 FROZEN REGION r2_3: pale limestone and dark slate ruined city, restrained dull gold, torn violet banners, existing flat violet/magenta corruption patches. Image1 is the EXACT square region to redraw. Image2 is quality and object SCALE ONLY, not green theme or layout. Keep all outlines, floor levels, closed gallery back walls, stairs, all empty square blocking statue plinths, low FLAT walkable rune altars, existing cover fragments and small central pillar if visible. NO added/removed/moved/duplicated objects. Nothing new on free floor, no new rubble, cracks cutting routes, holes, paths, magic, cages, statues, characters or UI. Truly rebuild fine stone grain, small15-26u paving, small joints and tiny chips, timber grain and slate seams. Normal door75-90u, ordinary column30-45u, stair12-16u, human52u not drawn. Keep exact camera, top-left light and original edge colors for overlap. Fine balanced crisp graphic fantasy finish, not noise or excessive stippling, plastic smoothing, blur, mosaic or upscale-only. Full square1254x1254 or larger, no crop, text or border.\n"
+    },
+    {
+      "name": "r3_0",
+      "crop_world": [
+        0.0,
+        3140.0,
+        1260.0,
+        4400
+      ],
+      "square_world": [
+        0.0,
+        3140.0,
+        1260.0,
+        4400.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "61b52dd1263cc5fd728a4a8f44f83f04f0d8065a49d2e3e0a3764a733300d5b9",
+      "generated_density": 0.9952380952380953,
+      "input_sha256": "82328319259d8c6b96e9ff8864caddaa9c93ed505bd90e4e2962475810a1335d",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nMAP24 FROZEN REGION r3_0: pale limestone and dark slate ruined city, restrained dull gold, torn violet banners, existing flat violet/magenta corruption patches. Image1 is the EXACT square region to redraw. Image2 is quality and object SCALE ONLY, not green theme or layout. Keep all outlines, floor levels, closed gallery back walls, stairs, all empty square blocking statue plinths, low FLAT walkable rune altars, existing cover fragments and small central pillar if visible. NO added/removed/moved/duplicated objects. Nothing new on free floor, no new rubble, cracks cutting routes, holes, paths, magic, cages, statues, characters or UI. Truly rebuild fine stone grain, small15-26u paving, small joints and tiny chips, timber grain and slate seams. Normal door75-90u, ordinary column30-45u, stair12-16u, human52u not drawn. Keep exact camera, top-left light and original edge colors for overlap. Fine balanced crisp graphic fantasy finish, not noise or excessive stippling, plastic smoothing, blur, mosaic or upscale-only. Full square1254x1254 or larger, no crop, text or border.\n"
+    },
+    {
+      "name": "r3_1",
+      "crop_world": [
+        940.0,
+        3140.0,
+        2360.0,
+        4400
+      ],
+      "square_world": [
+        940.0,
+        3140.0,
+        2360.0,
+        4560.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "e5ecbff7c754e235d913a976f4584f7aeca4a84604115ca75c72117baeba7fd5",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "9b3f22950eb6eef114ec1695080325b1d6b3ff7dc7926f1d062383c9c03a8a4e",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nMAP24 FROZEN REGION r3_1: pale limestone and dark slate ruined city, restrained dull gold, torn violet banners, existing flat violet/magenta corruption patches. Image1 is the EXACT square region to redraw. Image2 is quality and object SCALE ONLY, not green theme or layout. Keep all outlines, floor levels, closed gallery back walls, stairs, all empty square blocking statue plinths, low FLAT walkable rune altars, existing cover fragments and small central pillar if visible. NO added/removed/moved/duplicated objects. Nothing new on free floor, no new rubble, cracks cutting routes, holes, paths, magic, cages, statues, characters or UI. Truly rebuild fine stone grain, small15-26u paving, small joints and tiny chips, timber grain and slate seams. Normal door75-90u, ordinary column30-45u, stair12-16u, human52u not drawn. Keep exact camera, top-left light and original edge colors for overlap. Fine balanced crisp graphic fantasy finish, not noise or excessive stippling, plastic smoothing, blur, mosaic or upscale-only. Full square1254x1254 or larger, no crop, text or border.\n"
+    },
+    {
+      "name": "r3_2",
+      "crop_world": [
+        2040.0,
+        3140.0,
+        3460.0,
+        4400
+      ],
+      "square_world": [
+        2040.0,
+        3140.0,
+        3460.0,
+        4560.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "7f529ae7c4fee1e7255fa53af26341f9c59235cb9ef3443cce248e52b421d8f1",
+      "generated_density": 0.8830985915492958,
+      "input_sha256": "5db5d6b51b948a0f66eabf5fb2803f9fb647c9c08324875045cb304a8649c7eb",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nMAP24 frozen CITY region r3_2. Image1 is exact target; image2 reference SCALE/fine quality ONLY, never its green theme. Pale limestone/slate, dull gold, torn violet banners, existing flat magenta patches. Preserve every building footprint, all floor/path widths and openings, all plinths/flat altars and cover objects with their EXACT ORIGINAL OUTER FOOTPRINTS. Cover fragments may look broad in input: DO NOT broaden them or surround them by rubble; keep compact110-160world-unit silhouettes. Statue pedestals90-130u square. Do not add/duplicate/remove objects or new debris, greenery, weeds, cracks cutting paths, magic, characters, labels or UI. Rebuild existing large soft paving into many small15-26u cobbles and fine mortar/stone grain; stairs12-16u, ordinary columns30-45u, doors75-90u, hero52u not drawn. Top-left light and image1 colors at all borders retained for overlap. Genuine crisp detailed graphic fantasy surface drawing, not blur, oversmoothed plastic, noise or upscale-only. Full square1254x1254 or larger, no crop or border.\n"
+    },
+    {
+      "name": "r3_3",
+      "crop_world": [
+        3140.0,
+        3140.0,
+        4400,
+        4400
+      ],
+      "square_world": [
+        3140.0,
+        3140.0,
+        4400.0,
+        4400.0
+      ],
+      "generated_size": [
+        1254,
+        1254
+      ],
+      "generated_sha256": "35242b686c4eb53ec6359e7973f3aceab12c9835b2604a50aed74edc80f89333",
+      "generated_density": 0.9952380952380953,
+      "input_sha256": "f3cd99a3a8aba06a1a6e43b5e66dfbe48090840b843e1c343076dd393863ae9b",
+      "prompt": "Image1 is a low-resolution crop of ONE REGION of a continuous Rift Hunters game map whose layout has been\nAPPROVED and FROZEN by the owner. Repaint this exact region at high definition with genuinely NEW FINE MATERIAL DETAIL,\nnot interpolated blurry pixels. Image2 is the strict art-quality AND SCALE reference: an extract of the Waterfall Ruins\nmap at the SAME ZOOM as image1. Every paving stone, grass tuft, pebble, leaf cluster, plank and masonry block in your\noutput must have the SAME SIZE ON SCREEN as in image2 (paving stones about 1/40 of the image width, never larger;\nthe hero character of the game would be about 1/30 of the image width tall). If image1 shows coarse oversized paving\nor blobs, subdivide them into many small stones of image2's size; never enlarge details.\nLOCK the layout: camera, terrain outlines, path widths, water edges, cliff lines, the OUTER footprint of every forest,\nrock or ruin mass, the position and footprint of every landmark (bridge, stairs, building, gate, hollow tree, altar\nbase) and road endpoints: overlaid on image1 your result must match it shape for shape. Do NOT narrow or widen any\nroad, ford or clearing, and put NOTHING on open walkable ground: it stays empty and flat, with ONLY fine surface\ntexture (short grass strokes, earth grain, small paving joints and cracks).\nSCALE IS SET HERE: inside those locked footprints, redraw every individual object at image2's size. One oversized tree\nbecomes a cluster of several normal-size trees filling the same footprint; one giant rock becomes several rocks and\nfine cliff blocks; one huge paving slab becomes many small cobbles; a landmark keeps its footprint but is rebuilt with\nsmaller, more numerous components (stones, planks, tiles, branches).\nRebuild existing stone with many fine crisp weathered masonry blocks, foliage with tiny distinct leaf clusters and\nbranches, timber with fine grain and joinery, water with fine ripples and foam.\nPreserve the exact silhouettes and color distribution along all four edges: this region overlaps its neighbours.\nSame overhead game camera, top-left light, palette of image1. Match image2's fine graphic fantasy game finish:\nprecise dark accents, rich natural colors. NOT smooth plastic or cartoon forms, NOT blurry, NOT an upscale, NOT\nphotorealistic, NOT coarse pixels. Output full-bleed, same aspect ratio as image1, maximum resolution (at least\n1254 pixels on the long side). No text, characters, UI, watermark, frame or border.\nMAP24 frozen CITY region r3_3. Image1 is exact target; image2 reference SCALE/fine quality ONLY, never its green theme. Pale limestone/slate, dull gold, torn violet banners, existing flat magenta patches. Preserve every building footprint, all floor/path widths and openings, all plinths/flat altars and cover objects with their EXACT ORIGINAL OUTER FOOTPRINTS. Cover fragments may look broad in input: DO NOT broaden them or surround them by rubble; keep compact110-160world-unit silhouettes. Statue pedestals90-130u square. Do not add/duplicate/remove objects or new debris, greenery, weeds, cracks cutting paths, magic, characters, labels or UI. Rebuild existing large soft paving into many small15-26u cobbles and fine mortar/stone grain; stairs12-16u, ordinary columns30-45u, doors75-90u, hero52u not drawn. Top-left light and image1 colors at all borders retained for overlap. Genuine crisp detailed graphic fantasy surface drawing, not blur, oversmoothed plastic, noise or upscale-only. Full square1254x1254 or larger, no crop or border.\n"
+    }
+  ],
+  "assembly": "Raccord de faible différence par map_seams, puis anticrénelage natif borné.",
+  "antialias_radius_native": 0.5,
+  "unfiltered_pixels_sha256": "b57c25d86f5f25e6f2650427208672fe869aa3694bba0ccdb8a8069bd96d5e1e",
+  "master_sha256": "2f2d78b540de52ad712baf6541e7bf3383b9da5e65987535777338c58b38579d",
+  "lossless_verified": true,
+  "note": "La génération dépassait la bande de détails fins sur les régions pilotes ; calibration de matière, seuils inchangés.",
+  "intermediates": "Guides, régions et retouches hors dépôt ; seul le master retenu est versionné.",
+  "assembled_before_repairs_sha256": "9b0044a76c190532a3c36f13d526587ea6dca4f8beee7a2d3914c989baa8fe31",
+  "local_repairs": "prop_repairs.json",
+  "pre_delivery_plan_sha256": "f5cbaf5f00afa1a0f894db7c93d92db9793dfb78ce6e31054513b8cd92b3b534",
+  "plan_hash_convention": "UTF-8, fins de ligne LF"
+}
