@@ -1,0 +1,209 @@
+{
+  "date": "2026-11-08",
+  "map": "marsh_heart",
+  "generator": "imagegen intégré",
+  "selected_detail_regions": 11,
+  "world": [
+    3344,
+    5016
+  ],
+  "native_master": [
+    2508,
+    3762
+  ],
+  "tile_count": 2,
+  "tile_size": [
+    3762,
+    11286
+  ],
+  "density": 2.25,
+  "quality_conforme": true,
+  "godot_asset_validation": [
+    {
+      "id": "environment.marsh_heart",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "import_errors": [],
+  "capture_errors": [],
+  "capture_count": 14,
+  "capture_size": [
+    1280,
+    720
+  ],
+  "camera_zoom": 1.3333,
+  "actors": {
+    "player.hunter": {
+      "scale": 0.65,
+      "cell": [
+        96,
+        80
+      ],
+      "anchor": [
+        48,
+        74
+      ],
+      "pose": "move/0",
+      "opaque_body_height_world": 42.9,
+      "sheet_sha256": "99965593a5ce61179d9bc602b1a813bcd432614e0d0c692b77782d85705f9325"
+    },
+    "monster.ashblade": {
+      "scale": 0.75,
+      "cell": [
+        128,
+        112
+      ],
+      "anchor": [
+        64,
+        102
+      ],
+      "pose": "move/0",
+      "opaque_body_height_world": 49.5,
+      "sheet_sha256": "8731d86aae200bc5390c6bc285cc66985b4013087bccf63ec68a550510b9312e"
+    }
+  },
+  "stairs": {
+    "central": {
+      "treads": 9,
+      "nominal_depth_world": 14.506172839506185,
+      "original_world_polygon": [
+        [
+          1516.6666666666667,
+          1950.5555555555557
+        ],
+        [
+          1805.5555555555557,
+          1950.5555555555557
+        ],
+        [
+          1805.5555555555557,
+          2081.1111111111113
+        ],
+        [
+          1516.6666666666667,
+          2081.1111111111113
+        ]
+      ]
+    },
+    "sud": {
+      "treads": 9,
+      "nominal_depth_world": 14.444444444444445,
+      "original_world_polygon": [
+        [
+          1526.111111111111,
+          3144.4444444444443
+        ],
+        [
+          1820.0,
+          3144.4444444444443
+        ],
+        [
+          1820.0,
+          3274.4444444444443
+        ],
+        [
+          1526.111111111111,
+          3274.4444444444443
+        ]
+      ]
+    },
+    "entree": {
+      "treads": 9,
+      "nominal_depth_world": 14.197530864197486,
+      "original_world_polygon": [
+        [
+          1551.111111111111,
+          4617.222222222223
+        ],
+        [
+          1783.3333333333333,
+          4617.222222222223
+        ],
+        [
+          1783.3333333333333,
+          4745.0
+        ],
+        [
+          1551.111111111111,
+          4745.0
+        ]
+      ]
+    },
+    "berge_ouest": {
+      "treads": 10,
+      "nominal_depth_world": 13.750025974220701,
+      "original_world_polygon": [
+        [
+          586.1111111111111,
+          1715.5555555555557
+        ],
+        [
+          743.3333333333333,
+          1780.5555555555557
+        ],
+        [
+          686.1111111111111,
+          1903.3333333333333
+        ],
+        [
+          517.7777777777778,
+          1837.2222222222222
+        ]
+      ]
+    },
+    "berge_est": {
+      "treads": 9,
+      "nominal_depth_world": 14.672652428742323,
+      "original_world_polygon": [
+        [
+          2597.777777777778,
+          1790.0
+        ],
+        [
+          2781.1111111111113,
+          1712.2222222222222
+        ],
+        [
+          2820.5555555555557,
+          1837.7777777777778
+        ],
+        [
+          2636.6666666666665,
+          1916.6666666666665
+        ]
+      ]
+    }
+  },
+  "column_cap_calibration": {
+    "count": 55,
+    "target_width_world": 38,
+    "note": "largeur de colonne hors socle, chapiteau compris ; autres groupes de ruines conservés"
+  },
+  "scope": "banc statique ; collisions et intégration existantes conservées ; aucun combat simulé",
+  "mist_ford_modified": false,
+  "capture_recipe": "tools/art/preview_marsh_scale.gd",
+  "png_original_captures": "conservées hors Git ; aperçus WebP98 au même nombre de pixels",
+  "previews": {
+    "avant_apres.gif": 2077725,
+    "berge_est_apres_zoom_jeu.webp": 548024,
+    "berge_est_avant_zoom_jeu.webp": 550334,
+    "berge_ouest_apres_zoom_jeu.webp": 548992,
+    "berge_ouest_avant_zoom_jeu.webp": 544836,
+    "carte_detaillee.webp": 1344726,
+    "central_apres_zoom_jeu.webp": 542588,
+    "central_avant_zoom_jeu.webp": 539402,
+    "echelle_reference.webp": 1150588,
+    "entree_apres_zoom_jeu.webp": 574220,
+    "entree_avant_zoom_jeu.webp": 550952,
+    "sud_apres_zoom_jeu.webp": 528342,
+    "sud_avant_zoom_jeu.webp": 514398,
+    "superposition_ancien_master.webp": 1296928,
+    "superposition_contours.webp": 1292492,
+    "temple_apres_zoom_jeu.webp": 534850,
+    "temple_avant_zoom_jeu.webp": 546676,
+    "terrasse_apres_zoom_jeu.webp": 558806,
+    "terrasse_avant_zoom_jeu.webp": 555766,
+    "zones_retouche.webp": 1184120
+  }
+}

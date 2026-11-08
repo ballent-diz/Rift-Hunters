@@ -1,0 +1,86 @@
+{
+  "ok": true,
+  "world": [
+    3344,
+    5016
+  ],
+  "native_size": [
+    2508,
+    3762
+  ],
+  "density": 2.25,
+  "baseline_commit": "a372f55f76eb8352874513422b0b206ef01b539e",
+  "master_changed_pixels": 1263607,
+  "master_changed_share": 0.13392624727930696,
+  "master_changed_outside_edit_mask": 0,
+  "protected_gameplay_files_byte_identical": {
+    "assets/asset_manifest.json": "eb2606674d0da20b055e5a32d5f78bd4be6a336569f2b61e43523e57376c394f",
+    "assets/concepts/incoming/map.marsh_heart/composition.png": "5a73d3808d1a710c5d2372f9e5be684fec8f2a8db8e84d29a6e95d19857de300",
+    "assets/concepts/incoming/map.marsh_heart/plan.json": "0ab26324075093ca7f6b124147db5dc97c41e311b691905887532d16b7a74d49",
+    "assets/concepts/incoming/map.marsh_heart/collision/collision.png": "c40a27b82833f888cf6ebaaa259109e8b0b0cca1bbcf1b3d552de9a85bb42d2c",
+    "assets/concepts/incoming/map.marsh_heart/collision/painted.webp": "8f139a822ff6827e9ab7ffd801cf4dcfe12da1534fce6225c4fbdaa80eabb452",
+    "assets/environments/marsh_heart/field.png": "0d9812e59a12d255fd23de09b3921ef5f8f718dee3e8e1e9a50b7a72df91a630"
+  },
+  "bridges": [
+    {
+      "world_rect": [
+        600,
+        2360,
+        720,
+        140
+      ],
+      "changed_master_pixels": 0
+    },
+    {
+      "world_rect": [
+        2020,
+        2360,
+        740,
+        140
+      ],
+      "changed_master_pixels": 0
+    },
+    {
+      "world_rect": [
+        650,
+        2940,
+        710,
+        140
+      ],
+      "changed_master_pixels": 0
+    },
+    {
+      "world_rect": [
+        1990,
+        2940,
+        760,
+        140
+      ],
+      "changed_master_pixels": 0
+    }
+  ],
+  "tiles": [
+    {
+      "name": "map.webp",
+      "size": [
+        3762,
+        11286
+      ],
+      "changed_pixels": 5616278,
+      "changed_pixels_outside_edit_mask": 0,
+      "sha256": "b225956190ea6db4e599dcfd77db2be683c12db537742e6502e04d7b05909785"
+    },
+    {
+      "name": "map_1.webp",
+      "size": [
+        3762,
+        11286
+      ],
+      "changed_pixels": 5752156,
+      "changed_pixels_outside_edit_mask": 0,
+      "sha256": "51d20d7aaaeaed71fe80d091abf4a5070b452214100cff523c08fe8ef67666a0"
+    }
+  ],
+  "forbidden_paths_changed": [],
+  "scope": "Les joints et silhouettes des colonnes changent dans les emprises de retouche ; les bitmaps de praticabilité, le champ, le plan et le manifeste sont identiques."
+}

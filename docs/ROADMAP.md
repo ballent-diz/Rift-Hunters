@@ -541,3 +541,7 @@ peints) ; feuilles de plus de 40 images allégées (une sur deux).
   cellule dans `FlowField`, cerveaux décalés une image sur deux au-delà de 120 Corrompus (`EnemyManager.STAGGER_FROM`,
   jamais pendant une technique), marqueurs de statut extraits dans `EnemyMarkers` et limités à l'écran, halos hors écran
   non dessinés. Piste suivante si besoin : décaler aussi `push_out` et la séparation.
+
+## Échelle du Cœur des marais — livré (Codex, 8 novembre)
+
+Carte 15 uniquement, à la demande du propriétaire : onze régions retouchées, cinq escaliers à neuf ou dix marches (13,75–14,67 unités), 55 colonnes calibrées à 38 unités hors socle. Plan, emprises, collisions peintes, champ et coordonnées conservés. Deux tuiles 2,25 px/unité sans perte ; aucun pixel modifié hors retouche. Qualité conforme 35/35, import et chargement Godot sans erreur, quatorze captures avec Chasseur et Cendrelame, superpositions et preuve numérique. Essais de combat laissés au propriétaire. Voir [la fiche](maps/COEUR_DES_MARAIS.md). Le Gué des Brumes est laissé de côté.
