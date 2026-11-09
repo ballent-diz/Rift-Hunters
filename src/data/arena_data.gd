@@ -262,6 +262,12 @@ extends Resource
 ## portal_enemy_rate Corrompus par seconde.
 @export var portal_enemy_cooldown: float = 8.0
 @export var portal_enemy_rate: float = 1.5
+## Mode vagues par zone : zone à atteindre pour qu'une paire s'allume (indice dans l'ordre des paires ; 0 ou absent :
+## dès le début ; zones.size() : à l'ouverture de la finale). Évite qu'un portail fasse sauter une zone.
+@export var portal_pair_unlock: Array[int] = []
+## Socles de téléporteurs peints (carte 23) : pas de miroir posé, le jeu dessine le vortex de faille.
+@export var portal_painted: bool = false
+@export var portal_intro_key: String = "PORTAL_INTRO"
 @export_group("Cristaux-miroirs (brique B5, carte 13, docs/design/CARTES.md)")
 ## Emplacements des cristaux-miroirs. Un coup allié les charge ; ils éclatent en trois rayons (le premier dans le sens
 ## du coup, les deux autres à 120°) qui transpercent les Corrompus sur leur ligne et touchent le Chasseur dans l'axe.

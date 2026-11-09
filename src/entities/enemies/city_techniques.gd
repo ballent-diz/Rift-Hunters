@@ -136,17 +136,24 @@ func technique_soul_link(enemy: Enemy, technique: EnemyTechniqueData, _player_po
 		return false
 	enemy.technique_busy = technique.telegraph
 	m._later(enemy, technique.telegraph, func() -> void:
-		var kept: Array[Enemy] = []
-		for ally: Variant in allies:
-			if is_instance_valid(ally) and (ally as Enemy).alive:
-				(ally as Enemy).extra_damage_taken = mult
-				kept.append(ally)
-		soul_links.append({"source": enemy, "links": kept, "until": ctx.time + float(technique.params.get("duration", 6.0)),
-			"mult": mult})
-		if not ctx.stats.counters.has(&"soul_links"):
-			ctx.events.event_started.emit("SOUL_LINK_INTRO")
-		ctx.stats.add(&"soul_links"))
+		bind(enemy, allies, mult, float(technique.params.get("duration", 6.0))))
 	return true
+
+
+## Lie des Corrompus à `source` (Héraldiste ou Grand Héraldiste) : ils ne prennent que `mult` des dégâts tant que
+## `source` vit et pendant `duration` secondes.
+func bind(source: Enemy, allies: Array, mult: float, duration: float) -> void:
+	var kept: Array[Enemy] = []
+	for ally: Variant in allies:
+		if is_instance_valid(ally) and (ally as Enemy).alive and not linked(ally as Enemy):
+			(ally as Enemy).extra_damage_taken = mult
+			kept.append(ally)
+	if kept.is_empty():
+		return
+	soul_links.append({"source": source, "links": kept, "until": ctx.time + duration, "mult": mult})
+	if not ctx.stats.counters.has(&"soul_links"):
+		ctx.events.event_started.emit("SOUL_LINK_INTRO")
+	ctx.stats.add(&"soul_links")
 
 
 func linked(enemy: Enemy) -> bool:
