@@ -42,6 +42,16 @@
 			"ice",
 			"shadow",
 			"arcane"
+		],
+		"fallen": [
+			"shadow",
+			"arcane",
+			"explosions"
+		],
+		"riftborn": [
+			"shadow",
+			"arcane",
+			"nature"
 		]
 	},
 	"effects": {
@@ -656,6 +666,76 @@
 					"shield_block",
 					"thorns"
 				]
+			}
+		},
+		"fallen_crossbowman": {
+			"corrupted_bolt": {
+				"cast": "mana_burst"
+			},
+			"shot": {
+				"shot": "dark_explosion"
+			}
+		},
+		"fallen_captain": {
+			"ally_shield": {
+				"cast": "shield_block"
+			},
+			"rally": {
+				"cast": "rage"
+			}
+		},
+		"rift_herald": {
+			"soul_link": {
+				"cast": "soul_drain"
+			},
+			"corruption_seal": {
+				"impact": "hex_sigil"
+			}
+		},
+		"cobble_golem": {
+			"burrow": {
+				"impact": "dirt_explosion"
+			},
+			"slab_armor": {
+				"cast": "shield_block",
+				"impact": "small_explosion"
+			}
+		},
+		"drifting_eye": {
+			"shot": {
+				"shot": "mana_burst"
+			}
+		},
+		"torn_shade": {
+			"blink": {
+				"cast": "blink_out",
+				"impact": "blink_in"
+			}
+		},
+		"portal_strider": {
+			"brood": {
+				"cast": "portal"
+			},
+			"blink": {
+				"cast": "blink_out",
+				"impact": "blink_in"
+			}
+		},
+		"echo_mirror": {
+			"clones": {
+				"cast": "mana_burst"
+			},
+			"reflect": {
+				"state": "rune_circle",
+				"time": 2.5
+			}
+		},
+		"statue_keeper": {
+			"awaken_statues": {
+				"cast": "summon_rise"
+			},
+			"stone_wave": {
+				"cast": "earth_spike"
 			}
 		}
 	},

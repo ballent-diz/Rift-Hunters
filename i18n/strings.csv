@@ -2111,3 +2111,35 @@ FINALE_TRAVEL_SILENT_CATHEDRAL,La salle des échos est calme : descendez l'escal
 SPELL_ECHO_INTRO,"Écho des sorts : ici, chacun de vos sorts offensifs se relance une seconde fois, plus faible, vers la même cible.","Spell Echo: here, each of your offensive spells casts a second time, weaker, at the same target."
 JOURNAL_SPELL_ECHO,Écho des sorts,Spell Echo
 MAP_OBJ_SPELL_ECHO_DESC,Terminer en faisant résonner au moins %d échos de sorts,Clear it with at least %d spell echoes
+ENEMY_FALLEN_MILITIA_NAME,Milicien déchu,Fallen Militiaman
+ENEMY_FALLEN_MILITIA_DESC,Garde de la Cité rongé par la Faille ; il avance en rangs serrés.,A city guard eaten by the Rift; it advances in tight ranks.
+ENEMY_CORRUPTED_HOUND_NAME,Chien de garde corrompu,Corrupted Watchdog
+ENEMY_CORRUPTED_HOUND_DESC,"Rapide et en meute, il harcèle ceux qui s'arrêtent.","Fast and in packs, it harries anyone who stops."
+ENEMY_LANTERN_WRAITH_NAME,Lanterne-spectre,Lantern Wraith
+ENEMY_LANTERN_WRAITH_DESC,Lanterne possédée qui flotte au-dessus des murs et des foules.,A possessed lantern drifting over walls and crowds.
+ENEMY_FALLEN_CROSSBOWMAN_NAME,Arbalétrier déchu,Fallen Crossbowman
+ENEMY_FALLEN_CROSSBOWMAN_DESC,Il épaule (ligne annoncée) puis tire un carreau corrompu qui traverse tout jusqu'au décor.,He takes aim (marked line) then fires a corrupted bolt that pierces everything up to cover.
+ENEMY_FALLEN_CAPTAIN_NAME,Capitaine déchu,Fallen Captain
+ENEMY_FALLEN_CAPTAIN_DESC,Son mur de boucliers protège les Corrompus proches ; son cri de ralliement les rend plus rapides et plus forts.,His shield wall protects nearby Corrupted; his rallying cry makes them faster and stronger.
+ENEMY_RIFT_HERALD_NAME,Héraldiste de la Faille,Rift Herald
+ENEMY_RIFT_HERALD_DESC,"Il lie l'âme de ses alliés, qui ne prennent plus qu'une part des dégâts, et trace sous vous des sceaux qui rongent.","He binds his allies' souls so they take only part of the damage, and draws gnawing seals under you."
+ENEMY_COBBLE_GOLEM_NAME,Golem de pavés,Cobblestone Golem
+ENEMY_COBBLE_GOLEM_DESC,Il file sous les pavés et ressort sous vous ; son armure de dalles éclate et le laisse à découvert.,It tunnels under the paving and bursts out beneath you; its slab armour shatters and leaves it exposed.
+ENEMY_RIFT_LARVA_NAME,Larve de faille,Rift Larva
+ENEMY_RIFT_LARVA_DESC,"Née des portails, elle rampe en nombre vers la chaleur des vivants.","Born from portals, it crawls in numbers toward the warmth of the living."
+ENEMY_DRIFTING_EYE_NAME,Œil errant,Drifting Eye
+ENEMY_DRIFTING_EYE_DESC,Il flotte à distance et crache des éclats de vide.,It floats at a distance and spits shards of void.
+ENEMY_VOID_CRAWLER_NAME,Rampant du vide,Void Crawler
+ENEMY_VOID_CRAWLER_DESC,"Bas, large et lent, il encaisse avant de mordre.","Low, wide and slow, it soaks up blows before it bites."
+ENEMY_TORN_SHADE_NAME,Ombre déchirée,Torn Shade
+ENEMY_TORN_SHADE_DESC,"D'un pas de faille, elle surgit à côté de vous.","With a rift step, it appears right beside you."
+ENEMY_PORTAL_STRIDER_NAME,Arpenteur des portails,Portal Strider
+ENEMY_PORTAL_STRIDER_DESC,"Il ouvre des portails d'où sortent des larves, et saute de faille en faille autour de vous.","He opens portals that spill larvae, and leaps from rift to rift around you."
+ENEMY_ECHO_MIRROR_NAME,Miroir d'écho,Echo Mirror
+ENEMY_ECHO_MIRROR_DESC,Il se dédouble en copies fragiles et renvoie vos tirs quand il se met en garde.,It splits into fragile copies and reflects your shots when on guard.
+ENEMY_STATUE_KEEPER_NAME,Gardienne des statues,Statue Keeper
+ENEMY_STATUE_KEEPER_DESC,Elle éveille des statues de pierre et frappe le sol d'une onde à franchir par ses brèches.,She awakens stone statues and strikes the ground with a wave you must cross through its gaps.
+ENEMY_AWAKENED_STATUE_NAME,Statue éveillée,Awakened Statue
+ENEMY_AWAKENED_STATUE_DESC,"Lente et massive, invulnérable le temps de s'éveiller ; ses coups écrasent.","Slow and massive, invulnerable while it awakens; its blows crush."
+SOUL_LINK_INTRO,Lien d'âme : l'Héraldiste protège les Corrompus qu'il relie. Abattez-le pour rompre les liens.,Soul Link: the Herald shields the Corrupted it binds. Take it down to break the links.
+JOURNAL_SOUL_LINK,Lien d'âme,Soul Link

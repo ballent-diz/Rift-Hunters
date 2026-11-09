@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.drifting_eye"
+shape = 9
+size = 48.0
+primary = Color(0.32, 0.12, 0.5, 1.0)
+secondary = Color(0.16, 0.05, 0.28, 1.0)
+accent = Color(0.95, 0.35, 0.85, 1.0)
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("3")
+damage = 13.0
+cooldown = 2.2
+attack_range = 480.0
+projectile_speed = 290.0
+params = {
+"keep_distance": 320.0,
+"windup": 0.45
+}
+
+[resource]
+script = ExtResource("1")
+id = &"drifting_eye"
+family = &"riftborn"
+name_key = "ENEMY_DRIFTING_EYE_NAME"
+desc_key = "ENEMY_DRIFTING_EYE_DESC"
+brain = 1
+max_hp = 50.0
+damage = 12.0
+defense = 4.0
+move_speed = 70.0
+radius = 20.0
+xp_value = 3
+knockback_resist = 0.0
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_1")
+flying = true

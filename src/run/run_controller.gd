@@ -219,6 +219,9 @@ func _build_world() -> void:
 	ctx.frost = FrostTechniques.new()
 	ctx.world.add_child(ctx.frost)
 	ctx.frost.setup(ctx)
+	ctx.city = CityTechniques.new()
+	ctx.world.add_child(ctx.city)
+	ctx.city.setup(ctx)
 	ctx.painted = PaintedVfx.new()
 	ctx.painted.setup(ctx)
 	ctx.world.add_child(ctx.painted)
@@ -410,6 +413,7 @@ func _physics_process(delta: float) -> void:
 	if ctx.ice:
 		ctx.ice.step(delta)
 	ctx.frost.step(delta)
+	ctx.city.step(delta)
 	_mark(&"d_frost")
 	if ctx.nests:
 		ctx.nests.step(delta)

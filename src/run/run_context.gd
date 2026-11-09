@@ -56,6 +56,8 @@ var floe: FloeDirector
 var cold: ColdDirector
 var ice: IceDirector
 var frost: FrostTechniques
+## Techniques du chapitre 5 (Déchus, Enfants de la Faille).
+var city: CityTechniques
 ## Effets peints autonomes des ennemis et des boss (présentation seulement).
 var painted: PaintedVfx
 var nests: NestDirector
@@ -134,6 +136,8 @@ func danger_vector(pos: Vector2) -> Vector2:
 		result += cold.danger(pos)
 	if frost:
 		result += frost.danger(pos)
+	if city:
+		result += city.danger(pos)
 	for mechanics: BossMechanics in boss_mechanics:
 		result += mechanics.danger(pos)
 	return result

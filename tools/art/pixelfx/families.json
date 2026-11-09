@@ -15,6 +15,8 @@
 		"enlises": ["#0b2420", "#14473c", "#1f7a5e", "#3fae80", "#86d9a8", "#d2f5d8", "#ffffff"],
 		"reflets": ["#0f2433", "#1d4b66", "#2f86a6", "#5cc2d9", "#9fe6f0", "#e0fbff", "#ffffff"],
 		"givres": ["#0e1c3a", "#1b3a6e", "#2f62a8", "#5c95d6", "#9cc6f0", "#dcefff", "#ffffff"],
-		"silence": ["#160f33", "#2c1f66", "#4a3aa0", "#7a66d6", "#b0a3f0", "#e4dcff", "#ffffff"]
+		"silence": ["#160f33", "#2c1f66", "#4a3aa0", "#7a66d6", "#b0a3f0", "#e4dcff", "#ffffff"],
+		"fallen": ["#14121c", "#2e2a3a", "#55506a", "#8a7f9e", "#c85ad6", "#f0b8f5", "#ffffff"],
+		"riftborn": ["#12041f", "#2d0a4a", "#521378", "#8a2bb3", "#d146d9", "#f7a6ef", "#ffffff"]
 	}
 }

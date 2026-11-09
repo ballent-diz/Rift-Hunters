@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.statue_keeper"
+shape = 19
+size = 72.0
+primary = Color(0.32, 0.12, 0.5, 1.0)
+secondary = Color(0.16, 0.05, 0.28, 1.0)
+accent = Color(0.95, 0.35, 0.85, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"awaken_statues"
+anim = &"awaken_statues"
+cooldown = 14.0
+min_range = 0.0
+max_range = 750.0
+telegraph = 1.2
+damage = 0.0
+params = {
+"count": 1,
+"max_active": 2,
+"awaken": 1.2
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"stone_wave"
+anim = &"stone_wave"
+cooldown = 8.0
+min_range = 0.0
+max_range = 500.0
+telegraph = 0.9
+damage = 20.0
+params = {
+"speed": 260.0,
+"max_radius": 520.0,
+"thickness": 22.0
+}
+
+[resource]
+script = ExtResource("1")
+id = &"statue_keeper"
+family = &"riftborn"
+name_key = "ENEMY_STATUE_KEEPER_NAME"
+desc_key = "ENEMY_STATUE_KEEPER_DESC"
+brain = 0
+max_hp = 320.0
+damage = 17.0
+defense = 20.0
+move_speed = 56.0
+radius = 30.0
+xp_value = 10
+knockback_resist = 0.7
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])
