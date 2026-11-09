@@ -1,5 +1,31 @@
 # Rift Hunters — feuille de route
 
+## Filtre pixel du décor en jeu (Claude, 9 novembre 2026)
+
+Prototype de Codex (`tools/art/pixel_filter/`) intégré au jeu ; le dossier d'essai est retiré.
+
+- Code : `src/render/pixel_filter.gd` (`PixelFilter` : préréglages `off` / `fine` / `bold` (interne) / `graphic`,
+  construction du matériau) et `assets/shaders/pixel_filter.gdshader` (échantillonnage par macro : passer `TEXTURE`
+  à une fonction provoquait une erreur de compilation sous Godot 4.3). `ArenaGround` garde son matériau d'origine
+  (dont l'effet de netteté `detail_strength`), applique le réglage au chargement, suit `Settings.changed` en cours
+  de partie et restaure le matériau en sortant de l'arbre.
+- Réglage « Filtre pixel » (Désactivé / Fin / Graphique, défaut Graphique) dans les Options (refuge, menu
+  principal) et le menu pause ; sauvegardé dans `settings.json` (`pixel_filter`).
+- Seules les cartes dessinées (`EnvironmentSet.is_map()`) sont filtrées ; sols procéduraux intacts. La densité de
+  texture vient de `arena_rect()` (donc de `decor_scale`) et la grille part du coin de l'arène : ancrée au monde,
+  même origine que les tuiles.
+- Vérifié : test `test_pixel_filter` (activation, restauration, suivi du réglage, sol procédural, sauvegarde) ;
+  banc `tools/pixel_filter_bench.tscn` (horde de 350 Corrompus, rendu logiciel llvmpipe du cloud,
+  deux essais) : sans filtre 58–60 ms/image, Graphique 66–78 ms, Fin 92–146 ms (mesures très bruitées). Le
+  rendu logiciel exagère le coût d'un shader plein écran (9 lectures de texture par pixel) ; **à confirmer sur
+  la machine du propriétaire avec l'affichage des FPS** ;
+  scintillement en glissement de caméra mesuré au même niveau qu'avec le décor brut (pas de grille qui flotte) ;
+  captures au zoom réel (désactivé / fin / graphique) d'une carte par chapitre dans `docs/previews/pixel_filter/`.
+- Chapitres 2 et 3 : l'effet reste visible (moins marqué au chapitre 3, dont la carte est déjà très texturée) ;
+  pas assez flagrant pour un réglage par chapitre, non ajouté. Chapitre 5 (Sanctuaire des runes) : en Graphique,
+  les contours des dalles s'estompent nettement ; à juger par le propriétaire.
+- À décider (propriétaire) : garder Graphique par défaut ; réglage par chapitre si l'écart gêne en jeu réel.
+
 ## Carte 25, Œil de la Faille, et combat de l'Abyssarque (Claude, 9 novembre 2026)
 
 Décor de Codex, collisions peintes par le propriétaire. Dernière carte du jeu (`Campaign.final_map()` : la gagner

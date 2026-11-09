@@ -570,6 +570,11 @@ MINIMAP_SIZE_0,masquée,hidden
 MINIMAP_SIZE_1,petite,small
 MINIMAP_SIZE_2,moyenne,medium
 MINIMAP_SIZE_3,grande,large
+OPTIONS_PIXEL_FILTER,Filtre pixel : %s,Pixel filter: %s
+PIXEL_FILTER_OFF,désactivé,off
+PIXEL_FILTER_FINE,fin,fine
+PIXEL_FILTER_GRAPHIC,graphique,graphic
+PIXEL_FILTER_BOLD,affirmé,bold
 MAP_CLOSE_HINT,%s : fermer la carte,%s: close the map
 OPTIONS_CONTROLS,Manette : stick gauche déplacement · stick droit visée · A/RB Ruée · RT/LT sorts 1 et 2 · croix haut/droite sorts 3 et 4 · X/Y/B Techniques · LB focus · Start pause,Gamepad: left stick move · right stick aim · A/RB Dash · RT/LT spells 1 and 2 · D-pad up/right spells 3 and 4 · X/Y/B Techniques · LB focus · Start pause
 MENU_CREDITS,Crédits,Credits

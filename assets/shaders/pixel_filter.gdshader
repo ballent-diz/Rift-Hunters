@@ -1,7 +1,7 @@
 shader_type canvas_item;
 render_mode unshaded;
 
-// Traitement de texture reutilisable : aucune image derivee, aucune collision modifiee.
+// Filtre pixel du décor dessiné (PixelFilter) : aucune image dérivée, aucune collision modifiée.
 uniform float pixel_world_pitch = 0.75;
 uniform float texture_density = 1.333333;
 uniform float color_steps = 18.0;
@@ -21,26 +21,25 @@ void vertex() {
 	world_position = (MODEL_MATRIX * vec4(VERTEX, 0.0, 1.0)).xy;
 }
 
-vec3 bounded_sample(sampler2D tex, vec2 uv, vec2 pixel_size) {
-	return texture(tex, clamp(uv, pixel_size * 0.5, vec2(1.0) - pixel_size * 0.5)).rgb;
-}
+// Macro plutôt que fonction : passer TEXTURE à une fonction est mal géré par Godot 4.3.
+#define BOUNDED(p) texture(TEXTURE, clamp(p, TEXTURE_PIXEL_SIZE * 0.5, vec2(1.0) - TEXTURE_PIXEL_SIZE * 0.5)).rgb
 
 void fragment() {
 	vec2 step_uv = TEXTURE_PIXEL_SIZE * pixel_world_pitch * texture_density;
 	vec2 sample_uv = step_uv * grouping_radius;
 	vec2 snapped = (floor((world_position - grid_origin) / pixel_world_pitch) + 0.5) * pixel_world_pitch + grid_origin;
 	vec2 uv = UV + (snapped - world_position) * TEXTURE_PIXEL_SIZE * texture_density;
-	vec3 c = bounded_sample(TEXTURE, uv, TEXTURE_PIXEL_SIZE);
-	vec3 n = bounded_sample(TEXTURE, uv + vec2(0.0, sample_uv.y), TEXTURE_PIXEL_SIZE);
-	vec3 s = bounded_sample(TEXTURE, uv - vec2(0.0, sample_uv.y), TEXTURE_PIXEL_SIZE);
-	vec3 e = bounded_sample(TEXTURE, uv + vec2(sample_uv.x, 0.0), TEXTURE_PIXEL_SIZE);
-	vec3 w = bounded_sample(TEXTURE, uv - vec2(sample_uv.x, 0.0), TEXTURE_PIXEL_SIZE);
+	vec3 c = BOUNDED(uv);
+	vec3 n = BOUNDED(uv + vec2(0.0, sample_uv.y));
+	vec3 s = BOUNDED(uv - vec2(0.0, sample_uv.y));
+	vec3 e = BOUNDED(uv + vec2(sample_uv.x, 0.0));
+	vec3 w = BOUNDED(uv - vec2(sample_uv.x, 0.0));
 	// Lisser les petites variations de matiere sans moyenner les silhouettes contrastees.
 	vec4 weight = exp(-vec4(dot(n-c,n-c), dot(s-c,s-c), dot(e-c,e-c), dot(w-c,w-c)) * grouping_range);
-	vec3 ne = bounded_sample(TEXTURE, uv + sample_uv, TEXTURE_PIXEL_SIZE);
-	vec3 nw = bounded_sample(TEXTURE, uv + vec2(-sample_uv.x,sample_uv.y), TEXTURE_PIXEL_SIZE);
-	vec3 se = bounded_sample(TEXTURE, uv + vec2(sample_uv.x,-sample_uv.y), TEXTURE_PIXEL_SIZE);
-	vec3 sw = bounded_sample(TEXTURE, uv - sample_uv, TEXTURE_PIXEL_SIZE);
+	vec3 ne = BOUNDED(uv + sample_uv);
+	vec3 nw = BOUNDED(uv + vec2(-sample_uv.x,sample_uv.y));
+	vec3 se = BOUNDED(uv + vec2(sample_uv.x,-sample_uv.y));
+	vec3 sw = BOUNDED(uv - sample_uv);
 	vec4 dw = exp(-vec4(dot(ne-c,ne-c),dot(nw-c,nw-c),dot(se-c,se-c),dot(sw-c,sw-c))*grouping_range);
 	vec3 grouped = (c * 2.0 + n*weight.x + s*weight.y + e*weight.z + w*weight.w + ne*dw.x + nw*dw.y + se*dw.z + sw*dw.w) / (2.0 + dot(weight, vec4(1.0)) + dot(dw,vec4(1.0)));
 	vec3 low = min(c, min(min(n,s), min(e,w)));
