@@ -1,0 +1,52 @@
+{
+  "visual_id": "object.barrier_2.seal_a",
+  "cell": [
+    160,
+    256
+  ],
+  "anchor": [
+    80,
+    232
+  ],
+  "scale": 0.5,
+  "target_height": 200,
+  "keep_size": true,
+  "registered_cells": true,
+  "status": "final",
+  "background": "alpha",
+  "preserve_alpha": true,
+  "colors": 0,
+  "outline": false,
+  "preview_zoom": 1,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "open",
+      "source": "poses.webp",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false
+    }
+  ],
+  "aliases": {},
+  "palette_note": "32 couleurs RGB maximum prélevées sur scorched_verge",
+  "approval": "déclinaison autorisée après validation du chapitre 1",
+  "source_recipe": "tools/art/import_barrier_chapters.py",
+  "source_master": "../object.barrier_2/source/"
+}
