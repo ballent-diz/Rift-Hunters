@@ -1,5 +1,23 @@
 # Rift Hunters — feuille de route
 
+## Carte 23, Quartiers suspendus, en jeu (Claude, 9 novembre 2026)
+
+Décor de Codex, collisions peintes par le propriétaire (9 novembre). Troisième carte du chapitre 5 (avant le Panthéon).
+Test `test_suspended_quarters`.
+
+- Vagues par zone d'îlot en îlot (Cour des fondations, Place des charpentes), barrières aux ponts 2 et 3, finale sur
+  la place des quartiers hauts. Le refuge nord, peint bloqué en bordure et isolé, a été rouvert dans le masque d'après
+  son contour du plan (rogné de 70 u).
+- **Téléporteurs de faille (B6)** : les trois paires de socles peints réutilisent `PortalDirector` avec un vortex
+  dessiné (`portal_painted`). Elles s'allument avec la progression (`portal_pair_unlock`) : A (départ ↔ Z2) et
+  C (Z2 ↔ refuge) en deuxième zone, B (Z1 ↔ finale) à la finale ; aucune ne fait sauter une zone. Depuis un îlot sans
+  accès à pied, la flèche de route mène au téléporteur allumé le plus proche (le bot restait bloqué dans le refuge).
+- **Gardien : Grand Héraldiste** (`herald_lord`, sprite de l'Héraldiste, Chaîne d'âmes : Déchus appelés et liés).
+- **Équilibrage** : ennemis ×1 / ×0,65, gardien ×2,3 / ×1 ; dernière vague avec un Capitaine plutôt que le Golem ;
+  sceau de l'Héraldiste adouci (14, rongement 12 % pendant 4 s). Bot : 3 victoires sur 3 parties rapportées (une
+  partie absente du tableau, à revoir), combat de 55 à 73 s. Faubourgs brisés revérifiés : 4 sur 4.
+
+
 ## Carte 24, Panthéon brisé, en jeu (Claude, 9 novembre 2026)
 
 Décor de Codex, collisions peintes par le propriétaire. Troisième carte du chapitre 5. Test `test_shattered_pantheon`.

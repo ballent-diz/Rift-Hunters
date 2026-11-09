@@ -32,7 +32,7 @@ func test_arena_and_campaign() -> void:
 	check_eq(arena.statue_plinths.size(), 11, "onze socles")
 	check_eq(arena.echo_cages.size(), 3, "trois cages d'Échos")
 	check_eq(GameDB.boss(arena.boss_id).signature, &"pantheon_wake", "gardien : Réveil du Panthéon")
-	check_eq(GameDB.chapters.get(&"rift_city").maps[2].arena_id, &"shattered_pantheon", "troisième carte du chapitre 5")
+	check_eq(GameDB.chapters.get(&"rift_city").maps[3].arena_id, &"shattered_pantheon", "quatrième carte du chapitre 5")
 
 
 func test_points_stand_on_open_ground_and_connect() -> void:

@@ -11,7 +11,7 @@ extends RefCounted
 const PATTERN_ANIMATIONS := {
 	&"avalanche": &"avalanche", &"deep_freeze": &"snuff", &"storm_hunt": &"slide", &"floe_quake": &"ice_crack",
 	&"war_cry": &"rallying_cry", &"rune_barrage": &"slab_armor",
-	&"pantheon_wake": &"awaken_statues",
+	&"pantheon_wake": &"awaken_statues", &"soul_chain": &"soul_link",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -50,6 +50,7 @@ var _quake_announced: bool = false
 var _cry_announced: bool = false
 var _runes_announced: bool = false
 var _wake_announced: bool = false
+var _chain_announced: bool = false
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
 var _effects: Array[Node2D] = []
@@ -787,6 +788,32 @@ func _pattern_pantheon_wake(pattern: BossPatternData) -> void:
 	ctx.hazards.add_ring(boss.position, float(pattern.params.get("speed", 260.0)), float(pattern.params.get("max_radius", 700.0)),
 		float(pattern.params.get("thickness", 22.0)), _damage(pattern), true, data.id, [], 0.4, [], pattern.telegraph,
 		PixelFx.family_of(boss))
+
+
+## Chaîne d'âmes (Grand Héraldiste, carte 23) : des Déchus accourent et il lie à lui les Corrompus proches, qui ne
+## prennent plus qu'une part des dégâts pendant quelques secondes ; un sceau se trace sous le Chasseur.
+func _pattern_soul_chain(pattern: BossPatternData) -> void:
+	if not _chain_announced:
+		_chain_announced = true
+		ctx.events.event_started.emit("BOSS_SOUL_CHAIN_INTRO")
+	busy_time = pattern.telegraph + 0.4
+	var militia: EnemyData = GameDB.enemy(StringName(pattern.params.get("spawn", "fallen_militia")))
+	var count: int = int(pattern.params.get("count", 3))
+	if ctx.city:
+		ctx.city.place_seal(ctx.player.global_position, float(pattern.params.get("seal_radius", 120.0)), pattern.telegraph,
+			_damage(pattern), 4.0, 0.25, data.id)
+	schedule(pattern.telegraph, func() -> void:
+		if militia:
+			for i: int in count:
+				var pos: Vector2 = ctx.obstacles.push_out(boss.position + Vector2.RIGHT.rotated(TAU * i / maxf(count, 1)) * 150.0,
+					20.0)
+				ctx.enemies.spawn(militia, pos)
+		if ctx.city:
+			var allies: Array = []
+			for ally: Enemy in ctx.enemies.query_radius(boss.position, float(pattern.params.get("radius", 500.0))):
+				if ally.alive and not ally.is_boss and not ally.is_obstacle and allies.size() < int(pattern.params.get("links", 6)):
+					allies.append(ally)
+			ctx.city.bind(boss, allies, float(pattern.params.get("mult", 0.4)), float(pattern.params.get("duration", 6.0))))
 
 
 ## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.

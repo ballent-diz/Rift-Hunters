@@ -2197,3 +2197,19 @@ BOSS_PATTERN_STONE_HANDS,Mains de pierre,Stone Hands
 BOSS_PATTERN_PANTHEON_WAKE,Réveil du Panthéon,Pantheon Awakening
 BOSS_PANTHEON_WAKE_INTRO,Réveil du Panthéon : la Gardienne éveille les statues les plus proches de vous et frappe le sol d'une onde. Passez l'onde par une brèche et gardez les statues à distance.,Pantheon Awakening: the Keeper wakes the statues nearest you and strikes the ground with a wave. Cross the wave through a gap and keep the statues at bay.
 JOURNAL_PANTHEON_WAKE,Réveil du Panthéon,Pantheon Awakening
+ARENA_SUSPENDED_QUARTERS_NAME,Les Quartiers suspendus,The Suspended Quarters
+ARENA_SUSPENDED_QUARTERS_DESC,"Des îlots de ville flottent au-dessus du vide, reliés par trois ponts et des téléporteurs de faille qui s'allument à mesure que vous avancez. Le Grand Héraldiste règne sur la place des quartiers hauts.","City islands float above the void, linked by three bridges and rift teleporters that light up as you advance. The High Herald rules the upper quarters' square."
+ZONE_SUSPENDED_QUARTERS_1_NAME,La Cour des fondations,The Foundation Court
+ZONE_SUSPENDED_QUARTERS_2_NAME,La Place des charpentes,The Timber Square
+FINALE_TRAVEL_HIGH_QUARTERS,La place des charpentes est calme : franchissez le dernier pont vers la place des quartiers hauts. Le Grand Héraldiste vous y attend.,The timber square is quiet: cross the last bridge to the upper quarters' square. The High Herald awaits you there.
+RIFT_TELEPORTER_INTRO,Téléporteurs de faille : un socle allumé vous envoie vers son jumeau. Ils s'allument à mesure que vous avancez ; le refuge du nord n'est accessible que par eux.,Rift teleporters: a lit plinth sends you to its twin. They light up as you advance; the northern refuge can only be reached through them.
+JOURNAL_RIFT_TELEPORTER,Téléporteurs de faille,Rift teleporters
+MAP_OBJ_TELEPORTS_DESC,Terminer en empruntant au moins %d téléporteurs de faille,Clear it using at least %d rift teleporters
+BOSS_HERALD_LORD_NAME,Grand Héraldiste,High Herald
+BOSS_HERALD_LORD_TITLE,Gardien des quartiers hauts,Guardian of the Upper Quarters
+BOSS_HERALD_LORD_PHASE1,L'étendard se lève,The Banner Rises
+BOSS_HERALD_LORD_PHASE2,Âmes enchaînées,Chained Souls
+BOSS_PATTERN_BANNER_STRIKE,Coup d'étendard,Banner Strike
+BOSS_PATTERN_SOUL_CHAIN,Chaîne d'âmes,Soul Chain
+BOSS_SOUL_CHAIN_INTRO,"Chaîne d'âmes : le Grand Héraldiste appelle des Déchus et lie à lui les Corrompus proches, qui ne prennent presque plus de dégâts. Frappez l'Héraldiste, ou attendez que les liens se rompent.","Soul Chain: the High Herald calls the Fallen and binds nearby Corrupted to himself, so they barely take damage. Strike the Herald, or wait for the links to break."
+JOURNAL_SOUL_CHAIN,Chaîne d'âmes,Soul Chain

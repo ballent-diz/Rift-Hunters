@@ -50,7 +50,8 @@ func setup(p_ctx: RunContext) -> void:
 			"pair": pair, "budget": 1.0, "shown": &"", "transit_until": 0.0})
 		if i % 2 == 0:
 			pair_ready_at.append(0.0)
-	var scene: PackedScene = load(VISUAL_SCENE) if ResourceLoader.exists(VISUAL_SCENE) else null
+	var scene: PackedScene = load(VISUAL_SCENE) if ResourceLoader.exists(VISUAL_SCENE) and not ctx.arena.portal_painted \
+		else null
 	for portal: Dictionary in portals:
 		if scene:
 			var visual: Node2D = scene.instantiate()
@@ -64,7 +65,24 @@ func setup(p_ctx: RunContext) -> void:
 
 
 func ready_for_player(index: int) -> bool:
-	return ctx.time >= pair_ready_at[portals[index]["pair"]]
+	return pair_unlocked(int(portals[index]["pair"])) and ctx.time >= pair_ready_at[portals[index]["pair"]]
+
+
+## Téléporteur allumé et prêt le plus proche (INF s'il n'y en a pas).
+func nearest_ready(pos: Vector2) -> Vector2:
+	var best := Vector2.INF
+	for i: int in portals.size():
+		var at: Vector2 = portals[i]["pos"]
+		if pair_unlocked(int(portals[i]["pair"])) and (best == Vector2.INF or at.distance_to(pos) < best.distance_to(pos)):
+			best = at
+	return best
+
+
+## Paire allumée : sa zone d'ouverture est atteinte (ArenaData.portal_pair_unlock).
+func pair_unlocked(pair: int) -> bool:
+	if pair >= ctx.arena.portal_pair_unlock.size() or ctx.zones == null:
+		return true
+	return ctx.zones.zone_index >= ctx.arena.portal_pair_unlock[pair]
 
 
 func step(delta: float) -> void:
@@ -77,7 +95,7 @@ func step(delta: float) -> void:
 		var portal: Dictionary = portals[i]
 		if not _announced and pos.distance_to(portal["pos"]) < INTRO_RANGE:
 			_announced = true
-			ctx.events.event_started.emit("PORTAL_INTRO")
+			ctx.events.event_started.emit(ctx.arena.portal_intro_key)
 		if pos.distance_to(portal["pos"]) < ctx.arena.portal_radius:
 			inside = i
 	if inside >= 0 and inside != _inside and ready_for_player(inside):
@@ -133,6 +151,8 @@ func _send_player(index: int) -> void:
 ## Corrompus qui entrent dans un portail : envoyés au jumeau, chacun au plus une fois par portal_enemy_cooldown.
 func _send_enemies(delta: float) -> void:
 	for portal: Dictionary in portals:
+		if not pair_unlocked(int(portal["pair"])):
+			continue
 		portal["budget"] = minf(float(portal["budget"]) + ctx.arena.portal_enemy_rate * delta, 2.0)
 		if float(portal["budget"]) < 1.0:
 			continue
@@ -205,7 +225,9 @@ func _draw() -> void:
 		var color: Color = PAIR_COLORS[int(portal["pair"]) % PAIR_COLORS.size()]
 		var ready: bool = ready_for_player(i)
 		draw_arc(center, radius, 0.0, TAU, 40, Color(color, 0.2 if ready else 0.08), 1.5, true)
-		if not portal.has("visual"):
+		if ctx.arena.portal_painted:
+			_draw_vortex(center, radius, ready, pair_unlocked(int(portal["pair"])))
+		elif not portal.has("visual"):
 			draw_circle(center, radius * 0.75, Color(color, 0.18 if ready else 0.06))
 		if not ready:
 			var left: float = clampf((pair_ready_at[portal["pair"]] - ctx.time) / maxf(ctx.arena.portal_cooldown, 0.01), 0.0,
@@ -215,3 +237,17 @@ func _draw() -> void:
 			var pulse: float = 0.5 + 0.5 * sin(_time * 10.0)
 			draw_arc(center, radius * (1.35 + 0.1 * pulse), 0.0, TAU, 48, Color(0.86, 0.82, 0.58, 0.45 + 0.35 * pulse), 4.0,
 				true)
+
+
+## Vortex de faille sur un socle peint : spirale magenta quand la paire est prête, runes sombres sinon.
+func _draw_vortex(center: Vector2, radius: float, ready: bool, unlocked: bool) -> void:
+	var magenta := Color(0.9, 0.35, 1.0)
+	if not unlocked:
+		for k: int in 6:
+			draw_circle(center + Vector2.from_angle(TAU * k / 6.0) * radius * 0.8, 4.0, Color(magenta, 0.25))
+		return
+	draw_circle(center, radius * 0.9, Color(0.1, 0.02, 0.18, 0.55 if ready else 0.3))
+	for k: int in 3:
+		var start: float = _time * (2.2 if ready else 0.6) + TAU * k / 3.0
+		draw_arc(center, radius * (0.35 + 0.18 * k), start, start + PI * 1.2, 24, Color(magenta, 0.85 if ready else 0.3),
+			3.0, true)
