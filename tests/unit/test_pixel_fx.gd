@@ -19,7 +19,7 @@ func test_every_corrupted_has_a_family_with_its_sheets() -> void:
 			continue
 		check(enemy.family != &"", "%s : famille renseignée" % enemy.id)
 		families[enemy.family] = true
-	check_eq(families.size(), 8, "huit familles")
+	check_eq(families.size(), 10, "dix familles")
 	for family: StringName in families:
 		for effect: String in ["hit", "death", "ring_charge", "ring_burst", "ring_dust"]:
 			var base: String = PixelFx.ROOT % [effect, family]

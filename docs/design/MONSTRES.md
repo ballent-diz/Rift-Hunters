@@ -227,6 +227,30 @@ couronnes de tirs amplifiées ; si aucun sort n'a été lancé, il s'étouffe, s
 éclate autour de lui et plongée sous la glace. Le bot retient ses sorts quand la gueule est ouverte et regagne un
 brasero quand le froid monte. Tests : `test_chapter4`.
 
+## Application au chapitre 5 « La Cité de la Faille » (codé le 9 novembre 2026, sprites de Codex PR 128 et 129)
+
+| Famille | Normaux | Normaux à technique | Élites (techniques) |
+|---|---|---|---|
+| Déchus (`fallen`, cartes 21 à 23) | Milicien déchu, Chien de garde corrompu, Lanterne-spectre (**volant**) | Arbalétrier déchu : Carreau corrompu (**E23**) | Capitaine déchu : Mur de boucliers (E15) / Cri de ralliement (**E24**). Héraldiste de la Faille : Lien d'âme (**E25**) / Sceau de corruption (**E26**). Golem de pavés : Tunnel (E2) / Armure de dalles (**E27**, E8) |
+| Enfants de la Faille (`riftborn`, cartes 24 et 25) | Larve de faille, Œil errant (**volant**, tir), Rampant du vide | Ombre déchirée : Pas de faille (E16) | Arpenteur des portails : Ouverture (larves, E11) / Saut de portail (E16). Miroir d'écho : Copies (E17) / Reflet (renvoie les tirs). Gardienne des statues : Éveil des statues (**E28**) / Onde de pierre (**E29**) |
+| Statue éveillée (B8, carte 24) | lente et massive, jamais élite, invulnérable pendant son éveil | | |
+
+Nouvelles mécaniques (`CityTechniques`, `RunContext.city`) :
+
+| # | Mécanique | Ce qu'elle demande au joueur |
+|---|---|---|
+| E23 | **Carreau corrompu** : ligne annoncée, visée verrouillée, puis carreau très rapide jusqu'au décor | sortir de la ligne, se cacher derrière un abri |
+| E24 | **Cri de ralliement** : les Corrompus proches accélèrent et frappent plus fort 5 s | abattre le Capitaine ou s'éloigner du groupe |
+| E25 | **Lien d'âme** : jusqu'à quatre Corrompus liés ne prennent que 40 % des dégâts tant que l'Héraldiste vit | viser l'Héraldiste d'abord |
+| E26 | **Sceau de corruption** : sceau tracé sous le Chasseur, il frappe puis ronge qui s'y tient 5 s | ne pas rester dessus |
+| E27 | **Armure de dalles** : dégâts réduits à 25 %, puis les dalles éclatent autour du Golem et le laissent à découvert (×1,6) | s'écarter, puis frapper |
+| E28 | **Éveil des statues** : la Gardienne fait surgir des Statues (deux au plus), invulnérables le temps de s'éveiller | abattre la Gardienne, garder ses distances |
+| E29 | **Onde de pierre** : anneau qui s'étend avec des brèches | passer par une brèche ou la Ruée |
+
+Effets pixelfx : familles `fallen` (ombre, arcane, explosions) et `riftborn` (ombre, arcane, nature), palettes
+dans `tools/art/pixelfx/families.json`, compétences dans `assets/vfx/pixelfx/techniques.json`. Tests :
+`test_chapter5`. Équilibrage à faire sur les cartes 21 à 25.
+
 ## État du code (26 octobre 2026, mécaniques phares)
 
 `BossData.signature` ; mécaniques qui durent au-delà d'une attaque dans des `BossMechanics` créées par le

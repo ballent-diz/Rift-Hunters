@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.rift_larva"
+shape = 10
+size = 52.0
+primary = Color(0.32, 0.12, 0.5, 1.0)
+secondary = Color(0.16, 0.05, 0.28, 1.0)
+accent = Color(0.95, 0.35, 0.85, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"rift_larva"
+family = &"riftborn"
+name_key = "ENEMY_RIFT_LARVA_NAME"
+desc_key = "ENEMY_RIFT_LARVA_DESC"
+brain = 0
+max_hp = 64.0
+damage = 14.0
+defense = 8.0
+move_speed = 92.0
+radius = 22.0
+xp_value = 3
+knockback_resist = 0.2
+visual = SubResource("visual_data_1")

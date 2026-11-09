@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.fallen_crossbowman"
+shape = 20
+size = 26.0
+primary = Color(0.62, 0.64, 0.7, 1.0)
+secondary = Color(0.3, 0.32, 0.4, 1.0)
+accent = Color(0.85, 0.3, 0.85, 1.0)
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("3")
+damage = 12.0
+cooldown = 2.6
+attack_range = 460.0
+projectile_speed = 300.0
+params = {
+"keep_distance": 300.0,
+"windup": 0.4
+}
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"corrupted_bolt"
+anim = &"corrupted_bolt"
+cooldown = 8.0
+min_range = 120.0
+max_range = 620.0
+telegraph = 1.0
+damage = 22.0
+params = {
+"speed": 900.0,
+"length": 720.0
+}
+
+[resource]
+script = ExtResource("1")
+id = &"fallen_crossbowman"
+family = &"fallen"
+name_key = "ENEMY_FALLEN_CROSSBOWMAN_NAME"
+desc_key = "ENEMY_FALLEN_CROSSBOWMAN_DESC"
+brain = 1
+max_hp = 58.0
+damage = 12.0
+defense = 8.0
+move_speed = 60.0
+radius = 16.0
+xp_value = 3
+knockback_resist = 0.1
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1")])

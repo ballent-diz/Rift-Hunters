@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.cobble_golem"
+shape = 8
+size = 40.0
+primary = Color(0.62, 0.64, 0.7, 1.0)
+secondary = Color(0.3, 0.32, 0.4, 1.0)
+accent = Color(0.85, 0.3, 0.85, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"burrow"
+anim = &"tunnel"
+cooldown = 11.0
+min_range = 220.0
+max_range = 620.0
+telegraph = 0.8
+damage = 18.0
+params = {
+"travel": 1.4,
+"speed": 260.0,
+"emerge": 0.8,
+"radius": 90.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"slab_armor"
+anim = &"slab_armor"
+cooldown = 14.0
+min_range = 0.0
+max_range = 500.0
+telegraph = 0.6
+damage = 20.0
+params = {
+"duration": 4.0,
+"radius": 150.0,
+"expose": 2.5,
+"armor_mult": 0.25,
+"expose_mult": 1.6
+}
+
+[resource]
+script = ExtResource("1")
+id = &"cobble_golem"
+family = &"fallen"
+name_key = "ENEMY_COBBLE_GOLEM_NAME"
+desc_key = "ENEMY_COBBLE_GOLEM_DESC"
+brain = 0
+max_hp = 360.0
+damage = 18.0
+defense = 26.0
+move_speed = 52.0
+radius = 24.0
+xp_value = 9
+knockback_resist = 0.8
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

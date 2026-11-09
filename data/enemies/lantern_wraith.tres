@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.lantern_wraith"
+shape = 10
+size = 24.0
+primary = Color(0.62, 0.64, 0.7, 1.0)
+secondary = Color(0.3, 0.32, 0.4, 1.0)
+accent = Color(0.85, 0.3, 0.85, 1.0)
+
+[resource]
+script = ExtResource("1")
+id = &"lantern_wraith"
+family = &"fallen"
+name_key = "ENEMY_LANTERN_WRAITH_NAME"
+desc_key = "ENEMY_LANTERN_WRAITH_DESC"
+brain = 0
+max_hp = 44.0
+damage = 11.0
+defense = 4.0
+move_speed = 96.0
+radius = 14.0
+xp_value = 2
+knockback_resist = 0.0
+visual = SubResource("visual_data_1")
+flying = true

@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Monstres du chapitre 5 en jeu (Claude, 9 novembre 2026)
+
+Sprites de Codex (PR 128 et 129) branchés : 7 Déchus (`fallen`), 7 Enfants de la Faille et la Statue éveillée
+(`riftborn`), données, textes FR/EN, effets pixelfx des deux familles. Sept nouvelles techniques E23 à E29 dans
+`CityTechniques` (carreau corrompu, cri de ralliement, lien d'âme, sceau de corruption, armure de dalles, éveil des
+statues, onde de pierre) ; les autres réutilisent les techniques existantes (bouclier, tunnel, pas de faille,
+invocation, copies, reflet). Détail : `docs/design/MONSTRES.md`, tests `test_chapter5`. Aucun équilibrage en partie :
+les monstres ne sont encore sur aucune carte. `CityTechniques.awaken()` servira aux socles de la carte 24 (B8).
+**Suite** : cartes 21 à 23 (Déchus), puis 24 (Enfants, Statue) et 25 ; la carte 23 attend toujours ses collisions peintes.
+
 ## Cartes 19 et 20 en jeu, chapitre 4 complet (Claude, 9 novembre 2026)
 
 Décors de Codex et collisions peintes par le propriétaire (masques par `collision_mask.py overlay --no-water` : la
