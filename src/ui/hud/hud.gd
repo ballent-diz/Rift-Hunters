@@ -423,7 +423,8 @@ func _draw_altar_status(w: float) -> void:
 	_bar(rect, ratio, Color(0.55, 0.95, 0.7) if ratio > 0.3 else UiKit.DANGER)
 	var key: String = "ALTAR_STATUS_WAVE" if altar.phase == AltarDirector.Phase.WAVE else "ALTAR_STATUS_NEXT"
 	var line: String = tr(key) % [mini(altar.wave_index + 1, altar.waves()), altar.waves(), int(ceil(altar.time_left()))]
-	_text(Vector2(0, 66), tr("ALTAR_STATUS") % [int(altar.hp), int(altar.max_hp)] + "  ·  " + line, 14, UiKit.GOLD,
+	var status: String = tr(altar.ctx.arena.altar_key("ALTAR_STATUS")) % [int(altar.hp), int(altar.max_hp)]
+	_text(Vector2(0, 66), status + "  ·  " + line, 14, UiKit.GOLD,
 		HORIZONTAL_ALIGNMENT_CENTER, w)
 
 

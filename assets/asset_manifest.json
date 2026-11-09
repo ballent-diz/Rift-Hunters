@@ -16548,6 +16548,60 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/objects/crystal_mirror_marsh_heart.png"
+		},
+		"environment.lighthouse_floe": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/lighthouse_floe/map.webp",
+			"map_tiles": [
+				"res://assets/environments/lighthouse_floe/map.webp",
+				"res://assets/environments/lighthouse_floe/map_1.webp",
+				"res://assets/environments/lighthouse_floe/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/lighthouse_floe/field.png",
+			"field_step": 2,
+			"start": [
+				-1202,
+				900
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire, décor livré par Codex (carte 19).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/lighthouse_floe/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/lighthouse_floe.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"environment.silent_heart": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/silent_heart/map.webp",
+			"map_tiles": [
+				"res://assets/environments/silent_heart/map.webp",
+				"res://assets/environments/silent_heart/map_1.webp",
+				"res://assets/environments/silent_heart/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/silent_heart/field.png",
+			"field_step": 2,
+			"start": [
+				2107,
+				-869
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire, décor livré par Codex (carte 20).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/silent_heart/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/silent_heart.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		}
 	}
 }

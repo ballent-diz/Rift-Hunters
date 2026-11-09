@@ -51,6 +51,8 @@ var pods: PodDirector
 var portals: PortalDirector
 var rockfall: RockfallDirector
 var tide: TideDirector
+## Banquise qui se fend, brique B4 de la carte 19 (null sans plaque).
+var floe: FloeDirector
 var cold: ColdDirector
 var ice: IceDirector
 var frost: FrostTechniques
@@ -126,6 +128,8 @@ func danger_vector(pos: Vector2) -> Vector2:
 		result += terrain.danger(pos)
 	if tide:
 		result += tide.danger(pos)
+	if floe:
+		result += floe.danger(pos)
 	if cold:
 		result += cold.danger(pos)
 	if frost:

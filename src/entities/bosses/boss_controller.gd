@@ -9,7 +9,7 @@ extends RefCounted
 
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
-	&"avalanche": &"avalanche", &"deep_freeze": &"snuff", &"storm_hunt": &"slide",
+	&"avalanche": &"avalanche", &"deep_freeze": &"snuff", &"storm_hunt": &"slide", &"floe_quake": &"ice_crack",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -44,6 +44,7 @@ var _charge_time: float = 0.0
 var _avalanche_announced: bool = false
 ## Chasse dans la tempête du Loup alpha : fiche de mécanique affichée une fois.
 var _hunt_announced: bool = false
+var _quake_announced: bool = false
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
 var _effects: Array[Node2D] = []
@@ -698,6 +699,23 @@ func _pattern_storm_hunt(pattern: BossPatternData) -> void:
 				_charge_dir = dir
 				_charge_speed = speed
 				_charge_time = duration))
+
+
+## Séisme de banquise (Colosse de la banquise, carte 19) : il frappe la glace ; onde autour de lui, et les plaques de
+## banquise les plus proches du Chasseur se fendent (alerte courte) puis s'ouvrent sur l'eau noire.
+func _pattern_floe_quake(pattern: BossPatternData) -> void:
+	if not _quake_announced:
+		_quake_announced = true
+		ctx.events.event_started.emit("BOSS_FLOE_QUAKE_INTRO")
+	var radius: float = float(pattern.params.get("radius", 260.0))
+	ctx.hazards.add_circle(boss.position, radius, pattern.telegraph, _damage(pattern), true, data.id)
+	busy_time = pattern.telegraph + 0.4
+	schedule(pattern.telegraph, func() -> void:
+		ctx.fx.debris(boss.position, Color(0.75, 0.95, 1.0), 14)
+		if ctx.floe:
+			var warning: float = float(pattern.params.get("warning", 1.5))
+			for index: int in ctx.floe.nearest_closed(ctx.player.global_position, int(pattern.params.get("plates", 2))):
+				ctx.floe.crack(index, warning))
 
 
 ## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.

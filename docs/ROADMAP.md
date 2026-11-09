@@ -1,5 +1,31 @@
 # Rift Hunters — feuille de route
 
+## Cartes 19 et 20 en jeu, chapitre 4 complet (Claude, 9 novembre 2026)
+
+Décors de Codex et collisions peintes par le propriétaire (masques par `collision_mask.py overlay --no-water` : la
+banquise et la glace sont praticables). Chapitre 4 : cinq cartes. Vignettes, mini-cartes, tests
+`test_lighthouse_floe` et `test_silent_heart`, captures au zoom réel dans `docs/previews/*/jeu/`.
+
+- **Carte 19, Banquise du phare** (`lighthouse_floe`) : défense d'autel, 5 vagues ; **le phare peint est l'autel**
+  (`ArenaData.altar_painted`, textes « phare » par `altar_text_suffix`). **Banquise qui se fend (B4,
+  `FloeDirector`)** : toutes les 18 s, une plaque d'accès (à tour de rôle, une au plus) et deux plaques hors accès
+  (une par quart, dont la plus proche du Chasseur) se fendent (3 s d'alerte, danger au sol), puis s'ouvrent 9 s sur
+  l'eau noire (images `broken/pNN.webp`, collisions en bandes de 40 unités). Le Chasseur dessus est blessé et rejeté ;
+  les Corrompus non volants sombrent (60 % de leurs PV). Objectif : en faire sombrer 40. Les barrières fermées sont
+  désormais seules parcourues par les tests de collision (`ObstacleField._active`). **Gardien : Colosse de la
+  banquise** (`floe_colossus`, sprite du Mammouth de givre) : défenses, charge, invocations et **Séisme de banquise**
+  (les plaques proches du Chasseur se fendent). Le départ prévu sur la rive sud-ouest est peint bloqué : départ sur la
+  banquise sud-ouest.
+- **Carte 20, Cœur du Silence** (`silent_heart`) : vagues par zone d'est en ouest (Galerie des stalactites, Salle des
+  échos), barrières à la chaussée et à l'escalier de la cascade, finale dans la cathédrale (cercle) contre
+  **Nivorath**. Glace B1 (dix plaques). **Écho des sorts (B9, `ArenaData.spell_echo`)** : chaque sort offensif du
+  Chasseur (taille, lance, rupture, singularité) se relance une fois à 35 % après 0,6 s. L'escalier peint ne laisse
+  qu'environ 75 unités de passage (sous les 120 conseillés) : à surveiller en jeu.
+- **Équilibrage** (profil d'étape, 2 starters × 2 graines) : carte 19 ennemis ×1 / ×1,1, gardien ×1,8 / ×1,4,
+  autel ×0,4 → 3 sur 4, combat de 57 à 72 s ; carte 20 ennemis ×1 / ×1, Nivorath ×1,4 / ×1,3 → 3 sur 4, 71 à 116 s.
+- **Reste** : carte 23 sans collisions peintes dans main (`map.suspended_quarters/collision/painted.webp` absent).
+  Suite : monstres du chapitre 5 (Déchus, Enfants de la Faille, Statue), puis cartes 21 à 25.
+
 ## Carte 25 — L’Œil de la Faille : détail livré, collisions à peindre (Codex, 7 novembre 2026)
 
 Composition c25.png approuvée, spirale de5016×5016unités et quatre abris à l’intérieur de l’arène.

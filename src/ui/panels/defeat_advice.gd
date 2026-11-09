@@ -14,11 +14,13 @@ const SIGNATURE_INTRO := {
 	&"portal_hop": "BOSS_PORTAL_INTRO",
 	&"spell_capture": "BOSS_CAPTURE_INTRO", &"avalanche": "BOSS_AVALANCHE_INTRO",
 	&"deep_freeze": "BOSS_DEEP_FREEZE_INTRO", &"storm_hunt": "BOSS_STORM_HUNT_INTRO",
+	&"floe_quake": "BOSS_FLOE_QUAKE_INTRO",
 }
 ## Dangers de carte et sources sans fiche.
 const SOURCE_ADVICE := {
 	"burn": ["ADVICE_SOURCE_BURN", "ADVICE_BURN"], "cold": ["JOURNAL_COLD", "COLD_INTRO"],
 	"crystal_mirror": ["JOURNAL_CRYSTAL", "ADVICE_CRYSTAL"], "ember_pod": ["JOURNAL_POD", "ADVICE_POD"],
+	"floe": ["JOURNAL_FLOE", "FLOE_INTRO"],
 	"rockfall": ["ADVICE_SOURCE_ROCKFALL", "ADVICE_ROCKFALL"], "boss": ["ADVICE_SOURCE_BOSS", "ADVICE_BOSS"],
 }
 

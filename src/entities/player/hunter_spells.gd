@@ -20,6 +20,9 @@ const OVERCHARGE_MAX := 2.5
 ## Clavier seul : sorts posés sur le Chasseur, et distance du Mur devant lui (spell_aim).
 const SELF_CAST_KINDS: Array[StringName] = [&"singularity", &"crystal", &"rifts", &"rupture", &"pack_call"]
 const KEYBOARD_WALL_DISTANCE := 70.0
+## Sorts offensifs que l'écho de la carte relance (pas les déplacements, murs, parades ni portails).
+const ECHO_KINDS: Array[StringName] = [&"slash", &"lance", &"rupture", &"singularity"]
+const ECHO_COLOR := Color(0.7, 0.85, 1.0, 0.6)
 
 var ctx: RunContext
 ## Sort équipé par emplacement (null : emplacement vide).
@@ -41,6 +44,8 @@ var _power: float = 1.0
 var _lance_variant: StringName = &""
 ## Point visé du sort montré par l'indicateur au sol (fixé à chaque dessin).
 var _shown_aim := Vector2.ZERO
+## Échos en attente (règle B9) : {slot, spell, variant, aim, power, left}.
+var _echoes: Array[Dictionary] = []
 
 
 func setup(p_ctx: RunContext, spell_ids: Array[StringName], spell_variants: Dictionary = {}) -> void:
@@ -71,6 +76,8 @@ func step(delta: float) -> void:
 	for i: int in SLOTS:
 		cooldowns[i] = maxf(cooldowns[i] - delta, 0.0)
 	world.step(delta)
+	if not _echoes.is_empty() and player.alive:
+		_step_echoes(delta)
 	if not player.alive:
 		preview_slot = -1
 		return
@@ -122,6 +129,19 @@ func cast(slot: int, aim: Vector2, power: float = 1.0) -> bool:
 	if cooldowns[slot] > 0.0:
 		return false
 	power *= world.consume_power(spell)
+	if not _fire(slot, spell, variant, origin, dir, aim, power):
+		return false
+	_queue_echo(slot, spell, aim, power)
+	cooldowns[slot] = spell.cooldown * maxf(ctx.player.stats.get_value(StatKeys.SPELL_COOLDOWN), 0.1)
+	ctx.player.facing = dir
+	ctx.stats.add(&"spells_cast")
+	ctx.stats.add(StringName(String(spell.id) + "_casts"))
+	ctx.events.spell_cast.emit(spell.id)
+	return true
+
+
+func _fire(slot: int, spell: SpellData, variant: StringName, origin: Vector2, dir: Vector2, aim: Vector2,
+		power: float) -> bool:
 	_power = power
 	match spell.spell_kind:
 		&"slash":
@@ -137,14 +157,34 @@ func cast(slot: int, aim: Vector2, power: float = 1.0) -> bool:
 			else:
 				_lance(spell, origin, dir, power)
 		_:
-			if not world.cast(slot, spell, variant, origin, dir, aim, power):
-				return false
-	cooldowns[slot] = spell.cooldown * maxf(ctx.player.stats.get_value(StatKeys.SPELL_COOLDOWN), 0.1)
-	ctx.player.facing = dir
-	ctx.stats.add(&"spells_cast")
-	ctx.stats.add(StringName(String(spell.id) + "_casts"))
-	ctx.events.spell_cast.emit(spell.id)
+			return world.cast(slot, spell, variant, origin, dir, aim, power)
 	return true
+
+
+## Écho des sorts (règle B9 de la carte, ArenaData.spell_echo) : les sorts offensifs se relancent une fois, plus
+## faibles, après un court délai, depuis la position du Chasseur et vers la même visée.
+func _queue_echo(slot: int, spell: SpellData, aim: Vector2, power: float) -> void:
+	if ctx.arena.spell_echo <= 0.0 or not ECHO_KINDS.has(spell.spell_kind):
+		return
+	_echoes.append({"slot": slot, "spell": spell, "variant": variants[slot], "aim": aim,
+		"power": power * ctx.arena.spell_echo, "left": ctx.arena.spell_echo_delay})
+
+
+func _step_echoes(delta: float) -> void:
+	var i: int = _echoes.size() - 1
+	while i >= 0:
+		var echo: Dictionary = _echoes[i]
+		echo["left"] = float(echo["left"]) - delta
+		if float(echo["left"]) <= 0.0:
+			_echoes.remove_at(i)
+			var origin: Vector2 = ctx.player.global_position
+			var aim: Vector2 = echo["aim"]
+			ctx.fx.ring(origin, 70.0, ECHO_COLOR, 0.35)
+			_fire(int(echo["slot"]), echo["spell"], echo["variant"], origin, aim_direction(aim), aim, float(echo["power"]))
+			if not ctx.stats.counters.has(&"spell_echoes_cast"):
+				ctx.events.event_started.emit("SPELL_ECHO_INTRO")
+			ctx.stats.add(&"spell_echoes_cast")
+		i -= 1
 
 
 ## Relais vers les sorts persistants (appelés par les combats et les projectiles).

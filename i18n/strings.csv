@@ -2084,3 +2084,30 @@ JOURNAL_STORM_HUNT,Chasse dans la tempête,Storm Hunt
 CREDITS_FX_TITLE,Effets,Effects
 CREDITS_FX_BODY,"Effets pixel art par Patch et Hugo Duprez, aux couleurs de chaque famille de monstres.","Pixel art effects by Patch and Hugo Duprez, in the colours of each monster family."
 CREDITS_FX_LICENSE,Licence MIT,MIT License
+ARENA_LIGHTHOUSE_FLOE_NAME,La Banquise du phare,The Lighthouse Floe
+ARENA_LIGHTHOUSE_FLOE_DESC,"Défendez le phare éteint au milieu de la banquise : les plaques de glace se fendent et s'ouvrent sur l'eau noire. Attirez-y les hordes, et gare au gardien qui dort sous le phare.","Defend the dark lighthouse in the middle of the ice floe: the ice plates crack and open onto black water. Lure the hordes onto them, and beware the guardian sleeping beneath the lighthouse."
+ALTAR_INTRO_LIGHTHOUSE,Protégez le phare éteint pendant %d vagues !,Protect the dark lighthouse for %d waves!
+ALTAR_WAVE_LIGHTHOUSE,Vague %d / %d : ils viennent pour le phare !,Wave %d / %d: they are coming for the lighthouse!
+ALTAR_WAVE_HELD_LIGHTHOUSE,Vague %d / %d repoussée : le phare tient bon.,Wave %d / %d repelled: the lighthouse holds.
+ALTAR_DESTROYED_LIGHTHOUSE,Le phare s'effondre…,The lighthouse collapses…
+ALTAR_STATUS_LIGHTHOUSE,Phare %d / %d,Lighthouse %d / %d
+ALTAR_SHATTERED_LIGHTHOUSE,Le phare se rallume… et la banquise tremble : quelque chose s'éveille dessous !,The lighthouse rekindles… and the floe shakes: something awakens beneath!
+FLOE_INTRO,"La banquise se fend : quittez les plaques qui craquent, elles vont s'ouvrir sur l'eau noire. Les Corrompus qui y restent sombrent.","The floe is cracking: get off the creaking plates, they are about to open onto black water. Corrupted left on them sink."
+JOURNAL_FLOE,Banquise qui se fend,Cracking floe
+MAP_OBJ_FLOE_DESC,Terminer en faisant sombrer au moins %d Corrompus dans la banquise,Clear it sinking at least %d Corrupted through the floe
+BOSS_FLOE_COLOSSUS_NAME,Colosse de la banquise,Floe Colossus
+BOSS_FLOE_COLOSSUS_TITLE,Gardien du phare éteint,Guardian of the Dark Lighthouse
+BOSS_FLOE_COLOSSUS_PHASE1,La glace gronde,The Ice Rumbles
+BOSS_FLOE_COLOSSUS_PHASE2,Carapace brisée,Shattered Hide
+BOSS_PATTERN_TUSK_SWEEP,Balayage des défenses,Tusk Sweep
+BOSS_PATTERN_FLOE_QUAKE,Séisme de banquise,Floe Quake
+BOSS_FLOE_QUAKE_INTRO,"Séisme de banquise : le Colosse frappe la glace et les plaques proches de vous se fendent. Quittez-les avant qu'elles ne s'ouvrent, ou attirez-y ses renforts.","Floe Quake: the Colossus strikes the ice and the plates near you crack. Leave them before they open, or lure his reinforcements onto them."
+JOURNAL_FLOE_QUAKE,Séisme de banquise,Floe Quake
+ARENA_SILENT_HEART_NAME,Le Cœur du Silence,The Heart of Silence
+ARENA_SILENT_HEART_DESC,"Au cœur du glacier, chaque sort résonne et se relance une seconde fois. Traversez la galerie et la salle des échos jusqu'à la cathédrale gelée, où Nivorath avale le silence.","In the heart of the glacier, every spell resonates and casts a second time. Cross the gallery and the hall of echoes to the frozen cathedral, where Nivorath swallows the silence."
+ZONE_SILENT_HEART_1_NAME,La Galerie des stalactites,The Stalactite Gallery
+ZONE_SILENT_HEART_2_NAME,La Salle des échos,The Hall of Echoes
+FINALE_TRAVEL_SILENT_CATHEDRAL,La salle des échos est calme : descendez l'escalier de la cascade jusqu'à la cathédrale gelée. Nivorath vous y attend.,The hall of echoes is quiet: take the waterfall stair down to the frozen cathedral. Nivorath awaits you there.
+SPELL_ECHO_INTRO,"Écho des sorts : ici, chacun de vos sorts offensifs se relance une seconde fois, plus faible, vers la même cible.","Spell Echo: here, each of your offensive spells casts a second time, weaker, at the same target."
+JOURNAL_SPELL_ECHO,Écho des sorts,Spell Echo
+MAP_OBJ_SPELL_ECHO_DESC,Terminer en faisant résonner au moins %d échos de sorts,Clear it with at least %d spell echoes
