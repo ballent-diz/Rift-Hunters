@@ -26,6 +26,8 @@ var tag_color: Color = HunterTreeSkin.CYAN
 ## Grille (arbre du Chasseur, toutes voies côte à côte) : l'icône seule, sans légende ni coût ; le rang « appris/max »
 ## en bas à droite, à la couleur de l'état. Le nom et le coût sont dans l'infobulle et la fiche.
 var compact := false
+## Taille des chiffres des pastilles (rang, lettre de variante) ; plus grande en plein écran.
+var badge_size := 11
 
 var _tip: Array[String] = ["", "", "", ""]
 
@@ -89,7 +91,7 @@ func set_tip(title_text: String, kind: String, state: String, body: String) -> v
 
 
 func _make_custom_tooltip(_for_text: String) -> Object:
-	return SkillCard.tooltip(_tip[0], _tip[1], _tip[2], _tip[3], ink)
+	return SkillCard.tooltip(_tip[0], _tip[1], _tip[2], _tip[3], ink, border, portrait, data)
 
 
 ## Carré de l'icône : en haut, centré, la légende dessous.
@@ -139,11 +141,12 @@ func _draw() -> void:
 
 func _badge(center: Vector2, text: String, color: Color) -> void:
 	var font: Font = UiKit.font(&"numbers")
-	var width: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11).x + 8
-	var box := Rect2(center - Vector2(width * 0.5, 7), Vector2(width, 14))
+	var width: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, badge_size).x + 8
+	var height: float = badge_size + 3
+	var box := Rect2(center - Vector2(width * 0.5, height * 0.5), Vector2(width, height))
 	draw_rect(box, HunterTreeSkin.NIGHT)
 	draw_rect(box, Color(color, 0.5), false, 1.0)
-	draw_string(font, box.position + Vector2(4, 11), text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, color)
+	draw_string(font, box.position + Vector2(4, badge_size), text, HORIZONTAL_ALIGNMENT_LEFT, -1, badge_size, color)
 
 
 func _draw_state(rect: Rect2) -> void:
@@ -183,11 +186,12 @@ func _draw_rank(rect: Rect2) -> void:
 	var color: Color = HunterTreeSkin.STATE_COLORS.get(current, HunterTreeSkin.MUTED)
 	var font: Font = UiKit.font(&"numbers")
 	var text: String = "%d/%d" % [rank, max_rank]
-	var width: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11).x + 6
-	var box := Rect2(rect.end - Vector2(width - 2, 12), Vector2(width, 14))
+	var width: float = font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, badge_size).x + 6
+	var height: float = badge_size + 3
+	var box := Rect2(rect.end - Vector2(width - 2, height - 2), Vector2(width, height))
 	draw_rect(box, HunterTreeSkin.NIGHT)
 	draw_rect(box, Color(color, 0.8), false, 1.0)
-	draw_string(font, box.position + Vector2(3, 11), text, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, color)
+	draw_string(font, box.position + Vector2(3, badge_size), text, HORIZONTAL_ALIGNMENT_LEFT, -1, badge_size, color)
 
 
 func _draw_symbol(rect: Rect2, color: Color) -> void:

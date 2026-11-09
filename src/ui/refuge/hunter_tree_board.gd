@@ -17,10 +17,17 @@ const GUTTER := 50.0
 const HEADER := 38.0
 const GAP := 8.0
 const ICON_MAX := 60.0
+## Plein écran (bouton « Agrandir » de l'onglet) : marges serrées, icônes, en-têtes et chiffres plus grands.
+const LARGE_GUTTER := 40.0
+const LARGE_HEADER := 50.0
+const LARGE_GAP := 6.0
+const LARGE_ICON_MAX := 110.0
 const ROMAN: Array[String] = ["I", "II", "III", "IV", "V"]
 
 ## Voie de la compétence sélectionnée (colonne mise en avant).
 var focus_branch: StringName = &"blade"
+## Plein écran : à régler avant setup().
+var large := false
 
 var _profile: ProfileData
 var _buttons: Dictionary = {}
@@ -33,10 +40,17 @@ var _legend: Control
 var _unit: float = 0.0
 var _row_height: float = 0.0
 var _edge: float = 0.0
+var _gutter: float = GUTTER
+var _header: float = HEADER
+var _gap: float = GAP
 
 
 func setup(p: ProfileData, selection: StringName) -> void:
 	_profile = p
+	if large:
+		_gutter = LARGE_GUTTER
+		_header = LARGE_HEADER
+		_gap = LARGE_GAP
 	custom_minimum_size = Vector2(560, 220)
 	size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	size_flags_vertical = Control.SIZE_EXPAND_FILL
@@ -45,17 +59,19 @@ func setup(p: ProfileData, selection: StringName) -> void:
 		for data: SkillNodeData in HunterTree.nodes_of_branch(branch):
 			var button := HunterTreeNode.new()
 			button.compact = true
+			button.badge_size = 14 if large else 11
 			button.setup(p, data, selection)
 			button.pressed.connect(func() -> void: node_selected.emit(data.id))
 			add_child(button)
 			_buttons[data.id] = button
 			_cells[data.id] = cell_of(data)
 			points += HunterTree.active_rank(p, data) * data.point_cost
-		var title: Label = UiKit.label(_branch_name(branch), 13, HunterTreeSkin.accent(branch), HORIZONTAL_ALIGNMENT_CENTER)
+		var title: Label = UiKit.label(_branch_name(branch), 18 if large else 13, HunterTreeSkin.accent(branch),
+			HORIZONTAL_ALIGNMENT_CENTER)
 		title.add_theme_font_override("font", UiKit.font(&"strong"))
 		title.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 		title.clip_text = true
-		var spent: Label = UiKit.label(tr("TREE_BRANCH_POINTS") % points, 11,
+		var spent: Label = UiKit.label(tr("TREE_BRANCH_POINTS") % points, 14 if large else 11,
 			HunterTreeSkin.GOLD if points > 0 else HunterTreeSkin.MUTED, HORIZONTAL_ALIGNMENT_CENTER)
 		spent.add_theme_font_override("font", UiKit.font(&"numbers"))
 		title.tooltip_text = tr("TREE_COLUMN_TRUNK") + " : " + tr("TREE_COLUMN_TRUNK_SUB") if branch == &"trunk" \
@@ -67,7 +83,8 @@ func setup(p: ProfileData, selection: StringName) -> void:
 		_heads[branch] = [title, spent]
 	for row: int in ROWS:
 		var gate: int = row_gate(row)
-		var label: Label = UiKit.label(tr("TREE_ROW_TIER") % ROMAN[row], 11, HunterTreeSkin.PAPER, HORIZONTAL_ALIGNMENT_CENTER)
+		var label: Label = UiKit.label(tr("TREE_ROW_TIER") % ROMAN[row], 15 if large else 11, HunterTreeSkin.PAPER,
+			HORIZONTAL_ALIGNMENT_CENTER)
 		label.add_theme_font_override("font", UiKit.font(&"strong"))
 		if not _open(gate):
 			label.text += "\n%d/%d" % [HunterTree.boss_wins(p), gate]
@@ -137,61 +154,87 @@ static func units(branch: StringName) -> int:
 	return TRUNK_UNITS if branch == &"trunk" else PATH_UNITS
 
 
-## Légende des états, sous le tronc commun (ses niveaux III à V sont vides).
+## Légende sous le tronc commun (ses niveaux III à V sont vides) : formes des cadres (sort en hexagone doré, passif en
+## cercle), puis les états ; en plein écran, la façon de lire la grille.
 func _make_legend() -> VBoxContainer:
 	var box := VBoxContainer.new()
 	box.name = "BoardLegend"
 	box.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	box.add_theme_constant_override("separation", 3)
+	box.add_theme_constant_override("separation", 5 if large else 3)
+	var side: float = 24.0 if large else 16.0
+	var text_size: int = 13 if large else 10
+	var shapes := HFlowContainer.new()
+	shapes.name = "LegendShapes"
+	shapes.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	shapes.add_theme_constant_override("h_separation", 6)
+	for kind: String in ["spell", "passive"]:
+		var shape := HBoxContainer.new()
+		shape.add_theme_constant_override("separation", 3)
+		shape.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		shape.add_child(_legend_frame(HunterTreeSkin.state_frame("learned", kind), side))
+		var label: Label = UiKit.label(tr("TREE_KIND_SPELL" if kind == "spell" else "TREE_KIND_PASSIVE"), text_size,
+			HunterTreeSkin.GOLD if kind == "spell" else HunterTreeSkin.PAPER)
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		shape.add_child(label)
+		shapes.add_child(shape)
+	box.add_child(shapes)
 	for state: String in HunterTreeSkin.LEGEND:
 		var row := HBoxContainer.new()
 		row.add_theme_constant_override("separation", 5)
 		row.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		var frame := TextureRect.new()
-		frame.texture = HunterTreeSkin.state_frame(state)
-		frame.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-		frame.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		frame.custom_minimum_size = Vector2(16, 16)
-		frame.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-		row.add_child(frame)
-		var label: Label = UiKit.label(tr(HunterTreeSkin.LEGEND_KEYS[state]), 10, HunterTreeSkin.STATE_COLORS[state])
+		row.add_child(_legend_frame(HunterTreeSkin.state_frame(state), side))
+		var label: Label = UiKit.label(tr(HunterTreeSkin.LEGEND_KEYS[state]), text_size, HunterTreeSkin.STATE_COLORS[state])
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		row.add_child(label)
 		box.add_child(row)
-	var hint: Label = UiKit.wrapped(tr("TREE_GRID_HINT"), 10, HunterTreeSkin.MUTED)
-	hint.custom_minimum_size.x = 0
-	box.add_child(hint)
+	if large:
+		var hint: Label = UiKit.wrapped(tr("TREE_GRID_HINT"), 12, HunterTreeSkin.MUTED)
+		hint.custom_minimum_size.x = 0
+		box.add_child(hint)
 	return box
+
+
+func _legend_frame(texture: Texture2D, side: float) -> TextureRect:
+	var frame := TextureRect.new()
+	frame.texture = texture
+	frame.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	frame.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	frame.custom_minimum_size = Vector2(side, side)
+	frame.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+	frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return frame
 
 
 func _layout() -> void:
 	var total_units: int = 0
 	for branch: StringName in BRANCHES:
 		total_units += units(branch)
-	_unit = (size.x - GUTTER - GAP * (BRANCHES.size() - 1)) / total_units
-	_row_height = (size.y - HEADER) / ROWS
-	_edge = clampf(minf(_unit * 0.92, _row_height * 0.84), 24.0, ICON_MAX)
-	var x: float = GUTTER
+	_unit = (size.x - _gutter - _gap * (BRANCHES.size() - 1)) / total_units
+	_row_height = (size.y - _header) / ROWS
+	_edge = clampf(minf(_unit * (0.94 if large else 0.92), _row_height * 0.84), 24.0,
+		LARGE_ICON_MAX if large else ICON_MAX)
+	var x: float = _gutter
 	for branch: StringName in BRANCHES:
 		var width: float = units(branch) * _unit
 		_columns[branch] = Rect2(x, 0, width, size.y)
 		var labels: Array = _heads[branch]
-		(labels[0] as Label).position = Vector2(x, 2)
-		(labels[0] as Label).size = Vector2(width, 18)
-		(labels[1] as Label).position = Vector2(x, 20)
-		(labels[1] as Label).size = Vector2(width, 16)
-		x += width + GAP
+		var line: float = (_header - 2.0) * 0.5
+		(labels[0] as Label).position = Vector2(x, 1)
+		(labels[0] as Label).size = Vector2(width, line + 1)
+		(labels[1] as Label).position = Vector2(x, line)
+		(labels[1] as Label).size = Vector2(width, line)
+		x += width + _gap
 	for id: StringName in _buttons:
 		var button: HunterTreeNode = _buttons[id]
 		button.position = center_of(id) - Vector2.ONE * _edge * 0.5
 		button.size = Vector2.ONE * _edge
 		button.layout_caption()
 	for row: int in ROWS:
-		_rows[row].position = Vector2(0, HEADER + row * _row_height)
-		_rows[row].size = Vector2(GUTTER - 4, _row_height)
+		_rows[row].position = Vector2(0, _header + row * _row_height)
+		_rows[row].size = Vector2(_gutter - 4, _row_height)
 		_rows[row].vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	var trunk: Rect2 = _columns[&"trunk"]
-	_legend.position = Vector2(trunk.position.x + 6, HEADER + 2 * _row_height + 6)
+	_legend.position = Vector2(trunk.position.x + 6, _header + 2 * _row_height + 6)
 	_legend.size = Vector2(trunk.size.x - 12, 0)
 	_legend.custom_minimum_size.x = trunk.size.x - 12
 	queue_redraw()
@@ -202,7 +245,7 @@ func center_of(id: StringName) -> Vector2:
 	var data: SkillNodeData = GameDB.skill_node(id)
 	var column: Rect2 = _columns[data.branch]
 	var cell: Vector2 = _cells[id]
-	return Vector2(column.position.x + (cell.x + 0.5) * _unit, HEADER + (cell.y + 0.5) * _row_height)
+	return Vector2(column.position.x + (cell.x + 0.5) * _unit, _header + (cell.y + 0.5) * _row_height)
 
 
 func _draw() -> void:
@@ -212,17 +255,17 @@ func _draw() -> void:
 		var rect: Rect2 = _columns[branch]
 		var accent: Color = HunterTreeSkin.accent(branch)
 		draw_rect(rect, Color(0.045, 0.04, 0.09, 0.86))
-		draw_rect(Rect2(rect.position, Vector2(rect.size.x, HEADER - 2)), Color(accent, 0.1))
-		draw_line(Vector2(rect.position.x, HEADER - 2), Vector2(rect.end.x, HEADER - 2), Color(accent, 0.6), 2.0)
+		draw_rect(Rect2(rect.position, Vector2(rect.size.x, _header - 2)), Color(accent, 0.1))
+		draw_line(Vector2(rect.position.x, _header - 2), Vector2(rect.end.x, _header - 2), Color(accent, 0.6), 2.0)
 		var focused: bool = branch == focus_branch
 		draw_rect(rect, Color(accent, 0.55 if focused else 0.18), false, 2.0 if focused else 1.0)
 	for row: int in range(1, ROWS):
-		var y: float = HEADER + row * _row_height
-		draw_dashed_line(Vector2(GUTTER, y), Vector2(size.x, y), Color(HunterTreeSkin.PAPER, 0.07), 1.0, 6.0)
+		var y: float = _header + row * _row_height
+		draw_dashed_line(Vector2(_gutter, y), Vector2(size.x, y), Color(HunterTreeSkin.PAPER, 0.07), 1.0, 6.0)
 	# Niveaux encore scellés : voile sur toute la ligne, cadenas dans la marge.
 	for row: int in ROWS:
 		if not _open(row_gate(row)):
-			var band := Rect2(GUTTER, HEADER + row * _row_height + 1, size.x - GUTTER, _row_height - 2)
+			var band := Rect2(_gutter, _header + row * _row_height + 1, size.x - _gutter, _row_height - 2)
 			HunterTreeSkin.draw_veil(self, band)
 	for id: StringName in _buttons:
 		var data: SkillNodeData = (_buttons[id] as HunterTreeNode).data
@@ -238,7 +281,7 @@ func _link(parent: HunterTreeNode, child: HunterTreeNode) -> void:
 	var b: Vector2 = center_of(child.data.id) - Vector2(0, _edge * 0.5 + 3)
 	var points := PackedVector2Array([a, b])
 	if absf(a.x - b.x) > 1.0:
-		var bend: float = HEADER + (int((_cells[parent.data.id] as Vector2).y) + 1) * _row_height
+		var bend: float = _header + (int((_cells[parent.data.id] as Vector2).y) + 1) * _row_height
 		points = PackedVector2Array([a, Vector2(a.x, bend), Vector2(b.x, bend), b])
 	var lit: bool = HunterTree.learned_rank(_profile, parent.data) > 0
 	var active: bool = parent.current == "active" and child.current == "active"

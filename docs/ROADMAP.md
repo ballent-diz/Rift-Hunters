@@ -773,3 +773,20 @@ Premier jeu complet validé explicitement par le propriétaire (« Valider le ch
 ## Barrières peintes — cinq jeux livrés (Codex)
 
 Après validation du chapitre 1 : basalte/braises, bois noyé/racines/eau, glace/givre et acier pâle/ardoise/dorures/magenta. 25 assets final, deux bornes par chapitre, mêmes ancres et animations ; dix bornes mesurées 99,5–100,5 unités, fûts 34,5–36,5. Palettes issues des décors, 26/32/31/32/32 couleurs RGB ; raccords et boucles contrôlés. Import Godot et 25 chargements conformes, 20 captures natives au zoom 1,3333 avec Chasseur/Cendrelame et cinq GIF complets. Sources peintes, prompts, jobs, guide et recette conservés. Aucun changement de src/, data/, cartes, shaders, collisions, règles ou minuteries ; Claude raccordera les modules aux barrières existantes. Le dessin validé du chapitre 1 reste identique.
+
+## Arbre en plein écran, cadres sorts/passifs, taille des Échos (9 novembre 2026)
+
+- **Arbre du Chasseur en plein écran** : bouton « Agrandir (F) » dans l'en-tête de l'onglet Arbre (touche F) ; l'arbre
+  occupe toute la fenêtre (calque `TreeFullscreen`), grille en mode `large` (icônes environ 40 % plus grandes,
+  en-têtes, niveaux et rangs plus gros, légende avec la façon de lire la grille), fiche du nœud à droite (270 px) et
+  barre des sorts dessous ; Échap, F ou « Réduire » pour revenir. La vue logique reste 1280 × 720 (étirement
+  `canvas_items`) : la mise en page est identique en 1280 × 720, 1600 × 900 et 1920 × 1080 (vérifié par captures).
+  Les arbres des Échos ne sont pas comprimés (icônes jusqu'à 96 px) : pas de plein écran pour eux.
+- **Sorts et passifs se distinguent** : sorts en hexagone doré à liseré intérieur (couleur de l'état) et gemmes,
+  passifs en cercle sobre, variantes/talents et clés de voûte inchangés (octogones). Générés par
+  `tools/art/build_tree_frames.py`. Même forme dans l'arbre, la fiche (`SkillCard`, icône dans son cadre), les
+  infobulles (icône cadrée, nature « Sort » en or) et la légende (rangée « Sort / Passif »). S'applique aussi aux
+  arbres des Échos.
+- **Taille des Échos plafonnée à environ 1,3× le Chasseur** (taille apparente, pas seulement la hauteur) : Magmander,
+  Stormshell, Gravishell, Cendrelame, Grovestag et Sunclaw réduits par l'échelle du manifeste ; hitbox et équilibrage
+  inchangés. Tableau avant/après : `docs/art/TAILLE_DES_ECHOS.md`.
