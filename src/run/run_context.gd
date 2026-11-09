@@ -57,6 +57,9 @@ var floe: FloeDirector
 var corruption: CorruptionDirector
 ## Portes runiques, brique B4 de la carte 22 (null sans porte).
 var gates: RuneGateDirector
+## Statues des socles (B8) et cages d'Échos (B10), carte 24 (null sinon).
+var statues: StatueDirector
+var cages: EchoCageDirector
 var cold: ColdDirector
 var ice: IceDirector
 var frost: FrostTechniques

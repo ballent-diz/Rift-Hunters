@@ -1,5 +1,21 @@
 # Rift Hunters — feuille de route
 
+## Carte 24, Panthéon brisé, en jeu (Claude, 9 novembre 2026)
+
+Décor de Codex, collisions peintes par le propriétaire. Troisième carte du chapitre 5. Test `test_shattered_pantheon`.
+
+- **Fermeture de quatre failles** (une par cour), puis gardienne sur la place centrale autour du pilier (cercle).
+- **Statues qui s'éveillent (B8, `StatueDirector`)** : une Statue endormie sur chacun des onze socles ; à 300 u du
+  Chasseur elle tremble 1,2 s puis descend en Statue éveillée. La Gardienne des statues (élite) réveille d'abord un
+  socle proche.
+- **Échos piégés (B10, `EchoCageDirector`)** : trois cages ; rester 4 s dans le cercle la brise (embuscade de trois
+  Ombres déchirées à l'ouverture), l'Écho libéré rend 15 % des PV et laisse un coffre. Objectif : libérer les trois.
+  Les galeries des autels sont peintes bloquées par le propriétaire : cages posées à leur entrée, sur la place.
+- **Gardienne du Panthéon** (`pantheon_keeper`, sprite de la Gardienne des statues) : Réveil du Panthéon (statues
+  les plus proches du Chasseur + onde de pierre).
+- **Équilibrage** (profil d'étape) : ennemis ×1 / ×0,8, failles ×5, gardienne ×2,7 / ×1,2 → 3 sur 4, combat de 54
+  à 66 s.
+
 ## Cartes 21 et 22 en jeu, chapitre 5 ouvert (Claude, 9 novembre 2026)
 
 Décors de Codex, collisions peintes par le propriétaire. Chapitre 5 « La Cité de la Faille »
