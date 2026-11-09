@@ -279,11 +279,11 @@ def publish(visual_id, frames, work):
                            'loop': name in ['loop', 'idle']})
     sheet.save(folder / 'poses.webp', lossless=True, exact=True)
     job = {'visual_id': visual_id, 'cell': list(cell), 'anchor': list(anchor), 'scale': .5,
-           'target_height': 200, 'keep_size': True, 'registered_cells': True, 'status': 'wip',
+           'target_height': 200, 'keep_size': True, 'registered_cells': True, 'status': 'final',
            'background': 'alpha', 'preserve_alpha': True, 'colors': 0, 'outline': False,
            'preview_zoom': 1, 'animations': animations, 'aliases': {},
            'palette_note': '32 couleurs maximum prélevées dans les Ruines ; alpha gradué conservé',
-           'approval': 'premier chapitre complet en attente du propriétaire',
+           'approval': 'chapitre 1 validé explicitement par le propriétaire',
            'source_recipe': 'tools/art/import_painted_barriers.py',
            'source_master': '../object.barrier_1/source/'}
     write(folder / 'job.json', job)
@@ -303,7 +303,7 @@ def main():
                 'object.barrier_1.corner': {k: [project(p, True) for p in v] for k, v in veil.items()}}
     variants.update(posts(colors))
     entries = {ident: publish(ident, frames, args.work) for ident, frames in variants.items()}
-    write(SOURCE / 'generation.json', {'mode': 'imagegen intégré', 'chapter': 1, 'approval': 'en attente',
+    write(SOURCE / 'generation.json', {'mode': 'imagegen intégré', 'chapter': 1, 'approval': 'validé par le propriétaire',
           'sources': {p.name: digest(p) for p in SOURCE.glob('*.png') if p.name != 'palette.png'},
           'prompts': [p.name for p in SOURCE.glob('PROMPT_*.txt')],
           'processing': ['découpage en grille', 'retrait du matte neutre résiduel',
@@ -311,7 +311,7 @@ def main():
                          'raccord prémultiplié des bords', 'projection des pixels peints en biais et au pli'],
           'body_height_world': 100, 'module_length_world': 128, 'entries': entries,
           'no_gameplay_changes': True})
-    print('BARRIERES_IMPORTEES', len(entries), 'assets ; validation artistique en attente')
+    print('BARRIERES_IMPORTEES', len(entries), 'assets ; chapitre 1 validé')
 
 
 if __name__ == '__main__':

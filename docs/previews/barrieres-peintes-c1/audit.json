@@ -1,7 +1,7 @@
 {
   "ok": true,
   "chapter": 1,
-  "approval": "en attente du propriétaire",
+  "approval": "validé par le propriétaire",
   "palette_rgb_count": 26,
   "palette_map": "cascade_ruins",
   "existing_manifest_entries_unchanged": true,

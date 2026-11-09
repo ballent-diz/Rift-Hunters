@@ -1,6 +1,6 @@
 {
   "date": "2026-11-09",
-  "status": "proposition C1 en attente du propriétaire",
+  "status": "chapitre 1 validé par le propriétaire",
   "generator": "imagegen intégré",
   "godot": "4.3 stable",
   "assets": [
@@ -67,12 +67,7 @@
   "script_errors": [],
   "runtime_integration": false,
   "gameplay_or_collision_changes": false,
-  "pending_chapters": [
-    2,
-    3,
-    4,
-    5
-  ],
+  "pending_chapters": [],
   "timing_note": "durées sources .833/1.333/1 s ; conserver les horloges de règles A3",
   "previews": {
     "angle_zoom_jeu.webp": {
@@ -103,5 +98,6 @@
       "bytes": 501316,
       "sha256": "1afc0b17552eca542c86d0b3adab8833118010fe329d187fd80fc0881d55f5e6"
     }
-  }
+  },
+  "approval": "Valider le chapitre 1"
 }

@@ -1,0 +1,534 @@
+{
+  "status": "cinq jeux livrés ; chapitre 1 validé, déclinaisons autorisées",
+  "generator": "imagegen intégré",
+  "asset_count": 25,
+  "godot_validation": [
+    {
+      "id": "object.barrier_1",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.bias",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.corner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.seal_a",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.seal_b",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_2",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_2.bias",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_2.corner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_2.seal_a",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_2.seal_b",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_3",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_3.bias",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_3.corner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_3.seal_a",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_3.seal_b",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_4",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_4.bias",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_4.corner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_4.seal_a",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_4.seal_b",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.bias",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.corner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.seal_a",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.seal_b",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "captures_total": 20,
+  "animated_source_frames_total": 270,
+  "gif_count": 5,
+  "native_capture_size": [
+    1280,
+    720
+  ],
+  "native_zoom": 1.3333,
+  "chapters": [
+    {
+      "chapter": 2,
+      "material": "basalte, cendres et braises",
+      "map": "scorched_verge",
+      "map_world_unscaled": [
+        5016,
+        3344
+      ],
+      "decor_scale": 1.0,
+      "center_unscaled": [
+        2450,
+        1400
+      ],
+      "capture_size": [
+        1280,
+        720
+      ],
+      "camera_zoom": 1.3333,
+      "actors": [
+        "player.hunter",
+        "monster.ashblade"
+      ],
+      "actors_changed": false,
+      "captures": 4,
+      "animation_source_frames": 54,
+      "gif_size": [
+        800,
+        450
+      ],
+      "gif_sequence": [
+        "appear 10",
+        "loop 16",
+        "loop 16",
+        "dissolve 12"
+      ],
+      "gif_cadence": "80/80/90 ms, moyenne 12 i/s",
+      "scope": "banc statique ; géométrie, collisions, règles et minuteries inchangées",
+      "godot_validation": [
+        {
+          "id": "object.barrier_2",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_2.bias",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_2.corner",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_2.seal_a",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_2.seal_b",
+          "messages": [],
+          "status": "OK"
+        }
+      ],
+      "import_errors": [],
+      "capture_errors": [],
+      "files": {
+        "angle_zoom_jeu.webp": {
+          "bytes": 460568,
+          "sha256": "327817c5b919acd6a8f2b37e98bad8e308a014084a18298d4f1bba9a19adc44e"
+        },
+        "animation.gif": {
+          "bytes": 1908027,
+          "sha256": "31f64b1d7fe8e5666fd1f7295fec875103b7eec0bb0c5f266a84947974ce3fc1"
+        },
+        "bornes_ouvertes_zoom_jeu.webp": {
+          "bytes": 453458,
+          "sha256": "6e53cdc14404de3a77d74fe5eb2c17c6158f65559d02a6bf09d76b0825305256"
+        },
+        "droite_zoom_jeu.webp": {
+          "bytes": 461608,
+          "sha256": "1852c5cad3ca7fdb87d495de17858354c538f52ddf72afbe7fe40d5e849f034f"
+        },
+        "planches_bornes.webp": {
+          "bytes": 255326,
+          "sha256": "eb3acb9dc1c5d33af14a0193f3493a2e52448cf4c931768c176527c8413eddba"
+        },
+        "planches_voile.webp": {
+          "bytes": 390870,
+          "sha256": "3f78a79fc3c291098c00f9cf511db5037eb5463e6fa87c57007af8d935d7fd39"
+        },
+        "verticale_zoom_jeu.webp": {
+          "bytes": 459972,
+          "sha256": "9c6631c122448aed1f88c393aa144318902499956e5d43d3a5de6a2fc5b3d166"
+        }
+      }
+    },
+    {
+      "chapter": 3,
+      "material": "bois noyé, racines et eau sombre",
+      "map": "root_mangrove",
+      "map_world_unscaled": [
+        5016,
+        3344
+      ],
+      "decor_scale": 1.0,
+      "center_unscaled": [
+        2750,
+        1550
+      ],
+      "capture_size": [
+        1280,
+        720
+      ],
+      "camera_zoom": 1.3333,
+      "actors": [
+        "player.hunter",
+        "monster.ashblade"
+      ],
+      "actors_changed": false,
+      "captures": 4,
+      "animation_source_frames": 54,
+      "gif_size": [
+        800,
+        450
+      ],
+      "gif_sequence": [
+        "appear 10",
+        "loop 16",
+        "loop 16",
+        "dissolve 12"
+      ],
+      "gif_cadence": "80/80/90 ms, moyenne 12 i/s",
+      "scope": "banc statique ; géométrie, collisions, règles et minuteries inchangées",
+      "godot_validation": [
+        {
+          "id": "object.barrier_3",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_3.bias",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_3.corner",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_3.seal_a",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_3.seal_b",
+          "messages": [],
+          "status": "OK"
+        }
+      ],
+      "import_errors": [],
+      "capture_errors": [],
+      "files": {
+        "angle_zoom_jeu.webp": {
+          "bytes": 539602,
+          "sha256": "4fa915dc1ceab972103071b7a6f296efb08737e4ae132be714b16c7766e317af"
+        },
+        "animation.gif": {
+          "bytes": 1658140,
+          "sha256": "af6b34f6959fed9a420595f2ef63d2e1610ddc09db90fbc8d2c17dacbd7f06d6"
+        },
+        "bornes_ouvertes_zoom_jeu.webp": {
+          "bytes": 534622,
+          "sha256": "56b3f69df68cc532515f8c3232e8e6d81e1451ef762710fea36619d69dfc3348"
+        },
+        "droite_zoom_jeu.webp": {
+          "bytes": 542712,
+          "sha256": "417bbd527f260c5706dd24b8fca05c92185f8bccd7553590ad42fbd83f62814f"
+        },
+        "planches_bornes.webp": {
+          "bytes": 313286,
+          "sha256": "858cfb1ec3ba3b999b085b42ebce4e7608fa91987e335fa977e88624dd61668d"
+        },
+        "planches_voile.webp": {
+          "bytes": 549978,
+          "sha256": "aca8a83f265fc9fc89d97e69908e8406cd40ffceeccd36be91e02fb3b836fc1a"
+        },
+        "verticale_zoom_jeu.webp": {
+          "bytes": 538154,
+          "sha256": "ea300f0b542969bc1d1e2c3c4b73036d29e020530db65643c72636dfc437be78"
+        }
+      }
+    },
+    {
+      "chapter": 4,
+      "material": "glace bleutée, givre et pierre gelée",
+      "map": "glacier_entry",
+      "map_world_unscaled": [
+        5016,
+        3344
+      ],
+      "decor_scale": 0.9,
+      "center_unscaled": [
+        2400,
+        1500
+      ],
+      "capture_size": [
+        1280,
+        720
+      ],
+      "camera_zoom": 1.3333,
+      "actors": [
+        "player.hunter",
+        "monster.ashblade"
+      ],
+      "actors_changed": false,
+      "captures": 4,
+      "animation_source_frames": 54,
+      "gif_size": [
+        800,
+        450
+      ],
+      "gif_sequence": [
+        "appear 10",
+        "loop 16",
+        "loop 16",
+        "dissolve 12"
+      ],
+      "gif_cadence": "80/80/90 ms, moyenne 12 i/s",
+      "scope": "banc statique ; géométrie, collisions, règles et minuteries inchangées",
+      "godot_validation": [
+        {
+          "id": "object.barrier_4",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_4.bias",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_4.corner",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_4.seal_a",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_4.seal_b",
+          "messages": [],
+          "status": "OK"
+        }
+      ],
+      "import_errors": [],
+      "capture_errors": [],
+      "files": {
+        "angle_zoom_jeu.webp": {
+          "bytes": 542926,
+          "sha256": "652e5d2bdbcae0f116e74e5a090f5807995a84e5b6c013fcc17cb87341e486be"
+        },
+        "animation.gif": {
+          "bytes": 1716627,
+          "sha256": "30f0dc887ea79e9d3e70f4d3f1bc4c16ebd1680e6d6f008d28c1718282349397"
+        },
+        "bornes_ouvertes_zoom_jeu.webp": {
+          "bytes": 538632,
+          "sha256": "ae9812a2d7e2c14bcc23e4c712f454a96ae1b6afe75e13f8d906eb94e9407aca"
+        },
+        "droite_zoom_jeu.webp": {
+          "bytes": 540430,
+          "sha256": "9bc2c737c6da3e2ca063d59f6c6861a91591da7ffa44f35c3b548ba08207828f"
+        },
+        "planches_bornes.webp": {
+          "bytes": 318304,
+          "sha256": "2b99c467866b784b1ff32f39f743d551aa50b935971786382fe90f2988891b76"
+        },
+        "planches_voile.webp": {
+          "bytes": 457418,
+          "sha256": "c4f049e15a2ddee8bf8b6e85f623467d2aaff4b2261dda1edb1d9c256372eba7"
+        },
+        "verticale_zoom_jeu.webp": {
+          "bytes": 541990,
+          "sha256": "333c2accc6722e3b92200a29d5343451d14b00d064ec179df3551c2f917802f6"
+        }
+      }
+    },
+    {
+      "chapter": 5,
+      "material": "acier pâle, ardoise, dorures ternies et veines magenta",
+      "map": "shattered_outskirts",
+      "map_world_unscaled": [
+        5016,
+        3344
+      ],
+      "decor_scale": 1.0,
+      "center_unscaled": [
+        4050,
+        800
+      ],
+      "capture_size": [
+        1280,
+        720
+      ],
+      "camera_zoom": 1.3333,
+      "actors": [
+        "player.hunter",
+        "monster.ashblade"
+      ],
+      "actors_changed": false,
+      "captures": 4,
+      "animation_source_frames": 54,
+      "gif_size": [
+        800,
+        450
+      ],
+      "gif_sequence": [
+        "appear 10",
+        "loop 16",
+        "loop 16",
+        "dissolve 12"
+      ],
+      "gif_cadence": "80/80/90 ms, moyenne 12 i/s",
+      "scope": "banc statique ; géométrie, collisions, règles et minuteries inchangées",
+      "godot_validation": [
+        {
+          "id": "object.barrier_5",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_5.bias",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_5.corner",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_5.seal_a",
+          "messages": [],
+          "status": "OK"
+        },
+        {
+          "id": "object.barrier_5.seal_b",
+          "messages": [],
+          "status": "OK"
+        }
+      ],
+      "import_errors": [],
+      "capture_errors": [],
+      "files": {
+        "angle_zoom_jeu.webp": {
+          "bytes": 401304,
+          "sha256": "d64c184acc04b9640b18e9277c9b905a9bc20488cd3b8ed57d623b87359dc510"
+        },
+        "animation.gif": {
+          "bytes": 2000072,
+          "sha256": "c9d88e99305ec154a8891546fe45b0bfe4fe2d11d56a368d64e674e59cbac59d"
+        },
+        "bornes_ouvertes_zoom_jeu.webp": {
+          "bytes": 391994,
+          "sha256": "48dd9512fc4b4ba9b9b92d74fca4e3106a52049f98e1c345e3a23aa434aa1f0e"
+        },
+        "droite_zoom_jeu.webp": {
+          "bytes": 402914,
+          "sha256": "b81c4e834ab1978f14aafdc4acebc79aa9fbbe19ee3d20625bdb3d5cefb89864"
+        },
+        "planches_bornes.webp": {
+          "bytes": 299834,
+          "sha256": "b23e8d7c42b46670588a3dfe4a84e374715cd1146e84f4082e617c92d070c17d"
+        },
+        "planches_voile.webp": {
+          "bytes": 390036,
+          "sha256": "5404c6d5063ed2545764856900cf2ec8eb47aa5bf708ef47223327d0b3e3d784"
+        },
+        "verticale_zoom_jeu.webp": {
+          "bytes": 397702,
+          "sha256": "0cc1d2b629302a62342da213b0c0eee75cbd865fc8d4ee55e45f66a3053c0d5e"
+        }
+      }
+    }
+  ],
+  "chapter_1_art_unchanged_since_approval": true,
+  "runtime_integrated": false,
+  "src_data_collisions_shaders_changed": false,
+  "manual_gameplay_testing": "Claude et propriétaire après raccordement"
+}

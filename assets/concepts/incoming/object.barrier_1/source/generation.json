@@ -1,7 +1,7 @@
 {
   "mode": "imagegen intégré",
   "chapter": 1,
-  "approval": "en attente",
+  "approval": "validé par le propriétaire",
   "sources": {
     "appear.png": "493525b46417b21bf62305bda6db4d6795597f87dc02eeb9b8e1823f0f42f38f",
     "bornes.png": "15727334ca8ffc2eec1bd406a236f26027a7aa84022b7a050de77eb5c8ff389d",
@@ -26,7 +26,7 @@
   "module_length_world": 128,
   "entries": {
     "object.barrier_1": {
-      "status": "wip",
+      "status": "final",
       "imported_from": "assets/concepts/incoming/object.barrier_1/job.json",
       "sheet": "res://assets/sprites/objects/barrier_1/barrier_1_sheet.png",
       "cell": [
@@ -61,7 +61,7 @@
       "icon": "res://assets/ui/icons/objects/barrier_1.png"
     },
     "object.barrier_1.bias": {
-      "status": "wip",
+      "status": "final",
       "imported_from": "assets/concepts/incoming/object.barrier_1.bias/job.json",
       "sheet": "res://assets/sprites/objects/barrier_1/barrier_1_bias_sheet.png",
       "cell": [
@@ -96,7 +96,7 @@
       "icon": "res://assets/ui/icons/objects/barrier_1_bias.png"
     },
     "object.barrier_1.corner": {
-      "status": "wip",
+      "status": "final",
       "imported_from": "assets/concepts/incoming/object.barrier_1.corner/job.json",
       "sheet": "res://assets/sprites/objects/barrier_1/barrier_1_corner_sheet.png",
       "cell": [
@@ -131,7 +131,7 @@
       "icon": "res://assets/ui/icons/objects/barrier_1_corner.png"
     },
     "object.barrier_1.seal_a": {
-      "status": "wip",
+      "status": "final",
       "imported_from": "assets/concepts/incoming/object.barrier_1.seal_a/job.json",
       "sheet": "res://assets/sprites/objects/barrier_1/barrier_1_seal_a_sheet.png",
       "cell": [
@@ -160,7 +160,7 @@
       "icon": "res://assets/ui/icons/objects/barrier_1_seal_a.png"
     },
     "object.barrier_1.seal_b": {
-      "status": "wip",
+      "status": "final",
       "imported_from": "assets/concepts/incoming/object.barrier_1.seal_b/job.json",
       "sheet": "res://assets/sprites/objects/barrier_1/barrier_1_seal_b_sheet.png",
       "cell": [

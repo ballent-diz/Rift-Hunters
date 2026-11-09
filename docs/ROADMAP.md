@@ -703,6 +703,10 @@ glacier_entry 0,9 ; storm_lake 0,7 ; brazier_pass déjà à l'échelle. À l'int
 victoires avant, 10/16 après, dégâts subis comparables : pas de réajustement. Carte 15 (marsh_heart) NON réduite : Codex l'a
 repeinte (PR #136). Les chiffres du bot incluent un essai marsh_heart à 0,65 (ses 4 parties : 0/4 avant, 2/4 après).
 
-## Barrières peintes — chapitre 1 prêt pour validation (Codex, 9 novembre)
+## Barrières peintes — chapitre 1 validé (Codex, 9 novembre)
 
-Premier jeu complet à valider par le propriétaire avant toute déclinaison : deux bornes moussues de 100 unités, fûts 34,5 unités, voile face/biais et angle ; loop 16 poses, appear 10, dissolve 12 à 12 images/s. Cinq assets wip, 26 couleurs communes prélevées sur les Ruines, sources imagegen intégré et jobs conservés. Quatre captures à l’échelle avec Chasseur et Cendrelame, GIF complet, audit et chargement Godot conformes. Voir [BARRIERES_PEINTES.md](art/BARRIERES_PEINTES.md). Aucun changement de src/, data/, shaders, collisions ou minuteries ; Claude raccordera après validation. Chapitres 2 à 5 en attente du propriétaire.
+Premier jeu complet validé explicitement par le propriétaire (« Valider le chapitre 1 ») : deux bornes moussues de 100 unités, fûts 34,5 unités, voile face/biais et angle ; loop 16 poses, appear 10, dissolve 12 à 12 images/s. Les cinq assets passent final, sans changer leur dessin. Sources imagegen intégré, jobs, captures et GIF conservés. Voir [BARRIERES_PEINTES.md](art/BARRIERES_PEINTES.md). Cette validation autorise les déclinaisons prévues dans les quatre autres chapitres.
+
+## Barrières peintes — cinq jeux livrés (Codex)
+
+Après validation du chapitre 1 : basalte/braises, bois noyé/racines/eau, glace/givre et acier pâle/ardoise/dorures/magenta. 25 assets final, deux bornes par chapitre, mêmes ancres et animations ; dix bornes mesurées 99,5–100,5 unités, fûts 34,5–36,5. Palettes issues des décors, 26/32/31/32/32 couleurs RGB ; raccords et boucles contrôlés. Import Godot et 25 chargements conformes, 20 captures natives au zoom 1,3333 avec Chasseur/Cendrelame et cinq GIF complets. Sources peintes, prompts, jobs, guide et recette conservés. Aucun changement de src/, data/, cartes, shaders, collisions, règles ou minuteries ; Claude raccordera les modules aux barrières existantes. Le dessin validé du chapitre 1 reste identique.

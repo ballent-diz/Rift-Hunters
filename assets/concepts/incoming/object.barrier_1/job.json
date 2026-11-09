@@ -12,7 +12,7 @@
   "target_height": 200,
   "keep_size": true,
   "registered_cells": true,
-  "status": "wip",
+  "status": "final",
   "background": "alpha",
   "preserve_alpha": true,
   "colors": 0,
@@ -58,7 +58,7 @@
   ],
   "aliases": {},
   "palette_note": "32 couleurs maximum prélevées dans les Ruines ; alpha gradué conservé",
-  "approval": "premier chapitre complet en attente du propriétaire",
+  "approval": "chapitre 1 validé explicitement par le propriétaire",
   "source_recipe": "tools/art/import_painted_barriers.py",
   "source_master": "../object.barrier_1/source/"
 }

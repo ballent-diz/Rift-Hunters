@@ -1,14 +1,45 @@
-# Barrières peintes — proposition du chapitre 1
+# Barrières peintes — cinq chapitres
 
-**9 novembre 2026 — premier jeu complet en attente de validation artistique du propriétaire.**
-Les chapitres 2 à 5 ne sont pas commencés. Le shader et les barrières actuelles restent en jeu ; Claude raccordera
-les sprites après validation. Aucun changement de `src/`, `data/`, shaders, cartes ou collisions dans ce lot.
+**9 novembre 2026 — chapitre 1 validé explicitement par le propriétaire ; déclinaisons 2 à 5 livrées.**
+Les cinq jeux contiennent chacun un voile face/biais/angle et deux bornes animées, soit **25 assets final**.
+Le dessin validé du chapitre 1 est conservé pixel par pixel. Le shader et les barrières actuelles restent en jeu ;
+Claude raccordera les sprites. Aucun changement de `src/`, `data/`, shaders, cartes ou collisions dans ce lot.
 
-## Direction et aperçu
+![Les cinq jeux sur leurs cartes](../previews/barrieres-peintes/comparaison_5_chapitres.webp)
+
+## Jeux et captures par chapitre
+
+Chaque lien de capture conserve le zoom **1,3333** et la résolution **1280 × 720**, avec le Chasseur et Cendrelame
+à leur échelle actuelle. Les GIF sont des aperçus réduits : apparition, deux boucles, dissolution, 54 poses chacun.
+
+| Chapitre / préfixe du manifeste | Matière / carte témoin | Couleurs RGB communes | Captures et animation |
+|---|---|---:|---|
+| 1 — `object.barrier_1` | Pierre moussue, runes violettes / Ruines des Cascades | 26 | [Droite](../previews/barrieres-peintes-c1/droite_zoom_jeu.webp), [angle](../previews/barrieres-peintes-c1/angle_zoom_jeu.webp), [verticale](../previews/barrieres-peintes-c1/verticale_zoom_jeu.webp), [GIF](../previews/barrieres-peintes-c1/animation.gif) |
+| 2 — `object.barrier_2` | Basalte, cendres et braises / Lisière calcinée | 32 | [Droite](../previews/barrieres-peintes-c2/droite_zoom_jeu.webp), [angle](../previews/barrieres-peintes-c2/angle_zoom_jeu.webp), [verticale](../previews/barrieres-peintes-c2/verticale_zoom_jeu.webp), [GIF](../previews/barrieres-peintes-c2/animation.gif) |
+| 3 — `object.barrier_3` | Bois noyé, racines et eau sombre / Mangrove des racines | 31 | [Droite](../previews/barrieres-peintes-c3/droite_zoom_jeu.webp), [angle](../previews/barrieres-peintes-c3/angle_zoom_jeu.webp), [verticale](../previews/barrieres-peintes-c3/verticale_zoom_jeu.webp), [GIF](../previews/barrieres-peintes-c3/animation.gif) |
+| 4 — `object.barrier_4` | Glace, givre et pierre gelée / Entrée du Glacier | 32 | [Droite](../previews/barrieres-peintes-c4/droite_zoom_jeu.webp), [angle](../previews/barrieres-peintes-c4/angle_zoom_jeu.webp), [verticale](../previews/barrieres-peintes-c4/verticale_zoom_jeu.webp), [GIF](../previews/barrieres-peintes-c4/animation.gif) |
+| 5 — `object.barrier_5` | Acier pâle, ardoise, dorures et magenta / Faubourgs brisés | 32 | [Droite](../previews/barrieres-peintes-c5/droite_zoom_jeu.webp), [angle](../previews/barrieres-peintes-c5/angle_zoom_jeu.webp), [verticale](../previews/barrieres-peintes-c5/verticale_zoom_jeu.webp), [GIF](../previews/barrieres-peintes-c5/animation.gif) |
+
+Les bornes éteintes et toutes les poses sont aussi visibles dans chaque dossier `barrieres-peintes-cN` :
+`bornes_ouvertes_zoom_jeu.webp`, `planches_bornes.webp`, `planches_voile.webp`.
+Les dix bornes mesurent **99,5 à 100,5 unités de haut**, avec un fût médian de **34,5 à 36,5 unités**.
+Les dimensions nominales du voile restent 128 × 100 unités. Le sol demeure visible dans ses transparences.
+
+Le banc respecte le `decor_scale` actuel de l’Entrée du Glacier (**0,9**) pour le décor et les positions ;
+les personnages et modules gardent leurs dimensions en unités de jeu. Les autres cartes témoins sont à 1.
+Les palettes des chapitres 2 à 5 sont prélevées dans les pixels de leurs cartes : basalte/braises, bois/eau,
+ombres/glace et métal/or/corruption. Les accents restent dans leur famille de couleur pendant la quantification,
+pour éviter de rabattre un filament de braise ou une veine magenta sur la pierre neutre.
+
+[Audit des 25 assets](../previews/barrieres-peintes/audit.json) ·
+[Chargement Godot, 20 captures et 5 GIF](../previews/barrieres-peintes/controle_livraison.json).
+Les essais de circulation et de combat restent à faire après raccordement par Claude.
+
+## Référence artistique validée : chapitre 1
 
 Deux bornes de pierre grise moussue, runes violettes gravées, pieds et ombres peints. Le voile est une matière
 trouée et translucide, tissée de filaments qui ondulent, se construisent puis se fragmentent.
-Les quatre planches ont été dessinées avec **imagegen intégré** ; les prompts exacts sont dans
+Les quatre planches initiales ont été dessinées avec **imagegen intégré** ; les prompts exacts sont dans
 `assets/concepts/incoming/object.barrier_1/source/PROMPT_*.txt`.
 
 La palette est prélevée sur les pierres, mousses et cristaux de la carte des Ruines des Cascades :
@@ -34,6 +65,7 @@ les captures fixes conservent leur résolution native.
 ## Modules livrés
 
 Toutes les dimensions de cellule et les ancres ci-dessous sont en pixels d’art ; **scale = 0,5**.
+Remplacer `barrier_1` par `barrier_N` pour le chapitre voulu : mêmes cellules, ancres et noms d’animation dans les cinq jeux.
 L’ancre est le point de départ de la ligne au sol, sauf pour les bornes, centrées sur leur pied.
 
 | Identifiant du manifeste | Cellule | Ancre | Parcours au sol, en unités |
@@ -105,18 +137,22 @@ celles du Chasseur. Les positions viennent de la géométrie finale déjà mise 
 ## Sources, import et contrôles
 
 Chaque identifiant possède son `job.json` et sa planche normalisée `poses.webp`, sous le `.gdignore` commun.
-Les quatre sources retenues, prompts, palette et empreintes sont conservés dans
-`assets/concepts/incoming/object.barrier_1/source/`. Les essais rejetés restent hors Git.
+Les quatre sources initiales et les deux sources de chaque déclinaison (atlas de 38 poses de voile, atlas de 24 poses
+de bornes) viennent d’imagegen intégré. Les douze sources retenues, prompts exacts, palettes, repères et empreintes
+sont conservés dans `assets/concepts/incoming/object.barrier_N/source/`. Les essais rejetés restent hors Git.
 
 ```bash
 python3 tools/art/import_painted_barriers.py --assets-root /chemin/jeu --work /tmp/barrieres-c1
-python3 tools/art/check_painted_barriers.py --out /tmp/barrieres-c1/audit.json
+python3 tools/art/import_barrier_chapters.py --assets-root /chemin/jeu --work /tmp/barrieres-c2-c5
+python3 tools/art/check_painted_barriers.py --out /tmp/barrieres/audit.json
 godot --headless --import --path .
 ```
 
-Le premier outil fait le découpage, retire le résidu de matte neutre, aligne les cellules, conserve les trous
-alpha, calibre les bornes, applique la palette du décor puis utilise `import_sheet.py`. Il crée cinq entrées
-**wip**, sans remplacer `vfx.barrier.energy`. Les anciens assets et toutes les autres entrées restent inchangés.
+Les outils font le découpage, retirent le résidu de matte neutre (dont le fond quadrillé pâle de la source du voile
+des marais), alignent les cellules, conservent les trous alpha, calibrent les bornes et appliquent les palettes
+des décors, puis utilisent `import_sheet.py`. Les **25 entrées sont final**, protégées de la génération procédurale,
+sans remplacer `vfx.barrier.energy`. Les anciens assets et toutes les autres entrées restent inchangés.
+L’audit contrôle aussi que les images du chapitre 1 correspondent toujours au lot explicitement validé.
 
 [Audit des sprites](../previews/barrieres-peintes-c1/audit.json) : cinq assets, palette commune, dimensions,
 poses distinctes, coutures, points de raccord entre états et invariants de portée.
@@ -124,5 +160,6 @@ poses distinctes, coutures, points de raccord entre états et invariants de port
 valides, quatre captures natives et 54 poses du GIF. Le banc est `tools/art/preview_painted_barriers.tscn`, avec
 `--art-root=… --assets-root=… --out=…`, dans un projet isolé sans autoload ou sauvegarde.
 
-**À valider maintenant :** style du chapitre 1, densité du voile, rythme des trois animations, bornes et raccords.
-Après validation seulement : basalte/braises, bois noyé/racines, glace/givre et acier/ardoise/dorures.
+**Validation reçue :** « Valider le chapitre 1 ». Les quatre déclinaisons sont livrées conformément à cette validation.
+Le raccordement runtime, l’ordre de profondeur dans les vraies scènes et les changements rapides d’état restent
+à vérifier par Claude et le propriétaire. Le banc accepte `--chapter=1|2|3|4|5` en plus des chemins ci-dessus.
