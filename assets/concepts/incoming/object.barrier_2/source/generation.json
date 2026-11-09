@@ -1,0 +1,262 @@
+{
+  "mode": "imagegen intégré",
+  "chapter": 2,
+  "authorization": "chapitre 1 validé ; déclinaison demandée dans le lot initial",
+  "material": "basalte, cendres et braises",
+  "map": "scorched_verge",
+  "source_grids": {
+    "voile.png": [
+      8,
+      5
+    ],
+    "bornes.png": [
+      6,
+      4
+    ]
+  },
+  "source_sha256": {
+    "bornes.png": "5dc17ce3af6e13394d172169dfc881750fd9d01f4d4d8ef37206e8f7712ba337",
+    "palette.png": "ec1b13c3f22d240afd4ada35e1965ecd155ccbbf8528a2640eb49eaffbba95ea",
+    "voile.png": "002157c22b4524c5128036ca724fbf4a6923966798f8ebb5e3b069f869c5cf8c"
+  },
+  "prompts": [
+    "PROMPT_bornes.txt",
+    "PROMPT_voile.txt"
+  ],
+  "approved_motion_reference": "object.barrier_1/poses.webp",
+  "approved_motion_sha256": "72cf9a01376e91b2416b38bd82874336aacdabefb7979d34c7b124a4eae13b6f",
+  "veil_registration": {
+    "loop": {
+      "source_body_bounds": [
+        0,
+        16,
+        198,
+        161
+      ],
+      "vertical_scale": 1.3793103448275863,
+      "registered_anchor": [
+        0,
+        224
+      ],
+      "common_transform_for_animation": true
+    },
+    "appear": {
+      "source_body_bounds": [
+        0,
+        21,
+        198,
+        161
+      ],
+      "vertical_scale": 1.4285714285714286,
+      "registered_anchor": [
+        0,
+        224
+      ],
+      "common_transform_for_animation": true
+    },
+    "dissolve": {
+      "source_body_bounds": [
+        0,
+        21,
+        199,
+        161
+      ],
+      "vertical_scale": 1.4285714285714286,
+      "registered_anchor": [
+        0,
+        224
+      ],
+      "common_transform_for_animation": true
+    }
+  },
+  "pillar_registration": [
+    {
+      "id": "object.barrier_2.seal_a",
+      "horizontal_scale": 0.9722222222222222,
+      "target_shaft_width_px": 70,
+      "animated_glyph_pixels": 5206,
+      "fixed_body_outside_glyphs": true
+    },
+    {
+      "id": "object.barrier_2.seal_b",
+      "horizontal_scale": 1.0606060606060606,
+      "target_shaft_width_px": 70,
+      "animated_glyph_pixels": 5412,
+      "fixed_body_outside_glyphs": true
+    }
+  ],
+  "processing": [
+    "retrait du résidu neutre de matte",
+    "découpage et ancrage par planche",
+    "palette prélevée sur le décor",
+    "raccord local prémultiplié",
+    "projection face, biais et pli",
+    "corps et ombre des bornes fixes"
+  ],
+  "entries": {
+    "object.barrier_2": {
+      "status": "final",
+      "imported_from": "assets/concepts/incoming/object.barrier_2/job.json",
+      "sheet": "res://assets/sprites/objects/barrier_2/barrier_2_sheet.png",
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        0,
+        224
+      ],
+      "scale": 0.5,
+      "animations": {
+        "loop": {
+          "row": 0,
+          "frames": 16,
+          "fps": 12,
+          "loop": true
+        },
+        "appear": {
+          "row": 1,
+          "frames": 10,
+          "fps": 12,
+          "loop": false
+        },
+        "dissolve": {
+          "row": 2,
+          "frames": 12,
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "icon": "res://assets/ui/icons/objects/barrier_2.png"
+    },
+    "object.barrier_2.bias": {
+      "status": "final",
+      "imported_from": "assets/concepts/incoming/object.barrier_2.bias/job.json",
+      "sheet": "res://assets/sprites/objects/barrier_2/barrier_2_bias_sheet.png",
+      "cell": [
+        112,
+        512
+      ],
+      "anchor": [
+        16,
+        224
+      ],
+      "scale": 0.5,
+      "animations": {
+        "loop": {
+          "row": 0,
+          "frames": 16,
+          "fps": 12,
+          "loop": true
+        },
+        "appear": {
+          "row": 1,
+          "frames": 10,
+          "fps": 12,
+          "loop": false
+        },
+        "dissolve": {
+          "row": 2,
+          "frames": 12,
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "icon": "res://assets/ui/icons/objects/barrier_2_bias.png"
+    },
+    "object.barrier_2.corner": {
+      "status": "final",
+      "imported_from": "assets/concepts/incoming/object.barrier_2.corner/job.json",
+      "sheet": "res://assets/sprites/objects/barrier_2/barrier_2_corner_sheet.png",
+      "cell": [
+        384,
+        384
+      ],
+      "anchor": [
+        16,
+        224
+      ],
+      "scale": 0.5,
+      "animations": {
+        "loop": {
+          "row": 0,
+          "frames": 16,
+          "fps": 12,
+          "loop": true
+        },
+        "appear": {
+          "row": 1,
+          "frames": 10,
+          "fps": 12,
+          "loop": false
+        },
+        "dissolve": {
+          "row": 2,
+          "frames": 12,
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "icon": "res://assets/ui/icons/objects/barrier_2_corner.png"
+    },
+    "object.barrier_2.seal_a": {
+      "status": "final",
+      "imported_from": "assets/concepts/incoming/object.barrier_2.seal_a/job.json",
+      "sheet": "res://assets/sprites/objects/barrier_2/barrier_2_seal_a_sheet.png",
+      "cell": [
+        160,
+        256
+      ],
+      "anchor": [
+        80,
+        232
+      ],
+      "scale": 0.5,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "open": {
+          "row": 1,
+          "frames": 6,
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "icon": "res://assets/ui/icons/objects/barrier_2_seal_a.png"
+    },
+    "object.barrier_2.seal_b": {
+      "status": "final",
+      "imported_from": "assets/concepts/incoming/object.barrier_2.seal_b/job.json",
+      "sheet": "res://assets/sprites/objects/barrier_2/barrier_2_seal_b_sheet.png",
+      "cell": [
+        160,
+        256
+      ],
+      "anchor": [
+        80,
+        232
+      ],
+      "scale": 0.5,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frames": 6,
+          "fps": 12,
+          "loop": true
+        },
+        "open": {
+          "row": 1,
+          "frames": 6,
+          "fps": 12,
+          "loop": false
+        }
+      },
+      "icon": "res://assets/ui/icons/objects/barrier_2_seal_b.png"
+    }
+  },
+  "no_gameplay_changes": true
+}

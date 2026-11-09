@@ -1,0 +1,97 @@
+{
+  "chapter": 5,
+  "material": "acier pâle, ardoise, dorures ternies et veines magenta",
+  "map": "shattered_outskirts",
+  "map_world_unscaled": [
+    5016,
+    3344
+  ],
+  "decor_scale": 1.0,
+  "center_unscaled": [
+    4050,
+    800
+  ],
+  "capture_size": [
+    1280,
+    720
+  ],
+  "camera_zoom": 1.3333,
+  "actors": [
+    "player.hunter",
+    "monster.ashblade"
+  ],
+  "actors_changed": false,
+  "captures": 4,
+  "animation_source_frames": 54,
+  "gif_size": [
+    800,
+    450
+  ],
+  "gif_sequence": [
+    "appear 10",
+    "loop 16",
+    "loop 16",
+    "dissolve 12"
+  ],
+  "gif_cadence": "80/80/90 ms, moyenne 12 i/s",
+  "scope": "banc statique ; géométrie, collisions, règles et minuteries inchangées",
+  "godot_validation": [
+    {
+      "id": "object.barrier_5",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.bias",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.corner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.seal_a",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_5.seal_b",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "import_errors": [],
+  "capture_errors": [],
+  "files": {
+    "angle_zoom_jeu.webp": {
+      "bytes": 401304,
+      "sha256": "d64c184acc04b9640b18e9277c9b905a9bc20488cd3b8ed57d623b87359dc510"
+    },
+    "animation.gif": {
+      "bytes": 2000072,
+      "sha256": "c9d88e99305ec154a8891546fe45b0bfe4fe2d11d56a368d64e674e59cbac59d"
+    },
+    "bornes_ouvertes_zoom_jeu.webp": {
+      "bytes": 391994,
+      "sha256": "48dd9512fc4b4ba9b9b92d74fca4e3106a52049f98e1c345e3a23aa434aa1f0e"
+    },
+    "droite_zoom_jeu.webp": {
+      "bytes": 402914,
+      "sha256": "b81c4e834ab1978f14aafdc4acebc79aa9fbbe19ee3d20625bdb3d5cefb89864"
+    },
+    "planches_bornes.webp": {
+      "bytes": 299834,
+      "sha256": "b23e8d7c42b46670588a3dfe4a84e374715cd1146e84f4082e617c92d070c17d"
+    },
+    "planches_voile.webp": {
+      "bytes": 390036,
+      "sha256": "5404c6d5063ed2545764856900cf2ec8eb47aa5bf708ef47223327d0b3e3d784"
+    },
+    "verticale_zoom_jeu.webp": {
+      "bytes": 397702,
+      "sha256": "0cc1d2b629302a62342da213b0c0eee75cbd865fc8d4ee55e45f66a3053c0d5e"
+    }
+  }
+}

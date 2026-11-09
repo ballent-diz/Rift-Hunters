@@ -1,0 +1,64 @@
+{
+  "visual_id": "object.barrier_4.bias",
+  "cell": [
+    112,
+    512
+  ],
+  "anchor": [
+    16,
+    224
+  ],
+  "scale": 0.5,
+  "target_height": 200,
+  "keep_size": true,
+  "registered_cells": true,
+  "status": "final",
+  "background": "alpha",
+  "preserve_alpha": true,
+  "colors": 0,
+  "outline": false,
+  "preview_zoom": 1,
+  "animations": [
+    {
+      "name": "loop",
+      "source": "poses.webp",
+      "grid": [
+        16,
+        3
+      ],
+      "row": 0,
+      "frames": 16,
+      "fps": 12,
+      "loop": true
+    },
+    {
+      "name": "appear",
+      "source": "poses.webp",
+      "grid": [
+        16,
+        3
+      ],
+      "row": 1,
+      "frames": 10,
+      "fps": 12,
+      "loop": false
+    },
+    {
+      "name": "dissolve",
+      "source": "poses.webp",
+      "grid": [
+        16,
+        3
+      ],
+      "row": 2,
+      "frames": 12,
+      "fps": 12,
+      "loop": false
+    }
+  ],
+  "aliases": {},
+  "palette_note": "32 couleurs RGB maximum prélevées sur glacier_entry",
+  "approval": "déclinaison autorisée après validation du chapitre 1",
+  "source_recipe": "tools/art/import_barrier_chapters.py",
+  "source_master": "../object.barrier_4/source/"
+}
