@@ -1,14 +1,20 @@
 # Rift Hunters — feuille de route
 
-## Carte 24, Panthéon brisé — EN PAUSE (Claude, 9 novembre 2026)
+## Carte 24, Panthéon brisé, en jeu (Claude, 9 novembre 2026)
 
-Branche `claude/carte-24` (non fusionnée, sans PR). Fait : collisions, manifeste, `data/arenas/shattered_pantheon.tres`
-(4 failles, finale autour du pilier), B8 `StatueDirector` (11 statues endormies sur les socles, éveil à 300 u), B10
-`EchoCageDirector` (3 cages aux bouches des galeries, que le propriétaire a peintes bloquées), gardienne
-`pantheon_keeper` (Réveil du Panthéon), textes FR/EN, chapitre 5 carte 3, test `test_shattered_pantheon` (4/4 verts),
-bot 3/4 (gardien ×2,7 / ×1,2, combat 54-66 s). **Reste** : lancer `tools/run_tests.sh` complet, vignette de menu
-(`build_expedition_previews.gd` déjà à jour), ligne 24 de `docs/design/CARTES.md`, PR. PR #139 (cartes 21-22) à
-fusionner d'abord si sa CI est verte.
+Décor de Codex, collisions peintes par le propriétaire. Troisième carte du chapitre 5. Test `test_shattered_pantheon`.
+
+- **Fermeture de quatre failles** (une par cour), puis gardienne sur la place centrale autour du pilier (cercle).
+- **Statues qui s'éveillent (B8, `StatueDirector`)** : une Statue endormie sur chacun des onze socles ; à 300 u du
+  Chasseur elle tremble 1,2 s puis descend en Statue éveillée. La Gardienne des statues (élite) réveille d'abord un
+  socle proche.
+- **Échos piégés (B10, `EchoCageDirector`)** : trois cages ; rester 4 s dans le cercle la brise (embuscade de trois
+  Ombres déchirées à l'ouverture), l'Écho libéré rend 15 % des PV et laisse un coffre. Objectif : libérer les trois.
+  Les galeries des autels sont peintes bloquées par le propriétaire : cages posées à leur entrée, sur la place.
+- **Gardienne du Panthéon** (`pantheon_keeper`, sprite de la Gardienne des statues) : Réveil du Panthéon (statues
+  les plus proches du Chasseur + onde de pierre).
+- **Équilibrage** (profil d'étape) : ennemis ×1 / ×0,8, failles ×5, gardienne ×2,7 / ×1,2 → 3 sur 4, combat de 54
+  à 66 s.
 
 ## Cartes 21 et 22 en jeu, chapitre 5 ouvert (Claude, 9 novembre 2026)
 
