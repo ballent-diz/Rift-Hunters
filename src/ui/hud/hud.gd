@@ -289,9 +289,39 @@ func _draw_team(w: float, h: float) -> void:
 				var ratio: float = cd / maxf(ally.technique_cooldown(), 0.01)
 				draw_rect(Rect2(rect.position + Vector2(0, 70), Vector2(card_w * (1.0 - ratio), 2)), UiKit.GOLD)
 		x += card_w + 12.0
+	if ctx.allies.mode == EchoMode.RELAY:
+		_draw_reserve(x, y)
+	elif ctx.allies.mode == EchoMode.SOLO and not ctx.allies.roster.is_empty():
+		_text(Vector2(0, h - 40), tr("HUD_SOLO_MODE"), 14, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
 	if ctx.allies.has_free_slot() and not ctx.milestones():
-		var free: int = ctx.allies.team_slots() - team.size()
+		var free: int = ctx.allies.team_slots() - ctx.allies.team_size()
 		_text(Vector2(0, h - 96), tr("HUD_FREE_SLOT") % free, 13, UiKit.MUTED, HORIZONTAL_ALIGNMENT_CENTER, w)
+
+
+## Mode Relais : petits portraits des Échos en réserve à droite de l'Écho actif, le prochain en premier, avec la
+## touche et la recharge du relais.
+func _draw_reserve(x: float, y: float) -> void:
+	var allies: AllyManager = ctx.allies
+	var count: int = allies.roster.size()
+	if count < 2:
+		return
+	var size: float = 44.0
+	var ready: bool = allies.relay_ready()
+	var label: String = "[%s] %s" % [InputSetup.key_label(&"echo_relay"), tr("HUD_RELAY") if allies.relay_cd <= 0.0
+		else "%.1fs" % allies.relay_cd]
+	_text(Vector2(x, y + 12), label, 13, UiKit.GOLD if ready else UiKit.MUTED)
+	for step: int in range(1, count):
+		var ally: Ally = allies.roster[(allies.active_index + step) % count]
+		var rect := Rect2(x + (step - 1) * (size + 6.0), y + 20.0, size, size)
+		draw_rect(rect, Color(0.07, 0.08, 0.13, 0.85))
+		var icon: Texture2D = _icon_for(ally)
+		var alpha: float = 1.0 if step == 1 and ready else 0.45
+		if icon:
+			draw_texture_rect(icon, rect.grow(-3.0), false, Color(1, 1, 1, alpha))
+		if step == 1 and allies.relay_cd > 0.0:
+			var left: float = clampf(allies.relay_cd / maxf(ctx.balance.relay_cooldown, 0.01), 0.0, 1.0)
+			draw_rect(Rect2(rect.position, Vector2(size, size * left)), Color(0, 0, 0, 0.5))
+		draw_rect(rect, UiKit.GOLD if step == 1 and ready else Color(ally.data.visual.primary, 0.6), false, 2.0)
 
 
 ## Sorts du Chasseur : icône, touche, nom et recharge de chaque emplacement équipé. Dessinés sur `canvas` (calque

@@ -50,6 +50,10 @@ func preview_casting() -> bool:
 	return Settings.spell_preview
 
 
+func relay_requested() -> bool:
+	return Input.is_action_just_pressed(&"echo_relay")
+
+
 func focus_requested() -> bool:
 	return Input.is_action_just_pressed(&"focus_order")
 

@@ -4,9 +4,12 @@ extends RefCounted
 
 ## `decor` : garde les obstacles du décor (par défaut retirés : les tests de gameplay ne dépendent pas du dessin
 ## de la map).
-static func create(host: Node, starter: StringName = &"", run_seed: int = 7, decor: bool = false) -> RunController:
+## `echo_mode` : mode des Échos (EchoMode), mode actuel par défaut.
+static func create(host: Node, starter: StringName = &"", run_seed: int = 7, decor: bool = false,
+		echo_mode: StringName = EchoMode.CURRENT) -> RunController:
 	var setup := RunSetup.new()
 	setup.starter_id = starter
+	setup.echo_mode = echo_mode
 	setup.run_seed = run_seed
 	setup.autopilot = true
 	setup.unlocked_monsters = GameDB.sorted_ids(GameDB.monsters)

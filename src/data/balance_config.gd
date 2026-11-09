@@ -39,6 +39,19 @@ extends Resource
 @export var ally_leash_distance: float = 560.0
 @export var focus_duration: float = 5.0
 @export var focus_radius: float = 220.0
+@export_group("Modes des Échos (prototypes, EchoMode)")
+## Relais : multiplicateur des dégâts de l'Écho sur le terrain (il combat seul au lieu de trois).
+@export var relay_damage_mult: float = 2.2
+## Relais : temps de recharge entre deux changements d'Écho.
+@export var relay_cooldown: float = 4.0
+## Relais : puissance de l'attaque d'entrée (Technique de l'Écho qui entre, lancée sans toucher à sa recharge).
+@export var relay_entry_power: float = 1.0
+## Solo : renforts du Chasseur sans Échos (bonus en pourcentage : 0,6 = +60 %).
+@export var solo_damage_pct: float = 0.9
+@export var solo_max_hp_pct: float = 0.4
+@export var solo_attack_speed_pct: float = 0.3
+## Solo : réduction des recharges des sorts du Chasseur (0,2 = -20 %).
+@export var solo_spell_cooldown_pct: float = 0.2
 @export_group("Niveaux")
 @export var xp_base: float = 4.0
 @export var xp_exponent: float = 1.3

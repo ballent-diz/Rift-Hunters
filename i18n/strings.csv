@@ -2241,3 +2241,11 @@ BOSS_ABYSSARCH_PHASE_ICE,Forme de la glace,Ice Form
 BOSS_ABYSSARCH_PHASE_RIFT,L'Œil grand ouvert,The Eye Wide Open
 BOSS_PATTERN_CRYSTAL_RAIN,Pluie de cristaux,Crystal Rain
 BOSS_ABYSSARCH_DEFEATED,L'Œil se referme. La Faille s'éteint… Le voyage du Chasseur s'achève.,The Eye closes. The Rift fades out… The Hunter's journey comes to an end.
+OPTIONS_ECHO_MODE,Mode des Échos : %s,Echo mode: %s
+OPTIONS_ECHO_MODE_HINT,"Prototype à l'essai, appliqué à la prochaine partie. Actuel : les trois Échos combattent. Relais : un seul Écho sur le terrain, la touche de relais fait entrer le suivant. Solo : aucun Écho, Chasseur renforcé.","Prototype under test, applied to the next run. Current: all three Echoes fight. Relay: one Echo on the field, the relay key brings in the next one. Solo: no Echoes, stronger Hunter."
+ECHO_MODE_CURRENT,Actuel,Current
+ECHO_MODE_RELAY,Relais,Relay
+ECHO_MODE_SOLO,Solo,Solo
+ACTION_ECHO_RELAY,Relais d'Écho (mode Relais),Echo relay (Relay mode)
+HUD_RELAY,Relais,Relay
+HUD_SOLO_MODE,Mode Solo : Chasseur renforcé,Solo mode: empowered Hunter

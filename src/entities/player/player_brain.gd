@@ -49,6 +49,11 @@ func preview_casting() -> bool:
 	return false
 
 
+## Mode Relais (EchoMode) : faire entrer l'Écho suivant.
+func relay_requested() -> bool:
+	return false
+
+
 func focus_requested() -> bool:
 	return false
 

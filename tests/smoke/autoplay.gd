@@ -6,6 +6,7 @@ extends Node
 ##         [--night] (nuit d'essai, brique B2) [--boss=root_sentinel] (autre boss ou gardien) [--altar] (défense d'autel d'essai)
 ##         [--shallows] (gués d'essai) [--rivers] (crues et courant d'essai, carte 5)
 ##         [--team=mossback,glimmerwing] (compagnons de l'Écho de tête, équipe composée au refuge)
+##         [--echo-mode=relay] (mode des Échos à l'essai : current, relay, solo)
 
 var _run: RunController
 var _frames: int = 0
@@ -62,6 +63,9 @@ func _ready() -> void:
 			"modifiers":
 				for id: String in parts[1].split(",", false):
 					setup.modifier_ids.append(StringName(id))
+			"echo-mode":
+				# Mode des Échos à l'essai (EchoMode) : current, relay ou solo.
+				setup.echo_mode = EchoMode.sanitize(parts[1])
 			"team":
 				# Équipe du refuge (compagnons de l'Écho de tête), ex. --team=mossback,glimmerwing
 				for id: String in parts[1].split(",", false):
