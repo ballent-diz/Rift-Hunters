@@ -120,6 +120,10 @@ func step(delta: float) -> void:
 			_clear_indicators()
 			for mechanics: BossMechanics in _mechanics:
 				mechanics.finish()
+			if data.death_visual_id != &"" and boss.visual.swap_visual(data.death_visual_id, data.death_visual_aliases):
+				boss.visual.play_action(&"death")
+			if data.defeat_key != "":
+				ctx.events.event_started.emit(data.defeat_key)
 			_vfx("death", boss.position, Vector2.RIGHT, {}, -1.0, true)
 		return
 	_run_scheduled()
@@ -201,6 +205,8 @@ func _check_phase() -> void:
 	ctx.hazards.add_ring(boss.position, 520.0, 700.0, 30.0, 10.0 * ctx.difficulty.enemy_damage_mult, true, data.id,
 		[ctx.rng.randf() * TAU], 0.5, [], p.transition_time * 0.5, PixelFx.family_of(boss))
 	ctx.fx.burst(boss.position, boss.radius * 2.0, Color(0.8, 0.3, 1.0, 0.5))
+	if p.visual_id != &"":
+		boss.visual.swap_visual(p.visual_id, p.visual_aliases)
 	boss.visual.play_action(p.transition_animation)
 	_clear_indicators()
 	_vfx("transform", boss.position, Vector2.RIGHT, {}, -1.0, true)

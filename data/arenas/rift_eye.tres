@@ -110,7 +110,7 @@ name_key = "ZONE_RIFT_EYE_1_NAME"
 anchor = Vector2(-1300, 1300)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2")])
 exit_walls = Array[Rect2]([Rect2(-2150, 194, 310, 60)])
-heal_ratio = 0.2
+heal_ratio = 0.3
 reward_chest = true
 
 [sub_resource type="Resource" id="level_zone_2"]
@@ -119,7 +119,7 @@ name_key = "ZONE_RIFT_EYE_2_NAME"
 anchor = Vector2(-1948, -788)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_3"), SubResource("zone_wave_4")])
 exit_walls = Array[Rect2]([Rect2(-1074, -1880, 60, 290)])
-heal_ratio = 0.2
+heal_ratio = 0.3
 reward_chest = true
 
 [sub_resource type="Resource" id="level_zone_3"]
@@ -128,7 +128,7 @@ name_key = "ZONE_RIFT_EYE_3_NAME"
 anchor = Vector2(92, -1908)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_5"), SubResource("zone_wave_6")])
 exit_walls = Array[Rect2]([Rect2(1080, -1610, 200, 200)])
-heal_ratio = 0.2
+heal_ratio = 0.3
 reward_chest = true
 
 [sub_resource type="Resource" id="level_zone_4"]
@@ -137,7 +137,7 @@ name_key = "ZONE_RIFT_EYE_4_NAME"
 anchor = Vector2(1732, -800)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_7"), SubResource("zone_wave_8")])
 exit_walls = Array[Rect2]([Rect2(1570, 130, 220, 170)])
-heal_ratio = 0.2
+heal_ratio = 0.3
 reward_chest = true
 
 [sub_resource type="Resource" id="level_zone_5"]
@@ -146,7 +146,7 @@ name_key = "ZONE_RIFT_EYE_5_NAME"
 anchor = Vector2(1272, 912)
 waves = Array[ExtResource("4")]([SubResource("zone_wave_9"), SubResource("zone_wave_10")])
 exit_walls = Array[Rect2]([Rect2(-860, 638, 300, 60)])
-heal_ratio = 0.2
+heal_ratio = 1.0
 reward_chest = true
 
 [resource]
@@ -173,7 +173,7 @@ xp_mult = 1.5
 progression = &"milestones"
 enemy_hp_mult = 1.0
 enemy_damage_mult = 0.5
-boss_hp_mult = 0.65
+boss_hp_mult = 0.55
 boss_damage_mult = 0.4
 zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3"), SubResource("level_zone_4"), SubResource("level_zone_5")])
 waves = [SubResource("wave_phase_data_1")]

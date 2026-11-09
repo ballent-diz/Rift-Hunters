@@ -1,22 +1,24 @@
 # Rift Hunters — feuille de route
 
-## Carte 25, Œil de la Faille : arène en jeu, combat final à faire (Claude, 9 novembre 2026)
+## Carte 25, Œil de la Faille, et combat de l'Abyssarque (Claude, 9 novembre 2026)
 
 Décor de Codex, collisions peintes par le propriétaire. Dernière carte du jeu (`Campaign.final_map()` : la gagner
 ouvre le Cauchemar). Décor ×0,85. Test `test_rift_eye`, capture `docs/previews/rift-eye/jeu/`.
 
 - **Spirale de cinq zones**, une par monde du voyage, chacune avec ses Corrompus et sa brique : gués (Val), sol
   brûlant (cendres), vase (marais), glace (glacier), sol corrompu (Cité). Barrières aux cinq passages, finale sur la
-  plateforme au-dessus de l'Œil (cercle tracé par le jeu, quatre abris dedans).
-- **Abyssarque branché, combat provisoire** (`data/bosses/abyssarch.tres`, forme de base `boss.abyssarch`
-  seulement, `visual_scale` 1) : deux phases, griffes, onde d'ombre et **Échos des mondes** (`abyss_echoes` : une
-  horde de chaque monde, à tour de rôle, et une onde). Ajouté au générique.
-- **À faire, session dédiée** : le vrai combat en quatre formes (planches B à F : racines, magma, cristal, glace,
-  forme de Faille ; G : effondrement), la fin du jeu, et l'équilibrage. Réglage provisoire : ennemis ×1 / ×0,5,
-  Abyssarque ×0,65 / ×0,4 → 1 victoire sur 4 au bot. Le Chasseur arrive à la plateforme avec environ 250-300
-  dégâts subis (les zones sont longues) : revoir les vagues des zones 3 et 5 avant le boss.
-
-
+  plateforme au-dessus de l'Œil (cercle tracé par le jeu, quatre abris dedans). Soin de 30 % à la sortie des zones
+  1 à 4, soin complet avant la plateforme.
+- **Abyssarque, six formes** (`data/bosses/abyssarch.tres`, 26 000 PV, `visual_scale` 1) : chaque phase change de
+  feuille (`BossPhaseData.visual_id`, `EntityVisual.swap_visual`) et joue son entrée. Base (griffes, onde d'ombre,
+  **Échos des mondes** : une horde de chaque monde à tour de rôle) → racines à 82 % (liens de racines) → magma à
+  64 % (chute du ciel, souffle) → cristal à 46 % (pluie de cristaux) → glace à 30 % (pics, sol qui éclate) → Œil
+  grand ouvert à 14 % (rayon qui balaie, invocations). Mort : feuille d'effondrement (`BossData.death_visual_id`) et
+  bannière de fin du voyage (`defeat_key`). Ajouté au générique.
+- **Équilibrage** (profil d'étape) : ennemis ×1 / ×0,5, Abyssarque ×0,55 / ×0,4 (contact 14) → 3 victoires sur 4,
+  combat de 55 à 65 s. La défaite restante (Cendrelame, graine 1) survient dans les zones à 336 s.
+- **Pistes** : une vraie scène de fin (générique après la victoire) plutôt qu'une bannière ; le rayon de la forme
+  finale ne tient pas compte des abris de l'arène (à vérifier en jeu).
 ## Carte 23, Quartiers suspendus, en jeu (Claude, 9 novembre 2026)
 
 Décor de Codex, collisions peintes par le propriétaire (9 novembre). Troisième carte du chapitre 5 (avant le Panthéon).

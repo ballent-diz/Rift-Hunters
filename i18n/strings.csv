@@ -2229,3 +2229,10 @@ BOSS_PATTERN_ABYSS_CLAWS,Griffes de l'abîme,Abyss Claws
 BOSS_PATTERN_ABYSS_ECHOES,Échos des mondes,Echoes of the Worlds
 BOSS_ABYSS_ECHOES_INTRO,Échos des mondes : l'Abyssarque rappelle tour à tour les mondes traversés ; leurs Corrompus surgissent autour de lui et une onde part de son œil. Passez l'onde par une brèche.,Echoes of the Worlds: the Abyssarch recalls the worlds you crossed in turn; their Corrupted rise around him and a wave bursts from his eye. Cross the wave through a gap.
 JOURNAL_ABYSS_ECHOES,Échos des mondes,Echoes of the Worlds
+BOSS_ABYSSARCH_PHASE_ROOTS,Forme des racines,Root Form
+BOSS_ABYSSARCH_PHASE_MAGMA,Forme du magma,Magma Form
+BOSS_ABYSSARCH_PHASE_CRYSTAL,Forme du cristal,Crystal Form
+BOSS_ABYSSARCH_PHASE_ICE,Forme de la glace,Ice Form
+BOSS_ABYSSARCH_PHASE_RIFT,L'Œil grand ouvert,The Eye Wide Open
+BOSS_PATTERN_CRYSTAL_RAIN,Pluie de cristaux,Crystal Rain
+BOSS_ABYSSARCH_DEFEATED,L'Œil se referme. La Faille s'éteint… Le voyage du Chasseur s'achève.,The Eye closes. The Rift fades out… The Hunter's journey comes to an end.

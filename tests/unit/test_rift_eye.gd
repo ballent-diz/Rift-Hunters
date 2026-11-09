@@ -71,3 +71,24 @@ func test_abyssarch_calls_the_worlds_in_turn() -> void:
 	ctx.time += pattern.telegraph + 0.1
 	brain.step(0.1)
 	check(ctx.enemies.count() > before, "la horde du Val surgit")
+
+
+## Six formes, chacune sur sa feuille ; la forme suivante remplace la feuille au passage de phase.
+func test_abyssarch_changes_form_with_each_phase() -> void:
+	var data: BossData = GameDB.boss(&"abyssarch")
+	check_eq(data.phases.size(), 6, "base, racines, magma, cristal, glace, Faille")
+	for i: int in range(1, data.phases.size()):
+		var phase: BossPhaseData = data.phases[i]
+		check(Assets.get_sprite_frames(phase.visual_id) != null, "feuille de la forme %d" % (i + 1))
+		check(phase.hp_threshold < data.phases[i - 1].hp_threshold, "seuils décroissants")
+		var frames: SpriteFrames = Assets.get_sprite_frames(phase.visual_id)
+		check(frames.has_animation(phase.transition_animation), "entrée de la forme %d" % (i + 1))
+	check(Assets.get_sprite_frames(data.death_visual_id) != null, "effondrement")
+	var ctx: RunContext = _start()
+	var boss: Enemy = ctx.enemies.spawn_boss(data, ctx.player.global_position + Vector2(600, 0))
+	var brain := BossController.new(ctx, boss)
+	boss.hp = boss.max_hp * 0.7
+	brain.step(0.1)
+	check_eq(brain.phase_index, 1, "forme des racines")
+	check(boss.visual.has_animation(&"roots_entry"), "feuille des racines chargée")
+
