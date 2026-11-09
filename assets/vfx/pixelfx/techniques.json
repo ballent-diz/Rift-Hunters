@@ -759,7 +759,8 @@
 		"nivorath": "silence",
 		"fallen_commander": "fallen",
 		"sanctum_golem": "fallen",
-		"pantheon_keeper": "riftborn"
+		"pantheon_keeper": "riftborn",
+		"herald_lord": "fallen"
 	},
 	"boss_common": {
 		"claw": {

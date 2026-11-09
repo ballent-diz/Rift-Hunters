@@ -162,6 +162,11 @@ func objective_direction(pos: Vector2) -> Vector2:
 		return Vector2.ZERO
 	guide.apply_walls(ctx.obstacles)
 	guide.update(goal)
+	# Îlot sans accès à pied (refuge des Quartiers suspendus) : la route mène au téléporteur allumé le plus proche.
+	if ctx.portals and guide.cost_at(pos) >= FlowField.UNREACHED:
+		var exit: Vector2 = ctx.portals.nearest_ready(pos)
+		if exit != Vector2.INF:
+			return (exit - pos).normalized()
 	return guide.direction(pos, (goal - pos).normalized())
 
 
