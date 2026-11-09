@@ -27,6 +27,8 @@ const MAPS := {
 	"storm_lake": ["environment.storm_lake", 0.5, true],
 	"lighthouse_floe": ["environment.lighthouse_floe", 0.5, true],
 	"silent_heart": ["environment.silent_heart", 0.5, true],
+	"shattered_outskirts": ["environment.shattered_outskirts", 0.5, true],
+	"rune_sanctum": ["environment.rune_sanctum", 0.3, true],
 }
 
 

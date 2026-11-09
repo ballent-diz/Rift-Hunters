@@ -15,6 +15,8 @@ var m: EnemyManager
 var soul_links: Array[Dictionary] = []
 ## Sceaux de corruption : {"pos", "radius", "until", "damage", "tick", "source"}.
 var seals: Array[Dictionary] = []
+## Sceaux encore en alerte (deviennent des sceaux au sol à leur instant « at »).
+var pending_seals: Array[Dictionary] = []
 ## Ralliements : {"enemy": Enemy, "until", "speed", "damage"} (valeurs ajoutées, retirées à la fin).
 var rallies: Array[Dictionary] = []
 var _time: float = 0.0
@@ -66,19 +68,25 @@ func technique_rally(enemy: Enemy, technique: EnemyTechniqueData, _player_pos: V
 	enemy.technique_busy = technique.telegraph
 	ctx.fx.ring(enemy.position, radius, Color(CORRUPTION, 0.6), technique.telegraph + 0.3)
 	m._later(enemy, technique.telegraph, func() -> void:
-		var count: int = 0
-		for ally: Enemy in ctx.enemies.query_radius(enemy.position, radius):
-			if not ally.alive or ally.is_boss or ally.is_obstacle or _rallied(ally):
-				continue
-			var extra_speed: float = ally.move_speed * (speed_mult - 1.0)
-			var extra_damage: float = ally.contact_damage * (damage_mult - 1.0)
-			ally.move_speed += extra_speed
-			ally.contact_damage += extra_damage
-			rallies.append({"enemy": ally, "until": until, "speed": extra_speed, "damage": extra_damage})
-			count += 1
-		if count > 0:
-			ctx.stats.add(&"rallies"))
+		rally_area(enemy.position, radius, until, speed_mult, damage_mult))
 	return true
+
+
+## Ralliement de tous les Corrompus (hors boss) dans le cercle ; renvoie le nombre de ralliés.
+func rally_area(center: Vector2, radius: float, until: float, speed_mult: float, damage_mult: float) -> int:
+	var count: int = 0
+	for ally: Enemy in ctx.enemies.query_radius(center, radius):
+		if not ally.alive or ally.is_boss or ally.is_obstacle or _rallied(ally):
+			continue
+		var extra_speed: float = ally.move_speed * (speed_mult - 1.0)
+		var extra_damage: float = ally.contact_damage * (damage_mult - 1.0)
+		ally.move_speed += extra_speed
+		ally.contact_damage += extra_damage
+		rallies.append({"enemy": ally, "until": until, "speed": extra_speed, "damage": extra_damage})
+		count += 1
+	if count > 0:
+		ctx.stats.add(&"rallies")
+	return count
 
 
 func _rallied(enemy: Enemy) -> bool:
@@ -117,7 +125,7 @@ func technique_soul_link(enemy: Enemy, technique: EnemyTechniqueData, _player_po
 	var radius: float = float(technique.params.get("radius", 320.0))
 	var count: int = int(technique.params.get("count", 4))
 	var mult: float = float(technique.params.get("mult", 0.4))
-	var allies: Array[Enemy] = []
+	var allies: Array = []
 	for ally: Enemy in ctx.enemies.query_radius(enemy.position, radius):
 		if allies.size() >= count:
 			break
@@ -129,9 +137,9 @@ func technique_soul_link(enemy: Enemy, technique: EnemyTechniqueData, _player_po
 	enemy.technique_busy = technique.telegraph
 	m._later(enemy, technique.telegraph, func() -> void:
 		var kept: Array[Enemy] = []
-		for ally: Enemy in allies:
-			if ally.alive:
-				ally.extra_damage_taken = mult
+		for ally: Variant in allies:
+			if is_instance_valid(ally) and (ally as Enemy).alive:
+				(ally as Enemy).extra_damage_taken = mult
 				kept.append(ally)
 		soul_links.append({"source": enemy, "links": kept, "until": ctx.time + float(technique.params.get("duration", 6.0)),
 			"mult": mult})
@@ -169,11 +177,17 @@ func technique_corruption_seal(enemy: Enemy, technique: EnemyTechniqueData, play
 	var radius: float = float(technique.params.get("radius", 110.0))
 	var damage: float = m._scaled(enemy, technique.damage)
 	enemy.technique_busy = technique.telegraph
-	ctx.hazards.add_circle(player_pos, radius, technique.telegraph, damage, true, enemy.data.id)
-	m._later(enemy, technique.telegraph, func() -> void:
-		seals.append({"pos": player_pos, "radius": radius, "until": ctx.time + float(technique.params.get("duration", 5.0)),
-			"damage": damage * float(technique.params.get("dot_ratio", 0.25)), "tick": 0.0, "source": enemy.data.id}))
+	place_seal(player_pos, radius, technique.telegraph, damage, float(technique.params.get("duration", 5.0)),
+		float(technique.params.get("dot_ratio", 0.25)), enemy.data.id)
 	return true
+
+
+## Sceau tracé à `pos` : frappe après `telegraph`, puis ronge (damage × dot_ratio par demi-seconde) `duration` s.
+func place_seal(pos: Vector2, radius: float, telegraph: float, damage: float, duration: float, dot_ratio: float,
+		source: StringName) -> void:
+	ctx.hazards.add_circle(pos, radius, telegraph, damage, true, source)
+	pending_seals.append({"pos": pos, "radius": radius, "at": ctx.time + telegraph, "until": ctx.time + telegraph + duration,
+		"damage": damage * dot_ratio, "tick": 0.0, "source": source})
 
 
 func in_seal(pos: Vector2) -> bool:
@@ -184,6 +198,12 @@ func in_seal(pos: Vector2) -> bool:
 
 
 func _step_seals(delta: float) -> void:
+	var p: int = pending_seals.size() - 1
+	while p >= 0:
+		if ctx.time >= float(pending_seals[p]["at"]):
+			seals.append(pending_seals[p])
+			pending_seals.remove_at(p)
+		p -= 1
 	var i: int = seals.size() - 1
 	while i >= 0:
 		var seal: Dictionary = seals[i]

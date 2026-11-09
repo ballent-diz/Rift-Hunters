@@ -10,6 +10,7 @@ extends RefCounted
 ## Animation jouée au lancement de chaque attaque (absente de la feuille : rien ne change).
 const PATTERN_ANIMATIONS := {
 	&"avalanche": &"avalanche", &"deep_freeze": &"snuff", &"storm_hunt": &"slide", &"floe_quake": &"ice_crack",
+	&"war_cry": &"rallying_cry", &"rune_barrage": &"slab_armor",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -45,6 +46,8 @@ var _avalanche_announced: bool = false
 ## Chasse dans la tempête du Loup alpha : fiche de mécanique affichée une fois.
 var _hunt_announced: bool = false
 var _quake_announced: bool = false
+var _cry_announced: bool = false
+var _runes_announced: bool = false
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
 var _effects: Array[Node2D] = []
@@ -716,6 +719,48 @@ func _pattern_floe_quake(pattern: BossPatternData) -> void:
 			var warning: float = float(pattern.params.get("warning", 1.5))
 			for index: int in ctx.floe.nearest_closed(ctx.player.global_position, int(pattern.params.get("plates", 2))):
 				ctx.floe.crack(index, warning))
+
+
+## Cri de guerre (Commandant déchu, carte 21) : il lève l'épée ; les Corrompus proches sont ralliés (plus rapides et
+## plus forts), des miliciens accourent et il charge pendant que l'onde du cri frappe autour de lui.
+func _pattern_war_cry(pattern: BossPatternData) -> void:
+	if not _cry_announced:
+		_cry_announced = true
+		ctx.events.event_started.emit("BOSS_WAR_CRY_INTRO")
+	var radius: float = float(pattern.params.get("radius", 650.0))
+	ctx.fx.ring(boss.position, radius, Color(0.8, 0.3, 0.95, 0.6), pattern.telegraph + 0.3)
+	ctx.hazards.add_circle(boss.position, float(pattern.params.get("blast", 200.0)), pattern.telegraph, _damage(pattern),
+		true, data.id)
+	busy_time = pattern.telegraph + 0.4
+	schedule(pattern.telegraph, func() -> void:
+		if ctx.city:
+			ctx.city.rally_area(boss.position, radius, ctx.time + float(pattern.params.get("duration", 5.0)),
+				float(pattern.params.get("speed_mult", 1.3)), float(pattern.params.get("damage_mult", 1.3)))
+		var militia: EnemyData = GameDB.enemy(StringName(pattern.params.get("spawn", "fallen_militia")))
+		if militia:
+			for i: int in int(pattern.params.get("count", 3)):
+				var pos: Vector2 = ctx.obstacles.push_out(boss.position + Vector2.RIGHT.rotated(TAU * i / 3.0) * 160.0, 20.0)
+				ctx.enemies.spawn(militia, pos))
+
+
+## Tempête de runes (Golem du sanctuaire, carte 22) : sceaux tracés autour du Chasseur, et les portes runiques
+## tournent aussitôt.
+func _pattern_rune_barrage(pattern: BossPatternData) -> void:
+	if not _runes_announced:
+		_runes_announced = true
+		ctx.events.event_started.emit("BOSS_RUNE_BARRAGE_INTRO")
+	busy_time = pattern.telegraph + 0.4
+	var target: Vector2 = ctx.player.global_position
+	var count: int = int(pattern.params.get("count", 3))
+	var spread: float = float(pattern.params.get("spread", 170.0))
+	var offset: float = ctx.rng.randf() * TAU
+	if ctx.city:
+		for i: int in count:
+			var pos: Vector2 = target if i == 0 else target + Vector2.RIGHT.rotated(offset + TAU * i / maxf(count - 1, 1)) * spread
+			ctx.city.place_seal(pos, float(pattern.params.get("radius", 110.0)), pattern.telegraph, _damage(pattern),
+				float(pattern.params.get("duration", 4.0)), 0.25, data.id)
+	if ctx.gates:
+		schedule(pattern.telegraph, func() -> void: ctx.gates.force_turn())
 
 
 ## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.

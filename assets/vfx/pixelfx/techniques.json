@@ -756,7 +756,8 @@
 		"peak_patriarch": "givres",
 		"rime_elder": "givres",
 		"blizzard_alpha": "givres",
-		"nivorath": "silence"
+		"nivorath": "silence",
+		"fallen_commander": "fallen"
 	},
 	"boss_common": {
 		"claw": {

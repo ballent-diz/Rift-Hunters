@@ -21,7 +21,7 @@ cooldown = 11.0
 min_range = 220.0
 max_range = 620.0
 telegraph = 0.8
-damage = 18.0
+damage = 12.0
 params = {
 "travel": 1.4,
 "speed": 260.0,
@@ -37,7 +37,7 @@ cooldown = 14.0
 min_range = 0.0
 max_range = 500.0
 telegraph = 0.6
-damage = 20.0
+damage = 14.0
 params = {
 "duration": 4.0,
 "radius": 150.0,
@@ -54,7 +54,7 @@ name_key = "ENEMY_COBBLE_GOLEM_NAME"
 desc_key = "ENEMY_COBBLE_GOLEM_DESC"
 brain = 0
 max_hp = 360.0
-damage = 18.0
+damage = 14.0
 defense = 26.0
 move_speed = 52.0
 radius = 24.0

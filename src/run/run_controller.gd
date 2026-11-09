@@ -249,6 +249,14 @@ func _build_world() -> void:
 		ctx.tide = TideDirector.new()
 		ctx.world.add_child(ctx.tide)
 		ctx.tide.setup(ctx)
+	if RuneGateDirector.uses_gates(ctx.arena):
+		ctx.gates = RuneGateDirector.new()
+		ctx.world.add_child(ctx.gates)
+		ctx.gates.setup(ctx)
+	if CorruptionDirector.uses_corruption(ctx.arena):
+		ctx.corruption = CorruptionDirector.new()
+		ctx.world.add_child(ctx.corruption)
+		ctx.corruption.setup(ctx)
 	if FloeDirector.uses_floe(ctx.arena):
 		ctx.floe = FloeDirector.new()
 		ctx.world.add_child(ctx.floe)
@@ -406,6 +414,10 @@ func _physics_process(delta: float) -> void:
 		ctx.tide.step(delta)
 	if ctx.floe:
 		ctx.floe.step(delta)
+	if ctx.corruption:
+		ctx.corruption.step(delta)
+	if ctx.gates:
+		ctx.gates.step(delta)
 	_mark(&"d_tide")
 	if ctx.cold:
 		ctx.cold.step(delta)

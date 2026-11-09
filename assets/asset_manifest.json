@@ -16602,6 +16602,59 @@
 			"minimap": "res://assets/environments/silent_heart/minimap.webp",
 			"menu_preview": "res://assets/ui/expedition/silent_heart.png",
 			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"environment.shattered_outskirts": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/shattered_outskirts/map.webp",
+			"map_tiles": [
+				"res://assets/environments/shattered_outskirts/map.webp",
+				"res://assets/environments/shattered_outskirts/map_1.webp",
+				"res://assets/environments/shattered_outskirts/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/shattered_outskirts/field.png",
+			"field_step": 2,
+			"start": [
+				-1477,
+				823
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire, décor livré par Codex (carte 21).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/shattered_outskirts/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/shattered_outskirts.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"environment.rune_sanctum": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/rune_sanctum/map.webp",
+			"map_tiles": [
+				"res://assets/environments/rune_sanctum/map.webp",
+				"res://assets/environments/rune_sanctum/map_1.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/rune_sanctum/field.png",
+			"field_step": 2,
+			"start": [
+				0,
+				1931
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire, décor livré par Codex (carte 22).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/rune_sanctum/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/rune_sanctum.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		}
 	}
 }
