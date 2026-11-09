@@ -248,6 +248,13 @@ func technique_awaken_statues(enemy: Enemy, technique: EnemyTechniqueData, _play
 	var statue: EnemyData = GameDB.enemy(StringName(technique.params.get("statue", "awakened_statue")))
 	if statue == null:
 		return false
+	# Panthéon (B8) : elle éveille d'abord une Statue endormie sur un socle proche.
+	if ctx.statues:
+		var plinth: int = ctx.statues.nearest_dormant(enemy.position, float(technique.params.get("plinth_reach", 900.0)))
+		if plinth >= 0:
+			enemy.technique_busy = technique.telegraph
+			ctx.statues.wake(plinth, technique.telegraph)
+			return true
 	var active: int = 0
 	for other: Enemy in ctx.enemies.list:
 		if other.alive and other.data == statue:

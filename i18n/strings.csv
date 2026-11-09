@@ -2180,3 +2180,20 @@ BOSS_PATTERN_SLAB_FIST,Poing de dalles,Slab Fist
 BOSS_PATTERN_RUNE_BARRAGE,Tempête de runes,Rune Storm
 BOSS_RUNE_BARRAGE_INTRO,Tempête de runes : le Golem trace des sceaux autour de vous et fait tourner les portes. Sortez des cercles avant qu'ils frappent.,Rune Storm: the Golem draws seals around you and turns the gates. Step out of the circles before they strike.
 JOURNAL_RUNE_BARRAGE,Tempête de runes,Rune Storm
+ARENA_SHATTERED_PANTHEON_NAME,Le Panthéon brisé,The Shattered Pantheon
+ARENA_SHATTERED_PANTHEON_DESC,"Fermez les quatre failles des cours du Panthéon. Les statues s'éveillent sur leurs socles quand on passe trop près, et des Échos attendent dans leurs cages qu'on les libère.","Close the four rifts in the Pantheon's courts. Statues awaken on their plinths when you pass too close, and Echoes wait in their cages to be freed."
+FINALE_TRAVEL_PANTHEON_PLAZA,"Les failles sont closes : descendez sur la place centrale, autour du pilier. La Gardienne du Panthéon vous y attend.","The rifts are sealed: go down to the central plaza, around the pillar. The Pantheon Keeper awaits you there."
+STATUES_INTRO,"Statues qui s'éveillent : passer près d'un socle réveille sa statue, lente mais redoutable. Choisissez votre chemin, ou réveillez-les une à une.","Awakening statues: passing near a plinth wakes its statue, slow but fearsome. Choose your path, or wake them one by one."
+JOURNAL_STATUES,Statues qui s'éveillent,Awakening statues
+ECHO_CAGE_INTRO,"Écho piégé : restez dans le cercle de la cage pour la briser. Une embuscade vous attend, mais l'Écho libéré vous soigne et laisse un coffre.","Trapped Echo: stay in the cage's circle to break it. An ambush awaits, but the freed Echo heals you and leaves a chest."
+JOURNAL_ECHO_CAGE,Échos piégés,Trapped Echoes
+ECHO_CAGE_FREED,Écho libéré ! (%d / %d),Echo freed! (%d / %d)
+MAP_OBJ_ECHO_CAGES_DESC,Terminer en libérant au moins %d Échos piégés,Clear it freeing at least %d trapped Echoes
+BOSS_PANTHEON_KEEPER_NAME,Gardienne du Panthéon,Pantheon Keeper
+BOSS_PANTHEON_KEEPER_TITLE,Mère des statues,Mother of Statues
+BOSS_PANTHEON_KEEPER_PHASE1,Pierre qui écoute,Listening Stone
+BOSS_PANTHEON_KEEPER_PHASE2,Le Panthéon s'éveille,The Pantheon Awakens
+BOSS_PATTERN_STONE_HANDS,Mains de pierre,Stone Hands
+BOSS_PATTERN_PANTHEON_WAKE,Réveil du Panthéon,Pantheon Awakening
+BOSS_PANTHEON_WAKE_INTRO,Réveil du Panthéon : la Gardienne éveille les statues les plus proches de vous et frappe le sol d'une onde. Passez l'onde par une brèche et gardez les statues à distance.,Pantheon Awakening: the Keeper wakes the statues nearest you and strikes the ground with a wave. Cross the wave through a gap and keep the statues at bay.
+JOURNAL_PANTHEON_WAKE,Réveil du Panthéon,Pantheon Awakening

@@ -150,6 +150,22 @@ extends Resource
 ## aux Corrompus (non volants) qui y sombrent.
 @export var floe_damage: float = 14.0
 @export_range(0.0, 1.0) var floe_enemy_ratio: float = 0.6
+@export_group("Statues qui s'éveillent (brique B8, carte 24)")
+## Socles peints : une Statue endormie sur chacun, qui s'éveille quand le Chasseur passe à statue_awaken_radius.
+@export var statue_plinths: Array[Vector2] = []
+## Décalage du sprite endormi sur le dessus peint du socle.
+@export var statue_offset: Vector2 = Vector2(0, 20)
+@export var statue_awaken_radius: float = 300.0
+@export var statue_warning: float = 1.2
+@export var statue_enemy: StringName = &"awakened_statue"
+@export_group("Échos piégés (brique B10, carte 24)")
+## Cages à briser (objectif facultatif) : rester echo_cage_time s dans le cercle ; embuscade à l'ouverture.
+@export var echo_cages: Array[Vector2] = []
+@export var echo_cage_radius: float = 90.0
+@export var echo_cage_time: float = 4.0
+@export var echo_cage_heal: float = 0.15
+@export var echo_cage_ambush: StringName = &"torn_shade"
+@export var echo_cage_ambush_count: int = 3
 @export_group("Portes runiques (brique B4, carte 22)")
 ## Portes (rectangles fermant leur seuil) et groupes fermés tour à tour (indices dans rune_gates).
 @export var rune_gates: Array[Rect2] = []
@@ -358,6 +374,9 @@ func scaled_copy() -> ArenaData:
 	a.floe_plates = _polys(floe_plates, k)
 	a.corrupted_patches = _polys(corrupted_patches, k)
 	a.rune_gates = _rects(rune_gates, k)
+	a.statue_plinths = _points(statue_plinths, k)
+	a.statue_offset = statue_offset * k
+	a.echo_cages = _points(echo_cages, k)
 	a.floe_overlay_rects = _rects(floe_overlay_rects, k)
 	a.currents = _rects(currents, k)
 	a.flood_lanes = _rects(flood_lanes, k)

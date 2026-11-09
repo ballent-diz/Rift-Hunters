@@ -757,7 +757,9 @@
 		"rime_elder": "givres",
 		"blizzard_alpha": "givres",
 		"nivorath": "silence",
-		"fallen_commander": "fallen"
+		"fallen_commander": "fallen",
+		"sanctum_golem": "fallen",
+		"pantheon_keeper": "riftborn"
 	},
 	"boss_common": {
 		"claw": {

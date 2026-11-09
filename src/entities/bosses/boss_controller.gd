@@ -11,6 +11,7 @@ extends RefCounted
 const PATTERN_ANIMATIONS := {
 	&"avalanche": &"avalanche", &"deep_freeze": &"snuff", &"storm_hunt": &"slide", &"floe_quake": &"ice_crack",
 	&"war_cry": &"rallying_cry", &"rune_barrage": &"slab_armor",
+	&"pantheon_wake": &"awaken_statues",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -48,6 +49,7 @@ var _hunt_announced: bool = false
 var _quake_announced: bool = false
 var _cry_announced: bool = false
 var _runes_announced: bool = false
+var _wake_announced: bool = false
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
 var _effects: Array[Node2D] = []
@@ -761,6 +763,30 @@ func _pattern_rune_barrage(pattern: BossPatternData) -> void:
 				float(pattern.params.get("duration", 4.0)), 0.25, data.id)
 	if ctx.gates:
 		schedule(pattern.telegraph, func() -> void: ctx.gates.force_turn())
+
+
+## Réveil du Panthéon (Gardienne du Panthéon, carte 24) : ses mains de pierre se lèvent ; les Statues endormies les
+## plus proches du Chasseur s'éveillent (ou surgissent près d'elle quand les socles sont vides) et une onde de pierre
+## part d'elle.
+func _pattern_pantheon_wake(pattern: BossPatternData) -> void:
+	if not _wake_announced:
+		_wake_announced = true
+		ctx.events.event_started.emit("BOSS_PANTHEON_WAKE_INTRO")
+	busy_time = pattern.telegraph + 0.5
+	var count: int = int(pattern.params.get("statues", 2))
+	for i: int in count:
+		var plinth: int = ctx.statues.nearest_dormant(ctx.player.global_position, INF) if ctx.statues else -1
+		if plinth >= 0:
+			ctx.statues.wake(plinth, pattern.telegraph)
+		elif ctx.city and i == 0:
+			var statue: EnemyData = GameDB.enemy(&"awakened_statue")
+			if statue:
+				var pos: Vector2 = ctx.obstacles.push_out(boss.position + Vector2.RIGHT.rotated(ctx.rng.randf() * TAU) * 180.0,
+					statue.radius)
+				schedule(pattern.telegraph, func() -> void: ctx.city.awaken(statue, pos, 1.0))
+	ctx.hazards.add_ring(boss.position, float(pattern.params.get("speed", 260.0)), float(pattern.params.get("max_radius", 700.0)),
+		float(pattern.params.get("thickness", 22.0)), _damage(pattern), true, data.id, [], 0.4, [], pattern.telegraph,
+		PixelFx.family_of(boss))
 
 
 ## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.

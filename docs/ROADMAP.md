@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Carte 24, Panthéon brisé — EN PAUSE (Claude, 9 novembre 2026)
+
+Branche `claude/carte-24` (non fusionnée, sans PR). Fait : collisions, manifeste, `data/arenas/shattered_pantheon.tres`
+(4 failles, finale autour du pilier), B8 `StatueDirector` (11 statues endormies sur les socles, éveil à 300 u), B10
+`EchoCageDirector` (3 cages aux bouches des galeries, que le propriétaire a peintes bloquées), gardienne
+`pantheon_keeper` (Réveil du Panthéon), textes FR/EN, chapitre 5 carte 3, test `test_shattered_pantheon` (4/4 verts),
+bot 3/4 (gardien ×2,7 / ×1,2, combat 54-66 s). **Reste** : lancer `tools/run_tests.sh` complet, vignette de menu
+(`build_expedition_previews.gd` déjà à jour), ligne 24 de `docs/design/CARTES.md`, PR. PR #139 (cartes 21-22) à
+fusionner d'abord si sa CI est verte.
+
 ## Cartes 21 et 22 en jeu, chapitre 5 ouvert (Claude, 9 novembre 2026)
 
 Décors de Codex, collisions peintes par le propriétaire. Chapitre 5 « La Cité de la Faille »

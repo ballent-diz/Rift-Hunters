@@ -122,7 +122,7 @@ en plus de réchauffer). Les réglages de la carte ne changent pas : la nuit suf
 | 21 | Vagues par zone | B9 Sol corrompu (`CorruptionDirector`) ; gardien Commandant déchu (Cri de guerre) ; en jeu depuis le 9 novembre |
 | 22 | Défense d'autel (reliquaire) | B4 Portes runiques (`RuneGateDirector`) ; gardien Golem du sanctuaire (Tempête de runes) ; en jeu depuis le 9 novembre |
 | 23 | Vagues par zone | B6 Téléporteurs de faille |
-| 24 | Fermeture de failles | B8 Statues qui s'éveillent + B10 |
+| 24 | Fermeture de failles | B8 Statues qui s'éveillent (`StatueDirector`) + B10 Échos piégés (`EchoCageDirector`) ; gardienne du Panthéon ; en jeu depuis le 9 novembre |
 | 25 | Vagues + Dévoreur final | Combinaison des briques du jeu |
 
 ## Réalisé

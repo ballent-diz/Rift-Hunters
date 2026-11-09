@@ -29,6 +29,7 @@ const MAPS := {
 	"silent_heart": ["environment.silent_heart", 0.5, true],
 	"shattered_outskirts": ["environment.shattered_outskirts", 0.5, true],
 	"rune_sanctum": ["environment.rune_sanctum", 0.3, true],
+	"shattered_pantheon": ["environment.shattered_pantheon", 0.5, true],
 }
 
 

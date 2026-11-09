@@ -15,7 +15,7 @@ const SIGNATURE_INTRO := {
 	&"spell_capture": "BOSS_CAPTURE_INTRO", &"avalanche": "BOSS_AVALANCHE_INTRO",
 	&"deep_freeze": "BOSS_DEEP_FREEZE_INTRO", &"storm_hunt": "BOSS_STORM_HUNT_INTRO",
 	&"floe_quake": "BOSS_FLOE_QUAKE_INTRO", &"war_cry": "BOSS_WAR_CRY_INTRO",
-	&"rune_barrage": "BOSS_RUNE_BARRAGE_INTRO",
+	&"rune_barrage": "BOSS_RUNE_BARRAGE_INTRO", &"pantheon_wake": "BOSS_PANTHEON_WAKE_INTRO",
 }
 ## Dangers de carte et sources sans fiche.
 const SOURCE_ADVICE := {

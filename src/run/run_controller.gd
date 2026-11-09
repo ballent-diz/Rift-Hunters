@@ -249,6 +249,14 @@ func _build_world() -> void:
 		ctx.tide = TideDirector.new()
 		ctx.world.add_child(ctx.tide)
 		ctx.tide.setup(ctx)
+	if StatueDirector.uses_statues(ctx.arena):
+		ctx.statues = StatueDirector.new()
+		ctx.world.add_child(ctx.statues)
+		ctx.statues.setup(ctx)
+	if EchoCageDirector.uses_cages(ctx.arena):
+		ctx.cages = EchoCageDirector.new()
+		ctx.world.add_child(ctx.cages)
+		ctx.cages.setup(ctx)
 	if RuneGateDirector.uses_gates(ctx.arena):
 		ctx.gates = RuneGateDirector.new()
 		ctx.world.add_child(ctx.gates)
@@ -418,6 +426,10 @@ func _physics_process(delta: float) -> void:
 		ctx.corruption.step(delta)
 	if ctx.gates:
 		ctx.gates.step(delta)
+	if ctx.statues:
+		ctx.statues.step(delta)
+	if ctx.cages:
+		ctx.cages.step(delta)
 	_mark(&"d_tide")
 	if ctx.cold:
 		ctx.cold.step(delta)
