@@ -150,6 +150,25 @@ extends Resource
 ## aux Corrompus (non volants) qui y sombrent.
 @export var floe_damage: float = 14.0
 @export_range(0.0, 1.0) var floe_enemy_ratio: float = 0.6
+@export_group("Portes runiques (brique B4, carte 22)")
+## Portes (rectangles fermant leur seuil) et groupes fermés tour à tour (indices dans rune_gates).
+@export var rune_gates: Array[Rect2] = []
+@export var rune_gate_patterns: Array[PackedInt32Array] = []
+@export var rune_gate_first: float = 15.0
+@export var rune_gate_period: float = 20.0
+@export var rune_gate_warning: float = 3.0
+@export_group("Sol corrompu (brique B9, carte 21)")
+## Nappes corrompues (polygones) : qui y reste est renforcé (CorruptionDirector).
+@export var corrupted_patches: Array[PackedVector2Array] = []
+## Bonus de dégâts du Chasseur à pleine charge ; charge pleine en corruption_build s, perdue en corruption_fade s.
+@export var corruption_power: float = 0.4
+@export var corruption_build: float = 3.0
+@export var corruption_fade: float = 2.0
+## Dégâts subis par le Chasseur tant qu'il est sur une nappe.
+@export var corruption_taken_mult: float = 1.15
+## Corrompus sur une nappe : dégâts et vitesse.
+@export var corruption_enemy_mult: float = 1.3
+@export var corruption_enemy_speed: float = 1.15
 @export_group("Écho des sorts (brique B9, carte 20)")
 ## Part de puissance de l'écho : chaque sort offensif du Chasseur se relance une fois après spell_echo_delay (0 : non).
 @export_range(0.0, 1.0) var spell_echo: float = 0.0
@@ -336,13 +355,9 @@ func scaled_copy() -> ArenaData:
 	a.slow_zones = _rects(slow_zones, k)
 	a.mud_zones = _rects(mud_zones, k)
 	a.tide_causeways = _rects(tide_causeways, k)
-	var floes: Array[PackedVector2Array] = []
-	for poly: PackedVector2Array in floe_plates:
-		var scaled := PackedVector2Array()
-		for p: Vector2 in poly:
-			scaled.append(p * k)
-		floes.append(scaled)
-	a.floe_plates = floes
+	a.floe_plates = _polys(floe_plates, k)
+	a.corrupted_patches = _polys(corrupted_patches, k)
+	a.rune_gates = _rects(rune_gates, k)
 	a.floe_overlay_rects = _rects(floe_overlay_rects, k)
 	a.currents = _rects(currents, k)
 	a.flood_lanes = _rects(flood_lanes, k)
@@ -366,6 +381,16 @@ static func _points(list: Array[Vector2], k: float) -> Array[Vector2]:
 	var out: Array[Vector2] = []
 	for p: Vector2 in list:
 		out.append(p * k)
+	return out
+
+
+static func _polys(list: Array[PackedVector2Array], k: float) -> Array[PackedVector2Array]:
+	var out: Array[PackedVector2Array] = []
+	for poly: PackedVector2Array in list:
+		var scaled := PackedVector2Array()
+		for p: Vector2 in poly:
+			scaled.append(p * k)
+		out.append(scaled)
 	return out
 
 

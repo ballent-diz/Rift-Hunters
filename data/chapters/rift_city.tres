@@ -1,0 +1,138 @@
+[gd_resource type="Resource" script_class="ChapterData" load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://src/data/chapter_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/campaign_map_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/map_objective_data.gd" id="3"]
+
+[sub_resource type="Resource" id="map_1_normal_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 230
+
+[sub_resource type="Resource" id="map_1_normal_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 800.0
+compare = 1
+reward_shards = 300
+
+[sub_resource type="Resource" id="map_1_normal_3"]
+script = ExtResource("3")
+id = &"corruption"
+desc_key = "MAP_OBJ_CORRUPTION_DESC"
+stat_key = &"corruption_time"
+threshold = 60.0
+compare = 0
+reward_shards = 300
+
+[sub_resource type="Resource" id="map_1_nightmare_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 430
+
+[sub_resource type="Resource" id="map_1_nightmare_2"]
+script = ExtResource("3")
+id = &"elites"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 12.0
+compare = 0
+reward_shards = 500
+
+[sub_resource type="Resource" id="map_1_nightmare_3"]
+script = ExtResource("3")
+id = &"pact"
+desc_key = "MAP_OBJ_PACTS_DESC"
+stat_key = &"modifiers_count"
+threshold = 3.0
+compare = 0
+reward_shards = 590
+
+[sub_resource type="Resource" id="map_1"]
+script = ExtResource("2")
+arena_id = &"shattered_outskirts"
+first_victory_shards = 1150
+nightmare_first_victory_shards = 1560
+objectives = Array[ExtResource("3")]([SubResource("map_1_normal_1"), SubResource("map_1_normal_2"), SubResource("map_1_normal_3")])
+nightmare_objectives = Array[ExtResource("3")]([SubResource("map_1_nightmare_1"), SubResource("map_1_nightmare_2"), SubResource("map_1_nightmare_3")])
+
+[sub_resource type="Resource" id="map_2_normal_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 230
+
+[sub_resource type="Resource" id="map_2_normal_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 800.0
+compare = 1
+reward_shards = 300
+
+[sub_resource type="Resource" id="map_2_normal_3"]
+script = ExtResource("3")
+id = &"altar"
+desc_key = "MAP_OBJ_RUNE_GATES_DESC"
+stat_key = &"rune_gates_turned"
+threshold = 8.0
+compare = 0
+reward_shards = 300
+
+[sub_resource type="Resource" id="map_2_nightmare_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 430
+
+[sub_resource type="Resource" id="map_2_nightmare_2"]
+script = ExtResource("3")
+id = &"elites"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 12.0
+compare = 0
+reward_shards = 500
+
+[sub_resource type="Resource" id="map_2_nightmare_3"]
+script = ExtResource("3")
+id = &"pact"
+desc_key = "MAP_OBJ_PACTS_DESC"
+stat_key = &"modifiers_count"
+threshold = 3.0
+compare = 0
+reward_shards = 590
+
+[sub_resource type="Resource" id="map_2"]
+script = ExtResource("2")
+arena_id = &"rune_sanctum"
+first_victory_shards = 1200
+nightmare_first_victory_shards = 1620
+objectives = Array[ExtResource("3")]([SubResource("map_2_normal_1"), SubResource("map_2_normal_2"), SubResource("map_2_normal_3")])
+nightmare_objectives = Array[ExtResource("3")]([SubResource("map_2_nightmare_1"), SubResource("map_2_nightmare_2"), SubResource("map_2_nightmare_3")])
+
+[resource]
+script = ExtResource("1")
+id = &"rift_city"
+order = 5
+name_key = "CHAPTER_RIFT_CITY_NAME"
+desc_key = "CHAPTER_RIFT_CITY_DESC"
+color = Color(0.78, 0.4, 0.92, 1)
+maps = Array[ExtResource("2")]([SubResource("map_1"), SubResource("map_2")])

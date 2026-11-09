@@ -2143,3 +2143,40 @@ ENEMY_AWAKENED_STATUE_NAME,Statue éveillée,Awakened Statue
 ENEMY_AWAKENED_STATUE_DESC,"Lente et massive, invulnérable le temps de s'éveiller ; ses coups écrasent.","Slow and massive, invulnerable while it awakens; its blows crush."
 SOUL_LINK_INTRO,Lien d'âme : l'Héraldiste protège les Corrompus qu'il relie. Abattez-le pour rompre les liens.,Soul Link: the Herald shields the Corrupted it binds. Take it down to break the links.
 JOURNAL_SOUL_LINK,Lien d'âme,Soul Link
+CHAPTER_RIFT_CITY_NAME,La Cité de la Faille,The Rift City
+CHAPTER_RIFT_CITY_DESC,"Au cœur du voyage, la Faille a englouti une cité entière : rues brisées, sol corrompu qui renforce qui s'y attarde, portes runiques et gardes déchus.","At the end of the journey, the Rift has swallowed a whole city: broken streets, corrupted ground that empowers whoever lingers, rune gates and fallen guards."
+ARENA_SHATTERED_OUTSKIRTS_NAME,Les Faubourgs brisés,The Shattered Outskirts
+ARENA_SHATTERED_OUTSKIRTS_DESC,Remontez les faubourgs et la grande avenue jusqu'à la place du Beffroi. Les nappes corrompues renforcent qui y reste : vous comme les Déchus.,Climb through the outskirts and the grand avenue to the Belfry Square. Corrupted pools empower whoever stays on them: you and the Fallen alike.
+ZONE_SHATTERED_OUTSKIRTS_1_NAME,Les Faubourgs,The Outskirts
+ZONE_SHATTERED_OUTSKIRTS_2_NAME,La Grande Avenue,The Grand Avenue
+FINALE_TRAVEL_BELFRY_SQUARE,L'avenue est dégagée : montez l'escalier monumental jusqu'à la place du Beffroi. Le Commandant déchu vous y attend.,The avenue is clear: climb the great stair to the Belfry Square. The Fallen Commander awaits you there.
+CORRUPTION_INTRO,"Sol corrompu : sur les nappes violettes, vos coups se renforcent peu à peu, mais vous y prenez plus de dégâts, et les Déchus aussi s'y renforcent.","Corrupted ground: on the violet pools your blows grow stronger over time, but you take more damage there, and the Fallen grow stronger too."
+JOURNAL_CORRUPTION,Sol corrompu,Corrupted ground
+MAP_OBJ_CORRUPTION_DESC,Terminer en restant au moins %d secondes sur le sol corrompu,Clear it standing at least %d seconds on corrupted ground
+BOSS_FALLEN_COMMANDER_NAME,Commandant déchu,Fallen Commander
+BOSS_FALLEN_COMMANDER_TITLE,Gardien du Beffroi,Guardian of the Belfry
+BOSS_FALLEN_COMMANDER_PHASE1,La garde se reforme,The Guard Reforms
+BOSS_FALLEN_COMMANDER_PHASE2,Dernier rempart,Last Rampart
+BOSS_PATTERN_FALLEN_BLADE,Lame déchue,Fallen Blade
+BOSS_PATTERN_WAR_CRY,Cri de guerre,War Cry
+BOSS_WAR_CRY_INTRO,Cri de guerre : le Commandant rallie les Corrompus proches (plus rapides et plus forts) et appelle des miliciens. Éloignez-vous de sa troupe ou abattez-le vite.,War Cry: the Commander rallies nearby Corrupted (faster and stronger) and calls militiamen. Get away from his troop or bring him down fast.
+JOURNAL_WAR_CRY,Cri de guerre,War Cry
+ARENA_RUNE_SANCTUM_NAME,Le Sanctuaire des runes,The Rune Sanctum
+ARENA_RUNE_SANCTUM_DESC,"Défendez le reliquaire sur le parvis du sanctuaire. Les portes runiques des rues se ferment et s'ouvrent tour à tour : les hordes changent de chemin, vous aussi.","Defend the reliquary on the sanctum's forecourt. The rune gates of the streets close and open in turn: the hordes change their path, and so must you."
+ALTAR_INTRO_RELIQUARY,Protégez le reliquaire du sanctuaire pendant %d vagues !,Protect the sanctum's reliquary for %d waves!
+ALTAR_WAVE_RELIQUARY,Vague %d / %d : ils viennent pour le reliquaire !,Wave %d / %d: they are coming for the reliquary!
+ALTAR_WAVE_HELD_RELIQUARY,Vague %d / %d repoussée : le reliquaire se répare.,Wave %d / %d repelled: the reliquary mends itself.
+ALTAR_DESTROYED_RELIQUARY,Le reliquaire est brisé…,The reliquary is broken…
+ALTAR_STATUS_RELIQUARY,Reliquaire %d / %d,Reliquary %d / %d
+ALTAR_SHATTERED_RELIQUARY,Le reliquaire se brise… et le sanctuaire s'éveille !,The reliquary shatters… and the sanctum awakens!
+RUNE_GATES_INTRO,Portes runiques : les runes qui s'allument annoncent les portes qui vont se fermer. Les portes tournent : un autre chemin s'ouvre toujours.,Rune gates: glowing runes mark the gates about to close. The gates turn: another path always opens.
+JOURNAL_RUNE_GATES,Portes runiques,Rune gates
+MAP_OBJ_RUNE_GATES_DESC,Terminer après au moins %d rotations des portes runiques,Clear it after at least %d rune gate turns
+BOSS_SANCTUM_GOLEM_NAME,Golem du sanctuaire,Sanctum Golem
+BOSS_SANCTUM_GOLEM_TITLE,Gardien des runes,Guardian of the Runes
+BOSS_SANCTUM_GOLEM_PHASE1,Pierre gravée,Carved Stone
+BOSS_SANCTUM_GOLEM_PHASE2,Dalles éclatées,Shattered Slabs
+BOSS_PATTERN_SLAB_FIST,Poing de dalles,Slab Fist
+BOSS_PATTERN_RUNE_BARRAGE,Tempête de runes,Rune Storm
+BOSS_RUNE_BARRAGE_INTRO,Tempête de runes : le Golem trace des sceaux autour de vous et fait tourner les portes. Sortez des cercles avant qu'ils frappent.,Rune Storm: the Golem draws seals around you and turns the gates. Step out of the circles before they strike.
+JOURNAL_RUNE_BARRAGE,Tempête de runes,Rune Storm

@@ -1,5 +1,28 @@
 # Rift Hunters — feuille de route
 
+## Cartes 21 et 22 en jeu, chapitre 5 ouvert (Claude, 9 novembre 2026)
+
+Décors de Codex, collisions peintes par le propriétaire. Chapitre 5 « La Cité de la Faille »
+(`data/chapters/rift_city.tres`, deux cartes pour l'instant). Tests `test_shattered_outskirts`, `test_rune_sanctum`,
+vignettes, mini-cartes, captures dans `docs/previews/*/jeu/`.
+
+- **Carte 21, Faubourgs brisés** (`shattered_outskirts`) : vagues par zone (Faubourgs, Grande Avenue), finale sur la
+  place du Beffroi. Les collisions peintes laissent deux passages entre chaque zone : barrières doubles (arche +
+  ruelle haute ; escalier + rebord nord de la place). **Sol corrompu (B9, `CorruptionDirector`)** : sur les six
+  nappes, le Chasseur se charge en 3 s (+40 % de dégâts infligés, +15 % subis), la charge retombe en 2 s ; les
+  Corrompus y frappent ×1,3 et vont ×1,15. Objectif : 60 s sur les nappes. **Gardien : Commandant déchu** (sprite du
+  Capitaine, `war_cry` : rallie la troupe et appelle des miliciens). Départ du plan peint bloqué : déplacé au nord-est.
+- **Carte 22, Sanctuaire des runes** (`rune_sanctum`, décor ×0,9) : défense du reliquaire (sceau posé par le jeu
+  sur le socle peint, rendu praticable dans le masque) ; textes « reliquaire ». **Portes runiques (B4,
+  `RuneGateDirector`)** : six portes, trois groupes de deux qui se ferment tour à tour toutes les 20 s (runes qui
+  clignotent 3 s avant) ; les six fermées, le parvis reste joignable (testé). **Gardien : Golem du sanctuaire**
+  (sprite du Golem de pavés, `rune_barrage` : sceaux autour du Chasseur et rotation immédiate des portes).
+- **Équilibrage** (profil d'étape, 2 starters × 2 graines) : carte 21 ennemis ×1 / ×0,8, gardien ×2,3 / ×1,1 →
+  3 sur 4 (combat de 35 à 74 s) ; carte 22 ennemis ×1 / ×0,85, autel ×0,22, gardien ×1,6 / ×1,25 → 3 sur 4. Golem de
+  pavés adouci (contact 14, tunnel 12, dalles 14) : il tuait le Chasseur dans les zones.
+- **Reste** : carte 23 en attente des collisions peintes ; carte 24 (Enfants de la Faille, statues B8 sur socles via
+  `CityTechniques.awaken`, Échos piégés B10), carte 25 (arène de l'Abyssarque).
+
 ## Monstres du chapitre 5 en jeu (Claude, 9 novembre 2026)
 
 Sprites de Codex (PR 128 et 129) branchés : 7 Déchus (`fallen`), 7 Enfants de la Faille et la Statue éveillée

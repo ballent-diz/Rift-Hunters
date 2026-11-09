@@ -119,8 +119,8 @@ en plus de réchauffer). Les réglages de la carte ne changent pas : la nuit suf
 
 | Carte | Mode | Particularité |
 |---|---|---|
-| 21 | Vagues par zone | B9 Sol corrompu |
-| 22 | Défense d'autel | B4 Portes runiques |
+| 21 | Vagues par zone | B9 Sol corrompu (`CorruptionDirector`) ; gardien Commandant déchu (Cri de guerre) ; en jeu depuis le 9 novembre |
+| 22 | Défense d'autel (reliquaire) | B4 Portes runiques (`RuneGateDirector`) ; gardien Golem du sanctuaire (Tempête de runes) ; en jeu depuis le 9 novembre |
 | 23 | Vagues par zone | B6 Téléporteurs de faille |
 | 24 | Fermeture de failles | B8 Statues qui s'éveillent + B10 |
 | 25 | Vagues + Dévoreur final | Combinaison des briques du jeu |

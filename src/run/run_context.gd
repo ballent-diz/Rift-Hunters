@@ -53,6 +53,10 @@ var rockfall: RockfallDirector
 var tide: TideDirector
 ## Banquise qui se fend, brique B4 de la carte 19 (null sans plaque).
 var floe: FloeDirector
+## Sol corrompu, brique B9 de la carte 21 (null sans nappe).
+var corruption: CorruptionDirector
+## Portes runiques, brique B4 de la carte 22 (null sans porte).
+var gates: RuneGateDirector
 var cold: ColdDirector
 var ice: IceDirector
 var frost: FrostTechniques
