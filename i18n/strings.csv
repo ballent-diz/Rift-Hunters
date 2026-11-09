@@ -2241,3 +2241,7 @@ BOSS_ABYSSARCH_PHASE_ICE,Forme de la glace,Ice Form
 BOSS_ABYSSARCH_PHASE_RIFT,L'Œil grand ouvert,The Eye Wide Open
 BOSS_PATTERN_CRYSTAL_RAIN,Pluie de cristaux,Crystal Rain
 BOSS_ABYSSARCH_DEFEATED,L'Œil se referme. La Faille s'éteint… Le voyage du Chasseur s'achève.,The Eye closes. The Rift fades out… The Hunter's journey comes to an end.
+TREE_EXPAND,Agrandir (F),Enlarge (F)
+TREE_EXPAND_HINT,"Afficher l'arbre sur toute la fenêtre, en plus grand (touche F).","Show the tree on the whole window, larger (F key)."
+TREE_SHRINK,Réduire (Échap),Shrink (Esc)
+TREE_SHRINK_HINT,"Revenir à l'onglet Arbre (Échap ou F).","Back to the Tree tab (Esc or F)."

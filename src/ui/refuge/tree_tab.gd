@@ -3,17 +3,23 @@ extends RefugeTab
 ## - en-tête : voies, améliorations du refuge, Éclats (pour apprendre), Points libres (pour activer), builds, guide ;
 ## - bandeau des trois étapes (apprendre → activer → équiper) et légende des états des nœuds ;
 ## - toutes les voies côte à côte en grille (HunterTreeBoard), et la fiche de la compétence avec son parcours pas à pas ;
-## - la barre des sorts équipés en bas ; un guide en cinq pages à la première visite (TreeGuide).
+## - la barre des sorts équipés en bas ; un guide en cinq pages à la première visite (TreeGuide) ;
+## - « Agrandir » (touche F) : l'arbre sur toute la fenêtre, plus grand, la fiche à côté ; Échap pour revenir.
 ## Les règles et les sauvegardes restent exclusivement dans HunterTree.
 
 ## Préférence du profil : guide déjà vu.
 const GUIDE_SEEN := "tree_guide_seen"
+## Largeur de la fiche en plein écran (plus étroite : la place va à la grille).
+const FULL_CARD_WIDTH := 270.0
+const EXPAND_KEY := KEY_F
 
 var _selected: StringName = &"blade_cleaving_slash"
 var _show_upgrades := false
 var _focused_branch: StringName = &"blade"
 ## Page du guide affichée (-1 : fermé).
 var _guide_page: int = -1
+## Arbre affiché sur toute la fenêtre.
+var _fullscreen := false
 
 
 func title_key() -> String:
@@ -39,6 +45,10 @@ func refresh() -> void:
 	var p: ProfileData = profile()
 	if _guide_page < 0 and p.preference(GUIDE_SEEN, "") != "1":
 		_guide_page = 0
+	if _fullscreen:
+		_show_upgrades = false
+		_build_fullscreen(p)
+		return
 	var root := VBoxContainer.new()
 	root.add_theme_constant_override("separation", 8)
 	add_child(root)
@@ -61,6 +71,86 @@ func refresh() -> void:
 		guide.page_changed.connect(func(page: int) -> void: _guide_page = page)
 		guide.closed.connect(_close_guide)
 		guide.open(_guide_page)
+
+
+## Plein écran : calque au-dessus de tout le refuge (fond opaque), en-tête réduit, grande grille, fiche à droite et
+## barre des sorts dessous. Mêmes nœuds, mêmes actions que l'onglet.
+func _build_fullscreen(p: ProfileData) -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "TreeFullscreen"
+	layer.layer = 5
+	add_child(layer)
+	var shade := ColorRect.new()
+	shade.color = Color(0.03, 0.025, 0.06, 0.985)
+	shade.mouse_filter = Control.MOUSE_FILTER_STOP
+	shade.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	layer.add_child(shade)
+	var margin := MarginContainer.new()
+	margin.name = "FullscreenRoot"
+	margin.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	for side: String in ["left", "right", "top", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 10)
+	layer.add_child(margin)
+	var root := VBoxContainer.new()
+	root.add_theme_constant_override("separation", 8)
+	margin.add_child(root)
+	var top := HBoxContainer.new()
+	top.add_theme_constant_override("separation", 8)
+	root.add_child(top)
+	var title: Label = UiKit.title(tr("TAB_TREE"), 22, HunterTreeSkin.GOLD)
+	title.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	top.add_child(title)
+	var header: HBoxContainer = _header(p)
+	for child: Node in header.get_children():
+		if child.name in ["ShardsChip", "PointsChip"] or str(child.name).begins_with("BuildSelect") or child is Label:
+			header.remove_child(child)
+			top.add_child(child)
+	header.free()
+	var shrink: Button = HunterTreeSkin.button(tr("TREE_SHRINK"), close_fullscreen, true)
+	shrink.name = "ShrinkTree"
+	shrink.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	shrink.tooltip_text = tr("TREE_SHRINK_HINT")
+	top.add_child(shrink)
+	var split := HBoxContainer.new()
+	split.add_theme_constant_override("separation", 10)
+	split.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	root.add_child(split)
+	split.add_child(_tree_area(p, true))
+	var card: SkillCard = _detail(p)
+	card.custom_minimum_size.x = FULL_CARD_WIDTH
+	split.add_child(card)
+	root.add_child(_spell_bar(p))
+	MenuSkin.finish(margin)
+
+
+func open_fullscreen() -> void:
+	_fullscreen = true
+	_guide_page = -1
+	refresh()
+
+
+func close_fullscreen() -> void:
+	_fullscreen = false
+	refresh()
+	var expand: Control = find_child("ExpandTree", true, false) as Control
+	if expand:
+		_restore_focus.call_deferred(expand)
+
+
+## F : agrandir ou réduire l'arbre ; Échap (B à la manette) : revenir à l'onglet.
+func _unhandled_input(event: InputEvent) -> void:
+	if not is_visible_in_tree() or _guide_page >= 0:
+		return
+	if _fullscreen and event.is_action_pressed("ui_cancel"):
+		get_viewport().set_input_as_handled()
+		close_fullscreen()
+	elif event is InputEventKey and event.pressed and not event.echo and (event as InputEventKey).keycode == EXPAND_KEY:
+		get_viewport().set_input_as_handled()
+		if _fullscreen:
+			close_fullscreen()
+		else:
+			open_fullscreen()
 
 
 ## Ouvre le guide (bouton « Guide » de l'en-tête).
@@ -133,6 +223,11 @@ func _header(p: ProfileData) -> HBoxContainer:
 		if i == HunterTree.active_index(p):
 			b.add_theme_color_override("font_color", HunterTreeSkin.GOLD)
 		row.add_child(b)
+	var expand: Button = HunterTreeSkin.button(tr("TREE_EXPAND"), open_fullscreen)
+	expand.name = "ExpandTree"
+	expand.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	expand.tooltip_text = tr("TREE_EXPAND_HINT")
+	row.add_child(expand)
 	var guide: Button = HunterTreeSkin.button(tr("TREE_GUIDE_BUTTON"), open_guide)
 	guide.name = "GuideButton"
 	guide.size_flags_vertical = Control.SIZE_SHRINK_CENTER
@@ -141,9 +236,10 @@ func _header(p: ProfileData) -> HBoxContainer:
 	return row
 
 
-func _tree_area(p: ProfileData) -> HunterTreeBoard:
+func _tree_area(p: ProfileData, large: bool = false) -> HunterTreeBoard:
 	var board := HunterTreeBoard.new()
 	board.name = "TreeBoard"
+	board.large = large
 	var picked: SkillNodeData = GameDB.skill_node(_selected)
 	board.focus_branch = picked.branch if picked else _focused_branch
 	board.setup(p, _selected)
@@ -194,7 +290,10 @@ func _detail(p: ProfileData) -> SkillCard:
 		"title": tr(node.name_key),
 		"accent": HunterTreeSkin.accent(node.branch),
 		"icon": HunterTreeSkin.icon(node),
+		"frame": HunterTreeSkin.frame(node, state),
+		"inset": HunterTreeSkin.icon_inset(node),
 		"kind": tr(HunterTreeSkin.KIND_KEYS[node.kind]),
+		"kind_color": HunterTreeSkin.kind_color(node),
 		"state": HunterTreeSkin.state_text(p, node),
 		"state_color": HunterTreeSkin.GOLD if state == "active" else HunterTreeSkin.CYAN,
 		"body": tr(node.desc_key),

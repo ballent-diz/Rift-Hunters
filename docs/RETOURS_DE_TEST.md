@@ -44,3 +44,14 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   grands). Corrigé le 8 novembre : décor réduit par carte (`decor_scale` d'ArenaData) sans toucher aux personnages ;
   mesures et facteurs dans docs/maps/ECHELLE_CHAPITRES_4_5.md (cartes 4, 16 et 18 réduites ; 17 déjà à
   l'échelle ; 15 repeinte par Codex ; facteurs des cartes 19 à 25 notés pour leur intégration).
+
+## Session du 9 novembre 2026
+
+- [x] **Arbre de compétences trop petit** (« c'est mieux mais trop petit, ça fait comprimé pour rien ») : corrigé le
+  9 novembre : bouton « Agrandir » (touche F) qui ouvre l'arbre du Chasseur sur toute la fenêtre, nœuds, icônes et
+  textes plus grands, fiche du nœud sur le côté ; Échap pour revenir. Les arbres des Échos n'étaient pas comprimés.
+- [x] **Sorts et passifs à distinguer** : corrigé le 9 novembre : sorts en hexagone doré à liseré, passifs en cercle
+  sobre, dans l'arbre, la fiche, les infobulles et la légende (Chasseur et Échos).
+- [x] **Échos immenses par rapport au Chasseur** : corrigé le 9 novembre : six Échos ramenés à environ 1,3 fois la
+  taille apparente du Chasseur par leur seule échelle visuelle (docs/art/TAILLE_DES_ECHOS.md).
+
