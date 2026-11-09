@@ -31,3 +31,8 @@ extends Resource
 ## Réglages d'une mécanique phare passive, active dès l'arrivée du boss (carapace de la Matrone : shell_mult,
 ## cracked_mult, crack_time, stun).
 @export var signature_params: Dictionary = {}
+## Feuille jouée à la mort (Abyssarque : effondrement) et ses alias, comme BossPhaseData.visual_aliases.
+@export var death_visual_id: StringName = &""
+@export var death_visual_aliases: Dictionary = {}
+## Bannière à la défaite du boss (Dévoreur final : fin du voyage).
+@export var defeat_key: String = ""

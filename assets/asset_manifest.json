@@ -17524,6 +17524,33 @@
 				}
 			},
 			"icon": "res://assets/ui/icons/objects/barrier_5_seal_b.png"
+		},
+		"environment.rift_eye": {
+			"status": "wip",
+			"kind": "map",
+			"map": "res://assets/environments/rift_eye/map.webp",
+			"map_tiles": [
+				"res://assets/environments/rift_eye/map.webp",
+				"res://assets/environments/rift_eye/map_1.webp",
+				"res://assets/environments/rift_eye/map_2.webp"
+			],
+			"detail_strength": 0.32,
+			"field": "res://assets/environments/rift_eye/field.png",
+			"field_step": 2,
+			"start": [
+				-143,
+				2164
+			],
+			"arena_size": 5016,
+			"filter": "linear",
+			"ambient": {
+				"amount": 0
+			},
+			"note": "Collisions peintes par le propriétaire, décor livré par Codex (carte 25).",
+			"generated_by": "tools/art/collision_mask.py",
+			"minimap": "res://assets/environments/rift_eye/minimap.webp",
+			"menu_preview": "res://assets/ui/expedition/rift_eye.png",
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
 		}
 	}
 }

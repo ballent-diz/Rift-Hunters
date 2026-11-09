@@ -17,3 +17,8 @@ extends Resource
 ## Mécaniques passives de la phase (Glauquemire : &"facets", &"mirrors", &"tide_ring"), réglées par mechanic_params.
 @export var mechanics: Array[StringName] = []
 @export var mechanic_params: Dictionary = {}
+## Forme de la phase (Abyssarque) : feuille propre à la phase (vide : on garde la feuille courante) et noms
+## d'animation du jeu (idle, move, attack…) pris dans cette feuille, {nom du jeu: nom dans la feuille}.
+@export var visual_id: StringName = &""
+@export var visual_aliases: Dictionary = {}
+

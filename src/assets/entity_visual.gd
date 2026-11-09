@@ -106,6 +106,35 @@ func play(anim: StringName) -> void:
 	_anim.play(anim)
 
 
+## Change de feuille en cours de partie (formes de l'Abyssarque) : les animations de la nouvelle feuille sont gardées
+## sous leur nom, et chaque alias {nom du jeu: nom dans la feuille} les rend jouables par les noms habituels.
+func swap_visual(visual_id: StringName, aliases: Dictionary = {}) -> bool:
+	var source: SpriteFrames = Assets.get_sprite_frames(visual_id)
+	if source == null or _anim == null:
+		return false
+	var frames: SpriteFrames = source.duplicate(true)
+	for alias: Variant in aliases:
+		var from := StringName(aliases[alias])
+		var to := StringName(alias)
+		if not source.has_animation(from):
+			continue
+		if frames.has_animation(to):
+			frames.remove_animation(to)
+		frames.add_animation(to)
+		frames.set_animation_speed(to, source.get_animation_speed(from))
+		frames.set_animation_loop(to, source.get_animation_loop(from) if to != &"idle" and to != &"move" else true)
+		for i: int in source.get_frame_count(from):
+			frames.add_frame(to, source.get_frame_texture(from, i), source.get_frame_duration(from, i))
+	_anim.sprite_frames = frames
+	_anim.offset = -Assets.anchor(visual_id)
+	_anim.scale = Vector2.ONE * Assets.pixel_scale(visual_id)
+	_current = &""
+	_action = &""
+	idle_animation = &"idle"
+	play(&"idle")
+	return true
+
+
 ## Animation ponctuelle (attaque, Technique) ; retour automatique au repos ou à la course ensuite.
 func play_action(anim: StringName) -> void:
 	if _anim and _anim.sprite_frames.has_animation(anim):

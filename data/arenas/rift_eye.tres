@@ -1,0 +1,186 @@
+[gd_resource type="Resource" script_class="ArenaData" load_steps=20 format=3]
+
+[ext_resource type="Script" path="res://src/data/arena_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/wave_phase_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/zone_wave_data.gd" id="4"]
+[ext_resource type="Script" path="res://src/data/level_zone_data.gd" id="5"]
+
+[sub_resource type="Resource" id="wave_phase_data_1"]
+script = ExtResource("2")
+start_time = 0.0
+end_time = 9999.0
+enemies = Array[StringName]([&"fallen_militia", &"rift_larva", &"torn_shade", &"void_crawler"])
+weights = Array[float]([3.0, 1.5, 1.0, 0.8])
+spawn_rate = 2.4
+max_alive = 100
+
+[sub_resource type="Resource" id="zone_wave_1"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"husk", &"lunger", &"skitterling", &"spitter"])
+weights = Array[float]([3.0, 1.3, 1.5, 1.0])
+count = 38
+elites = Array[StringName]([])
+spawn_rate = 1.9
+max_alive = 40
+
+[sub_resource type="Resource" id="zone_wave_2"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"husk", &"lunger", &"skitterling", &"spitter"])
+weights = Array[float]([3.0, 1.3, 1.5, 1.0])
+count = 48
+elites = Array[StringName]([&"crystal_warden"])
+spawn_rate = 2.3
+max_alive = 50
+
+[sub_resource type="Resource" id="zone_wave_3"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"ash_hound", &"magma_mite", &"ember_spitter"])
+weights = Array[float]([3.0, 1.3, 1.4, 0.9])
+count = 40
+elites = Array[StringName]([])
+spawn_rate = 2.0
+max_alive = 42
+
+[sub_resource type="Resource" id="zone_wave_4"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"cinder_crawler", &"ash_hound", &"magma_mite", &"ember_spitter"])
+weights = Array[float]([3.0, 1.3, 1.4, 0.9])
+count = 50
+elites = Array[StringName]([&"pyre_brute"])
+spawn_rate = 2.4
+max_alive = 52
+
+[sub_resource type="Resource" id="zone_wave_5"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"bloat_toad", &"rift_gnat", &"creeping_root"])
+weights = Array[float]([3.0, 1.2, 1.2, 0.9])
+count = 42
+elites = Array[StringName]([])
+spawn_rate = 2.1
+max_alive = 44
+
+[sub_resource type="Resource" id="zone_wave_6"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"mire_leech", &"bloat_toad", &"rift_gnat", &"creeping_root"])
+weights = Array[float]([3.0, 1.2, 1.2, 0.9])
+count = 52
+elites = Array[StringName]([&"bark_warden"])
+spawn_rate = 2.5
+max_alive = 54
+
+[sub_resource type="Resource" id="zone_wave_7"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"hush_shard", &"ice_knight"])
+weights = Array[float]([3.0, 1.4, 1.1, 1.0])
+count = 44
+elites = Array[StringName]([])
+spawn_rate = 2.2
+max_alive = 46
+
+[sub_resource type="Resource" id="zone_wave_8"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"frost_crawler", &"blizzard_wolf", &"hush_shard", &"ice_knight"])
+weights = Array[float]([3.0, 1.4, 1.1, 1.0])
+count = 54
+elites = Array[StringName]([&"frost_mammoth"])
+spawn_rate = 2.6
+max_alive = 56
+
+[sub_resource type="Resource" id="zone_wave_9"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"fallen_militia", &"rift_larva", &"torn_shade", &"fallen_crossbowman"])
+weights = Array[float]([3.0, 1.3, 1.0, 1.0])
+count = 46
+elites = Array[StringName]([])
+spawn_rate = 2.3
+max_alive = 48
+
+[sub_resource type="Resource" id="zone_wave_10"]
+script = ExtResource("4")
+enemies = Array[StringName]([&"fallen_militia", &"rift_larva", &"torn_shade", &"fallen_crossbowman"])
+weights = Array[float]([3.0, 1.3, 1.0, 1.0])
+count = 56
+elites = Array[StringName]([&"statue_keeper"])
+spawn_rate = 2.7
+max_alive = 58
+
+[sub_resource type="Resource" id="level_zone_1"]
+script = ExtResource("5")
+name_key = "ZONE_RIFT_EYE_1_NAME"
+anchor = Vector2(-1300, 1300)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_1"), SubResource("zone_wave_2")])
+exit_walls = Array[Rect2]([Rect2(-2150, 194, 310, 60)])
+heal_ratio = 0.3
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_2"]
+script = ExtResource("5")
+name_key = "ZONE_RIFT_EYE_2_NAME"
+anchor = Vector2(-1948, -788)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_3"), SubResource("zone_wave_4")])
+exit_walls = Array[Rect2]([Rect2(-1074, -1880, 60, 290)])
+heal_ratio = 0.3
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_3"]
+script = ExtResource("5")
+name_key = "ZONE_RIFT_EYE_3_NAME"
+anchor = Vector2(92, -1908)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_5"), SubResource("zone_wave_6")])
+exit_walls = Array[Rect2]([Rect2(1080, -1610, 200, 200)])
+heal_ratio = 0.3
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_4"]
+script = ExtResource("5")
+name_key = "ZONE_RIFT_EYE_4_NAME"
+anchor = Vector2(1732, -800)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_7"), SubResource("zone_wave_8")])
+exit_walls = Array[Rect2]([Rect2(1570, 130, 220, 170)])
+heal_ratio = 0.3
+reward_chest = true
+
+[sub_resource type="Resource" id="level_zone_5"]
+script = ExtResource("5")
+name_key = "ZONE_RIFT_EYE_5_NAME"
+anchor = Vector2(1272, 912)
+waves = Array[ExtResource("4")]([SubResource("zone_wave_9"), SubResource("zone_wave_10")])
+exit_walls = Array[Rect2]([Rect2(-860, 638, 300, 60)])
+heal_ratio = 1.0
+reward_chest = true
+
+[resource]
+script = ExtResource("1")
+id = &"rift_eye"
+name_key = "ARENA_RIFT_EYE_NAME"
+desc_key = "ARENA_RIFT_EYE_DESC"
+size = Vector2(5016, 5016)
+navigation_cell_size = 48.0
+boss_time = 420.0
+boss_id = &"abyssarch"
+finale_center = Vector2(-16, -236)
+finale_radii = Vector2(640, 600)
+finale_travel_key = "FINALE_TRAVEL_RIFT_EYE"
+elite_first_time = 90.0
+elite_interval = 60.0
+elite_enemy_ids = Array[StringName]([&"fallen_captain", &"portal_strider", &"echo_mirror"])
+environment_id = &"environment.rift_eye"
+decor_scale = 0.85
+ground_color = Color(0.4, 0.18, 0.44, 1.0)
+ground_detail_color = Color(0.5, 0.26, 0.54, 1.0)
+unlocked_by_default = false
+xp_mult = 1.5
+progression = &"milestones"
+enemy_hp_mult = 1.0
+enemy_damage_mult = 0.5
+boss_hp_mult = 0.55
+boss_damage_mult = 0.4
+zones = Array[ExtResource("5")]([SubResource("level_zone_1"), SubResource("level_zone_2"), SubResource("level_zone_3"), SubResource("level_zone_4"), SubResource("level_zone_5")])
+waves = [SubResource("wave_phase_data_1")]
+slow_zones = Array[Rect2]([Rect2(-1872, 1092, 284, 160), Rect2(-1468, 1228, 356, 184), Rect2(-1608, 1448, 284, 196)])
+slow_zones_painted = true
+mud_zones = Array[Rect2]([Rect2(-240, -2148, 304, 176), Rect2(76, -2052, 316, 180), Rect2(-148, -1864, 324, 192)])
+mud_painted = true
+burn_plates = Array[Vector3]([Vector3(-1942, -984, 104), Vector3(-1624, -880, 101), Vector3(-1816, -650, 113)])
+ice_patches = Array[Rect2]([Rect2(1448, -1076, 296, 188), Rect2(1784, -972, 304, 180), Rect2(1596, -764, 332, 192)])
+corrupted_patches = Array[PackedVector2Array]([PackedVector2Array(1308.0, 828.0, 1220.0, 868.0, 1204.0, 872.0, 1148.0, 884.0, 1128.0, 884.0, 1024.0, 852.0, 1020.0, 848.0, 1024.0, 828.0, 1036.0, 784.0, 1080.0, 716.0, 1084.0, 712.0, 1124.0, 700.0, 1164.0, 696.0, 1224.0, 700.0, 1348.0, 724.0, 1356.0, 728.0, 1364.0, 736.0, 1364.0, 744.0, 1336.0, 800.0), PackedVector2Array(1572.0, 972.0, 1400.0, 944.0, 1396.0, 940.0, 1376.0, 876.0, 1380.0, 868.0, 1444.0, 776.0, 1448.0, 772.0, 1460.0, 768.0, 1596.0, 788.0, 1632.0, 796.0, 1704.0, 852.0, 1708.0, 856.0, 1708.0, 860.0, 1652.0, 936.0, 1624.0, 964.0, 1612.0, 968.0), PackedVector2Array(1300.0, 1220.0, 1168.0, 1176.0, 1160.0, 1168.0, 1148.0, 1096.0, 1160.0, 1084.0, 1252.0, 1004.0, 1400.0, 992.0, 1416.0, 1000.0, 1436.0, 1012.0, 1520.0, 1088.0, 1524.0, 1092.0, 1516.0, 1100.0, 1428.0, 1172.0, 1304.0, 1220.0)])

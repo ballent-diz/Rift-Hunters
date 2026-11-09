@@ -2213,3 +2213,26 @@ BOSS_PATTERN_BANNER_STRIKE,Coup d'étendard,Banner Strike
 BOSS_PATTERN_SOUL_CHAIN,Chaîne d'âmes,Soul Chain
 BOSS_SOUL_CHAIN_INTRO,"Chaîne d'âmes : le Grand Héraldiste appelle des Déchus et lie à lui les Corrompus proches, qui ne prennent presque plus de dégâts. Frappez l'Héraldiste, ou attendez que les liens se rompent.","Soul Chain: the High Herald calls the Fallen and binds nearby Corrupted to himself, so they barely take damage. Strike the Herald, or wait for the links to break."
 JOURNAL_SOUL_CHAIN,Chaîne d'âmes,Soul Chain
+ARENA_RIFT_EYE_NAME,L'Œil de la Faille,The Rift's Eye
+ARENA_RIFT_EYE_DESC,"La spirale traverse une dernière fois les cinq mondes du voyage, du Val à la Cité, jusqu'à la plateforme au-dessus de l'Œil. L'Abyssarque y attend la fin de toute chose.","The spiral crosses the journey's five worlds one last time, from the Vale to the City, up to the platform above the Eye. The Abyssarch awaits the end of all things there."
+ZONE_RIFT_EYE_1_NAME,Souvenir du Val,Memory of the Vale
+ZONE_RIFT_EYE_2_NAME,Souvenir des cendres,Memory of the Ashes
+ZONE_RIFT_EYE_3_NAME,Souvenir des marais,Memory of the Marshes
+ZONE_RIFT_EYE_4_NAME,Souvenir du glacier,Memory of the Glacier
+ZONE_RIFT_EYE_5_NAME,Souvenir de la Cité,Memory of the City
+FINALE_TRAVEL_RIFT_EYE,Les cinq mondes sont traversés : entrez sur la plateforme au-dessus de l'Œil. L'Abyssarque vous attend.,The five worlds are crossed: step onto the platform above the Eye. The Abyssarch awaits you.
+BOSS_ABYSSARCH_NAME,Abyssarque,Abyssarch
+BOSS_ABYSSARCH_TITLE,"Dévoreur final, l'Œil de la Faille","Final Devourer, the Rift's Eye"
+BOSS_ABYSSARCH_PHASE1,Les mondes se souviennent,The Worlds Remember
+BOSS_ABYSSARCH_PHASE2,L'Œil s'ouvre,The Eye Opens
+BOSS_PATTERN_ABYSS_CLAWS,Griffes de l'abîme,Abyss Claws
+BOSS_PATTERN_ABYSS_ECHOES,Échos des mondes,Echoes of the Worlds
+BOSS_ABYSS_ECHOES_INTRO,Échos des mondes : l'Abyssarque rappelle tour à tour les mondes traversés ; leurs Corrompus surgissent autour de lui et une onde part de son œil. Passez l'onde par une brèche.,Echoes of the Worlds: the Abyssarch recalls the worlds you crossed in turn; their Corrupted rise around him and a wave bursts from his eye. Cross the wave through a gap.
+JOURNAL_ABYSS_ECHOES,Échos des mondes,Echoes of the Worlds
+BOSS_ABYSSARCH_PHASE_ROOTS,Forme des racines,Root Form
+BOSS_ABYSSARCH_PHASE_MAGMA,Forme du magma,Magma Form
+BOSS_ABYSSARCH_PHASE_CRYSTAL,Forme du cristal,Crystal Form
+BOSS_ABYSSARCH_PHASE_ICE,Forme de la glace,Ice Form
+BOSS_ABYSSARCH_PHASE_RIFT,L'Œil grand ouvert,The Eye Wide Open
+BOSS_PATTERN_CRYSTAL_RAIN,Pluie de cristaux,Crystal Rain
+BOSS_ABYSSARCH_DEFEATED,L'Œil se referme. La Faille s'éteint… Le voyage du Chasseur s'achève.,The Eye closes. The Rift fades out… The Hunter's journey comes to an end.

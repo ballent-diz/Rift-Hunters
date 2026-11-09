@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ChapterData" load_steps=32 format=3]
+[gd_resource type="Resource" script_class="ChapterData" load_steps=39 format=3]
 
 [ext_resource type="Script" path="res://src/data/chapter_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/campaign_map_data.gd" id="2"]
@@ -252,6 +252,69 @@ nightmare_first_victory_shards = 1650
 objectives = Array[ExtResource("3")]([SubResource("map_4_normal_1"), SubResource("map_4_normal_2"), SubResource("map_4_normal_3")])
 nightmare_objectives = Array[ExtResource("3")]([SubResource("map_4_nightmare_1"), SubResource("map_4_nightmare_2"), SubResource("map_4_nightmare_3")])
 
+[sub_resource type="Resource" id="map_5_normal_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 230
+
+[sub_resource type="Resource" id="map_5_normal_2"]
+script = ExtResource("3")
+id = &"untouched"
+desc_key = "MAP_OBJ_DAMAGE_DESC"
+stat_key = &"damage_taken"
+threshold = 800.0
+compare = 1
+reward_shards = 300
+
+[sub_resource type="Resource" id="map_5_normal_3"]
+script = ExtResource("3")
+id = &"swift"
+desc_key = "MAP_OBJ_BOSS_TIME_DESC"
+stat_key = &"boss_fight_time"
+threshold = 300.0
+compare = 1
+duration = true
+reward_shards = 300
+
+[sub_resource type="Resource" id="map_5_nightmare_1"]
+script = ExtResource("3")
+id = &"clear"
+desc_key = "MAP_OBJ_CLEAR_DESC"
+stat_key = &"victories"
+threshold = 1.0
+compare = 0
+reward_shards = 430
+
+[sub_resource type="Resource" id="map_5_nightmare_2"]
+script = ExtResource("3")
+id = &"elites"
+desc_key = "MAP_OBJ_ELITES_DESC"
+stat_key = &"elites_killed"
+threshold = 12.0
+compare = 0
+reward_shards = 500
+
+[sub_resource type="Resource" id="map_5_nightmare_3"]
+script = ExtResource("3")
+id = &"pact"
+desc_key = "MAP_OBJ_PACTS_DESC"
+stat_key = &"modifiers_count"
+threshold = 3.0
+compare = 0
+reward_shards = 590
+
+[sub_resource type="Resource" id="map_5"]
+script = ExtResource("2")
+arena_id = &"rift_eye"
+first_victory_shards = 1600
+nightmare_first_victory_shards = 2200
+objectives = Array[ExtResource("3")]([SubResource("map_5_normal_1"), SubResource("map_5_normal_2"), SubResource("map_5_normal_3")])
+nightmare_objectives = Array[ExtResource("3")]([SubResource("map_5_nightmare_1"), SubResource("map_5_nightmare_2"), SubResource("map_5_nightmare_3")])
+
 [resource]
 script = ExtResource("1")
 id = &"rift_city"
@@ -259,4 +322,4 @@ order = 5
 name_key = "CHAPTER_RIFT_CITY_NAME"
 desc_key = "CHAPTER_RIFT_CITY_DESC"
 color = Color(0.78, 0.4, 0.92, 1)
-maps = Array[ExtResource("2")]([SubResource("map_1"), SubResource("map_2"), SubResource("map_4"), SubResource("map_3")])
+maps = Array[ExtResource("2")]([SubResource("map_1"), SubResource("map_2"), SubResource("map_4"), SubResource("map_3"), SubResource("map_5")])
