@@ -6,6 +6,7 @@ extends Node
 ##         [--at=-2,-120] (Chasseur immobile placé à ce point, pour cadrer un endroit précis)
 ##         [--finale] (mode zones : zones nettoyées d'office, Chasseur à l'entrée de l'arène finale)
 ##         [--pref=expedition_mode:survival] (préférence du profil avant la capture d'un menu)
+##         [--pixel-filter=off|fine|graphic] (filtre pixel du décor, sans sauvegarder le réglage)
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -36,6 +37,8 @@ func _ready() -> void:
 				_times.clear()
 				for t: String in parts[1].split(","):
 					_times.append(float(t))
+			"pixel-filter":
+				Settings.pixel_filter = parts[1]
 			"arena":
 				setup.arena_id = StringName(parts[1])
 			"training":
