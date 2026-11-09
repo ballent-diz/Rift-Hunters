@@ -1,5 +1,22 @@
 # Rift Hunters — feuille de route
 
+## Carte 25, Œil de la Faille : arène en jeu, combat final à faire (Claude, 9 novembre 2026)
+
+Décor de Codex, collisions peintes par le propriétaire. Dernière carte du jeu (`Campaign.final_map()` : la gagner
+ouvre le Cauchemar). Décor ×0,85. Test `test_rift_eye`, capture `docs/previews/rift-eye/jeu/`.
+
+- **Spirale de cinq zones**, une par monde du voyage, chacune avec ses Corrompus et sa brique : gués (Val), sol
+  brûlant (cendres), vase (marais), glace (glacier), sol corrompu (Cité). Barrières aux cinq passages, finale sur la
+  plateforme au-dessus de l'Œil (cercle tracé par le jeu, quatre abris dedans).
+- **Abyssarque branché, combat provisoire** (`data/bosses/abyssarch.tres`, forme de base `boss.abyssarch`
+  seulement, `visual_scale` 1) : deux phases, griffes, onde d'ombre et **Échos des mondes** (`abyss_echoes` : une
+  horde de chaque monde, à tour de rôle, et une onde). Ajouté au générique.
+- **À faire, session dédiée** : le vrai combat en quatre formes (planches B à F : racines, magma, cristal, glace,
+  forme de Faille ; G : effondrement), la fin du jeu, et l'équilibrage. Réglage provisoire : ennemis ×1 / ×0,5,
+  Abyssarque ×0,65 / ×0,4 → 1 victoire sur 4 au bot. Le Chasseur arrive à la plateforme avec environ 250-300
+  dégâts subis (les zones sont longues) : revoir les vagues des zones 3 et 5 avant le boss.
+
+
 ## Carte 23, Quartiers suspendus, en jeu (Claude, 9 novembre 2026)
 
 Décor de Codex, collisions peintes par le propriétaire (9 novembre). Troisième carte du chapitre 5 (avant le Panthéon).

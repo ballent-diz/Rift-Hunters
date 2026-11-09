@@ -31,6 +31,7 @@ const MAPS := {
 	"rune_sanctum": ["environment.rune_sanctum", 0.3, true],
 	"suspended_quarters": ["environment.suspended_quarters", 0.55, true],
 	"shattered_pantheon": ["environment.shattered_pantheon", 0.5, true],
+	"rift_eye": ["environment.rift_eye", 0.45, true],
 }
 
 

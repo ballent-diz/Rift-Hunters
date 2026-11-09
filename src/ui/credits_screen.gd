@@ -10,7 +10,7 @@ signal closed
 const SPEED := 48.0
 const RESUME_AFTER := 4.0
 const DEVOURERS: Array[StringName] = [&"nebulorax", &"astravorn", &"source_devourer", &"pyrevorn", &"glauquemire",
-	&"nivorath"]
+	&"nivorath", &"abyssarch"]
 const MOTES := 80
 const RIFT := Color(0.72, 0.45, 1.0)
 const WIDTH := 1180.0

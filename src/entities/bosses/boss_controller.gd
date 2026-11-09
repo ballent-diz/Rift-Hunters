@@ -11,7 +11,7 @@ extends RefCounted
 const PATTERN_ANIMATIONS := {
 	&"avalanche": &"avalanche", &"deep_freeze": &"snuff", &"storm_hunt": &"slide", &"floe_quake": &"ice_crack",
 	&"war_cry": &"rallying_cry", &"rune_barrage": &"slab_armor",
-	&"pantheon_wake": &"awaken_statues", &"soul_chain": &"soul_link",
+	&"pantheon_wake": &"awaken_statues", &"soul_chain": &"soul_link", &"abyss_echoes": &"attack",
 	&"claw": &"attack", &"shadow_wave": &"shadow_wave", &"summon": &"summon", &"absorb": &"attack",
 	&"void_beam": &"phase2_attack", &"rock_rain": &"attack",
 	&"charge": &"attack", &"quake": &"attack", &"blink": &"attack",
@@ -51,6 +51,8 @@ var _cry_announced: bool = false
 var _runes_announced: bool = false
 var _wake_announced: bool = false
 var _chain_announced: bool = false
+## Échos des mondes (Abyssarque) : prochain monde invoqué.
+var _echo_world: int = 0
 var _charge_dir := Vector2.ZERO
 var _charge_speed: float = 0.0
 var _effects: Array[Node2D] = []
@@ -814,6 +816,34 @@ func _pattern_soul_chain(pattern: BossPatternData) -> void:
 				if ally.alive and not ally.is_boss and not ally.is_obstacle and allies.size() < int(pattern.params.get("links", 6)):
 					allies.append(ally)
 			ctx.city.bind(boss, allies, float(pattern.params.get("mult", 0.4)), float(pattern.params.get("duration", 6.0))))
+
+
+## Échos des mondes (Abyssarque, carte 25) : à chaque fois, le Dévoreur final rappelle un des mondes traversés (Val,
+## cendres, marais, glacier, Cité, dans l'ordre) : une horde de ce monde surgit autour de lui, et une onde part de son
+## cœur-œil. Combat complet en quatre formes : à venir (docs/ROADMAP.md).
+func _pattern_abyss_echoes(pattern: BossPatternData) -> void:
+	var worlds: Array = pattern.params.get("worlds", [])
+	if worlds.is_empty():
+		return
+	if _echo_world == 0:
+		ctx.events.event_started.emit("BOSS_ABYSS_ECHOES_INTRO")
+	var world: Array = worlds[_echo_world % worlds.size()]
+	_echo_world += 1
+	busy_time = pattern.telegraph + 0.5
+	var count: int = int(pattern.params.get("count", 4))
+	var spread: float = float(pattern.params.get("spread", 320.0))
+	var offset: float = ctx.rng.randf() * TAU
+	for i: int in count:
+		var data_id: StringName = StringName(world[i % world.size()])
+		var pos: Vector2 = ctx.obstacles.push_out(boss.position + Vector2.RIGHT.rotated(offset + TAU * i / count) * spread, 24.0)
+		ctx.fx.ring(pos, 40.0, Color(0.9, 0.35, 1.0, 0.7), pattern.telegraph)
+		schedule(pattern.telegraph, func() -> void:
+			var enemy_data: EnemyData = GameDB.enemy(data_id)
+			if enemy_data:
+				ctx.enemies.spawn(enemy_data, pos))
+	ctx.hazards.add_ring(boss.position, float(pattern.params.get("speed", 280.0)), float(pattern.params.get("max_radius", 900.0)),
+		float(pattern.params.get("thickness", 26.0)), _damage(pattern), true, data.id, [], 0.4, [], pattern.telegraph,
+		PixelFx.family_of(boss))
 
 
 ## Grand gel (Chaman ancestral, carte 17) : un seul brasero reste allumé ; hors de sa chaleur, gel et prison.

@@ -760,7 +760,8 @@
 		"fallen_commander": "fallen",
 		"sanctum_golem": "fallen",
 		"pantheon_keeper": "riftborn",
-		"herald_lord": "fallen"
+		"herald_lord": "fallen",
+		"abyssarch": "riftborn"
 	},
 	"boss_common": {
 		"claw": {

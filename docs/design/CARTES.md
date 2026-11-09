@@ -123,7 +123,7 @@ en plus de réchauffer). Les réglages de la carte ne changent pas : la nuit suf
 | 22 | Défense d'autel (reliquaire) | B4 Portes runiques (`RuneGateDirector`) ; gardien Golem du sanctuaire (Tempête de runes) ; en jeu depuis le 9 novembre |
 | 23 | Vagues par zone | B6 Téléporteurs de faille (`PortalDirector`, paires allumées avec la progression, refuge accessible par la paire C) ; Grand Héraldiste (Chaîne d'âmes) ; en jeu depuis le 9 novembre |
 | 24 | Fermeture de failles | B8 Statues qui s'éveillent (`StatueDirector`) + B10 Échos piégés (`EchoCageDirector`) ; gardienne du Panthéon ; en jeu depuis le 9 novembre |
-| 25 | Vagues + Dévoreur final | Combinaison des briques du jeu |
+| 25 | Vagues + Dévoreur final | Combinaison des briques du jeu (gués, sol brûlant, vase, glace, sol corrompu) ; Abyssarque branché, combat complet à venir ; arène en jeu depuis le 9 novembre |
 
 ## Réalisé
 

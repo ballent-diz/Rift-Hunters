@@ -1,0 +1,143 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/boss_phase_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/boss_pattern_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"boss.abyssarch"
+shape = 8
+size = 300.0
+primary = Color(0.32, 0.12, 0.5, 1.0)
+secondary = Color(0.16, 0.05, 0.28, 1.0)
+accent = Color(0.95, 0.35, 0.85, 1.0)
+
+[sub_resource type="Resource" id="pattern_1"]
+script = ExtResource("4")
+kind = &"claw"
+name_key = "BOSS_PATTERN_ABYSS_CLAWS"
+weight = 3.0
+cooldown = 3.0
+damage = 34.0
+telegraph = 0.7
+params = {
+"anim": "attack",
+"radius": 230.0
+}
+
+[sub_resource type="Resource" id="pattern_2"]
+script = ExtResource("4")
+kind = &"shadow_wave"
+name_key = "BOSS_PATTERN_SHADOW_WAVE"
+weight = 2.0
+cooldown = 7.0
+damage = 30.0
+telegraph = 0.8
+params = {
+"speed": 240.0,
+"thickness": 26.0,
+"gaps": 2,
+"gap_width": 0.4,
+"waves": 1
+}
+
+[sub_resource type="Resource" id="pattern_3"]
+script = ExtResource("4")
+kind = &"abyss_echoes"
+name_key = "BOSS_PATTERN_ABYSS_ECHOES"
+weight = 2.0
+cooldown = 11.0
+damage = 30.0
+telegraph = 1.0
+params = {
+"anim": "attack",
+"worlds": [["husk", "lunger", "spitter"], ["cinder_crawler", "ash_hound", "magma_mite"], ["mire_leech", "bloat_toad", "rift_gnat"], ["frost_crawler", "blizzard_wolf", "hush_shard"], ["fallen_militia", "rift_larva", "torn_shade"]],
+"count": 4,
+"spread": 320.0,
+"speed": 280.0,
+"max_radius": 900.0,
+"thickness": 26.0
+}
+
+[sub_resource type="Resource" id="pattern_11"]
+script = ExtResource("4")
+kind = &"claw"
+name_key = "BOSS_PATTERN_ABYSS_CLAWS"
+weight = 3.0
+cooldown = 2.6
+damage = 36.0
+telegraph = 0.6
+params = {
+"anim": "attack",
+"radius": 250.0
+}
+
+[sub_resource type="Resource" id="pattern_12"]
+script = ExtResource("4")
+kind = &"shadow_wave"
+name_key = "BOSS_PATTERN_SHADOW_WAVE"
+weight = 2.0
+cooldown = 6.0
+damage = 32.0
+telegraph = 0.8
+params = {
+"speed": 270.0,
+"thickness": 26.0,
+"gaps": 2,
+"gap_width": 0.4,
+"waves": 2,
+"wave_gap": 0.9
+}
+
+[sub_resource type="Resource" id="pattern_13"]
+script = ExtResource("4")
+kind = &"abyss_echoes"
+name_key = "BOSS_PATTERN_ABYSS_ECHOES"
+weight = 2.2
+cooldown = 9.0
+damage = 32.0
+telegraph = 0.9
+params = {
+"anim": "attack",
+"worlds": [["husk", "lunger", "spitter"], ["cinder_crawler", "ash_hound", "magma_mite"], ["mire_leech", "bloat_toad", "rift_gnat"], ["frost_crawler", "blizzard_wolf", "hush_shard"], ["fallen_militia", "rift_larva", "torn_shade"]],
+"count": 6,
+"spread": 340.0,
+"speed": 300.0,
+"max_radius": 1000.0,
+"thickness": 28.0
+}
+
+[sub_resource type="Resource" id="phase_1"]
+script = ExtResource("3")
+hp_threshold = 1.0
+name_key = "BOSS_ABYSSARCH_PHASE1"
+pattern_interval = 1.8
+patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3")]
+
+[sub_resource type="Resource" id="phase_2"]
+script = ExtResource("3")
+hp_threshold = 0.5
+name_key = "BOSS_ABYSSARCH_PHASE2"
+move_speed_mult = 1.2
+pattern_interval = 1.5
+transition_time = 1.4
+transition_animation = &"attack"
+patterns = [SubResource("pattern_11"), SubResource("pattern_12"), SubResource("pattern_13")]
+
+[resource]
+script = ExtResource("1")
+id = &"abyssarch"
+name_key = "BOSS_ABYSSARCH_NAME"
+title_key = "BOSS_ABYSSARCH_TITLE"
+max_hp = 20000.0
+damage = 30.0
+defense = 40.0
+move_speed = 52.0
+radius = 120.0
+shard_reward = 300
+essence_reward = 30
+visual = SubResource("visual_data_1")
+phases = [SubResource("phase_1"), SubResource("phase_2")]
+signature = &"abyss_echoes"
