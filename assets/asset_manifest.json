@@ -16682,6 +16682,169 @@
 			"minimap": "res://assets/environments/shattered_pantheon/minimap.webp",
 			"menu_preview": "res://assets/ui/expedition/shattered_pantheon.png",
 			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"object.barrier_1": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.barrier_1/job.json",
+			"sheet": "res://assets/sprites/objects/barrier_1/barrier_1_sheet.png",
+			"cell": [
+				256,
+				256
+			],
+			"anchor": [
+				0,
+				224
+			],
+			"scale": 0.5,
+			"animations": {
+				"loop": {
+					"row": 0,
+					"frames": 16,
+					"fps": 12,
+					"loop": true
+				},
+				"appear": {
+					"row": 1,
+					"frames": 10,
+					"fps": 12,
+					"loop": false
+				},
+				"dissolve": {
+					"row": 2,
+					"frames": 12,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/barrier_1.png"
+		},
+		"object.barrier_1.bias": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.barrier_1.bias/job.json",
+			"sheet": "res://assets/sprites/objects/barrier_1/barrier_1_bias_sheet.png",
+			"cell": [
+				112,
+				512
+			],
+			"anchor": [
+				16,
+				224
+			],
+			"scale": 0.5,
+			"animations": {
+				"loop": {
+					"row": 0,
+					"frames": 16,
+					"fps": 12,
+					"loop": true
+				},
+				"appear": {
+					"row": 1,
+					"frames": 10,
+					"fps": 12,
+					"loop": false
+				},
+				"dissolve": {
+					"row": 2,
+					"frames": 12,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/barrier_1_bias.png"
+		},
+		"object.barrier_1.corner": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.barrier_1.corner/job.json",
+			"sheet": "res://assets/sprites/objects/barrier_1/barrier_1_corner_sheet.png",
+			"cell": [
+				384,
+				384
+			],
+			"anchor": [
+				16,
+				224
+			],
+			"scale": 0.5,
+			"animations": {
+				"loop": {
+					"row": 0,
+					"frames": 16,
+					"fps": 12,
+					"loop": true
+				},
+				"appear": {
+					"row": 1,
+					"frames": 10,
+					"fps": 12,
+					"loop": false
+				},
+				"dissolve": {
+					"row": 2,
+					"frames": 12,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/barrier_1_corner.png"
+		},
+		"object.barrier_1.seal_a": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.barrier_1.seal_a/job.json",
+			"sheet": "res://assets/sprites/objects/barrier_1/barrier_1_seal_a_sheet.png",
+			"cell": [
+				160,
+				256
+			],
+			"anchor": [
+				80,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"open": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/barrier_1_seal_a.png"
+		},
+		"object.barrier_1.seal_b": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/object.barrier_1.seal_b/job.json",
+			"sheet": "res://assets/sprites/objects/barrier_1/barrier_1_seal_b_sheet.png",
+			"cell": [
+				160,
+				256
+			],
+			"anchor": [
+				80,
+				232
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 12,
+					"loop": true
+				},
+				"open": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/objects/barrier_1_seal_b.png"
 		}
 	}
 }

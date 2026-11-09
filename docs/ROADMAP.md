@@ -702,3 +702,7 @@ glacier_entry 0,9 ; storm_lake 0,7 ; brazier_pass déjà à l'échelle. À l'int
 0,9, rift_eye 0,85, les autres 1. Bot (PROFILE=stage, normal, mossback et ashblade, 2 graines, 4 cartes) : 9/16
 victoires avant, 10/16 après, dégâts subis comparables : pas de réajustement. Carte 15 (marsh_heart) NON réduite : Codex l'a
 repeinte (PR #136). Les chiffres du bot incluent un essai marsh_heart à 0,65 (ses 4 parties : 0/4 avant, 2/4 après).
+
+## Barrières peintes — chapitre 1 prêt pour validation (Codex, 9 novembre)
+
+Premier jeu complet à valider par le propriétaire avant toute déclinaison : deux bornes moussues de 100 unités, fûts 34,5 unités, voile face/biais et angle ; loop 16 poses, appear 10, dissolve 12 à 12 images/s. Cinq assets wip, 26 couleurs communes prélevées sur les Ruines, sources imagegen intégré et jobs conservés. Quatre captures à l’échelle avec Chasseur et Cendrelame, GIF complet, audit et chargement Godot conformes. Voir [BARRIERES_PEINTES.md](art/BARRIERES_PEINTES.md). Aucun changement de src/, data/, shaders, collisions ou minuteries ; Claude raccordera après validation. Chapitres 2 à 5 en attente du propriétaire.

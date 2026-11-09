@@ -1,0 +1,195 @@
+{
+  "ok": true,
+  "chapter": 1,
+  "approval": "en attente du propriétaire",
+  "palette_rgb_count": 26,
+  "palette_map": "cascade_ruins",
+  "existing_manifest_entries_unchanged": true,
+  "forbidden_paths_changed": [],
+  "source_hashes": {
+    "appear.png": "493525b46417b21bf62305bda6db4d6795597f87dc02eeb9b8e1823f0f42f38f",
+    "bornes.png": "15727334ca8ffc2eec1bd406a236f26027a7aa84022b7a050de77eb5c8ff389d",
+    "dissolve.png": "a8ad5cfbfe65c2640e8e4d8ab896bf85511d0b87fdc35cb9e6946d6bbd74c9b6",
+    "loop.png": "0c4149e5115f21503b3e50dbd00902634a82f03a0de16f9495a74679fdaba96c",
+    "palette.png": "7e47fcfe3040915ac820e5415b0758dd798ae397562709a4f275439d6dfe911f"
+  },
+  "assets": [
+    {
+      "id": "object.barrier_1",
+      "cell": [
+        256,
+        256
+      ],
+      "anchor": [
+        0,
+        224
+      ],
+      "rgb_colors": 7,
+      "sha256": "5f5613de572895809993e0ba77be64cbf38bcb021a27144e367bd2ff87aeba66",
+      "animations": {
+        "loop": {
+          "frames": 16,
+          "fps": 12,
+          "unique_frames": 16,
+          "loop": true,
+          "mean_step_rgba": [
+            23.123870849609375,
+            23.109817504882812,
+            23.357254028320312,
+            28.280044555664062,
+            32.2589225769043,
+            32.72354507446289,
+            31.278621673583984,
+            22.989524841308594,
+            22.956077575683594,
+            27.583473205566406,
+            29.198204040527344,
+            21.977169036865234,
+            17.077983856201172,
+            14.172554016113281,
+            14.832561492919922,
+            21.61040496826172
+          ],
+          "wrap_over_median_step": 0.9348336997284793,
+          "mean_alpha": 0.2764095231598499
+        },
+        "appear": {
+          "frames": 10,
+          "fps": 12,
+          "unique_frames": 10,
+          "loop": false
+        },
+        "dissolve": {
+          "frames": 12,
+          "fps": 12,
+          "unique_frames": 12,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "object.barrier_1.bias",
+      "cell": [
+        112,
+        512
+      ],
+      "anchor": [
+        16,
+        224
+      ],
+      "rgb_colors": 7,
+      "sha256": "02242fccc90ec3df1b89b501f7407138b3eeecdc464d7069ba5c50167385e851",
+      "animations": {
+        "loop": {
+          "frames": 16,
+          "fps": 12,
+          "unique_frames": 16,
+          "loop": true
+        },
+        "appear": {
+          "frames": 10,
+          "fps": 12,
+          "unique_frames": 10,
+          "loop": false
+        },
+        "dissolve": {
+          "frames": 12,
+          "fps": 12,
+          "unique_frames": 12,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "object.barrier_1.corner",
+      "cell": [
+        384,
+        384
+      ],
+      "anchor": [
+        16,
+        224
+      ],
+      "rgb_colors": 7,
+      "sha256": "e85133c81ba9856c3d68c78119df25685eed4dea1be2be2042d594a7ec2e9932",
+      "animations": {
+        "loop": {
+          "frames": 16,
+          "fps": 12,
+          "unique_frames": 16,
+          "loop": true
+        },
+        "appear": {
+          "frames": 10,
+          "fps": 12,
+          "unique_frames": 10,
+          "loop": false
+        },
+        "dissolve": {
+          "frames": 12,
+          "fps": 12,
+          "unique_frames": 12,
+          "loop": false
+        }
+      }
+    },
+    {
+      "id": "object.barrier_1.seal_a",
+      "cell": [
+        160,
+        256
+      ],
+      "anchor": [
+        80,
+        232
+      ],
+      "rgb_colors": 25,
+      "sha256": "c6649d47a221dda767e88b09c57dd4a56a4c9cdc0e0f89eac377b15d6ab04751",
+      "animations": {
+        "idle": {
+          "frames": 6,
+          "fps": 12,
+          "unique_frames": 6,
+          "loop": true
+        },
+        "open": {
+          "frames": 6,
+          "fps": 12,
+          "unique_frames": 6,
+          "loop": false
+        }
+      },
+      "height_world": 100.0,
+      "median_shaft_width_world": 34.5
+    },
+    {
+      "id": "object.barrier_1.seal_b",
+      "cell": [
+        160,
+        256
+      ],
+      "anchor": [
+        80,
+        232
+      ],
+      "rgb_colors": 25,
+      "sha256": "a103e75c42396d86cfa55f4276896569a2d4f966fc7f5aaf7c3e43ad0f73394a",
+      "animations": {
+        "idle": {
+          "frames": 6,
+          "fps": 12,
+          "unique_frames": 6,
+          "loop": true
+        },
+        "open": {
+          "frames": 6,
+          "fps": 12,
+          "unique_frames": 6,
+          "loop": false
+        }
+      },
+      "height_world": 100.0,
+      "median_shaft_width_world": 34.5
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "date": "2026-11-09",
+  "status": "proposition C1 en attente du propriétaire",
+  "generator": "imagegen intégré",
+  "godot": "4.3 stable",
+  "assets": [
+    {
+      "id": "object.barrier_1",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.bias",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.corner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.seal_a",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "object.barrier_1.seal_b",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "capture_size": [
+    1280,
+    720
+  ],
+  "zoom": 1.3333,
+  "map": "cascade_ruins",
+  "map_world": [
+    5016,
+    1672
+  ],
+  "map_density": 2.25,
+  "scene_center_world": [
+    2700,
+    700
+  ],
+  "actors": [
+    "player.hunter",
+    "monster.ashblade"
+  ],
+  "actor_transforms": "manifeste courant inchangé",
+  "captures": 4,
+  "gif_source_frames": 54,
+  "gif_sequence": [
+    "appear 10",
+    "loop 16",
+    "loop 16",
+    "dissolve 12"
+  ],
+  "gif_size": [
+    800,
+    450
+  ],
+  "gif_note": "aperçu réduit ; cadence moyenne 12 i/s (80/80/90 ms)",
+  "import_errors": [],
+  "script_errors": [],
+  "runtime_integration": false,
+  "gameplay_or_collision_changes": false,
+  "pending_chapters": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "timing_note": "durées sources .833/1.333/1 s ; conserver les horloges de règles A3",
+  "previews": {
+    "angle_zoom_jeu.webp": {
+      "bytes": 503654,
+      "sha256": "02f9d710ac6584cbc46e3e18d2c2437687d27c83cd9e9545f322b77df3f6164c"
+    },
+    "animation.gif": {
+      "bytes": 1253366,
+      "sha256": "0ee112cb378a9b918e67112af9fee10eec0bcfeed1b740a6bcef5deaff0f7c19"
+    },
+    "bornes_ouvertes_zoom_jeu.webp": {
+      "bytes": 495838,
+      "sha256": "0c14ff5ab4d9f4710a5221d004b83abd65aa3b2266831e02214c2595ce84f38e"
+    },
+    "droite_zoom_jeu.webp": {
+      "bytes": 505958,
+      "sha256": "dd623bb24e9163540136b8edef460f48a8d9ea1c79e84769ad8833016a2eec56"
+    },
+    "planches_bornes.webp": {
+      "bytes": 282434,
+      "sha256": "83555de9de09b1bb413b9d26583a724faebf9fb3efc14bffd0a590753727d49f"
+    },
+    "planches_voile.webp": {
+      "bytes": 412070,
+      "sha256": "7acf99622c61d8ae4aa591d53f0c1a659ae5be663fbd21119c6d776a9af94735"
+    },
+    "verticale_zoom_jeu.webp": {
+      "bytes": 501316,
+      "sha256": "1afc0b17552eca542c86d0b3adab8833118010fe329d187fd80fc0881d55f5e6"
+    }
+  }
+}
