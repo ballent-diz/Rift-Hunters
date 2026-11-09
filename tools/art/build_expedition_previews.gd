@@ -25,6 +25,8 @@ const MAPS := {
 	"glacier_entry": ["environment.glacier_entry", 0.5, true],
 	"brazier_pass": ["environment.brazier_pass", 0.5, true],
 	"storm_lake": ["environment.storm_lake", 0.5, true],
+	"lighthouse_floe": ["environment.lighthouse_floe", 0.5, true],
+	"silent_heart": ["environment.silent_heart", 0.5, true],
 }
 
 

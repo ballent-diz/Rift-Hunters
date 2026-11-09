@@ -246,6 +246,10 @@ func _build_world() -> void:
 		ctx.tide = TideDirector.new()
 		ctx.world.add_child(ctx.tide)
 		ctx.tide.setup(ctx)
+	if FloeDirector.uses_floe(ctx.arena):
+		ctx.floe = FloeDirector.new()
+		ctx.world.add_child(ctx.floe)
+		ctx.floe.setup(ctx)
 	if not ctx.arena.ice_patches.is_empty():
 		ctx.ice = IceDirector.new()
 		ctx.world.add_child(ctx.ice)
@@ -397,6 +401,8 @@ func _physics_process(delta: float) -> void:
 	_mark(&"d_rockfall")
 	if ctx.tide:
 		ctx.tide.step(delta)
+	if ctx.floe:
+		ctx.floe.step(delta)
 	_mark(&"d_tide")
 	if ctx.cold:
 		ctx.cold.step(delta)

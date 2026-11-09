@@ -68,7 +68,9 @@ func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
 	name = "Altar"
 	z_index = -1
-	position = ctx.obstacles.push_out(ctx.arena.altar_point, ctx.arena.altar_radius)
+	position = ctx.arena.altar_point
+	if not ctx.arena.altar_painted:
+		position = ctx.obstacles.push_out(position, ctx.arena.altar_radius)
 	max_hp = ctx.arena.altar_hp
 	hp = max_hp
 	guide = FlowField.new()
@@ -81,6 +83,8 @@ func setup(p_ctx: RunContext) -> void:
 
 
 func _build_visual() -> void:
+	if ctx.arena.altar_painted:
+		return
 	var frames: SpriteFrames = Assets.get_sprite_frames(VISUAL_ID)
 	if frames == null:
 		return
@@ -156,7 +160,7 @@ func _play_burst(anim: StringName) -> void:
 
 
 func _start() -> void:
-	ctx.events.event_started.emit(TranslationServer.translate("ALTAR_INTRO") % waves())
+	ctx.events.event_started.emit(TranslationServer.translate(ctx.arena.altar_key("ALTAR_INTRO")) % waves())
 
 
 func waves() -> int:
@@ -198,7 +202,7 @@ func _begin_wave() -> void:
 	_timer = ctx.arena.altar_wave_duration
 	_budget = 0.0
 	_elite_spawned = false
-	ctx.events.event_started.emit(TranslationServer.translate("ALTAR_WAVE") % [wave_index + 1, waves()])
+	ctx.events.event_started.emit(TranslationServer.translate(ctx.arena.altar_key("ALTAR_WAVE")) % [wave_index + 1, waves()])
 
 
 func _end_wave() -> void:
@@ -215,8 +219,12 @@ func _end_wave() -> void:
 		ctx.fx.ring(position, 1400.0, Color(RUNE, 0.6), 0.6)
 		ctx.fx.burst(position, ctx.arena.altar_radius * 2.5, Color(RUNE, 0.6))
 		_shatter()
-		ctx.events.event_started.emit("ALTAR_SHATTERED")
-		ctx.spawner.spawn_boss(position + _body_center)
+		ctx.events.event_started.emit(ctx.arena.altar_key("ALTAR_SHATTERED"))
+		var spawn: Vector2 = position + _body_center
+		if ctx.arena.altar_painted:
+			# Autel peint dans le décor bloqué : le gardien surgit au pied, sur la glace praticable.
+			spawn = ctx.obstacles.push_out(position + Vector2(0.0, ctx.arena.altar_radius + 90.0), 70.0)
+		ctx.spawner.spawn_boss(spawn)
 		return
 	wave_index += 1
 	phase = Phase.PAUSE
@@ -224,7 +232,7 @@ func _end_wave() -> void:
 	hp = minf(max_hp, hp + max_hp * REPAIR_RATIO)
 	ctx.fx.burst(position, ctx.arena.altar_radius * 2.0, Color(RUNE, 0.5))
 	ctx.events.chest_collected.emit()
-	ctx.events.event_started.emit(TranslationServer.translate("ALTAR_WAVE_HELD") % [wave_index, waves()])
+	ctx.events.event_started.emit(TranslationServer.translate(ctx.arena.altar_key("ALTAR_WAVE_HELD")) % [wave_index, waves()])
 
 
 ## Corrompus au contact : chacun inflige une part de ses dégâts de contact (altar_damage_mult) au rythme des coups au
@@ -250,7 +258,7 @@ func _suffer_contacts(delta: float) -> void:
 		hp = 0.0
 		destroyed = true
 		ctx.fx.burst(position, ctx.arena.altar_radius * 3.0, Color(1.0, 0.3, 0.5, 0.7))
-		ctx.events.event_started.emit("ALTAR_DESTROYED")
+		ctx.events.event_started.emit(ctx.arena.altar_key("ALTAR_DESTROYED"))
 
 
 func _spawn(delta: float) -> void:
@@ -320,6 +328,12 @@ func _draw() -> void:
 	var r: float = ctx.arena.altar_radius if ctx else 70.0
 	if _seal:
 		_draw_ground_shadow()
+		return
+	if ctx and ctx.arena.altar_painted:
+		# Autel peint (phare) : seulement la jauge au sol et un éclat quand il est frappé.
+		if _flash > 0.0:
+			draw_arc(Vector2.ZERO, r + 18.0, 0.0, TAU, 48, Color(1.0, 0.45, 0.55, 0.7), 4.0, true)
+		_draw_gauge(r)
 		return
 	var pulse: float = 0.5 + 0.5 * sin(_time * 2.2)
 	draw_circle(Vector2.ZERO, r * 1.25, Color(0.0, 0.0, 0.0, 0.3))

@@ -22,6 +22,8 @@ var walls_version: int = 0
 ## Cercles retirés en cours de partie (sceau brisé) : la navigation rouvre leurs cases.
 var released: Array[Vector3] = []
 var _grid: Dictionary = {}
+## Indices des barrières fermées (les seules parcourues par les tests de collision : la banquise en compte beaucoup).
+var _active: Array[int] = []
 ## Carte de distance (arène dessinée) : distance signée au bord infranchissable, en unités du monde.
 var _field: Image
 var _field_rect := Rect2()
@@ -106,6 +108,7 @@ func add_wall(rect: Rect2, transient: bool = false) -> int:
 	wall_enabled.append(true)
 	wall_transient.append(transient)
 	walls_version += 1
+	_active.append(walls.size() - 1)
 	return walls.size() - 1
 
 
@@ -113,18 +116,20 @@ func set_wall_enabled(index: int, enabled: bool) -> void:
 	if wall_enabled[index] != enabled:
 		wall_enabled[index] = enabled
 		walls_version += 1
+		if enabled:
+			_active.append(index)
+		else:
+			_active.erase(index)
 
 
 ## Volants : seules les barrières fermées (zones, arène, marée) les arrêtent, pas le décor.
 func push_out_walls(pos: Vector2, radius: float) -> Vector2:
-	return _push_out_walls(pos, radius) if not walls.is_empty() else pos
+	return _push_out_walls(pos, radius) if not _active.is_empty() else pos
 
 
 ## Sort un cercle d'une barrière fermée par le bord le plus proche.
 func _push_out_walls(pos: Vector2, radius: float) -> Vector2:
-	for i: int in walls.size():
-		if not wall_enabled[i]:
-			continue
+	for i: int in _active:
 		var r: Rect2 = walls[i].grow(radius)
 		if not r.has_point(pos):
 			continue
@@ -144,11 +149,9 @@ func _push_out_walls(pos: Vector2, radius: float) -> Vector2:
 ## Vrai si le trajet de `from` (hors barrière) à `to` entre dans une barrière active : empêche de traverser une
 ## barrière mince quand le dégagement choisit le côté opposé (barrières jointives, poussée du décor, Ruée).
 func crosses_wall(from: Vector2, to: Vector2, radius: float) -> bool:
-	if walls.is_empty() or from.is_equal_approx(to):
+	if _active.is_empty() or from.is_equal_approx(to):
 		return false
-	for i: int in walls.size():
-		if not wall_enabled[i]:
-			continue
+	for i: int in _active:
 		var r: Rect2 = walls[i].grow(radius - 0.25)
 		if r.has_point(from):
 			continue
@@ -179,15 +182,15 @@ static func _segment_hits_rect(from: Vector2, to: Vector2, r: Rect2) -> bool:
 
 
 func _wall_blocks(pos: Vector2, radius: float) -> bool:
-	for i: int in walls.size():
-		if wall_enabled[i] and walls[i].grow(radius).has_point(pos):
+	for i: int in _active:
+		if walls[i].grow(radius).has_point(pos):
 			return true
 	return false
 
 
 ## Position corrigée pour qu'un cercle (pos, radius) ne chevauche aucun obstacle.
 func push_out(pos: Vector2, radius: float) -> Vector2:
-	if not walls.is_empty():
+	if not _active.is_empty():
 		pos = _push_out_walls(pos, radius)
 	if _field != null:
 		pos = _push_out_field(pos, radius)
@@ -254,8 +257,8 @@ func repulsion(pos: Vector2, reach: float) -> Vector2:
 		var d: float = distance(pos)
 		if d < reach:
 			force += _field_normal(pos) * (reach - d) / 30.0
-	for i: int in walls.size():
-		if wall_enabled[i] and walls[i].grow(reach).has_point(pos):
+	for i: int in _active:
+		if walls[i].grow(reach).has_point(pos):
 			var away: Vector2 = pos - walls[i].get_center()
 			force += away.normalized() * 0.8
 	return force
@@ -263,7 +266,7 @@ func repulsion(pos: Vector2, reach: float) -> Vector2:
 
 ## Vrai si un cercle (pos, radius) chevauche un obstacle. `include_walls` : compter les barrières fermées.
 func blocks(pos: Vector2, radius: float, include_walls: bool = true) -> bool:
-	if include_walls and not walls.is_empty() and _wall_blocks(pos, radius):
+	if include_walls and not _active.is_empty() and _wall_blocks(pos, radius):
 		return true
 	if _field != null and distance(pos) < radius:
 		return true

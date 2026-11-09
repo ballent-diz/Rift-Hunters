@@ -104,6 +104,11 @@ extends Resource
 @export_range(0.0, 1.0) var altar_raider_share: float = 0.4
 ## Points d'arrivée des vagues (vide : cercle autour de l'autel).
 @export var altar_spawn_points: Array[Vector2] = []
+## Autel peint dans le décor (phare de la carte 19) : pas de sceau dessiné, l'autel reste sur place même si le décor
+## peint le bloque ; seule une jauge au sol montre ses PV.
+@export var altar_painted: bool = false
+## Suffixe des textes de l'autel (« _LIGHTHOUSE » : ALTAR_INTRO_LIGHTHOUSE…) ; vide : textes du sceau.
+@export var altar_text_suffix: String = ""
 @export_group("Terrain lent (brique B1, docs/design/CARTES.md)")
 ## Zones de terrain lent (gués, boue...) : tout le monde y est ralenti, la Ruée garde sa vitesse.
 @export var slow_zones: Array[Rect2] = []
@@ -125,6 +130,30 @@ extends Resource
 @export var tide_low: float = 20.0
 @export var tide_warning: float = 4.0
 @export var tide_high: float = 12.0
+@export_group("Banquise qui se fend (brique B4, carte 19)")
+## Plaques de banquise (polygones) : praticables, elles se fendent par moments (alerte) puis s'ouvrent sur l'eau noire,
+## infranchissables, avant de regeler (FloeDirector).
+@export var floe_plates: Array[PackedVector2Array] = []
+## Plaques posées sur les accès au phare : jamais plus de floe_access_max ouvertes en même temps.
+@export var floe_access: Array[int] = []
+@export var floe_access_max: int = 1
+## Plaques hors accès ouvertes à chaque cycle (une par quart de la carte au plus).
+@export var floe_ring_count: int = 2
+## Images de l'eau ouverte (une par plaque, dans l'ordre de floe_plates) et leur rectangle dans le jeu.
+@export var floe_overlays: Array[String] = []
+@export var floe_overlay_rects: Array[Rect2] = []
+@export var floe_first: float = 20.0
+@export var floe_period: float = 18.0
+@export var floe_warning: float = 3.0
+@export var floe_open: float = 9.0
+## Dégâts au Chasseur resté sur une plaque qui s'ouvre (il est rejeté sur la glace ferme) ; part des PV max infligée
+## aux Corrompus (non volants) qui y sombrent.
+@export var floe_damage: float = 14.0
+@export_range(0.0, 1.0) var floe_enemy_ratio: float = 0.6
+@export_group("Écho des sorts (brique B9, carte 20)")
+## Part de puissance de l'écho : chaque sort offensif du Chasseur se relance une fois après spell_echo_delay (0 : non).
+@export_range(0.0, 1.0) var spell_echo: float = 0.0
+@export var spell_echo_delay: float = 0.6
 @export_group("Courants (brique B6, docs/design/CARTES.md)")
 ## Courants permanents : le Chasseur et les Corrompus y dérivent dans le sens du courant (pas pendant la Ruée ;
 ## boss et Échos épargnés). Le suivre fait gagner du temps, le remonter en fait perdre.
@@ -279,6 +308,11 @@ extends Resource
 ## Poussée du vent pendant une rafale (unités par seconde).
 @export var blizzard_wind: float = 45.0
 
+## Clé de texte de l'autel propre à la carte (ALTAR_INTRO → ALTAR_INTRO + altar_text_suffix).
+func altar_key(key: String) -> String:
+	return key + altar_text_suffix
+
+
 ## Copie en coordonnées du jeu (décor réduit de decor_scale) ; l'arène elle-même si l'échelle vaut 1.
 func scaled_copy() -> ArenaData:
 	if is_equal_approx(decor_scale, 1.0):
@@ -302,6 +336,14 @@ func scaled_copy() -> ArenaData:
 	a.slow_zones = _rects(slow_zones, k)
 	a.mud_zones = _rects(mud_zones, k)
 	a.tide_causeways = _rects(tide_causeways, k)
+	var floes: Array[PackedVector2Array] = []
+	for poly: PackedVector2Array in floe_plates:
+		var scaled := PackedVector2Array()
+		for p: Vector2 in poly:
+			scaled.append(p * k)
+		floes.append(scaled)
+	a.floe_plates = floes
+	a.floe_overlay_rects = _rects(floe_overlay_rects, k)
 	a.currents = _rects(currents, k)
 	a.flood_lanes = _rects(flood_lanes, k)
 	var plates: Array[Vector3] = []
