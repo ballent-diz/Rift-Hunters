@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Scène de fin du jeu (Claude, 9 novembre 2026)
+
+Victoire sur la dernière carte de la campagne (`Campaign.final_map()`, l'Œil de la Faille) : `EndingScreen` s'affiche
+avant les résultats. L'Œil de l'Abyssarque se referme (feuille `boss.abyssarch.death`, `eye_close`) sur une nuit de
+Faille qui s'apaise, puis le voyage défile, une phrase par chapitre à la couleur du chapitre, le Chasseur, et
+« le mode Cauchemar est désormais ouvert » quand cette victoire l'ouvre. « Fin », remerciement, boutons Générique
+(CreditsScreen) et Continuer (résultats). Clic ou touche : carte suivante ; « Passer » saute au mot de la fin.
+Pas affichée pour le bot. Test `test_ending_screen`. Pistes : musique propre à la fin, illustration par chapitre.
+
+
 ## Carte 25, Œil de la Faille, et combat de l'Abyssarque (Claude, 9 novembre 2026)
 
 Décor de Codex, collisions peintes par le propriétaire. Dernière carte du jeu (`Campaign.final_map()` : la gagner
@@ -17,7 +27,7 @@ ouvre le Cauchemar). Décor ×0,85. Test `test_rift_eye`, capture `docs/previews
   bannière de fin du voyage (`defeat_key`). Ajouté au générique.
 - **Équilibrage** (profil d'étape) : ennemis ×1 / ×0,5, Abyssarque ×0,55 / ×0,4 (contact 14) → 3 victoires sur 4,
   combat de 55 à 65 s. La défaite restante (Cendrelame, graine 1) survient dans les zones à 336 s.
-- **Pistes** : une vraie scène de fin (générique après la victoire) plutôt qu'une bannière ; le rayon de la forme
+- **Pistes** : le rayon de la forme
   finale ne tient pas compte des abris de l'arène (à vérifier en jeu).
 ## Carte 23, Quartiers suspendus, en jeu (Claude, 9 novembre 2026)
 
