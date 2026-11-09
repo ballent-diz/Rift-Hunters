@@ -14,12 +14,7 @@ var arena: ArenaData
 var seed_value: int = 0
 var environment: EnvironmentSet
 var placements: Array[Dictionary] = []
-## Préréglage du filtre pixel actuellement appliqué (PixelFilter.OFF si aucun).
-var pixel_filter: String = PixelFilter.OFF
 var _ambient: CPUParticles2D
-## Matériau et filtrage du sol sans filtre pixel, restaurés quand on le retire.
-var _base_material: Material
-var _base_texture_filter: CanvasItem.TextureFilter = CanvasItem.TEXTURE_FILTER_NEAREST
 
 
 func setup(p_arena: ArenaData, p_seed: int) -> void:
@@ -44,39 +39,7 @@ func setup(p_arena: ArenaData, p_seed: int) -> void:
 			placements = DecorLayout.generate(environment, arena_rect(), seed_value, arena.decor_density)
 			_build_chunks()
 		_build_ambient()
-	_base_material = material
-	_base_texture_filter = texture_filter
-	set_pixel_filter(Settings.pixel_filter)
 	queue_redraw()
-
-
-## Applique un préréglage du filtre pixel (cartes dessinées seulement) ; « off » restaure le matériau d'origine.
-func set_pixel_filter(preset: String) -> void:
-	var filtered: ShaderMaterial = PixelFilter.build_material(self, preset)
-	if filtered == null:
-		material = _base_material
-		texture_filter = _base_texture_filter
-		pixel_filter = PixelFilter.OFF
-		return
-	material = filtered
-	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	pixel_filter = preset
-
-
-func _enter_tree() -> void:
-	if not Settings.changed.is_connected(_on_settings_changed):
-		Settings.changed.connect(_on_settings_changed)
-
-
-func _exit_tree() -> void:
-	if Settings.changed.is_connected(_on_settings_changed):
-		Settings.changed.disconnect(_on_settings_changed)
-	set_pixel_filter(PixelFilter.OFF)
-
-
-func _on_settings_changed() -> void:
-	if Settings.pixel_filter != pixel_filter:
-		set_pixel_filter(Settings.pixel_filter)
 
 
 ## Champ d'obstacles infranchissables du décor (vide sans décor).
