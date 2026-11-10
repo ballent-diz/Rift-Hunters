@@ -1,0 +1,638 @@
+{
+	"version": 1,
+	"map_size": [
+		11286,
+		11286
+	],
+	"cell": 5,
+	"depth": "depth.png",
+	"depth_rect": [
+		427,
+		82,
+		1748,
+		2010
+	],
+	"environment": "environment.storm_highlands",
+	"grid": [
+		2258,
+		2258
+	],
+	"elements": [
+		{
+			"id": "building_01",
+			"category": "building",
+			"rect": [
+				704,
+				670,
+				348,
+				268
+			],
+			"mask": "masks/building_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					740,
+					930
+				],
+				[
+					1040,
+					850
+				]
+			]
+		},
+		{
+			"id": "building_02",
+			"category": "building",
+			"rect": [
+				1099,
+				671,
+				181,
+				173
+			],
+			"mask": "masks/building_02.png",
+			"hidden": false,
+			"depth": [
+				[
+					1100,
+					764
+				],
+				[
+					1280,
+					833
+				]
+			]
+		},
+		{
+			"id": "building_03",
+			"category": "building",
+			"rect": [
+				1280,
+				607,
+				286,
+				347
+			],
+			"mask": "masks/building_03.png",
+			"hidden": false,
+			"depth": [
+				[
+					1280,
+					846
+				],
+				[
+					1490,
+					946
+				]
+			]
+		},
+		{
+			"id": "building_04",
+			"category": "building",
+			"rect": [
+				629,
+				918,
+				206,
+				218
+			],
+			"mask": "masks/building_04.png",
+			"hidden": false,
+			"depth": [
+				[
+					630,
+					1096
+				],
+				[
+					836,
+					1046
+				]
+			]
+		},
+		{
+			"id": "building_05",
+			"category": "building",
+			"rect": [
+				1284,
+				1054,
+				160,
+				165
+			],
+			"mask": "masks/building_05.png",
+			"hidden": false,
+			"depth": [
+				[
+					1282.2,
+					1180
+				],
+				[
+					1442.2,
+					1180
+				]
+			]
+		},
+		{
+			"id": "building_06",
+			"category": "building",
+			"rect": [
+				1446,
+				929,
+				111,
+				222
+			],
+			"mask": "masks/building_06.png",
+			"hidden": false,
+			"depth": [
+				[
+					1446,
+					1096
+				],
+				[
+					1540,
+					1140
+				]
+			]
+		},
+		{
+			"id": "building_07",
+			"category": "building",
+			"rect": [
+				748,
+				1612,
+				151,
+				190
+			],
+			"mask": "masks/building_07.png",
+			"hidden": false,
+			"depth": [
+				[
+					750,
+					1796
+				],
+				[
+					896,
+					1740
+				]
+			]
+		},
+		{
+			"id": "building_08",
+			"category": "building",
+			"rect": [
+				904,
+				1521,
+				335,
+				229
+			],
+			"mask": "masks/building_08.png",
+			"hidden": false,
+			"depth": [
+				[
+					940,
+					1744
+				],
+				[
+					1220,
+					1680
+				]
+			]
+		},
+		{
+			"id": "building_09",
+			"category": "building",
+			"rect": [
+				1232,
+				1522,
+				447,
+				388
+			],
+			"mask": "masks/building_09.png",
+			"hidden": false,
+			"depth": [
+				[
+					1280,
+					1736
+				],
+				[
+					1670,
+					1900
+				]
+			]
+		},
+		{
+			"id": "building_10",
+			"category": "building",
+			"rect": [
+				747,
+				1808,
+				90,
+				114
+			],
+			"mask": "masks/building_10.png",
+			"hidden": false,
+			"depth": [
+				[
+					746.6,
+					1884
+				],
+				[
+					838.4,
+					1884
+				]
+			]
+		},
+		{
+			"id": "market_01",
+			"category": "debris",
+			"rect": [
+				770,
+				1039,
+				121,
+				85
+			],
+			"mask": "masks/market_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					772,
+					1118
+				],
+				[
+					890,
+					1112
+				]
+			]
+		},
+		{
+			"id": "market_02",
+			"category": "debris",
+			"rect": [
+				1236,
+				1095,
+				89,
+				72
+			],
+			"mask": "masks/market_02.png",
+			"hidden": false,
+			"depth": [
+				[
+					1235.6,
+					1164
+				],
+				[
+					1326.6,
+					1164
+				]
+			]
+		},
+		{
+			"id": "market_03",
+			"category": "debris",
+			"rect": [
+				1403,
+				1008,
+				61,
+				75
+			],
+			"mask": "masks/market_03.png",
+			"hidden": false,
+			"depth": [
+				[
+					1402.2,
+					1082
+				],
+				[
+					1462.2,
+					1082
+				]
+			]
+		},
+		{
+			"id": "pillar_01",
+			"category": "pillar",
+			"rect": [
+				1904,
+				1042,
+				21,
+				49
+			],
+			"mask": "masks/pillar_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					1903.4,
+					1092
+				],
+				[
+					1926.6,
+					1092
+				]
+			]
+		},
+		{
+			"id": "statue_01",
+			"category": "statue",
+			"rect": [
+				962,
+				105,
+				46,
+				94
+			],
+			"mask": "masks/statue_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					966,
+					197
+				],
+				[
+					1009,
+					197
+				]
+			]
+		},
+		{
+			"id": "statue_02",
+			"category": "statue",
+			"rect": [
+				1086,
+				82,
+				39,
+				73
+			],
+			"mask": "masks/statue_02.png",
+			"hidden": false,
+			"depth": [
+				[
+					1090.2,
+					153
+				],
+				[
+					1126.6,
+					153
+				]
+			]
+		},
+		{
+			"id": "statue_03",
+			"category": "statue",
+			"rect": [
+				1260,
+				137,
+				52,
+				106
+			],
+			"mask": "masks/statue_03.png",
+			"hidden": false,
+			"depth": [
+				[
+					1264,
+					240
+				],
+				[
+					1312.8,
+					240
+				]
+			]
+		},
+		{
+			"id": "statue_04",
+			"category": "statue",
+			"rect": [
+				999,
+				193,
+				50,
+				111
+			],
+			"mask": "masks/statue_04.png",
+			"hidden": false,
+			"depth": [
+				[
+					1002.2,
+					304
+				],
+				[
+					1051,
+					304
+				]
+			]
+		},
+		{
+			"id": "statue_05",
+			"category": "statue",
+			"rect": [
+				1188,
+				289,
+				45,
+				81
+			],
+			"mask": "masks/statue_05.png",
+			"hidden": false,
+			"depth": [
+				[
+					1189.6,
+					368
+				],
+				[
+					1233.8,
+					368
+				]
+			]
+		},
+		{
+			"id": "statue_06",
+			"category": "statue",
+			"rect": [
+				1325,
+				264,
+				43,
+				51
+			],
+			"mask": "masks/statue_06.png",
+			"hidden": false,
+			"depth": [
+				[
+					1326.2,
+					316
+				],
+				[
+					1368.8,
+					316
+				]
+			]
+		},
+		{
+			"id": "statue_07",
+			"category": "statue",
+			"rect": [
+				877,
+				1081,
+				108,
+				145
+			],
+			"mask": "masks/statue_07.png",
+			"hidden": false,
+			"depth": [
+				[
+					876,
+					1220
+				],
+				[
+					986,
+					1220
+				]
+			]
+		},
+		{
+			"id": "statue_08",
+			"category": "statue",
+			"rect": [
+				1939,
+				1019,
+				32,
+				39
+			],
+			"mask": "masks/statue_08.png",
+			"hidden": false,
+			"depth": [
+				[
+					1939.4,
+					1058
+				],
+				[
+					1970,
+					1058
+				]
+			]
+		},
+		{
+			"id": "tree_01",
+			"category": "tree",
+			"rect": [
+				1363,
+				242,
+				46,
+				69
+			],
+			"mask": "masks/tree_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					1362.6,
+					308
+				],
+				[
+					1410,
+					308
+				]
+			]
+		},
+		{
+			"id": "tree_02",
+			"category": "tree",
+			"rect": [
+				1868,
+				986,
+				33,
+				113
+			],
+			"mask": "masks/tree_02.png",
+			"hidden": false,
+			"depth": [
+				[
+					1866,
+					1096
+				],
+				[
+					1902,
+					1096
+				]
+			]
+		},
+		{
+			"id": "tree_03",
+			"category": "tree",
+			"rect": [
+				1960,
+				1027,
+				62,
+				112
+			],
+			"mask": "masks/tree_03.png",
+			"hidden": false,
+			"depth": [
+				[
+					1961.6,
+					1138
+				],
+				[
+					2022.8,
+					1138
+				]
+			]
+		},
+		{
+			"id": "tree_04",
+			"category": "tree",
+			"rect": [
+				2027,
+				1022,
+				148,
+				167
+			],
+			"mask": "masks/tree_04.png",
+			"hidden": false,
+			"depth": [
+				[
+					2024,
+					1144
+				],
+				[
+					2176,
+					1144
+				]
+			]
+		},
+		{
+			"id": "tree_05",
+			"category": "tree",
+			"rect": [
+				427,
+				524,
+				193,
+				264
+			],
+			"mask": "masks/tree_05.png",
+			"hidden": false,
+			"depth": [
+				[
+					430,
+					770
+				],
+				[
+					620,
+					710
+				]
+			]
+		},
+		{
+			"id": "wall_01",
+			"category": "wall",
+			"rect": [
+				873,
+				1847,
+				419,
+				245
+			],
+			"mask": "masks/wall_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					890,
+					1930
+				],
+				[
+					1290,
+					2030
+				]
+			]
+		}
+	]
+}

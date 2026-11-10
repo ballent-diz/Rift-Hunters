@@ -121,6 +121,25 @@ func test_demo_sector_hides_behind_the_column() -> void:
 	ground.free()
 
 
+## Hautes Terres d'Orage (première carte détourée) : le Chasseur au nord d'un menhir est caché, au sud il est devant.
+func test_storm_highlands_menhir() -> void:
+	var ground := ArenaGround.new()
+	ground.setup(GameDB.arena(&"storm_highlands"), 1)
+	var map: OcclusionMap = ground.occlusion_map()
+	check(map != null, "les Hautes Terres ont des données de masquage")
+	if map != null:
+		var path: String = str(Assets.entry(&"environment.storm_highlands").get("occlusion", ""))
+		var image: Image = OcclusionMap.load_depth_image(path.get_base_dir().path_join("depth.png"))
+		var rect: Rect2 = ground.arena_rect()
+		var to_world := func(px: Vector2) -> Vector2: return rect.position + px / Vector2(11286, 11286) * rect.size
+		var stone: Vector2 = to_world.call(Vector2(5130, 1100))
+		check(map.hides(image, to_world.call(Vector2(5130, 1150)), stone), "derrière le menhir : caché")
+		check(not map.hides(image, to_world.call(Vector2(5130, 1800)), stone), "devant le menhir : normal")
+		check(not map.hides(image, to_world.call(Vector2(5700, 1150)), to_world.call(Vector2(5700, 1100))),
+			"herbe dégagée : normal")
+	ground.free()
+
+
 func test_maps_without_data_are_untouched() -> void:
 	var ground := ArenaGround.new()
 	ground.setup(GameDB.arena(&"brazier_pass"), 1)

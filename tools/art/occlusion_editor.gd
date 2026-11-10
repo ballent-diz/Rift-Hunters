@@ -2,6 +2,7 @@ extends Node2D
 ## Éditeur de masquage (outil de développement) : silhouettes des éléments de décor peints qui passent devant les
 ## personnages. Mode d'emploi : docs/maps/MASQUAGE_PAR_LE_DECOR.md.
 ## Lancer : godot --path . res://tools/art/occlusion_editor.tscn -- --arena=three_rifts
+## (--save : sans fenêtre, recharge, enregistre et recalcule depth.png, puis ferme)
 ## (dans Godot : ouvrir la scène puis F6 ; sans argument, l'arène three_rifts).
 ##
 ## Outils : B pinceau (clic gauche = peindre, clic droit = gommer, [ et ] = taille) ; P polygone (clic gauche = point,
@@ -66,6 +67,8 @@ func _ready() -> void:
 			arena_id = arg.get_slice("=", 1)
 		elif arg.begins_with("--capture="):
 			capture = arg.get_slice("=", 1)
+		elif arg == "--save":
+			capture = "--save"
 	arena = GameDB.arena(StringName(arena_id))
 	if arena == null:
 		push_error("Éditeur de masquage : arène inconnue « %s »" % arena_id)
@@ -91,9 +94,14 @@ func _ready() -> void:
 	add_child(_camera)
 	_camera.zoom = Vector2.ONE * 0.3
 	_build_ui()
-	_build_blocked_overlay()
+	if capture != "--save":
+		_build_blocked_overlay()
 	_refresh_list()
-	if capture != "":
+	if capture == "--save":
+		# Sans fenêtre : recalcule depth.png après tools/art/occlusion_trace.py, puis ferme.
+		_save()
+		get_tree().quit.call_deferred(0 if not _dirty else 1)
+	elif capture != "":
 		_capture.call_deferred(capture)
 
 
