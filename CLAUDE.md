@@ -45,6 +45,7 @@ python3 tools/art/collision_mask.py export|build three_rifts   # collisions dét
 python3 tools/art/map_regions.py split|assemble|compare ...   # passe de détail par régions (docs/maps/QUALITE_DES_CARTES.md)
 python3 tools/art/check_map_quality.py environment.<id>  # qualité d'une carte (même finesse que les Ruines)
 python3 tools/art/build_minimap.py all                   # fonds de mini-carte (après un changement de carte ou de collisions)
+godot --path . res://tools/art/occlusion_editor.tscn -- --arena=<id>   # masquage par le décor (docs/maps/MASQUAGE_PAR_LE_DECOR.md)
 python3 tools/audio/detect_bpm.py                        # mesurer le tempo des musiques (manifeste audio)
 ```
 

@@ -10610,7 +10610,8 @@
 				"res://assets/environments/firefly_woods/map_2.webp"
 			],
 			"menu_preview": "res://assets/ui/expedition/firefly_woods.png",
-			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd",
+			"occlusion": "res://assets/environments/firefly_woods/occlusion/occlusion.json"
 		},
 		"object.altar_seal": {
 			"status": "final",

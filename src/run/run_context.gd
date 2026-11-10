@@ -31,6 +31,8 @@ var fx: FxRenderer
 var pixel_fx: PixelFx
 ## Obstacles infranchissables du décor (rochers, arbres, eau).
 var obstacles := ObstacleField.new()
+## Masquage des personnages par le décor peint (null : carte sans données de masquage).
+var occlusion: OcclusionMap
 ## Carte de flux vers le Chasseur (null sans décor infranchissable) : les ennemis contournent par les routes.
 var flow: FlowField
 var boss: Enemy

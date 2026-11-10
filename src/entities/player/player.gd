@@ -77,6 +77,7 @@ func setup(p_ctx: RunContext, p_brain: PlayerBrain) -> void:
 	radius = b.player_radius
 	stats.changed.connect(_on_stat_changed)
 	visual = EntityVisual.new()
+	visual.occlusion = ctx.occlusion
 	add_child(visual)
 	if b.player_visual:
 		visual.setup(b.player_visual)

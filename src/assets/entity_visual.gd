@@ -11,6 +11,16 @@ var bob_speed: float = 9.0
 var shadow_radius: float = 0.0
 ## Animation de repos (un boss passe à « phase2_idle » après sa transformation).
 var idle_animation: StringName = &"idle"
+## Masquage par le décor peint (OcclusionMap) : seuls le corps et l'ombre au sol sont concernés ; barres de vie,
+## marqueurs, annonces d'attaque, projectiles et effets sont dessinés ailleurs et jamais masqués.
+var occlusion: OcclusionMap
+var _shader_path: String = ""
+var _shadow: Node2D
+## Décalage vertical du sprite (saut, pas) : passe par l'offset pour que l'origine du sprite reste au pied.
+var _lift: float = 0.0
+var _bob: float = 0.0
+var _anchor := Vector2.ZERO
+var _pixel_scale: float = 1.0
 var _sprite: Sprite2D
 var _anim: AnimatedSprite2D
 var _action: StringName = &""
@@ -49,14 +59,12 @@ func setup(visual: VisualData, primary: Color = Color(0, 0, 0, 0), secondary: Co
 		_anim = AnimatedSprite2D.new()
 		_anim.sprite_frames = frames
 		_anim.centered = false
-		_anim.offset = -Assets.anchor(visual.visual_id)
+		_anchor = Assets.anchor(visual.visual_id)
+		_pixel_scale = Assets.pixel_scale(visual.visual_id)
 		_anim.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-		_anim.scale = Vector2.ONE * Assets.pixel_scale(visual.visual_id)
-		var shader_path: String = str(Assets.entry(visual.visual_id).get("shader", ""))
-		if shader_path != "" and ResourceLoader.exists(shader_path):
-			var effect := ShaderMaterial.new()
-			effect.shader = load(shader_path) as Shader
-			_anim.material = effect
+		_anim.scale = Vector2.ONE * _pixel_scale
+		_update_offset()
+		_shader_path = str(Assets.entry(visual.visual_id).get("shader", ""))
 		_anim.animation_finished.connect(_on_action_finished)
 		add_child(_anim)
 		_setup_gait(visual.visual_id, frames)
@@ -73,6 +81,49 @@ func setup(visual: VisualData, primary: Color = Color(0, 0, 0, 0), secondary: Co
 		add_child(_sprite)
 		_base_scale = Vector2.ONE * float(result[1])
 		_sprite.scale = _base_scale
+	_apply_materials()
+
+
+## Branche (ou retire, avec null) le masquage par le décor ; gardé pour les changements de feuille suivants.
+func set_occlusion(map: OcclusionMap) -> void:
+	occlusion = map
+	_apply_materials()
+
+
+func _apply_materials() -> void:
+	var body: CanvasItem = _sprite if _sprite else _anim
+	var matte: bool = _anim != null and _shader_path.ends_with("green_matte.gdshader")
+	if body != null:
+		if occlusion != null:
+			body.material = occlusion.material(&"matte" if matte else &"body")
+		elif _anim != null and _shader_path != "" and ResourceLoader.exists(_shader_path):
+			var effect := ShaderMaterial.new()
+			effect.shader = load(_shader_path) as Shader
+			body.material = effect
+		else:
+			body.material = null
+	if _shadow != null:
+		_shadow.material = occlusion.material(&"shadow") if occlusion != null else null
+
+
+## Hauteur du sprite au-dessus du sol (saut) : le pied, l'ombre et le calcul du masquage restent au sol.
+func set_lift(height: float) -> void:
+	if height == _lift:
+		return
+	_lift = height
+	if _anim:
+		_update_offset()
+	elif _sprite:
+		_sprite.position.y = -height / maxf(absf(scale.y), 0.001)
+
+
+func lift() -> float:
+	return _lift
+
+
+func _update_offset() -> void:
+	var lift: float = _lift / maxf(absf(scale.y), 0.001) + _bob
+	_anim.offset = -_anchor - Vector2(0.0, lift / maxf(_pixel_scale, 0.001))
 
 
 func _setup_gait(visual_id: StringName, frames: SpriteFrames) -> void:
@@ -126,8 +177,10 @@ func swap_visual(visual_id: StringName, aliases: Dictionary = {}) -> bool:
 		for i: int in source.get_frame_count(from):
 			frames.add_frame(to, source.get_frame_texture(from, i), source.get_frame_duration(from, i))
 	_anim.sprite_frames = frames
-	_anim.offset = -Assets.anchor(visual_id)
-	_anim.scale = Vector2.ONE * Assets.pixel_scale(visual_id)
+	_anchor = Assets.anchor(visual_id)
+	_pixel_scale = Assets.pixel_scale(visual_id)
+	_anim.scale = Vector2.ONE * _pixel_scale
+	_update_offset()
 	_current = &""
 	_action = &""
 	idle_animation = &"idle"
@@ -204,7 +257,11 @@ func tick(delta: float, moving: bool, speed: float = -1.0) -> void:
 
 func _gait(delta: float, walking: bool, speed: float) -> void:
 	if not walking:
-		_anim.position = _anim.position.lerp(Vector2.ZERO, minf(delta * 12.0, 1.0))
+		if _bob != 0.0:
+			_bob = lerpf(_bob, 0.0, minf(delta * 12.0, 1.0))
+			if _bob < 0.01:
+				_bob = 0.0
+			_update_offset()
 		_anim.rotation = lerpf(_anim.rotation, 0.0, minf(delta * 12.0, 1.0))
 		if _action == &"":
 			_anim.speed_scale = 1.0
@@ -218,7 +275,8 @@ func _gait(delta: float, walking: bool, speed: float) -> void:
 	# Deux pas par cycle : rebond à chaque pas, bascule gauche/droite d'un pas à l'autre.
 	var step: float = sin(_phase * 2.0)
 	if _step_bob > 0.0 or _step_rock > 0.0:
-		_anim.position = Vector2(0.0, -absf(step) * _step_bob)
+		_bob = absf(step) * _step_bob
+		_update_offset()
 		_anim.rotation = sin(_phase) * _step_rock * (-1.0 if _facing_left else 1.0)
 
 
@@ -235,6 +293,7 @@ func _apply_modulate() -> void:
 ## Ombre au sol dans un nœud placé sous toutes les entités de la même couche (z relatif −1), dessinée une fois.
 func _add_shadow() -> void:
 	var shadow := Node2D.new()
+	_shadow = shadow
 	shadow.z_index = -1
 	var radius: float = shadow_radius
 	shadow.draw.connect(func() -> void:
