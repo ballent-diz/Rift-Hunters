@@ -62,3 +62,6 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   cercle d'ombre sous chaque sprite. À ancrer au sol : ombre portée plus discrète et collée aux pieds (forme et
   opacité selon la silhouette, lumière haut-gauche de docs/ART_BIBLE.md), ancres des feuilles vérifiées, flottement
   réservé aux créatures volantes.
+  Précision du propriétaire : le Chasseur a aussi le cercle mais paraît bien posé au sol. La cause principale est donc
+  probablement la position des pieds dans les feuilles des Échos et monstres (ancre trop basse, pieds au-dessus du
+  centre de l'ombre) : comparer leurs ancres à celle du Chasseur avant de toucher aux ombres.
