@@ -120,7 +120,8 @@ extends Resource
 @export var capture_lifetime: float = 25.0
 @export_group("Lisibilité")
 ## Zoom de la caméra (> 1 = plus proche).
-@export var camera_zoom: float = 1.3333
+## Vue élargie de 20 % par rapport au cadrage initial : 1,3333 / 1,2 ≈ 1,1111.
+@export var camera_zoom: float = 1.1111
 @export var max_damage_numbers: int = 60
 
 
