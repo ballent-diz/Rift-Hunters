@@ -1,5 +1,24 @@
 # Rift Hunters — feuille de route
 
+## Barrières peintes en jeu (Claude, 9 novembre 2026)
+
+Les 25 assets de Codex (`object.barrier_1` à `_5`, docs/art/BARRIERES_PEINTES.md) remplacent le rideau shader
+(`rift_curtain.gdshader` supprimé, particules retirées). Règles, collisions et minuteries inchangées.
+
+- Code : `src/run/rift_wall_visual.gd` (un nœud par groupe de rectangles connexes ; ligne de sol médiane le long de
+  l'axe long, marches pour les murs en escalier ; face tous les 128 unités, biais coupé le long de son plan projeté,
+  module d'angle pour un pli est→sud aux bras ≥ 64, bornes aux extrémités et aux coins à bras ≥ 40) et
+  `src/run/zone_overlay.gd` (jeu du chapitre de la carte dans la campagne principale, chapitre 1 sinon ;
+  appear à la fermeture, loop, dissolve à l'ouverture, bornes en open laissées au sol après une zone nettoyée ;
+  une barrière fermée/ouverte sans `dissolve()` (finale, sorts) joue aussi appear/dissolve, sans bornes restantes).
+- Horloge visuelle tirée des clips (apparition 0,83 s, dissolution 1 s), séparée de celle des règles.
+- Plan : z 2, sous le Chasseur et les Échos, au-dessus des Corrompus (pas de tri en Y dans le jeu).
+  Barrières passagères (marées, banquises, portes runiques) exclues : elles ont leur propre rendu.
+- Vérifié : `test_rift_visuals` (pose droite, verticale, angle, escalier, chapitre, durées) ; banc
+  `tools/barrier_preview.tscn` (captures au zoom réel, une carte par chapitre, dans
+  `docs/previews/barrieres-peintes-jeu/`) ; 85 barrières : 0,5 ms de `_process` médian, 83 appels de dessin.
+- À juger par le propriétaire : voile du chapitre 4 très pâle sur la neige ; plan sous le Chasseur.
+
 ## Filtre pixel du décor : essayé puis retiré (décision du propriétaire, 9 novembre 2026)
 
 Le filtre de Codex a été intégré (PR #146) puis entièrement retiré : sur la plupart des cartes il dégradait
