@@ -65,3 +65,11 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   Précision du propriétaire : le Chasseur a aussi le cercle mais paraît bien posé au sol. La cause principale est donc
   probablement la position des pieds dans les feuilles des Échos et monstres (ancre trop basse, pieds au-dessus du
   centre de l'ombre) : comparer leurs ancres à celle du Chasseur avant de toucher aux ombres.
+- [ ] **Monstres du chapitre 5 minuscules** (10 novembre) : Déchus (cellules 64 px, 16 à 24 unités) et Enfants de la
+  Faille trop petits face au Chasseur (≈ 52 unités) ; revoir leur échelle (manifeste) selon docs/ART_BIBLE.md.
+- [ ] **Boss de fin de chapitre pas assez dynamiques** (10 novembre) : plus de déplacements, d'enchaînements et de
+  techniques lisibles ; à revoir boss par boss.
+- [ ] **Glauquemire (carte 15, Cœur des marais)** (10 novembre) : boss intuable, mécanique jugée mauvaise par le
+  propriétaire, et un « cercle » bloque le Chasseur dans l'arène. Refondre la mécanique et retirer le blocage.
+- [ ] **Carte 15 buguée** (10 novembre) : à préciser avec le propriétaire (symptômes) puis corriger ; vérifier aussi
+  la carte repeinte par Codex (PR #136).
