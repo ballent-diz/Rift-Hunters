@@ -20,7 +20,8 @@ func _init() -> void:
 	add_child(_box)
 
 
-## Contenu : title, accent, icon (Texture2D ou null), kind, state, state_color, body, facts, notes (PackedStringArray).
+## Contenu : title, accent, icon (Texture2D ou null), frame (cadre du nœud, même forme que dans l'arbre), kind,
+## kind_color, state, state_color, body, facts, notes (PackedStringArray).
 func show_entry(entry: Dictionary) -> void:
 	UiKit.clear(_box)
 	var accent: Color = entry.get("accent", UiKit.TEXT)
@@ -28,7 +29,10 @@ func show_entry(entry: Dictionary) -> void:
 	header.add_theme_constant_override("separation", 12)
 	_box.add_child(header)
 	var icon: Texture2D = entry.get("icon")
-	if icon:
+	var border: Texture2D = entry.get("frame")
+	if border:
+		header.add_child(HunterTreeSkin.framed_icon(border, icon, 64, float(entry.get("inset", 0.18))))
+	elif icon:
 		var image := TextureRect.new()
 		image.texture = icon
 		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -47,7 +51,7 @@ func show_entry(entry: Dictionary) -> void:
 	var tags := HBoxContainer.new()
 	tags.add_theme_constant_override("separation", 8)
 	heading.add_child(tags)
-	tags.add_child(UiKit.caption(str(entry.get("kind", "")), 11, MenuSkin.PAPER.darkened(0.25)))
+	tags.add_child(UiKit.caption(str(entry.get("kind", "")), 11, entry.get("kind_color", MenuSkin.PAPER.darkened(0.25))))
 	var state: String = str(entry.get("state", ""))
 	if state != "":
 		tags.add_child(UiKit.caption("· " + state, 11, entry.get("state_color", UiKit.ACCENT)))
@@ -141,15 +145,31 @@ static func highlight(text: String) -> String:
 	return result + escaped.substr(last)
 
 
-## Infobulle compacte au survol d'un nœud (même mise en forme, sans actions).
-static func tooltip(title_text: String, kind: String, state: String, body_text: String, accent: Color) -> Control:
+## Infobulle compacte au survol d'un nœud (même mise en forme, sans actions) ; avec border, l'illustration dans le
+## cadre du nœud (hexagone doré pour un sort, cercle pour un passif).
+static func tooltip(title_text: String, kind: String, state: String, body_text: String, accent: Color,
+		border: Texture2D = null, icon: Texture2D = null, node: SkillNodeData = null) -> Control:
 	var panel := PanelContainer.new()
 	panel.add_theme_stylebox_override("panel", MenuSkin.frame(Color(0.05, 0.04, 0.1, 0.98), accent.darkened(0.2)))
 	var box := VBoxContainer.new()
 	box.add_theme_constant_override("separation", 4)
 	panel.add_child(box)
-	box.add_child(UiKit.title(title_text, 16, accent))
-	box.add_child(UiKit.caption(kind + ("  · " + state if state != "" else ""), 11, UiKit.MUTED))
+	var header := HBoxContainer.new()
+	header.add_theme_constant_override("separation", 10)
+	box.add_child(header)
+	if border:
+		header.add_child(HunterTreeSkin.framed_icon(border, icon, 40, HunterTreeSkin.icon_inset(node) if node else 0.18))
+	var heading := VBoxContainer.new()
+	heading.alignment = BoxContainer.ALIGNMENT_CENTER
+	heading.add_theme_constant_override("separation", 0)
+	header.add_child(heading)
+	heading.add_child(UiKit.title(title_text, 16, accent))
+	var tags := HBoxContainer.new()
+	tags.add_theme_constant_override("separation", 6)
+	heading.add_child(tags)
+	tags.add_child(UiKit.caption(kind, 11, HunterTreeSkin.kind_color(node) if node else UiKit.MUTED))
+	if state != "":
+		tags.add_child(UiKit.caption("· " + state, 11, UiKit.MUTED))
 	var body := RichTextLabel.new()
 	body.bbcode_enabled = true
 	body.fit_content = true

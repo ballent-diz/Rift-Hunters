@@ -2249,3 +2249,7 @@ ENDING_THANKS,Merci d'avoir joué à Rift Hunters.,Thank you for playing Rift Hu
 ENDING_SKIP,Passer,Skip
 ENDING_CREDITS,Générique,Credits
 ENDING_CONTINUE,Continuer,Continue
+TREE_EXPAND,Agrandir (F),Enlarge (F)
+TREE_EXPAND_HINT,"Afficher l'arbre sur toute la fenêtre, en plus grand (touche F).","Show the tree on the whole window, larger (F key)."
+TREE_SHRINK,Réduire (Échap),Shrink (Esc)
+TREE_SHRINK_HINT,"Revenir à l'onglet Arbre (Échap ou F).","Back to the Tree tab (Esc or F)."
