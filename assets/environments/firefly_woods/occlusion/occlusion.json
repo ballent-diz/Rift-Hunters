@@ -1,0 +1,154 @@
+{
+	"version": 1,
+	"map_size": [
+		9030,
+		6019
+	],
+	"cell": 5,
+	"depth": "depth.png",
+	"depth_rect": [
+		128,
+		766,
+		348,
+		215
+	],
+	"environment": "environment.firefly_woods",
+	"grid": [
+		1806,
+		1204
+	],
+	"elements": [
+		{
+			"id": "pillar_01",
+			"category": "pillar",
+			"rect": [
+				128,
+				910,
+				34,
+				38
+			],
+			"mask": "masks/pillar_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					138,
+					942.4
+				],
+				[
+					162.4,
+					947.6
+				]
+			]
+		},
+		{
+			"id": "pillar_02",
+			"category": "pillar",
+			"rect": [
+				184,
+				941,
+				25,
+				40
+			],
+			"mask": "masks/pillar_02.png",
+			"hidden": false,
+			"depth": [
+				[
+					184,
+					981
+				],
+				[
+					208.8,
+					981
+				]
+			]
+		},
+		{
+			"id": "pillar_03",
+			"category": "pillar",
+			"rect": [
+				252,
+				808,
+				34,
+				76
+			],
+			"mask": "masks/pillar_03.png",
+			"hidden": false,
+			"depth": [
+				[
+					251.6,
+					881
+				],
+				[
+					286.4,
+					881
+				]
+			]
+		},
+		{
+			"id": "tree_01",
+			"category": "tree",
+			"rect": [
+				220,
+				766,
+				44,
+				81
+			],
+			"mask": "masks/tree_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					230,
+					846.4
+				],
+				[
+					256,
+					846.4
+				]
+			]
+		},
+		{
+			"id": "rock_01",
+			"category": "rock",
+			"rect": [
+				411,
+				885,
+				65,
+				65
+			],
+			"mask": "masks/rock_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					412,
+					945
+				],
+				[
+					476,
+					945
+				]
+			]
+		},
+		{
+			"id": "wall_01",
+			"category": "wall",
+			"rect": [
+				298,
+				815,
+				42,
+				55
+			],
+			"mask": "masks/wall_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					302,
+					843.2
+				],
+				[
+					335.2,
+					870
+				]
+			]
+		}
+	]
+}

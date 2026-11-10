@@ -53,6 +53,13 @@ func obstacle_field() -> ObstacleField:
 	return field
 
 
+## Masquage des personnages par le décor peint (null sans données pour cette carte).
+func occlusion_map() -> OcclusionMap:
+	if environment == null or not environment.is_map():
+		return null
+	return OcclusionMap.load_for(arena.environment_id, arena_rect())
+
+
 ## Point de départ du joueur : dégagé sur une map dessinée, sinon le centre de l'arène.
 func player_start() -> Vector2:
 	return environment.start * arena.decor_scale if environment != null and environment.is_map() else Vector2.ZERO

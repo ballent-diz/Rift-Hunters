@@ -149,6 +149,7 @@ func spawn(data: EnemyData, pos: Vector2, elite_affixes: Array[EliteAffixData] =
 	enemy.attack_timer = ctx.rng.randf_range(0.5, 2.0)
 	enemy.visual = EntityVisual.new()
 	enemy.add_child(enemy.visual)
+	enemy.visual.occlusion = ctx.occlusion
 	enemy.visual.setup(data.visual)
 	if enemy.is_elite:
 		enemy.visual.scale = Vector2.ONE * ctx.balance.elite_size_mult
@@ -196,6 +197,7 @@ func spawn_boss(data: BossData, pos: Vector2) -> Enemy:
 	enemy.move_speed = data.move_speed
 	enemy.visual = EntityVisual.new()
 	enemy.add_child(enemy.visual)
+	enemy.visual.occlusion = ctx.occlusion
 	enemy.visual.setup(data.visual)
 	enemy.visual.scale = Vector2.ONE * data.visual_scale
 	enemy.visual.bob_amount = 0.03
@@ -766,7 +768,7 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 	match motion["kind"]:
 		&"leap":
 			enemy.position = (motion["from"] as Vector2).lerp(motion["to"], k)
-			enemy.visual.position.y = -sin(PI * k) * float(motion["height"])
+			enemy.visual.set_lift(sin(PI * k) * float(motion["height"]))
 		&"charge":
 			enemy.velocity = (motion["dir"] as Vector2) * float(motion["speed"])
 			enemy.position += enemy.velocity * delta
@@ -775,7 +777,7 @@ func _step_motion(enemy: Enemy, delta: float) -> void:
 			return
 	if k < 1.0:
 		return
-	enemy.visual.position.y = 0.0
+	enemy.visual.set_lift(0.0)
 	enemy.velocity = Vector2.ZERO
 	if motion["kind"] == &"charge" and float(motion["spin_radius"]) > 0.0:
 		ctx.hazards.add_circle(enemy.position, motion["spin_radius"], motion["spin_telegraph"], motion["spin_damage"],

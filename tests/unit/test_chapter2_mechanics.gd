@@ -81,11 +81,11 @@ func test_soot_hound_leaps_onto_the_hunter() -> void:
 	check_eq(hound.motion.get("kind", &""), &"leap", "bond lancé à portée")
 	check_eq(hound.visual._current, &"leap", "animation du bond")
 	_step(ctx, 0.5)
-	check(hound.visual.position.y < 0.0 or hound.motion.is_empty(), "en l'air pendant le bond")
+	check(hound.visual.lift() > 0.0 or hound.motion.is_empty(), "en l'air pendant le bond")
 	_step(ctx, 0.6)
 	check(hound.position.distance_to(ctx.player.global_position) < start.distance_to(ctx.player.global_position) - 150.0,
 		"atterrit près du Chasseur")
-	check_eq(hound.visual.position.y, 0.0, "au sol après le bond")
+	check_eq(hound.visual.lift(), 0.0, "au sol après le bond")
 
 
 func test_cinder_knight_charges_then_spins() -> void:

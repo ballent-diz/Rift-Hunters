@@ -1,5 +1,23 @@
 # Rift Hunters — feuille de route
 
+## Masquage des personnages par le décor peint (Claude, 10 novembre 2026)
+
+Le décor peint passe devant le Chasseur, les Échos et les Corrompus qui sont derrière ; la partie cachée reste en
+silhouette gris clair translucide. Mode d'emploi, format et repères : `docs/maps/MASQUAGE_PAR_LE_DECOR.md`.
+
+- Éditeur `tools/art/occlusion_editor.tscn` (`-- --arena=<arène>`) : collisions en lecture seule, éléments (id stable,
+  catégorie, silhouette au polygone et au pinceau avec gomme, trous, ligne de pied horizontale ou inclinée),
+  annuler/rétablir, aperçu au zoom réel avec un Chasseur, un Écho ou un Corrompu, sauvegarde et reprise.
+- Données par décor : `assets/environments/<décor>/occlusion/` (`occlusion.json`, `masks/`, `depth.png` cuite),
+  clé `occlusion` du manifeste. Jeu : `OcclusionMap` + un shader partagé sur le corps et l'ombre (`EntityVisual`),
+  pied = origine du sprite (sauts et pas par l'offset, `set_lift`). Barres de vie, annonces, projectiles et effets
+  jamais masqués ; nuit et furtivité jamais révélées. Sans données : rendu inchangé.
+- Démonstration : Bois des Lucioles, ruines du sud-ouest (3 piliers, colonne + pin qui se chevauchent, clôture avec
+  ouvertures, rocher). Captures `docs/previews/masquage/`. Coût mesuré : +15 % du temps d'image avec 400 Corrompus à
+  l'écran en rendu logiciel (cas le plus défavorable). Test `test_occlusion`.
+- **À faire (travail séparé)** : détourer les obstacles de toutes les cartes peintes avec l'éditeur (une carte par
+  tâche) ; vérifier ensuite chaque carte au zoom réel.
+
 ## Modes des Échos à l'essai : Relais et Solo (Claude, 10 novembre 2026)
 
 Retour du propriétaire : trop de monde autour du Chasseur avec trois Échos, trop de sorts à gérer. Le gameplay actuel

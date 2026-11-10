@@ -51,6 +51,7 @@ func setup(p_ctx: RunContext, p_data: MonsterData, p_rank: int) -> void:
 	technique = data.technique
 	behavior = AllyBehaviors.create(data.behavior_id)
 	visual = EntityVisual.new()
+	visual.occlusion = ctx.occlusion
 	add_child(visual)
 	_refresh_visual()
 	z_index = 3

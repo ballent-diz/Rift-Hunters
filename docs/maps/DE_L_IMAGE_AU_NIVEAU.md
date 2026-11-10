@@ -14,6 +14,7 @@ les barrières et l'arène du boss à la souris. Générer l'image : [GENERER_UN
 | 5. Placer départ, zones, barrières, arène | Propriétaire | éditeur de niveau (Godot) | `data/arenas/<id>.tres` |
 | 6. Vagues et noms des zones | Propriétaire ou Claude | inspecteur de Godot + `i18n/strings.csv` | niveau complet |
 | 7. Tester et envoyer | Propriétaire | jeu, GitHub Desktop | pull request |
+| 8. Décor devant les personnages (facultatif) | Propriétaire | éditeur de masquage (Godot) | `occlusion/` du décor, voir [MASQUAGE_PAR_LE_DECOR.md](MASQUAGE_PAR_LE_DECOR.md) |
 
 ## Prérequis (une fois)
 

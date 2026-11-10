@@ -199,6 +199,7 @@ func _build_world() -> void:
 	ground.setup(ctx.arena, ctx.rng.seed)
 	ctx.world.add_child(ground)
 	ctx.obstacles = ground.obstacle_field()
+	ctx.occlusion = ground.occlusion_map()
 	if not ctx.arena.cover_rocks.is_empty():
 		var cover := CoverRocks.new()
 		cover.setup(ctx.arena, ctx.obstacles)
