@@ -6,8 +6,8 @@ extends Node
 ## capture le voile en boucle, en dissolution puis les bornes ouvertes. --stress : N barrières en plus,
 ## mesure du temps de _process de l'overlay et des appels de dessin.
 
-const WALLS: Array[Rect2] = [Rect2(-430, -200, 300, 40), Rect2(-20, -200, 300, 40), Rect2(240, -200, 40, 330),
-	Rect2(-480, -60, 40, 250)]
+const WALLS: Array[Rect2] = [Rect2(-400, 40, 260, 40), Rect2(-60, -140, 260, 40), Rect2(180, -140, 40, 300),
+	Rect2(320, -180, 40, 300)]
 
 
 func _ready() -> void:
@@ -41,7 +41,8 @@ func _ready() -> void:
 		overlay = ZoneOverlay.new()
 		overlay.setup(ctx)
 		ctx.world.add_child(overlay)
-	var center: Vector2 = ctx.player.global_position
+	await get_tree().process_frame
+	var center: Vector2 = run.camera.get_screen_center_position().round()
 	var ids: Array[int] = []
 	for rect: Rect2 in WALLS:
 		ids.append(ctx.obstacles.add_wall(Rect2(rect.position + center, rect.size)))
@@ -79,7 +80,7 @@ func _measure(overlay: ZoneOverlay, out: String) -> void:
 		await RenderingServer.frame_post_draw
 		calls.append(int(Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)))
 	samples.sort()
-	var report := "barrieres=%d noeuds=%d process_ms_median=%.3f process_ms_max=%.3f draw_calls_max=%d\n" % [
-		overlay.get_child_count(), overlay.get_child_count(), samples[30], samples[-1], calls.max()]
+	var report := "noeuds=%d process_ms_median=%.3f process_ms_max=%.3f draw_calls_max=%d\n" % [
+		overlay.get_child_count(), samples[30], samples[-1], calls.max()]
 	var file := FileAccess.open(out.path_join("mesure.txt"), FileAccess.WRITE)
 	file.store_string(report)
