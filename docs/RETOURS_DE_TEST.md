@@ -54,4 +54,7 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   sobre, dans l'arbre, la fiche, les infobulles et la légende (Chasseur et Échos).
 - [x] **Échos immenses par rapport au Chasseur** : corrigé le 9 novembre : six Échos ramenés à environ 1,3 fois la
   taille apparente du Chasseur par leur seule échelle visuelle (docs/art/TAILLE_DES_ECHOS.md).
-
+- [ ] **Trop de monde et trop de sorts avec trois Échos** : « ça fait un peu bordel avec les 3 Échos autour de nous,
+  et beaucoup de sorts à gérer » ; envie d'essayer sans Échos ou un autre gameplay. Deux prototypes livrés le
+  10 novembre, activables par le réglage « Mode des Échos » (Actuel / Relais / Solo, détails dans docs/ROADMAP.md,
+  « Modes des Échos à l'essai »). **À tester par le propriétaire**, qui choisit ensuite le mode à garder.

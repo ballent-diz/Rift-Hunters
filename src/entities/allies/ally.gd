@@ -23,6 +23,10 @@ var technique_cd: float = 0.0
 ## Sort choisi dans l'arbre de l'Écho : une évolution ne le remplace pas.
 var technique_locked: bool = false
 var velocity := Vector2.ZERO
+## Modes Relais et Solo (EchoMode) : Écho en réserve, caché et inactif ; il suit le Chasseur pour ses bonus passifs.
+var benched: bool = false
+## Puissance d'une attaque d'entrée en cours (mode Relais), 1 sinon.
+var entry_mult: float = 1.0
 ## Englouti par Glauquemire : ni déplacement, ni attaque, ni sort jusqu'à sa libération.
 var swallowed: bool = false
 ## Mémoire du comportement (état, cible, minuteries).
@@ -88,7 +92,8 @@ func _refresh_visual() -> void:
 
 func damage_mult() -> float:
 	var rank_bonus: float = 1.0 + ctx.balance.ally_rank_damage_bonus * (rank - 1)
-	return stats.get_value(StatKeys.DAMAGE) * ctx.player.stats.get_value(StatKeys.ALLY_DAMAGE) * rank_bonus * _mult_damage
+	return stats.get_value(StatKeys.DAMAGE) * ctx.player.stats.get_value(StatKeys.ALLY_DAMAGE) * rank_bonus * _mult_damage \
+		* ctx.allies.field_damage_mult() * entry_mult
 
 
 func attack_speed_mult() -> float:

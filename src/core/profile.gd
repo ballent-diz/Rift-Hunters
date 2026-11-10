@@ -138,6 +138,7 @@ func make_run_setup(starter_id: StringName, previous: RunSetup = null, training:
 	if difficulty == null or not profile.is_difficulty_unlocked(difficulty):
 		setup.difficulty_id = Campaign.NORMAL
 	setup.unlocked_monsters = unlocked
+	setup.echo_mode = EchoMode.sanitize(Settings.echo_mode)
 	var level: int = GameDB.difficulty(setup.difficulty_id).level
 	if previous == null:
 		for raw: String in profile.preference("modifiers", "").split(",", false):

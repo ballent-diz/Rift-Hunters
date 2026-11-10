@@ -66,7 +66,7 @@ static func candidates(ctx: RunContext) -> Array[UpgradeOffer]:
 			if ctx.has_monster(id) or not is_monster_unlocked(ctx, monster) or ctx.build.banished.has(StringName(key)):
 				continue
 			result.append(_dynamic(UpgradeOffer.Kind.RECRUIT, key, id, null, WEIGHT_RECRUIT))
-	for ally: Ally in ctx.allies.team:
+	for ally: Ally in ctx.allies.roster:
 		var id: StringName = ally.data.id
 		if ally.rank < ctx.balance.ally_rank_max and not ctx.build.banished.has(StringName("empower:" + String(id))):
 			result.append(_dynamic(UpgradeOffer.Kind.EMPOWER, "empower:" + String(id), id, null, WEIGHT_EMPOWER))

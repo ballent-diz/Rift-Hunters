@@ -26,6 +26,11 @@ func refresh() -> void:
 	box.add_child(_toggle(tr("OPTIONS_REDUCE_FLASHES") % "", Settings.reduce_flashes, func(on: bool) -> void:
 		Settings.reduce_flashes = on))
 	box.add_child(_toggle(tr("OPTIONS_SHOW_FPS"), Settings.show_fps, func(on: bool) -> void: Settings.show_fps = on))
+	box.add_child(UiKit.button(tr("OPTIONS_ECHO_MODE") % tr(EchoMode.name_key(StringName(Settings.echo_mode))),
+		func() -> void:
+			Settings.cycle_echo_mode()
+			refresh(), 360))
+	box.add_child(UiKit.wrapped(tr("OPTIONS_ECHO_MODE_HINT"), 13, UiKit.MUTED))
 	box.add_child(UiKit.button(tr("OPTIONS_MINIMAP") % tr("MINIMAP_SIZE_%d" % Settings.minimap_size), func() -> void:
 		Settings.minimap_size = (Settings.minimap_size + 1) % 4
 		Settings.save_settings()

@@ -20,6 +20,7 @@ const ACTIONS := {
 	&"technique_1": [KEY_Q, KEY_1],
 	&"technique_2": [KEY_E, KEY_2],
 	&"technique_3": [KEY_F, KEY_3],
+	&"echo_relay": [KEY_R],
 	&"open_choices": [KEY_TAB],
 	&"toggle_map": [KEY_M],
 	&"pause": [KEY_ESCAPE, KEY_P],
@@ -41,6 +42,7 @@ const MOUSE_ACTIONS := {
 	&"technique_1": [KEY_1, KEY_KP_1],
 	&"technique_2": [KEY_2, KEY_KP_2],
 	&"technique_3": [KEY_3, KEY_KP_3],
+	&"echo_relay": [KEY_4, KEY_KP_4],
 	&"open_choices": [KEY_TAB],
 	&"toggle_map": [KEY_M],
 	&"pause": [KEY_ESCAPE, KEY_P],
@@ -49,7 +51,7 @@ const MOUSE_ACTIONS := {
 ## Actions reconfigurables au clavier, dans l'ordre affiché par les options.
 const REBINDABLE: Array[StringName] = [&"move_up", &"move_down", &"move_left", &"move_right", &"dash",
 	&"spell_1", &"spell_2", &"spell_3", &"spell_4", &"technique_1", &"technique_2", &"technique_3",
-	&"open_choices", &"toggle_map"]
+	&"echo_relay", &"open_choices", &"toggle_map"]
 
 ## Libellés courts des flèches (sorts du Chasseur).
 const ARROWS := {KEY_RIGHT: "→", KEY_UP: "↑", KEY_LEFT: "←", KEY_DOWN: "↓"}
@@ -59,6 +61,7 @@ const JOY_BUTTONS := {
 	&"technique_1": [JOY_BUTTON_X],
 	&"technique_2": [JOY_BUTTON_Y],
 	&"technique_3": [JOY_BUTTON_B],
+	&"echo_relay": [JOY_BUTTON_DPAD_LEFT],
 	&"focus_order": [JOY_BUTTON_LEFT_SHOULDER],
 	&"spell_3": [JOY_BUTTON_DPAD_UP],
 	&"spell_4": [JOY_BUTTON_DPAD_RIGHT],

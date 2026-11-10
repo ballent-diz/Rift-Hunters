@@ -19,6 +19,8 @@ var monster_meta_effects: Dictionary = {}
 var starter_rank: int = 1
 ## Équipe choisie au refuge (décision du 24 octobre 2026) : Échos qui partent avec l'Écho de tête, dans l'ordre.
 var companion_ids: Array[StringName] = []
+## Mode des Échos (EchoMode : current / relay / solo), repris du réglage « Mode des Échos ».
+var echo_mode: StringName = EchoMode.CURRENT
 ## Rang de départ et variante de chaque compagnon : {monster_id: int} et {monster_id: bool}.
 var companion_ranks: Dictionary = {}
 var companion_variants: Dictionary = {}

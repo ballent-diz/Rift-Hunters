@@ -26,6 +26,8 @@ var show_fps: bool = false
 var minimap_size: int = 2
 ## Sorts du Chasseur : maintenir la touche affiche la zone, la relâcher lance (sinon lancement immédiat).
 var spell_preview: bool = false
+## Mode des Échos à l'essai (EchoMode : « current » par défaut, « relay », « solo ») ; appliqué à la partie suivante.
+var echo_mode: String = "current"
 ## Mode de contrôle : « keyboard » (tout au clavier, visée dans la direction du Chasseur) ou « mouse » (clavier +
 ## souris, visée au curseur). Chaque mode a ses touches par défaut (InputSetup).
 var control_scheme: String = "keyboard"
@@ -59,6 +61,7 @@ func load_settings() -> void:
 	show_fps = bool(data.get("show_fps", show_fps))
 	minimap_size = clampi(int(data.get("minimap_size", minimap_size)), 0, 3)
 	spell_preview = bool(data.get("spell_preview", spell_preview))
+	echo_mode = String(EchoMode.sanitize(data.get("echo_mode", "current")))
 	control_scheme = "mouse" if str(data.get("control_scheme", "keyboard")) == "mouse" else "keyboard"
 	bindings = {}
 	var saved: Variant = data.get("bindings", {})
@@ -90,6 +93,7 @@ func save_settings() -> Error:
 		"minimap_size": minimap_size,
 		"spell_preview": spell_preview,
 		"control_scheme": control_scheme,
+		"echo_mode": echo_mode,
 		"bindings": bindings,
 		"bindings_version": InputSetup.BINDINGS_VERSION,
 	}
@@ -140,6 +144,13 @@ static func fitted_window(usable: Rect2i, wanted: Vector2i) -> Rect2i:
 
 static func is_fullscreen_mode(mode: DisplayServer.WindowMode) -> bool:
 	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+
+
+## Passe au mode des Échos suivant (Actuel → Relais → Solo) et sauvegarde.
+func cycle_echo_mode() -> void:
+	echo_mode = String(EchoMode.next(StringName(echo_mode)))
+	save_settings()
+	changed.emit()
 
 
 func set_locale(value: String) -> void:

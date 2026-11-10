@@ -250,6 +250,18 @@ func spell_pressed(slot: int) -> bool:
 	return ctx.enemies.find_nearest(pos, reach) != null
 
 
+## Mode Relais, comme un joueur : la Technique de l'Écho actif est en recharge, celle du suivant est prête, et il y a
+## de quoi frapper (attaque d'entrée).
+func relay_requested() -> bool:
+	var allies: AllyManager = ctx.allies
+	if not allies.relay_ready():
+		return false
+	var current: Ally = allies.active()
+	var next: Ally = allies.next_in_line()
+	var busy: bool = ctx.enemies.count() > 8 or ctx.boss != null or _guardian() != null
+	return busy and (current == null or current.technique_cd > 0.0) and next.technique != null
+
+
 ## Comme un joueur : ordonne aux Échos de cibler le boss, ou un point faible exposé (ordre de focus).
 func focus_requested() -> bool:
 	if ctx.allies.focus_time > 0.0:

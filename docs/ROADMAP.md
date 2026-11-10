@@ -1,5 +1,36 @@
 # Rift Hunters — feuille de route
 
+## Modes des Échos à l'essai : Relais et Solo (Claude, 10 novembre 2026)
+
+Retour du propriétaire : trop de monde autour du Chasseur avec trois Échos, trop de sorts à gérer. Le gameplay actuel
+reste le défaut ; deux prototypes s'activent par le réglage **« Mode des Échos »** (Options du refuge ou menu pause,
+Actuel → Relais → Solo, appliqué à la partie suivante, sauvegardé dans `settings.json` : `echo_mode`, profil
+inchangé). Code : `src/run/echo_mode.gd` (`EchoMode`), `AllyManager` (`roster` = équipe équipée, `team` = Échos sur le
+terrain), valeurs dans `BalanceConfig` (groupe « Modes des Échos »). Test `test_echo_modes`, captures
+`docs/previews/echo_modes/`.
+
+- **Relais** : l'équipe de trois est conservée, un seul Écho combat ; touche **relais** (R au clavier, 4 en mode
+  souris, croix gauche à la manette, reconfigurable) : l'Écho suivant entre (cycle), recharge 4 s
+  (`relay_cooldown`), attaque d'entrée = sa Technique lancée gratuitement (sa recharge n'est pas touchée,
+  `relay_entry_power`). Une seule Technique à gérer (touche de l'Écho 1). Les réserves sont cachées, suivent le
+  Chasseur et rechargent leur Technique ; affinités, synergies, bonus passifs et renforcements portent sur l'équipe
+  entière. Compensation : dégâts de l'Écho actif ×2,4 (`relay_damage_mult`). HUD : carte de l'actif + portraits des
+  réserves (le prochain en premier) avec la recharge du relais. Le bot change d'Écho quand la Technique de l'actif
+  est en recharge et celle du suivant prête.
+- **Solo** : aucun Écho sur le terrain. Les Échos équipés restent dans l'équipe (bonus passifs centrés sur le
+  Chasseur, affinités, synergies) et se gagnent normalement. Chasseur : dégâts +140 % (sorts compris), PV +40 %,
+  vitesse d'attaque +35 %, recharges des sorts −20 % ; autel ×2,5 PV en défense d'autel (seul, le Chasseur ne
+  couvre pas les six entrées). Les sorts de Lien qui utilisent les Échos (Appel de meute, Permutation) ne font rien.
+- **Équilibrage** (`PROFILE=stage`, Cendrelame et Mousseroc, 2 graines, une carte par chapitre 1 à 4 : Trois
+  Failles, Lisière calcinée, Puits des reflets, Entrée du Glacier) : Actuel 13/16 (81 %) ; Relais 13/16 (81 %) ;
+  Solo 10/10 hors autel après réglage, 4/4 au Puits des reflets avec l'autel renforcé (0/4 avant). Parties Solo plus
+  longues d'environ 10 %. Outils : `ECHO_MODE=relay|solo tools/balance_sim.sh ...`, `--echo-mode=` pour l'autoplay
+  et les captures.
+- Bot coincé dans un obstacle aux Trois Failles (graine 2, position (-958, -784), fin de la zone 0) : défaut de
+  collisions indépendant du mode, révélé par la trajectoire du Solo ; tâche séparée proposée.
+- **Décision en attente du propriétaire après essai** : garder l'Actuel, adopter Relais ou Solo (ou un mélange), puis
+  nettoyer le code des modes écartés.
+
 ## Scène de fin du jeu (Claude, 9 novembre 2026)
 
 Victoire sur la dernière carte de la campagne (`Campaign.final_map()`, l'Œil de la Faille) : `EndingScreen` s'affiche

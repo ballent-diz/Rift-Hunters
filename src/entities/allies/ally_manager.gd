@@ -3,7 +3,15 @@ extends Node2D
 ## Équipe d'Échos : recrutement, rangs, évolutions, Techniques, ordre de focus et synergies.
 
 var ctx: RunContext
+## Échos sur le terrain (ceux qui se déplacent, attaquent et lancent leur Technique).
 var team: Array[Ally] = []
+## Équipe complète équipée, dans l'ordre (terrain et réserve) : affinités, bonus passifs, améliorations.
+## Mode actuel : identique à `team`. Relais : un seul Écho sur le terrain. Solo : aucun.
+var roster: Array[Ally] = []
+## Mode des Échos (EchoMode) et état du relais.
+var mode: StringName = EchoMode.CURRENT
+var active_index: int = 0
+var relay_cd: float = 0.0
 var focus_point := Vector2.ZERO
 var focus_time: float = 0.0
 ## Effets peints des Échos (présentation).
@@ -17,6 +25,7 @@ var _timed_buffs: Array[Dictionary] = []
 
 func setup(p_ctx: RunContext) -> void:
 	ctx = p_ctx
+	mode = EchoMode.sanitize(ctx.setup.echo_mode) if ctx.setup else EchoMode.CURRENT
 	vfx.setup(ctx, self)
 
 
@@ -46,7 +55,7 @@ func _expire_buffs() -> void:
 
 
 func team_size() -> int:
-	return team.size()
+	return roster.size()
 
 
 func team_slots() -> int:
@@ -54,11 +63,11 @@ func team_slots() -> int:
 
 
 func has_free_slot() -> bool:
-	return team.size() < team_slots()
+	return roster.size() < team_slots()
 
 
 func get_ally(id: StringName) -> Ally:
-	for ally: Ally in team:
+	for ally: Ally in roster:
 		if ally.data.id == id:
 			return ally
 	return null
@@ -66,7 +75,7 @@ func get_ally(id: StringName) -> Ally:
 
 func team_ids() -> Array[StringName]:
 	var ids: Array[StringName] = []
-	for ally: Ally in team:
+	for ally: Ally in roster:
 		ids.append(ally.data.id)
 	return ids
 
@@ -76,7 +85,7 @@ func add_monster(id: StringName, rank: int = 1, use_variant: bool = false) -> Al
 	if data == null or get_ally(id) != null:
 		return null
 	var ally := Ally.new()
-	ally.slot_index = team.size()
+	ally.slot_index = team.size() if mode == EchoMode.CURRENT else 0
 	add_child(ally)
 	ally.setup(ctx, data, clampi(rank, 1, ctx.balance.ally_rank_max))
 	var chosen: TechniqueData = ctx.setup.echo_techniques.get(id)
@@ -84,7 +93,12 @@ func add_monster(id: StringName, rank: int = 1, use_variant: bool = false) -> Al
 		ally.technique = chosen
 		ally.technique_locked = true
 	ally.global_position = ctx.player.global_position + Vector2(30, 0).rotated(team.size() * 2.0)
-	team.append(ally)
+	roster.append(ally)
+	if mode == EchoMode.CURRENT or (mode == EchoMode.RELAY and team.is_empty()):
+		team.append(ally)
+		active_index = roster.size() - 1
+	else:
+		_bench(ally)
 	for effect: GameplayEffect in data.passive_effects:
 		effect.install(ctx, id)
 	for effect: GameplayEffect in ctx.setup.monster_meta_effects.get(id, []):
@@ -93,7 +107,7 @@ func add_monster(id: StringName, rank: int = 1, use_variant: bool = false) -> Al
 		ally.variant = data.variant
 		ally.apply_modifier(data.variant)
 	ctx.stats.add(&"recruits")
-	ctx.stats.set_max(&"max_team_size", team.size())
+	ctx.stats.set_max(&"max_team_size", roster.size())
 	ctx.events.team_changed.emit()
 	refresh_synergies()
 	return ally
@@ -163,7 +177,7 @@ func _synergy_satisfied(synergy: SynergyData, ids: Array[StringName]) -> bool:
 			return false
 	for affinity: StringName in synergy.required_affinities:
 		var count: int = 0
-		for ally: Ally in team:
+		for ally: Ally in roster:
 			if ally.affinities.has(affinity):
 				count += 1
 		if count < int(synergy.required_affinities[affinity]):
@@ -176,6 +190,14 @@ func step(delta: float) -> void:
 	focus_time = maxf(focus_time - delta, 0.0)
 	if not _timed_buffs.is_empty():
 		_expire_buffs()
+	relay_cd = maxf(relay_cd - delta, 0.0)
+	for ally: Ally in roster:
+		if ally.benched:
+			# Réserve : sa Technique se recharge, et il « suit » le Chasseur (bonus passifs centrés sur lui).
+			ally.technique_cd = maxf(ally.technique_cd - delta, 0.0)
+			ally.global_position = ctx.player.global_position
+	if mode == EchoMode.RELAY and brain.relay_requested():
+		relay(brain.aim_point())
 	if brain.focus_requested():
 		focus_point = brain.aim_point()
 		focus_time = ctx.balance.focus_duration
@@ -200,6 +222,68 @@ func step(delta: float) -> void:
 			_end_preview()
 			Techniques.cast(ally, ctx, brain.aim_point())
 	queue_redraw()
+
+
+## Multiplicateur de dégâts des Échos selon le mode (Relais : l'Écho actif compense ses deux équipiers en réserve).
+func field_damage_mult() -> float:
+	return ctx.balance.relay_damage_mult if mode == EchoMode.RELAY else 1.0
+
+
+## Écho actif du mode Relais (null en Solo ou sans équipe).
+func active() -> Ally:
+	return team[0] if not team.is_empty() else null
+
+
+## Écho qui entrera au prochain relais (null s'il n'y en a pas).
+func next_in_line() -> Ally:
+	if mode != EchoMode.RELAY or roster.size() < 2:
+		return null
+	return roster[(active_index + 1) % roster.size()]
+
+
+func relay_ready() -> bool:
+	var current: Ally = active()
+	return next_in_line() != null and relay_cd <= 0.0 and (current == null or not current.swallowed)
+
+
+## Relais : l'Écho actif passe en réserve, le suivant entre près du Chasseur et lance son attaque d'entrée (sa
+## Technique, gratuite : sa recharge n'est pas touchée).
+func relay(aim: Vector2) -> bool:
+	if not relay_ready():
+		return false
+	var leaving: Ally = active()
+	var entering: Ally = next_in_line()
+	if leaving:
+		_bench(leaving)
+	if preview_index != -1:
+		_end_preview()
+	team.clear()
+	active_index = roster.find(entering)
+	entering.benched = false
+	entering.visible = true
+	entering.slot_index = 0
+	entering.attack_cd = 0.0
+	entering.global_position = ctx.obstacles.push_out(ctx.player.global_position + Vector2(0, -24), Ally.BODY_RADIUS)
+	team.append(entering)
+	relay_cd = ctx.balance.relay_cooldown
+	ctx.fx.ring(entering.global_position, 46.0, Color(0.75, 0.45, 1.0, 0.9), 0.4)
+	if entering.technique:
+		var saved_cd: float = entering.technique_cd
+		entering.entry_mult = ctx.balance.relay_entry_power
+		Techniques.cast(entering, ctx, aim)
+		entering.entry_mult = 1.0
+		entering.technique_cd = saved_cd
+	ctx.stats.add(&"echo_relays")
+	ctx.events.team_changed.emit()
+	return true
+
+
+func _bench(ally: Ally) -> void:
+	ally.benched = true
+	ally.visible = false
+	ally.velocity = Vector2.ZERO
+	ally.memory.clear()
+	team.erase(ally)
 
 
 ## Indicateur de visée (Codex) : zone au curseur, ligne ou cône depuis le Chasseur.

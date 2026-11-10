@@ -64,6 +64,7 @@ func start(setup: RunSetup) -> void:
 		if modifier:
 			for effect: GameplayEffect in modifier.player_effects:
 				effect.install(ctx, &"")
+	EchoMode.install_hunter_bonus(ctx)
 	_spawn_start_obstacles()
 	ctx.stats.set_value(&"modifiers_count", float(setup.modifier_ids.size()))
 	if setup.starter_id != &"":

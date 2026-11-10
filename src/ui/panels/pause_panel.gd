@@ -74,6 +74,12 @@ func _build() -> void:
 		Settings.reduce_flashes = not Settings.reduce_flashes
 		Settings.save_settings()
 		_build(), 320))
+	var echo_mode: Button = UiKit.button(tr("OPTIONS_ECHO_MODE") % tr(EchoMode.name_key(StringName(Settings.echo_mode))),
+		func() -> void:
+			Settings.cycle_echo_mode()
+			_build(), 320)
+	echo_mode.tooltip_text = tr("OPTIONS_ECHO_MODE_HINT")
+	_box.add_child(echo_mode)
 	_box.add_child(UiKit.button(tr("OPTIONS_MINIMAP") % tr("MINIMAP_SIZE_%d" % Settings.minimap_size), func() -> void:
 		Settings.minimap_size = (Settings.minimap_size + 1) % 4
 		Settings.save_settings()

@@ -14,6 +14,7 @@ const ROWS: Array = [
 	["ACTION_TECHNIQUE_1", [&"technique_1"], &"technique_1"],
 	["ACTION_TECHNIQUE_2", [&"technique_2"], &"technique_2"],
 	["ACTION_TECHNIQUE_3", [&"technique_3"], &"technique_3"],
+	["ACTION_ECHO_RELAY", [&"echo_relay"], &"echo_relay"],
 	["ACTION_OPEN_CHOICES", [&"open_choices"], &"open_choices"],
 	["ACTION_TOGGLE_MAP", [&"toggle_map"], &"toggle_map"],
 	["ACTION_PAUSE", [&"pause"], &"pause"],

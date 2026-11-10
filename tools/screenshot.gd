@@ -6,6 +6,7 @@ extends Node
 ##         [--at=-2,-120] (Chasseur immobile placé à ce point, pour cadrer un endroit précis)
 ##         [--finale] (mode zones : zones nettoyées d'office, Chasseur à l'entrée de l'arène finale)
 ##         [--pref=expedition_mode:survival] (préférence du profil avant la capture d'un menu)
+##         [--echo-mode=relay|solo] (mode des Échos à l'essai ; compagnons : --companions=)
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -43,6 +44,8 @@ func _ready() -> void:
 				setup.training = true
 			"starter":
 				setup.starter_id = StringName(parts[1])
+			"echo-mode":
+				setup.echo_mode = EchoMode.sanitize(parts[1])
 			"companions":
 				for id: String in parts[1].split(",", false):
 					setup.companion_ids.append(StringName(id))
