@@ -545,6 +545,7 @@ func _finish(victory: bool) -> void:
 	if victory:
 		ctx.stats.set_value(&"victories", 1.0)
 	result = build_result()
+	var nightmare_before: bool = Campaign.is_nightmare_unlocked(Profile.profile)
 	if not skip_profile:
 		rewards = Profile.apply_run_result(result)
 	else:
@@ -554,9 +555,22 @@ func _finish(victory: bool) -> void:
 	pause_panel.blocked = true
 	level_up_panel.visible = false
 	chest_panel.visible = false
-	results_panel.show_result(result, rewards)
 	get_tree().paused = true
+	if victory and _is_final_map() and not ctx.setup.autopilot:
+		# Fin du jeu : la scène de fin, puis les résultats.
+		var ending := EndingScreen.new()
+		ending.setup(not nightmare_before and Campaign.is_nightmare_unlocked(Profile.profile))
+		ending.finished.connect(func() -> void: results_panel.show_result(result, rewards))
+		results_panel.get_parent().add_child(ending)
+	else:
+		results_panel.show_result(result, rewards)
 	finished.emit(result)
+
+
+## Dernière carte de la campagne principale (victoire : scène de fin).
+func _is_final_map() -> bool:
+	var last: CampaignMapData = Campaign.final_map()
+	return last != null and last.arena_id == ctx.arena.id
 
 
 func build_result() -> Dictionary:

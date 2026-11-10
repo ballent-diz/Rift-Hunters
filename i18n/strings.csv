@@ -2236,6 +2236,19 @@ BOSS_ABYSSARCH_PHASE_ICE,Forme de la glace,Ice Form
 BOSS_ABYSSARCH_PHASE_RIFT,L'Œil grand ouvert,The Eye Wide Open
 BOSS_PATTERN_CRYSTAL_RAIN,Pluie de cristaux,Crystal Rain
 BOSS_ABYSSARCH_DEFEATED,L'Œil se referme. La Faille s'éteint… Le voyage du Chasseur s'achève.,The Eye closes. The Rift fades out… The Hunter's journey comes to an end.
+ENDING_EYE,"L'Œil se referme. Pour la première fois depuis la Faille, le monde se tait.","The Eye closes. For the first time since the Rift, the world falls silent."
+ENDING_CHAPTER_1,"Au Val des Cascades, l'eau retrouve son chemin entre les ruines.","In Waterfall Vale, the water finds its way between the ruins again."
+ENDING_CHAPTER_2,"Sur les Terres dévastées, la cendre retombe et ne brûle plus.","On the Devastated Lands, the ash settles and burns no more."
+ENDING_CHAPTER_3,"Dans les Marais engloutis, la vase rend ce qu'elle avait pris.","In the Sunken Marshes, the mire gives back what it had taken."
+ENDING_CHAPTER_4,"Au Glacier silencieux, la glace se remet à chanter.","At the Silent Glacier, the ice begins to sing again."
+ENDING_CHAPTER_5,"Dans la Cité de la Faille, les portes runiques s'ouvrent sur un ciel clair.","In the Rift City, the rune gates open onto a clear sky."
+ENDING_HUNTER,"Le Chasseur de Failles range sa lame. Ses Échos, eux, se souviendront.",The Rift Hunter sheathes the blade. The Echoes will remember.
+ENDING_NIGHTMARE,Mais la Faille a laissé des cicatrices… Le mode Cauchemar est désormais ouvert.,But the Rift left scars… Nightmare mode is now open.
+ENDING_TITLE,Fin,The End
+ENDING_THANKS,Merci d'avoir joué à Rift Hunters.,Thank you for playing Rift Hunters.
+ENDING_SKIP,Passer,Skip
+ENDING_CREDITS,Générique,Credits
+ENDING_CONTINUE,Continuer,Continue
 TREE_EXPAND,Agrandir (F),Enlarge (F)
 TREE_EXPAND_HINT,"Afficher l'arbre sur toute la fenêtre, en plus grand (touche F).","Show the tree on the whole window, larger (F key)."
 TREE_SHRINK,Réduire (Échap),Shrink (Esc)
