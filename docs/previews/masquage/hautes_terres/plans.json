@@ -1,0 +1,6 @@
+[
+ {"name": "01_menhirs_derriere", "center": [5700, 1350], "actors": [[0, [5130, 1150], false], [1, [6440, 990], true], [2, [6050, 1620], false], [0, [5600, 1800], true]]},
+ {"name": "02_chateau_nord_derriere", "center": [4450, 3800], "actors": [[0, [4320, 3560], false], [1, [3950, 3540], true], [2, [4720, 3600], false], [0, [4650, 4620], true]]},
+ {"name": "03_place_sud_derriere", "center": [5300, 9650], "actors": [[0, [5400, 9760], false], [1, [5900, 9860], true], [2, [4880, 9330], false], [2, [5300, 9400], true]]},
+ {"name": "04_jardin_derriere", "center": [10000, 5250], "actors": [[0, [9960, 5400], false], [2, [9770, 5250], true], [1, [10300, 5050], false]]}
+]

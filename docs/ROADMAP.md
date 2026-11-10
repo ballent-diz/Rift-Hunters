@@ -15,8 +15,21 @@ silhouette gris clair translucide. Mode d'emploi, format et repères : `docs/map
 - Démonstration : Bois des Lucioles, ruines du sud-ouest (3 piliers, colonne + pin qui se chevauchent, clôture avec
   ouvertures, rocher). Captures `docs/previews/masquage/`. Coût mesuré : +15 % du temps d'image avec 400 Corrompus à
   l'écran en rendu logiciel (cas le plus défavorable). Test `test_occlusion`.
-- **À faire (travail séparé)** : détourer les obstacles de toutes les cartes peintes avec l'éditeur (une carte par
-  tâche) ; vérifier ensuite chaque carte au zoom réel.
+- **Détourage des cartes, une par session** (première passe par Claude avec `tools/art/occlusion_trace.py`, retouches
+  du propriétaire dans l'éditeur). Ordre proposé (ordre de campagne + nombre d'obstacles isolés au milieu des zones
+  praticables, à affiner en ouvrant chaque carte) :
+  1. [x] Hautes Terres d'Orage (`storm_highlands`, aussi `survival_highlands`, `endless_rift`) — 28 éléments
+     (10 novembre) : 6 menhirs, 2 châteaux et 4 tours de la place centrale, murs et étals de la place du sud,
+     cyprès, cerisiers et monument du jardin, bosquet de la carrière. Captures `docs/previews/masquage/hautes_terres/`.
+     **À tester par le propriétaire.**
+  2. [ ] Plaine fracturée (`fractured_plain`, survie : beaucoup d'obstacles isolés)
+  3. [ ] Ruines des Cascades (`three_rifts`, `survival_ruins` : collisions déjà hautes, surtout ruines et torches)
+  4. [ ] Bois des Lucioles (compléter la démonstration), Gué des brumes, Source des Cascades
+  5. [ ] Chapitre 3 (bâtiments) : Panthéon brisé, Sanctuaire des runes, Œil de la Faille, Faubourgs brisés,
+     Quartiers suspendus
+  6. [ ] Chapitre 4 : Col des braseros, Lac gelé, Entrée du Glacier, Cœur du Silence, Banquise du phare
+  7. [ ] Chapitre 2 : Cœur du volcan, Seuil du cataclysme, Lisière calcinée, Tanières de suie, Évents de cendre
+  8. [ ] Chapitre 5 : Mangrove, Temple des marées, Cœur des marais, Puits des reflets, Jardins de cristal
 
 ## Modes des Échos à l'essai : Relais et Solo (Claude, 10 novembre 2026)
 

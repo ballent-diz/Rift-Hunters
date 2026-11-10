@@ -52,6 +52,29 @@ Conseils : un élément par obstacle (deux obstacles qui se chevauchent = deux �
 élément peut avoir plusieurs morceaux (poteaux et traverse d'une clôture). Inutile de masquer ce qui ne dépasse pas de
 sa collision vers le haut : personne ne peut se tenir derrière.
 
+## Première passe assistée (Claude, sans souris)
+
+`tools/art/occlusion_trace.py` écrit des éléments au format de l'éditeur à partir de contours tracés à la main (en
+pixels de la carte entière) : le contour fait foi, l'outil y ajoute une marge de 10 pixels puis rogne l'herbe ou le
+pavé sur une bande de 16 pixels le long du bord (sol appris sur une couronne autour du contour). Les collisions ne
+servent pas à détourer.
+
+```
+python3 tools/art/occlusion_trace.py assets/concepts/incoming/map.<arène>/occlusion/outlines.json --preview <dossier>
+godot --headless --path . res://tools/art/occlusion_editor.tscn -- --arena=<arène> --save   # recalcule depth.png
+godot --headless --import --path .
+```
+
+`outlines.json` : `{"environment": ..., "elements": [{"id", "category", "outline": [[x, y]...], "foot": [[x1, y1],
+[x2, y2]], "mode": "refine" | "exact", "grow", "shift": [dx, dy], "clip_x": [x0, x1]}]}` (`clip_x` découpe un même
+contour en éléments aux lignes de pied différentes, pour un bâtiment vu de biais). Captures d'une carte :
+`preview_occlusion.tscn -- --arena=<arène> --shots=<plans .json> --out=<dossier>` (exemple :
+`docs/previews/masquage/hautes_terres/plans.json`). Les retouches se font ensuite dans l'éditeur, qui fait foi
+(relancer `occlusion_trace.py` réécrit les éléments du fichier de contours).
+
+Règle de la ligne de pied d'un bâtiment ou d'un mur : la placer **juste à l'intérieur** du bord avant de sa collision,
+pour que tout point praticable devant soit bien « devant » ; inclinée quand la façade est vue de biais.
+
 ## Fichiers
 
 Dans `assets/environments/<décor>/occlusion/` (séparés des images et des collisions) :

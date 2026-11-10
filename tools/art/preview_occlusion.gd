@@ -4,6 +4,8 @@ extends Node2D
 ## Captures : xvfb-run -a -s "-screen 0 1600x900x24" godot --path . --resolution 1600x900
 ##   res://tools/art/preview_occlusion.tscn -- --out=<dossier>
 ## Mesure : même commande avec --bench=400 (Corrompus animés à l'écran, avec puis sans masquage).
+## Autre carte : --arena=<arène> --shots=<plans .json> (même forme que SHOTS ; « derriere » dans le nom ajoute la
+## capture sans masquage).
 
 const ARENA := &"firefly_woods"
 const BENCH_FRAMES := 240
@@ -22,6 +24,8 @@ const SHOTS: Array[Dictionary] = [
 		[0, [2230, 4460], false], [2, [2120, 4560], true], [1, [2330, 4790], false]]},
 ]
 
+var _arena_id: StringName = ARENA
+var _shots: Array = SHOTS
 var _out: String = ""
 var _bench: int = 0
 var _arena: ArenaData
@@ -38,7 +42,13 @@ func _ready() -> void:
 			_out = arg.get_slice("=", 1)
 		elif arg.begins_with("--bench="):
 			_bench = int(arg.get_slice("=", 1))
-	_arena = GameDB.arena(ARENA)
+		elif arg.begins_with("--arena="):
+			_arena_id = StringName(arg.get_slice("=", 1))
+		elif arg.begins_with("--shots="):
+			var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(arg.get_slice("=", 1)))
+			if parsed is Array:
+				_shots = parsed
+	_arena = GameDB.arena(_arena_id)
 	_ground = ArenaGround.new()
 	_ground.setup(_arena, 1)
 	add_child(_ground)
@@ -49,7 +59,7 @@ func _ready() -> void:
 	add_child(_camera)
 	_camera.make_current()
 	if _occlusion == null:
-		push_error("Aperçu du masquage : pas de données pour %s" % ARENA)
+		push_error("Aperçu du masquage : pas de données pour %s" % _arena_id)
 		get_tree().quit(1)
 		return
 	if _bench > 0:
@@ -85,7 +95,7 @@ func _clear() -> void:
 
 func _run_shots() -> void:
 	DirAccess.make_dir_recursive_absolute(_out)
-	for shot: Dictionary in SHOTS:
+	for shot: Dictionary in _shots:
 		for occluded: bool in [true, false]:
 			if not occluded and not str(shot["name"]).contains("derriere"):
 				continue
