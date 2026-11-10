@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://del6556618upb"
-path="res://.godot/imported/chapitre4_glacier_entry.png-e76d037b61d9ac3901fb8bd2759aa064.ctex"
+uid="uid://jd7hhltr3f4h"
+path="res://.godot/imported/c2_scorched_verge_boucle.webp-ad39f72f4707a3c0b048f339e6886274.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/pixel_filter/chapitre4_glacier_entry.png"
-dest_files=["res://.godot/imported/chapitre4_glacier_entry.png-e76d037b61d9ac3901fb8bd2759aa064.ctex"]
+source_file="res://docs/previews/barrieres-peintes-jeu/c2_scorched_verge_boucle.webp"
+dest_files=["res://.godot/imported/c2_scorched_verge_boucle.webp-ad39f72f4707a3c0b048f339e6886274.ctex"]
 
 [params]
 

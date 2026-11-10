@@ -76,7 +76,6 @@ donne un tableau non typé.
 - `src/run/` : une partie (RunContext, directeurs de vagues/événements, offres d'amélioration).
 - `src/entities/` : joueur, alliés, ennemis, boss, projectiles, ramassables.
 - `src/progression/` : sauvegarde versionnée, arbre, maîtrise, objectifs, recherche.
-- `src/render/` : traitements de rendu optionnels (filtre pixel des cartes dessinées, `PixelFilter`).
 - `src/ui/` : HUD, panneaux, refuge. L'UI lit les services, ne contient aucune règle de jeu.
 - `src/assets/` : registre d'assets + placeholders générés (le jeu démarre sans sprites finaux).
 - `tools/art/` : pixelforge (rendu pixel art procédural), recettes `creatures/`, import d'images, prompts.

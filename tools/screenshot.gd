@@ -1,13 +1,12 @@
 extends Node
 ## Captures d'écran d'une partie jouée par le bot (nécessite un affichage, ex. xvfb-run).
 ## Usage : xvfb-run -a godot --path . --fixed-fps 60 res://tools/screenshot.tscn -- --out=/chemin --times=20,150
-##         [--starter=mossback] [--boss-at=60] [--menu] [--seed=1] [--locale=fr]
+##         [--starter=mossback] [--companions=stormshell,ashblade] [--boss-at=60] [--menu] [--seed=1] [--locale=fr]
 ##         [--night] [--boss=root_sentinel] [--altar] [--shallows] [--rivers] [--map] (grande carte ouverte)
 ##         [--at=-2,-120] (Chasseur immobile placé à ce point, pour cadrer un endroit précis)
 ##         [--finale] (mode zones : zones nettoyées d'office, Chasseur à l'entrée de l'arène finale)
 ##         [--pref=expedition_mode:survival] (préférence du profil avant la capture d'un menu)
-##         [--pixel-filter=off|fine|graphic] (filtre pixel du décor, sans sauvegarder le réglage)
-##         [--echo-mode=relay|solo] [--team=ashblade,glimmerwing] (mode des Échos à l'essai, compagnons)
+##         [--echo-mode=relay|solo] (mode des Échos à l'essai ; compagnons : --companions=)
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -38,8 +37,6 @@ func _ready() -> void:
 				_times.clear()
 				for t: String in parts[1].split(","):
 					_times.append(float(t))
-			"pixel-filter":
-				Settings.pixel_filter = parts[1]
 			"arena":
 				setup.arena_id = StringName(parts[1])
 			"training":
@@ -49,11 +46,9 @@ func _ready() -> void:
 				setup.starter_id = StringName(parts[1])
 			"echo-mode":
 				setup.echo_mode = EchoMode.sanitize(parts[1])
-			"team":
+			"companions":
 				for id: String in parts[1].split(",", false):
 					setup.companion_ids.append(StringName(id))
-					if not setup.unlocked_monsters.has(StringName(id)):
-						setup.unlocked_monsters.append(StringName(id))
 			"seed":
 				setup.run_seed = int(parts[1])
 			"boss-at":
@@ -127,6 +122,9 @@ func _ready() -> void:
 				screen.tabs.current_tab = clampi(tab, 0, screen.tabs.get_tab_count() - 1)
 				if selection != "" and tab == 4:
 					(screen.tabs.get_child(4) as RefugeTab)._show(selection)
+				if selection == "tree:full" and tab == 2:
+					# Arbre du Chasseur en plein écran (bouton « Agrandir »).
+					screen.tabs.get_child(2).call("open_fullscreen")
 				if selection.begins_with("echo:") and tab == 3:
 					# Onglet Échos : l'Écho et le nœud affichés (ex. echo:sunclaw:sunclaw_spell_alt).
 					var echoes: RefugeTab = screen.tabs.get_child(3)

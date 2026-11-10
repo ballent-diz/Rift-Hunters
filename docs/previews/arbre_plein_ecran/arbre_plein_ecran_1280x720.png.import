@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgjmc48m25mwd"
-path="res://.godot/imported/chapitre2_scorched_verge.png-8d21fd60b22827a9d02218cfa862f635.ctex"
+uid="uid://vorq5h2fsy3u"
+path="res://.godot/imported/arbre_plein_ecran_1280x720.png-f5fa7b13926842dc7ba95addd69ac4d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/pixel_filter/chapitre2_scorched_verge.png"
-dest_files=["res://.godot/imported/chapitre2_scorched_verge.png-8d21fd60b22827a9d02218cfa862f635.ctex"]
+source_file="res://docs/previews/arbre_plein_ecran/arbre_plein_ecran_1280x720.png"
+dest_files=["res://.godot/imported/arbre_plein_ecran_1280x720.png-f5fa7b13926842dc7ba95addd69ac4d1.ctex"]
 
 [params]
 

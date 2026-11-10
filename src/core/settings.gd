@@ -26,8 +26,6 @@ var show_fps: bool = false
 var minimap_size: int = 2
 ## Sorts du Chasseur : maintenir la touche affiche la zone, la relâcher lance (sinon lancement immédiat).
 var spell_preview: bool = false
-## Filtre pixel du décor dessiné : PixelFilter.OFF / FINE / GRAPHIC (BOLD reste interne).
-var pixel_filter: String = PixelFilter.GRAPHIC
 ## Mode des Échos à l'essai (EchoMode : « current » par défaut, « relay », « solo ») ; appliqué à la partie suivante.
 var echo_mode: String = "current"
 ## Mode de contrôle : « keyboard » (tout au clavier, visée dans la direction du Chasseur) ou « mouse » (clavier +
@@ -63,8 +61,6 @@ func load_settings() -> void:
 	show_fps = bool(data.get("show_fps", show_fps))
 	minimap_size = clampi(int(data.get("minimap_size", minimap_size)), 0, 3)
 	spell_preview = bool(data.get("spell_preview", spell_preview))
-	var filter: String = str(data.get("pixel_filter", PixelFilter.GRAPHIC))
-	pixel_filter = filter if PixelFilter.is_valid(filter) else PixelFilter.GRAPHIC
 	echo_mode = String(EchoMode.sanitize(data.get("echo_mode", "current")))
 	control_scheme = "mouse" if str(data.get("control_scheme", "keyboard")) == "mouse" else "keyboard"
 	bindings = {}
@@ -96,7 +92,6 @@ func save_settings() -> Error:
 		"show_fps": show_fps,
 		"minimap_size": minimap_size,
 		"spell_preview": spell_preview,
-		"pixel_filter": pixel_filter,
 		"control_scheme": control_scheme,
 		"echo_mode": echo_mode,
 		"bindings": bindings,
@@ -149,13 +144,6 @@ static func fitted_window(usable: Rect2i, wanted: Vector2i) -> Rect2i:
 
 static func is_fullscreen_mode(mode: DisplayServer.WindowMode) -> bool:
 	return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
-
-
-## Change le filtre pixel, sauvegarde et prévient les abonnés (le sol de la partie en cours se met à jour).
-func set_pixel_filter(value: String) -> void:
-	pixel_filter = value if PixelFilter.is_valid(value) else PixelFilter.GRAPHIC
-	save_settings()
-	changed.emit()
 
 
 ## Passe au mode des Échos suivant (Actuel → Relais → Solo) et sauvegarde.

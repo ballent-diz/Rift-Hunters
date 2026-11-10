@@ -73,12 +73,49 @@ static func state_text(p: ProfileData, node: SkillNodeData) -> String:
 
 
 static func frame(node: SkillNodeData, current: String) -> Texture2D:
-	var kind: String = "passive"
+	return load(ART + "node_%s_%s.svg" % [frame_kind(node), current])
+
+
+## Forme du cadre : sorts en hexagone doré à liseré, passifs en cercle sobre, variantes/talents et clés de voûte en
+## octogone (tools/art/build_tree_frames.py).
+static func frame_kind(node: SkillNodeData) -> String:
 	match node.kind:
-		SkillNodeData.Kind.SPELL: kind = "spell"
-		SkillNodeData.Kind.TRANSFORM, SkillNodeData.Kind.VARIANT: kind = "transform"
-		SkillNodeData.Kind.KEYSTONE: kind = "keystone"
-	return load(ART + "node_%s_%s.svg" % [kind, current])
+		SkillNodeData.Kind.SPELL: return "spell"
+		SkillNodeData.Kind.TRANSFORM, SkillNodeData.Kind.VARIANT: return "transform"
+		SkillNodeData.Kind.KEYSTONE: return "keystone"
+	return "passive"
+
+
+## Marge de l'illustration dans son cadre (part du côté) : cercle et hexagone laissent moins de place aux coins.
+static func icon_inset(node: SkillNodeData) -> float:
+	return 0.18 if frame_kind(node) in ["spell", "passive"] else 0.12
+
+
+## Couleur de l'intitulé de nature (« Sort », « Passif »...) : les sorts en or, comme leur cadre.
+static func kind_color(node: SkillNodeData) -> Color:
+	return GOLD if node.kind == SkillNodeData.Kind.SPELL else MUTED.lightened(0.15)
+
+
+## Illustration dans son cadre (fiche, infobulle, légende) : la même forme que dans l'arbre.
+static func framed_icon(border: Texture2D, icon: Texture2D, side: float, inset: float = 0.18) -> Control:
+	var holder := Control.new()
+	holder.name = "FramedIcon"
+	holder.custom_minimum_size = Vector2.ONE * side
+	holder.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for texture: Texture2D in [border, icon]:
+		if texture == null:
+			continue
+		var image := TextureRect.new()
+		image.texture = texture
+		image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+		image.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
+		image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		var margin: float = side * inset if texture == icon and border != null else 0.0
+		image.position = Vector2.ONE * margin
+		image.size = Vector2.ONE * (side - margin * 2.0)
+		holder.add_child(image)
+	return holder
 
 
 ## Cadre d'un état sans nœud particulier (légende, guide).

@@ -26,10 +26,6 @@ func refresh() -> void:
 	box.add_child(_toggle(tr("OPTIONS_REDUCE_FLASHES") % "", Settings.reduce_flashes, func(on: bool) -> void:
 		Settings.reduce_flashes = on))
 	box.add_child(_toggle(tr("OPTIONS_SHOW_FPS"), Settings.show_fps, func(on: bool) -> void: Settings.show_fps = on))
-	box.add_child(UiKit.button(tr("OPTIONS_PIXEL_FILTER") % tr("PIXEL_FILTER_" + Settings.pixel_filter.to_upper()),
-		func() -> void:
-			Settings.set_pixel_filter(PixelFilter.next_choice(Settings.pixel_filter))
-			refresh(), 360))
 	box.add_child(UiKit.button(tr("OPTIONS_ECHO_MODE") % tr(EchoMode.name_key(StringName(Settings.echo_mode))),
 		func() -> void:
 			Settings.cycle_echo_mode()

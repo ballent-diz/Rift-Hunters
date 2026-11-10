@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4r0ukkpowpwi"
-path="res://.godot/imported/chapitre3_root_mangrove.png-178afedd97514d3b65db8179c3d8224a.ctex"
+uid="uid://dy4takm7706aq"
+path="res://.godot/imported/c1_three_rifts_dissolution.webp-9668001543ceb5f88045f0da01979fb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/pixel_filter/chapitre3_root_mangrove.png"
-dest_files=["res://.godot/imported/chapitre3_root_mangrove.png-178afedd97514d3b65db8179c3d8224a.ctex"]
+source_file="res://docs/previews/barrieres-peintes-jeu/c1_three_rifts_dissolution.webp"
+dest_files=["res://.godot/imported/c1_three_rifts_dissolution.webp-9668001543ceb5f88045f0da01979fb4.ctex"]
 
 [params]
 

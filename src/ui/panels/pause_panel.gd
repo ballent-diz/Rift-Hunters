@@ -74,10 +74,6 @@ func _build() -> void:
 		Settings.reduce_flashes = not Settings.reduce_flashes
 		Settings.save_settings()
 		_build(), 320))
-	_box.add_child(UiKit.button(tr("OPTIONS_PIXEL_FILTER") % tr("PIXEL_FILTER_" + Settings.pixel_filter.to_upper()),
-		func() -> void:
-			Settings.set_pixel_filter(PixelFilter.next_choice(Settings.pixel_filter))
-			_build(), 320))
 	var echo_mode: Button = UiKit.button(tr("OPTIONS_ECHO_MODE") % tr(EchoMode.name_key(StringName(Settings.echo_mode))),
 		func() -> void:
 			Settings.cycle_echo_mode()

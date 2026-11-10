@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yprne58tgpuq"
-path="res://.godot/imported/chapitre5_rune_sanctum.png-972bfa634105460c1bc17cdc93e9fab5.ctex"
+uid="uid://cn6jdfyu4i7g5"
+path="res://.godot/imported/c1_three_rifts_bornes_ouvertes.webp-6be3285c4afd8dda14f4a2f4f5f4449b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/pixel_filter/chapitre5_rune_sanctum.png"
-dest_files=["res://.godot/imported/chapitre5_rune_sanctum.png-972bfa634105460c1bc17cdc93e9fab5.ctex"]
+source_file="res://docs/previews/barrieres-peintes-jeu/c1_three_rifts_bornes_ouvertes.webp"
+dest_files=["res://.godot/imported/c1_three_rifts_bornes_ouvertes.webp-6be3285c4afd8dda14f4a2f4f5f4449b.ctex"]
 
 [params]
 

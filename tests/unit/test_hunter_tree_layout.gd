@@ -157,6 +157,55 @@ func test_every_path_fits_side_by_side() -> void:
 	await _settle()
 
 
+## Plein écran : grille plus grande que dans l'onglet, fiche à côté, retour par Échap ou le bouton.
+func test_fullscreen_tree_is_larger_and_closes() -> void:
+	var viewport := SubViewport.new()
+	viewport.size = Vector2i(1280, 720)
+	host.add_child(viewport)
+	var screen: Refuge = load(Router.REFUGE).instantiate()
+	viewport.add_child(screen)
+	screen.tabs.current_tab = 2
+	var tab: RefugeTab = screen.tabs.get_child(2)
+	tab.set("_guide_page", -1)
+	screen.refresh_current()
+	await _settle()
+	var expand: Button = tab.find_child("ExpandTree", true, false)
+	check(expand != null, "bouton Agrandir dans l'en-tête")
+	var small: float = (tab.find_child("TreeBoard", true, false) as HunterTreeBoard)._edge
+	expand.pressed.emit()
+	await _settle()
+	check(tab.find_child("TreeFullscreen", true, false) != null, "arbre en plein écran")
+	var board: HunterTreeBoard = tab.find_child("TreeBoard", true, false)
+	check(board.large, "grille en grand")
+	check(tab.find_child("TreeDetail", true, false) != null, "fiche à côté de la grille")
+	check_eq(tab.find_children("SpellSlot*", "Button", true, false).size(), 4, "barre des sorts conservée")
+	if DisplayServer.get_name() != "headless":
+		check(board._edge > small * 1.2, "icônes plus grandes : %.0f contre %.0f" % [board._edge, small])
+		var bounds := Rect2(Vector2.ZERO, Vector2(viewport.size))
+		for node: HunterTreeNode in board._buttons.values():
+			check(bounds.encloses(node.get_global_rect()), "nœud visible en plein écran : %s" % node.name)
+	(tab.find_child("ShrinkTree", true, false) as Button).pressed.emit()
+	await _settle()
+	check(tab.find_child("TreeFullscreen", true, false) == null, "retour à l'onglet")
+	screen.queue_free()
+	viewport.queue_free()
+	await _settle()
+
+
+## Sorts et passifs se distinguent par la forme du cadre, partout où le nœud apparaît.
+func test_spell_and_passive_frames_differ() -> void:
+	var spell: SkillNodeData = GameDB.skill_node(&"blade_cleaving_slash")
+	var passive: SkillNodeData = GameDB.skill_node(&"combat_training")
+	check_eq(HunterTreeSkin.frame_kind(spell), "spell", "sort : cadre hexagonal doré")
+	check_eq(HunterTreeSkin.frame_kind(passive), "passive", "passif : cadre rond")
+	check(HunterTreeSkin.frame(spell, "learned").resource_path != HunterTreeSkin.frame(passive, "learned").resource_path,
+		"cadres différents")
+	var tip: Control = SkillCard.tooltip("a", "b", "", "c", Color.WHITE, HunterTreeSkin.frame(spell, "active"),
+		HunterTreeSkin.icon(spell), spell)
+	check(tip.find_child("FramedIcon", true, false) != null, "infobulle : illustration dans son cadre")
+	tip.free()
+
+
 func test_guide_opens_on_first_visit_and_is_remembered() -> void:
 	var viewport := SubViewport.new()
 	viewport.size = Vector2i(1280, 720)

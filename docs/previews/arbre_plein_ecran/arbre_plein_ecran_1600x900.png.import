@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kossodwwbwig"
-path="res://.godot/imported/chapitre1_three_rifts.png-8e196db67d85f844adf35c5350c670ab.ctex"
+uid="uid://cymnxmvq301dc"
+path="res://.godot/imported/arbre_plein_ecran_1600x900.png-0a6f26a30fa3a6df3f3df2312235c29a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/pixel_filter/chapitre1_three_rifts.png"
-dest_files=["res://.godot/imported/chapitre1_three_rifts.png-8e196db67d85f844adf35c5350c670ab.ctex"]
+source_file="res://docs/previews/arbre_plein_ecran/arbre_plein_ecran_1600x900.png"
+dest_files=["res://.godot/imported/arbre_plein_ecran_1600x900.png-0a6f26a30fa3a6df3f3df2312235c29a.ctex"]
 
 [params]
 

@@ -31,31 +31,34 @@ terrain), valeurs dans `BalanceConfig` (groupe « Modes des Échos »). Test `te
 - **Décision en attente du propriétaire après essai** : garder l'Actuel, adopter Relais ou Solo (ou un mélange), puis
   nettoyer le code des modes écartés.
 
-## Filtre pixel du décor en jeu (Claude, 9 novembre 2026)
+## Barrières peintes en jeu (Claude, 9 novembre 2026)
 
-Prototype de Codex (`tools/art/pixel_filter/`) intégré au jeu ; le dossier d'essai est retiré.
+Les 25 assets de Codex (`object.barrier_1` à `_5`, docs/art/BARRIERES_PEINTES.md) remplacent le rideau shader
+(`rift_curtain.gdshader` supprimé, particules retirées). Règles, collisions et minuteries inchangées.
 
-- Code : `src/render/pixel_filter.gd` (`PixelFilter` : préréglages `off` / `fine` / `bold` (interne) / `graphic`,
-  construction du matériau) et `assets/shaders/pixel_filter.gdshader` (échantillonnage par macro : passer `TEXTURE`
-  à une fonction provoquait une erreur de compilation sous Godot 4.3). `ArenaGround` garde son matériau d'origine
-  (dont l'effet de netteté `detail_strength`), applique le réglage au chargement, suit `Settings.changed` en cours
-  de partie et restaure le matériau en sortant de l'arbre.
-- Réglage « Filtre pixel » (Désactivé / Fin / Graphique, défaut Graphique) dans les Options (refuge, menu
-  principal) et le menu pause ; sauvegardé dans `settings.json` (`pixel_filter`).
-- Seules les cartes dessinées (`EnvironmentSet.is_map()`) sont filtrées ; sols procéduraux intacts. La densité de
-  texture vient de `arena_rect()` (donc de `decor_scale`) et la grille part du coin de l'arène : ancrée au monde,
-  même origine que les tuiles.
-- Vérifié : test `test_pixel_filter` (activation, restauration, suivi du réglage, sol procédural, sauvegarde) ;
-  banc `tools/pixel_filter_bench.tscn` (horde de 350 Corrompus, rendu logiciel llvmpipe du cloud,
-  deux essais) : sans filtre 58–60 ms/image, Graphique 66–78 ms, Fin 92–146 ms (mesures très bruitées). Le
-  rendu logiciel exagère le coût d'un shader plein écran (9 lectures de texture par pixel) ; **à confirmer sur
-  la machine du propriétaire avec l'affichage des FPS** ;
-  scintillement en glissement de caméra mesuré au même niveau qu'avec le décor brut (pas de grille qui flotte) ;
-  captures au zoom réel (désactivé / fin / graphique) d'une carte par chapitre dans `docs/previews/pixel_filter/`.
-- Chapitres 2 et 3 : l'effet reste visible (moins marqué au chapitre 3, dont la carte est déjà très texturée) ;
-  pas assez flagrant pour un réglage par chapitre, non ajouté. Chapitre 5 (Sanctuaire des runes) : en Graphique,
-  les contours des dalles s'estompent nettement ; à juger par le propriétaire.
-- À décider (propriétaire) : garder Graphique par défaut ; réglage par chapitre si l'écart gêne en jeu réel.
+- Code : `src/run/rift_wall_visual.gd` (un nœud par groupe de rectangles connexes ; ligne de sol médiane le long de
+  l'axe long, marches pour les murs en escalier ; face tous les 128 unités, biais coupé le long de son plan projeté,
+  module d'angle pour un pli est→sud aux bras ≥ 64, bornes aux extrémités et aux coins à bras ≥ 40) et
+  `src/run/zone_overlay.gd` (jeu du chapitre de la carte dans la campagne principale, chapitre 1 sinon ;
+  appear à la fermeture, loop, dissolve à l'ouverture, bornes en open laissées au sol après une zone nettoyée ;
+  une barrière fermée/ouverte sans `dissolve()` (finale, sorts) joue aussi appear/dissolve, sans bornes restantes).
+- Horloge visuelle tirée des clips (apparition 0,83 s, dissolution 1 s), séparée de celle des règles.
+- Plan : z 2, sous le Chasseur et les Échos, au-dessus des Corrompus (pas de tri en Y dans le jeu).
+  Barrières passagères (marées, banquises, portes runiques) exclues : elles ont leur propre rendu.
+- Vérifié : `test_rift_visuals` (pose droite, verticale, angle, escalier, chapitre, durées) ; banc
+  `tools/barrier_preview.tscn` (captures au zoom réel, une carte par chapitre, dans
+  `docs/previews/barrieres-peintes-jeu/`) ; 85 barrières : 0,5 ms de `_process` médian, 83 appels de dessin.
+- À juger par le propriétaire : voile du chapitre 4 très pâle sur la neige ; plan sous le Chasseur.
+
+## Filtre pixel du décor : essayé puis retiré (décision du propriétaire, 9 novembre 2026)
+
+Le filtre de Codex a été intégré (PR #146) puis entièrement retiré : sur la plupart des cartes il dégradait
+l'image (couleurs ternies, contours estompés) sans donner l'effet pixel art voulu. Un test hors jeu (gros blocs +
+palette réduite + contours) a confirmé la limite : les cartes sont déjà affichées à ~1,8 pixel d'écran par pixel
+d'image, un post-traitement ne peut qu'enlever de l'information. Piste retenue si on veut plus « pixel art » :
+agir à la génération des cartes (prompts/palettes, `docs/maps/GENERER_UNE_CARTE.md`), pas par un filtre.
+Code, option, traductions, test, banc et captures supprimés ; la clé `pixel_filter` des anciens `settings.json`
+est ignorée.
 
 ## Carte 25, Œil de la Faille, et combat de l'Abyssarque (Claude, 9 novembre 2026)
 
@@ -804,3 +807,20 @@ Premier jeu complet validé explicitement par le propriétaire (« Valider le ch
 ## Barrières peintes — cinq jeux livrés (Codex)
 
 Après validation du chapitre 1 : basalte/braises, bois noyé/racines/eau, glace/givre et acier pâle/ardoise/dorures/magenta. 25 assets final, deux bornes par chapitre, mêmes ancres et animations ; dix bornes mesurées 99,5–100,5 unités, fûts 34,5–36,5. Palettes issues des décors, 26/32/31/32/32 couleurs RGB ; raccords et boucles contrôlés. Import Godot et 25 chargements conformes, 20 captures natives au zoom 1,3333 avec Chasseur/Cendrelame et cinq GIF complets. Sources peintes, prompts, jobs, guide et recette conservés. Aucun changement de src/, data/, cartes, shaders, collisions, règles ou minuteries ; Claude raccordera les modules aux barrières existantes. Le dessin validé du chapitre 1 reste identique.
+
+## Arbre en plein écran, cadres sorts/passifs, taille des Échos (9 novembre 2026)
+
+- **Arbre du Chasseur en plein écran** : bouton « Agrandir (F) » dans l'en-tête de l'onglet Arbre (touche F) ; l'arbre
+  occupe toute la fenêtre (calque `TreeFullscreen`), grille en mode `large` (icônes environ 40 % plus grandes,
+  en-têtes, niveaux et rangs plus gros, légende avec la façon de lire la grille), fiche du nœud à droite (270 px) et
+  barre des sorts dessous ; Échap, F ou « Réduire » pour revenir. La vue logique reste 1280 × 720 (étirement
+  `canvas_items`) : la mise en page est identique en 1280 × 720, 1600 × 900 et 1920 × 1080 (vérifié par captures).
+  Les arbres des Échos ne sont pas comprimés (icônes jusqu'à 96 px) : pas de plein écran pour eux.
+- **Sorts et passifs se distinguent** : sorts en hexagone doré à liseré intérieur (couleur de l'état) et gemmes,
+  passifs en cercle sobre, variantes/talents et clés de voûte inchangés (octogones). Générés par
+  `tools/art/build_tree_frames.py`. Même forme dans l'arbre, la fiche (`SkillCard`, icône dans son cadre), les
+  infobulles (icône cadrée, nature « Sort » en or) et la légende (rangée « Sort / Passif »). S'applique aussi aux
+  arbres des Échos.
+- **Taille des Échos plafonnée à environ 1,3× le Chasseur** (taille apparente, pas seulement la hauteur) : Magmander,
+  Stormshell, Gravishell, Cendrelame, Grovestag et Sunclaw réduits par l'échelle du manifeste ; hitbox et équilibrage
+  inchangés. Tableau avant/après : `docs/art/TAILLE_DES_ECHOS.md`.
