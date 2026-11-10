@@ -833,3 +833,11 @@ Après validation du chapitre 1 : basalte/braises, bois noyé/racines/eau, glace
 - **Taille des Échos plafonnée à environ 1,3× le Chasseur** (taille apparente, pas seulement la hauteur) : Magmander,
   Stormshell, Gravishell, Cendrelame, Grovestag et Sunclaw réduits par l'échelle du manifeste ; hitbox et équilibrage
   inchangés. Tableau avant/après : `docs/art/TAILLE_DES_ECHOS.md`.
+
+## Caméra : vue élargie de 20 % (Codex, 10 novembre 2026)
+
+Le zoom partagé passe de 1,3333 à 1,1111 : environ 20 % de largeur et de hauteur de terrain
+visibles en plus, conformément au cadrage retenu après comparaison sur les Ruines des Cascades.
+Le réglage s'applique aux parties normales et aux trois modes d'Échos ; l'interface conserve
+sa taille. Vérification Godot : 372 scripts chargés, 500 tests unitaires réussis, captures
+dans les trois modes et contrôle des limites aux deux coins de la Plaine fracturée (1254 × 1254u).
