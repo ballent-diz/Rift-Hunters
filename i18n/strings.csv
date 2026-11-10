@@ -2249,3 +2249,4 @@ ECHO_MODE_SOLO,Solo,Solo
 ACTION_ECHO_RELAY,Relais d'Écho (mode Relais),Echo relay (Relay mode)
 HUD_RELAY,Relais,Relay
 HUD_SOLO_MODE,Mode Solo : Chasseur renforcé,Solo mode: empowered Hunter
+TIP_RELAY,"Touche %s : la Technique de l'Écho actif. Touche %s : relais, l'Écho suivant entre avec une attaque.","Key %s: the active Echo's Technique. Key %s: relay, the next Echo comes in with an attack."

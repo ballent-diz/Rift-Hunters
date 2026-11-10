@@ -23,6 +23,7 @@ func test_current_mode_is_default_and_unchanged() -> void:
 	check_eq(allies.team.size(), 3, "les trois Échos sur le terrain")
 	check_eq(allies.roster.size(), 3, "équipe complète")
 	check_eq(allies.field_damage_mult(), 1.0, "aucun multiplicateur de dégâts")
+	check_eq(EchoMode.altar_hp_mult(run.ctx), 1.0, "autel inchangé")
 	check(not allies.relay(run.ctx.player.global_position), "pas de relais en mode actuel")
 	for ally: Ally in allies.roster:
 		check(not ally.benched and ally.visible, "aucun Écho en réserve")
@@ -100,6 +101,7 @@ func test_solo_has_no_echo_on_field() -> void:
 		"dégâts du Chasseur renforcés")
 	check_near(run.ctx.player.max_hp, base_hp * (1.0 + b.solo_max_hp_pct), 0.5, "PV max renforcés")
 	check_near(run.ctx.player.hp, run.ctx.player.max_hp, 0.5, "départ à PV pleins")
+	check_near(EchoMode.altar_hp_mult(run.ctx), b.solo_altar_hp_mult, 0.001, "autel renforcé en Solo")
 	for i: int in 30:
 		run._physics_process(1.0 / 60.0)
 	check(allies.team.is_empty(), "toujours aucun Écho sur le terrain")

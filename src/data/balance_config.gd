@@ -50,6 +50,8 @@ extends Resource
 @export var solo_damage_pct: float = 1.4
 @export var solo_max_hp_pct: float = 0.4
 @export var solo_attack_speed_pct: float = 0.35
+## Solo : PV de l'autel (défense d'autel) : seul, le Chasseur ne couvre pas toutes les entrées à la fois.
+@export var solo_altar_hp_mult: float = 2.5
 ## Solo : réduction des recharges des sorts du Chasseur (0,2 = -20 %).
 @export var solo_spell_cooldown_pct: float = 0.2
 @export_group("Niveaux")

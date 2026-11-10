@@ -71,7 +71,7 @@ func setup(p_ctx: RunContext) -> void:
 	position = ctx.arena.altar_point
 	if not ctx.arena.altar_painted:
 		position = ctx.obstacles.push_out(position, ctx.arena.altar_radius)
-	max_hp = ctx.arena.altar_hp
+	max_hp = ctx.arena.altar_hp * EchoMode.altar_hp_mult(ctx)
 	hp = max_hp
 	guide = FlowField.new()
 	guide.setup(ctx.obstacles, ctx.arena_rect(), FlowField.CELL)

@@ -9,6 +9,7 @@ const GAP := 0.8
 const TIP_KEYS := {
 	"TIP_MOVE": [&"move_up", &"move_left", &"move_down", &"move_right"],
 	"TIP_TECHNIQUES": [&"technique_1", &"technique_2", &"technique_3"],
+	"TIP_RELAY": [&"technique_1", &"echo_relay"],
 }
 
 var text: String = ""
@@ -61,7 +62,12 @@ func _watch() -> void:
 	if _done.has("TIP_AUTO_ATTACK") and _ctx.enemies.find_nearest(pos, 350.0) != null:
 		_trigger("TIP_SPELLS")
 	if _ctx.stats.get_value(&"kills") >= 8.0:
-		_trigger("TIP_TECHNIQUES")
+		# Modes des Échos à l'essai : Relais (une Technique + touche de relais), Solo (aucune Technique).
+		match _ctx.setup.echo_mode:
+			EchoMode.RELAY:
+				_trigger("TIP_RELAY")
+			EchoMode.CURRENT:
+				_trigger("TIP_TECHNIQUES")
 
 
 func _trigger(key: String) -> void:

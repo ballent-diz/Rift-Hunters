@@ -32,6 +32,11 @@ static func name_key(mode: StringName) -> String:
 	return "ECHO_MODE_" + String(sanitize(mode)).to_upper()
 
 
+## Défense d'autel : multiplicateur des PV de l'autel selon le mode (Solo : personne pour garder les autres entrées).
+static func altar_hp_mult(ctx: RunContext) -> float:
+	return ctx.balance.solo_altar_hp_mult if ctx.setup and ctx.setup.echo_mode == SOLO else 1.0
+
+
 ## Mode Solo : renforts du Chasseur, installés une fois au départ (bonus en pourcentage cumulés aux autres ; les
 ## dégâts comptent aussi pour les sorts du Chasseur).
 static func install_hunter_bonus(ctx: RunContext) -> void:

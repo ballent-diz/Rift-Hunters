@@ -44,3 +44,10 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   grands). Corrigé le 8 novembre : décor réduit par carte (`decor_scale` d'ArenaData) sans toucher aux personnages ;
   mesures et facteurs dans docs/maps/ECHELLE_CHAPITRES_4_5.md (cartes 4, 16 et 18 réduites ; 17 déjà à
   l'échelle ; 15 repeinte par Codex ; facteurs des cartes 19 à 25 notés pour leur intégration).
+
+## Session du 9 novembre 2026
+
+- [ ] **Trop de monde et trop de sorts avec trois Échos** : « ça fait un peu bordel avec les 3 Échos autour de nous,
+  et beaucoup de sorts à gérer » ; envie d'essayer sans Échos ou un autre gameplay. Deux prototypes livrés le
+  10 novembre, activables par le réglage « Mode des Échos » (Actuel / Relais / Solo, détails dans docs/ROADMAP.md,
+  « Modes des Échos à l'essai »). **À tester par le propriétaire**, qui choisit ensuite le mode à garder.
