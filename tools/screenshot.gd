@@ -7,6 +7,7 @@ extends Node
 ##         [--finale] (mode zones : zones nettoyées d'office, Chasseur à l'entrée de l'arène finale)
 ##         [--pref=expedition_mode:survival] (préférence du profil avant la capture d'un menu)
 ##         [--pixel-filter=off|fine|graphic] (filtre pixel du décor, sans sauvegarder le réglage)
+##         [--echo-mode=relay|solo] [--team=ashblade,glimmerwing] (mode des Échos à l'essai, compagnons)
 
 var _run: RunController
 var _times: Array[float] = [20.0]
@@ -46,6 +47,13 @@ func _ready() -> void:
 				setup.training = true
 			"starter":
 				setup.starter_id = StringName(parts[1])
+			"echo-mode":
+				setup.echo_mode = EchoMode.sanitize(parts[1])
+			"team":
+				for id: String in parts[1].split(",", false):
+					setup.companion_ids.append(StringName(id))
+					if not setup.unlocked_monsters.has(StringName(id)):
+						setup.unlocked_monsters.append(StringName(id))
 			"seed":
 				setup.run_seed = int(parts[1])
 			"boss-at":
