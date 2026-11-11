@@ -72,3 +72,14 @@ func test_generated_sheet_is_used() -> void:
 	for anim: StringName in [&"idle", &"move", &"attack", &"technique"]:
 		check(frames.has_animation(anim), "animation %s présente" % anim)
 	visual.free()
+
+
+## Ombres calées sur l'empreinte (tools/art/build_shadows.py) : un Écho large a une ombre sous son corps, aussi large
+## que ses appuis ; un volant garde une petite ombre au sol ; le Chasseur garde son disque d'origine.
+func test_ground_shadows_follow_the_footprint() -> void:
+	var beast: Rect2 = EntityVisual._shadow_shape_of(&"monster.ashblade")
+	check(beast.size.x > 18.0 and beast.size.y < beast.size.x * 0.5, "Cendrelame : ombre large et aplatie")
+	check(beast.position.y < 0.0 and beast.position.y + beast.size.y < 4.0, "son bord bas affleure les pieds")
+	var flyer: Rect2 = EntityVisual._shadow_shape_of(&"monster.cinderwing")
+	check(flyer.size.x > 0.0 and flyer.size.x < beast.size.x and flyer.position.y > 0.0, "volant : petite ombre au sol")
+	check(EntityVisual._shadow_shape_of(&"player.hunter").size.x == 0.0, "Chasseur : ombre d'origine")

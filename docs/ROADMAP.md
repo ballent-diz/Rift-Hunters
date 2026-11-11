@@ -924,16 +924,38 @@ la bonne taille. Seule l'échelle visuelle change (`scale` du manifeste et du `j
 
 | Déchu | Échelle | Hauteur avant → après | Largeur après (hitbox) |
 |---|---|---|---|
-| Milicien, Arbalétrier | 0,5 → 0,85 | 24 → 41 | 33 (32) |
-| Capitaine | 0,5 → 0,95 | 24,5 → 46,5 | 39 (40) |
-| Héraldiste | 0,5 → 0,85 | 24,5 → 41,5 | 32 (38) |
-| Spectre-lanterne | 0,5 → 0,85 | 20 → 34 | 25 (28) |
-| Molosse corrompu | 0,5 → 0,85 | 15,5 → 26 | 39 (30) |
-| Golem de pavés | 0,5 → 1 | 21,5 → 43 | 46 (48) |
+| `fallen_militia`, `fallen_crossbowman` | 0,5 → 0,85 | 24 → 41 | 33 (32) |
+| `fallen_captain` | 0,5 → 0,95 | 24,5 → 46,5 | 39 (40) |
+| `rift_herald` | 0,5 → 0,85 | 24,5 → 41,5 | 32 (38) |
+| `lantern_wraith` | 0,5 → 0,85 | 20 → 34 | 25 (28) |
+| `corrupted_hound` | 0,5 → 0,85 | 15,5 → 26 | 39 (30) |
+| `cobble_golem` | 0,5 → 1 | 21,5 → 43 | 46 (48) |
 
-Les gardiens qui réutilisent ces sprites gardent leur taille (`visual_scale` : Commandant déchu 3 → 1,58, Grand
-Héraldiste 3 → 1,76, Golem du sanctuaire 3,4 → 1,7). Hitbox, portées et équilibrage inchangés.
+Les gardiens qui réutilisent ces sprites gardent leur taille (`visual_scale` : `fallen_commander` 3 → 1,58,
+`herald_lord` 3 → 1,76, `sanctum_golem` 3,4 → 1,7). Hitbox, portées et équilibrage inchangés.
 **Enfants de la Faille et Statue : non modifiés.** Ils mesurent 45 à 75 unités (1,3 à 1,9 fois le Chasseur en taille
 apparente), la Statue éveillée 110 : ils ne sont pas petits dans les feuilles. Si le propriétaire les voit encore
 minuscules en jouant, la cause est ailleurs (décor trop grand des cartes 21 à 25, à traiter par `decor_scale`).
 Remarque : sur les Quartiers suspendus (carte 23), tonneaux et pavés paraissent très grands face au Chasseur.
+
+### Lot 4 — Échos et monstres « en lévitation » : fait
+
+Comparaison des feuilles (pieds les plus bas contre ancre, toutes les images de `idle` ou `move`) : les Échos et la
+plupart des monstres ont **la même ancre que le Chasseur** (pieds 1,3 unité sous l'ancre). La cause n'était donc pas
+l'ancre mais l'ombre : un disque de taille fixe (0,36 × taille du visuel) centré sous les pieds les plus bas. Sous le
+Chasseur (appuis de 19 unités) il tombe juste ; sous une créature large vue de trois quarts (Cendrelame : appuis de
+46 unités, ombre de 32), il dépassait devant elle, plus petit que le corps : elle semblait flotter au-dessus.
+
+- **Ombre calée sur l'empreinte** (`tools/art/build_shadows.py`, champ `shadow` du manifeste, 90 feuilles
+  `monster.*` et `enemy.*`) : aussi large que les appuis, centrée sur eux, bord bas au ras des pieds, un peu plus
+  discrète (opacité 0,30 au lieu de 0,35) ; elle suit le retournement du sprite. `EntityVisual` la lit ; sans mesure
+  (Chasseur, boss, placeholders), disque d'origine. Contrôle `--check` ajouté aux tests d'art ; à relancer après
+  l'import d'une feuille ou un changement d'ancre.
+- **Flottement réservé aux volants** : pieds à 3 unités ou plus au-dessus de l'ancre (`cinderwing`, `glowmoth`,
+  `hollowflame`, `mirrorling` ; `drifting_eye`, `hush_shard`, `wandering_shard`, `lantern_wraith`, `snow_wraith`,
+  `rift_gnat`, `silver_harpy`, `smoke_wisp`) : petite ombre au sol sous eux.
+- **Ancres relevées** pour trois monstres au sol qui flottaient de 3 à 4 unités : `slate_scarab` (118 → 111),
+  `heath_runner` (118 → 109), `crystal_warden` (104 → 98).
+- **À juger en jouant** : l'ombre est discrète ; si elle paraît trop effacée, remonter l'opacité dans
+  `EntityVisual._add_shadow`. Restent entre 2 et 3 unités au-dessus de l'ancre (non touchés, à regarder) :
+  `flame_wyrmling`, `menhir_warden`, `peak_chimera`.
