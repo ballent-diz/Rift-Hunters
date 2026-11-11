@@ -15611,7 +15611,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.85,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -15652,7 +15652,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.85,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -15693,7 +15693,7 @@
 				32,
 				58
 			],
-			"scale": 0.5,
+			"scale": 0.85,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -15734,7 +15734,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.85,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -15781,7 +15781,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.95,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -15834,7 +15834,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 0.85,
 			"animations": {
 				"move": {
 					"row": 0,
@@ -15887,7 +15887,7 @@
 				32,
 				54
 			],
-			"scale": 0.5,
+			"scale": 1.0,
 			"animations": {
 				"move": {
 					"row": 0,

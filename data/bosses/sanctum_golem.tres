@@ -168,5 +168,5 @@ essence_reward = 9
 visual = SubResource("visual_data_1")
 phases = [SubResource("phase_1"), SubResource("phase_2")]
 guardian = true
-visual_scale = 3.4
+visual_scale = 1.7
 signature = &"rune_barrage"

@@ -915,3 +915,25 @@ chapitre 5 minuscules · 4 Échos et monstres « en lévitation » · 5 masquage
 - Erreur « Invalid polygon data » : présente seulement sur les cartes 13 et 15 (famille des reflets), toujours à
   chercher.
 - **À juger en jouant** : netteté des cartes en mouvement (le décor est un peu plus doux, sans fourmillement).
+
+### Lot 3 — Monstres du chapitre 5 minuscules : fait (Déchus)
+
+Mesure de la hauteur opaque × échelle du manifeste (Chasseur : 43 unités de corps, 52 avec l'arme). Les sept Déchus
+étaient importés en cellules 64 px à l'échelle 0,5, soit la moitié du Chasseur, alors que leurs hitbox étaient déjà à
+la bonne taille. Seule l'échelle visuelle change (`scale` du manifeste et du `job.json`) :
+
+| Déchu | Échelle | Hauteur avant → après | Largeur après (hitbox) |
+|---|---|---|---|
+| Milicien, Arbalétrier | 0,5 → 0,85 | 24 → 41 | 33 (32) |
+| Capitaine | 0,5 → 0,95 | 24,5 → 46,5 | 39 (40) |
+| Héraldiste | 0,5 → 0,85 | 24,5 → 41,5 | 32 (38) |
+| Spectre-lanterne | 0,5 → 0,85 | 20 → 34 | 25 (28) |
+| Molosse corrompu | 0,5 → 0,85 | 15,5 → 26 | 39 (30) |
+| Golem de pavés | 0,5 → 1 | 21,5 → 43 | 46 (48) |
+
+Les gardiens qui réutilisent ces sprites gardent leur taille (`visual_scale` : Commandant déchu 3 → 1,58, Grand
+Héraldiste 3 → 1,76, Golem du sanctuaire 3,4 → 1,7). Hitbox, portées et équilibrage inchangés.
+**Enfants de la Faille et Statue : non modifiés.** Ils mesurent 45 à 75 unités (1,3 à 1,9 fois le Chasseur en taille
+apparente), la Statue éveillée 110 : ils ne sont pas petits dans les feuilles. Si le propriétaire les voit encore
+minuscules en jouant, la cause est ailleurs (décor trop grand des cartes 21 à 25, à traiter par `decor_scale`).
+Remarque : sur les Quartiers suspendus (carte 23), tonneaux et pavés paraissent très grands face au Chasseur.
