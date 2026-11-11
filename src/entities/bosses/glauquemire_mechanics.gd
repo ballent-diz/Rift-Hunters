@@ -1,17 +1,20 @@
 class_name GlauquemireMechanics
 extends BossMechanics
 ## Glauquemire, Dévoreur des Marais engloutis (docs/design/DEVOREUR_CHAPITRE3.md) : mécaniques qu'aucun boss n'a avant
-## lui. Phase 1 : vase qui durcit en murs, racine-laisse, sangsues nourricières. Phase 2 : carapace à facettes et
-## miroirs à orienter (mécanique phare : une Ruée contre un miroir le tourne dans le sens de la Ruée ; le rayon de
-## prisme qui balaie l'arène suit la flèche du miroir et, renvoyé sur le boss, brise sa carapace et l'étourdit).
-## Phase 3 : tourbillon, anneau de marée qui rétrécit l'arène (chaque coup au boss fait reculer l'eau), engloutissement
-## d'un Écho (le libérer en frappant le boss).
+## lui. Phase 1 : vase qui durcit en murs, racine jaillissante, sangsues nourricières (soin plafonné). Phase 2 :
+## carapace à facettes et miroirs (mécanique phare : le rayon de prisme balaie l'arène ; un miroir l'arrête, et le
+## renvoie sur le boss si le Chasseur se tient à côté : carapace brisée, boss étourdi).
+## Phase 3 : tourbillon, raz-de-marée (vagues qui partent du boss : les traverser d'une Ruée ou s'abriter derrière la
+## vase durcie), engloutissement d'un Écho (le libérer en frappant le boss).
+## Refonte du 11 novembre 2026 : plus rien ne retient ni n'enferme le Chasseur (laisse et anneau de marée retirés).
 
 const MUD := Color(0.36, 0.3, 0.2)
 const CRYSTAL := Color(0.6, 0.95, 1.0)
 const WATER := Color(0.2, 0.55, 0.6)
 const ROOT := Color(0.5, 0.38, 0.22)
 const MIRROR_RADIUS := 30.0
+## Distance à laquelle le Chasseur « tient » un miroir : il renvoie alors le rayon sur le boss.
+const MIRROR_HOLD := 120.0
 ## Côtés de la carapace : droite, bas, gauche, haut (repère du monde, la carapace ne tourne pas).
 const SIDES := 4
 ## Effets peints de Glauquemire (assets/vfx/bosses/glauquemire/, docs/art/MARAIS_SORTS_GODOT.md).
@@ -19,21 +22,24 @@ const VFX := "vfx.boss.glauquemire."
 
 ## Flaques de vase : {"pos", "radius", "harden_at", "crumble_at", "wall"} (wall : indice du mur, -1 avant durcissement).
 var puddles: Array[Dictionary] = []
-## Racine-laisse en cours : {"anchor", "length", "until"} (vide : libre).
-var leash: Dictionary = {}
+## Racine jaillissante en cours : {"from", "anchor", "until"} (vide : aucune). Elle ne retient pas le Chasseur.
+var root: Dictionary = {}
 var leeches: Array[Enemy] = []
 ## Carapace : PV restants par côté (vide : pas de carapace) et instant de repousse.
 var facets: Array[float] = []
-## Miroirs : {"pos", "arrow", "flash", "dash"}.
+## Miroirs : {"pos", "arrow", "flash", "held"} (held : le Chasseur est à côté, le miroir renvoie le rayon).
 var mirrors: Array[Dictionary] = []
 ## Rayon de prisme en cours (vide : aucun).
 var beam: Dictionary = {}
 var whirl: Dictionary = {}
-var tide: Dictionary = {}
+## Raz-de-marée : vagues {"center", "radius", "speed", "max", "damage", "width", "push", "start"}.
+var waves: Array[Dictionary] = []
 ## Écho englouti : {"ally", "until", "dealt", "need", "stun", "daze"}.
 var swallowed: Dictionary = {}
 var _wall_pool: Array[int] = []
-var _leech_heal: float = 0.02
+var _leech_heal: float = 0.005
+## Soin total que les sangsues peuvent encore rendre au boss (plafond du combat : il reste toujours tuable).
+var _leech_budget: float = -1.0
 var _facet_max: float = 0.0
 var _facet_regrow: Array[float] = []
 var _facet_regrow_time: float = 14.0
@@ -68,28 +74,18 @@ func on_phase(index: int, phase: BossPhaseData) -> void:
 			_place_mirrors(float(params.get("mirror_distance", 360.0)))
 	else:
 		mirrors.clear()
-	if phase.mechanics.has(&"tide_ring"):
-		if tide.is_empty():
-			tide = {"center": boss().position, "radius": float(params.get("tide_start", 950.0)),
-				"min": float(params.get("tide_min", 300.0)), "max": float(params.get("tide_max", 1100.0)),
-				"shrink": float(params.get("tide_shrink", 20.0)), "push": float(params.get("tide_push", 2600.0)),
-				"damage": float(params.get("tide_damage", 8.0)) * ctx.difficulty.enemy_damage_mult * ctx.arena.boss_damage_mult,
-				"tick": 0.0}
-			intro("BOSS_TIDE_RING_INTRO")
-	else:
-		tide = {}
 
 
 func step(delta: float) -> void:
 	super.step(delta)
 	_step_puddles()
-	_step_leash()
+	_step_root()
 	_step_leeches()
 	_step_facets()
 	_step_mirrors(delta)
 	_step_beam(delta)
 	_step_whirl(delta)
-	_step_tide(delta)
+	_step_waves(delta)
 	_step_swallow()
 	_sync_vfx()
 	queue_redraw()
@@ -101,10 +97,10 @@ func finish() -> void:
 			ctx.obstacles.set_wall_enabled(int(puddle["wall"]), false)
 	puddles.clear()
 	_apply_walls()
-	leash = {}
+	root = {}
 	beam = {}
 	whirl = {}
-	tide = {}
+	waves.clear()
 	facets.clear()
 	mirrors.clear()
 	if not swallowed.is_empty():
@@ -188,45 +184,32 @@ func wall_rects() -> Array[Rect2]:
 	return rects
 
 
+## Racine jaillissante : une racine file vers le Chasseur puis jaillit là où il se tenait. Rien ne le retient.
 func root_leash(pattern: BossPatternData) -> void:
 	var params: Dictionary = pattern.params
+	var delay: float = float(params.get("slam_delay", 1.3))
 	ctx.fx.danger_line(boss().position, ctx.player.global_position, 10.0, pattern.telegraph)
 	intro("BOSS_LEASH_INTRO")
 	brain.schedule(pattern.telegraph, func() -> void:
-		if ctx.player.is_dashing():
-			return
 		var anchor: Vector2 = ctx.player.global_position
-		leash = {"anchor": anchor, "length": float(params.get("length", 130.0)),
-			"until": ctx.time + float(params.get("duration", 3.0))}
-		ctx.hazards.add_circle(anchor, float(params.get("slam_radius", 180.0)), float(params.get("slam_delay", 2.4)),
-			brain._damage(pattern), true, brain.data.id))
-	brain.busy_time = pattern.telegraph + float(params.get("slam_delay", 2.4)) + 0.3
+		root = {"from": boss().position, "anchor": anchor, "until": ctx.time + delay}
+		ctx.hazards.add_circle(anchor, float(params.get("slam_radius", 130.0)), delay, brain._damage(pattern), true,
+			brain.data.id))
+	brain.busy_time = pattern.telegraph + delay + 0.3
 
 
-func leashed() -> bool:
-	return not leash.is_empty()
-
-
-func _step_leash() -> void:
-	if leash.is_empty():
-		return
-	var player: Player = ctx.player
-	if player.is_dashing() or ctx.time >= float(leash["until"]):
-		if player.is_dashing():
-			ctx.fx.debris(player.global_position, ROOT, 8)
-			ctx.stats.add(&"boss_leash_broken")
-		leash = {}
-		return
-	var anchor: Vector2 = leash["anchor"]
-	var offset: Vector2 = player.global_position - anchor
-	if offset.length() > float(leash["length"]):
-		player.global_position = anchor + offset.normalized() * float(leash["length"])
+func _step_root() -> void:
+	if not root.is_empty() and ctx.time >= float(root["until"]):
+		ctx.fx.debris(root["anchor"], ROOT, 10)
+		root = {}
 
 
 func leech_feed(pattern: BossPatternData) -> void:
 	var params: Dictionary = pattern.params
 	var data: EnemyData = GameDB.enemy(StringName(params.get("enemy", "mire_leech")))
-	_leech_heal = float(params.get("heal_ratio", 0.02))
+	_leech_heal = float(params.get("heal_ratio", 0.005))
+	if _leech_budget < 0.0:
+		_leech_budget = boss().max_hp * float(params.get("heal_cap", 0.06))
 	leeches.assign(leeches.filter(func(e: Variant) -> bool: return is_instance_valid(e) and (e as Enemy).alive))
 	var count: int = mini(int(params.get("count", 4)), int(params.get("max_active", 6)) - leeches.size())
 	var distance: float = float(params.get("distance", 430.0))
@@ -247,14 +230,16 @@ func leech_feed(pattern: BossPatternData) -> void:
 	brain.busy_time = pattern.telegraph + 0.3
 
 
-## Une sangsue qui atteint le boss le soigne et disparaît.
+## Une sangsue qui atteint le boss le soigne un peu et disparaît ; le soin total du combat est plafonné.
 func _step_leeches() -> void:
 	for leech: Enemy in leeches:
 		if not is_instance_valid(leech) or not leech.alive:
 			continue
 		if leech.position.distance_to(boss().position) < boss().radius + leech.radius + 8.0:
 			var before: float = boss().hp
-			boss().hp = minf(boss().max_hp, boss().hp + boss().max_hp * _leech_heal)
+			var heal: float = minf(boss().max_hp * _leech_heal, maxf(_leech_budget, 0.0))
+			boss().hp = minf(boss().max_hp, boss().hp + heal)
+			_leech_budget -= boss().hp - before
 			ctx.stats.add(&"boss_leech_healed", boss().hp - before)
 			ctx.fx.burst(boss().position, boss().radius, Color(0.5, 1.0, 0.5, 0.4))
 			_play(VFX + "leech_feed", boss().position, leech.position - boss().position)
@@ -302,50 +287,35 @@ func _place_mirrors(distance: float) -> void:
 	for i: int in 4:
 		var pos: Vector2 = boss().position + Vector2.RIGHT.rotated(PI * 0.25 + i * PI * 0.5) * distance
 		pos = ctx.obstacles.push_out(pos.clamp(area.position, area.end), MIRROR_RADIUS)
-		mirrors.append({"pos": pos, "arrow": Vector2.RIGHT, "flash": 0.0, "dash": -1})
-	_scramble_mirrors()
+		mirrors.append({"pos": pos, "arrow": Vector2.UP, "flash": 0.6, "held": false})
 	intro("BOSS_MIRROR_INTRO")
 
 
-## Le boss trouble les miroirs : aucun ne pointe vers lui.
-func _scramble_mirrors() -> void:
-	for mirror: Dictionary in mirrors:
-		var to_boss: Vector2 = boss().position - (mirror["pos"] as Vector2)
-		var arrow: Vector2 = to_boss
-		while absf(arrow.angle_to(to_boss)) < deg_to_rad(60.0):
-			arrow = Vector2.RIGHT.rotated((ctx.rng.randi() % 8) * PI * 0.25)
-		mirror["arrow"] = arrow
-		mirror["flash"] = 0.6
-
-
-## Ruée contre un miroir : il se tourne dans le sens de la Ruée (au huitième de tour près).
+## Un miroir tenu (Chasseur à côté) se tourne vers le boss : il lui renverra le rayon. Seul, il ne fait que l'arrêter.
 func _step_mirrors(delta: float) -> void:
 	var player: Player = ctx.player
-	var dash_id: int = int(ctx.stats.get_value(&"dashes"))
 	for mirror: Dictionary in mirrors:
 		mirror["flash"] = maxf(float(mirror["flash"]) - delta, 0.0)
-		if not player.is_dashing() or int(mirror["dash"]) == dash_id:
-			continue
-		if player.global_position.distance_to(mirror["pos"]) < MIRROR_RADIUS + player.radius + 14.0:
-			mirror["dash"] = dash_id
-			mirror["arrow"] = Vector2.RIGHT.rotated(snappedf(player.dash_direction().angle(), PI * 0.25))
+		var pos: Vector2 = mirror["pos"]
+		var held: bool = player.alive and player.global_position.distance_to(pos) <= MIRROR_HOLD
+		if held and not mirror["held"]:
 			mirror["flash"] = 0.4
 			ctx.stats.add(&"boss_mirrors_turned")
+		mirror["held"] = held
+		var aim: Vector2 = (boss().position - pos).normalized() if held else Vector2.UP
+		mirror["arrow"] = (mirror["arrow"] as Vector2).slerp(aim, minf(delta * 10.0, 1.0)).normalized()
 
 
 func prism_beam(pattern: BossPatternData) -> void:
 	var params: Dictionary = pattern.params
 	if mirrors.is_empty():
 		_place_mirrors(float(params.get("mirror_distance", 360.0)))
-	else:
-		_scramble_mirrors()
 	var start: float = (ctx.player.global_position - boss().position).angle()
 	beam = {"start": ctx.time + pattern.telegraph, "end": ctx.time + pattern.telegraph + float(params.get("sweep_time", 3.2)),
 		"angle": start, "side": 1.0 if ctx.rng.randf() < 0.5 else -1.0, "beams": int(params.get("beams", 1)),
 		"arc": deg_to_rad(float(params.get("arc", 360.0))), "length": float(params.get("length", 1100.0)),
 		"width": float(params.get("width", 36.0)), "damage": brain._damage(pattern), "tick": 0.0, "returned": false,
-		"ratio": float(params.get("return_ratio", 0.04)), "stun": float(params.get("stun", 3.0)),
-		"assist": deg_to_rad(float(params.get("assist", 30.0))), "paths": []}
+		"ratio": float(params.get("return_ratio", 0.04)), "stun": float(params.get("stun", 3.0)), "paths": []}
 	ctx.fx.danger_line(boss().position, boss().position + Vector2.RIGHT.rotated(start) * 600.0, 30.0, pattern.telegraph)
 	brain.busy_time = pattern.telegraph + float(params.get("sweep_time", 3.2)) + float(params.get("recovery", 0.6))
 
@@ -383,14 +353,13 @@ func _step_beam(delta: float) -> void:
 		_beam_returned()
 
 
-## Trajet du rayon : arrêté par le décor et la vase durcie ; un miroir le renvoie le long de sa flèche (aimantée vers
-## le boss à `assist` près). Renvoyé sur le boss : returned.
+## Trajet du rayon : arrêté par le décor, la vase durcie et les miroirs ; un miroir tenu par le Chasseur le renvoie
+## droit sur le boss : returned.
 func trace(origin: Vector2, dir: Vector2, length: float) -> Dictionary:
 	var points := PackedVector2Array([origin])
 	var from: Vector2 = origin + dir * boss().radius * 0.8
 	var remaining: float = length
 	var used: Dictionary = {}
-	var assist: float = float(beam.get("assist", deg_to_rad(30.0)))
 	for bounce: int in 4:
 		var hit: float = ctx.obstacles.clear_distance(from, dir, remaining)
 		for rect: Rect2 in wall_rects():
@@ -416,12 +385,11 @@ func trace(origin: Vector2, dir: Vector2, length: float) -> Dictionary:
 		used[mirror_index] = true
 		var mirror: Dictionary = mirrors[mirror_index]
 		mirror["flash"] = 0.15
+		if not mirror["held"]:
+			break
 		from = mirror["pos"]
-		dir = mirror["arrow"]
-		var to_target: Vector2 = boss().position - from
-		if absf(dir.angle_to(to_target)) <= assist:
-			dir = to_target.normalized()
-		remaining = length * 0.8
+		dir = (boss().position - from).normalized()
+		remaining = length
 	return {"points": points, "returned": false}
 
 
@@ -504,25 +472,61 @@ func _step_whirl(delta: float) -> void:
 				enemy.position += to_center.normalized() * float(whirl["enemy_pull"]) * delta
 
 
-func _step_tide(delta: float) -> void:
-	if tide.is_empty():
-		return
-	tide["radius"] = maxf(float(tide["radius"]) - float(tide["shrink"]) * delta, float(tide["min"]))
-	tide["tick"] = float(tide["tick"]) - delta
+## Raz-de-marée : des vagues partent du boss et traversent l'arène. Une Ruée les traverse, la vase durcie en abrite.
+func tide_wave(pattern: BossPatternData) -> void:
+	var params: Dictionary = pattern.params
+	var count: int = int(params.get("waves", 2))
+	var gap: float = float(params.get("gap", 1.1))
+	var center: Vector2 = boss().position
+	ctx.fx.ring(center, float(params.get("width", 40.0)) * 3.0, Color(WATER, 0.9), pattern.telegraph)
+	for i: int in count:
+		waves.append({"center": center, "radius": boss().radius, "speed": float(params.get("speed", 300.0)),
+			"max": float(params.get("reach", 1100.0)), "damage": brain._damage(pattern),
+			"width": float(params.get("width", 40.0)), "push": float(params.get("push", 90.0)),
+			"start": ctx.time + pattern.telegraph + gap * i})
+	intro("BOSS_TIDE_RING_INTRO")
+	brain.busy_time = pattern.telegraph + gap * (count - 1) + 0.6
+
+
+## La vague frappe le Chasseur quand son front le croise, sauf en pleine Ruée ou à l'abri d'un mur de vase.
+func _step_waves(delta: float) -> void:
 	var player: Player = ctx.player
-	if player.global_position.distance_to(tide["center"]) > float(tide["radius"]):
-		player.hinder(0.3, 0.6)
-		if float(tide["tick"]) <= 0.0:
-			tide["tick"] = 0.5
-			ctx.combat.damage_player(float(tide["damage"]), brain.data.id)
-			ctx.stats.add(&"boss_tide_hits")
+	var i: int = waves.size() - 1
+	while i >= 0:
+		var wave: Dictionary = waves[i]
+		if ctx.time >= float(wave["start"]):
+			var center: Vector2 = wave["center"]
+			var before: float = wave["radius"]
+			wave["radius"] = before + float(wave["speed"]) * delta
+			var offset: Vector2 = player.global_position - center
+			var dist: float = offset.length()
+			if dist > before and dist <= float(wave["radius"]) and not player.is_dashing() \
+					and not sheltered(center, player.global_position):
+				if ctx.combat.damage_player(float(wave["damage"]), brain.data.id) > 0.0:
+					ctx.stats.add(&"boss_tide_hits")
+					player.hinder(0.6, 0.6)
+					player.global_position = ctx.obstacles.push_out(player.global_position
+						+ offset.normalized() * float(wave["push"]), player.radius)
+			if float(wave["radius"]) >= float(wave["max"]):
+				waves.remove_at(i)
+		i -= 1
+
+
+## Un mur de vase durcie entre `from` et `pos` : la vague (comme le rayon) ne passe pas.
+func sheltered(from: Vector2, pos: Vector2) -> bool:
+	var dir: Vector2 = pos - from
+	var length: float = dir.length()
+	if length < 1.0:
+		return false
+	for rect: Rect2 in wall_rects():
+		if _ray_rect(from, dir / length, rect) < length:
+			return true
+	return false
 
 
 func _on_enemy_damaged(enemy: Enemy, info: DamageInfo, amount: float) -> void:
 	if brain == null or enemy != boss() or not info.is_friendly():
 		return
-	if not tide.is_empty():
-		tide["radius"] = minf(float(tide["radius"]) + amount / boss().max_hp * float(tide["push"]), float(tide["max"]))
 	if not swallowed.is_empty():
 		swallowed["dealt"] = float(swallowed["dealt"]) + amount
 		if float(swallowed["dealt"]) >= float(swallowed["need"]):
@@ -597,39 +601,38 @@ func danger(pos: Vector2) -> Vector2:
 			result += away.normalized()
 	if whirl_active():
 		result += (pos - boss().position).normalized() * 1.5
-	if not tide.is_empty() and pos.distance_to(tide["center"]) > float(tide["radius"]) - 140.0:
-		result += ((tide["center"] as Vector2) - pos).normalized() * 2.0
 	return result
 
 
-## Rayon de prisme annoncé : se placer derrière le miroir le plus proche, puis s'élancer vers le boss à travers lui.
+## Rayon de prisme annoncé : se placer derrière le miroir le plus proche (côté opposé au boss) et y rester.
 func bot_move(pos: Vector2) -> Vector2:
 	var spot: Vector2 = _bot_mirror_spot(pos)
-	if spot == Vector2.INF:
+	if spot == Vector2.INF or pos.distance_to(spot) <= 18.0:
 		return Vector2.ZERO
-	if pos.distance_to(spot) > 22.0:
-		return (spot - pos).normalized()
-	return (boss().position - pos).normalized()
+	return (spot - pos).normalized()
 
 
+## Raz-de-marée : une Ruée quand le front de la vague arrive (sauf à l'abri).
 func bot_dash() -> bool:
-	if leashed():
-		return true
-	var spot: Vector2 = _bot_mirror_spot(ctx.player.global_position)
-	return spot != Vector2.INF and ctx.player.global_position.distance_to(spot) <= 22.0
+	var pos: Vector2 = ctx.player.global_position
+	for wave: Dictionary in waves:
+		var gap: float = pos.distance_to(wave["center"]) - float(wave["radius"])
+		if ctx.time >= float(wave["start"]) and gap > 0.0 and gap < 45.0 and not sheltered(wave["center"], pos):
+			return true
+	return false
 
 
 func _bot_mirror_spot(pos: Vector2) -> Vector2:
-	if beam.is_empty() or mirrors.is_empty() or ctx.player.dash_cooldown_left > 0.0:
+	if beam.is_empty() or mirrors.is_empty() or bool(beam["returned"]):
 		return Vector2.INF
 	var best: Dictionary = {}
 	for mirror: Dictionary in mirrors:
 		if best.is_empty() or (mirror["pos"] as Vector2).distance_to(pos) < (best["pos"] as Vector2).distance_to(pos):
 			best = mirror
-	var to_boss: Vector2 = boss().position - (best["pos"] as Vector2)
-	if absf((best["arrow"] as Vector2).angle_to(to_boss)) <= deg_to_rad(30.0) or (best["pos"] as Vector2).distance_to(pos) > 420.0:
+	if (best["pos"] as Vector2).distance_to(pos) > 520.0:
 		return Vector2.INF
-	return (best["pos"] as Vector2) - to_boss.normalized() * (MIRROR_RADIUS + 30.0)
+	var to_boss: Vector2 = boss().position - (best["pos"] as Vector2)
+	return (best["pos"] as Vector2) - to_boss.normalized() * (MIRROR_RADIUS + 34.0)
 
 
 # --- Effets peints (présentation seulement : géométrie et durées viennent des mécaniques) ------------------------
@@ -658,11 +661,11 @@ func _sync_vfx() -> void:
 			0.0, 1.0)
 		var tag: String = "glq_mud_%d_%d" % [int(pos.x), int(pos.y)]
 		_show(painted.sync(tag, VFX + "mud_wall", pos, {"radius": radius, "width": radius * 1.5}), tag, [1.0, hardening])
-	if not leash.is_empty():
-		var anchor: Vector2 = leash["anchor"]
+	if not root.is_empty():
+		var anchor: Vector2 = root["anchor"]
 		var fx: Node2D = painted.sync("glq_leash", VFX + "root_leash", anchor)
 		if _show(fx, "glq_leash"):
-			fx.call("set_path_local", PackedVector2Array([Vector2.ZERO, ctx.player.global_position - anchor]))
+			fx.call("set_path_local", PackedVector2Array([Vector2.ZERO, (root["from"] as Vector2) - anchor]))
 	if not facets.is_empty():
 		var fx: Node2D = painted.sync("glq_facets", VFX + "facets", center, {"radius": boss().radius + 10.0})
 		if _show(fx, "glq_facets"):
@@ -685,8 +688,10 @@ func _sync_vfx() -> void:
 				fx.call("set_path_local", local)
 	if whirl_active():
 		_show(painted.sync("glq_whirl", VFX + "whirlpool", center), "glq_whirl")
-	if not tide.is_empty():
-		_show(painted.sync("glq_tide", VFX + "tide_ring", tide["center"], {"radius": float(tide["radius"])}), "glq_tide")
+	for wave: Dictionary in waves:
+		if ctx.time >= float(wave["start"]):
+			var tag: String = "glq_tide%d" % int(float(wave["start"]) * 10.0)
+			_show(painted.sync(tag, VFX + "tide_ring", wave["center"], {"radius": float(wave["radius"])}), tag)
 	if not swallowed.is_empty():
 		_show(painted.sync("glq_swallow", VFX + "swallow", center, {"radius": boss().radius * 0.45}), "glq_swallow")
 	if brain.heart_time > 0.0 and boss().alive:
@@ -707,12 +712,13 @@ func _show(fx: Node2D, tag: String, state: Array = []) -> bool:
 # --- Dessin ----------------------------------------------------------------------------------------------------
 
 func _draw() -> void:
-	if not tide.is_empty():
-		var center: Vector2 = tide["center"]
-		var radius: float = tide["radius"]
-		draw_arc(center, radius + 450.0, 0.0, TAU, 96, Color(WATER, 0.45), 900.0)
-		if not _shown.has("glq_tide"):
-			draw_arc(center, radius, 0.0, TAU, 96, Color(0.85, 1.0, 0.97, 0.7), 4.0)
+	for wave: Dictionary in waves:
+		if ctx.time < float(wave["start"]):
+			continue
+		var fade: float = clampf((float(wave["max"]) - float(wave["radius"])) / 200.0, 0.0, 1.0)
+		draw_arc(wave["center"], float(wave["radius"]) - float(wave["width"]) * 0.5, 0.0, TAU, 96, Color(WATER, 0.5 * fade),
+			float(wave["width"]))
+		draw_arc(wave["center"], float(wave["radius"]), 0.0, TAU, 96, Color(0.85, 1.0, 0.97, 0.85 * fade), 4.0)
 	for puddle: Dictionary in puddles:
 		var pos: Vector2 = puddle["pos"]
 		if _shown.has("glq_mud_%d_%d" % [int(pos.x), int(pos.y)]):
@@ -725,11 +731,9 @@ func _draw() -> void:
 			var rect: Rect2 = ctx.obstacles.walls[int(puddle["wall"])]
 			draw_rect(rect, Color(0.28, 0.25, 0.18, 0.95))
 			draw_rect(rect, Color(0.55, 0.48, 0.32), false, 3.0)
-	if not leash.is_empty():
-		if not _shown.has("glq_leash"):
-			draw_line(leash["anchor"], ctx.player.global_position, ROOT, 6.0)
-			draw_circle(leash["anchor"], 12.0, ROOT)
-		draw_arc(leash["anchor"], float(leash["length"]), 0.0, TAU, 48, Color(ROOT, 0.4), 2.0)
+	if not root.is_empty() and not _shown.has("glq_leash"):
+		draw_line(root["from"], root["anchor"], ROOT, 6.0)
+		draw_circle(root["anchor"], 12.0, ROOT)
 	if not _shown.has("glq_facets"):
 		_draw_facets()
 	for i: int in mirrors.size():
@@ -764,16 +768,22 @@ func _draw_facets() -> void:
 		draw_arc(boss().position, boss().radius + 10.0, center - 0.6, center + 0.6, 16, Color(CRYSTAL, 0.35 + 0.5 * strength), 7.0)
 
 
-## Miroir provisoire ; peint, seule la flèche (l'information de jeu) reste dessinée.
+## Miroir provisoire ; peint, seuls les repères de jeu restent dessinés : zone où se tenir pendant un rayon, et trait
+## vers le boss quand le miroir est tenu.
 func _draw_mirror(mirror: Dictionary, painted: bool) -> void:
 	var pos: Vector2 = mirror["pos"]
-	var arrow: Vector2 = mirror["arrow"]
 	var glow: float = float(mirror["flash"])
+	var held: bool = mirror["held"]
 	if not painted:
 		var points := PackedVector2Array([pos + Vector2(0, -MIRROR_RADIUS), pos + Vector2(MIRROR_RADIUS * 0.7, 0),
 			pos + Vector2(0, MIRROR_RADIUS), pos + Vector2(-MIRROR_RADIUS * 0.7, 0)])
 		draw_colored_polygon(points, Color(CRYSTAL.lerp(Color.WHITE, glow), 0.75))
 		points.append(points[0])
 		draw_polyline(points, Color(0.3, 0.6, 0.8), 2.0)
-	draw_line(pos, pos + arrow * (MIRROR_RADIUS + 26.0), Color(1.0, 1.0, 1.0, 0.9), 4.0)
-	draw_circle(pos + arrow * (MIRROR_RADIUS + 26.0), 6.0, Color(1.0, 1.0, 1.0, 0.9))
+	if beam.is_empty() and not held:
+		return
+	draw_arc(pos, MIRROR_HOLD, 0.0, TAU, 48, Color(CRYSTAL, 0.75 if held else 0.3), 3.0 if held else 2.0)
+	if held:
+		var to_boss: Vector2 = boss().position - pos
+		draw_dashed_line(pos, pos + to_boss.normalized() * maxf(to_boss.length() - boss().radius, 0.0),
+			Color(1.0, 1.0, 1.0, 0.55), 3.0, 14.0)

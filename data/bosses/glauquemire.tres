@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BossData" load_steps=22 format=3]
+[gd_resource type="Resource" script_class="BossData" load_steps=23 format=3]
 
 [ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
 [ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
@@ -66,14 +66,12 @@ script = ExtResource("4")
 kind = &"root_leash"
 name_key = "BOSS_PATTERN_ROOT_LEASH"
 weight = 1.5
-cooldown = 11.0
+cooldown = 9.0
 damage = 32.0
 telegraph = 0.8
 params = {
-"length": 170.0,
-"duration": 3.0,
-"slam_radius": 150.0,
-"slam_delay": 2.4
+"slam_radius": 130.0,
+"slam_delay": 1.3
 }
 
 [sub_resource type="Resource" id="p5"]
@@ -88,7 +86,8 @@ params = {
 "enemy": "mire_leech",
 "count": 4,
 "distance": 430.0,
-"heal_ratio": 0.02,
+"heal_ratio": 0.005,
+"heal_cap": 0.06,
 "max_active": 6
 }
 
@@ -139,8 +138,7 @@ params = {
 "length": 1100.0,
 "width": 36.0,
 "return_ratio": 0.04,
-"stun": 3.0,
-"assist": 30.0
+"stun": 3.0
 }
 
 [sub_resource type="Resource" id="p9"]
@@ -189,8 +187,7 @@ params = {
 "length": 1100.0,
 "width": 36.0,
 "return_ratio": 0.04,
-"stun": 3.0,
-"assist": 30.0
+"stun": 3.0
 }
 
 [sub_resource type="Resource" id="p12"]
@@ -225,6 +222,23 @@ params = {
 "daze": 4.0
 }
 
+[sub_resource type="Resource" id="p14"]
+script = ExtResource("4")
+kind = &"tide_wave"
+name_key = "BOSS_PATTERN_TIDE_WAVE"
+weight = 2.5
+cooldown = 9.0
+damage = 22.0
+telegraph = 1.1
+params = {
+"waves": 2,
+"gap": 1.1,
+"speed": 300.0,
+"reach": 1100.0,
+"width": 40.0,
+"push": 90.0
+}
+
 [sub_resource type="Resource" id="phase_1"]
 script = ExtResource("3")
 hp_threshold = 1.0
@@ -256,16 +270,10 @@ name_key = "BOSS_GLAUQUEMIRE_PHASE3"
 move_speed_mult = 1.2
 pattern_interval = 1.6
 transition_time = 2.0
-patterns = [SubResource("p10"), SubResource("p11"), SubResource("p12"), SubResource("p13")]
-mechanics = Array[StringName]([&"mirrors", &"tide_ring"])
+patterns = [SubResource("p10"), SubResource("p11"), SubResource("p12"), SubResource("p13"), SubResource("p14"), SubResource("p7")]
+mechanics = Array[StringName]([&"mirrors"])
 mechanic_params = {
-"mirror_distance": 360.0,
-"tide_start": 950.0,
-"tide_min": 300.0,
-"tide_max": 1100.0,
-"tide_shrink": 20.0,
-"tide_push": 2600.0,
-"tide_damage": 8.0
+"mirror_distance": 360.0
 }
 
 [resource]

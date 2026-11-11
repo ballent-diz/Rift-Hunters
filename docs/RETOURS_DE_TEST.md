@@ -69,7 +69,12 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   Faille trop petits face au Chasseur (≈ 52 unités) ; revoir leur échelle (manifeste) selon docs/ART_BIBLE.md.
 - [ ] **Boss de fin de chapitre pas assez dynamiques** (10 novembre) : plus de déplacements, d'enchaînements et de
   techniques lisibles ; à revoir boss par boss.
-- [ ] **Glauquemire (carte 15, Cœur des marais)** (10 novembre) : boss intuable, mécanique jugée mauvaise par le
+- [x] **Glauquemire (carte 15, Cœur des marais)** (10 novembre) : boss intuable, mécanique jugée mauvaise par le
   propriétaire, et un « cercle » bloque le Chasseur dans l'arène. Refondre la mécanique et retirer le blocage.
-- [ ] **Carte 15 buguée** (10 novembre) : à préciser avec le propriétaire (symptômes) puis corriger ; vérifier aussi
-  la carte repeinte par Codex (PR #136).
+  Corrigé le 11 novembre : soin des sangsues plafonné, plus de laisse ni d'anneau (racine jaillissante, raz-de-marée à
+  traverser), miroirs sans Ruée, finale sur toute la terrasse fermée par des barrières (plus d'ellipse), boss
+  recalibré (bot : 2 sur 4 au lieu de 0 sur 4). **À juger en jouant** (docs/design/DEVOREUR_CHAPITRE3.md).
+- [x] **Carte 15 buguée** (10 novembre) : contrôlée le 11 novembre au bot et par superposition des collisions.
+  Corrigé : moitié droite de l'escalier central bloquée par une collision invisible ; chaussées de marée décalées
+  d'environ 115 unités par rapport aux ponts peints ; ellipse de finale au milieu de la terrasse. Reste à repeindre
+  (prompt Codex en attente) : un morceau de rambarde en double sur le pont nord-ouest.

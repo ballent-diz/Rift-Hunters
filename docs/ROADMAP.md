@@ -872,3 +872,24 @@ visibles en plus, conformément au cadrage retenu après comparaison sur les Rui
 Le réglage s'applique aux parties normales et aux trois modes d'Échos ; l'interface conserve
 sa taille. Vérification Godot : 372 scripts chargés, 500 tests unitaires réussis, captures
 dans les trois modes et contrôle des limites aux deux coins de la Plaine fracturée (1254 × 1254u).
+
+## Session du 11 novembre 2026 (Claude) : retours de test du 10 novembre, lot par lot
+
+Six lots prévus, une PR par lot : 1 Glauquemire et carte 15 · 2 cartes buguées ou pixellisées · 3 monstres du
+chapitre 5 minuscules · 4 Échos et monstres « en lévitation » · 5 masquage par le décor · 6 boss de fin de chapitre.
+État noté ici après chaque lot pour qu'une autre session reprenne.
+
+### Lot 1 — Glauquemire et carte 15 : fait
+
+- Diagnostic (bot, profil d'étape, 4 parties : 0 victoire) : les sangsues rendaient jusqu'à 26 % de ses PV au boss ;
+  la racine-laisse et l'anneau de marée retenaient le Chasseur ; la finale l'enfermait dans une ellipse au milieu de la
+  terrasse peinte ; l'escalier central était à moitié bloqué ; les chaussées de marée étaient décalées.
+- Refonte (docs/design/DEVOREUR_CHAPITRE3.md, « Refonte du 11 novembre ») : racine jaillissante, soin des sangsues
+  plafonné à 6 %, miroirs qui renvoient le rayon quand le Chasseur s'abrite à côté (plus de Ruée à viser),
+  raz-de-marée à traverser d'une Ruée ou à éviter derrière la vase durcie, finale murée par les barrières peintes.
+  Réglage de la carte : boss 0,85 · 0,8. Bot : 2 victoires sur 4.
+- Carte : docs/maps/COEUR_DES_MARAIS.md (« Contrôle en jeu »). Prompt Codex en attente : rambarde en double.
+- Non traité : une erreur « Invalid polygon data, triangulation failed » dans les journaux du chapitre 3 (un effet
+  peint dessine un polygone dégénéré, sans effet visible repéré) ; à chercher dans
+  `assets/vfx/enemies/chapter3/enemy_effect.gd`.
+- **À juger en jouant** : lisibilité des miroirs (cercle où se tenir), rythme du raz-de-marée, durée du combat.

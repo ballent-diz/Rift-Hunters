@@ -1642,21 +1642,22 @@ BOSS_PATTERN_STAR_CROWN,Couronne d'astres,Star crown
 BOSS_PATTERN_CRATER_SEQUENCE,Séquence des cratères,Crater sequence
 BOSS_PATTERN_GLAUQUEMIRE_CLAWS,Griffes des vases,Mire claws
 BOSS_PATTERN_MUD_WALL,Vase qui durcit,Hardening mud
-BOSS_PATTERN_ROOT_LEASH,Racine-laisse,Root leash
+BOSS_PATTERN_ROOT_LEASH,Racine jaillissante,Bursting root
 BOSS_PATTERN_LEECH_FEED,Sangsues nourricières,Feeding leeches
 BOSS_PATTERN_PRISM_BEAM,Rayon de prisme,Prism beam
 BOSS_PATTERN_WHIRLPOOL,Tourbillon,Whirlpool
+BOSS_PATTERN_TIDE_WAVE,Raz-de-marée,Tidal wave
 BOSS_PATTERN_SWALLOW,Engloutissement,Engulf
 BOSS_ORB_INTRO,Orbe de source : une Ruée dedans le renvoie sur le Dévoreur. L'orbe doré l'étourdit.,Source orb: dash into it to send it back at the Devourer. The golden orb stuns it.
 BOSS_CROWN_INTRO,"Couronne d'astres : de l'extérieur, vos coups sont absorbés. Entrez par une brèche !","Star crown: from outside, your hits are absorbed. Get in through a gap!"
 BOSS_CRATER_INTRO,Retenez les cases qui s'allument : elles vont exploser dans le même ordre.,Remember the tiles that light up: they will erupt in the same order.
 BOSS_MUD_WALL_INTRO,La vase ralentit puis durcit en murs : ils arrêtent aussi son rayon.,"The mud slows you, then hardens into walls: they also stop its beam."
-BOSS_LEASH_INTRO,Racine-laisse : une Ruée la casse avant que le coup ne tombe.,Root leash: dash to break it before the blow lands.
-BOSS_LEECH_INTRO,Les sangsues soignent Glauquemire si elles l'atteignent : interceptez-les.,Leeches heal Glauquemire if they reach it: intercept them.
+BOSS_LEASH_INTRO,Racine jaillissante : elle surgit là où vous étiez. Écartez-vous !,Bursting root: it erupts where you stood. Step away!
+BOSS_LEECH_INTRO,Les sangsues soignent un peu Glauquemire si elles l'atteignent : interceptez-les.,Leeches heal Glauquemire a little if they reach it: intercept them.
 BOSS_FACETS_INTRO,Carapace de cristal : chaque face amortit les coups. Brisez-en une ou frappez par un flanc ouvert.,Crystal carapace: each face dampens hits. Break one or strike an open flank.
-BOSS_MIRROR_INTRO,Miroirs : une Ruée contre un miroir le tourne dans le sens de la Ruée. Renvoyez le rayon sur le boss !,Mirrors: dashing into a mirror turns it the way you dash. Send the beam back at the boss!
+BOSS_MIRROR_INTRO,Miroirs : abritez-vous derrière un miroir quand le rayon arrive. Il le renvoie sur le Dévoreur !,Mirrors: take cover behind a mirror when the beam comes. It sends it back at the Devourer!
 BOSS_WHIRLPOOL_INTRO,Tourbillon : marchez contre le courant ou utilisez la Ruée avant qu'il ne se referme.,Whirlpool: walk against the current or dash before it collapses.
-BOSS_TIDE_RING_INTRO,La marée monte : chaque coup au Dévoreur fait reculer l'eau.,The tide is rising: every hit on the Devourer pushes the water back.
+BOSS_TIDE_RING_INTRO,Raz-de-marée : traversez la vague d'une Ruée ou abritez-vous derrière la vase durcie.,Tidal wave: dash through the wave or take cover behind hardened mud.
 BOSS_SWALLOW_INTRO,Un Écho est englouti : frappez le Dévoreur pour le libérer à temps !,An Echo was swallowed: strike the Devourer to free it in time!
 BOSS_STUNNED,ÉTOURDI,STUNNED
 BOSS_PRISM_RETURNED,CARAPACE BRISÉE ×2,CARAPACE SHATTERED ×2
@@ -1930,12 +1931,12 @@ JOURNAL_GUARD,Garde d'écorce,Bark guard
 JOURNAL_DIVE,Plongée,Dive
 JOURNAL_SPORE_VEIL,Voile de spores,Spore veil
 JOURNAL_MUD_WALL,Murs de vase,Mud walls
-JOURNAL_LEASH,Racine-laisse,Root leash
+JOURNAL_LEASH,Racine jaillissante,Bursting root
 JOURNAL_LEECH,Sangsues,Leeches
 JOURNAL_FACETS,Carapace de cristal,Crystal shell
 JOURNAL_MIRROR,Miroirs,Mirrors
 JOURNAL_WHIRLPOOL,Tourbillon,Whirlpool
-JOURNAL_TIDE_RING,Anneau de marée,Tide ring
+JOURNAL_TIDE_RING,Raz-de-marée,Tidal wave
 JOURNAL_SWALLOW,Écho englouti,Swallowed Echo
 JOURNAL_CAPTURE,Écho des sorts,Spell echo
 JOURNAL_SHATTER,Banquise brisée,Shattered ice

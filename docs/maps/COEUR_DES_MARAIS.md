@@ -1,5 +1,15 @@
 # Cœur des marais — détail de la carte 15
 
+## Contrôle en jeu — 11 novembre 2026 (Claude)
+
+Superposition des collisions, des zones et des barrières sur la carte, puis parties au bot. Corrigé :
+la moitié droite de l'escalier central était bloquée par une collision invisible (masque rouvert entre les deux
+colonnes, `field.png` reconstruit) ; les chaussées de marée étaient décalées d'environ 115 unités vers le centre par
+rapport aux deux ponts nord (recalées sur les tabliers peints) ; la finale se jouait dans une ellipse au milieu de la
+terrasse (remplacée par les barrières des trois escaliers, `finale_walls`). Reste : un morceau de rambarde peint en
+double sur le pont nord-ouest (prompt dans docs/prompts/CODEX_EN_ATTENTE.md) ; sa collision est gardée en attendant
+(passage de 60 unités au nord du tablier).
+
 ## Correction d’échelle — 8 novembre 2026
 
 **Carte 15 uniquement**, conformément à la dernière demande du propriétaire. Le Gué des Brumes n’est pas retouché.

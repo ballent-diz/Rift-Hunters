@@ -5,7 +5,24 @@ dans l'ordre ; chacun est autonome. Rappel pour Codex : une branche par tâche d
 (AGENTS.md) ; si l'API GitHub le bloque, pousser la branche et donner son nom et son dernier commit : Claude ouvrira
 la PR.
 
-Aucun prompt en attente.
+## 1. Carte 15, Cœur des marais : rambarde en double sur le pont nord-ouest
+
+```
+Tâche : retouche locale de la carte 15 « Cœur des marais » (environment.marsh_heart). Lis d'abord AGENTS.md,
+docs/maps/COEUR_DES_MARAIS.md et docs/maps/QUALITE_DES_CARTES.md. Branche codex/carte-15-rambarde depuis main à jour,
+PR vers main, poids indiqué. Aucun changement dans src/ ni data/.
+
+Défaut : sur le pont nord-ouest (monde x de -690 à -540, y de -60 à 0 ; soit les pixels 980 à 1130 × 2450 à 2510 de
+la carte à 1 px par unité), un morceau de rambarde est peint en double au milieu du tablier, décalé vers le bas et la
+droite par rapport à la vraie rambarde sud, avec un bout de poutre rouge. Efface ce morceau et prolonge le dallage du
+pont (mêmes dalles, mousse et lierre que le reste du tablier), puis continue la rambarde sud d'un seul trait jusqu'à
+la colonne d'angle. Ne change ni le plan, ni l'emprise du pont, ni le reste de la carte : pixels identiques hors de
+la zone retouchée (preuve numérique comme pour la correction d'échelle).
+
+Livraison : master et tuiles régénérés (2,25 px par unité, sans perte), contrôle check_map_quality.py conforme,
+capture Godot avant/après au zoom réel avec le Chasseur sur le pont. Ne touche pas à collision.png : Claude
+rouvrira la collision du tablier à l'intégration.
+```
 
 ## Déjà réglé (ne plus envoyer)
 
