@@ -12,6 +12,8 @@ import numpy as np
 from scipy import ndimage
 Image.MAX_IMAGE_PIXELS=None
 S=sys.argv[1]
+import os
+os.makedirs(S, exist_ok=True)
 tiles_in=[Image.open('assets/environments/glacier_entry/'+n) for n in ('map.webp','map_1.webp','map_2.webp')]
 full=Image.new('RGB',(sum(t.size[0] for t in tiles_in),tiles_in[0].size[1]))
 _x=0
