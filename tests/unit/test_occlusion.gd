@@ -140,6 +140,25 @@ func test_storm_highlands_menhir() -> void:
 	ground.free()
 
 
+## Entrée du Glacier (carte 16, décor réduit à 0,9) : derrière un rocher-abri le Chasseur est caché par son sommet.
+func test_glacier_entry_cover_rock() -> void:
+	var ground := ArenaGround.new()
+	ground.setup(GameDB.arena(&"glacier_entry"), 1)
+	var map: OcclusionMap = ground.occlusion_map()
+	check(map != null, "l'Entrée du Glacier a des données de masquage")
+	if map != null:
+		var path: String = str(Assets.entry(&"environment.glacier_entry").get("occlusion", ""))
+		var image: Image = OcclusionMap.load_depth_image(path.get_base_dir().path_join("depth.png"))
+		var rect: Rect2 = ground.arena_rect()
+		var to_world := func(px: Vector2) -> Vector2: return rect.position + px / Vector2(11286, 7524) * rect.size
+		var cap: Vector2 = to_world.call(Vector2(5668, 1520))
+		check(map.hides(image, to_world.call(Vector2(5668, 1590)), cap), "derrière le rocher : caché par le sommet")
+		check(not map.hides(image, to_world.call(Vector2(5668, 2050)), cap), "devant le rocher : normal")
+		check(not map.hides(image, to_world.call(Vector2(6400, 1590)), to_world.call(Vector2(6400, 1520))),
+			"neige dégagée : normal")
+	ground.free()
+
+
 func test_maps_without_data_are_untouched() -> void:
 	var ground := ArenaGround.new()
 	ground.setup(GameDB.arena(&"brazier_pass"), 1)
