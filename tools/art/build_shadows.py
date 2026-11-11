@@ -27,6 +27,12 @@ PREFIXES = ("monster.", "enemy.")
 FLOAT_GAP = 3.0
 
 
+def _num(value):
+    """Un chiffre après la virgule ; entier quand il tombe juste (même écriture que l'éditeur Godot du manifeste)."""
+    rounded = round(float(value), 1)
+    return int(rounded) if rounded == int(rounded) else rounded
+
+
 def measure(entry):
     """[cx, cy, rx, ry] en pixels de feuille, ou None si l'entrée n'a pas de feuille mesurable."""
     if "sheet" not in entry or "anchor" not in entry or "animations" not in entry:
@@ -55,7 +61,7 @@ def measure(entry):
     body_h = ys.max() - ys.min() + 1
     if float(np.median(gaps)) * scale >= FLOAT_GAP:
         rx = max(body_w * 0.26, 3.0)
-        return [0.0, round(1.0 / scale, 1), round(rx, 1), round(rx * 0.38, 1)]
+        return [0, _num(1.0 / scale), _num(rx), _num(rx * 0.38)]
     band = cell[max(ys.max() - max(int(body_h * 0.12), 2), 0):ys.max() + 1]
     cols = np.where(band.any(axis=0))[0]
     foot_w = cols.max() - cols.min() + 1
@@ -63,7 +69,7 @@ def measure(entry):
     ry = min(rx * 0.38, body_h * 0.2)
     cx = (cols.min() + cols.max()) / 2.0 - ax
     cy = (ys.max() + 1 - ay) - ry + 1.5
-    return [round(float(cx), 1), round(float(cy), 1), round(float(rx), 1), round(float(ry), 1)]
+    return [_num(cx), _num(cy), _num(rx), _num(ry)]
 
 
 def main():
