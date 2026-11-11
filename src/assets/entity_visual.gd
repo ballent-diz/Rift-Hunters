@@ -16,6 +16,9 @@ var idle_animation: StringName = &"idle"
 var occlusion: OcclusionMap
 var _shader_path: String = ""
 var _shadow: Node2D
+## Ombre calée sur l'empreinte du sprite (manifeste, champ "shadow" écrit par tools/art/build_shadows.py) :
+## position = centre, size = demi-axes, en unités du monde. Taille nulle : disque d'origine sous l'ancre.
+var _shadow_shape := Rect2()
 ## Décalage vertical du sprite (saut, pas) : passe par l'offset pour que l'origine du sprite reste au pied.
 var _lift: float = 0.0
 var _bob: float = 0.0
@@ -52,6 +55,7 @@ func setup(visual: VisualData, primary: Color = Color(0, 0, 0, 0), secondary: Co
 	_facing_left = false
 	_phase = randf() * TAU
 	shadow_radius = visual.size * 0.36
+	_shadow_shape = _shadow_shape_of(visual.visual_id)
 	_add_shadow()
 	var frames: SpriteFrames = Assets.get_sprite_frames(visual.visual_id)
 	if frames:
@@ -181,6 +185,9 @@ func swap_visual(visual_id: StringName, aliases: Dictionary = {}) -> bool:
 	_pixel_scale = Assets.pixel_scale(visual_id)
 	_anim.scale = Vector2.ONE * _pixel_scale
 	_update_offset()
+	_shadow_shape = _shadow_shape_of(visual_id)
+	if _shadow != null:
+		_shadow.queue_redraw()
 	_current = &""
 	_action = &""
 	idle_animation = &"idle"
@@ -218,6 +225,8 @@ func set_facing_left(left: bool, force: bool = false) -> void:
 		return
 	_facing_left = left
 	_flip_hold = FLIP_HOLD
+	if _shadow != null:
+		_shadow.scale.x = -1.0 if left else 1.0
 	if _sprite:
 		_sprite.flip_h = left
 	elif _anim:
@@ -291,12 +300,25 @@ func _apply_modulate() -> void:
 
 
 ## Ombre au sol dans un nœud placé sous toutes les entités de la même couche (z relatif −1), dessinée une fois.
+## Avec une empreinte mesurée, l'ombre est aussi large que les appuis et son bord bas affleure les pieds : la créature
+## paraît posée. Sans mesure (Chasseur, boss, placeholders) : disque d'origine sous l'ancre.
 func _add_shadow() -> void:
 	var shadow := Node2D.new()
 	_shadow = shadow
 	shadow.z_index = -1
-	var radius: float = shadow_radius
 	shadow.draw.connect(func() -> void:
-		shadow.draw_set_transform(Vector2(0, 1), 0.0, Vector2(1.0, 0.38))
-		shadow.draw_circle(Vector2.ZERO, radius, Color(0.0, 0.0, 0.03, 0.35)))
+		if _shadow_shape.size.x > 0.0:
+			shadow.draw_set_transform(_shadow_shape.position, 0.0, Vector2(1.0, _shadow_shape.size.y / _shadow_shape.size.x))
+			shadow.draw_circle(Vector2.ZERO, _shadow_shape.size.x, Color(0.0, 0.0, 0.03, 0.3))
+		else:
+			shadow.draw_set_transform(Vector2(0, 1), 0.0, Vector2(1.0, 0.38))
+			shadow.draw_circle(Vector2.ZERO, shadow_radius, Color(0.0, 0.0, 0.03, 0.35)))
 	add_child(shadow)
+
+
+static func _shadow_shape_of(visual_id: StringName) -> Rect2:
+	var shape: Array = Assets.entry(visual_id).get("shadow", [])
+	if shape.size() != 4:
+		return Rect2()
+	var k: float = Assets.pixel_scale(visual_id)
+	return Rect2(float(shape[0]) * k, float(shape[1]) * k, float(shape[2]) * k, float(shape[3]) * k)

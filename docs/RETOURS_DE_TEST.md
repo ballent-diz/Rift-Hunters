@@ -58,7 +58,8 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   et beaucoup de sorts à gérer » ; envie d'essayer sans Échos ou un autre gameplay. Deux prototypes livrés le
   10 novembre, activables par le réglage « Mode des Échos » (Actuel / Relais / Solo, détails dans docs/ROADMAP.md,
   « Modes des Échos à l'essai »). **À tester par le propriétaire**, qui choisit ensuite le mode à garder.
-- [ ] **Échos et monstres « en lévitation »** (10 novembre) : ils semblent flotter au-dessus du sol, surtout à cause du
+- [x] **Échos et monstres « en lévitation »** (10 novembre, corrigé le 11 novembre : ombres calées sur l'empreinte
+  de chaque sprite, trois ancres relevées, docs/ROADMAP.md lot 4 ; **à juger en jouant**) : ils semblent flotter au-dessus du sol, surtout à cause du
   cercle d'ombre sous chaque sprite. À ancrer au sol : ombre portée plus discrète et collée aux pieds (forme et
   opacité selon la silhouette, lumière haut-gauche de docs/ART_BIBLE.md), ancres des feuilles vérifiées, flottement
   réservé aux créatures volantes.
