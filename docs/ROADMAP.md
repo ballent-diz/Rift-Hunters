@@ -893,3 +893,25 @@ chapitre 5 minuscules · 4 Échos et monstres « en lévitation » · 5 masquage
   peint dessine un polygone dégénéré, sans effet visible repéré) ; à chercher dans
   `assets/vfx/enemies/chapter3/enemy_effect.gd`.
 - **À juger en jouant** : lisibilité des miroirs (cercle où se tenir), rythme du raz-de-marée, durée du combat.
+
+### Lot 2 — Cartes buguées ou pixellisées : fait
+
+- **Pixellisation : cause de rendu, corrigée.** Toutes les cartes sont peintes à 2,25 px par unité, mais depuis la
+  caméra élargie (zoom 1,1111) et les décors réduits (`decor_scale` 0,7 à 0,9) elles sont affichées **réduites** : en
+  1080p, 1,67 px d'écran par unité, soit 1,35 pixel de carte par pixel d'écran (1,9 sur le Lac gelé ; 2 à 2,9 en 720p).
+  Le filtrage linéaire sans mipmaps ne lit alors qu'une partie des pixels et le renforcement des contours
+  (`map_detail.gdshader`) accentuait ce fourmillement. Le shader fait maintenant la moyenne de quatre prises dans
+  l'empreinte du pixel d'écran quand la carte est réduite, et adoucit le renforcement d'autant. Aucune image changée,
+  pas de mipmaps (mémoire vidéo inchangée). Les 26 cartes passent toujours le contrôle de finesse.
+- **Parcours bot** (invincible, profil d'étape, 24 cartes de campagne) : toutes terminées, aucun blocage, aucune
+  erreur de script. Départs, centres de zone, failles, cristaux et centres de finale : tous sur du sol praticable.
+- **À décider par le propriétaire : finale en cercle d'énergie sur 13 cartes peintes.** Comme sur la carte 15 avant
+  correction, la finale s'y joue dans une ellipse tracée en plein sol praticable (100 % du cercle), plus petite que
+  la zone peinte : ash_vents 500×330, brazier_pass 480×380, cataclysm_threshold 620×230, crystal_gardens 400×310,
+  glacier_entry 470×660, rift_eye 640×600, root_mangrove 540×320, shattered_outskirts 520×480,
+  shattered_pantheon 560×500, silent_heart 560×520, storm_lake 520×460, suspended_quarters 500×460,
+  tide_temple 300×240. Les passer en arène murée (`finale_walls`, barrières peintes) demande de choisir les entrées à
+  fermer sur chaque carte (éditeur de niveau) : non fait, à valider carte par carte.
+- Erreur « Invalid polygon data » : présente seulement sur les cartes 13 et 15 (famille des reflets), toujours à
+  chercher.
+- **À juger en jouant** : netteté des cartes en mouvement (le décor est un peu plus doux, sans fourmillement).
