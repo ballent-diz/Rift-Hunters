@@ -19,7 +19,7 @@ const PATTERN_ANIMATIONS := {
 	&"skyfall": &"skyfall", &"eye_beam": &"rift_eye",
 	&"source_orb": &"attack", &"star_crown": &"phase2_attack", &"crater_sequence": &"attack",
 	&"mud_wall": &"mud_spit", &"root_leash": &"root_lash", &"leech_feed": &"leech_call", &"prism_beam": &"prism_beam",
-	&"whirlpool": &"whirlpool", &"swallow": &"swallow", &"mist_veil": &"attack", &"pyre_ram": &"attack",
+	&"whirlpool": &"whirlpool", &"tide_wave": &"whirlpool", &"swallow": &"swallow", &"mist_veil": &"attack", &"pyre_ram": &"attack",
 }
 ## Effets décoratifs simultanés au plus (les télégraphes ne comptent pas : ils ne sont jamais supprimés).
 const MAX_EFFECTS := 8
@@ -891,6 +891,10 @@ func _pattern_whirlpool(pattern: BossPatternData) -> void:
 
 func _pattern_swallow(pattern: BossPatternData) -> void:
 	marsh().swallow(pattern)
+
+
+func _pattern_tide_wave(pattern: BossPatternData) -> void:
+	marsh().tide_wave(pattern)
 
 
 ## Longueur dégagée d'une ligne : jusqu'au premier décor qui arrête les tirs (rochers-abris).

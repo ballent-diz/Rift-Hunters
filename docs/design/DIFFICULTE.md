@@ -103,7 +103,7 @@ Hautes Terres, qui tournait en rond).
 | 12. Temple des marées | 1,4 · 0,65 | 1,25 · 0,58 (Gueule des marais) | 2 sur 3 | 3 min |
 | 13. Jardins de cristal | 1 · 0,5 | 1,9 · 1 (Mère des spores) | 2 sur 3 | 5 min |
 | 14. Puits des reflets | 1,3 · 1,8 (autel frappé à 0,36) | 1 · 2,4 (Dame des portails) | 3 sur 4 | 5 min 30 à 6 min 30 |
-| 15. Cœur des marais | 1 · 0,7 (marée, vase) | 1,6 · 1,15 (Glauquemire) | 3 sur 4 (mesuré avec cinq abris, retirés depuis) | 5 min 30 à 6 min 20 |
+| 15. Cœur des marais | 1 · 0,7 (marée, vase) | 0,85 · 0,8 (Glauquemire, refonte du 11 novembre) | 2 sur 4 (0 sur 4 avant la refonte) | 4 min 45 à 5 min 50 |
 
 Tanières de suie et Mangrove des racines (3 novembre) : passées en cartes de nuit sans changer leurs réglages
 (décision du propriétaire). Tanières de suie, avant la nuit : à 3 sur 3 avec un gardien tombé en une minute, la Reine-veuve passe de 3 · 1,4 à

@@ -55,10 +55,12 @@ func test_three_phases_with_new_mechanics() -> void:
 	var data: BossData = GameDB.boss(&"glauquemire")
 	check_eq(data.phases.size(), 3, "trois phases")
 	check(_pattern(&"mud_wall") != null and _pattern(&"root_leash") != null and _pattern(&"leech_feed") != null,
-		"phase 1 : vase, racine-laisse, sangsues")
+		"phase 1 : vase, racine jaillissante, sangsues")
 	check(data.phases[1].mechanics.has(&"facets") and data.phases[1].mechanics.has(&"mirrors"), "phase 2 : facettes, miroirs")
 	check(_pattern(&"prism_beam", 1) != null, "phase 2 : rayon de prisme")
-	check(data.phases[2].mechanics.has(&"tide_ring"), "phase 3 : anneau de marée")
+	check(_pattern(&"tide_wave", 2) != null and not data.phases[2].mechanics.has(&"tide_ring"),
+		"phase 3 : raz-de-marée, plus d'anneau qui enferme")
+	check(_pattern(&"mud_wall", 2) != null, "phase 3 : de la vase pour s'abriter des vagues")
 	check(_pattern(&"whirlpool", 2) != null and _pattern(&"swallow", 2) != null, "phase 3 : tourbillon, engloutissement")
 	check(Assets.manifest.has("boss.glauquemire"), "déclaré au manifeste (sprites à venir)")
 
@@ -82,19 +84,19 @@ func test_mud_hardens_into_walls() -> void:
 	check(not ctx.obstacles.blocks(spot, 1.0), "et libèrent le passage")
 
 
-func test_leash_holds_until_a_dash() -> void:
+func test_root_bursts_without_holding_the_hunter() -> void:
 	_fight()
 	var pattern: BossPatternData = _pattern(&"root_leash")
+	var target: Vector2 = ctx.player.global_position
 	brain._pattern_root_leash(pattern)
 	_tick(pattern.telegraph + 0.05)
-	check(marsh.leashed(), "le Chasseur est attaché")
-	var anchor: Vector2 = marsh.leash["anchor"]
-	ctx.player.global_position = anchor + Vector2(500, 0)
-	_tick(0.05)
-	check(ctx.player.global_position.distance_to(anchor) <= float(pattern.params["length"]) + 1.0, "la laisse retient")
-	_dash(Vector2.LEFT)
-	_tick(0.05)
-	check(not marsh.leashed(), "la Ruée casse la racine")
+	check(not marsh.root.is_empty() and (marsh.root["anchor"] as Vector2).distance_to(target) < 1.0, "la racine vise le Chasseur")
+	ctx.player.global_position = target + Vector2(500, 0)
+	_tick(0.1)
+	check(ctx.player.global_position.distance_to(target) > 499.0, "rien ne retient le Chasseur")
+	var hp: float = ctx.player.hp
+	_tick(float(pattern.params["slam_delay"]) + 0.2)
+	check(marsh.root.is_empty() and is_equal_approx(ctx.player.hp, hp), "la racine jaillit, le Chasseur écarté est indemne")
 
 
 func test_leeches_heal_when_they_reach_the_boss() -> void:
@@ -109,6 +111,13 @@ func test_leeches_heal_when_they_reach_the_boss() -> void:
 	_tick(0.05)
 	check(boss.hp > boss.max_hp * 0.5, "une sangsue qui l'atteint le soigne")
 	check(not marsh.leeches[0].alive, "et disparaît")
+	# Le soin total du combat est plafonné : le boss reste tuable même si toutes les sangsues passent.
+	var cap: float = boss.max_hp * float(pattern.params["heal_cap"])
+	for i: int in 40:
+		var leech: Enemy = ctx.enemies.spawn(GameDB.enemy(&"mire_leech"), boss.position)
+		marsh.leeches.append(leech)
+		_tick(0.05)
+	check(boss.hp <= boss.max_hp * 0.5 + cap + 0.01, "soin plafonné à %d %% des PV" % int(100.0 * float(pattern.params["heal_cap"])))
 
 
 func test_facets_dampen_hits_by_side() -> void:
@@ -125,33 +134,38 @@ func test_facets_dampen_hits_by_side() -> void:
 	check(marsh.side_of(ctx.player.global_position) != side, "un autre côté a sa propre face")
 
 
-func test_dash_turns_a_mirror_and_the_beam_comes_back() -> void:
+func test_held_mirror_sends_the_beam_back() -> void:
 	_fight()
 	_phase(1)
 	check_eq(marsh.mirrors.size(), 4, "quatre miroirs")
 	var mirror: Dictionary = marsh.mirrors[0]
 	var to_boss: Vector2 = boss.position - (mirror["pos"] as Vector2)
-	ctx.player.global_position = mirror["pos"]
-	_dash(to_boss)
+	ctx.player.global_position = boss.position + Vector2(0, 700)
 	_tick(0.05)
-	check(absf((mirror["arrow"] as Vector2).angle_to(to_boss)) < deg_to_rad(23.0), "le miroir se tourne dans le sens de la Ruée")
-	ctx.player._dash_time = 0.0
-	ctx.player.global_position = boss.position + Vector2(0, 500)
 	var traced: Dictionary = marsh.trace(boss.position, -to_boss.normalized(), 1100.0)
-	check(bool(traced["returned"]), "le rayon qui frappe le miroir revient sur le boss")
+	var points: PackedVector2Array = traced["points"]
+	var stop: Vector2 = points[points.size() - 1]
+	check(not bool(traced["returned"]) and stop.distance_to(mirror["pos"]) < GlauquemireMechanics.MIRROR_RADIUS + 1.0,
+		"un miroir seul arrête le rayon")
+	# Le Chasseur s'abrite derrière le miroir : il le tient, le rayon repart sur le boss.
+	ctx.player.global_position = (mirror["pos"] as Vector2) - to_boss.normalized() * 60.0
+	_tick(0.3)
+	check(bool(mirror["held"]) and absf((mirror["arrow"] as Vector2).angle_to(to_boss)) < deg_to_rad(10.0),
+		"le miroir tenu se tourne vers le boss")
+	check(bool(marsh.trace(boss.position, -to_boss.normalized(), 1100.0)["returned"]), "le rayon revient sur le boss")
 	var pattern: BossPatternData = _pattern(&"prism_beam", 1)
 	brain._pattern_prism_beam(pattern)
-	check(absf((mirror["arrow"] as Vector2).angle_to(to_boss)) > deg_to_rad(30.0), "le boss trouble les miroirs")
-	mirror["arrow"] = to_boss.normalized()
 	marsh.beam["angle"] = (-to_boss).angle()
 	marsh.beam["start"] = ctx.time
 	marsh.beam["arc"] = 0.0
 	boss.invulnerable_time = 0.0
 	var hp: float = boss.hp
+	var player_hp: float = ctx.player.hp
 	_tick(0.1)
 	check(marsh.facets.all(func(f: float) -> bool: return f <= 0.0), "la carapace vole en éclats")
 	check(brain.stunned_time > 0.0 and brain.heart_time > 0.0, "le boss est étourdi et vulnérable")
 	check(boss.hp < hp, "le rayon renvoyé le blesse")
+	check(is_equal_approx(ctx.player.hp, player_hp), "derrière le miroir, le Chasseur est à l'abri")
 
 
 func test_beam_is_stopped_by_hardened_mud() -> void:
@@ -176,20 +190,41 @@ func test_whirlpool_pulls_toward_the_boss() -> void:
 	check(after < before - 80.0, "le tourbillon aspire le Chasseur")
 
 
-func test_tide_shrinks_and_hits_push_it_back() -> void:
-	_fight()
-	_phase(2)
-	check(not marsh.tide.is_empty(), "la marée monte en phase 3")
-	var start: float = marsh.tide["radius"]
-	_tick(5.0)
-	var shrunk: float = marsh.tide["radius"]
-	check(shrunk < start - 50.0, "l'arène rétrécit")
-	ctx.combat.deal_damage(boss, RunFixture.info(500.0))
-	check(float(marsh.tide["radius"]) > shrunk, "un coup au boss fait reculer l'eau")
-	ctx.player.global_position = marsh.tide["center"] + Vector2(float(marsh.tide["radius"]) + 200.0, 0)
+func test_tidal_wave_is_dodged_by_a_dash_or_a_mud_wall() -> void:
+	_fight(Vector2(400, 0))
+	var pattern: BossPatternData = _pattern(&"tide_wave", 2)
+	var start: Vector2 = ctx.player.global_position
 	var hp: float = ctx.player.hp
-	_tick(0.6)
-	check(ctx.player.hp < hp, "l'eau blesse hors de l'anneau")
+	brain._pattern_tide_wave(pattern)
+	check_eq(marsh.waves.size(), int(pattern.params["waves"]), "les vagues partent du boss")
+	marsh.waves.resize(1)
+	_tick(pattern.telegraph + 400.0 / float(pattern.params["speed"]) + 0.2)
+	check(ctx.player.hp < hp, "la vague frappe le Chasseur à découvert")
+	check(ctx.player.global_position.distance_to(boss.position) > start.distance_to(boss.position) + 30.0, "et le repousse")
+	_tick(4.0)
+	check(marsh.waves.is_empty(), "la vague s'éteint au bout de sa course : rien n'enferme le Chasseur")
+	# Ruée : la vague est traversée.
+	ctx.player.global_position = start
+	hp = ctx.player.hp
+	brain._pattern_tide_wave(pattern)
+	marsh.waves.resize(1)
+	_tick(pattern.telegraph + 0.9)
+	ctx.player._dash_time = 1.0
+	_tick(1.0)
+	ctx.player._dash_time = 0.0
+	check(is_equal_approx(ctx.player.hp, hp), "une Ruée traverse la vague")
+	_tick(4.0)
+	# Vase durcie entre le boss et le Chasseur : abri.
+	ctx.player.global_position = start
+	marsh.puddles.append({"pos": boss.position + Vector2(-250, 0), "radius": 75.0, "harden_at": ctx.time,
+		"crumble_at": ctx.time + 20.0, "wall": -1})
+	_tick(0.05)
+	ctx.player.global_position = start
+	check(marsh.sheltered(boss.position, start), "le mur de vase abrite")
+	hp = ctx.player.hp
+	brain._pattern_tide_wave(pattern)
+	_tick(pattern.telegraph + 4.0)
+	check(is_equal_approx(ctx.player.hp, hp), "à l'abri de la vase durcie, la vague passe")
 
 
 func test_swallowed_echo_is_freed_by_hitting_the_boss() -> void:

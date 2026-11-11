@@ -122,12 +122,12 @@ func test_glauquemire_loops_follow_the_fight() -> void:
 	marsh._break_facet(0)
 	check_eq(_live("facet_break"), 1, "une face éclate")
 	marsh.whirl = {"start": ctx.time, "until": ctx.time + 3.0, "pull": 0.0, "enemy_pull": 0.0}
-	marsh.leash = {"anchor": ctx.player.global_position, "length": 130.0, "until": ctx.time + 3.0}
+	marsh.root = {"from": marsh.boss().position, "anchor": ctx.player.global_position, "until": ctx.time + 3.0}
 	marsh.step(0.05)
 	check_eq(_live("whirlpool"), 1, "tourbillon peint")
-	check_eq(_live("root_leash"), 1, "racine-laisse peinte")
+	check_eq(_live("root_leash"), 1, "racine peinte")
 	marsh.whirl = {}
-	marsh.leash = {}
+	marsh.root = {}
 	marsh.step(0.05)
 	check_eq(_live("whirlpool") + _live("root_leash"), 0, "état disparu : boucles dissipées")
 	marsh.finish()

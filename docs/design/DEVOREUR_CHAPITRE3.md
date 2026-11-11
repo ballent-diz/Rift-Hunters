@@ -16,6 +16,27 @@ attaque du boss contre lui (orbes de source, chapitre 1) et lire toute l'arène 
 
 Force : 12 500 PV, plus gros coup 34, défense 34, 3 phases (Dévoreur des Sources 6 500 · 26 · 2, Pyrevorn 9 000 · 30 · 2).
 
+## Refonte du 11 novembre 2026 (retours de test : boss intuable, mécanique mauvaise, cercle qui bloque)
+
+Constat au bot (profil d'étape, 4 parties) : 0 victoire ; les sangsues rendaient jusqu'à 26 % de ses PV au boss ; la
+laisse et l'anneau de marée retenaient le Chasseur ; la finale l'enfermait dans une ellipse au milieu de la terrasse.
+Le tableau ci-dessous reste la référence, avec ces changements :
+
+- **Rien ne retient ni n'enferme plus le Chasseur.** La finale se joue sur toute la terrasse, fermée par les barrières
+  peintes des trois escaliers (`finale_walls`), sans cercle d'énergie.
+- **Racine jaillissante** (remplace la racine-laisse, même animation) : une racine file vers le Chasseur et jaillit
+  1,3 s plus tard là où il se tenait (rayon 130). Il suffit de s'écarter.
+- **Sangsues** : soin de 0,5 % par sangsue (au lieu de 2 %), plafonné à 6 % des PV sur tout le combat.
+- **Miroirs** (mécanique phare, simplifiée) : plus de Ruée pour les orienter. Un miroir arrête le rayon ; si le
+  Chasseur se tient à côté (120 unités, cercle affiché pendant le rayon), le miroir se tourne vers le boss et lui
+  renvoie le rayon : carapace brisée, étourdi 3 s, dégâts ×2. Derrière le miroir, le Chasseur est à l'abri.
+- **Raz-de-marée** (remplace l'anneau de marée, phase 3) : deux vagues partent du boss et traversent l'arène
+  (300 unités/s). Une Ruée les traverse ; un mur de vase durcie en abrite (la vase revient donc en phase 3). Touché :
+  dégâts, ralenti, repoussé de 90 unités.
+- Inchangés : vase qui durcit, carapace à facettes, tourbillon, engloutissement, griffes, écrasement.
+- Réglage de la carte : `boss_hp_mult` 1,6 → 0,85, `boss_damage_mult` 1,15 → 0,8 (bot : 2 victoires sur 4, combats de
+  1 à 2 minutes, deux défaites avec le boss à 20–29 %).
+
 ## Phases et mécaniques
 
 | Phase | Seuil | Mécanique | Pour le joueur |
