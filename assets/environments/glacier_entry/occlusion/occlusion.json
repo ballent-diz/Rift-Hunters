@@ -1,0 +1,308 @@
+{
+	"version": 1,
+	"map_size": [
+		11286,
+		7524
+	],
+	"cell": 5,
+	"depth": "depth.png",
+	"depth_rect": [
+		179,
+		153,
+		1953,
+		1124
+	],
+	"environment": "environment.glacier_entry",
+	"grid": [
+		2258,
+		1505
+	],
+	"elements": [
+		{
+			"id": "rock_01",
+			"category": "rock",
+			"rect": [
+				1098,
+				280,
+				84,
+				104
+			],
+			"mask": "masks/rock_01.png",
+			"hidden": false,
+			"depth": [
+				[
+					1087.6,
+					393.6
+				],
+				[
+					1188.8,
+					393.6
+				]
+			]
+		},
+		{
+			"id": "rock_02",
+			"category": "rock",
+			"rect": [
+				1620,
+				248,
+				72,
+				92
+			],
+			"mask": "masks/rock_02.png",
+			"hidden": false,
+			"depth": [
+				[
+					1611.4,
+					349.6
+				],
+				[
+					1698.6,
+					349.6
+				]
+			]
+		},
+		{
+			"id": "rock_03",
+			"category": "rock",
+			"rect": [
+				1932,
+				153,
+				75,
+				91
+			],
+			"mask": "masks/rock_03.png",
+			"hidden": false,
+			"depth": [
+				[
+					1924.2,
+					254.2
+				],
+				[
+					2010,
+					254.2
+				]
+			]
+		},
+		{
+			"id": "rock_04",
+			"category": "rock",
+			"rect": [
+				926,
+				480,
+				75,
+				96
+			],
+			"mask": "masks/rock_04.png",
+			"hidden": false,
+			"depth": [
+				[
+					920.6,
+					586.2
+				],
+				[
+					1010.6,
+					586.2
+				]
+			]
+		},
+		{
+			"id": "rock_05",
+			"category": "rock",
+			"rect": [
+				2053,
+				384,
+				79,
+				93
+			],
+			"mask": "masks/rock_05.png",
+			"hidden": false,
+			"depth": [
+				[
+					2044.2,
+					490.8
+				],
+				[
+					2135.2,
+					490.8
+				]
+			]
+		},
+		{
+			"id": "rock_06",
+			"category": "rock",
+			"rect": [
+				270,
+				544,
+				62,
+				94
+			],
+			"mask": "masks/rock_06.png",
+			"hidden": false,
+			"depth": [
+				[
+					265,
+					645.2
+				],
+				[
+					349.6,
+					645.2
+				]
+			]
+		},
+		{
+			"id": "rock_07",
+			"category": "rock",
+			"rect": [
+				1702,
+				603,
+				70,
+				100
+			],
+			"mask": "masks/rock_07.png",
+			"hidden": false,
+			"depth": [
+				[
+					1696,
+					709.6
+				],
+				[
+					1783.8,
+					709.6
+				]
+			]
+		},
+		{
+			"id": "rock_08",
+			"category": "rock",
+			"rect": [
+				1945,
+				546,
+				71,
+				89
+			],
+			"mask": "masks/rock_08.png",
+			"hidden": false,
+			"depth": [
+				[
+					1936.8,
+					646.6
+				],
+				[
+					2022.2,
+					646.6
+				]
+			]
+		},
+		{
+			"id": "rock_09",
+			"category": "rock",
+			"rect": [
+				1197,
+				840,
+				79,
+				101
+			],
+			"mask": "masks/rock_09.png",
+			"hidden": false,
+			"depth": [
+				[
+					1187.4,
+					949.4
+				],
+				[
+					1284.2,
+					949.4
+				]
+			]
+		},
+		{
+			"id": "rock_10",
+			"category": "rock",
+			"rect": [
+				358,
+				928,
+				80,
+				96
+			],
+			"mask": "masks/rock_10.png",
+			"hidden": false,
+			"depth": [
+				[
+					349.6,
+					1034.4
+				],
+				[
+					436.4,
+					1034.4
+				]
+			]
+		},
+		{
+			"id": "rock_11",
+			"category": "rock",
+			"rect": [
+				179,
+				1184,
+				75,
+				93
+			],
+			"mask": "masks/rock_11.png",
+			"hidden": false,
+			"depth": [
+				[
+					171.8,
+					1287.4
+				],
+				[
+					264.6,
+					1287.4
+				]
+			]
+		},
+		{
+			"id": "rock_12",
+			"category": "rock",
+			"rect": [
+				552,
+				1065,
+				70,
+				91
+			],
+			"mask": "masks/rock_12.png",
+			"hidden": false,
+			"depth": [
+				[
+					538.2,
+					1166.8
+				],
+				[
+					629,
+					1166.8
+				]
+			]
+		},
+		{
+			"id": "rock_13",
+			"category": "rock",
+			"rect": [
+				873,
+				1074,
+				73,
+				89
+			],
+			"mask": "masks/rock_13.png",
+			"hidden": false,
+			"depth": [
+				[
+					869.4,
+					1174
+				],
+				[
+					955.2,
+					1174
+				]
+			]
+		}
+	]
+}

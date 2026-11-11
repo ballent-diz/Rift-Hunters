@@ -75,6 +75,33 @@ contour en éléments aux lignes de pied différentes, pour un bâtiment vu de b
 Règle de la ligne de pied d'un bâtiment ou d'un mur : la placer **juste à l'intérieur** du bord avant de sa collision,
 pour que tout point praticable devant soit bien « devant » ; inclinée quand la façade est vue de biais.
 
+### Obstacles isolés : première passe par les collisions (carte 16, 11 novembre)
+
+Quand les obstacles sont des blocs isolés au milieu du sol praticable (rochers-abris, piliers), leurs collisions les
+localisent toutes seules : chaque îlot bloqué qui ne touche pas le bord du masque `collision.png` est un obstacle, et
+le bord bas de l'îlot donne la ligne de pied. Sur l'Entrée du Glacier, les 13 îlots sont exactement les 13 rochers.
+Le script `assets/concepts/incoming/map.glacier_entry/occlusion/trace_rocks.py` détoure ensuite chaque rocher :
+flancs par la couleur (glace bleue saturée contre neige pâle, ombre portée écartée), sommet enneigé relevé à la main
+sur une planche quadrillée (trois points par rocher : la neige du sommet a la couleur du sol, aucun seuil ne la
+sépare), puis `occlusion_trace.py` en mode `exact`, enregistrement par l'éditeur et import. Contrôle : planches
+`seg_*.png` (contour rouge sur chaque rocher) et capture en jeu, Chasseur placé derrière un rocher (`--at=`).
+
+### Temps passé et estimation du reste
+
+| Carte | Éléments | Méthode | Coût |
+|---|---|---|---|
+| Hautes Terres d'Orage (10 novembre) | 28 | contours tracés à la main | une session |
+| Entrée du Glacier (11 novembre) | 13 rochers | îlots de collision + couleur + sommets à la main | environ 15 échanges, 9 planches regardées, 2 corrections de seuil |
+
+Reste : 22 décors sans masquage (les arènes de survie et la Faille sans fin partagent ceux de la campagne).
+- **Cartes à blocs isolés et contrastés** (abris de glace des cartes 17 à 20, cratères et piliers) : la méthode de la
+  carte 16 se réutilise presque telle quelle, environ un quart de session par carte.
+- **Cartes à ruines, arbres, bâtiments et clôtures** (chapitres 1 à 3 et 5 : 30 à 60 éléments, silhouettes
+  découpées, trous à ménager) : contours à la main comme les Hautes Terres, une session par carte ; à la souris dans
+  l'éditeur, le propriétaire ira plus vite que Claude sans souris (compter 1 à 2 minutes par élément).
+- Ordre conseillé : les cartes les plus jouées d'abord (1 à 3), puis celles où l'on passe souvent derrière de hauts
+  décors (colonnes de la carte 15, bâtiments du chapitre 5).
+
 ## Fichiers
 
 Dans `assets/environments/<décor>/occlusion/` (séparés des images et des collisions) :

@@ -959,3 +959,20 @@ Chasseur (appuis de 19 unités) il tombe juste ; sous une créature large vue de
 - **À juger en jouant** : l'ombre est discrète ; si elle paraît trop effacée, remonter l'opacité dans
   `EntityVisual._add_shadow`. Restent entre 2 et 3 unités au-dessus de l'ancre (non touchés, à regarder) :
   `flame_wyrmling`, `menhir_warden`, `peak_chimera`.
+
+### Lot 5 — Masquage par le décor : une carte de plus, procédure et estimation
+
+- **Entrée du Glacier (carte 16) équipée** : ses 13 rochers-abris passent devant le Chasseur, les Échos et les
+  Corrompus placés derrière (silhouette claire). Vérifié en jeu (décor réduit à 0,9 pris en compte) et par
+  `test_glacier_entry_cover_rock`. Les falaises des plateaux ne sont pas détourées (on ne passe pas derrière).
+- **Procédure et estimation** : docs/maps/MASQUAGE_PAR_LE_DECOR.md, « Obstacles isolés » et « Temps passé et
+  estimation du reste ». En bref : un quart de session pour une carte à blocs isolés, une session pour une carte à
+  ruines et bâtiments ; 22 décors restent à équiper ; le propriétaire à la souris ira plus vite sur les cartes
+  complexes.
+- Cartes équipées à ce jour : Bois des lucioles (démonstration), Hautes Terres d'Orage, Entrée du Glacier.
+
+### Lot 6 — Boss de fin de chapitre : non commencé
+
+À faire dans une session neuve : propositions boss par boss dans cette feuille de route, puis un premier boss
+amélioré. Point de départ utile : la refonte de Glauquemire (lot 1) et la remarque du lot 2 sur les 13 finales
+encore jouées dans un cercle d'énergie, qui limite les déplacements des boss comme du Chasseur.
