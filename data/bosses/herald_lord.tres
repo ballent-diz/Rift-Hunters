@@ -170,5 +170,5 @@ essence_reward = 9
 visual = SubResource("visual_data_1")
 phases = [SubResource("phase_1"), SubResource("phase_2")]
 guardian = true
-visual_scale = 3.0
+visual_scale = 1.76
 signature = &"soul_chain"

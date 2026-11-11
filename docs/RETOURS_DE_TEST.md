@@ -65,8 +65,10 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   Précision du propriétaire : le Chasseur a aussi le cercle mais paraît bien posé au sol. La cause principale est donc
   probablement la position des pieds dans les feuilles des Échos et monstres (ancre trop basse, pieds au-dessus du
   centre de l'ombre) : comparer leurs ancres à celle du Chasseur avant de toucher aux ombres.
-- [ ] **Monstres du chapitre 5 minuscules** (10 novembre) : Déchus (cellules 64 px, 16 à 24 unités) et Enfants de la
+- [x] **Monstres du chapitre 5 minuscules** (10 novembre) : Déchus (cellules 64 px, 16 à 24 unités) et Enfants de la
   Faille trop petits face au Chasseur (≈ 52 unités) ; revoir leur échelle (manifeste) selon docs/ART_BIBLE.md.
+  Corrigé le 11 novembre pour les sept Déchus (26 à 47 unités, visuel seulement). Les Enfants de la Faille et la
+  Statue mesurent déjà 45 à 110 unités : inchangés, **à confirmer en jouant** (docs/ROADMAP.md, lot 3).
 - [ ] **Boss de fin de chapitre pas assez dynamiques** (10 novembre) : plus de déplacements, d'enchaînements et de
   techniques lisibles ; à revoir boss par boss.
 - [x] **Glauquemire (carte 15, Cœur des marais)** (10 novembre) : boss intuable, mécanique jugée mauvaise par le
