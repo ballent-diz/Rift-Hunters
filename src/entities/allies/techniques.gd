@@ -84,6 +84,8 @@ static func _ash_dance(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Ve
 	targets.sort_custom(func(a: Enemy, b: Enemy) -> bool:
 		return a.global_position.distance_squared_to(center) < b.global_position.distance_squared_to(center))
 	var previous: Vector2 = ally.global_position
+	var from: Vector2 = previous
+	var positions := PackedVector2Array()
 	var tags: Array[StringName] = [DamageInfo.TAG_TECHNIQUE]
 	for i: int in mini(tech.count, targets.size()):
 		var enemy: Enemy = targets[i]
@@ -93,8 +95,13 @@ static func _ash_dance(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Ve
 		ctx.combat.deal_damage(enemy, info)
 		if was_elite and not enemy.alive:
 			ctx.stats.add(StringName(String(ally.data.id) + "_technique_elite_kills"))
-		ctx.fx.line(previous, enemy.global_position, Color(1.0, 0.5, 0.2), 4.0, 0.3)
+		positions.append(enemy.global_position)
 		previous = enemy.global_position
+	# radius sélectionne les ennemis ; chaque entaille garde le gabarit de la scène peinte.
+	var fx: Node2D = ctx.allies.vfx.spell(ally, tech, from, Vector2.RIGHT, minf(tech.radius, 48.0), 0.7, 0.0)
+	ctx.allies.vfx.targets(fx, positions)
+	if fx == null:
+		ctx.fx.line(from, previous, Color(1.0, 0.5, 0.2), 4.0, 0.3)
 	ally.global_position = previous
 	return true
 
@@ -113,6 +120,7 @@ static func _gravity_well(ally: Ally, ctx: RunContext, tech: TechniqueData, aim:
 	var implode: DamageInfo = ally.make_info(tech.damage, tags)
 	implode.statuses = tech.statuses
 	ctx.hazards.add_well(center, radius, duration, pull, implode, ally.data.id)
+	ctx.allies.vfx.spell(ally, tech, center, Vector2.RIGHT, radius, duration + 0.4, 0.0)
 	return true
 
 
@@ -123,9 +131,14 @@ static func _prism_flare(ally: Ally, ctx: RunContext, tech: TechniqueData) -> bo
 	for enemy: Enemy in ctx.enemies.list:
 		if enemy.alive and enemy.statuses.get_stacks(&"mark") > 0:
 			marked.append(enemy)
+	var positions := PackedVector2Array()
 	for enemy: Enemy in marked:
+		positions.append(enemy.global_position)
 		total += ctx.status_system.detonate(enemy, tech.damage * ally.damage_mult(), ally.data.id)
-	ctx.fx.ring(ctx.player.global_position, 300.0, Color(0.6, 1.0, 1.0, 0.5), 0.35)
+	var fx: Node2D = ctx.allies.vfx.spell(ally, tech, ctx.player.global_position, Vector2.RIGHT, tech.radius, 0.6, 0.0)
+	ctx.allies.vfx.targets(fx, positions)
+	if fx == null:
+		ctx.fx.ring(ctx.player.global_position, 300.0, Color(0.6, 1.0, 1.0, 0.5), 0.35)
 	ctx.stats.set_max(StringName(String(ally.data.id) + "_max_detonated"), float(total))
 	return true
 
@@ -142,6 +155,8 @@ static func _briar_wall(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: V
 		var offset: float = (i - (tech.count - 1) * 0.5) * spacing
 		ctx.hazards.add_zone(center + normal * offset, tech.radius, tech.duration, info.amount, ally.data.id, tech.statuses,
 			ally.data.visual.secondary)
+	var first: Vector2 = center - normal * (tech.count - 1) * spacing * 0.5
+	ctx.allies.vfx.spell(ally, tech, first, normal, tech.radius, tech.duration, (tech.count - 1) * spacing)
 	return true
 
 
@@ -153,7 +168,11 @@ static func _ion_storm(ally: Ally, ctx: RunContext, tech: TechniqueData) -> bool
 	targets.sort_custom(func(a: Enemy, b: Enemy) -> bool: return (a.is_elite or a.is_boss) and not (b.is_elite or b.is_boss))
 	var info: DamageInfo = ally.make_info(tech.damage, [DamageInfo.TAG_TECHNIQUE])
 	for i: int in mini(tech.count, targets.size()):
-		ctx.hazards.add_circle(targets[i].global_position, tech.radius, 0.35, info.amount, false, ally.data.id, tech.statuses)
+		var pos: Vector2 = targets[i].global_position
+		ctx.hazards.add_circle(pos, tech.radius, 0.35, info.amount, false, ally.data.id, tech.statuses)
+		# Une frappe par cible : le sommet de l’animation coïncide avec les dégâts à 0,35 s.
+		var fx: Node2D = ctx.allies.vfx.spell(ally, tech, pos, Vector2.RIGHT, tech.radius, 0.35 / 0.16, 0.0)
+		ctx.allies.vfx.targets(fx, PackedVector2Array([pos]))
 	return true
 
 
@@ -166,7 +185,8 @@ static func _feast(ally: Ally, ctx: RunContext, tech: TechniqueData) -> bool:
 			devoured += 1
 		else:
 			ctx.combat.deal_damage(enemy, ally.make_info(tech.damage, [DamageInfo.TAG_TECHNIQUE]))
-	ctx.fx.burst(ally.global_position, tech.radius, Color(0.6, 0.2, 0.75, 0.4))
+	if ctx.allies.vfx.spell(ally, tech, ally.global_position, Vector2.RIGHT, tech.radius, 0.7, 0.0) == null:
+		ctx.fx.burst(ally.global_position, tech.radius, Color(0.6, 0.2, 0.75, 0.4))
 	ctx.stats.set_max(StringName(String(ally.data.id) + "_max_feast"), float(devoured))
 	return true
 
@@ -175,7 +195,12 @@ static func _feast(ally: Ally, ctx: RunContext, tech: TechniqueData) -> bool:
 static func _reflection(ally: Ally, ctx: RunContext, tech: TechniqueData) -> bool:
 	ally.memory["reflect_until"] = ctx.time + tech.duration
 	ally.memory["reflect_radius"] = tech.radius
-	ctx.fx.ring(ctx.player.global_position, tech.radius, Color(0.85, 0.95, 1.0, 0.7), tech.duration)
+	var fx: Node2D = ctx.allies.vfx.spell(ally, tech, ctx.player.global_position, Vector2.RIGHT,
+		tech.radius, tech.duration, 0.0)
+	if fx:
+		fx.set_meta("follow", weakref(ctx.player))
+	else:
+		ctx.fx.ring(ctx.player.global_position, tech.radius, Color(0.85, 0.95, 1.0, 0.7), tech.duration)
 	return true
 
 
@@ -250,7 +275,8 @@ static func _stone_taunt(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: 
 		enemy.taunt_time = tech.duration
 		for application: StatusApplication in tech.statuses:
 			ctx.status_system.apply(enemy, application.status_id, application.stacks, ally.data.id)
-	ctx.fx.ring(center, tech.radius, Color(0.6, 0.9, 0.5, 0.7), 0.4)
+	if ctx.allies.vfx.spell(ally, tech, center, Vector2.RIGHT, tech.radius, tech.duration, 0.0) == null:
+		ctx.fx.ring(center, tech.radius, Color(0.6, 0.9, 0.5, 0.7), 0.4)
 	return true
 
 
@@ -259,7 +285,8 @@ static func _area_strike(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: 
 	var center: Vector2 = _aim_point(ctx, aim)
 	for enemy: Enemy in ctx.enemies.query_radius(center, tech.radius):
 		ctx.combat.deal_damage(enemy, _info(ally, tech))
-	ctx.fx.burst(center, tech.radius, Color(color, 0.4))
+	if ctx.allies.vfx.spell(ally, tech, center, Vector2.RIGHT, tech.radius, 0.7, 0.0) == null:
+		ctx.fx.burst(center, tech.radius, Color(color, 0.4))
 	return true
 
 
@@ -270,14 +297,20 @@ static func _chain_arc(ally: Ally, ctx: RunContext, tech: TechniqueData, aim: Ve
 		return false
 	var hit: Dictionary = {}
 	var previous: Vector2 = ally.global_position
+	var from: Vector2 = previous
+	var positions := PackedVector2Array()
 	for i: int in tech.count:
 		hit[target.get_instance_id()] = true
-		ctx.fx.line(previous, target.global_position, Color(1.0, 0.95, 0.5), 3.0, 0.25)
+		positions.append(target.global_position)
 		previous = target.global_position
 		ctx.combat.deal_damage(target, _info(ally, tech))
 		target = ctx.enemies.find_nearest(previous, 180.0, hit)
 		if target == null:
 			break
+	var fx: Node2D = ctx.allies.vfx.spell(ally, tech, from, Vector2.RIGHT, tech.radius, 0.5, 0.0)
+	ctx.allies.vfx.targets(fx, positions)
+	if fx == null:
+		ctx.fx.line(from, previous, Color(1.0, 0.95, 0.5), 3.0, 0.25)
 	return true
 
 
@@ -295,10 +328,15 @@ static func _mirror_shards(ally: Ally, ctx: RunContext, tech: TechniqueData, aim
 	var origin: Vector2 = ally.global_position
 	var dir: Vector2 = (aim - origin).normalized() if aim.distance_to(origin) > 4.0 else Vector2.RIGHT
 	var spread: float = float(tech.params.get("spread", 0.5))
+	var speed: float = float(tech.params.get("speed", 620.0))
+	var positions := PackedVector2Array()
 	for i: int in tech.count:
 		var angle: float = (i - (tech.count - 1) * 0.5) * spread / maxf(tech.count - 1, 1)
-		ctx.projectiles.spawn_friendly(origin, dir.rotated(angle), float(tech.params.get("speed", 620.0)),
+		positions.append(origin + dir.rotated(angle) * speed * 0.7)
+		ctx.projectiles.spawn_friendly(origin, dir.rotated(angle), speed,
 			_info(ally, tech), {"pierce": 1, "radius": tech.radius, "life": 0.9, "color": Color(0.85, 0.95, 1.0)})
+	var fx: Node2D = ctx.allies.vfx.spell(ally, tech, origin, dir, tech.radius, 0.9, speed * 0.7)
+	ctx.allies.vfx.targets(fx, positions)
 	return true
 
 

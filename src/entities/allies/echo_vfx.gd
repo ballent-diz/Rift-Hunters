@@ -64,10 +64,20 @@ func attack(ally: Ally, from: Vector2, to: Vector2, duration: float = 0.45) -> N
 ## Sort : nom de scène = params["vfx"] ou identifiant du sort.
 func spell(ally: Ally, tech: TechniqueData, origin: Vector2, direction: Vector2, radius: float, duration: float,
 		travel: float = -1.0) -> Node2D:
-	var parameters: Dictionary = {"radius": radius, "visual_duration": maxf(duration, 0.4)}
+	var parameters: Dictionary = {"radius": radius, "visual_duration": maxf(duration, 0.4), "loop_visual": false}
 	if travel >= 0.0:
 		parameters["travel_distance"] = travel
 	return play(ally.data.id, StringName(tech.params.get("vfx", String(tech.id))), origin, direction, parameters)
+
+
+## Cibles résolues par le sort, converties dans le repère de son animation (plafond de huit liaisons).
+func targets(effect: Node2D, positions: PackedVector2Array) -> void:
+	if effect == null or not effect.has_method("set_secondary_offsets"):
+		return
+	var offsets := PackedVector2Array()
+	for pos: Vector2 in positions.slice(0, 8):
+		offsets.append(effect.to_local(pos))
+	effect.call("set_secondary_offsets", offsets)
 
 
 ## Effet « status » posé à un endroit (flaque de lave, soin), soumis au même rythme que les statuts.

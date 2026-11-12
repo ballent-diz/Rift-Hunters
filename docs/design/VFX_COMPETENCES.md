@@ -1,5 +1,8 @@
 # Compétences et effets visuels par famille (lot 1 : audit et attribution)
 
+Mise à jour du 12 novembre 2026 : [raccordements des sorts et compléments PixelFX](../art/PIXELFX_SORTS_MANQUANTS.md),
+avec les Échos, les boss et les familles du chapitre 5. L’audit initial ci-dessous décrit le lot du 6 novembre.
+
 Statut : **validé par le propriétaire le 6 novembre 2026** (règle des éléments, attributions ; effets peints du
 chapitre 3 conservés, armure qui se fend du Gardien d'écorce et impacts de tir retenus). **Lots 2 et 3 livrés** :
 tous les chapitres et leurs boss (`assets/vfx/pixelfx/techniques.json`, `PixelFx.technique/impact/shot/state`) ;

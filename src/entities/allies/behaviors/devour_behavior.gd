@@ -17,6 +17,7 @@ func tick(ally: Ally, ctx: RunContext, delta: float) -> void:
 		return
 	ally.attack_cd = ally.attack.cooldown
 	ally.visual.play_action(&"attack")
+	ctx.allies.vfx.attack(ally, ally.global_position, target.global_position, 0.4)
 	if not try_devour(ally, ctx, target):
 		var bite_radius: float = float(ally.attack.params.get("bite_radius", 0.0))
 		var victims: Array[Enemy] = [target]

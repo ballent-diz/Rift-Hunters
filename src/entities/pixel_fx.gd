@@ -33,6 +33,7 @@ static var _catalog: Dictionary = {}
 var ctx: RunContext
 ## Feuille chargée par « effet/famille » : {"texture", "rects", "pivot", "fps"} (vide si absente).
 var _sheets: Dictionary = {}
+var _projectile_art: Dictionary = {}
 ## Effets en cours : {"sheet", "pos", "t", "speed", "flip"}.
 var _active: Array[Dictionary] = []
 var _last_hit: Dictionary = {}
@@ -111,12 +112,63 @@ func impact(source: StringName, pos: Vector2) -> void:
 		_play_all(entry_of(String(source), last[2], last[0]).get("impact"), last[1], pos, last[2])
 
 
-## Tir d'un Corrompu qui touche.
+## Tir qui touche : attribution propre au lanceur, puis impact discret dans la palette de sa famille.
 func shot(source: StringName, pos: Vector2) -> void:
 	var entry: Dictionary = entry_of(String(source), false, &"shot")
 	var data: EnemyData = GameDB.enemies.get(source)
 	if not entry.is_empty() and data:
 		_play_all(entry.get("shot"), data.family, pos, false)
+		return
+	var family: String = String(data.family) if data else str(catalog()["boss_families"].get(String(source), ""))
+	_play_all((catalog().get("shots", {}) as Dictionary).get(family), StringName(family), pos, false)
+
+
+## Corps des tirs sans scène peinte : feuille partagée, sans nœud ni animation indépendante du projectile.
+func projectile_art(source: StringName) -> Dictionary:
+	if _projectile_art.has(source):
+		return _projectile_art[source]
+	var data: EnemyData = GameDB.enemies.get(source)
+	var family: String = String(data.family) if data else str(catalog()["boss_families"].get(String(source), ""))
+	var own: Dictionary = entry_of(String(source), false, &"shot")
+	var effect := StringName(own.get("flight", catalog().get("flights", {}).get(family, "")))
+	var sheet: Dictionary = _sheet(effect, StringName(family)) if effect != &"" else {}
+	var art: Dictionary = {}
+	if not sheet.is_empty():
+		var spec: Dictionary = catalog()["effects"][String(effect)]
+		var offset: Array = spec.get("flight_origin", [0, 0])
+		art = {"sheet": sheet, "radius": float(spec.get("flight_radius", 16.0)),
+			"offset": Vector2(offset[0], offset[1]), "directional": bool(spec.get("flight_directional", false))}
+	_projectile_art[source] = art
+	return art
+
+
+func draw_projectile(canvas: Node2D, p: Projectile) -> void:
+	var art: Dictionary = p.pixel_art
+	var sheet: Dictionary = art["sheet"]
+	var rects: Array = sheet["rects"]
+	var frame: int = int(p.visual_time * float(sheet["fps"])) % rects.size()
+	var size: float = clampf(p.radius / float(art["radius"]), 0.2, 2.0)
+	canvas.draw_set_transform(p.position, p.velocity.angle() if art["directional"] else 0.0, Vector2.ONE * size)
+	canvas.draw_texture_rect_region(sheet["texture"], Rect2(-(sheet["pivot"] as Vector2)
+		- (art["offset"] as Vector2), (rects[frame] as Rect2).size), rects[frame])
+	canvas.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+## Rayon déclenché après son annonce, orienté et limité à la portée réellement libre.
+func beam(source: StringName, kind: StringName, origin: Vector2, direction: Vector2, length: float,
+		width: float, duration: float) -> bool:
+	var entry: Dictionary = entry_of(String(source), true, kind)
+	var effect := StringName(entry.get("beam", ""))
+	var family := StringName(catalog()["boss_families"].get(String(source), ""))
+	var sheet: Dictionary = _sheet(effect, family) if effect != &"" else {}
+	if sheet.is_empty() or _active.size() >= MAX_ACTIVE or length <= 0.0:
+		return false
+	var spec: Dictionary = catalog()["effects"][String(effect)]
+	var pivot: Array = spec.get("beam_origin", [0.0, 0.0])
+	_active.append({"sheet": sheet, "pos": origin, "t": 0.0, "speed": 1.0, "flip": false,
+		"rotation": direction.angle(), "stretch": Vector2(length / float(spec["beam_length"]),
+			width / float(spec["beam_width"])), "offset": Vector2(pivot[0], pivot[1]), "life": duration})
+	return true
 
 
 ## Apparition d'un Corrompu : état permanent éventuel (aura d'un gardien…).
@@ -247,6 +299,10 @@ func step(delta: float) -> void:
 		var sheet: Dictionary = fx["sheet"]
 		var length: float = (sheet["rects"] as Array).size() / float(sheet["fps"])
 		var done: bool = float(fx["t"]) >= length
+		if fx.has("life"):
+			fx["life"] = float(fx["life"]) - delta
+			done = float(fx["life"]) <= 0.0
+			fx["t"] = fposmod(float(fx["t"]), length)
 		if fx.has("follow"):
 			# État en boucle : suit son porteur, s'arrête à sa mort ou à la fin de la durée.
 			var owner: Variant = fx["follow"]
@@ -272,7 +328,11 @@ func _draw() -> void:
 		var pivot: Vector2 = sheet["pivot"]
 		var pos: Vector2 = fx["pos"]
 		var scale: float = fx.get("scale", 1.0)
-		if bool(fx["flip"]) or scale != 1.0:
+		if fx.has("stretch"):
+			draw_set_transform(pos, float(fx["rotation"]), fx["stretch"])
+			draw_texture_rect_region(sheet["texture"], Rect2(-pivot - (fx["offset"] as Vector2), rect.size), rect)
+			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		elif bool(fx["flip"]) or scale != 1.0:
 			draw_set_transform(pos, 0.0, Vector2(-scale if bool(fx["flip"]) else scale, scale))
 			draw_texture_rect_region(sheet["texture"], Rect2(-pivot, rect.size), rect)
 			draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)

@@ -24,3 +24,6 @@ var color := Color.WHITE
 var hit_ids: Dictionary = {}
 ## Corps peint d'un tir ennemi (scène du tireur, PaintedVfx), qui suit le tir ; lu sans type car il peut être libéré.
 var fx: Variant = null
+## Animation PixelFX de secours, dessinée en lot à la position du vrai projectile.
+var pixel_art: Dictionary = {}
+var visual_time: float = 0.0

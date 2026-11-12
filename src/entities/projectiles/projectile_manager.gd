@@ -5,6 +5,7 @@ extends Node2D
 const HOSTILE_CORE := Color(1.0, 0.75, 1.0)
 const HOSTILE_BODY := Color(0.95, 0.2, 0.75)
 const HOSTILE_OUTLINE := Color(0.08, 0.0, 0.1)
+const MAX_ANIMATED_SHOTS := 32
 
 var ctx: RunContext
 var friendly: Array[Projectile] = []
@@ -23,6 +24,7 @@ func setup(p_ctx: RunContext) -> void:
 	add_child(_friendly_canvas)
 	_hostile_canvas = Node2D.new()
 	_hostile_canvas.z_index = 30
+	_hostile_canvas.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_hostile_canvas.draw.connect(_draw_hostile)
 	add_child(_hostile_canvas)
 
@@ -36,6 +38,8 @@ func _acquire() -> Projectile:
 	p.pierce_left = 0
 	p.homing = 0.0
 	p.ghost = false
+	p.pixel_art = {}
+	p.visual_time = 0.0
 	return p
 
 
@@ -74,6 +78,8 @@ func spawn_hostile(pos: Vector2, dir: Vector2, speed: float, damage: float, sour
 	p.radius = radius
 	p.life = life
 	p.fx = MarshVfx.projectile(ctx.painted, source_id, pos, dir)
+	if not is_instance_valid(p.fx) and ctx.pixel_fx:
+		p.pixel_art = ctx.pixel_fx.projectile_art(source_id)
 	hostile.append(p)
 	return p
 
@@ -91,6 +97,7 @@ func step(delta: float) -> void:
 	i = hostile.size() - 1
 	while i >= 0:
 		var p: Projectile = hostile[i]
+		p.visual_time += delta
 		if not _step_hostile(p, delta, rect):
 			hostile[i] = hostile[hostile.size() - 1]
 			hostile.pop_back()
@@ -252,9 +259,14 @@ func _draw_friendly() -> void:
 
 
 func _draw_hostile() -> void:
+	var animated: int = 0
 	for p: Projectile in hostile:
 		if is_instance_valid(p.fx):
 			continue
 		_hostile_canvas.draw_circle(p.position, p.radius + 2.0, HOSTILE_OUTLINE)
-		_hostile_canvas.draw_circle(p.position, p.radius, HOSTILE_BODY)
+		if not p.pixel_art.is_empty() and animated < MAX_ANIMATED_SHOTS:
+			ctx.pixel_fx.draw_projectile(_hostile_canvas, p)
+			animated += 1
+		else:
+			_hostile_canvas.draw_circle(p.position, p.radius, HOSTILE_BODY)
 		_hostile_canvas.draw_circle(p.position, p.radius * 0.45, HOSTILE_CORE)
