@@ -28,6 +28,25 @@ Les ennemis approchent le Chasseur ; ils servent ici de cibles et de sondes de n
 Les sprites conservent les animations existantes, mais le contrôleur est propre à ce laboratoire.
 Le style KayKit reste plus cartoon que la direction artistique actuelle ; cet essai sert aussi à juger cet écart.
 
+### Déplacement des sprites dans le décor 3D
+
+Les positions physiques restent exactes ; l'image est interpolée entre deux pas physiques pour éviter les à-coups
+quand la cadence de rendu diffère des 60 pas/s. La caméra suit cette même position affichée. Les téléportations
+réinitialisent les deux positions pour éviter une traversée visuelle de la carte.
+
+Le Chasseur atteint sa vitesse en environ 0,07 s et freine en environ 0,06 s : une transition courte, sans inertie
+prolongée. Les diagonales gardent la même vitesse que les axes. L'esquive garde son impulsion et sa direction.
+L'orientation gauche/droite ne change qu'après une intention horizontale suffisante maintenue 0,12 s ; les petites
+corrections sur un trajet presque vertical ne retournent plus le dessin à chaque image.
+
+Le cycle de marche avance avec la distance réellement parcourue et se conserve lors des virages. Un personnage
+bloqué par un pilier cesse de piétiner. Les dessins d'origine restent à leur cadence propre : aucune interpolation
+floue des images de la planche n'est ajoutée.
+
+Cendrelame ralentit près de sa place de suivi, s'arrête à environ 1,5 m et repart au-delà de 2,4 m. Cette marge évite
+les départs/arrêts incessants près du Chasseur. Un nouveau chemin n'est demandé que si la cible a suffisamment bougé,
+avec un intervalle minimal ; la navigation conserve ses collisions et ses passages.
+
 ## Modifier la carte
 
 Ouvrir `level.tscn` dans l'éditeur 3D. Chaque module est une scène de `modules/` : on peut le déplacer,
@@ -51,8 +70,18 @@ Après `godot --headless --editor --import --path .` :
 Le vérificateur exerce les vrais corps physiques : arche, montée/descente, arrêt et contournement d'un pilier,
 tirs bloqués ou traversants, impact sur ennemi, façade de terrasse et suivi de l'Écho par l'escalier.
 Il produit le rapport JSON, les captures et les images de mouvement. Il nécessite un rendu graphique pour les captures.
+Sans affichage (`--headless`), les mêmes contrôles physiques s'exécutent sans captures.
 Les résultats retenus figurent dans `verification.json` ; les captures légères dans `docs/previews/kaykit-relief/`
 à la racine du dépôt.
+
+Contrôles de fluidité : `godot --headless --path . --fixed-fps 120 -- --verify-motion --out=<dossier_absolu>`.
+Ils mesurent l'orientation sous bruit horizontal, les vrais demi-tours, le freinage, la vitesse diagonale,
+les positions affichées entre pas physiques, l'arrêt d'animation contre un obstacle et la stabilité de l'Écho.
+Rapport : `motion_verification.json`. Référence avant modification : commit `6603a060`, 59 retournements/s dans
+l'exercice de bruit et aucune position intermédiaire affichée ; les mesures décrivent ce scénario contrôlé.
+Ajouter `--capture-motion` avec un rendu graphique pour produire 360 images PNG à 60 images/s (rendu simulé à 120).
+La vidéo `docs/previews/kaykit-relief/deplacement_fluide_60fps.mp4` est encodée à 60 images/s pour juger le mouvement ;
+le GIF réduit sert seulement d'aperçu. Cette capture à pas de temps fixé n'est pas un benchmark des performances.
 
 ## Sources et limites
 

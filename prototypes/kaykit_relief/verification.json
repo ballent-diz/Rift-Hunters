@@ -8,27 +8,27 @@
 			"passed": true
 		},
 		{
-			"details": "(0, 0.000832, 5.800047)",
+			"details": "(0, 0.000825, 5.836667)",
 			"id": "archway_passable",
 			"passed": true
 		},
 		{
-			"details": "(0, 2.000936, -8.881592)",
+			"details": "(0, 2.000936, -8.844685)",
 			"id": "stairs_ascent",
 			"passed": true
 		},
 		{
-			"details": "(0, 0.000829, 3.60358)",
+			"details": "(0, 0.000831, 3.660699)",
 			"id": "stairs_descent",
 			"passed": true
 		},
 		{
-			"details": "(6, 0.000416, 2.883099)",
+			"details": "(6, 0.000235, 2.876328)",
 			"id": "pillar_blocks_movement",
 			"passed": true
 		},
 		{
-			"details": "(8.599995, 0.000815, -2.490218)",
+			"details": "(8.575409, 0.000822, -2.459484)",
 			"id": "pillar_can_be_bypassed",
 			"passed": true
 		},
@@ -48,12 +48,12 @@
 			"passed": true
 		},
 		{
-			"details": "(8, 0.000249, -5.719814)",
+			"details": "(8, -0.000285, -5.716049)",
 			"id": "terrace_front_is_solid",
 			"passed": true
 		},
 		{
-			"details": "(-1.373607, 0.000822, 3.734272)",
+			"details": "(-1.258055, 0.000813, 3.92847)",
 			"id": "echo_uses_stairs",
 			"passed": true
 		}

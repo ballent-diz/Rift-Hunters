@@ -3,6 +3,10 @@
 ## Essai de décors modulaires avec relief (Codex, 12 novembre 2026)
 
 **Prototype indépendant prêt à essayer** dans `prototypes/kaykit_relief/` (Godot 4.3).
+Déplacements adaptés au mélange 2D/3D : accélération/freinage courts, orientation confirmée et stable,
+cycle de marche lié à la distance, suivi de l'Écho avec marge d'arrêt/reprise et interpolation visuelle entre pas
+physiques. Caméra de suivi synchronisée sur la position affichée. Huit contrôles de mouvement supplémentaires
+conformes ; vidéo encodée à 60 images/s dans `docs/previews/kaykit-relief/deplacement_fluide_60fps.mp4`.
 Demande du propriétaire : tester une solution gratuite avec relief et collisions réutilisables, à la place des
 grandes images peintes. KayKit Dungeon Remastered gratuit (CC0), terrasse et escalier, abris, arche, navigation 3D,
 Chasseur/Cendrelame en sprites et tirs PixelFX. Contrôleur et combat simplifiés ; aucune migration de la campagne.

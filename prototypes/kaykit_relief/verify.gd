@@ -27,6 +27,8 @@ func place(actor: CharacterBody3D, at: Vector3) -> void:
 	await wait_frames(20)
 
 func capture(id: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		return
 	await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	var error := get_viewport().get_texture().get_image().save_png(output.path_join(id + ".png"))
@@ -137,5 +139,6 @@ func run(level: Node3D) -> void:
 	arena = null
 	await tree.process_frame
 	await tree.process_frame
-	await RenderingServer.frame_post_draw
+	if DisplayServer.get_name() != "headless":
+		await RenderingServer.frame_post_draw
 	tree.quit(0 if success else 1)

@@ -1,0 +1,69 @@
+{
+  "checks": [
+    {
+      "details": {
+        "flips_in_one_second": 0
+      },
+      "id": "orientation_ignores_horizontal_noise",
+      "passed": true
+    },
+    {
+      "details": {
+        "facing_left": true
+      },
+      "id": "sustained_turn_left",
+      "passed": true
+    },
+    {
+      "details": {
+        "facing_left": false
+      },
+      "id": "sustained_turn_right",
+      "passed": true
+    },
+    {
+      "details": {
+        "drift_m": 0.101666651666164
+      },
+      "id": "responsive_stop",
+      "passed": true
+    },
+    {
+      "details": {
+        "cardinal": 5.19999980926514,
+        "diagonal": 5.20000028610229
+      },
+      "id": "diagonal_keeps_speed",
+      "passed": true
+    },
+    {
+      "details": {
+        "intermediate_updates": 60
+      },
+      "id": "render_moves_between_physics_steps",
+      "passed": true
+    },
+    {
+      "details": "idle",
+      "id": "no_walking_in_place_against_cover",
+      "passed": true
+    },
+    {
+      "details": {
+        "distance_during_three_seconds_m": 0,
+        "orientation_changes": 0
+      },
+      "id": "echo_stays_settled_near_target",
+      "passed": true
+    }
+  ],
+  "engine": "4.3-stable (official)",
+  "physics_hz": 60,
+  "render_test_fps": 120,
+  "success": true,
+  "baseline_commit": "6603a060",
+  "baseline": {
+    "facing_flips_during_one_second_of_small_horizontal_noise": 59,
+    "visual_updates_between_physics_steps": 0
+  }
+}

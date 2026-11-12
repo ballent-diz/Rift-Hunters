@@ -3,6 +3,7 @@ extends Node3D
 const ACTOR := preload("res://actor.gd")
 const EFFECT := preload("res://pixel_effect.gd")
 const SPAWN := Vector3(0, 0.2, 11)
+const MOTION_VERIFY := "--verify-motion"
 var catalog: Dictionary
 var hunter: CharacterBody3D
 var echo: CharacterBody3D
@@ -18,6 +19,7 @@ var projectiles: Array[Dictionary] = []
 var status: Label
 var clock := 0.0
 var capture_mode := false
+var _camera_follow_position := Vector3.ZERO
 
 func _ready() -> void:
 	TranslationServer.set_locale("fr")
@@ -40,6 +42,8 @@ func _ready() -> void:
 		if arg == "--verify":
 			capture_mode = true
 			call_deferred("run_verification")
+		elif arg == MOTION_VERIFY:
+			call_deferred("run_motion_verification")
 
 func build_lighting() -> void:
 	var world := WorldEnvironment.new()
@@ -221,7 +225,8 @@ func _process(delta: float) -> void:
 	clock += delta
 	if is_instance_valid(hunter):
 		if follow_camera:
-			camera.position = camera.position.lerp(hunter.position + Vector3(0, 18, 17), 1 - exp(-5 * delta))
+			_camera_follow_position = _camera_follow_position.lerp(hunter.render_position(), 1 - exp(-8 * delta))
+			camera.position = _camera_follow_position + Vector3(0, 18, 17)
 		status.text = tr("lab_status") % [maxf(0, hunter.position.y), blocked_shots, enemy_hits]
 	update_projectiles(delta)
 
@@ -245,6 +250,8 @@ func toggle_follow() -> void:
 		set_overview()
 	else:
 		follow_camera = true
+		_camera_follow_position = hunter.render_position()
+		camera.position = _camera_follow_position + Vector3(0, 18, 17)
 		camera.size = 16
 
 func shoot(direction_override := Vector3.ZERO) -> void:
@@ -385,5 +392,10 @@ func toggle_collision_preview() -> void:
 
 func run_verification() -> void:
 	var verifier = load("res://verify.gd").new()
+	add_child(verifier)
+	verifier.run(self)
+
+func run_motion_verification() -> void:
+	var verifier = load("res://verify_motion.gd").new()
 	add_child(verifier)
 	verifier.run(self)
