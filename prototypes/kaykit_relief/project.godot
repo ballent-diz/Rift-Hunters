@@ -1,0 +1,24 @@
+config_version=5
+
+[application]
+config/name="Rift Hunters — laboratoire de relief"
+run/main_scene="res://main.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[display]
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/size/window_width_override=1440
+window/size/window_height_override=810
+window/stretch/mode="canvas_items"
+
+[internationalization]
+locale/translations=PackedStringArray("res://i18n/strings.fr.translation", "res://i18n/strings.en.translation")
+locale/fallback="fr"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/use_nearest_mipmap_filter=false
+anti_aliasing/quality/msaa_3d=2
+environment/defaults/default_clear_color=Color(0.035, 0.04, 0.065, 1)

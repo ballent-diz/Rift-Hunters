@@ -1,0 +1,64 @@
+{
+	"checks": [
+		{
+			"details": {
+				"points": 12
+			},
+			"id": "navigation_terrace",
+			"passed": true
+		},
+		{
+			"details": "(0, 0.000832, 5.800047)",
+			"id": "archway_passable",
+			"passed": true
+		},
+		{
+			"details": "(0, 2.000936, -8.881592)",
+			"id": "stairs_ascent",
+			"passed": true
+		},
+		{
+			"details": "(0, 0.000829, 3.60358)",
+			"id": "stairs_descent",
+			"passed": true
+		},
+		{
+			"details": "(6, 0.000416, 2.883099)",
+			"id": "pillar_blocks_movement",
+			"passed": true
+		},
+		{
+			"details": "(8.599995, 0.000815, -2.490218)",
+			"id": "pillar_can_be_bypassed",
+			"passed": true
+		},
+		{
+			"details": 1,
+			"id": "projectile_stops_on_cover",
+			"passed": true
+		},
+		{
+			"details": "clear",
+			"id": "projectile_passes_archway",
+			"passed": true
+		},
+		{
+			"details": 1,
+			"id": "projectile_hits_enemy",
+			"passed": true
+		},
+		{
+			"details": "(8, 0.000249, -5.719814)",
+			"id": "terrace_front_is_solid",
+			"passed": true
+		},
+		{
+			"details": "(-1.373607, 0.000822, 3.734272)",
+			"id": "echo_uses_stairs",
+			"passed": true
+		}
+	],
+	"engine": "4.3-stable (official)",
+	"scope": "Prototype indépendant : contrôleur/combat simplifiés, sans migration de la campagne.",
+	"success": true
+}

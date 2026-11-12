@@ -1,5 +1,16 @@
 # Rift Hunters — feuille de route
 
+## Essai de décors modulaires avec relief (Codex, 12 novembre 2026)
+
+**Prototype indépendant prêt à essayer** dans `prototypes/kaykit_relief/` (Godot 4.3).
+Demande du propriétaire : tester une solution gratuite avec relief et collisions réutilisables, à la place des
+grandes images peintes. KayKit Dungeon Remastered gratuit (CC0), terrasse et escalier, abris, arche, navigation 3D,
+Chasseur/Cendrelame en sprites et tirs PixelFX. Contrôleur et combat simplifiés ; aucune migration de la campagne.
+La scène `level.tscn` et ses modules restent modifiables dans Godot. Décision artistique et poursuite en attente
+de l'essai du propriétaire ; ne pas remplacer les cartes existantes sans cette décision.
+Onze contrôles physiques/navigation conformes, import Godot et textes FR/EN vérifiés. Captures et GIF :
+`docs/previews/kaykit-relief/`. Lanceur Windows : `prototypes/kaykit_relief/lancer.cmd`.
+
 ## Masquage des personnages par le décor peint (Claude, 10 novembre 2026)
 
 Le décor peint passe devant le Chasseur, les Échos et les Corrompus qui sont derrière ; la partie cachée reste en
