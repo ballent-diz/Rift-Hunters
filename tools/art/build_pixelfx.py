@@ -70,7 +70,7 @@ def effects_of(entry):
 
 def technique_jobs(catalog):
     """(effet, famille) à générer pour les compétences."""
-    jobs = set()
+    jobs = {(effect, family) for kind in ("shots", "flights") for family, effect in catalog.get(kind, {}).items()}
     for enemy_id, techniques in catalog["enemies"].items():
         family = enemy_family(enemy_id)
         for entry in techniques.values():

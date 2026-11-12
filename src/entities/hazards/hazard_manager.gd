@@ -79,12 +79,12 @@ func fair_gaps(center: Vector2, gaps: Array) -> Array:
 
 ## Rayon : télégraphe pendant delay, puis actif pendant duration (dégâts par tick).
 func add_beam(origin: Vector2, direction: Vector2, length: float, width: float, delay: float, duration: float,
-		damage: float, source_id: StringName) -> void:
+		damage: float, source_id: StringName, vfx_kind: StringName = &"") -> void:
 	# Le rayon s'arrête au premier décor qui arrête les tirs (abris).
 	length = ctx.obstacles.clear_distance(origin, direction.normalized(), length)
 	hazards.append({"kind": Kind.BEAM, "pos": origin, "dir": direction.normalized(), "length": length,
 		"width": width, "delay": delay, "total": delay, "duration": duration, "damage": damage, "source": source_id,
-		"tick": 0.0, "life": delay + duration})
+		"tick": 0.0, "life": delay + duration, "vfx_kind": vfx_kind})
 
 
 ## Puits de gravité allié : aspire les ennemis, émet well_tick chaque seconde, implose à la fin.
@@ -286,6 +286,11 @@ func _step_beam(h: Dictionary, delta: float) -> bool:
 	if float(h["delay"]) > 0.0:
 		h["delay"] = float(h["delay"]) - delta
 		return true
+	if not bool(h.get("vfx_started", false)):
+		h["vfx_started"] = true
+		if ctx.pixel_fx and not bool(h.get("painted", false)):
+			h["painted"] = ctx.pixel_fx.beam(h["source"], h.get("vfx_kind", &""), h["pos"], h["dir"],
+				float(h["length"]), float(h["width"]), float(h["duration"]))
 	h["tick"] = float(h["tick"]) - delta
 	if float(h["tick"]) <= 0.0:
 		h["tick"] = 0.25

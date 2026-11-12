@@ -146,3 +146,109 @@ func test_bark_warden_armor_cracks_after_its_shield() -> void:
 		run.ctx.time += 1.0 / 60.0
 		run.ctx.enemies.step(1.0 / 60.0)
 	check_eq(warden.extra_damage_taken, 1.0, "puis l'écorce se referme")
+
+
+func test_floe_colossus_uses_its_ice_family_and_signature() -> void:
+	var boss: Enemy = run.ctx.enemies.spawn_boss(GameDB.boss(&"floe_colossus"), Vector2(200, 0))
+	check_eq(PixelFx.family_of(boss), &"silence", "le Colosse utilise la palette de son corps, pas le violet par défaut")
+	var fx: PixelFx = run.ctx.pixel_fx
+	fx._active.clear()
+	fx.technique(boss, &"floe_quake")
+	fx.impact(&"floe_colossus", Vector2(220, 30))
+	check_eq(fx.active_count(), 1, "éclatement de glace au point de frappe")
+	check_eq(fx._active[0]["pos"], Vector2(220, 30), "impact localisé")
+
+
+func test_projectile_fallback_preserves_explicit_assignments_and_ignores_unknown_sources() -> void:
+	var fx: PixelFx = run.ctx.pixel_fx
+	fx._active.clear()
+	for id: StringName in [&"rime_archer", &"floe_colossus", &"abyssarch"]:
+		fx.shot(id, Vector2(100, 20))
+	check_eq(fx.active_count(), 3, "tirs de monstres et de boss couverts")
+	fx.shot(&"source_inconnue", Vector2.ZERO)
+	check_eq(fx.active_count(), 3, "aucun effet inventé pour une source inconnue")
+	var catalog: Dictionary = PixelFx.catalog()
+	for family: String in catalog["shots"]:
+		var effect: String = catalog["shots"][family]
+		var category: String = str(catalog["effects"][effect]["source"]).get_slice("/", 0)
+		check(category in catalog["common"] or category in catalog["allowed"][family], "impact dans son élément")
+		check(ResourceLoader.exists(PixelFx.ROOT % [effect, family] + ".png"), "feuille d'impact livrée")
+
+
+func test_beam_waits_for_telegraph_keeps_its_kind_and_ends() -> void:
+	var ctx: RunContext = run.ctx
+	var fx: PixelFx = ctx.pixel_fx
+	fx._active.clear()
+	var origin: Vector2 = ctx.player.position + Vector2(300, 300)
+	ctx.hazards.add_beam(origin, Vector2.UP, 300.0, 40.0, 0.2, 0.5, 10.0, &"nivorath", &"breath")
+	ctx.hazards.step(0.1)
+	check_eq(fx.active_count(), 0, "aucun souffle avant la fin de l'annonce")
+	var boss: Enemy = ctx.enemies.spawn_boss(GameDB.boss(&"nivorath"), origin)
+	fx.technique(boss, &"ice_spikes")
+	ctx.hazards.step(0.11)
+	ctx.hazards.step(0.01)
+	check_eq(fx.active_count(), 1, "le rayon crée une animation malgré le changement de motif du boss")
+	if fx.active_count() == 1:
+		check_near(float(fx._active[0]["rotation"]), -PI * 0.5, 0.001, "souffle dirigé vers le haut")
+		check_eq(fx._active[0]["pos"], origin, "départ au point réel du rayon")
+	ctx.hazards.step(0.1)
+	check_eq(fx.active_count(), 1, "pas une nouvelle animation par tick de dégâts")
+	fx.step(0.6)
+	check_eq(fx.active_count(), 0, "fin avec le rayon")
+
+
+func test_beam_stops_at_cover_and_keeps_visible_fallback_when_budget_is_full() -> void:
+	var ctx: RunContext = run.ctx
+	var fx: PixelFx = ctx.pixel_fx
+	var origin: Vector2 = ctx.player.position + Vector2(300, 200)
+	ctx.obstacles.add(origin + Vector2(120, 0), 40.0)
+	ctx.hazards.add_beam(origin, Vector2.RIGHT, 400.0, 30.0, 0.0, 0.8, 10.0, &"abyssarch", &"breath")
+	var h: Dictionary = ctx.hazards.hazards.back()
+	var length: float = h["length"]
+	check(length > 0.0 and length < 120.0, "la portée s'arrête devant l'abri")
+	fx._active.clear()
+	ctx.hazards.step(0.01)
+	check(bool(h.get("painted", false)), "le rayon PixelFX remplace le trait générique actif")
+	check_near((fx._active[0]["stretch"] as Vector2).x, length / 168.0, 0.001, "image à la portée réellement libre")
+	fx._active.clear()
+	for i: int in PixelFx.MAX_ACTIVE:
+		fx.play(&"hit", &"violet", origin)
+	ctx.hazards.add_beam(origin, Vector2.RIGHT, 400.0, 30.0, 0.0, 0.8, 10.0, &"abyssarch", &"breath")
+	ctx.hazards.step(0.01)
+	check_eq(fx.active_count(), PixelFx.MAX_ACTIVE, "plafond partagé conservé")
+	check(not bool(ctx.hazards.hazards.back().get("painted", false)), "le trait du jeu reste visible si le budget est plein")
+
+
+func test_all_families_have_elemental_projectile_art_and_pool_reuse_clears_it() -> void:
+	var ctx: RunContext = run.ctx
+	var catalog: Dictionary = PixelFx.catalog()
+	for family: String in catalog["flights"]:
+		var effect: String = catalog["flights"][family]
+		var spec: Dictionary = catalog["effects"][effect]
+		var category: String = str(spec["source"]).get_slice("/", 0)
+		check(category in catalog["common"] or category in catalog["allowed"][family], "projectile dans son élément")
+		check(ResourceLoader.exists(PixelFx.ROOT % [effect, family] + ".png"), "feuille de projectile livrée")
+	var shot: Projectile = ctx.projectiles.spawn_hostile(ctx.player.position + Vector2(200, 0), Vector2.LEFT,
+		200.0, 10.0, &"rime_archer")
+	check(not shot.pixel_art.is_empty(), "la vraie flèche ennemie reçoit sa feuille")
+	ctx.projectiles.step(0.1)
+	check_near(shot.visual_time, 0.1, 0.001, "animation avancée avec le projectile")
+	check(shot.pixel_art.get("directional", false), "la flèche suit la direction du tir")
+	ctx.projectiles.clear_hostile()
+	var friendly: Projectile = ctx.projectiles.spawn_friendly(ctx.player.position, Vector2.RIGHT, 200.0,
+		RunFixture.info(5.0))
+	check(friendly == shot, "objet réutilisé depuis le pool")
+	check(friendly.pixel_art.is_empty(), "un tir allié ne récupère pas le dessin ennemi précédent")
+	check_eq(friendly.visual_time, 0.0, "temps graphique réinitialisé")
+	check(ctx.pixel_fx.projectile_art(&"source_inconnue").is_empty(), "source inconnue : dessin de secours du jeu")
+
+
+func test_existing_painted_boss_beam_keeps_its_scene_priority() -> void:
+	var ctx: RunContext = run.ctx
+	ctx.pixel_fx._active.clear()
+	ctx.hazards.add_beam(ctx.player.position + Vector2(300, 300), Vector2.UP, 300.0, 40.0, 0.0, 0.5,
+		10.0, &"source_devourer", &"breath")
+	ctx.hazards.mark_last_painted()
+	ctx.hazards.step(0.01)
+	check(bool(ctx.hazards.hazards.back().get("painted", false)), "le rayon peint garde la main sur son dessin")
+	check_eq(ctx.pixel_fx.active_count(), 0, "aucune animation PixelFX superposée à la scène peinte")

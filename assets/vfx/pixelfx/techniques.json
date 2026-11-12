@@ -1,5 +1,5 @@
 {
-	"note": "Effets pixelfx des compétences des Corrompus et des boss (docs/design/VFX_COMPETENCES.md). Lu par le jeu (PixelFx) et par tools/art/build_pixelfx.py, qui génère chaque effet dans la palette de chaque famille qui l'utilise. Moments : cast (au lancement, sur le lanceur), impact (quand sa zone frappe), state (en boucle sur le lanceur, time secondes ou le paramètre duration ; -1 : jusqu'à sa mort), release (moment propre à la compétence), shot (tir qui touche) ; at: target joue l'annonce sur le Chasseur. exceptions : effets hors élément validés par le propriétaire (« lanceur/effet »).",
+	"note": "Effets pixelfx des compétences des Corrompus et des boss (docs/design/VFX_COMPETENCES.md). Lu par le jeu (PixelFx) et par tools/art/build_pixelfx.py, qui génère chaque effet dans la palette de chaque famille qui l'utilise. Moments : cast (au lancement, sur le lanceur), impact (quand sa zone frappe), state (en boucle sur le lanceur, time secondes ou le paramètre duration ; -1 : jusqu'à sa mort), release (moment propre à la compétence), shot (tir qui touche) ; at: target joue l'annonce sur le Chasseur. exceptions : effets hors élément validés par le propriétaire (« lanceur/effet »). beam : rayon orienté à sa portée réelle, après son annonce ; arrival/spawn : arrivée ou invocation localisée. shots : impact de secours par famille, les attributions individuelles restent prioritaires. flights : corps des projectiles sans scène peinte, attaché à leur position réelle, avec contour hostile conservé.",
 	"common": [
 		"impacts",
 		"spawn",
@@ -129,7 +129,12 @@
 				"seed": 21
 			},
 			"speed": 1.4,
-			"scale": 0.7
+			"scale": 0.7,
+			"flight_radius": 20,
+			"flight_origin": [
+				0,
+				-16
+			]
 		},
 		"smoke_bomb": {
 			"source": "explosions/smoke-bomb",
@@ -144,7 +149,12 @@
 				"seed": 23
 			},
 			"speed": 2.0,
-			"scale": 0.5
+			"scale": 0.5,
+			"flight_radius": 40,
+			"flight_origin": [
+				0,
+				-24
+			]
 		},
 		"flame_pillar": {
 			"source": "fire/flame-pillar",
@@ -317,7 +327,13 @@
 			"opts": {
 				"seed": 64
 			},
-			"speed": 1.2
+			"speed": 1.2,
+			"beam_origin": [
+				0,
+				0
+			],
+			"beam_length": 170,
+			"beam_width": 80
 		},
 		"ice_shatter": {
 			"source": "ice/ice-shatter",
@@ -440,6 +456,56 @@
 				"seed": 82
 			},
 			"speed": 1.4
+		},
+		"arcane_beam": {
+			"source": "arcane/arcane-beam",
+			"opts": {
+				"seed": 81
+			},
+			"beam_origin": [
+				15,
+				-24
+			],
+			"beam_length": 168,
+			"beam_width": 12
+		},
+		"arcane_orb": {
+			"source": "arcane/arcane-orb",
+			"opts": {
+				"seed": 82
+			},
+			"flight_radius": 17,
+			"flight_origin": [
+				0,
+				-52
+			]
+		},
+		"fireball": {
+			"source": "fire/fireball",
+			"opts": {
+				"seed": 83
+			},
+			"flight_radius": 5,
+			"flight_directional": true
+		},
+		"ice_lance": {
+			"source": "ice/ice-lance",
+			"opts": {
+				"seed": 84
+			},
+			"flight_radius": 8,
+			"flight_directional": true
+		},
+		"water_orb": {
+			"source": "water/water-orb",
+			"opts": {
+				"seed": 85
+			},
+			"flight_radius": 19,
+			"flight_origin": [
+				0,
+				-52
+			]
 		}
 	},
 	"enemies": {
@@ -518,7 +584,11 @@
 				"cast": "egg_hatch"
 			},
 			"shot": {
-				"shot": "smoke_puff"
+				"shot": "smoke_puff",
+				"flight": "smoke_puff"
+			},
+			"web": {
+				"cast": "smoke_puff"
 			}
 		},
 		"cinder_knight": {
@@ -612,6 +682,9 @@
 			},
 			"shot": {
 				"shot": "ice_shatter_small"
+			},
+			"web": {
+				"cast": "snowflake_burst"
 			}
 		},
 		"icebreaker": {
@@ -761,7 +834,8 @@
 		"sanctum_golem": "fallen",
 		"pantheon_keeper": "riftborn",
 		"herald_lord": "fallen",
-		"abyssarch": "riftborn"
+		"abyssarch": "riftborn",
+		"floe_colossus": "silence"
 	},
 	"boss_common": {
 		"claw": {
@@ -789,7 +863,8 @@
 				"cast": "dark_explosion"
 			},
 			"void_beam": {
-				"cast": "void_orb"
+				"cast": "void_orb",
+				"beam": "arcane_beam"
 			}
 		},
 		"astravorn": {
@@ -797,7 +872,8 @@
 				"cast": "star_fall"
 			},
 			"void_beam": {
-				"cast": "void_orb"
+				"cast": "void_orb",
+				"beam": "arcane_beam"
 			}
 		},
 		"mist_chimera": {
@@ -807,6 +883,10 @@
 			},
 			"mist_lantern": {
 				"cast": "zap_hit"
+			},
+			"blink": {
+				"cast": "zap_hit",
+				"arrival": "thunderclap"
 			}
 		},
 		"pyre_guardian": {
@@ -883,6 +963,9 @@
 			},
 			"deep_freeze_shelter": {
 				"cast": "brazier"
+			},
+			"rock_rain": {
+				"impact": "icicle_fall"
 			}
 		},
 		"blizzard_alpha": {
@@ -909,11 +992,88 @@
 				"impact": "ice_shatter"
 			},
 			"breath": {
-				"impact": "frost_breath"
+				"beam": "frost_breath"
+			}
+		},
+		"floe_colossus": {
+			"floe_quake": {
+				"impact": "ice_shatter"
+			}
+		},
+		"fallen_commander": {
+			"war_cry": {
+				"state": "rage",
+				"impact": "mana_burst"
+			}
+		},
+		"sanctum_golem": {
+			"rune_barrage": {
+				"cast": "rune_circle",
+				"impact": "hex_sigil"
+			}
+		},
+		"pantheon_keeper": {
+			"pantheon_wake": {
+				"cast": "summon_rise"
+			}
+		},
+		"herald_lord": {
+			"soul_chain": {
+				"state": "soul_drain",
+				"time": 6,
+				"impact": "hex_sigil"
+			}
+		},
+		"abyssarch": {
+			"abyss_echoes": {
+				"cast": "portal",
+				"spawn": "summon_rise"
+			},
+			"skyfall": {
+				"impact": "dark_explosion"
+			},
+			"rock_rain": {
+				"impact": "boulder"
+			},
+			"ice_spikes": {
+				"impact": "earth_spike"
+			},
+			"shatter_floor": {
+				"impact": "dark_explosion"
+			},
+			"breath": {
+				"beam": "arcane_beam"
+			},
+			"eye_beam": {
+				"beam": "arcane_beam"
 			}
 		}
 	},
 	"exceptions": [
 		"rime_elder/brazier"
-	]
+	],
+	"shots": {
+		"violet": "mana_burst",
+		"highlands": "zap_hit",
+		"calcines": "smoke_puff",
+		"magma": "small_explosion",
+		"enlises": "spore_burst",
+		"reflets": "mana_burst",
+		"givres": "ice_shatter_small",
+		"silence": "ice_shatter_small",
+		"fallen": "dark_explosion",
+		"riftborn": "mana_burst"
+	},
+	"flights": {
+		"violet": "arcane_orb",
+		"highlands": "zap_hit",
+		"calcines": "fireball",
+		"magma": "fireball",
+		"enlises": "water_orb",
+		"reflets": "arcane_orb",
+		"givres": "ice_lance",
+		"silence": "ice_lance",
+		"fallen": "arcane_orb",
+		"riftborn": "arcane_orb"
+	}
 }

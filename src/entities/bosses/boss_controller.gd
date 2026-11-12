@@ -426,7 +426,7 @@ func _pattern_void_beam(pattern: BossPatternData) -> void:
 		var angle: float = (b - (beams - 1) * 0.5) * float(pattern.params.get("spread", 0.5))
 		ctx.hazards.add_beam(boss.position, dir.rotated(angle), float(pattern.params.get("length", 950.0)),
 			float(pattern.params.get("width", 34.0)), pattern.telegraph, float(pattern.params.get("duration", 1.2)),
-			_damage(pattern), data.id)
+			_damage(pattern), data.id, pattern.kind)
 	busy_time = pattern.telegraph + float(pattern.params.get("duration", 1.2))
 
 
@@ -497,6 +497,7 @@ func _pattern_blink(pattern: BossPatternData) -> void:
 	schedule(pattern.telegraph * 0.8, func() -> void:
 		boss.position = target
 		boss.visual.visible = true
+		if ctx.pixel_fx: ctx.pixel_fx.moment(boss, pattern.kind, "arrival", target)
 		ctx.fx.burst(target, boss.radius * 1.6, mist)
 	)
 
@@ -545,7 +546,7 @@ func _pattern_breath(pattern: BossPatternData) -> void:
 	var length: float = clear_length(mouth, dir, float(pattern.params.get("length", 480.0)))
 	var width: float = float(pattern.params.get("width", 80.0))
 	var duration: float = float(pattern.params.get("duration", 1.0))
-	ctx.hazards.add_beam(mouth, dir, length, width, pattern.telegraph, duration, _damage(pattern), data.id)
+	ctx.hazards.add_beam(mouth, dir, length, width, pattern.telegraph, duration, _damage(pattern), data.id, pattern.kind)
 	var props := {"travel_distance": length, "width": width}
 	_telegraph(pattern, "line", mouth, dir, props)
 	schedule(pattern.telegraph, func() -> void:
@@ -600,7 +601,7 @@ func _pattern_eye_beam(pattern: BossPatternData) -> void:
 		schedule(pattern.telegraph + sweep_time * i / float(steps), func() -> void:
 			var from: Vector2 = _mouth()
 			ctx.hazards.add_beam(from, beam_dir, clear_length(from, beam_dir, length), width, 0.05,
-				sweep_time / float(steps) + 0.05, _damage(pattern), data.id))
+				sweep_time / float(steps) + 0.05, _damage(pattern), data.id, pattern.kind))
 	busy_time = pattern.telegraph + sweep_time + float(pattern.params.get("recovery", 0.6))
 
 
@@ -846,7 +847,8 @@ func _pattern_abyss_echoes(pattern: BossPatternData) -> void:
 		schedule(pattern.telegraph, func() -> void:
 			var enemy_data: EnemyData = GameDB.enemy(data_id)
 			if enemy_data:
-				ctx.enemies.spawn(enemy_data, pos))
+				ctx.enemies.spawn(enemy_data, pos)
+				if ctx.pixel_fx: ctx.pixel_fx.moment(boss, pattern.kind, "spawn", pos))
 	ctx.hazards.add_ring(boss.position, float(pattern.params.get("speed", 280.0)), float(pattern.params.get("max_radius", 900.0)),
 		float(pattern.params.get("thickness", 26.0)), _damage(pattern), true, data.id, [], 0.4, [], pattern.telegraph,
 		PixelFx.family_of(boss))

@@ -29,3 +29,16 @@ func _refresh_budget() -> void:
 	for effect: Node in get_children():
 		effect.set("particle_budget", mini(int(effect.get_meta("desired_particle_budget", 18)), budget))
 		effect.set("detail_level", 1 if count <= 6 else 0)
+
+
+## Certains boucliers protègent un porteur mobile plutôt qu'un point au sol.
+func _process(_delta: float) -> void:
+	for effect: Node2D in get_children():
+		if not effect.has_meta("follow"):
+			continue
+		var follow: WeakRef = effect.get_meta("follow")
+		var actor: Node2D = follow.get_ref() as Node2D
+		if actor == null:
+			effect.queue_free()
+		else:
+			effect.global_position = actor.global_position

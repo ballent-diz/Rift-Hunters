@@ -976,3 +976,14 @@ Chasseur (appuis de 19 unités) il tombe juste ; sous une créature large vue de
 À faire dans une session neuve : propositions boss par boss dans cette feuille de route, puis un premier boss
 amélioré. Point de départ utile : la refonte de Glauquemire (lot 1) et la remarque du lot 2 sur les 13 finales
 encore jouées dans un cercle d'énergie, qui limite les déplacements des boss comme du Chasseur.
+
+## PixelFX : sorts sans animation — livré (Codex, 12 novembre 2026)
+
+Audit des 12 sorts du Chasseur, des 32 sorts des Échos, des 65 techniques ennemies et des 25 boss terminé.
+Douze sorts d’Échos et deux attaques peints sont maintenant raccordés ; les manques des monstres et des boss
+reçoivent leurs effets PixelFX, avec projectiles animés dans les dix palettes et rayons orientés.
+Quinze feuilles nouvelles et trois aperçus animés ; règles de combat et effets peints conservés.
+Détail et reproduction : [art/PIXELFX_SORTS_MANQUANTS.md](art/PIXELFX_SORTS_MANQUANTS.md).
+Branche de livraison : `codex/pixelfx-sorts-manquants`. Import Godot 4.3, 379 scripts sans échec,
+521 tests de la suite complète réussis, puis 12 tests PixelFX ciblés sur la dernière retouche ;
+510 ressources valides, zéro erreur ; lint GDScript sans problème. Poids du lot : environ 8,89 Mio.

@@ -11,7 +11,8 @@ Décor des arènes (sols, arbres, rochers, ruines) : https://pixel-boy.itch.io/n
 Licence Creative Commons Zero v1.0 (domaine public). Détails et provenance : `assets/third_party/ninja_adventure/`.
 
 ## pixelfx (Patch et Hugo Duprez)
-Effets génériques des Corrompus (impact, disparition), générés aux couleurs de chaque famille de monstres :
+Effets des Corrompus et des boss (impacts, disparitions, techniques, rayons et projectiles), générés aux couleurs
+de chaque famille de monstres :
 https://github.com/patch-gg/pixelfx. Fichiers générés dans `assets/vfx/pixelfx/` (outil : `tools/art/build_pixelfx.py`).
 
 MIT License
