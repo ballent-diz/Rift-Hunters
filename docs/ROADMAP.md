@@ -1016,3 +1016,14 @@ victoire/défaite, sans aucun Écho. Le jeu 2D reste dans `main` comme archive.
 - **13 novembre, raccordés à la base 3D** : monstres des cinq chapitres, gardiens et Dévoreurs (sans Nebulorax),
   ombres calées, PixelFX par famille, objets peints en décor, audio, quatre sorts, arbre (statistiques), campagne
   par chapitres. Détail et ce qui reste dans docs/PREMIER_JET_3D.md, « Raccordements de l'existant ».
+
+## La version 2 (3D) devient le jeu principal — 13 novembre 2026
+
+Décision du propriétaire : la v2 remplace la v1 dans `main`. `godot --path .` (ou `lancer.cmd`) ouvre la v2
+(`res://draft3d/main.tscn`). La v1 est archivée sur la branche `archive/v1-2d` (commit ac1f7ad) ; son code reste dans
+le dépôt tant que la v2 en réutilise des pièces (GameDB, données, sprites, effets, audio, textes) et se lance encore
+avec `godot --path . res://scenes/main.tscn`.
+État de la v2 : quatre cartes (Ruines des Veilleurs, Cimetière des Cendres, Hameau du Gué, Avant-poste des Glaces),
+bestiaires des cinq chapitres, gardiens et Dévoreurs, EXP et améliorations, quatre sorts, audio. Le chapitre 5 joue
+encore sur la carte 1. À venir : carte 5, seconde passe de détail sur les cartes, sols peints par Codex (textures
+répétables), Échos.

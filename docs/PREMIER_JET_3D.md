@@ -7,7 +7,7 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 
 ## Lancer
 
-- Windows : double-cliquer sur `lancer_premier_jet.cmd` (Godot 4.3 dans Downloads, comme le prototype).
+- Windows : double-cliquer sur `lancer.cmd` (Godot 4.3 dans Downloads, comme le prototype).
 - Commande : `godot --headless --import --path .` une fois, puis `godot --path . res://draft3d/main.tscn`.
 - Le mode n'écrit jamais le profil : la progression de la campagne n'est pas touchée.
 

@@ -7,4 +7,4 @@ if not exist "%GODOT%" (
   exit /b 1
 )
 "%GODOT%" --headless --import --path "%~dp0."
-start "Rift Hunters - premier jet 3D" "%GODOT%" --path "%~dp0." res://draft3d/main.tscn
+start "Rift Hunters" "%GODOT%" --path "%~dp0."
