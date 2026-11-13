@@ -32,6 +32,8 @@ var automating: bool = false
 var auto_direction := Vector3.ZERO
 var auto_dash: bool = false
 var god_mode: bool = false
+## Point de retour si le Chasseur tombe hors de la carte.
+var respawn := Vector3(0, 0.2, 0)
 var _dash_direction := Vector3.ZERO
 var _dash_held: bool = false
 
@@ -174,7 +176,7 @@ func _physics_process(delta: float) -> void:
 	velocity.y = -0.15 if is_on_floor() else velocity.y - GRAVITY * delta
 	move_and_slide()
 	if global_position.y < -8.0:
-		global_position = DraftLevel.START
+		global_position = respawn
 		reset_motion()
 	view.push_position(global_position, delta)
 

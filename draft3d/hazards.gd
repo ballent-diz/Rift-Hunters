@@ -2,7 +2,8 @@ class_name DraftHazards
 extends Node3D
 ## Attaques annoncées au sol (premier jet) : cercle, ligne, onde en anneau. Chaque attaque montre d'abord sa zone,
 ## puis frappe. Règle de hauteur : une zone ne touche que ce qui se trouve à moins de `REACH_UP` de son niveau
-## (une attaque lancée dans la cour ne touche pas la terrasse, et inversement).
+## (une attaque lancée dans la cour ne touche pas la terrasse, et inversement). Une onde en anneau est en plus
+## arrêtée par le décor : on s'en abrite derrière n'importe quel obstacle.
 
 const REACH_UP := 1.2
 const WARN := Color(0.85, 0.25, 0.75)
@@ -82,7 +83,8 @@ func _physics_process(delta: float) -> void:
 			node.scale = Vector3(float(item["radius"]), 0.15, float(item["radius"]))
 			material.albedo_color = Color(0.75, 0.5, 1.0, 0.75)
 			var distance: float = _flat(hunter.global_position - (item["at"] as Vector3)).length()
-			if distance > before and distance <= float(item["radius"]) and _level_with(item) and not hunter.is_dashing():
+			if distance > before and distance <= float(item["radius"]) and _level_with(item) and not hunter.is_dashing() \
+					and _exposed(item):
 				_strike(item)
 			done = float(item["radius"]) >= float(item["reach"])
 		else:
@@ -102,6 +104,12 @@ func _play_fx(item: Dictionary) -> void:
 	if fx.is_valid():
 		fx.call(item["at"])
 		item["fx"] = Callable()
+
+
+## L'onde part du centre : un mur, un pilier, une caisse ou une tombe entre lui et le Chasseur l'arrête.
+func _exposed(item: Dictionary) -> bool:
+	var query := PhysicsRayQueryParameters3D.create((item["at"] as Vector3) + Vector3.UP * 0.8, hunter.chest(), 1)
+	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()
 
 
 func _strike(item: Dictionary) -> void:

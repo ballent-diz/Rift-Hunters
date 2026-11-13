@@ -58,7 +58,6 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 | Monstres et boss | Bestiaire des cinq chapitres lu dans la campagne (48 monstres mobiles), choix du chapitre au lancement, un gardien du chapitre à 4 min, son Dévoreur à 8 min ; comportements passe-faille et invocateur ; Nebulorax écarté | `roster.gd`, `enemies.gd` |
 | Ombres calées | Disque au sol tiré du champ `shadow` du manifeste (empreinte mesurée) | `sprite_view.gd` |
 | PixelFX | Effets par famille du catalogue `techniques.json` : tirs, impacts, morts, apparitions, techniques des boss | `pixelfx.gd` |
-| Objets peints | Six objets du manifeste en décor selon le chapitre (sceaux de barrière, braseros, lanternes, cristaux, portails) | `run.gd` (`PROPS`) |
 | Audio | Musiques par contexte (partie, boss, seconde phase, victoire, défaite), douze sons, tempo (les cristaux battent la mesure) | `run.gd` |
 | Sorts | Sorts équipés dans l'arbre du profil, ou Taille et Lance par défaut ; ils partent seuls. Pris en charge : Taille, Lance, Rupture, Bond de Faille | `spells.gd` |
 | Arbre de compétences | Nœuds actifs du profil qui modifient une statistique du Chasseur ou de ses sorts, en lecture seule | `upgrades.gd` (`apply_tree`) |
@@ -79,6 +78,7 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
   à plat comme entre la cour et la terrasse. Murs, piliers, caisses et rebord de terrasse arrêtent les tirs.
 - Un trait touche **à sa hauteur** ; contacts et coups de mêlée ne portent pas au-delà de 1 m de dénivelé.
 - Une attaque annoncée au sol ne touche que son niveau (1,2 m) : la terrasse abrite de l'onde du boss lancée en bas.
+- Une onde en anneau est arrêtée par le décor : on s'en abrite derrière un mur, un pilier, une caisse, une tombe.
 - Les ennemis suivent la navigation (trois escaliers), sans traverser le décor.
 
 ## Carte : premier niveau, les Ruines des Veilleurs
@@ -93,6 +93,16 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 Murs au nord et sur les côtés, barrières basses au sud (côté caméra). Les ennemis apparaissent sur le pourtour, à
 13–32 m du Chasseur. Vue d'ensemble : `docs/previews/premier-jet-3d/carte.webp` (option `--overview`).
 Décors : **KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0** (`draft3d/kaykit/LICENSE.txt`). Moteur : Godot 4.3.
+
+## Carte : deuxième niveau, le Cimetière des Cendres
+
+88 × 64 m, en extérieur, de nuit (`draft3d/level_graveyard.gd`), jouée au chapitre 2. Quartiers reliés, sans
+cul-de-sac : Portail et allée aux lanternes (sud), Champ des tombes (sud-ouest), Bois mort (sud-est, seuls les troncs
+arrêtent les tirs), Crypte et son parvis (centre-nord, lieu du boss), Tertre à 2 m avec deux escaliers (nord-ouest),
+Ossuaire (nord-est). Grille tout autour. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_2.webp`.
+Décors : **KayKit Halloween Bits**, Kay Lousberg, licence **CC0** (`draft3d/halloween/LICENSE.txt`), importés tels
+quels avec une collision simple (`DraftLevel._prop`). Une carte = une classe qui hérite de `DraftLevel` ;
+`DraftLevel.create(chapitre)` choisit la carte (les chapitres 3 à 5 jouent encore sur le niveau 1).
 
 ## Vérifications
 

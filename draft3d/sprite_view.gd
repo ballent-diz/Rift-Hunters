@@ -28,7 +28,6 @@ var _action: StringName = &""
 var _action_left: float = 0.0
 var _flash: float = 0.0
 var _tint := Color.WHITE
-var _looping: bool = false
 
 
 func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
@@ -125,12 +124,6 @@ func play_action(id: StringName, duration: float = -1.0) -> void:
 	_time = 0.0
 
 
-## Objet immobile (décor peint) : son animation tourne en boucle sans déplacement.
-func loop_animation(id: StringName) -> void:
-	animation = id if has_clip(id) else animation
-	_looping = true
-
-
 func flash(seconds: float = 0.12) -> void:
 	_flash = seconds
 
@@ -146,8 +139,6 @@ func face_left(left: bool) -> void:
 
 func _process(delta: float) -> void:
 	global_position = render_position()
-	if _looping:
-		_time += delta
 	_flash = maxf(_flash - delta, 0.0)
 	sprite.modulate = Color(2.2, 1.4, 1.4) if _flash > 0.0 else _tint
 	var c: Dictionary = clip(animation)

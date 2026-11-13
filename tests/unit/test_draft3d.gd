@@ -122,8 +122,8 @@ func test_no_echo_anywhere() -> void:
 
 func test_map_stairs_shelters_and_heights() -> void:
 	await _start()
-	var top := Vector3(0, DraftLevel.TERRACE_HEIGHT, -16)
-	for from: Vector3 in [DraftLevel.START, Vector3(20, 0, 0), Vector3(-20, 0, 10)]:
+	var top := Vector3(0, DraftLevelRuins.TERRACE_HEIGHT, -16)
+	for from: Vector3 in [DraftLevelRuins.START, Vector3(20, 0, 0), Vector3(-20, 0, 10)]:
 		var path: PackedVector3Array = run.level.path(from, top)
 		check(path.size() >= 2 and path[path.size() - 1].distance_to(top) < 1.0 and absf(path[path.size() - 1].y - 2.0) < 0.4,
 			"la terrasse est accessible depuis %s" % from)
@@ -142,12 +142,12 @@ func test_map_stairs_shelters_and_heights() -> void:
 	run.hunter.auto_direction = Vector3(1, 0, 1)
 	await _frames(400)
 	var pos: Vector3 = run.hunter.global_position
-	check(pos.x < DraftLevel.MAX.x + 0.6 and pos.z < DraftLevel.MAX.y + 0.6 and pos.x > 40.0 and pos.y > -0.5,
+	check(pos.x < DraftLevelRuins.MAX.x + 0.6 and pos.z < DraftLevelRuins.MAX.y + 0.6 and pos.x > 40.0 and pos.y > -0.5,
 		"limites tenues, et l'on traverse la carte jusqu'au coin : %s" % pos)
 	# Tous les quartiers communiquent : Parvis, Entrepôts, Colonnade, petite terrasse d'angle.
 	for spot: Vector3 in [Vector3(-40, 0, 30), Vector3(-44, 0, -16), Vector3(42, 0, 30), Vector3(30, 0, -16),
-			Vector3(40, DraftLevel.TERRACE_HEIGHT, -16)]:
-		var route: PackedVector3Array = run.level.path(DraftLevel.BOSS_SPOT, spot)
+			Vector3(40, DraftLevelRuins.TERRACE_HEIGHT, -16)]:
+		var route: PackedVector3Array = run.level.path(DraftLevelRuins.BOSS_SPOT, spot)
 		check(route.size() >= 2 and route[route.size() - 1].distance_to(spot) < 1.2, "quartier relié à la Cour : %s" % spot)
 	run.hunter.auto_direction = Vector3.ZERO
 	# Abris : un mur coupe la vue et arrête les traits ; à découvert le trait touche.
@@ -170,6 +170,8 @@ func test_enemies_reach_hurt_and_kill_then_fresh_run() -> void:
 	var hunter: DraftHunter = run.hunter
 	var foe: DraftEnemies.Foe = run.enemies.spawn(GameDB.enemy(&"skitterling"), hunter.global_position + Vector3(6, 0, 0))
 	hunter.attack_timer = 1000.0
+	for i: int in run.spells.cooldowns.size():
+		run.spells.cooldowns[i] = 1000.0
 	await _frames(240)
 	check(hunter.hp < hunter.max_hp(), "l'ennemi atteint et blesse le Chasseur")
 	# Attaque automatique : l'ennemi meurt, lâche de l'EXP, que le Chasseur ramasse.
@@ -228,7 +230,7 @@ func test_every_chapter_plays_with_guardian_and_devourer() -> void:
 		DraftRun.chosen_chapter = order
 		await _start()
 		check_eq(run.chapter, order, "chapitre %d lancé" % order)
-		check_eq(run.props.size(), 6, "chapitre %d : six objets peints en décor" % order)
+		check(run.find_children("Prop", "", true, false).is_empty(), "aucun objet de la v1 dans le décor")
 		var family: StringName = DraftPixelFx.boss_family(run.roster.boss)
 		for effect: StringName in [&"hit", &"death", &"claw_swipe", &"ring_burst", DraftPixelFx.RAIN[family],
 				DraftPixelFx.shot_effect("flights", family), DraftPixelFx.shot_effect("shots", family)]:
@@ -305,3 +307,55 @@ func test_spells_tree_and_campaign() -> void:
 	check_eq(DraftProgress.cleared(), [1, 2] as Array[int], "victoires enregistrées")
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftProgress.path))
 	DraftProgress.path = ""
+
+
+func test_second_level_graveyard() -> void:
+	DraftRun.chosen_chapter = 2
+	await _start()
+	DraftRun.chosen_chapter = 0
+	check(run.level is DraftLevelGraveyard, "le chapitre 2 se joue sur le Cimetière des Cendres")
+	check(run.level.spawn_points().size() >= 60, "points d'apparition sur le pourtour (%d)" % run.level.spawn_points().size())
+	check(run.hunter.global_position.distance_to(DraftLevelGraveyard.START) < 1.0, "départ devant le portail")
+	# Tous les quartiers et le sommet du Tertre sont reliés au parvis de la crypte.
+	for spot: Vector3 in [DraftLevelGraveyard.START, Vector3(-40, 0, 28), Vector3(40, 0, 28), Vector3(40, 0, -28),
+			Vector3(-20, 0, -28), Vector3(0, 0, -26), Vector3(-32, DraftLevelGraveyard.MOUND_HEIGHT, -25)]:
+		var route: PackedVector3Array = run.level.path(DraftLevelGraveyard.BOSS_SPOT, spot)
+		check(route.size() >= 2 and route[route.size() - 1].distance_to(spot) < 1.5, "quartier relié : %s" % spot)
+	# Le Chasseur monte réellement sur le Tertre par l'escalier sud.
+	run.hunter.global_position = Vector3(-32, 0.2, -13)
+	run.hunter.reset_motion()
+	run.hunter.automating = true
+	run.hunter.auto_direction = Vector3(0, 0, -1)
+	await _frames(100)
+	check(run.hunter.global_position.y > 1.8, "montée du Tertre : y = %.2f" % run.hunter.global_position.y)
+	run.hunter.auto_direction = Vector3.ZERO
+	# La crypte arrête la vue et les tirs ; un tronc aussi ; le feuillage non.
+	check(not run.sight_clear(Vector3(-8, 0.8, -16), Vector3(8, 0.8, -16)), "la crypte coupe la vue")
+	check(not run.sight_clear(Vector3(9, 0.8, 11), Vector3(13, 0.8, 11)), "un tronc coupe la vue")
+	check(run.sight_clear(Vector3(9, 3.2, 11), Vector3(13, 3.2, 11)), "le feuillage ne bloque pas")
+	check(run.sight_clear(Vector3(-4, 0.8, 2), Vector3(4, 0.8, 2)), "le parvis est dégagé")
+	# Limites : on ne sort pas par le portail ni par les grilles.
+	run.hunter.global_position = Vector3(0, 0.2, 28)
+	run.hunter.reset_motion()
+	run.hunter.auto_direction = Vector3(0, 0, 1)
+	await _frames(120)
+	check(run.hunter.global_position.z < DraftLevelGraveyard.MAX.y + 0.6, "le portail ferme la carte")
+
+
+func test_ring_wave_is_blocked_by_cover() -> void:
+	await _start()
+	var hunter: DraftHunter = run.hunter
+	# À découvert : l'onde frappe.
+	hunter.global_position = Vector3(13, 0.2, 8)
+	hunter.reset_motion()
+	run.hazards.ring(Vector3(19, 0, 8), 8.5, 20.0, 0.1, 10.0)
+	await _frames(90)
+	check(hunter.hp < hunter.max_hp(), "à découvert, l'onde blesse")
+	# Derrière le muret (x = 15) : elle est arrêtée.
+	hunter.hp = hunter.max_hp()
+	hunter.invulnerable = 0.0
+	hunter.global_position = Vector3(13, 0.2, 0)
+	hunter.reset_motion()
+	run.hazards.ring(Vector3(19, 0, 0), 8.5, 20.0, 0.1, 10.0)
+	await _frames(90)
+	check_near(hunter.hp, hunter.max_hp(), 0.001, "derrière un obstacle, l'onde ne passe pas")

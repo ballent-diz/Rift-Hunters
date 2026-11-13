@@ -12,14 +12,6 @@ enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 
 const BOLT_SPEED := 16.8
 const CAMERA_OFFSET := Vector3(0, 18, 17)
-## Décor peint par chapitre : [objet du pourtour, objet de la terrasse], chacun [identifiant du manifeste, animation].
-const PROPS: Array = [
-	[[&"object.barrier_1.seal_a", &"idle"], [&"object.altar_seal", &"intact"]],
-	[[&"object.brazier", &"lit"], [&"object.ember_pod", &"idle"]],
-	[[&"object.mist_lantern", &"lit_idle"], [&"object.crystal_mirror.marsh_heart", &"idle"]],
-	[[&"object.brazier", &"lit"], [&"object.crystal_mirror", &"idle"]],
-	[[&"object.mirror_portal", &"active"], [&"object.barrier_5.seal_a", &"idle"]],
-]
 
 ## Chapitre gardé d'une partie à l'autre (R rejoue le même) ; 0 : le choix s'affiche au lancement.
 static var chosen_chapter: int = 0
@@ -46,7 +38,6 @@ var camera: Camera3D
 var rng := RandomNumberGenerator.new()
 var balance: BalanceConfig
 var bolts: Array[Dictionary] = []
-var props: Array[DraftSpriteView] = []
 var hostile: Array[Dictionary] = []
 var gems: Array[Dictionary] = []
 var blocked_bolts: int = 0
@@ -78,10 +69,6 @@ func _ready() -> void:
 	boss_time = float(_options.get("boss-at", str(tuning.boss_time)))
 	_swarm_at = tuning.swarm_every
 	_effects = JSON.parse_string(FileAccess.get_file_as_string("res://draft3d/fx/effects.json"))
-	_build_lighting()
-	level = DraftLevel.new()
-	add_child(level)
-	level.build()
 	upgrades = DraftUpgrades.new()
 	hunter = DraftHunter.new()
 	hunter.name = "Hunter"
@@ -100,8 +87,7 @@ func _ready() -> void:
 	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
 	if _bot or DisplayServer.get_name() == "headless":
 		DraftProgress.path = ""
-	hunter.global_position = DraftLevel.START
-	hunter.reset_motion()
+	hunter.set_physics_process(false)
 	hunter.god_mode = _options.has("god")
 	hunter.leveled.connect(func(_l: int) -> void:
 		_pending_levels += 1
@@ -114,7 +100,6 @@ func _ready() -> void:
 	hazards.hunter = hunter
 	add_child(hazards)
 	enemies = DraftEnemies.new()
-	enemies.level = level
 	enemies.hunter = hunter
 	enemies.hazards = hazards
 	enemies.run = self
@@ -123,6 +108,7 @@ func _ready() -> void:
 	enemies.boss_hp_mult = tuning.boss_hp_mult
 	enemies.boss_damage_mult = tuning.boss_damage_mult
 	add_child(enemies)
+	enemies.set_physics_process(false)
 	_build_gems()
 	_build_camera()
 	hud = DraftHud.new()
@@ -137,7 +123,6 @@ func _ready() -> void:
 	Engine.time_scale = float(_options.get("time-scale", "1"))
 	# Captures : seules les images demandées sont dessinées (le rendu logiciel des machines sans carte est lent).
 	RenderingServer.render_loop_enabled = _shot_times.is_empty()
-	await level.bake()
 	if _options.has("chapter"):
 		chosen_chapter = int(_options["chapter"])
 	if chosen_chapter == 0 and not _bot and DisplayServer.get_name() != "headless" and _shot_times.is_empty():
@@ -145,8 +130,20 @@ func _ready() -> void:
 		chosen_chapter = await hud.chapter_chosen
 	chapter = maxi(chosen_chapter, 1)
 	roster = DraftRoster.for_chapter(chapter)
+	# La carte dépend du chapitre : elle se construit une fois le choix fait.
+	level = DraftLevel.create(chapter)
+	add_child(level)
+	level.build()
+	_build_lighting()
+	enemies.level = level
+	hunter.respawn = level.start
+	hunter.global_position = level.start
+	hunter.reset_motion()
+	_camera_at = level.start
+	await level.bake()
+	hunter.set_physics_process(true)
+	enemies.set_physics_process(true)
 	hud.banner(tr(roster.chapter.name_key), 3.0)
-	_build_props()
 	# Audio de la campagne (manifeste, musiques par contexte, tempo) : rien n'est copié.
 	Audio.begin_map()
 	Audio.play_context("run")
@@ -160,17 +157,17 @@ func _build_lighting() -> void:
 	var world := WorldEnvironment.new()
 	var environment := Environment.new()
 	environment.background_mode = Environment.BG_COLOR
-	environment.background_color = Color("101222")
+	environment.background_color = level.sky
 	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color("b2b9d8")
+	environment.ambient_light_color = level.ambient
 	environment.ambient_light_energy = 0.4
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	world.environment = environment
 	add_child(world)
 	var sun := DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-54, -35, 0)
-	sun.light_color = Color("ffe4bc")
-	sun.light_energy = 0.8
+	sun.light_color = level.sun
+	sun.light_energy = level.sun_energy
 	sun.shadow_enabled = true
 	sun.directional_shadow_max_distance = 70.0
 	add_child(sun)
@@ -179,25 +176,6 @@ func _build_lighting() -> void:
 	fill.light_color = Color("7b7cb5")
 	fill.light_energy = 0.18
 	add_child(fill)
-
-
-## Objets peints de la campagne posés en décor selon le chapitre (sprites du manifeste, sans collision, contre les
-## murs : ils ne gênent ni les déplacements ni les tirs).
-func _build_props() -> void:
-	var pair: Array = PROPS[clampi(chapter, 1, PROPS.size()) - 1]
-	var spots: Array = [[Vector3(-22, 0, -18), Vector3(22, 0, -18), Vector3(-46, 0, 34), Vector3(46, 0, 34)],
-		[Vector3(-10.8, DraftLevel.TERRACE_HEIGHT, -19), Vector3(10.8, DraftLevel.TERRACE_HEIGHT, -19)]]
-	for i: int in pair.size():
-		for at: Vector3 in spots[i]:
-			if not Assets.has_sheet(pair[i][0]):
-				continue
-			var prop := DraftSpriteView.new()
-			prop.name = "Prop"
-			add_child(prop)
-			prop.setup(pair[i][0])
-			prop.loop_animation(pair[i][1])
-			prop.snap_to(at)
-			props.append(prop)
 
 
 func _build_camera() -> void:
@@ -232,17 +210,17 @@ func _build_gems() -> void:
 
 
 func _process(delta: float) -> void:
-	if hunter == null or camera == null:
+	if hunter == null or camera == null or level == null:
 		return
 	# La caméra suit la position affichée du Chasseur (interpolée), pas sa position physique.
 	var focus: Vector3 = hunter.view.render_position()
 	# Près des bords, la caméra s'arrête avant de ne montrer que le vide derrière les limites.
-	focus.x = clampf(focus.x, DraftLevel.MIN.x + 12.0, DraftLevel.MAX.x - 12.0)
-	focus.z = clampf(focus.z, DraftLevel.MIN.y + 4.0, DraftLevel.MAX.y - 7.0)
+	focus.x = clampf(focus.x, level.bounds_min.x + 12.0, level.bounds_max.x - 12.0)
+	focus.z = clampf(focus.z, level.bounds_min.y + 4.0, level.bounds_max.y - 7.0)
 	_camera_at = _camera_at.lerp(focus, 1.0 - exp(-8.0 * delta))
 	if _options.has("overview"):
 		# Vue d'ensemble de la carte (captures de contrôle).
-		_camera_at = Vector3(0, 0, 8)
+		_camera_at = Vector3((level.bounds_min.x + level.bounds_max.x) * 0.5, 0, (level.bounds_min.y + level.bounds_max.y) * 0.5)
 		camera.size = 66.0
 	camera.position = _camera_at + CAMERA_OFFSET
 	hud.refresh(self, delta)
@@ -307,7 +285,7 @@ func _spawn_waves(delta: float) -> void:
 	if not _boss_spawned and time >= boss_time:
 		_boss_spawned = true
 		var boss: BossData = roster.boss
-		enemies.spawn_boss(boss, DraftLevel.BOSS_SPOT if hunter.global_position.distance_to(DraftLevel.BOSS_SPOT) > 8.0
+		enemies.spawn_boss(boss, level.boss_spot if hunter.global_position.distance_to(level.boss_spot) > 8.0
 			else level.spawn_point(rng, hunter.global_position))
 		fx(&"portal", family_of(enemies.boss), enemies.boss.pos + Vector3.UP * 1.2, 2.5)
 		Audio.play_context("boss")
