@@ -407,3 +407,33 @@ func test_third_level_village() -> void:
 	hunter.auto_direction = Vector3.ZERO
 	check(not run.sight_clear(Vector3(-15, 0.8, 12), Vector3(-15, 0.8, 24)), "un bâtiment coupe la vue")
 	check(run.sight_clear(Vector3(10, 0.8, 5), Vector3(10, 0.8, -5)), "on tire par-dessus la rivière")
+
+
+func test_fourth_level_outpost() -> void:
+	DraftRun.chosen_chapter = 4
+	await _start()
+	DraftRun.chosen_chapter = 0
+	check(run.level is DraftLevelOutpost, "le chapitre 4 se joue sur l'Avant-poste des Glaces")
+	check(run.level.spawn_points().size() >= 60, "points d'apparition sur le pourtour (%d)" % run.level.spawn_points().size())
+	for spot: Vector3 in [Vector3(-44, 0, 30), Vector3(44, 0, 30), Vector3(-44, 0, -30), Vector3(44, 0, -30),
+			DraftLevelOutpost.BOSS_SPOT, Vector3(0, 0, 3), Vector3(6, DraftLevelOutpost.PLATEAU_HEIGHT, -26)]:
+		var route: PackedVector3Array = run.level.path(DraftLevelOutpost.START, spot)
+		check(route.size() >= 2 and route[route.size() - 1].distance_to(spot) < 1.5, "quartier relié : %s" % spot)
+	var hunter: DraftHunter = run.hunter
+	hunter.automating = true
+	hunter.global_position = Vector3(0, 0.2, -14)
+	hunter.reset_motion()
+	hunter.auto_direction = Vector3(0, 0, -1)
+	await _frames(110)
+	check(hunter.global_position.y > 1.8, "montée du plateau : y = %.2f" % hunter.global_position.y)
+	hunter.global_position = Vector3(18, 0.2, 24)
+	hunter.reset_motion()
+	hunter.auto_direction = Vector3(1, 0, 1)
+	await _frames(400)
+	var pos: Vector3 = hunter.global_position
+	check(pos.x < DraftLevelOutpost.MAX.x + 0.6 and pos.z < DraftLevelOutpost.MAX.y + 0.6 and pos.y > -0.5,
+		"limites tenues : %s" % pos)
+	hunter.auto_direction = Vector3.ZERO
+	check(not run.sight_clear(Vector3(-10, 0.8, -12), Vector3(-10, 0.8, 4)), "un module de la base coupe la vue")
+	check(not run.sight_clear(Vector3(0, 0.8, -9), Vector3(0, 0.8, 1)), "le tunnel coupe la vue")
+	check(run.sight_clear(Vector3(-3, 0.8, 22), Vector3(3, 0.8, 22)), "l'aire d'atterrissage est dégagée")

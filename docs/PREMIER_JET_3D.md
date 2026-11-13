@@ -112,7 +112,16 @@ village au sud (puits, marché, taverne, maisons), rivière infranchissable sauf
 au-dessus de l'eau), champs et moulin au nord-ouest, butte de l'église à 2 m avec deux escaliers (le boss apparaît à
 son pied), bosquet et tour de guet au nord-est. Muret de pierre tout autour. Vue d'ensemble :
 `docs/previews/premier-jet-3d/carte_3.webp`. Décors : **KayKit Medieval Hexagon Pack**, Kay Lousberg, licence
-**CC0** (`draft3d/medieval/LICENSE.txt`), agrandis cinq fois. Les chapitres 4 et 5 jouent encore sur le niveau 1.
+**CC0** (`draft3d/medieval/LICENSE.txt`), agrandis cinq fois.
+
+## Carte : quatrième niveau, l'Avant-poste des Glaces
+
+92 × 64 m, base technique sur la banquise (`draft3d/level_outpost.gd`), jouée au chapitre 4. Aire d'atterrissage au
+sud (départ), base de quatre modules reliés par un tunnel au centre, dépôt de fret à l'ouest, champ solaire et
+éoliennes à l'est, plateau de forage à 2 m avec deux escaliers au nord (le boss apparaît à son pied). Falaise de
+glace tout autour. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_4.webp`. Décors : **KayKit Space Base
+Bits**, Kay Lousberg, licence **CC0** (`draft3d/spacebase/LICENSE.txt`), agrandis quatre fois ; roches et falaises
+repeintes en glace. Le chapitre 5 joue encore sur le niveau 1.
 
 ## Vérifications
 

@@ -2,7 +2,7 @@ class_name DraftLevel
 extends NavigationRegion3D
 ## Carte de la base 3D : socle commun des niveaux (modules avec collision, navigation, points d'apparition).
 ## Chaque niveau en hérite et s'assemble dans `build()` : DraftLevelRuins (1), DraftLevelGraveyard (2),
-## DraftLevelVillage (3).
+## DraftLevelVillage (3), DraftLevelOutpost (4).
 ## `DraftLevel.create(order)` donne la carte d'un chapitre.
 
 ## Emprise de la carte (x, z), départ du Chasseur, lieu d'apparition du boss.
@@ -26,6 +26,8 @@ static func create(order: int) -> DraftLevel:
 			return DraftLevelGraveyard.new()
 		3:
 			return DraftLevelVillage.new()
+		4:
+			return DraftLevelOutpost.new()
 	return DraftLevelRuins.new()
 
 
