@@ -20,7 +20,7 @@ const TERRACE_HEIGHT := 2.0
 const TERRACE_HALF_WIDTH := 12.0
 const TERRACE_FRONT := -12.0
 ## Petite terrasse d'angle de la Colonnade (nord-est).
-const CORNER_TERRACE := Rect2(34.0, -20.0, 12.0, 8.0)
+const CORNER_TERRACE := Rect2(32.0, -20.0, 16.0, 8.0)
 const START := Vector3(0, 0.2, 28)
 const BOSS_SPOT := Vector3(0, 0.2, -4)
 
@@ -87,15 +87,15 @@ func _corner_terrace() -> void:
 	var center: Vector2 = rect.get_center()
 	_box("CornerTerrace", Vector3(center.x, TERRACE_HEIGHT * 0.5 - 0.05, center.y),
 		Vector3(rect.size.x, TERRACE_HEIGHT + 0.1, rect.size.y), Color("555567"))
-	for x: int in [36, 40, 44]:
+	for x: int in [34, 38, 42, 46]:
 		for z: int in [-18, -14]:
 			_module("floor_tile_large", Vector3(x, TERRACE_HEIGHT, z))
 	_module("stairs_wide", Vector3(center.x, 0, rect.end.y), Vector3(1, 0.5, 1.5))
 	_module("chest", Vector3(center.x, TERRACE_HEIGHT, -18.6), Vector3.ONE * 0.8)
-	_module("barrier", Vector3(36, TERRACE_HEIGHT, rect.end.y + 0.5))
-	_module("barrier", Vector3(44, TERRACE_HEIGHT, rect.end.y + 0.5))
-	_torch(Vector3(35, TERRACE_HEIGHT, -18.5))
-	_torch(Vector3(45, TERRACE_HEIGHT, -18.5))
+	_module("barrier", Vector3(35, TERRACE_HEIGHT, rect.end.y + 0.5))
+	_module("barrier", Vector3(45, TERRACE_HEIGHT, rect.end.y + 0.5))
+	_torch(Vector3(33.5, TERRACE_HEIGHT, -18.5))
+	_torch(Vector3(46.5, TERRACE_HEIGHT, -18.5))
 
 
 func _raised(x: float) -> bool:
@@ -180,8 +180,8 @@ func _colonnade() -> void:
 			if x < MAX.x - 2.0:
 				_module("pillar_decorated", Vector3(x, 0, z), Vector3.ONE * 0.7)
 		_torch(Vector3(46.6, 0, z + 4.0))
-	_module("crates_stacked", Vector3(28, 0, -14), Vector3.ONE * 0.85)
-	_module("barrel_large", Vector3(29.6, 0, -13.2), Vector3.ONE * 0.85)
+	_module("crates_stacked", Vector3(28, 0, -15), Vector3.ONE * 0.85)
+	_module("barrel_large", Vector3(29.4, 0, -14.2), Vector3.ONE * 0.85)
 
 
 ## Parvis (sud) : départ du Chasseur, dégagé, avec deux abris et deux piliers.

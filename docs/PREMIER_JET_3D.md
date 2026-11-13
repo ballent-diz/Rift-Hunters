@@ -81,11 +81,18 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 - Une attaque annoncée au sol ne touche que son niveau (1,2 m) : la terrasse abrite de l'onde du boss lancée en bas.
 - Les ennemis suivent la navigation (trois escaliers), sans traverser le décor.
 
-## Carte
+## Carte : premier niveau, les Ruines des Veilleurs
 
-Cour de 48 × 40 m, terrasse nord à 2 m avec trois escaliers (centre, est, ouest), arche au sud, deux murets, quatre
-piliers, quatre groupes de caisses, parapets en hauteur ; murs au nord et sur les côtés, barrières au sud. Décors :
-**KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0** (`draft3d/kaykit/LICENSE.txt`). Moteur : Godot 4.3.
+96 × 56 m, cinq quartiers reliés par des portes et des brèches, sans cul-de-sac (`draft3d/level.gd`) :
+- **Parvis** (sud) : départ du Chasseur, dégagé, deux abris ;
+- **Cour** (centre) : grande place, arche, murets, piliers ; le boss y apparaît ;
+- **Terrasse haute** (nord, 2 m) : trois escaliers, parapets ;
+- **Entrepôts** (ouest) : rangées de murs et de caisses en quinconce, couloirs serrés pour semer une horde ;
+- **Colonnade** (est) : piliers en quinconce et petite terrasse d'angle avec son escalier.
+
+Murs au nord et sur les côtés, barrières basses au sud (côté caméra). Les ennemis apparaissent sur le pourtour, à
+13–32 m du Chasseur. Vue d'ensemble : `docs/previews/premier-jet-3d/carte.webp` (option `--overview`).
+Décors : **KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0** (`draft3d/kaykit/LICENSE.txt`). Moteur : Godot 4.3.
 
 ## Vérifications
 
