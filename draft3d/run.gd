@@ -13,13 +13,13 @@ enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 const BOLT_SPEED := 16.8
 const CAMERA_OFFSET := Vector3(0, 18, 17)
 
+## Chapitre gardé d'une partie à l'autre (R rejoue le même) ; 0 : le choix s'affiche au lancement.
+static var chosen_chapter: int = 0
+
 var tuning: DraftTuning
 ## Chapitre joué (1 à 5) : bestiaire, gardiens et Dévoreur viennent de la campagne (DraftRoster).
 var chapter: int = 1
 var roster: DraftRoster
-## Chapitre gardé d'une partie à l'autre (R rejoue le même) ; 0 : le choix s'affiche au lancement.
-static var chosen_chapter: int = 0
-var _guardian_spawned: bool = false
 var boss_time: float = 480.0
 
 var state: State = State.LOADING
@@ -40,6 +40,9 @@ var hostile: Array[Dictionary] = []
 var gems: Array[Dictionary] = []
 var blocked_bolts: int = 0
 var levels_gained: int = 0
+var _guardian_spawned: bool = false
+var _boss_raged: bool = false
+var _beat_pulse: float = 0.0
 var _offers: Array[UpgradeData] = []
 var _pending_levels: int = 0
 var _spawn_credit: float = 0.0
@@ -81,7 +84,9 @@ func _ready() -> void:
 	hunter.leveled.connect(func(_l: int) -> void:
 		_pending_levels += 1
 		levels_gained += 1)
-	hunter.hurt.connect(func(amount: float) -> void: damage_taken += amount)
+	hunter.hurt.connect(func(amount: float) -> void:
+		damage_taken += amount
+		Audio.play_sfx(&"player_hurt"))
 	hunter.died.connect(_on_hunter_died)
 	hazards = DraftHazards.new()
 	hazards.hunter = hunter
@@ -119,6 +124,10 @@ func _ready() -> void:
 	chapter = maxi(chosen_chapter, 1)
 	roster = DraftRoster.for_chapter(chapter)
 	hud.banner(tr(roster.chapter.name_key), 3.0)
+	# Audio de la campagne (manifeste, musiques par contexte, tempo) : rien n'est copié.
+	Audio.begin_map()
+	Audio.play_context("run")
+	Audio.beat.connect(_on_beat)
 	state = State.PLAYING
 	if _options.has("perf"):
 		_run_perf()
@@ -219,6 +228,10 @@ func _physics_process(delta: float) -> void:
 	_step_gems(delta)
 	if _pending_levels > 0:
 		_open_offers()
+	if not _boss_raged and enemies.boss != null and enemies.boss.final and enemies.boss_phase(enemies.boss) == 1:
+		_boss_raged = true
+		Audio.play_context("boss_phase2")
+		Audio.play_sfx(&"heart_exposed")
 
 
 # --- Vagues et boss -------------------------------------------------------------------------------------------
@@ -250,12 +263,15 @@ func _spawn_waves(delta: float) -> void:
 		enemies.spawn_boss(boss, DraftLevel.BOSS_SPOT if hunter.global_position.distance_to(DraftLevel.BOSS_SPOT) > 8.0
 			else level.spawn_point(rng, hunter.global_position))
 		spawn_fx("hit", enemies.boss.pos + Vector3.UP, 4.0)
+		Audio.play_context("boss")
+		Audio.play_sfx(&"boss_roar")
 		hud.banner(tr("DRAFT_BOSS_WARNING") % tr(boss.name_key), 4.0)
 	if not _guardian_spawned and not _boss_spawned and time >= tuning.guardian_time and not roster.guardians.is_empty():
 		_guardian_spawned = true
 		var guardian: BossData = roster.guardians[rng.randi() % roster.guardians.size()]
 		enemies.spawn_boss(guardian, level.spawn_point(rng, hunter.global_position), tuning.guardian_hp_mult, false)
 		hud.banner(tr("DRAFT_BOSS_WARNING") % tr(guardian.name_key), 3.0)
+		Audio.play_sfx(&"elite_spawn")
 	var current: Dictionary = wave()
 	var mix: Dictionary = _mix()
 	_spawn_credit += float(current["rate"]) * delta
@@ -329,6 +345,7 @@ func _auto_attack() -> void:
 	if foe == null:
 		return
 	hunter.attack_timer = hunter.attack_interval()
+	Audio.play_sfx(&"bolt_fire")
 	hunter.view.play_action(&"attack", 0.2)
 	var origin: Vector3 = hunter.chest()
 	var aim: Vector3 = origin.direction_to(_aim_point(foe))
@@ -420,6 +437,7 @@ func _step_hostile(delta: float) -> void:
 
 func on_foe_killed(foe: DraftEnemies.Foe) -> void:
 	kills += 1
+	Audio.play_sfx(&"enemy_death")
 	spawn_fx("hit", foe.pos + Vector3.UP * 0.5, 1.4)
 	if foe.boss != null:
 		if foe.final:
@@ -461,6 +479,7 @@ func _step_gems(delta: float) -> void:
 					hunter.heal(hunter.max_hp() * balance.heal_amount_ratio)
 				else:
 					hunter.gain_xp(float(gem["value"]))
+					Audio.play_sfx(&"xp_pickup")
 				gems.remove_at(i)
 
 
@@ -468,9 +487,10 @@ func _draw_gems() -> void:
 	var multimesh: MultiMesh = _gem_mesh.multimesh
 	multimesh.visible_instance_count = mini(gems.size(), multimesh.instance_count)
 	var spin: float = float(Time.get_ticks_msec()) * 0.004
+	_beat_pulse = maxf(_beat_pulse - get_process_delta_time() * 4.0, 0.0)
 	for i: int in multimesh.visible_instance_count:
 		var gem: Dictionary = gems[i]
-		var size: float = 1.6 if gem["heal"] else clampf(0.9 + float(gem["value"]) * 0.12, 0.9, 1.8)
+		var size: float = 1.6 if gem["heal"] else clampf(0.9 + float(gem["value"]) * 0.12, 0.9, 1.8) * (1.0 + 0.25 * _beat_pulse)
 		multimesh.set_instance_transform(i, Transform3D(Basis(Vector3.UP, spin + i).scaled(Vector3.ONE * size), gem["at"]))
 		multimesh.set_instance_color(i, Color(1.0, 0.35, 0.4) if gem["heal"] else
 			(Color(0.45, 0.95, 1.0) if float(gem["value"]) < 3.0 else Color(0.75, 0.6, 1.0)))
@@ -487,6 +507,7 @@ func _open_offers() -> void:
 		return
 	state = State.CHOOSING
 	get_tree().paused = true
+	Audio.play_sfx(&"level_up")
 	hud.show_offers(hunter.level - _pending_levels + 1, _offers, upgrades)
 	if _bot:
 		choose.call_deferred(rng.randi() % _offers.size())
@@ -497,6 +518,7 @@ func choose(index: int) -> void:
 		return
 	var before: float = hunter.max_hp()
 	upgrades.apply(_offers[index], hunter.stats)
+	Audio.play_sfx(&"ui_click")
 	# Les PV gagnés avec le maximum sont donnés tout de suite.
 	hunter.heal(maxf(hunter.max_hp() - before, 0.0))
 	_pending_levels -= 1
@@ -519,8 +541,14 @@ func _finish(victory: bool) -> void:
 	state = State.WON if victory else State.LOST
 	hunter.active = false
 	hunter.god_mode = victory
+	Audio.play_context("victory" if victory else "defeat")
 	_end_delay = 1.0
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills])
+
+
+## Tempo de la musique (Audio.beat) : les cristaux d'EXP battent la mesure.
+func _on_beat(_index: int) -> void:
+	_beat_pulse = 1.0
 
 
 func restart() -> void:

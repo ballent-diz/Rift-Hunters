@@ -159,6 +159,7 @@ func _physics_process(delta: float) -> void:
 		invulnerable = maxf(invulnerable, balance.dash_iframes)
 		_dash_direction = direction
 		view.play_action(&"dash", balance.dash_duration)
+		Audio.play_sfx(&"dash")
 	var speed: float = move_speed()
 	view.walk_speed = speed
 	var horizontal := Vector3(velocity.x, 0, velocity.z)

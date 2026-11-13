@@ -127,6 +127,7 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 	if not foe.alive:
 		return false
 	foe.hp -= amount * CombatSystem.defense_multiplier(foe.defense)
+	Audio.play_sfx(&"enemy_hit")
 	foe.view.flash()
 	if foe.boss == null and foe.data.knockback_resist < 1.0:
 		foe.vel += push * (1.0 - foe.data.knockback_resist)
@@ -305,6 +306,7 @@ func _boss_brain(foe: Foe, to_hunter: Vector3, distance: float, climb: float, de
 		foe.view.face_left(aim.x < 0.0)
 		var roll: float = rng.randf()
 		foe.state = 1
+		Audio.play_sfx(&"boss_telegraph")
 		if distance < 4.5 and climb < MELEE_REACH_UP and roll < 0.55:
 			# Griffes : cercle devant lui.
 			foe.timer = 1.0
@@ -320,7 +322,8 @@ func _boss_brain(foe: Foe, to_hunter: Vector3, distance: float, climb: float, de
 		elif roll < 0.7:
 			# Pluie d'ombre : trois cercles autour du Chasseur.
 			foe.timer = 1.2
-			foe.view.play_action(_clip(foe, [&"phase2_attack", &"heavy_slam", &"crater_rain", &"ice_spikes", &"mud_spit", &"attack"]), 1.2)
+			foe.view.play_action(_clip(foe, [&"phase2_attack", &"heavy_slam", &"crater_rain", &"ice_spikes", &"mud_spit",
+				&"attack"]), 1.2)
 			for n: int in (3 if phase == 0 else 5):
 				var offset := Vector3.ZERO if n == 0 else Vector3(rng.randf_range(-4, 4), 0, rng.randf_range(-4, 4))
 				hazards.circle(level.closest(hunter.global_position + offset), 1.9, 0.95 + 0.12 * n, foe.damage * 0.9)
@@ -331,7 +334,8 @@ func _boss_brain(foe: Foe, to_hunter: Vector3, distance: float, climb: float, de
 		else:
 			# Rayon du vide (seconde phase) : ligne annoncée vers le Chasseur.
 			foe.timer = 1.6
-			foe.view.play_action(_clip(foe, [&"rift_breath", &"magma_breath", &"blizzard_breath", &"ray_sweep", &"phase2_attack", &"attack"]), 1.6)
+			foe.view.play_action(_clip(foe, [&"rift_breath", &"magma_breath", &"blizzard_breath", &"ray_sweep",
+				&"phase2_attack", &"attack"]), 1.6)
 			hazards.line(foe.pos, aim, 24.0, 2.2, 1.1, foe.damage * 1.1)
 		return Vector3.ZERO
 	if distance < foe.radius + 1.2 and climb < MELEE_REACH_UP:

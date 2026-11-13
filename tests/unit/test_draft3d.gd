@@ -237,3 +237,21 @@ func test_every_chapter_plays_with_guardian_and_devourer() -> void:
 		run.queue_free()
 		run = null
 	DraftRun.chosen_chapter = 0
+
+
+func test_audio_follows_the_run() -> void:
+	await _start()
+	check_eq(Audio.current_context, "run", "musique de partie au lancement")
+	check(Audio.beat.is_connected(run._on_beat), "le tempo de la musique est branché")
+	run.boss_time = 0.0
+	run.hunter.god_mode = true
+	await _frames(5)
+	check_eq(Audio.current_context, "boss", "musique de boss à son arrivée")
+	run.enemies.hit(run.enemies.boss, run.enemies.boss.max_hp * 0.6 / CombatSystem.defense_multiplier(run.enemies.boss.defense))
+	await _frames(3)
+	check_eq(Audio.current_context, "boss_phase2", "seconde phase : musique de seconde phase")
+	run.enemies.hit(run.enemies.boss, 1000000.0)
+	check_eq(Audio.current_context, "victory", "victoire : jingle de victoire")
+	for id: StringName in [&"bolt_fire", &"enemy_hit", &"enemy_death", &"player_hurt", &"dash", &"xp_pickup", &"level_up",
+			&"ui_click", &"boss_roar", &"boss_telegraph", &"elite_spawn", &"heart_exposed"]:
+		check(Audio.sfx_events.has(String(id)), "son déclaré au manifeste audio : %s" % id)

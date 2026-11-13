@@ -9,6 +9,8 @@ extends Node3D
 const PIXEL := 0.037
 const TURN_CONFIRM_TIME := 0.12
 
+static var _shared_blob: Mesh
+
 var sprite: Sprite3D
 var entry: Dictionary = {}
 var animation: StringName = &"idle"
@@ -59,9 +61,6 @@ func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
 	add_child(blob)
 	if not has_clip(animation):
 		animation = &"move"
-
-
-static var _shared_blob: Mesh
 
 
 static func _blob_mesh() -> Mesh:
