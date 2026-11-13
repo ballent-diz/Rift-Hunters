@@ -126,7 +126,7 @@ func _ready() -> void:
 	if _options.has("chapter"):
 		chosen_chapter = int(_options["chapter"])
 	if chosen_chapter == 0 and not _bot and DisplayServer.get_name() != "headless" and _shot_times.is_empty():
-		hud.show_chapters(DraftRoster.chapters(), DraftProgress.cleared())
+		hud.show_chapters(DraftRoster.chapters(), DraftProgress.cleared(), tuning.all_chapters_open)
 		chosen_chapter = await hud.chapter_chosen
 	chapter = maxi(chosen_chapter, 1)
 	roster = DraftRoster.for_chapter(chapter)

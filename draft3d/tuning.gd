@@ -4,6 +4,8 @@ extends Resource
 ## courbe de niveaux) viennent toujours de l'équilibrage commun ; ce fichier ne porte que les écarts nécessaires au
 ## Chasseur seul, que la campagne compensait par l'équipe d'Échos.
 
+## Phase de test : tous les chapitres sont ouverts au lancement (le déblocage par les victoires reste enregistré).
+@export var all_chapters_open: bool = true
 @export_group("Chasseur")
 ## Bonus de départ : sans Échos, le Trait de Faille doit suffire à tenir les premières vagues.
 @export var hunter_damage_pct: float = 0.5

@@ -246,7 +246,7 @@ func show_end(victory: bool, summary: String) -> void:
 
 
 ## Choix du chapitre au lancement : son bestiaire, ses gardiens et son Dévoreur.
-func show_chapters(chapters: Array[ChapterData], done: Array[int]) -> void:
+func show_chapters(chapters: Array[ChapterData], done: Array[int], all_open: bool = false) -> void:
 	var overlay: Control = _overlay()
 	var column := VBoxContainer.new()
 	column.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
@@ -259,7 +259,7 @@ func show_chapters(chapters: Array[ChapterData], done: Array[int]) -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	for i: int in chapters.size():
 		var button := Button.new()
-		var open: bool = DraftProgress.is_unlocked(i + 1, done)
+		var open: bool = all_open or DraftProgress.is_unlocked(i + 1, done)
 		button.text = "%d. %s%s" % [i + 1, tr(chapters[i].name_key), "  ✓" if done.has(i + 1) else ""]
 		button.disabled = not open
 		if not open:
