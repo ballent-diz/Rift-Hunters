@@ -5,6 +5,8 @@ extends CanvasLayer
 
 signal chosen(index: int)
 signal restart_requested
+signal chapter_chosen(order: int)
+signal chapter_change_requested
 
 const INK := Color("f0e8d7")
 const DIM := Color("b9bccb")
@@ -220,6 +222,36 @@ func show_end(victory: bool, summary: String) -> void:
 	button.focus_mode = Control.FOCUS_NONE
 	button.pressed.connect(func() -> void: restart_requested.emit())
 	column.add_child(button)
+	var other := Button.new()
+	other.text = tr("DRAFT_CHANGE_CHAPTER")
+	other.custom_minimum_size = Vector2(280, 40)
+	other.focus_mode = Control.FOCUS_NONE
+	other.pressed.connect(func() -> void: chapter_change_requested.emit())
+	column.add_child(other)
+
+
+## Choix du chapitre au lancement : son bestiaire, ses gardiens et son Dévoreur.
+func show_chapters(chapters: Array[ChapterData]) -> void:
+	var overlay: Control = _overlay()
+	var column := VBoxContainer.new()
+	column.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	column.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	column.grow_vertical = Control.GROW_DIRECTION_BOTH
+	column.add_theme_constant_override("separation", 12)
+	overlay.add_child(column)
+	var title := _label(column, 34, Color("ffd9a0"))
+	title.text = tr("DRAFT_CHOOSE_CHAPTER")
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	for i: int in chapters.size():
+		var button := Button.new()
+		button.text = "%d. %s" % [i + 1, tr(chapters[i].name_key)]
+		button.custom_minimum_size = Vector2(420, 46)
+		button.focus_mode = Control.FOCUS_NONE
+		button.add_theme_color_override("font_color", chapters[i].color.lightened(0.4))
+		button.pressed.connect(func() -> void:
+			overlay.queue_free()
+			chapter_chosen.emit(i + 1))
+		column.add_child(button)
 
 
 func _unhandled_input(event: InputEvent) -> void:

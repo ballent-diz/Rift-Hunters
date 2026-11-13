@@ -2280,3 +2280,5 @@ UPGRADE_LONG_REACH_NAME,Longue portée,Long Reach
 UPGRADE_LONG_REACH_DESC,Portée des Traits de Faille +15 %.,Rift Bolt range +15%.
 UPGRADE_BULWARK_NAME,Rempart,Bulwark
 UPGRADE_BULWARK_DESC,Dégâts subis −8 %.,Damage taken −8%.
+DRAFT_CHOOSE_CHAPTER,Choisissez un chapitre,Choose a chapter
+DRAFT_CHANGE_CHAPTER,Changer de chapitre,Change chapter

@@ -190,8 +190,50 @@ func test_boss_fight_ends_in_victory() -> void:
 	run.hunter.reset_motion()
 	await _frames(5)
 	var boss: DraftEnemies.Foe = run.enemies.boss
-	check(boss != null and boss.boss.id == &"nebulorax", "le boss arrive")
+	check(boss != null and boss.boss == run.roster.boss and boss.final, "le Dévoreur du chapitre arrive")
 	await _frames(400)
 	check(boss.hp < boss.max_hp, "l'attaque automatique blesse le boss")
 	run.enemies.hit(boss, 1000000.0)
 	check_eq(run.state, DraftRun.State.WON, "boss vaincu : victoire")
+
+
+func test_rosters_cover_the_five_chapters() -> void:
+	var seen: Dictionary = {}
+	check_eq(DraftRoster.chapters().size(), 5, "cinq chapitres")
+	for order: int in range(1, 6):
+		var roster: DraftRoster = DraftRoster.for_chapter(order)
+		check(roster.enemies.size() >= 8, "chapitre %d : au moins huit monstres (%d)" % [order, roster.enemies.size()])
+		check(roster.boss != null and roster.guardians.size() >= 3, "chapitre %d : gardiens et Dévoreur" % order)
+		for data: EnemyData in roster.enemies:
+			seen[data.id] = true
+			check(DraftRoster.usable(data), "%s : mobile et dessiné" % data.id)
+		for boss: BossData in roster.guardians + [roster.boss]:
+			check(boss.id != &"nebulorax", "Nebulorax est écarté")
+			check(Assets.has_sheet(boss.visual.visual_id), "%s : feuille de sprites" % boss.id)
+		check_eq(roster.mix(0.0).size(), 1, "première vague : un seul monstre")
+		check_eq(roster.mix(1.0).size(), roster.enemies.size(), "dernière vague : tout le bestiaire")
+	check(seen.size() >= 40, "au moins quarante monstres différents sur les cinq chapitres (%d)" % seen.size())
+
+
+func test_every_chapter_plays_with_guardian_and_devourer() -> void:
+	for order: int in range(1, 6):
+		DraftRun.chosen_chapter = order
+		await _start()
+		check_eq(run.chapter, order, "chapitre %d lancé" % order)
+		for data: EnemyData in run.roster.enemies:
+			run.enemies.spawn(data, run.level.spawn_point(run.rng, run.hunter.global_position))
+		run.hunter.god_mode = true
+		run.tuning.guardian_time = 0.0
+		await _frames(90)
+		var guardian: DraftEnemies.Foe = run.enemies.boss
+		check(guardian != null and not guardian.final, "chapitre %d : un gardien arrive" % order)
+		run.enemies.hit(guardian, 1000000.0)
+		check(run.state == DraftRun.State.PLAYING and not run.gems.is_empty(), "gardien vaincu : EXP, la partie continue")
+		run.boss_time = 0.0
+		await _frames(60)
+		check(run.enemies.boss != null and run.enemies.boss.final, "chapitre %d : le Dévoreur arrive" % order)
+		run.enemies.hit(run.enemies.boss, 1000000.0)
+		check_eq(run.state, DraftRun.State.WON, "chapitre %d : victoire" % order)
+		run.queue_free()
+		run = null
+	DraftRun.chosen_chapter = 0

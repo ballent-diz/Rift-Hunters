@@ -14,6 +14,12 @@ const BOLT_SPEED := 16.8
 const CAMERA_OFFSET := Vector3(0, 18, 17)
 
 var tuning: DraftTuning
+## Chapitre joué (1 à 5) : bestiaire, gardiens et Dévoreur viennent de la campagne (DraftRoster).
+var chapter: int = 1
+var roster: DraftRoster
+## Chapitre gardé d'une partie à l'autre (R rejoue le même) ; 0 : le choix s'affiche au lancement.
+static var chosen_chapter: int = 0
+var _guardian_spawned: bool = false
 var boss_time: float = 480.0
 
 var state: State = State.LOADING
@@ -96,6 +102,7 @@ func _ready() -> void:
 	add_child(hud)
 	hud.chosen.connect(choose)
 	hud.restart_requested.connect(restart)
+	hud.chapter_change_requested.connect(change_chapter)
 	_bot = _options.has("bot")
 	hunter.automating = _bot
 	for value: String in str(_options.get("shot-times", "")).split(",", false):
@@ -104,6 +111,14 @@ func _ready() -> void:
 	# Captures : seules les images demandées sont dessinées (le rendu logiciel des machines sans carte est lent).
 	RenderingServer.render_loop_enabled = _shot_times.is_empty()
 	await level.bake()
+	if _options.has("chapter"):
+		chosen_chapter = int(_options["chapter"])
+	if chosen_chapter == 0 and not _bot and DisplayServer.get_name() != "headless" and _shot_times.is_empty():
+		hud.show_chapters(DraftRoster.chapters())
+		chosen_chapter = await hud.chapter_chosen
+	chapter = maxi(chosen_chapter, 1)
+	roster = DraftRoster.for_chapter(chapter)
+	hud.banner(tr(roster.chapter.name_key), 3.0)
 	state = State.PLAYING
 	if _options.has("perf"):
 		_run_perf()
@@ -218,25 +233,41 @@ func wave() -> Dictionary:
 	return current
 
 
+func _mix() -> Dictionary:
+	if _boss_spawned:
+		return roster.mix(0.25)
+	var index: int = 0
+	for i: int in tuning.waves.size():
+		if time >= float(tuning.waves[i]["at"]):
+			index = i
+	return roster.mix(float(index) / maxf(tuning.waves.size() - 1, 1.0))
+
+
 func _spawn_waves(delta: float) -> void:
 	if not _boss_spawned and time >= boss_time:
 		_boss_spawned = true
-		var boss: BossData = GameDB.boss(tuning.boss_id)
+		var boss: BossData = roster.boss
 		enemies.spawn_boss(boss, DraftLevel.BOSS_SPOT if hunter.global_position.distance_to(DraftLevel.BOSS_SPOT) > 8.0
 			else level.spawn_point(rng, hunter.global_position))
 		spawn_fx("hit", enemies.boss.pos + Vector3.UP, 4.0)
 		hud.banner(tr("DRAFT_BOSS_WARNING") % tr(boss.name_key), 4.0)
+	if not _guardian_spawned and not _boss_spawned and time >= tuning.guardian_time and not roster.guardians.is_empty():
+		_guardian_spawned = true
+		var guardian: BossData = roster.guardians[rng.randi() % roster.guardians.size()]
+		enemies.spawn_boss(guardian, level.spawn_point(rng, hunter.global_position), tuning.guardian_hp_mult, false)
+		hud.banner(tr("DRAFT_BOSS_WARNING") % tr(guardian.name_key), 3.0)
 	var current: Dictionary = wave()
+	var mix: Dictionary = _mix()
 	_spawn_credit += float(current["rate"]) * delta
 	while _spawn_credit >= 1.0:
 		_spawn_credit -= 1.0
 		if enemies.count() < int(current["cap"]):
-			enemies.spawn(_pick(current["mix"]), level.spawn_point(rng, hunter.global_position))
+			enemies.spawn(_pick(mix), level.spawn_point(rng, hunter.global_position))
 	if not _boss_spawned and time >= _swarm_at:
 		_swarm_at += tuning.swarm_every
 		var gate: Vector3 = level.spawn_point(rng, hunter.global_position, 16.0)
 		for i: int in tuning.swarm_size + int(time / 60.0) * 2:
-			enemies.spawn(GameDB.enemy(&"skitterling"), gate + Vector3(rng.randf_range(-2, 2), 0, rng.randf_range(-2, 2)))
+			enemies.spawn(roster.enemies[0], gate + Vector3(rng.randf_range(-2, 2), 0, rng.randf_range(-2, 2)))
 		hud.banner(tr("DRAFT_SWARM"), 2.0)
 
 
@@ -249,14 +280,21 @@ func _pick(mix: Dictionary) -> EnemyData:
 		roll -= float(mix[id])
 		if roll <= 0.0:
 			return GameDB.enemy(StringName(id))
-	return GameDB.enemy(&"skitterling")
+	return roster.enemies[0]
 
 
 func boss_summon(boss: DraftEnemies.Foe, amount: int) -> void:
 	for i: int in amount:
 		var at: Vector3 = boss.pos + Vector3.RIGHT.rotated(Vector3.UP, TAU * i / amount) * 3.0
-		enemies.spawn(GameDB.enemy(&"skitterling"), at)
+		enemies.spawn(roster.enemies[0], at)
 		spawn_fx("hit", level.closest(at) + Vector3.UP * 0.4)
+
+
+## Invocation d'un monstre (mère de couvée) : petits monstres du chapitre autour de lui, dans la limite de la vague.
+func foe_summon(foe: DraftEnemies.Foe, amount: int) -> void:
+	if enemies.count() >= int(wave()["cap"]) + 6:
+		return
+	boss_summon(foe, amount)
 
 
 # --- Attaque automatique du Chasseur -----------------------------------------------------------------------------
@@ -384,7 +422,12 @@ func on_foe_killed(foe: DraftEnemies.Foe) -> void:
 	kills += 1
 	spawn_fx("hit", foe.pos + Vector3.UP * 0.5, 1.4)
 	if foe.boss != null:
-		_finish(true)
+		if foe.final:
+			_finish(true)
+			return
+		enemies.boss = null
+		for i: int in 8:
+			drop_gem(foe.pos + Vector3(rng.randf_range(-1.5, 1.5), 0, rng.randf_range(-1.5, 1.5)), tuning.guardian_xp / 8.0)
 		return
 	drop_gem(foe.pos, float(foe.xp))
 	if rng.randf() < balance.heal_drop_chance * (balance.heal_low_hp_mult if hunter.hp < hunter.max_hp() * 0.35 else 1.0):
@@ -488,6 +531,11 @@ func restart() -> void:
 	get_tree().reload_current_scene()
 
 
+func change_chapter() -> void:
+	chosen_chapter = 0
+	restart()
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	var button := event as InputEventMouseButton
 	if button != null and button.pressed:
@@ -571,7 +619,7 @@ func _run_perf() -> void:
 	for step: String in str(_options["perf"]).split(",", false):
 		var wanted: int = int(step)
 		while enemies.count() < wanted:
-			enemies.spawn(_pick(tuning.waves[tuning.waves.size() - 1]["mix"]), level.spawn_point(rng, hunter.global_position, 0.0))
+			enemies.spawn(_pick(roster.mix(1.0)), level.spawn_point(rng, hunter.global_position, 0.0))
 		_spawn_credit = -1000000.0
 		await get_tree().create_timer(2.0, true, false, true).timeout
 		var frames: int = Engine.get_frames_drawn()

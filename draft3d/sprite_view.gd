@@ -45,10 +45,40 @@ func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
 	sprite.pixel_size = PIXEL * float(entry.get("scale", 1.0)) * size_mult
 	sprite.offset = Vector2(float(cell[0]) * 0.5 - float(anchor[0]), 0)
 	sprite.position.y = (float(anchor[1]) - float(cell[1]) * 0.5) * sprite.pixel_size + 0.04
-	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_ON
+	# Ombre au sol calée sur l'empreinte mesurée de la feuille (champ "shadow" du manifeste, build_shadows.py) :
+	# un disque plat sous les appuis, moins coûteux qu'une ombre projetée par sprite dans une horde.
+	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	add_child(sprite)
+	var shape: Array = entry.get("shadow", [])
+	var reach: float = (float(shape[2]) if shape.size() == 4 else float(cell[0]) * 0.2) * sprite.pixel_size
+	var blob := MeshInstance3D.new()
+	blob.mesh = _blob_mesh()
+	blob.scale = Vector3(reach, 1.0, reach * 0.62)
+	blob.position = Vector3((float(shape[0]) if shape.size() == 4 else 0.0) * sprite.pixel_size, 0.03, 0.0)
+	blob.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(blob)
 	if not has_clip(animation):
 		animation = &"move"
+
+
+static var _shared_blob: Mesh
+
+
+static func _blob_mesh() -> Mesh:
+	if _shared_blob == null:
+		var disc := CylinderMesh.new()
+		disc.top_radius = 1.0
+		disc.bottom_radius = 1.0
+		disc.height = 0.01
+		disc.radial_segments = 20
+		disc.rings = 0
+		var material := StandardMaterial3D.new()
+		material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+		material.albedo_color = Color(0.0, 0.0, 0.03, 0.34)
+		disc.material = material
+		_shared_blob = disc
+	return _shared_blob
 
 
 func has_clip(id: StringName) -> bool:
