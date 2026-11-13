@@ -78,7 +78,8 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
   à plat comme entre la cour et la terrasse. Murs, piliers, caisses et rebord de terrasse arrêtent les tirs.
 - Un trait touche **à sa hauteur** ; contacts et coups de mêlée ne portent pas au-delà de 1 m de dénivelé.
 - Une attaque annoncée au sol ne touche que son niveau (1,2 m) : la terrasse abrite de l'onde du boss lancée en bas.
-- Une onde en anneau est arrêtée par le décor : on s'en abrite derrière un mur, un pilier, une caisse, une tombe.
+- Une onde en anneau est découpée par le décor, à l'image comme pour les dégâts : chaque tronçon s'éteint sur
+  l'obstacle qu'il rencontre, l'onde ne continue que par les ouvertures (toutes les cartes).
 - Les ennemis suivent la navigation (trois escaliers), sans traverser le décor.
 
 ## Carte : premier niveau, les Ruines des Veilleurs
@@ -102,7 +103,16 @@ arrêtent les tirs), Crypte et son parvis (centre-nord, lieu du boss), Tertre à
 Ossuaire (nord-est). Grille tout autour. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_2.webp`.
 Décors : **KayKit Halloween Bits**, Kay Lousberg, licence **CC0** (`draft3d/halloween/LICENSE.txt`), importés tels
 quels avec une collision simple (`DraftLevel._prop`). Une carte = une classe qui hérite de `DraftLevel` ;
-`DraftLevel.create(chapitre)` choisit la carte (les chapitres 3 à 5 jouent encore sur le niveau 1).
+`DraftLevel.create(chapitre)` choisit la carte .
+
+## Carte : troisième niveau, le Hameau du Gué
+
+92 × 64 m, village en plein jour coupé par une rivière (`draft3d/level_village.gd`), jouée au chapitre 3. Place du
+village au sud (puits, marché, taverne, maisons), rivière infranchissable sauf par trois ponts (les tirs passent
+au-dessus de l'eau), champs et moulin au nord-ouest, butte de l'église à 2 m avec deux escaliers (le boss apparaît à
+son pied), bosquet et tour de guet au nord-est. Muret de pierre tout autour. Vue d'ensemble :
+`docs/previews/premier-jet-3d/carte_3.webp`. Décors : **KayKit Medieval Hexagon Pack**, Kay Lousberg, licence
+**CC0** (`draft3d/medieval/LICENSE.txt`), agrandis cinq fois. Les chapitres 4 et 5 jouent encore sur le niveau 1.
 
 ## Vérifications
 

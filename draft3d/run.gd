@@ -434,7 +434,10 @@ func enemy_shot(foe: DraftEnemies.Foe) -> void:
 	var origin: Vector3 = foe.pos + Vector3.UP * 0.6
 	var family: StringName = family_of(foe)
 	var visual: Sprite3D = fx(DraftPixelFx.shot_effect("flights", family), family, origin, 0.7, true)
-	hostile.append({"at": origin, "dir": origin.direction_to(hunter.chest()),
+	var aim: Vector3 = origin.direction_to(hunter.chest())
+	# Les feuilles de tir sont dessinées vers la droite : on les retourne quand le tir part vers la gauche.
+	visual.flip_h = aim.dot(camera.global_basis.x) < 0.0
+	hostile.append({"at": origin, "dir": aim,
 		"speed": foe.data.attack.projectile_speed * DraftHunter.UNIT * 1.4, "left": 4.0,
 		"damage": foe.data.attack.damage * enemies.damage_mult, "visual": visual, "family": family})
 

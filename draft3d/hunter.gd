@@ -43,7 +43,8 @@ func setup(p_balance: BalanceConfig) -> void:
 	stats = DraftUpgrades.base_stats(balance)
 	hp = max_hp()
 	collision_layer = 4
-	collision_mask = 1
+	# Décor (1) et parois de marche seulement (8 : berges, que les tirs franchissent).
+	collision_mask = 1 | 8
 	floor_snap_length = 0.5
 	floor_max_angle = deg_to_rad(48.0)
 	var capsule := CapsuleShape3D.new()

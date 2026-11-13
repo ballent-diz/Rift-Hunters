@@ -359,3 +359,51 @@ func test_ring_wave_is_blocked_by_cover() -> void:
 	run.hazards.ring(Vector3(19, 0, 0), 8.5, 20.0, 0.1, 10.0)
 	await _frames(90)
 	check_near(hunter.hp, hunter.max_hp(), 0.001, "derrière un obstacle, l'onde ne passe pas")
+	# L'onde est coupée à l'image aussi : des tronçons s'éteignent sur le décor, les autres continuent.
+	run.hazards.ring(Vector3(19, 0, 0), 8.5, 12.0, 0.05, 10.0)
+	await _frames(40)
+	var alive: PackedByteArray = run.hazards._items[run.hazards._items.size() - 1]["alive"]
+	check(alive.count(0) > 5 and alive.count(1) > 5, "onde coupée par les obstacles : %d tronçons éteints sur %d"
+		% [alive.count(0), alive.size()])
+	hunter.god_mode = true
+	var shot_foe: DraftEnemies.Foe = run.enemies.spawn(GameDB.enemy(&"spitter"), hunter.global_position + Vector3(-6, 0, 8))
+	run.enemy_shot(shot_foe)
+	check((run.hostile[run.hostile.size() - 1]["visual"] as Sprite3D).flip_h == false, "tir vers la droite : dessin à l'endroit")
+	shot_foe.pos = hunter.global_position + Vector3(6, 0, 0)
+	run.enemy_shot(shot_foe)
+	check((run.hostile[run.hostile.size() - 1]["visual"] as Sprite3D).flip_h, "tir vers la gauche : dessin retourné")
+
+
+func test_third_level_village() -> void:
+	DraftRun.chosen_chapter = 3
+	await _start()
+	DraftRun.chosen_chapter = 0
+	check(run.level is DraftLevelVillage, "le chapitre 3 se joue sur le Hameau du Gué")
+	check(run.level.spawn_points().size() >= 60, "points d'apparition sur le pourtour (%d)" % run.level.spawn_points().size())
+	# Tous les quartiers et le sommet de la butte sont reliés à la place, par les ponts.
+	for spot: Vector3 in [Vector3(-42, 0, 20), Vector3(34, 0, 20), Vector3(-42, 0, -16), Vector3(12, 0, -27), Vector3(34, 0, -8),
+			DraftLevelVillage.BOSS_SPOT, Vector3(4, DraftLevelVillage.KNOLL_HEIGHT, -24)]:
+		var route: PackedVector3Array = run.level.path(DraftLevelVillage.START, spot)
+		check(route.size() >= 2 and route[route.size() - 1].distance_to(spot) < 1.5, "quartier relié : %s" % spot)
+	# La rivière ne se traverse que par les ponts.
+	var hunter: DraftHunter = run.hunter
+	hunter.automating = true
+	hunter.global_position = Vector3(12, 0.2, 8)
+	hunter.reset_motion()
+	hunter.auto_direction = Vector3(0, 0, -1)
+	await _frames(150)
+	check(hunter.global_position.z > DraftLevelVillage.RIVER.y - 0.3, "la berge arrête le Chasseur : z = %.1f"
+		% hunter.global_position.z)
+	hunter.global_position = Vector3(-26, 0.2, 8)
+	hunter.reset_motion()
+	await _frames(150)
+	check(hunter.global_position.z < DraftLevelVillage.RIVER.x and hunter.global_position.y > -0.3,
+		"le pont ouest se traverse : %s" % hunter.global_position)
+	# Montée de la butte par l'escalier sud.
+	hunter.global_position = Vector3(0, 0.2, -13)
+	hunter.reset_motion()
+	await _frames(110)
+	check(hunter.global_position.y > 1.8, "montée de la butte : y = %.2f" % hunter.global_position.y)
+	hunter.auto_direction = Vector3.ZERO
+	check(not run.sight_clear(Vector3(-15, 0.8, 12), Vector3(-15, 0.8, 24)), "un bâtiment coupe la vue")
+	check(run.sight_clear(Vector3(10, 0.8, 5), Vector3(10, 0.8, -5)), "on tire par-dessus la rivière")

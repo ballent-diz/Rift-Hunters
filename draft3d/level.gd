@@ -1,7 +1,8 @@
 class_name DraftLevel
 extends NavigationRegion3D
 ## Carte de la base 3D : socle commun des niveaux (modules avec collision, navigation, points d'apparition).
-## Chaque niveau en hérite et s'assemble dans `build()` : DraftLevelRuins (niveau 1), DraftLevelGraveyard (niveau 2).
+## Chaque niveau en hérite et s'assemble dans `build()` : DraftLevelRuins (1), DraftLevelGraveyard (2),
+## DraftLevelVillage (3).
 ## `DraftLevel.create(order)` donne la carte d'un chapitre.
 
 ## Emprise de la carte (x, z), départ du Chasseur, lieu d'apparition du boss.
@@ -18,9 +19,14 @@ var ready_for_paths: bool = false
 var _spawn_points: Array[Vector3] = []
 
 
-## Carte du chapitre : niveau 2 pour le chapitre 2, niveau 1 pour les autres en attendant leurs cartes.
+## Carte du chapitre ; les chapitres sans carte propre jouent sur le niveau 1 en attendant.
 static func create(order: int) -> DraftLevel:
-	return DraftLevelGraveyard.new() if order == 2 else DraftLevelRuins.new()
+	match order:
+		2:
+			return DraftLevelGraveyard.new()
+		3:
+			return DraftLevelVillage.new()
+	return DraftLevelRuins.new()
 
 
 func build() -> void:
@@ -63,9 +69,12 @@ func _box(id: String, at: Vector3, size: Vector3, color: Color) -> void:
 
 
 ## Paroi de collision sans maillage, toujours doublée d'une limite visible (mur ou barrière).
-func _fence(at: Vector3, size: Vector3) -> void:
+## `walk_only` : la paroi n'arrête que la marche du Chasseur (berge d'une rivière), pas la vue ni les tirs.
+func _fence(at: Vector3, size: Vector3, walk_only: bool = false) -> void:
 	var body := StaticBody3D.new()
 	body.name = "Fence"
+	if walk_only:
+		body.collision_layer = 8
 	add_child(body)
 	body.position = at
 	var shape := BoxShape3D.new()
@@ -124,10 +133,10 @@ func _prop(path: String, at: Vector3, yaw: float = 0.0, size: float = 1.0, colli
 	var shape_node := CollisionShape3D.new()
 	if collision == "trunk":
 		var trunk := CylinderShape3D.new()
-		trunk.radius = 0.35
-		trunk.height = 2.4
+		trunk.radius = 0.35 / size
+		trunk.height = 2.4 / size
 		shape_node.shape = trunk
-		shape_node.position = Vector3(bounds.get_center().x, 1.2, bounds.get_center().z)
+		shape_node.position = Vector3(bounds.get_center().x, 1.2 / size, bounds.get_center().z)
 	else:
 		var box_shape := BoxShape3D.new()
 		box_shape.size = Vector3(bounds.size.x, bounds.end.y, bounds.size.z)

@@ -7,6 +7,9 @@ extends Node3D
 
 const REACH_UP := 1.2
 const WARN := Color(0.85, 0.25, 0.75)
+## Une onde est faite de tronçons : chacun avance tant qu'il ne rencontre pas de décor, puis s'éteint. L'onde est
+## donc coupée derrière un obstacle (à l'image comme pour les dégâts) et ne passe que par les ouvertures.
+const RING_SEGMENTS := 120
 
 var hunter: DraftHunter
 var hits: int = 0
@@ -42,11 +45,60 @@ func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float, 
 	var node: MeshInstance3D = _node(mesh, at)
 	node.scale = Vector3(1.5, 0.15, 1.5)
 	_items.append({"kind": &"ring", "at": at, "radius": 1.5, "speed": speed, "reach": reach, "left": delay,
-		"delay": delay, "damage": damage, "fx": fx, "node": node})
+		"delay": delay, "damage": damage, "fx": fx, "node": node, "arcs": _arcs(at), "alive": _full_ring()})
+
+
+func _full_ring() -> PackedByteArray:
+	var alive := PackedByteArray()
+	alive.resize(RING_SEGMENTS)
+	alive.fill(1)
+	return alive
+
+
+func _arcs(at: Vector3) -> MultiMeshInstance3D:
+	var arcs := MultiMeshInstance3D.new()
+	var multimesh := MultiMesh.new()
+	multimesh.transform_format = MultiMesh.TRANSFORM_3D
+	var piece := BoxMesh.new()
+	piece.size = Vector3(1.0, 0.12, 0.4)
+	multimesh.mesh = piece
+	multimesh.instance_count = RING_SEGMENTS
+	arcs.multimesh = multimesh
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.albedo_color = Color(0.75, 0.5, 1.0, 0.8)
+	arcs.material_override = material
+	arcs.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	arcs.visible = false
+	add_child(arcs)
+	arcs.global_position = at + Vector3.UP * 0.1
+	return arcs
+
+
+## Fait avancer les tronçons de `before` à `after` : celui qui touche le décor s'éteint pour de bon.
+func _advance_ring(item: Dictionary, before: float, after: float) -> void:
+	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var origin: Vector3 = (item["at"] as Vector3) + Vector3.UP * 0.8
+	var alive: PackedByteArray = item["alive"]
+	var arcs: MultiMeshInstance3D = item["arcs"]
+	arcs.visible = true
+	var length: float = after * TAU / RING_SEGMENTS * 1.05
+	for k: int in RING_SEGMENTS:
+		var angle: float = TAU * k / RING_SEGMENTS
+		var direction := Vector3(cos(angle), 0, sin(angle))
+		if alive[k] == 1 and not space.intersect_ray(PhysicsRayQueryParameters3D.create(origin + direction * before,
+				origin + direction * after, 1)).is_empty():
+			alive[k] = 0
+		var basis := Basis(Vector3.UP, -angle + PI * 0.5).scaled(Vector3(length, 1, 1) if alive[k] == 1 else Vector3.ZERO)
+		arcs.multimesh.set_instance_transform(k, Transform3D(basis, direction * after))
+	item["alive"] = alive
 
 
 func clear() -> void:
 	for item: Dictionary in _items:
+		if item.has("arcs"):
+			(item["arcs"] as Node).queue_free()
 		(item["node"] as Node).queue_free()
 	_items.clear()
 
@@ -80,8 +132,8 @@ func _physics_process(delta: float) -> void:
 			_play_fx(item)
 			var before: float = item["radius"]
 			item["radius"] = before + float(item["speed"]) * delta
-			node.scale = Vector3(float(item["radius"]), 0.15, float(item["radius"]))
-			material.albedo_color = Color(0.75, 0.5, 1.0, 0.75)
+			node.visible = false
+			_advance_ring(item, before, float(item["radius"]))
 			var distance: float = _flat(hunter.global_position - (item["at"] as Vector3)).length()
 			if distance > before and distance <= float(item["radius"]) and _level_with(item) and not hunter.is_dashing() \
 					and _exposed(item):
@@ -93,6 +145,8 @@ func _physics_process(delta: float) -> void:
 				_strike(item)
 			done = true
 		if done:
+			if item.has("arcs"):
+				(item["arcs"] as Node).queue_free()
 			node.queue_free()
 			_items.remove_at(i)
 		i -= 1
@@ -106,10 +160,11 @@ func _play_fx(item: Dictionary) -> void:
 		item["fx"] = Callable()
 
 
-## L'onde part du centre : un mur, un pilier, une caisse ou une tombe entre lui et le Chasseur l'arrête.
+## Le tronçon de l'onde qui arrive sur le Chasseur est-il encore en vie (aucun décor rencontré depuis le centre) ?
 func _exposed(item: Dictionary) -> bool:
-	var query := PhysicsRayQueryParameters3D.create((item["at"] as Vector3) + Vector3.UP * 0.8, hunter.chest(), 1)
-	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()
+	var offset: Vector3 = hunter.global_position - (item["at"] as Vector3)
+	var k: int = posmod(roundi(atan2(offset.z, offset.x) / TAU * RING_SEGMENTS), RING_SEGMENTS)
+	return (item["alive"] as PackedByteArray)[k] == 1
 
 
 func _strike(item: Dictionary) -> void:
