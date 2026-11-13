@@ -23,6 +23,7 @@ var _boss_bar: ProgressBar
 var _boss_name: Label
 var _build: Label
 var _hint: Label
+var _spells: Label
 var _banner: Label
 var _banner_left: float = 0.0
 var _offer_root: Control
@@ -79,6 +80,14 @@ func _ready() -> void:
 	_build.offset_bottom = -14
 	_build.offset_right = 360
 	_build.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+	_spells = _label(root, 14, Color("cfe6ff"))
+	_spells.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
+	_spells.offset_left = -300
+	_spells.offset_right = -16
+	_spells.offset_top = -110
+	_spells.offset_bottom = -14
+	_spells.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_spells.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
 	_hint = _label(root, 15, DIM)
 	_hint.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	_hint.offset_left = -420
@@ -116,6 +125,12 @@ func refresh(run: Node, delta: float) -> void:
 		_boss_name.text = tr(enemies.boss.boss.name_key)
 		_boss_bar.max_value = enemies.boss.max_hp
 		_boss_bar.value = enemies.boss.hp
+	var spells: DraftSpells = run.get("spells")
+	var lines: PackedStringArray = []
+	for i: int in spells.spells.size():
+		lines.append("%s  %s" % [tr(spells.spells[i].name_key),
+			tr("DRAFT_READY") if spells.cooldowns[i] <= 0.0 else "%.1f s" % spells.cooldowns[i]])
+	_spells.text = "\n".join(lines)
 	_banner_left -= delta
 	_banner.visible = _banner_left > 0.0
 
@@ -231,7 +246,7 @@ func show_end(victory: bool, summary: String) -> void:
 
 
 ## Choix du chapitre au lancement : son bestiaire, ses gardiens et son Dévoreur.
-func show_chapters(chapters: Array[ChapterData]) -> void:
+func show_chapters(chapters: Array[ChapterData], done: Array[int]) -> void:
 	var overlay: Control = _overlay()
 	var column := VBoxContainer.new()
 	column.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
@@ -244,7 +259,11 @@ func show_chapters(chapters: Array[ChapterData]) -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	for i: int in chapters.size():
 		var button := Button.new()
-		button.text = "%d. %s" % [i + 1, tr(chapters[i].name_key)]
+		var open: bool = DraftProgress.is_unlocked(i + 1, done)
+		button.text = "%d. %s%s" % [i + 1, tr(chapters[i].name_key), "  ✓" if done.has(i + 1) else ""]
+		button.disabled = not open
+		if not open:
+			button.text += "  —  " + tr("DRAFT_CHAPTER_LOCKED")
 		button.custom_minimum_size = Vector2(420, 46)
 		button.focus_mode = Control.FOCUS_NONE
 		button.add_theme_color_override("font_color", chapters[i].color.lightened(0.4))

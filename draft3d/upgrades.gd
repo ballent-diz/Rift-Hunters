@@ -14,6 +14,8 @@ const HUNTER_STATS: Array[StringName] = [StatKeys.MAX_HP, StatKeys.REGEN, StatKe
 	StatKeys.DAMAGE, StatKeys.ATTACK_SPEED, StatKeys.PROJECTILE_COUNT, StatKeys.PIERCE, StatKeys.BOLT_SPLIT,
 	StatKeys.BOLT_RANGE, StatKeys.DASH_COOLDOWN, StatKeys.DAMAGE_TAKEN]
 
+const SPELL_STATS: Array[StringName] = [StatKeys.SPELL_DAMAGE, StatKeys.SPELL_COOLDOWN]
+
 var catalog: Array[UpgradeData] = []
 var stacks: Dictionary = {}
 var _groups: Dictionary = {}
@@ -51,10 +53,24 @@ static func base_stats(balance: BalanceConfig) -> StatSheet:
 		StatKeys.PROJECTILE_COUNT: float(balance.bolt.projectile_count), StatKeys.PIERCE: float(balance.bolt.pierce),
 		StatKeys.BOLT_SPLIT: float(balance.bolt.split), StatKeys.BOLT_RANGE: balance.bolt.attack_range,
 		StatKeys.DASH_COOLDOWN: balance.dash_cooldown, StatKeys.DAMAGE_TAKEN: 1.0,
+		StatKeys.SPELL_DAMAGE: 1.0, StatKeys.SPELL_COOLDOWN: 1.0,
 	}
 	for key: StringName in bases:
 		sheet.set_base(key, float(bases[key]))
 	return sheet
+
+
+## Arbre de compétences du profil (HunterTree.effects_for, lecture seule) : seuls les nœuds qui modifient une
+## statistique du Chasseur ou de ses sorts s'appliquent ici. Renvoie le nombre d'effets appliqués.
+static func apply_tree(stats: StatSheet, effects: Array[GameplayEffect]) -> int:
+	var applied: int = 0
+	for effect: GameplayEffect in effects:
+		var modifier := effect as StatModifierEffect
+		if modifier != null and modifier.target == StatModifierEffect.Target.PLAYER \
+				and (HUNTER_STATS.has(modifier.stat) or SPELL_STATS.has(modifier.stat)):
+			stats.add_modifier(modifier.stat, modifier.flat, modifier.pct)
+			applied += 1
+	return applied
 
 
 func stacks_of(id: StringName) -> int:

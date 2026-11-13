@@ -1013,3 +1013,6 @@ victoire/défaite, sans aucun Écho. Le jeu 2D reste dans `main` comme archive.
 - **Suite, une PR par lot** : Échos, monstres par chapitre, audio, arbre de compétences, autres cartes.
 - Les lots restants de la session du 11 novembre (boss de fin de chapitre, masquage, finales en cercle) concernent le
   jeu 2D : en suspens.
+- **13 novembre, raccordés à la base 3D** : monstres des cinq chapitres, gardiens et Dévoreurs (sans Nebulorax),
+  ombres calées, PixelFX par famille, objets peints en décor, audio, quatre sorts, arbre (statistiques), campagne
+  par chapitres. Détail et ce qui reste dans docs/PREMIER_JET_3D.md, « Raccordements de l'existant ».

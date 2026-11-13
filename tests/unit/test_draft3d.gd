@@ -260,3 +260,40 @@ func test_audio_follows_the_run() -> void:
 	for id: StringName in [&"bolt_fire", &"enemy_hit", &"enemy_death", &"player_hurt", &"dash", &"xp_pickup", &"level_up",
 			&"ui_click", &"boss_roar", &"boss_telegraph", &"elite_spawn", &"heart_exposed"]:
 		check(Audio.sfx_events.has(String(id)), "son déclaré au manifeste audio : %s" % id)
+
+
+func test_spells_tree_and_campaign() -> void:
+	var previous: ProfileData = Profile.profile
+	var tested := ProfileData.new()
+	HunterTree.unlock_all_for_testing(tested)
+	Profile.profile = tested
+	await _start()
+	Profile.profile = previous
+	check(run.tree_effects > 0, "l'arbre du profil s'applique (%d effets)" % run.tree_effects)
+	check(not run.spells.spells.is_empty(), "des sorts équipés sont raccordés")
+	for data: SpellData in run.spells.spells:
+		check(DraftSpells.SUPPORTED.has(data.spell_kind), "sort pris en charge : %s" % data.id)
+	run.queue_free()
+	run = null
+	# Profil neuf : sorts de départ de l'équilibrage (Taille et Lance), qui partent seuls et blessent.
+	Profile.profile = ProfileData.new()
+	await _start()
+	Profile.profile = previous
+	check_eq(run.spells.spells.size(), 2, "deux sorts de départ")
+	run.hunter.attack_timer = 100000.0
+	run.hunter.god_mode = true
+	var foe: DraftEnemies.Foe = run.enemies.spawn(GameDB.enemy(&"husk"), run.hunter.global_position + Vector3(2, 0, 0))
+	await _frames(480)
+	check(run.spells.casts >= 1 and (not foe.alive or foe.hp < foe.max_hp), "un sort part seul et blesse (%d lancés)"
+		% run.spells.casts)
+	check(run.spells.cooldowns[0] > 0.0 or run.spells.cooldowns[1] > 0.0, "le sort lancé se recharge")
+	# Campagne : un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part du profil.
+	check_eq(DraftProgress.path, "", "essais : aucune sauvegarde écrite")
+	check(DraftProgress.is_unlocked(1, []) and not DraftProgress.is_unlocked(2, []), "seul le chapitre 1 est ouvert")
+	check(DraftProgress.is_unlocked(2, [1]) and not DraftProgress.is_unlocked(3, [1]), "vaincre le 1 ouvre le 2")
+	DraftProgress.path = "user://draft3d_progress_test.json"
+	DraftProgress.record_victory(1)
+	DraftProgress.record_victory(2)
+	check_eq(DraftProgress.cleared(), [1, 2] as Array[int], "victoires enregistrées")
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftProgress.path))
+	DraftProgress.path = ""

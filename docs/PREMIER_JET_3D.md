@@ -49,6 +49,30 @@ Perforation, Réflexes, Régénération, Éclatement) et deux propres au mode (`
 Rempart). `DraftUpgrades.is_valid` refuse toute carte à condition d'Écho, à statistique d'équipe ou dépendante de
 l'ancienne simulation.
 
+## Raccordements de l'existant (13 novembre)
+
+Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n'est copié.
+
+| Lot | Ce qui est branché | Fichier |
+|---|---|---|
+| Monstres et boss | Bestiaire des cinq chapitres lu dans la campagne (48 monstres mobiles), choix du chapitre au lancement, un gardien du chapitre à 4 min, son Dévoreur à 8 min ; comportements passe-faille et invocateur ; Nebulorax écarté | `roster.gd`, `enemies.gd` |
+| Ombres calées | Disque au sol tiré du champ `shadow` du manifeste (empreinte mesurée) | `sprite_view.gd` |
+| PixelFX | Effets par famille du catalogue `techniques.json` : tirs, impacts, morts, apparitions, techniques des boss | `pixelfx.gd` |
+| Objets peints | Six objets du manifeste en décor selon le chapitre (sceaux de barrière, braseros, lanternes, cristaux, portails) | `run.gd` (`PROPS`) |
+| Audio | Musiques par contexte (partie, boss, seconde phase, victoire, défaite), douze sons, tempo (les cristaux battent la mesure) | `run.gd` |
+| Sorts | Sorts équipés dans l'arbre du profil, ou Taille et Lance par défaut ; ils partent seuls. Pris en charge : Taille, Lance, Rupture, Bond de Faille | `spells.gd` |
+| Arbre de compétences | Nœuds actifs du profil qui modifient une statistique du Chasseur ou de ses sorts, en lecture seule | `upgrades.gd` (`apply_tree`) |
+| Campagne | Un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part `user://draft3d_progress.json` | `progress.gd` |
+
+**Non raccordé, et pourquoi**
+- Effets peints des boss et barrières peintes animées : ce sont des scènes 2D ; les afficher en 3D demande un rendu
+  intermédiaire par effet. Les boss utilisent les PixelFX à la place.
+- Techniques propres à chaque monstre et à chaque boss : les boss partagent quatre techniques communes (griffes, onde,
+  pluie, invocation, rayon en seconde phase) avec leurs propres animations ; les élites ne sont pas repris.
+- Huit sorts sur douze, les variantes de sorts et les nœuds de l'arbre qui ne sont pas de simples statistiques.
+- Écran de l'arbre dans ce mode : l'arbre se règle toujours dans le refuge de la campagne.
+- Échos : toujours absents, comme demandé.
+
 ## Règles de hauteur et d'obstacles
 
 - **On touche ce que l'on voit** : viser, tirer et cracher demandent une vue dégagée (aucun décor entre les deux),
@@ -65,7 +89,7 @@ piliers, quatre groupes de caisses, parapets en hauteur ; murs au nord et sur le
 
 ## Vérifications
 
-`tests/unit/test_draft3d.gd` (7 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et
+`tests/unit/test_draft3d.gd` (11 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et
 plafonds, seuils d'EXP, pause et reprise du choix, application des cartes, escalier, limites, abris, traits arrêtés,
 ennemi qui blesse, EXP ramassée, défaite, victoire sur le boss, partie neuve remise à zéro.
 
@@ -83,8 +107,8 @@ Capture : `docs/previews/premier-jet-3d/boss.webp` (boss et son onde annoncée, 
 
 - Équilibrage volontairement sommaire (le propriétaire juge en jouant) : le bot, peu habile, tient 2 à 4 minutes.
   Réglages dans `draft3d/tuning.gd`.
-- Pas de son dans ce mode ; pas de vidéo livrée (rendu logiciel trop lent ici).
-- Le boss utilise les données de Nebulorax avec des techniques réécrites, sans ses effets peints.
+- Pas de vidéo livrée (rendu logiciel trop lent ici).
+- Les raccordements du 13 novembre n'ont été vérifiés que par les essais automatiques, sans affichage.
 - Fluidité réelle et lisibilité en mouvement non vérifiables sans carte graphique : à juger sur PC.
 
 ## Suite prévue (une PR par lot)

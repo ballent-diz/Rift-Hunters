@@ -40,6 +40,8 @@ var enemies: DraftEnemies
 var hazards: DraftHazards
 var hud: DraftHud
 var upgrades: DraftUpgrades
+var spells: DraftSpells
+var tree_effects: int = 0
 var camera: Camera3D
 var rng := RandomNumberGenerator.new()
 var balance: BalanceConfig
@@ -87,6 +89,17 @@ func _ready() -> void:
 	hunter.setup(balance)
 	hunter.stats.add_modifier(StatKeys.DAMAGE, 0.0, tuning.hunter_damage_pct)
 	hunter.stats.add_modifier(StatKeys.ATTACK_SPEED, 0.0, tuning.hunter_attack_speed_pct)
+	# Arbre de compétences et sorts équipés du profil de la campagne, en lecture seule.
+	tree_effects = DraftUpgrades.apply_tree(hunter.stats, HunterTree.effects_for(Profile.profile))
+	hunter.hp = hunter.max_hp()
+	var equipped: Array[StringName] = []
+	for id: StringName in HunterTree.loadout(Profile.profile)["spells"]:
+		if id != &"":
+			equipped.append(id)
+	spells = DraftSpells.new()
+	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
+	if _bot or DisplayServer.get_name() == "headless":
+		DraftProgress.path = ""
 	hunter.global_position = DraftLevel.START
 	hunter.reset_motion()
 	hunter.god_mode = _options.has("god")
@@ -128,7 +141,7 @@ func _ready() -> void:
 	if _options.has("chapter"):
 		chosen_chapter = int(_options["chapter"])
 	if chosen_chapter == 0 and not _bot and DisplayServer.get_name() != "headless" and _shot_times.is_empty():
-		hud.show_chapters(DraftRoster.chapters())
+		hud.show_chapters(DraftRoster.chapters(), DraftProgress.cleared())
 		chosen_chapter = await hud.chapter_chosen
 	chapter = maxi(chosen_chapter, 1)
 	roster = DraftRoster.for_chapter(chapter)
@@ -252,6 +265,7 @@ func _physics_process(delta: float) -> void:
 	if _bot:
 		_bot_step()
 	_auto_attack()
+	spells.step(delta)
 	_step_bolts(delta)
 	_step_hostile(delta)
 	_step_gems(delta)
@@ -571,6 +585,8 @@ func _finish(victory: bool) -> void:
 	hunter.active = false
 	hunter.god_mode = victory
 	Audio.play_context("victory" if victory else "defeat")
+	if victory:
+		DraftProgress.record_victory(chapter)
 	_end_delay = 1.0
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills])
 
