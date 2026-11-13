@@ -1002,3 +1002,14 @@ Détail et reproduction : [art/PIXELFX_SORTS_MANQUANTS.md](art/PIXELFX_SORTS_MAN
 Branche de livraison : `codex/pixelfx-sorts-manquants`. Import Godot 4.3, 379 scripts sans échec,
 521 tests de la suite complète réussis, puis 12 tests PixelFX ciblés sur la dernière retouche ;
 510 ressources valides, zéro erreur ; lint GDScript sans problème. Poids du lot : environ 8,89 Mio.
+
+## Nouvelle base 3D (draft3d) — décision du 12-13 novembre 2026
+
+Le propriétaire repart sur une base 3D (décors modulaires en volume, sprites 2D) : docs/PREMIER_JET_3D.md.
+Premier jet livré sur `claude/premier-jet-3d` : une carte, le Chasseur seul, hordes, EXP, améliorations, boss,
+victoire/défaite, sans aucun Écho. Le jeu 2D reste dans `main` comme archive.
+- **Repris** (référencé, pas copié) : données (`data/`), autoloads, manifeste et sprites, PixelFX, textes, équilibrage.
+- **Abandonné pour la suite** : cartes peintes, collisions peintes, masques de masquage, sources par régions.
+- **Suite, une PR par lot** : Échos, monstres par chapitre, audio, arbre de compétences, autres cartes.
+- Les lots restants de la session du 11 novembre (boss de fin de chapitre, masquage, finales en cercle) concernent le
+  jeu 2D : en suspens.
