@@ -47,7 +47,7 @@ func build() -> void:
 
 
 func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box", size: float = SCALE) -> Node3D:
-	return _prop(PACK % id, at, yaw, size, collision)
+	return _prop(PACK % id, at, yaw, size, collision, true)
 
 
 ## Deux rives d'herbe, la rivière entre elles (eau en contrebas, bords fermés), trois ponts de planches.
@@ -141,8 +141,8 @@ func _fields() -> void:
 			_piece("building_grain", Vector3(-36.0 + column * 11.0, 0.02, -8.0 - row * 9.0), 0, "none", 4.5)
 	for x: int in [-39, -27]:
 		_piece("fence_wood_straight", Vector3(x, 0, -12.5), 90)
-	_piece("fence_wood_straight", Vector3(-19.5, 0, -9))
-	_piece("fence_wood_straight", Vector3(-19.5, 0, -19))
+	_piece("fence_wood_straight", Vector3(-18.5, 0, -9))
+	_piece("fence_wood_straight", Vector3(-18.5, 0, -19))
 	_piece("building_lumbermill_blue", Vector3(-18, 0, -27), 160)
 	_piece("resource_lumber", Vector3(-24, 0, -27), 20, "box", 6.0)
 	_piece("sack", Vector3(-31, 0, -26), 0, "none", 8.0)

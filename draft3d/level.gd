@@ -113,13 +113,16 @@ func _setup_navigation() -> void:
 
 ## Élément de décor d'un pack importé tel quel (glTF), avec une collision simple : "box" (boîte englobante),
 ## "trunk" (tronc : les traits passent sous le feuillage), "none" (traversable).
-func _prop(path: String, at: Vector3, yaw: float = 0.0, size: float = 1.0, collision: String = "box") -> Node3D:
+## `centered` : le module est posé par le centre de son emprise au sol, et non par son origine (les pièces de bord
+## d'un pack en tuiles ont leur origine au centre de la tuile, à plusieurs mètres de leur dessin).
+func _prop(path: String, at: Vector3, yaw: float = 0.0, size: float = 1.0, collision: String = "box",
+		centered: bool = false) -> Node3D:
 	var instance: Node3D = (load(path) as PackedScene).instantiate()
 	add_child(instance)
 	instance.position = at
 	instance.scale = Vector3.ONE * size
 	instance.rotation.y = deg_to_rad(yaw)
-	if collision == "none":
+	if collision == "none" and not centered:
 		return instance
 	var bounds := AABB()
 	var first: bool = true
@@ -128,6 +131,11 @@ func _prop(path: String, at: Vector3, yaw: float = 0.0, size: float = 1.0, colli
 		var box: AABB = mesh.transform * mesh.mesh.get_aabb()
 		bounds = box if first else bounds.merge(box)
 		first = false
+	if centered:
+		var middle := Vector3(bounds.get_center().x, 0.0, bounds.get_center().z)
+		instance.position = at - instance.basis * middle
+	if collision == "none":
+		return instance
 	var body := StaticBody3D.new()
 	instance.add_child(body)
 	var shape_node := CollisionShape3D.new()

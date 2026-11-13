@@ -218,6 +218,11 @@ func _process(delta: float) -> void:
 	focus.x = clampf(focus.x, level.bounds_min.x + 12.0, level.bounds_max.x - 12.0)
 	focus.z = clampf(focus.z, level.bounds_min.y + 4.0, level.bounds_max.y - 7.0)
 	_camera_at = _camera_at.lerp(focus, 1.0 - exp(-8.0 * delta))
+	if _options.has("look"):
+		# Gros plan fixe sur un point de la carte (captures de contrôle) : --look=x,z
+		var spot: PackedStringArray = str(_options["look"]).split(",")
+		_camera_at = Vector3(float(spot[0]), 0, float(spot[1]))
+		camera.size = 34.0
 	if _options.has("overview"):
 		# Vue d'ensemble de la carte (captures de contrôle).
 		_camera_at = Vector3((level.bounds_min.x + level.bounds_max.x) * 0.5, 0, (level.bounds_min.y + level.bounds_max.y) * 0.5)
