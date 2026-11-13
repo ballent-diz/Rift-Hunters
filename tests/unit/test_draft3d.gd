@@ -127,7 +127,7 @@ func test_map_stairs_shelters_and_heights() -> void:
 		var path: PackedVector3Array = run.level.path(from, top)
 		check(path.size() >= 2 and path[path.size() - 1].distance_to(top) < 1.0 and absf(path[path.size() - 1].y - 2.0) < 0.4,
 			"la terrasse est accessible depuis %s" % from)
-	check(run.level.spawn_points().size() >= 20, "points d'apparition sur le pourtour")
+	check(run.level.spawn_points().size() >= 50, "points d'apparition sur le pourtour")
 	# Le Chasseur monte réellement l'escalier central.
 	run.hunter.global_position = Vector3(0, 0.2, -8)
 	run.hunter.reset_motion()
@@ -137,10 +137,18 @@ func test_map_stairs_shelters_and_heights() -> void:
 	check(run.hunter.global_position.y > 1.8 and run.hunter.global_position.z < -12.0, "montée de l'escalier : y = %.2f"
 		% run.hunter.global_position.y)
 	# Limites : on ne sort pas de la carte.
+	run.hunter.global_position = Vector3(31, 0.2, 22)
+	run.hunter.reset_motion()
 	run.hunter.auto_direction = Vector3(1, 0, 1)
 	await _frames(400)
 	var pos: Vector3 = run.hunter.global_position
-	check(absf(pos.x) < DraftLevel.HALF.x + 0.6 and absf(pos.z) < DraftLevel.HALF.y + 0.6 and pos.y > -0.5, "limites tenues")
+	check(pos.x < DraftLevel.MAX.x + 0.6 and pos.z < DraftLevel.MAX.y + 0.6 and pos.x > 40.0 and pos.y > -0.5,
+		"limites tenues, et l'on traverse la carte jusqu'au coin : %s" % pos)
+	# Tous les quartiers communiquent : Parvis, Entrepôts, Colonnade, petite terrasse d'angle.
+	for spot: Vector3 in [Vector3(-40, 0, 30), Vector3(-44, 0, -16), Vector3(42, 0, 30), Vector3(30, 0, -16),
+			Vector3(40, DraftLevel.TERRACE_HEIGHT, -16)]:
+		var route: PackedVector3Array = run.level.path(DraftLevel.BOSS_SPOT, spot)
+		check(route.size() >= 2 and route[route.size() - 1].distance_to(spot) < 1.2, "quartier relié à la Cour : %s" % spot)
 	run.hunter.auto_direction = Vector3.ZERO
 	# Abris : un mur coupe la vue et arrête les traits ; à découvert le trait touche.
 	check(not run.sight_clear(Vector3(13, 0.8, 0), Vector3(17, 0.8, 0)), "le muret est coupe la vue")

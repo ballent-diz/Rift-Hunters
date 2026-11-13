@@ -185,7 +185,7 @@ func _build_lighting() -> void:
 ## murs : ils ne gênent ni les déplacements ni les tirs).
 func _build_props() -> void:
 	var pair: Array = PROPS[clampi(chapter, 1, PROPS.size()) - 1]
-	var spots: Array = [[Vector3(-22, 0, -18), Vector3(22, 0, -18), Vector3(-22.5, 0, 18), Vector3(22.5, 0, 18)],
+	var spots: Array = [[Vector3(-22, 0, -18), Vector3(22, 0, -18), Vector3(-46, 0, 34), Vector3(46, 0, 34)],
 		[Vector3(-10.8, DraftLevel.TERRACE_HEIGHT, -19), Vector3(10.8, DraftLevel.TERRACE_HEIGHT, -19)]]
 	for i: int in pair.size():
 		for at: Vector3 in spots[i]:
@@ -237,9 +237,13 @@ func _process(delta: float) -> void:
 	# La caméra suit la position affichée du Chasseur (interpolée), pas sa position physique.
 	var focus: Vector3 = hunter.view.render_position()
 	# Près des bords, la caméra s'arrête avant de ne montrer que le vide derrière les limites.
-	focus.x = clampf(focus.x, -DraftLevel.HALF.x + 12.0, DraftLevel.HALF.x - 12.0)
-	focus.z = clampf(focus.z, -DraftLevel.HALF.y + 4.0, DraftLevel.HALF.y - 7.0)
+	focus.x = clampf(focus.x, DraftLevel.MIN.x + 12.0, DraftLevel.MAX.x - 12.0)
+	focus.z = clampf(focus.z, DraftLevel.MIN.y + 4.0, DraftLevel.MAX.y - 7.0)
 	_camera_at = _camera_at.lerp(focus, 1.0 - exp(-8.0 * delta))
+	if _options.has("overview"):
+		# Vue d'ensemble de la carte (captures de contrôle).
+		_camera_at = Vector3(0, 0, 8)
+		camera.size = 66.0
 	camera.position = _camera_at + CAMERA_OFFSET
 	hud.refresh(self, delta)
 	_draw_gems()
