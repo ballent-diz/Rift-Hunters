@@ -12,6 +12,14 @@ enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 
 const BOLT_SPEED := 16.8
 const CAMERA_OFFSET := Vector3(0, 18, 17)
+## Décor peint par chapitre : [objet du pourtour, objet de la terrasse], chacun [identifiant du manifeste, animation].
+const PROPS: Array = [
+	[[&"object.barrier_1.seal_a", &"idle"], [&"object.altar_seal", &"intact"]],
+	[[&"object.brazier", &"lit"], [&"object.ember_pod", &"idle"]],
+	[[&"object.mist_lantern", &"lit_idle"], [&"object.crystal_mirror.marsh_heart", &"idle"]],
+	[[&"object.brazier", &"lit"], [&"object.crystal_mirror", &"idle"]],
+	[[&"object.mirror_portal", &"active"], [&"object.barrier_5.seal_a", &"idle"]],
+]
 
 ## Chapitre gardé d'une partie à l'autre (R rejoue le même) ; 0 : le choix s'affiche au lancement.
 static var chosen_chapter: int = 0
@@ -36,6 +44,7 @@ var camera: Camera3D
 var rng := RandomNumberGenerator.new()
 var balance: BalanceConfig
 var bolts: Array[Dictionary] = []
+var props: Array[DraftSpriteView] = []
 var hostile: Array[Dictionary] = []
 var gems: Array[Dictionary] = []
 var blocked_bolts: int = 0
@@ -124,6 +133,7 @@ func _ready() -> void:
 	chapter = maxi(chosen_chapter, 1)
 	roster = DraftRoster.for_chapter(chapter)
 	hud.banner(tr(roster.chapter.name_key), 3.0)
+	_build_props()
 	# Audio de la campagne (manifeste, musiques par contexte, tempo) : rien n'est copié.
 	Audio.begin_map()
 	Audio.play_context("run")
@@ -156,6 +166,25 @@ func _build_lighting() -> void:
 	fill.light_color = Color("7b7cb5")
 	fill.light_energy = 0.18
 	add_child(fill)
+
+
+## Objets peints de la campagne posés en décor selon le chapitre (sprites du manifeste, sans collision, contre les
+## murs : ils ne gênent ni les déplacements ni les tirs).
+func _build_props() -> void:
+	var pair: Array = PROPS[clampi(chapter, 1, PROPS.size()) - 1]
+	var spots: Array = [[Vector3(-22, 0, -18), Vector3(22, 0, -18), Vector3(-22.5, 0, 18), Vector3(22.5, 0, 18)],
+		[Vector3(-10.8, DraftLevel.TERRACE_HEIGHT, -19), Vector3(10.8, DraftLevel.TERRACE_HEIGHT, -19)]]
+	for i: int in pair.size():
+		for at: Vector3 in spots[i]:
+			if not Assets.has_sheet(pair[i][0]):
+				continue
+			var prop := DraftSpriteView.new()
+			prop.name = "Prop"
+			add_child(prop)
+			prop.setup(pair[i][0])
+			prop.loop_animation(pair[i][1])
+			prop.snap_to(at)
+			props.append(prop)
 
 
 func _build_camera() -> void:
@@ -262,7 +291,7 @@ func _spawn_waves(delta: float) -> void:
 		var boss: BossData = roster.boss
 		enemies.spawn_boss(boss, DraftLevel.BOSS_SPOT if hunter.global_position.distance_to(DraftLevel.BOSS_SPOT) > 8.0
 			else level.spawn_point(rng, hunter.global_position))
-		spawn_fx("hit", enemies.boss.pos + Vector3.UP, 4.0)
+		fx(&"portal", family_of(enemies.boss), enemies.boss.pos + Vector3.UP * 1.2, 2.5)
 		Audio.play_context("boss")
 		Audio.play_sfx(&"boss_roar")
 		hud.banner(tr("DRAFT_BOSS_WARNING") % tr(boss.name_key), 4.0)
@@ -303,7 +332,7 @@ func boss_summon(boss: DraftEnemies.Foe, amount: int) -> void:
 	for i: int in amount:
 		var at: Vector3 = boss.pos + Vector3.RIGHT.rotated(Vector3.UP, TAU * i / amount) * 3.0
 		enemies.spawn(roster.enemies[0], at)
-		spawn_fx("hit", level.closest(at) + Vector3.UP * 0.4)
+		fx(&"summon_rise", family_of(boss), level.closest(at) + Vector3.UP * 0.6)
 
 
 ## Invocation d'un monstre (mère de couvée) : petits monstres du chapitre autour de lui, dans la limite de la vague.
@@ -358,7 +387,7 @@ func _auto_attack() -> void:
 
 
 func fire_bolt(origin: Vector3, direction: Vector3, damage: float, reach: float, pierce: int, split: int) -> void:
-	var visual: Sprite3D = spawn_fx("fireball", origin, 0.75 if split >= 0 else 0.5, true)
+	var visual: Sprite3D = fx(&"arcane_orb", DraftPixelFx.DEFAULT_FAMILY, origin, 0.75 if split >= 0 else 0.5, true)
 	visual.flip_h = direction.dot(camera.global_basis.x) < 0.0
 	bolts.append({"at": origin, "dir": direction, "left": reach, "damage": damage, "pierce": pierce, "split": split,
 		"hit": [], "visual": visual})
@@ -382,7 +411,7 @@ func _step_bolts(delta: float) -> void:
 			if (shot["hit"] as Array).has(foe) or absf(_aim_point(foe).y - to.y) > foe.radius + 0.6:
 				continue
 			(shot["hit"] as Array).append(foe)
-			spawn_fx("hit", to)
+			fx(&"hit", family_of(foe), to)
 			enemies.hit(foe, float(shot["damage"]), (shot["dir"] as Vector3) * balance.bolt.knockback * DraftHunter.UNIT * 3.0)
 			if int(shot["split"]) > 0:
 				for n: int in int(shot["split"]):
@@ -398,7 +427,7 @@ func _step_bolts(delta: float) -> void:
 		shot["left"] = float(shot["left"]) - step
 		if spent or float(shot["left"]) <= 0.0:
 			if spent and not wall.is_empty():
-				spawn_fx("hit", to, 0.7)
+				fx(&"mana_burst", DraftPixelFx.DEFAULT_FAMILY, to, 0.6)
 			(shot["visual"] as Node).queue_free()
 			bolts.remove_at(i)
 
@@ -407,11 +436,11 @@ func _step_bolts(delta: float) -> void:
 
 func enemy_shot(foe: DraftEnemies.Foe) -> void:
 	var origin: Vector3 = foe.pos + Vector3.UP * 0.6
-	var visual: Sprite3D = spawn_fx("fireball", origin, 0.6, true)
-	visual.modulate = Color(0.6, 1.3, 0.5)
+	var family: StringName = family_of(foe)
+	var visual: Sprite3D = fx(DraftPixelFx.shot_effect("flights", family), family, origin, 0.7, true)
 	hostile.append({"at": origin, "dir": origin.direction_to(hunter.chest()),
 		"speed": foe.data.attack.projectile_speed * DraftHunter.UNIT * 1.4, "left": 4.0,
-		"damage": foe.data.attack.damage * enemies.damage_mult, "visual": visual})
+		"damage": foe.data.attack.damage * enemies.damage_mult, "visual": visual, "family": family})
 
 
 func _step_hostile(delta: float) -> void:
@@ -428,7 +457,7 @@ func _step_hostile(delta: float) -> void:
 			done = true
 		shot["at"] = to
 		if done:
-			spawn_fx("hit", to, 0.7)
+			fx(DraftPixelFx.shot_effect("shots", shot["family"]), shot["family"], to, 0.8)
 			(shot["visual"] as Node).queue_free()
 			hostile.remove_at(i)
 
@@ -438,7 +467,7 @@ func _step_hostile(delta: float) -> void:
 func on_foe_killed(foe: DraftEnemies.Foe) -> void:
 	kills += 1
 	Audio.play_sfx(&"enemy_death")
-	spawn_fx("hit", foe.pos + Vector3.UP * 0.5, 1.4)
+	fx(&"death", family_of(foe), foe.pos + Vector3.UP * 0.5, clampf(foe.radius * 2.2, 0.8, 3.0))
 	if foe.boss != null:
 		if foe.final:
 			_finish(true)
@@ -453,7 +482,7 @@ func on_foe_killed(foe: DraftEnemies.Foe) -> void:
 
 
 func on_hunter_hit(_foe: DraftEnemies.Foe) -> void:
-	spawn_fx("hit", hunter.chest(), 0.8)
+	fx(&"hit", DraftPixelFx.DEFAULT_FAMILY, hunter.chest(), 0.9)
 
 
 func drop_gem(at: Vector3, value: float) -> void:
@@ -574,6 +603,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	var key := event as InputEventKey
 	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_ESCAPE:
 		get_tree().quit()
+
+
+func family_of(foe: DraftEnemies.Foe) -> StringName:
+	return DraftPixelFx.boss_family(foe.boss) if foe.boss != null else DraftPixelFx.enemy_family(foe.data)
+
+
+## Effet PixelFX de la campagne dans la palette de la famille ; à défaut, l'impact repris du prototype.
+func fx(effect: StringName, family: StringName, at: Vector3, size: float = 1.0, looping: bool = false) -> Sprite3D:
+	var node: Sprite3D = DraftPixelFx.play(self, effect, family, at, size, looping)
+	return node if node != null else spawn_fx("fireball" if looping else "hit", at, size, looping)
 
 
 func spawn_fx(id: String, at: Vector3, size: float = 1.0, looping: bool = false) -> Sprite3D:

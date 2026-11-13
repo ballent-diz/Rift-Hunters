@@ -200,12 +200,12 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 		if foe.data.brain == EnemyData.Brain.BLINKER and foe.cooldown <= 0.0 and distance > 4.0:
 			# Passe-faille : réapparaît près du Chasseur, du côté d'où il vient.
 			foe.cooldown = 4.5
-			run.call("spawn_fx", "hit", foe.pos + Vector3.UP * 0.5)
+			run.call("fx", &"blink_out", DraftPixelFx.enemy_family(foe.data), foe.pos + Vector3.UP * 0.5)
 			foe.pos = level.closest(target - to_hunter.normalized() * 2.6)
 			foe.vel = Vector3.ZERO
 			foe.path = PackedVector3Array()
 			foe.view.snap_to(foe.pos)
-			run.call("spawn_fx", "hit", foe.pos + Vector3.UP * 0.5)
+			run.call("fx", &"blink_in", DraftPixelFx.enemy_family(foe.data), foe.pos + Vector3.UP * 0.5)
 		elif foe.data.brain == EnemyData.Brain.SUMMONER and foe.cooldown <= 0.0:
 			foe.cooldown = 6.0
 			foe.view.play_action(&"attack")
@@ -281,6 +281,11 @@ func _separation(foe: Foe) -> Vector3:
 
 # --- Boss et gardiens (données d'origine ; techniques communes réécrites pour le monde 3D) -----------------------
 
+## Effet PixelFX joué au moment où une zone annoncée frappe.
+func _fx(effect: StringName, family: StringName, size: float) -> Callable:
+	return func(at: Vector3) -> void: run.call("fx", effect, family, at + Vector3.UP * 0.6, size)
+
+
 ## Première animation que la feuille du boss possède parmi les candidates.
 func _clip(foe: Foe, candidates: Array[StringName]) -> StringName:
 	for id: StringName in candidates:
@@ -305,18 +310,21 @@ func _boss_brain(foe: Foe, to_hunter: Vector3, distance: float, climb: float, de
 		var aim: Vector3 = to_hunter / maxf(distance, 0.001)
 		foe.view.face_left(aim.x < 0.0)
 		var roll: float = rng.randf()
+		var family: StringName = DraftPixelFx.boss_family(foe.boss)
 		foe.state = 1
 		Audio.play_sfx(&"boss_telegraph")
 		if distance < 4.5 and climb < MELEE_REACH_UP and roll < 0.55:
 			# Griffes : cercle devant lui.
 			foe.timer = 1.0
 			foe.view.play_action(_clip(foe, [&"attack", &"claws", &"claw"]), 1.0)
-			hazards.circle(foe.pos + aim * (foe.radius + 1.2), foe.radius + 1.6, 0.7, foe.damage)
+			hazards.circle(foe.pos + aim * (foe.radius + 1.2), foe.radius + 1.6, 0.7, foe.damage,
+				_fx(&"claw_swipe", family, (foe.radius + 1.6) * 0.9))
 		elif roll < 0.4:
 			# Onde d'ombre : anneau qui traverse la cour ; la Ruée le traverse, la terrasse est hors d'atteinte.
 			foe.timer = 1.5
 			foe.view.play_action(_clip(foe, [&"shadow_wave", &"roar", &"transform", &"attack"]), 1.5)
-			hazards.ring(foe.pos, 8.5, 22.0, 0.9, foe.damage * 0.8)
+			run.call("fx", &"ring_charge", family, foe.pos + Vector3.UP * 0.3, 2.0)
+			hazards.ring(foe.pos, 8.5, 22.0, 0.9, foe.damage * 0.8, _fx(&"ring_burst", family, 2.5))
 			if phase == 1:
 				hazards.ring(foe.pos, 8.5, 22.0, 1.8, foe.damage * 0.8)
 		elif roll < 0.7:
@@ -326,7 +334,8 @@ func _boss_brain(foe: Foe, to_hunter: Vector3, distance: float, climb: float, de
 				&"attack"]), 1.2)
 			for n: int in (3 if phase == 0 else 5):
 				var offset := Vector3.ZERO if n == 0 else Vector3(rng.randf_range(-4, 4), 0, rng.randf_range(-4, 4))
-				hazards.circle(level.closest(hunter.global_position + offset), 1.9, 0.95 + 0.12 * n, foe.damage * 0.9)
+				hazards.circle(level.closest(hunter.global_position + offset), 1.9, 0.95 + 0.12 * n, foe.damage * 0.9,
+					_fx(DraftPixelFx.RAIN.get(family, &"dark_explosion"), family, 1.5))
 		elif roll < 0.85 or phase == 0:
 			foe.timer = 1.2
 			foe.view.play_action(_clip(foe, [&"summon", &"brood_call", &"leech_call", &"attack"]), 1.2)

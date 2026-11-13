@@ -12,14 +12,14 @@ var hits: int = 0
 var _items: Array[Dictionary] = []
 
 
-func circle(at: Vector3, radius: float, delay: float, damage: float) -> void:
+func circle(at: Vector3, radius: float, delay: float, damage: float, fx := Callable()) -> void:
 	var mesh := CylinderMesh.new()
 	mesh.top_radius = radius
 	mesh.bottom_radius = radius
 	mesh.height = 0.04
 	mesh.radial_segments = 40
 	_items.append({"kind": &"circle", "at": at, "radius": radius, "left": delay, "delay": delay, "damage": damage,
-		"node": _node(mesh, at)})
+		"fx": fx, "node": _node(mesh, at)})
 
 
 func line(from: Vector3, direction: Vector3, length: float, width: float, delay: float, damage: float) -> void:
@@ -32,7 +32,7 @@ func line(from: Vector3, direction: Vector3, length: float, width: float, delay:
 
 
 ## Onde qui part de `at` après `delay` et s'étend jusqu'à `reach` : une Ruée la traverse.
-func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float) -> void:
+func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float, fx := Callable()) -> void:
 	var mesh := TorusMesh.new()
 	mesh.inner_radius = 0.95
 	mesh.outer_radius = 1.0
@@ -41,7 +41,7 @@ func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float) 
 	var node: MeshInstance3D = _node(mesh, at)
 	node.scale = Vector3(1.5, 0.15, 1.5)
 	_items.append({"kind": &"ring", "at": at, "radius": 1.5, "speed": speed, "reach": reach, "left": delay,
-		"delay": delay, "damage": damage, "node": node})
+		"delay": delay, "damage": damage, "fx": fx, "node": node})
 
 
 func clear() -> void:
@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 			var progress: float = 1.0 - float(item["left"]) / maxf(float(item["delay"]), 0.01)
 			material.albedo_color = Color(WARN, 0.18 + 0.45 * progress)
 		elif item["kind"] == &"ring":
+			_play_fx(item)
 			var before: float = item["radius"]
 			item["radius"] = before + float(item["speed"]) * delta
 			node.scale = Vector3(float(item["radius"]), 0.15, float(item["radius"]))
@@ -85,6 +86,7 @@ func _physics_process(delta: float) -> void:
 				_strike(item)
 			done = float(item["radius"]) >= float(item["reach"])
 		else:
+			_play_fx(item)
 			if _inside(item) and _level_with(item):
 				_strike(item)
 			done = true
@@ -92,6 +94,14 @@ func _physics_process(delta: float) -> void:
 			node.queue_free()
 			_items.remove_at(i)
 		i -= 1
+
+
+## Effet de la frappe, une seule fois, au moment où la zone annoncée se déclenche.
+func _play_fx(item: Dictionary) -> void:
+	var fx: Callable = item.get("fx", Callable())
+	if fx.is_valid():
+		fx.call(item["at"])
+		item["fx"] = Callable()
 
 
 func _strike(item: Dictionary) -> void:

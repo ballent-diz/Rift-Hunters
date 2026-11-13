@@ -220,6 +220,11 @@ func test_every_chapter_plays_with_guardian_and_devourer() -> void:
 		DraftRun.chosen_chapter = order
 		await _start()
 		check_eq(run.chapter, order, "chapitre %d lancé" % order)
+		check_eq(run.props.size(), 6, "chapitre %d : six objets peints en décor" % order)
+		var family: StringName = DraftPixelFx.boss_family(run.roster.boss)
+		for effect: StringName in [&"hit", &"death", &"claw_swipe", &"ring_burst", DraftPixelFx.RAIN[family],
+				DraftPixelFx.shot_effect("flights", family), DraftPixelFx.shot_effect("shots", family)]:
+			check(not DraftPixelFx.sheet(effect, family).is_empty(), "effet PixelFX %s en palette %s" % [effect, family])
 		for data: EnemyData in run.roster.enemies:
 			run.enemies.spawn(data, run.level.spawn_point(run.rng, run.hunter.global_position))
 		run.hunter.god_mode = true
