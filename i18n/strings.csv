@@ -2263,3 +2263,24 @@ ACTION_ECHO_RELAY,Relais d'Écho (mode Relais),Echo relay (Relay mode)
 HUD_RELAY,Relais,Relay
 HUD_SOLO_MODE,Mode Solo : Chasseur renforcé,Solo mode: empowered Hunter
 TIP_RELAY,"Touche %s : la Technique de l'Écho actif. Touche %s : relais, l'Écho suivant entre avec une attaque.","Key %s: the active Echo's Technique. Key %s: relay, the next Echo comes in with an attack."
+DRAFT_LEVEL,Niveau %d,Level %d
+DRAFT_KILLS,Éliminations : %d,Kills: %d
+DRAFT_LEVEL_UP,Niveau %d !,Level %d!
+DRAFT_CHOOSE,"Choisissez une amélioration (1, 2, 3 ou clic)","Choose an upgrade (1, 2, 3 or click)"
+DRAFT_NEW,Nouveau,New
+DRAFT_RANK,Rang %d / %d,Rank %d / %d
+DRAFT_VICTORY,Victoire,Victory
+DRAFT_DEFEAT,Défaite,Defeat
+DRAFT_RESTART,Rejouer (R),Play again (R)
+DRAFT_SUMMARY,Temps %s · Niveau %d · %d éliminations,Time %s · Level %d · %d kills
+DRAFT_CONTROLS,ZQSD / WASD / flèches : se déplacer · Espace : Ruée · l'attaque part toute seule,ZQSD / WASD / arrows: move · Space: dash · attacks fire on their own
+DRAFT_BOSS_WARNING,%s approche !,%s is coming!
+DRAFT_SWARM,Une nuée déferle !,A swarm rushes in!
+UPGRADE_LONG_REACH_NAME,Longue portée,Long Reach
+UPGRADE_LONG_REACH_DESC,Portée des Traits de Faille +15 %.,Rift Bolt range +15%.
+UPGRADE_BULWARK_NAME,Rempart,Bulwark
+UPGRADE_BULWARK_DESC,Dégâts subis −8 %.,Damage taken −8%.
+DRAFT_CHOOSE_CHAPTER,Choisissez un chapitre,Choose a chapter
+DRAFT_CHANGE_CHAPTER,Changer de chapitre,Change chapter
+DRAFT_CHAPTER_LOCKED,terminez le chapitre précédent,clear the previous chapter
+DRAFT_READY,prêt,ready

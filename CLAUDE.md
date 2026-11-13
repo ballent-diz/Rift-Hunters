@@ -1,7 +1,13 @@
 # Rift Hunters — guide de travail pour Claude
 
-Survivor-like 2D original (Godot 4.3, GDScript typé). Le joueur, un Chasseur de Failles,
-combat des vagues de Corrompus avec une équipe d'Échos (créatures alliées originales).
+Survivor-like original (Godot 4.3, GDScript typé). Le joueur, un Chasseur de Failles, combat des vagues de Corrompus.
+
+**Depuis le 13 novembre 2026, la version 2 (3D) est le jeu principal** : décors 3D modulaires, sprites 2D, code dans
+`draft3d/`, scène de démarrage `res://draft3d/main.tscn`, guide `docs/PREMIER_JET_3D.md` (à lire avant toute tâche).
+La version 1 (2D, équipe d'Échos, cartes peintes) est archivée sur la branche `archive/v1-2d`. Son code (`src/`,
+`data/`, `scenes/`, `assets/`) reste dans le dépôt parce que la v2 en réutilise les données, les autoloads, les
+sprites, les effets, l'audio et les textes : ne pas le supprimer, ne pas y ajouter de fonctionnalités.
+Les sections ci-dessous qui décrivent les cartes peintes, les collisions peintes et le masquage concernent la v1.
 Aucun lien avec une licence existante : noms, créatures, visuels et mécaniques sont originaux.
 
 ## Règles de collaboration (demandées par le propriétaire du projet)

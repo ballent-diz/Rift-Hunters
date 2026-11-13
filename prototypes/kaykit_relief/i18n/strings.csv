@@ -1,0 +1,14 @@
+keys,fr,en
+lab_title,LES RUINES DU SEUIL,THE THRESHOLD RUINS
+lab_subtitle,ESSAI JOUABLE · DÉCORS KAYKIT GRATUITS,PLAYABLE TEST · FREE KAYKIT ENVIRONMENTS
+lab_controls,ZQSD / WASD / flèches : déplacement   ·   Clic gauche : tir   ·   Espace : esquive,ZQSD / WASD / arrows: move   ·   Left click: shoot   ·   Space: dash
+lab_controls_more,Molette : zoom   ·   C : suivi caméra   ·   V : collisions   ·   R : recommencer   ·   F2 : FR / EN,Wheel: zoom   ·   C: camera follow   ·   V: collisions   ·   R: restart   ·   F2: FR / EN
+lab_terrace,TERRASSE HAUTE,HIGH TERRACE
+lab_arena,COUR DES PILIERS,PILLAR COURTYARD
+lab_arch,PASSAGE SOUS L’ARCHE,ARCHWAY PASSAGE
+lab_status,Altitude : %.2f m   ·   Tirs arrêtés : %d   ·   Ennemis touchés : %d,Height: %.2f m   ·   Blocked shots: %d   ·   Enemy hits: %d
+lab_scope,Prototype de déplacement et de combat simplifié · campagne inchangée,Simplified movement and combat prototype · campaign unchanged
+lab_note,Montez l’escalier. Contournez les piliers. Tirez sur un abri : le projectile s’arrête.,Climb the stairs. Walk around the pillars. Shoot at cover: the projectile stops.
+lab_reset,Recommencer,Restart
+lab_photo,Vue d’ensemble,Overview
+lab_follow,Suivre le Chasseur,Follow the Hunter
