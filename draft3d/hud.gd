@@ -7,6 +7,8 @@ signal chosen(index: int)
 signal restart_requested
 signal chapter_chosen(order: int)
 signal chapter_change_requested
+signal pause_requested
+signal menu_requested
 
 const INK := Color("f0e8d7")
 const DIM := Color("b9bccb")
@@ -28,6 +30,9 @@ var _banner: Label
 var _banner_left: float = 0.0
 var _offer_root: Control
 var _end_root: Control
+var _chapter_root: Control
+var _pause_root: Control
+var _options: DraftOptions
 var _cards: Array[Button] = []
 
 
@@ -231,23 +236,22 @@ func show_end(victory: bool, summary: String) -> void:
 	var stats := _label(column, 18, INK)
 	stats.text = summary
 	stats.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	var button := Button.new()
-	button.text = tr("DRAFT_RESTART")
-	button.custom_minimum_size = Vector2(280, 48)
-	button.focus_mode = Control.FOCUS_NONE
-	button.pressed.connect(func() -> void: restart_requested.emit())
-	column.add_child(button)
-	var other := Button.new()
-	other.text = tr("DRAFT_CHANGE_CHAPTER")
-	other.custom_minimum_size = Vector2(280, 40)
-	other.focus_mode = Control.FOCUS_NONE
-	other.pressed.connect(func() -> void: chapter_change_requested.emit())
-	column.add_child(other)
+	var list: Array[Button] = [
+		_menu_button(column, "Restart", tr("DRAFT_RESTART"), func() -> void: restart_requested.emit()),
+		_menu_button(column, "Chapter", tr("DRAFT_CHANGE_CHAPTER"), func() -> void: chapter_change_requested.emit()),
+		_menu_button(column, "Menu", tr("MENU3D_BACK_TO_MENU"), func() -> void: menu_requested.emit())]
+	DraftMenu._chain_focus(list)
+	list[0].grab_focus.call_deferred()
+
+
+func end_open() -> bool:
+	return _end_root != null
 
 
 ## Choix du chapitre au lancement : son bestiaire, ses gardiens et son Dévoreur.
 func show_chapters(chapters: Array[ChapterData], done: Array[int], all_open: bool = false) -> void:
 	var overlay: Control = _overlay()
+	_chapter_root = overlay
 	var column := VBoxContainer.new()
 	column.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	column.grow_horizontal = Control.GROW_DIRECTION_BOTH
@@ -257,23 +261,112 @@ func show_chapters(chapters: Array[ChapterData], done: Array[int], all_open: boo
 	var title := _label(column, 34, Color("ffd9a0"))
 	title.text = tr("DRAFT_CHOOSE_CHAPTER")
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var detail := _label(column, 15, DIM)
+	detail.custom_minimum_size = Vector2(560, 48)
+	detail.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	detail.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var list: Array[Button] = []
 	for i: int in chapters.size():
-		var button := Button.new()
 		var open: bool = all_open or DraftProgress.is_unlocked(i + 1, done)
-		button.text = "%d. %s%s" % [i + 1, tr(chapters[i].name_key), "  ✓" if done.has(i + 1) else ""]
-		button.disabled = not open
+		var text: String = "%d. %s%s" % [i + 1, tr(DraftRoster.name_key(chapters[i])), "  ✓" if done.has(i + 1) else ""]
 		if not open:
-			button.text += "  —  " + tr("DRAFT_CHAPTER_LOCKED")
-		button.custom_minimum_size = Vector2(420, 46)
-		button.focus_mode = Control.FOCUS_NONE
-		button.add_theme_color_override("font_color", chapters[i].color.lightened(0.4))
-		button.pressed.connect(func() -> void:
+			text += "  —  " + tr("DRAFT_CHAPTER_LOCKED")
+		var button: Button = _menu_button(column, "Chapter%d" % (i + 1), text, func() -> void:
+			_chapter_root = null
 			overlay.queue_free()
 			chapter_chosen.emit(i + 1))
-		column.add_child(button)
+		button.disabled = not open
+		button.custom_minimum_size = Vector2(560, 46)
+		button.add_theme_color_override("font_color", chapters[i].color.lightened(0.4))
+		button.add_theme_color_override("font_focus_color", chapters[i].color.lightened(0.6))
+		button.add_theme_color_override("font_hover_color", chapters[i].color.lightened(0.6))
+		var desc: String = tr(DraftRoster.desc_key(chapters[i]))
+		button.focus_entered.connect(func() -> void: detail.text = desc)
+		button.mouse_entered.connect(func() -> void: detail.text = desc)
+		if open:
+			list.append(button)
+	column.move_child(detail, -1)
+	list.append(_menu_button(column, "Back", tr("MENU3D_BACK"), func() -> void: menu_requested.emit()))
+	DraftMenu._chain_focus(list)
+	list[0].grab_focus.call_deferred()
+
+
+func chapters_open() -> bool:
+	return _chapter_root != null
+
+
+## Pause (Échap, P ou Start) : reprendre, options, recommencer, menu principal, quitter.
+func show_pause() -> void:
+	if _pause_root != null:
+		return
+	_pause_root = _overlay()
+	_pause_root.name = "Pause"
+	var column := VBoxContainer.new()
+	column.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
+	column.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	column.grow_vertical = Control.GROW_DIRECTION_BOTH
+	column.add_theme_constant_override("separation", 14)
+	_pause_root.add_child(column)
+	var title := _label(column, 44, Color("ffd9a0"))
+	title.text = tr("PAUSE_TITLE")
+	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	var list: Array[Button] = [
+		_menu_button(column, "Resume", tr("PAUSE_RESUME"), func() -> void: pause_requested.emit()),
+		_menu_button(column, "Options", tr("MENU_OPTIONS"), open_options),
+		_menu_button(column, "Restart", tr("MENU3D_RESTART"), func() -> void: restart_requested.emit()),
+		_menu_button(column, "Menu", tr("MENU3D_BACK_TO_MENU"), func() -> void: menu_requested.emit()),
+		_menu_button(column, "Quit", tr("MENU_QUIT"), func() -> void: get_tree().quit())]
+	DraftMenu._chain_focus(list)
+	list[0].grab_focus.call_deferred()
+
+
+func hide_pause() -> void:
+	close_options()
+	if _pause_root != null:
+		_pause_root.queue_free()
+		_pause_root = null
+
+
+func pause_open() -> bool:
+	return _pause_root != null
+
+
+func open_options() -> void:
+	if _options != null:
+		return
+	_options = DraftOptions.new()
+	add_child(_options)
+	_options.closed.connect(close_options)
+	_options.language_changed.connect(func() -> void:
+		_hint.text = tr("DRAFT_CONTROLS")
+		close_options()
+		hide_pause()
+		show_pause()
+		open_options())
+
+
+func close_options() -> void:
+	if _options == null:
+		return
+	_options.queue_free()
+	_options = null
+	if _pause_root != null:
+		var button: Button = _pause_root.find_child("Options", true, false)
+		button.grab_focus.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _options != null:
+		return
+	var back: bool = event.is_action_pressed(&"pause") or event.is_action_pressed(&"ui_cancel")
+	if back and chapters_open():
+		menu_requested.emit()
+		get_viewport().set_input_as_handled()
+		return
+	if back and not offers_open() and not end_open():
+		pause_requested.emit()
+		get_viewport().set_input_as_handled()
+		return
 	var key := event as InputEventKey
 	if key == null or not key.pressed or key.echo:
 		return
@@ -283,8 +376,19 @@ func _unhandled_input(event: InputEvent) -> void:
 			index = [KEY_KP_1, KEY_KP_2, KEY_KP_3].find(key.physical_keycode)
 		if index >= 0 and index < _cards.size():
 			chosen.emit(index)
-	elif key.physical_keycode == KEY_R:
+	elif key.physical_keycode == KEY_R and not pause_open() and not chapters_open():
 		restart_requested.emit()
+
+
+func _menu_button(parent: Node, id: String, text: String, callback: Callable) -> Button:
+	var button: Button = UiKit.button(text, callback, 320)
+	button.name = id
+	button.theme = UiKit.theme()
+	button.custom_minimum_size.y = 46
+	button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	button.mouse_entered.connect(button.grab_focus)
+	parent.add_child(button)
+	return button
 
 
 func _overlay() -> Control:

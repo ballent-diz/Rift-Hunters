@@ -38,6 +38,11 @@ func goto_main_menu() -> void:
 	_change(MAIN_MENU)
 
 
+## Scène quelconque avec le même fondu (version 3D : menu principal ↔ partie).
+func goto_scene(path: String) -> void:
+	_change(path)
+
+
 func _change(path: String) -> void:
 	if _busy:
 		return

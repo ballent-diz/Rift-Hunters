@@ -8,7 +8,8 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 ## Lancer
 
 - Windows : double-cliquer sur `lancer.cmd` (Godot 4.3 dans Downloads, comme le prototype).
-- Commande : `godot --headless --import --path .` une fois, puis `godot --path . res://draft3d/main.tscn`.
+- Commande : `godot --headless --import --path .` une fois, puis `godot --path .` (menu principal,
+  `draft3d/menu.tscn`) ou `godot --path . res://draft3d/main.tscn` (partie directe).
 - Le mode n'écrit jamais le profil : la progression de la campagne n'est pas touchée.
 
 | Commande | Touche |
@@ -17,7 +18,7 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 | Ruée (esquive, invulnérable un instant) | Espace ou Maj |
 | Attaquer | automatique, sur l'ennemi visible le plus proche |
 | Choisir une amélioration | 1, 2, 3 ou clic |
-| Zoom / rejouer en fin de partie / quitter | molette / R / Échap |
+| Zoom / rejouer en fin de partie / pause | molette / R / Échap, P ou Start |
 
 Options de vérification (après `--`) : `--bot`, `--passive`, `--god`, `--seed=1`, `--boss-at=30`, `--result`,
 `--perf=50,100,200`, `--shots=<dossier> --shot-times=40,95 --quit-after-shots`.
@@ -32,7 +33,8 @@ Options de vérification (après `--`) : `--bot`, `--passive`, `--god`, `--seed=
 | `draft3d/enemies.gd` | Corrompus et boss : chemins, séparation, contact, techniques |
 | `draft3d/hazards.gd` | attaques annoncées au sol (cercle, ligne, onde) |
 | `draft3d/upgrades.gd` | catalogue et tirage des améliorations |
-| `draft3d/hud.gd` | interface, choix de niveau, écran de fin |
+| `draft3d/hud.gd` | interface, choix de niveau, choix du chapitre, pause, écran de fin |
+| `draft3d/menu.gd`, `options.gd` | menu principal (scène de démarrage) et fenêtre d'options |
 | `draft3d/sprite_view.gd`, `effect.gd` | sprites 2D et PixelFX dans le monde 3D |
 | `draft3d/tuning.gd` / `.tres` | réglages propres au mode (vagues, boss, bonus du Chasseur seul) |
 
