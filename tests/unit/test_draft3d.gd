@@ -76,6 +76,8 @@ func test_offers_are_distinct_and_respect_caps() -> void:
 
 func test_xp_thresholds_and_upgrade_effects() -> void:
 	await _start()
+	# Cartes de statistiques seulement : les cartes de sort ont leurs essais (test_draft3d_spells).
+	run.upgrades.spells = null
 	var hunter: DraftHunter = run.hunter
 	var balance: BalanceConfig = GameDB.balance
 	check_eq(hunter.level, 1, "départ au niveau 1")
