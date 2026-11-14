@@ -25,7 +25,7 @@ var _boss_bar: ProgressBar
 var _boss_name: Label
 var _build: Label
 var _hint: Label
-var _spells: Label
+var _spell_bar: DraftSpellBar
 var _banner: Label
 var _banner_left: float = 0.0
 var _offer_root: Control
@@ -85,21 +85,19 @@ func _ready() -> void:
 	_build.offset_bottom = -14
 	_build.offset_right = 360
 	_build.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
-	_spells = _label(root, 14, Color("cfe6ff"))
-	_spells.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_RIGHT)
-	_spells.offset_left = -300
-	_spells.offset_right = -16
-	_spells.offset_top = -110
-	_spells.offset_bottom = -14
-	_spells.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	_spells.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+	_spell_bar = DraftSpellBar.new()
+	_spell_bar.name = "SpellBar"
+	root.add_child(_spell_bar)
+	_spell_bar.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM, Control.PRESET_MODE_MINSIZE)
+	_spell_bar.offset_top = -(DraftSpellBar.SLOT + 40.0)
+	_spell_bar.offset_bottom = -18.0
 	_hint = _label(root, 15, DIM)
 	_hint.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM)
 	_hint.offset_left = -420
 	_hint.offset_right = 420
-	_hint.offset_top = -44
+	_hint.offset_top = -(DraftSpellBar.SLOT + 74.0)
 	_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_hint.text = tr("DRAFT_CONTROLS")
+	_hint.text = tr("DRAFT_CONTROLS") % _spell_keys()
 	_banner = _label(root, 30, Color("ffd9a0"))
 	_banner.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	_banner.offset_left = -500
@@ -130,12 +128,7 @@ func refresh(run: Node, delta: float) -> void:
 		_boss_name.text = tr(enemies.boss.boss.name_key)
 		_boss_bar.max_value = enemies.boss.max_hp
 		_boss_bar.value = enemies.boss.hp
-	var spells: DraftSpells = run.get("spells")
-	var lines: PackedStringArray = []
-	for i: int in spells.spells.size():
-		lines.append("%s  %s" % [tr(spells.spells[i].name_key),
-			tr("DRAFT_READY") if spells.cooldowns[i] <= 0.0 else "%.1f s" % spells.cooldowns[i]])
-	_spells.text = "\n".join(lines)
+	_spell_bar.spells = run.get("spells")
 	_banner_left -= delta
 	_banner.visible = _banner_left > 0.0
 
@@ -143,7 +136,7 @@ func refresh(run: Node, delta: float) -> void:
 ## Améliorations prises, avec leur rang : la montée en puissance reste lisible pendant le combat.
 func show_build(upgrades: DraftUpgrades) -> void:
 	var lines: PackedStringArray = []
-	for data: UpgradeData in upgrades.catalog:
+	for data: UpgradeData in upgrades.all_cards():
 		var stacks: int = upgrades.stacks_of(data.id)
 		if stacks > 0:
 			lines.append("%s  %s" % [tr(data.name_key), "◆".repeat(stacks) + "◇".repeat(data.max_stacks - stacks)])
@@ -338,7 +331,7 @@ func open_options() -> void:
 	add_child(_options)
 	_options.closed.connect(close_options)
 	_options.language_changed.connect(func() -> void:
-		_hint.text = tr("DRAFT_CONTROLS")
+		_hint.text = tr("DRAFT_CONTROLS") % _spell_keys()
 		close_options()
 		hide_pause()
 		show_pause()
@@ -350,6 +343,7 @@ func close_options() -> void:
 		return
 	_options.queue_free()
 	_options = null
+	_hint.text = tr("DRAFT_CONTROLS") % _spell_keys()
 	if _pause_root != null:
 		var button: Button = _pause_root.find_child("Options", true, false)
 		button.grab_focus.call_deferred()
@@ -397,6 +391,14 @@ func _overlay() -> Control:
 	overlay.set_anchors_preset(Control.PRESET_FULL_RECT)
 	add_child(overlay)
 	return overlay
+
+
+## Touches des quatre sorts (actions reconfigurables), pour l'aide de début de partie.
+static func _spell_keys() -> String:
+	var keys: PackedStringArray = []
+	for action: StringName in DraftSpells.ACTIONS:
+		keys.append(InputSetup.key_label(action))
+	return " ".join(keys)
 
 
 func _label(parent: Node, font_size: int, color: Color) -> Label:

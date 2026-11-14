@@ -82,12 +82,14 @@ func _ready() -> void:
 	# Arbre de compétences et sorts équipés du profil de la campagne, en lecture seule.
 	tree_effects = DraftUpgrades.apply_tree(hunter.stats, HunterTree.effects_for(Profile.profile))
 	hunter.hp = hunter.max_hp()
+	# Sorts de départ : ceux équipés dans l'arbre et raccordés à la 3D, sinon ceux de l'équilibrage.
 	var equipped: Array[StringName] = []
 	for id: StringName in HunterTree.loadout(Profile.profile)["spells"]:
-		if id != &"":
+		if id != &"" and DraftSpells.supported(id):
 			equipped.append(id)
 	spells = DraftSpells.new()
 	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
+	upgrades.spells = spells
 	if _bot or DisplayServer.get_name() == "headless":
 		DraftProgress.path = ""
 	hunter.set_physics_process(false)
@@ -123,6 +125,7 @@ func _ready() -> void:
 	hud.menu_requested.connect(back_to_menu)
 	_bot = _options.has("bot")
 	hunter.automating = _bot
+	spells.auto_cast = _bot
 	for value: String in str(_options.get("shot-times", "")).split(",", false):
 		_shot_times.append(float(value))
 	Engine.time_scale = float(_options.get("time-scale", "1"))
@@ -392,11 +395,17 @@ func _auto_attack() -> void:
 			hunter.stats.get_int(StatKeys.PIERCE), hunter.stats.get_int(StatKeys.BOLT_SPLIT))
 
 
-func fire_bolt(origin: Vector3, direction: Vector3, damage: float, reach: float, pierce: int, split: int) -> void:
-	var visual: Sprite3D = fx(&"arcane_orb", DraftPixelFx.DEFAULT_FAMILY, origin, 0.75 if split >= 0 else 0.5, true)
+## Trait du Chasseur ; les sorts (Lance) passent leur effet, sa taille, leur rayon de contact et leur vitesse.
+func fire_bolt(origin: Vector3, direction: Vector3, damage: float, reach: float, pierce: int, split: int,
+		look: StringName = &"arcane_orb", size: float = 0.0, radius: float = 0.25, speed: float = BOLT_SPEED,
+		family: StringName = DraftPixelFx.DEFAULT_FAMILY) -> Dictionary:
+	var visual: Sprite3D = fx(look, family, origin,
+		size if size > 0.0 else (0.75 if split >= 0 else 0.5), true)
 	visual.flip_h = direction.dot(camera.global_basis.x) < 0.0
-	bolts.append({"at": origin, "dir": direction, "left": reach, "damage": damage, "pierce": pierce, "split": split,
-		"hit": [], "visual": visual})
+	var shot := {"at": origin, "dir": direction, "left": reach, "damage": damage, "pierce": pierce, "split": split,
+		"hit": [], "visual": visual, "radius": radius, "speed": speed}
+	bolts.append(shot)
+	return shot
 
 
 func _step_bolts(delta: float) -> void:
@@ -404,7 +413,7 @@ func _step_bolts(delta: float) -> void:
 	for i: int in range(bolts.size() - 1, -1, -1):
 		var shot: Dictionary = bolts[i]
 		var from: Vector3 = shot["at"]
-		var step: float = minf(BOLT_SPEED * delta, float(shot["left"]))
+		var step: float = minf(float(shot.get("speed", BOLT_SPEED)) * delta, float(shot["left"]))
 		var to: Vector3 = from + (shot["dir"] as Vector3) * step
 		var wall: Dictionary = space.intersect_ray(PhysicsRayQueryParameters3D.create(from, to, 1))
 		var spent: bool = false
@@ -412,7 +421,7 @@ func _step_bolts(delta: float) -> void:
 			to = wall["position"]
 			blocked_bolts += 1
 			spent = true
-		for foe: DraftEnemies.Foe in enemies.near(to, 0.25):
+		for foe: DraftEnemies.Foe in enemies.near(to, float(shot.get("radius", 0.25))):
 			# Le trait touche à sa hauteur : il passe au-dessus d'un ennemi en contrebas et sous une terrasse.
 			if (shot["hit"] as Array).has(foe) or absf(_aim_point(foe).y - to.y) > foe.radius + 0.6:
 				continue

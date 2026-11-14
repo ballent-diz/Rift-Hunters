@@ -10,6 +10,22 @@ extends Resource
 ## Bonus de départ : sans Échos, le Trait de Faille doit suffire à tenir les premières vagues.
 @export var hunter_damage_pct: float = 0.5
 @export var hunter_attack_speed_pct: float = 0.25
+@export_group("Sorts")
+## Les rayons de zone de SpellData (unités du monde 2D) sont resserrés pour la vue 3D, plus proche.
+@export var spell_area_scale: float = 0.5
+## Rupture : sans Marques à faire détoner (statuts non repris), la détonation frappe plus fort.
+@export var rupture_damage_mult: float = 2.0
+## Bond de Faille : distance maximale (m) et rayon de recherche des ennemis serrés (bot).
+@export var leap_max_range: float = 9.0
+## Lance : vitesse (m/s) et portée maximale (m).
+@export var lance_speed: float = 24.0
+@export var lance_max_range: float = 22.0
+## Visée au clavier seul : ennemi visible le plus proche dans le cône devant le Chasseur (portée en m), sinon point
+## à `aim_distance` devant lui.
+@export var aim_range: float = 15.0
+@export var aim_distance: float = 6.0
+## Recharge d'un sort qui vient d'être appris (s).
+@export var learned_cooldown: float = 1.0
 @export_group("Ennemis")
 @export var enemy_damage_scale: float = 0.8
 @export var enemy_hp_growth_per_min: float = 0.1

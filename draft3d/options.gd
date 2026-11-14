@@ -43,6 +43,9 @@ func _ready() -> void:
 	rows.append(_toggle("Fullscreen", tr("OPTIONS_FULLSCREEN"), Settings.fullscreen,
 		func(on: bool) -> void: Settings.fullscreen = on))
 	rows.append(_toggle("Vsync", tr("OPTIONS_VSYNC"), Settings.vsync, func(on: bool) -> void: Settings.vsync = on))
+	var keys: Button = UiKit.button(tr("OPTIONS3D_CONTROLS"), _open_controls, 560)
+	keys.name = "Keys"
+	rows.append(keys)
 	for row: Control in rows:
 		box.add_child(row.get_parent() if row.get_parent() != null else row)
 	box.add_child(UiKit.title(tr("MENU3D_CONTROLS_TITLE"), 20, DraftMenu.GOLD))
@@ -67,7 +70,19 @@ func _ready() -> void:
 	first.grab_focus.call_deferred()
 
 
+## Touches et visée (DraftControls) par-dessus les options ; le focus revient au bouton à la fermeture.
+func _open_controls() -> void:
+	var controls := DraftControls.new()
+	controls.name = "ControlsWindow"
+	add_child(controls)
+	controls.closed.connect(func() -> void:
+		controls.queue_free()
+		(find_child("Keys", true, false) as Control).grab_focus.call_deferred())
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	if get_node_or_null("ControlsWindow") is DraftControls:
+		return
 	if event.is_action_pressed(&"ui_cancel"):
 		closed.emit()
 		get_viewport().set_input_as_handled()

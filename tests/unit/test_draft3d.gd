@@ -280,21 +280,22 @@ func test_spells_tree_and_campaign() -> void:
 	await _start()
 	Profile.profile = previous
 	check(run.tree_effects > 0, "l'arbre du profil s'applique (%d effets)" % run.tree_effects)
-	check(not run.spells.spells.is_empty(), "des sorts équipés sont raccordés")
-	for data: SpellData in run.spells.spells:
-		check(DraftSpells.SUPPORTED.has(data.spell_kind), "sort pris en charge : %s" % data.id)
+	check(run.spells.free_slots() < DraftSpells.SLOTS, "des sorts équipés sont raccordés")
+	for data: SpellData in run.spells.slots:
+		check(data == null or DraftSpells.SUPPORTED.has(data.spell_kind), "sort pris en charge : %s" % data)
 	run.queue_free()
 	run = null
 	# Profil neuf : sorts de départ de l'équilibrage (Taille et Lance), qui partent seuls et blessent.
 	Profile.profile = ProfileData.new()
 	await _start()
 	Profile.profile = previous
-	check_eq(run.spells.spells.size(), 2, "deux sorts de départ")
+	check_eq(run.spells.free_slots(), DraftSpells.SLOTS - 2, "deux sorts de départ")
+	run.spells.auto_cast = true
 	run.hunter.attack_timer = 100000.0
 	run.hunter.god_mode = true
 	var foe: DraftEnemies.Foe = run.enemies.spawn(GameDB.enemy(&"husk"), run.hunter.global_position + Vector3(2, 0, 0))
 	await _frames(480)
-	check(run.spells.casts >= 1 and (not foe.alive or foe.hp < foe.max_hp), "un sort part seul et blesse (%d lancés)"
+	check(run.spells.casts >= 1 and (not foe.alive or foe.hp < foe.max_hp), "le bot lance un sort qui blesse (%d lancés)"
 		% run.spells.casts)
 	check(run.spells.cooldowns[0] > 0.0 or run.spells.cooldowns[1] > 0.0, "le sort lancé se recharge")
 	# Campagne : un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part du profil.

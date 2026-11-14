@@ -2273,7 +2273,7 @@ DRAFT_VICTORY,Victoire,Victory
 DRAFT_DEFEAT,Défaite,Defeat
 DRAFT_RESTART,Rejouer (R),Play again (R)
 DRAFT_SUMMARY,Temps %s · Niveau %d · %d éliminations,Time %s · Level %d · %d kills
-DRAFT_CONTROLS,ZQSD / WASD / flèches : se déplacer · Espace : Ruée · l'attaque part toute seule · Échap : pause,ZQSD / WASD / arrows: move · Space: dash · attacks fire on their own · Esc: pause
+DRAFT_CONTROLS,ZQSD : se déplacer · Espace : Ruée · %s : sorts · le Trait part tout seul · Échap : pause,WASD: move · Space: dash · %s: spells · the Bolt fires on its own · Esc: pause
 DRAFT_BOSS_WARNING,%s approche !,%s is coming!
 DRAFT_SWARM,Une nuée déferle !,A swarm rushes in!
 UPGRADE_LONG_REACH_NAME,Longue portée,Long Reach
@@ -2289,7 +2289,7 @@ MENU3D_TAGLINE,Traquez les Corrompus. Refermez les Failles.,Hunt the Corrupted. 
 MENU3D_PLAY,Jouer,Play
 MENU3D_NAV_HINT,"Flèches, souris ou manette : naviguer · Entrée / A : valider · Échap / B : retour","Arrows, mouse or gamepad: navigate · Enter / A: confirm · Esc / B: back"
 MENU3D_CONTROLS_TITLE,Commandes,Controls
-MENU3D_CONTROLS_LIST,"Se déplacer : ZQSD, WASD ou flèches · Ruée : Espace ou Maj · Attaque : automatique · Améliorations : 1, 2, 3 ou clic · Zoom : molette · Pause : Échap, P ou Start","Move: ZQSD, WASD or arrows · Dash: Space or Shift · Attack: automatic · Upgrades: 1, 2, 3 or click · Zoom: mouse wheel · Pause: Esc, P or Start"
+MENU3D_CONTROLS_LIST,"Se déplacer : ZQSD (ou flèches avec la souris) · Ruée : Espace ou Maj · Sorts : flèches au clavier seul, A E R F ou clic avec la souris · Trait : automatique · Améliorations : 1, 2, 3 ou clic · Zoom : molette · Pause : Échap, P ou Start","Move: WASD (or arrows with the mouse) · Dash: Space or Shift · Spells: arrow keys (keyboard only), Q E R F or click (with the mouse) · Bolt: automatic · Upgrades: 1, 2, 3 or click · Zoom: mouse wheel · Pause: Esc, P or Start"
 MENU3D_BACK,Retour,Back
 MENU3D_BACK_TO_MENU,Menu principal,Main menu
 MENU3D_RESTART,Recommencer,Restart
@@ -2303,3 +2303,14 @@ CHAPTER3D_SILENT_GLACIER_NAME,L'Avant-poste des Glaces,The Frost Outpost
 CHAPTER3D_SILENT_GLACIER_DESC,"Une base de forage isolée sur la banquise : modules, dépôt de fret, éoliennes. On y sondait la Faille ; elle a répondu.","A lonely drilling base on the ice shelf: modules, a cargo depot, wind turbines. Someone was probing the Rift here; it answered."
 CHAPTER3D_RIFT_CITY_NAME,Le Cœur de la Faille,The Heart of the Rift
 CHAPTER3D_RIFT_CITY_DESC,"Au bout de la traque, la Faille rouvre les ruines où tout a commencé : ses Dévoreurs y attendent le Chasseur.","At the end of the hunt, the Rift reopens the ruins where it all began: its Devourers await the Hunter there."
+OPTIONS3D_CONTROLS,Touches et visée,Keys and aiming
+CONTROLS3D_KEYBOARD_HINT,"Les deux mains au clavier : ZQSD pour marcher, flèches pour les sorts, lancés vers l'ennemi visible le plus proche devant le Chasseur (sinon droit devant). L'anneau au sol montre le point visé.","Both hands on the keyboard: WASD to move, arrow keys for spells, cast at the nearest visible enemy in front of the Hunter (otherwise straight ahead). The ring on the ground shows the aimed point."
+CONTROLS3D_MOUSE_HINT,"Une main sur la souris : ZQSD ou flèches pour marcher, A, E, R, F ou clic gauche pour les sorts, lancés vers le curseur. À la manette, le stick droit vise.","One hand on the mouse: WASD or arrow keys to move, Q, E, R, F or left click for spells, cast toward the cursor. On a gamepad, the right stick aims."
+UPGRADE3D_LEARN_CLEAVING_SLASH_NAME,Nouveau sort : Taille fendante,New spell: Cleaving Slash
+UPGRADE3D_LEARN_CLEAVING_SLASH_DESC,Arc de lame vers la visée : gros dégâts et recul. Prend un emplacement de sort libre.,Blade arc toward your aim: heavy damage and knockback. Takes a free spell slot.
+UPGRADE3D_LEARN_PRISMATIC_LANCE_NAME,Nouveau sort : Lance prismatique,New spell: Prismatic Lance
+UPGRADE3D_LEARN_PRISMATIC_LANCE_DESC,"Trait lourd vers la visée, qui traverse tous les ennemis. Prend un emplacement de sort libre.",Heavy bolt toward your aim that pierces every enemy. Takes a free spell slot.
+UPGRADE3D_LEARN_RUPTURE_NAME,Nouveau sort : Rupture,New spell: Rupture
+UPGRADE3D_LEARN_RUPTURE_DESC,Détonation de zone au point visé (arrêtée par le décor). Prend un emplacement de sort libre.,Area detonation at the aimed point (stopped by scenery). Takes a free spell slot.
+UPGRADE3D_LEARN_RIFT_LEAP_NAME,Nouveau sort : Bond de faille,New spell: Rift Leap
+UPGRADE3D_LEARN_RIFT_LEAP_DESC,"Bond vers le point visé, invulnérable pendant le saut, onde de choc à l'arrivée. Prend un emplacement de sort libre.","Leap toward the aimed point, invulnerable while airborne, shockwave on landing. Takes a free spell slot."
