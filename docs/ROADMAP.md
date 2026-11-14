@@ -24,10 +24,10 @@ celles de la campagne 2D archivée ; la v2 affiche de nouvelles clés `CHAPTER3D
 | 2 | Cimetière des Cendres — nuit, KayKit Halloween | Les Terres dévastées | Le Cimetière des Cendres | The Ashen Graveyard |
 | 3 | Hameau du Gué — village et rivière, KayKit Medieval | Les Marais engloutis | Le Hameau du Gué | Fordside Hamlet |
 | 4 | Avant-poste des Glaces — base sur la banquise, KayKit Space Base | Le Glacier silencieux | L'Avant-poste des Glaces | The Frost Outpost |
-| 5 | (provisoire : Ruines des Veilleurs, pas encore de carte propre) | La Cité de la Faille | Le Cœur de la Faille | The Heart of the Rift |
+| 5 | Cité Effondrée — ville de pierre en ruine, de nuit, KayKit Dungeon | La Cité de la Faille | Le Cœur de la Faille | The Heart of the Rift |
 
-Le nom du chapitre 5 suppose une carte finale « au cœur de la Faille » (ruines corrompues) ; à revoir quand elle
-sera construite.
+Le chapitre 5 garde le nom « Le Cœur de la Faille » : sa carte, la Cité Effondrée, est une ville en ruine baignée
+de lueurs de Faille (14 novembre ; une première carte « ville moderne » a été refusée : hors direction artistique).
 
 ## Essai de décors modulaires avec relief (Codex, 12 novembre 2026)
 
@@ -1052,7 +1052,7 @@ Décision du propriétaire : la v2 remplace la v1 dans `main`. `godot --path .` 
 (`res://draft3d/main.tscn`). La v1 est archivée sur la branche `archive/v1-2d` (commit ac1f7ad) ; son code reste dans
 le dépôt tant que la v2 en réutilise des pièces (GameDB, données, sprites, effets, audio, textes) et se lance encore
 avec `godot --path . res://scenes/main.tscn`.
-État de la v2 : quatre cartes (Ruines des Veilleurs, Cimetière des Cendres, Hameau du Gué, Avant-poste des Glaces),
-bestiaires des cinq chapitres, gardiens et Dévoreurs, EXP et améliorations, quatre sorts, audio. Le chapitre 5 joue
-encore sur la carte 1. À venir : carte 5, seconde passe de détail sur les cartes, sols peints par Codex (textures
+État de la v2 : cinq cartes (Ruines des Veilleurs, Cimetière des Cendres, Hameau du Gué, Avant-poste des Glaces,
+Cité Effondrée),
+bestiaires des cinq chapitres, gardiens et Dévoreurs, EXP et améliorations, quatre sorts, audio. À venir : seconde passe de détail sur les cartes, sols peints par Codex (textures
 répétables), Échos.

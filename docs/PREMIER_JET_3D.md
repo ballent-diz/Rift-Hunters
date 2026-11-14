@@ -123,7 +123,17 @@ sud (départ), base de quatre modules reliés par un tunnel au centre, dépôt d
 éoliennes à l'est, plateau de forage à 2 m avec deux escaliers au nord (le boss apparaît à son pied). Falaise de
 glace tout autour. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_4.webp`. Décors : **KayKit Space Base
 Bits**, Kay Lousberg, licence **CC0** (`draft3d/spacebase/LICENSE.txt`), agrandis quatre fois ; roches et falaises
-repeintes en glace. Le chapitre 5 joue encore sur le niveau 1.
+repeintes en glace.
+
+## Carte : cinquième niveau, la Cité Effondrée
+
+96 × 60 m, ville de pierre en ruine, de nuit (`draft3d/level_city.gd`), jouée au chapitre 5. Porte sud (départ) et
+grande avenue pavée bordée de colonnes, porte debout au croisement avec la rue transversale, forum de huit piliers au
+centre (le boss y apparaît), îlots de maisons sans toit à deux ouvertures à l'ouest, temple à péristyle au nord-est,
+entrepôts au sud-est, acropole à 2 m avec deux escaliers au nord. Rempart sur trois côtés, parapet bas au sud.
+Lueurs violettes de la Faille dans chaque quartier. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_5.webp`.
+Décors : **KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0** (`draft3d/dungeon/LICENSE.txt`), une
+quarantaine de pièces de ruine importées telles quelles (taille réelle), en plus des modules de la carte 1.
 
 ## Vérifications
 
