@@ -1,5 +1,23 @@
 # Matière des cartes 3D — Cour des Veilleurs
 
+## Correction de l'intégration après fusion — 15 novembre 2026
+
+Les captures historiques de cette page ont été réalisées sans la passe de rendu pixel de la PR #165.
+Elles prouvaient l'habillage mais ne validaient pas son apparence combinée en jeu. La palette de la #165,
+tirée des anciens modules, ne possédait pas les verts du nouveau sol : la quantification les remplaçait par
+du gris-violet. Les palettes des chapitres 1 et 5 sont corrigées, sans changer le shader ni les matières.
+Le fond bleu nuit est conservé ; les autres chapitres gardent leurs palettes.
+
+La nouvelle palette est obtenue avec `build_pixel_palette.py`, à partir des plages de décor d'une capture
+réelle `draft3d/main.tscn -- --chapter=1 --pixel-palette=0 --pixel=1`, puis une entrée redondante est remplacée
+par le fond bleu nuit de cette capture. L'interface et le Chasseur sont exclus des zones échantillonnées.
+Le test `test_cour_palette_preserves_moss` vérifie que deux verts représentatifs restent verts après la
+recherche perceptuelle dans les palettes de la Cour. Voir `docs/previews/palette-cour-integree/` pour la
+comparaison **en jeu, rendu pixel activé avant et après**, et la commande de vérification.
+
+Les différences de soleil, d'aplats et de contours de la #165 restent volontaires. F4 permet de comparer avec
+le rendu standard. Aucun matériau ni collider n'est modifié par ce correctif.
+
 Premier lot du 14 novembre 2026, **à valider visuellement par le propriétaire avant toute déclinaison**.
 Les sources KayKit Dungeon Remastered conservent leur licence CC0 et leurs collisions.
 

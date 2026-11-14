@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Intégration matière / rendu pixel de la Cour (Codex, 15 novembre 2026)
+
+Correctif vérifié, à revoir sur `codex/palette-cour-integree` : la palette de la PR #165, antérieure aux textures
+de la #166, ne contenait pas les verts du sous-bois et les transformait en gris-violet. Les palettes des
+chapitres 1 et 5 (même Cour actuellement) sont recalées sur des captures du jeu en aplats, avec les matières
+actuelles. Vérification directe dans `draft3d/main.tscn`, rendu pixel actif ; sept tests ciblés réussis,
+dont un test de régression sur la mousse. Shaders, matières, géométrie et collisions inchangés.
+
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
 Dernière retouche à valider : sol de sous-bois plus végétal (mousse basse et humus sombre),
