@@ -5,6 +5,7 @@ const ROOT := "res://draft3d/matter/cour/"
 var _scaled_materials := {}
 var _ground_positions := PackedVector3Array()
 var _ground_uvs := PackedVector2Array()
+var _grass_meshes := {}
 
 func setup(level: Node3D) -> void:
 	name = "CourMatter"
@@ -106,6 +107,9 @@ func texture_foundation(instance: MeshInstance3D) -> void:
 func place_details() -> void:
 	var entries: Array = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "placements.json"))["placements"]
 	for entry: Dictionary in entries:
+		if str(entry["visual_id"]).begins_with("object.cour_grass_"):
+			place_grass(entry)
+			continue
 		var sprite := Sprite3D.new()
 		sprite.name = entry["name"]
 		var asset: Dictionary = Assets.entry(StringName(entry["visual_id"]))
@@ -132,3 +136,16 @@ func place_details() -> void:
 			sprite.position.y += (float(asset["anchor"][1]) - 32.0) * sprite.pixel_size
 		sprite.set_meta("cour_detail", entry["visual_id"])
 		add_child(sprite)
+
+func place_grass(entry: Dictionary) -> void:
+	var variant: int = ["object.cour_grass_olive", "object.cour_grass_broad", "object.cour_grass_dry"].find(entry.visual_id)
+	if not _grass_meshes.has(variant):
+		_grass_meshes[variant] = preload("res://draft3d/matter/cour/grass_mesh.gd").build(variant)
+	var instance := MeshInstance3D.new()
+	instance.name = entry.name
+	instance.mesh = _grass_meshes[variant]
+	instance.position = Vector3(entry.position[0], entry.position[1], entry.position[2])
+	instance.rotation.y = deg_to_rad(float(entry.yaw))
+	instance.set_meta("cour_detail", entry.visual_id)
+	instance.set_meta("cour_grass_3d", true)
+	add_child(instance)

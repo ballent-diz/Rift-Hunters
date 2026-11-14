@@ -7,6 +7,7 @@
 	"floor_tiles_replaced": 336,
 	"floor_top_height_and_footprint": "identiques",
 	"geometry_original_uv": "identiques",
+	"grass_3d_instances": 40,
 	"manifest_entries_validated": 23,
 	"max_normal_encoding_error": 0.000128052342915908,
 	"module_instances": 551,

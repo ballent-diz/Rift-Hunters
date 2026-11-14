@@ -103,8 +103,18 @@ les copies projettent leurs ombres à partir du maillage complet, de même forme
 
 ## Placement et réversibilité
 
+### Herbe en volume
+
+Après retour du propriétaire, les trois variantes d'herbe sont remplacées à leurs emplacements par de véritables
+MeshInstance3D. `grass_mesh.gd` produit trois maillages partagés, déterministes : sept petits bouquets de treize
+brins courbés, à section triangulaire, hauts de 20 à 48 cm. Les quatre couleurs viennent de la palette commune.
+Les normales et le matériau standard permettent l'éclairage et les ombres du moteur, sans nouveau shader.
+Ces touffes ne suivent pas la caméra ; elles restent sans collision. La mousse basse reste dans le terrain peint.
+Les autres détails gardent leur rendu en sprites. Le rendu combiné de Claude reste à valider séparément.
+
 Les sprites sont des Sprite3D en alpha découpé, nearest, sans corps physique et sans effet de gameplay.
-Les herbes sont des billboards, les traces des quads au sol et les toiles des quads sur les murs.
+Les herbes sont des maillages 3D ; la fougère et le lierre restent des billboards,
+les traces des quads au sol et les toiles des quads sur les murs.
 La position JSON désigne l'ancre ; l'habillage compense le décalage de la cellule jusque sur un quad tourné.
 Les variantes et les placements sont éditables séparément. Les axes de circulation principaux restent dégagés.
 

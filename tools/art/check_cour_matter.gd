@@ -99,6 +99,12 @@ func verify() -> void:
 	assert(before_navigation == navigation(level), "Navigation différente")
 	assert(dressing.get_child_count() == placements.size() + 1)
 	assert(dressing.find_children("*", "CollisionObject3D", true, false).is_empty())
+	var grass_count := 0
+	for detail: Node in dressing.get_children():
+		if detail.has_meta("cour_grass_3d"):
+			assert(detail is MeshInstance3D)
+			grass_count += 1
+	assert(grass_count > 0, "Herbe 3D absente")
 	var ground := dressing.get_node("CourTerrain") as MeshInstance3D
 	var ground_arrays := ground.mesh.surface_get_arrays(0)
 	var positions: PackedVector3Array = ground_arrays[Mesh.ARRAY_VERTEX]
@@ -128,6 +134,7 @@ func verify() -> void:
 		"navigation_polygons": level.navigation_mesh.get_polygon_count(),
 		"navigation_sha256": JSON.stringify(before_navigation).sha256_text(), "detail_instances": placements.size(),
 		"manifest_entries_validated": detail_definitions.size(),
+		"grass_3d_instances": grass_count,
 		"floor_tiles_replaced": floors.size(), "floor_top_height_and_footprint": "identiques",
 		"floor_geometry": "surface visuelle continue, deux triangles par ancienne tuile",
 		"geometry_original_uv": "identiques", "max_normal_encoding_error": max_normal_error,

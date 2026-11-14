@@ -8,6 +8,9 @@ Les fichiers WebP sont sans perte, sans agrandissement ni retouche de rendu.
 Le propriétaire a demandé le remplacement intégral du sol : les hexagones visibles ont été remplacés par
 une surface continue de terre tassée, pierre plate et mousse, sur les 336 emprises de sol, terrasses comprises.
 Les escaliers gardent leur géométrie et leur matière de pierre.
+Les dernières captures de détail montrent aussi 40 groupes d'herbe en vrais maillages 3D,
+avec éclairage et ombres ; les plaques de mousse restent peintes dans le terrain.
+Le rapport confirme les mêmes collisions et la même navigation après cet ajout.
 
 ![Ancien sol à gauche, sol terre/pierre/verdure à droite](sol_comparaison.webp)
 
@@ -22,7 +25,8 @@ Les escaliers gardent leur géométrie et leur matière de pierre.
 | Abris | [Avant](abris_avant.webp) | [Après](abris_apres.webp) |
 | Entrepôts | [Avant](entrepots_avant.webp) | [Après](entrepots_apres.webp) |
 
-[Capture d'une partie à 12 secondes](partie_12s.webp), avec bot immobile/invulnérable, chapitre 1 et graine 241114.
+[Capture d'une partie à 12 secondes avant ajout de l'herbe 3D](partie_12s.webp),
+avec bot immobile/invulnérable, chapitre 1 et graine 241114.
 Le lancement produit aussi une capture à 2 secondes, gardée localement pour limiter le poids du lot.
 
 [Rapport de géométrie et collisions](controle_geometrie.json) : conforme, 7 662 triangles, 11 modules hors sol,
@@ -35,7 +39,8 @@ Import final, banc natif, contrôle natif, lancement de partie à 2/12 secondes 
 
 Le rendu pixel de Claude n'est pas inclus dans ces captures ; la lecture combinée reste à vérifier après
 rapprochement des branches. La validation artistique et l'essai avec une horde restent au propriétaire.
-Le banc indique 492 appels de dessin d'origine et 318 après, sur les entrepôts ; ce n'est pas un benchmark de FPS.
+Le banc indique 492 appels de dessin d'origine et 363 avec herbe 3D, sur les entrepôts ; ce n'est pas un benchmark de FPS.
+La version du sol continu avant herbe 3D en indiquait 318.
 Le premier essai de matières, avec les hexagones, en indiquait 598. Le terrain continu est désormais un maillage partagé.
 
 Méthode, commandes de reproduction, exceptions UV et propositions d'ambiance :
