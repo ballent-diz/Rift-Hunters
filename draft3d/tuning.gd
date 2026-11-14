@@ -26,6 +26,15 @@ extends Resource
 @export var aim_distance: float = 6.0
 ## Recharge d'un sort qui vient d'être appris (s).
 @export var learned_cooldown: float = 1.0
+## Parade : étourdissement des ennemis touchés par la contre-attaque (s).
+@export var parry_stun: float = 1.5
+## Singularité : force d'attraction (unités 2D/s de SpellData.params.pull) convertie en m/s avec ce facteur.
+@export var singularity_pull_scale: float = 0.5
+## Cristal : rayon minimal (m), traits ajoutés par réfraction, écart (°) et part des dégâts de chaque éclat.
+@export var crystal_min_radius: float = 0.9
+@export var crystal_split: int = 2
+@export var crystal_angle: float = 18.0
+@export var crystal_damage: float = 0.6
 @export_group("Ennemis")
 @export var enemy_damage_scale: float = 0.8
 @export var enemy_hp_growth_per_min: float = 0.1

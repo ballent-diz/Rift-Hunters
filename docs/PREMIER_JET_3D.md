@@ -65,7 +65,7 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 | Ombres calées | Disque au sol tiré du champ `shadow` du manifeste (empreinte mesurée) | `sprite_view.gd` |
 | PixelFX | Effets par famille du catalogue `techniques.json` : tirs, impacts, morts, apparitions, techniques des boss | `pixelfx.gd` |
 | Audio | Musiques par contexte (partie, boss, seconde phase, victoire, défaite), douze sons, tempo (les cristaux battent la mesure) | `run.gd` |
-| Sorts | Sorts actifs lancés à la touche, visée souris / manette / clavier seul, barre de sorts ; départ : sorts de l'arbre ou Taille et Lance, les autres s'apprennent au choix de niveau. Raccordés : Taille, Lance, Rupture, Bond de Faille ([SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md)) | `spells.gd`, `spell_bar.gd`, `controls.gd` |
+| Sorts | Sorts actifs lancés à la touche, visée souris / manette / clavier seul, barre de sorts ; départ : sorts de l'arbre ou Taille et Lance, les autres s'apprennent au choix de niveau. Raccordés : 9 sorts (Taille, Lance, Rupture, Bond, Parade, Singularité, Mur, Égide, Cristal), leurs variantes et rangs en cartes de niveau ([SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md)) | `spells.gd`, `spell_bar.gd`, `controls.gd` |
 | Arbre de compétences | Nœuds actifs du profil qui modifient une statistique du Chasseur ou de ses sorts, en lecture seule | `upgrades.gd` (`apply_tree`) |
 | Campagne | Un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part `user://draft3d_progress.json` | `progress.gd` |
 
@@ -74,7 +74,7 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
   intermédiaire par effet. Les boss utilisent les PixelFX à la place.
 - Techniques propres à chaque monstre et à chaque boss : les boss partagent quatre techniques communes (griffes, onde,
   pluie, invocation, rayon en seconde phase) avec leurs propres animations ; les élites ne sont pas repris.
-- Huit sorts sur douze, les variantes de sorts et les nœuds de l'arbre qui ne sont pas de simples statistiques.
+- Appel de meute et Permutation (Échos), Failles jumelles ; les nœuds de l'arbre qui ne sont pas de simples statistiques.
 - Écran de l'arbre dans ce mode : l'arbre se règle toujours dans le refuge de la campagne.
 - Échos : toujours absents, comme demandé.
 

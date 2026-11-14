@@ -27,7 +27,17 @@ const SPELL_CARDS: Array[String] = ["res://draft3d/spells/learn_cleaving_slash.t
 	"res://draft3d/spells/slash_reach.tres", "res://draft3d/spells/lance_weight.tres",
 	"res://draft3d/spells/lance_tempo.tres", "res://draft3d/spells/rupture_charge.tres",
 	"res://draft3d/spells/rupture_wide.tres", "res://draft3d/spells/leap_heavy.tres",
-	"res://draft3d/spells/leap_momentum.tres"]
+	"res://draft3d/spells/leap_momentum.tres", "res://draft3d/spells/learn_parry.tres",
+	"res://draft3d/spells/learn_singularity.tres", "res://draft3d/spells/learn_rift_wall.tres",
+	"res://draft3d/spells/learn_aegis.tres", "res://draft3d/spells/learn_refracting_crystal.tres",
+	"res://draft3d/spells/parry_mirror.tres", "res://draft3d/spells/parry_long_guard.tres",
+	"res://draft3d/spells/singularity_horizon.tres", "res://draft3d/spells/singularity_collapse.tres",
+	"res://draft3d/spells/wall_chains.tres", "res://draft3d/spells/wall_burning.tres",
+	"res://draft3d/spells/aegis_riposte.tres", "res://draft3d/spells/aegis_second_wind.tres",
+	"res://draft3d/spells/crystal_double.tres", "res://draft3d/spells/crystal_focus.tres",
+	"res://draft3d/spells/parry_counter.tres", "res://draft3d/spells/singularity_depth.tres",
+	"res://draft3d/spells/wall_lasting.tres", "res://draft3d/spells/aegis_quick.tres",
+	"res://draft3d/spells/crystal_lasting.tres"]
 
 ## Cartes de statistiques (toujours offertes tant qu'elles servent).
 var catalog: Array[UpgradeData] = []
