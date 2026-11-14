@@ -2273,7 +2273,7 @@ DRAFT_VICTORY,Victoire,Victory
 DRAFT_DEFEAT,Défaite,Defeat
 DRAFT_RESTART,Rejouer (R),Play again (R)
 DRAFT_SUMMARY,Temps %s · Niveau %d · %d éliminations,Time %s · Level %d · %d kills
-DRAFT_CONTROLS,ZQSD / WASD / flèches : se déplacer · Espace : Ruée · l'attaque part toute seule,ZQSD / WASD / arrows: move · Space: dash · attacks fire on their own
+DRAFT_CONTROLS,ZQSD / WASD / flèches : se déplacer · Espace : Ruée · l'attaque part toute seule · Échap : pause,ZQSD / WASD / arrows: move · Space: dash · attacks fire on their own · Esc: pause
 DRAFT_BOSS_WARNING,%s approche !,%s is coming!
 DRAFT_SWARM,Une nuée déferle !,A swarm rushes in!
 UPGRADE_LONG_REACH_NAME,Longue portée,Long Reach
@@ -2284,3 +2284,22 @@ DRAFT_CHOOSE_CHAPTER,Choisissez un chapitre,Choose a chapter
 DRAFT_CHANGE_CHAPTER,Changer de chapitre,Change chapter
 DRAFT_CHAPTER_LOCKED,terminez le chapitre précédent,clear the previous chapter
 DRAFT_READY,prêt,ready
+MENU3D_TITLE,Rift Hunters,Rift Hunters
+MENU3D_TAGLINE,Traquez les Corrompus. Refermez les Failles.,Hunt the Corrupted. Seal the Rifts.
+MENU3D_PLAY,Jouer,Play
+MENU3D_NAV_HINT,"Flèches, souris ou manette : naviguer · Entrée / A : valider · Échap / B : retour","Arrows, mouse or gamepad: navigate · Enter / A: confirm · Esc / B: back"
+MENU3D_CONTROLS_TITLE,Commandes,Controls
+MENU3D_CONTROLS_LIST,"Se déplacer : ZQSD, WASD ou flèches · Ruée : Espace ou Maj · Attaque : automatique · Améliorations : 1, 2, 3 ou clic · Zoom : molette · Pause : Échap, P ou Start","Move: ZQSD, WASD or arrows · Dash: Space or Shift · Attack: automatic · Upgrades: 1, 2, 3 or click · Zoom: mouse wheel · Pause: Esc, P or Start"
+MENU3D_BACK,Retour,Back
+MENU3D_BACK_TO_MENU,Menu principal,Main menu
+MENU3D_RESTART,Recommencer,Restart
+CHAPTER3D_CASCADE_RUINS_NAME,Les Ruines des Veilleurs,The Wardens' Ruins
+CHAPTER3D_CASCADE_RUINS_DESC,"Une forteresse de pierre abandonnée : parvis, cour à l'arche, terrasse haute, entrepôts et colonnade. C'est ici que la première Faille s'est ouverte.","An abandoned stone fortress: forecourt, arched court, high terrace, storehouses and colonnade. This is where the first Rift opened."
+CHAPTER3D_DEVASTATED_LANDS_NAME,Le Cimetière des Cendres,The Ashen Graveyard
+CHAPTER3D_DEVASTATED_LANDS_DESC,"De nuit, entre tombes, bois mort et crypte : la Faille a brûlé le repos des morts, et les Corrompus sortent de terre.","At night, among graves, dead woods and a crypt: the Rift has burned away the rest of the dead, and the Corrupted crawl out of the ground."
+CHAPTER3D_SUNKEN_MARSHES_NAME,Le Hameau du Gué,Fordside Hamlet
+CHAPTER3D_SUNKEN_MARSHES_DESC,"Un village en plein jour coupé par une rivière : trois ponts, des champs, un moulin et l'église sur sa butte. La Faille a gagné les vivants.","A village in broad daylight split by a river: three bridges, fields, a mill and the church on its hill. The Rift has reached the living."
+CHAPTER3D_SILENT_GLACIER_NAME,L'Avant-poste des Glaces,The Frost Outpost
+CHAPTER3D_SILENT_GLACIER_DESC,"Une base de forage isolée sur la banquise : modules, dépôt de fret, éoliennes. On y sondait la Faille ; elle a répondu.","A lonely drilling base on the ice shelf: modules, a cargo depot, wind turbines. Someone was probing the Rift here; it answered."
+CHAPTER3D_RIFT_CITY_NAME,Le Cœur de la Faille,The Heart of the Rift
+CHAPTER3D_RIFT_CITY_DESC,"Au bout de la traque, la Faille rouvre les ruines où tout a commencé : ses Dévoreurs y attendent le Chasseur.","At the end of the hunt, the Rift reopens the ruins where it all began: its Devourers await the Hunter there."

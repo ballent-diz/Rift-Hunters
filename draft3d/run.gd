@@ -16,6 +16,9 @@ const CAMERA_OFFSET := Vector3(0, 18, 17)
 ## Chapitre gardé d'une partie à l'autre (R rejoue le même) ; 0 : le choix s'affiche au lancement.
 static var chosen_chapter: int = 0
 
+## Retour au menu principal ; remplaçable par les essais (aucun changement de scène pendant les tests).
+var leave: Callable = func(path: String) -> void: Router.goto_scene(path)
+
 var tuning: DraftTuning
 ## Chapitre joué (1 à 5) : bestiaire, gardiens et Dévoreur viennent de la campagne (DraftRoster).
 var chapter: int = 1
@@ -116,6 +119,8 @@ func _ready() -> void:
 	hud.chosen.connect(choose)
 	hud.restart_requested.connect(restart)
 	hud.chapter_change_requested.connect(change_chapter)
+	hud.pause_requested.connect(toggle_pause)
+	hud.menu_requested.connect(back_to_menu)
 	_bot = _options.has("bot")
 	hunter.automating = _bot
 	for value: String in str(_options.get("shot-times", "")).split(",", false):
@@ -143,7 +148,7 @@ func _ready() -> void:
 	await level.bake()
 	hunter.set_physics_process(true)
 	enemies.set_physics_process(true)
-	hud.banner(tr(roster.chapter.name_key), 3.0)
+	hud.banner(tr(DraftRoster.name_key(roster.chapter)), 3.0)
 	# Audio de la campagne (manifeste, musiques par contexte, tempo) : rien n'est copié.
 	Audio.begin_map()
 	Audio.play_context("run")
@@ -599,6 +604,23 @@ func change_chapter() -> void:
 	restart()
 
 
+## Pause du joueur (Échap, P, Start) ; sans effet pendant le choix d'amélioration et après la fin.
+func toggle_pause() -> void:
+	if hud.pause_open():
+		hud.hide_pause()
+		get_tree().paused = false
+	elif state == State.PLAYING and not hud.offers_open():
+		get_tree().paused = true
+		hud.show_pause()
+
+
+func back_to_menu() -> void:
+	get_tree().paused = false
+	Engine.time_scale = 1.0
+	chosen_chapter = 0
+	leave.call(DraftMenu.SCENE)
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	var button := event as InputEventMouseButton
 	if button != null and button.pressed:
@@ -606,9 +628,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			camera.size = maxf(11.0, camera.size - 1.0)
 		elif button.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			camera.size = minf(26.0, camera.size + 1.0)
-	var key := event as InputEventKey
-	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_ESCAPE:
-		get_tree().quit()
 
 
 func family_of(foe: DraftEnemies.Foe) -> StringName:
