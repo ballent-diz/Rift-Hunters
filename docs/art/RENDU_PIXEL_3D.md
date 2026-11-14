@@ -67,6 +67,10 @@ caméra), `draft3d/sprite_view.gd` (mode de transparence des sprites).
   lumière ambre (`light_tint`), comme les rampes des sprites (bible § 3 : ombres vers 262°, lumières vers 48°).
 - **Soleil haut-gauche** en rendu pixel (`SUN_ROTATION = (-52°, -60°)`) : sommets clairs, faces gauches éclairées,
   façades à mi-teinte, faces droites et ombres portées vers le bas-droite.
+- **Tonemap linéaire** en rendu pixel : le filmic d'origine, appliqué une seconde fois à la sortie de la passe de
+  palette, délavait tout. La luminosité du filmic est rendue par `exposure` (1,34, mesurée sur les captures) avant
+  la palette ; les sprites s'affichent désormais avec les couleurs exactes de leurs feuilles (le filmic les
+  assombrissait légèrement).
 - **Tramage** optionnel : `band_dither` (Bayer 4 × 4 sur la grille des texels, aux transitions de paliers) et
   `palette_dither` (avant quantification). Désactivés par défaut : sur les grands sols unis, le tramage se lisait
   comme du bruit ; à essayer par chapitre (0,2 à 0,35).
@@ -100,6 +104,7 @@ recharge le décor, une nouvelle partie relit le fichier) :
 | `colors` | 32 couleurs tirées de la carte | couleurs permises pour le décor (64 au plus ; vide = pas de quantification) |
 | `outline`, `rim`, `rim_strength`, `lit_outline` | `#0e0a17`, `#b56cf0`, 0,4, 0,55 | contour sélectif et liseré |
 | `shadow_tint`, `light_tint` | violet-bleu, ambre pâle | glissement de teinte des paliers |
+| `exposure` | 1,34 | luminosité du décor avant palette (tonemap linéaire en rendu pixel) |
 | `bands` | 4 | paliers de lumière (3 ou 4) |
 | `band_dither`, `palette_dither` | 0, 0 | tramages |
 | `crease_depth`, `crease_dark`, `edge_light` | 0,05 m, 0,45, 0,18 | plis |
@@ -131,7 +136,15 @@ retouchée (le réglage fin de ce lot porte sur la carte 1).
 Mesure : `godot --path . res://draft3d/main.tscn -- --perf=100,200,300 [--pixel=0]`, même conteneur que la mesure du
 13 novembre (4 cœurs Xeon, **sans carte graphique**, rendu logiciel llvmpipe), fenêtre 1600 × 900.
 
-MESURES_PERF
+| Ennemis | Rendu lisse | Rendu pixel |
+|---|---|---|
+| 200 | 7,9 images/s | 5,2 images/s |
+| 300 | 7,8 images/s | 5,0 images/s |
+
+Pas physique identique (0,05 ms) : seul le dessin change. En rendu **logiciel**, le rendu pixel coûte environ un
+tiers d'images en plus : la vue basse résolution a presque autant de rangées que la fenêtre (832 contre 810 ici), et
+il s'y ajoute la vue de profondeur et la passe plein écran, calculées par le processeur. Ce chiffre ne dit rien d'une
+carte graphique, où ces passes sont minimes.
 
 Sur une vraie carte graphique, le rendu pixel dessine **moins** de pixels que le rendu lisse (832 rangées contre la
 résolution native), plus une vue de profondeur du décor seul (même nombre de rangées, sans éclairage) et une passe
@@ -144,6 +157,7 @@ avec la même commande, avec et sans `--pixel=0`.
   pas exactement sur la grille : un pixel d'art couvre 1,15 ou 0,77 texel, comme aujourd'hui à l'écran.
 - Les sprites ne sont pas calés sur la grille (ils se déplacent au sous-texel) : aucune différence visible au
   facteur 1 à 2, à surveiller en 4K.
+- Les torches éclairent moins que dans le rendu lisse (anneaux tramés à 75 %) : à régler à l'œil (`toon.gdshader`).
 - Les PixelFX d'origine sont dessinés à 0,03 m par pixel (pas 0,024) : légère différence de densité, inchangée.
 - La transparence mélangée des sprites trie les sprites par distance (comme des cartes posées) au lieu du tampon de
   profondeur : identique pour des sprites face caméra, à surveiller sur les très grands boss.
