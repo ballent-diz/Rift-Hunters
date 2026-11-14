@@ -274,6 +274,10 @@ func aim_point() -> Vector3:
 		return here + Vector3(stick.x, 0, stick.y).normalized() * tuning.aim_distance
 	if Settings.uses_mouse() and run.camera != null and run.is_inside_tree():
 		var mouse: Vector2 = run.get_viewport().get_mouse_position()
+		# Rendu pixel : la caméra vit dans une vue basse résolution affichée en plein écran.
+		var view: Viewport = run.camera.get_viewport()
+		if view != run.get_viewport():
+			mouse *= Vector2(view.get_visible_rect().size) / run.get_viewport().get_visible_rect().size
 		var ground := Plane(Vector3.UP, here.y)
 		var hit: Variant = ground.intersects_ray(run.camera.project_ray_origin(mouse), run.camera.project_ray_normal(mouse))
 		if hit != null:
