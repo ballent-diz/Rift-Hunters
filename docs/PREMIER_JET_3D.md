@@ -19,9 +19,11 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 | Attaquer | automatique, sur l'ennemi visible le plus proche |
 | Choisir une amélioration | 1, 2, 3 ou clic |
 | Zoom / rejouer en fin de partie / pause | molette / R / Échap, P ou Start |
+| Rendu pixel 3D / rendu lisse d'origine | F4 |
 
 Options de vérification (après `--`) : `--bot`, `--passive`, `--god`, `--seed=1`, `--boss-at=30`, `--result`,
-`--perf=50,100,200`, `--shots=<dossier> --shot-times=40,95 --quit-after-shots`.
+`--perf=50,100,200`, `--shots=<dossier> --shot-times=40,95 --quit-after-shots`, `--look=x,z[,hauteur]`,
+`--pixel=0`, `--pixel-palette=0`, `--pixel-scale=2` (rendu pixel : docs/art/RENDU_PIXEL_3D.md).
 
 ## Organisation
 
@@ -36,6 +38,7 @@ Options de vérification (après `--`) : `--bot`, `--passive`, `--god`, `--seed=
 | `draft3d/hud.gd` | interface, choix de niveau, choix du chapitre, pause, écran de fin |
 | `draft3d/menu.gd`, `options.gd` | menu principal (scène de démarrage) et fenêtre d'options |
 | `draft3d/sprite_view.gd`, `effect.gd` | sprites 2D et PixelFX dans le monde 3D |
+| `draft3d/render/` | rendu pixel 3D : vue basse résolution, aplats, contours, palette par chapitre (docs/art/RENDU_PIXEL_3D.md) |
 | `draft3d/tuning.gd` / `.tres` | réglages propres au mode (vagues, boss, bonus du Chasseur seul) |
 
 **Réutilisé tel quel** (référencé, jamais copié) : `GameDB` (ennemis, boss, améliorations, équilibrage), `Assets` et le
