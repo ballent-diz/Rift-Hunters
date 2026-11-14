@@ -1,0 +1,2130 @@
+{
+  "seed": 241114,
+  "units": "metres",
+  "collision": false,
+  "placements": [
+    {
+      "name": "detail_000_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        -46.235,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_001_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -45.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_002_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        -42.061,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_003_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -41.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_004_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -37.766,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_005_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        -37.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_006_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -34.386,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_007_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -33.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_008_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -30.446,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_009_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -29.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_010_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -25.461,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_011_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -25.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_012_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -21.748,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_013_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -21.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_014_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -18.13,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_015_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -17.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_016_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        -13.974,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_017_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        -13.2,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_018_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        -10.434,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_019_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        -9.2,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_020_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        -6.436,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_021_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -5.2,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_022_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -1.577,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_023_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        -1.2,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_024_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        2.502,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_025_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        2.8,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_026_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        5.967,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_027_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        6.8,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_028_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        10.223,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_029_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        10.8,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_030_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        14.25,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_031_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        14.8,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_032_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        18.302,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_033_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        18.8,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_034_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        21.518,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_035_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        22.8,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_036_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        25.961,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_037_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        26.8,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_038_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        29.46,
+        0.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_039_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        30.8,
+        0.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_040_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        33.6,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_041_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        34.8,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_042_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        38.418,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_043_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        38.8,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_044_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        42.215,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_045_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        42.8,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_046_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        45.645,
+        2.065,
+        -19.6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_047_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        46.8,
+        2.065,
+        -19.2
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_048_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -47.7,
+        0.065,
+        -16
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_049_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        -47,
+        0.065,
+        -15.1
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_050_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -47.7,
+        0.065,
+        -11
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_051_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -47,
+        0.065,
+        -10.1
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_052_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -47.7,
+        0.065,
+        -6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_053_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -47,
+        0.065,
+        -5.1
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_054_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        -47.7,
+        0.065,
+        -1
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_055_rubble",
+      "visual_id": "object.cour_rubble",
+      "position": [
+        -47,
+        0.065,
+        -0.1
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_056_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -47.7,
+        0.065,
+        4
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_057_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        -47,
+        0.065,
+        4.9
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_058_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -47.7,
+        0.065,
+        9
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_059_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -47,
+        0.065,
+        9.9
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_060_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        -47.7,
+        0.065,
+        14
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_061_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -47,
+        0.065,
+        14.9
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_062_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -47.7,
+        0.065,
+        19
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_063_rubble",
+      "visual_id": "object.cour_rubble",
+      "position": [
+        -47,
+        0.065,
+        19.9
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_064_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -47.7,
+        0.065,
+        24
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_065_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -47,
+        0.065,
+        24.9
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_066_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -47.7,
+        0.065,
+        29
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_067_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        -47,
+        0.065,
+        29.9
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_068_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        -47.7,
+        0.065,
+        34
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_069_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        -47,
+        0.065,
+        34.9
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_070_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -23.8,
+        0.065,
+        -14
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_071_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -23.4,
+        0.065,
+        -13.1
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_072_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -23.8,
+        0.065,
+        -2
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_073_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -23.4,
+        0.065,
+        -1.1
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_074_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -23.8,
+        0.065,
+        14
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_075_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -23.4,
+        0.065,
+        14.9
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_076_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -23.8,
+        0.065,
+        30
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_077_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -23.4,
+        0.065,
+        30.9
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_078_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        -7.8,
+        0.065,
+        -4.0
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_079_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -8,
+        0.065,
+        -5.1
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_080_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        -7.8,
+        0.065,
+        3.0
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_081_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -8,
+        0.065,
+        1.9
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_082_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -19.8,
+        0.065,
+        15.0
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_083_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -20.2,
+        0.065,
+        14.4
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_084_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -20.8,
+        0.065,
+        -9.0
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_085_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -21.2,
+        0.065,
+        -9.6
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_086_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -9.8,
+        0.065,
+        32.0
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_087_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -10.2,
+        0.065,
+        31.4
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_088_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        -8,
+        0.065,
+        -11.65
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_089_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        -10.9,
+        0.065,
+        -11.55
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_090_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        47.7,
+        0.065,
+        -16
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_091_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        47,
+        0.065,
+        -15.1
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_092_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        47.7,
+        0.065,
+        -11
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_093_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        47,
+        0.065,
+        -10.1
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_094_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        47.7,
+        0.065,
+        -6
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_095_rubble",
+      "visual_id": "object.cour_rubble",
+      "position": [
+        47,
+        0.065,
+        -5.1
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_096_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        47.7,
+        0.065,
+        -1
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_097_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        47,
+        0.065,
+        -0.1
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_098_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        47.7,
+        0.065,
+        4
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_099_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        47,
+        0.065,
+        4.9
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_100_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        47.7,
+        0.065,
+        9
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_101_rubble",
+      "visual_id": "object.cour_rubble",
+      "position": [
+        47,
+        0.065,
+        9.9
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_102_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        47.7,
+        0.065,
+        14
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_103_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        47,
+        0.065,
+        14.9
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_104_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        47.7,
+        0.065,
+        19
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_105_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        47,
+        0.065,
+        19.9
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_106_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        47.7,
+        0.065,
+        24
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_107_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        47,
+        0.065,
+        24.9
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_108_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        47.7,
+        0.065,
+        29
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_109_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        47,
+        0.065,
+        29.9
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_110_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        47.7,
+        0.065,
+        34
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_111_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        47,
+        0.065,
+        34.9
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_112_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        23.8,
+        0.065,
+        -14
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_113_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        23.4,
+        0.065,
+        -13.1
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_114_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        23.8,
+        0.065,
+        -2
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_115_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        23.4,
+        0.065,
+        -1.1
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_116_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        23.8,
+        0.065,
+        14
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_117_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        23.4,
+        0.065,
+        14.9
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_118_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        23.8,
+        0.065,
+        30
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_119_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        23.4,
+        0.065,
+        30.9
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_120_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        7.8,
+        0.065,
+        -4.0
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_121_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        8,
+        0.065,
+        -5.1
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_122_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        7.8,
+        0.065,
+        3.0
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_123_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        8,
+        0.065,
+        1.9
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_124_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        18.2,
+        0.065,
+        15.0
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_125_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        17.8,
+        0.065,
+        14.4
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_126_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        19.2,
+        0.065,
+        -9.0
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_127_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        18.8,
+        0.065,
+        -9.6
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_128_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        8.2,
+        0.065,
+        32.0
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_129_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        7.8,
+        0.065,
+        31.4
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_130_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        8,
+        0.065,
+        -11.65
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_131_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        10.9,
+        0.065,
+        -11.55
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_132_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        29,
+        0.065,
+        1
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_133_grass_olive",
+      "visual_id": "object.cour_grass_olive",
+      "position": [
+        -28.6,
+        0.065,
+        2.8
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_134_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        -33,
+        0.065,
+        1
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_135_grass_broad",
+      "visual_id": "object.cour_grass_broad",
+      "position": [
+        33.4,
+        0.065,
+        2.8
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_136_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        37,
+        0.065,
+        1
+      ],
+      "orientation": "upright",
+      "yaw": 180
+    },
+    {
+      "name": "detail_137_grass_dry",
+      "visual_id": "object.cour_grass_dry",
+      "position": [
+        -36.6,
+        0.065,
+        2.8
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_138_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        -41,
+        0.065,
+        1
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_139_fern",
+      "visual_id": "object.cour_fern",
+      "position": [
+        41.4,
+        0.065,
+        2.8
+      ],
+      "orientation": "upright",
+      "yaw": 0
+    },
+    {
+      "name": "detail_140_rubble",
+      "visual_id": "object.cour_rubble",
+      "position": [
+        29,
+        0.065,
+        6
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_141_rubble",
+      "visual_id": "object.cour_rubble",
+      "position": [
+        -28.6,
+        0.065,
+        7.8
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_142_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        -33,
+        0.065,
+        6
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_143_slate",
+      "visual_id": "object.cour_slate",
+      "position": [
+        33.4,
+        0.065,
+        7.8
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_144_brick",
+      "visual_id": "object.cour_brick",
+      "position": [
+        37,
+        0.065,
+        6
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_145_brick",
+      "visual_id": "object.cour_brick",
+      "position": [
+        -36.6,
+        0.065,
+        7.8
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_146_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -41,
+        0.065,
+        6
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_147_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        41.4,
+        0.065,
+        7.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_148_puddle",
+      "visual_id": "object.cour_puddle",
+      "position": [
+        29,
+        0.065,
+        11
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_149_puddle",
+      "visual_id": "object.cour_puddle",
+      "position": [
+        -28.6,
+        0.065,
+        12.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_150_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        -33,
+        0.065,
+        11
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_151_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        33.4,
+        0.065,
+        12.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_152_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        37,
+        0.065,
+        11
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_153_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -36.6,
+        0.065,
+        12.8
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_154_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        -41,
+        0.065,
+        11
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_155_leaves_green",
+      "visual_id": "object.cour_leaves_green",
+      "position": [
+        41.4,
+        0.065,
+        12.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_156_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        29,
+        0.065,
+        16
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_157_root_moss",
+      "visual_id": "object.cour_root_moss",
+      "position": [
+        -28.6,
+        0.065,
+        17.8
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_158_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        -33,
+        0.065,
+        16
+      ],
+      "orientation": "upright",
+      "yaw": 270
+    },
+    {
+      "name": "detail_159_ivy",
+      "visual_id": "object.cour_ivy",
+      "position": [
+        33.4,
+        0.065,
+        17.8
+      ],
+      "orientation": "upright",
+      "yaw": 90
+    },
+    {
+      "name": "detail_160_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        37,
+        0.065,
+        16
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_161_root_dry",
+      "visual_id": "object.cour_root_dry",
+      "position": [
+        -36.6,
+        0.065,
+        17.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_162_web_round",
+      "visual_id": "object.cour_web_round",
+      "position": [
+        -8,
+        1.2,
+        -19.94
+      ],
+      "orientation": "wall",
+      "yaw": 270
+    },
+    {
+      "name": "detail_163_web_round",
+      "visual_id": "object.cour_web_round",
+      "position": [
+        18,
+        1.6,
+        -19.94
+      ],
+      "orientation": "wall",
+      "yaw": 90
+    },
+    {
+      "name": "detail_164_web_corner",
+      "visual_id": "object.cour_web_corner",
+      "position": [
+        -20,
+        1.2,
+        -19.94
+      ],
+      "orientation": "wall",
+      "yaw": 0
+    },
+    {
+      "name": "detail_165_web_corner",
+      "visual_id": "object.cour_web_corner",
+      "position": [
+        22,
+        1.6,
+        -19.94
+      ],
+      "orientation": "wall",
+      "yaw": 90
+    },
+    {
+      "name": "detail_166_skull",
+      "visual_id": "object.cour_skull",
+      "position": [
+        -33,
+        0.065,
+        21
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_167_skull",
+      "visual_id": "object.cour_skull",
+      "position": [
+        33.4,
+        0.065,
+        22.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_168_bones",
+      "visual_id": "object.cour_bones",
+      "position": [
+        37,
+        0.065,
+        21
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_169_bones",
+      "visual_id": "object.cour_bones",
+      "position": [
+        -36.6,
+        0.065,
+        22.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_170_corruption",
+      "visual_id": "object.cour_corruption",
+      "position": [
+        -33,
+        0.065,
+        26
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_171_corruption",
+      "visual_id": "object.cour_corruption",
+      "position": [
+        33.4,
+        0.065,
+        27.8
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_172_veins",
+      "visual_id": "object.cour_veins",
+      "position": [
+        37,
+        0.065,
+        26
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_173_veins",
+      "visual_id": "object.cour_veins",
+      "position": [
+        -36.6,
+        0.065,
+        27.8
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_174_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        5.394,
+        0.065,
+        3.745
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_175_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -18.356,
+        0.065,
+        7.842
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_176_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        11.355,
+        0.065,
+        12.426
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_177_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        4.266,
+        0.065,
+        12.95
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_178_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        -10.213,
+        0.065,
+        4.045
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_179_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -8.308,
+        0.065,
+        6.087
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_180_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        11.264,
+        0.065,
+        14.962
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_181_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        17.488,
+        0.065,
+        13.055
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_182_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        6.885,
+        0.065,
+        13.53
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_183_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        18.054,
+        0.065,
+        3.184
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_184_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -8.966,
+        0.065,
+        1.696
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_185_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -18.57,
+        0.065,
+        3.488
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_186_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        8.048,
+        0.065,
+        6.002
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_187_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        12.585,
+        0.065,
+        2.946
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_188_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        5.909,
+        0.065,
+        14.471
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_189_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        -9.152,
+        0.065,
+        12.259
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_190_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -4.948,
+        0.065,
+        14.74
+      ],
+      "orientation": "ground",
+      "yaw": 270
+    },
+    {
+      "name": "detail_191_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        -8.588,
+        0.065,
+        6.54
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    },
+    {
+      "name": "detail_192_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        -4.344,
+        0.065,
+        0.959
+      ],
+      "orientation": "ground",
+      "yaw": 0
+    }
+  ]
+}

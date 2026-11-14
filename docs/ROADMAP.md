@@ -1,5 +1,22 @@
 # Rift Hunters — feuille de route
 
+## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
+
+Dernière retouche à valider : sol de sous-bois plus végétal (mousse basse et humus sombre),
+en conservant les nappes d'herbe 3D, les pierres, les hauteurs et la physique.
+Murs, escaliers, piliers et fondations harmonisés en ardoise gris-vert plus sombre, sans les traits de fissure.
+Passe enrichie : quatre textures pierre/mousse/lichen différencient murs, escaliers, piliers et fondations.
+
+**Sol retouché, à valider** sur `codex/matiere-cour-veilleurs` : remplacement de tous les hexagones visibles
+par un sol continu terre/pierre/mousse, conservant les collisions KayKit. Bibliothèque de 23 détails,
+193 placements de 21 variantes ; les fissures en surimpression sont retirées. Premier lot limité à la Cour,
+à valider avant les autres chapitres. Quarante groupes d'herbe sont désormais en vrais brins 3D,
+éclairés et avec ombres, sans collision. Les anciennes plaques vertes de la texture sont maintenant remplacées
+par des nappes de brins 3D suivant `grass_regions.json` ; le sol peint sous-jacent est terre/pierre sans verdure.
+PR brouillon #166.
+Les modules, leurs placements et leurs collisions restent la référence ; aucun changement du shader de rendu
+développé en parallèle par Claude. Méthode et exceptions UV : `docs/art/MATIERE_DES_CARTES_3D.md`.
+
 ## Menu principal v2 et noms des chapitres (Claude, session « Interface », 14 novembre 2026)
 
 **Menu principal de la version 3D**, scène de démarrage du projet (`res://draft3d/menu.tscn`, `draft3d/menu.gd`) :

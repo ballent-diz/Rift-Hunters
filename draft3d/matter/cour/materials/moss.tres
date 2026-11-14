@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://draft3d/matter/cour/textures/moss.png" id="1_rdr7a"]
+
+[resource]
+resource_name = "Cour_moss"
+albedo_texture = ExtResource("1_rdr7a")
+albedo_color = Color(0.55, 0.6, 0.55, 1)
+metallic_specular = 0.0
+roughness = 0.95
+texture_filter = 0
