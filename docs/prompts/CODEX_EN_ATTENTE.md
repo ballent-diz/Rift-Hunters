@@ -24,6 +24,34 @@ capture Godot avant/après au zoom réel avec le Chasseur sur le pont. Ne touche
 rouvrira la collision du tablier à l'intégration.
 ```
 
+## 2. Textures pixel art des modules 3D, par chapitre (rendu pixel 3D, lot 2)
+
+```
+Tâche : repeindre en pixel art les textures des modules 3D KayKit de la version 2 (draft3d/), une série par
+chapitre, sans toucher aux modèles, aux UV, aux collisions ni au code de jeu. Lis d'abord AGENTS.md,
+docs/ART_BIBLE.md (§ 3 : lumière haut-gauche, rampes à glissement de teinte, liseré violet) et
+docs/art/RENDU_PIXEL_3D.md (rendu pixel, palette par chapitre). Branche codex/textures-pixel-modules depuis main à
+jour, PR vers main, poids indiqué.
+
+Contexte : le décor est dessiné en basse résolution, 1 texel = 0,024 m (un pixel d'art des sprites), en aplats
+(4 paliers), contours et palette de 32 couleurs par chapitre (draft3d/render/palettes/chapter_<n>.tres). Les
+textures d'origine (draft3d/kaykit/*_dungeon_texture.png en 1024 px, draft3d/halloween/halloweenbits_texture.png,
+draft3d/medieval/hexagons_medieval.png, draft3d/spacebase/spacebits_texture.png) sont des dégradés lisses.
+
+À faire, chapitre 1 d'abord (Cour des Veilleurs, draft3d/level_ruins.gd, pack Dungeon Remastered), puis 2 à 4 :
+1. Pour chaque texture utilisée par la carte, une version pixel art de même disposition (mêmes zones UV, mêmes
+   proportions), à la densité du rendu : une face de 4 m couvre environ 166 texels à l'écran, la texture ne doit pas
+   être plus fine que cela (taille conseillée : 256 px au lieu de 1024, filtre nearest à l'import).
+2. Couleurs prises dans la palette du chapitre (ou ajoutées à cette palette, 64 couleurs au plus) ; détails
+   dessinés à la main au pixel : joints de pierre, fissures, mousse, bois veiné ; aucun dégradé ; pas de lumière
+   peinte (le shader éclaire) sauf une occlusion légère dans les joints.
+3. Fichiers dans draft3d/<pack>/pixel/<chapitre>/ ; renseigner le champ `textures` de
+   draft3d/render/palettes/chapter_<n>.tres : chemin res:// de la texture d'origine → texture repeinte.
+4. Captures avant/après au même cadrage, rendu pixel actif, pour chaque chapitre (commande de capture dans
+   docs/art/RENDU_PIXEL_3D.md, `--look=x,z,20`), dont terrasse, escaliers et horde pour le chapitre 1.
+5. tools/run_tests.sh complet vert. Ne touche ni draft3d/*.gd, ni les .tscn/.gltf des modules, ni src/, ni data/.
+```
+
 ## Déjà réglé (ne plus envoyer)
 
 - Barrières de zone peintes, une par chapitre (ancien prompt 4) : livrées par Codex (25 assets `object.barrier_1` à

@@ -7,6 +7,8 @@ extends Node3D
 ## Lancement : godot --path . res://draft3d/main.tscn
 ## Options (après --) : --bot (le jeu se joue seul) --passive (bot immobile : défaite) --god --seed=1
 ##   --boss-at=60 --time-scale=4 --perf=50,100,200 --shots=<dossier> --shot-times=20,90 --result (ligne RESULT)
+##   --pixel=0 (rendu 3D lisse d'origine ; F4 bascule en partie, docs/art/RENDU_PIXEL_3D.md) --pixel-scale=2
+##   --pixel-palette=0 (aplats et contours sans palette) --look=x,z[,hauteur de vue]
 
 enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 
@@ -35,6 +37,11 @@ var upgrades: DraftUpgrades
 var spells: DraftSpells
 var tree_effects: int = 0
 var camera: Camera3D
+## Hauteur de la vue en mètres (molette) ; la caméra et le rendu pixel en dérivent.
+var view_size: float = 20.0
+## Rendu pixel 3D : vue basse résolution, aplats, contours et palette du chapitre (docs/art/RENDU_PIXEL_3D.md).
+var pixel: DraftPixelRender
+var sun: DirectionalLight3D
 var rng := RandomNumberGenerator.new()
 var balance: BalanceConfig
 var bolts: Array[Dictionary] = []
@@ -135,6 +142,19 @@ func _ready() -> void:
 	add_child(level)
 	level.build()
 	_build_lighting()
+	if _options.has("pixel"):
+		DraftPixelRender.preferred = str(_options["pixel"]) != "0"
+	DraftPixelRender.texel_scale = maxi(int(_options.get("pixel-scale", "1")), 1)
+	pixel = DraftPixelRender.new()
+	pixel.name = "PixelRender"
+	add_child(pixel)
+	pixel.setup(self, camera, chapter)
+	if str(_options.get("pixel-palette", "1")) == "0":
+		# Aplats et contours sans palette : captures dont on tire une palette (tools/art/build_pixel_palette.py).
+		pixel.palette = pixel.palette.duplicate()
+		pixel.palette.colors = PackedColorArray()
+		pixel.apply_palette()
+	pixel.attach_level(level, sun)
 	enemies.level = level
 	hunter.respawn = level.start
 	hunter.global_position = level.start
@@ -164,7 +184,7 @@ func _build_lighting() -> void:
 	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
 	world.environment = environment
 	add_child(world)
-	var sun := DirectionalLight3D.new()
+	sun = DirectionalLight3D.new()
 	sun.rotation_degrees = Vector3(-54, -35, 0)
 	sun.light_color = level.sun
 	sun.light_energy = level.sun_energy
@@ -181,7 +201,7 @@ func _build_lighting() -> void:
 func _build_camera() -> void:
 	camera = Camera3D.new()
 	camera.projection = Camera3D.PROJECTION_ORTHOGONAL
-	camera.size = 20.0
+	camera.size = view_size
 	camera.far = 150.0
 	add_child(camera)
 	_camera_at = hunter.global_position
@@ -200,6 +220,8 @@ func _build_gems() -> void:
 	var material := StandardMaterial3D.new()
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	material.vertex_color_use_as_albedo = true
+	# Passe transparente : les cristaux sont dessinés après la palette du rendu pixel, avec leurs propres couleurs.
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	shape.material = material
 	multimesh.mesh = shape
 	multimesh.instance_count = 600
@@ -219,15 +241,18 @@ func _process(delta: float) -> void:
 	focus.z = clampf(focus.z, level.bounds_min.y + 4.0, level.bounds_max.y - 7.0)
 	_camera_at = _camera_at.lerp(focus, 1.0 - exp(-8.0 * delta))
 	if _options.has("look"):
-		# Gros plan fixe sur un point de la carte (captures de contrôle) : --look=x,z
+		# Gros plan fixe sur un point de la carte (captures de contrôle) : --look=x,z[,hauteur de vue en m]
 		var spot: PackedStringArray = str(_options["look"]).split(",")
 		_camera_at = Vector3(float(spot[0]), 0, float(spot[1]))
-		camera.size = 34.0
+		view_size = float(spot[2]) if spot.size() > 2 else 34.0
 	if _options.has("overview"):
 		# Vue d'ensemble de la carte (captures de contrôle).
 		_camera_at = Vector3((level.bounds_min.x + level.bounds_max.x) * 0.5, 0, (level.bounds_min.y + level.bounds_max.y) * 0.5)
-		camera.size = 66.0
-	camera.position = _camera_at + CAMERA_OFFSET
+		view_size = 66.0
+	if pixel != null:
+		pixel.place(_camera_at, view_size, CAMERA_OFFSET)
+	else:
+		camera.position = _camera_at + CAMERA_OFFSET
 	hud.refresh(self, delta)
 	_draw_gems()
 	for shot: Dictionary in bolts + hostile:
@@ -603,12 +628,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	var button := event as InputEventMouseButton
 	if button != null and button.pressed:
 		if button.button_index == MOUSE_BUTTON_WHEEL_UP:
-			camera.size = maxf(11.0, camera.size - 1.0)
+			view_size = maxf(11.0, view_size - 1.0)
 		elif button.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-			camera.size = minf(26.0, camera.size + 1.0)
+			view_size = minf(26.0, view_size + 1.0)
 	var key := event as InputEventKey
 	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_ESCAPE:
 		get_tree().quit()
+	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_F4 and pixel != null:
+		hud.banner(tr("DRAFT_PIXEL_ON") if pixel.toggle() else tr("DRAFT_PIXEL_OFF"), 2.0)
 
 
 func family_of(foe: DraftEnemies.Foe) -> StringName:
@@ -680,6 +707,8 @@ func _capture() -> void:
 	var folder: String = str(_options.get("shots", "user://"))
 	DirAccess.make_dir_recursive_absolute(folder)
 	get_viewport().get_texture().get_image().save_png(folder.path_join("premier_jet_%03ds.png" % int(time)))
+	if _options.has("debug-depth") and pixel.enabled:
+		pixel._depth_view.get_texture().get_image().save_png(folder.path_join("depth_%03ds.png" % int(time)))
 	RenderingServer.render_loop_enabled = _shot_times.is_empty()
 	if _shot_times.is_empty() and _options.has("quit-after-shots"):
 		get_tree().quit()
@@ -704,6 +733,7 @@ func _run_perf() -> void:
 			physics += Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)
 			samples += 1
 		var seconds: float = float(Time.get_ticks_msec() - start) / 1000.0
-		print("PERF|ennemis %d|%.1f images/s|pas physique %.2f ms|traits %d|cristaux %d" % [enemies.count(),
-			float(Engine.get_frames_drawn() - frames) / seconds, physics / maxi(samples, 1) * 1000.0, bolts.size(), gems.size()])
+		print("PERF|rendu %s|ennemis %d|%.1f images/s|pas physique %.2f ms|traits %d|cristaux %d" % [
+			"pixel" if pixel.enabled else "lisse", enemies.count(), float(Engine.get_frames_drawn() - frames) / seconds,
+			physics / maxi(samples, 1) * 1000.0, bolts.size(), gems.size()])
 	get_tree().quit()

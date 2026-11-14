@@ -1027,3 +1027,16 @@ avec `godot --path . res://scenes/main.tscn`.
 bestiaires des cinq chapitres, gardiens et Dévoreurs, EXP et améliorations, quatre sorts, audio. Le chapitre 5 joue
 encore sur la carte 1. À venir : carte 5, seconde passe de détail sur les cartes, sols peints par Codex (textures
 répétables), Échos.
+
+## Rendu pixel 3D — 14 novembre 2026 (session « Art et rendu »)
+
+Les modules KayKit lisses sont désormais dessinés en pixel art, sans toucher aux modules, collisions ni au jeu :
+vue basse résolution à la densité des sprites (1 texel = 0,024 m, pixel d'art d'échelle 0,65), caméra calée sur la
+grille avec décalage sub-pixel, aplats en 4 paliers sous un soleil haut-gauche, contours sélectifs et liseré violet
+tirés d'une vue de profondeur du décor seul (le moteur de compatibilité n'offre pas la profondeur aux shaders),
+palette de 32 couleurs par chapitre (ressource éditable). Sprites, effets, cristaux et HUD restent intacts. Actif par
+défaut, F4 ou `--pixel=0` pour comparer. Détail, réglages, coût et méthode pour une nouvelle carte :
+docs/art/RENDU_PIXEL_3D.md ; captures avant/après : docs/previews/rendu-pixel-3d/.
+- **À valider par le propriétaire** sur PC : rendu par défaut, fluidité du défilement, coût réel (`--perf`).
+- **Lots suivants préparés** : textures pixel art des modules par chapitre (prompt Codex n° 2), détails posés en
+  sprites (herbes, gravats, flaques), brume et lumière par chapitre. Palettes des chapitres 2 à 4 non retouchées.

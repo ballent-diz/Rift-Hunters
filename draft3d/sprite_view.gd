@@ -8,6 +8,12 @@ extends Node3D
 ## Mètres par pixel d'art pour une échelle de manifeste de 1 (même valeur que le prototype).
 const PIXEL := 0.037
 const TURN_CONFIRM_TIME := 0.12
+## Groupe de tous les sprites du monde (le rendu pixel change leur mode de transparence).
+const GROUP := &"draft_sprites"
+
+## Rendu pixel (DraftPixelRender) : sprites en transparence mélangée, dessinés après la passe de palette et de
+## contours du décor, donc intacts.
+static var blend_alpha: bool = false
 
 static var _shared_blob: Mesh
 
@@ -42,8 +48,9 @@ func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	sprite.shaded = false
-	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
 	sprite.alpha_scissor_threshold = 0.3
+	add_to_group(GROUP)
+	refresh_alpha()
 	sprite.pixel_size = PIXEL * float(entry.get("scale", 1.0)) * size_mult
 	sprite.offset = Vector2(float(cell[0]) * 0.5 - float(anchor[0]), 0)
 	sprite.position.y = (float(anchor[1]) - float(cell[1]) * 0.5) * sprite.pixel_size + 0.04
@@ -61,6 +68,10 @@ func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
 	add_child(blob)
 	if not has_clip(animation):
 		animation = &"move"
+
+
+func refresh_alpha() -> void:
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISABLED if blend_alpha else SpriteBase3D.ALPHA_CUT_DISCARD
 
 
 static func _blob_mesh() -> Mesh:
