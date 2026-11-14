@@ -5,7 +5,7 @@ extends Control
 ## reste visible avec sa touche : un sort appris en partie viendra s'y placer. Lecture seule de `DraftSpells`.
 
 const SLOT := 64.0
-const GAP := 14.0
+const GAP := 34.0
 
 var spells: DraftSpells
 var _icons: Dictionary = {}

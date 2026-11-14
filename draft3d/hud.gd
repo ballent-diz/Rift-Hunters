@@ -88,7 +88,9 @@ func _ready() -> void:
 	_spell_bar = DraftSpellBar.new()
 	_spell_bar.name = "SpellBar"
 	root.add_child(_spell_bar)
-	_spell_bar.set_anchors_and_offsets_preset(Control.PRESET_CENTER_BOTTOM, Control.PRESET_MODE_MINSIZE)
+	_spell_bar.set_anchors_preset(Control.PRESET_CENTER_BOTTOM)
+	_spell_bar.offset_left = -_spell_bar.custom_minimum_size.x * 0.5
+	_spell_bar.offset_right = _spell_bar.custom_minimum_size.x * 0.5
 	_spell_bar.offset_top = -(DraftSpellBar.SLOT + 40.0)
 	_spell_bar.offset_bottom = -18.0
 	_hint = _label(root, 15, DIM)

@@ -123,7 +123,8 @@ func test_leap_moves_protects_and_strikes_on_landing() -> void:
 	check(not run.spells.cast(0, start), "aucun autre sort pendant le saut")
 	await _frames(30)
 	check(not hunter.is_leaping(), "le saut est fini")
-	check(hunter.global_position.distance_to(start) > 3.0, "le Chasseur a bondi (%.1f m)" % hunter.global_position.distance_to(start))
+	var moved: float = hunter.global_position.distance_to(start)
+	check(moved > 3.0, "le Chasseur a bondi (%.1f m)" % moved)
 	check(_hurt(waiting), "l'onde d'arrivée frappe")
 	check(hunter.global_position.distance_to(start) <= run.spells.reach_of(GameDB.spells[&"rift_leap"]) + 0.5,
 		"portée du Bond respectée")

@@ -695,9 +695,9 @@ func _bot_step() -> void:
 func _print_result() -> void:
 	_options.erase("result")
 	var boss_ratio: float = enemies.boss.hp / enemies.boss.max_hp if enemies.boss != null else 1.0
-	print("RESULT|%s|temps %d|niveau %d|éliminations %d|dégâts subis %d|PV boss %.2f|améliorations %s|chemins %d" % [
+	print("RESULT|%s|temps %d|niveau %d|éliminations %d|dégâts subis %d|PV boss %.2f|améliorations %s|sorts lancés %d|chemins %d" % [
 		"VICTOIRE" if state == State.WON else "DÉFAITE", int(time), hunter.level, kills, int(damage_taken),
-		maxf(boss_ratio, 0.0), upgrades.stacks, enemies.path_requests])
+		maxf(boss_ratio, 0.0), upgrades.stacks, spells.casts, enemies.path_requests])
 	get_tree().quit()
 
 
