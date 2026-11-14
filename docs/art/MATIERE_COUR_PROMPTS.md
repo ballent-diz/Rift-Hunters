@@ -1,5 +1,14 @@
 # Matière de la Cour — consignes de génération
 
+## Dernier retour : sol de sous-bois plus végétal
+
+Le propriétaire demande maintenant moins de terre nue et davantage de végétation basse.
+La mousse revient dans l'albedo comme substrat plat ; tous les brins d'herbe restent en 3D.
+Retouche réalisée avec imagegen intégré, prompt exact :
+
+undefined
+
+
 Images produites avec **l'outil imagegen intégré**, puis conditionnées par `build_cour_matter.py`.
 Les briefs ci-dessous conservent les contraintes artistiques des générations retenues ; le dernier prompt de
 retouche est reproduit en entier. Les essais écartés restent hors dépôt.

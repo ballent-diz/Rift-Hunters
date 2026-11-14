@@ -30,7 +30,8 @@ def main(source_path):
         job["source"].append("source/terrain.png")
     job["ground"] = {"source": "source/terrain.png", "output": "res://draft3d/matter/cour/terrain.png",
                      "size": [640, 640], "world_span_m": 16, "texel_m": 0.025,
-                     "composition": "terre tassée et pierre plate ; végétation en maillages séparés",
+                     "composition": "mousse basse, humus sombre et pierre ; herbe haute en maillages séparés",
+                     "vegetation_mask": "res://draft3d/matter/cour/grass_regions.json",
                      "uv": "phase continue dans le repère du niveau", "collision": "KayKit inchangée"}
     write_json(job_path, job)
     print("Sol continu : 640 x 640, palette commune, 16 m par répétition, bords raccordables.")

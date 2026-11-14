@@ -19,9 +19,6 @@ def main():
     ground_path = COUR / "terrain.png"
     ground = np.asarray(Image.open(ground_path).convert("RGB"))
     assert ground.shape == (640, 640, 3)
-    values = ground.astype(int)
-    assert not ((values[:, :, 1] > values[:, :, 0] + 4) & (values[:, :, 1] > values[:, :, 2] + 8)).any(), \
-        "Il reste du vert peint dans la texture du sol"
     assert set(map(tuple, ground.reshape(-1, 3))) <= palette
     assert np.array_equal(ground[0], ground[-1]) and np.array_equal(ground[:, 0], ground[:, -1])
     assert "mipmaps/generate=false" in ground_path.with_suffix(".png.import").read_text()

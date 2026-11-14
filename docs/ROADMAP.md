@@ -2,6 +2,9 @@
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
+Dernière retouche à valider : sol de sous-bois plus végétal (mousse basse et humus sombre),
+en conservant les nappes d'herbe 3D, les pierres, les hauteurs et la physique.
+
 **Sol retouché, à valider** sur `codex/matiere-cour-veilleurs` : remplacement de tous les hexagones visibles
 par un sol continu terre/pierre/mousse, conservant les collisions KayKit. Bibliothèque de 23 détails,
 193 placements de 21 variantes ; les fissures en surimpression sont retirées. Premier lot limité à la Cour,

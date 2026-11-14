@@ -3,6 +3,11 @@
 Premier lot du 14 novembre 2026, **à valider visuellement par le propriétaire avant toute déclinaison**.
 Les sources KayKit Dungeon Remastered conservent leur licence CC0 et leurs collisions.
 
+**Dernière direction demandée : sous-bois plus végétal.** Le terrain actuel est une mousse basse dominante,
+avec humus sombre et pierres discrètes, en remplacement du sol trop terreux. La mousse de substrat est plate,
+les brins d'herbe restent des maillages 3D suivant le masque déjà validé techniquement. Les paragraphes relatifs
+au retrait intégral du vert décrivent l'étape précédente ; cette demande ultérieure remplace ce choix d'albedo.
+
 ## Résultat et périmètre
 
 La Cour reçoit des matières peintes, une palette commune de 32 couleurs et une bibliothèque de 23 petits détails.

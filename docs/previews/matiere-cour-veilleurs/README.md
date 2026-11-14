@@ -1,5 +1,12 @@
 # Cour des Veilleurs — matière seule
 
+Dernière version : sous-bois plus végétal, mousse basse dominante et humus sombre, pierres discrètes.
+Les nappes d'herbe restent en 3D. Cette nouvelle demande remplace le choix précédent d'un albedo sans vert.
+La retouche ne change que la texture et ses métadonnées, sans changement de relief, collision ou placement.
+Import ciblé de la texture dans un projet minimal au même chemin de ressource : conforme ;
+captures natives de la Cour sans erreur. Les tests bitmap portent sur palette, raccords, taille et import,
+la qualité de la composition végétale est contrôlée sur les captures.
+
 Captures natives Godot 4.3, OpenGL Compatibility, Intel Iris Xe, 1600 × 900.
 Caméra orthographique taille 20, décalage `(0, 18, 17)`, lumière de main inchangée.
 Chasseur, Skitterling et Husk : sprites réels, mêmes positions et poses dans chaque paire.
