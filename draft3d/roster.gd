@@ -23,6 +23,16 @@ static func chapters() -> Array[ChapterData]:
 	return result
 
 
+## Nom du chapitre dans la version 3D (décor de sa carte), distinct du nom de la campagne 2D (clés gardées pour
+## l'archive) : CHAPTER3D_<ID>_NAME / _DESC dans i18n/strings.csv.
+static func name_key(data: ChapterData) -> String:
+	return "CHAPTER3D_%s_NAME" % String(data.id).to_upper()
+
+
+static func desc_key(data: ChapterData) -> String:
+	return "CHAPTER3D_%s_DESC" % String(data.id).to_upper()
+
+
 static func for_chapter(order: int) -> DraftRoster:
 	var roster := DraftRoster.new()
 	var list: Array[ChapterData] = chapters()

@@ -1,5 +1,34 @@
 # Rift Hunters — feuille de route
 
+## Menu principal v2 et noms des chapitres (Claude, session « Interface », 14 novembre 2026)
+
+**Menu principal de la version 3D**, scène de démarrage du projet (`res://draft3d/menu.tscn`, `draft3d/menu.gd`) :
+titre « Rift Hunters » (Cinzel), accroche, boutons Jouer / Options / Quitter (thème `UiKit`, Inter), fond animé = la
+Cour des Veilleurs (niveau 1, sans ennemis) vue en caméra orthographique qui tourne lentement, musique `menu`.
+Navigation clavier, souris (survol = focus) et manette (actions `ui_*`, liste qui boucle). Jouer ouvre
+`draft3d/main.tscn` sur le choix du chapitre (désormais navigable au clavier/manette, description du chapitre au
+survol, bouton Retour). Options (`draft3d/options.gd`, partagées avec la pause) : langue FR/EN, volumes général /
+musique / effets, plein écran, synchronisation verticale, rappel des commandes (pas de touches reconfigurables : la
+v2 lit encore des touches fixes). **Pause** en partie (Échap, P ou Start ; Échap ne quitte plus le jeu) : Reprendre,
+Options, Recommencer, Menu principal, Quitter. Fin de partie : bouton Menu principal en plus de Rejouer et Changer de
+chapitre. `Router.goto_scene` ajouté (fondu commun). Test `test_menu3d`. Captures : `docs/previews/menu-v2/`.
+Non fait : logo dessiné (titre en texte), rendu pixel art du fond (laissé à la session « Art et rendu »).
+
+**Noms des chapitres v2 — à valider par le propriétaire.** Les données de chapitre (`data/chapters/*.tres`) restent
+celles de la campagne 2D archivée ; la v2 affiche de nouvelles clés `CHAPTER3D_<ID>_NAME` / `_DESC`
+(`DraftRoster.name_key`), les clés v1 sont conservées pour l'archive.
+
+| Ch. | Carte v2 (décor) | Ancien nom (v1) | Nouveau nom FR | Nouveau nom EN |
+|---|---|---|---|---|
+| 1 | Ruines des Veilleurs — forteresse, KayKit Dungeon | Le Val des Cascades | Les Ruines des Veilleurs | The Wardens' Ruins |
+| 2 | Cimetière des Cendres — nuit, KayKit Halloween | Les Terres dévastées | Le Cimetière des Cendres | The Ashen Graveyard |
+| 3 | Hameau du Gué — village et rivière, KayKit Medieval | Les Marais engloutis | Le Hameau du Gué | Fordside Hamlet |
+| 4 | Avant-poste des Glaces — base sur la banquise, KayKit Space Base | Le Glacier silencieux | L'Avant-poste des Glaces | The Frost Outpost |
+| 5 | (provisoire : Ruines des Veilleurs, pas encore de carte propre) | La Cité de la Faille | Le Cœur de la Faille | The Heart of the Rift |
+
+Le nom du chapitre 5 suppose une carte finale « au cœur de la Faille » (ruines corrompues) ; à revoir quand elle
+sera construite.
+
 ## Essai de décors modulaires avec relief (Codex, 12 novembre 2026)
 
 **Prototype indépendant prêt à essayer** dans `prototypes/kaykit_relief/` (Godot 4.3).
