@@ -1,0 +1,122 @@
+{
+	"method": "UV0 planar local projection; original UV0 preserved as UV2",
+	"modules": {
+		"banner_red": [
+			{
+				"new_bounds": "[P: (-0.749993, 0.531393, 0.377638), S: (1.5, 3.196077, 0.311889)]",
+				"node_path": "Visual/banner_red",
+				"original_bounds": "[P: (-0.749993, 0.531393, 0.377638), S: (1.5, 3.19608, 0.311889)]",
+				"path": "res://draft3d/matter/cour/meshes/banner_red.res",
+				"surface_count": 2
+			}
+		],
+		"barrel_large": [
+			{
+				"new_bounds": "[P: (-0.9, 0.000001, -0.9), S: (1.8, 2, 1.8)]",
+				"node_path": "Visual/barrel_large",
+				"original_bounds": "[P: (-0.9, 0.000001, -0.9), S: (1.8, 2, 1.8)]",
+				"path": "res://draft3d/matter/cour/meshes/barrel_large.res",
+				"surface_count": 2
+			}
+		],
+		"barrier": [
+			{
+				"new_bounds": "[P: (-2, 0, -0.25), S: (4, 1.1, 0.5)]",
+				"node_path": "Visual/barrier",
+				"original_bounds": "[P: (-2, 0, -0.25), S: (4, 1.1, 0.5)]",
+				"path": "res://draft3d/matter/cour/meshes/barrier.res",
+				"surface_count": 1
+			}
+		],
+		"chest": [
+			{
+				"new_bounds": "[P: (-0.8, -0, -0.6), S: (1.6, 0.6, 1.245803)]",
+				"node_path": "Visual/chest",
+				"original_bounds": "[P: (-0.8, -0, -0.6), S: (1.6, 0.6, 1.2458)]",
+				"path": "res://draft3d/matter/cour/meshes/chest_00.res",
+				"surface_count": 2
+			},
+			{
+				"new_bounds": "[P: (-0.85, -0.165002, -0.135118), S: (1.7, 0.965002, 1.445804)]",
+				"node_path": "Visual/chest/chest_lid",
+				"original_bounds": "[P: (-0.85, -0.165002, -0.135118), S: (1.7, 0.965002, 1.4458)]",
+				"path": "res://draft3d/matter/cour/meshes/chest_01.res",
+				"surface_count": 2
+			}
+		],
+		"crates_stacked": [
+			{
+				"new_bounds": "[P: (-1.090004, -0.000004, -1.157248), S: (2.089184, 2.142296, 2.249401)]",
+				"node_path": "Visual/crates_stacked",
+				"original_bounds": "[P: (-1.09, -0.000004, -1.15725), S: (2.08918, 2.1423, 2.2494)]",
+				"path": "res://draft3d/matter/cour/meshes/crates_stacked.res",
+				"surface_count": 2
+			}
+		],
+		"floor_tile_large": [
+			{
+				"new_bounds": "[P: (-2, -0.1, -2), S: (4, 0.15, 4)]",
+				"node_path": "Visual/floor_tile_large",
+				"original_bounds": "[P: (-2, -0.1, -2), S: (4, 0.15, 4)]",
+				"path": "res://draft3d/matter/cour/meshes/floor_tile_large.res",
+				"surface_count": 1
+			}
+		],
+		"pillar_decorated": [
+			{
+				"new_bounds": "[P: (-1.115999, 0, -0.75), S: (2.232002, 4, 1.710164)]",
+				"node_path": "Visual/pillar_decorated",
+				"original_bounds": "[P: (-1.116, 0, -0.75), S: (2.232, 4, 1.71016)]",
+				"path": "res://draft3d/matter/cour/meshes/pillar_decorated.res",
+				"surface_count": 2
+			}
+		],
+		"stairs_wide": [
+			{
+				"new_bounds": "[P: (-3.5, 0, -0), S: (7, 5.1, 4)]",
+				"node_path": "Visual/stairs_wide",
+				"original_bounds": "[P: (-3.5, 0, -0), S: (7, 5.1, 4)]",
+				"path": "res://draft3d/matter/cour/meshes/stairs_wide.res",
+				"surface_count": 1
+			}
+		],
+		"wall": [
+			{
+				"new_bounds": "[P: (-2, 0, -0.5), S: (4, 4, 1)]",
+				"node_path": "Visual/wall",
+				"original_bounds": "[P: (-2, 0, -0.5), S: (4, 4, 1)]",
+				"path": "res://draft3d/matter/cour/meshes/wall.res",
+				"surface_count": 1
+			}
+		],
+		"wall_broken": [
+			{
+				"new_bounds": "[P: (-2, 0, -0.5), S: (4, 4, 1)]",
+				"node_path": "Visual/wall_broken",
+				"original_bounds": "[P: (-2, 0, -0.5), S: (4, 4, 1)]",
+				"path": "res://draft3d/matter/cour/meshes/wall_broken.res",
+				"surface_count": 1
+			}
+		],
+		"wall_cracked": [
+			{
+				"new_bounds": "[P: (-2, 0, -0.629695), S: (4, 4, 1.25939)]",
+				"node_path": "Visual/wall_cracked",
+				"original_bounds": "[P: (-2, 0, -0.629695), S: (4, 4, 1.25939)]",
+				"path": "res://draft3d/matter/cour/meshes/wall_cracked.res",
+				"surface_count": 2
+			}
+		],
+		"wall_doorway": [
+			{
+				"new_bounds": "[P: (-2, 0, -0.5), S: (4, 4, 1)]",
+				"node_path": "Visual/wall_doorway",
+				"original_bounds": "[P: (-2, 0, -0.5), S: (4, 4, 1)]",
+				"path": "res://draft3d/matter/cour/meshes/wall_doorway.res",
+				"surface_count": 1
+			}
+		]
+	},
+	"texel_m": 0.025,
+	"tile_span_m": 4
+}

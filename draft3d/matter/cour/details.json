@@ -1,0 +1,117 @@
+[
+  {
+    "id": "object.cour_grass_olive",
+    "name": "grass_olive",
+    "upright": true
+  },
+  {
+    "id": "object.cour_grass_broad",
+    "name": "grass_broad",
+    "upright": true
+  },
+  {
+    "id": "object.cour_grass_dry",
+    "name": "grass_dry",
+    "upright": true
+  },
+  {
+    "id": "object.cour_fern",
+    "name": "fern",
+    "upright": true
+  },
+  {
+    "id": "object.cour_rubble",
+    "name": "rubble",
+    "upright": false
+  },
+  {
+    "id": "object.cour_slate",
+    "name": "slate",
+    "upright": false
+  },
+  {
+    "id": "object.cour_brick",
+    "name": "brick",
+    "upright": false
+  },
+  {
+    "id": "object.cour_gravel",
+    "name": "gravel",
+    "upright": false
+  },
+  {
+    "id": "object.cour_puddle",
+    "name": "puddle",
+    "upright": false
+  },
+  {
+    "id": "object.cour_damp",
+    "name": "damp",
+    "upright": false
+  },
+  {
+    "id": "object.cour_leaves_dry",
+    "name": "leaves_dry",
+    "upright": false
+  },
+  {
+    "id": "object.cour_leaves_green",
+    "name": "leaves_green",
+    "upright": false
+  },
+  {
+    "id": "object.cour_root_moss",
+    "name": "root_moss",
+    "upright": false
+  },
+  {
+    "id": "object.cour_ivy",
+    "name": "ivy",
+    "upright": true
+  },
+  {
+    "id": "object.cour_root_dry",
+    "name": "root_dry",
+    "upright": false
+  },
+  {
+    "id": "object.cour_web_round",
+    "name": "web_round",
+    "upright": false
+  },
+  {
+    "id": "object.cour_web_corner",
+    "name": "web_corner",
+    "upright": false
+  },
+  {
+    "id": "object.cour_skull",
+    "name": "skull",
+    "upright": false
+  },
+  {
+    "id": "object.cour_bones",
+    "name": "bones",
+    "upright": false
+  },
+  {
+    "id": "object.cour_crack_thin",
+    "name": "crack_thin",
+    "upright": false
+  },
+  {
+    "id": "object.cour_crack_branch",
+    "name": "crack_branch",
+    "upright": false
+  },
+  {
+    "id": "object.cour_corruption",
+    "name": "corruption",
+    "upright": false
+  },
+  {
+    "id": "object.cour_veins",
+    "name": "veins",
+    "upright": false
+  }
+]

@@ -18094,6 +18094,558 @@
 			"minimap": "res://assets/environments/rift_eye/minimap.webp",
 			"menu_preview": "res://assets/ui/expedition/rift_eye.png",
 			"menu_preview_generated_by": "tools/art/build_expedition_previews.gd"
+		},
+		"object.cour_grass_olive": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_grass_olive/job.json",
+			"sheet": "res://draft3d/matter/cour/details/grass_olive.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_grass_broad": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_grass_broad/job.json",
+			"sheet": "res://draft3d/matter/cour/details/grass_broad.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_grass_dry": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_grass_dry/job.json",
+			"sheet": "res://draft3d/matter/cour/details/grass_dry.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_fern": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_fern/job.json",
+			"sheet": "res://draft3d/matter/cour/details/fern.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_rubble": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_rubble/job.json",
+			"sheet": "res://draft3d/matter/cour/details/rubble.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_slate": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_slate/job.json",
+			"sheet": "res://draft3d/matter/cour/details/slate.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_brick": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_brick/job.json",
+			"sheet": "res://draft3d/matter/cour/details/brick.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_gravel": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_gravel/job.json",
+			"sheet": "res://draft3d/matter/cour/details/gravel.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_puddle": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_puddle/job.json",
+			"sheet": "res://draft3d/matter/cour/details/puddle.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_damp": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_damp/job.json",
+			"sheet": "res://draft3d/matter/cour/details/damp.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_leaves_dry": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_leaves_dry/job.json",
+			"sheet": "res://draft3d/matter/cour/details/leaves_dry.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_leaves_green": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_leaves_green/job.json",
+			"sheet": "res://draft3d/matter/cour/details/leaves_green.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_root_moss": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_root_moss/job.json",
+			"sheet": "res://draft3d/matter/cour/details/root_moss.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_ivy": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_ivy/job.json",
+			"sheet": "res://draft3d/matter/cour/details/ivy.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_root_dry": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_root_dry/job.json",
+			"sheet": "res://draft3d/matter/cour/details/root_dry.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_web_round": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_web_round/job.json",
+			"sheet": "res://draft3d/matter/cour/details/web_round.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_web_corner": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_web_corner/job.json",
+			"sheet": "res://draft3d/matter/cour/details/web_corner.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_skull": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_skull/job.json",
+			"sheet": "res://draft3d/matter/cour/details/skull.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_bones": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_bones/job.json",
+			"sheet": "res://draft3d/matter/cour/details/bones.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_crack_thin": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_crack_thin/job.json",
+			"sheet": "res://draft3d/matter/cour/details/crack_thin.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_crack_branch": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_crack_branch/job.json",
+			"sheet": "res://draft3d/matter/cour/details/crack_branch.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_corruption": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_corruption/job.json",
+			"sheet": "res://draft3d/matter/cour/details/corruption.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
+		},
+		"object.cour_veins": {
+			"status": "wip",
+			"kind": "environment_detail",
+			"imported_from": "assets/concepts/incoming/object.cour_veins/job.json",
+			"sheet": "res://draft3d/matter/cour/details/veins.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				60
+			],
+			"scale": 0.5,
+			"filter": "nearest",
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 1,
+					"fps": 1,
+					"loop": true
+				}
+			}
 		}
 	}
 }

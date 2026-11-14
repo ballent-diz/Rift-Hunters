@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
+
+**Premier lot à valider** sur `codex/matiere-cour-veilleurs` : atlas de matières pixel art, 23 variantes de détails,
+198 placements déterministes, calibration des texels et captures comparées. Contrôles de géométrie, collisions
+et navigation conformes. Premier lot limité à la Cour, à valider avant les autres chapitres.
+Les modules, leurs placements et leurs collisions restent la référence ; aucun changement du shader de rendu
+développé en parallèle par Claude. Méthode et exceptions UV : `docs/art/MATIERE_DES_CARTES_3D.md`.
+
 ## Menu principal v2 et noms des chapitres (Claude, session « Interface », 14 novembre 2026)
 
 **Menu principal de la version 3D**, scène de démarrage du projet (`res://draft3d/menu.tscn`, `draft3d/menu.gd`) :

@@ -1,0 +1,17 @@
+{
+	"collision_sha256": "a2247b291c7c0ee9c80cc97a906dcf2cc44faf8b33f2953822607b11d31beae5",
+	"collision_shapes": 532,
+	"collisions": "identiques",
+	"detail_instances": 198,
+	"geometry_original_uv": "identiques",
+	"manifest_entries_validated": 23,
+	"max_normal_encoding_error": 0.000128052342915908,
+	"module_instances": 551,
+	"module_transforms": "identiques",
+	"modules_checked": 12,
+	"navigation": "identique",
+	"navigation_polygons": 885,
+	"navigation_sha256": "3b898c5e3ab633fdd9be89d8f6a75cbce7ae4c81ff6b8348cb75df52459ac4ee",
+	"status": "conforme",
+	"triangles_checked": 7850
+}
