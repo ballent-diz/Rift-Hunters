@@ -2284,6 +2284,8 @@ DRAFT_CHOOSE_CHAPTER,Choisissez un chapitre,Choose a chapter
 DRAFT_CHANGE_CHAPTER,Changer de chapitre,Change chapter
 DRAFT_CHAPTER_LOCKED,terminez le chapitre précédent,clear the previous chapter
 DRAFT_READY,prêt,ready
+DRAFT_PIXEL_ON,Rendu pixel : activé (F4),Pixel rendering: on (F4)
+DRAFT_PIXEL_OFF,Rendu pixel : désactivé (F4),Pixel rendering: off (F4)
 MENU3D_TITLE,Rift Hunters,Rift Hunters
 MENU3D_TAGLINE,Traquez les Corrompus. Refermez les Failles.,Hunt the Corrupted. Seal the Rifts.
 MENU3D_PLAY,Jouer,Play
