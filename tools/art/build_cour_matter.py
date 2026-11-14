@@ -102,7 +102,7 @@ def main(atlas_path, details_path, stone_path):
         tile_palette = pal
         if name in ["paving", "stone", "masonry", "rubble", "cracks", "limestone"]:
             # Sol calme : la finesse vient de la matière, pas de joints noirs qui concurrencent les sprites.
-            indices = [4, 5, 6, 26] if name in ["paving", "limestone"] else [3, 4, 5, 26]
+            indices = [3, 4, 5, 15, 17] if name in ["paving", "limestone"] else [3, 4, 15, 16, 17]
             ramp = [palette[k] for k in indices]
             tile_palette = Image.new("P", (1, 1))
             tile_palette.putpalette([v for rgb in ramp for v in rgb] + list(ramp[-1]) * (256 - len(ramp)))
@@ -114,6 +114,7 @@ def main(atlas_path, details_path, stone_path):
         assert np.array_equal(a[0], a[-1]) and np.array_equal(a[:, 0], a[:, -1]), name
     final.save(OUT / "materials_atlas.png")
     source = ROOT / "assets/concepts/incoming/material.cour_veilleurs"
+    previous_job = json.loads((source / "job.json").read_text(encoding="utf-8")) if (source / "job.json").exists() else {}
     (source / "source").mkdir(parents=True, exist_ok=True)
     retain_source(atlas_path, source / "source/atlas_matieres.png")
     retain_source(stone_path, source / "source/pierres_neutres.png")
@@ -125,6 +126,12 @@ def main(atlas_path, details_path, stone_path):
                "colors": 32, "generated_with": "imagegen", "neutral_albedo": True,
                "conditioning": "nearest, periodic edge matching (8 texels), shared sprite-sampled palette",
                "tile_names": NAMES})
+    if "ground" in previous_job:
+        job_path = source / "job.json"
+        job = json.loads(job_path.read_text(encoding="utf-8"))
+        job["ground"] = previous_job["ground"]
+        job["source"].append("source/terrain.png")
+        write_json(job_path, job)
     details = Image.open(details_path).convert("RGBA")
     shared = ROOT / "assets/concepts/incoming/planches_communes/cour_details/source"
     shared.mkdir(parents=True, exist_ok=True)

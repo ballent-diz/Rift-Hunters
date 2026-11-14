@@ -8,6 +8,12 @@ avec humus sombre et pierres discrètes, en remplacement du sol trop terreux. La
 les brins d'herbe restent des maillages 3D suivant le masque déjà validé techniquement. Les paragraphes relatifs
 au retrait intégral du vert décrivent l'étape précédente ; cette demande ultérieure remplace ce choix d'albedo.
 
+**Harmonisation des volumes :** murs, escaliers, piliers et fondations utilisent désormais une pierre ardoise
+plus sombre, avec gris-vert et lichen discret. La source `pierres_neutres.png` est retouchée sans traits de fissure
+ni rayures. Les formes des marches et des blocs restent fournies par la géométrie, sans nouveaux joints peints.
+La palette minérale utilise les gris 3/4 et les verts désaturés 15/16/17 de la palette commune.
+Les maillages, UV, collisions, placements, lumières et shaders restent inchangés lors de cette retouche.
+
 ## Résultat et périmètre
 
 La Cour reçoit des matières peintes, une palette commune de 32 couleurs et une bibliothèque de 23 petits détails.

@@ -1,5 +1,12 @@
 # Matière de la Cour — consignes de génération
 
+## Harmonisation des murs et escaliers
+
+Source minérale retouchée avec imagegen intégré, prompt exact :
+
+Edit this exact 2x2 seamless pixel-art stone ALBEDO atlas to harmonize ruined courtyard walls, pillars and stairs with a dark mossy forest floor. Preserve the 2x2 grid, edge-to-edge tiles, each tile a homogeneous FLAT material, no objects or perspective. REMOVE ALL drawn thin cracks, scratches, line marks and long linear fissures. Replace the current pale grey stone with much darker cool slate and muted green-grey stone, irregular soft-edged angular worn patches, subtle stains, sparse olive lichen patches embedded in the material. Top-left: dark slate-grey worn stone, base around #3b4148, some #5d5a60 and grey-green #33413a. Top-right: slightly lighter worn walking stone for stairs around #5d5a60 with restrained #7b7c82 wear, sparse olive in sheltered patches. Bottom-left: dark slate with broad calm mineral variation. Bottom-right: dark grey-green stone with more olive lichen and moss patches (#375736 #5f6a47), but readable as stone. Each tile seamless in both axes. Crisp intentional hand-painted pixel clusters, final native160x160 pixels per tile. Low-medium contrast, no fine white speckle noise, no dithering, no blur, no dark grout grid, no drawn bricks or paving, no bright chalky stone, no grass blades. Existing 3D geometry supplies the masonry shapes and step edges. Neutral albedo only, absolutely no directional light, baked bevels, shadows or highlights. Natural abandoned forest ruins, weathered and integrated rather than fresh white concrete.
+
+
 ## Dernier retour : sol de sous-bois plus végétal
 
 Le propriétaire demande maintenant moins de terre nue et davantage de végétation basse.

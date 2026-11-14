@@ -1,5 +1,9 @@
 # Cour des Veilleurs — matière seule
 
+Dernière passe sur les volumes : pierre ardoise plus sombre sur murs, escaliers, piliers et fondations,
+gris-vert et lichen discret ; suppression des traits artificiels. Les quatre captures de détail sont actualisées.
+Comparaison dédiée : [avant/après harmonisation](harmonisation.webp).
+
 Dernière version : sous-bois plus végétal, mousse basse dominante et humus sombre, pierres discrètes.
 Les nappes d'herbe restent en 3D. Cette nouvelle demande remplace le choix précédent d'un albedo sans vert.
 La retouche ne change que la texture et ses métadonnées, sans changement de relief, collision ou placement.
