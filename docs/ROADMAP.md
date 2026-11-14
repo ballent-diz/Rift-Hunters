@@ -2,9 +2,10 @@
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
-**Premier lot à valider** sur `codex/matiere-cour-veilleurs` : atlas de matières pixel art, 23 variantes de détails,
-198 placements déterministes, calibration des texels et captures comparées. Contrôles de géométrie, collisions
-et navigation conformes. Premier lot limité à la Cour, à valider avant les autres chapitres.
+**Sol retouché, à valider** sur `codex/matiere-cour-veilleurs` : remplacement de tous les hexagones visibles
+par un sol continu terre/pierre/mousse, conservant les collisions KayKit. Bibliothèque de 23 détails,
+193 placements de 21 variantes ; les fissures en surimpression sont retirées. Premier lot limité à la Cour,
+à valider avant les autres chapitres. PR brouillon #166.
 Les modules, leurs placements et leurs collisions restent la référence ; aucun changement du shader de rendu
 développé en parallèle par Claude. Méthode et exceptions UV : `docs/art/MATIERE_DES_CARTES_3D.md`.
 

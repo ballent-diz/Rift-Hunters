@@ -5,15 +5,17 @@ Les sources KayKit Dungeon Remastered conservent leur licence CC0 et leurs colli
 
 ## Résultat et périmètre
 
-La Cour reçoit des matières peintes, une palette commune de 32 couleurs et 23 petits détails sans collision.
-Le placement explicite contient 198 instances, générées avec la graine `241114`.
+La Cour reçoit des matières peintes, une palette commune de 32 couleurs et une bibliothèque de 23 petits détails.
+Après retour du propriétaire, son sol est entièrement remplacé visuellement par une matière de terre tassée,
+pierre plate et mousse : les grands hexagones KayKit disparaissent. Le placement contient désormais 193 instances
+de 21 variantes, générées avec la graine `241114` ; les deux fissures en surimpression ne sont plus posées.
 L'entrée de l'habillage est dans `draft3d/level_ruins.gd` ; seul ce niveau appelle `cour_dressing.gd`.
 Le chapitre 5 utilise actuellement le niveau 1 par défaut dans `DraftLevel.create` : il hérite donc aussi de cette
 Cour tant qu'il n'a pas sa propre carte. Aucun autre niveau n'est habillé par ce lot.
 
 Les textures apportent fissures fines, traces d'usure, lichen, veinage du bois et trame des bannières.
 Les grandes plages de sol restent calmes pour que le Chasseur et les Corrompus se détachent.
-La pierre ne comporte pas de nouveaux joints de pavés : les modules fournissent déjà cette géométrie.
+Le nouveau sol continu ne comporte aucune grille de pavés. Les escaliers restent en pierre, avec leur géométrie d'origine.
 L'albedo ne contient ni éclairage directionnel ni ombre portée ; le moteur fournit ceux des volumes.
 Les torches existantes gardent leur matière et leur lumière.
 
@@ -23,8 +25,9 @@ Les torches existantes gardent leur matière et leur lumière.
 |---|---|
 | Atlas des 16 matières, 640 × 640 | `draft3d/matter/cour/materials_atlas.png` |
 | Tuiles séparées, 160 × 160 | `draft3d/matter/cour/textures/` |
+| Sol terre/pierre/verdure, 640 × 640, répétition de 16 m | `draft3d/matter/cour/terrain.png` |
 | Matériaux utilisés, StandardMaterial3D | `draft3d/matter/cour/materials/` |
-| Copies visuelles des 12 modules, 13 maillages | `draft3d/matter/cour/meshes/` |
+| Copies visuelles des 11 modules hors sol, 12 maillages | `draft3d/matter/cour/meshes/` |
 | Détails, cellules 64 × 64 | `draft3d/matter/cour/details/` |
 | Planche contact et liste des variantes | `details_atlas.png`, `details.json` dans le même dossier |
 | Palette et références | `draft3d/matter/cour/palette.json` |
@@ -71,12 +74,26 @@ Les UV0 originaux échantillonnent de petits aplats/dégradés dans la palette K
 47 coordonnées UV distinctes pour 311 sommets, dans une petite portion de l'image. Y poser des détails à densité
 uniforme écrase les motifs. Ces UV sont conservés pour identifier les matières de chaque triangle.
 
-Les douze modules nécessitent donc des UV de matière dédiés : `floor_tile_large`, `wall`, `wall_cracked`,
+Les onze modules hors sol nécessitent donc des UV de matière dédiés : `wall`, `wall_cracked`,
 `wall_broken`, `stairs_wide`, `pillar_decorated`, `wall_doorway`, `barrier`, `banner_red`, `crates_stacked`,
 `barrel_large`, `chest`. Les copies `.res` utilisent une projection planaire selon la normale dominante,
 avec 4 m par répétition. Les **UV0 originaux sont conservés dans UV2**. Les scènes KayKit ne sont pas réécrites.
 Les sommets et triangles restent identiques ; le classement par matière change le nombre de surfaces.
 Le coffre garde ses deux maillages distincts, corps et couvercle.
+
+### Remplacement intégral du sol après retour du propriétaire
+
+Une texture seule aurait conservé les joints hexagonaux, présents dans le relief KayKit. L'habillage masque
+donc les MeshInstance3D des modules `floor_tile_large` et construit un maillage visuel commun : deux triangles
+par emprise de 4 × 4 m, à l'altitude exacte du sommet d'origine. Les terrasses sont traitées de la même façon.
+Les modules et leurs corps physiques sont conservés, avec les mêmes positions et collisions.
+Seule cette géométrie **visuelle** de sol est volontairement remplacée ; il serait faux de la dire identique.
+
+Le terrain est peint dans une image de 640 × 640 couvrant 16 m, soit la même densité de 0,025 m/texel.
+Ses UV sont calculés dans le repère du niveau, avec une phase commune entre les anciens modules :
+le motif ne recommence pas tous les quatre mètres. Un matériau standard partagé couvre l'ensemble.
+La source retenue est `assets/concepts/incoming/material.cour_veilleurs/source/terrain.png`.
+Les traits fins des deux détails `crack_thin` et `crack_branch` ne sont plus superposés au sol.
 
 L'échelle uniforme de chaque module est compensée dans `uv1_scale` du matériau ; celle des escaliers
 `(1, 0.5, 1.5)` est prise en compte dans les UV préparés. Une autre carte avec d'autres proportions d'escalier
@@ -94,6 +111,7 @@ Les variantes et les placements sont éditables séparément. Les axes de circul
 Pour comparer à l'original, lancer avec `--cour-matter=0` après le séparateur `--`.
 Ce drapeau évite à la fois les matières et les détails. Les modules source restent disponibles sans conversion.
 Le code n'ajoute aucun corps ni collision, ne déplace aucun module et ne modifie aucune règle de navigation.
+Le maillage commun du terrain est purement visuel ; la physique reste celle des modules KayKit.
 
 ## Compatibilité avec le rendu pixel de Claude
 
@@ -126,6 +144,7 @@ Depuis la racine, avec Python, Pillow, NumPy et Godot 4.3 disponibles :
 
 ```powershell
 python tools/art/build_cour_matter.py assets/concepts/incoming/material.cour_veilleurs/source/atlas_matieres.png assets/concepts/incoming/planches_communes/cour_details/source/planche.png assets/concepts/incoming/material.cour_veilleurs/source/pierres_neutres.png
+python tools/art/build_cour_ground.py assets/concepts/incoming/material.cour_veilleurs/source/terrain.png
 python tools/art/place_cour_details.py
 godot --headless --editor --import --path .
 godot --path . --script res://tools/art/build_cour_meshes.gd
@@ -139,13 +158,14 @@ Les deux dernières commandes figent les mêmes acteurs aux mêmes poses sur ter
 Elles utilisent le Chasseur et deux Corrompus réels. Le banc ne change aucun sprite du jeu.
 Le contrôle des maillages et de la navigation est effectué avec le rendu natif, pas le pilote headless dummy.
 
-Résultat : **7 850 triangles contrôlés sur 12 modules ; 551 poses de modules, 532 collisions et 885 polygones de
-navigation inchangés**. Les UV source restent identiques ; l'écart maximal d'encodage des normales est 0,000129.
+Résultat détaillé dans `docs/previews/matiere-cour-veilleurs/controle_geometrie.json` : les 11 modules hors sol
+sont comparés à leurs sources ; **551 poses de modules, 532 collisions et 885 polygones de navigation inchangés**.
+Pour le sol remplacé visuellement, le contrôle porte sur la totalité des emprises, leur altitude et la phase UV.
 Les textures passent le contrôle de palette et de raccord, les 23 sprites celui d'ancre/alpha/manifeste.
 Le fichier de placement se régénère octet pour octet.
 
-Le banc passe de 492 appels de dessin avant à environ 598 après, sur la vue des entrepôts : mesure de complexité
-visuelle, **pas un benchmark de FPS**. Le découpage des surfaces par matière et les détails ont un coût.
+Le nombre d'appels de dessin est relevé dans le README des captures : mesure de complexité visuelle,
+**pas un benchmark de FPS**. Le sol continu est partagé ; les autres surfaces par matière et les détails ont un coût.
 La validation du propriétaire doit donc porter aussi sur la fluidité avec une horde, et sur le rendu combiné.
 
 ## Habiller une nouvelle carte après accord

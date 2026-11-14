@@ -1874,51 +1874,7 @@
       "yaw": 270
     },
     {
-      "name": "detail_170_crack_thin",
-      "visual_id": "object.cour_crack_thin",
-      "position": [
-        -41,
-        0.065,
-        21
-      ],
-      "orientation": "ground",
-      "yaw": 0
-    },
-    {
-      "name": "detail_171_crack_thin",
-      "visual_id": "object.cour_crack_thin",
-      "position": [
-        41.4,
-        0.065,
-        22.8
-      ],
-      "orientation": "ground",
-      "yaw": 270
-    },
-    {
-      "name": "detail_172_crack_branch",
-      "visual_id": "object.cour_crack_branch",
-      "position": [
-        29,
-        0.065,
-        26
-      ],
-      "orientation": "ground",
-      "yaw": 90
-    },
-    {
-      "name": "detail_173_crack_branch",
-      "visual_id": "object.cour_crack_branch",
-      "position": [
-        -28.6,
-        0.065,
-        27.8
-      ],
-      "orientation": "ground",
-      "yaw": 90
-    },
-    {
-      "name": "detail_174_corruption",
+      "name": "detail_170_corruption",
       "visual_id": "object.cour_corruption",
       "position": [
         -33,
@@ -1926,10 +1882,10 @@
         26
       ],
       "orientation": "ground",
-      "yaw": 180
+      "yaw": 0
     },
     {
-      "name": "detail_175_corruption",
+      "name": "detail_171_corruption",
       "visual_id": "object.cour_corruption",
       "position": [
         33.4,
@@ -1937,10 +1893,10 @@
         27.8
       ],
       "orientation": "ground",
-      "yaw": 180
+      "yaw": 270
     },
     {
-      "name": "detail_176_veins",
+      "name": "detail_172_veins",
       "visual_id": "object.cour_veins",
       "position": [
         37,
@@ -1948,10 +1904,10 @@
         26
       ],
       "orientation": "ground",
-      "yaw": 180
+      "yaw": 90
     },
     {
-      "name": "detail_177_veins",
+      "name": "detail_173_veins",
       "visual_id": "object.cour_veins",
       "position": [
         -36.6,
@@ -1959,22 +1915,33 @@
         27.8
       ],
       "orientation": "ground",
-      "yaw": 0
+      "yaw": 90
     },
     {
-      "name": "detail_178_crack_branch",
-      "visual_id": "object.cour_crack_branch",
+      "name": "detail_174_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
       "position": [
-        8.449,
+        5.394,
         0.065,
-        15.618
+        3.745
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_175_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        -18.356,
+        0.065,
+        7.842
       ],
       "orientation": "ground",
       "yaw": 270
     },
     {
-      "name": "detail_179_crack_thin",
-      "visual_id": "object.cour_crack_thin",
+      "name": "detail_176_damp",
+      "visual_id": "object.cour_damp",
       "position": [
         11.355,
         0.065,
@@ -1984,8 +1951,8 @@
       "yaw": 0
     },
     {
-      "name": "detail_180_crack_branch",
-      "visual_id": "object.cour_crack_branch",
+      "name": "detail_177_damp",
+      "visual_id": "object.cour_damp",
       "position": [
         4.266,
         0.065,
@@ -1995,8 +1962,8 @@
       "yaw": 90
     },
     {
-      "name": "detail_181_crack_thin",
-      "visual_id": "object.cour_crack_thin",
+      "name": "detail_178_damp",
+      "visual_id": "object.cour_damp",
       "position": [
         -10.213,
         0.065,
@@ -2006,8 +1973,8 @@
       "yaw": 180
     },
     {
-      "name": "detail_182_damp",
-      "visual_id": "object.cour_damp",
+      "name": "detail_179_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
       "position": [
         -8.308,
         0.065,
@@ -2017,30 +1984,41 @@
       "yaw": 180
     },
     {
-      "name": "detail_183_damp",
+      "name": "detail_180_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        11.264,
+        0.065,
+        14.962
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_181_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
+      "position": [
+        17.488,
+        0.065,
+        13.055
+      ],
+      "orientation": "ground",
+      "yaw": 90
+    },
+    {
+      "name": "detail_182_damp",
       "visual_id": "object.cour_damp",
       "position": [
-        5.43,
+        6.885,
         0.065,
-        4.16
+        13.53
       ],
       "orientation": "ground",
       "yaw": 0
     },
     {
-      "name": "detail_184_crack_branch",
-      "visual_id": "object.cour_crack_branch",
-      "position": [
-        -19.875,
-        0.065,
-        -2.996
-      ],
-      "orientation": "ground",
-      "yaw": 0
-    },
-    {
-      "name": "detail_185_crack_branch",
-      "visual_id": "object.cour_crack_branch",
+      "name": "detail_183_damp",
+      "visual_id": "object.cour_damp",
       "position": [
         18.054,
         0.065,
@@ -2050,41 +2028,52 @@
       "yaw": 270
     },
     {
-      "name": "detail_186_damp",
-      "visual_id": "object.cour_damp",
+      "name": "detail_184_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
       "position": [
         -8.966,
         0.065,
         1.696
       ],
       "orientation": "ground",
-      "yaw": 0
+      "yaw": 180
     },
     {
-      "name": "detail_187_leaves_dry",
+      "name": "detail_185_leaves_dry",
       "visual_id": "object.cour_leaves_dry",
       "position": [
-        11.237,
+        -18.57,
         0.065,
-        7.731
+        3.488
       ],
       "orientation": "ground",
-      "yaw": 90
+      "yaw": 180
     },
     {
-      "name": "detail_188_crack_thin",
-      "visual_id": "object.cour_crack_thin",
+      "name": "detail_186_leaves_dry",
+      "visual_id": "object.cour_leaves_dry",
       "position": [
-        10.38,
+        8.048,
         0.065,
-        6.23
+        6.002
       ],
       "orientation": "ground",
       "yaw": 270
     },
     {
-      "name": "detail_189_damp",
-      "visual_id": "object.cour_damp",
+      "name": "detail_187_gravel",
+      "visual_id": "object.cour_gravel",
+      "position": [
+        12.585,
+        0.065,
+        2.946
+      ],
+      "orientation": "ground",
+      "yaw": 180
+    },
+    {
+      "name": "detail_188_gravel",
+      "visual_id": "object.cour_gravel",
       "position": [
         5.909,
         0.065,
@@ -2094,8 +2083,8 @@
       "yaw": 90
     },
     {
-      "name": "detail_190_leaves_dry",
-      "visual_id": "object.cour_leaves_dry",
+      "name": "detail_189_gravel",
+      "visual_id": "object.cour_gravel",
       "position": [
         -9.152,
         0.065,
@@ -2105,7 +2094,7 @@
       "yaw": 0
     },
     {
-      "name": "detail_191_leaves_dry",
+      "name": "detail_190_leaves_dry",
       "visual_id": "object.cour_leaves_dry",
       "position": [
         -4.948,
@@ -2113,73 +2102,29 @@
         14.74
       ],
       "orientation": "ground",
-      "yaw": 180
+      "yaw": 270
+    },
+    {
+      "name": "detail_191_damp",
+      "visual_id": "object.cour_damp",
+      "position": [
+        -8.588,
+        0.065,
+        6.54
+      ],
+      "orientation": "ground",
+      "yaw": 0
     },
     {
       "name": "detail_192_damp",
       "visual_id": "object.cour_damp",
       "position": [
-        -17.442,
+        -4.344,
         0.065,
-        5.61
+        0.959
       ],
       "orientation": "ground",
       "yaw": 0
-    },
-    {
-      "name": "detail_193_crack_branch",
-      "visual_id": "object.cour_crack_branch",
-      "position": [
-        5.088,
-        0.065,
-        4.725
-      ],
-      "orientation": "ground",
-      "yaw": 180
-    },
-    {
-      "name": "detail_194_crack_thin",
-      "visual_id": "object.cour_crack_thin",
-      "position": [
-        -11.828,
-        0.065,
-        14.865
-      ],
-      "orientation": "ground",
-      "yaw": 180
-    },
-    {
-      "name": "detail_195_damp",
-      "visual_id": "object.cour_damp",
-      "position": [
-        -18.401,
-        0.065,
-        4.525
-      ],
-      "orientation": "ground",
-      "yaw": 0
-    },
-    {
-      "name": "detail_196_crack_branch",
-      "visual_id": "object.cour_crack_branch",
-      "position": [
-        -7.779,
-        0.065,
-        5.991
-      ],
-      "orientation": "ground",
-      "yaw": 90
-    },
-    {
-      "name": "detail_197_crack_branch",
-      "visual_id": "object.cour_crack_branch",
-      "position": [
-        7.544,
-        0.065,
-        12.72
-      ],
-      "orientation": "ground",
-      "yaw": 90
     }
   ]
 }

@@ -2,7 +2,7 @@ extends SceneTree
 ## Prépare des copies de maillages de matière uniquement ; les scènes et collisions KayKit restent intactes.
 
 const ROOT := "res://draft3d/matter/cour/"
-const MODULES := ["floor_tile_large", "wall", "wall_cracked", "wall_broken", "stairs_wide",
+const MODULES := ["wall", "wall_cracked", "wall_broken", "stairs_wide",
 	"pillar_decorated", "wall_doorway", "barrier", "banner_red", "crates_stacked", "barrel_large", "chest"]
 var materials := {}
 

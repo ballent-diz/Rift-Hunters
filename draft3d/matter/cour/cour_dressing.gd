@@ -3,6 +3,8 @@ extends Node3D
 
 const ROOT := "res://draft3d/matter/cour/"
 var _scaled_materials := {}
+var _ground_positions := PackedVector3Array()
+var _ground_uvs := PackedVector2Array()
 
 func setup(level: Node3D) -> void:
 	name = "CourMatter"
@@ -16,7 +18,10 @@ func apply_matter(level: Node3D) -> void:
 		if child == self or not child is Node3D:
 			continue
 		var id := child.scene_file_path.get_file().get_basename()
-		if prepared.has(id):
+		if id == "floor_tile_large":
+			for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
+				append_ground(instance, level)
+		elif prepared.has(id):
 			for mesh_entry: Dictionary in prepared[id]:
 				var instance := child.get_node(mesh_entry["node_path"]) as MeshInstance3D
 				instance.mesh = load(mesh_entry["path"])
@@ -30,7 +35,41 @@ func apply_matter(level: Node3D) -> void:
 		elif child.name in ["Terrace", "CornerTerrace"]:
 			for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
 				texture_foundation(instance)
+	create_ground()
 	place_details()
+
+func append_ground(instance: MeshInstance3D, level: Node3D) -> void:
+	# Les corps physiques KayKit restent en place ; seul le dallage visible est masqué.
+	var bounds := instance.mesh.get_aabb()
+	var relative := level.global_transform.affine_inverse() * instance.global_transform
+	var corners := [Vector3(bounds.position.x, bounds.end.y, bounds.position.z),
+		Vector3(bounds.end.x, bounds.end.y, bounds.position.z),
+		Vector3(bounds.end.x, bounds.end.y, bounds.end.z),
+		Vector3(bounds.position.x, bounds.end.y, bounds.end.z)]
+	for index: int in [0, 1, 2, 0, 2, 3]:
+		var point: Vector3 = relative * corners[index]
+		_ground_positions.append(point)
+		# Phase commune : le motif ne repart jamais de zéro au bord d'un module de quatre mètres.
+		_ground_uvs.append(Vector2(point.x, point.z) / 16.0)
+	instance.visible = false
+	instance.set_meta("cour_floor_replaced", true)
+
+func create_ground() -> void:
+	var arrays := []
+	arrays.resize(Mesh.ARRAY_MAX)
+	arrays[Mesh.ARRAY_VERTEX] = _ground_positions
+	arrays[Mesh.ARRAY_TEX_UV] = _ground_uvs
+	var normals := PackedVector3Array()
+	normals.resize(_ground_positions.size())
+	normals.fill(Vector3.UP)
+	arrays[Mesh.ARRAY_NORMAL] = normals
+	var mesh := ArrayMesh.new()
+	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+	mesh.surface_set_material(0, load(ROOT + "materials/terrain.tres"))
+	var instance := MeshInstance3D.new()
+	instance.name = "CourTerrain"
+	instance.mesh = mesh
+	add_child(instance)
 
 func scaled_material(source: StandardMaterial3D, value: float) -> StandardMaterial3D:
 	if is_equal_approx(value, 1.0):

@@ -59,9 +59,13 @@ func capture() -> void:
 		{"name": "entrepots", "at": Vector3(-36, 0.5, 4),
 			"poses": [Vector3(-35, 0.06, 4), Vector3(-38, 0.06, 3), Vector3(-32, 0.06, 2)]}
 	]
+	if OS.get_cmdline_user_args().has("--overview"):
+		shots.append({"name": "ensemble", "at": Vector3(0, 0, 7), "size": 78.0,
+			"poses": [Vector3(0, 0.06, 28), Vector3(-6, 0.06, 4), Vector3(5, 0.06, 3)]})
 	for shot: Dictionary in shots:
 		var at: Vector3 = shot.at
-		camera.position = at + Vector3(0, 18, 17)
+		camera.size = float(shot.get("size", 20.0))
+		camera.position = at + Vector3(0, 18, 17) * (camera.size / 20.0)
 		camera.look_at(at)
 		for i: int in actors.size():
 			actors[i].snap_to(shot.poses[i])
@@ -71,6 +75,6 @@ func capture() -> void:
 		var path := folder.path_join(shot.name + ".png")
 		assert(get_viewport().get_texture().get_image().save_png(path) == OK)
 		print("COUR_CAPTURE ", path)
-	# Mesure indicative de complexité visuelle, distincte d'un benchmark de gameplay.
-	print("COUR_DRAW_CALLS ", Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME))
+		# Mesure indicative de complexité visuelle, distincte d'un benchmark de gameplay.
+		print("COUR_DRAW_CALLS ", shot.name, " ", Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME))
 	get_tree().quit()

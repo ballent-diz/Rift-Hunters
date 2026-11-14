@@ -53,15 +53,6 @@
 				"surface_count": 2
 			}
 		],
-		"floor_tile_large": [
-			{
-				"new_bounds": "[P: (-2, -0.1, -2), S: (4, 0.15, 4)]",
-				"node_path": "Visual/floor_tile_large",
-				"original_bounds": "[P: (-2, -0.1, -2), S: (4, 0.15, 4)]",
-				"path": "res://draft3d/matter/cour/meshes/floor_tile_large.res",
-				"surface_count": 1
-			}
-		],
 		"pillar_decorated": [
 			{
 				"new_bounds": "[P: (-1.115999, 0, -0.75), S: (2.232002, 4, 1.710164)]",

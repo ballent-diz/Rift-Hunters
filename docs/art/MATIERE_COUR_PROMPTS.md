@@ -43,7 +43,30 @@ Le premier résultat étant trop ponctué, ce prompt de retouche a produit la so
 > only, no directional light or shadows. Native texture detail should look like 160x160 pixels per tile enlarged
 > nearest, crisp square clusters, never photographic or blurry. No text, no grid lines, no objects.
 
-## Conditionnement technique
+## Remplacement du sol : terre, pierre et verdure
+
+Prompt intégral de la texture retenue (`source/terrain.png`), génération neuve avec imagegen intégré :
+
+Production game asset: ONE perfectly seamless repeating terrain ALBEDO texture, square, strictly orthographic
+top-down, edge-to-edge surface, no margins, no grid. Dark fantasy ruined courtyard ground: about 65 percent
+compacted warm grey-brown earth and weathered dusty mineral soil, 20 percent muted olive moss and sparse short
+grass hugging irregular patches, 15 percent scattered FLAT worn grey limestone fragments and pebbles partially
+embedded in the earth. Natural uneven DISTRIBUTION and organic transitions with broad quiet open soil patches
+for character readability. No pavement pattern, no hexagons, no regular tile grid, no evenly spaced rocks, no
+black crack lines or drawn scratches. The texture represents a 16 meter by 16 meter area; the largest flat stone
+is 40-60 centimeters and most pebbles are 5-15 centimeters. Texture detail intended for a final 640x640 texel
+asset, sharp deliberate pixel-art clusters, 16-bit painted game environment style, color restricted to subdued
+earth brown, cool desaturated grey slate and olive green, approx 24-32 colors. Rich intentional shapes rather
+than random grain, NO white speckle noise, NO dithering, NO blur, NO photographic fine grain. Neutral diffuse
+color only, NO directional light, NO baked highlights, NO cast shadows, NO perspective depth, NO 3D rocks, NO
+tufts projecting above ground, NO objects, NO grass field, NO water, NO symbols, NO characters. The soil and
+moss must remain low to medium contrast so colorful pixel-art characters can stand out. All four boundaries tile
+seamlessly. Do not paint an illustrative scene: produce a usable horizontal terrain texture.
+
+Le conditionnement est assuré par `build_cour_ground.py` : 640 × 640, 16 m par répétition, palette commune,
+marges périodiques et nearest. Le maillage continu est créé dans le jeu, sans collision supplémentaire.
+
+## Conditionnement technique des atlas et des détails
 
 Les images générées ne sont pas importées directement comme feuilles finales : découpage des cellules,
 réduction nearest, palette commune prélevée sur les sprites, marges périodiques des textures, alpha binaire

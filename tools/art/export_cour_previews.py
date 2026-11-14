@@ -15,6 +15,7 @@ def main():
     parser.add_argument("after", type=Path)
     parser.add_argument("--report", type=Path, required=True)
     parser.add_argument("--smoke", type=Path)
+    parser.add_argument("--floor-before", type=Path)
     parser.add_argument("--out", type=Path, default=ROOT / "docs/previews/matiere-cour-veilleurs")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
@@ -30,6 +31,16 @@ def main():
         compare.paste(image, (x, 32))
         ImageDraw.Draw(compare).text((x + 16, 10), label, fill="white")
     compare.save(args.out / "comparaison.webp", lossless=True, method=6)
+    overview = args.after / "ensemble.png"
+    if overview.exists():
+        Image.open(overview).convert("RGB").save(args.out / "ensemble_apres.webp", lossless=True, method=6)
+    if args.floor_before:
+        floor_compare = Image.new("RGB", (1600, 632), "#171826")
+        for x, label, folder in [(0, "ANCIEN SOL", args.floor_before), (800, "TERRE / PIERRE / VERDURE", args.after)]:
+            image = Image.open(folder / "escaliers.png").convert("RGB").crop((400, 220, 1200, 820))
+            floor_compare.paste(image, (x, 32))
+            ImageDraw.Draw(floor_compare).text((x + 16, 10), label, fill="white")
+        floor_compare.save(args.out / "sol_comparaison.webp", lossless=True, method=6)
     shutil.copyfile(args.report, args.out / "controle_geometrie.json")
     if args.smoke:
         Image.open(args.smoke).convert("RGB").save(args.out / "partie_12s.webp", lossless=True, method=6)

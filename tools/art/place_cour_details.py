@@ -40,9 +40,11 @@ for side in [-1, 1]:
     add("root_dry", side * 8, -11.65)
     add("fern", side * 10.9, -11.55)
 
-# Chaque variante retenue apparaît au moins deux fois, dans des recoins hors des principaux axes.
+# Les fissures superposées sont retirées : le nouveau sol porte sa propre matière.
 for i, entry in enumerate(definitions):
     name = entry["name"]
+    if name in ["crack_thin", "crack_branch"]:
+        continue
     if name.startswith("web"):
         add(name, -20 + (i % 4) * 4, -19.94, 1.2, "wall")
         add(name, 18 + (i % 3) * 4, -19.94, 1.6, "wall")
@@ -59,7 +61,7 @@ for _ in range(42):
         continue
     if abs(abs(x) - 7) < 1.6 and (abs(z + 4.5) < 1.6 or abs(z - 2.5) < 1.6):
         continue
-    add(rng.choice(["crack_thin", "crack_branch", "damp", "leaves_dry"]), x, z)
+    add(rng.choice(["damp", "gravel", "leaves_dry"]), x, z)
 
 result = {"seed": SEED, "units": "metres", "collision": False, "placements": placements}
 (ROOT / "placements.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

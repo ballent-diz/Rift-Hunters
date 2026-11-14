@@ -4,7 +4,8 @@
   "kind": "material_atlas",
   "source": [
     "source/atlas_matieres.png",
-    "source/pierres_neutres.png"
+    "source/pierres_neutres.png",
+    "source/terrain.png"
   ],
   "output": "res://draft3d/matter/cour/materials_atlas.png",
   "grid": [
@@ -36,5 +37,18 @@
     "cracks",
     "limestone",
     "algae"
-  ]
+  ],
+  "ground": {
+    "source": "source/terrain.png",
+    "output": "res://draft3d/matter/cour/terrain.png",
+    "size": [
+      640,
+      640
+    ],
+    "world_span_m": 16,
+    "texel_m": 0.025,
+    "composition": "terre tassée, pierre plate usée, mousse et verdure discrète",
+    "uv": "phase continue dans le repère du niveau",
+    "collision": "KayKit inchangée"
+  }
 }

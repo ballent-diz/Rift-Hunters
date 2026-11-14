@@ -2,7 +2,7 @@ extends Node3D
 ## Contrôle ciblé : triangles visuels, UV source, collisions, poses et navigation avant/après.
 
 const ROOT := "res://draft3d/matter/cour/"
-const MODULES := ["floor_tile_large", "wall", "wall_cracked", "wall_broken", "stairs_wide",
+const MODULES := ["wall", "wall_cracked", "wall_broken", "stairs_wide",
 	"pillar_decorated", "wall_doorway", "barrier", "banner_red", "crates_stacked", "barrel_large", "chest"]
 
 func _ready() -> void:
@@ -86,13 +86,38 @@ func verify() -> void:
 	var before_collision := collisions(level)
 	var before_modules := modules(level)
 	var before_navigation := navigation(level)
+	var placements: Array = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "placements.json"))["placements"]
 	var dressing := level.get_node("CourMatter")
+	var floors := []
+	for child: Node in level.get_children():
+		if child.scene_file_path.get_file().get_basename() == "floor_tile_large":
+			for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
+				floors.append(instance)
 	dressing.apply_matter(level)
 	assert(before_collision == collisions(level), "Collisions différentes")
 	assert(before_modules == modules(level), "Placement de module différent")
 	assert(before_navigation == navigation(level), "Navigation différente")
-	assert(dressing.get_child_count() == 198)
+	assert(dressing.get_child_count() == placements.size() + 1)
 	assert(dressing.find_children("*", "CollisionObject3D", true, false).is_empty())
+	var ground := dressing.get_node("CourTerrain") as MeshInstance3D
+	var ground_arrays := ground.mesh.surface_get_arrays(0)
+	var positions: PackedVector3Array = ground_arrays[Mesh.ARRAY_VERTEX]
+	var uvs: PackedVector2Array = ground_arrays[Mesh.ARRAY_TEX_UV]
+	assert(positions.size() == floors.size() * 6, "Sol non remplacé en totalité")
+	var cursor := 0
+	for floor_instance: MeshInstance3D in floors:
+		assert(not floor_instance.visible and floor_instance.get_meta("cour_floor_replaced"))
+		var bounds := floor_instance.mesh.get_aabb()
+		var local_positions := []
+		for i: int in range(cursor, cursor + 6):
+			var world_point := ground.global_transform * positions[i]
+			var point := floor_instance.global_transform.affine_inverse() * world_point
+			assert(absf(point.y - bounds.end.y) < 0.00001, "Hauteur du sol déplacée")
+			local_positions.append(point)
+			assert(uvs[i].is_equal_approx(Vector2(positions[i].x, positions[i].z) / 16.0), "Raccord UV")
+		assert(local_positions[0].is_equal_approx(Vector3(bounds.position.x, bounds.end.y, bounds.position.z)))
+		assert(local_positions[2].is_equal_approx(Vector3(bounds.end.x, bounds.end.y, bounds.end.z)))
+		cursor += 6
 	var detail_definitions: Array = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "details.json"))
 	for detail: Dictionary in detail_definitions:
 		var asset_report := AssetValidator.validate_entry(detail.id, Assets.entry(StringName(detail.id)))
@@ -101,8 +126,10 @@ func verify() -> void:
 		"module_instances": before_modules.size(), "collision_shapes": before_collision.size(),
 		"collision_sha256": JSON.stringify(before_collision).sha256_text(),
 		"navigation_polygons": level.navigation_mesh.get_polygon_count(),
-		"navigation_sha256": JSON.stringify(before_navigation).sha256_text(), "detail_instances": 198,
+		"navigation_sha256": JSON.stringify(before_navigation).sha256_text(), "detail_instances": placements.size(),
 		"manifest_entries_validated": detail_definitions.size(),
+		"floor_tiles_replaced": floors.size(), "floor_top_height_and_footprint": "identiques",
+		"floor_geometry": "surface visuelle continue, deux triangles par ancienne tuile",
 		"geometry_original_uv": "identiques", "max_normal_encoding_error": max_normal_error,
 		"module_transforms": "identiques",
 		"collisions": "identiques", "navigation": "identique"}

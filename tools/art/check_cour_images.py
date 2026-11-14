@@ -16,6 +16,12 @@ COUR = ROOT / "draft3d/matter/cour"
 def main():
     palette = {tuple(bytes.fromhex(color[1:])) for color in json.loads((COUR / "palette.json").read_text())["colors"]}
     assert len(palette) == 32
+    ground_path = COUR / "terrain.png"
+    ground = np.asarray(Image.open(ground_path).convert("RGB"))
+    assert ground.shape == (640, 640, 3)
+    assert set(map(tuple, ground.reshape(-1, 3))) <= palette
+    assert np.array_equal(ground[0], ground[-1]) and np.array_equal(ground[:, 0], ground[:, -1])
+    assert "mipmaps/generate=false" in ground_path.with_suffix(".png.import").read_text()
     tiles = list((COUR / "textures").glob("*.png"))
     for path in tiles:
         image = np.asarray(Image.open(path).convert("RGB"))
@@ -43,11 +49,14 @@ def main():
     assert placement_path.read_bytes() == before, "Le placement n'est pas reproductible"
     placement = json.loads(before)
     assert placement["collision"] is False
-    assert {p["visual_id"] for p in placement["placements"]} == {d["id"] for d in details}
+    placed_ids = {p["visual_id"] for p in placement["placements"]}
+    assert placed_ids <= {d["id"] for d in details} and len(placed_ids) >= 20
+    assert not placed_ids & {"object.cour_crack_thin", "object.cour_crack_branch"}
     for path in (COUR / "materials").glob("*.tres"):
         assert "texture_filter = 0" in path.read_text(), path
     print(json.dumps({"status": "conforme", "palette": len(palette), "seamless_tiles": len(tiles),
-                      "anchored_details": len(details), "placements": len(placement["placements"]),
+                      "continuous_ground": "640px / 16m", "anchored_details": len(details),
+                      "placements": len(placement["placements"]),
                       "placement_sha256": hashlib.sha256(before).hexdigest()}, ensure_ascii=False))
 
 
