@@ -1,0 +1,29 @@
+{
+  "visual_id": "object.cour_crack_branch",
+  "cell": [
+    64,
+    64
+  ],
+  "anchor": [
+    32,
+    60
+  ],
+  "scale": 0.5,
+  "status": "wip",
+  "background": "alpha",
+  "keep_size": true,
+  "registered_cells": true,
+  "colors": 32,
+  "outline": false,
+  "generated_with": "imagegen",
+  "collision": false,
+  "animations": [
+    {
+      "name": "idle",
+      "source": "idle.png",
+      "frames": 1,
+      "fps": 1,
+      "loop": true
+    }
+  ]
+}

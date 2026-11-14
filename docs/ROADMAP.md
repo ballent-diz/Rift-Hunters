@@ -1,5 +1,22 @@
 # Rift Hunters — feuille de route
 
+## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
+
+Dernière retouche à valider : sol de sous-bois plus végétal (mousse basse et humus sombre),
+en conservant les nappes d'herbe 3D, les pierres, les hauteurs et la physique.
+Murs, escaliers, piliers et fondations harmonisés en ardoise gris-vert plus sombre, sans les traits de fissure.
+Passe enrichie : quatre textures pierre/mousse/lichen différencient murs, escaliers, piliers et fondations.
+
+**Sol retouché, à valider** sur `codex/matiere-cour-veilleurs` : remplacement de tous les hexagones visibles
+par un sol continu terre/pierre/mousse, conservant les collisions KayKit. Bibliothèque de 23 détails,
+193 placements de 21 variantes ; les fissures en surimpression sont retirées. Premier lot limité à la Cour,
+à valider avant les autres chapitres. Quarante groupes d'herbe sont désormais en vrais brins 3D,
+éclairés et avec ombres, sans collision. Les anciennes plaques vertes de la texture sont maintenant remplacées
+par des nappes de brins 3D suivant `grass_regions.json` ; le sol peint sous-jacent est terre/pierre sans verdure.
+PR brouillon #166.
+Les modules, leurs placements et leurs collisions restent la référence ; aucun changement du shader de rendu
+développé en parallèle par Claude. Méthode et exceptions UV : `docs/art/MATIERE_DES_CARTES_3D.md`.
+
 ## Menu principal v2 et noms des chapitres (Claude, session « Interface », 14 novembre 2026)
 
 **Menu principal de la version 3D**, scène de démarrage du projet (`res://draft3d/menu.tscn`, `draft3d/menu.gd`) :
@@ -1056,3 +1073,16 @@ avec `godot --path . res://scenes/main.tscn`.
 Cité Effondrée),
 bestiaires des cinq chapitres, gardiens et Dévoreurs, EXP et améliorations, quatre sorts, audio. À venir : seconde passe de détail sur les cartes, sols peints par Codex (textures
 répétables), Échos.
+
+## Rendu pixel 3D — 14 novembre 2026 (session « Art et rendu »)
+
+Les modules KayKit lisses sont désormais dessinés en pixel art, sans toucher aux modules, collisions ni au jeu :
+vue basse résolution à la densité des sprites (1 texel = 0,024 m, pixel d'art d'échelle 0,65), caméra calée sur la
+grille avec décalage sub-pixel, aplats en 4 paliers sous un soleil haut-gauche, contours sélectifs et liseré violet
+tirés d'une vue de profondeur du décor seul (le moteur de compatibilité n'offre pas la profondeur aux shaders),
+palette de 32 couleurs par chapitre (ressource éditable). Sprites, effets, cristaux et HUD restent intacts. Actif par
+défaut, F4 ou `--pixel=0` pour comparer. Détail, réglages, coût et méthode pour une nouvelle carte :
+docs/art/RENDU_PIXEL_3D.md ; captures avant/après : docs/previews/rendu-pixel-3d/.
+- **À valider par le propriétaire** sur PC : rendu par défaut, fluidité du défilement, coût réel (`--perf`).
+- **Lots suivants préparés** : textures pixel art des modules par chapitre (prompt Codex n° 2), détails posés en
+  sprites (herbes, gravats, flaques), brume et lumière par chapitre. Palettes des chapitres 2 à 4 non retouchées.

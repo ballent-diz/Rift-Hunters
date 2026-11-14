@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://draft3d/matter/cour/terrain.png" id="1"]
+
+[resource]
+resource_name = "Cour_terrain"
+albedo_texture = ExtResource("1")
+metallic_specular = 0.0
+roughness = 0.95
+texture_filter = 0
