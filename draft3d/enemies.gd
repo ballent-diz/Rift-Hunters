@@ -32,6 +32,13 @@ class Foe:
 	var slot: int = 0
 	## Boss de fin de partie (le vaincre donne la victoire) ; faux pour un gardien de mi-parcours.
 	var final: bool = false
+	## Entrave (sorts du Chasseur) : vitesse multipliée par `slow_factor` pendant `slow_left` secondes.
+	var slow_left: float = 0.0
+	var slow_factor: float = 1.0
+
+	func slow(factor: float, seconds: float) -> void:
+		slow_factor = minf(factor, slow_factor) if slow_left > 0.0 else factor
+		slow_left = maxf(slow_left, seconds)
 
 const CELL := 1.5
 const ACCELERATION := 14.0
@@ -175,6 +182,9 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 	var distance: float = to_hunter.length()
 	var wish := Vector3.ZERO
 	var speed: float = foe.speed
+	if foe.slow_left > 0.0:
+		foe.slow_left -= delta
+		speed *= foe.slow_factor
 	var turn: bool = true
 	if foe.boss != null:
 		wish = _boss_brain(foe, to_hunter, distance, climb, delta)

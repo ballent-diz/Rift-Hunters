@@ -29,9 +29,24 @@ var auto_cast: bool = false
 ## Emplacement en aperçu (option « aperçu » : maintenir montre la zone, relâcher lance), -1 sinon.
 var preview_slot: int = -1
 var reticle: MeshInstance3D
+## Variante active par sort (identifiant du sort → variante) et ses réglages ; rangs pris par sort et statistique.
+var variants: Dictionary = {}
+var variant_params: Dictionary = {}
+var bonuses: Dictionary = {}
+## Surcharge : emplacement en charge (-1 sinon) et durée de charge.
+var charge_slot: int = -1
+var charge_time: float = 0.0
 var _reticle_material: StandardMaterial3D
 ## Bond en cours : sort et puissance appliqués à l'atterrissage.
 var _leap_spell: SpellData
+var _leap_power: float = 1.0
+## Retour (variante du Bond) : point de départ, sort et fenêtre restante.
+var _return_point := Vector3.ZERO
+var _return_spell: StringName = &""
+var _return_left: float = 0.0
+## Puissance du lancement en cours (Surcharge) et zones de Brasier.
+var _power: float = 1.0
+var _zones: Array[Dictionary] = []
 
 
 func setup(p_run: DraftRun, ids: Array[StringName]) -> void:
@@ -89,6 +104,10 @@ func can_apply(effect: DraftSpellEffect) -> bool:
 	match effect.kind:
 		DraftSpellEffect.Kind.LEARN:
 			return supported(effect.spell_id) and not has_spell(effect.spell_id) and free_slots() > 0
+		DraftSpellEffect.Kind.VARIANT:
+			return has_spell(effect.spell_id) and not variants.has(effect.spell_id)
+		DraftSpellEffect.Kind.MODIFY:
+			return has_spell(effect.spell_id)
 	return false
 
 
@@ -96,35 +115,67 @@ func apply_effect(effect: DraftSpellEffect) -> void:
 	match effect.kind:
 		DraftSpellEffect.Kind.LEARN:
 			learn(effect.spell_id)
+		DraftSpellEffect.Kind.VARIANT:
+			variants[effect.spell_id] = effect.variant
+			variant_params[effect.spell_id] = effect.params
+		DraftSpellEffect.Kind.MODIFY:
+			var stats: Dictionary = bonuses.get(effect.spell_id, {})
+			stats[effect.stat] = float(stats.get(effect.stat, 0.0)) + effect.pct
+			bonuses[effect.spell_id] = stats
+
+
+func variant_of(data: SpellData) -> StringName:
+	return variants.get(data.id, &"")
+
+
+## Réglage `key` de la variante active du sort.
+func param(data: SpellData, key: String, fallback: float) -> float:
+	return float((variant_params.get(data.id, {}) as Dictionary).get(key, fallback))
+
+
+## Somme des rangs pris sur une statistique du sort (+0,2 = +20 %).
+func bonus(data: SpellData, stat: StringName) -> float:
+	return float((bonuses.get(data.id, {}) as Dictionary).get(stat, 0.0))
 
 
 func cooldown_of(data: SpellData) -> float:
-	return data.cooldown * maxf(run.hunter.stats.get_value(StatKeys.SPELL_COOLDOWN), 0.2)
+	return data.cooldown * maxf(run.hunter.stats.get_value(StatKeys.SPELL_COOLDOWN), 0.2) \
+		* maxf(1.0 + bonus(data, &"cooldown"), 0.3)
 
 
 func damage_of(data: SpellData) -> float:
-	return data.damage * run.hunter.stats.get_value(StatKeys.SPELL_DAMAGE) * run.hunter.stats.get_value(StatKeys.DAMAGE)
+	return data.damage * run.hunter.stats.get_value(StatKeys.SPELL_DAMAGE) * run.hunter.stats.get_value(StatKeys.DAMAGE) \
+		* (1.0 + bonus(data, &"damage"))
 
 
 ## Portée du sort en mètres.
 func reach_of(data: SpellData) -> float:
 	var reach: float = data.spell_range * DraftHunter.UNIT
 	match data.spell_kind:
+		&"slash":
+			if variant_of(data) == &"thrust":
+				reach = param(data, "range", data.spell_range) * DraftHunter.UNIT
+			elif variant_of(data) == &"whirlwind":
+				reach *= param(data, "reach", 1.0)
 		&"lance":
-			return minf(reach, tuning.lance_max_range)
+			reach = minf(reach, tuning.lance_max_range)
 		&"leap":
-			return minf(reach, tuning.leap_max_range)
-	return reach
+			reach = minf(reach, tuning.leap_max_range)
+	return reach * (1.0 + bonus(data, &"reach"))
 
 
-## Rayon de la zone touchée en mètres (Rupture, onde du Bond) ; demi-largeur pour la Lance.
+## Rayon de la zone touchée en mètres (Rupture, onde du Bond) ; demi-largeur pour la Lance et l'Estoc.
 func area_of(data: SpellData) -> float:
+	var area: float = data.width * DraftHunter.UNIT * tuning.spell_area_scale
 	match data.spell_kind:
+		&"slash":
+			if variant_of(data) == &"thrust":
+				area = param(data, "half_width", data.width) * DraftHunter.UNIT
 		&"lance":
-			return maxf(data.width * DraftHunter.UNIT, 0.3)
+			area = maxf(data.width * DraftHunter.UNIT, 0.3)
 		&"leap":
-			return data.width * DraftHunter.UNIT
-	return data.width * DraftHunter.UNIT * tuning.spell_area_scale
+			area = data.width * DraftHunter.UNIT * (param(data, "area", 1.0) if variant_of(data) == &"impact" else 1.0)
+	return area * (1.0 + bonus(data, &"area"))
 
 
 ## Part de la recharge écoulée (1 : prêt), pour le HUD.
@@ -137,9 +188,12 @@ func ready_ratio(slot: int) -> float:
 func step(delta: float) -> void:
 	for i: int in SLOTS:
 		cooldowns[i] = maxf(cooldowns[i] - delta, 0.0)
+	_step_zones(delta)
+	_return_left = maxf(_return_left - delta, 0.0)
 	var hunter: DraftHunter = run.hunter
 	if not hunter.alive or not hunter.active:
 		preview_slot = -1
+		charge_slot = -1
 		reticle.visible = false
 		return
 	if auto_cast:
@@ -150,25 +204,45 @@ func step(delta: float) -> void:
 				if aim != Vector3.INF:
 					cast(i, aim)
 		return
+	if charge_slot >= 0:
+		charge_time += delta
+		if not Input.is_action_pressed(ACTIONS[charge_slot]):
+			var slot: int = charge_slot
+			charge_slot = -1
+			cast(slot, aim_point(), charge_power(slots[slot]))
 	for i: int in SLOTS:
 		if slots[i] == null:
 			continue
-		if Settings.spell_preview:
-			if Input.is_action_just_pressed(ACTIONS[i]):
+		var pressed: bool = Input.is_action_just_pressed(ACTIONS[i])
+		if pressed and _return_left > 0.0 and slots[i].id == _return_spell:
+			leap_back()
+		elif variant_of(slots[i]) == &"overcharge":
+			if pressed and cooldowns[i] <= 0.0 and charge_slot < 0:
+				charge_slot = i
+				charge_time = 0.0
+		elif Settings.spell_preview:
+			if pressed:
 				preview_slot = i
 			elif preview_slot == i and not Input.is_action_pressed(ACTIONS[i]):
 				preview_slot = -1
 				cast(i, aim_point())
-		elif Input.is_action_just_pressed(ACTIONS[i]):
+		elif pressed:
 			cast(i, aim_point())
 	_show_reticle()
 
 
-## Lance le sort de l'emplacement vers `aim` (point du sol). Faux si vide, en recharge ou pendant un Bond.
-func cast(slot: int, aim: Vector3) -> bool:
+## Surcharge : puissance selon la durée de charge (×1 jusqu'au maximum de la variante).
+func charge_power(data: SpellData) -> float:
+	return lerpf(1.0, param(data, "max", 1.0), clampf(charge_time / maxf(param(data, "time", 1.0), 0.05), 0.0, 1.0))
+
+
+## Lance le sort de l'emplacement vers `aim` (point du sol), avec un multiplicateur de dégâts `power` (Surcharge).
+## Faux si vide, en recharge ou pendant un Bond.
+func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
 	var data: SpellData = slots[slot] if slot >= 0 and slot < SLOTS else null
 	if data == null or cooldowns[slot] > 0.0 or run.hunter.is_leaping() or not run.hunter.alive:
 		return false
+	_power = power
 	var done: bool = false
 	match data.spell_kind:
 		&"slash":
@@ -179,6 +253,7 @@ func cast(slot: int, aim: Vector3) -> bool:
 			done = _rupture(data, aim)
 		&"leap":
 			done = _leap(data, aim)
+	_power = 1.0
 	if done:
 		cooldowns[slot] = cooldown_of(data)
 		casts += 1
@@ -247,36 +322,106 @@ func auto_aim(data: SpellData) -> Vector3:
 # --- Sorts --------------------------------------------------------------------------------------------------------
 
 ## Taille fendante : arc de lame vers la visée ; tout ce qui est dans l'arc, de plain-pied et visible.
+## Tourbillon : cercle complet autour du Chasseur. Estoc : ligne longue et étroite qui perce tout.
 func _slash(data: SpellData, aim: Vector3) -> bool:
 	var here: Vector3 = run.hunter.global_position
 	var reach: float = reach_of(data)
 	var dir: Vector3 = _direction(aim)
-	var half: float = cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
-	run.fx(&"heavy_cleave", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, 2.2)
+	var variant: StringName = variant_of(data)
+	var push: Vector3 = dir * data.knockback * DraftHunter.UNIT * 3.0
+	if variant == &"thrust":
+		var half_width: float = area_of(data)
+		run.fx(&"arcane_beam", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, reach * 0.4)
+		for foe: DraftEnemies.Foe in _level(run.enemies.near(here, reach), here):
+			var offset: Vector3 = _flat(foe.pos - here)
+			var along: float = offset.dot(dir)
+			if along > 0.0 and along <= reach and (offset - dir * along).length() <= half_width + foe.radius:
+				run.enemies.hit(foe, damage_of(data) * _power, push)
+		return true
+	var whirl: bool = variant == &"whirlwind"
+	var half: float = -1.0 if whirl else cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
+	if whirl:
+		run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, reach * 0.7)
+	else:
+		run.fx(&"heavy_cleave", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, 2.2)
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, reach), here):
 		var offset: Vector3 = _flat(foe.pos - here)
 		if offset.length() < foe.radius + 0.4 or offset.normalized().dot(dir) >= half:
-			run.enemies.hit(foe, damage_of(data), dir * data.knockback * DraftHunter.UNIT * 3.0)
+			run.enemies.hit(foe, damage_of(data) * _power, offset.normalized() * push.length() if whirl else push)
 	return true
 
 
-## Lance prismatique : trait lourd vers la visée, qui traverse tout.
+## Lance prismatique : trait lourd vers la visée, qui traverse tout. Éventail : plusieurs lances en cône, plus faibles.
+## Surcharge : la puissance de la charge multiplie les dégâts et grossit la lance.
 func _lance(data: SpellData, aim: Vector3) -> bool:
 	var origin: Vector3 = run.hunter.chest()
 	var dir: Vector3 = _direction(aim)
-	run.fire_bolt(origin, dir, damage_of(data), reach_of(data), 99, 0, &"ice_lance", 1.1, area_of(data),
-		tuning.lance_speed, &"reflets")
+	var count: int = 1
+	var spread: float = 0.0
+	var damage: float = damage_of(data) * _power
+	if variant_of(data) == &"fan":
+		count = int(param(data, "count", 3.0))
+		spread = deg_to_rad(param(data, "angle", 15.0))
+		damage *= param(data, "damage", 1.0)
+	for i: int in count:
+		var angle: float = spread * (i - (count - 1) * 0.5)
+		run.fire_bolt(origin, dir.rotated(Vector3.UP, angle), damage, reach_of(data), 99, 0, &"ice_lance",
+			1.1 * sqrt(_power), area_of(data) * sqrt(_power), tuning.lance_speed, &"reflets")
 	return true
 
 
 ## Rupture : détonation de zone au point visé (portée limitée, arrêtée par le décor).
+## Réaction : la détonation rebondit sur les ennemis visibles proches. Brasier : un sol ardent reste quelques secondes.
 func _rupture(data: SpellData, aim: Vector3) -> bool:
 	var at: Vector3 = _landing(aim, reach_of(data))
 	var radius: float = area_of(data)
-	run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
-	for foe: DraftEnemies.Foe in _level(run.enemies.near(at, radius), at):
-		run.enemies.hit(foe, damage_of(data) * tuning.rupture_damage_mult)
+	var damage: float = damage_of(data) * tuning.rupture_damage_mult * _power
+	var struck: Array[DraftEnemies.Foe] = _detonate(at, radius, damage)
+	match variant_of(data):
+		&"reaction":
+			var from: Vector3 = at
+			for jump: int in int(param(data, "jumps", 2.0)):
+				var next: DraftEnemies.Foe = null
+				for foe: DraftEnemies.Foe in _level(run.enemies.near(from, param(data, "reach", 6.0)), from):
+					if not struck.has(foe):
+						next = foe
+						break
+				if next == null:
+					break
+				from = next.pos
+				struck.append_array(_detonate(from, radius * param(data, "area", 0.6), damage * param(data, "damage", 0.5)))
+		&"blaze":
+			var zone := {"at": at, "radius": radius, "left": param(data, "duration", 3.0),
+				"tick": param(data, "tick", 0.5), "clock": 0.0, "damage": damage * param(data, "damage", 0.15),
+				"visual": run.fx(&"fire_ring", &"calcines", at + Vector3.UP * 0.3, radius, true)}
+			_zones.append(zone)
 	return true
+
+
+func _detonate(at: Vector3, radius: float, damage: float) -> Array[DraftEnemies.Foe]:
+	run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
+	var foes: Array[DraftEnemies.Foe] = _level(run.enemies.near(at, radius), at)
+	for foe: DraftEnemies.Foe in foes:
+		run.enemies.hit(foe, damage)
+	return foes
+
+
+## Zones de Brasier : brûlent ce qui s'y tient, à intervalle régulier.
+func _step_zones(delta: float) -> void:
+	for i: int in range(_zones.size() - 1, -1, -1):
+		var zone: Dictionary = _zones[i]
+		zone["left"] = float(zone["left"]) - delta
+		zone["clock"] = float(zone["clock"]) + delta
+		if float(zone["clock"]) >= float(zone["tick"]):
+			zone["clock"] = 0.0
+			var at: Vector3 = zone["at"]
+			for foe: DraftEnemies.Foe in _level(run.enemies.near(at, float(zone["radius"])), at):
+				run.enemies.hit(foe, float(zone["damage"]))
+		if float(zone["left"]) <= 0.0:
+			var visual: Node = zone["visual"]
+			if is_instance_valid(visual):
+				visual.queue_free()
+			_zones.remove_at(i)
 
 
 ## Bond de Faille : saut jusqu'au point visé (arrêté par le décor), invulnérable, onde de choc à l'arrivée.
@@ -284,21 +429,43 @@ func _leap(data: SpellData, aim: Vector3) -> bool:
 	var hunter: DraftHunter = run.hunter
 	var landing: Vector3 = _landing(aim, reach_of(data))
 	run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.6)
+	if variant_of(data) == &"return":
+		_return_point = hunter.global_position
+		_return_spell = data.id
 	_leap_spell = data
+	_leap_power = _power
 	hunter.leap_to(landing + Vector3.UP * 0.05, float(data.params.get("duration", 0.25)))
+	return true
+
+
+## Retour : pendant la fenêtre de la variante, la touche du Bond ramène au point de départ (sans onde).
+func leap_back() -> bool:
+	if _return_left <= 0.0 or run.hunter.is_leaping():
+		return false
+	_return_left = 0.0
+	_leap_spell = null
+	run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, run.hunter.global_position + Vector3.UP * 0.6)
+	run.hunter.leap_to(_return_point, 0.2)
 	return true
 
 
 func _on_landed() -> void:
 	var data: SpellData = _leap_spell
 	_leap_spell = null
+	run.hunter.reset_motion()
 	if data == null:
 		return
 	var landing: Vector3 = run.hunter.global_position
-	run.hunter.reset_motion()
-	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, landing + Vector3.UP * 0.4, 2.0)
+	var impact: bool = variant_of(data) == &"impact"
+	if variant_of(data) == &"return":
+		_return_left = param(data, "window", 3.0)
+	var size: float = 2.0 * (param(data, "area", 1.0) if impact else 1.0)
+	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, landing + Vector3.UP * 0.4, size)
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(landing, area_of(data)), landing):
-		run.enemies.hit(foe, damage_of(data), _flat(foe.pos - landing).normalized() * data.knockback * DraftHunter.UNIT)
+		run.enemies.hit(foe, damage_of(data) * _leap_power,
+			_flat(foe.pos - landing).normalized() * data.knockback * DraftHunter.UNIT)
+		if impact and foe.alive:
+			foe.slow(param(data, "slow", 0.5), param(data, "duration", 2.0))
 
 
 # --- Outils -------------------------------------------------------------------------------------------------------
@@ -366,8 +533,9 @@ func _show_reticle() -> void:
 	var radius: float = 0.35
 	var at: Vector3 = aim
 	var color: Color = RETICLE_COLOR
-	if preview_slot >= 0 and slots[preview_slot] != null:
-		var data: SpellData = slots[preview_slot]
+	var shown: int = preview_slot if preview_slot >= 0 else charge_slot
+	if shown >= 0 and slots[shown] != null:
+		var data: SpellData = slots[shown]
 		color = Color(data.color, 0.7)
 		match data.spell_kind:
 			&"slash":

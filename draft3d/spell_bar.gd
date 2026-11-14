@@ -45,7 +45,7 @@ func _draw() -> void:
 			draw_rect(Rect2(rect.position, Vector2(SLOT, SLOT * left)), Color(0, 0, 0, 0.55))
 			_text(font, rect.position + Vector2(0, 40), "%.1f" % spells.cooldowns[i], 17, Color.WHITE, SLOT)
 		var border: Color = data.color if ready else Color(0.55, 0.57, 0.66)
-		if spells.preview_slot == i:
+		if spells.preview_slot == i or spells.charge_slot == i:
 			border = Color.WHITE
 		draw_rect(rect, border, false, 2.0)
 		_text(font, rect.position + Vector2(5, 17), key, 14, Color("ffd9a0") if ready else Color(0.6, 0.6, 0.65))

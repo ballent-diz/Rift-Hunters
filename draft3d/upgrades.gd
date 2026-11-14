@@ -15,10 +15,19 @@ const HUNTER_STATS: Array[StringName] = [StatKeys.MAX_HP, StatKeys.REGEN, StatKe
 	StatKeys.BOLT_RANGE, StatKeys.DASH_COOLDOWN, StatKeys.DAMAGE_TAKEN]
 
 const SPELL_STATS: Array[StringName] = [StatKeys.SPELL_DAMAGE, StatKeys.SPELL_COOLDOWN]
-## Cartes de sort (draft3d/spells/, effets `DraftSpellEffect`) : apprendre un sort actif.
+## Cartes de sort (draft3d/spells/, effets `DraftSpellEffect`) : apprendre un sort, ses variantes (une par sort) et
+## ses rangs (dégâts, recharge, zone, portée).
 const SPELL_CARDS: Array[String] = ["res://draft3d/spells/learn_cleaving_slash.tres",
 	"res://draft3d/spells/learn_prismatic_lance.tres", "res://draft3d/spells/learn_rupture.tres",
-	"res://draft3d/spells/learn_rift_leap.tres"]
+	"res://draft3d/spells/learn_rift_leap.tres", "res://draft3d/spells/slash_whirlwind.tres",
+	"res://draft3d/spells/slash_thrust.tres", "res://draft3d/spells/lance_fan.tres",
+	"res://draft3d/spells/lance_overcharge.tres", "res://draft3d/spells/rupture_reaction.tres",
+	"res://draft3d/spells/rupture_blaze.tres", "res://draft3d/spells/leap_return.tres",
+	"res://draft3d/spells/leap_impact.tres", "res://draft3d/spells/slash_edge.tres",
+	"res://draft3d/spells/slash_reach.tres", "res://draft3d/spells/lance_weight.tres",
+	"res://draft3d/spells/lance_tempo.tres", "res://draft3d/spells/rupture_charge.tres",
+	"res://draft3d/spells/rupture_wide.tres", "res://draft3d/spells/leap_heavy.tres",
+	"res://draft3d/spells/leap_momentum.tres"]
 
 ## Cartes de statistiques (toujours offertes tant qu'elles servent).
 var catalog: Array[UpgradeData] = []
@@ -53,6 +62,16 @@ static func is_spell_card(data: UpgradeData) -> bool:
 		if spell == null or not DraftSpells.supported(spell.spell_id):
 			return false
 	return true
+
+
+## Carte de variante d'un sort (variante de l'arbre du profil appliquée au départ), ou null.
+func variant_card(spell_id: StringName, variant: StringName) -> UpgradeData:
+	for data: UpgradeData in spell_cards:
+		for effect: GameplayEffect in data.effects:
+			var spell := effect as DraftSpellEffect
+			if spell.kind == DraftSpellEffect.Kind.VARIANT and spell.spell_id == spell_id and spell.variant == variant:
+				return data
+	return null
 
 
 func all_cards() -> Array[UpgradeData]:
