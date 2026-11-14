@@ -47,8 +47,9 @@
     ],
     "world_span_m": 16,
     "texel_m": 0.025,
-    "composition": "terre tassée, pierre plate usée, mousse et verdure discrète",
+    "composition": "terre et pierre sans vert peint ; anciennes plaques vegetales remplacees par des maillages",
     "uv": "phase continue dans le repère du niveau",
-    "collision": "KayKit inchangée"
+    "collision": "KayKit inchangée",
+    "vegetation_mask": "res://draft3d/matter/cour/grass_regions.json"
   }
 }

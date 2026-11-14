@@ -9,7 +9,8 @@ Le propriétaire a demandé le remplacement intégral du sol : les hexagones vis
 une surface continue de terre tassée, pierre plate et mousse, sur les 336 emprises de sol, terrasses comprises.
 Les escaliers gardent leur géométrie et leur matière de pierre.
 Les dernières captures de détail montrent aussi 40 groupes d'herbe en vrais maillages 3D,
-avec éclairage et ombres ; les plaques de mousse restent peintes dans le terrain.
+avec éclairage et ombres. Après clarification, les anciennes plaques vertes sont également remplacées par des
+brins 3D suivant le masque `grass_regions.json` ; la texture de sol ne contient plus de verdure peinte.
 Le rapport confirme les mêmes collisions et la même navigation après cet ajout.
 
 ![Ancien sol à gauche, sol terre/pierre/verdure à droite](sol_comparaison.webp)
@@ -35,11 +36,15 @@ Les 336 emprises et altitudes des surfaces de sol remplacées sont contrôlées 
 Les 23 entrées du manifeste passent également le validateur Godot.
 Contrôle bitmap : 32 couleurs, 16 tuiles périodiques, terrain continu 640 px / 16 m,
 23 sprites ancrés, 193 placements reproductibles de 21 variantes. Les fissures superposées sont retirées.
-Import final, banc natif, contrôle natif, lancement de partie à 2/12 secondes et lint ciblé : conformes.
+Banc natif, contrôle natif et lint ciblé : conformes. Le lancement de partie à 2/12 secondes précède les nappes 3D.
+Le dernier import complet s'achève mais signale des UID de caches locaux obsolètes des autres packs KayKit ;
+aucune source de ces packs n'est changée. Le chargement et les captures de la Cour ne signalent pas d'erreur.
+Le rapport confirme 3 450 petites touffes suivant les anciennes plaques vertes, en plus des 40 groupes des recoins.
 
 Le rendu pixel de Claude n'est pas inclus dans ces captures ; la lecture combinée reste à vérifier après
 rapprochement des branches. La validation artistique et l'essai avec une horde restent au propriétaire.
-Le banc indique 492 appels de dessin d'origine et 363 avec herbe 3D, sur les entrepôts ; ce n'est pas un benchmark de FPS.
+Le banc indique 492 appels de dessin d'origine et 396 avec les nappes d'herbe 3D, sur les entrepôts ;
+ce n'est pas un benchmark de FPS. La fluidité avec une horde reste à essayer.
 La version du sol continu avant herbe 3D en indiquait 318.
 Le premier essai de matières, avec les hexagones, en indiquait 598. Le terrain continu est désormais un maillage partagé.
 

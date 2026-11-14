@@ -2,6 +2,7 @@ extends Node3D
 ## Habillage de la Cour seulement : maillages UV et matériaux, puis détails sans corps physique.
 
 const ROOT := "res://draft3d/matter/cour/"
+const GRASS := preload("res://draft3d/matter/cour/grass_mesh.gd")
 var _scaled_materials := {}
 var _ground_positions := PackedVector3Array()
 var _ground_uvs := PackedVector2Array()
@@ -37,7 +38,49 @@ func apply_matter(level: Node3D) -> void:
 			for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
 				texture_foundation(instance)
 	create_ground()
+	create_meadow()
 	place_details()
+
+func create_meadow() -> void:
+	var regions: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "grass_regions.json"))
+	var mask := {}
+	for point: Array in regions.points:
+		mask[Vector2i(floori(float(point[0]) * 2), floori(float(point[1]) * 2))] = true
+	var groups := {}
+	var rng := RandomNumberGenerator.new()
+	rng.seed = 241115
+	for tile: int in range(0, _ground_positions.size(), 6):
+		var start := _ground_positions[tile]
+		var end := _ground_positions[tile + 2]
+		for x: int in range(roundi(start.x * 2), roundi(end.x * 2)):
+			for z: int in range(roundi(start.z * 2), roundi(end.z * 2)):
+				var key := Vector2i(posmod(x, 32), posmod(z, 32))
+				if not mask.has(key):
+					continue
+				var chunk := Vector2i(floori(float(x) / 32), floori(float(z) / 32))
+				if not groups.has(chunk):
+					groups[chunk] = []
+				var at := Vector3(x * 0.5 + 0.25, start.y, z * 0.5 + 0.25)
+				at += Vector3(rng.randf_range(-0.08, 0.08), 0, rng.randf_range(-0.08, 0.08))
+				var basis_value := Basis(Vector3.UP, rng.randf() * TAU).scaled(Vector3.ONE * rng.randf_range(0.85, 1.15))
+				groups[chunk].append(Transform3D(basis_value, at))
+	var meadow := Node3D.new()
+	meadow.name = "CourMeadow"
+	add_child(meadow)
+	var mesh := GRASS.build(0, true)
+	var count := 0
+	for chunk: Vector2i in groups:
+		var multimesh := MultiMesh.new()
+		multimesh.transform_format = MultiMesh.TRANSFORM_3D
+		multimesh.mesh = mesh
+		multimesh.instance_count = groups[chunk].size()
+		for i: int in groups[chunk].size():
+			multimesh.set_instance_transform(i, groups[chunk][i])
+		var instance := MultiMeshInstance3D.new()
+		instance.multimesh = multimesh
+		meadow.add_child(instance)
+		count += multimesh.instance_count
+	meadow.set_meta("grass_instances", count)
 
 func append_ground(instance: MeshInstance3D, level: Node3D) -> void:
 	# Les corps physiques KayKit restent en place ; seul le dallage visible est masqué.
@@ -140,7 +183,7 @@ func place_details() -> void:
 func place_grass(entry: Dictionary) -> void:
 	var variant: int = ["object.cour_grass_olive", "object.cour_grass_broad", "object.cour_grass_dry"].find(entry.visual_id)
 	if not _grass_meshes.has(variant):
-		_grass_meshes[variant] = preload("res://draft3d/matter/cour/grass_mesh.gd").build(variant)
+		_grass_meshes[variant] = GRASS.build(variant)
 	var instance := MeshInstance3D.new()
 	instance.name = entry.name
 	instance.mesh = _grass_meshes[variant]

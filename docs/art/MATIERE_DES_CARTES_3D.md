@@ -109,7 +109,12 @@ Après retour du propriétaire, les trois variantes d'herbe sont remplacées à 
 MeshInstance3D. `grass_mesh.gd` produit trois maillages partagés, déterministes : sept petits bouquets de treize
 brins courbés, à section triangulaire, hauts de 20 à 48 cm. Les quatre couleurs viennent de la palette commune.
 Les normales et le matériau standard permettent l'éclairage et les ombres du moteur, sans nouveau shader.
-Ces touffes ne suivent pas la caméra ; elles restent sans collision. La mousse basse reste dans le terrain peint.
+Ces touffes ne suivent pas la caméra ; elles restent sans collision.
+Après clarification du propriétaire, les plaques vertes du terrain sont également remplacées par de l'herbe 3D.
+Leur implantation périodique est conservée dans `grass_regions.json` (162 cellules sur une grille 32 × 32,
+correspondant aux anciennes zones vertes). La texture du terrain est désormais de la terre et de la pierre sans vert.
+Des brins de 12 à 28 cm couvrent ce masque, aux altitudes des sols et terrasses, par MultiMesh découpés en secteurs
+de 16 m. Les 40 groupes plus hauts des recoins restent des accents. Aucun nouveau collider ni shader n'est ajouté.
 Les autres détails gardent leur rendu en sprites. Le rendu combiné de Claude reste à valider séparément.
 
 Les sprites sont des Sprite3D en alpha découpé, nearest, sans corps physique et sans effet de gameplay.

@@ -6,7 +6,9 @@
 par un sol continu terre/pierre/mousse, conservant les collisions KayKit. Bibliothèque de 23 détails,
 193 placements de 21 variantes ; les fissures en surimpression sont retirées. Premier lot limité à la Cour,
 à valider avant les autres chapitres. Quarante groupes d'herbe sont désormais en vrais brins 3D,
-éclairés et avec ombres, sans collision. PR brouillon #166.
+éclairés et avec ombres, sans collision. Les anciennes plaques vertes de la texture sont maintenant remplacées
+par des nappes de brins 3D suivant `grass_regions.json` ; le sol peint sous-jacent est terre/pierre sans verdure.
+PR brouillon #166.
 Les modules, leurs placements et leurs collisions restent la référence ; aucun changement du shader de rendu
 développé en parallèle par Claude. Méthode et exceptions UV : `docs/art/MATIERE_DES_CARTES_3D.md`.
 

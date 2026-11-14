@@ -68,6 +68,13 @@ marges périodiques et nearest. Le maillage continu est créé dans le jeu, sans
 
 ## Conditionnement technique des atlas et des détails
 
+Retouche ultérieure imagegen intégrée : retrait du vert peint pour le remplacer par des brins 3D.
+Le placement des anciennes plaques est sauvegardé dans `grass_regions.json` avant la retouche.
+Prompt exact :
+
+Edit this seamless top-down game terrain texture. REMOVE EVERY green patch, moss and grass, replacing those exact areas with matching compacted brown earth. Keep the existing stones, earth pattern, scale, distribution, pixel-art finish, contrast and seamless square layout as close as possible to the reference. Final image ONLY bare warm grey-brown earth and scattered flat stones. ZERO green, ZERO vegetation, ZERO moss, ZERO grass; these will be real 3D geometry in the game. No new objects, no shadows, no highlights, no perspective, no lines, no tiles. Flat neutral pixel-art albedo, seamless in both axes.
+
+
 Les images générées ne sont pas importées directement comme feuilles finales : découpage des cellules,
 réduction nearest, palette commune prélevée sur les sprites, marges périodiques des textures, alpha binaire
 et pied fixe des petits objets. Ces opérations sont reproductibles et ne redessinent aucun décor du jeu.

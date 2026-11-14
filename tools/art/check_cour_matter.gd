@@ -97,7 +97,7 @@ func verify() -> void:
 	assert(before_collision == collisions(level), "Collisions différentes")
 	assert(before_modules == modules(level), "Placement de module différent")
 	assert(before_navigation == navigation(level), "Navigation différente")
-	assert(dressing.get_child_count() == placements.size() + 1)
+	assert(dressing.get_child_count() == placements.size() + 2)
 	assert(dressing.find_children("*", "CollisionObject3D", true, false).is_empty())
 	var grass_count := 0
 	for detail: Node in dressing.get_children():
@@ -135,6 +135,7 @@ func verify() -> void:
 		"navigation_sha256": JSON.stringify(before_navigation).sha256_text(), "detail_instances": placements.size(),
 		"manifest_entries_validated": detail_definitions.size(),
 		"grass_3d_instances": grass_count,
+		"grass_from_ground_mask": dressing.get_node("CourMeadow").get_meta("grass_instances"),
 		"floor_tiles_replaced": floors.size(), "floor_top_height_and_footprint": "identiques",
 		"floor_geometry": "surface visuelle continue, deux triangles par ancienne tuile",
 		"geometry_original_uv": "identiques", "max_normal_encoding_error": max_normal_error,
