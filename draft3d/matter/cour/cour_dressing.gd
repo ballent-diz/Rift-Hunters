@@ -30,10 +30,18 @@ func apply_matter(level: Node3D) -> void:
 				instance.material_override = null
 				for surface: int in instance.mesh.get_surface_count():
 					instance.set_surface_override_material(surface, null)
-					if id != "stairs_wide":
-						var scale_value := (child as Node3D).scale.x
-						var material := instance.mesh.surface_get_material(surface) as StandardMaterial3D
-						instance.set_surface_override_material(surface, scaled_material(material, scale_value))
+					var material := instance.mesh.surface_get_material(surface) as StandardMaterial3D
+					var slot := material.resource_name.trim_prefix("Cour_")
+					if slot in ["stone", "cracks", "rubble", "moss"]:
+						# Les copies .res contiennent encore leur ancien matériau embarqué.
+						material = load(ROOT + "materials/" + slot + ".tres")
+					if material.resource_name == "Cour_stone":
+						if id == "stairs_wide":
+							material = load(ROOT + "materials/limestone.tres")
+						elif id == "pillar_decorated":
+							material = load(ROOT + "materials/masonry.tres")
+					var scale_value := 1.0 if id == "stairs_wide" else (child as Node3D).scale.x
+					instance.set_surface_override_material(surface, scaled_material(material, scale_value))
 		elif child.name in ["Terrace", "CornerTerrace"]:
 			for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
 				texture_foundation(instance)
@@ -142,7 +150,7 @@ func texture_foundation(instance: MeshInstance3D) -> void:
 	arrays[Mesh.ARRAY_TEX_UV] = uv
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	mesh.surface_set_material(0, load(ROOT + "materials/stone.tres"))
+	mesh.surface_set_material(0, load(ROOT + "materials/moss.tres"))
 	instance.mesh = mesh
 	instance.material_override = null
 	instance.set_surface_override_material(0, null)

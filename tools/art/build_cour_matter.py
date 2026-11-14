@@ -93,7 +93,8 @@ def main(atlas_path, details_path, stone_path):
         if name in ["paving", "stone", "moss", "masonry", "rubble", "cracks", "limestone", "algae"]:
             image, divisions = stone_atlas, 2
             source_x, source_y = ((1, 0) if name in ["paving", "limestone"] else
-                                  ((1, 1) if name in ["moss", "algae"] else (0, 0)))
+                                  ((1, 1) if name in ["moss", "algae"] else
+                                   ((0, 1) if name == "masonry" else (0, 0))))
         tile = image.crop((round(source_x * image.width / divisions) + 4,
                            round(source_y * image.height / divisions) + 4,
                            round((source_x + 1) * image.width / divisions) - 4,
@@ -102,7 +103,7 @@ def main(atlas_path, details_path, stone_path):
         tile_palette = pal
         if name in ["paving", "stone", "masonry", "rubble", "cracks", "limestone"]:
             # Sol calme : la finesse vient de la matière, pas de joints noirs qui concurrencent les sprites.
-            indices = [3, 4, 5, 15, 17] if name in ["paving", "limestone"] else [3, 4, 15, 16, 17]
+            indices = [3, 24, 4, 15, 16, 17]
             ramp = [palette[k] for k in indices]
             tile_palette = Image.new("P", (1, 1))
             tile_palette.putpalette([v for rgb in ramp for v in rgb] + list(ramp[-1]) * (256 - len(ramp)))

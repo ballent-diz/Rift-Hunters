@@ -14,6 +14,16 @@ ni rayures. Les formes des marches et des blocs restent fournies par la géomét
 La palette minérale utilise les gris 3/4 et les verts désaturés 15/16/17 de la palette commune.
 Les maillages, UV, collisions, placements, lumières et shaders restent inchangés lors de cette retouche.
 
+Passe de matière suivante : quatre variantes distinctes sont maintenant utilisées :
+`stone` pour les murs (pierre et mousse), `limestone` pour les escaliers (pierre davantage exposée),
+`masonry` pour les piliers (minéraux gris-vert, lichen et taches terreuses), `moss` pour les fondations plus humides.
+Les surfaces de métal et de bois existantes gardent leur matière. Les variantes minérales utilisent
+les indices 3/24/4/15/16/17 de la même palette de 32 couleurs. Le changement de matériau se fait uniquement sur
+les surfaces de pierre, par override ; les copies de maillages et leurs UV ne sont pas régénérés.
+Les matériaux minéraux externes reçoivent une teinte d'albedo `(0.55, 0.6, 0.55)` pour éviter les taches trop claires
+sous la lumière actuelle ; le shader de rendu et les lumières ne changent pas. L'habillage recharge ces matériaux
+externes plutôt que les anciennes copies embarquées dans les `.res`, pour appliquer leurs réglages actualisés.
+
 ## Résultat et périmètre
 
 La Cour reçoit des matières peintes, une palette commune de 32 couleurs et une bibliothèque de 23 petits détails.

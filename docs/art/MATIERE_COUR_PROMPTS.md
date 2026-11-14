@@ -1,5 +1,13 @@
 # Matière de la Cour — consignes de génération
 
+## Passe enrichie : quatre matières pierre/mousse
+
+Dernière source minérale retenue, retouche avec imagegen intégré. Les quatre cellules correspondent
+respectivement aux murs, aux escaliers, aux piliers et aux fondations humides. Prompt exact :
+
+Edit this 2x2 seamless pixel-art albedo atlas into FOUR DISTINCT rich painted stone-and-moss surfaces for ancient forest ruins. Exact equal 2x2 cells, no dividers. Current source is too plain and uniform: add clearly readable organic material patches, weathered mineral chips and dense moss clusters, without lines or photographic noise. Top-left WALL STONE: dark slate grey base #3b4148 with irregular exposed grey mineral patches #5d5a60 #7b7c82, about 30 percent muted olive moss #375736 #5f6a47, damp green-grey staining; stone remains dominant. Top-right STAIR STONE: worn slate-grey with BROAD exposed smooth walking patches and a few chipped flecks, only 10-15 percent moss along irregular patches, readable low contrast, no painted step edges. Bottom-left PILLAR STONE: slightly warmer desaturated grey-green mineral surface, 35 percent moss and small olive lichen islands, subtle earth staining. Bottom-right FOUNDATION STONE: heavily mossy slate, 50 percent dense olive moss patches with irregular broken edges and scattered grey stone showing through. All cells are homogeneous flat material textures, never individual rocks, bricks, masonry or objects; actual game meshes supply those shapes. NO scratches, NO thin drawn crack lines, NO evenly distributed speckle dots, NO regular patterns. Intentional crisp 16-bit painted pixel-art clusters, each tile intended to reduce to 160x160 native texels. Modest tonal range but the grey stone and olive moss should clearly differ in hue. More material richness and variation than the reference, while quiet enough for gameplay. Each cell repeats seamlessly in both axes. Neutral ALBEDO: no direction lighting, no baked shadows, no perspective, no highlights, no bevels, no text. Natural wet forest ruins, NO neon greens.
+
+
 ## Harmonisation des murs et escaliers
 
 Source minérale retouchée avec imagegen intégré, prompt exact :

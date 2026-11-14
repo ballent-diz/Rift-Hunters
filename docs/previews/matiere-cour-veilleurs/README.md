@@ -2,6 +2,8 @@
 
 Dernière passe sur les volumes : pierre ardoise plus sombre sur murs, escaliers, piliers et fondations,
 gris-vert et lichen discret ; suppression des traits artificiels. Les quatre captures de détail sont actualisées.
+Les matières sont désormais différenciées : murs moussus, escaliers plus minéraux et usés,
+piliers avec lichen et taches terreuses, fondations plus couvertes de mousse.
 Comparaison dédiée : [avant/après harmonisation](harmonisation.webp).
 
 Dernière version : sous-bois plus végétal, mousse basse dominante et humus sombre, pierres discrètes.

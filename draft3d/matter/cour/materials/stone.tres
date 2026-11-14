@@ -5,6 +5,7 @@
 [resource]
 resource_name = "Cour_stone"
 albedo_texture = ExtResource("1_fbico")
+albedo_color = Color(0.55, 0.6, 0.55, 1)
 metallic_specular = 0.0
 roughness = 0.95
 texture_filter = 0
