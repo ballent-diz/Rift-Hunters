@@ -1161,6 +1161,11 @@ Chasseur (appuis de 19 unités) il tombe juste ; sous une créature large vue de
 amélioré. Point de départ utile : la refonte de Glauquemire (lot 1) et la remarque du lot 2 sur les 13 finales
 encore jouées dans un cercle d'énergie, qui limite les déplacements des boss comme du Chasseur.
 
+**Repris pour la v2 (15 novembre)** : audit des boss 3D dans [design/BOSS_V2.md](design/BOSS_V2.md). Les 24 boss
+v2 partagent un cerveau commun (5 techniques, 2 phases, aucune mécanique phare, ni transition ni changement de
+feuille). Plan proposé : socle commun (cerveau piloté par les données, mouvement, transitions, mort), puis chapitre
+par chapitre, Dévoreur d'abord. En attente du choix du propriétaire.
+
 ## PixelFX : sorts sans animation — livré (Codex, 12 novembre 2026)
 
 Audit des 12 sorts du Chasseur, des 32 sorts des Échos, des 65 techniques ennemies et des 25 boss terminé.
