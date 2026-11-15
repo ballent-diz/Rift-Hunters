@@ -118,7 +118,13 @@ func painted_material(slot: String) -> StandardMaterial3D:
 	material.resource_name = "Cour_" + slot
 	material.albedo_texture = load(ROOT + "textures/" + slot + ".png")
 	if slot in ["stone", "cracks", "rubble", "moss", "limestone", "masonry"]:
-		material.albedo_color = Color(0.55, 0.6, 0.55, 1.0)
+		material.albedo_color = Color(0.64, 0.68, 0.72, 1.0)
+		if slot == "moss":
+			material.albedo_color = Color(0.55, 0.6, 0.55, 1.0)
+		elif slot == "limestone":
+			material.albedo_color = Color(0.68, 0.72, 0.75, 1.0)
+		elif slot == "masonry":
+			material.albedo_color = Color(0.64, 0.68, 0.68, 1.0)
 	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	material.texture_repeat = true
 	material.roughness = 0.95

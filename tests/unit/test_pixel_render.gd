@@ -38,6 +38,39 @@ func test_texel_matches_sprite_pixels() -> void:
 	check_near(DraftPixelRender.TEXEL, DraftSpriteView.PIXEL * 0.65, 0.00001, "un texel = un pixel d'art à l'échelle 0,65")
 
 
+func test_cour_uses_validated_materials_by_default() -> void:
+	await _start(true)
+	var matter := run.level.get_node("CourMatter")
+	var ground := matter.get_node("CourTerrain") as MeshInstance3D
+	var material := ground.mesh.surface_get_material(0) as StandardMaterial3D
+	check(material.albedo_texture.resource_path == "res://draft3d/matter/painted_kit/ground/terrain.png",
+		"le sol validé est actif sans argument d'essai")
+	check(not matter.has_node("CourMeadow"), "pas de retour au tapis de petits brins")
+	check(run.pixel.palette.colors.size() == 48, "palette de la référence validée")
+	var stairs := 0
+	for child: Node in run.level.get_children():
+		if child.scene_file_path.get_file().get_basename() == "stairs_wide":
+			check(child.get_meta("painted_kit", "") == "stairs_wide", "escalier peint par défaut")
+			stairs += 1
+	check(stairs == 4, "les quatre escaliers sont couverts")
+
+
+func test_cour_palette_preserves_moss() -> void:
+	for chapter: int in [1, 5]:
+		var palette := DraftPixelRender.load_palette(chapter)
+		for probe: Color in [Color("375736"), Color("5f6a47")]:
+			var reference := DraftPixelRender.oklab(probe)
+			var best := INF
+			var picked := Color.BLACK
+			for candidate: Color in palette.colors:
+				var delta := (DraftPixelRender.oklab(candidate) - reference) * Vector3(1.0, 1.3, 1.3)
+				if delta.length_squared() < best:
+					best = delta.length_squared()
+					picked = candidate
+			check(picked.g > picked.r and picked.g > picked.b,
+				"chapitre %d : la mousse reste verte après quantification" % chapter)
+
+
 func test_pixel_view_is_snapped() -> void:
 	await _start(true)
 	var pixel: DraftPixelRender = run.pixel
