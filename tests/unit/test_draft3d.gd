@@ -143,6 +143,13 @@ func test_map_stairs_shelters_and_heights() -> void:
 	await _frames(110)
 	check(run.hunter.global_position.y > 1.8 and run.hunter.global_position.z < -12.0, "montée de l'escalier : y = %.2f"
 		% run.hunter.global_position.y)
+	# Flanc de l'escalier : la collision couvre toute la largeur du modèle (±3,5 m), on ne traverse pas ses rebords.
+	run.hunter.global_position = Vector3(6.0, 0.2, -10.5)
+	run.hunter.reset_motion()
+	run.hunter.auto_direction = Vector3(-1, 0, 0)
+	await _frames(90)
+	check(run.hunter.global_position.x > 3.5, "le flanc de l'escalier arrête le Chasseur : x = %.2f"
+		% run.hunter.global_position.x)
 	# Limites : on ne sort pas de la carte.
 	run.hunter.global_position = Vector3(31, 0.2, 22)
 	run.hunter.reset_motion()
