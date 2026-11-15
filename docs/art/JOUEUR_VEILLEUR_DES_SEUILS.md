@@ -1,7 +1,9 @@
 # Proposition de joueur : le Veilleur des Seuils
 
 Création demandée par le propriétaire après les fusions des cartes 3 et 4 (PR #177 et #178).
-Variante indépendante à valider sur `codex/nouveau-joueur-veilleur` : **le Chasseur existant reste le joueur par défaut**.
+Le propriétaire a demandé son remplacement en jeu : **le Veilleur devient le joueur par défaut**.
+Seul `player_visual.visual_id` change dans `data/balance/balance_config.tres` ; statistiques et règles inchangées.
+Le sprite historique `player.hunter` reste disponible.
 
 ![Comparaison native agrandie en nearest](../previews/joueur_veilleur/comparison.png)
 
@@ -19,7 +21,7 @@ quantifie les deux planches avec une palette commune de **48 couleurs**, comme l
 
 ## Format et animations
 
-Identifiant séparé : `player.threshold_warden`, statut `wip` jusqu'au choix artistique du propriétaire.
+Identifiant : `player.threshold_warden`, statut `final` après le choix du propriétaire.
 Cellules **112 × 80**, ancre **(56, 74)**, scale **0,65** et corps debout d'environ **62 pixels**.
 La cellule est plus large que les 96 × 80 du Chasseur pour contenir l'extension de la lame ; **cela n'agrandit
 pas le corps ou la physique**. En 3D, le pixel reste à 0,02405 m ; corps visible d'environ 1,5 m.
@@ -39,12 +41,13 @@ L'ombre au sol est mesurée dans le manifeste, dessinée par le moteur et absent
 
 ![Animations livrées, agrandies ×2 en nearest](../previews/joueur_veilleur/animations.gif)
 
-## Essayer sans remplacer le joueur
+## Jouer et comparer
 
-Ouvrir `tools/art/warden_trial.tscn` dans Godot et lancer cette scène (F6). Elle utilise la vraie partie et
+Le lancement normal du jeu utilise maintenant le Veilleur. La scène `tools/art/warden_trial.tscn` (F6) reste
+disponible pour comparer les deux visuels. Elle utilise la vraie partie et
 ne remplace que le nœud visuel du joueur, avec ses données de sprite et son ombre. Les déplacements,
-collisions, cadence des actions, règles, HUD et sorts restent ceux du jeu. Aucun fichier `src/` ou `data/` ne change.
-Le retour au menu ou la partie normale reprend le Chasseur actuel.
+collisions, cadence des actions, règles, HUD et sorts restent ceux du jeu. Aucun fichier `src/` ne change.
+La partie normale et le retour au menu conservent le Veilleur.
 
 ```text
 godot --path . res://tools/art/warden_trial.tscn -- --chapter=1
@@ -75,4 +78,5 @@ Les éventuelles comparaisons côte à côte sont explicitement composées depui
 
 Rapports, captures au zoom de jeu et GIF : `docs/previews/joueur_veilleur/`.
 Les messages de ressources OpenGL non libérées à la fermeture existent aussi dans les références du jeu.
-Ce premier lot est une **proposition visuelle**, pas une activation automatique ni une validation artistique acquise.
+Activation demandée explicitement par le propriétaire. La sélection du visuel est réversible en remettant
+`player.hunter` dans le champ de configuration, sans modifier les mécaniques.

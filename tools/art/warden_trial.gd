@@ -8,14 +8,15 @@ func _ready() -> void:
 	await super._ready()
 	var args := OS.get_cmdline_user_args()
 	var variant := not args.has("--warden=0")
-	if variant:
-		var entry := Assets.entry(VISUAL)
-		var report := AssetValidator.validate_entry(str(VISUAL), entry)
+	var selected := VISUAL if variant else &"player.hunter"
+	if str(hunter.view.entry.sheet) != str(Assets.entry(selected).sheet):
+		var entry := Assets.entry(selected)
+		var report := AssetValidator.validate_entry(str(selected), entry)
 		assert(report.status == "OK", JSON.stringify(report))
 		var old_view := hunter.view
 		hunter.view = DraftSpriteView.new()
 		hunter.add_child(hunter.view)
-		hunter.view.setup(VISUAL)
+		hunter.view.setup(selected)
 		hunter.view.walk_speed = old_view.walk_speed
 		hunter.view.snap_to(hunter.global_position)
 		hunter.view.face_left(old_view.sprite.flip_h)

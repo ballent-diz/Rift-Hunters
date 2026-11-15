@@ -18648,7 +18648,7 @@
 			}
 		},
 		"player.threshold_warden": {
-			"status": "wip",
+			"status": "final",
 			"imported_from": "assets/concepts/incoming/player.threshold_warden/job.json",
 			"sheet": "res://assets/sprites/players/threshold_warden/threshold_warden_sheet.png",
 			"cell": [

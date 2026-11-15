@@ -39,7 +39,7 @@ def main():
     job = {
         "visual_id": "player.threshold_warden", "cell": [112, 80], "anchor": [56, 74], "scale": 0.65,
         "keep_size": True, "registered_cells": True, "background": "alpha", "colors": 48,
-        "outline": False, "status": "wip", "animations": [], "aliases": {"dash": "attack"},
+        "outline": False, "status": "final", "animations": [], "aliases": {"dash": "attack"},
         "generated_with": "imagegen", "sources": ["source/A.png", "source/B.png"],
         "reference": "player.hunter", "source_b_reference": "source/A.png",
         "prompts": "prompts.json",

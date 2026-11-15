@@ -14,7 +14,7 @@
   "background": "alpha",
   "colors": 48,
   "outline": false,
-  "status": "wip",
+  "status": "final",
   "animations": [
     {
       "name": "idle",

@@ -2,11 +2,11 @@
 
 ## Nouveau joueur : Veilleur des Seuils (Codex, 15 novembre 2026)
 
-Prêt à examiner sur `codex/nouveau-joueur-veilleur`, depuis main après fusion des PR #177 et #178.
+Validé par le propriétaire : activation comme joueur par défaut demandée le 15 novembre 2026 (PR #180).
 Création demandée d'un nouveau sprite joueur adapté au jeu : guerrier voyageur, pierre/acier usés,
 cape ardoise, écharpe ivoire et accents cyan. Variante indépendante, même échelle visible que le joueur
 actuel ; 32 poses, 48 couleurs, scène jouable et comparaisons dans la Cour et sur la neige.
-Joueur original inchangé. Guide : `docs/art/JOUEUR_VEILLEUR_DES_SEUILS.md`.
+Ancien sprite conservé pour comparaison ; seul player_visual.visual_id change dans la configuration. Guide : `docs/art/JOUEUR_VEILLEUR_DES_SEUILS.md`.
 
 ## Bug : on traverse le flanc des escaliers (Claude, session « Correction de bugs », 15 novembre 2026)
 
