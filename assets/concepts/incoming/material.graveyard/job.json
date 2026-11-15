@@ -1,0 +1,31 @@
+{
+  "visual_id": "material.graveyard",
+  "kind": "module_uv_templates_and_ground",
+  "status": "wip",
+  "generated_with": "imagegen",
+  "sources": [
+    "source/materials.png",
+    "source/ground.png",
+    "source/needles.png"
+  ],
+  "stone_reference": "assets/concepts/incoming/material.painted_kit/source/templates.png#panel_3",
+  "grid": [
+    4,
+    2
+  ],
+  "slots": [
+    "masonry",
+    "stone",
+    "wood",
+    "iron",
+    "roof",
+    "bark",
+    "foliage",
+    "bone"
+  ],
+  "colors_per_panel": 6,
+  "colors_atlas_max": 48,
+  "ground_colors": 32,
+  "texels_per_m": 40,
+  "geometry_and_collisions": "unchanged"
+}

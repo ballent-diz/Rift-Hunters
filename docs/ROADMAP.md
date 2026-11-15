@@ -9,6 +9,15 @@
   joue l'animation d'attaque complète du Chasseur, dont les dernières images portent son arc de lame.
 - Test : `test_draft3d_spells::test_slash_plays_no_ground_cleave`.
 
+## Matière du Cimetière des Cendres (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/matiere-cimetiere-cendres`, depuis main avec la référence Cour fusionnée (#169).
+Passe de matière nocturne sur la carte 2 : terre cendreuse, pierre froide, bois patiné, fer et feuillages secs.
+Plan, relief, collisions et navigation conservés ; captures en jeu et contrôles avant PR brouillon.
+37 modèles, 271 instances de meshes peintes, sol/tertre et deux escaliers ; cinq comparatifs au zoom de jeu.
+16 848 triangles et 171 collisions vérifiés. L’erreur de synchronisation de navigation préexistante est documentée.
+Méthode et prompts : `docs/art/MATIERE_CIMETIERE_DES_CENDRES.md`.
+
 ## Référence des décors 3D validée (propriétaire, 15 novembre 2026)
 
 La Cour harmonisée (sol, herbe, murs et escaliers, PR #169) est validée comme référence de style.
@@ -77,6 +86,10 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
   `draft3d/spells/data/`) : 15 sorts, 64 cartes de sort. Option `--spells=` pour essayer un jeu de sorts.
   Départ toujours avec Taille et Lance (décision du 15 novembre) ; recharges affichées sous le Chasseur
   (`draft3d/spell_pips.gd`). Équilibrage non fait (le bot tient 2 min sans `--god`).
+- **Décidé le 15 novembre (direction C)** : écran de déblocage simple entre les parties, une seule monnaie nouvelle
+  (nom à valider), sorts et variantes débloqués entrent dans le tirage des choix de niveau, 2 sorts de départ au
+  choix ; passifs mis de côté. Conception et partage du travail : [design/DEBLOCAGE_V2.md](design/DEBLOCAGE_V2.md)
+  (Gameplay : `DraftUnlocks` et règles ; Interface : l'écran).
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
