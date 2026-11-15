@@ -114,6 +114,8 @@ static func load_palette(chapter: int) -> DraftPixelPalette:
 	var kit := not args.has("--painted-kit=0") and (chapter == 1 or args.has("--painted-kit"))
 	if chapter in [1, 5] and (kit or args.has("--painted-kit-palette")):
 		return load("res://draft3d/matter/painted_kit/palette.tres") as DraftPixelPalette
+	if chapter == 3 and (not args.has("--village-matter=0") or args.has("--village-palette")):
+		return load("res://draft3d/matter/village/palette.tres") as DraftPixelPalette
 	var path: String = PALETTE_PATH % chapter
 	if ResourceLoader.exists(path):
 		return load(path) as DraftPixelPalette

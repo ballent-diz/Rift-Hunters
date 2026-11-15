@@ -1,0 +1,461 @@
+{
+  "barrel_s600_00": {
+    "atlas": [
+      1024,
+      64
+    ],
+    "islands": 99,
+    "roles": {
+      "wood": 51,
+      "iron": 48
+    }
+  },
+  "building_blacksmith_blue_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 1148,
+    "roles": {
+      "wood": 252,
+      "plaster": 509,
+      "stone": 362,
+      "roof": 25
+    }
+  },
+  "building_church_blue_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 583,
+    "roles": {
+      "wood": 326,
+      "stone": 67,
+      "plaster": 114,
+      "roof": 76
+    }
+  },
+  "building_destroyed_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 408,
+    "roles": {
+      "stone": 114,
+      "plaster": 181,
+      "wood": 113
+    }
+  },
+  "building_grain_s450_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 128,
+    "roles": {
+      "straw": 106,
+      "soil": 22
+    }
+  },
+  "building_home_A_blue_s500_00": {
+    "atlas": [
+      1024,
+      512
+    ],
+    "islands": 376,
+    "roles": {
+      "wood": 189,
+      "stone": 54,
+      "plaster": 96,
+      "roof": 37
+    }
+  },
+  "building_home_B_blue_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 539,
+    "roles": {
+      "stone": 119,
+      "wood": 194,
+      "plaster": 184,
+      "roof": 42
+    }
+  },
+  "building_lumbermill_blue_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 779,
+    "roles": {
+      "plaster": 96,
+      "stone": 83,
+      "wood": 585,
+      "roof": 15
+    }
+  },
+  "building_lumbermill_blue_s500_01": {
+    "atlas": [
+      1024,
+      128
+    ],
+    "islands": 126,
+    "roles": {
+      "plaster": 100,
+      "stone": 26
+    }
+  },
+  "building_lumbermill_blue_s500_02": {
+    "atlas": [
+      1024,
+      512
+    ],
+    "islands": 438,
+    "roles": {
+      "wood": 306,
+      "plaster": 105,
+      "stone": 8,
+      "roof": 19
+    }
+  },
+  "building_market_blue_s500_00": {
+    "atlas": [
+      1024,
+      2048
+    ],
+    "islands": 1710,
+    "roles": {
+      "wood": 1477,
+      "stone": 70,
+      "canvas": 96,
+      "ground": 36,
+      "foliage": 2,
+      "cloth": 29
+    }
+  },
+  "building_tavern_blue_s500_00": {
+    "atlas": [
+      1024,
+      2048
+    ],
+    "islands": 1291,
+    "roles": {
+      "stone": 252,
+      "wood": 728,
+      "plaster": 292,
+      "roof": 19
+    }
+  },
+  "building_tower_A_blue_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 542,
+    "roles": {
+      "stone": 42,
+      "plaster": 439,
+      "wood": 49,
+      "roof": 12
+    }
+  },
+  "building_tower_A_blue_s500_01": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 209,
+    "roles": {
+      "wood": 169,
+      "stone": 7,
+      "plaster": 12,
+      "roof": 21
+    }
+  },
+  "building_well_blue_s500_00": {
+    "atlas": [
+      1024,
+      512
+    ],
+    "islands": 304,
+    "roles": {
+      "stone": 41,
+      "plaster": 128,
+      "roof": 26,
+      "wood": 109
+    }
+  },
+  "building_windmill_blue_s500_00": {
+    "atlas": [
+      1024,
+      512
+    ],
+    "islands": 755,
+    "roles": {
+      "plaster": 78,
+      "stone": 152,
+      "wood": 525
+    }
+  },
+  "building_windmill_blue_s500_01": {
+    "atlas": [
+      1024,
+      512
+    ],
+    "islands": 202,
+    "roles": {
+      "stone": 8,
+      "plaster": 52,
+      "wood": 122,
+      "roof": 20
+    }
+  },
+  "building_windmill_blue_s500_02": {
+    "atlas": [
+      1024,
+      256
+    ],
+    "islands": 163,
+    "roles": {
+      "wood": 163
+    }
+  },
+  "crate_A_big_s600_00": {
+    "atlas": [
+      1024,
+      64
+    ],
+    "islands": 31,
+    "roles": {
+      "wood": 31
+    }
+  },
+  "crate_long_B_s500_00": {
+    "atlas": [
+      1024,
+      128
+    ],
+    "islands": 490,
+    "roles": {
+      "wood": 292,
+      "foliage": 198
+    }
+  },
+  "fence_stone_straight_s400_00": {
+    "atlas": [
+      1024,
+      256
+    ],
+    "islands": 129,
+    "roles": {
+      "stone": 129
+    }
+  },
+  "fence_stone_straight_s500_00": {
+    "atlas": [
+      1024,
+      256
+    ],
+    "islands": 129,
+    "roles": {
+      "stone": 129
+    }
+  },
+  "fence_wood_straight_s500_00": {
+    "atlas": [
+      1024,
+      512
+    ],
+    "islands": 115,
+    "roles": {
+      "wood": 115
+    }
+  },
+  "flag_blue_s800_00": {
+    "atlas": [
+      1024,
+      128
+    ],
+    "islands": 26,
+    "roles": {
+      "wood": 6,
+      "cloth": 20
+    }
+  },
+  "resource_lumber_s600_00": {
+    "atlas": [
+      1024,
+      256
+    ],
+    "islands": 130,
+    "roles": {
+      "wood": 130
+    }
+  },
+  "rock_single_A_s400_00": {
+    "atlas": [
+      1024,
+      64
+    ],
+    "islands": 7,
+    "roles": {
+      "stone": 7
+    }
+  },
+  "rock_single_C_s400_00": {
+    "atlas": [
+      1024,
+      64
+    ],
+    "islands": 20,
+    "roles": {
+      "stone": 20
+    }
+  },
+  "rock_single_E_s400_00": {
+    "atlas": [
+      1024,
+      64
+    ],
+    "islands": 33,
+    "roles": {
+      "stone": 33
+    }
+  },
+  "rock_single_E_s700_00": {
+    "atlas": [
+      1024,
+      128
+    ],
+    "islands": 33,
+    "roles": {
+      "stone": 33
+    }
+  },
+  "sack_s800_00": {
+    "atlas": [
+      1024,
+      32
+    ],
+    "islands": 44,
+    "roles": {
+      "wood": 44
+    }
+  },
+  "tent_s600_00": {
+    "atlas": [
+      1024,
+      256
+    ],
+    "islands": 45,
+    "roles": {
+      "wood": 45
+    }
+  },
+  "tree_single_A_s500_00": {
+    "atlas": [
+      1024,
+      256
+    ],
+    "islands": 31,
+    "roles": {
+      "foliage": 20,
+      "bark": 5,
+      "ground": 6
+    }
+  },
+  "tree_single_B_s500_00": {
+    "atlas": [
+      1024,
+      256
+    ],
+    "islands": 121,
+    "roles": {
+      "foliage": 100,
+      "bark": 10,
+      "ground": 11
+    }
+  },
+  "trees_A_medium_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 270,
+    "roles": {
+      "foliage": 182,
+      "ground": 83,
+      "bark": 5
+    }
+  },
+  "trees_A_small_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 248,
+    "roles": {
+      "foliage": 180,
+      "ground": 52,
+      "bark": 16
+    }
+  },
+  "trees_B_large_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 787,
+    "roles": {
+      "foliage": 660,
+      "ground": 127
+    }
+  },
+  "trees_B_medium_s500_00": {
+    "atlas": [
+      1024,
+      1024
+    ],
+    "islands": 563,
+    "roles": {
+      "foliage": 480,
+      "ground": 83
+    }
+  },
+  "trees_B_small_s500_00": {
+    "atlas": [
+      1024,
+      512
+    ],
+    "islands": 339,
+    "roles": {
+      "foliage": 280,
+      "ground": 59
+    }
+  },
+  "weaponrack_s600_00": {
+    "atlas": [
+      1024,
+      64
+    ],
+    "islands": 21,
+    "roles": {
+      "wood": 21
+    }
+  },
+  "wheelbarrow_s600_00": {
+    "atlas": [
+      1024,
+      128
+    ],
+    "islands": 158,
+    "roles": {
+      "wood": 82,
+      "iron": 76
+    }
+  }
+}

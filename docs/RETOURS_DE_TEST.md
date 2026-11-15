@@ -2,6 +2,8 @@
 
 Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 
+- [x] Slash violet tourné vers le sol en partie (15 novembre 2026) : visuel `heavy_cleave` de la Taille fendante retiré.
+
 ## Session du 3 novembre 2026
 
 - [x] **Menus pas centrés, fenêtre pas entièrement accessible** : une partie des menus est hors de portée. Corrigé le

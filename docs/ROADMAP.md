@@ -2,11 +2,19 @@
 
 ## Avant-poste des Glaces (Codex, 15 novembre 2026)
 
-Prêt à valider sur `codex/matiere-avant-poste-glaces`. Matières peintes gelées et remplacement visuel des objets
+Validé par le propriétaire, fusion demandée le 15 novembre 2026 (PR #178). Matières peintes gelées et remplacement visuel des objets
 futuristes par un avant-poste ancien, autorisé par le propriétaire. 74 collisions, 865 polygones de navigation,
 sol et escaliers conservés ; 50 volumes visuels comparés aux boîtes physiques. Tests rendu pixel 8/8 et
 localisation 6/6. Six cadrages avant/après ; `docs/art/MATIERE_AVANT_POSTE_DES_GLACES.md`.
 
+## Bug : slash violet tourné vers le sol (Claude, session « Correction de bugs », 15 novembre 2026)
+
+- Cause : la Taille fendante (sort n°1 par défaut, flèche → au clavier seul, gâchette droite à la manette) jouait
+  la feuille PixelFX `heavy_cleave/violet`, un coup vertical planté dans le sol, alors que le sort frappe en arc
+  horizontal vers la visée. Les sorts par défaut (Taille, Lance) sont équipés même sans action du joueur.
+- Correction : l'attaque est gardée (dégâts et arc inchangés), le visuel `heavy_cleave` est retiré ; la Taille
+  joue l'animation d'attaque complète du Chasseur, dont les dernières images portent son arc de lame.
+- Test : `test_draft3d_spells::test_slash_plays_no_ground_cleave`.
 
 ## Matière du Cimetière des Cendres (Codex, 15 novembre 2026)
 
@@ -23,6 +31,14 @@ La Cour harmonisée (sol, herbe, murs et escaliers, PR #169) est validée comme 
 Activation par défaut sur la carte 1 ; `--painted-kit=0` restitue l’ancien habillage pour comparaison.
 Les détails secondaires pourront être repris plus tard. Canon : `docs/art/REFERENCE_DECORS_3D.md`.
 Prochaine carte demandée : carte 2, Cimetière des Cendres, en conservant son identité et sa géométrie.
+
+## Matière du Hameau du Gué (Codex, 15 novembre 2026)
+
+Validé par le propriétaire et fusionné dans main le 15 novembre 2026 (PR #177).
+Finesse de la Cour appliquée au village diurne : pierre/enduit, bois, ardoises bleues, végétation et rivière.
+33 modèles, 35 variantes d’échelle, 185 instances peintes, trois ponts et deux escaliers ; six comparatifs,
+dont une vue d’ensemble. 29 571 triangles, 140 collisions et navigation identiques.
+Guide et prompts : `docs/art/MATIERE_HAMEAU_DU_GUE.md`.
 
 ## Harmonisation des murs et escaliers (Codex, 15 novembre 2026)
 

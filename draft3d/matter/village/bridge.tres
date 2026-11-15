@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://draft3d/matter/village/bridge.png" id="1"]
+
+[resource]
+resource_name = "Village_bridge"
+albedo_texture = ExtResource("1")
+albedo_color = Color(0.7, 0.68, 0.65, 1)
+texture_filter = 0
+roughness = 1.0
+metallic_specular = 0.0
