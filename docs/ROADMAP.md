@@ -1086,3 +1086,16 @@ docs/art/RENDU_PIXEL_3D.md ; captures avant/après : docs/previews/rendu-pixel-3
 - **À valider par le propriétaire** sur PC : rendu par défaut, fluidité du défilement, coût réel (`--perf`).
 - **Lots suivants préparés** : textures pixel art des modules par chapitre (prompt Codex n° 2), détails posés en
   sprites (herbes, gravats, flaques), brume et lumière par chapitre. Palettes des chapitres 2 à 4 non retouchées.
+
+## Cohérence des cartes 3D — 15 novembre 2026 (session « Cartes »)
+
+La Cité Effondrée (carte 5, branche `claude/carte-5` reprise) est recomposée en plan en damier : Avenue bordée de
+façades → Forum dallé (arène du boss) → grand escalier → Acropole dallée ; escalier est relié à la Voie sacrée le
+long du Temple ; maisons alignées sur les rues, portes de 2 m (la porte du donjon bloque la navigation), ruines avec
+leurs éboulis. Pièces inutilisées du pack retirées. Contrôle automatique réutilisable `DraftLevelAudit`
+(`draft3d/level_audit.gd`, outil `tools/level_audit.tscn`, essai `test_level_composition_audit`) : escaliers, accès
+des terrasses, décors flottants/enterrés/encastrés, zones isolées, apparitions. Règles de composition, audit et
+incohérences des cartes 1 à 4 : docs/maps/CARTES_3D.md ; captures : docs/previews/cartes-3d/.
+- **À valider par le propriétaire** : la Cité recomposée, en jeu.
+- **En attente de validation** : corriger les incohérences des cartes 1 à 4 (dont l'escalier est bouché de la
+  carte 4 et la terrasse d'angle à un seul accès de la carte 1).

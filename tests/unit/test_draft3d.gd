@@ -2,6 +2,11 @@ extends TestCase
 ## Premier jet 3D (draft3d/, docs/PREMIER_JET_3D.md) : EXP, niveaux, améliorations du Chasseur seul, absence complète
 ## des Échos, carte (escaliers, abris, navigation), pause du choix de niveau, défaite, victoire, partie neuve.
 
+## Contrôle de composition (DraftLevelAudit, docs/maps/CARTES_3D.md) sur toutes les cartes. La Cité Effondrée n'a
+## aucune incohérence ; les cartes 1 à 4 ont des incohérences relevées le 15 novembre et non corrigées (en attente de
+## validation, liste dans CARTES_3D.md) : l'essai échoue si leur nombre augmente.
+const KNOWN_ISSUES: Dictionary = {1: 8, 2: 2, 3: 40, 4: 14, 5: 0}
+
 var run: DraftRun
 
 
@@ -446,8 +451,8 @@ func test_fifth_level_city() -> void:
 	check(run.level is DraftLevelCity, "le chapitre 5 se joue sur la Cité Effondrée")
 	check(run.level.spawn_points().size() >= 60, "points d'apparition sur le pourtour (%d)" % run.level.spawn_points().size())
 	for spot: Vector3 in [Vector3(-44, 0, 30), Vector3(44, 0, 30), Vector3(-44, 0, -30), Vector3(44, 0, -30),
-			DraftLevelCity.BOSS_SPOT, Vector3(-36.5, 0, -19), Vector3(37, 0, 16), Vector3(32, 0, -12),
-			Vector3(6, DraftLevelCity.TERRACE_HEIGHT, -26)]:
+			DraftLevelCity.BOSS_SPOT, Vector3(-40, 0, -8), Vector3(-24, 0, 20), Vector3(40, 0, 8), Vector3(20, 0, -14),
+			Vector3(35, 0, -14), Vector3(6, DraftLevelCity.TERRACE_HEIGHT, -26)]:
 		var route: PackedVector3Array = run.level.path(DraftLevelCity.START, spot)
 		check(route.size() >= 2 and route[route.size() - 1].distance_to(spot) < 1.5, "quartier relié : %s" % spot)
 	var hunter: DraftHunter = run.hunter
@@ -465,7 +470,22 @@ func test_fifth_level_city() -> void:
 	check(pos.x < DraftLevelCity.MAX.x + 0.6 and pos.z < DraftLevelCity.MAX.y + 0.6 and pos.y > -0.5,
 		"limites tenues : %s" % pos)
 	hunter.auto_direction = Vector3.ZERO
-	check(not run.sight_clear(Vector3(-40, 0.8, -26), Vector3(-40, 0.8, -22)), "un mur de maison coupe la vue")
-	check(not run.sight_clear(Vector3(-4, 0.8, 5), Vector3(-1, 0.8, 5)), "le piédroit de l'arche coupe la vue")
-	check(run.sight_clear(Vector3(0, 0.8, 8), Vector3(0, 0.8, 2)), "on voit sous l'arche")
+	check(not run.sight_clear(Vector3(-26, 0.8, -26), Vector3(-26, 0.8, -22)), "un mur de maison coupe la vue")
+	check(not run.sight_clear(Vector3(-9, 0.8, -8), Vector3(-5, 0.8, -8)), "une colonne du forum abrite")
+	check(run.sight_clear(Vector3(-4, 0.8, -6), Vector3(4, 0.8, -6)), "le forum est dégagé")
 	check(run.sight_clear(Vector3(-3, 0.8, 22), Vector3(3, 0.8, 22)), "l'avenue est dégagée")
+
+
+func test_level_composition_audit() -> void:
+	for chapter: int in KNOWN_ISSUES:
+		var level: DraftLevel = DraftLevel.create(chapter)
+		host.add_child(level)
+		level.build()
+		await level.bake()
+		var audit: DraftLevelAudit = DraftLevelAudit.check(level)
+		var allowed: int = KNOWN_ISSUES[chapter]
+		check(audit.issues.size() <= allowed, "carte %d : %d incohérence(s) pour %d connue(s)\n%s" % [
+			chapter, audit.issues.size(), allowed, "\n".join(audit.lines())])
+		check(not audit.stairs.is_empty(), "carte %d : escaliers trouvés" % chapter)
+		level.queue_free()
+		await _frames(3)

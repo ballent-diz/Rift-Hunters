@@ -130,19 +130,21 @@ repeintes en glace.
 
 ## Carte : cinquième niveau, la Cité Effondrée
 
-96 × 60 m, ville de pierre en ruine, de nuit (`draft3d/level_city.gd`), jouée au chapitre 5. Porte sud (départ) et
-grande avenue pavée bordée de colonnes, porte debout au croisement avec la rue transversale, forum de huit piliers au
-centre (le boss y apparaît), îlots de maisons sans toit à deux ouvertures à l'ouest, temple à péristyle au nord-est,
-entrepôts au sud-est, acropole à 2 m avec deux escaliers au nord. Rempart sur trois côtés, parapet bas au sud.
-Lueurs violettes de la Faille dans chaque quartier. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_5.webp`.
-Décors : **KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0** (`draft3d/dungeon/LICENSE.txt`), une
-quarantaine de pièces de ruine importées telles quelles (taille réelle), en plus des modules de la carte 1.
+96 × 60 m, ville de pierre en ruine, de nuit (`draft3d/level_city.gd`), jouée au chapitre 5, recomposée le 15 novembre
+(plan en damier, règles : `docs/maps/CARTES_3D.md`). Porte sud (départ), Avenue pavée bordée de façades jusqu'au
+Forum dallé (arène du boss, quatre colonnes d'abri), Rue transversale d'est en ouest, Acropole dallée à 2 m (grand
+escalier depuis le Forum, escalier est depuis la Voie sacrée), Temple à péristyle au nord-est, îlots de maisons
+alignés sur les rues à l'ouest, entrepôts au sud-est, une maison effondrée par quartier. Rempart sur trois côtés,
+parapet bas au sud. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_5.webp` ; avant/après :
+`docs/previews/cartes-3d/`. Décors : **KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0**
+(`draft3d/dungeon/LICENSE.txt`), vingt-six pièces importées telles quelles (taille réelle).
 
 ## Vérifications
 
 `tests/unit/test_draft3d.gd` (11 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et
 plafonds, seuils d'EXP, pause et reprise du choix, application des cartes, escalier, limites, abris, traits arrêtés,
-ennemi qui blesse, EXP ramassée, défaite, victoire sur le boss, partie neuve remise à zéro.
+ennemi qui blesse, EXP ramassée, défaite, victoire sur le boss, partie neuve remise à zéro, contrôle de composition
+de toutes les cartes (`DraftLevelAudit`, outil `tools/level_audit.tscn`, voir `docs/maps/CARTES_3D.md`).
 
 ### Performances (mesure du 13 novembre)
 

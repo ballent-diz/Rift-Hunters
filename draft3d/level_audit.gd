@@ -160,9 +160,14 @@ func _check_islands() -> void:
 		var route: PackedVector3Array = level.path(start_on_nav, probe)
 		var reachable: bool = route.size() >= 1 and route[route.size() - 1].distance_to(probe) < 0.5
 		var center: Vector3 = (group["weighted"] as Vector3) / maxf(area, 0.0001)
-		islands.append({"area": area, "center": center, "reachable": reachable, "polygons": polygons})
+		var island: Dictionary = {"area": area, "center": center, "reachable": reachable, "polygons": polygons,
+			"flagged": false}
+		islands.append(island)
 		# Seules comptent les surfaces posées sur le sol ou le relief : le dessus d'un mur n'est pas une zone.
-		if not reachable and area >= ISLAND_AREA and _terrain_at(probe + Vector3.DOWN * 0.2).is_valid():
+		# Une surface fantôme sous un relief plein (sol recouvert par une terrasse) n'en est pas une non plus.
+		if not reachable and area >= ISLAND_AREA and _terrain_at(probe + Vector3.DOWN * 0.4).is_valid() \
+				and not _solid_at(probe + Vector3.UP * 0.6):
+			island["flagged"] = true
 			_issue("island", "surface praticable de %.0f m² inaccessible depuis le départ" % area, probe)
 
 
@@ -302,7 +307,7 @@ func _check_objects() -> void:
 		var name: String = entry["name"]
 		var center: Vector3 = bounds.get_center()
 		var probes: Array[Vector3] = [Vector3(center.x, bounds.position.y, center.z)]
-		for corner: Vector2 in [Vector2(-0.3, -0.3), Vector2(0.3, -0.3), Vector2(-0.3, 0.3), Vector2(0.3, 0.3)]:
+		for corner: Vector2 in [Vector2(-0.45, -0.45), Vector2(0.45, -0.45), Vector2(-0.45, 0.45), Vector2(0.45, 0.45)]:
 			probes.append(Vector3(center.x + corner.x * bounds.size.x, bounds.position.y,
 				center.z + corner.y * bounds.size.z))
 		# Une dalle porte sa propre collision (elle sert de sol) : on ne l'exclut pas du rayon.
@@ -318,11 +323,15 @@ func _check_objects() -> void:
 				support_exclude)
 			if not is_nan(ground):
 				best_gap = minf(best_gap, maxf(probe.y - ground, 0.0))
-			var terrain: String = _inside_terrain(probe + Vector3.UP * 0.3)
+			var terrain: String = _inside_terrain(probe + Vector3.UP * 0.45)
 			if terrain != "":
 				inside += 1
 				inside_name = terrain
-		if best_gap > FLOAT_TOLERANCE:
+		# Décor de bordure (hors de l'aire de jeu) : seule sa face visible compte, pas son appui.
+		var inside_bounds: bool = Rect2(level.bounds_min, level.bounds_max - level.bounds_min).has_point(
+			Vector2(center.x, center.z))
+		# Un décor accroché (bannière, applique) touche un autre décor plein : il ne flotte pas.
+		if best_gap > FLOAT_TOLERANCE and inside_bounds and not _attached(bounds, bodies):
 			_issue("floating", "%s flotte (%.1f m au-dessus de tout appui)" % [name, best_gap]
 				if best_gap < INF else "%s flotte (aucun appui dessous)" % name, center)
 		if inside >= 3:
@@ -342,9 +351,29 @@ func _check_objects() -> void:
 					middle)
 
 
+func _attached(bounds: AABB, own: Array[RID]) -> bool:
+	var shape := BoxShape3D.new()
+	shape.size = bounds.size + Vector3.ONE * 0.3
+	var query := PhysicsShapeQueryParameters3D.new()
+	query.shape = shape
+	query.transform = Transform3D(Basis.IDENTITY, bounds.get_center())
+	query.collision_mask = SOLID
+	var skip: Array[RID] = _fences.duplicate()
+	skip.append_array(own)
+	query.exclude = skip
+	return not _space.intersect_shape(query, 1).is_empty()
+
+
 func _inside_terrain(at: Vector3) -> String:
 	var rid: RID = _terrain_at(at)
 	return _terrain[rid] if rid.is_valid() and _terrain[rid] != "Ground" else ""
+
+
+func _solid_at(at: Vector3) -> bool:
+	var query := PhysicsPointQueryParameters3D.new()
+	query.position = at
+	query.collision_mask = SOLID
+	return not _space.intersect_point(query, 1).is_empty()
 
 
 func _terrain_at(at: Vector3) -> RID:
@@ -407,7 +436,7 @@ func _check_spot(label: String, spot: Vector3, origin: Vector3) -> void:
 
 # --- Carte de navigation (image vue de dessus) ---------------------------------------------------------------------
 
-## Vue de dessus : surfaces praticables (gris selon la hauteur, rouge si inaccessibles), emprises des décors pleins,
+## Vue de dessus : surfaces praticables (gris selon la hauteur, rouge si isolées), emprises des décors pleins,
 ## escaliers (pied → palier, vert ou rouge), départ (vert), boss (violet), apparitions (bleu), incohérences (croix
 ## rouges), parcours d'un essai (orange).
 func draw_map(trail: PackedVector3Array = PackedVector3Array(), pixels_per_meter: int = 8) -> Image:
@@ -419,7 +448,15 @@ func draw_map(trail: PackedVector3Array = PackedVector3Array(), pixels_per_meter
 	var to_pixel := func(at: Vector3) -> Vector2: return (Vector2(at.x, at.z) - low) * scale
 	var mesh: NavigationMesh = level.navigation_mesh
 	var vertices: PackedVector3Array = mesh.get_vertices()
+	# Surfaces inaccessibles d'abord : une surface fantôme sous un relief ne recouvre pas le dessus praticable.
+	var ordered: Array[Dictionary] = []
 	for island: Dictionary in islands:
+		if not island["reachable"]:
+			ordered.append(island)
+	for island: Dictionary in islands:
+		if island["reachable"]:
+			ordered.append(island)
+	for island: Dictionary in ordered:
 		for index: int in island["polygons"] as PackedInt32Array:
 			var polygon: PackedInt32Array = mesh.get_polygon(index)
 			var points := PackedVector2Array()
@@ -429,7 +466,10 @@ func draw_map(trail: PackedVector3Array = PackedVector3Array(), pixels_per_meter
 				height += vertices[polygon[corner]].y
 			height /= float(polygon.size())
 			var shade: float = clampf(0.42 + height * 0.12, 0.3, 0.9)
-			var color := Color(shade, shade, shade * 1.08) if island["reachable"] else Color(0.85, 0.2, 0.2)
+			var color := Color(shade, shade, shade * 1.08)
+			if not island["reachable"]:
+				# Rouge : zone isolée signalée ; brun sombre : dessus de décor ou surface sous un relief (sans effet).
+				color = Color(0.85, 0.2, 0.2) if island["flagged"] else Color(0.3, 0.24, 0.24)
 			_fill_polygon(image, points, color)
 	for rect: Rect2 in footprints:
 		var corner: Vector2 = to_pixel.call(Vector3(rect.position.x, 0, rect.position.y))
