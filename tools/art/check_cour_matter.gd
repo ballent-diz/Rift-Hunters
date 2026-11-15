@@ -60,6 +60,7 @@ func navigation(level: NavigationRegion3D) -> Array:
 
 func verify() -> void:
 	assert(OS.get_cmdline_user_args().has("--cour-matter=0"), "Lancer le contrôle avec --cour-matter=0")
+	assert(OS.get_cmdline_user_args().has("--painted-kit=0"), "Contrôle historique : ajouter --painted-kit=0")
 	var triangle_count := 0
 	var max_normal_error := 0.0
 	var prepared_modules: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "uv_report.json"))["modules"]
