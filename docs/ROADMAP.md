@@ -16,8 +16,9 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
 - **Lot 4 (fait)** : Parade, Singularité, Mur de faille, Égide et Cristal réfracteur en 3D (`draft3d/spell_world.gd`),
   avec leurs variantes v1 (adaptées quand elles visaient les Échos) et un rang chacun : 9 sorts, 40 cartes de sort.
   Non repris : Appel de meute, Permutation (Échos) ; Failles jumelles repoussé.
-- **À valider par le propriétaire** : six nouveaux sorts proposés (Marque du traqueur, Fente du vide, Pas de faille,
-  Onde de stase, Pluie d'éclats, Voile de cendre), section 5 de [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).
+- **Six nouveaux sorts (validés le 15 novembre, faits)** : Marque du traqueur, Fente du vide, Pas de faille, Onde de
+  stase, Pluie d'éclats, Voile de cendre, chacun avec 2 variantes et 1 rang (`draft3d/rift_spells.gd`, données
+  `draft3d/spells/data/`) : 15 sorts, 64 cartes de sort. Option `--spells=` pour essayer un jeu de sorts.
   Équilibrage non fait (le bot tient 2 min sans `--god`).
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)

@@ -7,6 +7,7 @@ extends Node3D
 ## Lancement : godot --path . res://draft3d/main.tscn
 ## Options (après --) : --bot (le jeu se joue seul) --passive (bot immobile : défaite) --god --seed=1
 ##   --boss-at=60 --time-scale=4 --perf=50,100,200 --shots=<dossier> --shot-times=20,90 --result (ligne RESULT)
+##   --spells=hunter_mark,void_rend (sorts de départ, 4 au plus)
 ##   --pixel=0 (rendu 3D lisse d'origine ; F4 bascule en partie, docs/art/RENDU_PIXEL_3D.md) --pixel-scale=2
 ##   --pixel-palette=0 (aplats et contours sans palette) --look=x,z[,hauteur de vue]
 
@@ -95,6 +96,11 @@ func _ready() -> void:
 	for id: StringName in loadout["spells"]:
 		if id != &"" and DraftSpells.supported(id):
 			equipped.append(id)
+	if _options.has("spells"):
+		# Essai d'un jeu de sorts : --spells=hunter_mark,void_rend (identifiants, 4 au plus).
+		equipped.clear()
+		for id: String in str(_options["spells"]).split(",", false):
+			equipped.append(StringName(id))
 	spells = DraftSpells.new()
 	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
 	upgrades.spells = spells
@@ -398,8 +404,13 @@ func sight_clear(from: Vector3, to: Vector3) -> bool:
 
 
 func target() -> DraftEnemies.Foe:
-	var candidates: Array[DraftEnemies.Foe] = enemies.near(hunter.global_position, hunter.attack_range())
 	var origin: Vector3 = hunter.chest()
+	# Marque du traqueur : la cible marquée passe en premier quand elle est à portée et visible.
+	var marked: DraftEnemies.Foe = spells.rift.marked if spells != null and spells.rift != null else null
+	if marked != null and marked.alive and marked.pos.distance_to(hunter.global_position) <= hunter.attack_range() \
+			and sight_clear(origin, _aim_point(marked)):
+		return marked
+	var candidates: Array[DraftEnemies.Foe] = enemies.near(hunter.global_position, hunter.attack_range())
 	candidates.sort_custom(func(a: DraftEnemies.Foe, b: DraftEnemies.Foe) -> bool:
 		return a.pos.distance_squared_to(origin) < b.pos.distance_squared_to(origin))
 	for i: int in mini(candidates.size(), 8):

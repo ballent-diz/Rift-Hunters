@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"hunter_mark"
+spell_kind = &"mark"
+name_key = "SPELL3D_HUNTER_MARK_NAME"
+desc_key = "SPELL3D_HUNTER_MARK_DESC"
+family = 2
+path = &"hunt"
+cooldown = 10.0
+damage = 30.0
+spell_range = 450.0
+width = 100.0
+knockback = 0.0
+speed = 0.0
+statuses = []
+color = Color(0.95, 0.45, 0.6, 1)
+params = {"duration": 6.0, "bonus": 0.3, "icon_fx": "hex_sigil", "icon_family": "fallen"}

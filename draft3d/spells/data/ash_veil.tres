@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"ash_veil"
+spell_kind = &"veil"
+name_key = "SPELL3D_ASH_VEIL_NAME"
+desc_key = "SPELL3D_ASH_VEIL_DESC"
+family = 1
+path = &"abyss"
+cooldown = 16.0
+damage = 0.0
+spell_range = 0.0
+width = 200.0
+knockback = 0.0
+speed = 0.0
+statuses = []
+color = Color(0.75, 0.7, 0.65, 1)
+params = {"duration": 4.0, "slow": 0.6, "icon_fx": "smoke_bomb", "icon_family": "calcines"}
