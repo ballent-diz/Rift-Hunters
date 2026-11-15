@@ -40,6 +40,10 @@ func build() -> void:
 	_warehouses()
 	_colonnade()
 	_forecourt()
+	var matter := Node3D.new()
+	matter.set_script(preload("res://draft3d/matter/cour/cour_dressing.gd"))
+	add_child(matter)
+	matter.setup(self)
 	_setup_navigation()
 
 
