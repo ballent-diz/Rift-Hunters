@@ -6,7 +6,7 @@
 
 [sub_resource type="Resource" id="visual_data_1"]
 script = ExtResource("2")
-visual_id = &"player.hunter"
+visual_id = &"player.threshold_warden"
 shape = 0
 size = 34.0
 primary = Color(0.85, 0.93, 1.0, 1.0)
