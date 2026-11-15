@@ -50,6 +50,7 @@ var _leap_from := Vector3.ZERO
 var _leap_to := Vector3.ZERO
 var _leap_left: float = 0.0
 var _leap_total: float = 0.0
+var _leap_height: float = 1.4
 
 
 func setup(p_balance: BalanceConfig) -> void:
@@ -162,7 +163,8 @@ func take_damage(amount: float) -> float:
 
 ## Bond (sort Bond de Faille) : trajectoire en cloche de `duration` secondes, invulnérable, sans collision ;
 ## `landed` est émis à l'arrivée.
-func leap_to(target: Vector3, duration: float) -> void:
+func leap_to(target: Vector3, duration: float, height: float = 1.4) -> void:
+	_leap_height = height
 	_leap_from = global_position
 	_leap_to = target
 	_leap_total = maxf(duration, 0.05)
@@ -238,7 +240,7 @@ func _physics_process(delta: float) -> void:
 func _step_leap(delta: float) -> void:
 	_leap_left = maxf(_leap_left - delta, 0.0)
 	var t: float = 1.0 - _leap_left / _leap_total
-	global_position = _leap_from.lerp(_leap_to, t) + Vector3.UP * sin(t * PI) * 1.4
+	global_position = _leap_from.lerp(_leap_to, t) + Vector3.UP * sin(t * PI) * _leap_height
 	velocity = Vector3.ZERO
 	view.push_position(global_position, delta)
 	if _leap_left <= 0.0:

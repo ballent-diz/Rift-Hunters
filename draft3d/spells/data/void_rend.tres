@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"void_rend"
+spell_kind = &"rend"
+name_key = "SPELL3D_VOID_REND_NAME"
+desc_key = "SPELL3D_VOID_REND_DESC"
+family = 0
+path = &"blade"
+cooldown = 7.0
+damage = 60.0
+spell_range = 200.0
+width = 15.0
+knockback = 60.0
+speed = 0.0
+statuses = []
+color = Color(0.8, 0.55, 1, 1)
+params = {"duration": 0.18, "icon_fx": "heavy_cleave"}

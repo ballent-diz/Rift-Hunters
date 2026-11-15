@@ -42,12 +42,12 @@ PixelFX du catalogue (`assets/vfx/pixelfx/`) en billboard, comme les monstres.
 
 | Élément | Réalisation |
 |---|---|
-| Emplacements | 4 (`DraftSpells.SLOTS`). Départ : sorts équipés dans l'arbre du profil et raccordés, sinon Taille et Lance (`default_spells`). Les autres s'apprennent par le choix de niveau (cartes « Nouveau sort », `draft3d/spells/learn_*.tres`, effet `DraftSpellEffect`), seulement s'il reste une place |
+| Emplacements | 4 (`DraftSpells.SLOTS`). Départ : toujours Taille et Lance (`default_spells`, décision du propriétaire du 15 novembre 2026), quel que soit l'arbre du profil ; ses variantes activées s'appliquent. Les autres s'apprennent par le choix de niveau (cartes « Nouveau sort », `draft3d/spells/learn_*.tres`, effet `DraftSpellEffect`), seulement s'il reste une place |
 | Touches | actions `spell_1`…`spell_4` : flèches au clavier seul, A E R F (Q E R F en QWERTY) et clic gauche avec la souris, gâchettes et croix à la manette. Reconfigurables dans Options → **Touches et visée** (`draft3d/controls.gd`). Le déplacement lit aussi les actions (`move_*`, `dash`) |
 | Visée | souris : curseur projeté sur le sol à la hauteur du Chasseur ; manette : stick droit ; clavier seul : ennemi visible le plus proche dans un cône de ±37° devant le Chasseur (direction du dernier déplacement), sinon 6 m devant. Anneau au sol sur le point visé ; avec l'option « aperçu », maintenir la touche montre la zone du sort et la relâcher lance |
 | Règles 3D | « on touche ce que l'on voit » : ennemis de plain-pied (1 m) et visibles ; Rupture et Bond s'arrêtent devant le décor et se posent sur la navigation ; la Lance touche à sa hauteur |
 | Recharges | `SpellData.cooldown` × `spell_cooldown` (arbre, cartes) ; un sort appris en partie est prêt après 1 s |
-| HUD | barre de 4 cases en bas au centre (`draft3d/spell_bar.gd`) : icône, touche, voile de recharge et secondes, nom ; case libre visible |
+| HUD | barre de 4 cases en bas au centre (`draft3d/spell_bar.gd`) : icône, touche, voile de recharge et secondes, nom ; case libre visible ; sous le Chasseur, une petite case par sort qui se remplit pendant la recharge et s'allume quand il est prêt (`draft3d/spell_pips.gd`, demande du 15 novembre) |
 | Bot | `auto_cast` : Taille si un ennemi est à portée, Lance et Rupture sur la cible du Trait, Bond pour se dégager quand 3 ennemis serrent le Chasseur |
 | Réglages | `draft3d/tuning.tres`, groupe « Sorts » : échelle des zones, multiplicateur de Rupture, portée du Bond et de la Lance, vitesse de la Lance, visée au clavier, recharge d'un sort appris |
 
@@ -84,7 +84,7 @@ Objets persistants : `draft3d/spell_world.gd` (puits, murs, cristaux). Garde et 
 Réglages : `draft3d/tuning.tres` (étourdissement, attraction, cristal). **Non repris** : *Appel de meute* et
 *Permutation* (Échos) ; *Failles jumelles* repoussé (deux appuis, portails en relief, à valider d'abord).
 
-## 5. Propositions de nouveaux sorts (à valider par le propriétaire avant implantation)
+## 5. Nouveaux sorts propres à la v2 (validés par le propriétaire le 15 novembre 2026, implantés)
 
 Manques du pool actuel : un seul sort de **mobilité** (Bond), aucun **mono-cible** franc (la Lance est une ligne),
 pas de **zone sur la durée** à poser, pas de **contrôle** dur de groupe hors Mur et Singularité. Noms et effets
@@ -99,5 +99,12 @@ originaux, chiffres indicatifs.
 | Zone | **Pluie d'éclats** | Zone de 3 m au point visé où tombent des éclats pendant 3 s (dégâts réguliers) | *Orage* : la zone suit le Chasseur · *Concentration* : zone −40 %, dégâts ×1,6 · rang : zone +20 % |
 | Défensif | **Voile de cendre** | Nuage de 3 m autour du Chasseur pendant 4 s : les tirs ennemis qui y entrent sont détruits, les ennemis dedans ralentis | *Voile mobile* : le nuage suit le Chasseur · *Contrecoup* : chaque tir détruit rend 2 PV · rang : durée +25 % |
 
-Chacun entrerait comme les autres : une `SpellData` dans `data/spells/` (ou `draft3d/` si propre à la v2), un
-`spell_kind` dans `DraftSpells`, ses cartes `draft3d/spells/*.tres`, ses textes FR/EN et ses essais.
+**Réalisation** : données `draft3d/spells/data/*.tres` (`SpellData`, hors des données de la campagne, lues par
+`DraftSpells.spell`), effets et état dans `draft3d/rift_spells.gd` (`DraftRiftSpells`), cartes `draft3d/spells/*.tres`
+(un « Nouveau sort », deux variantes, un rang par sort ; 64 cartes de sort en tout), textes `SPELL3D_*` et
+`UPGRADE3D_*`. Icône de la barre : image de leur effet PixelFX (`params.icon_fx`). Mécaniques ajoutées : exposition
+des ennemis (`Foe.expose`, dégâts subis augmentés), fente sans saut (`DraftHunter.leap_to` à hauteur nulle),
+charges (Deux charges), zones qui suivent le Chasseur (Orage). Ajustements de réalisation : Exécution inflige
+3 × les dégâts du sort à un boss au lieu de l'achever ; Onde de stase utilise l'effet de givre (`frost_nova`).
+Essayer : `godot --path . res://draft3d/main.tscn -- --spells=hunter_mark,void_rend,rift_step,stasis_wave`
+(option `--spells=`, 4 sorts au plus). Capture : `docs/previews/sorts-actifs-v2/nouveaux_sorts.webp`.

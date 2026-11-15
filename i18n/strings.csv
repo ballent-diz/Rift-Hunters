@@ -2388,3 +2388,63 @@ UPGRADE3D_AEGIS_QUICK_NAME,Égide : Égide prompte,Aegis: Swift Aegis
 UPGRADE3D_AEGIS_QUICK_DESC,Recharge de l'Égide −15 %.,Aegis cooldown −15%.
 UPGRADE3D_CRYSTAL_LASTING_NAME,Cristal : Cristal tenace,Crystal: Lasting Crystal
 UPGRADE3D_CRYSTAL_LASTING_DESC,Durée du Cristal +25 %.,Crystal duration +25%.
+SPELL3D_HUNTER_MARK_NAME,Marque du traqueur,Tracker's Mark
+SPELL3D_HUNTER_MARK_DESC,Marque l'ennemi visé (boss et plus résistants d'abord) pendant 6 s : il subit +30 % de dégâts et le Trait le vise en priorité.,Marks the aimed enemy (bosses and toughest first) for 6 s: it takes +30% damage and your Bolt targets it first.
+SPELL3D_VOID_REND_NAME,Fente du vide,Void Rend
+SPELL3D_VOID_REND_DESC,"Fend jusqu'à 6 m vers la visée, invulnérable, et frappe fort le premier ennemi traversé.","Rends up to 6 m toward your aim, invulnerable, and strikes the first enemy in the way hard."
+SPELL3D_RIFT_STEP_NAME,Pas de faille,Rift Step
+SPELL3D_RIFT_STEP_DESC,Téléportation immédiate de 5 m vers la visée ; l'ombre laissée au départ éclate 1 s plus tard.,Instant 5 m teleport toward your aim; the shadow left behind bursts 1 s later.
+SPELL3D_STASIS_WAVE_NAME,Onde de stase,Stasis Wave
+SPELL3D_STASIS_WAVE_DESC,"Cône de 90° devant le Chasseur (5 m) : fige les ennemis 1,5 s, les boss sont ralentis de moitié.","90° cone in front of the Hunter (5 m): freezes enemies for 1.5 s, bosses are slowed by half."
+SPELL3D_SHARD_RAIN_NAME,Pluie d'éclats,Shard Rain
+SPELL3D_SHARD_RAIN_DESC,Zone de 3 m au point visé où tombent des éclats pendant 3 s.,3 m zone at the aimed point where shards fall for 3 s.
+SPELL3D_ASH_VEIL_NAME,Voile de cendre,Ash Veil
+SPELL3D_ASH_VEIL_DESC,Nuage de 3 m autour du Chasseur pendant 4 s : détruit les tirs ennemis qui y entrent et ralentit les ennemis dedans.,3 m cloud around the Hunter for 4 s: destroys enemy shots entering it and slows enemies inside.
+UPGRADE3D_LEARN_HUNTER_MARK_NAME,Nouveau sort : Marque du traqueur,New spell: Tracker's Mark
+UPGRADE3D_LEARN_HUNTER_MARK_DESC,Marque l'ennemi visé (boss et plus résistants d'abord) pendant 6 s : il subit +30 % de dégâts et le Trait le vise en priorité. Prend un emplacement de sort libre.,Marks the aimed enemy (bosses and toughest first) for 6 s: it takes +30% damage and your Bolt targets it first. Takes a free spell slot.
+UPGRADE3D_LEARN_VOID_REND_NAME,Nouveau sort : Fente du vide,New spell: Void Rend
+UPGRADE3D_LEARN_VOID_REND_DESC,"Fend jusqu'à 6 m vers la visée, invulnérable, et frappe fort le premier ennemi traversé. Prend un emplacement de sort libre.","Rends up to 6 m toward your aim, invulnerable, and strikes the first enemy in the way hard. Takes a free spell slot."
+UPGRADE3D_LEARN_RIFT_STEP_NAME,Nouveau sort : Pas de faille,New spell: Rift Step
+UPGRADE3D_LEARN_RIFT_STEP_DESC,Téléportation immédiate de 5 m vers la visée ; l'ombre laissée au départ éclate 1 s plus tard. Prend un emplacement de sort libre.,Instant 5 m teleport toward your aim; the shadow left behind bursts 1 s later. Takes a free spell slot.
+UPGRADE3D_LEARN_STASIS_WAVE_NAME,Nouveau sort : Onde de stase,New spell: Stasis Wave
+UPGRADE3D_LEARN_STASIS_WAVE_DESC,"Cône de 90° devant le Chasseur (5 m) : fige les ennemis 1,5 s, les boss sont ralentis de moitié. Prend un emplacement de sort libre.","90° cone in front of the Hunter (5 m): freezes enemies for 1.5 s, bosses are slowed by half. Takes a free spell slot."
+UPGRADE3D_LEARN_SHARD_RAIN_NAME,Nouveau sort : Pluie d'éclats,New spell: Shard Rain
+UPGRADE3D_LEARN_SHARD_RAIN_DESC,Zone de 3 m au point visé où tombent des éclats pendant 3 s. Prend un emplacement de sort libre.,3 m zone at the aimed point where shards fall for 3 s. Takes a free spell slot.
+UPGRADE3D_LEARN_ASH_VEIL_NAME,Nouveau sort : Voile de cendre,New spell: Ash Veil
+UPGRADE3D_LEARN_ASH_VEIL_DESC,Nuage de 3 m autour du Chasseur pendant 4 s : détruit les tirs ennemis qui y entrent et ralentit les ennemis dedans. Prend un emplacement de sort libre.,3 m cloud around the Hunter for 4 s: destroys enemy shots entering it and slows enemies inside. Takes a free spell slot.
+UPGRADE3D_MARK_EXECUTE_NAME,Marque : Exécution,Mark: Execution
+UPGRADE3D_MARK_EXECUTE_DESC,"Variante de la Marque : sous 20 % de PV, la cible marquée est achevée par une explosion (boss : gros dégâts).","Mark variant: below 20% HP, the marked target is finished by an explosion (bosses: heavy damage)."
+UPGRADE3D_MARK_HUNT_NAME,Marque : Traque,Mark: Hunt
+UPGRADE3D_MARK_HUNT_DESC,"Variante de la Marque : à la mort de la cible, la marque saute sur l'ennemi visible le plus proche.","Mark variant: when the target dies, the mark jumps to the nearest visible enemy."
+UPGRADE3D_REND_DOUBLE_NAME,Fente : Double fente,Rend: Double Rend
+UPGRADE3D_REND_DOUBLE_DESC,Variante de la Fente : relançable une fois dans les 2 s.,Rend variant: can be cast again once within 2 s.
+UPGRADE3D_REND_PIERCE_NAME,Fente : Fente perçante,Rend: Piercing Rend
+UPGRADE3D_REND_PIERCE_DESC,Variante de la Fente : frappe tous les ennemis de la ligne.,Rend variant: strikes every enemy on the line.
+UPGRADE3D_STEP_CHARGES_NAME,Pas : Deux charges,Step: Two Charges
+UPGRADE3D_STEP_CHARGES_DESC,Variante du Pas : deux charges.,Step variant: two charges.
+UPGRADE3D_STEP_TRAP_NAME,Pas : Ombre piégée,Step: Trapped Shadow
+UPGRADE3D_STEP_TRAP_DESC,Variante du Pas : l'éclat de l'ombre ralentit de moitié 2 s.,Step variant: the shadow's burst halves enemy speed for 2 s.
+UPGRADE3D_STASIS_SHARDS_NAME,Stase : Éclats de stase,Stasis: Stasis Shards
+UPGRADE3D_STASIS_SHARDS_DESC,Variante de la Stase : les ennemis figés subissent +20 % de dégâts.,Stasis variant: frozen enemies take +20% damage.
+UPGRADE3D_STASIS_CIRCLE_NAME,Stase : Onde circulaire,Stasis: Circular Wave
+UPGRADE3D_STASIS_CIRCLE_DESC,"Variante de la Stase : tout autour du Chasseur, portée −30 %.","Stasis variant: all around the Hunter, reach −30%."
+UPGRADE3D_RAIN_STORM_NAME,Pluie : Orage,Rain: Storm
+UPGRADE3D_RAIN_STORM_DESC,Variante de la Pluie : la zone suit le Chasseur.,Rain variant: the zone follows the Hunter.
+UPGRADE3D_RAIN_FOCUS_NAME,Pluie : Concentration,Rain: Focus
+UPGRADE3D_RAIN_FOCUS_DESC,"Variante de la Pluie : zone −40 %, dégâts ×1,6.","Rain variant: zone −40%, damage ×1.6."
+UPGRADE3D_VEIL_MOBILE_NAME,Voile : Voile mobile,Veil: Moving Veil
+UPGRADE3D_VEIL_MOBILE_DESC,Variante du Voile : le nuage suit le Chasseur.,Veil variant: the cloud follows the Hunter.
+UPGRADE3D_VEIL_RECOIL_NAME,Voile : Contrecoup,Veil: Recoil
+UPGRADE3D_VEIL_RECOIL_DESC,Variante du Voile : chaque tir détruit rend 2 PV.,Veil variant: each destroyed shot restores 2 HP.
+UPGRADE3D_MARK_DEPTH_NAME,Marque : Marque profonde,Mark: Deep Mark
+UPGRADE3D_MARK_DEPTH_DESC,Dégâts subis par la cible marquée : +10 % de plus.,Damage taken by the marked target: a further +10%.
+UPGRADE3D_REND_EDGE_NAME,Fente : Tranchant du vide,Rend: Void Edge
+UPGRADE3D_REND_EDGE_DESC,Dégâts de la Fente +20 %.,Rend damage +20%.
+UPGRADE3D_STEP_QUICK_NAME,Pas : Pas leste,Step: Nimble Step
+UPGRADE3D_STEP_QUICK_DESC,Recharge du Pas −15 %.,Step cooldown −15%.
+UPGRADE3D_STASIS_LONG_NAME,Stase : Stase prolongée,Stasis: Lasting Stasis
+UPGRADE3D_STASIS_LONG_DESC,Durée de la Stase +20 %.,Stasis duration +20%.
+UPGRADE3D_RAIN_WIDE_NAME,Pluie : Averse large,Rain: Wide Downpour
+UPGRADE3D_RAIN_WIDE_DESC,Zone de la Pluie +20 %.,Rain zone +20%.
+UPGRADE3D_VEIL_LONG_NAME,Voile : Voile épais,Veil: Thick Veil
+UPGRADE3D_VEIL_LONG_DESC,Durée du Voile +25 %.,Veil duration +25%.

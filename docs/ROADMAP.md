@@ -53,7 +53,7 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
 - **Lot 1-2 (fait)** : sorts lancés à la touche (`spell_1`…`spell_4`, reconfigurables dans Options → Touches et visée),
   visée souris / stick droit / clavier seul (ennemi visible devant le Chasseur), anneau au sol et aperçu en option,
   recharges, barre de 4 sorts (`draft3d/spell_bar.gd`), PixelFX en billboards. Taille, Lance, Rupture et Bond de
-  Faille ; départ Taille + Lance (ou sorts de l'arbre), les autres par cartes « Nouveau sort » au choix de niveau.
+  Faille ; départ toujours Taille + Lance (décision du 15 novembre), les autres par cartes « Nouveau sort » au choix de niveau.
   Le déplacement lit désormais les actions (ZQSD au clavier seul, flèches en plus avec la souris). Bot : `auto_cast`.
   Essais `tests/unit/test_draft3d_spells.gd`. Capture `docs/previews/sorts-actifs-v2/`.
 - **Lot 3 (fait)** : 16 cartes d'amélioration de sort au choix de niveau, effets en données (`DraftSpellEffect`
@@ -63,9 +63,11 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
 - **Lot 4 (fait)** : Parade, Singularité, Mur de faille, Égide et Cristal réfracteur en 3D (`draft3d/spell_world.gd`),
   avec leurs variantes v1 (adaptées quand elles visaient les Échos) et un rang chacun : 9 sorts, 40 cartes de sort.
   Non repris : Appel de meute, Permutation (Échos) ; Failles jumelles repoussé.
-- **À valider par le propriétaire** : six nouveaux sorts proposés (Marque du traqueur, Fente du vide, Pas de faille,
-  Onde de stase, Pluie d'éclats, Voile de cendre), section 5 de [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).
-  Équilibrage non fait (le bot tient 2 min sans `--god`).
+- **Six nouveaux sorts (validés le 15 novembre, faits)** : Marque du traqueur, Fente du vide, Pas de faille, Onde de
+  stase, Pluie d'éclats, Voile de cendre, chacun avec 2 variantes et 1 rang (`draft3d/rift_spells.gd`, données
+  `draft3d/spells/data/`) : 15 sorts, 64 cartes de sort. Option `--spells=` pour essayer un jeu de sorts.
+  Départ toujours avec Taille et Lance (décision du 15 novembre) ; recharges affichées sous le Chasseur
+  (`draft3d/spell_pips.gd`). Équilibrage non fait (le bot tient 2 min sans `--god`).
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 

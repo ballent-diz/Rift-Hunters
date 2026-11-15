@@ -34,7 +34,7 @@ func _draw() -> void:
 			draw_rect(rect, Color(1, 1, 1, 0.18), false, 1.0)
 			_text(font, rect.position + Vector2(6, 18), key, 14, Color(1, 1, 1, 0.35))
 			continue
-		var ready: bool = spells.cooldowns[i] <= 0.0
+		var ready: bool = spells.ready(i)
 		var icon: Texture2D = _icon(data)
 		if icon != null:
 			draw_texture_rect(icon, rect.grow(-4.0), false, Color(1, 1, 1, 1.0 if ready else 0.45))
@@ -44,6 +44,10 @@ func _draw() -> void:
 			var left: float = 1.0 - spells.ready_ratio(i)
 			draw_rect(Rect2(rect.position, Vector2(SLOT, SLOT * left)), Color(0, 0, 0, 0.55))
 			_text(font, rect.position + Vector2(0, 40), "%.1f" % spells.cooldowns[i], 17, Color.WHITE, SLOT)
+		var most: int = spells.rift.max_charges(data)
+		if most > 1:
+			var left: int = int(spells.rift.charges.get(data.id, most))
+			_text(font, rect.position + Vector2(SLOT - 16, SLOT - 6), str(left), 14, Color("ffd9a0"))
 		var border: Color = data.color if ready else Color(0.55, 0.57, 0.66)
 		if spells.preview_slot == i or spells.charge_slot == i:
 			border = Color.WHITE
@@ -62,5 +66,22 @@ func _text(font: Font, at: Vector2, value: String, font_size: int, color: Color,
 func _icon(data: SpellData) -> Texture2D:
 	if not _icons.has(data.id):
 		var node: SkillNodeData = HunterTree.spell_node(data.id)
-		_icons[data.id] = HunterTreeSkin.icon(node) if node != null else null
+		_icons[data.id] = HunterTreeSkin.icon(node) if node != null else _fx_icon(data)
 	return _icons[data.id]
+
+
+## Sorts propres à la v2 (sans nœud d'arbre) : image du milieu de leur effet PixelFX (`params.icon_fx`).
+static func _fx_icon(data: SpellData) -> Texture2D:
+	var effect: String = str(data.params.get("icon_fx", ""))
+	if effect == "":
+		return null
+	var sheet: Dictionary = DraftPixelFx.sheet(StringName(effect), StringName(str(data.params.get("icon_family", "violet"))))
+	if sheet.is_empty():
+		sheet = DraftPixelFx.sheet(StringName(effect), DraftPixelFx.DEFAULT_FAMILY)
+	if sheet.is_empty():
+		return null
+	var rects: Array[Rect2] = sheet["rects"]
+	var atlas := AtlasTexture.new()
+	atlas.atlas = sheet["texture"]
+	atlas.region = rects[rects.size() / 2]
+	return atlas

@@ -36,6 +36,14 @@ class Foe:
 	var slow_left: float = 0.0
 	var slow_factor: float = 1.0
 
+	## Marque du traqueur, Éclats de stase : dégâts subis multipliés par (1 + `exposed`) pendant `exposed_left` s.
+	var exposed: float = 0.0
+	var exposed_left: float = 0.0
+
+	func expose(bonus: float, seconds: float) -> void:
+		exposed = maxf(bonus, exposed) if exposed_left > 0.0 else bonus
+		exposed_left = maxf(exposed_left, seconds)
+
 	func slow(factor: float, seconds: float) -> void:
 		slow_factor = minf(factor, slow_factor) if slow_left > 0.0 else factor
 		slow_left = maxf(slow_left, seconds)
@@ -133,7 +141,8 @@ func near(point: Vector3, reach: float) -> Array[Foe]:
 func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 	if not foe.alive:
 		return false
-	foe.hp -= amount * CombatSystem.defense_multiplier(foe.defense)
+	var exposure: float = 1.0 + foe.exposed if foe.exposed_left > 0.0 else 1.0
+	foe.hp -= amount * exposure * CombatSystem.defense_multiplier(foe.defense)
 	Audio.play_sfx(&"enemy_hit")
 	foe.view.flash()
 	if foe.boss == null and foe.data.knockback_resist < 1.0:
@@ -185,6 +194,7 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 	if foe.slow_left > 0.0:
 		foe.slow_left -= delta
 		speed *= foe.slow_factor
+	foe.exposed_left = maxf(foe.exposed_left - delta, 0.0)
 	var turn: bool = true
 	if foe.boss != null:
 		wish = _boss_brain(foe, to_hunter, distance, climb, delta)
