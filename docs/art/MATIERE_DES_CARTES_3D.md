@@ -1,5 +1,22 @@
 # Matière des cartes 3D — Cour des Veilleurs
 
+## Cadrage de référence sprites / décor
+
+`tools/art/cour_reference.tscn` dérive de la vraie partie `DraftRun` : même construction du monde, mêmes lumières,
+caméra, shaders et sprites. Le combat est arrêté après initialisation, l'interface est masquée et les acteurs
+sont placés sur la navigation pour comparer les poses : Chasseur, skitterling, lunger et husk.
+Ce n'est pas une capture de combat spontané. La vue orthographique de 20 m et le rendu pixel restent ceux du jeu.
+
+Les matériaux minéraux sont calibrés depuis ce cadrage : teintes neutres/froides `(0.64, 0.68, 0.72)` pour les
+murs, `(0.68, 0.72, 0.75)` pour les marches et `(0.64, 0.68, 0.68)` pour les piliers ; mousse des fondations inchangée.
+Trois gris `#3b4148`, `#4b515b`, `#5d616d` sont réservés dans les palettes 1 et 5 en remplaçant des couleurs
+non végétales redondantes. Tous les verts et le fond bleu nuit de la correction de palette sont conservés,
+avec 32 couleurs au total. Les sprites, leurs échelles et les textures ne sont pas repeints par ce réglage.
+
+La référence et sa comparaison sont dans `docs/previews/reference-sprites-cour/` ; elle sert à la validation
+du propriétaire avant de généraliser les matériaux. Les sections plus anciennes ci-dessous conservent les
+paramètres des itérations précédentes.
+
 ## Correction de l'intégration après fusion — 15 novembre 2026
 
 Les captures historiques de cette page ont été réalisées sans la passe de rendu pixel de la PR #165.
