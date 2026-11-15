@@ -15,8 +15,16 @@ const HUNTER_STATS: Array[StringName] = [StatKeys.MAX_HP, StatKeys.REGEN, StatKe
 	StatKeys.BOLT_RANGE, StatKeys.DASH_COOLDOWN, StatKeys.DAMAGE_TAKEN]
 
 const SPELL_STATS: Array[StringName] = [StatKeys.SPELL_DAMAGE, StatKeys.SPELL_COOLDOWN]
+## Cartes de sort (draft3d/spells/, effets `DraftSpellEffect`) : apprendre un sort actif.
+const SPELL_CARDS: Array[String] = ["res://draft3d/spells/learn_cleaving_slash.tres",
+	"res://draft3d/spells/learn_prismatic_lance.tres", "res://draft3d/spells/learn_rupture.tres",
+	"res://draft3d/spells/learn_rift_leap.tres"]
 
+## Cartes de statistiques (toujours offertes tant qu'elles servent).
 var catalog: Array[UpgradeData] = []
+## Cartes de sort, offertes seulement quand `spells` est branché et qu'elles servent.
+var spell_cards: Array[UpgradeData] = []
+var spells: DraftSpells
 var stacks: Dictionary = {}
 var _groups: Dictionary = {}
 
@@ -30,6 +38,27 @@ func _init() -> void:
 		var data: UpgradeData = load(path)
 		if data != null and is_valid(data):
 			catalog.append(data)
+	for path: String in SPELL_CARDS:
+		var data: UpgradeData = load(path)
+		if data != null and is_spell_card(data):
+			spell_cards.append(data)
+
+
+## Carte de sort : uniquement des effets `DraftSpellEffect` sur un sort raccordé à la 3D.
+static func is_spell_card(data: UpgradeData) -> bool:
+	if data.effects.is_empty() or not data.requires_any_monster.is_empty():
+		return false
+	for effect: GameplayEffect in data.effects:
+		var spell := effect as DraftSpellEffect
+		if spell == null or not DraftSpells.supported(spell.spell_id):
+			return false
+	return true
+
+
+func all_cards() -> Array[UpgradeData]:
+	var result: Array[UpgradeData] = catalog.duplicate()
+	result.append_array(spell_cards)
+	return result
 
 
 ## Carte utilisable par le Chasseur seul : aucune condition d'Écho, que des modificateurs de ses statistiques.
@@ -82,12 +111,18 @@ func can_offer(data: UpgradeData) -> bool:
 		return false
 	if data.exclusive_group != &"" and _groups.get(data.exclusive_group, data.id) != data.id:
 		return false
+	if spell_cards.has(data):
+		if spells == null:
+			return false
+		for effect: GameplayEffect in data.effects:
+			if not spells.can_apply(effect as DraftSpellEffect):
+				return false
 	return true
 
 
 func available() -> Array[UpgradeData]:
 	var result: Array[UpgradeData] = []
-	for data: UpgradeData in catalog:
+	for data: UpgradeData in all_cards():
 		if can_offer(data):
 			result.append(data)
 	return result
@@ -114,11 +149,14 @@ func roll(rng: RandomNumberGenerator, count: int = 3) -> Array[UpgradeData]:
 
 
 func apply(data: UpgradeData, stats: StatSheet) -> bool:
-	if not catalog.has(data) or not can_offer(data):
+	if not (catalog.has(data) or spell_cards.has(data)) or not can_offer(data):
 		return false
 	for effect: GameplayEffect in data.effects:
 		var modifier := effect as StatModifierEffect
-		stats.add_modifier(modifier.stat, modifier.flat, modifier.pct)
+		if modifier != null:
+			stats.add_modifier(modifier.stat, modifier.flat, modifier.pct)
+		else:
+			spells.apply_effect(effect as DraftSpellEffect)
 	stacks[data.id] = stacks_of(data.id) + 1
 	if data.exclusive_group != &"":
 		_groups[data.exclusive_group] = data.id

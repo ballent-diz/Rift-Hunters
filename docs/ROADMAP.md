@@ -1,5 +1,16 @@
 # Rift Hunters — feuille de route
 
+## Sorts actifs du Chasseur en 3D (Claude, session « Gameplay », 14 novembre 2026)
+
+Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).
+- **Lot 1-2 (fait)** : sorts lancés à la touche (`spell_1`…`spell_4`, reconfigurables dans Options → Touches et visée),
+  visée souris / stick droit / clavier seul (ennemi visible devant le Chasseur), anneau au sol et aperçu en option,
+  recharges, barre de 4 sorts (`draft3d/spell_bar.gd`), PixelFX en billboards. Taille, Lance, Rupture et Bond de
+  Faille ; départ Taille + Lance (ou sorts de l'arbre), les autres par cartes « Nouveau sort » au choix de niveau.
+  Le déplacement lit désormais les actions (ZQSD au clavier seul, flèches en plus avec la souris). Bot : `auto_cast`.
+  Essais `tests/unit/test_draft3d_spells.gd`. Capture `docs/previews/sorts-actifs-v2/`.
+- Lot 3 (améliorations par sort) et lot 4 (reste du pool, propositions) : à suivre.
+
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
 Dernière retouche à valider : sol de sous-bois plus végétal (mousse basse et humus sombre),

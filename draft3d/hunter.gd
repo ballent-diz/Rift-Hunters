@@ -6,6 +6,7 @@ extends CharacterBody3D
 signal hurt(amount: float)
 signal died
 signal leveled(level: int)
+signal landed
 
 ## Mètres par unité de l'ancien monde 2D : vitesses, portées et rayons de l'équilibrage sont convertis ainsi.
 const UNIT := 0.03
@@ -34,8 +35,13 @@ var auto_dash: bool = false
 var god_mode: bool = false
 ## Point de retour si le Chasseur tombe hors de la carte.
 var respawn := Vector3(0, 0.2, 0)
+## Dernière direction de déplacement (visée des sorts au clavier seul).
+var facing := Vector3(0, 0, 1)
 var _dash_direction := Vector3.ZERO
-var _dash_held: bool = false
+var _leap_from := Vector3.ZERO
+var _leap_to := Vector3.ZERO
+var _leap_left: float = 0.0
+var _leap_total: float = 0.0
 
 
 func setup(p_balance: BalanceConfig) -> void:
@@ -130,6 +136,21 @@ func take_damage(amount: float) -> float:
 	return final
 
 
+## Bond (sort Bond de Faille) : trajectoire en cloche de `duration` secondes, invulnérable, sans collision ;
+## `landed` est émis à l'arrivée.
+func leap_to(target: Vector3, duration: float) -> void:
+	_leap_from = global_position
+	_leap_to = target
+	_leap_total = maxf(duration, 0.05)
+	_leap_left = _leap_total
+	invulnerable = maxf(invulnerable, _leap_total + 0.15)
+	view.play_action(&"dash", _leap_total)
+
+
+func is_leaping() -> bool:
+	return _leap_left > 0.0
+
+
 func reset_motion() -> void:
 	velocity = Vector3.ZERO
 	view.snap_to(global_position)
@@ -142,6 +163,9 @@ func _physics_process(delta: float) -> void:
 	invulnerable = maxf(invulnerable - delta, 0.0)
 	if alive:
 		heal(stats.get_value(StatKeys.REGEN) * delta)
+	if _leap_left > 0.0:
+		_step_leap(delta)
+		return
 	var direction := Vector3.ZERO
 	var wants_dash: bool = false
 	if active:
@@ -150,12 +174,13 @@ func _physics_process(delta: float) -> void:
 			wants_dash = auto_dash
 			auto_dash = false
 		else:
-			var x: float = float(_down([KEY_D, KEY_RIGHT])) - float(_down([KEY_A, KEY_Q, KEY_LEFT]))
-			var z: float = float(_down([KEY_S, KEY_DOWN])) - float(_down([KEY_W, KEY_Z, KEY_UP]))
-			direction = Vector3(x, 0, z).normalized()
-			var held: bool = _down([KEY_SPACE, KEY_SHIFT])
-			wants_dash = held and not _dash_held
-			_dash_held = held
+			# Actions reconfigurables (InputSetup, Settings.bindings) : ZQSD au clavier seul, flèches en plus avec la
+			# souris ; les flèches lancent les sorts au clavier seul.
+			var move: Vector2 = Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down")
+			direction = Vector3(move.x, 0, move.y).normalized() if move.length() > 0.2 else Vector3.ZERO
+			wants_dash = Input.is_action_just_pressed(&"dash")
+	if direction.length_squared() > 0.0:
+		facing = direction
 	if wants_dash and dash_cooldown_left <= 0.0 and direction.length_squared() > 0.0:
 		dash_time = balance.dash_duration
 		dash_cooldown_left = dash_cooldown()
@@ -182,8 +207,12 @@ func _physics_process(delta: float) -> void:
 	view.push_position(global_position, delta)
 
 
-static func _down(keys: Array) -> bool:
-	for key: int in keys:
-		if Input.is_physical_key_pressed(key):
-			return true
-	return false
+func _step_leap(delta: float) -> void:
+	_leap_left = maxf(_leap_left - delta, 0.0)
+	var t: float = 1.0 - _leap_left / _leap_total
+	global_position = _leap_from.lerp(_leap_to, t) + Vector3.UP * sin(t * PI) * 1.4
+	velocity = Vector3.ZERO
+	view.push_position(global_position, delta)
+	if _leap_left <= 0.0:
+		global_position = _leap_to
+		landed.emit()
