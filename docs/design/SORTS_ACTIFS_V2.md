@@ -42,7 +42,7 @@ PixelFX du catalogue (`assets/vfx/pixelfx/`) en billboard, comme les monstres.
 
 | Élément | Réalisation |
 |---|---|
-| Emplacements | 4 (`DraftSpells.SLOTS`). Départ : sorts équipés dans l'arbre du profil et raccordés, sinon Taille et Lance (`default_spells`). Les autres s'apprennent par le choix de niveau (cartes « Nouveau sort », `draft3d/spells/learn_*.tres`, effet `DraftSpellEffect`), seulement s'il reste une place |
+| Emplacements | 4 (`DraftSpells.SLOTS`). Départ : toujours Taille et Lance (`default_spells`, décision du propriétaire du 15 novembre 2026), quel que soit l'arbre du profil ; ses variantes activées s'appliquent. Les autres s'apprennent par le choix de niveau (cartes « Nouveau sort », `draft3d/spells/learn_*.tres`, effet `DraftSpellEffect`), seulement s'il reste une place |
 | Touches | actions `spell_1`…`spell_4` : flèches au clavier seul, A E R F (Q E R F en QWERTY) et clic gauche avec la souris, gâchettes et croix à la manette. Reconfigurables dans Options → **Touches et visée** (`draft3d/controls.gd`). Le déplacement lit aussi les actions (`move_*`, `dash`) |
 | Visée | souris : curseur projeté sur le sol à la hauteur du Chasseur ; manette : stick droit ; clavier seul : ennemi visible le plus proche dans un cône de ±37° devant le Chasseur (direction du dernier déplacement), sinon 6 m devant. Anneau au sol sur le point visé ; avec l'option « aperçu », maintenir la touche montre la zone du sort et la relâcher lance |
 | Règles 3D | « on touche ce que l'on voit » : ennemis de plain-pied (1 m) et visibles ; Rupture et Bond s'arrêtent devant le décor et se posent sur la navigation ; la Lance touche à sa hauteur |

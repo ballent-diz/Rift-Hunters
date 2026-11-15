@@ -65,7 +65,7 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 | Ombres calées | Disque au sol tiré du champ `shadow` du manifeste (empreinte mesurée) | `sprite_view.gd` |
 | PixelFX | Effets par famille du catalogue `techniques.json` : tirs, impacts, morts, apparitions, techniques des boss | `pixelfx.gd` |
 | Audio | Musiques par contexte (partie, boss, seconde phase, victoire, défaite), douze sons, tempo (les cristaux battent la mesure) | `run.gd` |
-| Sorts | Sorts actifs lancés à la touche, visée souris / manette / clavier seul, barre de sorts ; départ : sorts de l'arbre ou Taille et Lance, les autres s'apprennent au choix de niveau. Raccordés : 15 sorts (Taille, Lance, Rupture, Bond, Parade, Singularité, Mur, Égide, Cristal et six sorts propres à la v2), leurs variantes et rangs en cartes de niveau ([SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md)) | `spells.gd`, `spell_bar.gd`, `controls.gd` |
+| Sorts | Sorts actifs lancés à la touche, visée souris / manette / clavier seul, barre de sorts ; départ : toujours Taille et Lance, les autres s'apprennent au choix de niveau. Raccordés : 15 sorts (Taille, Lance, Rupture, Bond, Parade, Singularité, Mur, Égide, Cristal et six sorts propres à la v2), leurs variantes et rangs en cartes de niveau ([SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md)) | `spells.gd`, `spell_bar.gd`, `controls.gd` |
 | Arbre de compétences | Nœuds actifs du profil qui modifient une statistique du Chasseur ou de ses sorts, en lecture seule | `upgrades.gd` (`apply_tree`) |
 | Campagne | Un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part `user://draft3d_progress.json` | `progress.gd` |
 

@@ -6,7 +6,7 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
 - **Lot 1-2 (fait)** : sorts lancés à la touche (`spell_1`…`spell_4`, reconfigurables dans Options → Touches et visée),
   visée souris / stick droit / clavier seul (ennemi visible devant le Chasseur), anneau au sol et aperçu en option,
   recharges, barre de 4 sorts (`draft3d/spell_bar.gd`), PixelFX en billboards. Taille, Lance, Rupture et Bond de
-  Faille ; départ Taille + Lance (ou sorts de l'arbre), les autres par cartes « Nouveau sort » au choix de niveau.
+  Faille ; départ toujours Taille + Lance (décision du 15 novembre), les autres par cartes « Nouveau sort » au choix de niveau.
   Le déplacement lit désormais les actions (ZQSD au clavier seul, flèches en plus avec la souris). Bot : `auto_cast`.
   Essais `tests/unit/test_draft3d_spells.gd`. Capture `docs/previews/sorts-actifs-v2/`.
 - **Lot 3 (fait)** : 16 cartes d'amélioration de sort au choix de niveau, effets en données (`DraftSpellEffect`

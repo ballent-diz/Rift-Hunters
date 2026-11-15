@@ -90,19 +90,17 @@ func _ready() -> void:
 	# Arbre de compétences et sorts équipés du profil de la campagne, en lecture seule.
 	tree_effects = DraftUpgrades.apply_tree(hunter.stats, HunterTree.effects_for(Profile.profile))
 	hunter.hp = hunter.max_hp()
-	# Sorts de départ : ceux équipés dans l'arbre et raccordés à la 3D, sinon ceux de l'équilibrage.
-	var equipped: Array[StringName] = []
+	# Sorts de départ (décision du propriétaire, 15 novembre 2026) : toujours les deux sorts de base de l'équilibrage,
+	# Taille fendante et Lance prismatique, quel que soit l'arbre du profil ; les autres s'apprennent au choix de niveau.
 	var loadout: Dictionary = HunterTree.loadout(Profile.profile)
-	for id: StringName in loadout["spells"]:
-		if id != &"" and DraftSpells.supported(id):
-			equipped.append(id)
+	var starting: Array[StringName] = balance.default_spells.duplicate()
 	if _options.has("spells"):
 		# Essai d'un jeu de sorts : --spells=hunter_mark,void_rend (identifiants, 4 au plus).
-		equipped.clear()
+		starting.clear()
 		for id: String in str(_options["spells"]).split(",", false):
-			equipped.append(StringName(id))
+			starting.append(StringName(id))
 	spells = DraftSpells.new()
-	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
+	spells.setup(self, starting)
 	upgrades.spells = spells
 	# Variantes activées dans l'arbre : la carte correspondante est prise d'office pour les sorts de départ.
 	for spell_id: Variant in loadout["variants"]:
