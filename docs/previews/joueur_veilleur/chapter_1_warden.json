@@ -1,0 +1,31 @@
+{
+	"anchor": [
+		56,
+		74
+	],
+	"cell": [
+		112,
+		80
+	],
+	"chapter": 1,
+	"enemies": [
+		{
+			"at": "(-4.5, 0.2, -7)",
+			"id": "skitterling"
+		},
+		{
+			"at": "(3.6, 0.2, -5.8)",
+			"id": "lunger"
+		},
+		{
+			"at": "(6, 0.2, -8)",
+			"id": "husk"
+		}
+	],
+	"focus": "(0, 0.8, -9)",
+	"hunter": "(-0.8, 1.243661, -8.941901)",
+	"pixel_m": 0.0240499991923571,
+	"view_size": 20,
+	"visual": "player.threshold_warden",
+	"visual_validation": "OK"
+}
