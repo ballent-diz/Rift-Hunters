@@ -249,7 +249,8 @@ func offers_open() -> bool:
 	return _offer_root != null
 
 
-func show_end(victory: bool, summary: String) -> void:
+## `gain` : Fragments de faille gagnés pendant la partie (-1 : système de déblocage absent, rien n'est affiché).
+func show_end(victory: bool, summary: String, gain: int = -1) -> void:
 	_end_root = _overlay()
 	var column := VBoxContainer.new()
 	column.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
@@ -263,6 +264,11 @@ func show_end(victory: bool, summary: String) -> void:
 	var stats := _label(column, 18, INK)
 	stats.text = summary
 	stats.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	if gain >= 0:
+		var reward := _label(column, 22, Color("ffd9a0"))
+		reward.name = "Gain"
+		reward.text = tr("UNLOCK3D_GAIN") % gain
+		reward.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var list: Array[Button] = [
 		_menu_button(column, "Restart", tr("DRAFT_RESTART"), func() -> void: restart_requested.emit()),
 		_menu_button(column, "Chapter", tr("DRAFT_CHANGE_CHAPTER"), func() -> void: chapter_change_requested.emit()),

@@ -2448,3 +2448,14 @@ UPGRADE3D_RAIN_WIDE_NAME,Pluie : Averse large,Rain: Wide Downpour
 UPGRADE3D_RAIN_WIDE_DESC,Zone de la Pluie +20 %.,Rain zone +20%.
 UPGRADE3D_VEIL_LONG_NAME,Voile : Voile épais,Veil: Thick Veil
 UPGRADE3D_VEIL_LONG_DESC,Durée du Voile +25 %.,Veil duration +25%.
+MENU3D_UNLOCKS,Déblocages,Unlocks
+UNLOCK3D_CURRENCY,Fragments de faille : %d,Rift Fragments: %d
+UNLOCK3D_GAIN,+ %d Fragments de faille,+ %d Rift Fragments
+UNLOCK3D_STARTING,Sorts de départ : %s,Starting spells: %s
+UNLOCK3D_HINT,Les sorts et variantes débloqués peuvent sortir aux choix de niveau. Choisissez deux sorts débloqués pour commencer chaque partie.,Unlocked spells and variants can appear in level-up choices. Pick two unlocked spells to start every run with.
+UNLOCK3D_BUY,Débloquer · %d,Unlock · %d
+UNLOCK3D_UNLOCKED,Débloqué,Unlocked
+UNLOCK3D_SET_START,Prendre au départ,Take at start
+UNLOCK3D_AT_START,Au départ ✓,At start ✓
+UNLOCK3D_NEEDS_SPELL,Sort requis,Spell required
+UNLOCK3D_UNAVAILABLE,Les déblocages arrivent bientôt.,Unlocks are coming soon.

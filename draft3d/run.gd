@@ -658,7 +658,9 @@ func _finish(victory: bool) -> void:
 	if victory:
 		DraftProgress.record_victory(chapter)
 	_end_delay = 1.0
-	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills])
+	# Gain de Fragments de faille (DraftUnlocks, enregistré par la partie avant cet écran) ; -1 : rien d'affiché.
+	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills],
+		DraftUnlockScreen.last_gain())
 
 
 ## Tempo de la musique (Audio.beat) : les cristaux d'EXP battent la mesure.
