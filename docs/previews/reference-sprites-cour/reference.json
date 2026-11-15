@@ -1,0 +1,15 @@
+{
+	"combat": "figé pour comparaison",
+	"enemies": [
+		"skitterling",
+		"lunger",
+		"husk"
+	],
+	"focus": "(0, 0.8, -9)",
+	"hunter": "(-0.8, 1.243661, -8.941901)",
+	"palette_colors": 32,
+	"pixel_enabled": true,
+	"scene": "DraftRun",
+	"texel_m": 0.0240384615384615,
+	"view_size": 20
+}

@@ -38,6 +38,22 @@ func test_texel_matches_sprite_pixels() -> void:
 	check_near(DraftPixelRender.TEXEL, DraftSpriteView.PIXEL * 0.65, 0.00001, "un texel = un pixel d'art à l'échelle 0,65")
 
 
+func test_cour_palette_preserves_moss() -> void:
+	for chapter: int in [1, 5]:
+		var palette := DraftPixelRender.load_palette(chapter)
+		for probe: Color in [Color("375736"), Color("5f6a47")]:
+			var reference := DraftPixelRender.oklab(probe)
+			var best := INF
+			var picked := Color.BLACK
+			for candidate: Color in palette.colors:
+				var delta := (DraftPixelRender.oklab(candidate) - reference) * Vector3(1.0, 1.3, 1.3)
+				if delta.length_squared() < best:
+					best = delta.length_squared()
+					picked = candidate
+			check(picked.g > picked.r and picked.g > picked.b,
+				"chapitre %d : la mousse reste verte après quantification" % chapter)
+
+
 func test_pixel_view_is_snapped() -> void:
 	await _start(true)
 	var pixel: DraftPixelRender = run.pixel
