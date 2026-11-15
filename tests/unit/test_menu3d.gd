@@ -27,6 +27,8 @@ func after_each() -> void:
 func _open_menu() -> void:
 	menu = (load(DraftMenu.SCENE) as PackedScene).instantiate()
 	menu.launcher = func(path: String) -> void: _launched.append(path)
+	# Double de DraftUnlocks : le menu se comporte de la même façon avant et après l'arrivée de la vraie classe.
+	menu.unlocks = (load("res://tools/draft3d_fake_unlocks.gd") as GDScript).new()
 	host.add_child(menu)
 	await host.get_tree().process_frame
 	await host.get_tree().process_frame
@@ -48,15 +50,16 @@ func test_menu_is_the_startup_scene() -> void:
 
 func test_keyboard_and_gamepad_navigation() -> void:
 	await _open_menu()
-	check_eq(menu.buttons.size(), 3, "Jouer, Options, Quitter")
+	check_eq(menu.buttons.size(), 4, "Jouer, Déblocages, Options, Quitter")
 	check(menu.buttons[0].has_focus(), "Jouer a le focus à l'ouverture (manette utilisable tout de suite)")
 	await _press(&"ui_down")
-	check(menu.buttons[1].has_focus(), "bas : Options")
+	check(menu.buttons[1].has_focus(), "bas : Déblocages")
+	await _press(&"ui_down")
 	await _press(&"ui_down")
 	await _press(&"ui_down")
 	check(menu.buttons[0].has_focus(), "la liste boucle")
 	await _press(&"ui_up")
-	check(menu.buttons[2].has_focus(), "haut depuis Jouer : Quitter")
+	check(menu.buttons[3].has_focus(), "haut depuis Jouer : Quitter")
 
 
 func test_play_launches_the_run_on_chapter_choice() -> void:
@@ -71,7 +74,7 @@ func test_play_launches_the_run_on_chapter_choice() -> void:
 func test_options_open_close_and_switch_language() -> void:
 	Settings.set_locale("fr")
 	await _open_menu()
-	menu.buttons[1].pressed.emit()
+	menu.buttons[2].pressed.emit()
 	await host.get_tree().process_frame
 	check(menu.options_panel != null, "les options s'ouvrent")
 	for id: String in ["Language", "Master", "Music", "Sfx", "Fullscreen", "Vsync", "Close"]:

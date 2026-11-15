@@ -38,6 +38,7 @@ Options de vérification (après `--`) : `--bot`, `--spells=hunter_mark,void_ren
 | `draft3d/upgrades.gd` | catalogue et tirage des améliorations |
 | `draft3d/hud.gd` | interface, choix de niveau, choix du chapitre, pause, écran de fin |
 | `draft3d/menu.gd`, `options.gd` | menu principal (scène de démarrage) et fenêtre d'options |
+| `draft3d/unlock_screen.gd` | écran des déblocages (sorts, variantes, sorts de départ), lit `DraftUnlocks` |
 | `draft3d/sprite_view.gd`, `effect.gd` | sprites 2D et PixelFX dans le monde 3D |
 | `draft3d/render/` | rendu pixel 3D : vue basse résolution, aplats, contours, palette par chapitre (docs/art/RENDU_PIXEL_3D.md) |
 | `draft3d/tuning.gd` / `.tres` | réglages propres au mode (vagues, boss, bonus du Chasseur seul) |

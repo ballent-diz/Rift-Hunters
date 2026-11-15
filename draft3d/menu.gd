@@ -5,7 +5,8 @@ extends Node3D
 ## (draft3d/main.tscn) sur le choix du chapitre. Aucune règle de jeu ici ; les options sont celles de `Settings`.
 ##
 ## Lancement : scène de démarrage du projet. Options (après --) : --options (ouvre les options),
-##   --locale=fr|en (langue de cette session, non sauvegardée), --shot=<fichier.png> --shot-frames=8 (capture puis quitte).
+##   --unlocks (ouvre les déblocages), --locale=fr|en (langue de cette session, non sauvegardée),
+##   --shot=<fichier.png> --shot-frames=8 (capture puis quitte).
 
 const RUN_SCENE := "res://draft3d/main.tscn"
 const SCENE := "res://draft3d/menu.tscn"
@@ -24,6 +25,9 @@ var level: DraftLevel
 var ui: Control
 var buttons: Array[Button] = []
 var options_panel: Control
+var unlock_screen: DraftUnlockScreen
+## État des déblocages (`DraftUnlocks`), null tant que le système n'est pas dans le dépôt ; remplaçable par les essais.
+var unlocks: Object
 var _yaw: float = 0.6
 var _options: Dictionary = {}
 var _frames: int = 0
@@ -35,6 +39,8 @@ func _ready() -> void:
 		_options[parts[0]] = parts[1] if parts.size() > 1 else "1"
 	get_tree().paused = false
 	Engine.time_scale = 1.0
+	if unlocks == null:
+		unlocks = DraftUnlockScreen.load_unlocks()
 	if _options.has("locale"):
 		TranslationServer.set_locale(String(_options["locale"]))
 	_build_backdrop()
@@ -51,6 +57,8 @@ func _ready() -> void:
 	Audio.play_context("menu")
 	if _options.has("options"):
 		open_options()
+	if _options.has("unlocks"):
+		open_unlocks()
 
 
 func _process(delta: float) -> void:
@@ -140,11 +148,18 @@ func build_ui() -> void:
 	tagline.name = "Tagline"
 	_outline(tagline)
 	column.add_child(tagline)
+	var currency: Label = UiKit.label("", 18, GOLD)
+	currency.name = "Currency"
+	currency.visible = unlocks != null
+	if unlocks != null:
+		currency.text = tr("UNLOCK3D_CURRENCY") % int(unlocks.call(&"currency"))
+	_outline(currency)
+	column.add_child(currency)
 	var gap := Control.new()
 	gap.custom_minimum_size = Vector2(0, 28)
 	column.add_child(gap)
-	for entry: Array in [["Play", "MENU3D_PLAY", play], ["Options", "MENU_OPTIONS", open_options],
-			["Quit", "MENU_QUIT", quit]]:
+	for entry: Array in [["Play", "MENU3D_PLAY", play], ["Unlocks", "MENU3D_UNLOCKS", open_unlocks],
+			["Options", "MENU_OPTIONS", open_options], ["Quit", "MENU_QUIT", quit]]:
 		var button: Button = UiKit.button(tr(entry[1]), entry[2], 340)
 		button.name = entry[0]
 		button.custom_minimum_size.y = 54
@@ -154,7 +169,15 @@ func build_ui() -> void:
 		button.mouse_entered.connect(button.grab_focus)
 		column.add_child(button)
 		buttons.append(button)
-	_chain_focus(buttons)
+	var unlock_button: Button = buttons[1]
+	unlock_button.disabled = unlocks == null
+	if unlocks == null:
+		unlock_button.tooltip_text = tr("UNLOCK3D_UNAVAILABLE")
+	var reachable: Array[Button] = []
+	for button: Button in buttons:
+		if not button.disabled:
+			reachable.append(button)
+	_chain_focus(reachable)
 	var version: Label = UiKit.caption("v" + str(ProjectSettings.get_setting("application/config/version")), 14)
 	version.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_LEFT)
 	version.offset_left = 20
@@ -186,6 +209,26 @@ func quit() -> void:
 	get_tree().quit()
 
 
+## Écran des déblocages ; en le fermant, le menu se reconstruit (monnaie à jour).
+func open_unlocks() -> void:
+	if unlock_screen != null or unlocks == null:
+		return
+	unlock_screen = DraftUnlockScreen.new()
+	unlock_screen.name = "Unlocks"
+	unlock_screen.setup(unlocks)
+	ui.add_child(unlock_screen)
+	unlock_screen.closed.connect(close_unlocks)
+
+
+func close_unlocks() -> void:
+	if unlock_screen == null:
+		return
+	unlock_screen.queue_free()
+	unlock_screen = null
+	build_ui()
+	buttons[1].grab_focus.call_deferred()
+
+
 func open_options() -> void:
 	if options_panel != null:
 		return
@@ -203,7 +246,7 @@ func close_options() -> void:
 		return
 	options_panel.queue_free()
 	options_panel = null
-	buttons[1].grab_focus.call_deferred()
+	buttons[2].grab_focus.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:

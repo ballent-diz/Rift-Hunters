@@ -1,5 +1,23 @@
 # Rift Hunters — feuille de route
 
+## Écran « Déblocages » de la v2 (Claude, session « Interface », 15 novembre 2026)
+
+Interface de la direction C (`docs/design/DEBLOCAGE_V2.md`), **branchée sur l'API de `DraftUnlocks`** que livre la
+session « Gameplay » (`draft3d/unlocks.gd`, pas encore dans `main`). L'écran charge cette classe dynamiquement :
+tant qu'elle manque, le bouton « Déblocages » est grisé, la monnaie n'apparaît pas au menu et la fin de partie
+n'affiche aucun gain ; dès sa fusion, tout s'active sans autre changement.
+- Menu principal : bouton **Déblocages** (entre Jouer et Options) et ligne « Fragments de faille : N ».
+- Écran `draft3d/unlock_screen.gd` (`DraftUnlockScreen`) : monnaie, rappel des 2 sorts de départ, une carte par
+  sort (icône de la barre de sorts, nom, description, « Débloquer · coût » ou « Débloqué ») suivie de ses variantes
+  (« Sort requis » tant que le sort est verrouillé, bouton grisé si trop cher) ; bouton « Prendre au départ » sur
+  chaque sort débloqué (le nouveau remplace le plus ancien des deux). Souris, clavier, manette ; Échap/B ferme.
+- Fin de partie : « + N Fragments de faille » (`DraftHud.show_end(..., gain)`, valeur `DraftUnlocks.last_gain()`
+  lue au moment de l'écran : la partie doit avoir enregistré son gain avant).
+- Double de test `tools/draft3d_fake_unlocks.gd` (même API), essais `test_unlock_screen`, captures
+  `docs/previews/deblocage-v2/` (`tools/unlock_preview.tscn`).
+- **Nom de la monnaie toujours à valider** : « Fragments de faille » / « Rift Fragments » (clés d'interface
+  `UNLOCK3D_CURRENCY` et `UNLOCK3D_GAIN`).
+
 ## Bug : slash violet tourné vers le sol (Claude, session « Correction de bugs », 15 novembre 2026)
 
 - Cause : la Taille fendante (sort n°1 par défaut, flèche → au clavier seul, gâchette droite à la manette) jouait
