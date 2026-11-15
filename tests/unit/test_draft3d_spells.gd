@@ -579,3 +579,15 @@ func test_bot_casts_the_new_spells() -> void:
 		foe.max_hp = 100000.0
 	await _frames(30)
 	check(run.spells.casts >= 3, "le bot lance les nouveaux sorts (%d)" % run.spells.casts)
+
+
+func test_cooldowns_under_the_hunter() -> void:
+	await _start()
+	var pips: DraftSpellPips = run.hud.find_child("SpellPips", true, false)
+	check(pips != null and pips.run == run, "recharges sous le Chasseur branchées")
+	var feet: Vector3 = run.hunter.global_position
+	var point: Vector2 = run.screen_point(feet)
+	var size: Vector2 = run.get_viewport().get_visible_rect().size
+	check(Rect2(Vector2.ZERO, size).has_point(point), "le Chasseur est à l'écran (%s)" % point)
+	if run.camera.get_viewport() == run.get_viewport():
+		check(point.distance_to(run.camera.unproject_position(feet)) < 2.0, "même position que la caméra")

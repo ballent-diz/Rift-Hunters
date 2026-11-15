@@ -26,6 +26,7 @@ var _boss_name: Label
 var _build: Label
 var _hint: Label
 var _spell_bar: DraftSpellBar
+var _spell_pips: DraftSpellPips
 var _banner: Label
 var _banner_left: float = 0.0
 var _offer_root: Control
@@ -85,6 +86,9 @@ func _ready() -> void:
 	_build.offset_bottom = -14
 	_build.offset_right = 360
 	_build.vertical_alignment = VERTICAL_ALIGNMENT_BOTTOM
+	_spell_pips = DraftSpellPips.new()
+	_spell_pips.name = "SpellPips"
+	root.add_child(_spell_pips)
 	_spell_bar = DraftSpellBar.new()
 	_spell_bar.name = "SpellBar"
 	root.add_child(_spell_bar)
@@ -131,6 +135,7 @@ func refresh(run: Node, delta: float) -> void:
 		_boss_bar.max_value = enemies.boss.max_hp
 		_boss_bar.value = enemies.boss.hp
 	_spell_bar.spells = run.get("spells")
+	_spell_pips.run = run as DraftRun
 	_banner_left -= delta
 	_banner.visible = _banner_left > 0.0
 

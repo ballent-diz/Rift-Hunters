@@ -391,6 +391,16 @@ func foe_summon(foe: DraftEnemies.Foe, amount: int) -> void:
 ## Vue dégagée entre deux points : aucun décor entre eux. Règle unique pour viser, tirer et cracher, à plat comme
 ## entre deux hauteurs : on touche ce que l'on voit (du haut de la terrasse vers la cour et inversement), jamais
 ## à travers un mur, un pilier, une caisse ou le rebord de la terrasse.
+## Point de l'écran (pixels de la fenêtre) où apparaît un point du monde, en caméra lisse comme en rendu pixel :
+## la vue orthographique couvre `view_size` mètres de haut, centrée sur le point que vise la caméra.
+func screen_point(at: Vector3) -> Vector2:
+	var screen: Vector2 = get_viewport().get_visible_rect().size
+	var offset: Vector3 = at - (_camera_at + Vector3.UP * 0.5)
+	var basis: Basis = camera.global_basis
+	var scale: float = screen.y / maxf(view_size, 0.1)
+	return screen * 0.5 + Vector2(offset.dot(basis.x), -offset.dot(basis.y)) * scale
+
+
 ## Murs de faille (sort du Chasseur) entre deux points : ils arrêtent les ennemis et leurs tirs.
 func barrier_blocks(from: Vector3, to: Vector3) -> bool:
 	return spells != null and not spells.world.walls.is_empty() and spells.world.blocks(from, to)

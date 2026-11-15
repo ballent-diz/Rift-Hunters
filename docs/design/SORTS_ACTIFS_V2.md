@@ -47,7 +47,7 @@ PixelFX du catalogue (`assets/vfx/pixelfx/`) en billboard, comme les monstres.
 | Visée | souris : curseur projeté sur le sol à la hauteur du Chasseur ; manette : stick droit ; clavier seul : ennemi visible le plus proche dans un cône de ±37° devant le Chasseur (direction du dernier déplacement), sinon 6 m devant. Anneau au sol sur le point visé ; avec l'option « aperçu », maintenir la touche montre la zone du sort et la relâcher lance |
 | Règles 3D | « on touche ce que l'on voit » : ennemis de plain-pied (1 m) et visibles ; Rupture et Bond s'arrêtent devant le décor et se posent sur la navigation ; la Lance touche à sa hauteur |
 | Recharges | `SpellData.cooldown` × `spell_cooldown` (arbre, cartes) ; un sort appris en partie est prêt après 1 s |
-| HUD | barre de 4 cases en bas au centre (`draft3d/spell_bar.gd`) : icône, touche, voile de recharge et secondes, nom ; case libre visible |
+| HUD | barre de 4 cases en bas au centre (`draft3d/spell_bar.gd`) : icône, touche, voile de recharge et secondes, nom ; case libre visible ; sous le Chasseur, une petite case par sort qui se remplit pendant la recharge et s'allume quand il est prêt (`draft3d/spell_pips.gd`, demande du 15 novembre) |
 | Bot | `auto_cast` : Taille si un ennemi est à portée, Lance et Rupture sur la cible du Trait, Bond pour se dégager quand 3 ennemis serrent le Chasseur |
 | Réglages | `draft3d/tuning.tres`, groupe « Sorts » : échelle des zones, multiplicateur de Rupture, portée du Bond et de la Lance, vitesse de la Lance, visée au clavier, recharge d'un sort appris |
 
