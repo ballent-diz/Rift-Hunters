@@ -18,6 +18,13 @@ n'affiche aucun gain ; dès sa fusion, tout s'active sans autre changement.
 - **Nom de la monnaie toujours à valider** : « Fragments de faille » / « Rift Fragments » (clés d'interface
   `UNLOCK3D_CURRENCY` et `UNLOCK3D_GAIN`).
 
+## Bug : on traverse le flanc des escaliers (Claude, session « Correction de bugs », 15 novembre 2026)
+
+- Cause : la rampe de collision de `draft3d/modules/stairs_wide.tscn` faisait 5,6 m de large (±2,8) pour un modèle
+  de 7 m (±3,5) : les rebords latéraux n'avaient aucune collision, le Chasseur entrait de 0,7 m dans le flanc.
+- Correction : rampe élargie à ±3,5 m (toutes les cartes utilisent ce module). Audit des cartes inchangé.
+- Test : contrôle « flanc de l'escalier » dans `test_draft3d::test_map_stairs_shelters_and_heights`.
+
 ## Avant-poste des Glaces (Codex, 15 novembre 2026)
 
 Validé par le propriétaire, fusion demandée le 15 novembre 2026 (PR #178). Matières peintes gelées et remplacement visuel des objets
