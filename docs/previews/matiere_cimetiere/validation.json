@@ -1,0 +1,482 @@
+{
+  "changed_visual_meshes": 275,
+  "collision_sha256": "ca71a70212aa6368d672344bde1d2ec2a983157d3284d41fd12e77bdcfdc3af9",
+  "collision_shapes": 171,
+  "collisions": "identiques",
+  "ground_geometry": "identique",
+  "ground_volumes_checked": 2,
+  "max_normal_encoding_error": 0.000258790183579549,
+  "models": 37,
+  "module_transforms": "identiques",
+  "navigation": "identique",
+  "navigation_polygons": 897,
+  "navigation_sha256": "37db7ec2f92a59e481bd519e02f40f148167129515117a877cf1b27d48200269",
+  "painted_instances": 271,
+  "status": "conforme",
+  "triangles": 16848,
+  "references": {
+    "crypt": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-4.5, 0.2, -7)",
+          "id": "cinder_crawler"
+        },
+        {
+          "at": "(3.599997, 0.2, -5.799995)",
+          "id": "smoke_wisp"
+        },
+        {
+          "at": "(6, 0.2, -8)",
+          "id": "char_golem"
+        }
+      ],
+      "focus": "(0, 2, -14)",
+      "hunter": "(-0.8, 0.2, -9)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "crypt",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "graves": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-29.26923, 0.2, 15.94615)",
+          "id": "cinder_crawler"
+        },
+        {
+          "at": "(-19, 0.2, 21)",
+          "id": "smoke_wisp"
+        },
+        {
+          "at": "(-30, 0.2, 22)",
+          "id": "char_golem"
+        }
+      ],
+      "focus": "(-25, 0.8, 18)",
+      "hunter": "(-23.01176, 0.2, 17.04706)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "graves",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "mound": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-27, 2.2, -25)",
+          "id": "cinder_crawler"
+        },
+        {
+          "at": "(-35.00001, 2.2, -22.00002)",
+          "id": "smoke_wisp"
+        },
+        {
+          "at": "(-24.4, 0.2, -18.4)",
+          "id": "char_golem"
+        }
+      ],
+      "focus": "(-31, 1.4, -22)",
+      "hunter": "(-32, 2.2, -22)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "mound",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "wood": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(24, 0.2, 21.4)",
+          "id": "cinder_crawler"
+        },
+        {
+          "at": "(27, 0.2, 15.8)",
+          "id": "smoke_wisp"
+        },
+        {
+          "at": "(21, 0.2, 20)",
+          "id": "char_golem"
+        }
+      ],
+      "focus": "(25, 0.8, 18)",
+      "hunter": "(22, 0.2, 17)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "wood",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "gate": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-3, 0.2, 26)",
+          "id": "cinder_crawler"
+        },
+        {
+          "at": "(2.999959, 0.2, 24.99996)",
+          "id": "smoke_wisp"
+        },
+        {
+          "at": "(1.000003, 0.2, 23)",
+          "id": "char_golem"
+        }
+      ],
+      "focus": "(0, 0.8, 26)",
+      "hunter": "(-0, 0.2, 27)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "gate",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    }
+  },
+  "textures": {
+    "ground.png": {
+      "size": [
+        640,
+        640
+      ],
+      "colors": 32,
+      "mipmaps": false
+    },
+    "atlases/arch_gate_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/arch_gate_01.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/arch_gate_02.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/bench_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/bench_decorated_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/bone_A_00.png": {
+      "size": [
+        1024,
+        32
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/coffin_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/coffin_01.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/coffin_decorated_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/crypt_00.png": {
+      "size": [
+        1024,
+        2048
+      ],
+      "colors": 18,
+      "mipmaps": false
+    },
+    "atlases/fence_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/fence_broken_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/fence_seperate_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/fence_seperate_broken_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/gravemarker_A_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/gravemarker_B_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/gravestone_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/grave_A_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/grave_A_destroyed_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/grave_B_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/path_A_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/path_B_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/path_C_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/pillar_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/plaque_candles_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/post_lantern_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/post_lantern_01.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/ribcage_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/shrine_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/shrine_candles_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/skull_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/skull_candle_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/tree_dead_large_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/tree_dead_large_decorated_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/tree_dead_medium_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/tree_dead_small_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6,
+      "mipmaps": false
+    },
+    "atlases/tree_pine_orange_large_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/tree_pine_orange_medium_00.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/tree_pine_orange_small_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/tree_pine_yellow_medium_00.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 12,
+      "mipmaps": false
+    },
+    "atlases/tree_pine_yellow_small_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 12,
+      "mipmaps": false
+    }
+  },
+  "known_preexisting_issues": [
+    "Navigation map synchronization error présent avant/après",
+    "Avertissements UID Halloween : repli sur chemin texte",
+    "Nettoyage OpenGL à la fermeture des captures"
+  ]
+}

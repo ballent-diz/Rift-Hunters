@@ -1,5 +1,14 @@
 # Rift Hunters — feuille de route
 
+## Matière du Cimetière des Cendres (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/matiere-cimetiere-cendres`, depuis main avec la référence Cour fusionnée (#169).
+Passe de matière nocturne sur la carte 2 : terre cendreuse, pierre froide, bois patiné, fer et feuillages secs.
+Plan, relief, collisions et navigation conservés ; captures en jeu et contrôles avant PR brouillon.
+37 modèles, 271 instances de meshes peintes, sol/tertre et deux escaliers ; cinq comparatifs au zoom de jeu.
+16 848 triangles et 171 collisions vérifiés. L’erreur de synchronisation de navigation préexistante est documentée.
+Méthode et prompts : `docs/art/MATIERE_CIMETIERE_DES_CENDRES.md`.
+
 ## Référence des décors 3D validée (propriétaire, 15 novembre 2026)
 
 La Cour harmonisée (sol, herbe, murs et escaliers, PR #169) est validée comme référence de style.

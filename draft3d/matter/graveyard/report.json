@@ -1,0 +1,427 @@
+{
+  "arch_gate_00": {
+    "islands": 232,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 167,
+      "iron": 65
+    }
+  },
+  "arch_gate_01": {
+    "islands": 115,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "iron": 115
+    }
+  },
+  "arch_gate_02": {
+    "islands": 115,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "iron": 115
+    }
+  },
+  "bench_00": {
+    "islands": 92,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "wood": 92
+    }
+  },
+  "bench_decorated_00": {
+    "islands": 649,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "wood": 472,
+      "bone": 177
+    }
+  },
+  "bone_A_00": {
+    "islands": 174,
+    "atlas": [
+      1024,
+      32
+    ],
+    "roles": {
+      "bone": 174
+    }
+  },
+  "coffin_00": {
+    "islands": 25,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "wood": 25
+    }
+  },
+  "coffin_01": {
+    "islands": 140,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "wood": 140
+    }
+  },
+  "coffin_decorated_00": {
+    "islands": 1717,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "wood": 1297,
+      "bone": 420
+    }
+  },
+  "crypt_00": {
+    "islands": 421,
+    "atlas": [
+      1024,
+      2048
+    ],
+    "roles": {
+      "masonry": 335,
+      "roof": 86
+    }
+  },
+  "fence_00": {
+    "islands": 210,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 41,
+      "iron": 169
+    }
+  },
+  "fence_broken_00": {
+    "islands": 257,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "stone": 53,
+      "iron": 204
+    }
+  },
+  "fence_seperate_00": {
+    "islands": 168,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "iron": 168
+    }
+  },
+  "fence_seperate_broken_00": {
+    "islands": 183,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "iron": 183
+    }
+  },
+  "grave_A_00": {
+    "islands": 136,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 136
+    }
+  },
+  "grave_A_destroyed_00": {
+    "islands": 217,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 217
+    }
+  },
+  "grave_B_00": {
+    "islands": 114,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 114
+    }
+  },
+  "gravemarker_A_00": {
+    "islands": 36,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "stone": 36
+    }
+  },
+  "gravemarker_B_00": {
+    "islands": 92,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "stone": 92
+    }
+  },
+  "gravestone_00": {
+    "islands": 114,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 114
+    }
+  },
+  "path_A_00": {
+    "islands": 177,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "stone": 177
+    }
+  },
+  "path_B_00": {
+    "islands": 183,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "stone": 183
+    }
+  },
+  "path_C_00": {
+    "islands": 202,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "stone": 202
+    }
+  },
+  "pillar_00": {
+    "islands": 45,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 45
+    }
+  },
+  "plaque_candles_00": {
+    "islands": 236,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 96,
+      "bone": 140
+    }
+  },
+  "post_lantern_00": {
+    "islands": 48,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "wood": 48
+    }
+  },
+  "post_lantern_01": {
+    "islands": 201,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "wood": 198,
+      "iron": 3
+    }
+  },
+  "ribcage_00": {
+    "islands": 1021,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "bone": 1021
+    }
+  },
+  "shrine_00": {
+    "islands": 43,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "stone": 43
+    }
+  },
+  "shrine_candles_00": {
+    "islands": 208,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "stone": 94,
+      "bone": 114
+    }
+  },
+  "skull_00": {
+    "islands": 319,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "bone": 319
+    }
+  },
+  "skull_candle_00": {
+    "islands": 408,
+    "atlas": [
+      1024,
+      64
+    ],
+    "roles": {
+      "bone": 408
+    }
+  },
+  "tree_dead_large_00": {
+    "islands": 175,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "bark": 175
+    }
+  },
+  "tree_dead_large_decorated_00": {
+    "islands": 1080,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "bark": 680,
+      "bone": 400
+    }
+  },
+  "tree_dead_medium_00": {
+    "islands": 160,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "bark": 160
+    }
+  },
+  "tree_dead_small_00": {
+    "islands": 141,
+    "atlas": [
+      1024,
+      128
+    ],
+    "roles": {
+      "bark": 141
+    }
+  },
+  "tree_pine_orange_large_00": {
+    "islands": 289,
+    "atlas": [
+      1024,
+      1024
+    ],
+    "roles": {
+      "bark": 25,
+      "foliage": 264
+    }
+  },
+  "tree_pine_orange_medium_00": {
+    "islands": 296,
+    "atlas": [
+      1024,
+      512
+    ],
+    "roles": {
+      "bark": 32,
+      "foliage": 264
+    }
+  },
+  "tree_pine_orange_small_00": {
+    "islands": 235,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "bark": 27,
+      "foliage": 208
+    }
+  },
+  "tree_pine_yellow_medium_00": {
+    "islands": 296,
+    "atlas": [
+      1024,
+      512
+    ],
+    "roles": {
+      "bark": 32,
+      "foliage": 264
+    }
+  },
+  "tree_pine_yellow_small_00": {
+    "islands": 235,
+    "atlas": [
+      1024,
+      256
+    ],
+    "roles": {
+      "bark": 27,
+      "foliage": 208
+    }
+  }
+}
