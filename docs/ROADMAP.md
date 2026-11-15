@@ -18,6 +18,13 @@ n'affiche aucun gain ; dès sa fusion, tout s'active sans autre changement.
 - **Nom de la monnaie toujours à valider** : « Fragments de faille » / « Rift Fragments » (clés d'interface
   `UNLOCK3D_CURRENCY` et `UNLOCK3D_GAIN`).
 
+## Avant-poste des Glaces (Codex, 15 novembre 2026)
+
+Validé par le propriétaire, fusion demandée le 15 novembre 2026 (PR #178). Matières peintes gelées et remplacement visuel des objets
+futuristes par un avant-poste ancien, autorisé par le propriétaire. 74 collisions, 865 polygones de navigation,
+sol et escaliers conservés ; 50 volumes visuels comparés aux boîtes physiques. Tests rendu pixel 8/8 et
+localisation 6/6. Six cadrages avant/après ; `docs/art/MATIERE_AVANT_POSTE_DES_GLACES.md`.
+
 ## Bug : slash violet tourné vers le sol (Claude, session « Correction de bugs », 15 novembre 2026)
 
 - Cause : la Taille fendante (sort n°1 par défaut, flèche → au clavier seul, gâchette droite à la manette) jouait
@@ -45,7 +52,7 @@ Prochaine carte demandée : carte 2, Cimetière des Cendres, en conservant son i
 
 ## Matière du Hameau du Gué (Codex, 15 novembre 2026)
 
-Prêt à valider sur `codex/matiere-hameau-gue`, branche depuis main actualisé ; la PR #175 reste séparée.
+Validé par le propriétaire et fusionné dans main le 15 novembre 2026 (PR #177).
 Finesse de la Cour appliquée au village diurne : pierre/enduit, bois, ardoises bleues, végétation et rivière.
 33 modèles, 35 variantes d’échelle, 185 instances peintes, trois ponts et deux escaliers ; six comparatifs,
 dont une vue d’ensemble. 29 571 triangles, 140 collisions et navigation identiques.

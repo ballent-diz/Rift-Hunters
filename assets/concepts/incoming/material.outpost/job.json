@@ -1,0 +1,35 @@
+{
+  "visual_id": "material.outpost",
+  "kind": "painted_materials",
+  "status": "ready_for_review",
+  "source": "source/materials.png",
+  "grid": [
+    3,
+    3
+  ],
+  "slots": [
+    "masonry",
+    "wood",
+    "roof",
+    "iron",
+    "canvas",
+    "ice",
+    "cliff",
+    "ground"
+  ],
+  "texels_per_m": 40,
+  "collisions": "unchanged",
+  "filter": "nearest",
+  "mipmaps": false,
+  "sources": [
+    "source/materials.png",
+    "source/ground.png"
+  ],
+  "reference": "docs/art/REFERENCE_DECORS_3D.md",
+  "colors_per_material": [
+    6,
+    12
+  ],
+  "render_palette_colors": 48,
+  "prompts": "prompts.json"
+}

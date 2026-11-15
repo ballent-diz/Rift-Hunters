@@ -1,0 +1,24 @@
+{
+	"camera_view": 20,
+	"enemies": [
+		{
+			"at": "(-33.8, 0.2, 1)",
+			"id": "frost_crawler"
+		},
+		{
+			"at": "(-18.5, 0.2, 1.000003)",
+			"id": "blizzard_wolf"
+		},
+		{
+			"at": "(-26.2, 0.2, 6)",
+			"id": "snow_wraith"
+		}
+	],
+	"focus": "(-28, 1, -1)",
+	"hunter": "(-26.2, 0.2, 1.000001)",
+	"palette_colors": 48,
+	"pixel_enabled": true,
+	"region": "depot",
+	"scene": "DraftRun",
+	"texel_m": 0.0240384615384615
+}
