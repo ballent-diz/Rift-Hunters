@@ -68,6 +68,10 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
   `draft3d/spells/data/`) : 15 sorts, 64 cartes de sort. Option `--spells=` pour essayer un jeu de sorts.
   Départ toujours avec Taille et Lance (décision du 15 novembre) ; recharges affichées sous le Chasseur
   (`draft3d/spell_pips.gd`). Équilibrage non fait (le bot tient 2 min sans `--god`).
+- **Décidé le 15 novembre (direction C)** : écran de déblocage simple entre les parties, une seule monnaie nouvelle
+  (nom à valider), sorts et variantes débloqués entrent dans le tirage des choix de niveau, 2 sorts de départ au
+  choix ; passifs mis de côté. Conception et partage du travail : [design/DEBLOCAGE_V2.md](design/DEBLOCAGE_V2.md)
+  (Gameplay : `DraftUnlocks` et règles ; Interface : l'écran).
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
