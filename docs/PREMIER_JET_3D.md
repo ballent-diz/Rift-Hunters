@@ -16,6 +16,7 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 |---|---|
 | Se déplacer | ZQSD, WASD ou flèches |
 | Ruée (esquive, invulnérable un instant) | Espace ou Maj |
+| Sorts (4 emplacements) | flèches au clavier seul ; A E R F ou clic gauche avec la souris ; reconfigurables (Options → Touches et visée) |
 | Attaquer | automatique, sur l'ennemi visible le plus proche |
 | Choisir une amélioration | 1, 2, 3 ou clic |
 | Zoom / rejouer en fin de partie / pause | molette / R / Échap, P ou Start |
@@ -64,7 +65,7 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 | Ombres calées | Disque au sol tiré du champ `shadow` du manifeste (empreinte mesurée) | `sprite_view.gd` |
 | PixelFX | Effets par famille du catalogue `techniques.json` : tirs, impacts, morts, apparitions, techniques des boss | `pixelfx.gd` |
 | Audio | Musiques par contexte (partie, boss, seconde phase, victoire, défaite), douze sons, tempo (les cristaux battent la mesure) | `run.gd` |
-| Sorts | Sorts équipés dans l'arbre du profil, ou Taille et Lance par défaut ; ils partent seuls. Pris en charge : Taille, Lance, Rupture, Bond de Faille | `spells.gd` |
+| Sorts | Sorts actifs lancés à la touche, visée souris / manette / clavier seul, barre de sorts ; départ : sorts de l'arbre ou Taille et Lance, les autres s'apprennent au choix de niveau. Raccordés : 9 sorts (Taille, Lance, Rupture, Bond, Parade, Singularité, Mur, Égide, Cristal), leurs variantes et rangs en cartes de niveau ([SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md)) | `spells.gd`, `spell_bar.gd`, `controls.gd` |
 | Arbre de compétences | Nœuds actifs du profil qui modifient une statistique du Chasseur ou de ses sorts, en lecture seule | `upgrades.gd` (`apply_tree`) |
 | Campagne | Un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part `user://draft3d_progress.json` | `progress.gd` |
 
@@ -73,7 +74,7 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
   intermédiaire par effet. Les boss utilisent les PixelFX à la place.
 - Techniques propres à chaque monstre et à chaque boss : les boss partagent quatre techniques communes (griffes, onde,
   pluie, invocation, rayon en seconde phase) avec leurs propres animations ; les élites ne sont pas repris.
-- Huit sorts sur douze, les variantes de sorts et les nœuds de l'arbre qui ne sont pas de simples statistiques.
+- Appel de meute et Permutation (Échos), Failles jumelles ; les nœuds de l'arbre qui ne sont pas de simples statistiques.
 - Écran de l'arbre dans ce mode : l'arbre se règle toujours dans le refuge de la campagne.
 - Échos : toujours absents, comme demandé.
 
@@ -126,13 +127,25 @@ sud (départ), base de quatre modules reliés par un tunnel au centre, dépôt d
 éoliennes à l'est, plateau de forage à 2 m avec deux escaliers au nord (le boss apparaît à son pied). Falaise de
 glace tout autour. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_4.webp`. Décors : **KayKit Space Base
 Bits**, Kay Lousberg, licence **CC0** (`draft3d/spacebase/LICENSE.txt`), agrandis quatre fois ; roches et falaises
-repeintes en glace. Le chapitre 5 joue encore sur le niveau 1.
+repeintes en glace.
+
+## Carte : cinquième niveau, la Cité Effondrée
+
+96 × 60 m, ville de pierre en ruine, de nuit (`draft3d/level_city.gd`), jouée au chapitre 5, recomposée le 15 novembre
+(plan en damier, règles : `docs/maps/CARTES_3D.md`). Porte sud (départ), Avenue pavée bordée de façades jusqu'au
+Forum dallé (arène du boss, quatre colonnes d'abri), Rue transversale d'est en ouest, Acropole dallée à 2 m (grand
+escalier depuis le Forum, escalier est depuis la Voie sacrée), Temple à péristyle au nord-est, îlots de maisons
+alignés sur les rues à l'ouest, entrepôts au sud-est, une maison effondrée par quartier. Rempart sur trois côtés,
+parapet bas au sud. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_5.webp` ; avant/après :
+`docs/previews/cartes-3d/`. Décors : **KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0**
+(`draft3d/dungeon/LICENSE.txt`), vingt-six pièces importées telles quelles (taille réelle).
 
 ## Vérifications
 
 `tests/unit/test_draft3d.gd` (11 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et
 plafonds, seuils d'EXP, pause et reprise du choix, application des cartes, escalier, limites, abris, traits arrêtés,
-ennemi qui blesse, EXP ramassée, défaite, victoire sur le boss, partie neuve remise à zéro.
+ennemi qui blesse, EXP ramassée, défaite, victoire sur le boss, partie neuve remise à zéro, contrôle de composition
+de toutes les cartes (`DraftLevelAudit`, outil `tools/level_audit.tscn`, voir `docs/maps/CARTES_3D.md`).
 
 ### Performances (mesure du 13 novembre)
 

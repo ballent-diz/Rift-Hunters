@@ -107,7 +107,8 @@ func setup(host: Node3D, p_camera: Camera3D, chapter: int) -> void:
 
 static func load_palette(chapter: int) -> DraftPixelPalette:
 	var args := OS.get_cmdline_user_args()
-	if chapter in [1, 5] and (args.has("--painted-kit") or args.has("--painted-kit-palette")):
+	var kit := not args.has("--painted-kit=0") and (chapter == 1 or args.has("--painted-kit"))
+	if chapter in [1, 5] and (kit or args.has("--painted-kit-palette")):
 		return load("res://draft3d/matter/painted_kit/palette.tres") as DraftPixelPalette
 	var path: String = PALETTE_PATH % chapter
 	if ResourceLoader.exists(path):

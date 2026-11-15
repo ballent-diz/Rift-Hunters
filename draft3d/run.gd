@@ -89,12 +89,20 @@ func _ready() -> void:
 	# Arbre de compétences et sorts équipés du profil de la campagne, en lecture seule.
 	tree_effects = DraftUpgrades.apply_tree(hunter.stats, HunterTree.effects_for(Profile.profile))
 	hunter.hp = hunter.max_hp()
+	# Sorts de départ : ceux équipés dans l'arbre et raccordés à la 3D, sinon ceux de l'équilibrage.
 	var equipped: Array[StringName] = []
-	for id: StringName in HunterTree.loadout(Profile.profile)["spells"]:
-		if id != &"":
+	var loadout: Dictionary = HunterTree.loadout(Profile.profile)
+	for id: StringName in loadout["spells"]:
+		if id != &"" and DraftSpells.supported(id):
 			equipped.append(id)
 	spells = DraftSpells.new()
 	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
+	upgrades.spells = spells
+	# Variantes activées dans l'arbre : la carte correspondante est prise d'office pour les sorts de départ.
+	for spell_id: Variant in loadout["variants"]:
+		var card: UpgradeData = upgrades.variant_card(StringName(str(spell_id)), StringName(str(loadout["variants"][spell_id])))
+		if card != null and upgrades.can_offer(card):
+			upgrades.apply(card, hunter.stats)
 	if _bot or DisplayServer.get_name() == "headless":
 		DraftProgress.path = ""
 	hunter.set_physics_process(false)
@@ -130,6 +138,7 @@ func _ready() -> void:
 	hud.menu_requested.connect(back_to_menu)
 	_bot = _options.has("bot")
 	hunter.automating = _bot
+	spells.auto_cast = _bot
 	for value: String in str(_options.get("shot-times", "")).split(",", false):
 		_shot_times.append(float(value))
 	Engine.time_scale = float(_options.get("time-scale", "1"))
@@ -378,6 +387,11 @@ func foe_summon(foe: DraftEnemies.Foe, amount: int) -> void:
 ## Vue dégagée entre deux points : aucun décor entre eux. Règle unique pour viser, tirer et cracher, à plat comme
 ## entre deux hauteurs : on touche ce que l'on voit (du haut de la terrasse vers la cour et inversement), jamais
 ## à travers un mur, un pilier, une caisse ou le rebord de la terrasse.
+## Murs de faille (sort du Chasseur) entre deux points : ils arrêtent les ennemis et leurs tirs.
+func barrier_blocks(from: Vector3, to: Vector3) -> bool:
+	return spells != null and not spells.world.walls.is_empty() and spells.world.blocks(from, to)
+
+
 func sight_clear(from: Vector3, to: Vector3) -> bool:
 	var query := PhysicsRayQueryParameters3D.create(from, to, 1)
 	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()
@@ -417,11 +431,17 @@ func _auto_attack() -> void:
 			hunter.stats.get_int(StatKeys.PIERCE), hunter.stats.get_int(StatKeys.BOLT_SPLIT))
 
 
-func fire_bolt(origin: Vector3, direction: Vector3, damage: float, reach: float, pierce: int, split: int) -> void:
-	var visual: Sprite3D = fx(&"arcane_orb", DraftPixelFx.DEFAULT_FAMILY, origin, 0.75 if split >= 0 else 0.5, true)
+## Trait du Chasseur ; les sorts (Lance) passent leur effet, sa taille, leur rayon de contact et leur vitesse.
+func fire_bolt(origin: Vector3, direction: Vector3, damage: float, reach: float, pierce: int, split: int,
+		look: StringName = &"arcane_orb", size: float = 0.0, radius: float = 0.25, speed: float = BOLT_SPEED,
+		family: StringName = DraftPixelFx.DEFAULT_FAMILY) -> Dictionary:
+	var visual: Sprite3D = fx(look, family, origin,
+		size if size > 0.0 else (0.75 if split >= 0 else 0.5), true)
 	visual.flip_h = direction.dot(camera.global_basis.x) < 0.0
-	bolts.append({"at": origin, "dir": direction, "left": reach, "damage": damage, "pierce": pierce, "split": split,
-		"hit": [], "visual": visual})
+	var shot := {"at": origin, "dir": direction, "left": reach, "damage": damage, "pierce": pierce, "split": split,
+		"hit": [], "visual": visual, "radius": radius, "speed": speed}
+	bolts.append(shot)
+	return shot
 
 
 func _step_bolts(delta: float) -> void:
@@ -429,7 +449,7 @@ func _step_bolts(delta: float) -> void:
 	for i: int in range(bolts.size() - 1, -1, -1):
 		var shot: Dictionary = bolts[i]
 		var from: Vector3 = shot["at"]
-		var step: float = minf(BOLT_SPEED * delta, float(shot["left"]))
+		var step: float = minf(float(shot.get("speed", BOLT_SPEED)) * delta, float(shot["left"]))
 		var to: Vector3 = from + (shot["dir"] as Vector3) * step
 		var wall: Dictionary = space.intersect_ray(PhysicsRayQueryParameters3D.create(from, to, 1))
 		var spent: bool = false
@@ -437,7 +457,7 @@ func _step_bolts(delta: float) -> void:
 			to = wall["position"]
 			blocked_bolts += 1
 			spent = true
-		for foe: DraftEnemies.Foe in enemies.near(to, 0.25):
+		for foe: DraftEnemies.Foe in enemies.near(to, float(shot.get("radius", 0.25))):
 			# Le trait touche à sa hauteur : il passe au-dessus d'un ennemi en contrebas et sous une terrasse.
 			if (shot["hit"] as Array).has(foe) or absf(_aim_point(foe).y - to.y) > foe.radius + 0.6:
 				continue
@@ -456,6 +476,8 @@ func _step_bolts(delta: float) -> void:
 			shot["pierce"] = int(shot["pierce"]) - 1
 		shot["at"] = to
 		shot["left"] = float(shot["left"]) - step
+		if not spent and not spells.world.crystals.is_empty():
+			spells.world.refract(shot, tuning.crystal_split, tuning.crystal_angle, tuning.crystal_damage)
 		if spent or float(shot["left"]) <= 0.0:
 			if spent and not wall.is_empty():
 				fx(&"mana_burst", DraftPixelFx.DEFAULT_FAMILY, to, 0.6)
@@ -484,7 +506,7 @@ func _step_hostile(delta: float) -> void:
 		var from: Vector3 = shot["at"]
 		var to: Vector3 = from + (shot["dir"] as Vector3) * float(shot["speed"]) * delta
 		shot["left"] = float(shot["left"]) - delta
-		var done: bool = float(shot["left"]) <= 0.0 \
+		var done: bool = float(shot["left"]) <= 0.0 or barrier_blocks(from, to) \
 			or not space.intersect_ray(PhysicsRayQueryParameters3D.create(from, to, 1)).is_empty()
 		if not done and to.distance_to(hunter.chest()) < 0.55:
 			hunter.take_damage(float(shot["damage"]))
@@ -714,9 +736,9 @@ func _bot_step() -> void:
 func _print_result() -> void:
 	_options.erase("result")
 	var boss_ratio: float = enemies.boss.hp / enemies.boss.max_hp if enemies.boss != null else 1.0
-	print("RESULT|%s|temps %d|niveau %d|éliminations %d|dégâts subis %d|PV boss %.2f|améliorations %s|chemins %d" % [
+	print("RESULT|%s|temps %d|niveau %d|éliminations %d|dégâts subis %d|PV boss %.2f|améliorations %s|sorts lancés %d|chemins %d" % [
 		"VICTOIRE" if state == State.WON else "DÉFAITE", int(time), hunter.level, kills, int(damage_taken),
-		maxf(boss_ratio, 0.0), upgrades.stacks, enemies.path_requests])
+		maxf(boss_ratio, 0.0), upgrades.stacks, spells.casts, enemies.path_requests])
 	get_tree().quit()
 
 

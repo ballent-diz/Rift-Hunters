@@ -1,5 +1,9 @@
 # Essai : pierre peinte liée aux formes
 
+**Validé le 15 novembre 2026 :** voir [la référence des décors](REFERENCE_DECORS_3D.md).
+L’habillage est désormais actif par défaut sur la Cour ; `--painted-kit=0` restaure l’état ancien.
+Les mentions d’essai optionnel ci-dessous décrivent les étapes historiques avant cette validation.
+
 ## Extension aux murs et escaliers de la Cour — 15 novembre 2026
 
 À la demande du propriétaire, la matière de l’escalier central est appliquée aux **quatre escaliers**,

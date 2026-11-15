@@ -1,5 +1,8 @@
 # Sol végétal — suite du kit peint
 
+**Validé comme référence le 15 novembre 2026**, actif par défaut sur la Cour. Retour à l’ancien ensemble avec
+`--painted-kit=0` ; voir `REFERENCE_DECORS_3D.md`. Les paragraphes d’activation optionnelle ci-dessous sont historiques.
+
 Essai à valider dans la Cour, branche `codex/essai-kit-pierre-peinte`, PR #169.
 Il complète le mur, l’escalier et le pilier du [kit peint](ESSAI_KIT_PIERRE_PEINTE.md).
 Le propriétaire demande de rester cohérent avec les sprites et le décor ; ses deux références servent

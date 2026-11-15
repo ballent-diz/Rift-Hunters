@@ -8,9 +8,12 @@ var _ground_positions := PackedVector3Array()
 var _ground_uvs := PackedVector2Array()
 var _grass_meshes := {}
 
+static func painted_kit_enabled() -> bool:
+	return not OS.get_cmdline_user_args().has("--painted-kit=0")
+
 static func painted_ground_enabled() -> bool:
 	var args := OS.get_cmdline_user_args()
-	return args.has("--painted-kit") and not args.has("--painted-kit-ground=0")
+	return painted_kit_enabled() and not args.has("--painted-kit-ground=0")
 
 func setup(level: Node3D) -> void:
 	name = "CourMatter"
@@ -52,7 +55,7 @@ func apply_matter(level: Node3D) -> void:
 	create_ground()
 	create_meadow()
 	place_details()
-	if OS.get_cmdline_user_args().has("--painted-kit"):
+	if painted_kit_enabled():
 		preload("res://draft3d/matter/painted_kit/apply_trial.gd").apply(level)
 
 func create_meadow() -> void:
@@ -149,7 +152,7 @@ func texture_foundation(instance: MeshInstance3D) -> void:
 	var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 	var uv := PackedVector2Array()
-	var painted := OS.get_cmdline_user_args().has("--painted-kit")
+	var painted := painted_kit_enabled()
 	var foot := instance.mesh.get_aabb().position.y
 	for i: int in positions.size():
 		var point := positions[i]

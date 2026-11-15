@@ -32,6 +32,13 @@ class Foe:
 	var slot: int = 0
 	## Boss de fin de partie (le vaincre donne la victoire) ; faux pour un gardien de mi-parcours.
 	var final: bool = false
+	## Entrave (sorts du Chasseur) : vitesse multipliée par `slow_factor` pendant `slow_left` secondes.
+	var slow_left: float = 0.0
+	var slow_factor: float = 1.0
+
+	func slow(factor: float, seconds: float) -> void:
+		slow_factor = minf(factor, slow_factor) if slow_left > 0.0 else factor
+		slow_left = maxf(slow_left, seconds)
 
 const CELL := 1.5
 const ACCELERATION := 14.0
@@ -175,6 +182,9 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 	var distance: float = to_hunter.length()
 	var wish := Vector3.ZERO
 	var speed: float = foe.speed
+	if foe.slow_left > 0.0:
+		foe.slow_left -= delta
+		speed *= foe.slow_factor
 	var turn: bool = true
 	if foe.boss != null:
 		wish = _boss_brain(foe, to_hunter, distance, climb, delta)
@@ -228,6 +238,10 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 					run.call("enemy_shot", foe)
 	foe.vel = foe.vel.move_toward(wish * speed, ACCELERATION * delta)
 	var next: Vector3 = foe.pos + foe.vel * delta + _separation(foe) * delta
+	# Murs de faille du Chasseur : un ennemi ne les traverse pas.
+	if run.call("barrier_blocks", foe.pos, next):
+		next = foe.pos
+		foe.vel = Vector3.ZERO
 	# Recalage sur la navigation une image sur deux (hauteur dans l'escalier, murs) : les ennemis n'ont pas de corps.
 	if (foe.slot + _frame) % 2 == 0 or foe.boss != null:
 		next = level.closest(next + Vector3.UP * 0.2)

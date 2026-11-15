@@ -2273,7 +2273,7 @@ DRAFT_VICTORY,Victoire,Victory
 DRAFT_DEFEAT,Défaite,Defeat
 DRAFT_RESTART,Rejouer (R),Play again (R)
 DRAFT_SUMMARY,Temps %s · Niveau %d · %d éliminations,Time %s · Level %d · %d kills
-DRAFT_CONTROLS,ZQSD / WASD / flèches : se déplacer · Espace : Ruée · l'attaque part toute seule · Échap : pause,ZQSD / WASD / arrows: move · Space: dash · attacks fire on their own · Esc: pause
+DRAFT_CONTROLS,ZQSD : se déplacer · Espace : Ruée · %s : sorts · le Trait part tout seul · Échap : pause,WASD: move · Space: dash · %s: spells · the Bolt fires on its own · Esc: pause
 DRAFT_BOSS_WARNING,%s approche !,%s is coming!
 DRAFT_SWARM,Une nuée déferle !,A swarm rushes in!
 UPGRADE_LONG_REACH_NAME,Longue portée,Long Reach
@@ -2291,7 +2291,7 @@ MENU3D_TAGLINE,Traquez les Corrompus. Refermez les Failles.,Hunt the Corrupted. 
 MENU3D_PLAY,Jouer,Play
 MENU3D_NAV_HINT,"Flèches, souris ou manette : naviguer · Entrée / A : valider · Échap / B : retour","Arrows, mouse or gamepad: navigate · Enter / A: confirm · Esc / B: back"
 MENU3D_CONTROLS_TITLE,Commandes,Controls
-MENU3D_CONTROLS_LIST,"Se déplacer : ZQSD, WASD ou flèches · Ruée : Espace ou Maj · Attaque : automatique · Améliorations : 1, 2, 3 ou clic · Zoom : molette · Pause : Échap, P ou Start","Move: ZQSD, WASD or arrows · Dash: Space or Shift · Attack: automatic · Upgrades: 1, 2, 3 or click · Zoom: mouse wheel · Pause: Esc, P or Start"
+MENU3D_CONTROLS_LIST,"Se déplacer : ZQSD (ou flèches avec la souris) · Ruée : Espace ou Maj · Sorts : flèches au clavier seul, A E R F ou clic avec la souris · Trait : automatique · Améliorations : 1, 2, 3 ou clic · Zoom : molette · Pause : Échap, P ou Start","Move: WASD (or arrows with the mouse) · Dash: Space or Shift · Spells: arrow keys (keyboard only), Q E R F or click (with the mouse) · Bolt: automatic · Upgrades: 1, 2, 3 or click · Zoom: mouse wheel · Pause: Esc, P or Start"
 MENU3D_BACK,Retour,Back
 MENU3D_BACK_TO_MENU,Menu principal,Main menu
 MENU3D_RESTART,Recommencer,Restart
@@ -2305,3 +2305,86 @@ CHAPTER3D_SILENT_GLACIER_NAME,L'Avant-poste des Glaces,The Frost Outpost
 CHAPTER3D_SILENT_GLACIER_DESC,"Une base de forage isolée sur la banquise : modules, dépôt de fret, éoliennes. On y sondait la Faille ; elle a répondu.","A lonely drilling base on the ice shelf: modules, a cargo depot, wind turbines. Someone was probing the Rift here; it answered."
 CHAPTER3D_RIFT_CITY_NAME,Le Cœur de la Faille,The Heart of the Rift
 CHAPTER3D_RIFT_CITY_DESC,"Au bout de la traque, la Faille rouvre les ruines où tout a commencé : ses Dévoreurs y attendent le Chasseur.","At the end of the hunt, the Rift reopens the ruins where it all began: its Devourers await the Hunter there."
+OPTIONS3D_CONTROLS,Touches et visée,Keys and aiming
+CONTROLS3D_KEYBOARD_HINT,"Les deux mains au clavier : ZQSD pour marcher, flèches pour les sorts, lancés vers l'ennemi visible le plus proche devant le Chasseur (sinon droit devant). L'anneau au sol montre le point visé.","Both hands on the keyboard: WASD to move, arrow keys for spells, cast at the nearest visible enemy in front of the Hunter (otherwise straight ahead). The ring on the ground shows the aimed point."
+CONTROLS3D_MOUSE_HINT,"Une main sur la souris : ZQSD ou flèches pour marcher, A, E, R, F ou clic gauche pour les sorts, lancés vers le curseur. À la manette, le stick droit vise.","One hand on the mouse: WASD or arrow keys to move, Q, E, R, F or left click for spells, cast toward the cursor. On a gamepad, the right stick aims."
+UPGRADE3D_LEARN_CLEAVING_SLASH_NAME,Nouveau sort : Taille fendante,New spell: Cleaving Slash
+UPGRADE3D_LEARN_CLEAVING_SLASH_DESC,Arc de lame vers la visée : gros dégâts et recul. Prend un emplacement de sort libre.,Blade arc toward your aim: heavy damage and knockback. Takes a free spell slot.
+UPGRADE3D_LEARN_PRISMATIC_LANCE_NAME,Nouveau sort : Lance prismatique,New spell: Prismatic Lance
+UPGRADE3D_LEARN_PRISMATIC_LANCE_DESC,"Trait lourd vers la visée, qui traverse tous les ennemis. Prend un emplacement de sort libre.",Heavy bolt toward your aim that pierces every enemy. Takes a free spell slot.
+UPGRADE3D_LEARN_RUPTURE_NAME,Nouveau sort : Rupture,New spell: Rupture
+UPGRADE3D_LEARN_RUPTURE_DESC,Détonation de zone au point visé (arrêtée par le décor). Prend un emplacement de sort libre.,Area detonation at the aimed point (stopped by scenery). Takes a free spell slot.
+UPGRADE3D_LEARN_RIFT_LEAP_NAME,Nouveau sort : Bond de faille,New spell: Rift Leap
+UPGRADE3D_LEARN_RIFT_LEAP_DESC,"Bond vers le point visé, invulnérable pendant le saut, onde de choc à l'arrivée. Prend un emplacement de sort libre.","Leap toward the aimed point, invulnerable while airborne, shockwave on landing. Takes a free spell slot."
+UPGRADE3D_SLASH_WHIRLWIND_NAME,Taille : Tourbillon,Slash: Whirlwind
+UPGRADE3D_SLASH_WHIRLWIND_DESC,"Variante de la Taille : un cercle complet autour du Chasseur (portée ×0,85).",Slash variant: a full circle around the Hunter (reach ×0.85).
+UPGRADE3D_SLASH_THRUST_NAME,Taille : Estoc,Slash: Thrust
+UPGRADE3D_SLASH_THRUST_DESC,"Variante de la Taille : une ligne longue et étroite (9,6 m) qui perce tout.","Slash variant: a long, narrow line (9.6 m) that pierces everything."
+UPGRADE3D_LANCE_FAN_NAME,Lance : Éventail,Lance: Fan
+UPGRADE3D_LANCE_FAN_DESC,"Variante de la Lance : 3 lances en cône, 80 % des dégâts chacune.","Lance variant: 3 lances in a cone, 80% damage each."
+UPGRADE3D_LANCE_OVERCHARGE_NAME,Lance : Surcharge,Lance: Overcharge
+UPGRADE3D_LANCE_OVERCHARGE_DESC,"Variante de la Lance : maintenir la touche charge la lance (jusqu'à ×2,5 en 1,2 s), la relâcher la tire.","Lance variant: hold the key to charge the lance (up to ×2.5 in 1.2 s), release to fire."
+UPGRADE3D_RUPTURE_REACTION_NAME,Rupture : Réaction,Rupture: Reaction
+UPGRADE3D_RUPTURE_REACTION_DESC,Variante de la Rupture : la détonation rebondit deux fois sur l'ennemi visible le plus proche (50 % des dégâts).,Rupture variant: the detonation bounces twice to the nearest visible enemy (50% damage).
+UPGRADE3D_RUPTURE_BLAZE_NAME,Rupture : Brasier,Rupture: Blaze
+UPGRADE3D_RUPTURE_BLAZE_DESC,Variante de la Rupture : le sol brûle 3 s là où elle éclate.,Rupture variant: the ground burns for 3 s where it detonates.
+UPGRADE3D_LEAP_RETURN_NAME,Bond : Retour,Leap: Return
+UPGRADE3D_LEAP_RETURN_DESC,"Variante du Bond : dans les 3 s après l'arrivée, la touche du Bond ramène au point de départ.","Leap variant: within 3 s of landing, the Leap key brings you back to where you started."
+UPGRADE3D_LEAP_IMPACT_NAME,Bond : Impact,Leap: Impact
+UPGRADE3D_LEAP_IMPACT_DESC,Variante du Bond : onde 2× plus large qui ralentit de moitié les ennemis 2 s.,Leap variant: twice-as-wide shockwave that halves enemy speed for 2 s.
+UPGRADE3D_SLASH_EDGE_NAME,Taille : Fil aiguisé,Slash: Honed Edge
+UPGRADE3D_SLASH_EDGE_DESC,Dégâts de la Taille +20 %.,Slash damage +20%.
+UPGRADE3D_SLASH_REACH_NAME,Taille : Allonge,Slash: Reach
+UPGRADE3D_SLASH_REACH_DESC,Portée de la Taille +15 %.,Slash reach +15%.
+UPGRADE3D_LANCE_WEIGHT_NAME,Lance : Pointe lourde,Lance: Heavy Tip
+UPGRADE3D_LANCE_WEIGHT_DESC,Dégâts de la Lance +20 %.,Lance damage +20%.
+UPGRADE3D_LANCE_TEMPO_NAME,Lance : Tir rapide,Lance: Quick Shot
+UPGRADE3D_LANCE_TEMPO_DESC,Recharge de la Lance −15 %.,Lance cooldown −15%.
+UPGRADE3D_RUPTURE_CHARGE_NAME,Rupture : Charge instable,Rupture: Unstable Charge
+UPGRADE3D_RUPTURE_CHARGE_DESC,Dégâts de la Rupture +20 %.,Rupture damage +20%.
+UPGRADE3D_RUPTURE_WIDE_NAME,Rupture : Onde large,Rupture: Wide Blast
+UPGRADE3D_RUPTURE_WIDE_DESC,Zone de la Rupture +20 %.,Rupture area +20%.
+UPGRADE3D_LEAP_HEAVY_NAME,Bond : Retombée lourde,Leap: Heavy Landing
+UPGRADE3D_LEAP_HEAVY_DESC,Dégâts de l'onde du Bond +25 %.,Leap shockwave damage +25%.
+UPGRADE3D_LEAP_MOMENTUM_NAME,Bond : Élan,Leap: Momentum
+UPGRADE3D_LEAP_MOMENTUM_DESC,Recharge du Bond −15 %.,Leap cooldown −15%.
+UPGRADE3D_LEARN_PARRY_NAME,Nouveau sort : Parade,New spell: Parry
+UPGRADE3D_LEARN_PARRY_DESC,"Garde de 0,4 s : un coup paré n'inflige rien, déclenche une contre-attaque ×4 autour du Chasseur, étourdit et recharge la Parade.","0.4 s guard: a parried hit deals nothing, triggers a ×4 counterattack around the Hunter, stuns and recharges Parry."
+UPGRADE3D_LEARN_SINGULARITY_NAME,Nouveau sort : Singularité,New spell: Singularity
+UPGRADE3D_LEARN_SINGULARITY_DESC,Puits au point visé qui attire les ennemis 3 s puis implose.,"Well at the aimed point that pulls enemies for 3 s, then implodes."
+UPGRADE3D_LEARN_RIFT_WALL_NAME,Nouveau sort : Mur de faille,New spell: Rift Wall
+UPGRADE3D_LEARN_RIFT_WALL_DESC,"Mur au point visé, perpendiculaire à la visée (4 s) : arrête les ennemis et leurs tirs, pas les vôtres.","Wall at the aimed point, perpendicular to your aim (4 s): stops enemies and their shots, not yours."
+UPGRADE3D_LEARN_AEGIS_NAME,Nouveau sort : Égide de faille,New spell: Rift Aegis
+UPGRADE3D_LEARN_AEGIS_DESC,Bouclier de 25 % des PV max pendant 4 s.,Shield worth 25% of max HP for 4 s.
+UPGRADE3D_LEARN_REFRACTING_CRYSTAL_NAME,Nouveau sort : Cristal réfracteur,New spell: Refracting Crystal
+UPGRADE3D_LEARN_REFRACTING_CRYSTAL_DESC,Cristal au point visé (8 s) : chaque Trait ou Lance qui le traverse se divise en 3. Posez-le entre vous et la horde.,Crystal at the aimed point (8 s): every Bolt or Lance passing through splits into 3. Place it between you and the horde.
+UPGRADE3D_PARRY_MIRROR_NAME,Parade : Miroir,Parry: Mirror
+UPGRADE3D_PARRY_MIRROR_DESC,Variante de la Parade : un coup paré renvoie aussi les tirs ennemis à moins de 4 m.,Parry variant: a parried hit also sends back enemy shots within 4 m.
+UPGRADE3D_PARRY_LONG_GUARD_NAME,Parade : Garde longue,Parry: Long Guard
+UPGRADE3D_PARRY_LONG_GUARD_DESC,Variante de la Parade : fenêtre de garde deux fois plus longue.,Parry variant: twice-as-long guard window.
+UPGRADE3D_SINGULARITY_HORIZON_NAME,Singularité : Horizon,Singularity: Horizon
+UPGRADE3D_SINGULARITY_HORIZON_DESC,Variante de la Singularité : rayon +40 %.,Singularity variant: radius +40%.
+UPGRADE3D_SINGULARITY_COLLAPSE_NAME,Singularité : Effondrement,Singularity: Collapse
+UPGRADE3D_SINGULARITY_COLLAPSE_DESC,"Variante de la Singularité : implosion 2× plus forte, au bout de 1,5 s.","Singularity variant: implosion twice as strong, after 1.5 s."
+UPGRADE3D_WALL_CHAINS_NAME,Mur : Chaînes,Wall: Chains
+UPGRADE3D_WALL_CHAINS_DESC,"Variante du Mur : les ennemis qui le touchent sont immobilisés 1,5 s.",Wall variant: enemies touching it are rooted for 1.5 s.
+UPGRADE3D_WALL_BURNING_NAME,Mur : Rempart ardent,Wall: Burning Rampart
+UPGRADE3D_WALL_BURNING_DESC,"Variante du Mur : le toucher brûle (dégâts toutes les 0,5 s).",Wall variant: touching it burns (damage every 0.5 s).
+UPGRADE3D_AEGIS_RIPOSTE_NAME,Égide : Riposte,Aegis: Riposte
+UPGRADE3D_AEGIS_RIPOSTE_DESC,"Variante de l'Égide : quand le bouclier cède, une onde de choc repousse et blesse.","Aegis variant: when the shield breaks, a shockwave knocks back and wounds."
+UPGRADE3D_AEGIS_SECOND_WIND_NAME,Égide : Second souffle,Aegis: Second Wind
+UPGRADE3D_AEGIS_SECOND_WIND_DESC,"Variante de l'Égide : bouclier réduit de moitié, mais soin immédiat de 15 % des PV max.","Aegis variant: half the shield, but an immediate heal of 15% of max HP."
+UPGRADE3D_CRYSTAL_DOUBLE_NAME,Cristal : Prisme double,Crystal: Double Prism
+UPGRADE3D_CRYSTAL_DOUBLE_DESC,Variante du Cristal : deux cristaux côte à côte.,Crystal variant: two crystals side by side.
+UPGRADE3D_CRYSTAL_FOCUS_NAME,Cristal : Foyer,Crystal: Focus
+UPGRADE3D_CRYSTAL_FOCUS_DESC,Variante du Cristal : les éclats filent vers l'ennemi visible le plus résistant.,Crystal variant: the shards fly toward the toughest visible enemy.
+UPGRADE3D_PARRY_COUNTER_NAME,Parade : Contre puissant,Parry: Heavy Counter
+UPGRADE3D_PARRY_COUNTER_DESC,Dégâts de la contre-attaque +20 %.,Counterattack damage +20%.
+UPGRADE3D_SINGULARITY_DEPTH_NAME,Singularité : Puits profond,Singularity: Deep Well
+UPGRADE3D_SINGULARITY_DEPTH_DESC,Rayon de la Singularité +20 %.,Singularity radius +20%.
+UPGRADE3D_WALL_LASTING_NAME,Mur : Mur durable,Wall: Lasting Wall
+UPGRADE3D_WALL_LASTING_DESC,Durée du Mur +25 %.,Wall duration +25%.
+UPGRADE3D_AEGIS_QUICK_NAME,Égide : Égide prompte,Aegis: Swift Aegis
+UPGRADE3D_AEGIS_QUICK_DESC,Recharge de l'Égide −15 %.,Aegis cooldown −15%.
+UPGRADE3D_CRYSTAL_LASTING_NAME,Cristal : Cristal tenace,Crystal: Lasting Crystal
+UPGRADE3D_CRYSTAL_LASTING_DESC,Durée du Cristal +25 %.,Crystal duration +25%.

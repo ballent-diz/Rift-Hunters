@@ -1,5 +1,12 @@
 # Rift Hunters — feuille de route
 
+## Référence des décors 3D validée (propriétaire, 15 novembre 2026)
+
+La Cour harmonisée (sol, herbe, murs et escaliers, PR #169) est validée comme référence de style.
+Activation par défaut sur la carte 1 ; `--painted-kit=0` restitue l’ancien habillage pour comparaison.
+Les détails secondaires pourront être repris plus tard. Canon : `docs/art/REFERENCE_DECORS_3D.md`.
+Prochaine carte demandée : carte 2, Cimetière des Cendres, en conservant son identité et sa géométrie.
+
 ## Harmonisation des murs et escaliers (Codex, 15 novembre 2026)
 
 Prêt à valider, suite de la PR #169 : appliquer la pierre approuvée de l’escalier central à tous les escaliers
@@ -40,6 +47,25 @@ chapitres 1 et 5 (même Cour actuellement) sont recalées sur des captures du je
 actuelles. Vérification directe dans `draft3d/main.tscn`, rendu pixel actif ; sept tests ciblés réussis,
 dont un test de régression sur la mousse. Shaders, géométrie et collisions inchangés ; la calibration du cadrage
 ajuste uniquement les teintes des matériaux minéraux et réserve trois gris dans la palette.
+## Sorts actifs du Chasseur en 3D (Claude, session « Gameplay », 14 novembre 2026)
+
+Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).
+- **Lot 1-2 (fait)** : sorts lancés à la touche (`spell_1`…`spell_4`, reconfigurables dans Options → Touches et visée),
+  visée souris / stick droit / clavier seul (ennemi visible devant le Chasseur), anneau au sol et aperçu en option,
+  recharges, barre de 4 sorts (`draft3d/spell_bar.gd`), PixelFX en billboards. Taille, Lance, Rupture et Bond de
+  Faille ; départ Taille + Lance (ou sorts de l'arbre), les autres par cartes « Nouveau sort » au choix de niveau.
+  Le déplacement lit désormais les actions (ZQSD au clavier seul, flèches en plus avec la souris). Bot : `auto_cast`.
+  Essais `tests/unit/test_draft3d_spells.gd`. Capture `docs/previews/sorts-actifs-v2/`.
+- **Lot 3 (fait)** : 16 cartes d'amélioration de sort au choix de niveau, effets en données (`DraftSpellEffect`
+  VARIANT / MODIFY) : les 8 variantes v1 (Tourbillon, Estoc, Éventail, Surcharge, Réaction, Brasier, Retour, Impact ;
+  Réaction et Brasier adaptés sans statuts) et 8 rangs (dégâts, recharge, zone, portée). Une variante par sort ;
+  variante de l'arbre du profil prise d'office. Ralentissement des ennemis ajouté (`Foe.slow`).
+- **Lot 4 (fait)** : Parade, Singularité, Mur de faille, Égide et Cristal réfracteur en 3D (`draft3d/spell_world.gd`),
+  avec leurs variantes v1 (adaptées quand elles visaient les Échos) et un rang chacun : 9 sorts, 40 cartes de sort.
+  Non repris : Appel de meute, Permutation (Échos) ; Failles jumelles repoussé.
+- **À valider par le propriétaire** : six nouveaux sorts proposés (Marque du traqueur, Fente du vide, Pas de faille,
+  Onde de stase, Pluie d'éclats, Voile de cendre), section 5 de [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).
+  Équilibrage non fait (le bot tient 2 min sans `--god`).
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
@@ -82,10 +108,10 @@ celles de la campagne 2D archivée ; la v2 affiche de nouvelles clés `CHAPTER3D
 | 2 | Cimetière des Cendres — nuit, KayKit Halloween | Les Terres dévastées | Le Cimetière des Cendres | The Ashen Graveyard |
 | 3 | Hameau du Gué — village et rivière, KayKit Medieval | Les Marais engloutis | Le Hameau du Gué | Fordside Hamlet |
 | 4 | Avant-poste des Glaces — base sur la banquise, KayKit Space Base | Le Glacier silencieux | L'Avant-poste des Glaces | The Frost Outpost |
-| 5 | (provisoire : Ruines des Veilleurs, pas encore de carte propre) | La Cité de la Faille | Le Cœur de la Faille | The Heart of the Rift |
+| 5 | Cité Effondrée — ville de pierre en ruine, de nuit, KayKit Dungeon | La Cité de la Faille | Le Cœur de la Faille | The Heart of the Rift |
 
-Le nom du chapitre 5 suppose une carte finale « au cœur de la Faille » (ruines corrompues) ; à revoir quand elle
-sera construite.
+Le chapitre 5 garde le nom « Le Cœur de la Faille » : sa carte, la Cité Effondrée, est une ville en ruine baignée
+de lueurs de Faille (14 novembre ; une première carte « ville moderne » a été refusée : hors direction artistique).
 
 ## Essai de décors modulaires avec relief (Codex, 12 novembre 2026)
 
@@ -1110,9 +1136,9 @@ Décision du propriétaire : la v2 remplace la v1 dans `main`. `godot --path .` 
 (`res://draft3d/main.tscn`). La v1 est archivée sur la branche `archive/v1-2d` (commit ac1f7ad) ; son code reste dans
 le dépôt tant que la v2 en réutilise des pièces (GameDB, données, sprites, effets, audio, textes) et se lance encore
 avec `godot --path . res://scenes/main.tscn`.
-État de la v2 : quatre cartes (Ruines des Veilleurs, Cimetière des Cendres, Hameau du Gué, Avant-poste des Glaces),
-bestiaires des cinq chapitres, gardiens et Dévoreurs, EXP et améliorations, quatre sorts, audio. Le chapitre 5 joue
-encore sur la carte 1. À venir : carte 5, seconde passe de détail sur les cartes, sols peints par Codex (textures
+État de la v2 : cinq cartes (Ruines des Veilleurs, Cimetière des Cendres, Hameau du Gué, Avant-poste des Glaces,
+Cité Effondrée),
+bestiaires des cinq chapitres, gardiens et Dévoreurs, EXP et améliorations, quatre sorts, audio. À venir : seconde passe de détail sur les cartes, sols peints par Codex (textures
 répétables), Échos.
 
 ## Rendu pixel 3D — 14 novembre 2026 (session « Art et rendu »)
@@ -1127,3 +1153,16 @@ docs/art/RENDU_PIXEL_3D.md ; captures avant/après : docs/previews/rendu-pixel-3
 - **À valider par le propriétaire** sur PC : rendu par défaut, fluidité du défilement, coût réel (`--perf`).
 - **Lots suivants préparés** : textures pixel art des modules par chapitre (prompt Codex n° 2), détails posés en
   sprites (herbes, gravats, flaques), brume et lumière par chapitre. Palettes des chapitres 2 à 4 non retouchées.
+
+## Cohérence des cartes 3D — 15 novembre 2026 (session « Cartes »)
+
+La Cité Effondrée (carte 5, branche `claude/carte-5` reprise) est recomposée en plan en damier : Avenue bordée de
+façades → Forum dallé (arène du boss) → grand escalier → Acropole dallée ; escalier est relié à la Voie sacrée le
+long du Temple ; maisons alignées sur les rues, portes de 2 m (la porte du donjon bloque la navigation), ruines avec
+leurs éboulis. Pièces inutilisées du pack retirées. Contrôle automatique réutilisable `DraftLevelAudit`
+(`draft3d/level_audit.gd`, outil `tools/level_audit.tscn`, essai `test_level_composition_audit`) : escaliers, accès
+des terrasses, décors flottants/enterrés/encastrés, zones isolées, apparitions. Règles de composition, audit et
+incohérences des cartes 1 à 4 : docs/maps/CARTES_3D.md ; captures : docs/previews/cartes-3d/.
+- **À valider par le propriétaire** : la Cité recomposée, en jeu.
+- **En attente de validation** : corriger les incohérences des cartes 1 à 4 (dont l'escalier est bouché de la
+  carte 4 et la terrasse d'angle à un seul accès de la carte 1).
