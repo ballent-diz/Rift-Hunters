@@ -7,8 +7,9 @@ extends Control
 const SLOT := 64.0
 const GAP := 34.0
 
+static var _icons: Dictionary = {}
+
 var spells: DraftSpells
-var _icons: Dictionary = {}
 
 
 func _ready() -> void:
@@ -64,9 +65,18 @@ func _text(font: Font, at: Vector2, value: String, font_size: int, color: Color,
 
 
 func _icon(data: SpellData) -> Texture2D:
+	return icon_for(data)
+
+
+## Icône d'un sort : celle de l'arbre de la v1 (`icon.hunter.*`), sinon une image de son effet PixelFX (sorts
+## propres à la v2). Partagée par la barre, les cases sous le Chasseur et les cartes du choix de niveau.
+static func icon_for(data: SpellData) -> Texture2D:
+	if data == null:
+		return null
 	if not _icons.has(data.id):
 		var node: SkillNodeData = HunterTree.spell_node(data.id)
-		_icons[data.id] = HunterTreeSkin.icon(node) if node != null else _fx_icon(data)
+		var tree_icon: Texture2D = HunterTreeSkin.icon(node) if node != null else null
+		_icons[data.id] = tree_icon if tree_icon != null else _fx_icon(data)
 	return _icons[data.id]
 
 

@@ -7,7 +7,7 @@ extends Node3D
 ## Lancement : godot --path . res://draft3d/main.tscn
 ## Options (après --) : --bot (le jeu se joue seul) --passive (bot immobile : défaite) --god --seed=1
 ##   --boss-at=60 --time-scale=4 --perf=50,100,200 --shots=<dossier> --shot-times=20,90 --result (ligne RESULT)
-##   --spells=hunter_mark,void_rend (sorts de départ, 4 au plus)
+##   --spells=hunter_mark,void_rend (sorts de départ, 4 au plus) --cast-at=20 (tous les sorts partent à 20 s)
 ##   --pixel=0 (rendu 3D lisse d'origine ; F4 bascule en partie, docs/art/RENDU_PIXEL_3D.md) --pixel-scale=2
 ##   --pixel-palette=0 (aplats et contours sans palette) --look=x,z[,hauteur de vue]
 
@@ -295,6 +295,12 @@ func _physics_process(delta: float) -> void:
 	if _bot:
 		_bot_step()
 	_auto_attack()
+	if _options.has("cast-at") and time >= float(_options["cast-at"]):
+		# Vérification des animations : tous les sorts partent ensemble, devant le Chasseur (--cast-at=20).
+		_options.erase("cast-at")
+		for i: int in DraftSpells.SLOTS:
+			spells.cooldowns[i] = 0.0
+			spells.cast(i, hunter.global_position + Vector3(4.0, 0.0, 1.5) * (1.0 + i * 0.3))
 	spells.step(delta)
 	_step_bolts(delta)
 	_step_hostile(delta)
@@ -454,8 +460,11 @@ func _auto_attack() -> void:
 func fire_bolt(origin: Vector3, direction: Vector3, damage: float, reach: float, pierce: int, split: int,
 		look: StringName = &"arcane_orb", size: float = 0.0, radius: float = 0.25, speed: float = BOLT_SPEED,
 		family: StringName = DraftPixelFx.DEFAULT_FAMILY) -> Dictionary:
-	var visual: Sprite3D = fx(look, family, origin,
+	# `look` vide : trait sans image (l'animation peinte de la Lance le dessine déjà).
+	var visual: Sprite3D = Sprite3D.new() if look == &"" else fx(look, family, origin,
 		size if size > 0.0 else (0.75 if split >= 0 else 0.5), true)
+	if look == &"":
+		add_child(visual)
 	visual.flip_h = direction.dot(camera.global_basis.x) < 0.0
 	var shot := {"at": origin, "dir": direction, "left": reach, "damage": damage, "pierce": pierce, "split": split,
 		"hit": [], "visual": visual, "radius": radius, "speed": speed}

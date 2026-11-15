@@ -197,8 +197,26 @@ func show_offers(level: int, offers: Array[UpgradeData], upgrades: DraftUpgrades
 		card.add_child(box)
 		var key := _label(box, 14, DIM)
 		key.text = "[%d]" % (i + 1)
-		var name_label := _label(box, 22, data.color.lightened(0.3))
+		# Cartes de sort : icône du sort (celle de la barre) à côté du nom.
+		var title_row := HBoxContainer.new()
+		title_row.add_theme_constant_override("separation", 10)
+		title_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		box.add_child(title_row)
+		var icon: Texture2D = DraftSpellBar.icon_for(spell_of(data))
+		if icon != null:
+			var picture := TextureRect.new()
+			picture.name = "SpellIcon"
+			picture.texture = icon
+			picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			picture.custom_minimum_size = Vector2(40, 40)
+			picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			title_row.add_child(picture)
+		var name_label := _label(title_row, 22, data.color.lightened(0.3))
 		name_label.text = tr(data.name_key)
+		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		name_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		var desc := _label(box, 15, INK)
 		desc.text = tr(data.desc_key)
 		desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
@@ -209,6 +227,15 @@ func show_offers(level: int, offers: Array[UpgradeData], upgrades: DraftUpgrades
 		card.pressed.connect(func() -> void: chosen.emit(i))
 		row.add_child(card)
 		_cards.append(card)
+
+
+## Sort visé par une carte de sort (nouveau sort, variante, rang), null pour une carte de statistique.
+static func spell_of(data: UpgradeData) -> SpellData:
+	for effect: GameplayEffect in data.effects:
+		var spell := effect as DraftSpellEffect
+		if spell != null:
+			return DraftSpells.spell(spell.spell_id)
+	return null
 
 
 func hide_offers() -> void:

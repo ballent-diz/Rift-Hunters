@@ -108,3 +108,19 @@ charges (Deux charges), zones qui suivent le Chasseur (Orage). Ajustements de r�
 3 × les dégâts du sort à un boss au lieu de l'achever ; Onde de stase utilise l'effet de givre (`frost_nova`).
 Essayer : `godot --path . res://draft3d/main.tscn -- --spells=hunter_mark,void_rend,rift_step,stasis_wave`
 (option `--spells=`, 4 sorts au plus). Capture : `docs/previews/sorts-actifs-v2/nouveaux_sorts.webp`.
+
+## 6. Animations peintes de la v1 et icônes (15 novembre 2026)
+
+Demande du propriétaire : les sorts gardent les animations de la v1 et leurs images.
+- **Animations** : `draft3d/spell_vfx.gd` (`DraftSpellVfx`) joue les scènes 2D de Codex (`assets/vfx/hunter/`,
+  manifeste `vfx.hunter.*`) à plat sur le sol 3D. Chaque scène est rendue dans une petite vue transparente, à
+  l'échelle du monde (1 unité v1 = 0,03 m), orientée dans la direction du sort, avec la variante de la carte prise
+  (Tourbillon, Estoc, Éventail, Surcharge, Réaction, Brasier → « inferno », Retour, Impact, Miroir, Horizon,
+  Effondrement, Chaînes, Rempart ardent, Riposte, Second souffle → « sharing », Prisme double, Foyer).
+  Neuf sorts en ont une : Taille, Lance (le trait de jeu devient invisible, l'animation dessine la lance), Bond,
+  Parade (suit le Chasseur, éclat au coup paré), Rupture, Cristal, Singularité, Mur (le volume translucide reste,
+  plus discret), Égide (suit le Chasseur). Les six sorts propres à la v2 gardent leurs effets PixelFX.
+- **Icônes** : celles de l'arbre v1 (`icon.hunter.*`), sinon une image de l'effet PixelFX (sorts v2), dans la barre,
+  dans les cases de recharge sous le Chasseur et sur les cartes de sort du choix de niveau (`DraftSpellBar.icon_for`).
+- Vérification : option `--cast-at=T` (tous les sorts partent à T secondes). Capture :
+  `docs/previews/sorts-actifs-v2/animations_v1.webp`.

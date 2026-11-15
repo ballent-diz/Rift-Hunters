@@ -22,7 +22,7 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 | Zoom / rejouer en fin de partie / pause | molette / R / Échap, P ou Start |
 | Rendu pixel 3D / rendu lisse d'origine | F4 |
 
-Options de vérification (après `--`) : `--bot`, `--spells=hunter_mark,void_rend`, `--passive`, `--god`, `--seed=1`, `--boss-at=30`, `--result`,
+Options de vérification (après `--`) : `--bot`, `--spells=hunter_mark,void_rend`, `--cast-at=20`, `--passive`, `--god`, `--seed=1`, `--boss-at=30`, `--result`,
 `--perf=50,100,200`, `--shots=<dossier> --shot-times=40,95 --quit-after-shots`, `--look=x,z[,hauteur]`,
 `--pixel=0`, `--pixel-palette=0`, `--pixel-scale=2` (rendu pixel : docs/art/RENDU_PIXEL_3D.md).
 

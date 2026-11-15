@@ -36,6 +36,8 @@ var reticle: MeshInstance3D
 var world: DraftSpellWorld
 ## Sorts propres à la v2 (marque, fente, pas, stase, pluie, voile).
 var rift: DraftRiftSpells
+## Animations peintes de la v1 jouées au sol (draft3d/spell_vfx.gd).
+var vfx: DraftSpellVfx
 ## Variante active par sort (identifiant du sort → variante) et ses réglages ; rangs pris par sort et statistique.
 var variants: Dictionary = {}
 var variant_params: Dictionary = {}
@@ -47,6 +49,7 @@ var _reticle_material: StandardMaterial3D
 ## Derniers sorts de Parade et d'Égide lancés (contre-attaque, Riposte).
 var _parry_spell: SpellData
 var _aegis_spell: SpellData
+var _parry_drawn: Node2D
 ## Bond en cours : sort et puissance appliqués à l'atterrissage.
 var _leap_spell: SpellData
 var _leap_power: float = 1.0
@@ -76,6 +79,7 @@ func setup(p_run: DraftRun, ids: Array[StringName]) -> void:
 	run.hunter.shield_broken.connect(_on_shield_broken)
 	world = DraftSpellWorld.new(self)
 	rift = DraftRiftSpells.new(self)
+	vfx = DraftSpellVfx.new(run)
 	reticle = _build_reticle()
 	run.add_child(reticle)
 
@@ -228,6 +232,7 @@ func step(delta: float) -> void:
 	_step_zones(delta)
 	world.step(delta)
 	rift.step(delta)
+	vfx.step()
 	_return_left = maxf(_return_left - delta, 0.0)
 	var hunter: DraftHunter = run.hunter
 	if not hunter.alive or not hunter.active:
@@ -407,9 +412,13 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 	var dir: Vector3 = _direction(aim)
 	var variant: StringName = variant_of(data)
 	var push: Vector3 = dir * data.knockback * DraftHunter.UNIT * 3.0
+	var drawn: Node2D = _anim("cleaving_slash", here, dir, data, reach, {"spell_range": reach / DraftHunter.UNIT,
+		"thrust_range": reach / DraftHunter.UNIT, "half_angle_degrees": data.width}, false, 0.3,
+		DraftSpellVfx.SLASH_CUT_PHASE)
 	if variant == &"thrust":
 		var half_width: float = area_of(data)
-		run.fx(&"arcane_beam", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, reach * 0.4)
+		if drawn == null:
+			run.fx(&"arcane_beam", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, reach * 0.4)
 		for foe: DraftEnemies.Foe in _level(run.enemies.near(here, reach), here):
 			var offset: Vector3 = _flat(foe.pos - here)
 			var along: float = offset.dot(dir)
@@ -418,7 +427,9 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 		return true
 	var whirl: bool = variant == &"whirlwind"
 	var half: float = -1.0 if whirl else cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
-	if whirl:
+	if drawn != null:
+		pass
+	elif whirl:
 		run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, reach * 0.7)
 	# Arc simple : aucun effet PixelFX. La feuille heavy_cleave (coup vertical planté dans le sol) donnait un slash
 	# violet tourné vers le sol à chaque lancement ; l'arc de lame de l'animation d'attaque du Chasseur suffit.
@@ -441,10 +452,16 @@ func _lance(data: SpellData, aim: Vector3) -> bool:
 		count = int(param(data, "count", 3.0))
 		spread = deg_to_rad(param(data, "angle", 15.0))
 		damage *= param(data, "damage", 1.0)
+	# Animation de la v1 : elle dessine la lance ; les traits de jeu deviennent invisibles (comme en v1).
+	var drawn: Node2D = _anim("prismatic_lance", run.hunter.global_position, dir, data, reach_of(data), {
+		"spell_range": reach_of(data) / DraftHunter.UNIT, "projectile_speed": tuning.lance_speed / DraftHunter.UNIT,
+		"half_width": area_of(data) * sqrt(_power) / DraftHunter.UNIT, "fan_angle_degrees": rad_to_deg(spread)},
+		false, 0.75)
 	for i: int in count:
 		var angle: float = spread * (i - (count - 1) * 0.5)
-		run.fire_bolt(origin, dir.rotated(Vector3.UP, angle), damage, reach_of(data), 99, 0, &"ice_lance",
-			1.1 * sqrt(_power), area_of(data) * sqrt(_power), tuning.lance_speed, &"reflets")
+		run.fire_bolt(origin, dir.rotated(Vector3.UP, angle), damage, reach_of(data), 99, 0,
+			&"" if drawn != null else &"ice_lance", 1.1 * sqrt(_power), area_of(data) * sqrt(_power), tuning.lance_speed,
+			&"reflets")
 	return true
 
 
@@ -454,7 +471,7 @@ func _rupture(data: SpellData, aim: Vector3) -> bool:
 	var at: Vector3 = _landing(aim, reach_of(data))
 	var radius: float = area_of(data)
 	var damage: float = damage_of(data) * tuning.rupture_damage_mult * _power
-	var struck: Array[DraftEnemies.Foe] = _detonate(at, radius, damage)
+	var struck: Array[DraftEnemies.Foe] = _detonate(at, radius, damage, data)
 	match variant_of(data):
 		&"reaction":
 			var from: Vector3 = at
@@ -467,17 +484,21 @@ func _rupture(data: SpellData, aim: Vector3) -> bool:
 				if next == null:
 					break
 				from = next.pos
-				struck.append_array(_detonate(from, radius * param(data, "area", 0.6), damage * param(data, "damage", 0.5)))
+				struck.append_array(_detonate(from, radius * param(data, "area", 0.6), damage * param(data, "damage", 0.5),
+					null))
 		&"blaze":
 			var zone := {"at": at, "radius": radius, "left": param(data, "duration", 3.0),
 				"tick": param(data, "tick", 0.5), "clock": 0.0, "damage": damage * param(data, "damage", 0.15),
-				"visual": run.fx(&"fire_ring", &"calcines", at + Vector3.UP * 0.3, radius, true)}
+				"visual": null if DraftSpellVfx.scene("rupture") != null
+					else run.fx(&"fire_ring", &"calcines", at + Vector3.UP * 0.3, radius, true)}
 			_zones.append(zone)
 	return true
 
 
-func _detonate(at: Vector3, radius: float, damage: float) -> Array[DraftEnemies.Foe]:
-	run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
+## Détonation de Rupture ; `data` : sort dont l'animation porte la variante (null : rebond de Réaction, version de base).
+func _detonate(at: Vector3, radius: float, damage: float, data: SpellData) -> Array[DraftEnemies.Foe]:
+	if _anim("rupture", at, Vector3.RIGHT, data, radius, {"spell_range": radius / DraftHunter.UNIT}) == null:
+		run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
 	var foes: Array[DraftEnemies.Foe] = _level(run.enemies.near(at, radius), at)
 	for foe: DraftEnemies.Foe in foes:
 		run.enemies.hit(foe, damage)
@@ -516,7 +537,10 @@ func _step_zones(delta: float) -> void:
 func _leap(data: SpellData, aim: Vector3) -> bool:
 	var hunter: DraftHunter = run.hunter
 	var landing: Vector3 = _landing(aim, reach_of(data))
-	run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.6)
+	var jump: Vector3 = _flat(landing - hunter.global_position)
+	if _anim("rift_leap", hunter.global_position, jump, data, jump.length() + 2.0,
+			{"destination_offset": Vector2(jump.length() / DraftHunter.UNIT, 0.0)}) == null:
+		run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.6)
 	if variant_of(data) == &"return":
 		_return_point = hunter.global_position
 		_return_spell = data.id
@@ -532,7 +556,11 @@ func leap_back() -> bool:
 		return false
 	_return_left = 0.0
 	_leap_spell = null
-	run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, run.hunter.global_position + Vector3.UP * 0.6)
+	var back: Vector3 = _flat(_return_point - run.hunter.global_position)
+	var leaped: SpellData = spell(_return_spell)
+	if _anim("rift_leap", run.hunter.global_position, back, leaped, back.length() + 2.0,
+			{"destination_offset": Vector2(back.length() / DraftHunter.UNIT, 0.0)}) == null:
+		run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, run.hunter.global_position + Vector3.UP * 0.6)
 	run.hunter.leap_to(_return_point, 0.2)
 	return true
 
@@ -548,7 +576,8 @@ func _on_landed() -> void:
 	if variant_of(data) == &"return":
 		_return_left = param(data, "window", 3.0)
 	var size: float = 2.0 * (param(data, "area", 1.0) if impact else 1.0)
-	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, landing + Vector3.UP * 0.4, size)
+	if DraftSpellVfx.scene("rift_leap") == null:
+		run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, landing + Vector3.UP * 0.4, size)
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(landing, area_of(data)), landing):
 		run.enemies.hit(foe, damage_of(data) * _leap_power,
 			_flat(foe.pos - landing).normalized() * data.knockback * DraftHunter.UNIT)
@@ -565,7 +594,9 @@ func _parry(data: SpellData) -> bool:
 		window *= param(data, "window", 1.0)
 	run.hunter.guard_left = window
 	_parry_spell = data
-	run.fx(&"shield_block", DraftPixelFx.DEFAULT_FAMILY, run.hunter.chest(), 1.2)
+	_parry_drawn = _anim("parry", run.hunter.global_position, run.hunter.facing, data, area_of(data), {}, true, 0.3)
+	if _parry_drawn == null:
+		run.fx(&"shield_block", DraftPixelFx.DEFAULT_FAMILY, run.hunter.chest(), 1.2)
 	return true
 
 
@@ -574,7 +605,10 @@ func _on_parried() -> void:
 	if data == null:
 		return
 	var here: Vector3 = run.hunter.global_position
-	run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, area_of(data) * 0.8)
+	if _parry_drawn != null and is_instance_valid(_parry_drawn):
+		_parry_drawn.call("trigger_pulse", Vector2(40, 0), Vector2.RIGHT)
+	else:
+		run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, area_of(data) * 0.8)
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
 		run.enemies.hit(foe, damage_of(data) * float(data.params.get("counter", 1.0)),
 			_flat(foe.pos - here).normalized() * data.knockback * DraftHunter.UNIT)
@@ -601,8 +635,10 @@ func _singularity(data: SpellData, aim: Vector3) -> bool:
 	if variant_of(data) == &"collapse":
 		duration *= param(data, "duration", 1.0)
 		damage *= param(data, "damage", 1.0)
+	var drawn: Node2D = _anim("singularity", at, Vector3.RIGHT, data, area_of(data) * 1.6, {
+		"spell_range": area_of(data) / DraftHunter.UNIT, "active_duration": duration})
 	world.add_well(at, area_of(data), duration,
-		float(data.params.get("pull", 0.0)) * DraftHunter.UNIT * tuning.singularity_pull_scale, damage)
+		float(data.params.get("pull", 0.0)) * DraftHunter.UNIT * tuning.singularity_pull_scale, damage, drawn != null)
 	return true
 
 
@@ -613,7 +649,10 @@ func _wall(data: SpellData, aim: Vector3) -> bool:
 	var at: Vector3 = _landing(aim, reach_of(data))
 	var root: float = param(data, "root", 0.0) if variant_of(data) == &"chains" else 0.0
 	var burn: float = scaled(data, param(data, "damage", 0.0)) if variant_of(data) == &"burning" else 0.0
-	world.add_wall(at, Vector3(-dir.z, 0, dir.x), area_of(data), duration_of(data), root, burn, param(data, "tick", 0.5))
+	var drawn: Node2D = _anim("rift_wall", at, dir, data, area_of(data) * 0.6, {
+		"spell_range": area_of(data) / DraftHunter.UNIT, "active_duration": duration_of(data)})
+	world.add_wall(at, Vector3(-dir.z, 0, dir.x), area_of(data), duration_of(data), root, burn, param(data, "tick", 0.5),
+		drawn != null)
 	return true
 
 
@@ -628,7 +667,9 @@ func _aegis(data: SpellData) -> bool:
 	hunter.shield = amount
 	hunter.shield_left = duration_of(data)
 	_aegis_spell = data
-	run.fx(&"shield_block", &"reflets", hunter.chest(), 1.6)
+	if _anim("rift_aegis", hunter.global_position, hunter.facing, data, 2.5, {"active_duration": duration_of(data)},
+			true, 0.1) == null:
+		run.fx(&"shield_block", &"reflets", hunter.chest(), 1.6)
 	return true
 
 
@@ -651,11 +692,32 @@ func _crystal(data: SpellData, aim: Vector3) -> bool:
 	var side: Vector3 = _direction(aim).rotated(Vector3.UP, PI * 0.5) * param(data, "gap", 0.0)
 	for i: int in count:
 		var offset: Vector3 = side * (i - (count - 1) * 0.5)
-		world.add_crystal(run.level.closest(at + offset), area_of(data), duration_of(data), variant_of(data) == &"focus")
+		var spot: Vector3 = run.level.closest(at + offset)
+		var drawn: Node2D = _anim("refractor_crystal", spot, _direction(aim), data, 2.0,
+			{"active_duration": duration_of(data)})
+		world.add_crystal(spot, area_of(data), duration_of(data), variant_of(data) == &"focus", drawn != null)
 	return true
 
 
 # --- Outils -------------------------------------------------------------------------------------------------------
+
+## Animation peinte v1 `effect_id` au sol en `at`, orientée selon `dir`, variante du sort, propriétés `props` (unités
+## v1) ; `extent` : rayon du dessin (m). Null sans scène : l'appelant joue alors son effet PixelFX.
+func _anim(effect_id: String, at: Vector3, dir: Vector3, data: SpellData, extent: float, props: Dictionary = {},
+		follow: bool = false, lift: float = 0.06, from_phase: float = 0.0) -> Node2D:
+	var variant: StringName = DraftSpellVfx.variant_name(variant_of(data)) if data != null else &"base"
+	var flat: Vector2 = DraftSpellVfx.flat(dir)
+	return vfx.spawn(effect_id, at, extent / DraftHunter.UNIT,
+		func(node: Node2D) -> void:
+			if from_phase > 0.0 and node.has_method("play_from"):
+				node.call("play_from", flat, variant, from_phase)
+			else:
+				node.call("play", flat, variant),
+		func(node: Node2D) -> void:
+			for key: String in props:
+				node.set(key, props[key]),
+		follow, lift)
+
 
 ## Direction horizontale vers la visée (devant le Chasseur si la visée est sur lui).
 func _direction(aim: Vector3) -> Vector3:

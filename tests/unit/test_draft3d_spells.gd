@@ -607,3 +607,33 @@ func test_cooldowns_under_the_hunter() -> void:
 	check(Rect2(Vector2.ZERO, size).has_point(point), "le Chasseur est à l'écran (%s)" % point)
 	if run.camera.get_viewport() == run.get_viewport():
 		check(point.distance_to(run.camera.unproject_position(feet)) < 2.0, "même position que la caméra")
+
+
+func test_spell_icons_everywhere() -> void:
+	for data: UpgradeData in DraftUpgrades.new().spell_cards:
+		var spell: SpellData = DraftHud.spell_of(data)
+		check(spell != null and DraftSpellBar.icon_for(spell) != null, "%s : icône du sort" % data.id)
+	await _start()
+	run.hud.show_offers(2, [_card("learn_rupture"), _card("slash_edge")] as Array[UpgradeData], run.upgrades)
+	var icons: int = 0
+	for node: Node in run.hud.find_children("SpellIcon", "TextureRect", true, false):
+		icons += 1
+	check_eq(icons, 2, "les cartes de sort montrent l'icône du sort")
+	run.hud.hide_offers()
+
+
+func test_v1_animations_play_on_the_ground() -> void:
+	await _start()
+	for id: String in ["cleaving_slash", "prismatic_lance", "rift_leap", "parry", "rupture", "refractor_crystal",
+			"singularity", "rift_wall", "rift_aegis"]:
+		check(DraftSpellVfx.scene(id) != null, "animation v1 présente : %s" % id)
+	run.spells.cooldowns[0] = 0.0
+	run.spells.cast(0, run.hunter.global_position + Vector3(4, 0, 0))
+	check_eq(run.spells.vfx.playing.size(), 1, "la Taille joue son animation peinte")
+	var before: int = run.bolts.size()
+	run.spells.cooldowns[1] = 0.0
+	run.spells.cast(1, run.hunter.global_position + Vector3(4, 0, 0))
+	check_eq(run.spells.vfx.playing.size(), 2, "la Lance joue son animation prismatique")
+	check((run.bolts[before]["visual"] as Sprite3D).texture == null, "le trait de jeu de la Lance est invisible")
+	await _frames(90)
+	check(run.spells.vfx.playing.is_empty(), "les animations finies sont retirées")
