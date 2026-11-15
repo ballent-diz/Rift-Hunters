@@ -1,5 +1,14 @@
 # Rift Hunters — feuille de route
 
+## Bug : slash violet tourné vers le sol (Claude, session « Correction de bugs », 15 novembre 2026)
+
+- Cause : la Taille fendante (sort n°1 par défaut, flèche → au clavier seul, gâchette droite à la manette) jouait
+  la feuille PixelFX `heavy_cleave/violet`, un coup vertical planté dans le sol, alors que le sort frappe en arc
+  horizontal vers la visée. Les sorts par défaut (Taille, Lance) sont équipés même sans action du joueur.
+- Correction : l'attaque est gardée (dégâts et arc inchangés), le visuel `heavy_cleave` est retiré ; la Taille
+  joue l'animation d'attaque complète du Chasseur, dont les dernières images portent son arc de lame.
+- Test : `test_draft3d_spells::test_slash_plays_no_ground_cleave`.
+
 ## Sorts actifs du Chasseur en 3D (Claude, session « Gameplay », 14 novembre 2026)
 
 Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).

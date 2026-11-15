@@ -83,6 +83,22 @@ func test_slash_hits_the_arc_in_front_only() -> void:
 	check(not _hurt(behind), "l'ennemi derrière ne l'est pas")
 
 
+## Bug du slash violet tourné vers le sol : la Taille simple ne joue plus la feuille heavy_cleave.
+func test_slash_plays_no_ground_cleave() -> void:
+	await _start()
+	_foe(Vector3(2.5, 0, 0))
+	await _frames(2)
+	run.spells.cooldowns[0] = 0.0
+	check(run.spells.cast(0, run.hunter.global_position + Vector3(4, 0, 0)), "la Taille part")
+	var cleaves: int = 0
+	for child: Node in run.get_children():
+		if child is DraftPixelFx and (child as DraftPixelFx).texture != null \
+				and (child as DraftPixelFx).texture.resource_path.contains("heavy_cleave"):
+			cleaves += 1
+	check_eq(cleaves, 0, "aucun slash violet heavy_cleave")
+	check_eq(run.hunter.view.animation, &"attack", "le Chasseur joue son attaque (arc de lame)")
+
+
 func test_lance_pierces_the_line() -> void:
 	await _start()
 	var first: DraftEnemies.Foe = _foe(Vector3(3, 0, 0))

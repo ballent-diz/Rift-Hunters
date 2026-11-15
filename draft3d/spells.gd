@@ -297,7 +297,8 @@ func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
 		casts += 1
 		Audio.play_sfx(&"technique")
 		run.hunter.view.face_left(_flat(aim - run.hunter.global_position).dot(run.camera.global_basis.x) < 0.0)
-		run.hunter.view.play_action(&"attack", 0.25)
+		# Animation complète pour la Taille : ses dernières images portent l'arc de lame du Chasseur.
+		run.hunter.view.play_action(&"attack", -1.0 if data.spell_kind == &"slash" else 0.25)
 	return done
 
 
@@ -400,8 +401,8 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 	var half: float = -1.0 if whirl else cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
 	if whirl:
 		run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, reach * 0.7)
-	else:
-		run.fx(&"heavy_cleave", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, 2.2)
+	# Arc simple : aucun effet PixelFX. La feuille heavy_cleave (coup vertical planté dans le sol) donnait un slash
+	# violet tourné vers le sol à chaque lancement ; l'arc de lame de l'animation d'attaque du Chasseur suffit.
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, reach), here):
 		var offset: Vector3 = _flat(foe.pos - here)
 		if offset.length() < foe.radius + 0.4 or offset.normalized().dot(dir) >= half:
