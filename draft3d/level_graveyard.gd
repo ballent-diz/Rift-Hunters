@@ -41,6 +41,10 @@ func build() -> void:
 	_dead_wood()
 	_ossuary()
 	_setup_navigation()
+	var matter := Node3D.new()
+	matter.set_script(preload("res://draft3d/matter/graveyard/dressing.gd"))
+	add_child(matter)
+	matter.setup(self)
 
 
 func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box", size: float = 1.0) -> Node3D:

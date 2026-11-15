@@ -92,13 +92,13 @@ def face_image(module, normal, area, projected, bounds, panels):
     return source.resize((width, height), Image.Resampling.NEAREST), role
 
 
-def pack(patches):
-    """Atlas de 512 px de large, gouttière de 2 px étendue aux bords, aucune répétition UV."""
+def pack(patches, atlas_width=512, max_height=2048):
+    """Atlas de 512 px par défaut, gouttière de 2 px étendue aux bords ; dimensions réglables pour les grands props."""
     x = y = row_height = 0
     for patch in sorted(patches, key=lambda p: p["image"].height, reverse=True):
         width, height = patch["image"].size
-        assert width + 4 <= 512
-        if x + width + 4 > 512:
+        assert width + 4 <= atlas_width
+        if x + width + 4 > atlas_width:
             x = 0
             y += row_height
             row_height = 0
@@ -106,8 +106,8 @@ def pack(patches):
         x += width + 4
         row_height = max(row_height, height + 4)
     height = 2 ** math.ceil(math.log2(max(y + row_height, 32)))
-    assert height <= 2048
-    atlas = Image.new("RGB", (512, height), patches[0]["image"].getpixel((0, 0)))
+    assert height <= max_height
+    atlas = Image.new("RGB", (atlas_width, height), patches[0]["image"].getpixel((0, 0)))
     for patch in patches:
         image, (x, y) = patch["image"], patch["at"]
         atlas.paste(image, (x, y))

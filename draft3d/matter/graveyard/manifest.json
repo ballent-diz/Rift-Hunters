@@ -1,0 +1,392 @@
+{
+	"arch_gate": {
+		"meshes": [
+			{
+				"key": "arch_gate_00",
+				"node_path": "arch_gate",
+				"path": "res://draft3d/matter/graveyard/meshes/arch_gate_00.res"
+			},
+			{
+				"key": "arch_gate_01",
+				"node_path": "arch_gate/arch_gate_left",
+				"path": "res://draft3d/matter/graveyard/meshes/arch_gate_01.res"
+			},
+			{
+				"key": "arch_gate_02",
+				"node_path": "arch_gate/arch_gate_right",
+				"path": "res://draft3d/matter/graveyard/meshes/arch_gate_02.res"
+			}
+		],
+		"source": "res://draft3d/halloween/arch_gate.gltf"
+	},
+	"bench": {
+		"meshes": [
+			{
+				"key": "bench_00",
+				"node_path": "bench",
+				"path": "res://draft3d/matter/graveyard/meshes/bench_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/bench.gltf"
+	},
+	"bench_decorated": {
+		"meshes": [
+			{
+				"key": "bench_decorated_00",
+				"node_path": "bench_decorated",
+				"path": "res://draft3d/matter/graveyard/meshes/bench_decorated_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/bench_decorated.gltf"
+	},
+	"bone_A": {
+		"meshes": [
+			{
+				"key": "bone_A_00",
+				"node_path": "bone_A",
+				"path": "res://draft3d/matter/graveyard/meshes/bone_A_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/bone_A.gltf"
+	},
+	"coffin": {
+		"meshes": [
+			{
+				"key": "coffin_00",
+				"node_path": "coffin",
+				"path": "res://draft3d/matter/graveyard/meshes/coffin_00.res"
+			},
+			{
+				"key": "coffin_01",
+				"node_path": "coffin/coffin_lid",
+				"path": "res://draft3d/matter/graveyard/meshes/coffin_01.res"
+			}
+		],
+		"source": "res://draft3d/halloween/coffin.gltf"
+	},
+	"coffin_decorated": {
+		"meshes": [
+			{
+				"key": "coffin_decorated_00",
+				"node_path": "coffin_decorated",
+				"path": "res://draft3d/matter/graveyard/meshes/coffin_decorated_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/coffin_decorated.gltf"
+	},
+	"crypt": {
+		"meshes": [
+			{
+				"key": "crypt_00",
+				"node_path": "crypt",
+				"path": "res://draft3d/matter/graveyard/meshes/crypt_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/crypt.gltf"
+	},
+	"fence": {
+		"meshes": [
+			{
+				"key": "fence_00",
+				"node_path": "fence",
+				"path": "res://draft3d/matter/graveyard/meshes/fence_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/fence.gltf"
+	},
+	"fence_broken": {
+		"meshes": [
+			{
+				"key": "fence_broken_00",
+				"node_path": "fence_broken",
+				"path": "res://draft3d/matter/graveyard/meshes/fence_broken_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/fence_broken.gltf"
+	},
+	"fence_seperate": {
+		"meshes": [
+			{
+				"key": "fence_seperate_00",
+				"node_path": "fence_seperate",
+				"path": "res://draft3d/matter/graveyard/meshes/fence_seperate_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/fence_seperate.gltf"
+	},
+	"fence_seperate_broken": {
+		"meshes": [
+			{
+				"key": "fence_seperate_broken_00",
+				"node_path": "fence_seperate_broken",
+				"path": "res://draft3d/matter/graveyard/meshes/fence_seperate_broken_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/fence_seperate_broken.gltf"
+	},
+	"grave_A": {
+		"meshes": [
+			{
+				"key": "grave_A_00",
+				"node_path": "grave_A",
+				"path": "res://draft3d/matter/graveyard/meshes/grave_A_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/grave_A.gltf"
+	},
+	"grave_A_destroyed": {
+		"meshes": [
+			{
+				"key": "grave_A_destroyed_00",
+				"node_path": "grave_A_destroyed",
+				"path": "res://draft3d/matter/graveyard/meshes/grave_A_destroyed_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/grave_A_destroyed.gltf"
+	},
+	"grave_B": {
+		"meshes": [
+			{
+				"key": "grave_B_00",
+				"node_path": "grave_B",
+				"path": "res://draft3d/matter/graveyard/meshes/grave_B_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/grave_B.gltf"
+	},
+	"gravemarker_A": {
+		"meshes": [
+			{
+				"key": "gravemarker_A_00",
+				"node_path": "gravemarker_A",
+				"path": "res://draft3d/matter/graveyard/meshes/gravemarker_A_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/gravemarker_A.gltf"
+	},
+	"gravemarker_B": {
+		"meshes": [
+			{
+				"key": "gravemarker_B_00",
+				"node_path": "gravemarker_B",
+				"path": "res://draft3d/matter/graveyard/meshes/gravemarker_B_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/gravemarker_B.gltf"
+	},
+	"gravestone": {
+		"meshes": [
+			{
+				"key": "gravestone_00",
+				"node_path": "gravestone",
+				"path": "res://draft3d/matter/graveyard/meshes/gravestone_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/gravestone.gltf"
+	},
+	"path_A": {
+		"meshes": [
+			{
+				"key": "path_A_00",
+				"node_path": "path_A",
+				"path": "res://draft3d/matter/graveyard/meshes/path_A_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/path_A.gltf"
+	},
+	"path_B": {
+		"meshes": [
+			{
+				"key": "path_B_00",
+				"node_path": "path_B",
+				"path": "res://draft3d/matter/graveyard/meshes/path_B_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/path_B.gltf"
+	},
+	"path_C": {
+		"meshes": [
+			{
+				"key": "path_C_00",
+				"node_path": "path_C",
+				"path": "res://draft3d/matter/graveyard/meshes/path_C_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/path_C.gltf"
+	},
+	"pillar": {
+		"meshes": [
+			{
+				"key": "pillar_00",
+				"node_path": "pillar",
+				"path": "res://draft3d/matter/graveyard/meshes/pillar_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/pillar.gltf"
+	},
+	"plaque_candles": {
+		"meshes": [
+			{
+				"key": "plaque_candles_00",
+				"node_path": "plaque_candles",
+				"path": "res://draft3d/matter/graveyard/meshes/plaque_candles_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/plaque_candles.gltf"
+	},
+	"post_lantern": {
+		"meshes": [
+			{
+				"key": "post_lantern_00",
+				"node_path": "post_lantern",
+				"path": "res://draft3d/matter/graveyard/meshes/post_lantern_00.res"
+			},
+			{
+				"key": "post_lantern_01",
+				"node_path": "post_lantern/post_lantern_lantern",
+				"path": "res://draft3d/matter/graveyard/meshes/post_lantern_01.res"
+			}
+		],
+		"source": "res://draft3d/halloween/post_lantern.gltf"
+	},
+	"ribcage": {
+		"meshes": [
+			{
+				"key": "ribcage_00",
+				"node_path": "ribcage",
+				"path": "res://draft3d/matter/graveyard/meshes/ribcage_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/ribcage.gltf"
+	},
+	"shrine": {
+		"meshes": [
+			{
+				"key": "shrine_00",
+				"node_path": "shrine",
+				"path": "res://draft3d/matter/graveyard/meshes/shrine_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/shrine.gltf"
+	},
+	"shrine_candles": {
+		"meshes": [
+			{
+				"key": "shrine_candles_00",
+				"node_path": "shrine_candles",
+				"path": "res://draft3d/matter/graveyard/meshes/shrine_candles_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/shrine_candles.gltf"
+	},
+	"skull": {
+		"meshes": [
+			{
+				"key": "skull_00",
+				"node_path": "skull",
+				"path": "res://draft3d/matter/graveyard/meshes/skull_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/skull.gltf"
+	},
+	"skull_candle": {
+		"meshes": [
+			{
+				"key": "skull_candle_00",
+				"node_path": "skull_candle",
+				"path": "res://draft3d/matter/graveyard/meshes/skull_candle_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/skull_candle.gltf"
+	},
+	"tree_dead_large": {
+		"meshes": [
+			{
+				"key": "tree_dead_large_00",
+				"node_path": "tree_dead_large",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_dead_large_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_dead_large.gltf"
+	},
+	"tree_dead_large_decorated": {
+		"meshes": [
+			{
+				"key": "tree_dead_large_decorated_00",
+				"node_path": "tree_dead_large_decorated",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_dead_large_decorated_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_dead_large_decorated.gltf"
+	},
+	"tree_dead_medium": {
+		"meshes": [
+			{
+				"key": "tree_dead_medium_00",
+				"node_path": "tree_dead_medium",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_dead_medium_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_dead_medium.gltf"
+	},
+	"tree_dead_small": {
+		"meshes": [
+			{
+				"key": "tree_dead_small_00",
+				"node_path": "tree_dead_small",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_dead_small_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_dead_small.gltf"
+	},
+	"tree_pine_orange_large": {
+		"meshes": [
+			{
+				"key": "tree_pine_orange_large_00",
+				"node_path": "tree_pine_orange_large",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_pine_orange_large_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_pine_orange_large.gltf"
+	},
+	"tree_pine_orange_medium": {
+		"meshes": [
+			{
+				"key": "tree_pine_orange_medium_00",
+				"node_path": "tree_pine_orange_medium",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_pine_orange_medium_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_pine_orange_medium.gltf"
+	},
+	"tree_pine_orange_small": {
+		"meshes": [
+			{
+				"key": "tree_pine_orange_small_00",
+				"node_path": "tree_pine_orange_small",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_pine_orange_small_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_pine_orange_small.gltf"
+	},
+	"tree_pine_yellow_medium": {
+		"meshes": [
+			{
+				"key": "tree_pine_yellow_medium_00",
+				"node_path": "tree_pine_yellow_medium",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_pine_yellow_medium_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_pine_yellow_medium.gltf"
+	},
+	"tree_pine_yellow_small": {
+		"meshes": [
+			{
+				"key": "tree_pine_yellow_small_00",
+				"node_path": "tree_pine_yellow_small",
+				"path": "res://draft3d/matter/graveyard/meshes/tree_pine_yellow_small_00.res"
+			}
+		],
+		"source": "res://draft3d/halloween/tree_pine_yellow_small.gltf"
+	}
+}
