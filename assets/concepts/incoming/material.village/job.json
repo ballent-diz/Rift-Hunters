@@ -1,0 +1,29 @@
+{
+  "visual_id": "material.village",
+  "kind": "module_uv_templates",
+  "status": "wip",
+  "generated_with": "imagegen",
+  "source": "source/materials.png",
+  "grid": [
+    4,
+    2
+  ],
+  "slots": [
+    "plaster",
+    "wood",
+    "roof",
+    "cloth",
+    "bark",
+    "foliage",
+    "straw",
+    "water"
+  ],
+  "max_atlas_colors": 48,
+  "texels_per_m": 40,
+  "references": [
+    "material.painted_kit/source/templates.png#panel_3",
+    "painted_kit/ground/terrain.png",
+    "cour/textures/iron.png"
+  ],
+  "geometry_and_collisions": "unchanged"
+}

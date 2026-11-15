@@ -1,0 +1,447 @@
+{
+	"barrel_s600": {
+		"id": "barrel",
+		"meshes": [
+			{
+				"key": "barrel_s600_00",
+				"node_path": "barrel",
+				"path": "res://draft3d/matter/village/meshes/barrel_s600_00.res"
+			}
+		],
+		"scale": 6,
+		"source": "res://draft3d/medieval/barrel.gltf"
+	},
+	"building_blacksmith_blue_s500": {
+		"id": "building_blacksmith_blue",
+		"meshes": [
+			{
+				"key": "building_blacksmith_blue_s500_00",
+				"node_path": "building_blacksmith_blue",
+				"path": "res://draft3d/matter/village/meshes/building_blacksmith_blue_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_blacksmith_blue.gltf"
+	},
+	"building_church_blue_s500": {
+		"id": "building_church_blue",
+		"meshes": [
+			{
+				"key": "building_church_blue_s500_00",
+				"node_path": "building_church_blue",
+				"path": "res://draft3d/matter/village/meshes/building_church_blue_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_church_blue.gltf"
+	},
+	"building_destroyed_s500": {
+		"id": "building_destroyed",
+		"meshes": [
+			{
+				"key": "building_destroyed_s500_00",
+				"node_path": "building_destroyed",
+				"path": "res://draft3d/matter/village/meshes/building_destroyed_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_destroyed.gltf"
+	},
+	"building_grain_s450": {
+		"id": "building_grain",
+		"meshes": [
+			{
+				"key": "building_grain_s450_00",
+				"node_path": "building_grain",
+				"path": "res://draft3d/matter/village/meshes/building_grain_s450_00.res"
+			}
+		],
+		"scale": 4.5,
+		"source": "res://draft3d/medieval/building_grain.gltf"
+	},
+	"building_home_A_blue_s500": {
+		"id": "building_home_A_blue",
+		"meshes": [
+			{
+				"key": "building_home_A_blue_s500_00",
+				"node_path": "building_home_A_blue",
+				"path": "res://draft3d/matter/village/meshes/building_home_A_blue_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_home_A_blue.gltf"
+	},
+	"building_home_B_blue_s500": {
+		"id": "building_home_B_blue",
+		"meshes": [
+			{
+				"key": "building_home_B_blue_s500_00",
+				"node_path": "building_home_B_blue",
+				"path": "res://draft3d/matter/village/meshes/building_home_B_blue_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_home_B_blue.gltf"
+	},
+	"building_lumbermill_blue_s500": {
+		"id": "building_lumbermill_blue",
+		"meshes": [
+			{
+				"key": "building_lumbermill_blue_s500_00",
+				"node_path": "building_lumbermill_blue",
+				"path": "res://draft3d/matter/village/meshes/building_lumbermill_blue_s500_00.res"
+			},
+			{
+				"key": "building_lumbermill_blue_s500_01",
+				"node_path": "building_lumbermill_blue/building_lumbermill_saw_blue",
+				"path": "res://draft3d/matter/village/meshes/building_lumbermill_blue_s500_01.res"
+			},
+			{
+				"key": "building_lumbermill_blue_s500_02",
+				"node_path": "building_lumbermill_blue/building_lumbermill_top_blue",
+				"path": "res://draft3d/matter/village/meshes/building_lumbermill_blue_s500_02.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_lumbermill_blue.gltf"
+	},
+	"building_market_blue_s500": {
+		"id": "building_market_blue",
+		"meshes": [
+			{
+				"key": "building_market_blue_s500_00",
+				"node_path": "building_market_blue",
+				"path": "res://draft3d/matter/village/meshes/building_market_blue_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_market_blue.gltf"
+	},
+	"building_tavern_blue_s500": {
+		"id": "building_tavern_blue",
+		"meshes": [
+			{
+				"key": "building_tavern_blue_s500_00",
+				"node_path": "building_tavern_blue",
+				"path": "res://draft3d/matter/village/meshes/building_tavern_blue_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_tavern_blue.gltf"
+	},
+	"building_tower_A_blue_s500": {
+		"id": "building_tower_A_blue",
+		"meshes": [
+			{
+				"key": "building_tower_A_blue_s500_00",
+				"node_path": "building_tower_A_blue",
+				"path": "res://draft3d/matter/village/meshes/building_tower_A_blue_s500_00.res"
+			},
+			{
+				"key": "building_tower_A_blue_s500_01",
+				"node_path": "building_tower_A_blue/building_tower_A_top_blue",
+				"path": "res://draft3d/matter/village/meshes/building_tower_A_blue_s500_01.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_tower_A_blue.gltf"
+	},
+	"building_well_blue_s500": {
+		"id": "building_well_blue",
+		"meshes": [
+			{
+				"key": "building_well_blue_s500_00",
+				"node_path": "building_well_blue",
+				"path": "res://draft3d/matter/village/meshes/building_well_blue_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_well_blue.gltf"
+	},
+	"building_windmill_blue_s500": {
+		"id": "building_windmill_blue",
+		"meshes": [
+			{
+				"key": "building_windmill_blue_s500_00",
+				"node_path": "building_windmill_blue",
+				"path": "res://draft3d/matter/village/meshes/building_windmill_blue_s500_00.res"
+			},
+			{
+				"key": "building_windmill_blue_s500_01",
+				"node_path": "building_windmill_blue/building_windmill_top_blue",
+				"path": "res://draft3d/matter/village/meshes/building_windmill_blue_s500_01.res"
+			},
+			{
+				"key": "building_windmill_blue_s500_02",
+				"node_path": "building_windmill_blue/building_windmill_top_blue/building_windmill_top_fan_blue",
+				"path": "res://draft3d/matter/village/meshes/building_windmill_blue_s500_02.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/building_windmill_blue.gltf"
+	},
+	"crate_A_big_s600": {
+		"id": "crate_A_big",
+		"meshes": [
+			{
+				"key": "crate_A_big_s600_00",
+				"node_path": "crate_A_big",
+				"path": "res://draft3d/matter/village/meshes/crate_A_big_s600_00.res"
+			}
+		],
+		"scale": 6,
+		"source": "res://draft3d/medieval/crate_A_big.gltf"
+	},
+	"crate_long_B_s500": {
+		"id": "crate_long_B",
+		"meshes": [
+			{
+				"key": "crate_long_B_s500_00",
+				"node_path": "crate_long_B",
+				"path": "res://draft3d/matter/village/meshes/crate_long_B_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/crate_long_B.gltf"
+	},
+	"fence_stone_straight_s400": {
+		"id": "fence_stone_straight",
+		"meshes": [
+			{
+				"key": "fence_stone_straight_s400_00",
+				"node_path": "fence_stone_straight",
+				"path": "res://draft3d/matter/village/meshes/fence_stone_straight_s400_00.res"
+			}
+		],
+		"scale": 4,
+		"source": "res://draft3d/medieval/fence_stone_straight.gltf"
+	},
+	"fence_stone_straight_s500": {
+		"id": "fence_stone_straight",
+		"meshes": [
+			{
+				"key": "fence_stone_straight_s500_00",
+				"node_path": "fence_stone_straight",
+				"path": "res://draft3d/matter/village/meshes/fence_stone_straight_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/fence_stone_straight.gltf"
+	},
+	"fence_wood_straight_s500": {
+		"id": "fence_wood_straight",
+		"meshes": [
+			{
+				"key": "fence_wood_straight_s500_00",
+				"node_path": "fence_wood_straight",
+				"path": "res://draft3d/matter/village/meshes/fence_wood_straight_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/fence_wood_straight.gltf"
+	},
+	"flag_blue_s800": {
+		"id": "flag_blue",
+		"meshes": [
+			{
+				"key": "flag_blue_s800_00",
+				"node_path": "flag_blue",
+				"path": "res://draft3d/matter/village/meshes/flag_blue_s800_00.res"
+			}
+		],
+		"scale": 8,
+		"source": "res://draft3d/medieval/flag_blue.gltf"
+	},
+	"resource_lumber_s600": {
+		"id": "resource_lumber",
+		"meshes": [
+			{
+				"key": "resource_lumber_s600_00",
+				"node_path": "resource_lumber",
+				"path": "res://draft3d/matter/village/meshes/resource_lumber_s600_00.res"
+			}
+		],
+		"scale": 6,
+		"source": "res://draft3d/medieval/resource_lumber.gltf"
+	},
+	"rock_single_A_s400": {
+		"id": "rock_single_A",
+		"meshes": [
+			{
+				"key": "rock_single_A_s400_00",
+				"node_path": "rock_single_A",
+				"path": "res://draft3d/matter/village/meshes/rock_single_A_s400_00.res"
+			}
+		],
+		"scale": 4,
+		"source": "res://draft3d/medieval/rock_single_A.gltf"
+	},
+	"rock_single_C_s400": {
+		"id": "rock_single_C",
+		"meshes": [
+			{
+				"key": "rock_single_C_s400_00",
+				"node_path": "rock_single_C",
+				"path": "res://draft3d/matter/village/meshes/rock_single_C_s400_00.res"
+			}
+		],
+		"scale": 4,
+		"source": "res://draft3d/medieval/rock_single_C.gltf"
+	},
+	"rock_single_E_s400": {
+		"id": "rock_single_E",
+		"meshes": [
+			{
+				"key": "rock_single_E_s400_00",
+				"node_path": "rock_single_E",
+				"path": "res://draft3d/matter/village/meshes/rock_single_E_s400_00.res"
+			}
+		],
+		"scale": 4,
+		"source": "res://draft3d/medieval/rock_single_E.gltf"
+	},
+	"rock_single_E_s700": {
+		"id": "rock_single_E",
+		"meshes": [
+			{
+				"key": "rock_single_E_s700_00",
+				"node_path": "rock_single_E",
+				"path": "res://draft3d/matter/village/meshes/rock_single_E_s700_00.res"
+			}
+		],
+		"scale": 7,
+		"source": "res://draft3d/medieval/rock_single_E.gltf"
+	},
+	"sack_s800": {
+		"id": "sack",
+		"meshes": [
+			{
+				"key": "sack_s800_00",
+				"node_path": "sack",
+				"path": "res://draft3d/matter/village/meshes/sack_s800_00.res"
+			}
+		],
+		"scale": 8,
+		"source": "res://draft3d/medieval/sack.gltf"
+	},
+	"tent_s600": {
+		"id": "tent",
+		"meshes": [
+			{
+				"key": "tent_s600_00",
+				"node_path": "tent",
+				"path": "res://draft3d/matter/village/meshes/tent_s600_00.res"
+			}
+		],
+		"scale": 6,
+		"source": "res://draft3d/medieval/tent.gltf"
+	},
+	"tree_single_A_s500": {
+		"id": "tree_single_A",
+		"meshes": [
+			{
+				"key": "tree_single_A_s500_00",
+				"node_path": "tree_single_A",
+				"path": "res://draft3d/matter/village/meshes/tree_single_A_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/tree_single_A.gltf"
+	},
+	"tree_single_B_s500": {
+		"id": "tree_single_B",
+		"meshes": [
+			{
+				"key": "tree_single_B_s500_00",
+				"node_path": "tree_single_B",
+				"path": "res://draft3d/matter/village/meshes/tree_single_B_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/tree_single_B.gltf"
+	},
+	"trees_A_medium_s500": {
+		"id": "trees_A_medium",
+		"meshes": [
+			{
+				"key": "trees_A_medium_s500_00",
+				"node_path": "trees_A_medium",
+				"path": "res://draft3d/matter/village/meshes/trees_A_medium_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/trees_A_medium.gltf"
+	},
+	"trees_A_small_s500": {
+		"id": "trees_A_small",
+		"meshes": [
+			{
+				"key": "trees_A_small_s500_00",
+				"node_path": "trees_A_small",
+				"path": "res://draft3d/matter/village/meshes/trees_A_small_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/trees_A_small.gltf"
+	},
+	"trees_B_large_s500": {
+		"id": "trees_B_large",
+		"meshes": [
+			{
+				"key": "trees_B_large_s500_00",
+				"node_path": "trees_B_large",
+				"path": "res://draft3d/matter/village/meshes/trees_B_large_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/trees_B_large.gltf"
+	},
+	"trees_B_medium_s500": {
+		"id": "trees_B_medium",
+		"meshes": [
+			{
+				"key": "trees_B_medium_s500_00",
+				"node_path": "trees_B_medium",
+				"path": "res://draft3d/matter/village/meshes/trees_B_medium_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/trees_B_medium.gltf"
+	},
+	"trees_B_small_s500": {
+		"id": "trees_B_small",
+		"meshes": [
+			{
+				"key": "trees_B_small_s500_00",
+				"node_path": "trees_B_small",
+				"path": "res://draft3d/matter/village/meshes/trees_B_small_s500_00.res"
+			}
+		],
+		"scale": 5,
+		"source": "res://draft3d/medieval/trees_B_small.gltf"
+	},
+	"weaponrack_s600": {
+		"id": "weaponrack",
+		"meshes": [
+			{
+				"key": "weaponrack_s600_00",
+				"node_path": "weaponrack",
+				"path": "res://draft3d/matter/village/meshes/weaponrack_s600_00.res"
+			}
+		],
+		"scale": 6,
+		"source": "res://draft3d/medieval/weaponrack.gltf"
+	},
+	"wheelbarrow_s600": {
+		"id": "wheelbarrow",
+		"meshes": [
+			{
+				"key": "wheelbarrow_s600_00",
+				"node_path": "wheelbarrow",
+				"path": "res://draft3d/matter/village/meshes/wheelbarrow_s600_00.res"
+			}
+		],
+		"scale": 6,
+		"source": "res://draft3d/medieval/wheelbarrow.gltf"
+	}
+}

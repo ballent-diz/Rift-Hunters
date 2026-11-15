@@ -44,6 +44,10 @@ func build() -> void:
 	_knoll()
 	_grove()
 	_setup_navigation()
+	var matter := Node3D.new()
+	matter.set_script(preload("res://draft3d/matter/village/dressing.gd"))
+	add_child(matter)
+	matter.setup(self)
 
 
 func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box", size: float = SCALE) -> Node3D:

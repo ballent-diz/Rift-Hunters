@@ -1,0 +1,462 @@
+{
+  "bridges": 3,
+  "changed_visual_meshes": 194,
+  "collision_sha256": "ac478a015a2a4f5789a8992b87f6d57f5848e12f2844557ad5b5d6b8ef8cdd8a",
+  "collision_shapes": 140,
+  "collisions": "identiques",
+  "ground_geometry": "identique",
+  "ground_volumes_checked": 7,
+  "max_normal_encoding_error": 0.00025804404867813,
+  "module_transforms": "identiques",
+  "navigation": "identique",
+  "navigation_polygons": 760,
+  "navigation_sha256": "cc4e3a4296cafb4cf7472f8812acf8684e142104eb182bc652be2f1eb867661a",
+  "painted_instances": 185,
+  "scale_variants": 35,
+  "status": "conforme",
+  "triangles": 29571,
+  "references": {
+    "square": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(3.999999, 0.2, 21)",
+          "id": "mire_leech"
+        },
+        {
+          "at": "(-6, 0.2, 15)",
+          "id": "rift_gnat"
+        },
+        {
+          "at": "(3, 0.2, 13)",
+          "id": "bloat_toad"
+        }
+      ],
+      "focus": "(0, 1, 17)",
+      "hunter": "(-2, 0.2, 20)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "square",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "bridge": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-1.399998, 0.2, -1)",
+          "id": "mire_leech"
+        },
+        {
+          "at": "(1.5, 0.2, 1.5)",
+          "id": "rift_gnat"
+        },
+        {
+          "at": "(0, 0.2, -4.5)",
+          "id": "bloat_toad"
+        }
+      ],
+      "focus": "(0, 0.4, 0)",
+      "hunter": "(-0, 0.2, 2.5)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "bridge",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "fields": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-30, 0.2, -19)",
+          "id": "mire_leech"
+        },
+        {
+          "at": "(-23, 0.2, -20)",
+          "id": "rift_gnat"
+        },
+        {
+          "at": "(-35, 0.2, -17)",
+          "id": "bloat_toad"
+        }
+      ],
+      "focus": "(-29, 1, -18)",
+      "hunter": "(-20, 0.2, -12)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "fields",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "church": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-1.5, 2.2, -21)",
+          "id": "mire_leech"
+        },
+        {
+          "at": "(6, 2.2, -26)",
+          "id": "rift_gnat"
+        },
+        {
+          "at": "(4, 0.2, -16)",
+          "id": "bloat_toad"
+        }
+      ],
+      "focus": "(0, 2, -25)",
+      "hunter": "(2.999999, 2.2, -23)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "church",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "grove": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(24, 0.2, -9)",
+          "id": "mire_leech"
+        },
+        {
+          "at": "(31, 0.2, -6.5)",
+          "id": "rift_gnat"
+        },
+        {
+          "at": "(34, 0.2, -7)",
+          "id": "bloat_toad"
+        }
+      ],
+      "focus": "(29, 0.8, -14)",
+      "hunter": "(27, 0.2, -8)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "grove",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "overview": {
+      "camera_view": 70,
+      "enemies": [
+        {
+          "at": "(-4, 0.2, 22)",
+          "id": "mire_leech"
+        },
+        {
+          "at": "(5, 0.2, 20)",
+          "id": "rift_gnat"
+        },
+        {
+          "at": "(-0, 0.2, 19)",
+          "id": "bloat_toad"
+        }
+      ],
+      "focus": "(0, 0.5, 0)",
+      "hunter": "(0, 0.2, 23)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "overview",
+      "scene": "DraftRun",
+      "texel_m": 0.0777777777777778
+    }
+  },
+  "textures": {
+    "bridge.png": {
+      "size": [
+        48,
+        48
+      ],
+      "colors": 6
+    },
+    "water.png": {
+      "size": [
+        320,
+        320
+      ],
+      "colors": 6
+    },
+    "atlases/barrel_s600_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 12
+    },
+    "atlases/building_blacksmith_blue_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 24
+    },
+    "atlases/building_church_blue_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 24
+    },
+    "atlases/building_destroyed_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 18
+    },
+    "atlases/building_grain_s450_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 12
+    },
+    "atlases/building_home_A_blue_s500_00.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 24
+    },
+    "atlases/building_home_B_blue_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 24
+    },
+    "atlases/building_lumbermill_blue_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 24
+    },
+    "atlases/building_lumbermill_blue_s500_01.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12
+    },
+    "atlases/building_lumbermill_blue_s500_02.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 23
+    },
+    "atlases/building_market_blue_s500_00.png": {
+      "size": [
+        1024,
+        2048
+      ],
+      "colors": 34
+    },
+    "atlases/building_tavern_blue_s500_00.png": {
+      "size": [
+        1024,
+        2048
+      ],
+      "colors": 24
+    },
+    "atlases/building_tower_A_blue_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 24
+    },
+    "atlases/building_tower_A_blue_s500_01.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 24
+    },
+    "atlases/building_well_blue_s500_00.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 24
+    },
+    "atlases/building_windmill_blue_s500_00.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 18
+    },
+    "atlases/building_windmill_blue_s500_01.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 24
+    },
+    "atlases/building_windmill_blue_s500_02.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6
+    },
+    "atlases/crate_A_big_s600_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6
+    },
+    "atlases/crate_long_B_s500_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12
+    },
+    "atlases/fence_stone_straight_s400_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6
+    },
+    "atlases/fence_stone_straight_s500_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6
+    },
+    "atlases/fence_wood_straight_s500_00.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 6
+    },
+    "atlases/flag_blue_s800_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12
+    },
+    "atlases/resource_lumber_s600_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6
+    },
+    "atlases/rock_single_A_s400_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6
+    },
+    "atlases/rock_single_C_s400_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6
+    },
+    "atlases/rock_single_E_s400_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6
+    },
+    "atlases/rock_single_E_s700_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 6
+    },
+    "atlases/sack_s800_00.png": {
+      "size": [
+        1024,
+        32
+      ],
+      "colors": 6
+    },
+    "atlases/tent_s600_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 6
+    },
+    "atlases/trees_A_medium_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 18
+    },
+    "atlases/trees_A_small_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 18
+    },
+    "atlases/trees_B_large_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 12
+    },
+    "atlases/trees_B_medium_s500_00.png": {
+      "size": [
+        1024,
+        1024
+      ],
+      "colors": 12
+    },
+    "atlases/trees_B_small_s500_00.png": {
+      "size": [
+        1024,
+        512
+      ],
+      "colors": 12
+    },
+    "atlases/tree_single_A_s500_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 18
+    },
+    "atlases/tree_single_B_s500_00.png": {
+      "size": [
+        1024,
+        256
+      ],
+      "colors": 18
+    },
+    "atlases/weaponrack_s600_00.png": {
+      "size": [
+        1024,
+        64
+      ],
+      "colors": 6
+    },
+    "atlases/wheelbarrow_s600_00.png": {
+      "size": [
+        1024,
+        128
+      ],
+      "colors": 12
+    }
+  },
+  "unique_models": 33,
+  "capture_runtime": "pas d’erreur de script, chargement ou navigation ; messages de nettoyage OpenGL préexistants à la fermeture"
+}

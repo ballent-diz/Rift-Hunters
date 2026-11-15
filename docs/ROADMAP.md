@@ -25,6 +25,14 @@ Activation par défaut sur la carte 1 ; `--painted-kit=0` restitue l’ancien ha
 Les détails secondaires pourront être repris plus tard. Canon : `docs/art/REFERENCE_DECORS_3D.md`.
 Prochaine carte demandée : carte 2, Cimetière des Cendres, en conservant son identité et sa géométrie.
 
+## Matière du Hameau du Gué (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/matiere-hameau-gue`, branche depuis main actualisé ; la PR #175 reste séparée.
+Finesse de la Cour appliquée au village diurne : pierre/enduit, bois, ardoises bleues, végétation et rivière.
+33 modèles, 35 variantes d’échelle, 185 instances peintes, trois ponts et deux escaliers ; six comparatifs,
+dont une vue d’ensemble. 29 571 triangles, 140 collisions et navigation identiques.
+Guide et prompts : `docs/art/MATIERE_HAMEAU_DU_GUE.md`.
+
 ## Harmonisation des murs et escaliers (Codex, 15 novembre 2026)
 
 Prêt à valider, suite de la PR #169 : appliquer la pierre approuvée de l’escalier central à tous les escaliers
