@@ -1,5 +1,8 @@
 # Essai : pierre peinte liée aux formes
 
+Suite de l’essai : le [sol végétal](SOL_VEGETAL_COUR.md) est désormais inclus avec `--painted-kit`.
+Ajouter `--painted-kit-ground=0` pour retrouver le sol des captures historiques de cette page.
+
 Prototype à valider, limité à trois instances de la Cour des Veilleurs : mur nord derrière la terrasse,
 escalier central et pilier nord-ouest. Branche `codex/essai-kit-pierre-peinte` ; dépend de la référence
 intégrée et de la palette corrigée de la PR #168. Aucun remplacement global avant validation.

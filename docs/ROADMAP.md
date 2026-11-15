@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Sol végétal du kit peint (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/essai-kit-pierre-peinte` (suite de la PR #169). Sol peint à touffes groupées et dalles
+froides, accordé aux trois modules du kit et aux sprites. Suppression du tapis de petits brins 3D et des
+surimpressions redondantes dans l'essai ; quelques touffes en volume restent aux emplacements existants.
+Sans changement du relief ni des collisions ; captures dans le rendu de jeu avant validation.
+336 surfaces de sol vérifiées : hauteurs, emprises, 532 formes de collision et navigation identiques.
+40 touffes 3D simplifiées conservées ; 3 450 groupes de petits brins retirés. Guide et prompts :
+`docs/art/SOL_VEGETAL_COUR.md`. Retour au sol précédent avec `--painted-kit-ground=0`.
+
 ## Essai du kit de pierre peinte (Codex, 15 novembre 2026)
 
 Prêt à valider sur `codex/essai-kit-pierre-peinte`, depuis main avec la référence/palette de la PR #168 intégrée
