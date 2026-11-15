@@ -1,0 +1,311 @@
+{
+	"collision_sha256": "deeddbeb4d5adccb47921fec79db8a0e094eeed5214dbca8659a8aa072c20fd3",
+	"collision_shapes": 74,
+	"collisions": "identiques",
+	"ground_and_stairs": "identiques",
+	"hidden_technical_meshes": 80,
+	"max_world_bounds_error_m": 0.0000019073486328125,
+	"module_transforms": "identiques",
+	"navigation": "identique",
+	"navigation_polygons": 865,
+	"navigation_sha256": "f1f4c42fae93aa646fdc3fa5f9207443f7e948338385fbb8b1004514f8df799d",
+	"replaced_objects": 49,
+	"replacements": [
+		{
+			"at": "[X: (3.464102, 0, -2), Y: (0, 4, 0), Z: (2, 0, 3.464102), O: (-14.12718, 0.8, 23.89272)]",
+			"footprint": "[P: (-0.671751, 0, -0.671751), S: (1.371754, 1.192134, 1.421751)]",
+			"replacement": "building_tower_B_blue",
+			"source": "lander_A"
+		},
+		{
+			"at": "[X: (1.368081, 0, -3.75877), Y: (0, 4, 0), Z: (3.75877, 0, 1.368081), O: (11.21774, 0, 27.07925)]",
+			"footprint": "[P: (-0.252282, 0, -0.571793), S: (0.504565, 0.551923, 1.027729)]",
+			"replacement": "crate_long_B",
+			"source": "spacetruck_large"
+		},
+		{
+			"at": "[X: (1.368081, 0, -3.75877), Y: (0, 4, 0), Z: (3.75877, 0, 1.368081), O: (15.5, 0, 28.4)]",
+			"footprint": "[P: (-0.24, 0, -0.5), S: (0.48, 0.195079, 1)]",
+			"replacement": "crate_long_C",
+			"source": "spacetruck_trailer"
+		},
+		{
+			"at": "[X: (3.464102, 0, 2), Y: (0, 4, 0), Z: (-2, 0, 3.464102), O: (24.00226, 0, 19.99609)]",
+			"footprint": "[P: (-0.244749, 0, -0.445536), S: (0.489499, 0.488305, 0.893327)]",
+			"replacement": "crate_long_A",
+			"source": "spacetruck"
+		},
+		{
+			"at": "[X: (3.75877, 0, -1.36808), Y: (0, 4, 0), Z: (1.36808, 0, 3.75877), O: (-4, 0, 19)]",
+			"footprint": "[P: (-0.26025, 0, -0.26025), S: (0.5205, 0.520001, 0.5205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_packed"
+		},
+		{
+			"at": "[X: (2.571151, 0, -3.064178), Y: (0, 4, 0), Z: (3.064178, 0, 2.571151), O: (-1.6, 0, 19.6)]",
+			"footprint": "[P: (-0.25, 0, -0.25), S: (0.5, 0.198015, 0.5)]",
+			"replacement": "crate_long_B",
+			"source": "containers_B"
+		},
+		{
+			"at": "[X: (3.75877, 0, -1.36808), Y: (0, 4, 0), Z: (1.36808, 0, 3.75877), O: (6, 0, 17)]",
+			"footprint": "[P: (-0.26025, 0, -0.26025), S: (0.5205, 0.520001, 0.5205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_packed"
+		},
+		{
+			"at": "[X: (2.571151, 0, -3.064178), Y: (0, 4, 0), Z: (3.064178, 0, 2.571151), O: (8.4, 0, 17.6)]",
+			"footprint": "[P: (-0.25, 0, -0.25), S: (0.5, 0.198015, 0.5)]",
+			"replacement": "crate_long_B",
+			"source": "containers_B"
+		},
+		{
+			"at": "[X: (3.75877, 0, -1.36808), Y: (0, 4, 0), Z: (1.36808, 0, 3.75877), O: (-26, 0, 29)]",
+			"footprint": "[P: (-0.26025, 0, -0.26025), S: (0.5205, 0.520001, 0.5205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_packed"
+		},
+		{
+			"at": "[X: (2.571151, 0, -3.064178), Y: (0, 4, 0), Z: (3.064178, 0, 2.571151), O: (-23.6, 0, 29.6)]",
+			"footprint": "[P: (-0.25, 0, -0.25), S: (0.5, 0.198015, 0.5)]",
+			"replacement": "crate_long_B",
+			"source": "containers_B"
+		},
+		{
+			"at": "[X: (3.75877, 0, -1.36808), Y: (0, 4, 0), Z: (1.36808, 0, 3.75877), O: (30, 0, 28)]",
+			"footprint": "[P: (-0.26025, 0, -0.26025), S: (0.5205, 0.520001, 0.5205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_packed"
+		},
+		{
+			"at": "[X: (2.571151, 0, -3.064178), Y: (0, 4, 0), Z: (3.064178, 0, 2.571151), O: (32.4, 0, 28.6)]",
+			"footprint": "[P: (-0.25, 0, -0.25), S: (0.5, 0.198015, 0.5)]",
+			"replacement": "crate_long_B",
+			"source": "containers_B"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (-9.792521, 0, -4.351923)]",
+			"footprint": "[P: (-1.175961, 0, -1), S: (2.248183, 1, 2.175961)]",
+			"replacement": "building_home_A_blue",
+			"source": "basemodule_A"
+		},
+		{
+			"at": "[X: (-0, 0, -4), Y: (0, 4, 0), Z: (4, 0, -0), O: (9.733323, 0, -4)]",
+			"footprint": "[P: (-1.111109, 0, -1.072217), S: (2.222219, 1.65, 2.277773)]",
+			"replacement": "building_tavern_blue",
+			"source": "basemodule_E"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (0, 0, -4)]",
+			"footprint": "[P: (-1, 0, -0.465), S: (2, 0.8, 0.93)]",
+			"replacement": "crate_long_B",
+			"source": "tunnel_straight_A"
+		},
+		{
+			"at": "[X: (-4, 0, 0), Y: (0, 4, 0), Z: (-0, 0, -4), O: (-10, 0, 9.188892)]",
+			"footprint": "[P: (-1.039697, 0, -1.111109), S: (2.079393, 1, 2.316665)]",
+			"replacement": "building_home_B_blue",
+			"source": "basemodule_B"
+		},
+		{
+			"at": "[X: (-4, 0, 0), Y: (0, 4, 0), Z: (-0, 0, -4), O: (10, 0, 9.3632)]",
+			"footprint": "[P: (-1, 0, -1.096178), S: (2, 1, 2.373955)]",
+			"replacement": "building_blacksmith_blue",
+			"source": "basemodule_garage"
+		},
+		{
+			"at": "[X: (3.863703, 0, -1.035276), Y: (0, 4, 0), Z: (1.035276, 0, 3.863703), O: (-2.5, 0, 4)]",
+			"footprint": "[P: (-0.25, 0, -0.26025), S: (0.5, 0.520001, 0.5205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B"
+		},
+		{
+			"at": "[X: (2, 0, -3.464102), Y: (0, 4, 0), Z: (3.464102, 0, 2), O: (3, 0, 1.5)]",
+			"footprint": "[P: (-0.26025, 0, -0.26025), S: (0.5205, 0.520001, 0.5205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B_packed"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (-41, 0, -22)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_stacked"
+		},
+		{
+			"at": "[X: (-0, 0, -4), Y: (0, 4, 0), Z: (4, 0, -0), O: (-33.5, 0, -22)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B_stacked"
+		},
+		{
+			"at": "[X: (-4, 0, 0), Y: (0, 4, 0), Z: (-0, 0, -4), O: (-26, 0, -22)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_stacked"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (-37.5, 0, -13)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B_stacked"
+		},
+		{
+			"at": "[X: (-0, 0, -4), Y: (0, 4, 0), Z: (4, 0, -0), O: (-30, 0, -13)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_stacked"
+		},
+		{
+			"at": "[X: (-4, 0, 0), Y: (0, 4, 0), Z: (-0, 0, -4), O: (-22.5, 0, -13)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B_stacked"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (-41, 0, -4)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_stacked"
+		},
+		{
+			"at": "[X: (-0, 0, -4), Y: (0, 4, 0), Z: (4, 0, -0), O: (-33.5, 0, -4)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B_stacked"
+		},
+		{
+			"at": "[X: (-4, 0, 0), Y: (0, 4, 0), Z: (-0, 0, -4), O: (-26, 0, -4)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_stacked"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (-37.5, 0, 5)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B_stacked"
+		},
+		{
+			"at": "[X: (-0, 0, -4), Y: (0, 4, 0), Z: (4, 0, -0), O: (-30, 0, 5)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A_stacked"
+		},
+		{
+			"at": "[X: (-4, 0, 0), Y: (0, 4, 0), Z: (-0, 0, -4), O: (-22.5, 0, 5)]",
+			"footprint": "[P: (-0.51025, 0, -0.51025), S: (1.0205, 1.01025, 1.0205)]",
+			"replacement": "crate_B_big",
+			"source": "cargo_B_stacked"
+		},
+		{
+			"at": "[X: (-0, 0, -4), Y: (0, 4, 0), Z: (4, 0, -0), O: (-26.87607, 0, 13.85556)]",
+			"footprint": "[P: (-1.072221, 0, -1.072217), S: (2.072221, 1.120007, 2.082467)]",
+			"replacement": "building_home_A_blue",
+			"source": "cargodepot_A"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (-37.89362, 0, 21.80983)]",
+			"footprint": "[P: (-1.063442, 0, -1), S: (2.073691, 1.02091, 2.095087)]",
+			"replacement": "building_home_B_blue",
+			"source": "cargodepot_C"
+		},
+		{
+			"at": "[X: (3.464102, 0, -2), Y: (0, 4, 0), Z: (2, 0, 3.464102), O: (-22, 0, -12)]",
+			"footprint": "[P: (-0.25, 0, -0.25), S: (0.5, 0.198015, 0.5)]",
+			"replacement": "crate_long_C",
+			"source": "containers_D"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (24, 0, -5.999994)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (29.5, 0, -5.999994)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (35, 0, -5.999994)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (40.5, 0, -5.999994)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (24, 0, 1.000005)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (29.5, 0, 1.000005)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (35, 0, 1.000005)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (40.5, 0, 1.000005)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (24, 0, 8.000006)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (29.5, 0, 8.000006)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (35, 0, 8.000006)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (40.5, 0, 8.000006)]",
+			"footprint": "[P: (-0.45, 0, -0.225001), S: (0.9, 0.370916, 0.45)]",
+			"replacement": "resource_lumber",
+			"source": "solarpanel"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (34, 0, -27)]",
+			"footprint": "[P: (-0.875063, 0, -0.875063), S: (1.750127, 1, 1.750127)]",
+			"replacement": "building_home_A_blue",
+			"source": "structure_low"
+		},
+		{
+			"at": "[X: (4, 0, 0), Y: (0, 4, 0), Z: (0, 0, 4), O: (-7, 2, -26)]",
+			"footprint": "[P: (-0.875063, 0, -0.875063), S: (1.750127, 1.999995, 1.750127)]",
+			"replacement": "building_tower_A_blue",
+			"source": "drill_structure"
+		},
+		{
+			"at": "[X: (3.75877, 0, -1.36808), Y: (0, 4, 0), Z: (1.36808, 0, 3.75877), O: (6, 2, -28.5)]",
+			"footprint": "[P: (-0.25, 0, -0.26025), S: (0.5, 0.520001, 0.5205)]",
+			"replacement": "crate_A_big",
+			"source": "cargo_A"
+		}
+	],
+	"status": "conforme",
+	"visual_bounds_checked": 50
+}
