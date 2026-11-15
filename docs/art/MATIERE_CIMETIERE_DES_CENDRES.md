@@ -61,7 +61,7 @@ simple plutôt qu’une grille de joints. Les poutres étroites prennent une ban
 La maçonnerie, les ardoises et les aiguilles ont des périodes physiques de 4 m / 3 m / 3 m.
 
 Les îlots coplanaires reliés sont emballés dans des atlas nearest, sans mipmaps, gouttières étendues de deux texels.
-Largeur 1024, hauteur 64 à 2048 dans ce lot ; environ 9,27 millions de texels au total (~35,4 Mio RGBA sans mipmaps).
+Largeur 1024, hauteur 32 à 2048 dans ce lot ; environ 9,27 millions de texels au total (~35,4 Mio RGBA sans mipmaps).
 Allocation nominale **40 texels/m**, proche des 0,02404 m/pixel du rendu de jeu ; deux texels minimum pour les biseaux.
 Le conditionnement peut réserver jusqu’à 4096 px de haut si nécessaire, avec contrôle explicite de débordement.
 
