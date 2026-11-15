@@ -1,17 +1,11 @@
 class_name DraftLevelOutpost
 extends DraftLevel
-## Quatrième niveau de la base 3D : l'Avant-poste des Glaces (92 × 64 m), base technique posée sur la banquise.
-## Modules KayKit Space Base Bits (CC0, draft3d/spacebase/), agrandis quatre fois (miniatures) et posés par le
-## centre de leur emprise, avec une collision simple.
-##
-## Quartiers, tous reliés, sans cul-de-sac :
-## - l'Aire d'atterrissage (sud) : départ du Chasseur, module posé sur son aire, camions, caisses ;
-## - la Base (centre) : quatre modules d'habitation, un tunnel qui barre le nord, une cour intérieure à deux portes ;
-## - le Dépôt (ouest) : piles de fret en quinconce, couloirs serrés ;
-## - le Champ solaire (est) : rangées de panneaux (abris bas) et éoliennes (seuls les mâts arrêtent les tirs) ;
-## - le Plateau de forage (nord, 2 m) : deux escaliers, la foreuse au sommet ; le boss apparaît à son pied ;
-## - les Éboulis (coins nord) : gros rochers.
-## Limites : falaise de glace tout autour.
+## Avant-poste des Glaces (92 × 64 m). Les modules Space Base restent le gabarit physique historique.
+## L'habillage par défaut les remplace visuellement par de la pierre, du bois et des réserves anciennes gelées.
+## --outpost-matter=0 restitue la base spatiale ; voir docs/art/MATIERE_AVANT_POSTE_DES_GLACES.md.
+## Les identifiants et fonctions historiques ci-dessous sont conservés pour ne pas déplacer la physique.
+## Sud : départ et ravitaillement ; centre : maisons ; ouest : dépôt ; est : réserves de bois ;
+## nord : plateforme à 2m, deux escaliers et tour de guet. Le boss apparaît au pied de la plateforme.
 
 const MIN := Vector2(-46.0, -32.0)
 const MAX := Vector2(46.0, 32.0)
@@ -45,6 +39,9 @@ func build() -> void:
 	_solar_field()
 	_plateau()
 	_setup_navigation()
+	var matter := preload("res://draft3d/matter/outpost/dressing.gd").new()
+	add_child(matter)
+	matter.setup(self)
 
 
 func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box", size: float = SCALE) -> Node3D:
