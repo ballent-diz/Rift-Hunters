@@ -18646,6 +18646,65 @@
 					"loop": true
 				}
 			}
+		},
+		"player.threshold_warden": {
+			"status": "wip",
+			"imported_from": "assets/concepts/incoming/player.threshold_warden/job.json",
+			"sheet": "res://assets/sprites/players/threshold_warden/threshold_warden_sheet.png",
+			"cell": [
+				112,
+				80
+			],
+			"anchor": [
+				56,
+				74
+			],
+			"scale": 0.65,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 7,
+					"fps": 18,
+					"loop": false
+				},
+				"hurt": {
+					"row": 3,
+					"frames": 7,
+					"fps": 16,
+					"loop": false
+				},
+				"death": {
+					"row": 4,
+					"frames": 6,
+					"fps": 8,
+					"loop": false
+				},
+				"dash": {
+					"row": 2,
+					"frames": 7,
+					"fps": 18,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/players/threshold_warden.png",
+			"shadow": [
+				-1,
+				-3.1,
+				14.9,
+				5.6
+			]
 		}
 	}
 }

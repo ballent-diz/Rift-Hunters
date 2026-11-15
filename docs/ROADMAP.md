@@ -1,8 +1,16 @@
 # Rift Hunters — feuille de route
 
+## Nouveau joueur : Veilleur des Seuils (Codex, 15 novembre 2026)
+
+Prêt à examiner sur `codex/nouveau-joueur-veilleur`, depuis main après fusion des PR #177 et #178.
+Création demandée d'un nouveau sprite joueur adapté au jeu : guerrier voyageur, pierre/acier usés,
+cape ardoise, écharpe ivoire et accents cyan. Variante indépendante, même échelle visible que le joueur
+actuel ; 32 poses, 48 couleurs, scène jouable et comparaisons dans la Cour et sur la neige.
+Joueur original inchangé. Guide : `docs/art/JOUEUR_VEILLEUR_DES_SEUILS.md`.
+
 ## Avant-poste des Glaces (Codex, 15 novembre 2026)
 
-Validé par le propriétaire, fusion demandée le 15 novembre 2026 (PR #178). Matières peintes gelées et remplacement visuel des objets
+Validé par le propriétaire et fusionné dans main le 15 novembre 2026 (PR #178). Matières peintes gelées et remplacement visuel des objets
 futuristes par un avant-poste ancien, autorisé par le propriétaire. 74 collisions, 865 polygones de navigation,
 sol et escaliers conservés ; 50 volumes visuels comparés aux boîtes physiques. Tests rendu pixel 8/8 et
 localisation 6/6. Six cadrages avant/après ; `docs/art/MATIERE_AVANT_POSTE_DES_GLACES.md`.
