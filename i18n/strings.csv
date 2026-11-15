@@ -2348,3 +2348,43 @@ UPGRADE3D_LEAP_HEAVY_NAME,Bond : Retombée lourde,Leap: Heavy Landing
 UPGRADE3D_LEAP_HEAVY_DESC,Dégâts de l'onde du Bond +25 %.,Leap shockwave damage +25%.
 UPGRADE3D_LEAP_MOMENTUM_NAME,Bond : Élan,Leap: Momentum
 UPGRADE3D_LEAP_MOMENTUM_DESC,Recharge du Bond −15 %.,Leap cooldown −15%.
+UPGRADE3D_LEARN_PARRY_NAME,Nouveau sort : Parade,New spell: Parry
+UPGRADE3D_LEARN_PARRY_DESC,"Garde de 0,4 s : un coup paré n'inflige rien, déclenche une contre-attaque ×4 autour du Chasseur, étourdit et recharge la Parade.","0.4 s guard: a parried hit deals nothing, triggers a ×4 counterattack around the Hunter, stuns and recharges Parry."
+UPGRADE3D_LEARN_SINGULARITY_NAME,Nouveau sort : Singularité,New spell: Singularity
+UPGRADE3D_LEARN_SINGULARITY_DESC,Puits au point visé qui attire les ennemis 3 s puis implose.,"Well at the aimed point that pulls enemies for 3 s, then implodes."
+UPGRADE3D_LEARN_RIFT_WALL_NAME,Nouveau sort : Mur de faille,New spell: Rift Wall
+UPGRADE3D_LEARN_RIFT_WALL_DESC,"Mur au point visé, perpendiculaire à la visée (4 s) : arrête les ennemis et leurs tirs, pas les vôtres.","Wall at the aimed point, perpendicular to your aim (4 s): stops enemies and their shots, not yours."
+UPGRADE3D_LEARN_AEGIS_NAME,Nouveau sort : Égide de faille,New spell: Rift Aegis
+UPGRADE3D_LEARN_AEGIS_DESC,Bouclier de 25 % des PV max pendant 4 s.,Shield worth 25% of max HP for 4 s.
+UPGRADE3D_LEARN_REFRACTING_CRYSTAL_NAME,Nouveau sort : Cristal réfracteur,New spell: Refracting Crystal
+UPGRADE3D_LEARN_REFRACTING_CRYSTAL_DESC,Cristal au point visé (8 s) : chaque Trait ou Lance qui le traverse se divise en 3. Posez-le entre vous et la horde.,Crystal at the aimed point (8 s): every Bolt or Lance passing through splits into 3. Place it between you and the horde.
+UPGRADE3D_PARRY_MIRROR_NAME,Parade : Miroir,Parry: Mirror
+UPGRADE3D_PARRY_MIRROR_DESC,Variante de la Parade : un coup paré renvoie aussi les tirs ennemis à moins de 4 m.,Parry variant: a parried hit also sends back enemy shots within 4 m.
+UPGRADE3D_PARRY_LONG_GUARD_NAME,Parade : Garde longue,Parry: Long Guard
+UPGRADE3D_PARRY_LONG_GUARD_DESC,Variante de la Parade : fenêtre de garde deux fois plus longue.,Parry variant: twice-as-long guard window.
+UPGRADE3D_SINGULARITY_HORIZON_NAME,Singularité : Horizon,Singularity: Horizon
+UPGRADE3D_SINGULARITY_HORIZON_DESC,Variante de la Singularité : rayon +40 %.,Singularity variant: radius +40%.
+UPGRADE3D_SINGULARITY_COLLAPSE_NAME,Singularité : Effondrement,Singularity: Collapse
+UPGRADE3D_SINGULARITY_COLLAPSE_DESC,"Variante de la Singularité : implosion 2× plus forte, au bout de 1,5 s.","Singularity variant: implosion twice as strong, after 1.5 s."
+UPGRADE3D_WALL_CHAINS_NAME,Mur : Chaînes,Wall: Chains
+UPGRADE3D_WALL_CHAINS_DESC,"Variante du Mur : les ennemis qui le touchent sont immobilisés 1,5 s.",Wall variant: enemies touching it are rooted for 1.5 s.
+UPGRADE3D_WALL_BURNING_NAME,Mur : Rempart ardent,Wall: Burning Rampart
+UPGRADE3D_WALL_BURNING_DESC,"Variante du Mur : le toucher brûle (dégâts toutes les 0,5 s).",Wall variant: touching it burns (damage every 0.5 s).
+UPGRADE3D_AEGIS_RIPOSTE_NAME,Égide : Riposte,Aegis: Riposte
+UPGRADE3D_AEGIS_RIPOSTE_DESC,"Variante de l'Égide : quand le bouclier cède, une onde de choc repousse et blesse.","Aegis variant: when the shield breaks, a shockwave knocks back and wounds."
+UPGRADE3D_AEGIS_SECOND_WIND_NAME,Égide : Second souffle,Aegis: Second Wind
+UPGRADE3D_AEGIS_SECOND_WIND_DESC,"Variante de l'Égide : bouclier réduit de moitié, mais soin immédiat de 15 % des PV max.","Aegis variant: half the shield, but an immediate heal of 15% of max HP."
+UPGRADE3D_CRYSTAL_DOUBLE_NAME,Cristal : Prisme double,Crystal: Double Prism
+UPGRADE3D_CRYSTAL_DOUBLE_DESC,Variante du Cristal : deux cristaux côte à côte.,Crystal variant: two crystals side by side.
+UPGRADE3D_CRYSTAL_FOCUS_NAME,Cristal : Foyer,Crystal: Focus
+UPGRADE3D_CRYSTAL_FOCUS_DESC,Variante du Cristal : les éclats filent vers l'ennemi visible le plus résistant.,Crystal variant: the shards fly toward the toughest visible enemy.
+UPGRADE3D_PARRY_COUNTER_NAME,Parade : Contre puissant,Parry: Heavy Counter
+UPGRADE3D_PARRY_COUNTER_DESC,Dégâts de la contre-attaque +20 %.,Counterattack damage +20%.
+UPGRADE3D_SINGULARITY_DEPTH_NAME,Singularité : Puits profond,Singularity: Deep Well
+UPGRADE3D_SINGULARITY_DEPTH_DESC,Rayon de la Singularité +20 %.,Singularity radius +20%.
+UPGRADE3D_WALL_LASTING_NAME,Mur : Mur durable,Wall: Lasting Wall
+UPGRADE3D_WALL_LASTING_DESC,Durée du Mur +25 %.,Wall duration +25%.
+UPGRADE3D_AEGIS_QUICK_NAME,Égide : Égide prompte,Aegis: Swift Aegis
+UPGRADE3D_AEGIS_QUICK_DESC,Recharge de l'Égide −15 %.,Aegis cooldown −15%.
+UPGRADE3D_CRYSTAL_LASTING_NAME,Cristal : Cristal tenace,Crystal: Lasting Crystal
+UPGRADE3D_CRYSTAL_LASTING_DESC,Durée du Cristal +25 %.,Crystal duration +25%.

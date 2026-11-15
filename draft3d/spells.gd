@@ -10,8 +10,10 @@ extends RefCounted
 
 const SLOTS := 4
 const ACTIONS: Array[StringName] = [&"spell_1", &"spell_2", &"spell_3", &"spell_4"]
-## Sorts raccordés (spell_kind) : Taille, Lance, Rupture, Bond de Faille.
-const SUPPORTED: Array[StringName] = [&"slash", &"lance", &"rupture", &"leap"]
+## Sorts raccordés (spell_kind) : Taille, Lance, Rupture, Bond de Faille, Parade, Singularité, Mur de faille, Égide,
+## Cristal réfracteur.
+const SUPPORTED: Array[StringName] = [&"slash", &"lance", &"rupture", &"leap", &"parry", &"singularity", &"wall",
+	&"aegis", &"crystal"]
 ## Cosinus du demi-angle du cône de visée au clavier (environ 37°).
 const AIM_CONE := 0.8
 const RETICLE_COLOR := Color(0.85, 0.95, 1.0, 0.55)
@@ -29,6 +31,8 @@ var auto_cast: bool = false
 ## Emplacement en aperçu (option « aperçu » : maintenir montre la zone, relâcher lance), -1 sinon.
 var preview_slot: int = -1
 var reticle: MeshInstance3D
+## Objets posés par les sorts (puits, murs, cristaux).
+var world: DraftSpellWorld
 ## Variante active par sort (identifiant du sort → variante) et ses réglages ; rangs pris par sort et statistique.
 var variants: Dictionary = {}
 var variant_params: Dictionary = {}
@@ -37,6 +41,9 @@ var bonuses: Dictionary = {}
 var charge_slot: int = -1
 var charge_time: float = 0.0
 var _reticle_material: StandardMaterial3D
+## Derniers sorts de Parade et d'Égide lancés (contre-attaque, Riposte).
+var _parry_spell: SpellData
+var _aegis_spell: SpellData
 ## Bond en cours : sort et puissance appliqués à l'atterrissage.
 var _leap_spell: SpellData
 var _leap_power: float = 1.0
@@ -62,6 +69,9 @@ func setup(p_run: DraftRun, ids: Array[StringName]) -> void:
 	for i: int in SLOTS:
 		cooldowns[i] = 1.0 + i if slots[i] != null else 0.0
 	run.hunter.landed.connect(_on_landed)
+	run.hunter.parried.connect(_on_parried)
+	run.hunter.shield_broken.connect(_on_shield_broken)
+	world = DraftSpellWorld.new(self)
 	reticle = _build_reticle()
 	run.add_child(reticle)
 
@@ -148,6 +158,17 @@ func damage_of(data: SpellData) -> float:
 		* (1.0 + bonus(data, &"damage"))
 
 
+## Valeur de dégâts `base` portée par les statistiques de sort du Chasseur et les rangs de dégâts du sort.
+func scaled(data: SpellData, base: float) -> float:
+	return base * run.hunter.stats.get_value(StatKeys.SPELL_DAMAGE) * run.hunter.stats.get_value(StatKeys.DAMAGE) \
+		* (1.0 + bonus(data, &"damage"))
+
+
+## Durée de l'effet (params.duration de SpellData) avec les rangs de durée.
+func duration_of(data: SpellData) -> float:
+	return float(data.params.get("duration", 1.0)) * (1.0 + bonus(data, &"duration"))
+
+
 ## Portée du sort en mètres.
 func reach_of(data: SpellData) -> float:
 	var reach: float = data.spell_range * DraftHunter.UNIT
@@ -175,6 +196,12 @@ func area_of(data: SpellData) -> float:
 			area = maxf(data.width * DraftHunter.UNIT, 0.3)
 		&"leap":
 			area = data.width * DraftHunter.UNIT * (param(data, "area", 1.0) if variant_of(data) == &"impact" else 1.0)
+		&"singularity":
+			area *= param(data, "area", 1.0) if variant_of(data) == &"horizon" else 1.0
+		&"crystal":
+			area = maxf(data.width * DraftHunter.UNIT, tuning.crystal_min_radius)
+		&"aegis":
+			area = param(data, "area", 3.0)
 	return area * (1.0 + bonus(data, &"area"))
 
 
@@ -189,6 +216,7 @@ func step(delta: float) -> void:
 	for i: int in SLOTS:
 		cooldowns[i] = maxf(cooldowns[i] - delta, 0.0)
 	_step_zones(delta)
+	world.step(delta)
 	_return_left = maxf(_return_left - delta, 0.0)
 	var hunter: DraftHunter = run.hunter
 	if not hunter.alive or not hunter.active:
@@ -253,6 +281,16 @@ func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
 			done = _rupture(data, aim)
 		&"leap":
 			done = _leap(data, aim)
+		&"parry":
+			done = _parry(data)
+		&"singularity":
+			done = _singularity(data, aim)
+		&"wall":
+			done = _wall(data, aim)
+		&"aegis":
+			done = _aegis(data)
+		&"crystal":
+			done = _crystal(data, aim)
 	_power = 1.0
 	if done:
 		cooldowns[slot] = cooldown_of(data)
@@ -320,7 +358,23 @@ func auto_aim(data: SpellData) -> Vector3:
 				away += _flat(here - foe.pos).normalized()
 			away = away.normalized() if away.length() > 0.1 else Vector3.RIGHT
 			return here + away * reach_of(data)
+		&"parry", &"aegis", &"singularity", &"wall", &"crystal":
+			return _auto_support(data)
 	return Vector3.INF
+
+
+## Bot : sorts défensifs quand le Chasseur est serré (ou blessé), sorts de zone sur un groupe.
+func _auto_support(data: SpellData) -> Vector3:
+	var here: Vector3 = run.hunter.global_position
+	if data.spell_kind == &"parry":
+		return here if _level(run.enemies.near(here, 1.4), here).size() >= 2 else Vector3.INF
+	if data.spell_kind == &"aegis":
+		var hurt: bool = run.hunter.hp < run.hunter.max_hp() * 0.75
+		return here if hurt and run.enemies.near(here, 3.0).size() >= 2 else Vector3.INF
+	var foe: DraftEnemies.Foe = run.target()
+	if foe == null or run.enemies.near(foe.pos, 3.0).size() < 3:
+		return Vector3.INF
+	return foe.pos if data.spell_kind == &"singularity" else here + _flat(foe.pos - here).limit_length(2.5)
 
 
 # --- Sorts --------------------------------------------------------------------------------------------------------
@@ -472,6 +526,105 @@ func _on_landed() -> void:
 			foe.slow(param(data, "slow", 0.5), param(data, "duration", 2.0))
 
 
+## Parade : garde courte ; un coup paré n'inflige rien, déclenche une contre-attaque autour du Chasseur (×counter),
+## étourdit et remet la recharge à zéro. Garde longue : fenêtre plus longue. Miroir : les tirs ennemis proches
+## repartent comme traits du Chasseur.
+func _parry(data: SpellData) -> bool:
+	var window: float = float(data.params.get("window", 0.4))
+	if variant_of(data) == &"long_guard":
+		window *= param(data, "window", 1.0)
+	run.hunter.guard_left = window
+	_parry_spell = data
+	run.fx(&"shield_block", DraftPixelFx.DEFAULT_FAMILY, run.hunter.chest(), 1.2)
+	return true
+
+
+func _on_parried() -> void:
+	var data: SpellData = _parry_spell
+	if data == null:
+		return
+	var here: Vector3 = run.hunter.global_position
+	run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, area_of(data) * 0.8)
+	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
+		run.enemies.hit(foe, damage_of(data) * float(data.params.get("counter", 1.0)),
+			_flat(foe.pos - here).normalized() * data.knockback * DraftHunter.UNIT)
+		if foe.alive and foe.boss == null:
+			foe.slow(0.0, tuning.parry_stun)
+	if variant_of(data) == &"mirror":
+		for i: int in range(run.hostile.size() - 1, -1, -1):
+			var shot: Dictionary = run.hostile[i]
+			if (shot["at"] as Vector3).distance_to(run.hunter.chest()) <= param(data, "reach", 4.0):
+				run.fire_bolt(shot["at"], -(shot["dir"] as Vector3), damage_of(data), 12.0, 1, 0)
+				(shot["visual"] as Node).queue_free()
+				run.hostile.remove_at(i)
+	var slot: int = slot_of(data.id)
+	if slot >= 0:
+		cooldowns[slot] = 0.0
+
+
+## Singularité : puits au point visé qui attire les ennemis puis implose. Horizon : rayon plus grand.
+## Effondrement : implosion plus forte, plus tôt.
+func _singularity(data: SpellData, aim: Vector3) -> bool:
+	var at: Vector3 = _landing(aim, reach_of(data))
+	var duration: float = duration_of(data)
+	var damage: float = damage_of(data) * _power
+	if variant_of(data) == &"collapse":
+		duration *= param(data, "duration", 1.0)
+		damage *= param(data, "damage", 1.0)
+	world.add_well(at, area_of(data), duration,
+		float(data.params.get("pull", 0.0)) * DraftHunter.UNIT * tuning.singularity_pull_scale, damage)
+	return true
+
+
+## Mur de faille : mur au point visé, perpendiculaire à la visée, qui arrête les ennemis et leurs tirs.
+## Chaînes : les ennemis qui le touchent sont immobilisés. Rempart ardent : le toucher brûle.
+func _wall(data: SpellData, aim: Vector3) -> bool:
+	var dir: Vector3 = _direction(aim)
+	var at: Vector3 = _landing(aim, reach_of(data))
+	var root: float = param(data, "root", 0.0) if variant_of(data) == &"chains" else 0.0
+	var burn: float = scaled(data, param(data, "damage", 0.0)) if variant_of(data) == &"burning" else 0.0
+	world.add_wall(at, Vector3(-dir.z, 0, dir.x), area_of(data), duration_of(data), root, burn, param(data, "tick", 0.5))
+	return true
+
+
+## Égide de faille : bouclier d'une part des PV max. Riposte : onde de choc quand il cède. Second souffle : bouclier
+## réduit mais soin immédiat.
+func _aegis(data: SpellData) -> bool:
+	var hunter: DraftHunter = run.hunter
+	var amount: float = hunter.max_hp() * data.width * (1.0 + bonus(data, &"area"))
+	if variant_of(data) == &"second_wind":
+		amount *= param(data, "shield", 1.0)
+		hunter.heal(hunter.max_hp() * param(data, "heal", 0.0))
+	hunter.shield = amount
+	hunter.shield_left = duration_of(data)
+	_aegis_spell = data
+	run.fx(&"shield_block", &"reflets", hunter.chest(), 1.6)
+	return true
+
+
+func _on_shield_broken() -> void:
+	var data: SpellData = _aegis_spell
+	if data == null or variant_of(data) != &"riposte":
+		return
+	var here: Vector3 = run.hunter.global_position
+	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
+	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
+		run.enemies.hit(foe, damage_of(data) * param(data, "damage", 1.0),
+			_flat(foe.pos - here).normalized() * 4.0)
+
+
+## Cristal réfracteur : cristal au point visé ; les traits qui le traversent se divisent. Prisme double : deux
+## cristaux côte à côte. Foyer : les éclats filent vers l'ennemi le plus résistant.
+func _crystal(data: SpellData, aim: Vector3) -> bool:
+	var at: Vector3 = _landing(aim, reach_of(data))
+	var count: int = int(param(data, "count", 1.0)) if variant_of(data) == &"double" else 1
+	var side: Vector3 = _direction(aim).rotated(Vector3.UP, PI * 0.5) * param(data, "gap", 0.0)
+	for i: int in count:
+		var offset: Vector3 = side * (i - (count - 1) * 0.5)
+		world.add_crystal(run.level.closest(at + offset), area_of(data), duration_of(data), variant_of(data) == &"focus")
+	return true
+
+
 # --- Outils -------------------------------------------------------------------------------------------------------
 
 ## Direction horizontale vers la visée (devant le Chasseur si la visée est sur lui).
@@ -545,8 +698,14 @@ func _show_reticle() -> void:
 			&"slash":
 				at = here
 				radius = reach_of(data)
-			&"rupture", &"leap":
+			&"rupture", &"leap", &"singularity", &"crystal":
 				at = here + _flat(aim - here).limit_length(reach_of(data))
+				radius = area_of(data)
+			&"wall":
+				at = here + _flat(aim - here).limit_length(reach_of(data))
+				radius = area_of(data) * 0.5
+			&"parry", &"aegis":
+				at = here
 				radius = area_of(data)
 			_:
 				radius = area_of(data) * 2.0

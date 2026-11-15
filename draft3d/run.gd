@@ -387,6 +387,11 @@ func foe_summon(foe: DraftEnemies.Foe, amount: int) -> void:
 ## Vue dégagée entre deux points : aucun décor entre eux. Règle unique pour viser, tirer et cracher, à plat comme
 ## entre deux hauteurs : on touche ce que l'on voit (du haut de la terrasse vers la cour et inversement), jamais
 ## à travers un mur, un pilier, une caisse ou le rebord de la terrasse.
+## Murs de faille (sort du Chasseur) entre deux points : ils arrêtent les ennemis et leurs tirs.
+func barrier_blocks(from: Vector3, to: Vector3) -> bool:
+	return spells != null and not spells.world.walls.is_empty() and spells.world.blocks(from, to)
+
+
 func sight_clear(from: Vector3, to: Vector3) -> bool:
 	var query := PhysicsRayQueryParameters3D.create(from, to, 1)
 	return get_world_3d().direct_space_state.intersect_ray(query).is_empty()
@@ -471,6 +476,8 @@ func _step_bolts(delta: float) -> void:
 			shot["pierce"] = int(shot["pierce"]) - 1
 		shot["at"] = to
 		shot["left"] = float(shot["left"]) - step
+		if not spent and not spells.world.crystals.is_empty():
+			spells.world.refract(shot, tuning.crystal_split, tuning.crystal_angle, tuning.crystal_damage)
 		if spent or float(shot["left"]) <= 0.0:
 			if spent and not wall.is_empty():
 				fx(&"mana_burst", DraftPixelFx.DEFAULT_FAMILY, to, 0.6)
@@ -499,7 +506,7 @@ func _step_hostile(delta: float) -> void:
 		var from: Vector3 = shot["at"]
 		var to: Vector3 = from + (shot["dir"] as Vector3) * float(shot["speed"]) * delta
 		shot["left"] = float(shot["left"]) - delta
-		var done: bool = float(shot["left"]) <= 0.0 \
+		var done: bool = float(shot["left"]) <= 0.0 or barrier_blocks(from, to) \
 			or not space.intersect_ray(PhysicsRayQueryParameters3D.create(from, to, 1)).is_empty()
 		if not done and to.distance_to(hunter.chest()) < 0.55:
 			hunter.take_damage(float(shot["damage"]))

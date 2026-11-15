@@ -59,7 +59,7 @@ func test_slots_learning_and_cooldowns() -> void:
 	check_eq(spells.slots[1].id, &"prismatic_lance", "Lance sur le deuxième")
 	check_eq(spells.free_slots(), 2, "deux emplacements libres")
 	check(not spells.learn(&"cleaving_slash"), "un sort connu ne s'apprend pas deux fois")
-	check(not spells.learn(&"parry"), "un sort non raccordé à la 3D est refusé")
+	check(not spells.learn(&"pack_call"), "un sort des Échos est refusé")
 	check(spells.learn(&"rupture") and spells.slot_of(&"rupture") == 2, "Rupture prend la première place libre")
 	check(spells.learn(&"rift_leap"), "Bond appris")
 	check_eq(spells.free_slots(), 0, "barre pleine")
@@ -194,7 +194,7 @@ func test_rank_and_variant_cards_follow_the_rules() -> void:
 	await _start()
 	var upgrades: DraftUpgrades = run.upgrades
 	var slash: SpellData = GameDB.spells[&"cleaving_slash"]
-	check_eq(upgrades.spell_cards.size(), 20, "vingt cartes : 4 sorts, 8 variantes, 8 rangs")
+	check_eq(upgrades.spell_cards.size(), 40, "quarante cartes : 9 sorts, 18 variantes, 13 rangs")
 	for data: UpgradeData in upgrades.spell_cards:
 		check(tr(data.name_key) != data.name_key and tr(data.desc_key) != data.desc_key, "%s : textes traduits" % data.id)
 	check(not upgrades.available().has(_card("rupture_wide")), "aucun rang pour un sort inconnu")
@@ -312,3 +312,100 @@ func test_leap_variants() -> void:
 	run.spells.cast(slot, run.hunter.global_position + Vector3(5, 0, 0))
 	await _frames(30)
 	check(tough.slow_left > 0.0 and is_equal_approx(tough.slow_factor, 0.5), "Impact : l'ennemi est ralenti")
+
+
+func _learn(id: StringName) -> int:
+	run.spells.learn(id)
+	var slot: int = run.spells.slot_of(id)
+	run.spells.cooldowns[slot] = 0.0
+	return slot
+
+
+func test_v1_pool_is_wired_but_echo_spells_are_not() -> void:
+	for id: StringName in [&"parry", &"singularity", &"rift_wall", &"aegis", &"refracting_crystal"]:
+		check(DraftSpells.supported(id), "sort v1 raccordé : %s" % id)
+	for id: StringName in [&"pack_call", &"swap", &"twin_rifts"]:
+		check(not DraftSpells.supported(id), "non repris : %s" % id)
+
+
+func test_parry_counters_and_recharges() -> void:
+	await _start()
+	run.hunter.god_mode = false
+	var slot: int = _learn(&"parry")
+	var foe: DraftEnemies.Foe = _foe(Vector3(1.2, 0, 0))
+	await _frames(2)
+	check(run.spells.cast(slot, run.hunter.global_position), "la garde part")
+	var hp: float = run.hunter.hp
+	check_eq(run.hunter.take_damage(30.0), 0.0, "le coup paré n'inflige rien")
+	check_eq(run.hunter.hp, hp, "PV intacts")
+	check(_hurt(foe), "contre-attaque")
+	check(not foe.alive or foe.slow_left > 0.0, "étourdissement")
+	check_eq(run.spells.cooldowns[slot], 0.0, "parade réussie : recharge remise à zéro")
+	run.hunter.invulnerable = 0.0
+	check(run.hunter.take_damage(5.0) > 0.0, "hors garde, le coup porte")
+
+
+func test_singularity_pulls_then_implodes() -> void:
+	await _start()
+	var slot: int = _learn(&"singularity")
+	var foe: DraftEnemies.Foe = _foe(Vector3(6, 0, 2))
+	await _frames(2)
+	var center: Vector3 = run.hunter.global_position + Vector3(6, 0, 0)
+	var before: float = DraftSpells._flat(foe.pos - center).length()
+	run.spells.cast(slot, center)
+	await _frames(60)
+	check(DraftSpells._flat(foe.pos - center).length() < before - 0.3, "l'ennemi est attiré")
+	check(not _hurt(foe), "pas de dégâts avant l'implosion")
+	await _frames(150)
+	check(_hurt(foe), "l'implosion blesse")
+	check(run.spells.world.wells.is_empty(), "le puits disparaît")
+
+
+func test_wall_blocks_enemies_and_shots() -> void:
+	await _start()
+	var slot: int = _learn(&"rift_wall")
+	var here: Vector3 = run.hunter.global_position
+	run.spells.cast(slot, here + Vector3(3, 0, 0))
+	check_eq(run.spells.world.walls.size(), 1, "un mur posé")
+	check(run.barrier_blocks(here + Vector3(5, 0, 0), here + Vector3(1, 0, 0)), "le mur coupe le passage")
+	check(not run.barrier_blocks(here + Vector3(1, 0, 0), here + Vector3(1, 0, 3)), "à côté, le passage est libre")
+	var foe: DraftEnemies.Foe = run.enemies.spawn(GameDB.enemy(&"husk"), here + Vector3(5, 0, 0))
+	await _frames(90)
+	check(DraftSpells._flat(foe.pos - here).x > 2.5, "l'ennemi reste derrière le mur")
+	await _frames(240)
+	check(run.spells.world.walls.is_empty(), "le mur s'efface")
+
+
+func test_aegis_absorbs_and_riposte() -> void:
+	await _start()
+	run.hunter.god_mode = false
+	run.upgrades.apply(_card("learn_aegis"), run.hunter.stats)
+	run.upgrades.apply(_card("aegis_riposte"), run.hunter.stats)
+	var slot: int = run.spells.slot_of(&"aegis")
+	run.spells.cooldowns[slot] = 0.0
+	var foe: DraftEnemies.Foe = _foe(Vector3(1.5, 0, 0))
+	foe.damage = 0.0
+	await _frames(2)
+	run.spells.cast(slot, run.hunter.global_position)
+	var shield: float = run.hunter.shield
+	check_near(shield, run.hunter.max_hp() * 0.25, 0.01, "bouclier de 25 % des PV max")
+	var hp: float = run.hunter.hp
+	run.hunter.take_damage(shield * 0.5)
+	check_eq(run.hunter.hp, hp, "le bouclier absorbe")
+	run.hunter.invulnerable = 0.0
+	run.hunter.take_damage(shield)
+	check(run.hunter.hp < hp and run.hunter.shield <= 0.0, "le bouclier cède, le reste porte")
+	check(_hurt(foe), "Riposte : l'onde blesse l'ennemi proche")
+
+
+func test_crystal_splits_bolts() -> void:
+	await _start()
+	var slot: int = _learn(&"refracting_crystal")
+	var here: Vector3 = run.hunter.global_position
+	run.spells.cast(slot, here + Vector3(3, 0, 0))
+	check_eq(run.spells.world.crystals.size(), 1, "un cristal posé")
+	var before: int = run.bolts.size()
+	run.fire_bolt(run.hunter.chest(), Vector3.RIGHT, 10.0, 10.0, 0, 0)
+	await _frames(20)
+	check(run.bolts.size() - before >= 1 + run.tuning.crystal_split or run.bolts.size() >= before + 2,
+		"le trait se divise en traversant le cristal (%d traits)" % (run.bolts.size() - before))

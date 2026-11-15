@@ -13,7 +13,12 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
   VARIANT / MODIFY) : les 8 variantes v1 (Tourbillon, Estoc, Éventail, Surcharge, Réaction, Brasier, Retour, Impact ;
   Réaction et Brasier adaptés sans statuts) et 8 rangs (dégâts, recharge, zone, portée). Une variante par sort ;
   variante de l'arbre du profil prise d'office. Ralentissement des ennemis ajouté (`Foe.slow`).
-- Lot 4 (reste du pool, propositions de nouveaux sorts) : à suivre.
+- **Lot 4 (fait)** : Parade, Singularité, Mur de faille, Égide et Cristal réfracteur en 3D (`draft3d/spell_world.gd`),
+  avec leurs variantes v1 (adaptées quand elles visaient les Échos) et un rang chacun : 9 sorts, 40 cartes de sort.
+  Non repris : Appel de meute, Permutation (Échos) ; Failles jumelles repoussé.
+- **À valider par le propriétaire** : six nouveaux sorts proposés (Marque du traqueur, Fente du vide, Pas de faille,
+  Onde de stase, Pluie d'éclats, Voile de cendre), section 5 de [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).
+  Équilibrage non fait (le bot tient 2 min sans `--god`).
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 

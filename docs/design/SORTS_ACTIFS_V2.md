@@ -69,3 +69,35 @@ pour un sort connu. Valeurs dans les données (`params`, `pct`), jamais dans le 
 Une variante activée dans l'arbre du profil (campagne v1) est prise d'office au départ pour un sort de départ
 (`DraftUpgrades.variant_card`). Le bot prend les cartes au hasard et lance la Surcharge sans la charger.
 Essais : `tests/unit/test_draft3d_spells.gd` (rangs, exclusivité, chaque variante).
+
+## 4. Reste du pool v1 (lot 4, fait)
+
+| Sort | Réalisation 3D | Variante A | Variante B (adaptée si Échos) | Rang |
+|---|---|---|---|---|
+| **Parade** | garde 0,4 s ; coup paré : 0 dégât, contre-attaque ×4 (rayon 2,1 m), étourdit 1,5 s (pas les boss), recharge remise à zéro | **Miroir** : les tirs ennemis à moins de 4 m repartent comme traits du Chasseur | **Garde longue** (remplace *Garde de meute*) : fenêtre ×2 | Contre puissant (dégâts +20 %) |
+| **Singularité** | puits au point visé : attire les ennemis de plain-pied (pas les boss) 3 s, puis implose | **Horizon** : rayon +40 % | **Effondrement** : implosion ×2 au bout de 1,5 s | Puits profond (rayon +20 %) |
+| **Mur de faille** | mur translucide de 3,9 m perpendiculaire à la visée, 4 s : arrête les ennemis et leurs tirs, laisse passer ceux du Chasseur | **Chaînes** : immobilise 1,5 s qui le touche | **Rempart ardent** : le toucher brûle | Mur durable (durée +25 %) |
+| **Égide de faille** | bouclier de 25 % des PV max, 4 s (sans la part par Écho) | **Riposte** : onde de choc quand il cède | **Second souffle** (remplace *Partage*) : bouclier ×0,5, soin de 15 % | Égide prompte (recharge −15 %) |
+| **Cristal réfracteur** | cristal 8 s au point visé : un Trait ou une Lance qui le traverse se divise (2 éclats à 60 %) | **Prisme double** : deux cristaux côte à côte | **Foyer** : les éclats visent l'ennemi le plus résistant | Cristal tenace (durée +25 %) |
+
+Objets persistants : `draft3d/spell_world.gd` (puits, murs, cristaux). Garde et bouclier dans `DraftHunter.take_damage`.
+Réglages : `draft3d/tuning.tres` (étourdissement, attraction, cristal). **Non repris** : *Appel de meute* et
+*Permutation* (Échos) ; *Failles jumelles* repoussé (deux appuis, portails en relief, à valider d'abord).
+
+## 5. Propositions de nouveaux sorts (à valider par le propriétaire avant implantation)
+
+Manques du pool actuel : un seul sort de **mobilité** (Bond), aucun **mono-cible** franc (la Lance est une ligne),
+pas de **zone sur la durée** à poser, pas de **contrôle** dur de groupe hors Mur et Singularité. Noms et effets
+originaux, chiffres indicatifs.
+
+| Rôle | Sort proposé | Effet | Améliorations proposées |
+|---|---|---|---|
+| Mono-cible | **Marque du traqueur** | Désigne l'ennemi visé (élites et boss d'abord) pour 6 s : il subit +30 % de dégâts et le Trait le vise en priorité | *Exécution* : sous 20 % de PV, la marque l'achève en explosant · *Traque* : à sa mort, la marque saute sur l'ennemi le plus proche · rang : dégâts subis +10 % |
+| Mono-cible / mobilité | **Fente du vide** | Le Chasseur fend jusqu'à 6 m vers la visée et frappe fort la première cible traversée (invulnérable pendant la fente) | *Double fente* : relançable une fois dans les 2 s · *Fente perçante* : frappe tout sur la ligne · rang : dégâts +20 % |
+| Mobilité | **Pas de faille** | Téléportation instantanée de 5 m vers la visée ; l'ombre laissée au départ éclate 1 s plus tard | *Deux charges* · *Ombre piégée* : l'éclat ralentit 2 s · rang : recharge −15 % |
+| Contrôle | **Onde de stase** | Cône de 90° devant le Chasseur (5 m) qui fige les ennemis 1,5 s (boss : ralentis de moitié) | *Éclats de stase* : les ennemis figés subissent +20 % de dégâts · *Onde circulaire* : 360°, portée −30 % · rang : durée +20 % |
+| Zone | **Pluie d'éclats** | Zone de 3 m au point visé où tombent des éclats pendant 3 s (dégâts réguliers) | *Orage* : la zone suit le Chasseur · *Concentration* : zone −40 %, dégâts ×1,6 · rang : zone +20 % |
+| Défensif | **Voile de cendre** | Nuage de 3 m autour du Chasseur pendant 4 s : les tirs ennemis qui y entrent sont détruits, les ennemis dedans ralentis | *Voile mobile* : le nuage suit le Chasseur · *Contrecoup* : chaque tir détruit rend 2 PV · rang : durée +25 % |
+
+Chacun entrerait comme les autres : une `SpellData` dans `data/spells/` (ou `draft3d/` si propre à la v2), un
+`spell_kind` dans `DraftSpells`, ses cartes `draft3d/spells/*.tres`, ses textes FR/EN et ses essais.

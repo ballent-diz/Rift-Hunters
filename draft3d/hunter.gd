@@ -7,6 +7,10 @@ signal hurt(amount: float)
 signal died
 signal leveled(level: int)
 signal landed
+## Parade : un coup reçu pendant la garde n'inflige rien.
+signal parried
+## Égide : le bouclier vient de céder sous un coup.
+signal shield_broken
 
 ## Mètres par unité de l'ancien monde 2D : vitesses, portées et rayons de l'équilibrage sont convertis ainsi.
 const UNIT := 0.03
@@ -35,6 +39,10 @@ var auto_dash: bool = false
 var god_mode: bool = false
 ## Point de retour si le Chasseur tombe hors de la carte.
 var respawn := Vector3(0, 0.2, 0)
+## Sorts défensifs : garde de Parade (s restantes), bouclier de l'Égide (PV absorbés, s restantes).
+var guard_left: float = 0.0
+var shield: float = 0.0
+var shield_left: float = 0.0
 ## Dernière direction de déplacement (visée des sorts au clavier seul).
 var facing := Vector3(0, 0, 1)
 var _dash_direction := Vector3.ZERO
@@ -122,7 +130,23 @@ func heal(amount: float) -> void:
 func take_damage(amount: float) -> float:
 	if not alive or invulnerable > 0.0 or god_mode:
 		return 0.0
+	if guard_left > 0.0:
+		guard_left = 0.0
+		invulnerable = maxf(invulnerable, 0.3)
+		parried.emit()
+		return 0.0
 	var final: float = maxf(amount * stats.get_value(StatKeys.DAMAGE_TAKEN), 1.0)
+	if shield > 0.0:
+		var absorbed: float = minf(shield, final)
+		shield -= absorbed
+		final -= absorbed
+		if shield <= 0.0:
+			shield_left = 0.0
+			shield_broken.emit()
+		if final <= 0.0:
+			invulnerable = maxf(invulnerable, 0.15)
+			view.flash(0.08)
+			return 0.0
 	hp -= final
 	invulnerable = balance.hurt_iframes
 	view.flash(0.18)
@@ -161,6 +185,10 @@ func _physics_process(delta: float) -> void:
 	dash_time = maxf(dash_time - delta, 0.0)
 	dash_cooldown_left = maxf(dash_cooldown_left - delta, 0.0)
 	invulnerable = maxf(invulnerable - delta, 0.0)
+	guard_left = maxf(guard_left - delta, 0.0)
+	shield_left = maxf(shield_left - delta, 0.0)
+	if shield_left <= 0.0:
+		shield = 0.0
 	if alive:
 		heal(stats.get_value(StatKeys.REGEN) * delta)
 	if _leap_left > 0.0:

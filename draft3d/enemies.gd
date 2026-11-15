@@ -238,6 +238,10 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 					run.call("enemy_shot", foe)
 	foe.vel = foe.vel.move_toward(wish * speed, ACCELERATION * delta)
 	var next: Vector3 = foe.pos + foe.vel * delta + _separation(foe) * delta
+	# Murs de faille du Chasseur : un ennemi ne les traverse pas.
+	if run.call("barrier_blocks", foe.pos, next):
+		next = foe.pos
+		foe.vel = Vector3.ZERO
 	# Recalage sur la navigation une image sur deux (hauteur dans l'escalier, murs) : les ennemis n'ont pas de corps.
 	if (foe.slot + _frame) % 2 == 0 or foe.boss != null:
 		next = level.closest(next + Vector3.UP * 0.2)
