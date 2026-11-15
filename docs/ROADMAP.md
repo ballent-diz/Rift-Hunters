@@ -1,5 +1,52 @@
 # Rift Hunters — feuille de route
 
+## Référence des décors 3D validée (propriétaire, 15 novembre 2026)
+
+La Cour harmonisée (sol, herbe, murs et escaliers, PR #169) est validée comme référence de style.
+Activation par défaut sur la carte 1 ; `--painted-kit=0` restitue l’ancien habillage pour comparaison.
+Les détails secondaires pourront être repris plus tard. Canon : `docs/art/REFERENCE_DECORS_3D.md`.
+Prochaine carte demandée : carte 2, Cimetière des Cendres, en conservant son identité et sa géométrie.
+
+## Harmonisation des murs et escaliers (Codex, 15 novembre 2026)
+
+Prêt à valider, suite de la PR #169 : appliquer la pierre approuvée de l’escalier central à tous les escaliers
+de la Cour, et celle du mur central aux murs entiers, fissurés, brisés, percés et aux soubassements.
+Conserver la géométrie et la physique de chaque variante ; sol et autres piliers inchangés.
+Couverture vérifiée : 4 escaliers, 101 sections de murs (66 entières, 21 brisées, 10 fissurées, 4 portes),
+2 soubassements ; le pilier de référence est conservé. Contrôle de 4 855 triangles, 532 formes de collision,
+336 surfaces de sol et navigation conforme. Captures : `docs/previews/murs_escaliers_cour/`.
+
+## Sol végétal du kit peint (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/essai-kit-pierre-peinte` (suite de la PR #169). Sol peint à touffes groupées et dalles
+froides, accordé aux trois modules du kit et aux sprites. Suppression du tapis de petits brins 3D et des
+surimpressions redondantes dans l'essai ; quelques touffes en volume restent aux emplacements existants.
+Sans changement du relief ni des collisions ; captures dans le rendu de jeu avant validation.
+336 surfaces de sol vérifiées : hauteurs, emprises, 532 formes de collision et navigation identiques.
+40 touffes 3D simplifiées conservées ; 3 450 groupes de petits brins retirés. Guide et prompts :
+`docs/art/SOL_VEGETAL_COUR.md`. Retour au sol précédent avec `--painted-kit-ground=0`.
+
+## Essai du kit de pierre peinte (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/essai-kit-pierre-peinte`, depuis main avec la référence/palette de la PR #168 intégrée
+comme dépendance. Un mur, l'escalier central et un pilier de la terrasse reçoivent des UV et textures liés
+à leurs formes ; essai activé uniquement avec `--painted-kit`, à valider avant généralisation.
+Comparatif dans le rendu pixel réel, avec la même palette expérimentale de 48 couleurs pour les deux vues.
+Contrôles : trois instances visuelles modifiées, 1 613 triangles vérifiés, collisions/navigation/placements
+identiques, sept tests de rendu réussis. Méthode, limites et prompt : `docs/art/ESSAI_KIT_PIERRE_PEINTE.md`.
+
+## Intégration matière / rendu pixel de la Cour (Codex, 15 novembre 2026)
+
+Cadrage de référence prêt à valider : dérivé de `DraftRun`, rendu pixel actif, Chasseur et trois Corrompus figés
+près des escaliers/piliers/murs. Pierre refroidie et légèrement éclaircie ; trois gris neutres réservés dans les
+32 couleurs sans retirer les verts. Les prochains réglages seront évalués dans cette référence intégrée.
+
+Correctif vérifié, à revoir sur `codex/palette-cour-integree` : la palette de la PR #165, antérieure aux textures
+de la #166, ne contenait pas les verts du sous-bois et les transformait en gris-violet. Les palettes des
+chapitres 1 et 5 (même Cour actuellement) sont recalées sur des captures du jeu en aplats, avec les matières
+actuelles. Vérification directe dans `draft3d/main.tscn`, rendu pixel actif ; sept tests ciblés réussis,
+dont un test de régression sur la mousse. Shaders, géométrie et collisions inchangés ; la calibration du cadrage
+ajuste uniquement les teintes des matériaux minéraux et réserve trois gris dans la palette.
 ## Sorts actifs du Chasseur en 3D (Claude, session « Gameplay », 14 novembre 2026)
 
 Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2.md).

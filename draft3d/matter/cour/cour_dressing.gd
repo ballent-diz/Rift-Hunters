@@ -8,6 +8,13 @@ var _ground_positions := PackedVector3Array()
 var _ground_uvs := PackedVector2Array()
 var _grass_meshes := {}
 
+static func painted_kit_enabled() -> bool:
+	return not OS.get_cmdline_user_args().has("--painted-kit=0")
+
+static func painted_ground_enabled() -> bool:
+	var args := OS.get_cmdline_user_args()
+	return painted_kit_enabled() and not args.has("--painted-kit-ground=0")
+
 func setup(level: Node3D) -> void:
 	name = "CourMatter"
 	if OS.get_cmdline_user_args().has("--cour-matter=0"):
@@ -48,8 +55,13 @@ func apply_matter(level: Node3D) -> void:
 	create_ground()
 	create_meadow()
 	place_details()
+	if painted_kit_enabled():
+		preload("res://draft3d/matter/painted_kit/apply_trial.gd").apply(level)
 
 func create_meadow() -> void:
+	# Le sol peint contient déjà une herbe basse : éviter de superposer le tapis de petits brins.
+	if painted_ground_enabled():
+		return
 	var regions: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "grass_regions.json"))
 	var mask := {}
 	for point: Array in regions.points:
@@ -117,7 +129,9 @@ func create_ground() -> void:
 	arrays[Mesh.ARRAY_NORMAL] = normals
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	mesh.surface_set_material(0, load(ROOT + "materials/terrain.tres"))
+	var material_path := "res://draft3d/matter/painted_kit/ground/material.tres" if painted_ground_enabled() \
+		else ROOT + "materials/terrain.tres"
+	mesh.surface_set_material(0, load(material_path))
 	var instance := MeshInstance3D.new()
 	instance.name = "CourTerrain"
 	instance.mesh = mesh
@@ -138,19 +152,25 @@ func texture_foundation(instance: MeshInstance3D) -> void:
 	var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 	var uv := PackedVector2Array()
+	var painted := painted_kit_enabled()
+	var foot := instance.mesh.get_aabb().position.y
 	for i: int in positions.size():
 		var point := positions[i]
 		var normal := normals[i].abs()
 		if normal.y >= normal.x and normal.y >= normal.z:
 			uv.append(Vector2(point.x, point.z) / 4.0)
 		elif normal.x >= normal.z:
-			uv.append(Vector2(point.z, point.y) / 4.0)
+			uv.append(Vector2(point.z / 4.0, 1.0 - (point.y - foot) / 4.0) if painted \
+				else Vector2(point.z, point.y) / 4.0)
 		else:
-			uv.append(Vector2(point.x, point.y) / 4.0)
+			uv.append(Vector2(point.x / 4.0, 1.0 - (point.y - foot) / 4.0) if painted \
+				else Vector2(point.x, point.y) / 4.0)
 	arrays[Mesh.ARRAY_TEX_UV] = uv
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	mesh.surface_set_material(0, load(ROOT + "materials/moss.tres"))
+	var material_path := "res://draft3d/matter/painted_kit/masonry_tile.tres" if painted \
+		else ROOT + "materials/moss.tres"
+	mesh.surface_set_material(0, load(material_path))
 	instance.mesh = mesh
 	instance.material_override = null
 	instance.set_surface_override_material(0, null)
@@ -158,6 +178,11 @@ func texture_foundation(instance: MeshInstance3D) -> void:
 func place_details() -> void:
 	var entries: Array = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "placements.json"))["placements"]
 	for entry: Dictionary in entries:
+		# Les dalles et leurs joints sont déjà peints ; retirer le semis de cailloux et feuilles superposé.
+		if painted_ground_enabled() and str(entry.visual_id) in ["object.cour_rubble", "object.cour_slate",
+			"object.cour_brick", "object.cour_gravel", "object.cour_leaves_dry", "object.cour_leaves_green",
+			"object.cour_damp"]:
+			continue
 		if str(entry["visual_id"]).begins_with("object.cour_grass_"):
 			place_grass(entry)
 			continue
@@ -191,7 +216,7 @@ func place_details() -> void:
 func place_grass(entry: Dictionary) -> void:
 	var variant: int = ["object.cour_grass_olive", "object.cour_grass_broad", "object.cour_grass_dry"].find(entry.visual_id)
 	if not _grass_meshes.has(variant):
-		_grass_meshes[variant] = GRASS.build(variant)
+		_grass_meshes[variant] = GRASS.build(variant, false, painted_ground_enabled())
 	var instance := MeshInstance3D.new()
 	instance.name = entry.name
 	instance.mesh = _grass_meshes[variant]

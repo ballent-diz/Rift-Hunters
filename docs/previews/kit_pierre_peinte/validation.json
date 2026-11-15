@@ -1,0 +1,53 @@
+{
+  "changed_mesh_instances": 3,
+  "collision_shapes": 532,
+  "collisions": "identiques",
+  "max_normal_encoding_error": 0.000123667457955889,
+  "module_transforms": "identiques",
+  "modules": 3,
+  "navigation": "identique",
+  "navigation_polygons": 885,
+  "status": "conforme",
+  "triangles_checked": 1613,
+  "reference": {
+    "combat": "figé pour comparaison",
+    "enemies": [
+      "skitterling",
+      "lunger",
+      "husk"
+    ],
+    "focus": "(-2, 1.6, -13)",
+    "hunter": "(-0.8, 1.243661, -8.941901)",
+    "palette_colors": 48,
+    "pixel_enabled": true,
+    "scene": "DraftRun",
+    "texel_m": 0.0240384615384615,
+    "view_size": 20
+  },
+  "atlas": {
+    "wall": {
+      "colors": 42,
+      "dimensions": [
+        512,
+        512
+      ],
+      "uv_in_bounds": true
+    },
+    "stairs_wide": {
+      "colors": 46,
+      "dimensions": [
+        512,
+        1024
+      ],
+      "uv_in_bounds": true
+    },
+    "pillar_decorated": {
+      "colors": 43,
+      "dimensions": [
+        512,
+        512
+      ],
+      "uv_in_bounds": true
+    }
+  }
+}
