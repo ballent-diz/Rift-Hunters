@@ -1,0 +1,24 @@
+{
+	"camera_view": 76,
+	"enemies": [
+		{
+			"at": "(-3, 0.2, 24)",
+			"id": "frost_crawler"
+		},
+		{
+			"at": "(3, 0.2, 24)",
+			"id": "blizzard_wolf"
+		},
+		{
+			"at": "(-0.000023, 0.2, 21.99996)",
+			"id": "snow_wraith"
+		}
+	],
+	"focus": "(0, 0, 0)",
+	"hunter": "(-0, 0.2, 26)",
+	"palette_colors": 32,
+	"pixel_enabled": true,
+	"region": "overview",
+	"scene": "DraftRun",
+	"texel_m": 0.0844444444444444
+}

@@ -1,0 +1,66 @@
+{
+  "masonry": {
+    "size": [
+      160,
+      160
+    ],
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "wood": {
+    "size": [
+      160,
+      160
+    ],
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "roof": {
+    "size": [
+      160,
+      160
+    ],
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "iron": {
+    "size": [
+      160,
+      160
+    ],
+    "colors": 6,
+    "texels_per_m": 40
+  },
+  "canvas": {
+    "size": [
+      160,
+      160
+    ],
+    "colors": 6,
+    "texels_per_m": 40
+  },
+  "ice": {
+    "size": [
+      160,
+      160
+    ],
+    "colors": 6,
+    "texels_per_m": 40
+  },
+  "cliff": {
+    "size": [
+      160,
+      160
+    ],
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "ground": {
+    "size": [
+      320,
+      320
+    ],
+    "colors": 12,
+    "texels_per_m": 40
+  }
+}

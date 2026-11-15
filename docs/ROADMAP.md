@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Avant-poste des Glaces (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/matiere-avant-poste-glaces`. Matières peintes gelées et remplacement visuel des objets
+futuristes par un avant-poste ancien, autorisé par le propriétaire. 74 collisions, 865 polygones de navigation,
+sol et escaliers conservés ; 50 volumes visuels comparés aux boîtes physiques. Tests rendu pixel 8/8 et
+localisation 6/6. Six cadrages avant/après ; `docs/art/MATIERE_AVANT_POSTE_DES_GLACES.md`.
+
+
 ## Matière du Cimetière des Cendres (Codex, 15 novembre 2026)
 
 Prêt à valider sur `codex/matiere-cimetiere-cendres`, depuis main avec la référence Cour fusionnée (#169).
