@@ -214,13 +214,9 @@ func _take_at_start(id: String) -> void:
 	refresh()
 
 
-## Icône du sort, celle de la barre de sorts (nœud d'arbre ou image PixelFX pour les sorts propres à la v2).
+## Icône du sort, la même que la barre de sorts et les cartes du choix de niveau (`DraftSpellBar.icon_for`).
 static func spell_icon(spell_id: StringName) -> Texture2D:
-	var data: SpellData = DraftSpells.spell(spell_id)
-	if data == null:
-		return null
-	var node: SkillNodeData = HunterTree.spell_node(data.id)
-	return HunterTreeSkin.icon(node) if node != null else DraftSpellBar._fx_icon(data)
+	return DraftSpellBar.icon_for(DraftSpells.spell(spell_id))
 
 
 func _unhandled_input(event: InputEvent) -> void:
