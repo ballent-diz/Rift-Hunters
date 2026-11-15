@@ -53,3 +53,19 @@ PixelFX du catalogue (`assets/vfx/pixelfx/`) en billboard, comme les monstres.
 
 Tester : `godot --path . res://draft3d/main.tscn` (flèches ou A E R F selon le mode, choisi dans Options → Touches
 et visée), ou `-- --bot` pour voir le bot lancer ses sorts. Essais : `tests/unit/test_draft3d_spells.gd`.
+
+## 3. Améliorations des sorts (lot 3)
+
+Cartes du choix de niveau (`draft3d/spells/*.tres`, `UpgradeData` + effet `DraftSpellEffect`), proposées seulement
+pour un sort connu. Valeurs dans les données (`params`, `pct`), jamais dans le code.
+
+| Sort | Variante A (une seule par sort) | Variante B | Rangs (×3 chacun) |
+|---|---|---|---|
+| Taille | **Tourbillon** : cercle complet, portée ×0,85 | **Estoc** : ligne de 9,6 m, demi-largeur 0,66 m, perce tout | Fil aiguisé (dégâts +20 %), Allonge (portée +15 %) |
+| Lance | **Éventail** : 3 lances à 15°, 80 % des dégâts | **Surcharge** : maintenir charge jusqu'à ×2,5 en 1,2 s, relâcher tire | Pointe lourde (dégâts +20 %), Tir rapide (recharge −15 %) |
+| Rupture | **Réaction** (adaptée, sans Marques) : 2 rebonds sur l'ennemi visible le plus proche, zone ×0,6, 50 % des dégâts | **Brasier** (adapté, sans Brûlure) : sol ardent 3 s, 15 % des dégâts toutes les 0,5 s | Charge instable (dégâts +20 %), Onde large (zone +20 %) |
+| Bond | **Retour** : dans les 3 s après l'arrivée, la touche ramène au départ | **Impact** : onde ×2, ennemis ralentis de moitié 2 s (Entrave simplifiée, `Foe.slow`) | Retombée lourde (dégâts +25 %), Élan (recharge −15 %) |
+
+Une variante activée dans l'arbre du profil (campagne v1) est prise d'office au départ pour un sort de départ
+(`DraftUpgrades.variant_card`). Le bot prend les cartes au hasard et lance la Surcharge sans la charger.
+Essais : `tests/unit/test_draft3d_spells.gd` (rangs, exclusivité, chaque variante).

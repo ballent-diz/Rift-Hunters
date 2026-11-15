@@ -91,12 +91,18 @@ func _ready() -> void:
 	hunter.hp = hunter.max_hp()
 	# Sorts de départ : ceux équipés dans l'arbre et raccordés à la 3D, sinon ceux de l'équilibrage.
 	var equipped: Array[StringName] = []
-	for id: StringName in HunterTree.loadout(Profile.profile)["spells"]:
+	var loadout: Dictionary = HunterTree.loadout(Profile.profile)
+	for id: StringName in loadout["spells"]:
 		if id != &"" and DraftSpells.supported(id):
 			equipped.append(id)
 	spells = DraftSpells.new()
 	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
 	upgrades.spells = spells
+	# Variantes activées dans l'arbre : la carte correspondante est prise d'office pour les sorts de départ.
+	for spell_id: Variant in loadout["variants"]:
+		var card: UpgradeData = upgrades.variant_card(StringName(str(spell_id)), StringName(str(loadout["variants"][spell_id])))
+		if card != null and upgrades.can_offer(card):
+			upgrades.apply(card, hunter.stats)
 	if _bot or DisplayServer.get_name() == "headless":
 		DraftProgress.path = ""
 	hunter.set_physics_process(false)

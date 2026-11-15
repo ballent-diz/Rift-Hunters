@@ -9,7 +9,11 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
   Faille ; départ Taille + Lance (ou sorts de l'arbre), les autres par cartes « Nouveau sort » au choix de niveau.
   Le déplacement lit désormais les actions (ZQSD au clavier seul, flèches en plus avec la souris). Bot : `auto_cast`.
   Essais `tests/unit/test_draft3d_spells.gd`. Capture `docs/previews/sorts-actifs-v2/`.
-- Lot 3 (améliorations par sort) et lot 4 (reste du pool, propositions) : à suivre.
+- **Lot 3 (fait)** : 16 cartes d'amélioration de sort au choix de niveau, effets en données (`DraftSpellEffect`
+  VARIANT / MODIFY) : les 8 variantes v1 (Tourbillon, Estoc, Éventail, Surcharge, Réaction, Brasier, Retour, Impact ;
+  Réaction et Brasier adaptés sans statuts) et 8 rangs (dégâts, recharge, zone, portée). Une variante par sort ;
+  variante de l'arbre du profil prise d'office. Ralentissement des ennemis ajouté (`Foe.slow`).
+- Lot 4 (reste du pool, propositions de nouveaux sorts) : à suivre.
 
 ## Matière de la Cour des Veilleurs (Codex, 14 novembre 2026)
 
