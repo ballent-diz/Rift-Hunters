@@ -1,8 +1,9 @@
 extends Node3D
-## Contrôle de l'essai : topologie, UV source, normale, densité, trois instances et physique inchangées.
+## Contrôle du kit : topologie, UV source, normales, couverture des murs/escaliers et physique inchangée.
 
 const KIT := "res://draft3d/matter/painted_kit/"
 const SOURCE := "res://draft3d/matter/cour/meshes/"
+const MODULES := ["wall", "wall_cracked", "wall_broken", "wall_doorway", "stairs_wide", "pillar_decorated"]
 
 func _ready() -> void:
 	get_tree().create_timer(45.0).timeout.connect(func() -> void: get_tree().quit(1))
@@ -13,7 +14,7 @@ func verify() -> void:
 	var checker := preload("res://tools/art/check_cour_matter.gd").new()
 	var total_triangles := 0
 	var max_normal_error := 0.0
-	for id: String in ["wall", "stairs_wide", "pillar_decorated"]:
+	for id: String in MODULES:
 		var source := load(SOURCE + id + ".res") as Mesh
 		var target := load(KIT + id + ".res") as Mesh
 		var before: Array = checker.triangles(source, false)
@@ -44,8 +45,24 @@ func verify() -> void:
 	for instance: MeshInstance3D in original_meshes:
 		if instance.mesh != original_meshes[instance]:
 			changed += 1
-	assert(changed == 3, "L'essai doit modifier exactement trois instances visuelles")
-	var result := {"status": "conforme", "modules": 3, "changed_mesh_instances": changed,
+	var expected := 0
+	var counts := {}
+	for child: Node in level.get_children():
+		var id := child.scene_file_path.get_file().get_basename()
+		var target: bool = id in ["wall", "wall_cracked", "wall_broken", "wall_doorway", "stairs_wide"]
+		if id == "pillar_decorated":
+			target = (child as Node3D).position.distance_to(Vector3(-8, 2, -17.5)) < 0.1
+		if not target:
+			continue
+		assert(child.get_meta("painted_kit", "") == id, "Module oublié : " + str(child.name))
+		counts[id] = int(counts.get(id, 0)) + 1
+		for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
+			assert(instance.mesh == load(KIT + id + ".res"), "Mauvais mesh peint")
+			expected += 1
+	assert(changed == expected and changed > 3)
+	assert(counts.stairs_wide == 4, "Un escalier de la Cour a été oublié")
+	var result := {"status": "conforme", "modules": MODULES.size(), "changed_mesh_instances": changed,
+		"coverage": counts,
 		"triangles_checked": total_triangles, "max_normal_encoding_error": max_normal_error,
 		"collision_shapes": collisions.size(), "navigation_polygons": level.navigation_mesh.get_polygon_count(),
 		"collisions": "identiques", "navigation": "identique", "module_transforms": "identiques"}

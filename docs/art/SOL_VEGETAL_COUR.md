@@ -16,7 +16,9 @@ Le propriétaire demande de rester cohérent avec les sprites et le décor ; ses
 - Retrait des surimpressions de gravats, ardoises, briques, gravier, feuilles et taches humides qui doublaient
   la nouvelle matière. Racines, fougères, lierre, flaques, toiles, os et accents de corruption restent en place.
 
-Les autres murs, piliers et escaliers gardent leurs matières précédentes : cette passe concerne le sol.
+Cette passe concernait uniquement le sol. Depuis l’extension suivante, les murs et escaliers de la Cour
+utilisent tous la pierre du kit ; voir `ESSAI_KIT_PIERRE_PEINTE.md`. Les captures de cette page conservent
+l’état antérieur à cette extension pour comparer le sol seul.
 Aucun nouvel obstacle, aucune modification de déplacement, de relief, de collision, de navigation ou de shader.
 Les sprites du Chasseur et des monstres restent inchangés. Aucun changement dans `src/` ou `data/`.
 

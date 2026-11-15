@@ -1,5 +1,45 @@
 # Essai : pierre peinte liée aux formes
 
+## Extension aux murs et escaliers de la Cour — 15 novembre 2026
+
+À la demande du propriétaire, la matière de l’escalier central est appliquée aux **quatre escaliers**,
+y compris ceux tournés de ±90° et celui de la terrasse latérale. Leurs échelles sont vérifiées avant pose
+(1 ; 0,5 ; 1,5) : les mêmes bandes de marches et contremarches restent à la même densité.
+
+La matière du mur central habille désormais les **101 sections de murs** : 66 entières, 21 brisées,
+10 fissurées et 4 avec passage de porte. Chaque variante conserve son propre mesh, ses cassures, ses
+ouvertures et ses collisions. Trois atlas et copies de meshes sont ajoutés à partir des gabarits retenus,
+sans nouvelle génération d’image et sans remplacer les variantes par un mur plein. Le pilier de référence
+reste le seul pilier changé ; les autres sont hors de cette demande.
+
+Les **deux soubassements de terrasse** utilisent le panneau de maçonnerie du même gabarit,
+`masonry_tile.png` / `masonry_tile.tres` (160², 40 texels/m). La hauteur des UV est enregistrée depuis le
+pied de la fondation, afin que la mousse reste en bas. Seuls UV et matériau changent sur ces copies visuelles.
+Sommets et normales sont comparés avant/après, sans toucher aux corps physiques.
+
+L’activation reste `--painted-kit`. Le sol végétal et les personnages gardent exactement leur rendu de la
+capture précédente. Les aperçus dans `docs/previews/murs_escaliers_cour/` remplacent les références
+historiques ci-dessous pour juger l’ensemble harmonisé. Avant = passe du sol, après = extension aux murs.
+
+Contrôles conformes : six variantes de mesh, **4 855 triangles**, normales/positions/UV2 source conservés,
+106 instances de modules peintes (murs + escaliers + pilier), deux fondations géométriquement identiques.
+Les 532 formes de collision, les placements, les 336 surfaces de sol et les 885 polygones de navigation
+restent identiques. Lint des cinq scripts GDScript concernés conforme ; captures natives sans erreur.
+
+Pour reconstruire seulement les trois variantes ajoutées (Pillow et NumPy) :
+
+```text
+godot --path . --script res://tools/art/build_painted_kit.gd -- --export=<geometrie.json>
+python tools/art/condition_painted_kit.py assets/concepts/incoming/material.painted_kit/source/templates.png <geometrie.json> wall_cracked,wall_broken,wall_doorway
+godot --headless --editor --import --path .
+godot --path . --script res://tools/art/build_painted_kit.gd -- --only=wall_cracked,wall_broken,wall_doorway
+```
+
+Sans filtre, les outils reconstruisent les six variantes. L’import ciblé et les contrôles utilisent la même
+méthode décrite ci-dessous. Les atlas des trois variantes d’origine ne sont pas modifiés par cette extension.
+
+## Historique du premier essai
+
 Suite de l’essai : le [sol végétal](SOL_VEGETAL_COUR.md) est désormais inclus avec `--painted-kit`.
 Ajouter `--painted-kit-ground=0` pour retrouver le sol des captures historiques de cette page.
 

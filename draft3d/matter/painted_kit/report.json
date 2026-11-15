@@ -33,5 +33,38 @@
       "masonry_registered_in_height": 4,
       "individual_block_edge_wear": 253
     }
+  },
+  "wall_cracked": {
+    "atlas": [
+      512,
+      1024
+    ],
+    "islands": 1613,
+    "roles": {
+      "masonry_registered_in_height": 6,
+      "individual_block_edge_wear": 1607
+    }
+  },
+  "wall_broken": {
+    "atlas": [
+      512,
+      512
+    ],
+    "islands": 394,
+    "roles": {
+      "individual_block_edge_wear": 390,
+      "masonry_registered_in_height": 4
+    }
+  },
+  "wall_doorway": {
+    "atlas": [
+      512,
+      512
+    ],
+    "islands": 216,
+    "roles": {
+      "masonry_registered_in_height": 4,
+      "individual_block_edge_wear": 212
+    }
   }
 }

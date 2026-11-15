@@ -12,7 +12,10 @@
   "modules": [
     "wall",
     "stairs_wide",
-    "pillar_decorated"
+    "pillar_decorated",
+    "wall_cracked",
+    "wall_broken",
+    "wall_doorway"
   ],
   "texels_per_m": 40,
   "roles": [

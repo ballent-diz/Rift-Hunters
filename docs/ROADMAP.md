@@ -1,5 +1,14 @@
 # Rift Hunters — feuille de route
 
+## Harmonisation des murs et escaliers (Codex, 15 novembre 2026)
+
+Prêt à valider, suite de la PR #169 : appliquer la pierre approuvée de l’escalier central à tous les escaliers
+de la Cour, et celle du mur central aux murs entiers, fissurés, brisés, percés et aux soubassements.
+Conserver la géométrie et la physique de chaque variante ; sol et autres piliers inchangés.
+Couverture vérifiée : 4 escaliers, 101 sections de murs (66 entières, 21 brisées, 10 fissurées, 4 portes),
+2 soubassements ; le pilier de référence est conservé. Contrôle de 4 855 triangles, 532 formes de collision,
+336 surfaces de sol et navigation conforme. Captures : `docs/previews/murs_escaliers_cour/`.
+
 ## Sol végétal du kit peint (Codex, 15 novembre 2026)
 
 Prêt à valider sur `codex/essai-kit-pierre-peinte` (suite de la PR #169). Sol peint à touffes groupées et dalles

@@ -16,7 +16,11 @@ func verify() -> void:
 	var poses: Array = checker.modules(level)
 	var navigation: Array = checker.navigation(level)
 	var floors: Array[MeshInstance3D] = []
+	var foundations := {}
 	for child: Node in level.get_children():
+		if child.name in ["Terrace", "CornerTerrace"]:
+			for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
+				foundations[instance] = instance.mesh.surface_get_arrays(0)
 		if child.scene_file_path.get_file().get_basename() == "floor_tile_large":
 			for instance: MeshInstance3D in child.find_children("*", "MeshInstance3D", true, false):
 				floors.append(instance)
@@ -27,6 +31,13 @@ func verify() -> void:
 	assert(navigation == checker.navigation(level), "Navigation modifiée")
 	assert(dressing.find_children("*", "CollisionObject3D", true, false).is_empty())
 	assert(not dressing.has_node("CourMeadow"), "Le tapis dense ne doit pas doubler le sol peint")
+	for instance: MeshInstance3D in foundations:
+		var before: Array = foundations[instance]
+		var after: Array = instance.mesh.surface_get_arrays(0)
+		for attribute: int in [Mesh.ARRAY_VERTEX, Mesh.ARRAY_NORMAL]:
+			assert(before[attribute].size() == after[attribute].size())
+			for index: int in before[attribute].size():
+				assert(before[attribute][index].distance_to(after[attribute][index]) < 0.0002)
 	var ground := dressing.get_node("CourTerrain") as MeshInstance3D
 	var arrays := ground.mesh.surface_get_arrays(0)
 	var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
@@ -55,6 +66,7 @@ func verify() -> void:
 			grass_count += 1
 	assert(grass_count > 0)
 	var result := {"status": "conforme", "floor_tiles": floors.size(),
+		"foundation_geometry": "identique", "foundations_checked": foundations.size(),
 		"floor_height_and_footprint": "identiques", "world_uv_period_m": 16,
 		"collision_shapes": collisions.size(), "collisions": "identiques",
 		"module_transforms": "identiques", "navigation": "identique",

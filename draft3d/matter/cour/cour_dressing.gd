@@ -149,19 +149,25 @@ func texture_foundation(instance: MeshInstance3D) -> void:
 	var positions: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
 	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
 	var uv := PackedVector2Array()
+	var painted := OS.get_cmdline_user_args().has("--painted-kit")
+	var foot := instance.mesh.get_aabb().position.y
 	for i: int in positions.size():
 		var point := positions[i]
 		var normal := normals[i].abs()
 		if normal.y >= normal.x and normal.y >= normal.z:
 			uv.append(Vector2(point.x, point.z) / 4.0)
 		elif normal.x >= normal.z:
-			uv.append(Vector2(point.z, point.y) / 4.0)
+			uv.append(Vector2(point.z / 4.0, 1.0 - (point.y - foot) / 4.0) if painted \
+				else Vector2(point.z, point.y) / 4.0)
 		else:
-			uv.append(Vector2(point.x, point.y) / 4.0)
+			uv.append(Vector2(point.x / 4.0, 1.0 - (point.y - foot) / 4.0) if painted \
+				else Vector2(point.x, point.y) / 4.0)
 	arrays[Mesh.ARRAY_TEX_UV] = uv
 	var mesh := ArrayMesh.new()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
-	mesh.surface_set_material(0, load(ROOT + "materials/moss.tres"))
+	var material_path := "res://draft3d/matter/painted_kit/masonry_tile.tres" if painted \
+		else ROOT + "materials/moss.tres"
+	mesh.surface_set_material(0, load(material_path))
 	instance.mesh = mesh
 	instance.material_override = null
 	instance.set_surface_override_material(0, null)

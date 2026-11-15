@@ -12,7 +12,8 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "draft3d/matter/painted_kit"
-SCALES = {"wall": [1, 1, 1], "stairs_wide": [1, 0.5, 1.5], "pillar_decorated": [1, 1, 1]}
+SCALES = {"wall": [1, 1, 1], "stairs_wide": [1, 0.5, 1.5], "pillar_decorated": [1, 1, 1],
+          "wall_cracked": [1, 1, 1], "wall_broken": [1, 1, 1], "wall_doorway": [1, 1, 1]}
 DENSITY = 40
 
 
@@ -119,7 +120,7 @@ def pack(patches):
     return atlas
 
 
-def main(source_path, geometry_path):
+def main(source_path, geometry_path, only=None):
     OUT.mkdir(parents=True, exist_ok=True)
     raw = Image.open(source_path).convert("RGB")
     # Palette commune de 48 couleurs, sans tramage ; les sprites actuels dépassent eux-mêmes 32 couleurs.
@@ -133,7 +134,11 @@ def main(source_path, geometry_path):
         panels.append(raw.crop(box).resize(size, Image.Resampling.NEAREST)
                       .quantize(palette=palette, dither=Image.Dither.NONE).convert("RGB"))
     geometry = json.loads(Path(geometry_path).read_text(encoding="utf-8"))
-    reports = {}
+    if only:
+        geometry = {key: geometry[key] for key in only.split(",")}
+    report_path = OUT / "report.json"
+    reports = json.loads(report_path.read_text(encoding="utf-8")) if report_path.exists() else {}
+    panels[0].save(OUT / "masonry_tile.png")
     for module, surfaces in geometry.items():
         plans, patches = {}, []
         for s, surface in enumerate(surfaces):
@@ -182,4 +187,4 @@ def main(source_path, geometry_path):
 
 
 if __name__ == "__main__":
-    main(*sys.argv[1:3])
+    main(*sys.argv[1:4])

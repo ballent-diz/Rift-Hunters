@@ -3,15 +3,20 @@ extends SceneTree
 
 const ROOT := "res://draft3d/matter/painted_kit/"
 const SOURCE := "res://draft3d/matter/cour/meshes/"
-const MODULES := ["wall", "stairs_wide", "pillar_decorated"]
+const MODULES := ["wall", "wall_cracked", "wall_broken", "wall_doorway", "stairs_wide", "pillar_decorated"]
 
 func _initialize() -> void:
+	var only := PackedStringArray()
 	for arg: String in OS.get_cmdline_user_args():
+		if arg.begins_with("--only="):
+			only = arg.trim_prefix("--only=").split(",")
 		if arg.begins_with("--export="):
 			export_faces(arg.trim_prefix("--export="))
 			quit()
 			return
 	for id: String in MODULES:
+		if not only.is_empty() and id not in only:
+			continue
 		var source := load(SOURCE + id + ".res") as ArrayMesh
 		var plan: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + id + "_uv.json"))
 		var result := ArrayMesh.new()
