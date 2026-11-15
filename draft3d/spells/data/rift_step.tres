@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"rift_step"
+spell_kind = &"blink"
+name_key = "SPELL3D_RIFT_STEP_NAME"
+desc_key = "SPELL3D_RIFT_STEP_DESC"
+family = 1
+path = &"bond"
+cooldown = 6.0
+damage = 25.0
+spell_range = 170.0
+width = 90.0
+knockback = 0.0
+speed = 0.0
+statuses = []
+color = Color(0.6, 0.85, 1, 1)
+params = {"delay": 1.0, "icon_fx": "blink_in"}

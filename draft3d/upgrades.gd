@@ -37,7 +37,19 @@ const SPELL_CARDS: Array[String] = ["res://draft3d/spells/learn_cleaving_slash.t
 	"res://draft3d/spells/crystal_double.tres", "res://draft3d/spells/crystal_focus.tres",
 	"res://draft3d/spells/parry_counter.tres", "res://draft3d/spells/singularity_depth.tres",
 	"res://draft3d/spells/wall_lasting.tres", "res://draft3d/spells/aegis_quick.tres",
-	"res://draft3d/spells/crystal_lasting.tres"]
+	"res://draft3d/spells/crystal_lasting.tres", "res://draft3d/spells/learn_hunter_mark.tres",
+	"res://draft3d/spells/learn_void_rend.tres", "res://draft3d/spells/learn_rift_step.tres",
+	"res://draft3d/spells/learn_stasis_wave.tres", "res://draft3d/spells/learn_shard_rain.tres",
+	"res://draft3d/spells/learn_ash_veil.tres", "res://draft3d/spells/mark_execute.tres",
+	"res://draft3d/spells/mark_hunt.tres", "res://draft3d/spells/rend_double.tres",
+	"res://draft3d/spells/rend_pierce.tres", "res://draft3d/spells/step_charges.tres",
+	"res://draft3d/spells/step_trap.tres", "res://draft3d/spells/stasis_shards.tres",
+	"res://draft3d/spells/stasis_circle.tres", "res://draft3d/spells/rain_storm.tres",
+	"res://draft3d/spells/rain_focus.tres", "res://draft3d/spells/veil_mobile.tres",
+	"res://draft3d/spells/veil_recoil.tres", "res://draft3d/spells/mark_depth.tres",
+	"res://draft3d/spells/rend_edge.tres", "res://draft3d/spells/step_quick.tres",
+	"res://draft3d/spells/stasis_long.tres", "res://draft3d/spells/rain_wide.tres",
+	"res://draft3d/spells/veil_long.tres"]
 
 ## Cartes de statistiques (toujours offertes tant qu'elles servent).
 var catalog: Array[UpgradeData] = []

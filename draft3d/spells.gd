@@ -12,8 +12,9 @@ const SLOTS := 4
 const ACTIONS: Array[StringName] = [&"spell_1", &"spell_2", &"spell_3", &"spell_4"]
 ## Sorts raccordés (spell_kind) : Taille, Lance, Rupture, Bond de Faille, Parade, Singularité, Mur de faille, Égide,
 ## Cristal réfracteur.
+## Plus les six sorts propres à la v2 (DraftRiftSpells.KINDS).
 const SUPPORTED: Array[StringName] = [&"slash", &"lance", &"rupture", &"leap", &"parry", &"singularity", &"wall",
-	&"aegis", &"crystal"]
+	&"aegis", &"crystal", &"mark", &"rend", &"blink", &"stasis", &"shard_rain", &"veil"]
 ## Cosinus du demi-angle du cône de visée au clavier (environ 37°).
 const AIM_CONE := 0.8
 const RETICLE_COLOR := Color(0.85, 0.95, 1.0, 0.55)
@@ -33,6 +34,8 @@ var preview_slot: int = -1
 var reticle: MeshInstance3D
 ## Objets posés par les sorts (puits, murs, cristaux).
 var world: DraftSpellWorld
+## Sorts propres à la v2 (marque, fente, pas, stase, pluie, voile).
+var rift: DraftRiftSpells
 ## Variante active par sort (identifiant du sort → variante) et ses réglages ; rangs pris par sort et statistique.
 var variants: Dictionary = {}
 var variant_params: Dictionary = {}
@@ -72,13 +75,20 @@ func setup(p_run: DraftRun, ids: Array[StringName]) -> void:
 	run.hunter.parried.connect(_on_parried)
 	run.hunter.shield_broken.connect(_on_shield_broken)
 	world = DraftSpellWorld.new(self)
+	rift = DraftRiftSpells.new(self)
 	reticle = _build_reticle()
 	run.add_child(reticle)
 
 
+## Données d'un sort : sorts de la campagne (GameDB) puis sorts propres à la v2 (draft3d/spells/data/).
+static func spell(id: StringName) -> SpellData:
+	var data: SpellData = GameDB.spells.get(id)
+	return data if data != null else DraftRiftSpells.registry().get(id)
+
+
 ## Sort utilisable dans la 3D (données présentes et spell_kind raccordé).
 static func supported(id: StringName) -> bool:
-	var data: SpellData = GameDB.spells.get(id)
+	var data: SpellData = spell(id)
 	return data != null and SUPPORTED.has(data.spell_kind)
 
 
@@ -102,7 +112,7 @@ func learn(id: StringName) -> bool:
 	if not supported(id) or has_spell(id) or free_slots() == 0:
 		return false
 	var index: int = slots.find(null)
-	slots[index] = GameDB.spells[id]
+	slots[index] = spell(id)
 	cooldowns[index] = tuning.learned_cooldown
 	return true
 
@@ -217,6 +227,7 @@ func step(delta: float) -> void:
 		cooldowns[i] = maxf(cooldowns[i] - delta, 0.0)
 	_step_zones(delta)
 	world.step(delta)
+	rift.step(delta)
 	_return_left = maxf(_return_left - delta, 0.0)
 	var hunter: DraftHunter = run.hunter
 	if not hunter.alive or not hunter.active:
@@ -227,7 +238,7 @@ func step(delta: float) -> void:
 	if auto_cast:
 		reticle.visible = false
 		for i: int in SLOTS:
-			if slots[i] != null and cooldowns[i] <= 0.0:
+			if slots[i] != null and ready(i):
 				var aim: Vector3 = auto_aim(slots[i])
 				if aim != Vector3.INF:
 					cast(i, aim)
@@ -264,11 +275,16 @@ func charge_power(data: SpellData) -> float:
 	return lerpf(1.0, param(data, "max", 1.0), clampf(charge_time / maxf(param(data, "time", 1.0), 0.05), 0.0, 1.0))
 
 
+## Sort prêt : recharge finie, ou charge disponible (Deux charges).
+func ready(slot: int) -> bool:
+	return slots[slot] != null and (cooldowns[slot] <= 0.0 or rift.has_charge(slots[slot]))
+
+
 ## Lance le sort de l'emplacement vers `aim` (point du sol), avec un multiplicateur de dégâts `power` (Surcharge).
 ## Faux si vide, en recharge ou pendant un Bond.
 func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
 	var data: SpellData = slots[slot] if slot >= 0 and slot < SLOTS else null
-	if data == null or cooldowns[slot] > 0.0 or run.hunter.is_leaping() or not run.hunter.alive:
+	if data == null or not ready(slot) or run.hunter.is_leaping() or not run.hunter.alive:
 		return false
 	_power = power
 	var done: bool = false
@@ -291,9 +307,12 @@ func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
 			done = _aegis(data)
 		&"crystal":
 			done = _crystal(data, aim)
+		_:
+			done = rift.cast(data, aim)
 	_power = 1.0
 	if done:
-		cooldowns[slot] = cooldown_of(data)
+		if not rift.after_cast(slot, data):
+			cooldowns[slot] = cooldown_of(data)
 		casts += 1
 		Audio.play_sfx(&"technique")
 		run.hunter.view.face_left(_flat(aim - run.hunter.global_position).dot(run.camera.global_basis.x) < 0.0)
@@ -361,7 +380,7 @@ func auto_aim(data: SpellData) -> Vector3:
 			return here + away * reach_of(data)
 		&"parry", &"aegis", &"singularity", &"wall", &"crystal":
 			return _auto_support(data)
-	return Vector3.INF
+	return rift.auto_aim(data)
 
 
 ## Bot : sorts défensifs quand le Chasseur est serré (ou blessé), sorts de zone sur un groupe.
@@ -465,21 +484,31 @@ func _detonate(at: Vector3, radius: float, damage: float) -> Array[DraftEnemies.
 	return foes
 
 
-## Zones de Brasier : brûlent ce qui s'y tient, à intervalle régulier.
+## Zone au sol qui frappe à intervalle régulier (Brasier, Pluie d'éclats) : {at, radius, left, tick, clock, damage,
+## visual} et, au choix, follow (suit le Chasseur) et rain (éclats qui tombent à chaque coup).
+func add_zone(zone: Dictionary) -> void:
+	_zones.append(zone)
+
+
+## Zones de Brasier et de Pluie : frappent ce qui s'y tient, à intervalle régulier.
 func _step_zones(delta: float) -> void:
 	for i: int in range(_zones.size() - 1, -1, -1):
 		var zone: Dictionary = _zones[i]
 		zone["left"] = float(zone["left"]) - delta
 		zone["clock"] = float(zone["clock"]) + delta
+		if zone.get("follow", false):
+			zone["at"] = run.hunter.global_position
 		if float(zone["clock"]) >= float(zone["tick"]):
 			zone["clock"] = 0.0
 			var at: Vector3 = zone["at"]
-			for foe: DraftEnemies.Foe in _level(run.enemies.near(at, float(zone["radius"])), at):
+			var radius: float = zone["radius"]
+			if zone.get("rain", false):
+				var drop := Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).limit_length(1.0) * radius
+				run.fx(&"star_fall", DraftPixelFx.DEFAULT_FAMILY, at + drop + Vector3.UP * 0.8, 0.9)
+			for foe: DraftEnemies.Foe in _level(run.enemies.near(at, radius), at):
 				run.enemies.hit(foe, float(zone["damage"]))
 		if float(zone["left"]) <= 0.0:
-			var visual: Node = zone["visual"]
-			if is_instance_valid(visual):
-				visual.queue_free()
+			DraftSpellWorld._free(zone)
 			_zones.remove_at(i)
 
 
@@ -705,8 +734,14 @@ func _show_reticle() -> void:
 			&"wall":
 				at = here + _flat(aim - here).limit_length(reach_of(data))
 				radius = area_of(data) * 0.5
-			&"parry", &"aegis":
+			&"parry", &"aegis", &"veil":
 				at = here
+				radius = area_of(data)
+			&"stasis":
+				at = here
+				radius = reach_of(data)
+			&"mark", &"shard_rain", &"blink", &"rend":
+				at = here + _flat(aim - here).limit_length(reach_of(data))
 				radius = area_of(data)
 			_:
 				radius = area_of(data) * 2.0

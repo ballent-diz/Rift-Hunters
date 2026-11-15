@@ -1,0 +1,16 @@
+{
+  "visual_id": "material.cour_ground",
+  "kind": "tileable_albedo",
+  "status": "wip",
+  "source": "source/ground.png",
+  "generated_with": "imagegen",
+  "native_size": [
+    640,
+    640
+  ],
+  "colors": 32,
+  "tile_metres": 16,
+  "texels_per_m": 40,
+  "collision": "unchanged",
+  "conditioning": "nearest resize, median-cut 24 vegetation + 8 stone tones, no dithering"
+}

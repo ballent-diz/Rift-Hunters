@@ -7,6 +7,7 @@ extends Node3D
 ## Lancement : godot --path . res://draft3d/main.tscn
 ## Options (après --) : --bot (le jeu se joue seul) --passive (bot immobile : défaite) --god --seed=1
 ##   --boss-at=60 --time-scale=4 --perf=50,100,200 --shots=<dossier> --shot-times=20,90 --result (ligne RESULT)
+##   --spells=hunter_mark,void_rend (sorts de départ, 4 au plus)
 ##   --pixel=0 (rendu 3D lisse d'origine ; F4 bascule en partie, docs/art/RENDU_PIXEL_3D.md) --pixel-scale=2
 ##   --pixel-palette=0 (aplats et contours sans palette) --look=x,z[,hauteur de vue]
 
@@ -89,14 +90,17 @@ func _ready() -> void:
 	# Arbre de compétences et sorts équipés du profil de la campagne, en lecture seule.
 	tree_effects = DraftUpgrades.apply_tree(hunter.stats, HunterTree.effects_for(Profile.profile))
 	hunter.hp = hunter.max_hp()
-	# Sorts de départ : ceux équipés dans l'arbre et raccordés à la 3D, sinon ceux de l'équilibrage.
-	var equipped: Array[StringName] = []
+	# Sorts de départ (décision du propriétaire, 15 novembre 2026) : toujours les deux sorts de base de l'équilibrage,
+	# Taille fendante et Lance prismatique, quel que soit l'arbre du profil ; les autres s'apprennent au choix de niveau.
 	var loadout: Dictionary = HunterTree.loadout(Profile.profile)
-	for id: StringName in loadout["spells"]:
-		if id != &"" and DraftSpells.supported(id):
-			equipped.append(id)
+	var starting: Array[StringName] = balance.default_spells.duplicate()
+	if _options.has("spells"):
+		# Essai d'un jeu de sorts : --spells=hunter_mark,void_rend (identifiants, 4 au plus).
+		starting.clear()
+		for id: String in str(_options["spells"]).split(",", false):
+			starting.append(StringName(id))
 	spells = DraftSpells.new()
-	spells.setup(self, equipped if not equipped.is_empty() else balance.default_spells)
+	spells.setup(self, starting)
 	upgrades.spells = spells
 	# Variantes activées dans l'arbre : la carte correspondante est prise d'office pour les sorts de départ.
 	for spell_id: Variant in loadout["variants"]:
@@ -387,6 +391,16 @@ func foe_summon(foe: DraftEnemies.Foe, amount: int) -> void:
 ## Vue dégagée entre deux points : aucun décor entre eux. Règle unique pour viser, tirer et cracher, à plat comme
 ## entre deux hauteurs : on touche ce que l'on voit (du haut de la terrasse vers la cour et inversement), jamais
 ## à travers un mur, un pilier, une caisse ou le rebord de la terrasse.
+## Point de l'écran (pixels de la fenêtre) où apparaît un point du monde, en caméra lisse comme en rendu pixel :
+## la vue orthographique couvre `view_size` mètres de haut, centrée sur le point que vise la caméra.
+func screen_point(at: Vector3) -> Vector2:
+	var screen: Vector2 = get_viewport().get_visible_rect().size
+	var offset: Vector3 = at - (_camera_at + Vector3.UP * 0.5)
+	var basis: Basis = camera.global_basis
+	var scale: float = screen.y / maxf(view_size, 0.1)
+	return screen * 0.5 + Vector2(offset.dot(basis.x), -offset.dot(basis.y)) * scale
+
+
 ## Murs de faille (sort du Chasseur) entre deux points : ils arrêtent les ennemis et leurs tirs.
 func barrier_blocks(from: Vector3, to: Vector3) -> bool:
 	return spells != null and not spells.world.walls.is_empty() and spells.world.blocks(from, to)
@@ -398,8 +412,13 @@ func sight_clear(from: Vector3, to: Vector3) -> bool:
 
 
 func target() -> DraftEnemies.Foe:
-	var candidates: Array[DraftEnemies.Foe] = enemies.near(hunter.global_position, hunter.attack_range())
 	var origin: Vector3 = hunter.chest()
+	# Marque du traqueur : la cible marquée passe en premier quand elle est à portée et visible.
+	var marked: DraftEnemies.Foe = spells.rift.marked if spells != null and spells.rift != null else null
+	if marked != null and marked.alive and marked.pos.distance_to(hunter.global_position) <= hunter.attack_range() \
+			and sight_clear(origin, _aim_point(marked)):
+		return marked
+	var candidates: Array[DraftEnemies.Foe] = enemies.near(hunter.global_position, hunter.attack_range())
 	candidates.sort_custom(func(a: DraftEnemies.Foe, b: DraftEnemies.Foe) -> bool:
 		return a.pos.distance_squared_to(origin) < b.pos.distance_squared_to(origin))
 	for i: int in mini(candidates.size(), 8):

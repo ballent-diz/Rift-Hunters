@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="UpgradeData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://src/data/upgrade_data.gd" id="1"]
+[ext_resource type="Script" path="res://draft3d/spell_effect.gd" id="2"]
+
+[sub_resource type="Resource" id="spell_effect_1"]
+script = ExtResource("2")
+kind = 1
+spell_id = &"ash_veil"
+variant = &"recoil"
+params = {"heal": 2.0}
+
+[resource]
+script = ExtResource("1")
+id = &"veil_recoil"
+name_key = "UPGRADE3D_VEIL_RECOIL_NAME"
+desc_key = "UPGRADE3D_VEIL_RECOIL_DESC"
+kind = 0
+weight = 1.0
+max_stacks = 1
+exclusive_group = &"variant_ash_veil"
+requires_any_monster = []
+unlocked_by_default = true
+effects = [SubResource("spell_effect_1")]
+color = Color(0.75, 0.7, 0.65, 1)

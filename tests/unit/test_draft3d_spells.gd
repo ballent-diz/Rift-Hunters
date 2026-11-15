@@ -210,7 +210,7 @@ func test_rank_and_variant_cards_follow_the_rules() -> void:
 	await _start()
 	var upgrades: DraftUpgrades = run.upgrades
 	var slash: SpellData = GameDB.spells[&"cleaving_slash"]
-	check_eq(upgrades.spell_cards.size(), 40, "quarante cartes : 9 sorts, 18 variantes, 13 rangs")
+	check_eq(upgrades.spell_cards.size(), 64, "64 cartes : 15 sorts, 30 variantes, 19 rangs")
 	for data: UpgradeData in upgrades.spell_cards:
 		check(tr(data.name_key) != data.name_key and tr(data.desc_key) != data.desc_key, "%s : textes traduits" % data.id)
 	check(not upgrades.available().has(_card("rupture_wide")), "aucun rang pour un sort inconnu")
@@ -425,3 +425,185 @@ func test_crystal_splits_bolts() -> void:
 	await _frames(20)
 	check(run.bolts.size() - before >= 1 + run.tuning.crystal_split or run.bolts.size() >= before + 2,
 		"le trait se divise en traversant le cristal (%d traits)" % (run.bolts.size() - before))
+
+
+func _cast_new(id: StringName, aim: Vector3, variant: String = "") -> int:
+	run.upgrades.apply(_card("learn_" + String(id)), run.hunter.stats)
+	if variant != "":
+		check(run.upgrades.apply(_card(variant), run.hunter.stats), "variante %s prise" % variant)
+	var slot: int = run.spells.slot_of(id)
+	run.spells.cooldowns[slot] = 0.0
+	check(run.spells.cast(slot, aim), "%s part" % id)
+	return slot
+
+
+func test_new_spells_are_wired_with_texts() -> void:
+	for id: StringName in [&"hunter_mark", &"void_rend", &"rift_step", &"stasis_wave", &"shard_rain", &"ash_veil"]:
+		var data: SpellData = DraftSpells.spell(id)
+		check(data != null and DraftSpells.supported(id), "sort v2 raccordé : %s" % id)
+		check(tr(data.name_key) != data.name_key and tr(data.desc_key) != data.desc_key, "%s : textes traduits" % id)
+		check(DraftSpellBar._fx_icon(data) != null, "%s : icône tirée de son effet" % id)
+		check(not GameDB.spells.has(id), "%s : propre à la v2, hors des données de la campagne" % id)
+
+
+func test_tracker_mark_exposes_and_draws_the_bolt() -> void:
+	await _start()
+	var near: DraftEnemies.Foe = _foe(Vector3(3, 0, 0))
+	var tough: DraftEnemies.Foe = _foe(Vector3(7, 0, 0))
+	tough.max_hp = 500.0
+	tough.hp = 500.0
+	await _frames(2)
+	_cast_new(&"hunter_mark", tough.pos)
+	check(run.spells.rift.marked == tough, "la marque prend l'ennemi visé")
+	check_eq(run.target(), tough, "le Trait vise la cible marquée avant la plus proche")
+	run.enemies.hit(tough, 100.0)
+	check_near(tough.max_hp - tough.hp, 100.0 * 1.3 * CombatSystem.defense_multiplier(tough.defense), 0.01, "+30 % de dégâts")
+	check(near.alive, "l'autre ennemi n'est pas concerné")
+
+
+func test_mark_variants() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _foe(Vector3(5, 0, 0))
+	foe.max_hp = 1000.0
+	foe.hp = 1000.0
+	foe.defense = 0.0
+	await _frames(2)
+	_cast_new(&"hunter_mark", foe.pos, "mark_execute")
+	run.enemies.hit(foe, 300.0)
+	await _frames(2)
+	check(foe.alive, "au-dessus du seuil : la cible tient")
+	run.enemies.hit(foe, 350.0)
+	check(foe.alive and foe.hp < foe.max_hp * 0.2, "sous le seuil, encore debout (%.0f PV)" % foe.hp)
+	await _frames(2)
+	check(not foe.alive, "Exécution : sous 20 %, la cible est achevée")
+	run.queue_free()
+	run = null
+	await _start()
+	var first: DraftEnemies.Foe = _foe(Vector3(5, 0, 0))
+	var second: DraftEnemies.Foe = _foe(Vector3(7, 0, 1))
+	await _frames(2)
+	_cast_new(&"hunter_mark", first.pos, "mark_hunt")
+	run.enemies.hit(first, 100000.0)
+	await _frames(2)
+	check(run.spells.rift.marked == second, "Traque : la marque saute sur l'ennemi voisin")
+
+
+func test_void_rend_strikes_the_first_foe_and_moves() -> void:
+	await _start()
+	var start: Vector3 = run.hunter.global_position
+	var first: DraftEnemies.Foe = _foe(Vector3(2, 0, 0))
+	var second: DraftEnemies.Foe = _foe(Vector3(4, 0, 0))
+	await _frames(2)
+	_cast_new(&"void_rend", start + Vector3(6, 0, 0))
+	check(run.hunter.is_leaping() and run.hunter.invulnerable > 0.0, "fente invulnérable")
+	check(_hurt(first) and not _hurt(second), "seul le premier ennemi est frappé")
+	await _frames(20)
+	check(run.hunter.global_position.distance_to(start) > 3.0, "le Chasseur a traversé")
+	run.queue_free()
+	run = null
+	await _start()
+	start = run.hunter.global_position
+	first = _foe(Vector3(2, 0, 0))
+	second = _foe(Vector3(4, 0, 0))
+	await _frames(2)
+	var slot: int = _cast_new(&"void_rend", start + Vector3(6, 0, 0), "rend_pierce")
+	check(_hurt(first) and _hurt(second), "Fente perçante : toute la ligne")
+	run.queue_free()
+	run = null
+	await _start()
+	slot = _cast_new(&"void_rend", run.hunter.global_position + Vector3(4, 0, 0), "rend_double")
+	await _frames(20)
+	check(run.spells.ready(slot), "Double fente : la seconde est prête")
+	check(run.spells.cast(slot, run.hunter.global_position + Vector3(-4, 0, 0)), "seconde fente")
+	check(run.spells.cooldowns[slot] > 0.0, "puis la recharge complète")
+
+
+func test_rift_step_teleports_and_shadow_bursts() -> void:
+	await _start()
+	var start: Vector3 = run.hunter.global_position
+	var waiting: DraftEnemies.Foe = _foe(Vector3(0, 0, 0.8))
+	await _frames(2)
+	_cast_new(&"rift_step", start + Vector3(5, 0, 0), "step_trap")
+	check(run.hunter.global_position.distance_to(start) > 3.0, "téléporté aussitôt")
+	check(not _hurt(waiting), "l'ombre n'a pas encore éclaté")
+	await _frames(75)
+	check(_hurt(waiting) and (not waiting.alive or waiting.slow_left > 0.0), "l'ombre éclate et ralentit")
+	run.queue_free()
+	run = null
+	await _start()
+	var slot: int = _cast_new(&"rift_step", run.hunter.global_position + Vector3(3, 0, 0), "step_charges")
+	check(run.spells.ready(slot), "Deux charges : une charge reste")
+	check(run.spells.cast(slot, run.hunter.global_position + Vector3(-3, 0, 0)), "second pas")
+	check(not run.spells.ready(slot), "plus de charge")
+
+
+func test_stasis_freezes_the_cone() -> void:
+	await _start()
+	var front: DraftEnemies.Foe = _foe(Vector3(3, 0, 0))
+	front.hp = 1000.0
+	front.max_hp = 1000.0
+	var behind: DraftEnemies.Foe = _foe(Vector3(-3, 0, 0))
+	await _frames(2)
+	_cast_new(&"stasis_wave", run.hunter.global_position + Vector3(4, 0, 0), "stasis_shards")
+	check(front.slow_left > 0.0 and is_zero_approx(front.slow_factor), "l'ennemi du cône est figé")
+	check(front.exposed_left > 0.0, "Éclats de stase : il subit plus de dégâts")
+	check(behind.slow_left <= 0.0 and not _hurt(behind), "l'ennemi derrière est épargné")
+
+
+func test_shard_rain_and_storm() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _foe(Vector3(6, 0, 0))
+	await _frames(2)
+	_cast_new(&"shard_rain", foe.pos)
+	await _frames(40)
+	check(_hurt(foe), "les éclats frappent la zone")
+	await _frames(200)
+	check(run.spells._zones.is_empty(), "la pluie s'arrête")
+	run.queue_free()
+	run = null
+	await _start()
+	_cast_new(&"shard_rain", run.hunter.global_position, "rain_storm")
+	run.hunter.global_position += Vector3(4, 0, 0)
+	await _frames(2)
+	check((run.spells._zones[0]["at"] as Vector3).distance_to(run.hunter.global_position) < 0.5, "Orage : suit le Chasseur")
+
+
+func test_ash_veil_destroys_shots_and_heals() -> void:
+	await _start()
+	run.hunter.hp = run.hunter.max_hp() * 0.5
+	_cast_new(&"ash_veil", run.hunter.global_position, "veil_recoil")
+	var visual: Sprite3D = run.fx(&"arcane_orb", DraftPixelFx.DEFAULT_FAMILY, run.hunter.chest(), 0.5, true)
+	run.hostile.append({"at": run.hunter.chest() + Vector3(2, 0, 0), "dir": Vector3.LEFT, "speed": 0.0, "left": 4.0,
+		"damage": 10.0, "visual": visual, "family": DraftPixelFx.DEFAULT_FAMILY})
+	var hp: float = run.hunter.hp
+	await _frames(2)
+	check(run.hostile.is_empty() and run.spells.rift.shots_blocked == 1, "le tir est détruit")
+	check(run.hunter.hp > hp, "Contrecoup : PV rendus")
+
+
+func test_bot_casts_the_new_spells() -> void:
+	await _start()
+	run.spells.slots.fill(null)
+	for id: StringName in [&"rift_step", &"shard_rain", &"ash_veil", &"stasis_wave"]:
+		run.spells.learn(id)
+	run.spells.cooldowns.fill(0.0)
+	run.spells.auto_cast = true
+	for offset: Vector3 in [Vector3(1, 0, 0), Vector3(-1, 0, 0.3), Vector3(0, 0, 1), Vector3(0.6, 0, -0.8),
+			Vector3(4, 0, 0), Vector3(4.5, 0, 0.5)]:
+		var foe: DraftEnemies.Foe = _foe(offset)
+		foe.hp = 100000.0
+		foe.max_hp = 100000.0
+	await _frames(30)
+	check(run.spells.casts >= 3, "le bot lance les nouveaux sorts (%d)" % run.spells.casts)
+
+
+func test_cooldowns_under_the_hunter() -> void:
+	await _start()
+	var pips: DraftSpellPips = run.hud.find_child("SpellPips", true, false)
+	check(pips != null and pips.run == run, "recharges sous le Chasseur branchées")
+	var feet: Vector3 = run.hunter.global_position
+	var point: Vector2 = run.screen_point(feet)
+	var size: Vector2 = run.get_viewport().get_visible_rect().size
+	check(Rect2(Vector2.ZERO, size).has_point(point), "le Chasseur est à l'écran (%s)" % point)
+	if run.camera.get_viewport() == run.get_viewport():
+		check(point.distance_to(run.camera.unproject_position(feet)) < 2.0, "même position que la caméra")

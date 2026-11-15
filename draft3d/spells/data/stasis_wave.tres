@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="SpellData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://src/data/spell_data.gd" id="1"]
+
+[resource]
+script = ExtResource("1")
+id = &"stasis_wave"
+spell_kind = &"stasis"
+name_key = "SPELL3D_STASIS_WAVE_NAME"
+desc_key = "SPELL3D_STASIS_WAVE_DESC"
+family = 2
+path = &"abyss"
+cooldown = 12.0
+damage = 10.0
+spell_range = 170.0
+width = 45.0
+knockback = 0.0
+speed = 0.0
+statuses = []
+color = Color(0.65, 0.9, 1, 1)
+params = {"duration": 1.5, "boss_slow": 0.5, "icon_fx": "frost_nova", "icon_family": "givres"}

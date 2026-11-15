@@ -287,9 +287,10 @@ func test_spells_tree_and_campaign() -> void:
 	await _start()
 	Profile.profile = previous
 	check(run.tree_effects > 0, "l'arbre du profil s'applique (%d effets)" % run.tree_effects)
-	check(run.spells.free_slots() < DraftSpells.SLOTS, "des sorts équipés sont raccordés")
-	for data: SpellData in run.spells.slots:
-		check(data == null or DraftSpells.SUPPORTED.has(data.spell_kind), "sort pris en charge : %s" % data)
+	# Toujours Taille et Lance au départ, même avec un arbre qui équipe d'autres sorts (décision du 15 novembre).
+	check_eq(run.spells.slots[0].id, &"cleaving_slash", "Taille au départ malgré l'arbre")
+	check_eq(run.spells.slots[1].id, &"prismatic_lance", "Lance au départ malgré l'arbre")
+	check_eq(run.spells.free_slots(), DraftSpells.SLOTS - 2, "les deux autres emplacements restent à apprendre")
 	run.queue_free()
 	run = null
 	# Profil neuf : sorts de départ de l'équilibrage (Taille et Lance), qui partent seuls et blessent.
