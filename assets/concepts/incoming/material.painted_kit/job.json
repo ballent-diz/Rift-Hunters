@@ -1,0 +1,26 @@
+{
+  "visual_id": "material.painted_kit",
+  "kind": "module_uv_templates",
+  "status": "wip",
+  "generated_with": "imagegen",
+  "source": "source/templates.png",
+  "grid": [
+    2,
+    2
+  ],
+  "colors": 48,
+  "modules": [
+    "wall",
+    "stairs_wide",
+    "pillar_decorated"
+  ],
+  "texels_per_m": 40,
+  "roles": [
+    "wall_height",
+    "tread_riser_trims",
+    "pillar_height",
+    "individual_stone"
+  ],
+  "geometry": "unchanged",
+  "collisions": "unchanged"
+}

@@ -48,6 +48,8 @@ func apply_matter(level: Node3D) -> void:
 	create_ground()
 	create_meadow()
 	place_details()
+	if OS.get_cmdline_user_args().has("--painted-kit"):
+		preload("res://draft3d/matter/painted_kit/apply_trial.gd").apply(level)
 
 func create_meadow() -> void:
 	var regions: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "grass_regions.json"))

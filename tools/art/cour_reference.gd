@@ -27,13 +27,14 @@ func _ready() -> void:
 			output = arg.trim_prefix("--reference-out=")
 	DirAccess.make_dir_recursive_absolute(output)
 	RenderingServer.render_loop_enabled = true
-	pixel.place(FOCUS, 20.0, CAMERA_OFFSET)
+	var focus := Vector3(-2, 1.6, -13) if OS.get_cmdline_user_args().has("--painted-kit-frame") else FOCUS
+	pixel.place(focus, 20.0, CAMERA_OFFSET)
 	for i: int in 8:
 		await get_tree().process_frame
 	await RenderingServer.frame_post_draw
 	assert(get_viewport().get_texture().get_image().save_png(output.path_join("reference.png")) == OK)
 	var report := {"scene": "DraftRun", "pixel_enabled": pixel.enabled, "view_size": 20.0,
-		"texel_m": pixel.texel_size, "focus": str(FOCUS), "hunter": str(hunter.global_position),
+		"texel_m": pixel.texel_size, "focus": str(focus), "hunter": str(hunter.global_position),
 		"enemies": ids, "palette_colors": pixel.palette.colors.size(), "combat": "figé pour comparaison"}
 	FileAccess.open(output.path_join("reference.json"), FileAccess.WRITE).store_string(JSON.stringify(report, "\t"))
 	print("COUR_REFERENCE ", JSON.stringify(report))

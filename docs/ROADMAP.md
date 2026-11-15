@@ -1,5 +1,14 @@
 # Rift Hunters — feuille de route
 
+## Essai du kit de pierre peinte (Codex, 15 novembre 2026)
+
+Prêt à valider sur `codex/essai-kit-pierre-peinte`, depuis main avec la référence/palette de la PR #168 intégrée
+comme dépendance. Un mur, l'escalier central et un pilier de la terrasse reçoivent des UV et textures liés
+à leurs formes ; essai activé uniquement avec `--painted-kit`, à valider avant généralisation.
+Comparatif dans le rendu pixel réel, avec la même palette expérimentale de 48 couleurs pour les deux vues.
+Contrôles : trois instances visuelles modifiées, 1 613 triangles vérifiés, collisions/navigation/placements
+identiques, sept tests de rendu réussis. Méthode, limites et prompt : `docs/art/ESSAI_KIT_PIERRE_PEINTE.md`.
+
 ## Intégration matière / rendu pixel de la Cour (Codex, 15 novembre 2026)
 
 Cadrage de référence prêt à valider : dérivé de `DraftRun`, rendu pixel actif, Chasseur et trois Corrompus figés

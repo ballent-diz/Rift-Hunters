@@ -1,0 +1,37 @@
+{
+  "pillar_decorated": {
+    "atlas": [
+      512,
+      512
+    ],
+    "islands": 473,
+    "roles": {
+      "pillar_height_registered": 368,
+      "individual_block_edge_wear": 105
+    }
+  },
+  "stairs_wide": {
+    "atlas": [
+      512,
+      1024
+    ],
+    "islands": 183,
+    "roles": {
+      "tread_worn_front_edge": 66,
+      "riser_lower_seam": 36,
+      "individual_block_edge_wear": 76,
+      "masonry_registered_in_height": 5
+    }
+  },
+  "wall": {
+    "atlas": [
+      512,
+      512
+    ],
+    "islands": 257,
+    "roles": {
+      "masonry_registered_in_height": 4,
+      "individual_block_edge_wear": 253
+    }
+  }
+}
