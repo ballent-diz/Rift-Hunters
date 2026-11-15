@@ -35,9 +35,11 @@ func step(delta: float) -> void:
 
 # --- Singularité --------------------------------------------------------------------------------------------------
 
-func add_well(at: Vector3, radius: float, duration: float, pull: float, damage: float) -> void:
-	wells.append({"at": at, "radius": radius, "left": duration, "pull": pull, "damage": damage,
-		"visual": run.fx(&"black_hole", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.8, radius * 0.8, true)})
+## `drawn` : l'animation peinte de la v1 est jouée (pas d'effet PixelFX en plus).
+func add_well(at: Vector3, radius: float, duration: float, pull: float, damage: float, drawn: bool = false) -> void:
+	wells.append({"at": at, "radius": radius, "left": duration, "pull": pull, "damage": damage, "drawn": drawn,
+		"visual": null if drawn else run.fx(&"black_hole", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.8,
+			radius * 0.8, true)})
 
 
 ## Les ennemis du même niveau sont attirés vers le centre (jamais les boss), puis le puits implose.
@@ -54,7 +56,8 @@ func _step_wells(delta: float) -> void:
 				foe.pos += offset.normalized() * minf(float(well["pull"]) * delta, offset.length())
 		well["left"] = float(well["left"]) - delta
 		if float(well["left"]) <= 0.0:
-			run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
+			if not well["drawn"]:
+				run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
 			for foe: DraftEnemies.Foe in spells._level(run.enemies.near(at, radius), at):
 				run.enemies.hit(foe, float(well["damage"]))
 			_free(well)
@@ -63,15 +66,16 @@ func _step_wells(delta: float) -> void:
 
 # --- Mur de faille ------------------------------------------------------------------------------------------------
 
+## `drawn` : l'animation peinte est jouée ; le volume translucide (hauteur du mur) reste, plus discret.
 func add_wall(center: Vector3, along: Vector3, length: float, duration: float, root: float, burn: float,
-		tick: float) -> void:
+		tick: float, drawn: bool = false) -> void:
 	var half: Vector3 = along.normalized() * length * 0.5
 	var box := BoxMesh.new()
 	box.size = Vector3(length, 1.6, 0.25)
 	var material := StandardMaterial3D.new()
 	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = WALL_COLOR
+	material.albedo_color = Color(WALL_COLOR, WALL_COLOR.a * (0.4 if drawn else 1.0))
 	box.material = material
 	var visual := MeshInstance3D.new()
 	visual.mesh = box
@@ -79,7 +83,8 @@ func add_wall(center: Vector3, along: Vector3, length: float, duration: float, r
 	run.add_child(visual)
 	visual.global_position = center + Vector3.UP * 0.8
 	visual.rotation.y = atan2(-along.z, along.x)
-	run.fx(&"rune_circle", DraftPixelFx.DEFAULT_FAMILY, center + Vector3.UP * 0.3, length * 0.4)
+	if not drawn:
+		run.fx(&"rune_circle", DraftPixelFx.DEFAULT_FAMILY, center + Vector3.UP * 0.3, length * 0.4)
 	walls.append({"a": center - half, "b": center + half, "left": duration, "root": root, "burn": burn,
 		"tick": tick, "clock": 0.0, "visual": visual})
 
@@ -123,9 +128,9 @@ func _step_walls(delta: float) -> void:
 
 # --- Cristal réfracteur -------------------------------------------------------------------------------------------
 
-func add_crystal(at: Vector3, radius: float, duration: float, focus: bool) -> void:
+func add_crystal(at: Vector3, radius: float, duration: float, focus: bool, drawn: bool = false) -> void:
 	crystals.append({"at": at, "radius": radius, "left": duration, "focus": focus,
-		"visual": run.fx(&"ice_shatter", &"reflets", at + Vector3.UP * 0.8, 1.2, true)})
+		"visual": null if drawn else run.fx(&"ice_shatter", &"reflets", at + Vector3.UP * 0.8, 1.2, true)})
 
 
 ## Un trait du Chasseur qui traverse un Cristal se divise une fois (deux traits de plus, en éventail) ; Foyer : les

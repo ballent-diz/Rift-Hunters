@@ -1,10 +1,11 @@
 class_name DraftSpellPips
 extends Control
 ## Recharges des sorts sous le Chasseur (demande du propriétaire, 15 novembre 2026) : une petite case par sort appris,
-## qui se remplit de bas en haut pendant la recharge et s'allume quand le sort est prêt, pour suivre la disponibilité
-## des sorts sans quitter l'action des yeux. Suit la position affichée du Chasseur (caméra lisse ou rendu pixel).
+## avec l'icône du sort (celle de la barre), voilée pendant la recharge (le voile se retire de bas en haut) et cerclée
+## de sa couleur quand il est prêt, pour suivre la disponibilité des sorts sans quitter l'action des yeux.
+## Suit la position affichée du Chasseur (caméra lisse ou rendu pixel).
 
-const SIZE := 18.0
+const SIZE := 26.0
 const GAP := 4.0
 ## Distance sous les pieds du Chasseur (pixels d'écran).
 const BELOW := 14.0
@@ -39,14 +40,20 @@ func _draw() -> void:
 		var data: SpellData = spells.slots[i]
 		var rect := Rect2(x, feet.y + BELOW, SIZE, SIZE)
 		var ready: bool = spells.ready(i)
-		draw_rect(rect, Color(0.04, 0.05, 0.09, 0.7))
-		var filled: float = 1.0 if ready else spells.ready_ratio(i)
-		var fill := Rect2(rect.position + Vector2(0, SIZE * (1.0 - filled)), Vector2(SIZE, SIZE * filled))
-		draw_rect(fill, Color(data.color, 0.85 if ready else 0.35))
+		draw_rect(rect, Color(0.04, 0.05, 0.09, 0.75))
+		var icon: Texture2D = DraftSpellBar.icon_for(data)
+		if icon != null:
+			draw_texture_rect(icon, rect.grow(-1.5), false, Color(1, 1, 1, 1.0 if ready else 0.5))
+		else:
+			draw_rect(rect.grow(-3.0), Color(data.color, 0.85 if ready else 0.35))
+		if not ready:
+			# Voile qui se retire de bas en haut pendant la recharge.
+			var veil: float = 1.0 - spells.ready_ratio(i)
+			draw_rect(Rect2(rect.position, Vector2(SIZE, SIZE * veil)), Color(0, 0, 0, 0.55))
 		draw_rect(rect, data.color.lightened(0.3) if ready else Color(0.5, 0.52, 0.6, 0.8), false, 1.5 if ready else 1.0)
 		if not ready and spells.cooldowns[i] >= 1.0:
 			var text: String = str(ceili(spells.cooldowns[i]))
-			draw_string_outline(font, rect.position + Vector2(0, SIZE - 4), text, HORIZONTAL_ALIGNMENT_CENTER, SIZE, 11, 3,
+			draw_string_outline(font, rect.position + Vector2(0, SIZE - 7), text, HORIZONTAL_ALIGNMENT_CENTER, SIZE, 13, 3,
 				Color(0, 0, 0, 0.9))
-			draw_string(font, rect.position + Vector2(0, SIZE - 4), text, HORIZONTAL_ALIGNMENT_CENTER, SIZE, 11, Color.WHITE)
+			draw_string(font, rect.position + Vector2(0, SIZE - 7), text, HORIZONTAL_ALIGNMENT_CENTER, SIZE, 13, Color.WHITE)
 		x += SIZE + GAP
