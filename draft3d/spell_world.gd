@@ -134,8 +134,9 @@ func add_crystal(at: Vector3, radius: float, duration: float, focus: bool, drawn
 
 
 ## Un trait du Chasseur qui traverse un Cristal se divise une fois (deux traits de plus, en éventail) ; Foyer : les
-## éclats filent vers l'ennemi visible le plus résistant. Renvoie le nombre de traits ajoutés.
-func refract(shot: Dictionary, split: int, angle: float, damage: float) -> int:
+## éclats filent vers l'ennemi visible le plus résistant. Une Lance prismatique peut y déclencher le Déluge prismatique
+## (`DraftCombos.refraction`). Renvoie le nombre de traits ajoutés.
+func refract(shot: Dictionary) -> int:
 	if shot.get("refracted", false) or int(shot.get("split", 0)) < 0:
 		return 0
 	var at: Vector3 = shot["at"]
@@ -144,6 +145,10 @@ func refract(shot: Dictionary, split: int, angle: float, damage: float) -> int:
 		if at.distance_to(center) > float(crystal["radius"]):
 			continue
 		shot["refracted"] = true
+		var setting: Dictionary = run.combos.refraction(shot, crystal)
+		var split: int = setting["split"]
+		var angle: float = setting["angle"]
+		var damage: float = setting["damage"]
 		var dir: Vector3 = shot["dir"]
 		var focus: DraftEnemies.Foe = _toughest(at) if crystal["focus"] else null
 		for n: int in split:

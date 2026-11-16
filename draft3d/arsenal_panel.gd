@@ -87,6 +87,7 @@ func _fill() -> void:
 		var reserved: StringName = id
 		buttons.append(_button("Reserve_" + String(id), _describe(id), DraftSpells.spell(id),
 			func() -> void: _on_reserve(reserved)))
+	_combos()
 	var close_key: String = "ARSENAL3D_KEEP_IN_RESERVE" if replacing else "MENU_CLOSE"
 	var close: Button = UiKit.button(tr(close_key), func() -> void: closed.emit(), 320)
 	close.name = "Close"
@@ -95,6 +96,26 @@ func _fill() -> void:
 	buttons.append(close)
 	DraftMenu._chain_focus(buttons)
 	buttons[0].grab_focus.call_deferred()
+
+
+## Combos dont les deux sorts sont possédés : actifs s'ils sont équipés tous les deux (docs/design/GAMEPLAY_COMBOS_2P5D.md).
+func _combos() -> void:
+	var lines: Array[String] = []
+	for combo: StringName in DraftCombos.RECIPES:
+		var recipe: Array = DraftCombos.RECIPES[combo]
+		if not (spells.owns(recipe[0]) and spells.owns(recipe[1])):
+			continue
+		var active: bool = spells.has_spell(recipe[0]) and spells.has_spell(recipe[1])
+		var key: String = DraftCombos.NAME_KEYS[combo]
+		lines.append("%s %s : %s" % ["◆" if active else "◇", tr(key), tr(key.replace("_NAME", "_DESC"))])
+	if lines.is_empty():
+		return
+	_box.add_child(UiKit.label(tr("ARSENAL3D_COMBOS"), 17, GOLD))
+	var label: Label = UiKit.label("\n".join(lines), 13, INK)
+	label.name = "Combos"
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.custom_minimum_size.x = 640
+	_box.add_child(label)
 
 
 func _button(id: String, text: String, data: SpellData, callback: Callable) -> Button:

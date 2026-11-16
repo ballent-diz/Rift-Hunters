@@ -612,6 +612,7 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 			var along: float = offset.dot(dir)
 			if along > 0.0 and along <= reach and (offset - dir * along).length() <= half_width + foe.radius:
 				run.enemies.hit(foe, damage_of(data) * _power, push)
+		run.combos.on_slash(here, dir, reach, cos(atan2(half_width, reach)), damage_of(data) * _power)
 		return true
 	var whirl: bool = has_variant(data, &"whirlwind")
 	var half: float = -1.0 if whirl else cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
@@ -625,6 +626,7 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 		var offset: Vector3 = _flat(foe.pos - here)
 		if offset.length() < foe.radius + 0.4 or offset.normalized().dot(dir) >= half:
 			run.enemies.hit(foe, damage_of(data) * _power, offset.normalized() * push.length() if whirl else push)
+	run.combos.on_slash(here, dir, reach, half, damage_of(data) * _power)
 	return true
 
 
@@ -647,9 +649,10 @@ func _lance(data: SpellData, aim: Vector3) -> bool:
 		false, 0.75)
 	for i: int in count:
 		var angle: float = spread * (i - (count - 1) * 0.5)
-		run.fire_bolt(origin, dir.rotated(Vector3.UP, angle), damage, reach_of(data), 99, 0,
+		var shot: Dictionary = run.fire_bolt(origin, dir.rotated(Vector3.UP, angle), damage, reach_of(data), 99, 0,
 			&"" if drawn != null else &"ice_lance", 1.1 * sqrt(_power), area_of(data) * sqrt(_power), tuning.lance_speed,
 			&"reflets")
+		shot["lance"] = true
 	return true
 
 
@@ -673,6 +676,7 @@ func _rupture(data: SpellData, aim: Vector3) -> bool:
 			from = next.pos
 			struck.append_array(_detonate(from, radius * param(data, "area", 0.6), damage * param(data, "damage", 0.5),
 				null))
+	run.combos.on_rupture(struck, damage)
 	if has_variant(data, &"blaze"):
 		var zone := {"at": at, "radius": radius, "left": param(data, "duration", 3.0),
 			"tick": param(data, "tick", 0.5), "clock": 0.0, "damage": damage * param(data, "burn", 0.15),

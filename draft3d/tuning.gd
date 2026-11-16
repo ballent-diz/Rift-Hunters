@@ -65,6 +65,24 @@ extends Resource
 @export var anchor_duration: float = 0.9
 @export var anchor_damage: float = 16.0
 @export var anchor_cooldown: float = 1.2
+@export_group("Combos")
+## Fenêtre (s) entre la Lance et la Rupture (Exécution prismatique).
+@export var combo_window: float = 2.0
+## Exécution prismatique : dégâts de la détonation secondaire (× dégâts de la Rupture), seuil d'achèvement (part des
+## PV max, hors boss), nombre maximal de cibles par Rupture.
+@export var combo_execution_mult: float = 0.8
+@export var combo_execution_threshold: float = 0.2
+@export var combo_execution_max: int = 6
+## Déluge prismatique : éclats par Lance, écart (degrés), dégâts (× la Lance), éclats au plus par Cristal.
+@export var combo_deluge_split: int = 4
+@export var combo_deluge_angle: float = 12.0
+@export var combo_deluge_damage: float = 0.8
+@export var combo_deluge_cap: int = 8
+## Lame gravitationnelle : dégâts de l'onde (× la Taille), rayon (× le puits), exposition (bonus de dégâts subis, s).
+@export var combo_gravity_mult: float = 1.5
+@export var combo_gravity_area: float = 1.3
+@export var combo_gravity_expose: float = 0.25
+@export var combo_gravity_expose_time: float = 3.0
 @export_group("Déblocages")
 ## Sorts offerts (débloqués d'office, sorts de départ par défaut), coûts et gains de Fragments de faille
 ## (docs/design/DEBLOCAGE_V2.md, indicatifs).

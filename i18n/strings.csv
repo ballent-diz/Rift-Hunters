@@ -2502,3 +2502,10 @@ REWARD3D_RARITY_3,Légendaire,Legendary
 MUTATION3D_REPLACE_TITLE,%s : quelle mutation remplacer ?,%s: which mutation should it replace?
 MUTATION3D_REPLACE_HINT,"Deux mutations au plus par sort, et deux mutations incompatibles ne coexistent jamais. La mutation remplacée est perdue pour cette expédition.","Two mutations at most per spell, and incompatible mutations never coexist. The replaced mutation is lost for this expedition."
 MUTATION3D_CANCEL,Revenir aux choix,Back to the choices
+COMBO3D_PRISMATIC_EXECUTION_NAME,Exécution prismatique,Prismatic Execution
+COMBO3D_PRISMATIC_EXECUTION_DESC,Une Rupture sur des ennemis touchés par la Lance depuis moins de 2 s les fait détoner à nouveau et achève les plus affaiblis.,A Rupture on enemies hit by the Lance less than 2 s ago detonates them again and finishes off the weakest.
+COMBO3D_PRISMATIC_DELUGE_NAME,Déluge prismatique,Prismatic Deluge
+COMBO3D_PRISMATIC_DELUGE_DESC,Une Lance qui traverse un Cristal se brise en une gerbe d'éclats plus nombreux et plus forts.,"A Lance passing through a Crystal shatters into a larger, stronger spray of shards."
+COMBO3D_GRAVITY_BLADE_NAME,Lame gravitationnelle,Gravity Blade
+COMBO3D_GRAVITY_BLADE_DESC,Une Taille qui atteint un puits de Singularité libère une onde de choc et expose les ennemis piégés.,A Slash that reaches a Singularity well releases a shockwave and exposes the trapped enemies.
+ARSENAL3D_COMBOS,Combos (◆ actif : les deux sorts équipés),Combos (◆ active: both spells equipped)
