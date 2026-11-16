@@ -216,8 +216,9 @@ func _arena() -> void:
 		if step == 0 or step == 7:
 			continue
 		var at := Vector2(BOSS_SPOT.x, BOSS_SPOT.z) + Vector2(cos(angle) * 11.0, sin(angle) * 9.0)
-		_rock(at, Vector2(1.1, 0.9), 4.0 + _jitter(0.8), CLIFF, 0.3)
-	_light(BOSS_SPOT + Vector3.UP * 3.5, Color("b06bff"), 2.6, 14.0)
+		_rock(at, Vector2(1.7, 1.3), 5.5 + _jitter(0.8), CLIFF, 0.45)
+		_light(Vector3(at.x, 0.6, at.y), Color("b06bff"), 0.9, 3.5)
+	_light(BOSS_SPOT + Vector3.UP * 3.5, Color("b06bff"), 3.4, 16.0)
 	_piece("rock_single_D", Vector3(80, 0, -9), 0)
 	_piece("rock_single_B", Vector3(80, 0, 9), 0)
 

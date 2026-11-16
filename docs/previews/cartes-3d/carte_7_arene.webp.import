@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmqexd3j0xbgy"
-path="res://.godot/imported/carte_7_ebauche_vue_ensemble.webp-7552feb3c37bea74300bc0bf29cb09b4.ctex"
+uid="uid://bmdneq8sl7ylj"
+path="res://.godot/imported/carte_7_arene.webp-ab31ccaea60db27ad46f8d2d172ccdc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/cartes-3d/carte_7_ebauche_vue_ensemble.webp"
-dest_files=["res://.godot/imported/carte_7_ebauche_vue_ensemble.webp-7552feb3c37bea74300bc0bf29cb09b4.ctex"]
+source_file="res://docs/previews/cartes-3d/carte_7_arene.webp"
+dest_files=["res://.godot/imported/carte_7_arene.webp-ab31ccaea60db27ad46f8d2d172ccdc4.ctex"]
 
 [params]
 
