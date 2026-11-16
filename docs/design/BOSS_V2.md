@@ -141,5 +141,33 @@ S : une demi-session · M : une session · L : deux sessions ou plus. Chaque lot
 6. **Chapitre 5** : Abyssarque (lot 9), gardiens (lot 10).
 
 Une session et une PR par lot (règle 7). Chaque Dévoreur avant ses gardiens : c'est lui qui conclut la partie.
-À décider par le propriétaire : garder le gardien tiré au hasard ou en faire apparaître plusieurs ; rendre
-Nébulorax (absorption) comme gardien du chapitre 1 ou non ; mécaniques Échos et décor v1 à remplacer (section 5, point 7).
+Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par défaut, à revoir en jouant :
+- un seul gardien, tiré au hasard, à 4 min (inchangé) ;
+- Nébulorax reste écarté (décision du 13 novembre) ;
+- mécaniques liées aux Échos : remplacées par un équivalent pour le Chasseur seul, précisé dans chaque lot ;
+- mécaniques liées à un décor v1 absent (cristaux-miroirs, braseros, roches qui tombent, grille de cratères) : le
+  boss pose lui-même ces éléments dans l'arène 3D.
+
+## 8. Avancement
+
+### Lot 0 — socle commun (16 novembre)
+
+`draft3d/boss_brain.gd` (`DraftBossBrain`) remplace le cerveau commun ; `draft3d/boss_mechanic.gd`
+(`DraftBossMechanic`) est la base des mécaniques phares des lots suivants.
+- **Données** : phases et seuils d'origine (3 pour Glauquemire et Nivorath, 6 pour l'Abyssarque), techniques pondérées
+  avec leurs recharge, annonce et dégâts, `pattern_interval` (× `DraftTuning.boss_pace`, 0,8), `move_speed_mult`,
+  `defense_override`, `params.anim`.
+- **Gestes 3D** : chaque `kind` des données (47 au total) joue un geste : griffes, balayage en arc, écrasement (double
+  dès la phase 2), onde, séisme (trois anneaux), pluie, invocation (Échos des mondes de l'Abyssarque : monstres des
+  cinq chapitres), rayon, rayon qui balaie, souffle en cône, ligne de pics, sol qui éclate, charge, bond, saut de faille.
+  Les mécaniques phares pas encore importées jouent le geste le plus proche (`GESTURES`).
+- **Mouvement** : poursuite, tournoiement autour du Chasseur à 4-6 m, recul après un gros coup ; de loin (> 11 m),
+  rapprochement annoncé : charge si la voie est libre, sinon bond ou saut de faille. Une charge arrêtée par le décor
+  ou un mur de faille **assomme** le boss 1,6 s (coups × 1,5) : se placer devant un obstacle paie.
+- **Enchaînements** : 25 % de chances en phase 1, + 20 % par phase (70 % au plus), 1 à 3 techniques de suite.
+- **Transitions** : onde annoncée, clip de transition, changement de feuille (`visual_id`, les six formes de
+  l'Abyssarque), idle de phase (`phase2_idle`, `phase3_idle`), nom de la phase en bandeau ; coups × 0,2 pendant la
+  transition (jamais d'invulnérabilité totale), × 0,25 en l'air.
+- **Intro** (`intro_animation` ou `roar`), réaction aux gros coups (`hurt_ratio`), **mort** : feuille dédiée
+  (`death_visual_id`), clip joué en entier, corps retiré après.
+- Essais : `tests/unit/test_boss3d.gd`.

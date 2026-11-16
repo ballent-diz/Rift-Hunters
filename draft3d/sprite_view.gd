@@ -23,6 +23,10 @@ var animation: StringName = &"idle"
 ## Vitesse de référence du cycle de marche (m/s) : une boucle de `move` par seconde de marche à cette vitesse.
 var walk_speed: float = 5.0
 var facing_changes: int = 0
+## Animation de repos (un boss en seconde phase passe sur `phase2_idle`).
+var idle_clip: StringName = &"idle"
+## Hauteur ajoutée à l'image (bond d'un boss), en mètres.
+var hop: float = 0.0
 var _time: float = 0.0
 var _walk_phase: float = 0.0
 var _idle_time: float = 0.0
@@ -34,26 +38,24 @@ var _action: StringName = &""
 var _action_left: float = 0.0
 var _flash: float = 0.0
 var _tint := Color.WHITE
+var _size_mult: float = 1.0
+var _base_y: float = 0.0
 
 
 func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
 	top_level = true
+	_size_mult = size_mult
 	entry = Assets.entry(visual_id)
 	sprite = Sprite3D.new()
-	sprite.texture = load(str(entry["sheet"]))
-	var cell: Array = entry["cell"]
-	var anchor: Array = entry["anchor"]
 	sprite.region_enabled = true
-	sprite.region_rect = Rect2(0, 0, float(cell[0]), float(cell[1]))
 	sprite.billboard = BaseMaterial3D.BILLBOARD_ENABLED
 	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 	sprite.shaded = false
 	sprite.alpha_scissor_threshold = 0.3
 	add_to_group(GROUP)
 	refresh_alpha()
-	sprite.pixel_size = PIXEL * float(entry.get("scale", 1.0)) * size_mult
-	sprite.offset = Vector2(float(cell[0]) * 0.5 - float(anchor[0]), 0)
-	sprite.position.y = (float(anchor[1]) - float(cell[1]) * 0.5) * sprite.pixel_size + 0.04
+	_apply_sheet()
+	var cell: Array = entry["cell"]
 	# Ombre au sol calée sur l'empreinte mesurée de la feuille (champ "shadow" du manifeste, build_shadows.py) :
 	# un disque plat sous les appuis, moins coûteux qu'une ombre projetée par sprite dans une horde.
 	sprite.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
@@ -68,6 +70,39 @@ func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
 	add_child(blob)
 	if not has_clip(animation):
 		animation = &"move"
+
+
+## Feuille, cellule, ancre et échelle de l'entrée courante du manifeste.
+func _apply_sheet() -> void:
+	sprite.texture = load(str(entry["sheet"]))
+	var cell: Array = entry["cell"]
+	var anchor: Array = entry["anchor"]
+	sprite.region_rect = Rect2(0, 0, float(cell[0]), float(cell[1]))
+	sprite.pixel_size = PIXEL * float(entry.get("scale", 1.0)) * _size_mult
+	sprite.offset = Vector2(float(cell[0]) * 0.5 - float(anchor[0]), 0)
+	_base_y = (float(anchor[1]) - float(cell[1]) * 0.5) * sprite.pixel_size + 0.04
+	sprite.position.y = _base_y
+
+
+## Change de feuille en gardant position et orientation (forme d'un boss par phase, feuille de mort).
+## Faux si la feuille n'existe pas : rien ne change.
+func swap_visual(visual_id: StringName) -> bool:
+	if not Assets.has_sheet(visual_id):
+		return false
+	entry = Assets.entry(visual_id)
+	_apply_sheet()
+	_action = &""
+	animation = idle_clip if has_clip(idle_clip) else &"idle"
+	_time = 0.0
+	return true
+
+
+## Durée d'un clip à sa cadence (0 s s'il manque).
+func clip_length(id: StringName) -> float:
+	if not has_clip(id):
+		return 0.0
+	var c: Dictionary = clip(id)
+	return float(c["frames"]) / maxf(float(c["fps"]), 1.0)
 
 
 func refresh_alpha() -> void:
@@ -150,6 +185,7 @@ func face_left(left: bool) -> void:
 
 func _process(delta: float) -> void:
 	global_position = render_position()
+	sprite.position.y = _base_y + hop
 	_flash = maxf(_flash - delta, 0.0)
 	sprite.modulate = Color(2.2, 1.4, 1.4) if _flash > 0.0 else _tint
 	var c: Dictionary = clip(animation)
@@ -196,7 +232,8 @@ func _update_animation(distance: float, delta: float) -> void:
 	var speed: float = distance / delta
 	_idle_time = _idle_time + delta if speed < 0.15 else 0.0
 	var moving: bool = speed > 0.3 or (animation == &"move" and _idle_time < 0.1)
-	var next: StringName = &"move" if moving or not has_clip(&"idle") else &"idle"
+	var rest: StringName = idle_clip if has_clip(idle_clip) else &"idle"
+	var next: StringName = &"move" if moving or not has_clip(rest) else rest
 	if next != animation:
 		animation = next
 		_time = 0.0
