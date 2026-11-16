@@ -141,6 +141,14 @@ parapet bas au sud. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_5.webp`
 `docs/previews/cartes-3d/`. Décors : **KayKit Dungeon Remastered**, Kay Lousberg, licence **CC0**
 (`draft3d/dungeon/LICENSE.txt`), vingt-six pièces importées telles quelles (taille réelle).
 
+## Carte : sixième niveau, l'Anneau de la Faille
+
+100 × 100 m, ronde, sans étage ni escalier (`draft3d/level_ring.gd`) : couronne de terre autour d'un gouffre, îlot
+central du boss (20 m de rayon, quatre piliers) relié par deux passerelles, trois secteurs (Porte, Ossuaire, Forges)
+séparés par des murs radiaux à brèche. Les bords du gouffre arrêtent la marche, pas les tirs. Sommet de la future tour
+du chapitre 6 (`docs/maps/CARTES_3D.md`) ; en attendant le chapitre, `--chapter=6` la lance avec le bestiaire du
+chapitre 5.
+
 ## Vérifications
 
 `tests/unit/test_draft3d.gd` (11 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et

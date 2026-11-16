@@ -29,6 +29,10 @@ const ABYSS := Color("1a0d2b")
 const RIFT := Color("b06bff")
 const SEGMENTS := 72
 const FLOOR_Y := 0.01
+## Décors pleins posés : les points d'apparition s'en écartent (un point recalé contre un décor y resterait coincé).
+const SPAWN_CLEARANCE := 3.5
+
+var _occupied: Array[Vector3] = []
 
 
 func build() -> void:
@@ -48,6 +52,10 @@ func build() -> void:
 	_rampart()
 	_dividers()
 	_road()
+	_gate()
+	_ossuary()
+	_forges()
+	_rim_glow()
 	_setup_navigation()
 
 
@@ -66,6 +74,8 @@ static func radial_yaw(angle: float) -> float:
 
 
 func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box") -> Node3D:
+	if collision != "none":
+		_occupied.append(at)
 	return _prop(PACK % id, at, yaw, 1.0, collision, true)
 
 
@@ -212,6 +222,11 @@ func _island() -> void:
 	_rim(ISLAND - 0.1, true)
 	for angle: float in [45.0, 135.0, 225.0, 315.0]:
 		_piece("pillar", polar(angle, 11.0))
+	# Deux anneaux pavés sur l'îlot (dalles tangentes, sans collision) ; au cœur, la Faille affleure.
+	for radius: float in [8.0, 16.0]:
+		_paved_circle(radius)
+	for angle: float in [0.0, 90.0, 180.0, 270.0]:
+		_piece("candle_triple", polar(angle, 4.0), 0.0, "none")
 	_light(Vector3(0, 4.5, 0), RIFT, 2.8, 20.0)
 
 
@@ -226,6 +241,9 @@ func _bridges() -> void:
 			ISLAND_STONE.darkened(0.1))
 		_edge(near - side, far - side)
 		_edge(near + side, far + side)
+		for radius: float in [ISLAND + 2.0, (ISLAND + RING_INNER) * 0.5, RING_INNER - 2.0]:
+			var tile: Vector2 = dir * radius
+			_piece("floor_tile_large", Vector3(tile.x, FLOOR_Y + 0.005, tile.y), radial_yaw(angle), "none")
 		for radius: float in [ISLAND + 0.8, RING_INNER - 0.8]:
 			for side_sign: float in [-1.0, 1.0]:
 				var at: Vector2 = dir * radius + dir.orthogonal() * side_sign * (BRIDGE_WIDTH * 0.5 + 0.8)
@@ -255,20 +273,87 @@ func _dividers() -> void:
 		_torch(polar(angle + 4.0, BREACH.x - 1.0))
 
 
-## Chemin de ronde pavé au milieu de l'anneau (dalles tangentes), repère de lecture du tour.
+## Chemin de ronde pavé au milieu de l'anneau, repère de lecture du tour.
 func _road() -> void:
-	var radius: float = 36.0
-	var step: float = rad_to_deg(4.0 / radius)
-	var angle: float = 0.0
-	while angle < 360.0:
+	_paved_circle(36.0)
+
+
+## Cercle de dalles tangentes de 4 m, assez serrées pour ne pas laisser de jour au bord extérieur.
+func _paved_circle(radius: float) -> void:
+	var count: int = ceili(TAU * (radius + 2.0) / 3.8)
+	for index: int in count:
+		var angle: float = 360.0 * index / count
 		_piece("floor_tile_large", polar(angle, radius, FLOOR_Y), tangent_yaw(angle), "none")
-		angle += step
+
+
+## Porte (sud) : deux piliers dans le parapet, braseros, deux postes de garde en ruine (pans de mur et caisses).
+func _gate() -> void:
+	for angle: float in [86.0, 94.0]:
+		_piece("pillar", polar(angle, RING_OUTER - 0.6))
+	for angle: float in [82.0, 98.0]:
+		_torch(polar(angle, 43.5))
+	for angle: float in [62.0, 118.0]:
+		_piece("wall_half", polar(angle, 42.0), tangent_yaw(angle))
+		_piece("box_stacked", polar(angle + (7.0 if angle < 90.0 else -7.0), 44.0), tangent_yaw(angle))
+		_piece("rubble_half", polar(angle, 31.0), tangent_yaw(angle))
+	_light(polar(90.0, 41.0, 3.0), Color("ffac66"), 1.2, 8.0)
+
+
+## Ossuaire (ouest) : contreforts contre le rempart, niches à bougies entre eux, sarcophages brisés, deux murs
+## effondrés en travers de l'anneau (abris), éboulis.
+func _ossuary() -> void:
+	var angle: float = 160.0
+	while angle < 266.0:
+		_piece("wall_half", polar(angle, RING_OUTER - 1.6), radial_yaw(angle))
+		_piece("candle_triple", polar(angle + 5.0, RING_OUTER - 1.2), 0.0, "none")
+		angle += 12.0
+	for spot: Vector2 in [Vector2(178.0, 41.5), Vector2(238.0, 41.5)]:
+		_piece("table_long_broken", polar(spot.x, spot.y), radial_yaw(spot.x))
+	for angle_wall: float in [186.0, 252.0]:
+		_module("wall_broken", polar(angle_wall, 41.0), Vector3.ONE, tangent_yaw(angle_wall))
+		_occupied.append(polar(angle_wall, 41.0))
+	_piece("rubble_large", polar(193.0, 31.5), tangent_yaw(193.0))
+	_piece("rubble_half", polar(258.0, 31.0), tangent_yaw(258.0))
+	_glow(polar(210.0, 42.0, 3.0))
+
+
+## Forges (est) : établis, fûts et caisses contre le rempart, échafaudages, lumière chaude des foyers ; deux tas de
+## caisses au bord du chemin (abris).
+func _forges() -> void:
+	for angle: float in [290.0, 350.0, 10.0]:
+		_piece("wall_scaffold", polar(angle, RING_OUTER - 0.6), tangent_yaw(angle), "none")
+	for angle: float in [300.0, 340.0]:
+		_piece("table_long_broken", polar(angle, 42.5), radial_yaw(angle))
+		_piece("keg", polar(angle + 6.0, 43.5), 0.0)
+		_torch(polar(angle - 5.0, 44.0))
+		_light(polar(angle, 42.0, 2.5), Color("ff8a3d"), 1.6, 8.0)
+	_piece("barrel_small_stack", polar(322.0, 43.5), tangent_yaw(322.0))
+	_piece("barrel_small_stack", polar(15.0, 43.0), tangent_yaw(15.0))
+	_piece("box_stacked", polar(312.0, 31.5), tangent_yaw(312.0))
+	_piece("box_stacked", polar(5.0, 31.5), tangent_yaw(5.0))
+
+
+## Bords du gouffre : lueurs violettes sous le rebord de l'anneau et de l'îlot (le vide se lit à son contour).
+func _rim_glow() -> void:
+	for step: int in 12:
+		_light(polar(15.0 + 30.0 * step, RING_INNER - 1.0, -1.5), RIFT, 1.6, 6.0)
+		if step % 2 == 0:
+			_light(polar(30.0 * step, ISLAND + 1.0, -1.5), RIFT, 1.4, 6.0)
+
+
+func _glow(at: Vector3, energy: float = 1.8, reach: float = 9.0) -> void:
+	_light(at, RIFT, energy, reach)
 
 
 func _spawn_candidates() -> Array[Vector3]:
 	var result: Array[Vector3] = []
 	for index: int in 45:
 		var angle: float = 8.0 * index
-		result.append(polar(angle, RING_OUTER - 2.0))
-		result.append(polar(angle + 4.0, RING_INNER + 2.0))
+		for spot: Vector3 in [polar(angle, RING_OUTER - 2.0), polar(angle + 4.0, RING_INNER + 2.0)]:
+			var clear: bool = true
+			for taken: Vector3 in _occupied:
+				if Vector2(taken.x, taken.z).distance_to(Vector2(spot.x, spot.z)) < SPAWN_CLEARANCE:
+					clear = false
+			if clear:
+				result.append(spot)
 	return result
