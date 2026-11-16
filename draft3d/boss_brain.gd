@@ -134,6 +134,10 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftSporeVeil.new())
 		&"portal_hop":
 			result.append(DraftPortalHop.new())
+		&"spell_capture":
+			result.append(DraftSpellCapture.new())
+		&"avalanche", &"deep_freeze", &"storm_hunt", &"floe_quake":
+			result.append(DraftFrostGuardians.new(boss.signature))
 	return result
 
 
@@ -200,6 +204,12 @@ func banner_once(key: String) -> void:
 		return
 	_banners[key] = true
 	enemies.run.call("boss_banner", key)
+
+
+## Charge commandée par une mécanique (Chasse dans la tempête).
+func charge(pattern: BossPatternData, aim: Vector3) -> void:
+	_busy = 0.0
+	_gesture_charge(pattern, aim)
 
 
 ## Bond sur le Chasseur commandé par une mécanique (Reine-veuve sur une proie engluée).
@@ -542,12 +552,19 @@ func _gesture_breath(pattern: BossPatternData, aim: Vector3) -> float:
 
 
 func _gesture_spikes(pattern: BossPatternData, aim: Vector3) -> float:
-	# Ligne de pics qui court vers le Chasseur, zone après zone.
+	# Lignes de pics qui courent vers le Chasseur, zone après zone (données : `lines`, `spread`, `radius`, `length`).
 	var effect: StringName = &"ice_spikes" if family() in [&"givres", &"silence"] else &"earth_spike"
-	for i: int in 8:
-		var at: Vector3 = foe.pos + aim * (foe.radius + 1.0 + 1.7 * i)
-		enemies.hazards.circle(enemies.level.closest(at), 1.15, pattern.telegraph + 0.08 * i, damage(pattern.damage),
-			fx_at(effect, 1.1))
+	var lines: int = clampi(int(pattern.params.get("lines", 1)) + (1 if phase >= 2 else 0), 1, 5)
+	var radius: float = clampf(float(pattern.params.get("radius", 38.0)) * UNIT, 0.9, 2.2)
+	var length: float = clampf(float(pattern.params.get("length", 450.0)) * UNIT, 8.0, 22.0)
+	var spread: float = deg_to_rad(float(pattern.params.get("spread", 25.0)))
+	for l: int in lines:
+		var direction: Vector3 = aim.rotated(Vector3.UP, (l - (lines - 1) * 0.5) * spread)
+		var count: int = int(length / (radius * 1.5))
+		for i: int in count:
+			var at: Vector3 = foe.pos + direction * (foe.radius + radius + radius * 1.5 * i)
+			enemies.hazards.circle(enemies.level.closest(at), radius, pattern.telegraph + 0.06 * i,
+				damage(pattern.damage), fx_at(effect, radius))
 	return pattern.telegraph + 0.4
 
 

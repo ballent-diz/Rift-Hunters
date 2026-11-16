@@ -424,3 +424,71 @@ func test_marsh_guardians() -> void:
 	run.hunter.reset_motion()
 	await _frames(int((hop.telegraph + float(hop.params["dive"])) * 60) + 10)
 	check(portal.trapped == 1 and lady.brain.stunned(), "Chasseur dans le portail : elle sort piégée")
+
+
+func test_nivorath_spell_capture() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"nivorath", 6.0)
+	var capture := _mechanic(foe, &"spell_capture") as DraftSpellCapture
+	check(capture != null, "Nivorath : écho des sorts")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"spell_capture")
+	capture.perform(pattern)
+	await _frames(int((pattern.telegraph + float(pattern.params["duration"])) * 60) + 10)
+	check(capture.choked == 1 and foe.brain.stunned(), "aucun sort lancé : il s'étouffe")
+	await _frames(int(float(pattern.params["stun"]) * 60) + 70)
+	capture.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 5)
+	run.spells.casts += 2
+	var shots: int = run.hostile.size()
+	await _frames(int(float(pattern.params["duration"]) * 60) + 10)
+	check(capture.released == 2, "sorts aspirés puis renvoyés")
+	check(run.hostile.size() > shots, "couronnes de tirs")
+	_bring_to(foe, 0.3)
+	check_eq(foe.brain.phase, 2, "Nivorath : trois phases")
+
+
+func test_frost_guardians() -> void:
+	await _start()
+	var yeti: DraftEnemies.Foe = _spawn(&"peak_patriarch", 7.0)
+	var avalanche := _mechanic(yeti, &"avalanche") as DraftFrostGuardians
+	yeti.brain._next_at = INF
+	avalanche.perform(_pattern(yeti.boss, &"avalanche"))
+	check(avalanche.balls.size() >= 3, "boules de neige en éventail")
+	await _frames(400)
+	check(avalanche.balls.is_empty(), "elles éclatent contre le décor ou s'épuisent")
+	run.enemies.hit(yeti, 1000000.0)
+	var shaman: DraftEnemies.Foe = _spawn(&"rime_elder", 7.0)
+	var freeze := _mechanic(shaman, &"deep_freeze") as DraftFrostGuardians
+	shaman.brain._next_at = INF
+	run.hunter.god_mode = false
+	var pattern: BossPatternData = _pattern(shaman.boss, &"deep_freeze")
+	freeze.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 5)
+	check(freeze.frozen == 1 and run.hunter.stuck_left > 0.0, "hors du refuge : gelé, prisonnier")
+	run.hunter.god_mode = true
+	run.hunter.stuck_left = 0.0
+	run.enemies.hit(shaman, 1000000.0)
+	var wolf: DraftEnemies.Foe = _spawn(&"blizzard_alpha", 7.0)
+	var hunt := _mechanic(wolf, &"storm_hunt") as DraftFrostGuardians
+	wolf.brain._next_at = INF
+	var charges: int = int(_pattern(wolf.boss, &"storm_hunt").params["count"])
+	hunt.perform(_pattern(wolf.boss, &"storm_hunt"))
+	var seen: int = 0
+	var charging: bool = false
+	for frame: int in 900:
+		await host.get_tree().physics_frame
+		if wolf.brain.moves_itself() and not charging:
+			seen += 1
+		charging = wolf.brain.moves_itself()
+		if hunt.hunt.is_empty():
+			break
+	check(seen >= charges, "charges successives (%d)" % seen)
+	run.enemies.hit(wolf, 1000000.0)
+	var colossus: DraftEnemies.Foe = _spawn(&"floe_colossus", 7.0)
+	var quake := _mechanic(colossus, &"floe_quake") as DraftFrostGuardians
+	colossus.brain._next_at = INF
+	quake.perform(_pattern(colossus.boss, &"floe_quake"))
+	check(quake.plates.size() >= 2, "plaques fendues sous le Chasseur")
+	await _frames(int((1.0 + 1.6) * 60) + 10)
+	check(run.hunter.slow_left > 0.0, "plaque ouverte : ralenti dans l'eau noire")

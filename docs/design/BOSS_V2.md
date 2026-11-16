@@ -253,3 +253,21 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
   plonge 2,4 s et ressort par le portail le plus proche du Chasseur (illuminé) ; le Chasseur dedans la piège (sonnée
   5 s, coups × 2), sinon onde de prisme.
 - Miroirs de Glauquemire placés en vue directe du boss (le décor 3D pouvait en cacher un).
+
+### Lots 7 et 8 — Nivorath et gardiens du chapitre 4 (16 novembre)
+
+- **Nivorath, Écho des sorts** (`bosses/spell_capture.gd`) : gueule ouverte 3,5 s ; chaque sort lancé
+  (`DraftSpells.casts`) est aspiré puis renvoyé en couronnes de 12 tirs (3 au plus, + 25 % par sort) ; aucun sort :
+  il s'étouffe, sonné 3 s, coups × 2. Gueule ouverte, tous les coups ne portent qu'à moitié (les coups de sort ne se
+  distinguent pas encore des traits en 3D). Pics de glace : geste `spikes` paramétré (`lines`, `spread`, `radius`,
+  `length`, une ligne de plus en phase 3) ; banquise (`burst`) et plongée (`leap`) en phase 3 ; trois phases.
+- **Gardiens** (`bosses/frost_guardians.gd`, une classe, une instance par signature) :
+  - **Patriarche des cimes, Avalanche** : boules de neige en éventail, annoncées par des lignes, qui grossissent en
+    roulant et éclatent contre le décor ;
+  - **Chaman ancestral, Grand gel** : sans braseros en 3D, un refuge de chaleur s'allume à 7 m du Chasseur ; dehors à
+    la fin de l'annonce : dégâts et prison de glace (Ruée pour s'en libérer). Bandeau `BOSS_DEEP_FREEZE_INTRO_3D` ;
+  - **Loup alpha des tempêtes, Chasse dans la tempête** : 3 charges (4 en phase 2), chacune d'un autre côté du
+    Chasseur sur une ligne annoncée, vulnérable entre deux ; une charge contre le décor l'assomme ;
+  - **Colosse de la banquise, Séisme de banquise** : onde autour de lui, plaques sous le Chasseur qui se fendent
+    1,6 s puis s'ouvrent 4 s sur l'eau noire (ralenti, dégâts). Bandeau `BOSS_FLOE_QUAKE_INTRO_3D`.
+- Froid et braseros de la v1 non repris.
