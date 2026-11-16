@@ -5,7 +5,7 @@ extends TestCase
 ## Contrôle de composition (DraftLevelAudit, docs/maps/CARTES_3D.md) sur toutes les cartes. La Cité Effondrée n'a
 ## aucune incohérence ; les cartes 1 à 4 ont des incohérences relevées le 15 novembre et non corrigées (en attente de
 ## validation, liste dans CARTES_3D.md) : l'essai échoue si leur nombre augmente.
-const KNOWN_ISSUES: Dictionary = {1: 4, 2: 2, 3: 40, 4: 13, 5: 0, 6: 0, 7: 0}
+const KNOWN_ISSUES: Dictionary = {1: 4, 2: 2, 3: 40, 4: 13, 5: 0, 6: 0, 7: 0, 8: 0}
 ## Étages de la tour du chapitre 6 (DraftTower.floor_level) : aucun écart admis.
 const TOWER_FLOORS: Array[int] = [0, 1]
 
@@ -598,6 +598,62 @@ func test_seventh_level_pass() -> void:
 	await _frames(240)
 	check(hunter.global_position.z > DraftLevelPass.MIN.y - 0.5, "la falaise tient le Chasseur : %s" % hunter.global_position)
 	hunter.auto_direction = Vector3.ZERO
+
+
+func test_eighth_level_marsh_tide() -> void:
+	DraftRun.chosen_chapter = 8
+	await _start()
+	DraftRun.chosen_chapter = 0
+	var marsh := run.level as DraftLevelMarsh
+	check(marsh != null, "le chapitre 8 se joue dans le Marais des Marées")
+	marsh.set_tide(false)
+	var low_route: float = _route_length(DraftLevelMarsh.START, DraftLevelMarsh.BOSS_SPOT)
+	check(low_route < 48.0, "marée basse : la levée sud mène tout droit au sanctuaire (%.0f m)" % low_route)
+	marsh.set_tide(true)
+	await _frames(3)
+	var high_route: float = _route_length(DraftLevelMarsh.START, DraftLevelMarsh.BOSS_SPOT)
+	check(high_route > low_route + 40.0, "marée haute : on fait le tour par le nord (%.0f m)" % high_route)
+	var audit: DraftLevelAudit = DraftLevelAudit.check(marsh)
+	check(audit.issues.is_empty(), "marée haute : tout reste atteignable\n%s" % "\n".join(audit.lines()))
+	check(run.sight_clear(Vector3(0, 0.8, 27), Vector3(0, 0.8, 7)), "on tire par-dessus l'eau")
+	# Levée noyée : le Chasseur n'y entre pas ; à marée basse, il la traverse.
+	var hunter: DraftHunter = run.hunter
+	hunter.automating = true
+	hunter.global_position = Vector3(0, 0.45, 31)
+	hunter.reset_motion()
+	hunter.auto_direction = Vector3(0, 0, -1)
+	await _frames(120)
+	check(hunter.global_position.z > 26.0, "la levée noyée est fermée : %s" % hunter.global_position)
+	marsh.set_tide(false)
+	hunter.global_position = Vector3(0, 0.45, 31)
+	hunter.reset_motion()
+	await _frames(150)
+	check(hunter.global_position.z < 24.0, "à marée basse, la levée se traverse : %s" % hunter.global_position)
+	hunter.auto_direction = Vector3.ZERO
+	check(is_equal_approx(DraftLevelMarsh.water_level(0.0), DraftLevelMarsh.WATER_LOW), "cycle : marée basse au départ")
+	var peak: float = DraftLevelMarsh.TIDE_LOW + DraftLevelMarsh.TIDE_RISE + 1.0
+	check(is_equal_approx(DraftLevelMarsh.water_level(peak), DraftLevelMarsh.WATER_HIGH), "cycle : marée haute")
+	# Carte des rives : à jour avec le plan (tools/marsh_shore.tscn), terre à 0, eau lointaine à 1, levées basses en B.
+	var fresh: Image = marsh.shore_image()
+	var saved := Image.load_from_file(ProjectSettings.globalize_path(DraftLevelMarsh.SHORE_MAP))
+	check(saved != null and saved.get_data() == fresh.get_data(), "carte des rives à jour (tools/marsh_shore.tscn)")
+	var pixel := func(world: Vector2) -> Color:
+		var at: Vector2 = (world - DraftLevelMarsh.SHORE_RECT.position) * DraftLevelMarsh.SHORE_PIXELS_PER_METER
+		return fresh.get_pixel(int(at.x), int(at.y))
+	check(pixel.call(Vector2(0, -6)).r < 0.01, "rives : le sanctuaire est de la terre sèche")
+	check(pixel.call(Vector2(-40, 40)).r > 0.99, "rives : eau loin de toute terre")
+	var dike: Color = pixel.call(Vector2(0, 16))
+	check(dike.b > 0.99 and dike.g < 0.01 and dike.r > 0.1, "rives : levée basse (terre à marée basse seulement)")
+
+
+func _route_length(from: Vector3, to: Vector3) -> float:
+	var route: PackedVector3Array = run.level.path(run.level.closest(from), run.level.closest(to))
+	if route.size() < 2 or route[route.size() - 1].distance_to(run.level.closest(to)) > 1.0:
+		return INF
+	var length: float = 0.0
+	for index: int in range(1, route.size()):
+		length += route[index - 1].distance_to(route[index])
+	return length
 
 
 func test_level_composition_audit() -> void:

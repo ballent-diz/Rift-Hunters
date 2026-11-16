@@ -52,6 +52,27 @@ draft3d/medieval/hexagons_medieval.png, draft3d/spacebase/spacebits_texture.png)
 5. tools/run_tests.sh complet vert. Ne touche ni draft3d/*.gd, ni les .tscn/.gltf des modules, ni src/, ni data/.
 ```
 
+## 3. Eau et marée du Marais des Marées (carte 8) : textures et boucles animées en pixel art
+
+```
+Tâche : peindre en pixel art les images de l'eau de la carte 8 « le Marais des Marées » (draft3d/level_marsh.gd),
+sans toucher au code, aux collisions ni aux autres cartes. Lis d'abord AGENTS.md, docs/ART_BIBLE.md (§ 3 : lumière
+haut-gauche, rampes à glissement de teinte, liseré violet), docs/art/RENDU_PIXEL_3D.md et docs/maps/CARTES_3D.md
+(section « Carte 8 »). Branche codex/eau-marais depuis main à jour, PR vers main, poids indiqué.
+
+Contexte : vue de dessus inclinée, 1 texel = 0,024 m. La marée monte toutes les 80 s (montée en 8 s), noie des levées
+de terre de 4 à 5 m de large, puis se retire. Le code anime déjà le niveau de l'eau ; il manque les images.
+
+À livrer dans draft3d/marsh/ (PNG sans perte, fond transparent pour les animations) :
+1. eau_surface.png : texture d'eau trouble répétable sans couture (256 × 256), vert-de-gris, petites rides ;
+2. eau_rides_<1..8>.png : boucle de 8 images des rides (même taille, se raccorde à la première) ;
+3. ecume_<1..6>.png : boucle de ligne d'écume le long d'une berge (512 × 32, bord terre en haut) ;
+4. vase_mouillee.png : terre détrempée répétable (256 × 256), plus sombre et brillante que la terre sèche ;
+5. eclaboussure_<1..6>.png : éclaboussure d'un pas dans l'eau peu profonde (64 × 64), pour les monstres.
+Respecte la palette du jeu (pas de réalisme photographique), contours et liseré violet comme les sprites.
+Joins une planche de contrôle (toutes les images à l'échelle 2) et un GIF de chaque boucle.
+```
+
 ## Déjà réglé (ne plus envoyer)
 
 - Barrières de zone peintes, une par chapitre (ancien prompt 4) : livrées par Codex (25 assets `object.barrier_1` à

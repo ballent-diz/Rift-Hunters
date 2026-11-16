@@ -2288,6 +2288,8 @@ DRAFT_TOWER_FLOOR_1,Étage 1 : la Garnison,Floor 1: the Garrison
 DRAFT_TOWER_FLOOR_2,Étage 2 : les Cellules,Floor 2: the Cells
 DRAFT_TOWER_FLOOR_3,Sommet : l'Anneau de la Faille,Summit: the Rift Ring
 DRAFT_TOWER_RAMP_OPEN,La herse se lève : montez par la rampe !,The portcullis rises: climb the ramp!
+DRAFT_TIDE_HIGH,La marée monte : les levées basses sont noyées !,The tide is rising: the low dikes are flooded!
+DRAFT_TIDE_LOW,La marée se retire : les levées basses sont praticables.,The tide recedes: the low dikes are walkable again.
 UPGRADE_LONG_REACH_NAME,Longue portée,Long Reach
 UPGRADE_LONG_REACH_DESC,Portée des Traits de Faille +15 %.,Rift Bolt range +15%.
 UPGRADE_BULWARK_NAME,Rempart,Bulwark

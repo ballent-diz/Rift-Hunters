@@ -3,8 +3,11 @@ extends NavigationRegion3D
 ## Carte de la base 3D : socle commun des niveaux (modules avec collision, navigation, points d'apparition).
 ## Chaque niveau en hérite et s'assemble dans `build()` : DraftLevelRuins (1), DraftLevelGraveyard (2),
 ## DraftLevelVillage (3), DraftLevelOutpost (4), DraftLevelCity (5),
-## DraftLevelRing (6, sommet de la tour), DraftLevelPass (7).
+## DraftLevelRing (6, sommet de la tour), DraftLevelPass (7), DraftLevelMarsh (8).
 ## `DraftLevel.create(order)` donne la carte d'un chapitre.
+
+## Message à afficher en bandeau (clé de traduction) : événement de la carte (marée du Marais).
+signal announce(key: String)
 
 ## Emprise de la carte (x, z), départ du Chasseur, lieu d'apparition du boss.
 var bounds_min := Vector2(-24, -20)
@@ -37,6 +40,8 @@ static func create(order: int) -> DraftLevel:
 			return DraftLevelRing.new()
 		7:
 			return DraftLevelPass.new()
+		8:
+			return DraftLevelMarsh.new()
 	return DraftLevelRuins.new()
 
 
@@ -171,6 +176,14 @@ func _prop(path: String, at: Vector3, yaw: float = 0.0, size: float = 1.0, colli
 ## (sol de l'Anneau, rochers et falaises du Défilé).
 func _slab(id: String, points: PackedVector2Array, top: float, depth: float, color: Color,
 		visible_mesh: bool = true) -> void:
+	# Sens unique des polygones (celui des îlots, vu de dessus) : le rendu pixel élimine les faces vues de dos.
+	var area: float = 0.0
+	for index: int in points.size():
+		var next: Vector2 = points[(index + 1) % points.size()]
+		area += points[index].x * next.y - next.x * points[index].y
+	if area < 0.0:
+		points = points.duplicate()
+		points.reverse()
 	var tool := SurfaceTool.new()
 	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var bottom: float = top - depth
