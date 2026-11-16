@@ -136,6 +136,8 @@ Inventaire v1 et décisions : [design/SORTS_ACTIFS_V2.md](design/SORTS_ACTIFS_V2
   (`draft3d/spell_pips.gd`). Équilibrage non fait (le bot tient 2 min sans `--god`).
 - **Animations v1 et icônes (fait, 15 novembre)** : les 9 sorts qui en avaient une jouent leur animation peinte de la
   v1 au sol (`draft3d/spell_vfx.gd`) ; icônes des sorts dans la barre, sous le Chasseur et sur les cartes.
+- **Illustrations des cartes de niveau (fait, 16 novembre)** : illustrations v1 des 10 cartes de statistique communes,
+  icône du sort sur les cartes de sort ; Longue portée et Rempart (propres à la v2) restent sans image.
 - **Décidé le 15 novembre (direction C)** : écran de déblocage simple entre les parties, une seule monnaie nouvelle
   (nom à valider), sorts et variantes débloqués entrent dans le tirage des choix de niveau, 2 sorts de départ au
   choix ; passifs mis de côté. Conception et partage du travail : [design/DEBLOCAGE_V2.md](design/DEBLOCAGE_V2.md)

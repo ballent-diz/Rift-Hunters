@@ -197,26 +197,39 @@ func show_offers(level: int, offers: Array[UpgradeData], upgrades: DraftUpgrades
 		card.add_child(box)
 		var key := _label(box, 14, DIM)
 		key.text = "[%d]" % (i + 1)
-		# Cartes de sort : icône du sort (celle de la barre) à côté du nom.
 		var title_row := HBoxContainer.new()
-		title_row.add_theme_constant_override("separation", 10)
 		title_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		box.add_child(title_row)
-		var icon: Texture2D = DraftSpellBar.icon_for(spell_of(data))
-		if icon != null:
-			var picture := TextureRect.new()
-			picture.name = "SpellIcon"
-			picture.texture = icon
-			picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-			picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-			picture.custom_minimum_size = Vector2(40, 40)
-			picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			title_row.add_child(picture)
 		var name_label := _label(title_row, 22, data.color.lightened(0.3))
 		name_label.text = tr(data.name_key)
 		name_label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		name_label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		name_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		# Illustration : icône du sort (cartes de sort, celle de la barre) ou illustration de la v1 des cartes de
+		# statistique (assets/ui/items/upgrades/, catalogue ItemArt).
+		var icon: Texture2D = DraftSpellBar.icon_for(spell_of(data))
+		var art: Texture2D = icon if icon != null else ItemArt.texture("upgrade", data.id)
+		if art != null:
+			var frame := PanelContainer.new()
+			var frame_style := StyleBoxFlat.new()
+			frame_style.bg_color = Color(0.025, 0.02, 0.07, 0.8)
+			frame_style.border_color = data.color.darkened(0.45)
+			frame_style.set_border_width_all(1)
+			frame_style.set_corner_radius_all(4)
+			frame_style.set_content_margin_all(6)
+			frame.add_theme_stylebox_override("panel", frame_style)
+			frame.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			box.add_child(frame)
+			var picture := TextureRect.new()
+			picture.name = "SpellIcon" if icon != null else "UpgradeArt"
+			picture.texture = art
+			picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+			picture.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			picture.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			picture.custom_minimum_size = Vector2(0, 120)
+			picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			frame.add_child(picture)
+			card.custom_minimum_size.y = 340
 		var desc := _label(box, 15, INK)
 		desc.text = tr(data.desc_key)
 		desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
