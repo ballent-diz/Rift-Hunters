@@ -154,51 +154,6 @@ func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box"
 	return _prop(PACK % id, at, yaw, 1.0, collision, true)
 
 
-## Dalle en prisme (polygone convexe vu de dessus, du sommet `top` sur `depth` m), avec sa collision pleine.
-func _slab(id: String, points: PackedVector2Array, top: float, depth: float, color: Color, visible_mesh: bool = true) -> void:
-	var tool := SurfaceTool.new()
-	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var bottom: float = top - depth
-	for index: int in range(1, points.size() - 1):
-		tool.set_normal(Vector3.UP)
-		for corner: Vector2 in [points[0], points[index], points[index + 1]]:
-			tool.add_vertex(Vector3(corner.x, top, corner.y))
-	for index: int in points.size():
-		var a: Vector2 = points[index]
-		var b: Vector2 = points[(index + 1) % points.size()]
-		var side: Vector2 = (b - a).orthogonal().normalized()
-		var normal := Vector3(-side.x, 0, -side.y)
-		for corner: Vector3 in [Vector3(a.x, top, a.y), Vector3(b.x, top, b.y), Vector3(b.x, bottom, b.y),
-				Vector3(a.x, top, a.y), Vector3(b.x, bottom, b.y), Vector3(a.x, bottom, a.y)]:
-			tool.set_normal(normal)
-			tool.add_vertex(corner)
-	var body := StaticBody3D.new()
-	body.name = id
-	add_child(body)
-	if visible_mesh:
-		body.add_child(_mesh_of(tool, color))
-	var hull := PackedVector3Array()
-	for corner: Vector2 in points:
-		hull.append(Vector3(corner.x, top, corner.y))
-		hull.append(Vector3(corner.x, bottom, corner.y))
-	var shape := ConvexPolygonShape3D.new()
-	shape.points = hull
-	var collision := CollisionShape3D.new()
-	collision.shape = shape
-	body.add_child(collision)
-
-
-func _mesh_of(tool: SurfaceTool, color: Color) -> MeshInstance3D:
-	var mesh := MeshInstance3D.new()
-	mesh.mesh = tool.commit()
-	var material := StandardMaterial3D.new()
-	material.albedo_color = color
-	material.roughness = 0.95
-	material.cull_mode = BaseMaterial3D.CULL_DISABLED
-	mesh.material_override = material
-	return mesh
-
-
 ## Bord du vide : paroi qui n'arrête que la marche (couche 8), de `a` à `b` (plan x/z).
 func _edge(a: Vector2, b: Vector2, height: float = 0.0) -> StaticBody3D:
 	var body := StaticBody3D.new()
