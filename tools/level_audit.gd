@@ -1,6 +1,6 @@
 extends Node3D
 ## Contrôle de composition des cartes 3D (DraftLevelAudit, règles : docs/maps/CARTES_3D.md).
-## godot --headless --path . res://tools/level_audit.tscn -- [--chapters=1,2,3,4,5] [--out=<dossier>]
+## godot --headless --path . res://tools/level_audit.tscn -- [--chapters=1,2,3,4,5,6] [--out=<dossier>]
 ##   [--bot-seconds=90 --seed=1]   (parcours du bot tracé sur la carte : la partie complète est lancée)
 ## Écrit `<dossier>/navigation_<chapitre>.png` (carte de navigation) et une ligne par incohérence ; code de sortie 1
 ## si une carte en a.
@@ -16,7 +16,7 @@ func _ready() -> void:
 		DirAccess.make_dir_recursive_absolute(out)
 	var bot_seconds: float = float(options.get("bot-seconds", "0"))
 	var failed: bool = false
-	for value: String in str(options.get("chapters", "1,2,3,4,5")).split(",", false):
+	for value: String in str(options.get("chapters", "1,2,3,4,5,6")).split(",", false):
 		var chapter: int = int(value)
 		var trail := PackedVector3Array()
 		var run: DraftRun = null
