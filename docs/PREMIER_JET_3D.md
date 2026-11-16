@@ -34,6 +34,7 @@ Options de vérification (après `--`) : `--bot`, `--spells=hunter_mark,void_ren
 | `draft3d/level.gd` | la carte (Cour des Veilleurs), assemblée en modules KayKit, navigation |
 | `draft3d/hunter.gd` | le Chasseur : déplacement, Ruée, PV, EXP |
 | `draft3d/enemies.gd` | Corrompus et boss : chemins, séparation, contact, techniques |
+| `draft3d/boss_brain.gd`, `boss_mechanic.gd` | cerveau des boss piloté par leurs données v1 (phases, techniques, déplacements, transitions, mort) et base des mécaniques phares ([BOSS_V2.md](design/BOSS_V2.md)) |
 | `draft3d/hazards.gd` | attaques annoncées au sol (cercle, ligne, onde) |
 | `draft3d/upgrades.gd` | catalogue et tirage des améliorations |
 | `draft3d/hud.gd` | interface, choix de niveau, choix du chapitre, pause, écran de fin |
@@ -73,8 +74,8 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 **Non raccordé, et pourquoi**
 - Effets peints des boss et barrières peintes animées : ce sont des scènes 2D ; les afficher en 3D demande un rendu
   intermédiaire par effet. Les boss utilisent les PixelFX à la place.
-- Techniques propres à chaque monstre et à chaque boss : les boss partagent quatre techniques communes (griffes, onde,
-  pluie, invocation, rayon en seconde phase) avec leurs propres animations ; les élites ne sont pas repris.
+- Techniques propres à chaque monstre ; les élites ne sont pas repris. Boss : phases et techniques de leurs données
+  jouées en gestes 3D depuis le 16 novembre ; mécaniques phares importées lot par lot ([BOSS_V2.md](design/BOSS_V2.md)).
 - Appel de meute et Permutation (Échos), Failles jumelles ; les nœuds de l'arbre qui ne sont pas de simples statistiques.
 - Écran de l'arbre dans ce mode : l'arbre se règle toujours dans le refuge de la campagne.
 - Échos : toujours absents, comme demandé.

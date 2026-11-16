@@ -48,6 +48,9 @@ extends Resource
 @export var boss_time: float = 480.0
 @export var boss_hp_mult: float = 0.55
 @export var boss_damage_mult: float = 0.8
+## Part de l'intervalle d'origine entre deux techniques d'un boss (BossPhaseData.pattern_interval) : les boss 3D
+## marchent et tournent entre deux techniques, un intervalle un peu plus court garde le rythme.
+@export var boss_pace: float = 0.8
 @export_group("Vagues")
 ## Début (s), apparitions par seconde, plafond d'ennemis en vie. Le mélange vient du bestiaire du chapitre
 ## (DraftRoster.mix) : chaque palier ouvre de nouveaux monstres.
