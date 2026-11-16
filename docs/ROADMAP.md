@@ -4,7 +4,10 @@
 
 Consignes : issue #193 et `docs/design/GAMEPLAY_COMBOS_2P5D.md` (PR #194). Audit, architecture et état des lots :
 [design/GAMEPLAY_V2_ARCHITECTURE.md](design/GAMEPLAY_V2_ARCHITECTURE.md). Lots : 1 audit (fait), 2 arsenal et réserve,
-3 récompenses et progression, 4 combos MVP, 5 VFX et validation — **en cours (Claude)**.
+3 récompenses et progression, 4 combos MVP, 5 VFX et validation — **tous livrés, PR à valider dans l'ordre** :
+#196 (lot 1), #197 (lot 2), #199 (lot 3), #201 (lot 4), puis la PR du lot 5 (empilées, aucune fusion automatique).
+Suite : régler `xp_scale` et les combos en jeu ; intégrer les visuels de `docs/design/FICHES_VFX_GAMEPLAY_V2.md` quand
+ChatGPT les livre.
 
 ## Écran « Déblocages » de la v2 (Claude, session « Interface », 15 novembre 2026)
 

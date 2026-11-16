@@ -52,8 +52,8 @@ func step(delta: float) -> void:
 		if _trail_clock <= 0.0:
 			_trail_clock = 0.08
 			trail.append({"at": hunter.global_position, "left": tuning.void_wake_duration,
-				"visual": run.fx(&"shadow_hands", DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.2,
-					0.5)})
+				"visual": run.fx_or(&"passive_void_wake", tuning.void_wake_radius * 2.0, &"shadow_hands",
+					DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.2, 0.5)})
 	_was_dashing = dashing
 	_step_trail(delta)
 
@@ -63,7 +63,7 @@ func _dash_blade(here: Vector3) -> void:
 		if _dash_hit.has(foe) or absf(foe.pos.y - here.y) > DraftEnemies.MELEE_REACH_UP:
 			continue
 		_dash_hit.append(foe)
-		run.fx(&"hit", DraftPixelFx.DEFAULT_FAMILY, foe.pos + Vector3.UP * 0.6, 1.0)
+		run.fx_or(&"passive_dash_blade", 1.4, &"hit", DraftPixelFx.DEFAULT_FAMILY, foe.pos + Vector3.UP * 0.6)
 		run.enemies.hit(foe, tuning.dash_blade_damage * run.hunter.stats.get_value(StatKeys.DAMAGE))
 
 
@@ -82,7 +82,7 @@ func _step_trail(delta: float) -> void:
 func _on_dodged() -> void:
 	if has(&"counter_cut"):
 		empowered_left = tuning.counter_cut_window
-		run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, run.hunter.chest(), 1.2)
+		run.fx_or(&"passive_counter_cut", 2.2, &"ring_burst", DraftPixelFx.DEFAULT_FAMILY, run.hunter.chest(), 1.2)
 
 
 ## Puissance du prochain sort (Contre-taille), ×1 sans esquive récente.

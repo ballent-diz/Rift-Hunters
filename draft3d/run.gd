@@ -878,6 +878,14 @@ func fx(effect: StringName, family: StringName, at: Vector3, size: float = 1.0, 
 	return node if node != null else spawn_fx("fireball" if looping else "hit", at, size, looping)
 
 
+## Effet dédié `effect` s'il est livré, affiché sur `width` m de large ; sinon l'effet existant `fallback`.
+func fx_or(effect: StringName, width: float, fallback: StringName, family: StringName, at: Vector3,
+		fallback_size: float = 1.0, looping: bool = false) -> Sprite3D:
+	if DraftPixelFx.has_sheet(effect):
+		return fx(effect, DraftPixelFx.DEFAULT_FAMILY, at, DraftPixelFx.size_for(effect, width), looping)
+	return fx(fallback, family, at, fallback_size, looping)
+
+
 func spawn_fx(id: String, at: Vector3, size: float = 1.0, looping: bool = false) -> Sprite3D:
 	var effect := DraftEffect.new()
 	effect.art = _effects[id]

@@ -74,7 +74,7 @@ func on_rupture(struck: Array[DraftEnemies.Foe], damage: float) -> int:
 		return 0
 	for foe: DraftEnemies.Foe in targets:
 		lance_hits.erase(foe)
-		run.fx(&"ring_burst", &"reflets", foe.pos + Vector3.UP * 0.6, 1.3)
+		run.fx_or(&"combo_prismatic_execution", 2.0, &"ring_burst", &"reflets", foe.pos + Vector3.UP * 0.6, 1.3)
 		var blow: float = damage * tuning.combo_execution_mult
 		if foe.boss == null and foe.hp - blow <= foe.max_hp * tuning.combo_execution_threshold:
 			blow = foe.hp + foe.max_hp
@@ -97,7 +97,8 @@ func refraction(shot: Dictionary, crystal: Dictionary) -> Dictionary:
 		return plain
 	var split: int = mini(tuning.combo_deluge_split, left)
 	crystal["deluge_left"] = left - split
-	run.fx(&"ice_shatter", &"reflets", (crystal["at"] as Vector3) + Vector3.UP * 0.8, 2.0)
+	run.fx_or(&"combo_prismatic_deluge", 3.0, &"ice_shatter", &"reflets", (crystal["at"] as Vector3) + Vector3.UP * 0.8,
+		2.0)
 	_announce(DELUGE)
 	return {"split": split, "angle": tuning.combo_deluge_angle, "damage": tuning.combo_deluge_damage}
 
@@ -122,7 +123,9 @@ func on_slash(here: Vector3, dir: Vector3, reach: float, half: float, damage: fl
 			continue
 		well["combo"] = true
 		waves += 1
-		run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius * tuning.combo_gravity_area)
+		var area: float = radius * tuning.combo_gravity_area
+		run.fx_or(&"combo_gravity_blade", area * 2.0, &"dark_explosion", DraftPixelFx.DEFAULT_FAMILY,
+			at + Vector3.UP * 0.6, area)
 		for foe: DraftEnemies.Foe in run.spells._level(run.enemies.near(at, radius * tuning.combo_gravity_area), at):
 			foe.expose(tuning.combo_gravity_expose, tuning.combo_gravity_expose_time)
 			run.enemies.hit(foe, damage * tuning.combo_gravity_mult, DraftSpells._flat(foe.pos - at).normalized() * 4.0)

@@ -107,7 +107,7 @@ func _combos() -> void:
 			continue
 		var active: bool = spells.has_spell(recipe[0]) and spells.has_spell(recipe[1])
 		var key: String = DraftCombos.NAME_KEYS[combo]
-		lines.append("%s %s : %s" % ["◆" if active else "◇", tr(key), tr(key.replace("_NAME", "_DESC"))])
+		lines.append("%s %s — %s" % ["◆" if active else "◇", tr(key), tr(key.replace("_NAME", "_DESC"))])
 	if lines.is_empty():
 		return
 	_box.add_child(UiKit.label(tr("ARSENAL3D_COMBOS"), 17, GOLD))
