@@ -41,7 +41,8 @@ func _spawn(id: StringName, distance: float = 6.0) -> DraftEnemies.Foe:
 ## Coups qui amènent le boss sous une part de ses PV, quel que soit le multiplicateur du moment.
 func _bring_to(foe: DraftEnemies.Foe, ratio: float) -> void:
 	foe.hp = foe.max_hp * ratio
-	foe.brain._check_phase()
+	for i: int in foe.boss.phases.size():
+		foe.brain._check_phase()
 
 
 func test_every_data_technique_has_a_3d_gesture() -> void:
@@ -335,6 +336,8 @@ func test_glauquemire_three_phases() -> void:
 	foe.brain._transition = 0.0
 	check_near(foe.brain.damage_mult(), 0.3, 0.001, "face intacte : 30 % des coups")
 	# Rayon de prisme renvoyé par un miroir tenu : boss étourdi.
+	# Le boss reste en place pendant le rayon, comme quand il le lance lui-même.
+	foe.brain._busy = 100.0
 	# Miroir en vue directe du boss (le décor de la carte peut en cacher un).
 	var mirror: Dictionary = glauque.mirrors[0]
 	var space: PhysicsDirectSpaceState3D = run.get_world_3d().direct_space_state
@@ -345,7 +348,9 @@ func test_glauquemire_three_phases() -> void:
 		if not hit.is_empty() and hit["collider"] == candidate["body"]:
 			mirror = candidate
 			break
-	run.hunter.global_position = (mirror["pos"] as Vector3) + ((mirror["pos"] as Vector3) - foe.pos).normalized() * 2.0
+	var outward: Vector3 = ((mirror["pos"] as Vector3) - foe.pos).normalized()
+	run.hunter.global_position = run.level.closest((mirror["pos"] as Vector3) + outward.cross(Vector3.UP) * 1.8) \
+		+ Vector3.UP * 0.2
 	run.hunter.reset_motion()
 	await _frames(3)
 	var beam: BossPatternData = _pattern(foe.boss, &"prism_beam")
