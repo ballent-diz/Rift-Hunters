@@ -426,6 +426,132 @@ func test_marsh_guardians() -> void:
 	check(portal.trapped == 1 and lady.brain.stunned(), "Chasseur dans le portail : elle sort piégée")
 
 
+func test_nivorath_spell_capture() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"nivorath", 6.0)
+	var capture := _mechanic(foe, &"spell_capture") as DraftSpellCapture
+	check(capture != null, "Nivorath : écho des sorts")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"spell_capture")
+	capture.perform(pattern)
+	await _frames(int((pattern.telegraph + float(pattern.params["duration"])) * 60) + 10)
+	check(capture.choked == 1 and foe.brain.stunned(), "aucun sort lancé : il s'étouffe")
+	await _frames(int(float(pattern.params["stun"]) * 60) + 70)
+	capture.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 5)
+	run.spells.casts += 2
+	var shots: int = run.hostile.size()
+	await _frames(int(float(pattern.params["duration"]) * 60) + 10)
+	check(capture.released == 2, "sorts aspirés puis renvoyés")
+	check(run.hostile.size() > shots, "couronnes de tirs")
+	_bring_to(foe, 0.3)
+	check_eq(foe.brain.phase, 2, "Nivorath : trois phases")
+
+
+func test_frost_guardians() -> void:
+	await _start()
+	var yeti: DraftEnemies.Foe = _spawn(&"peak_patriarch", 7.0)
+	var avalanche := _mechanic(yeti, &"avalanche") as DraftFrostGuardians
+	yeti.brain._next_at = INF
+	avalanche.perform(_pattern(yeti.boss, &"avalanche"))
+	check(avalanche.balls.size() >= 3, "boules de neige en éventail")
+	await _frames(400)
+	check(avalanche.balls.is_empty(), "elles éclatent contre le décor ou s'épuisent")
+	run.enemies.hit(yeti, 1000000.0)
+	var shaman: DraftEnemies.Foe = _spawn(&"rime_elder", 7.0)
+	var freeze := _mechanic(shaman, &"deep_freeze") as DraftFrostGuardians
+	shaman.brain._next_at = INF
+	run.hunter.god_mode = false
+	var pattern: BossPatternData = _pattern(shaman.boss, &"deep_freeze")
+	freeze.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 5)
+	check(freeze.frozen == 1 and run.hunter.stuck_left > 0.0, "hors du refuge : gelé, prisonnier")
+	run.hunter.god_mode = true
+	run.hunter.stuck_left = 0.0
+	run.enemies.hit(shaman, 1000000.0)
+	var wolf: DraftEnemies.Foe = _spawn(&"blizzard_alpha", 7.0)
+	var hunt := _mechanic(wolf, &"storm_hunt") as DraftFrostGuardians
+	wolf.brain._next_at = INF
+	var charges: int = int(_pattern(wolf.boss, &"storm_hunt").params["count"])
+	hunt.perform(_pattern(wolf.boss, &"storm_hunt"))
+	var seen: int = 0
+	var charging: bool = false
+	for frame: int in 900:
+		await host.get_tree().physics_frame
+		if wolf.brain.moves_itself() and not charging:
+			seen += 1
+		charging = wolf.brain.moves_itself()
+		if hunt.hunt.is_empty():
+			break
+	check(seen >= charges, "charges successives (%d)" % seen)
+	run.enemies.hit(wolf, 1000000.0)
+	var colossus: DraftEnemies.Foe = _spawn(&"floe_colossus", 7.0)
+	var quake := _mechanic(colossus, &"floe_quake") as DraftFrostGuardians
+	colossus.brain._next_at = INF
+	quake.perform(_pattern(colossus.boss, &"floe_quake"))
+	check(quake.plates.size() >= 2, "plaques fendues sous le Chasseur")
+	await _frames(int((1.0 + 1.6) * 60) + 10)
+	check(run.hunter.slow_left > 0.0, "plaque ouverte : ralenti dans l'eau noire")
+
+
+func test_abyssarch_echoes_of_worlds() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"abyssarch", 7.0)
+	var echoes := _mechanic(foe, &"abyss_echoes") as DraftAbyssEchoes
+	check(echoes != null, "Abyssarque : Échos des mondes")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"abyss_echoes")
+	echoes.perform(pattern)
+	check_eq(echoes.world, 1, "premier monde rappelé")
+	check(echoes.pending.size() >= 4, "apparitions annoncées")
+	await _frames(int(pattern.telegraph * 60) + 5)
+	check(echoes.summoned >= 3, "Corrompus du premier monde surgis (%d)" % echoes.summoned)
+	echoes.perform(pattern)
+	check_eq(echoes.world, 2, "mondes rappelés tour à tour")
+
+
+func test_city_guardians() -> void:
+	await _start()
+	run.enemies.spawn(GameDB.enemy(&"fallen_militia"), run.hunter.global_position + Vector3(3, 0, 0))
+	var commander: DraftEnemies.Foe = _spawn(&"fallen_commander", 5.0)
+	await _frames(2)
+	var cry := _mechanic(commander, &"war_cry") as DraftCityGuardians
+	commander.brain._next_at = INF
+	var count: int = run.enemies.count()
+	cry.perform(_pattern(commander.boss, &"war_cry"))
+	check(not cry.rallied.is_empty(), "Corrompus proches ralliés")
+	check(run.enemies.count() >= count + 3, "miliciens appelés")
+	await _frames(80)
+	check(commander.brain.moves_itself() or commander.brain.stunned() or commander.brain.busy(), "il charge après le cri")
+	run.enemies.hit(commander, 1000000.0)
+	var golem: DraftEnemies.Foe = _spawn(&"sanctum_golem", 6.0)
+	var runes := _mechanic(golem, &"rune_barrage") as DraftCityGuardians
+	golem.brain._next_at = INF
+	runes.perform(_pattern(golem.boss, &"rune_barrage"))
+	check(runes.seals.size() >= 3, "sceaux autour du Chasseur")
+	check_near(golem.brain.damage_mult(), DraftCityGuardians.SLAB_MULT, 0.001, "armure de dalles")
+	await _frames(90)
+	check(run.hunter.slow_left > 0.0, "un sceau ralentit")
+	run.enemies.hit(golem, 1000000.0)
+	var keeper: DraftEnemies.Foe = _spawn(&"pantheon_keeper", 6.0)
+	var wake := _mechanic(keeper, &"pantheon_wake") as DraftCityGuardians
+	keeper.brain._next_at = INF
+	wake.perform(_pattern(keeper.boss, &"pantheon_wake"))
+	check(wake.woken >= 2, "statues éveillées")
+	run.enemies.hit(keeper, 1000000.0)
+	var herald: DraftEnemies.Foe = _spawn(&"herald_lord", 4.0)
+	await _frames(2)
+	var chain := _mechanic(herald, &"soul_chain") as DraftCityGuardians
+	herald.brain._next_at = INF
+	chain.perform(_pattern(herald.boss, &"soul_chain"))
+	check(not chain.linked.is_empty(), "Corrompus liés à l'Héraldiste")
+	var linked: DraftEnemies.Foe = chain.linked[0]
+	var hp: float = linked.hp
+	run.enemies.hit(linked, 10.0)
+	check(hp - linked.hp < 10.0 * 0.5 * CombatSystem.defense_multiplier(linked.defense) + 0.01, "lié : dégâts × 0,4")
+	herald.brain.die()
+	check(chain.linked.is_empty(), "liens rompus à sa mort")
+
 func test_floor_change_clears_boss_mechanics() -> void:
 	await _start()
 	var foe: DraftEnemies.Foe = _spawn(&"glauquemire", 8.0)

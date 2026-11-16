@@ -43,6 +43,9 @@ class Foe:
 	## Marque du traqueur, Éclats de stase : dégâts subis multipliés par (1 + `exposed`) pendant `exposed_left` s.
 	var exposed: float = 0.0
 	var exposed_left: float = 0.0
+	## Lien d'âme (Grand Héraldiste) : dégâts subis × `linked_mult` pendant `linked_left` s.
+	var linked_mult: float = 1.0
+	var linked_left: float = 0.0
 
 	func expose(bonus: float, seconds: float) -> void:
 		exposed = maxf(bonus, exposed) if exposed_left > 0.0 else bonus
@@ -167,6 +170,8 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 	var exposure: float = 1.0 + foe.exposed if foe.exposed_left > 0.0 else 1.0
 	if foe.brain != null:
 		exposure *= foe.brain.damage_mult()
+	if foe.linked_left > 0.0:
+		exposure *= foe.linked_mult
 	var dealt: float = amount * exposure * CombatSystem.defense_multiplier(foe.defense)
 	foe.hp -= dealt
 	if foe.brain != null:
@@ -238,6 +243,7 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 		foe.slow_left -= delta
 		speed *= foe.slow_factor
 	foe.exposed_left = maxf(foe.exposed_left - delta, 0.0)
+	foe.linked_left = maxf(foe.linked_left - delta, 0.0)
 	var turn: bool = true
 	if foe.brain != null:
 		foe.brain.step(to_hunter, distance, climb, delta)
