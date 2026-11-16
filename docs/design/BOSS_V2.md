@@ -297,3 +297,7 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
 
 Tout reste **à juger en jouant** (retour « boss pas assez dynamiques », `docs/RETOURS_DE_TEST.md`) : rythme
 (`DraftTuning.boss_pace`), dégâts, durée des combats. Le bot, peu habile, n'esquive ni n'exploite les mécaniques.
+Parties bot du 16 novembre (mode dieu, boss à 20 s, aucune erreur de script) : victoire sur les cinq chapitres ; le
+bot met 3 à 17 minutes de jeu à abattre le Dévoreur (chapitres 4 et 5 les plus longs : Nivorath et l'Abyssarque ont
+le plus de PV et réduisent les coups pendant leurs mécaniques). Si les combats paraissent trop longs en jouant,
+baisser `DraftTuning.boss_hp_mult` (0,55) plutôt que les mécaniques.
