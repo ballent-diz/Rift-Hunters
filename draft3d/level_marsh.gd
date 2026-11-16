@@ -31,7 +31,6 @@ const SCALE := 5.0
 const MUD := Color("3d3a2a")
 const LAND := Color("5d6b3a")
 const DIKE := Color("7a6a44")
-const WATER := Color(0.18, 0.36, 0.38, 0.82)
 ## Carte des rives (pour le shader de l'eau) : image alignée sur SHORE_RECT (x vers la droite, z vers le bas),
 ## SHORE_PIXELS_PER_METER pixels par mètre. Canal R : distance à la terre toujours sèche (îlots, levées hautes) ;
 ## G : distance à toute terre (levées basses comprises, utile à marée basse) ; B : 1 sur les levées basses. Distances
@@ -67,6 +66,8 @@ var high_tide: bool = false
 var tide_time: float = 0.0
 ## Marée suspendue (essais, captures) : `set_tide` la règle à la main.
 var tide_running: bool = true
+## Matériaux de l'eau et de la vase mouillée, qui suivent la hauteur de l'eau.
+var water_fx: DraftMarshWater
 var _water: MeshInstance3D
 var _land: Array[PackedVector2Array] = []
 var _land_low: Array[bool] = []
@@ -124,14 +125,12 @@ func _bed() -> void:
 	var surface := PlaneMesh.new()
 	surface.size = MAX - MIN + Vector2(30, 30)
 	_water.mesh = surface
-	var material := StandardMaterial3D.new()
-	material.albedo_color = WATER
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.roughness = 0.7
-	material.metallic_specular = 0.2
-	_water.material_override = material
 	_water.position = Vector3(0, WATER_LOW, 0)
 	add_child(_water)
+	# Shader de l'eau (rides, écume des berges) et vase mouillée des levées basses : draft3d/marsh/marsh_water.gd.
+	water_fx = DraftMarshWater.new()
+	add_child(water_fx)
+	water_fx.setup(_water, LOW_TOP, SHORE_MAP, SHORE_RECT, SHORE_RANGE)
 
 
 ## Levée de `from` à `to` : dalle entre les deux îlots (elle s'enfonce d'un mètre dans chacun) ; une levée basse a
@@ -151,6 +150,9 @@ func _dike(dike: Dictionary) -> void:
 	if not low:
 		return
 	var body := get_child(get_child_count() - 1) as StaticBody3D
+	for child: Node in body.get_children():
+		if child is MeshInstance3D:
+			water_fx.wet(child as MeshInstance3D)
 	var gates: Array[StaticBody3D] = []
 	for edge: Vector2 in [Vector2(a.x, a.y) + dir * (a.z - 0.2), Vector2(b.x, b.y) - dir * (b.z - 0.2)]:
 		var gate := StaticBody3D.new()

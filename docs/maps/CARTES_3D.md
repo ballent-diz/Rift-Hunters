@@ -169,11 +169,18 @@ trouble ; ni étage ni escalier.
 - Vérification : `--chapter=8 --tide-at=61` (partir à marée haute) ; `set_tide(true/false)` pour les essais. Essai
   `test_eighth_level_marsh_tide` (chemin direct à marée basse, détour par le nord à marée haute, contrôle de
   composition à marée haute, levée fermée puis traversable, tir par-dessus l'eau, cycle).
-- Animation de l'eau (ébauche) : plan transparent qui monte et descend. Pour une marée qui se lit parfaitement :
-  textures et boucles animées en pixel art par Codex (prompt n° 3 de `docs/prompts/CODEX_EN_ATTENTE.md`), shader de
-  l'eau (rides, écume le long des rives, vase mouillée après le retrait) par la session « Art et rendu » ; le moteur
-  de compatibilité n'offrant pas la profondeur, la ligne d'écume se calculera à partir du contour des terres
-  (`_land`), connu de la carte.
+- **Eau peinte** (session « Art et rendu », 16 novembre) : `draft3d/marsh/marsh_water.gd` (`DraftMarshWater`, nœud
+  `MarshWater` du niveau) et deux shaders, textures de Codex (`draft3d/marsh/README.md`).
+  - `marsh_water.gdshader` sur `_water`, en coordonnées monde calées sur la grille du rendu pixel (0,024 m) :
+    surface, rides (8 images, 100 ms), écume (6 images, 120 ms) en bande de 0,768 m le long des berges, placée par la
+    carte des rives (G tant que les levées basses émergent, R quand elles sont noyées ; passage tramé texel par texel
+    quand l'eau franchit ±0,1 m autour du dessus des levées) ; le u de la bande suit x ou z selon l'orientation de la
+    berge. Non éclairée (images déjà peintes), transparente ; sur une levée noyée, l'eau s'éclaircit et laisse voir la
+    levée. Priorité de rendu : après la passe de palette, avant les sprites (l'eau ne se peint pas sur les monstres).
+  - `marsh_wet.gdshader` en `material_overlay` des dalles de levée basse : vase mouillée tant que la levée est noyée,
+    puis séchage en `WET_TIME` = 10 s par plaques irrégulières, en pixels francs.
+  - Captures avant/après (zoom de jeu, `--look=0,18`) : `docs/previews/eau-marais/` (marée basse, marée haute, séchage
+    à 5, 9 et 13 s après `--tide-at=74`).
 - **Carte des rives** (pour le shader de l'eau) : `draft3d/marsh/rives.png`, 480 × 480, alignée sur
   `SHORE_RECT` (−60 → 60 m en x et z, 4 px/m, x vers la droite, z vers le bas). R : distance à la terre toujours
   sèche ; G : distance à toute terre (levées basses comprises) ; B : 1 sur les levées basses. Distances divisées par
