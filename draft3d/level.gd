@@ -80,6 +80,8 @@ func _box(id: String, at: Vector3, size: Vector3, color: Color) -> void:
 func _fence(at: Vector3, size: Vector3, walk_only: bool = false) -> void:
 	var body := StaticBody3D.new()
 	body.name = "Fence"
+	# Repère pour le contrôle de composition (DraftLevelAudit) : paroi, pas relief.
+	body.set_meta(&"fence", true)
 	if walk_only:
 		body.collision_layer = 8
 	add_child(body)

@@ -1,7 +1,7 @@
 class_name DraftLevelRing
 extends DraftLevel
 ## Sixième niveau de la base 3D : l'Anneau de la Faille. Carte ronde, sans étage ni escalier : une couronne de terre
-## (rayons 28 → 46 m) fait le tour d'un gouffre où saigne la Faille ; au centre, un îlot (rayon 10 m) relié à
+## (rayons 28 → 46 m) fait le tour d'un gouffre où saigne la Faille ; au centre, un îlot (rayon 20 m) relié à
 ## l'anneau par deux passerelles seulement. Le relief, c'est le vide : ses bords arrêtent la marche, pas les tirs.
 ##
 ## Lecture, depuis la Porte (sud) : on fait le tour de l'anneau, l'îlot du boss toujours en vue.
@@ -15,7 +15,7 @@ const MIN := Vector2(-50.0, -50.0)
 const MAX := Vector2(50.0, 50.0)
 const RING_INNER := 28.0
 const RING_OUTER := 46.5
-const ISLAND := 10.0
+const ISLAND := 20.0
 const START := Vector3(0, 0.2, 37)
 const BOSS_SPOT := Vector3(0, 0.2, 0)
 const DIVIDERS: Array[float] = [30.0, 150.0, 270.0]
@@ -156,7 +156,7 @@ func _abyss() -> void:
 	floor_mesh.position = Vector3(0, -16, 0)
 	add_child(floor_mesh)
 	for step: int in 6:
-		_light(polar(30.0 + 60.0 * step, 19.0, -5.0), RIFT, 2.4, 16.0)
+		_light(polar(30.0 + 60.0 * step, 24.0, -5.0), RIFT, 2.4, 12.0)
 
 
 ## Anneau : collision par secteurs de 5° ; un seul maillage (dessus, falaise intérieure, falaise extérieure) pour
@@ -211,8 +211,8 @@ func _island() -> void:
 	_slab("Island", _arc(ISLAND, 0.0, 360.0 - 360.0 / SEGMENTS), 0.0, 9.0, ISLAND_STONE)
 	_rim(ISLAND - 0.1, true)
 	for angle: float in [45.0, 135.0, 225.0, 315.0]:
-		_piece("pillar", polar(angle, 6.0))
-	_light(Vector3(0, 3.5, 0), RIFT, 2.6, 13.0)
+		_piece("pillar", polar(angle, 11.0))
+	_light(Vector3(0, 4.5, 0), RIFT, 2.8, 20.0)
 
 
 ## Passerelles de l'îlot à l'anneau, piliers aux deux têtes, bords fermés à la marche.
