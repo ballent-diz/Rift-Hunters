@@ -27,7 +27,7 @@ func _draw() -> void:
 		return
 	var spells: DraftSpells = run.spells
 	var shown: Array[int] = []
-	for i: int in DraftSpells.SLOTS:
+	for i: int in spells.slots.size():
 		if spells.slots[i] != null:
 			shown.append(i)
 	if shown.is_empty():

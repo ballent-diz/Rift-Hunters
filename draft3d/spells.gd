@@ -8,8 +8,10 @@ extends RefCounted
 ## seule), sinon ceux de l'équilibrage ; les autres s'apprennent pendant la partie (cartes `DraftSpellEffect`).
 ## Le bot (`auto_cast`) lance ses sorts seul quand ils sont utiles.
 
+## Emplacements de départ, et maximum avec la récompense légendaire (5e emplacement jusqu'à la fin de l'expédition).
 const SLOTS := 4
-const ACTIONS: Array[StringName] = [&"spell_1", &"spell_2", &"spell_3", &"spell_4"]
+const MAX_SLOTS := 5
+const ACTIONS: Array[StringName] = [&"spell_1", &"spell_2", &"spell_3", &"spell_4", &"spell_5"]
 ## Sorts raccordés (spell_kind) : Taille, Lance, Rupture, Bond de Faille, Parade, Singularité, Mur de faille, Égide,
 ## Cristal réfracteur.
 ## Plus les six sorts propres à la v2 (DraftRiftSpells.KINDS).
@@ -21,9 +23,16 @@ const RETICLE_COLOR := Color(0.85, 0.95, 1.0, 0.55)
 
 var run: DraftRun
 var tuning: DraftTuning
-## Sort par emplacement (null : emplacement libre).
+## Sort par emplacement (null : emplacement libre) et recharge restante de chaque emplacement équipé.
 var slots: Array[SpellData] = []
 var cooldowns := PackedFloat32Array()
+## Arsenal de l'expédition (docs/design/GAMEPLAY_V2_ARCHITECTURE.md) : sorts possédés dans l'ordre d'acquisition
+## (équipés et réserve) et recharges des sorts en réserve, par identifiant. Une recharge suit toujours son sort :
+## un échange ne la remet jamais à zéro.
+var owned: Array[StringName] = []
+var reserve_cooldowns: Dictionary = {}
+## Noms (clés de traduction) des mutations prises par sort, pour l'arsenal.
+var mutation_labels: Dictionary = {}
 ## Sorts équipés dans le profil mais pas encore raccordés à la 3D.
 var skipped: Array[StringName] = []
 var casts: int = 0
@@ -62,7 +71,23 @@ var _power: float = 1.0
 var _zones: Array[Dictionary] = []
 
 
+## 5e emplacement (récompense légendaire) : action `spell_5` créée par la v2 sans toucher aux actions partagées avec la
+## v1 (InputSetup). Touches : Entrée (clavier seul, près des flèches), G (avec la souris), croix bas à la manette.
+static func ensure_actions() -> void:
+	if InputMap.has_action(&"spell_5"):
+		return
+	InputMap.add_action(&"spell_5", 0.2)
+	for keycode: Key in [KEY_ENTER, KEY_G]:
+		var key := InputEventKey.new()
+		key.physical_keycode = keycode
+		InputMap.action_add_event(&"spell_5", key)
+	var pad := InputEventJoypadButton.new()
+	pad.button_index = JOY_BUTTON_DPAD_DOWN
+	InputMap.action_add_event(&"spell_5", pad)
+
+
 func setup(p_run: DraftRun, ids: Array[StringName]) -> void:
+	ensure_actions()
 	run = p_run
 	tuning = run.tuning
 	slots.resize(SLOTS)
@@ -72,7 +97,7 @@ func setup(p_run: DraftRun, ids: Array[StringName]) -> void:
 	for id: StringName in ids:
 		if not learn(id):
 			skipped.append(id)
-	for i: int in SLOTS:
+	for i: int in slots.size():
 		cooldowns[i] = 1.0 + i if slots[i] != null else 0.0
 	run.hunter.landed.connect(_on_landed)
 	run.hunter.parried.connect(_on_parried)
@@ -97,7 +122,7 @@ static func supported(id: StringName) -> bool:
 
 
 func slot_of(id: StringName) -> int:
-	for i: int in SLOTS:
+	for i: int in slots.size():
 		if slots[i] != null and slots[i].id == id:
 			return i
 	return -1
@@ -111,14 +136,100 @@ func free_slots() -> int:
 	return slots.count(null)
 
 
-## Place un sort dans le premier emplacement libre. Faux si inconnu, non raccordé, déjà appris ou plus de place.
+## Sort possédé pendant l'expédition (équipé ou en réserve).
+func owns(id: StringName) -> bool:
+	return owned.has(id)
+
+
+## Sorts possédés mais non équipés, dans l'ordre d'acquisition (consultables et rééquipables depuis la pause).
+func reserve() -> Array[StringName]:
+	var result: Array[StringName] = []
+	for id: StringName in owned:
+		if not has_spell(id):
+			result.append(id)
+	return result
+
+
+func mutation_names(id: StringName) -> Array[String]:
+	var result: Array[String] = []
+	result.assign(mutation_labels.get(id, []))
+	return result
+
+
+## Recharge restante d'un sort possédé, où qu'il soit (case ou réserve).
+func cooldown_left(id: StringName) -> float:
+	var slot: int = slot_of(id)
+	return cooldowns[slot] if slot >= 0 else float(reserve_cooldowns.get(id, 0.0))
+
+
+## Acquiert un sort pour l'expédition : équipé dans le premier emplacement libre, sinon gardé en réserve (le choix de
+## la case à remplacer revient alors au joueur, `equip`). Faux si inconnu, non raccordé ou déjà possédé.
 func learn(id: StringName) -> bool:
-	if not supported(id) or has_spell(id) or free_slots() == 0:
+	if not supported(id) or owns(id):
 		return false
+	owned.append(id)
+	reserve_cooldowns[id] = tuning.learned_cooldown
 	var index: int = slots.find(null)
-	slots[index] = spell(id)
-	cooldowns[index] = tuning.learned_cooldown
+	if index >= 0:
+		equip(id, index)
 	return true
+
+
+## Équipe un sort possédé dans la case `slot`. Le sort qui l'occupait part en réserve avec sa recharge ; un sort déjà
+## équipé ailleurs échange sa place. Aucune recharge n'est remise à zéro, aucun sort n'est dupliqué.
+func equip(id: StringName, slot: int) -> bool:
+	if not owns(id) or slot < 0 or slot >= slots.size():
+		return false
+	_settle_slot(slot)
+	var from: int = slot_of(id)
+	if from == slot:
+		return true
+	if from >= 0:
+		_settle_slot(from)
+		var other: SpellData = slots[slot]
+		var other_cooldown: float = cooldowns[slot]
+		slots[slot] = slots[from]
+		cooldowns[slot] = cooldowns[from]
+		slots[from] = other
+		cooldowns[from] = other_cooldown
+		return true
+	var previous: SpellData = slots[slot]
+	if previous != null:
+		reserve_cooldowns[previous.id] = cooldowns[slot]
+	slots[slot] = spell(id)
+	cooldowns[slot] = float(reserve_cooldowns.get(id, 0.0))
+	reserve_cooldowns.erase(id)
+	return true
+
+
+## Range en réserve le sort de la case `slot` (avec sa recharge).
+func stash(slot: int) -> bool:
+	if slot < 0 or slot >= slots.size() or slots[slot] == null:
+		return false
+	_settle_slot(slot)
+	reserve_cooldowns[slots[slot].id] = cooldowns[slot]
+	slots[slot] = null
+	cooldowns[slot] = 0.0
+	return true
+
+
+## Ajoute un emplacement (récompense légendaire, une fois, jusqu'à la fin de l'expédition). Faux au maximum.
+func add_slot() -> bool:
+	if slots.size() >= MAX_SLOTS:
+		return false
+	slots.append(null)
+	cooldowns.append(0.0)
+	return true
+
+
+## Avant de déplacer un sort : charge, aperçu ou seconde fente en cours sur cette case se terminent proprement.
+func _settle_slot(slot: int) -> void:
+	if charge_slot == slot:
+		charge_slot = -1
+	if preview_slot == slot:
+		preview_slot = -1
+	if rift != null:
+		rift.settle_slot(slot)
 
 
 ## Une carte de sort servirait-elle maintenant ?
@@ -127,11 +238,11 @@ func can_apply(effect: DraftSpellEffect) -> bool:
 		return false
 	match effect.kind:
 		DraftSpellEffect.Kind.LEARN:
-			return supported(effect.spell_id) and not has_spell(effect.spell_id) and free_slots() > 0
+			return supported(effect.spell_id) and not owns(effect.spell_id)
 		DraftSpellEffect.Kind.VARIANT:
-			return has_spell(effect.spell_id) and not variants.has(effect.spell_id)
+			return owns(effect.spell_id) and not variants.has(effect.spell_id)
 		DraftSpellEffect.Kind.MODIFY:
-			return has_spell(effect.spell_id)
+			return owns(effect.spell_id)
 	return false
 
 
@@ -227,8 +338,10 @@ func ready_ratio(slot: int) -> float:
 
 
 func step(delta: float) -> void:
-	for i: int in SLOTS:
+	for i: int in slots.size():
 		cooldowns[i] = maxf(cooldowns[i] - delta, 0.0)
+	for id: StringName in reserve_cooldowns:
+		reserve_cooldowns[id] = maxf(float(reserve_cooldowns[id]) - delta, 0.0)
 	_step_zones(delta)
 	world.step(delta)
 	rift.step(delta)
@@ -242,7 +355,7 @@ func step(delta: float) -> void:
 		return
 	if auto_cast:
 		reticle.visible = false
-		for i: int in SLOTS:
+		for i: int in slots.size():
 			if slots[i] != null and ready(i):
 				var aim: Vector3 = auto_aim(slots[i])
 				if aim != Vector3.INF:
@@ -254,7 +367,7 @@ func step(delta: float) -> void:
 			var slot: int = charge_slot
 			charge_slot = -1
 			cast(slot, aim_point(), charge_power(slots[slot]))
-	for i: int in SLOTS:
+	for i: int in slots.size():
 		if slots[i] == null:
 			continue
 		var pressed: bool = Input.is_action_just_pressed(ACTIONS[i])
@@ -288,7 +401,7 @@ func ready(slot: int) -> bool:
 ## Lance le sort de l'emplacement vers `aim` (point du sol), avec un multiplicateur de dégâts `power` (Surcharge).
 ## Faux si vide, en recharge ou pendant un Bond.
 func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
-	var data: SpellData = slots[slot] if slot >= 0 and slot < SLOTS else null
+	var data: SpellData = slots[slot] if slot >= 0 and slot < slots.size() else null
 	if data == null or not ready(slot) or run.hunter.is_leaping() or not run.hunter.alive:
 		return false
 	_power = power

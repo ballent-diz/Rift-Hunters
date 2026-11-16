@@ -91,7 +91,7 @@ func after_cast(slot: int, data: SpellData) -> bool:
 
 
 func step(delta: float) -> void:
-	for i: int in DraftSpells.SLOTS:
+	for i: int in spells.slots.size():
 		var data: SpellData = spells.slots[i]
 		if data != null and max_charges(data) > 1 and spells.cooldowns[i] <= 0.0 \
 				and int(charges.get(data.id, max_charges(data))) < max_charges(data):
@@ -106,6 +106,15 @@ func step(delta: float) -> void:
 	_step_mark(delta)
 	_step_shades(delta)
 	_step_veils(delta)
+
+
+## Une case change de sort (échange d'arsenal) : la seconde fente en attente sur cette case se termine (recharge
+## complète), pour qu'aucun échange ne serve à remettre une recharge à zéro.
+func settle_slot(slot: int) -> void:
+	if _rend_slot == slot:
+		spells.cooldowns[slot] = spells.cooldown_of(spells.slots[slot])
+		_rend_slot = -1
+		rend_window = 0.0
 
 
 ## Visée du bot, ou Vector3.INF quand le sort ne servirait à rien maintenant.

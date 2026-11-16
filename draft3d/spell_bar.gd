@@ -19,6 +19,13 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	# 5e emplacement (récompense légendaire) : la barre s'élargit en restant centrée.
+	var count: int = spells.slots.size() if spells != null else DraftSpells.SLOTS
+	var width: float = count * (SLOT + GAP) - GAP
+	if not is_equal_approx(custom_minimum_size.x, width):
+		custom_minimum_size.x = width
+		offset_left = -width * 0.5
+		offset_right = width * 0.5
 	queue_redraw()
 
 
@@ -26,7 +33,7 @@ func _draw() -> void:
 	if spells == null:
 		return
 	var font: Font = get_theme_default_font()
-	for i: int in DraftSpells.SLOTS:
+	for i: int in spells.slots.size():
 		var rect := Rect2(i * (SLOT + GAP), 0.0, SLOT, SLOT)
 		var data: SpellData = spells.slots[i]
 		var key: String = InputSetup.key_label(DraftSpells.ACTIONS[i])

@@ -56,6 +56,8 @@ var catalog: Array[UpgradeData] = []
 ## Cartes de sort, offertes seulement quand `spells` est branché et qu'elles servent.
 var spell_cards: Array[UpgradeData] = []
 var spells: DraftSpells
+## Déblocages permanents : seuls les sorts et les mutations débloqués sont tirés (null : tout le contenu).
+var unlocks: DraftUnlocks
 var stacks: Dictionary = {}
 var _groups: Dictionary = {}
 
@@ -156,8 +158,19 @@ func can_offer(data: UpgradeData) -> bool:
 		if spells == null:
 			return false
 		for effect: GameplayEffect in data.effects:
-			if not spells.can_apply(effect as DraftSpellEffect):
+			if not spells.can_apply(effect as DraftSpellEffect) or not _unlocked(data, effect as DraftSpellEffect):
 				return false
+	return true
+
+
+func _unlocked(data: UpgradeData, effect: DraftSpellEffect) -> bool:
+	if unlocks == null:
+		return true
+	match effect.kind:
+		DraftSpellEffect.Kind.LEARN:
+			return unlocks.is_unlocked(effect.spell_id)
+		DraftSpellEffect.Kind.VARIANT:
+			return unlocks.is_unlocked(data.id)
 	return true
 
 
@@ -197,7 +210,12 @@ func apply(data: UpgradeData, stats: StatSheet) -> bool:
 		if modifier != null:
 			stats.add_modifier(modifier.stat, modifier.flat, modifier.pct)
 		else:
-			spells.apply_effect(effect as DraftSpellEffect)
+			var spell_effect := effect as DraftSpellEffect
+			spells.apply_effect(spell_effect)
+			if spell_effect.kind == DraftSpellEffect.Kind.VARIANT:
+				var labels: Array = spells.mutation_labels.get(spell_effect.spell_id, [])
+				labels.append(data.name_key)
+				spells.mutation_labels[spell_effect.spell_id] = labels
 	stacks[data.id] = stacks_of(data.id) + 1
 	if data.exclusive_group != &"":
 		_groups[data.exclusive_group] = data.id
