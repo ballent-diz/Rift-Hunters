@@ -41,7 +41,8 @@ func _spawn(id: StringName, distance: float = 6.0) -> DraftEnemies.Foe:
 ## Coups qui amènent le boss sous une part de ses PV, quel que soit le multiplicateur du moment.
 func _bring_to(foe: DraftEnemies.Foe, ratio: float) -> void:
 	foe.hp = foe.max_hp * ratio
-	foe.brain._check_phase()
+	for i: int in foe.boss.phases.size():
+		foe.brain._check_phase()
 
 
 func test_every_data_technique_has_a_3d_gesture() -> void:
@@ -115,3 +116,322 @@ func test_boss_death_plays_its_own_animation() -> void:
 	check(str(abyssarch.view.entry["sheet"]).contains("death"), "Abyssarque : feuille de mort dédiée")
 	check(length >= 0.6, "clip de mort joué en entier (%.2f s)" % length)
 	check_eq(abyssarch.brain.die(), 0.0, "une seule mort")
+
+
+func _orb_pattern(boss: BossData, golden: int) -> BossPatternData:
+	for p: BossPhaseData in boss.phases:
+		for pattern: BossPatternData in p.patterns:
+			if pattern.kind == &"source_orb" and int(pattern.params.get("golden", 0)) == golden \
+					and int(pattern.params.get("count", 1)) == (1 if golden == 0 else 3):
+				return pattern
+	return null
+
+
+func test_source_orbs_are_sent_back_by_a_dash() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"source_devourer", 7.0)
+	var orbs: DraftSourceOrbs = null
+	for mechanic: DraftBossMechanic in foe.brain.mechanics:
+		if mechanic is DraftSourceOrbs:
+			orbs = mechanic
+	check(orbs != null, "Dévoreur des Sources : mécanique des orbes")
+	foe.brain._next_at = INF
+	var single: BossPatternData = _orb_pattern(foe.boss, 0)
+	check(single != null, "orbe simple dans les données")
+	orbs.perform(single)
+	await _frames(30)
+	check_eq(orbs.orbs.size(), 1, "un orbe en vol")
+	var hp: float = foe.hp
+	# Ruée continue : l'orbe qui arrive est renvoyé sur le boss.
+	for frame: int in 400:
+		run.hunter.dash_time = 0.2
+		await host.get_tree().physics_frame
+		if orbs.reflected > 0 and orbs.orbs.is_empty():
+			break
+	check(orbs.reflected >= 1, "une Ruée renvoie l'orbe")
+	check(foe.hp < hp, "l'orbe renvoyé blesse le Dévoreur")
+	var salvo: BossPatternData = _orb_pattern(foe.boss, 1)
+	orbs.perform(salvo)
+	await _frames(30)
+	check_eq(orbs.orbs.size(), 3, "salve de trois orbes")
+	var golden: Dictionary = {}
+	for orb: Dictionary in orbs.orbs:
+		if orb["golden"]:
+			golden = orb
+	golden["reflected"] = true
+	for frame: int in 200:
+		await host.get_tree().physics_frame
+		if foe.brain.stunned():
+			break
+	check(foe.brain.stunned(), "l'orbe doré renvoyé l'étourdit")
+	foe.brain.die()
+	check(orbs.orbs.is_empty(), "orbes retirés à la mort")
+
+
+func _mechanic(foe: DraftEnemies.Foe, kind: StringName) -> DraftBossMechanic:
+	for mechanic: DraftBossMechanic in foe.brain.mechanics:
+		if mechanic.handles(kind):
+			return mechanic
+	return null
+
+
+func _pattern(boss: BossData, kind: StringName) -> BossPatternData:
+	for p: BossPhaseData in boss.phases:
+		for pattern: BossPatternData in p.patterns:
+			if pattern.kind == kind:
+				return pattern
+	return null
+
+
+func test_star_crown_rewards_getting_inside() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"astravorn", 2.0)
+	var crown := _mechanic(foe, &"star_crown") as DraftStarCrown
+	check(crown != null, "Astravorn : couronne d'astres")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"star_crown")
+	crown.perform(pattern)
+	check_eq(crown.star_positions().size(), 12, "16 étoiles moins 2 brèches de 2")
+	await _frames(int((pattern.telegraph + 0.3) * 60))
+	check(crown.active() and crown.holds_boss(), "couronne levée : le boss se concentre")
+	check_near(crown.damage_mult(), 1.0, 0.001, "de l'intérieur : coups pleins")
+	run.hunter.global_position = foe.pos + Vector3(14, 0, 0)
+	check_near(crown.damage_mult(), 0.15, 0.001, "de l'extérieur : coups absorbés à 85 %")
+	run.hunter.global_position = foe.pos + Vector3(2, 0, 0)
+	var shots: int = run.hostile.size()
+	await _frames(int(float(pattern.params.get("duration", 9.0)) * 60) + 30)
+	check(not crown.holds_boss(), "la couronne se termine")
+	check(run.hostile.size() > shots, "les étoiles partent vers l'extérieur")
+
+
+func test_mist_veil_lanterns() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"mist_chimera", 6.0)
+	var veil := _mechanic(foe, &"mist_veil") as DraftMistVeil
+	check(veil != null, "Chimère : voile de brume")
+	foe.brain._next_at = INF
+	veil.perform(_pattern(foe.boss, &"mist_veil"))
+	check(veil.veiled() and veil.lanterns.size() == 3, "trois lanternes allumées")
+	check(foe.brain.damage_mult() <= 0.06, "sous le voile : coups sans effet ou presque")
+	for lantern: DraftEnemies.Foe in veil.lanterns.duplicate():
+		run.enemies.hit(lantern, 100000.0)
+	await _frames(2)
+	check(not veil.veiled() and veil.broken == 1, "lanternes brisées : voile levé")
+	check(foe.brain.stunned(), "la Chimère se fige")
+	check(foe.brain.damage_mult() >= 2.0, "figée : coups × 2 au moins")
+
+
+func test_quake_rings_grow_with_phases() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"root_sentinel", 6.0)
+	var pattern: BossPatternData = _pattern(foe.boss, &"quake")
+	var before: int = run.hazards._items.size()
+	foe.brain._gesture_quake(pattern, Vector3.RIGHT)
+	check_eq(run.hazards._items.size() - before, int(pattern.params.get("waves", 2)), "Séisme : anneaux des données")
+
+
+func test_pyrevorn_craters_skyfall_and_escorts() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"pyrevorn", 8.0)
+	var craters := _mechanic(foe, &"crater_sequence") as DraftCraterSequence
+	check(craters != null, "Pyrevorn : séquence des cratères")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"crater_sequence")
+	craters.perform(pattern)
+	check_eq(craters.cells.size(), 9, "grille de 3 × 3")
+	check_eq(craters.steps.size(), int(pattern.params.get("steps", 4)), "cases de la séquence")
+	await _frames(int((float(craters.steps.back()["erupt_at"]) - craters._clock) * 60) + 40)
+	check_eq(craters.eruptions, int(pattern.params.get("steps", 4)), "chaque case allumée entre en éruption")
+	check(not craters.active(), "la grille disparaît après la dernière éruption")
+	var skyfall: BossPatternData = _pattern(foe.boss, &"skyfall")
+	foe.brain._gesture_leap(skyfall, Vector3.RIGHT)
+	await _frames(40)
+	check(foe.brain.airborne() and foe.view.hop > 10.0, "envol : hors de l'écran")
+	check(foe.brain.damage_mult() < 0.5, "en l'air : coups réduits")
+	await _frames(int((float(skyfall.params.get("airborne", 1.6)) + skyfall.telegraph) * 60) + 40)
+	check(not foe.brain.airborne() and foe.view.hop == 0.0, "chute : de retour au sol")
+	check(foe.pos.distance_to(run.hunter.global_position) < 3.0, "il retombe là où se tenait le Chasseur")
+	var count: int = run.enemies.count()
+	_bring_to(foe, 0.4)
+	check_eq(craters.escorts.size(), 2, "seconde phase : Titan de caldeira et Wyrmeau de flammes")
+	check(run.enemies.count() >= count + 2, "escorte dans la partie")
+
+
+func test_ash_guardians() -> void:
+	await _start()
+	# Gardien du bûcher : charge longue des données, assommé contre le décor.
+	var pyre: DraftEnemies.Foe = _spawn(&"pyre_guardian", 6.0)
+	var ram: BossPatternData = _pattern(pyre.boss, &"pyre_ram")
+	pyre.brain._gesture_charge(ram, Vector3(0, 0, -1))
+	check_near(float(pyre.brain._move["speed"]), float(ram.params["speed"]) * DraftHunter.UNIT, 0.01,
+		"charge du bûcher : vitesse des données")
+	run.enemies.hit(pyre, 1000000.0)
+	# Chevalier calciné : cercle du duel.
+	var knight: DraftEnemies.Foe = _spawn(&"cinder_champion", 4.0)
+	var duel := _mechanic(knight, &"duel_circle") as DraftDuelCircle
+	knight.brain._next_at = INF
+	duel.perform(_pattern(knight.boss, &"duel_circle"))
+	await _frames(90)
+	check(duel.active(), "cercle du duel tracé")
+	check_near(duel.damage_mult(), 1.5, 0.001, "dedans : coups × 1,5")
+	run.hunter.god_mode = false
+	run.hunter.global_position = duel.circle["center"] + Vector3(float(duel.circle["radius"]) + 3.0, 0, 0)
+	await _frames(60)
+	check(duel.burns >= 1, "dehors : le Chasseur brûle")
+	run.hunter.god_mode = true
+	run.enemies.hit(knight, 1000000.0)
+	run.hunter.global_position = Vector3(0, 0.2, 0)
+	run.hunter.reset_motion()
+	await _frames(5)
+	# Reine-veuve : fils tendus.
+	var widow: DraftEnemies.Foe = _spawn(&"widow_queen", 8.0)
+	var silk := _mechanic(widow, &"silk_threads") as DraftSilkThreads
+	widow.brain._next_at = INF
+	silk.perform(_pattern(widow.boss, &"silk_threads"))
+	check(silk.threads.size() >= 4, "fils tendus autour du Chasseur")
+	var thread: Dictionary = silk.threads[0]
+	run.hunter.global_position = ((thread["a"] as Vector3) + (thread["b"] as Vector3)) * 0.5 + Vector3.UP * 0.1
+	await _frames(3)
+	check(silk.caught >= 1 and run.hunter.stuck_left > 0.0, "un fil touché colle sur place")
+	await _frames(10)
+	check(widow.brain.airborne(), "la Reine bondit sur sa proie")
+	var count: int = silk.threads.size()
+	run.hunter.dash_time = 0.2
+	var other: Dictionary = silk.threads[silk.threads.size() - 1]
+	run.hunter.global_position = ((other["a"] as Vector3) + (other["b"] as Vector3)) * 0.5 + Vector3.UP * 0.1
+	await _frames(2)
+	check(silk.threads.size() < count, "une Ruée tranche le fil")
+	run.enemies.hit(widow, 1000000.0)
+	# Matrone des scories : carapace fendue par une roche qui tombe sur elle.
+	var matron: DraftEnemies.Foe = _spawn(&"slag_matriarch", 5.0)
+	var shell := _mechanic(matron, &"slag_rain") as DraftSlagShell
+	check_near(matron.brain.damage_mult(), 0.15, 0.001, "carapace : coups × 0,15")
+	shell._rock_lands(matron.pos, 2.5)
+	check(shell.cracked() and matron.brain.stunned(), "roche tombée sur elle : carapace fendue, sonnée")
+	check(matron.brain.damage_mult() >= 1.5, "fendue : coups × 1,5")
+
+
+func test_glauquemire_three_phases() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"glauquemire", 9.0)
+	var glauque := _mechanic(foe, &"prism_beam") as DraftGlauquemire
+	check(glauque != null, "Glauquemire : mécaniques du Dévoreur")
+	foe.brain._next_at = INF
+	# Phase 1 : vase qui durcit en mur solide.
+	var mud: BossPatternData = _pattern(foe.boss, &"mud_wall")
+	glauque.perform(mud)
+	check_eq(glauque.puddles.size(), int(mud.params["count"]), "jets de vase")
+	await _frames(int((mud.telegraph + float(mud.params["harden"])) * 60) + 10)
+	check(glauque.puddles[0]["wall"] is StaticBody3D, "la vase durcit en mur solide")
+	# Sangsues : rampent vers le boss et le soignent, plafonné.
+	foe.hp = foe.max_hp * 0.8
+	glauque.perform(_pattern(foe.boss, &"leech_feed"))
+	check(glauque.leeches.size() >= 1 and glauque.leeches[0].follow == foe, "les sangsues rejoignent le boss")
+	glauque.heal(foe.max_hp)
+	check_near(glauque.healed, foe.max_hp * 0.06, 1.0, "soin plafonné à 6 % sur le combat")
+	# Phase 2 : facettes et miroirs.
+	_bring_to(foe, 0.6)
+	check_eq(glauque.facets.size(), 4, "carapace à quatre facettes")
+	check_eq(glauque.mirrors.size(), 4, "quatre miroirs")
+	foe.brain._transition = 0.0
+	check_near(foe.brain.damage_mult(), 0.3, 0.001, "face intacte : 30 % des coups")
+	# Rayon de prisme renvoyé par un miroir tenu : boss étourdi.
+	# Le boss reste en place pendant le rayon, comme quand il le lance lui-même.
+	foe.brain._busy = 100.0
+	# Miroir en vue directe du boss (le décor de la carte peut en cacher un).
+	var mirror: Dictionary = glauque.mirrors[0]
+	var space: PhysicsDirectSpaceState3D = run.get_world_3d().direct_space_state
+	for candidate: Dictionary in glauque.mirrors:
+		var origin: Vector3 = foe.pos + Vector3.UP * DraftGlauquemire.BEAM_HEIGHT
+		var target: Vector3 = (candidate["pos"] as Vector3) + Vector3.UP * DraftGlauquemire.BEAM_HEIGHT
+		var hit: Dictionary = space.intersect_ray(PhysicsRayQueryParameters3D.create(origin, target, 1))
+		if not hit.is_empty() and hit["collider"] == candidate["body"]:
+			mirror = candidate
+			break
+	var outward: Vector3 = ((mirror["pos"] as Vector3) - foe.pos).normalized()
+	run.hunter.global_position = run.level.closest((mirror["pos"] as Vector3) + outward.cross(Vector3.UP) * 1.8) \
+		+ Vector3.UP * 0.2
+	run.hunter.reset_motion()
+	await _frames(3)
+	var beam: BossPatternData = _pattern(foe.boss, &"prism_beam")
+	glauque.perform(beam)
+	var hp: float = foe.hp
+	for frame: int in int((beam.telegraph + float(beam.params["sweep_time"])) * 60) + 30:
+		await host.get_tree().physics_frame
+		if glauque.reflections > 0:
+			break
+	check(glauque.reflections >= 1, "un miroir tenu renvoie le rayon")
+	check(foe.hp < hp and foe.brain.stunned(), "rayon renvoyé : blessé et étourdi")
+	# Phase 3 : facettes tombées, tourbillon qui aspire.
+	_bring_to(foe, 0.3)
+	check(glauque.facets.is_empty(), "phase 3 : carapace fendue")
+	var far: Vector3 = run.hunter.global_position
+	glauque.perform(_pattern(foe.boss, &"whirlpool"))
+	await _frames(120)
+	check(run.hunter.global_position.distance_to(foe.pos) < far.distance_to(foe.pos), "le tourbillon aspire")
+	foe.brain.die()
+	check(glauque.mirrors.is_empty() and glauque.puddles.is_empty(), "tout est retiré à la mort")
+
+
+func test_marsh_guardians() -> void:
+	await _start()
+	# Gardien d'écorce : bouclier frontal.
+	var bark: DraftEnemies.Foe = _spawn(&"bark_colossus", 5.0)
+	var guard := _mechanic(bark, &"bark_guard") as DraftBarkGuard
+	bark.brain._next_at = INF
+	guard.perform(_pattern(bark.boss, &"bark_guard"))
+	check(guard.guarding(), "garde levée")
+	check_near(bark.brain.damage_mult(), 0.1, 0.001, "de face : × 0,1")
+	run.hunter.global_position = bark.pos - (run.hunter.global_position - bark.pos)
+	check_near(bark.brain.damage_mult(), 1.5, 0.001, "de dos : × 1,5")
+	run.enemies.hit(bark, 1000000.0)
+	run.hunter.global_position = Vector3(0, 0.2, 0)
+	run.hunter.reset_motion()
+	# Gueule des marais : plongée, sortie sonnée.
+	var maw: DraftEnemies.Foe = _spawn(&"marsh_maw_guardian", 6.0)
+	var dive := _mechanic(maw, &"maw_dive") as DraftMawDive
+	maw.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(maw.boss, &"maw_dive")
+	dive.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 5)
+	check(dive.submerged() and maw.brain.airborne(), "sous la surface : intouchable, sans contact")
+	await _frames(int((float(pattern.params["chase"]) + float(pattern.params["warning"])) * 60) + 10)
+	check(dive.surfaced == 1 and maw.brain.stunned(), "elle ressurgit, sonnée")
+	check(maw.brain.damage_mult() >= 1.99, "sortie : coups × 2")
+	run.enemies.hit(maw, 1000000.0)
+	# Mère des spores : cristal frappé d'une Ruée, voile brûlé.
+	var spore: DraftEnemies.Foe = _spawn(&"spore_matriarch", 6.0)
+	var veil := _mechanic(spore, &"spore_veil") as DraftSporeVeil
+	spore.brain._next_at = INF
+	check_eq(veil.crystals.size(), 3, "trois cristaux autour d'elle")
+	check_near(spore.brain.damage_mult(), 0.2, 0.001, "voile : × 0,2")
+	veil._fire(veil.crystals[0])
+	var clear: bool = veil.burns == 1
+	if not clear:
+		veil._fire(veil.crystals[1])
+	if veil.burns == 0:
+		veil._fire(veil.crystals[2])
+	check(veil.burns == 1 and spore.brain.stunned(), "rayon de cristal : voile brûlé, sonnée")
+	run.enemies.hit(spore, 1000000.0)
+	# Dame des portails : piégée dans le portail de sortie.
+	var lady: DraftEnemies.Foe = _spawn(&"portal_lady", 6.0)
+	var portal := _mechanic(lady, &"portal_hop") as DraftPortalHop
+	lady.brain._next_at = INF
+	check_eq(portal.portals.size(), 3, "trois portails")
+	var hop: BossPatternData = _pattern(lady.boss, &"portal_hop")
+	portal.perform(hop)
+	run.hunter.global_position = portal.portals[int(portal.hop["exit"])]["pos"] + Vector3.UP * 0.2
+	run.hunter.reset_motion()
+	await _frames(int((hop.telegraph + float(hop.params["dive"])) * 60) + 10)
+	check(portal.trapped == 1 and lady.brain.stunned(), "Chasseur dans le portail : elle sort piégée")
+
+
+func test_floor_change_clears_boss_mechanics() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"glauquemire", 8.0)
+	var glauque := _mechanic(foe, &"prism_beam") as DraftGlauquemire
+	foe.brain._next_at = INF
+	glauque.perform(_pattern(foe.boss, &"mud_wall"))
+	check(not glauque.puddles.is_empty(), "flaques de vase posées")
+	run.enemies.clear_all()
+	check(glauque.puddles.is_empty() and run.enemies.boss == null, "changement d'étage : boss et vase retirés")

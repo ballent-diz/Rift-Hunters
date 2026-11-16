@@ -1649,6 +1649,7 @@ BOSS_PATTERN_WHIRLPOOL,Tourbillon,Whirlpool
 BOSS_PATTERN_TIDE_WAVE,Raz-de-marée,Tidal wave
 BOSS_PATTERN_SWALLOW,Engloutissement,Engulf
 BOSS_ORB_INTRO,Orbe de source : une Ruée dedans le renvoie sur le Dévoreur. L'orbe doré l'étourdit.,Source orb: dash into it to send it back at the Devourer. The golden orb stuns it.
+BOSS_QUAKE_INTRO,"Séisme : des anneaux sans brèche partent de la Sentinelle. Traversez-les d'une Ruée ou abritez-vous derrière le décor.","Quake: unbroken rings spread from the Sentinel. Dash through them or take cover behind the scenery."
 BOSS_CROWN_INTRO,"Couronne d'astres : de l'extérieur, vos coups sont absorbés. Entrez par une brèche !","Star crown: from outside, your hits are absorbed. Get in through a gap!"
 BOSS_CRATER_INTRO,Retenez les cases qui s'allument : elles vont exploser dans le même ordre.,Remember the tiles that light up: they will erupt in the same order.
 BOSS_MUD_WALL_INTRO,La vase ralentit puis durcit en murs : ils arrêtent aussi son rayon.,"The mud slows you, then hardens into walls: they also stop its beam."
@@ -1659,6 +1660,7 @@ BOSS_MIRROR_INTRO,Miroirs : abritez-vous derrière un miroir quand le rayon arri
 BOSS_WHIRLPOOL_INTRO,Tourbillon : marchez contre le courant ou utilisez la Ruée avant qu'il ne se referme.,Whirlpool: walk against the current or dash before it collapses.
 BOSS_TIDE_RING_INTRO,Raz-de-marée : traversez la vague d'une Ruée ou abritez-vous derrière la vase durcie.,Tidal wave: dash through the wave or take cover behind hardened mud.
 BOSS_SWALLOW_INTRO,Un Écho est englouti : frappez le Dévoreur pour le libérer à temps !,An Echo was swallowed: strike the Devourer to free it in time!
+BOSS_SWALLOW_INTRO_3D,"Glauquemire avale les Corrompus proches pour se soigner, puis les recrache : frappez-le fort pour l'interrompre.","Glauquemire swallows nearby Corrupted to heal, then spits them out: hit it hard to interrupt."
 BOSS_STUNNED,ÉTOURDI,STUNNED
 BOSS_PRISM_RETURNED,CARAPACE BRISÉE ×2,CARAPACE SHATTERED ×2
 BOSS_ECHO_FREED,Écho libéré !,Echo freed!
@@ -1816,6 +1818,7 @@ BOSS_PATTERN_THREADS,Fils tendus,Spun Threads
 BOSS_PATTERN_BROOD,Couvée,Brood
 BOSS_PATTERN_SLAG_RAIN,Pluie de scories,Slag Rain
 BOSS_DUEL_INTRO,"Cercle du duel : les Échos restent dehors, vos coups portent davantage, mais sortir du cercle brûle.","Duel circle: your Echoes stay outside and your hits land harder, but leaving the circle burns."
+BOSS_DUEL_INTRO_3D,"Cercle du duel : dedans, vos coups portent davantage ; sortir du cercle brûle.","Duel circle: inside, your hits land harder; leaving the circle burns."
 BOSS_THREADS_INTRO,Fils tendus : les toucher vous colle sur place et la Reine bondit. Une Ruée à travers un fil le tranche.,Spun threads: touching one sticks you in place and the Queen pounces. Dash through a thread to cut it.
 BOSS_SHELL_INTRO,Sa carapace arrête presque tous les coups : attirez-la sous les roches qui tombent pour la fendre.,Her shell stops almost every hit: lure her under falling rocks to crack it.
 BOSS_SHELL_CRACKED,Carapace fendue !,Shell cracked!
@@ -1831,6 +1834,7 @@ BOSS_PATTERN_BARK_GUARD,Garde d'écorce,Bark Guard
 BOSS_PATTERN_ROOTS,Racines entravantes,Binding Roots
 BOSS_PATTERN_DIVE,Plongée,Dive
 BOSS_GUARD_INTRO,"Garde d'écorce : de face, son bouclier arrête presque tout. Prenez-le à revers, ou laissez vos Échos l'occuper.","Bark guard: from the front, his shield stops everything. Take him from behind, or let your Echoes keep him busy."
+BOSS_GUARD_INTRO_3D,"Garde d'écorce : de face, son bouclier arrête presque tout. Contournez-le et frappez-le de dos ou de flanc.","Bark guard: from the front, his shield stops almost everything. Circle around and strike his back or flank."
 BOSS_DIVE_INTRO,"Elle plonge : suivez la ride. Écartez-vous de l'onde annoncée, puis frappez-la quand elle ressurgit, sonnée.","She dives: watch the ripple. Step out of the marked wave, then strike her as she resurfaces, stunned."
 ENEMY_FROST_CRAWLER_NAME,Rampe-givre,Frost Crawler
 ENEMY_FROST_CRAWLER_DESC,Petite bête à carapace de givre qui chasse en meute.,Small frost-shelled beast that hunts in packs.
@@ -1890,6 +1894,7 @@ BOSS_SPORE_MATRIARCH_PHASE2,La floraison,The Bloom
 BOSS_PATTERN_SPORE_LASH,Fouet de spores,Spore Lash
 BOSS_PATTERN_SPORE_VEIL,Floraison,Bloom
 BOSS_SPORE_VEIL_INTRO,"Voile de spores : vos coups glissent sur elle. Frappez un cristal-miroir aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Strike a mirror crystal lined up with her: its beam burns the veil."
+BOSS_SPORE_VEIL_INTRO_3D,"Voile de spores : vos coups glissent sur elle. Foncez d'une Ruée dans un cristal aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Dash into a crystal lined up with her: its beam burns the veil."
 BOSS_VEIL_BURNED,Voile brûlé !,Veil burned!
 MAP_OBJ_CRYSTALS_DESC,Terminer en faisant éclater au moins %d cristaux-miroirs,Clear it shattering at least %d mirror crystals
 MAP_OBJ_VEIL_DESC,Terminer en brûlant au moins %d fois le voile de la gardienne,Clear it burning the warden's veil at least %d times

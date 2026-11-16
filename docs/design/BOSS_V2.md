@@ -171,3 +171,85 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
 - **Intro** (`intro_animation` ou `roar`), réaction aux gros coups (`hurt_ratio`), **mort** : feuille dédiée
   (`death_visual_id`), clip joué en entier, corps retiré après.
 - Essais : `tests/unit/test_boss3d.gd`.
+
+### Lot 1 — Dévoreur des Sources (16 novembre)
+
+- **Orbes de source** (`draft3d/bosses/source_orbs.gd`, `DraftSourceOrbs`) : orbes lents à hauteur de poitrine qui
+  suivent le Chasseur (données d'origine : nombre, écart, vitesse, durée, orbe doré). Une Ruée ou une Parade dedans le
+  renvoie : 3 % des PV du boss, l'orbe doré l'étourdit 2,5 s (coups × 1,5). Touché sans Ruée : dégâts. Le décor arrête
+  un orbe. Explication en bandeau la première fois (`BOSS_ORB_INTRO`).
+- **Souffle arrêté par le décor** : `DraftHazards.line(..., covered)` ; un obstacle entre la gueule et le Chasseur
+  l'abrite.
+- Double écrasement, balayage racinaire, clips `phase2_*`, `roar` d'intro, `transform` et `phase2_idle` : socle (lot 0).
+- Orbe touché sans Ruée : dégâts et ralenti 1,5 s (`DraftHunter.hinder`, ajouté au Chasseur 3D).
+- Reste : effets peints (`assets/vfx/bosses/source_devourer`), remplacés par des PixelFX.
+- Bot (peu habile, ne vise pas les orbes) : défaite 70 s environ après l'arrivée du boss, à juger en jouant.
+
+### Lot 2 — gardiens du chapitre 1 (16 novembre)
+
+- **Astravorn, Couronne d'astres** (`bosses/star_crown.gd`) : 16 étoiles, 2 brèches de 2, rayon 11,4 → 5,4 m, rotation
+  qui accélère ; contact : dégâts ; de l'extérieur, coups × 0,15 ; concentré, le boss ne marche ni n'attaque ; à la fin,
+  les étoiles partent en tirs vers l'extérieur (`DraftRun.hostile_shot`, nouveau tir hostile générique).
+- **Chimère des brumes, Voile de brume** (`bosses/mist_veil.gd`) : 3 lanternes (`object.mist_lantern`) à 11 m, coups ×
+  0,05 tant qu'une brûle ; toutes brisées : sonnée 2,5 s, coups × 2 pendant 4 s ; voile tenu 12 s : + 4 % de PV.
+- **Sentinelle des racines, Séisme** : anneaux des données (nombre, écart, vitesse), un de plus à chaque phase,
+  bandeau `BOSS_QUAKE_INTRO` (nouvelle clé FR/EN). Les anneaux restent coupés par le décor (règle commune des cartes 3D).
+
+### Lot 3 — Pyrevorn (16 novembre)
+
+- **Séquence des cratères** (`bosses/crater_sequence.gd`) : grille 3 × 3 de cases de 7,8 m posée autour du Chasseur
+  (cases recalées sur la navigation), cases allumées une à une (données : nombre, écarts, pause), puis éruptions dans le
+  même ordre, chacune précédée d'un éclair de 0,2 s seulement ; le boss se concentre pendant l'allumage.
+- **Envol et chute** (geste `leap` avec `airborne`, commun) : il quitte l'écran (coups × 0,25), suit le Chasseur, la
+  zone de chute s'annonce sous lui, puis anneaux de lave à l'atterrissage (données `rings`). Sols brûlants de la v1
+  non repris (pas de système de brûlure en 3D).
+- **Œil de la Faille** (geste `sweep_beam`, commun) : arc, nombre de traits et durée du balayage des données, rayon
+  arrêté par le décor.
+- **Mini-boss** : à sa seconde phase, Pyrevorn appelle le Titan de caldeira et le Wyrmeau de flammes (gardiens de
+  palier de la carte 10 en v1), PV × 4, agrandis.
+
+### Lot 4 — gardiens du chapitre 2 (16 novembre)
+
+- **Gardien du bûcher, Charge du bûcher** : la charge commune lit `speed`, `length` et `stun` des données (21 m/s,
+  28 m, assommé 1,8 s contre le décor), bandeau `BOSS_RAM_INTRO`.
+- **Chevalier calciné, Cercle du duel** (`bosses/duel_circle.gd`) : cercle de feu de 10,5 m au moins entre lui et le
+  Chasseur, 8 s (9 s en phase 2) ; dedans, coups × 1,5 ; dehors, brûlure toutes les 0,5 s. Bandeau sans les Échos
+  (`BOSS_DUEL_INTRO_3D`, nouvelle clé FR/EN).
+- **Reine-veuve, Fils tendus** (`bosses/silk_threads.gd`) : 4 fils (6 en phase 2) de 12,6 m autour du Chasseur, 14 s ;
+  un fil touché englue 1,2 s (`DraftHunter.stick`, seule une Ruée libère) et la Reine bondit dessus ; une Ruée à
+  travers un fil le tranche.
+- **Matrone des scories, Carapace à fendre** (`bosses/slag_shell.gd`) : coups × 0,15 ; sa pluie de scories fait tomber
+  des roches autour du Chasseur ; une roche qui tombe sur elle la fend 10 s (coups × 1,5, sonnée 1 s).
+
+### Lot 5 — Glauquemire (16 novembre)
+
+`bosses/glauquemire.gd` (`DraftGlauquemire`), d'après la refonte du 11 novembre (rien ne retient ni n'enferme).
+- **Phase 1** : vase (3 flaques qui ralentissent, puis **murs solides** 7 s : ils bloquent le Chasseur, les tirs, les
+  ondes et le rayon), racine jaillissante (ligne annoncée, éruption 1,3 s plus tard là où se tenait le Chasseur),
+  sangsues qui rampent vers le boss (`Foe.follow`) et le soignent de 0,5 % chacune, 6 % au plus sur le combat.
+- **Phase 2** : carapace à quatre facettes fixes (droite, bas, gauche, haut ; 30 % des coups par une face intacte,
+  brisée après 3,5 % des PV, repousse 14 s) ; quatre miroirs solides à 10,8 m. **Rayon de prisme** : balaie l'arène
+  (lancer de rayon physique : décor, vase durcie et miroirs l'arrêtent) ; un miroir touché alors que le Chasseur se
+  tient à moins de 3,6 m le renvoie : 4 % des PV, facettes brisées, étourdi 3 s, coups × 2.
+- **Phase 3** : facettes tombées, tourbillon qui aspire 4,5 s puis se referme, raz-de-marée (deux vagues : Ruée ou
+  vase durcie), rayon double. **Engloutissement** : sans Échos, il avale jusqu'à 4 Corrompus proches, se soigne
+  (même plafond) et les recrache en gerbe de tirs ; 5 % de ses PV en coups pendant la digestion l'étranglent (sonné).
+  Bandeau `BOSS_SWALLOW_INTRO_3D` (nouvelle clé FR/EN).
+- Reste : vagues du raz-de-marée sans ralenti ni recul (dégâts seuls) ; effets peints remplacés par des PixelFX et des
+  formes simples (vase, murs, miroirs, rayon).
+
+### Lot 6 — gardiens du chapitre 3 (16 novembre)
+
+- **Gardien d'écorce, Garde d'écorce** (`bosses/bark_guard.gd`) : enraciné 7 s (8 en phase 2), bouclier qui pivote à
+  0,9 rad/s vers le Chasseur ; de face (60°) coups × 0,1, de dos ou de flanc × 1,5 ; racines qui ralentissent au
+  lever de la garde. Bandeau sans les Échos (`BOSS_GUARD_INTRO_3D`, nouvelle clé).
+- **Gueule des marais, Plongée** (`bosses/maw_dive.gd`) : sous la surface (invisible, sans contact, coups × 0,05), une
+  ride suit le Chasseur 2,5 s, l'onde de sortie s'annonce 0,9 s, puis elle ressurgit sonnée 2 s (coups × 2).
+- **Mère des spores, Voile de spores** (`bosses/spore_veil.gd`) : voile dès l'arrivée (× 0,2) ; elle fait pousser
+  trois cristaux solides autour d'elle (pas de cristaux-miroirs en 3D) ; une **Ruée dans un cristal** tire un rayon
+  vers elle : sans décor entre les deux, le voile brûle (sonnée 5 s, coups × 2) et repousse 12 s plus tard. Tapis de
+  spores autour du Chasseur. Bandeau `BOSS_SPORE_VEIL_INTRO_3D` (nouvelle clé).
+- **Dame des portails, Saut de portail** (`bosses/portal_hop.gd`) : trois portails ouverts à son arrivée ; elle
+  plonge 2,4 s et ressort par le portail le plus proche du Chasseur (illuminé) ; le Chasseur dedans la piège (sonnée
+  5 s, coups × 2), sinon onde de prisme.
+- Miroirs de Glauquemire placés en vue directe du boss (le décor 3D pouvait en cacher un).

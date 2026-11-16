@@ -456,6 +456,11 @@ func boss_summon_ids(boss: DraftEnemies.Foe, ids: Array[StringName], amount: int
 		fx(&"summon_rise", family_of(boss), level.closest(at) + Vector3.UP * 0.6)
 
 
+## Explication d'une mécanique de boss (texte traduit), en bandeau.
+func boss_banner(key: String) -> void:
+	hud.banner(tr(key), 4.0)
+
+
 ## Nouvelle phase d'un boss : nom de la phase en bandeau quand il est traduit.
 func boss_phase_changed(boss: DraftEnemies.Foe, index: int) -> void:
 	var key: String = boss.boss.phases[index].name_key
@@ -596,13 +601,18 @@ func _step_bolts(delta: float) -> void:
 func enemy_shot(foe: DraftEnemies.Foe) -> void:
 	var origin: Vector3 = foe.pos + Vector3.UP * 0.6
 	var family: StringName = family_of(foe)
+	hostile_shot(origin, origin.direction_to(hunter.chest()), foe.data.attack.projectile_speed * DraftHunter.UNIT * 1.4,
+		foe.data.attack.damage * enemies.damage_mult, family)
+
+
+## Tir hostile (monstre, boss) : arrêté par le décor et les murs de faille, blesse le Chasseur au contact.
+func hostile_shot(origin: Vector3, aim: Vector3, speed: float, damage: float, family: StringName,
+		life: float = 4.0) -> void:
 	var visual: Sprite3D = fx(DraftPixelFx.shot_effect("flights", family), family, origin, 0.7, true)
-	var aim: Vector3 = origin.direction_to(hunter.chest())
 	# Les feuilles de tir sont dessinées vers la droite : on les retourne quand le tir part vers la gauche.
 	visual.flip_h = aim.dot(camera.global_basis.x) < 0.0
-	hostile.append({"at": origin, "dir": aim,
-		"speed": foe.data.attack.projectile_speed * DraftHunter.UNIT * 1.4, "left": 4.0,
-		"damage": foe.data.attack.damage * enemies.damage_mult, "visual": visual, "family": family})
+	hostile.append({"at": origin, "dir": aim, "speed": speed, "left": life, "damage": damage, "visual": visual,
+		"family": family})
 
 
 func _step_hostile(delta: float) -> void:

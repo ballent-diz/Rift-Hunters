@@ -32,6 +32,8 @@ class Foe:
 	var slot: int = 0
 	## Boss de fin de partie (le vaincre donne la victoire) ; faux pour un gardien de mi-parcours.
 	var final: bool = false
+	## Ennemi rejoint au lieu du Chasseur (sangsue qui nourrit Glauquemire) ; nul : le Chasseur.
+	var follow: Foe
 	## Cerveau d'un boss ou d'un gardien (DraftBossBrain) ; nul pour un Corrompu.
 	var brain: DraftBossBrain
 	## Entrave (sorts du Chasseur) : vitesse multipliée par `slow_factor` pendant `slow_left` secondes.
@@ -78,7 +80,7 @@ var _counter: int = 0
 var _frame: int = 0
 
 
-func spawn(data: EnemyData, at: Vector3) -> Foe:
+func spawn(data: EnemyData, at: Vector3, size: float = 1.0) -> Foe:
 	var foe := Foe.new()
 	foe.data = data
 	foe.max_hp = data.max_hp * hp_mult
@@ -89,7 +91,7 @@ func spawn(data: EnemyData, at: Vector3) -> Foe:
 	foe.defense = data.defense
 	foe.xp = data.xp_value
 	foe.cooldown = rng.randf_range(0.5, 2.0)
-	_add(foe, data.visual.visual_id, at, 1.0)
+	_add(foe, data.visual.visual_id, at, size)
 	return foe
 
 
@@ -128,6 +130,8 @@ func _add(foe: Foe, visual_id: StringName, at: Vector3, size: float) -> void:
 func clear_all() -> void:
 	for foe: Foe in list:
 		foe.alive = false
+		if foe.brain != null:
+			foe.brain.dispose()
 		foe.view.queue_free()
 	list.clear()
 	for corpse: Dictionary in _corpses:
@@ -186,6 +190,16 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 	return true
 
 
+## Retire un ennemi sans récompense (lanterne éteinte, invocation dissipée).
+func vanish(foe: Foe) -> void:
+	if not foe.alive:
+		return
+	foe.alive = false
+	list.erase(foe)
+	foe.view.play_action(&"death", 0.4)
+	_corpses.append({"view": foe.view, "left": 0.4})
+
+
 func _physics_process(delta: float) -> void:
 	_frame += 1
 	var i: int = _corpses.size() - 1
@@ -210,6 +224,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _step(foe: Foe, target: Vector3, delta: float) -> void:
+	if foe.follow != null and foe.follow.alive:
+		target = foe.follow.pos
 	foe.cooldown = maxf(foe.cooldown - delta, 0.0)
 	foe.contact_timer = maxf(foe.contact_timer - delta, 0.0)
 	var to_hunter: Vector3 = target - foe.pos
@@ -229,7 +245,8 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 			# Charge, bond, transition, technique : le cerveau tient la position ; le contact blesse toujours.
 			if not foe.brain.moves_itself():
 				foe.vel = Vector3.ZERO
-			_contact(foe, distance, climb)
+			if not foe.brain.airborne():
+				_contact(foe, distance, climb)
 			foe.view.push_position(foe.pos, delta, false)
 			return
 		wish = foe.brain.wish
@@ -292,11 +309,16 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 	if (foe.slot + _frame) % 2 == 0 or foe.boss != null:
 		next = level.closest(next + Vector3.UP * 0.2)
 	foe.pos = next
-	_contact(foe, distance, climb)
+	if foe.brain == null or not foe.brain.airborne():
+		_contact(foe, distance, climb)
 	foe.view.push_position(foe.pos, delta, turn)
 
 
 func _contact(foe: Foe, distance: float, climb: float) -> void:
+	if foe.follow != null:
+		var offset: Vector3 = hunter.global_position - foe.pos
+		climb = absf(offset.y)
+		distance = Vector2(offset.x, offset.z).length()
 	if distance < foe.radius + DraftHunter.RADIUS + 0.12 and climb < MELEE_REACH_UP and foe.contact_timer <= 0.0 \
 			and hunter.alive:
 		foe.contact_timer = CONTACT_INTERVAL

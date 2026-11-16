@@ -41,6 +41,11 @@ var god_mode: bool = false
 var respawn := Vector3(0, 0.2, 0)
 ## Sorts défensifs : garde de Parade (s restantes), bouclier de l'Égide (PV absorbés, s restantes).
 var guard_left: float = 0.0
+## Englué (fil de la Reine-veuve) : immobile, seule une Ruée libère.
+var stuck_left: float = 0.0
+## Ralenti (orbe de source...) : vitesse × `slow_factor` pendant `slow_left` s.
+var slow_left: float = 0.0
+var slow_factor: float = 1.0
 var shield: float = 0.0
 var shield_left: float = 0.0
 ## Dernière direction de déplacement (visée des sorts au clavier seul).
@@ -101,6 +106,16 @@ func bolt_damage() -> float:
 
 func dash_cooldown() -> float:
 	return maxf(stats.get_value(StatKeys.DASH_COOLDOWN), 0.4)
+
+
+## Entrave par une attaque ennemie : ralenti (`factor` < 1) pendant `seconds`.
+func hinder(factor: float, seconds: float) -> void:
+	slow_factor = minf(factor, slow_factor) if slow_left > 0.0 else factor
+	slow_left = maxf(slow_left, seconds)
+
+
+func stick(seconds: float) -> void:
+	stuck_left = maxf(stuck_left, seconds)
 
 
 func is_dashing() -> bool:
@@ -188,6 +203,8 @@ func _physics_process(delta: float) -> void:
 	dash_cooldown_left = maxf(dash_cooldown_left - delta, 0.0)
 	invulnerable = maxf(invulnerable - delta, 0.0)
 	guard_left = maxf(guard_left - delta, 0.0)
+	stuck_left = maxf(stuck_left - delta, 0.0)
+	slow_left = maxf(slow_left - delta, 0.0)
 	shield_left = maxf(shield_left - delta, 0.0)
 	if shield_left <= 0.0:
 		shield = 0.0
@@ -218,7 +235,10 @@ func _physics_process(delta: float) -> void:
 		_dash_direction = direction
 		view.play_action(&"dash", balance.dash_duration)
 		Audio.play_sfx(&"dash")
-	var speed: float = move_speed()
+		stuck_left = 0.0
+	var speed: float = move_speed() * (slow_factor if slow_left > 0.0 else 1.0)
+	if stuck_left > 0.0 and dash_time <= 0.0:
+		direction = Vector3.ZERO
 	view.walk_speed = speed
 	var horizontal := Vector3(velocity.x, 0, velocity.z)
 	if dash_time > 0.0:
