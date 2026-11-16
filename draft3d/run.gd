@@ -403,6 +403,11 @@ func boss_summon_ids(boss: DraftEnemies.Foe, ids: Array[StringName], amount: int
 		fx(&"summon_rise", family_of(boss), level.closest(at) + Vector3.UP * 0.6)
 
 
+## Explication d'une mécanique de boss (texte traduit), en bandeau.
+func boss_banner(key: String) -> void:
+	hud.banner(tr(key), 4.0)
+
+
 ## Nouvelle phase d'un boss : nom de la phase en bandeau quand il est traduit.
 func boss_phase_changed(boss: DraftEnemies.Foe, index: int) -> void:
 	var key: String = boss.boss.phases[index].name_key

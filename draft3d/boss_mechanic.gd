@@ -39,5 +39,10 @@ func holds_boss() -> bool:
 	return false
 
 
+## Explication de la mécanique, une fois par partie (bandeau).
+func intro(key: String) -> void:
+	brain.banner_once(key)
+
+
 func finish() -> void:
 	pass

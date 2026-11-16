@@ -85,6 +85,7 @@ var _hurt_ready_at: float = 0.0
 ## Déplacement propre en cours : {} ou {"kind": &"charge"|&"leap", ...}.
 var _move: Dictionary = {}
 var _dead: bool = false
+var _banners: Dictionary = {}
 
 
 func setup(p_enemies: DraftEnemies, p_foe: DraftEnemies.Foe) -> void:
@@ -94,11 +95,22 @@ func setup(p_enemies: DraftEnemies, p_foe: DraftEnemies.Foe) -> void:
 	_orbit = 1.0 if enemies.rng.randf() < 0.5 else -1.0
 	if not data.phases.is_empty():
 		_apply_phase_stats()
+	for mechanic: DraftBossMechanic in mechanics_for(data):
+		add_mechanic(mechanic)
 	var intro: StringName = data.intro_animation if data.intro_animation != &"" else &"roar"
 	if foe.view.has_clip(intro):
 		_busy = minf(foe.view.clip_length(intro), 2.2)
 		foe.view.play_action(intro, _busy)
 		_next_at = _busy + 0.8
+
+
+## Mécaniques phares importées, par `BossData.signature` (docs/design/BOSS_V2.md, lots 1 à 10).
+static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
+	var result: Array[DraftBossMechanic] = []
+	match boss.signature:
+		&"source_orb":
+			result.append(DraftSourceOrbs.new())
+	return result
 
 
 func phase_data() -> BossPhaseData:
@@ -147,7 +159,15 @@ func stun(seconds: float) -> void:
 	foe.view.hop = 0.0
 	foe.view.play_action(_first_clip([&"hurt", &"idle"]), seconds)
 	foe.view.set_tint(Color(1.3, 1.3, 0.7))
-	_fx(&"thunderclap", foe.pos + Vector3.UP * (foe.radius + 1.0), 1.4)
+	fx(&"thunderclap", foe.pos + Vector3.UP * (foe.radius + 1.0), 1.4)
+
+
+## Bandeau d'explication d'une mécanique, une fois par partie.
+func banner_once(key: String) -> void:
+	if _banners.has(key):
+		return
+	_banners[key] = true
+	enemies.run.call("boss_banner", key)
 
 
 func add_mechanic(mechanic: DraftBossMechanic) -> void:
@@ -261,8 +281,8 @@ func _check_phase() -> void:
 		foe.view.idle_clip = idle
 	foe.view.play_action(_first_clip([p.transition_animation, &"transform", &"roar", &"attack"]), _transition)
 	# Onde de transition : repousse le Chasseur qui colle le boss ; une Ruée la traverse.
-	enemies.hazards.ring(foe.pos, 9.0, 14.0, _transition * 0.5, _damage(10.0), _fx_at(&"ring_burst", 2.5))
-	_fx(&"ring_charge", foe.pos + Vector3.UP * 0.3, 2.4)
+	enemies.hazards.ring(foe.pos, 9.0, 14.0, _transition * 0.5, damage(10.0), fx_at(&"ring_burst", 2.5))
+	fx(&"ring_charge", foe.pos + Vector3.UP * 0.3, 2.4)
 	Audio.play_sfx(&"boss_roar")
 	for mechanic: DraftBossMechanic in mechanics:
 		mechanic.on_phase(phase)
@@ -377,7 +397,7 @@ func _close_in(to_hunter: Vector3, distance: float, climb: float) -> bool:
 func _gesture_claw(pattern: BossPatternData, aim: Vector3) -> float:
 	var reach: float = clampf(float(pattern.params.get("radius", 120.0)) * UNIT, 1.6, 4.0)
 	enemies.hazards.circle(foe.pos + aim * (foe.radius + reach * 0.7), foe.radius * 0.5 + reach, pattern.telegraph,
-		_damage(pattern.damage), _fx_at(&"claw_swipe", reach))
+		damage(pattern.damage), fx_at(&"claw_swipe", reach))
 	return pattern.telegraph + 0.35
 
 
@@ -386,34 +406,34 @@ func _gesture_sweep(pattern: BossPatternData, aim: Vector3) -> float:
 	for i: int in 3:
 		var direction: Vector3 = aim.rotated(Vector3.UP, deg_to_rad(-45.0 + 45.0 * i))
 		enemies.hazards.circle(foe.pos + direction * (foe.radius + 1.8), 1.9, pattern.telegraph + 0.1 * i,
-			_damage(pattern.damage), _fx_at(&"claw_swipe", 1.8))
+			damage(pattern.damage), fx_at(&"claw_swipe", 1.8))
 	return pattern.telegraph + 0.5
 
 
 func _gesture_slam(pattern: BossPatternData, _aim: Vector3) -> float:
 	var reach: float = foe.radius + clampf(float(pattern.params.get("radius", 90.0)) * UNIT, 2.0, 4.0)
-	enemies.hazards.circle(foe.pos, reach, pattern.telegraph, _damage(pattern.damage), _fx_at(&"quake", reach))
+	enemies.hazards.circle(foe.pos, reach, pattern.telegraph, damage(pattern.damage), fx_at(&"quake", reach))
 	if phase >= 1:
 		# Double écrasement : une seconde frappe plus large, juste après.
-		enemies.hazards.circle(foe.pos, reach + 2.5, pattern.telegraph + 0.55, _damage(pattern.damage * 0.8),
-			_fx_at(&"dirt_explosion", reach + 2.0))
+		enemies.hazards.circle(foe.pos, reach + 2.5, pattern.telegraph + 0.55, damage(pattern.damage * 0.8),
+			fx_at(&"dirt_explosion", reach + 2.0))
 	return pattern.telegraph + (1.0 if phase >= 1 else 0.6)
 
 
 func _gesture_wave(pattern: BossPatternData, _aim: Vector3) -> float:
-	_fx(&"ring_charge", foe.pos + Vector3.UP * 0.3, 2.0)
+	fx(&"ring_charge", foe.pos + Vector3.UP * 0.3, 2.0)
 	var waves: int = maxi(int(pattern.params.get("waves", 1)), 1 + mini(phase, 1))
 	for i: int in waves:
-		enemies.hazards.ring(foe.pos, 8.5, 22.0, pattern.telegraph + 0.9 * i, _damage(pattern.damage),
-			_fx_at(&"ring_burst", 2.5) if i == 0 else Callable())
+		enemies.hazards.ring(foe.pos, 8.5, 22.0, pattern.telegraph + 0.9 * i, damage(pattern.damage),
+			fx_at(&"ring_burst", 2.5) if i == 0 else Callable())
 	return pattern.telegraph + 0.6
 
 
 func _gesture_quake(pattern: BossPatternData, _aim: Vector3) -> float:
 	# Séisme : trois anneaux serrés, à franchir d'une Ruée ou derrière un abri.
 	for i: int in 3:
-		enemies.hazards.ring(foe.pos, 7.0, 16.0, pattern.telegraph + 0.7 * i, _damage(pattern.damage * 0.8),
-			_fx_at(&"quake", 2.2) if i == 0 else Callable())
+		enemies.hazards.ring(foe.pos, 7.0, 16.0, pattern.telegraph + 0.7 * i, damage(pattern.damage * 0.8),
+			fx_at(&"quake", 2.2) if i == 0 else Callable())
 	return pattern.telegraph + 1.2
 
 
@@ -425,7 +445,7 @@ func _gesture_rain(pattern: BossPatternData, _aim: Vector3) -> float:
 		var offset := Vector3.ZERO if n == 0 else Vector3(enemies.rng.randf_range(-4.5, 4.5), 0,
 			enemies.rng.randf_range(-4.5, 4.5))
 		enemies.hazards.circle(enemies.level.closest(center + offset), 1.9, pattern.telegraph + 0.12 * n,
-			_damage(pattern.damage), _fx_at(effect, 1.5))
+			damage(pattern.damage), fx_at(effect, 1.5))
 	return pattern.telegraph * 0.6 + 0.3
 
 
@@ -445,7 +465,7 @@ func _gesture_summon(pattern: BossPatternData, _aim: Vector3) -> float:
 
 
 func _gesture_beam(pattern: BossPatternData, aim: Vector3) -> float:
-	enemies.hazards.line(foe.pos, aim, 24.0, 2.2, pattern.telegraph + 0.3, _damage(pattern.damage))
+	enemies.hazards.line(foe.pos, aim, 24.0, 2.2, pattern.telegraph + 0.3, damage(pattern.damage))
 	return pattern.telegraph + 0.7
 
 
@@ -454,15 +474,16 @@ func _gesture_sweep_beam(pattern: BossPatternData, aim: Vector3) -> float:
 	var side: float = 1.0 if enemies.rng.randf() < 0.5 else -1.0
 	for i: int in 5:
 		var direction: Vector3 = aim.rotated(Vector3.UP, side * deg_to_rad(-50.0 + 25.0 * i))
-		enemies.hazards.line(foe.pos, direction, 22.0, 1.8, pattern.telegraph + 0.18 * i, _damage(pattern.damage * 0.8))
+		enemies.hazards.line(foe.pos, direction, 22.0, 1.8, pattern.telegraph + 0.18 * i, damage(pattern.damage * 0.8))
 	return pattern.telegraph + 1.1
 
 
 func _gesture_breath(pattern: BossPatternData, aim: Vector3) -> float:
 	for i: int in 3:
 		var direction: Vector3 = aim.rotated(Vector3.UP, deg_to_rad(-22.0 + 22.0 * i))
-		enemies.hazards.line(foe.pos, direction, 12.0, 2.4, pattern.telegraph + 0.05 * i, _damage(pattern.damage))
-	_fx(&"fire_breath", foe.pos + aim * (foe.radius + 2.0) + Vector3.UP, 2.0)
+		# Le décor arrête le souffle : on s'abrite derrière un rocher, un mur ou une colonne.
+		enemies.hazards.line(foe.pos, direction, 12.0, 2.4, pattern.telegraph + 0.05 * i, damage(pattern.damage), true)
+	fx(&"fire_breath", foe.pos + aim * (foe.radius + 2.0) + Vector3.UP, 2.0)
 	return pattern.telegraph + 0.6
 
 
@@ -471,8 +492,8 @@ func _gesture_spikes(pattern: BossPatternData, aim: Vector3) -> float:
 	var effect: StringName = &"ice_spikes" if family() in [&"givres", &"silence"] else &"earth_spike"
 	for i: int in 8:
 		var at: Vector3 = foe.pos + aim * (foe.radius + 1.0 + 1.7 * i)
-		enemies.hazards.circle(enemies.level.closest(at), 1.15, pattern.telegraph + 0.08 * i, _damage(pattern.damage),
-			_fx_at(effect, 1.1))
+		enemies.hazards.circle(enemies.level.closest(at), 1.15, pattern.telegraph + 0.08 * i, damage(pattern.damage),
+			fx_at(effect, 1.1))
 	return pattern.telegraph + 0.4
 
 
@@ -486,7 +507,7 @@ func _gesture_burst(pattern: BossPatternData, _aim: Vector3) -> float:
 			var direction := Vector3.RIGHT.rotated(Vector3.UP, spin + TAU * k / count)
 			var at: Vector3 = foe.pos + direction * (foe.radius + 3.0 + 3.5 * r)
 			enemies.hazards.circle(enemies.level.closest(at), 1.6, pattern.telegraph + 0.45 * r,
-				_damage(pattern.damage), _fx_at(&"ice_shatter_small", 1.2))
+				damage(pattern.damage), fx_at(&"ice_shatter_small", 1.2))
 	return pattern.telegraph + 0.5 * rings
 
 
@@ -495,29 +516,29 @@ func _gesture_charge(pattern: BossPatternData, aim: Vector3) -> float:
 	enemies.hazards.line(foe.pos, aim, length, foe.radius * 2.0 + 0.6, pattern.telegraph, 0.0)
 	foe.view.set_tint(Color(1.5, 1.05, 0.7))
 	_move = {"kind": &"charge", "dir": aim, "wait": pattern.telegraph, "left": length / CHARGE_SPEED,
-		"damage": _damage(pattern.damage), "hit": false}
+		"damage": damage(pattern.damage), "hit": false}
 	return 0.0
 
 
 func _gesture_leap(pattern: BossPatternData, _aim: Vector3) -> float:
 	var land: Vector3 = enemies.level.closest(enemies.hunter.global_position)
 	var reach: float = foe.radius + 2.2
-	enemies.hazards.circle(land, reach, pattern.telegraph + LEAP_TIME, _damage(pattern.damage),
-		_fx_at(&"quake", reach))
+	enemies.hazards.circle(land, reach, pattern.telegraph + LEAP_TIME, damage(pattern.damage),
+		fx_at(&"quake", reach))
 	_move = {"kind": &"leap", "from": foe.pos, "to": land, "wait": pattern.telegraph, "t": 0.0}
 	return 0.0
 
 
 func _gesture_blink(pattern: BossPatternData, aim: Vector3) -> float:
 	# Saut de faille : disparaît, réapparaît sur un flanc du Chasseur et frappe aussitôt.
-	_fx(&"blink_out", foe.pos + Vector3.UP * 0.8, 1.6)
+	fx(&"blink_out", foe.pos + Vector3.UP * 0.8, 1.6)
 	var side: Vector3 = Vector3(-aim.z, 0, aim.x) * (1.0 if enemies.rng.randf() < 0.5 else -1.0)
 	var at: Vector3 = enemies.level.closest(enemies.hunter.global_position + side * (foe.radius + 2.6))
 	foe.pos = at
 	foe.vel = Vector3.ZERO
 	foe.path = PackedVector3Array()
 	foe.view.snap_to(at)
-	_fx(&"blink_in", at + Vector3.UP * 0.8, 1.6)
+	fx(&"blink_in", at + Vector3.UP * 0.8, 1.6)
 	var to_hunter: Vector3 = enemies.hunter.global_position - at
 	to_hunter.y = 0.0
 	var claw := BossPatternData.new()
@@ -550,7 +571,7 @@ func _step_charge(delta: float) -> void:
 		_move = {}
 		foe.vel = Vector3.ZERO
 		foe.view.set_tint(Color.WHITE)
-		_fx(&"dirt_explosion", foe.pos + direction * foe.radius + Vector3.UP * 0.6, 1.8)
+		fx(&"dirt_explosion", foe.pos + direction * foe.radius + Vector3.UP * 0.6, 1.8)
 		stun(STUN_TIME)
 		return
 	foe.pos = landed
@@ -603,7 +624,7 @@ func die() -> float:
 	var clip: StringName = _first_clip([&"collapse", &"death"])
 	var length: float = clampf(foe.view.clip_length(clip), 0.6, 3.0)
 	foe.view.play_action(clip, length)
-	_fx(&"death", foe.pos + Vector3.UP * 0.8, clampf(foe.radius * 2.6, 1.5, 4.0))
+	fx(&"death", foe.pos + Vector3.UP * 0.8, clampf(foe.radius * 2.6, 1.5, 4.0))
 	return length
 
 
@@ -613,7 +634,7 @@ func family() -> StringName:
 	return DraftPixelFx.boss_family(data)
 
 
-func _damage(amount: float) -> float:
+func damage(amount: float) -> float:
 	return amount * enemies.boss_damage_mult
 
 
@@ -627,6 +648,17 @@ func _pattern_clip(pattern: BossPatternData, gesture: StringName) -> StringName:
 	return _first_clip(candidates)
 
 
+## Joue le premier clip présent parmi les candidats.
+func play_clip(candidates: Array[StringName], duration: float = -1.0) -> void:
+	foe.view.play_action(_first_clip(candidates), duration)
+
+
+## Coup porté au boss par sa propre mécanique (orbe renvoyé...) : part de ses PV max, compté pour le Chasseur.
+func strike_boss(ratio: float) -> void:
+	if foe.alive:
+		enemies.hit(foe, foe.max_hp * ratio / maxf(CombatSystem.defense_multiplier(foe.defense) * damage_mult(), 0.01))
+
+
 func _first_clip(candidates: Array[StringName]) -> StringName:
 	for id: StringName in candidates:
 		if foe.view.has_clip(id):
@@ -635,12 +667,12 @@ func _first_clip(candidates: Array[StringName]) -> StringName:
 
 
 ## Effet PixelFX dans la palette du boss ; à défaut, le même effet dans la palette commune.
-func _fx(effect: StringName, at: Vector3, size: float) -> void:
+func fx(effect: StringName, at: Vector3, size: float) -> void:
 	var tint: StringName = family()
 	if DraftPixelFx.sheet(effect, tint).is_empty():
 		tint = DraftPixelFx.DEFAULT_FAMILY
 	enemies.run.call("fx", effect, tint, at, size)
 
 
-func _fx_at(effect: StringName, size: float) -> Callable:
-	return func(at: Vector3) -> void: _fx(effect, at + Vector3.UP * 0.6, size)
+func fx_at(effect: StringName, size: float) -> Callable:
+	return func(at: Vector3) -> void: fx(effect, at + Vector3.UP * 0.6, size)

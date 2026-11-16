@@ -171,3 +171,16 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
 - **Intro** (`intro_animation` ou `roar`), réaction aux gros coups (`hurt_ratio`), **mort** : feuille dédiée
   (`death_visual_id`), clip joué en entier, corps retiré après.
 - Essais : `tests/unit/test_boss3d.gd`.
+
+### Lot 1 — Dévoreur des Sources (16 novembre)
+
+- **Orbes de source** (`draft3d/bosses/source_orbs.gd`, `DraftSourceOrbs`) : orbes lents à hauteur de poitrine qui
+  suivent le Chasseur (données d'origine : nombre, écart, vitesse, durée, orbe doré). Une Ruée ou une Parade dedans le
+  renvoie : 3 % des PV du boss, l'orbe doré l'étourdit 2,5 s (coups × 1,5). Touché sans Ruée : dégâts. Le décor arrête
+  un orbe. Explication en bandeau la première fois (`BOSS_ORB_INTRO`).
+- **Souffle arrêté par le décor** : `DraftHazards.line(..., covered)` ; un obstacle entre la gueule et le Chasseur
+  l'abrite.
+- Double écrasement, balayage racinaire, clips `phase2_*`, `roar` d'intro, `transform` et `phase2_idle` : socle (lot 0).
+- Reste : effets peints (`assets/vfx/bosses/source_devourer`), remplacés par des PixelFX ; ralenti au contact d'un
+  orbe (le Chasseur 3D n'a pas d'entrave).
+- Bot (peu habile, ne vise pas les orbes) : défaite 70 s environ après l'arrivée du boss, à juger en jouant.

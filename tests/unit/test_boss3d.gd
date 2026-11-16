@@ -115,3 +115,53 @@ func test_boss_death_plays_its_own_animation() -> void:
 	check(str(abyssarch.view.entry["sheet"]).contains("death"), "Abyssarque : feuille de mort dédiée")
 	check(length >= 0.6, "clip de mort joué en entier (%.2f s)" % length)
 	check_eq(abyssarch.brain.die(), 0.0, "une seule mort")
+
+
+func _orb_pattern(boss: BossData, golden: int) -> BossPatternData:
+	for p: BossPhaseData in boss.phases:
+		for pattern: BossPatternData in p.patterns:
+			if pattern.kind == &"source_orb" and int(pattern.params.get("golden", 0)) == golden \
+					and int(pattern.params.get("count", 1)) == (1 if golden == 0 else 3):
+				return pattern
+	return null
+
+
+func test_source_orbs_are_sent_back_by_a_dash() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"source_devourer", 7.0)
+	var orbs: DraftSourceOrbs = null
+	for mechanic: DraftBossMechanic in foe.brain.mechanics:
+		if mechanic is DraftSourceOrbs:
+			orbs = mechanic
+	check(orbs != null, "Dévoreur des Sources : mécanique des orbes")
+	foe.brain._next_at = INF
+	var single: BossPatternData = _orb_pattern(foe.boss, 0)
+	check(single != null, "orbe simple dans les données")
+	orbs.perform(single)
+	await _frames(30)
+	check_eq(orbs.orbs.size(), 1, "un orbe en vol")
+	var hp: float = foe.hp
+	# Ruée continue : l'orbe qui arrive est renvoyé sur le boss.
+	for frame: int in 400:
+		run.hunter.dash_time = 0.2
+		await host.get_tree().physics_frame
+		if orbs.reflected > 0 and orbs.orbs.is_empty():
+			break
+	check(orbs.reflected >= 1, "une Ruée renvoie l'orbe")
+	check(foe.hp < hp, "l'orbe renvoyé blesse le Dévoreur")
+	var salvo: BossPatternData = _orb_pattern(foe.boss, 1)
+	orbs.perform(salvo)
+	await _frames(30)
+	check_eq(orbs.orbs.size(), 3, "salve de trois orbes")
+	var golden: Dictionary = {}
+	for orb: Dictionary in orbs.orbs:
+		if orb["golden"]:
+			golden = orb
+	golden["reflected"] = true
+	for frame: int in 200:
+		await host.get_tree().physics_frame
+		if foe.brain.stunned():
+			break
+	check(foe.brain.stunned(), "l'orbe doré renvoyé l'étourdit")
+	foe.brain.die()
+	check(orbs.orbs.is_empty(), "orbes retirés à la mort")

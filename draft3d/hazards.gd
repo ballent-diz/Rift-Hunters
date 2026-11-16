@@ -26,13 +26,15 @@ func circle(at: Vector3, radius: float, delay: float, damage: float, fx := Calla
 		"fx": fx, "node": _node(mesh, at)})
 
 
-func line(from: Vector3, direction: Vector3, length: float, width: float, delay: float, damage: float) -> void:
+## `covered` : le décor entre l'origine et le Chasseur l'abrite (souffle arrêté par les obstacles).
+func line(from: Vector3, direction: Vector3, length: float, width: float, delay: float, damage: float,
+		covered: bool = false) -> void:
 	var mesh := BoxMesh.new()
 	mesh.size = Vector3(width, 0.04, length)
 	var node: MeshInstance3D = _node(mesh, from + direction * length * 0.5)
 	node.look_at(node.global_position + direction, Vector3.UP)
 	_items.append({"kind": &"line", "at": from, "dir": direction, "length": length, "width": width, "left": delay,
-		"delay": delay, "damage": damage, "node": node})
+		"delay": delay, "damage": damage, "node": node, "covered": covered})
 
 
 ## Onde qui part de `at` après `delay` et s'étend jusqu'à `reach` : une Ruée la traverse.
@@ -141,7 +143,7 @@ func _physics_process(delta: float) -> void:
 			done = float(item["radius"]) >= float(item["reach"])
 		else:
 			_play_fx(item)
-			if _inside(item) and _level_with(item):
+			if _inside(item) and _level_with(item) and not (bool(item.get("covered", false)) and _sheltered(item)):
 				_strike(item)
 			done = true
 		if done:
@@ -170,6 +172,13 @@ func _exposed(item: Dictionary) -> bool:
 func _strike(item: Dictionary) -> void:
 	if hunter.take_damage(float(item["damage"])) > 0.0:
 		hits += 1
+
+
+## Un décor s'interpose-t-il entre l'origine de l'attaque et le Chasseur ?
+func _sheltered(item: Dictionary) -> bool:
+	var space: PhysicsDirectSpaceState3D = get_world_3d().direct_space_state
+	var query := PhysicsRayQueryParameters3D.create((item["at"] as Vector3) + Vector3.UP * 0.8, hunter.chest(), 1)
+	return not space.intersect_ray(query).is_empty()
 
 
 func _level_with(item: Dictionary) -> bool:
