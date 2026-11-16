@@ -2187,6 +2187,7 @@ BOSS_SANCTUM_GOLEM_PHASE2,Dalles éclatées,Shattered Slabs
 BOSS_PATTERN_SLAB_FIST,Poing de dalles,Slab Fist
 BOSS_PATTERN_RUNE_BARRAGE,Tempête de runes,Rune Storm
 BOSS_RUNE_BARRAGE_INTRO,Tempête de runes : le Golem trace des sceaux autour de vous et fait tourner les portes. Sortez des cercles avant qu'ils frappent.,Rune Storm: the Golem draws seals around you and turns the gates. Step out of the circles before they strike.
+BOSS_RUNE_BARRAGE_INTRO_3D,"Tempête de runes : le Golem trace des sceaux autour de vous, qui frappent puis ralentissent, et se couvre d'une armure de dalles. Sortez des cercles et frappez-le quand l'armure tombe.","Rune Storm: the Golem draws seals around you that strike and then slow, and dons slab armour. Step out of the circles and strike him when the armour falls."
 JOURNAL_RUNE_BARRAGE,Tempête de runes,Rune Storm
 ARENA_SHATTERED_PANTHEON_NAME,Le Panthéon brisé,The Shattered Pantheon
 ARENA_SHATTERED_PANTHEON_DESC,"Fermez les quatre failles des cours du Panthéon. Les statues s'éveillent sur leurs socles quand on passe trop près, et des Échos attendent dans leurs cages qu'on les libère.","Close the four rifts in the Pantheon's courts. Statues awaken on their plinths when you pass too close, and Echoes wait in their cages to be freed."

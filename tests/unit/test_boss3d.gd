@@ -492,3 +492,62 @@ func test_frost_guardians() -> void:
 	check(quake.plates.size() >= 2, "plaques fendues sous le Chasseur")
 	await _frames(int((1.0 + 1.6) * 60) + 10)
 	check(run.hunter.slow_left > 0.0, "plaque ouverte : ralenti dans l'eau noire")
+
+
+func test_abyssarch_echoes_of_worlds() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"abyssarch", 7.0)
+	var echoes := _mechanic(foe, &"abyss_echoes") as DraftAbyssEchoes
+	check(echoes != null, "Abyssarque : Échos des mondes")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"abyss_echoes")
+	echoes.perform(pattern)
+	check_eq(echoes.world, 1, "premier monde rappelé")
+	check(echoes.pending.size() >= 4, "apparitions annoncées")
+	await _frames(int(pattern.telegraph * 60) + 5)
+	check(echoes.summoned >= 3, "Corrompus du premier monde surgis (%d)" % echoes.summoned)
+	echoes.perform(pattern)
+	check_eq(echoes.world, 2, "mondes rappelés tour à tour")
+
+
+func test_city_guardians() -> void:
+	await _start()
+	run.enemies.spawn(GameDB.enemy(&"fallen_militia"), run.hunter.global_position + Vector3(3, 0, 0))
+	var commander: DraftEnemies.Foe = _spawn(&"fallen_commander", 5.0)
+	await _frames(2)
+	var cry := _mechanic(commander, &"war_cry") as DraftCityGuardians
+	commander.brain._next_at = INF
+	var count: int = run.enemies.count()
+	cry.perform(_pattern(commander.boss, &"war_cry"))
+	check(not cry.rallied.is_empty(), "Corrompus proches ralliés")
+	check(run.enemies.count() >= count + 3, "miliciens appelés")
+	await _frames(80)
+	check(commander.brain.moves_itself() or commander.brain.stunned() or commander.brain.busy(), "il charge après le cri")
+	run.enemies.hit(commander, 1000000.0)
+	var golem: DraftEnemies.Foe = _spawn(&"sanctum_golem", 6.0)
+	var runes := _mechanic(golem, &"rune_barrage") as DraftCityGuardians
+	golem.brain._next_at = INF
+	runes.perform(_pattern(golem.boss, &"rune_barrage"))
+	check(runes.seals.size() >= 3, "sceaux autour du Chasseur")
+	check_near(golem.brain.damage_mult(), DraftCityGuardians.SLAB_MULT, 0.001, "armure de dalles")
+	await _frames(90)
+	check(run.hunter.slow_left > 0.0, "un sceau ralentit")
+	run.enemies.hit(golem, 1000000.0)
+	var keeper: DraftEnemies.Foe = _spawn(&"pantheon_keeper", 6.0)
+	var wake := _mechanic(keeper, &"pantheon_wake") as DraftCityGuardians
+	keeper.brain._next_at = INF
+	wake.perform(_pattern(keeper.boss, &"pantheon_wake"))
+	check(wake.woken >= 2, "statues éveillées")
+	run.enemies.hit(keeper, 1000000.0)
+	var herald: DraftEnemies.Foe = _spawn(&"herald_lord", 4.0)
+	await _frames(2)
+	var chain := _mechanic(herald, &"soul_chain") as DraftCityGuardians
+	herald.brain._next_at = INF
+	chain.perform(_pattern(herald.boss, &"soul_chain"))
+	check(not chain.linked.is_empty(), "Corrompus liés à l'Héraldiste")
+	var linked: DraftEnemies.Foe = chain.linked[0]
+	var hp: float = linked.hp
+	run.enemies.hit(linked, 10.0)
+	check(hp - linked.hp < 10.0 * 0.5 * CombatSystem.defense_multiplier(linked.defense) + 0.01, "lié : dégâts × 0,4")
+	herald.brain.die()
+	check(chain.linked.is_empty(), "liens rompus à sa mort")

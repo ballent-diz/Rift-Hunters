@@ -271,3 +271,29 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
   - **Colosse de la banquise, Séisme de banquise** : onde autour de lui, plaques sous le Chasseur qui se fendent
     1,6 s puis s'ouvrent 4 s sur l'eau noire (ralenti, dégâts). Bandeau `BOSS_FLOE_QUAKE_INTRO_3D`.
 - Froid et braseros de la v1 non repris.
+
+### Lots 9 et 10 — Abyssarque et gardiens du chapitre 5 (16 novembre)
+
+- **Abyssarque** : six formes, six feuilles, entrées de forme et mort dédiée par le socle ; **Échos des mondes**
+  (`bosses/abyss_echoes.gd`) : à chaque fois le monde suivant (Ruines, cendres, marais, glacier, Cité), des
+  Corrompus annoncés surgissent autour de lui (un de plus toutes les deux formes) et une onde part de son œil.
+- **Gardiens** (`bosses/city_guardians.gd`, une instance par signature) :
+  - **Commandant déchu, Cri de guerre** : onde du cri, Corrompus proches ralliés 5 s (vitesse et dégâts × 1,3),
+    trois miliciens, puis une charge ;
+  - **Golem du sanctuaire, Tempête de runes** : sceaux autour du Chasseur qui frappent puis ralentissent 4 s, armure de
+    dalles le temps de la tempête (coups × 0,35). Bandeau `BOSS_RUNE_BARRAGE_INTRO_3D` (sans les portes runiques) ;
+  - **Gardienne du Panthéon, Réveil du Panthéon** : deux Statues éveillées s'animent près du Chasseur (pas de socles
+    en 3D), onde de pierre ;
+  - **Grand Héraldiste, Chaîne d'âmes** : miliciens, Corrompus proches liés à lui (dégâts subis × 0,4, liens
+    visibles, `Foe.linked_mult`), sceau sous le Chasseur.
+
+### État après les lots 0 à 10
+
+| Boss | Sorts | Stratégie | Animations | Reste |
+|---|---|---|---|---|
+| Dévoreurs (5) | C | C | C (sauf effets peints) | effets peints des Sources et de Glauquemire ; brûlures, froid et braseros de la v1 |
+| Gardiens (19) | C | C (adaptée au Chasseur seul et aux cartes 3D) | C | volets Échos et décors v1 remplacés (voir chaque lot) |
+| Nébulorax | N | N | N | écarté (décision du 13 novembre) |
+
+Tout reste **à juger en jouant** (retour « boss pas assez dynamiques », `docs/RETOURS_DE_TEST.md`) : rythme
+(`DraftTuning.boss_pace`), dégâts, durée des combats. Le bot, peu habile, n'esquive ni n'exploite les mécaniques.

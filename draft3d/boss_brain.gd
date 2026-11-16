@@ -136,8 +136,12 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftPortalHop.new())
 		&"spell_capture":
 			result.append(DraftSpellCapture.new())
+		&"abyss_echoes":
+			result.append(DraftAbyssEchoes.new())
 		&"avalanche", &"deep_freeze", &"storm_hunt", &"floe_quake":
 			result.append(DraftFrostGuardians.new(boss.signature))
+		&"war_cry", &"rune_barrage", &"pantheon_wake", &"soul_chain":
+			result.append(DraftCityGuardians.new(boss.signature))
 	return result
 
 
