@@ -62,7 +62,7 @@ la conception des niveaux. Guide général de la v2 : `docs/PREMIER_JET_3D.md`.
 | 3 | `level_village.gd` | Hameau du Gué (médiéval, rivière, 3 ponts) | dans `main` ; seconde passe à faire |
 | 4 | `level_outpost.gd` | Avant-poste des Glaces (base spatiale) | dans `main` ; **hors DA à mon avis** (science-fiction), question posée au propriétaire, sans réponse |
 | 5 | `level_city.gd` | Cité Effondrée (ruines, pack donjon, nuit) | recomposée le 15 novembre (plan en damier), contrôle sans incohérence ; à valider en jeu |
-| 6 | `level_ring.gd` | Anneau de la Faille (sommet de la tour, pack donjon) | forme et décor validés sur vue d'ensemble (16 novembre) ; lancé par `--chapter=6` en attendant le chapitre 6 |
+| 6 | `level_ring.gd`, `tower.gd` | Tour de la Faille : Garnison, Cellules, Anneau de la Faille (sommet) | sommet validé sur vue d'ensemble ; tour jouable par `--chapter=6` en attendant le chapitre 6 |
 
 Niveau 5 : une première version « ville moderne » (KayKit City Builder, voitures) a été refusée, hors DA et hors
 époque, puis supprimée. La seconde, la Cité Effondrée, a été jugée **incohérente** par le propriétaire. Audit du
@@ -97,16 +97,37 @@ Commande du propriétaire : une carte différente des autres par sa forme, sa ta
   de 3,5 m des décors pleins.
 - Captures : `docs/previews/cartes-3d/carte_6_*.webp` ; navigation : `navigation_6.webp`.
 
-**La tour (décidée le 16 novembre, à construire dans une tâche séparée, effort xhigh)** : le chapitre 6 est une tour.
-Chaque étage reprend l'anneau extérieur, avec un puits ouvert au centre (la lueur de la Faille, le sommet visible
-au-dessus) ; l'Anneau ci-dessus en est le sommet. Fin d'étage choisie : **durée** (option A, environ 3 min par
-étage), puis une rampe s'ouvre (tronçon d'anneau en pente douce le long du rempart, pas d'escalier) ; le gardien au
-deuxième étage, le Dévoreur au sommet. Varier d'un étage à l'autre : nombre et position des murs radiaux (2, 3,
-4), abris et décor des secteurs, rampe à l'opposé de la précédente. Technique : changer d'étage en gardant le
-Chasseur, ses améliorations et son niveau (`draft3d/run.gd`, partagé avec la session « Gameplay ») ; une classe
-d'anneau paramétrée par étage ; le contrôle vérifiera que la rampe relie deux étages. Ensuite : raccorder le
-chapitre 6 (données, nom FR/EN, bestiaire, déblocage après le chapitre 5, palette du rendu pixel avec la session
-« Art et rendu »).
+### La tour du chapitre 6 (16 novembre, construite)
+
+Le chapitre 6 est une tour de trois étages joués à la suite dans la même partie (`draft3d/tower.gd`, `DraftTower`) ;
+chaque étage est un `DraftLevelRing` (`floor_index`), l'Anneau ci-dessus en est le sommet.
+
+| Étage | Nom (FR/EN) | Murs radiaux | Rampe (pied → haut) | Arrivée |
+|---|---|---|---|---|
+| 0 | la Garnison / the Garrison | 0°, 180° | 240° → 276° (nord) | Porte sud (départ) |
+| 1 | les Cellules / the Cells (gardien) | 20°, 160°, 230°, 330° | 140° → 102° (sud-ouest) | porte nord (281°) |
+| 2 | le Sommet / the Summit (Dévoreur) | 30°, 150°, 270° | aucune | Porte sud (90°) |
+
+- Étages inférieurs : anneau extérieur seul, puits ouvert au centre (ni îlot ni passerelle), décor propre (Garnison :
+  tables, fûts, caisses d'abri ; Cellules : niches, murs de cellules effondrés, éboulis).
+- **Rampe** (pas d'escalier) : tronçon de l'anneau en pente douce (3 m sur environ 28 m) le long du rempart, palier
+  de 10° en haut, porte éclairée dans le rempart (`exit_point`). Une herse au pied (paroi de marche seulement : la
+  navigation passe, les monstres se faufilent) la ferme jusqu'à la fin de l'étage.
+- **Fin d'étage à la durée** (option A) : `tower_floor_time` (180 s) après l'arrivée, la herse se lève (bannière
+  « La herse se lève : montez par la rampe ! ») ; à l'étage des Cellules, il faut aussi avoir vaincu le gardien, qui
+  apparaît `tower_guardian_delay` (45 s) après l'arrivée. Atteindre le palier fait monter d'un étage.
+- **Sommet** : le Dévoreur apparaît à `boss_time` (8 min), jamais moins de `tower_boss_delay` (30 s) après l'arrivée.
+- **Changement d'étage** (`DraftRun.change_level`) : le Chasseur garde niveau, améliorations, sorts et PV ; les
+  cristaux restants sont acquis ; ennemis, attaques annoncées et projectiles de l'étage quitté disparaissent ; le
+  temps de partie est suspendu pendant la construction et la cuisson de la navigation.
+- Réglages : `draft3d/tuning.tres` (groupe « Tour du chapitre 6 »). Vérification : `--chapter=6 --tower-floor=1`
+  (partir d'un étage). Le bot monte seul quand la rampe s'ouvre.
+- Contrôle : chaque étage passe `DraftLevelAudit`, qui vérifie aussi que le palier de sortie est atteignable depuis
+  l'arrivée (`tools/level_audit.tscn -- --chapters=6.0,6.1,6`) ; essai `test_tower_floors_climb_to_the_summit`
+  (herse fermée, montée par le bot, gardien, sommet, Dévoreur).
+- Captures : `docs/previews/cartes-3d/tour_*.webp` ; navigation : `navigation_6_0.webp`, `navigation_6_1.webp`.
+- Reste : raccorder le chapitre 6 (données, nom FR/EN, bestiaire, déblocage après le chapitre 5, palette du rendu
+  pixel avec la session « Art et rendu ») ; d'ici là, `--chapter=6` joue la tour avec le bestiaire du chapitre 5.
 
 ## Règles de composition
 
@@ -176,7 +197,7 @@ Cartes de navigation : `docs/previews/cartes-3d/navigation_<n>.webp`.
 ## Reste à faire
 
 - Carte 5 : validation en jeu de la recomposition (15 novembre).
-- Carte 6 : la tour (étages, rampes, fin d'étage à la durée), puis le chapitre 6 (voir plus haut).
+- Chapitre 6 : raccordement (données, nom, bestiaire, déblocage, palette) ; la tour est en place.
 - Cartes 1 à 4 : corriger les incohérences relevées ci-dessus (après validation du propriétaire).
 - Décision sur la carte 4 (hors DA ?).
 - Seconde passe de détail sur les cartes 1 à 4.

@@ -2276,6 +2276,10 @@ DRAFT_SUMMARY,Temps %s · Niveau %d · %d éliminations,Time %s · Level %d · %
 DRAFT_CONTROLS,ZQSD : se déplacer · Espace : Ruée · %s : sorts · le Trait part tout seul · Échap : pause,WASD: move · Space: dash · %s: spells · the Bolt fires on its own · Esc: pause
 DRAFT_BOSS_WARNING,%s approche !,%s is coming!
 DRAFT_SWARM,Une nuée déferle !,A swarm rushes in!
+DRAFT_TOWER_FLOOR_1,Étage 1 : la Garnison,Floor 1: the Garrison
+DRAFT_TOWER_FLOOR_2,Étage 2 : les Cellules,Floor 2: the Cells
+DRAFT_TOWER_FLOOR_3,Sommet : l'Anneau de la Faille,Summit: the Rift Ring
+DRAFT_TOWER_RAMP_OPEN,La herse se lève : montez par la rampe !,The portcullis rises: climb the ramp!
 UPGRADE_LONG_REACH_NAME,Longue portée,Long Reach
 UPGRADE_LONG_REACH_DESC,Portée des Traits de Faille +15 %.,Rift Bolt range +15%.
 UPGRADE_BULWARK_NAME,Rempart,Bulwark

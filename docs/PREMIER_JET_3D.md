@@ -147,8 +147,11 @@ parapet bas au sud. Vue d'ensemble : `docs/previews/premier-jet-3d/carte_5.webp`
 100 × 100 m, ronde, sans étage ni escalier (`draft3d/level_ring.gd`) : couronne de terre autour d'un gouffre, îlot
 central du boss (20 m de rayon, quatre piliers) relié par deux passerelles, trois secteurs (Porte, Ossuaire, Forges)
 séparés par des murs radiaux à brèche. Les bords du gouffre arrêtent la marche, pas les tirs. Sommet de la future tour
-du chapitre 6 (`docs/maps/CARTES_3D.md`) ; en attendant le chapitre, `--chapter=6` la lance avec le bestiaire du
-chapitre 5.
+du chapitre 6 : trois étages en anneau joués à la suite (`draft3d/tower.gd`) — la Garnison, les Cellules (gardien),
+le Sommet (Dévoreur). Chaque étage dure 3 min, puis une herse se lève au pied d'une rampe le long du rempart ;
+atteindre le palier fait monter d'un étage, le Chasseur garde tout. Détails : `docs/maps/CARTES_3D.md`. En attendant
+le raccordement du chapitre, `--chapter=6` lance la tour avec le bestiaire du chapitre 5 (`--tower-floor=1` : partir
+d'un étage).
 
 ## Vérifications
 
