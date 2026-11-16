@@ -355,7 +355,7 @@ func _spawn_waves(delta: float) -> void:
 		_boss_spawned = true
 		var boss: BossData = roster.boss
 		enemies.spawn_boss(boss, level.boss_spot if hunter.global_position.distance_to(level.boss_spot) > 8.0
-			else level.spawn_point(rng, hunter.global_position))
+			else level.spawn_point(rng, hunter.global_position), hp_scale(boss, tuning.boss_effective_hp))
 		fx(&"portal", family_of(enemies.boss), enemies.boss.pos + Vector3.UP * 1.2, 2.5)
 		Audio.play_context("boss")
 		Audio.play_sfx(&"boss_roar")
@@ -364,7 +364,8 @@ func _spawn_waves(delta: float) -> void:
 	if not _guardian_spawned and not _boss_spawned and guardian_due and not roster.guardians.is_empty():
 		_guardian_spawned = true
 		var guardian: BossData = roster.guardians[rng.randi() % roster.guardians.size()]
-		enemies.spawn_boss(guardian, level.spawn_point(rng, hunter.global_position), tuning.guardian_hp_mult, false)
+		enemies.spawn_boss(guardian, level.spawn_point(rng, hunter.global_position),
+			tuning.guardian_hp_mult * hp_scale(guardian, tuning.guardian_effective_hp), false)
 		hud.banner(tr("DRAFT_BOSS_WARNING") % tr(guardian.name_key), 3.0)
 		Audio.play_sfx(&"elite_spawn")
 	var current: Dictionary = wave()
@@ -425,6 +426,14 @@ func change_level(next: DraftLevel) -> void:
 	enemies.set_physics_process(true)
 	if state == State.LOADING:
 		state = State.PLAYING
+
+
+## Échelle de PV d'un boss : ses PV effectifs (PV × défense) ramenés à la référence du réglage, en hausse de
+## `boss_chapter_growth` par chapitre (DraftTuning, « Durée des combats »).
+func hp_scale(data: BossData, reference: float) -> float:
+	var effective: float = data.max_hp * CombatSystem.defense_multiplier(data.defense)
+	var target: float = reference * (1.0 + tuning.boss_chapter_growth * maxf(chapter - 1, 0))
+	return target / maxf(effective, 1.0)
 
 
 func _pick(mix: Dictionary) -> EnemyData:

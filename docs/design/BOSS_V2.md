@@ -316,3 +316,21 @@ du geste, version `phase2_` d'abord) et la démarrent au repère de contact v1 (
 - Non repris : miroirs, facettes, cœur, raz-de-marée et rayon de prisme en boucles peintes (formes 3D gardées : un
   rendu intermédiaire par boucle permanente coûterait trop) ; marqueurs d'annonce `indicator` (les zones 3D restent).
 - Captures : `docs/previews/boss-v2/` (rendu logiciel). Rendu pixel 3D (F4) non vérifié avec ces effets : à juger.
+
+### Durée des combats (16 novembre)
+
+Mesure au bot (mode dieu, boss à 8 min, une partie par chapitre) avant réglage : Dévoreur abattu en 2 min 10
+(ch. 1), 6 min 30 (ch. 2), 10 min 30 (ch. 3), 19 min 40 (ch. 4), 6 min 40 (ch. 5). Diagnostic : le bot fuit les boss
+et reste souvent à 8–20 m, hors de portée ; ses durées dépendent de la carte autant que des PV (le chapitre 4 n'est
+pas plus dur, le bot y tire moins). Elles ne servent donc pas de cible directe.
+
+Cause de fond : les PV d'origine montent de × 4 du chapitre 1 à 5 (campagne 2D où le joueur progresse d'une carte à
+l'autre), alors qu'une partie 3D dure 8 minutes dans chaque chapitre : le Chasseur arrive au boss avec à peu près la
+même puissance partout. Réglage (`DraftTuning`, `DraftRun.hp_scale`) : PV effectifs (PV × multiplicateur de
+défense) ramenés à une référence, + 15 % par chapitre (`boss_chapter_growth`).
+- Dévoreurs : référence 5 000 (celle du Dévoreur des Sources, inchangé) → échelle de PV 1,00 · 0,84 · 0,70 ·
+  0,66 · 0,43 pour Sources, Pyrevorn, Glauquemire, Nivorath, Abyssarque (en plus de `boss_hp_mult` 0,55).
+- Gardiens : référence 2 900 (en plus de `guardian_hp_mult` 0,45) : Astravorn, nettement plus robuste que les autres
+  gardiens, est ramené à leur niveau ; les gardiens montent aussi de 15 % par chapitre.
+- Leviers si les combats restent trop longs ou trop courts en jouant : `boss_effective_hp`, `guardian_effective_hp`,
+  `boss_chapter_growth`.
