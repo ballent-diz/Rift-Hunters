@@ -44,6 +44,7 @@ var upgrades: DraftUpgrades
 var spells: DraftSpells
 ## Passifs techniques de l'expédition (draft3d/passives.gd).
 var passives: DraftPassives
+var combos: DraftCombos
 ## Déblocages permanents (null pour le bot et les essais : tout le contenu est tiré).
 var unlocks: DraftUnlocks
 ## Boss vaincus pendant la partie (gain de Fragments) : gardiens et Dévoreur.
@@ -112,6 +113,7 @@ func _ready() -> void:
 	spells = DraftSpells.new()
 	spells.setup(self, starting)
 	passives = DraftPassives.new(self)
+	combos = DraftCombos.new(self)
 	upgrades.spells = spells
 	upgrades.passives = passives
 	upgrades.tuning = tuning
@@ -329,6 +331,7 @@ func _physics_process(delta: float) -> void:
 			spells.cast(i, hunter.global_position + Vector3(4.0, 0.0, 1.5) * (1.0 + i * 0.3))
 	spells.step(delta)
 	passives.step(delta)
+	combos.step(delta)
 	_step_bolts(delta)
 	_step_hostile(delta)
 	_step_gems(delta)
@@ -601,6 +604,8 @@ func _step_bolts(delta: float) -> void:
 			if (shot["hit"] as Array).has(foe) or absf(_aim_point(foe).y - to.y) > foe.radius + 0.6:
 				continue
 			(shot["hit"] as Array).append(foe)
+			if shot.get("lance", false):
+				combos.on_lance_hit(foe)
 			fx(&"hit", family_of(foe), to)
 			enemies.hit(foe, float(shot["damage"]), (shot["dir"] as Vector3) * balance.bolt.knockback * DraftHunter.UNIT * 3.0)
 			if int(shot["split"]) > 0:
@@ -616,7 +621,7 @@ func _step_bolts(delta: float) -> void:
 		shot["at"] = to
 		shot["left"] = float(shot["left"]) - step
 		if not spent and not spells.world.crystals.is_empty():
-			spells.world.refract(shot, tuning.crystal_split, tuning.crystal_angle, tuning.crystal_damage)
+			spells.world.refract(shot)
 		if spent or float(shot["left"]) <= 0.0:
 			if spent and not wall.is_empty():
 				fx(&"mana_burst", DraftPixelFx.DEFAULT_FAMILY, to, 0.6)
