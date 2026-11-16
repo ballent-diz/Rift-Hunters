@@ -32,6 +32,8 @@ class Foe:
 	var slot: int = 0
 	## Boss de fin de partie (le vaincre donne la victoire) ; faux pour un gardien de mi-parcours.
 	var final: bool = false
+	## Ennemi rejoint au lieu du Chasseur (sangsue qui nourrit Glauquemire) ; nul : le Chasseur.
+	var follow: Foe
 	## Cerveau d'un boss ou d'un gardien (DraftBossBrain) ; nul pour un Corrompu.
 	var brain: DraftBossBrain
 	## Entrave (sorts du Chasseur) : vitesse multipliée par `slow_factor` pendant `slow_left` secondes.
@@ -207,6 +209,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _step(foe: Foe, target: Vector3, delta: float) -> void:
+	if foe.follow != null and foe.follow.alive:
+		target = foe.follow.pos
 	foe.cooldown = maxf(foe.cooldown - delta, 0.0)
 	foe.contact_timer = maxf(foe.contact_timer - delta, 0.0)
 	var to_hunter: Vector3 = target - foe.pos
@@ -295,6 +299,10 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 
 
 func _contact(foe: Foe, distance: float, climb: float) -> void:
+	if foe.follow != null:
+		var offset: Vector3 = hunter.global_position - foe.pos
+		climb = absf(offset.y)
+		distance = Vector2(offset.x, offset.z).length()
 	if distance < foe.radius + DraftHunter.RADIUS + 0.12 and climb < MELEE_REACH_UP and foe.contact_timer <= 0.0 \
 			and hunter.alive:
 		foe.contact_timer = CONTACT_INTERVAL

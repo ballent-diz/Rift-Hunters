@@ -170,6 +170,9 @@ func _exposed(item: Dictionary) -> bool:
 
 
 func _strike(item: Dictionary) -> void:
+	# Ligne d'annonce sans dégâts (charge, racine) : rien à porter.
+	if float(item["damage"]) <= 0.0:
+		return
 	if hunter.take_damage(float(item["damage"])) > 0.0:
 		hits += 1
 

@@ -220,3 +220,20 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
   travers un fil le tranche.
 - **Matrone des scories, Carapace à fendre** (`bosses/slag_shell.gd`) : coups × 0,15 ; sa pluie de scories fait tomber
   des roches autour du Chasseur ; une roche qui tombe sur elle la fend 10 s (coups × 1,5, sonnée 1 s).
+
+### Lot 5 — Glauquemire (16 novembre)
+
+`bosses/glauquemire.gd` (`DraftGlauquemire`), d'après la refonte du 11 novembre (rien ne retient ni n'enferme).
+- **Phase 1** : vase (3 flaques qui ralentissent, puis **murs solides** 7 s : ils bloquent le Chasseur, les tirs, les
+  ondes et le rayon), racine jaillissante (ligne annoncée, éruption 1,3 s plus tard là où se tenait le Chasseur),
+  sangsues qui rampent vers le boss (`Foe.follow`) et le soignent de 0,5 % chacune, 6 % au plus sur le combat.
+- **Phase 2** : carapace à quatre facettes fixes (droite, bas, gauche, haut ; 30 % des coups par une face intacte,
+  brisée après 3,5 % des PV, repousse 14 s) ; quatre miroirs solides à 10,8 m. **Rayon de prisme** : balaie l'arène
+  (lancer de rayon physique : décor, vase durcie et miroirs l'arrêtent) ; un miroir touché alors que le Chasseur se
+  tient à moins de 3,6 m le renvoie : 4 % des PV, facettes brisées, étourdi 3 s, coups × 2.
+- **Phase 3** : facettes tombées, tourbillon qui aspire 4,5 s puis se referme, raz-de-marée (deux vagues : Ruée ou
+  vase durcie), rayon double. **Engloutissement** : sans Échos, il avale jusqu'à 4 Corrompus proches, se soigne
+  (même plafond) et les recrache en gerbe de tirs ; 5 % de ses PV en coups pendant la digestion l'étranglent (sonné).
+  Bandeau `BOSS_SWALLOW_INTRO_3D` (nouvelle clé FR/EN).
+- Reste : vagues du raz-de-marée sans ralenti ni recul (dégâts seuls) ; effets peints remplacés par des PixelFX et des
+  formes simples (vase, murs, miroirs, rayon).

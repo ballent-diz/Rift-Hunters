@@ -124,6 +124,8 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftSilkThreads.new())
 		&"slag_rain":
 			result.append(DraftSlagShell.new())
+		&"prism_beam":
+			result.append(DraftGlauquemire.new())
 	return result
 
 
@@ -164,6 +166,8 @@ func damage_mult() -> float:
 
 func on_damage(amount: float) -> void:
 	_hurt_lost += amount
+	for mechanic: DraftBossMechanic in mechanics:
+		mechanic.on_hit(amount)
 
 
 ## Étourdi (contre un mur, mécanique renvoyée) : ni déplacement ni attaque, coups × 1,5.

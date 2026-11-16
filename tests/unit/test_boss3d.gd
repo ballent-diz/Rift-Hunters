@@ -308,3 +308,52 @@ func test_ash_guardians() -> void:
 	shell._rock_lands(matron.pos, 2.5)
 	check(shell.cracked() and matron.brain.stunned(), "roche tombée sur elle : carapace fendue, sonnée")
 	check(matron.brain.damage_mult() >= 1.5, "fendue : coups × 1,5")
+
+
+func test_glauquemire_three_phases() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"glauquemire", 9.0)
+	var glauque := _mechanic(foe, &"prism_beam") as DraftGlauquemire
+	check(glauque != null, "Glauquemire : mécaniques du Dévoreur")
+	foe.brain._next_at = INF
+	# Phase 1 : vase qui durcit en mur solide.
+	var mud: BossPatternData = _pattern(foe.boss, &"mud_wall")
+	glauque.perform(mud)
+	check_eq(glauque.puddles.size(), int(mud.params["count"]), "jets de vase")
+	await _frames(int((mud.telegraph + float(mud.params["harden"])) * 60) + 10)
+	check(glauque.puddles[0]["wall"] is StaticBody3D, "la vase durcit en mur solide")
+	# Sangsues : rampent vers le boss et le soignent, plafonné.
+	foe.hp = foe.max_hp * 0.8
+	glauque.perform(_pattern(foe.boss, &"leech_feed"))
+	check(glauque.leeches.size() >= 1 and glauque.leeches[0].follow == foe, "les sangsues rejoignent le boss")
+	glauque.heal(foe.max_hp)
+	check_near(glauque.healed, foe.max_hp * 0.06, 1.0, "soin plafonné à 6 % sur le combat")
+	# Phase 2 : facettes et miroirs.
+	_bring_to(foe, 0.6)
+	check_eq(glauque.facets.size(), 4, "carapace à quatre facettes")
+	check_eq(glauque.mirrors.size(), 4, "quatre miroirs")
+	foe.brain._transition = 0.0
+	check_near(foe.brain.damage_mult(), 0.3, 0.001, "face intacte : 30 % des coups")
+	# Rayon de prisme renvoyé par un miroir tenu : boss étourdi.
+	var mirror: Dictionary = glauque.mirrors[0]
+	run.hunter.global_position = (mirror["pos"] as Vector3) + ((mirror["pos"] as Vector3) - foe.pos).normalized() * 2.0
+	run.hunter.reset_motion()
+	await _frames(3)
+	var beam: BossPatternData = _pattern(foe.boss, &"prism_beam")
+	glauque.perform(beam)
+	var hp: float = foe.hp
+	for frame: int in int((beam.telegraph + float(beam.params["sweep_time"])) * 60) + 30:
+		await host.get_tree().physics_frame
+		if glauque.reflections > 0:
+			break
+	check(glauque.reflections >= 1, "un miroir tenu renvoie le rayon")
+	check(foe.hp < hp and foe.brain.stunned(), "rayon renvoyé : blessé et étourdi")
+	# Phase 3 : facettes tombées, tourbillon qui aspire.
+	_bring_to(foe, 0.3)
+	check(glauque.facets.is_empty(), "phase 3 : carapace fendue")
+	var far: Vector3 = run.hunter.global_position
+	glauque.perform(_pattern(foe.boss, &"whirlpool"))
+	await _frames(120)
+	check(run.hunter.global_position.distance_to(foe.pos) < far.distance_to(foe.pos), "le tourbillon aspire")
+	foe.brain.die()
+	check(glauque.mirrors.is_empty() and glauque.puddles.is_empty(), "tout est retiré à la mort")

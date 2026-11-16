@@ -1660,6 +1660,7 @@ BOSS_MIRROR_INTRO,Miroirs : abritez-vous derrière un miroir quand le rayon arri
 BOSS_WHIRLPOOL_INTRO,Tourbillon : marchez contre le courant ou utilisez la Ruée avant qu'il ne se referme.,Whirlpool: walk against the current or dash before it collapses.
 BOSS_TIDE_RING_INTRO,Raz-de-marée : traversez la vague d'une Ruée ou abritez-vous derrière la vase durcie.,Tidal wave: dash through the wave or take cover behind hardened mud.
 BOSS_SWALLOW_INTRO,Un Écho est englouti : frappez le Dévoreur pour le libérer à temps !,An Echo was swallowed: strike the Devourer to free it in time!
+BOSS_SWALLOW_INTRO_3D,"Glauquemire avale les Corrompus proches pour se soigner, puis les recrache : frappez-le fort pour l'interrompre.","Glauquemire swallows nearby Corrupted to heal, then spits them out: hit it hard to interrupt."
 BOSS_STUNNED,ÉTOURDI,STUNNED
 BOSS_PRISM_RETURNED,CARAPACE BRISÉE ×2,CARAPACE SHATTERED ×2
 BOSS_ECHO_FREED,Écho libéré !,Echo freed!
