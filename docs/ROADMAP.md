@@ -1247,3 +1247,13 @@ incohérences des cartes 1 à 4 : docs/maps/CARTES_3D.md ; captures : docs/previ
 - **À valider par le propriétaire** : la Cité recomposée, en jeu.
 - **En attente de validation** : corriger les incohérences des cartes 1 à 4 (dont l'escalier est bouché de la
   carte 4 et la terrasse d'angle à un seul accès de la carte 1).
+
+## Carte 6 : l'Anneau de la Faille — 16 novembre 2026 (session « Cartes »)
+
+Carte ronde, différente des cinq autres (forme, taille, composition, aucun « terrasse + escalier ») : anneau autour
+d'un gouffre, îlot du boss de 20 m de rayon (quatre piliers) relié par deux passerelles, trois secteurs séparés par
+des murs à brèche. Forme et décor validés sur vue d'ensemble par le propriétaire. `draft3d/level_ring.gd`, essai
+`test_sixth_level_ring`, contrôle de composition sans incohérence. Lancée par `--chapter=6` (bestiaire du chapitre 5).
+- **Décidé** : le chapitre 6 sera une tour ; chaque étage reprend l'anneau extérieur, l'Anneau en est le sommet ;
+  fin d'étage à la durée (option A), rampe vers l'étage suivant. Plan : docs/maps/CARTES_3D.md.
+- **Suite** : la tour (tâche séparée, effort xhigh conseillé), puis raccordement du chapitre 6.

@@ -70,8 +70,8 @@ func _collect() -> void:
 	for child: Node in level.get_children():
 		if child is StaticBody3D:
 			var body := child as StaticBody3D
-			# Paroi invisible (`_fence`, sans maillage) ou relief (`_box`, avec maillage).
-			if body.find_children("*", "MeshInstance3D", false, false).is_empty():
+			# Paroi invisible (`_fence`, marquée) ou relief (`_box`, dalles d'une carte).
+			if body.has_meta(&"fence") or body.collision_layer & SOLID == 0:
 				_fences.append(body.get_rid())
 			else:
 				_terrain[body.get_rid()] = body.name
