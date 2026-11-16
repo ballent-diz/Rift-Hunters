@@ -10,6 +10,10 @@ extends DraftLevel
 ## - trois murs radiaux coupent l'anneau, chacun percé d'une brèche de 4 m (goulets pour semer la horde) ;
 ## - deux passerelles (210° et 330°) mènent à l'îlot central, lieu du boss.
 ## Angles : x = r·cos a, z = r·sin a ; 90° est au sud (côté caméra). Pièces : KayKit Dungeon Remastered (CC0).
+##
+## C'est le sommet de la tour du chapitre 6 (DraftTower). Les étages inférieurs reprennent l'anneau extérieur, avec
+## un puits ouvert au centre (ni îlot ni passerelle), d'autres murs radiaux et une rampe le long du rempart : fermée
+## par une herse, elle s'ouvre à la fin de l'étage et mène au palier de sortie (`exit_point`).
 
 const MIN := Vector2(-50.0, -50.0)
 const MAX := Vector2(50.0, 50.0)
@@ -18,7 +22,18 @@ const RING_OUTER := 46.5
 const ISLAND := 20.0
 const START := Vector3(0, 0.2, 37)
 const BOSS_SPOT := Vector3(0, 0.2, 0)
-const DIVIDERS: Array[float] = [30.0, 150.0, 270.0]
+## Étages (`floor_index`) : murs radiaux, rampe (angle du pied → angle du haut, Vector2.ZERO : aucune) et angle
+## d'arrivée (celui de la sortie de l'étage d'en dessous). 0 : la Garnison, 1 : les Cellules (gardien), 2 : le Sommet.
+const FLOORS: Array[Dictionary] = [
+	{"dividers": [0.0, 180.0], "ramp": Vector2(240.0, 276.0), "arrival": 90.0},
+	{"dividers": [20.0, 160.0, 230.0, 330.0], "ramp": Vector2(140.0, 102.0), "arrival": 281.0},
+	{"dividers": [30.0, 150.0, 270.0], "ramp": Vector2.ZERO, "arrival": 90.0},
+]
+const TOP_FLOOR := 2
+const RAMP_RISE := 3.0
+## Rampe : bande de l'anneau qu'elle occupe (rayons), palier en haut (degrés au-delà du haut de la rampe).
+const RAMP_BAND := Vector2(41.2, 47.8)
+const LANDING_SPAN := 10.0
 const BRIDGES: Array[float] = [210.0, 330.0]
 const BRIDGE_WIDTH := 5.0
 const BREACH := Vector2(34.0, 38.0)
@@ -32,31 +47,91 @@ const FLOOR_Y := 0.01
 ## Décors pleins posés : les points d'apparition s'en écartent (un point recalé contre un décor y resterait coincé).
 const SPAWN_CLEARANCE := 3.5
 
+## Étage de la tour ; le sommet par défaut (DraftLevel.create(6)).
+var floor_index: int = TOP_FLOOR
 var _occupied: Array[Vector3] = []
+var _gate: Array[Node] = []
 
 
 func build() -> void:
 	name = "Level"
+	var conf: Dictionary = FLOORS[floor_index]
 	bounds_min = MIN
 	bounds_max = MAX
-	start = START
-	boss_spot = BOSS_SPOT
+	start = START if floor_index != 1 else polar(conf["arrival"], 41.0, 0.2)
+	boss_spot = BOSS_SPOT if summit() else polar(float(conf["arrival"]) + 180.0, 37.0, 0.2)
 	sky = Color("07060f")
 	ambient = Color("7a6fa8")
 	sun = Color("b7a6ff")
 	sun_energy = 0.4
 	_abyss()
 	_ring()
-	_island()
-	_bridges()
+	if summit():
+		_island()
+		_bridges()
 	_rampart()
-	_dividers()
+	_dividers(conf["dividers"])
 	_road()
-	_gate()
-	_ossuary()
-	_forges()
+	match floor_index:
+		0:
+			_gate_decor()
+			_garrison()
+		1:
+			_arrival_door(conf["arrival"])
+			_cells()
+		_:
+			_gate_decor()
+			_ossuary()
+			_forges()
+	if has_ramp():
+		_ramp()
 	_rim_glow()
 	_setup_navigation()
+
+
+func summit() -> bool:
+	return floor_index == TOP_FLOOR
+
+
+func has_ramp() -> bool:
+	return FLOORS[floor_index]["ramp"] != Vector2.ZERO
+
+
+## Hauteur de la rampe à cet angle (0 hors de la rampe, RAMP_RISE sur le palier).
+func ramp_height(angle: float) -> float:
+	if not has_ramp():
+		return 0.0
+	var ramp: Vector2 = FLOORS[floor_index]["ramp"]
+	var along: float = _along(angle, ramp)
+	var total: float = absf(ramp.y - ramp.x)
+	if along < 0.0 or along > total + LANDING_SPAN:
+		return 0.0
+	return RAMP_RISE * minf(along / total, 1.0)
+
+
+## Degrés parcourus depuis le pied de la rampe, dans le sens de la montée (négatif avant le pied).
+func _along(angle: float, ramp: Vector2) -> float:
+	var direction: float = signf(ramp.y - ramp.x)
+	return wrapf((angle - ramp.x) * direction + 180.0, 0.0, 360.0) - 180.0
+
+
+func _in_ramp(angle: float, margin: float = 0.0) -> bool:
+	if not has_ramp():
+		return false
+	var ramp: Vector2 = FLOORS[floor_index]["ramp"]
+	var along: float = _along(angle, ramp)
+	return along > -margin and along < absf(ramp.y - ramp.x) + LANDING_SPAN + margin
+
+
+## La herse du pied de la rampe se lève : la sortie de l'étage est ouverte.
+func open_ramp() -> void:
+	# Herse et muret masqués (le rendu pixel garde une référence à leurs maillages), paroi supprimée.
+	for node: Node in _gate:
+		if node is StaticBody3D:
+			node.queue_free()
+		else:
+			(node as Node3D).visible = false
+	_gate.clear()
 
 
 static func polar(angle: float, radius: float, height: float = 0.0) -> Vector3:
@@ -125,19 +200,20 @@ func _mesh_of(tool: SurfaceTool, color: Color) -> MeshInstance3D:
 
 
 ## Bord du vide : paroi qui n'arrête que la marche (couche 8), de `a` à `b` (plan x/z).
-func _edge(a: Vector2, b: Vector2) -> void:
+func _edge(a: Vector2, b: Vector2, height: float = 0.0) -> StaticBody3D:
 	var body := StaticBody3D.new()
 	body.name = "Edge"
 	body.collision_layer = 8
 	add_child(body)
 	var middle: Vector2 = (a + b) * 0.5
-	body.position = Vector3(middle.x, 1.0, middle.y)
+	body.position = Vector3(middle.x, 1.0 + height, middle.y)
 	body.rotation.y = -atan2(b.y - a.y, b.x - a.x)
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(a.distance_to(b) + 0.3, 3.0, 0.3)
 	var collision := CollisionShape3D.new()
 	collision.shape = shape
 	body.add_child(collision)
+	return body
 
 
 func _arc(radius: float, from: float, to: float) -> PackedVector2Array:
@@ -200,20 +276,22 @@ func _quad(tool: SurfaceTool, corners: Array[Vector3], normal: Vector3) -> void:
 		tool.add_vertex(corners[index])
 
 
-## Ferme un cercle à la marche, en laissant passer les passerelles.
+## Ferme un cercle à la marche, en laissant passer les passerelles du sommet ; au-dessus de la rampe, la paroi
+## monte avec elle.
 func _rim(radius: float, island: bool) -> void:
 	var step: float = 360.0 / SEGMENTS
 	for index: int in SEGMENTS:
 		var middle: float = (index + 0.5) * step
 		var blocked: bool = true
-		for bridge: float in BRIDGES:
+		for bridge: float in (BRIDGES if summit() else []):
 			var half_angle: float = rad_to_deg(BRIDGE_WIDTH * 0.5 / radius) + step * 0.5
 			if absf(angle_difference(deg_to_rad(middle), deg_to_rad(bridge))) < deg_to_rad(half_angle):
 				blocked = false
 		if blocked:
 			var a: Vector3 = polar(index * step, radius - (0.15 if island else -0.15))
 			var b: Vector3 = polar((index + 1) * step, radius - (0.15 if island else -0.15))
-			_edge(Vector2(a.x, a.z), Vector2(b.x, b.z))
+			var lift: float = ramp_height(middle) if radius > RAMP_BAND.x else 0.0
+			_edge(Vector2(a.x, a.z), Vector2(b.x, b.z), lift)
 
 
 ## Îlot central : dalle ronde un peu plus claire, lieu du boss, quatre piliers d'abri, cœur de la Faille.
@@ -250,20 +328,85 @@ func _bridges() -> void:
 				_piece("pillar", Vector3(at.x, 0, at.y))
 
 
-## Rempart circulaire (murs tangents de 4 m) ; au sud, côté caméra, un parapet bas qui ne cache pas le jeu.
+## Rempart circulaire (murs tangents de 4 m) ; au sud, côté caméra, un parapet bas qui ne cache pas le jeu. Le long
+## de la rampe, il monte avec elle ; au palier, une porte ouvre sur l'escalier de la tour (sortie de l'étage).
 func _rampart() -> void:
 	var count: int = 74
+	var exit_angle: float = INF
+	if has_ramp():
+		var ramp: Vector2 = FLOORS[floor_index]["ramp"]
+		exit_angle = ramp.y + signf(ramp.y - ramp.x) * LANDING_SPAN * 0.5
+		exit_point = polar(exit_angle, 44.0, RAMP_RISE + 0.2)
 	for index: int in count:
 		var angle: float = 360.0 * index / count
+		var at: Vector3 = polar(angle, RING_OUTER + 0.6, ramp_height(angle))
+		if absf(angle_difference(deg_to_rad(angle), deg_to_rad(exit_angle))) < deg_to_rad(2.5):
+			_module("wall_doorway", at, Vector3.ONE, tangent_yaw(angle))
+			_light(polar(angle, 45.5, RAMP_RISE + 2.0), RIFT, 2.2, 6.0)
+			continue
 		var south: bool = absf(angle - 90.0) < 40.0
 		var id: String = "barrier_column" if south else ("wall_pillar" if index % 5 == 0 else "wall")
-		_piece(id, polar(angle, RING_OUTER + 0.6), tangent_yaw(angle), "none")
+		_piece(id, at, tangent_yaw(angle), "none")
 	_rim(RING_OUTER, true)
 
 
+## Porte d'arrivée dans le rempart (on y débouche de l'étage d'en dessous).
+func _arrival_door(angle: float) -> void:
+	_module("wall_doorway", polar(angle, RING_OUTER + 0.4), Vector3.ONE, tangent_yaw(angle))
+	_light(polar(angle, 44.5, 2.5), RIFT, 2.0, 7.0)
+	_occupied.append(polar(angle, 44.0))
+
+
+## Rampe le long du rempart (pente douce, pas de marche) et palier ; herse au pied, fermée jusqu'à la fin de l'étage.
+func _ramp() -> void:
+	var ramp: Vector2 = FLOORS[floor_index]["ramp"]
+	var direction: float = signf(ramp.y - ramp.x)
+	var total: float = absf(ramp.y - ramp.x) + LANDING_SPAN
+	var steps: int = ceili(total / 3.0)
+	var tool := SurfaceTool.new()
+	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for index: int in steps:
+		var a0: float = ramp.x + direction * total * index / steps
+		var a1: float = ramp.x + direction * total * (index + 1) / steps
+		var h0: float = ramp_height(a0) if index > 0 else 0.0
+		var h1: float = ramp_height(a1) if index < steps - 1 else RAMP_RISE
+		var top: Array[Vector3] = [polar(a0, RAMP_BAND.x, h0), polar(a0, RAMP_BAND.y, h0),
+			polar(a1, RAMP_BAND.y, h1), polar(a1, RAMP_BAND.x, h1)]
+		var hull := PackedVector3Array()
+		for corner: Vector3 in top:
+			hull.append(corner)
+			hull.append(Vector3(corner.x, -0.05, corner.z))
+		var body := StaticBody3D.new()
+		body.name = "Ramp"
+		add_child(body)
+		var shape := ConvexPolygonShape3D.new()
+		shape.points = hull
+		var collision := CollisionShape3D.new()
+		collision.shape = shape
+		body.add_child(collision)
+		var normal: Vector3 = (top[1] - top[0]).cross(top[3] - top[0]).normalized()
+		_quad(tool, top, normal if normal.y > 0.0 else -normal)
+		var drop := Vector3.DOWN * 0.05
+		_quad(tool, [top[0], top[3], Vector3(top[3].x, 0, top[3].z) + drop, Vector3(top[0].x, 0, top[0].z) + drop],
+			-polar((a0 + a1) * 0.5, 1.0))
+	var far: float = ramp.x + direction * total
+	_quad(tool, [polar(far, RAMP_BAND.x, RAMP_RISE), polar(far, RAMP_BAND.y, RAMP_RISE), polar(far, RAMP_BAND.y),
+		polar(far, RAMP_BAND.x)], polar(far + direction * 90.0, 1.0))
+	add_child(_mesh_of(tool, ISLAND_STONE))
+	# Herse : paroi qui n'arrête que la marche (la navigation passe, les monstres se faufilent entre les barreaux).
+	var foot: float = ramp.x - direction * 1.0
+	var a: Vector3 = polar(foot, RAMP_BAND.x - 0.3)
+	var b: Vector3 = polar(foot, RAMP_BAND.y - 0.4)
+	_gate.append(_edge(Vector2(a.x, a.z), Vector2(b.x, b.z)))
+	_gate.append(_prop(PACK % "wall_gated", polar(foot, 44.2), radial_yaw(foot), 1.0, "none", true))
+	_gate.append(_prop(PACK % "wall_half", polar(foot, 41.4), radial_yaw(foot), 1.0, "none", true))
+	_torch(polar(foot - direction * 3.0, 40.5))
+	_light(exit_point + Vector3.UP * 1.5, RIFT, 1.8, 8.0)
+
+
 ## Murs radiaux entre les secteurs, percés d'une brèche de 4 m au milieu de l'anneau.
-func _dividers() -> void:
-	for angle: float in DIVIDERS:
+func _dividers(angles: Array) -> void:
+	for angle: float in angles:
 		var yaw: float = radial_yaw(angle)
 		_piece("wall", polar(angle, 30.0), yaw)
 		_piece("wall_half", polar(angle, 33.0), yaw)
@@ -286,8 +429,8 @@ func _paved_circle(radius: float) -> void:
 		_piece("floor_tile_large", polar(angle, radius, FLOOR_Y), tangent_yaw(angle), "none")
 
 
-## Porte (sud) : deux piliers dans le parapet, braseros, deux postes de garde en ruine (pans de mur et caisses).
-func _gate() -> void:
+## Porte (sud, départ du rez-de-chaussée et arrivée au sommet) : deux piliers dans le parapet, braseros, deux postes de garde en ruine (pans de mur et caisses).
+func _gate_decor() -> void:
 	for angle: float in [86.0, 94.0]:
 		_piece("pillar", polar(angle, RING_OUTER - 0.6))
 	for angle: float in [82.0, 98.0]:
@@ -302,11 +445,7 @@ func _gate() -> void:
 ## Ossuaire (ouest) : contreforts contre le rempart, niches à bougies entre eux, sarcophages brisés, deux murs
 ## effondrés en travers de l'anneau (abris), éboulis.
 func _ossuary() -> void:
-	var angle: float = 160.0
-	while angle < 266.0:
-		_piece("wall_half", polar(angle, RING_OUTER - 1.6), radial_yaw(angle))
-		_piece("candle_triple", polar(angle + 5.0, RING_OUTER - 1.2), 0.0, "none")
-		angle += 12.0
+	_niches(160.0, 266.0)
 	for spot: Vector2 in [Vector2(178.0, 41.5), Vector2(238.0, 41.5)]:
 		_piece("table_long_broken", polar(spot.x, spot.y), radial_yaw(spot.x))
 	for angle_wall: float in [186.0, 252.0]:
@@ -333,11 +472,51 @@ func _forges() -> void:
 	_piece("box_stacked", polar(5.0, 31.5), tangent_yaw(5.0))
 
 
+## Contreforts contre le rempart, niches à bougies entre eux (de `from` à `to` degrés).
+func _niches(from: float, to: float) -> void:
+	var angle: float = from
+	while angle < to:
+		_piece("wall_half", polar(angle, RING_OUTER - 1.6), radial_yaw(angle))
+		_piece("candle_triple", polar(angle + 5.0, RING_OUTER - 1.2), 0.0, "none")
+		angle += 12.0
+
+
+## Garnison (rez-de-chaussée) : râteliers et tables au nord, caisses d'abri au bord du chemin, murs effondrés au sud.
+func _garrison() -> void:
+	for angle: float in [200.0, 312.0, 336.0]:
+		_piece("table_long_broken", polar(angle, 42.5), radial_yaw(angle))
+		_piece("keg", polar(angle + 6.0, 43.5), 0.0)
+		_torch(polar(angle - 5.0, 44.0))
+	_piece("barrel_small_stack", polar(222.0, 43.5), tangent_yaw(222.0))
+	for angle: float in [30.0, 150.0, 210.0, 330.0]:
+		_piece("box_stacked", polar(angle, 31.5), tangent_yaw(angle))
+	for angle: float in [45.0, 135.0]:
+		_module("wall_broken", polar(angle, 41.0), Vector3.ONE, tangent_yaw(angle))
+		_occupied.append(polar(angle, 41.0))
+	_piece("rubble_half", polar(250.0, 31.0), tangent_yaw(250.0))
+	_glow(polar(270.0, 36.0, 3.0), 1.6, 10.0)
+
+
+## Cellules (étage du gardien) : niches le long du rempart, murs de cellules effondrés en travers de l'anneau,
+## éboulis ; lueur forte au centre du puits.
+func _cells() -> void:
+	_niches(168.0, 222.0)
+	_niches(338.0, 372.0)
+	for angle: float in [60.0, 190.0, 255.0, 300.0]:
+		_module("wall_broken", polar(angle, 41.0), Vector3.ONE, tangent_yaw(angle))
+		_occupied.append(polar(angle, 41.0))
+	for angle: float in [45.0, 205.0, 345.0]:
+		_piece("rubble_half", polar(angle, 31.0), tangent_yaw(angle))
+	_piece("rubble_large", polar(270.0, 31.5), tangent_yaw(270.0))
+	_piece("table_long_broken", polar(30.0, 42.0), radial_yaw(30.0))
+	_glow(polar(281.0, 36.0, 3.0), 1.6, 10.0)
+
+
 ## Bords du gouffre : lueurs violettes sous le rebord de l'anneau et de l'îlot (le vide se lit à son contour).
 func _rim_glow() -> void:
 	for step: int in 12:
 		_light(polar(15.0 + 30.0 * step, RING_INNER - 1.0, -1.5), RIFT, 1.6, 6.0)
-		if step % 2 == 0:
+		if step % 2 == 0 and summit():
 			_light(polar(30.0 * step, ISLAND + 1.0, -1.5), RIFT, 1.4, 6.0)
 
 
@@ -350,7 +529,7 @@ func _spawn_candidates() -> Array[Vector3]:
 	for index: int in 45:
 		var angle: float = 8.0 * index
 		for spot: Vector3 in [polar(angle, RING_OUTER - 2.0), polar(angle + 4.0, RING_INNER + 2.0)]:
-			var clear: bool = true
+			var clear: bool = not _in_ramp(rad_to_deg(atan2(spot.z, spot.x)), 6.0)
 			for taken: Vector3 in _occupied:
 				if Vector2(taken.x, taken.z).distance_to(Vector2(spot.x, spot.z)) < SPAWN_CLEARANCE:
 					clear = false

@@ -11,6 +11,8 @@ var bounds_min := Vector2(-24, -20)
 var bounds_max := Vector2(24, 20)
 var start := Vector3(0, 0.2, 0)
 var boss_spot := Vector3.ZERO
+## Sortie d'étage (tour du chapitre 6) : palier au haut de la rampe ; Vector3.INF : la carte n'en a pas.
+var exit_point := Vector3.INF
 ## Ambiance : fond, lumière ambiante, soleil (couleur, énergie).
 var sky := Color("101222")
 var ambient := Color("b2b9d8")

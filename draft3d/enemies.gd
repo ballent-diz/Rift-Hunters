@@ -126,6 +126,19 @@ func _add(foe: Foe, visual_id: StringName, at: Vector3, size: float) -> void:
 	list.append(foe)
 
 
+## Retire tous les ennemis et leurs dépouilles (changement d'étage de la tour) : ni EXP ni butin.
+func clear_all() -> void:
+	for foe: Foe in list:
+		foe.alive = false
+		foe.view.queue_free()
+	list.clear()
+	for corpse: Dictionary in _corpses:
+		(corpse["view"] as Node).queue_free()
+	_corpses.clear()
+	_grid.clear()
+	boss = null
+
+
 func count() -> int:
 	return list.size()
 

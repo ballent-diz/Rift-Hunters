@@ -6,7 +6,8 @@ extends RefCounted
 ## - chaque surface surélevée praticable a au moins deux accès ;
 ## - aucun module flottant, enterré dans le relief ou encastré dans un autre ;
 ## - toute surface praticable est atteignable depuis le départ (pas de terrasse ni de zone isolée) ;
-## - départ, lieu du boss et points d'apparition sur la navigation, atteignables, hors des murs.
+## - départ, lieu du boss et points d'apparition sur la navigation, atteignables, hors des murs ;
+## - tour : le palier de sortie d'un étage (haut de la rampe) est atteignable depuis l'arrivée.
 ## Outil : `tools/level_audit.tscn` (carte de navigation en image) ; essai : `test_draft3d.gd`.
 
 const STAIRS_SCENE := "stairs_wide.tscn"
@@ -23,7 +24,7 @@ const OVERLAP_RATIO := 0.2
 const AGENT_RADIUS := 0.35
 
 var level: DraftLevel
-## Incohérences : {kind, text, at}. `kind` : stairs, access, floating, buried, overlap, island, spawn.
+## Incohérences : {kind, text, at}. `kind` : stairs, access, floating, buried, overlap, island, spawn, exit.
 var issues: Array[Dictionary] = []
 ## Escaliers : {bottom, top, ok}.
 var stairs: Array[Dictionary] = []
@@ -408,6 +409,13 @@ func _check_spots() -> void:
 	if start_on_nav.distance_to(level.start) > 1.0:
 		_issue("spawn", "départ hors de la navigation", level.start)
 	_check_spot("lieu du boss", level.boss_spot, start_on_nav)
+	if level.exit_point != Vector3.INF:
+		# Tour : la rampe relie l'étage à son palier de sortie, qu'on atteint depuis l'arrivée.
+		var exit_on_nav: Vector3 = level.closest(level.exit_point)
+		var route: PackedVector3Array = level.path(start_on_nav, exit_on_nav)
+		if exit_on_nav.distance_to(level.exit_point) > 1.0 or route.is_empty() \
+				or route[route.size() - 1].distance_to(exit_on_nav) > 0.5:
+			_issue("exit", "palier de sortie de l'étage inaccessible depuis l'arrivée", level.exit_point)
 	if level.spawn_points().size() < 12:
 		_issue("spawn", "trop peu de points d'apparition (%d)" % level.spawn_points().size(), level.start)
 	for spot: Vector3 in level.spawn_points():
