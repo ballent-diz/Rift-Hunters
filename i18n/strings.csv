@@ -2499,7 +2499,6 @@ REWARD3D_RARITY_0,Commun,Common
 REWARD3D_RARITY_1,Rare,Rare
 REWARD3D_RARITY_2,Épique,Epic
 REWARD3D_RARITY_3,Légendaire,Legendary
-MUTATION3D_REPLACE_TITLE,Deux mutations au plus : laquelle remplacer par %s ?,Two mutations at most: which one should %s replace?
-MUTATION3D_REPLACE_HINT,La mutation remplacée est perdue pour cette expédition. Une mutation incompatible doit forcément partir.,The replaced mutation is lost for this expedition. An incompatible mutation has to go.
+MUTATION3D_REPLACE_TITLE,%s : quelle mutation remplacer ?,%s: which mutation should it replace?
+MUTATION3D_REPLACE_HINT,"Deux mutations au plus par sort, et deux mutations incompatibles ne coexistent jamais. La mutation remplacée est perdue pour cette expédition.","Two mutations at most per spell, and incompatible mutations never coexist. The replaced mutation is lost for this expedition."
 MUTATION3D_CANCEL,Revenir aux choix,Back to the choices
-MUTATION3D_INCOMPATIBLE,Incompatible avec : %s,Incompatible with: %s

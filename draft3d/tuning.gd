@@ -37,7 +37,7 @@ extends Resource
 @export var crystal_damage: float = 0.6
 @export_group("Progression")
 ## XP : multiplicateur des seuils de la courbe commune (cible : 8 à 12 choix pour 20-25 min, à régler en jeu).
-@export var xp_scale: float = 2.6
+@export var xp_scale: float = 8.0
 ## Croissance automatique à chaque niveau (sans choix du joueur) : dégâts du Chasseur (part) et PV max.
 @export var level_damage_pct: float = 0.05
 @export var level_max_hp: float = 6.0
