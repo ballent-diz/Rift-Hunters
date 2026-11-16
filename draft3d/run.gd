@@ -10,6 +10,7 @@ extends Node3D
 ##   --spells=hunter_mark,void_rend (sorts de départ, 4 au plus) --cast-at=20 (tous les sorts partent à 20 s)
 ##   --pixel=0 (rendu 3D lisse d'origine ; F4 bascule en partie, docs/art/RENDU_PIXEL_3D.md) --pixel-scale=2
 ##   --pixel-palette=0 (aplats et contours sans palette) --look=x,z[,hauteur de vue]
+##   --tower-floor=1 (chapitre 6 : partir de cet étage de la tour)
 
 enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 
@@ -33,6 +34,8 @@ var time: float = 0.0
 var kills: int = 0
 var damage_taken: float = 0.0
 var level: DraftLevel
+## Tour du chapitre 6 : étages successifs (DraftTower) ; null sur les autres chapitres.
+var tower: DraftTower
 var hunter: DraftHunter
 var enemies: DraftEnemies
 var hazards: DraftHazards
@@ -157,7 +160,15 @@ func _ready() -> void:
 	chapter = maxi(chosen_chapter, 1)
 	roster = DraftRoster.for_chapter(chapter)
 	# La carte dépend du chapitre : elle se construit une fois le choix fait.
-	level = DraftLevel.create(chapter)
+	if DraftTower.applies(chapter):
+		tower = DraftTower.new(self)
+		level = tower.first_level()
+		if _options.has("tower-floor"):
+			# Vérification : partir d'un étage donné (--tower-floor=0 à 2).
+			tower.floor_index = clampi(int(_options["tower-floor"]), 0, DraftLevelRing.TOP_FLOOR)
+			level = DraftTower.floor_level(tower.floor_index)
+	else:
+		level = DraftLevel.create(chapter)
 	add_child(level)
 	level.build()
 	_build_lighting()
@@ -293,6 +304,8 @@ func _physics_process(delta: float) -> void:
 	enemies.hp_mult = 1.0 + tuning.enemy_hp_growth_per_min * time / 60.0
 	enemies.damage_mult = (1.0 + balance.enemy_damage_growth_per_min * time / 60.0) * tuning.enemy_damage_scale
 	_spawn_waves(delta)
+	if tower != null:
+		tower.step()
 	if _bot:
 		_bot_step()
 	_auto_attack()
@@ -337,7 +350,7 @@ func _mix() -> Dictionary:
 
 
 func _spawn_waves(delta: float) -> void:
-	if not _boss_spawned and time >= boss_time:
+	if not _boss_spawned and (tower.boss_due() if tower != null else time >= boss_time):
 		_boss_spawned = true
 		var boss: BossData = roster.boss
 		enemies.spawn_boss(boss, level.boss_spot if hunter.global_position.distance_to(level.boss_spot) > 8.0
@@ -346,7 +359,8 @@ func _spawn_waves(delta: float) -> void:
 		Audio.play_context("boss")
 		Audio.play_sfx(&"boss_roar")
 		hud.banner(tr("DRAFT_BOSS_WARNING") % tr(boss.name_key), 4.0)
-	if not _guardian_spawned and not _boss_spawned and time >= tuning.guardian_time and not roster.guardians.is_empty():
+	var guardian_due: bool = tower.guardian_due() if tower != null else time >= tuning.guardian_time
+	if not _guardian_spawned and not _boss_spawned and guardian_due and not roster.guardians.is_empty():
 		_guardian_spawned = true
 		var guardian: BossData = roster.guardians[rng.randi() % roster.guardians.size()]
 		enemies.spawn_boss(guardian, level.spawn_point(rng, hunter.global_position), tuning.guardian_hp_mult, false)
@@ -365,6 +379,45 @@ func _spawn_waves(delta: float) -> void:
 		for i: int in tuning.swarm_size + int(time / 60.0) * 2:
 			enemies.spawn(roster.enemies[0], gate + Vector3(rng.randf_range(-2, 2), 0, rng.randf_range(-2, 2)))
 		hud.banner(tr("DRAFT_SWARM"), 2.0)
+
+
+func guardian_defeated() -> bool:
+	return _guardian_spawned and enemies.boss == null
+
+
+## Tour : passe à l'étage suivant. Le Chasseur garde tout ; ennemis, attaques et traits de l'étage quitté
+## disparaissent, ses cristaux sont acquis. Le temps de partie est suspendu pendant la construction.
+func change_level(next: DraftLevel) -> void:
+	state = State.LOADING
+	hunter.set_physics_process(false)
+	enemies.set_physics_process(false)
+	for gem: Dictionary in gems:
+		if not gem["heal"]:
+			hunter.gain_xp(float(gem["value"]))
+	gems.clear()
+	enemies.clear_all()
+	hazards.clear()
+	for shot: Dictionary in bolts + hostile:
+		if is_instance_valid(shot["visual"]):
+			(shot["visual"] as Node).queue_free()
+	bolts.clear()
+	hostile.clear()
+	pixel.set_enabled(false)
+	level.queue_free()
+	level = next
+	add_child(level)
+	level.build()
+	pixel.attach_level(level, sun)
+	enemies.level = level
+	hunter.respawn = level.start
+	hunter.global_position = level.start
+	hunter.reset_motion()
+	_camera_at = level.start
+	await level.bake()
+	hunter.set_physics_process(true)
+	enemies.set_physics_process(true)
+	if state == State.LOADING:
+		state = State.PLAYING
 
 
 func _pick(mix: Dictionary) -> EnemyData:
@@ -788,6 +841,14 @@ func _bot_step() -> void:
 			best = gem["at"]
 	if best != Vector3.INF and best.distance_to(here) < 9.0:
 		wish += (best - here).normalized() * 0.8
+	var goal: Vector3 = tower.bot_goal() if tower != null else Vector3.INF
+	if goal != Vector3.INF:
+		# Tour : la rampe est ouverte, le bot suit le chemin jusqu'au palier.
+		var route: PackedVector3Array = level.path(level.closest(here), goal)
+		var next: Vector3 = route[mini(1, route.size() - 1)] if route.size() > 0 else goal
+		hunter.auto_direction = Vector3(next.x - here.x, 0, next.z - here.z).normalized() * 2.0 + wish * 0.2
+		hunter.auto_dash = false
+		return
 	# Tour de piste autour de la cour (rayon 11 m) : les hordes s'étirent derrière le Chasseur.
 	var radial := Vector3(here.x, 0, here.z - 2.0)
 	var ring: float = radial.length()

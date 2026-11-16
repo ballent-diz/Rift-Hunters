@@ -551,3 +551,13 @@ func test_city_guardians() -> void:
 	check(hp - linked.hp < 10.0 * 0.5 * CombatSystem.defense_multiplier(linked.defense) + 0.01, "lié : dégâts × 0,4")
 	herald.brain.die()
 	check(chain.linked.is_empty(), "liens rompus à sa mort")
+
+func test_floor_change_clears_boss_mechanics() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"glauquemire", 8.0)
+	var glauque := _mechanic(foe, &"prism_beam") as DraftGlauquemire
+	foe.brain._next_at = INF
+	glauque.perform(_pattern(foe.boss, &"mud_wall"))
+	check(not glauque.puddles.is_empty(), "flaques de vase posées")
+	run.enemies.clear_all()
+	check(glauque.puddles.is_empty() and run.enemies.boss == null, "changement d'étage : boss et vase retirés")
