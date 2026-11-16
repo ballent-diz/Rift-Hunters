@@ -1834,6 +1834,7 @@ BOSS_PATTERN_BARK_GUARD,Garde d'écorce,Bark Guard
 BOSS_PATTERN_ROOTS,Racines entravantes,Binding Roots
 BOSS_PATTERN_DIVE,Plongée,Dive
 BOSS_GUARD_INTRO,"Garde d'écorce : de face, son bouclier arrête presque tout. Prenez-le à revers, ou laissez vos Échos l'occuper.","Bark guard: from the front, his shield stops everything. Take him from behind, or let your Echoes keep him busy."
+BOSS_GUARD_INTRO_3D,"Garde d'écorce : de face, son bouclier arrête presque tout. Contournez-le et frappez-le de dos ou de flanc.","Bark guard: from the front, his shield stops almost everything. Circle around and strike his back or flank."
 BOSS_DIVE_INTRO,"Elle plonge : suivez la ride. Écartez-vous de l'onde annoncée, puis frappez-la quand elle ressurgit, sonnée.","She dives: watch the ripple. Step out of the marked wave, then strike her as she resurfaces, stunned."
 ENEMY_FROST_CRAWLER_NAME,Rampe-givre,Frost Crawler
 ENEMY_FROST_CRAWLER_DESC,Petite bête à carapace de givre qui chasse en meute.,Small frost-shelled beast that hunts in packs.
@@ -1893,6 +1894,7 @@ BOSS_SPORE_MATRIARCH_PHASE2,La floraison,The Bloom
 BOSS_PATTERN_SPORE_LASH,Fouet de spores,Spore Lash
 BOSS_PATTERN_SPORE_VEIL,Floraison,Bloom
 BOSS_SPORE_VEIL_INTRO,"Voile de spores : vos coups glissent sur elle. Frappez un cristal-miroir aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Strike a mirror crystal lined up with her: its beam burns the veil."
+BOSS_SPORE_VEIL_INTRO_3D,"Voile de spores : vos coups glissent sur elle. Foncez d'une Ruée dans un cristal aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Dash into a crystal lined up with her: its beam burns the veil."
 BOSS_VEIL_BURNED,Voile brûlé !,Veil burned!
 MAP_OBJ_CRYSTALS_DESC,Terminer en faisant éclater au moins %d cristaux-miroirs,Clear it shattering at least %d mirror crystals
 MAP_OBJ_VEIL_DESC,Terminer en brûlant au moins %d fois le voile de la gardienne,Clear it burning the warden's veil at least %d times

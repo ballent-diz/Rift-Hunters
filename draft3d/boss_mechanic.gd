@@ -39,6 +39,11 @@ func on_hit(_dealt: float) -> void:
 	pass
 
 
+## Vrai tant que le boss est hors d'atteinte du contact (plongé sous l'eau, dans un miroir).
+func hides_boss() -> bool:
+	return false
+
+
 ## Vrai tant que la mécanique retient le boss (ni déplacement ni attaque du cerveau commun).
 func holds_boss() -> bool:
 	return false

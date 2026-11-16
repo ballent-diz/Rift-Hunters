@@ -294,7 +294,8 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 	if (foe.slot + _frame) % 2 == 0 or foe.boss != null:
 		next = level.closest(next + Vector3.UP * 0.2)
 	foe.pos = next
-	_contact(foe, distance, climb)
+	if foe.brain == null or not foe.brain.airborne():
+		_contact(foe, distance, climb)
 	foe.view.push_position(foe.pos, delta, turn)
 
 

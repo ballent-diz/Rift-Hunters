@@ -126,6 +126,14 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftSlagShell.new())
 		&"prism_beam":
 			result.append(DraftGlauquemire.new())
+		&"bark_guard":
+			result.append(DraftBarkGuard.new())
+		&"maw_dive":
+			result.append(DraftMawDive.new())
+		&"spore_veil":
+			result.append(DraftSporeVeil.new())
+		&"portal_hop":
+			result.append(DraftPortalHop.new())
 	return result
 
 
@@ -146,8 +154,14 @@ func stunned() -> bool:
 	return _stunned > 0.0
 
 
+## En l'air (bond, envol) ou caché par une mécanique (plongée) : pas de contact, coups réduits.
 func airborne() -> bool:
-	return _move.get("kind", &"") == &"leap"
+	if _move.get("kind", &"") == &"leap":
+		return true
+	for mechanic: DraftBossMechanic in mechanics:
+		if mechanic.hides_boss():
+			return true
+	return false
 
 
 ## Multiplicateur des coups reçus : transition et bond réduisent, étourdi augmente, mécaniques en plus.

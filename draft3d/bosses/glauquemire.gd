@@ -240,9 +240,19 @@ func on_hit(dealt: float) -> void:
 
 func _place_mirrors(distance: float) -> void:
 	var foe: DraftEnemies.Foe = brain.foe
+	var space: PhysicsDirectSpaceState3D = brain.enemies.get_world_3d().direct_space_state
+	var origin: Vector3 = foe.pos + Vector3.UP * BEAM_HEIGHT
 	for k: int in 4:
-		var angle: float = TAU * k / 4.0 + PI * 0.25
-		var at: Vector3 = brain.enemies.level.closest(foe.pos + Vector3(cos(angle), 0, sin(angle)) * distance)
+		# Place en vue directe du boss (le rayon doit pouvoir l'atteindre), en tournant un peu si le décor gêne.
+		var at := Vector3.INF
+		for attempt: int in 8:
+			var angle: float = TAU * k / 4.0 + PI * 0.25 + floorf((attempt + 1) * 0.5) * 0.2 * (1.0 if attempt % 2 == 0 else -1.0)
+			var spot: Vector3 = brain.enemies.level.closest(foe.pos + Vector3(cos(angle), 0, sin(angle)) * distance)
+			if at == Vector3.INF:
+				at = spot
+			if space.intersect_ray(PhysicsRayQueryParameters3D.create(origin, spot + Vector3.UP * BEAM_HEIGHT, 1)).is_empty():
+				at = spot
+				break
 		var body: StaticBody3D = make_block(at, MIRROR_SIZE, CRYSTAL)
 		body.look_at(Vector3(foe.pos.x, body.global_position.y, foe.pos.z), Vector3.UP)
 		var zone: MeshInstance3D = make_disc(at, 3.6, Color(CRYSTAL, 0.0))

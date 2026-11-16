@@ -237,3 +237,19 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
   Bandeau `BOSS_SWALLOW_INTRO_3D` (nouvelle clé FR/EN).
 - Reste : vagues du raz-de-marée sans ralenti ni recul (dégâts seuls) ; effets peints remplacés par des PixelFX et des
   formes simples (vase, murs, miroirs, rayon).
+
+### Lot 6 — gardiens du chapitre 3 (16 novembre)
+
+- **Gardien d'écorce, Garde d'écorce** (`bosses/bark_guard.gd`) : enraciné 7 s (8 en phase 2), bouclier qui pivote à
+  0,9 rad/s vers le Chasseur ; de face (60°) coups × 0,1, de dos ou de flanc × 1,5 ; racines qui ralentissent au
+  lever de la garde. Bandeau sans les Échos (`BOSS_GUARD_INTRO_3D`, nouvelle clé).
+- **Gueule des marais, Plongée** (`bosses/maw_dive.gd`) : sous la surface (invisible, sans contact, coups × 0,05), une
+  ride suit le Chasseur 2,5 s, l'onde de sortie s'annonce 0,9 s, puis elle ressurgit sonnée 2 s (coups × 2).
+- **Mère des spores, Voile de spores** (`bosses/spore_veil.gd`) : voile dès l'arrivée (× 0,2) ; elle fait pousser
+  trois cristaux solides autour d'elle (pas de cristaux-miroirs en 3D) ; une **Ruée dans un cristal** tire un rayon
+  vers elle : sans décor entre les deux, le voile brûle (sonnée 5 s, coups × 2) et repousse 12 s plus tard. Tapis de
+  spores autour du Chasseur. Bandeau `BOSS_SPORE_VEIL_INTRO_3D` (nouvelle clé).
+- **Dame des portails, Saut de portail** (`bosses/portal_hop.gd`) : trois portails ouverts à son arrivée ; elle
+  plonge 2,4 s et ressort par le portail le plus proche du Chasseur (illuminé) ; le Chasseur dedans la piège (sonnée
+  5 s, coups × 2), sinon onde de prisme.
+- Miroirs de Glauquemire placés en vue directe du boss (le décor 3D pouvait en cacher un).

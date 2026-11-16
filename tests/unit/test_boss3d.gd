@@ -335,7 +335,16 @@ func test_glauquemire_three_phases() -> void:
 	foe.brain._transition = 0.0
 	check_near(foe.brain.damage_mult(), 0.3, 0.001, "face intacte : 30 % des coups")
 	# Rayon de prisme renvoyé par un miroir tenu : boss étourdi.
+	# Miroir en vue directe du boss (le décor de la carte peut en cacher un).
 	var mirror: Dictionary = glauque.mirrors[0]
+	var space: PhysicsDirectSpaceState3D = run.get_world_3d().direct_space_state
+	for candidate: Dictionary in glauque.mirrors:
+		var origin: Vector3 = foe.pos + Vector3.UP * DraftGlauquemire.BEAM_HEIGHT
+		var target: Vector3 = (candidate["pos"] as Vector3) + Vector3.UP * DraftGlauquemire.BEAM_HEIGHT
+		var hit: Dictionary = space.intersect_ray(PhysicsRayQueryParameters3D.create(origin, target, 1))
+		if not hit.is_empty() and hit["collider"] == candidate["body"]:
+			mirror = candidate
+			break
 	run.hunter.global_position = (mirror["pos"] as Vector3) + ((mirror["pos"] as Vector3) - foe.pos).normalized() * 2.0
 	run.hunter.reset_motion()
 	await _frames(3)
@@ -357,3 +366,56 @@ func test_glauquemire_three_phases() -> void:
 	check(run.hunter.global_position.distance_to(foe.pos) < far.distance_to(foe.pos), "le tourbillon aspire")
 	foe.brain.die()
 	check(glauque.mirrors.is_empty() and glauque.puddles.is_empty(), "tout est retiré à la mort")
+
+
+func test_marsh_guardians() -> void:
+	await _start()
+	# Gardien d'écorce : bouclier frontal.
+	var bark: DraftEnemies.Foe = _spawn(&"bark_colossus", 5.0)
+	var guard := _mechanic(bark, &"bark_guard") as DraftBarkGuard
+	bark.brain._next_at = INF
+	guard.perform(_pattern(bark.boss, &"bark_guard"))
+	check(guard.guarding(), "garde levée")
+	check_near(bark.brain.damage_mult(), 0.1, 0.001, "de face : × 0,1")
+	run.hunter.global_position = bark.pos - (run.hunter.global_position - bark.pos)
+	check_near(bark.brain.damage_mult(), 1.5, 0.001, "de dos : × 1,5")
+	run.enemies.hit(bark, 1000000.0)
+	run.hunter.global_position = Vector3(0, 0.2, 0)
+	run.hunter.reset_motion()
+	# Gueule des marais : plongée, sortie sonnée.
+	var maw: DraftEnemies.Foe = _spawn(&"marsh_maw_guardian", 6.0)
+	var dive := _mechanic(maw, &"maw_dive") as DraftMawDive
+	maw.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(maw.boss, &"maw_dive")
+	dive.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 5)
+	check(dive.submerged() and maw.brain.airborne(), "sous la surface : intouchable, sans contact")
+	await _frames(int((float(pattern.params["chase"]) + float(pattern.params["warning"])) * 60) + 10)
+	check(dive.surfaced == 1 and maw.brain.stunned(), "elle ressurgit, sonnée")
+	check(maw.brain.damage_mult() >= 1.99, "sortie : coups × 2")
+	run.enemies.hit(maw, 1000000.0)
+	# Mère des spores : cristal frappé d'une Ruée, voile brûlé.
+	var spore: DraftEnemies.Foe = _spawn(&"spore_matriarch", 6.0)
+	var veil := _mechanic(spore, &"spore_veil") as DraftSporeVeil
+	spore.brain._next_at = INF
+	check_eq(veil.crystals.size(), 3, "trois cristaux autour d'elle")
+	check_near(spore.brain.damage_mult(), 0.2, 0.001, "voile : × 0,2")
+	veil._fire(veil.crystals[0])
+	var clear: bool = veil.burns == 1
+	if not clear:
+		veil._fire(veil.crystals[1])
+	if veil.burns == 0:
+		veil._fire(veil.crystals[2])
+	check(veil.burns == 1 and spore.brain.stunned(), "rayon de cristal : voile brûlé, sonnée")
+	run.enemies.hit(spore, 1000000.0)
+	# Dame des portails : piégée dans le portail de sortie.
+	var lady: DraftEnemies.Foe = _spawn(&"portal_lady", 6.0)
+	var portal := _mechanic(lady, &"portal_hop") as DraftPortalHop
+	lady.brain._next_at = INF
+	check_eq(portal.portals.size(), 3, "trois portails")
+	var hop: BossPatternData = _pattern(lady.boss, &"portal_hop")
+	portal.perform(hop)
+	run.hunter.global_position = portal.portals[int(portal.hop["exit"])]["pos"] + Vector3.UP * 0.2
+	run.hunter.reset_motion()
+	await _frames(int((hop.telegraph + float(hop.params["dive"])) * 60) + 10)
+	check(portal.trapped == 1 and lady.brain.stunned(), "Chasseur dans le portail : elle sort piégée")
