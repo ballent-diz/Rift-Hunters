@@ -11,6 +11,8 @@ signal landed
 signal parried
 ## Égide : le bouclier vient de céder sous un coup.
 signal shield_broken
+## Un coup est esquivé pendant la Ruée (passif Contre-taille).
+signal dodged
 
 ## Mètres par unité de l'ancien monde 2D : vitesses, portées et rayons de l'équilibrage sont convertis ainsi.
 const UNIT := 0.03
@@ -37,6 +39,8 @@ var automating: bool = false
 var auto_direction := Vector3.ZERO
 var auto_dash: bool = false
 var god_mode: bool = false
+## Multiplicateur des seuils d'XP (montées de niveau plus lentes de la v2, draft3d/tuning.tres).
+var xp_scale: float = 1.0
 ## Point de retour si le Chasseur tombe hors de la carte.
 var respawn := Vector3(0, 0.2, 0)
 ## Sorts défensifs : garde de Parade (s restantes), bouclier de l'Égide (PV absorbés, s restantes).
@@ -127,7 +131,7 @@ func chest() -> Vector3:
 
 
 func xp_needed() -> int:
-	return balance.xp_to_next(level)
+	return int(ceil(balance.xp_to_next(level) * xp_scale))
 
 
 func gain_xp(amount: float) -> void:
@@ -144,6 +148,8 @@ func heal(amount: float) -> void:
 
 ## Renvoie les dégâts réellement subis (0 pendant la Ruée ou l'invulnérabilité qui suit un coup).
 func take_damage(amount: float) -> float:
+	if alive and is_dashing() and invulnerable > 0.0:
+		dodged.emit()
 	if not alive or invulnerable > 0.0 or god_mode:
 		return 0.0
 	if guard_left > 0.0:

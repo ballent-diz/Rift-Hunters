@@ -2485,3 +2485,21 @@ ARSENAL3D_EMPTY,(vide),(empty)
 ARSENAL3D_KEEP_IN_RESERVE,Garder le nouveau sort en réserve,Keep the new spell in reserve
 CURRENCY3D_NAME,Fragments de faille,Rift Fragments
 CURRENCY3D_DESC,"Monnaie permanente gagnée à chaque expédition (éliminations, temps tenu, boss vaincus). Elle débloque des sorts et leurs mutations.","Permanent currency earned on every expedition (kills, time survived, bosses defeated). It unlocks spells and their mutations."
+REWARD3D_PASSIVE_DASH_BLADE_NAME,Ruée tranchante,Slicing Dash
+REWARD3D_PASSIVE_DASH_BLADE_DESC,Passif : la Ruée blesse les ennemis qu'elle traverse.,Passive: your Dash wounds the enemies it passes through.
+REWARD3D_PASSIVE_VOID_WAKE_NAME,Sillage du vide,Void Wake
+REWARD3D_PASSIVE_VOID_WAKE_DESC,Passif : la Ruée laisse une traînée de 2 s qui ralentit les ennemis.,Passive: your Dash leaves a 2 s trail that slows enemies.
+REWARD3D_PASSIVE_COUNTER_CUT_NAME,Contre-taille,Counter Cut
+REWARD3D_PASSIVE_COUNTER_CUT_DESC,"Passif : esquiver un coup pendant la Ruée renforce le sort suivant (×1,6, 3 s pour le lancer).","Passive: dodging a hit during your Dash empowers your next spell (×1.6, 3 s to cast it)."
+REWARD3D_PASSIVE_ANCHOR_NAME,Ancre,Anchor
+REWARD3D_PASSIVE_ANCHOR_DESC,Passif : un ennemi ralenti ou immobilisé qui meurt s'effondre en petite Singularité.,Passive: a slowed or rooted enemy that dies collapses into a small Singularity.
+REWARD3D_RULE_EXTRA_SLOT_NAME,Surcharge d'arsenal,Arsenal Overload
+REWARD3D_RULE_EXTRA_SLOT_DESC,"Légendaire : un 5e emplacement de sort jusqu'à la fin de l'expédition (touche Entrée, G ou croix bas).","Legendary: a 5th spell slot until the end of the expedition (Enter, G or D-pad down)."
+REWARD3D_RARITY_0,Commun,Common
+REWARD3D_RARITY_1,Rare,Rare
+REWARD3D_RARITY_2,Épique,Epic
+REWARD3D_RARITY_3,Légendaire,Legendary
+MUTATION3D_REPLACE_TITLE,Deux mutations au plus : laquelle remplacer par %s ?,Two mutations at most: which one should %s replace?
+MUTATION3D_REPLACE_HINT,La mutation remplacée est perdue pour cette expédition. Une mutation incompatible doit forcément partir.,The replaced mutation is lost for this expedition. An incompatible mutation has to go.
+MUTATION3D_CANCEL,Revenir aux choix,Back to the choices
+MUTATION3D_INCOMPATIBLE,Incompatible avec : %s,Incompatible with: %s

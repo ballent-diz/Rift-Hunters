@@ -27,6 +27,7 @@ var _build: Label
 var _hint: Label
 var _spell_bar: DraftSpellBar
 var _arsenal: DraftArsenalPanel
+var _choice: DraftChoicePanel
 var _spell_pips: DraftSpellPips
 var _banner: Label
 var _banner_left: float = 0.0
@@ -198,6 +199,13 @@ func show_offers(level: int, offers: Array[UpgradeData], upgrades: DraftUpgrades
 		card.add_child(box)
 		var key := _label(box, 14, DIM)
 		key.text = "[%d]" % (i + 1)
+		# Rareté (cartes de la v2) : couleur du cadre et nom de la rareté.
+		var rarity: int = DraftCard.rarity_of(data)
+		if data is DraftCard:
+			key.text += "  %s" % tr("REWARD3D_RARITY_%d" % rarity)
+			key.add_theme_color_override("font_color", DraftCard.RARITY_COLORS[rarity])
+			style.border_color = DraftCard.RARITY_COLORS[rarity]
+			hover.border_color = DraftCard.RARITY_COLORS[rarity]
 		var title_row := HBoxContainer.new()
 		title_row.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		box.add_child(title_row)
@@ -409,7 +417,7 @@ func close_options() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _options != null or _arsenal != null:
+	if _options != null or _arsenal != null or _choice != null:
 		return
 	var back: bool = event.is_action_pressed(&"pause") or event.is_action_pressed(&"ui_cancel")
 	if back and chapters_open():
@@ -444,6 +452,20 @@ func show_arsenal(spells: DraftSpells, replace_id: StringName = &"") -> DraftArs
 	else:
 		_arsenal.manage(spells)
 	return _arsenal
+
+
+func show_choice(title: String, hint: String, options: Array[String], cancel: String) -> DraftChoicePanel:
+	hide_choice()
+	_choice = DraftChoicePanel.new().setup(title, hint, options, cancel)
+	_choice.name = "Choice"
+	add_child(_choice)
+	return _choice
+
+
+func hide_choice() -> void:
+	if _choice != null:
+		_choice.queue_free()
+		_choice = null
 
 
 func hide_arsenal() -> void:

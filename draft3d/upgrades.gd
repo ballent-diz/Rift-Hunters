@@ -51,11 +51,21 @@ const SPELL_CARDS: Array[String] = ["res://draft3d/spells/learn_cleaving_slash.t
 	"res://draft3d/spells/stasis_long.tres", "res://draft3d/spells/rain_wide.tres",
 	"res://draft3d/spells/veil_long.tres"]
 
-## Cartes de statistiques (toujours offertes tant qu'elles servent).
+## Cartes de passifs techniques et d'altération des règles (draft3d/rewards/).
+const REWARD_CARDS: Array[String] = ["res://draft3d/rewards/passive_dash_blade.tres",
+	"res://draft3d/rewards/passive_void_wake.tres", "res://draft3d/rewards/passive_counter_cut.tres",
+	"res://draft3d/rewards/passive_anchor.tres", "res://draft3d/rewards/rule_extra_slot.tres"]
+
+## Cartes de statistiques (hors tirage normal de la v2, tuning.stat_cards_in_pool).
 var catalog: Array[UpgradeData] = []
 ## Cartes de sort, offertes seulement quand `spells` est branché et qu'elles servent.
 var spell_cards: Array[UpgradeData] = []
 var spells: DraftSpells
+## Passifs techniques de l'expédition (cartes PASSIVE) ; réglages du tirage (raretés, cartes retirées du tirage).
+var passives: DraftPassives
+var tuning: DraftTuning
+## Choix de niveau consécutifs sans carte Épique ou Légendaire (anti-frustration, réglable).
+var dry_offers: int = 0
 ## Déblocages permanents : seuls les sorts et les mutations débloqués sont tirés (null : tout le contenu).
 var unlocks: DraftUnlocks
 var stacks: Dictionary = {}
@@ -63,6 +73,7 @@ var _groups: Dictionary = {}
 
 
 func _init() -> void:
+	tuning = load("res://draft3d/tuning.tres")
 	for id: StringName in SHARED:
 		var data: UpgradeData = GameDB.upgrades.get(id)
 		if data != null and is_valid(data):
@@ -71,7 +82,7 @@ func _init() -> void:
 		var data: UpgradeData = load(path)
 		if data != null and is_valid(data):
 			catalog.append(data)
-	for path: String in SPELL_CARDS:
+	for path: String in SPELL_CARDS + REWARD_CARDS:
 		var data: UpgradeData = load(path)
 		if data != null and is_spell_card(data):
 			spell_cards.append(data)
@@ -83,7 +94,10 @@ static func is_spell_card(data: UpgradeData) -> bool:
 		return false
 	for effect: GameplayEffect in data.effects:
 		var spell := effect as DraftSpellEffect
-		if spell == null or not DraftSpells.supported(spell.spell_id):
+		if spell == null:
+			return false
+		var needs_spell: bool = spell.kind != DraftSpellEffect.Kind.PASSIVE and spell.kind != DraftSpellEffect.Kind.RULE
+		if needs_spell and not DraftSpells.supported(spell.spell_id):
 			return false
 	return true
 
@@ -158,8 +172,28 @@ func can_offer(data: UpgradeData) -> bool:
 		if spells == null:
 			return false
 		for effect: GameplayEffect in data.effects:
-			if not spells.can_apply(effect as DraftSpellEffect) or not _unlocked(data, effect as DraftSpellEffect):
+			if not _applicable(effect as DraftSpellEffect) or not _unlocked(data, effect as DraftSpellEffect):
 				return false
+	return true
+
+
+func _applicable(effect: DraftSpellEffect) -> bool:
+	match effect.kind:
+		DraftSpellEffect.Kind.PASSIVE:
+			return passives != null and not passives.has(effect.passive)
+		DraftSpellEffect.Kind.RULE:
+			return effect.rule == &"extra_slot" and spells.slots.size() < DraftSpells.MAX_SLOTS
+	return spells.can_apply(effect)
+
+
+## Carte présente au tirage normal de la v2 : ni carte de statistique, ni rang chiffré (réglable dans tuning.tres).
+func in_pool(data: UpgradeData) -> bool:
+	if catalog.has(data):
+		return tuning.stat_cards_in_pool
+	for effect: GameplayEffect in data.effects:
+		var spell := effect as DraftSpellEffect
+		if spell != null and spell.kind == DraftSpellEffect.Kind.MODIFY and not tuning.rank_cards_in_pool:
+			return false
 	return true
 
 
@@ -177,7 +211,7 @@ func _unlocked(data: UpgradeData, effect: DraftSpellEffect) -> bool:
 func available() -> Array[UpgradeData]:
 	var result: Array[UpgradeData] = []
 	for data: UpgradeData in all_cards():
-		if can_offer(data):
+		if in_pool(data) and can_offer(data):
 			result.append(data)
 	return result
 
@@ -189,17 +223,29 @@ func roll(rng: RandomNumberGenerator, count: int = 3) -> Array[UpgradeData]:
 	while offers.size() < count and not pool.is_empty():
 		var total: float = 0.0
 		for data: UpgradeData in pool:
-			total += maxf(data.weight, 0.01)
+			total += _weight(data)
 		var pick: float = rng.randf() * total
 		var index: int = pool.size() - 1
 		for i: int in pool.size():
-			pick -= maxf(pool[i].weight, 0.01)
+			pick -= _weight(pool[i])
 			if pick <= 0.0:
 				index = i
 				break
 		offers.append(pool[index])
 		pool.remove_at(index)
+	var rare_found: bool = offers.any(func(d: UpgradeData) -> bool: return DraftCard.rarity_of(d) >= DraftCard.Rarity.EPIC)
+	dry_offers = 0 if rare_found else dry_offers + 1
 	return offers
+
+
+## Poids de tirage : poids de la carte × poids de sa rareté (tuning) ; après `pity_after` choix sans Épique ni
+## Légendaire, ces raretés pèsent `pity_mult` fois plus (anti-frustration mesuré, jamais garanti).
+func _weight(data: UpgradeData) -> float:
+	var rarity: int = DraftCard.rarity_of(data)
+	var weight: float = maxf(data.weight, 0.01) * float(tuning.rarity_weights[mini(rarity, 3)])
+	if rarity >= DraftCard.Rarity.EPIC and dry_offers >= tuning.pity_after:
+		weight *= tuning.pity_mult
+	return maxf(weight, 0.0001)
 
 
 func apply(data: UpgradeData, stats: StatSheet) -> bool:
@@ -211,11 +257,28 @@ func apply(data: UpgradeData, stats: StatSheet) -> bool:
 			stats.add_modifier(modifier.stat, modifier.flat, modifier.pct)
 		else:
 			var spell_effect := effect as DraftSpellEffect
-			spells.apply_effect(spell_effect)
-			if spell_effect.kind == DraftSpellEffect.Kind.VARIANT:
-				var labels: Array = spells.mutation_labels.get(spell_effect.spell_id, [])
-				labels.append(data.name_key)
-				spells.mutation_labels[spell_effect.spell_id] = labels
+			match spell_effect.kind:
+				DraftSpellEffect.Kind.PASSIVE:
+					passives.add(spell_effect.passive)
+				DraftSpellEffect.Kind.RULE:
+					spells.add_slot()
+				DraftSpellEffect.Kind.VARIANT:
+					# Remplacement explicite seulement (choix du joueur), jamais d'écrasement silencieux.
+					var replace: StringName = spells.mutation_to_replace
+					spells.mutation_to_replace = &""
+					var replaced_label: String = str(spells.mutation_label_of.get(replace, ""))
+					if not spells.add_mutation(spell_effect, replace):
+						return false
+					if replace != &"":
+						var kept: Array = spells.mutation_labels.get(spell_effect.spell_id, [])
+						kept.erase(replaced_label)
+						spells.mutation_labels[spell_effect.spell_id] = kept
+					spells.mutation_label_of[spell_effect.variant] = data.name_key
+					var labels: Array = spells.mutation_labels.get(spell_effect.spell_id, [])
+					labels.append(data.name_key)
+					spells.mutation_labels[spell_effect.spell_id] = labels
+				_:
+					spells.apply_effect(spell_effect)
 	stacks[data.id] = stacks_of(data.id) + 1
 	if data.exclusive_group != &"":
 		_groups[data.exclusive_group] = data.id
