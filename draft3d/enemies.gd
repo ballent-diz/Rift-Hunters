@@ -32,6 +32,8 @@ class Foe:
 	var slot: int = 0
 	## Boss de fin de partie (le vaincre donne la victoire) ; faux pour un gardien de mi-parcours.
 	var final: bool = false
+	## Cerveau d'un boss ou d'un gardien (DraftBossBrain) ; nul pour un Corrompu.
+	var brain: DraftBossBrain
 	## Entrave (sorts du Chasseur) : vitesse multipliée par `slow_factor` pendant `slow_left` secondes.
 	var slow_left: float = 0.0
 	var slow_factor: float = 1.0
@@ -67,6 +69,8 @@ var hp_mult: float = 1.0
 var damage_mult: float = 1.0
 var boss_hp_mult: float = 1.0
 var boss_damage_mult: float = 1.0
+## Part de l'intervalle d'origine entre deux techniques d'un boss (réglage du mode, `DraftTuning.boss_pace`).
+var boss_pace: float = 1.0
 var path_requests: int = 0
 var _grid: Dictionary = {}
 var _corpses: Array[Dictionary] = []
@@ -102,6 +106,8 @@ func spawn_boss(data: BossData, at: Vector3, hp_scale: float = 1.0, final: bool 
 	foe.xp = 0
 	foe.cooldown = 2.5
 	_add(foe, data.visual.visual_id, at, data.visual_scale)
+	foe.brain = DraftBossBrain.new()
+	foe.brain.setup(self, foe)
 	boss = foe
 	return foe
 
@@ -155,7 +161,12 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 	if not foe.alive:
 		return false
 	var exposure: float = 1.0 + foe.exposed if foe.exposed_left > 0.0 else 1.0
-	foe.hp -= amount * exposure * CombatSystem.defense_multiplier(foe.defense)
+	if foe.brain != null:
+		exposure *= foe.brain.damage_mult()
+	var dealt: float = amount * exposure * CombatSystem.defense_multiplier(foe.defense)
+	foe.hp -= dealt
+	if foe.brain != null:
+		foe.brain.on_damage(dealt)
 	Audio.play_sfx(&"enemy_hit")
 	foe.view.flash()
 	if foe.boss == null and foe.data.knockback_resist < 1.0:
@@ -164,8 +175,11 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 		return false
 	foe.alive = false
 	list.erase(foe)
-	foe.view.play_action(&"death", 0.6)
-	_corpses.append({"view": foe.view, "left": 0.6 if foe.boss == null else 2.5})
+	if foe.brain != null:
+		_corpses.append({"view": foe.view, "left": foe.brain.die() + 1.5})
+	else:
+		foe.view.play_action(&"death", 0.6)
+		_corpses.append({"view": foe.view, "left": 0.6})
 	if foe == boss:
 		hazards.clear()
 	run.call("on_foe_killed", foe)
@@ -209,9 +223,18 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 		speed *= foe.slow_factor
 	foe.exposed_left = maxf(foe.exposed_left - delta, 0.0)
 	var turn: bool = true
-	if foe.boss != null:
-		wish = _boss_brain(foe, to_hunter, distance, climb, delta)
-		turn = foe.state == 0
+	if foe.brain != null:
+		foe.brain.step(to_hunter, distance, climb, delta)
+		if foe.brain.moves_itself() or foe.brain.busy():
+			# Charge, bond, transition, technique : le cerveau tient la position ; le contact blesse toujours.
+			if not foe.brain.moves_itself():
+				foe.vel = Vector3.ZERO
+			_contact(foe, distance, climb)
+			foe.view.push_position(foe.pos, delta, false)
+			return
+		wish = foe.brain.wish
+		speed *= foe.brain.speed_mult
+		turn = foe.brain.turns
 	elif foe.data.brain == EnemyData.Brain.CHARGER and foe.state > 0:
 		foe.timer -= delta
 		if foe.state == 1:
@@ -229,7 +252,7 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 				foe.cooldown = foe.data.attack.cooldown if foe.data.attack else 3.0
 		turn = false
 	else:
-		wish = _chase(foe, target, to_hunter, distance, climb, delta)
+		wish = chase(foe, target, to_hunter, distance, climb, delta)
 		if foe.data.brain == EnemyData.Brain.BLINKER and foe.cooldown <= 0.0 and distance > 4.0:
 			# Passe-faille : réapparaît près du Chasseur, du côté d'où il vient.
 			foe.cooldown = 4.5
@@ -269,16 +292,20 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 	if (foe.slot + _frame) % 2 == 0 or foe.boss != null:
 		next = level.closest(next + Vector3.UP * 0.2)
 	foe.pos = next
+	_contact(foe, distance, climb)
+	foe.view.push_position(foe.pos, delta, turn)
+
+
+func _contact(foe: Foe, distance: float, climb: float) -> void:
 	if distance < foe.radius + DraftHunter.RADIUS + 0.12 and climb < MELEE_REACH_UP and foe.contact_timer <= 0.0 \
 			and hunter.alive:
 		foe.contact_timer = CONTACT_INTERVAL
 		if hunter.take_damage(foe.damage) > 0.0:
 			run.call("on_hunter_hit", foe)
-	foe.view.push_position(foe.pos, delta, turn)
 
 
 ## Direction de poursuite : en ligne droite de près et de plain-pied, sinon le long du chemin de navigation.
-func _chase(foe: Foe, target: Vector3, to_hunter: Vector3, distance: float, climb: float, delta: float) -> Vector3:
+func chase(foe: Foe, target: Vector3, to_hunter: Vector3, distance: float, climb: float, delta: float) -> Vector3:
 	if distance < 2.5 and climb < 0.6:
 		foe.path_target = Vector3.INF
 		return to_hunter / maxf(distance, 0.001) if distance > foe.radius + DraftHunter.RADIUS else Vector3.ZERO
@@ -316,74 +343,8 @@ func _separation(foe: Foe) -> Vector3:
 	return (push * 4.0).limit_length(1.8)
 
 
-# --- Boss et gardiens (données d'origine ; techniques communes réécrites pour le monde 3D) -----------------------
+# --- Boss et gardiens : DraftBossBrain (docs/design/BOSS_V2.md) --------------------------------------------------
 
-## Effet PixelFX joué au moment où une zone annoncée frappe.
-func _fx(effect: StringName, family: StringName, size: float) -> Callable:
-	return func(at: Vector3) -> void: run.call("fx", effect, family, at + Vector3.UP * 0.6, size)
-
-
-## Première animation que la feuille du boss possède parmi les candidates.
-func _clip(foe: Foe, candidates: Array[StringName]) -> StringName:
-	for id: StringName in candidates:
-		if foe.view.has_clip(id):
-			return id
-	return &"attack"
-
-
+## Phase du boss (0 : première), seuils de ses données d'origine.
 func boss_phase(foe: Foe) -> int:
-	return 1 if foe.hp <= foe.max_hp * 0.5 else 0
-
-
-func _boss_brain(foe: Foe, to_hunter: Vector3, distance: float, climb: float, delta: float) -> Vector3:
-	var phase: int = boss_phase(foe)
-	if foe.state == 1:
-		foe.timer -= delta
-		if foe.timer <= 0.0:
-			foe.state = 0
-			foe.cooldown = 2.6 if phase == 0 else 1.9
-		return Vector3.ZERO
-	if foe.cooldown <= 0.0 and hunter.alive:
-		var aim: Vector3 = to_hunter / maxf(distance, 0.001)
-		foe.view.face_left(aim.x < 0.0)
-		var roll: float = rng.randf()
-		var family: StringName = DraftPixelFx.boss_family(foe.boss)
-		foe.state = 1
-		Audio.play_sfx(&"boss_telegraph")
-		if distance < 4.5 and climb < MELEE_REACH_UP and roll < 0.55:
-			# Griffes : cercle devant lui.
-			foe.timer = 1.0
-			foe.view.play_action(_clip(foe, [&"attack", &"claws", &"claw"]), 1.0)
-			hazards.circle(foe.pos + aim * (foe.radius + 1.2), foe.radius + 1.6, 0.7, foe.damage,
-				_fx(&"claw_swipe", family, (foe.radius + 1.6) * 0.9))
-		elif roll < 0.4:
-			# Onde d'ombre : anneau qui traverse la cour ; la Ruée le traverse, la terrasse est hors d'atteinte.
-			foe.timer = 1.5
-			foe.view.play_action(_clip(foe, [&"shadow_wave", &"roar", &"transform", &"attack"]), 1.5)
-			run.call("fx", &"ring_charge", family, foe.pos + Vector3.UP * 0.3, 2.0)
-			hazards.ring(foe.pos, 8.5, 22.0, 0.9, foe.damage * 0.8, _fx(&"ring_burst", family, 2.5))
-			if phase == 1:
-				hazards.ring(foe.pos, 8.5, 22.0, 1.8, foe.damage * 0.8)
-		elif roll < 0.7:
-			# Pluie d'ombre : trois cercles autour du Chasseur.
-			foe.timer = 1.2
-			foe.view.play_action(_clip(foe, [&"phase2_attack", &"heavy_slam", &"crater_rain", &"ice_spikes", &"mud_spit",
-				&"attack"]), 1.2)
-			for n: int in (3 if phase == 0 else 5):
-				var offset := Vector3.ZERO if n == 0 else Vector3(rng.randf_range(-4, 4), 0, rng.randf_range(-4, 4))
-				hazards.circle(level.closest(hunter.global_position + offset), 1.9, 0.95 + 0.12 * n, foe.damage * 0.9,
-					_fx(DraftPixelFx.RAIN.get(family, &"dark_explosion"), family, 1.5))
-		elif roll < 0.85 or phase == 0:
-			foe.timer = 1.2
-			foe.view.play_action(_clip(foe, [&"summon", &"brood_call", &"leech_call", &"attack"]), 1.2)
-			run.call("boss_summon", foe, 4 if phase == 0 else 6)
-		else:
-			# Rayon du vide (seconde phase) : ligne annoncée vers le Chasseur.
-			foe.timer = 1.6
-			foe.view.play_action(_clip(foe, [&"rift_breath", &"magma_breath", &"blizzard_breath", &"ray_sweep",
-				&"phase2_attack", &"attack"]), 1.6)
-			hazards.line(foe.pos, aim, 24.0, 2.2, 1.1, foe.damage * 1.1)
-		return Vector3.ZERO
-	if distance < foe.radius + 1.2 and climb < MELEE_REACH_UP:
-		return Vector3.ZERO
-	return _chase(foe, hunter.global_position, to_hunter, distance, climb, delta)
+	return foe.brain.phase if foe.brain != null else 0

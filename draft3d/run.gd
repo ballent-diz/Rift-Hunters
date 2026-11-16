@@ -132,6 +132,7 @@ func _ready() -> void:
 	enemies.rng.seed = rng.randi()
 	enemies.boss_hp_mult = tuning.boss_hp_mult
 	enemies.boss_damage_mult = tuning.boss_damage_mult
+	enemies.boss_pace = tuning.boss_pace
 	add_child(enemies)
 	enemies.set_physics_process(false)
 	_build_gems()
@@ -320,7 +321,7 @@ func _physics_process(delta: float) -> void:
 	_step_gems(delta)
 	if _pending_levels > 0:
 		_open_offers()
-	if not _boss_raged and enemies.boss != null and enemies.boss.final and enemies.boss_phase(enemies.boss) == 1:
+	if not _boss_raged and enemies.boss != null and enemies.boss.final and enemies.boss_phase(enemies.boss) >= 1:
 		_boss_raged = true
 		Audio.play_context("boss_phase2")
 		Audio.play_sfx(&"heart_exposed")
@@ -436,6 +437,30 @@ func boss_summon(boss: DraftEnemies.Foe, amount: int) -> void:
 		var at: Vector3 = boss.pos + Vector3.RIGHT.rotated(Vector3.UP, TAU * i / amount) * 3.0
 		enemies.spawn(roster.enemies[0], at)
 		fx(&"summon_rise", family_of(boss), level.closest(at) + Vector3.UP * 0.6)
+
+
+## Invocation de monstres choisis (Échos des mondes de l'Abyssarque) : ceux qui sont jouables en 3D, sinon ceux du
+## chapitre.
+func boss_summon_ids(boss: DraftEnemies.Foe, ids: Array[StringName], amount: int) -> void:
+	var pool: Array[EnemyData] = []
+	for id: StringName in ids:
+		var data: EnemyData = GameDB.enemy(id)
+		if DraftRoster.usable(data):
+			pool.append(data)
+	if pool.is_empty():
+		boss_summon(boss, amount)
+		return
+	for i: int in amount:
+		var at: Vector3 = boss.pos + Vector3.RIGHT.rotated(Vector3.UP, TAU * i / amount) * 3.0
+		enemies.spawn(pool[i % pool.size()], at)
+		fx(&"summon_rise", family_of(boss), level.closest(at) + Vector3.UP * 0.6)
+
+
+## Nouvelle phase d'un boss : nom de la phase en bandeau quand il est traduit.
+func boss_phase_changed(boss: DraftEnemies.Foe, index: int) -> void:
+	var key: String = boss.boss.phases[index].name_key
+	if key != "" and tr(key) != key:
+		hud.banner(tr(key), 2.5)
 
 
 ## Invocation d'un monstre (mère de couvée) : petits monstres du chapitre autour de lui, dans la limite de la vague.

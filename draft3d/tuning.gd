@@ -48,6 +48,9 @@ extends Resource
 @export var boss_time: float = 480.0
 @export var boss_hp_mult: float = 0.55
 @export var boss_damage_mult: float = 0.8
+## Part de l'intervalle d'origine entre deux techniques d'un boss (BossPhaseData.pattern_interval) : les boss 3D
+## marchent et tournent entre deux techniques, un intervalle un peu plus court garde le rythme.
+@export var boss_pace: float = 0.8
 @export_group("Tour du chapitre 6")
 ## Durée d'un étage avant l'ouverture de la rampe (s), délai du gardien après l'arrivée à son étage, délai minimal
 ## du Dévoreur après l'arrivée au sommet (docs/maps/CARTES_3D.md).
