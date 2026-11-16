@@ -63,7 +63,9 @@ func test_slots_learning_and_cooldowns() -> void:
 	check(spells.learn(&"rupture") and spells.slot_of(&"rupture") == 2, "Rupture prend la première place libre")
 	check(spells.learn(&"rift_leap"), "Bond appris")
 	check_eq(spells.free_slots(), 0, "barre pleine")
-	check(not spells.learn(&"rupture"), "plus de place")
+	check(not spells.learn(&"rupture"), "déjà possédé")
+	var expected: Array[StringName] = [&"singularity"]
+	check(spells.learn(&"singularity") and spells.reserve() == expected, "barre pleine : le nouveau sort part en réserve")
 	spells.cooldowns[0] = 0.0
 	check(spells.cast(0, run.hunter.global_position + Vector3(3, 0, 0)), "le sort prêt part")
 	check(is_equal_approx(spells.cooldowns[0], spells.cooldown_of(spells.slots[0])), "recharge complète")
@@ -167,8 +169,8 @@ func test_spell_cards_in_level_up_choice() -> void:
 	check(not upgrades.available().has(learn_slash), "Taille déjà connue : jamais offerte")
 	check(upgrades.apply(learn_rupture, run.hunter.stats) and run.spells.has_spell(&"rupture"), "la carte apprend le sort")
 	run.spells.learn(&"rift_leap")
-	for data: UpgradeData in upgrades.available():
-		check(not String(data.id).begins_with("learn_"), "barre pleine : plus aucune carte d'apprentissage (%s)" % data.id)
+	check(upgrades.available().has(load("res://draft3d/spells/learn_singularity.tres")),
+		"barre pleine : un nouveau sort reste proposé (remplacement ou réserve)")
 	var detached := DraftUpgrades.new()
 	check(not detached.available().has(learn_rupture), "sans sorts branchés, aucune carte de sort")
 
@@ -583,7 +585,8 @@ func test_ash_veil_destroys_shots_and_heals() -> void:
 
 func test_bot_casts_the_new_spells() -> void:
 	await _start()
-	run.spells.slots.fill(null)
+	run.spells.stash(0)
+	run.spells.stash(1)
 	for id: StringName in [&"rift_step", &"shard_rain", &"ash_veil", &"stasis_wave"]:
 		run.spells.learn(id)
 	run.spells.cooldowns.fill(0.0)

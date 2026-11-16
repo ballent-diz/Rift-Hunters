@@ -2473,3 +2473,15 @@ UNLOCK3D_SET_START,Prendre au départ,Take at start
 UNLOCK3D_AT_START,Au départ ✓,At start ✓
 UNLOCK3D_NEEDS_SPELL,Sort requis,Spell required
 UNLOCK3D_UNAVAILABLE,Les déblocages arrivent bientôt.,Unlocks are coming soon.
+ARSENAL3D_TITLE,Arsenal,Arsenal
+ARSENAL3D_REPLACE_TITLE,Nouveau sort : %s,New spell: %s
+ARSENAL3D_REPLACE_HINT,"Vos quatre emplacements sont pleins. Choisissez celui où équiper %s : le sort remplacé part dans la réserve, avec sa recharge et ses mutations. Vous pourrez l'échanger plus tard depuis la pause.","Your four slots are full. Choose where to equip %s: the replaced spell goes to your reserve, with its cooldown and mutations. You can swap it back later from the pause menu."
+ARSENAL3D_PICK_HINT,"Choisissez un sort (équipé ou en réserve), puis l'emplacement où le placer. Les recharges suivent les sorts : un échange ne les remet jamais à zéro.","Pick a spell (equipped or in reserve), then the slot to put it in. Cooldowns follow their spells: swapping never resets them."
+ARSENAL3D_PLACE_HINT,Où placer %s ? Choisissez un emplacement (Échap : annuler).,Where should %s go? Choose a slot (Esc: cancel).
+ARSENAL3D_EQUIPPED,Emplacements,Slots
+ARSENAL3D_RESERVE,Réserve de l'expédition,Expedition reserve
+ARSENAL3D_RESERVE_EMPTY,Aucun sort en réserve.,No spell in reserve.
+ARSENAL3D_EMPTY,(vide),(empty)
+ARSENAL3D_KEEP_IN_RESERVE,Garder le nouveau sort en réserve,Keep the new spell in reserve
+CURRENCY3D_NAME,Fragments de faille,Rift Fragments
+CURRENCY3D_DESC,"Monnaie permanente gagnée à chaque expédition (éliminations, temps tenu, boss vaincus). Elle débloque des sorts et leurs mutations.","Permanent currency earned on every expedition (kills, time survived, bosses defeated). It unlocks spells and their mutations."

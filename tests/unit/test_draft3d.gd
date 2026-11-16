@@ -295,7 +295,8 @@ func test_spells_tree_and_campaign() -> void:
 	Profile.profile = tested
 	await _start()
 	Profile.profile = previous
-	check(run.tree_effects > 0, "l'arbre du profil s'applique (%d effets)" % run.tree_effects)
+	# Direction C : l'arbre v1 ne s'applique plus à la v2 (déblocages DraftUnlocks).
+	check_eq(run.hunter.stats.get_value(StatKeys.MAX_HP), GameDB.balance.player_max_hp, "l'arbre v1 ne s'applique plus")
 	# Toujours Taille et Lance au départ, même avec un arbre qui équipe d'autres sorts (décision du 15 novembre).
 	check_eq(run.spells.slots[0].id, &"cleaving_slash", "Taille au départ malgré l'arbre")
 	check_eq(run.spells.slots[1].id, &"prismatic_lance", "Lance au départ malgré l'arbre")

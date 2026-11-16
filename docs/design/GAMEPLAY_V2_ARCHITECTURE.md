@@ -76,4 +76,5 @@ Les lots s'empilent (chacun part de la branche du précédent) tant que les PR n
 | Lot | État |
 |---|---|
 | 1 | Fait : ce document |
-| 2 à 5 | À faire |
+| 2 | Fait (PR à valider) : arsenal dans `DraftSpells` (`owned`, `reserve()`, `equip`, `stash`, `add_slot`, recharges des sorts en réserve par id, aucune remise à zéro ni doublon), acquisition toujours possible (case libre, sinon choix de la case à remplacer ou réserve : `draft3d/arsenal_panel.gd`), Pause → Arsenal, action `spell_5` (Entrée, G, croix bas), `DraftUnlocks` (`draft3d/unlocks.gd`, sauvegarde `user://draft3d_unlocks.json`, gain en fin de partie, filtre du tirage, 2 sorts de départ), arbre v1 plus appliqué. Essais `tests/unit/test_draft3d_arsenal.gd`. Capture `docs/previews/gameplay-v2/arsenal.webp`. **Reste** : touche du 5e sort non reconfigurable (les touches personnalisées passent par `InputSetup.REBINDABLE`, partagé avec la v1) |
+| 3 à 5 | À faire |

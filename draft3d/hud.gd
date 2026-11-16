@@ -26,6 +26,7 @@ var _boss_name: Label
 var _build: Label
 var _hint: Label
 var _spell_bar: DraftSpellBar
+var _arsenal: DraftArsenalPanel
 var _spell_pips: DraftSpellPips
 var _banner: Label
 var _banner_left: float = 0.0
@@ -358,6 +359,11 @@ func show_pause() -> void:
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	var list: Array[Button] = [
 		_menu_button(column, "Resume", tr("PAUSE_RESUME"), func() -> void: pause_requested.emit()),
+		_menu_button(column, "Arsenal", tr("ARSENAL3D_TITLE"), func() -> void:
+			var panel: DraftArsenalPanel = show_arsenal(_spell_bar.spells)
+			panel.closed.connect(func() -> void:
+				hide_arsenal()
+				(_pause_root.find_child("Arsenal", true, false) as Control).grab_focus.call_deferred())),
 		_menu_button(column, "Options", tr("MENU_OPTIONS"), open_options),
 		_menu_button(column, "Restart", tr("MENU3D_RESTART"), func() -> void: restart_requested.emit()),
 		_menu_button(column, "Menu", tr("MENU3D_BACK_TO_MENU"), func() -> void: menu_requested.emit()),
@@ -403,7 +409,7 @@ func close_options() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _options != null:
+	if _options != null or _arsenal != null:
 		return
 	var back: bool = event.is_action_pressed(&"pause") or event.is_action_pressed(&"ui_cancel")
 	if back and chapters_open():
@@ -425,6 +431,29 @@ func _unhandled_input(event: InputEvent) -> void:
 			chosen.emit(index)
 	elif key.physical_keycode == KEY_R and not pause_open() and not chapters_open():
 		restart_requested.emit()
+
+
+## Arsenal (docs/design/GAMEPLAY_V2_ARCHITECTURE.md) : remplacement d'une case (`replace_id`) ou gestion depuis la pause.
+func show_arsenal(spells: DraftSpells, replace_id: StringName = &"") -> DraftArsenalPanel:
+	hide_arsenal()
+	_arsenal = DraftArsenalPanel.new()
+	_arsenal.name = "Arsenal"
+	add_child(_arsenal)
+	if replace_id != &"":
+		_arsenal.replace_for(spells, replace_id)
+	else:
+		_arsenal.manage(spells)
+	return _arsenal
+
+
+func hide_arsenal() -> void:
+	if _arsenal != null:
+		_arsenal.queue_free()
+		_arsenal = null
+
+
+func arsenal_open() -> bool:
+	return _arsenal != null
 
 
 func _menu_button(parent: Node, id: String, text: String, callback: Callable) -> Button:
@@ -449,7 +478,7 @@ func _overlay() -> Control:
 ## Touches des quatre sorts (actions reconfigurables), pour l'aide de début de partie.
 static func _spell_keys() -> String:
 	var keys: PackedStringArray = []
-	for action: StringName in DraftSpells.ACTIONS:
+	for action: StringName in DraftSpells.ACTIONS.slice(0, DraftSpells.SLOTS):
 		keys.append(InputSetup.key_label(action))
 	return " ".join(keys)
 

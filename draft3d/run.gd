@@ -42,7 +42,11 @@ var hazards: DraftHazards
 var hud: DraftHud
 var upgrades: DraftUpgrades
 var spells: DraftSpells
-var tree_effects: int = 0
+## Déblocages permanents (null pour le bot et les essais : tout le contenu est tiré).
+var unlocks: DraftUnlocks
+## Boss vaincus pendant la partie (gain de Fragments) : gardiens et Dévoreur.
+var guardians_killed: int = 0
+var devourers_killed: int = 0
 var camera: Camera3D
 ## Hauteur de la vue en mètres (molette) ; la caméra et le rendu pixel en dérivent.
 var view_size: float = 20.0
@@ -90,13 +94,14 @@ func _ready() -> void:
 	hunter.setup(balance)
 	hunter.stats.add_modifier(StatKeys.DAMAGE, 0.0, tuning.hunter_damage_pct)
 	hunter.stats.add_modifier(StatKeys.ATTACK_SPEED, 0.0, tuning.hunter_attack_speed_pct)
-	# Arbre de compétences et sorts équipés du profil de la campagne, en lecture seule.
-	tree_effects = DraftUpgrades.apply_tree(hunter.stats, HunterTree.effects_for(Profile.profile))
 	hunter.hp = hunter.max_hp()
-	# Sorts de départ (décision du propriétaire, 15 novembre 2026) : toujours les deux sorts de base de l'équilibrage,
-	# Taille fendante et Lance prismatique, quel que soit l'arbre du profil ; les autres s'apprennent au choix de niveau.
-	var loadout: Dictionary = HunterTree.loadout(Profile.profile)
-	var starting: Array[StringName] = balance.default_spells.duplicate()
+	# Direction C (docs/design/DEBLOCAGE_V2.md) : l'arbre v1 ne s'applique plus. Déblocages permanents et 2 sorts de
+	# départ choisis au menu (DraftUnlocks) ; les essais automatiques et le bot gardent tout le contenu, sans sauvegarde.
+	var automated: bool = _options.has("bot") or DisplayServer.get_name() == "headless"
+	if automated:
+		DraftUnlocks.path = ""
+	unlocks = null if automated else DraftUnlocks.load()
+	var starting: Array[StringName] = unlocks.starting_spells() if unlocks != null else balance.default_spells.duplicate()
 	if _options.has("spells"):
 		# Essai d'un jeu de sorts : --spells=hunter_mark,void_rend (identifiants, 4 au plus).
 		starting.clear()
@@ -105,11 +110,7 @@ func _ready() -> void:
 	spells = DraftSpells.new()
 	spells.setup(self, starting)
 	upgrades.spells = spells
-	# Variantes activées dans l'arbre : la carte correspondante est prise d'office pour les sorts de départ.
-	for spell_id: Variant in loadout["variants"]:
-		var card: UpgradeData = upgrades.variant_card(StringName(str(spell_id)), StringName(str(loadout["variants"][spell_id])))
-		if card != null and upgrades.can_offer(card):
-			upgrades.apply(card, hunter.stats)
+	upgrades.unlocks = unlocks
 	if _bot or DisplayServer.get_name() == "headless":
 		DraftProgress.path = ""
 	hunter.set_physics_process(false)
@@ -313,7 +314,7 @@ func _physics_process(delta: float) -> void:
 	if _options.has("cast-at") and time >= float(_options["cast-at"]):
 		# Vérification des animations : tous les sorts partent ensemble, devant le Chasseur (--cast-at=20).
 		_options.erase("cast-at")
-		for i: int in DraftSpells.SLOTS:
+		for i: int in spells.slots.size():
 			spells.cooldowns[i] = 0.0
 			spells.cast(i, hunter.global_position + Vector3(4.0, 0.0, 1.5) * (1.0 + i * 0.3))
 	spells.step(delta)
@@ -658,8 +659,10 @@ func on_foe_killed(foe: DraftEnemies.Foe) -> void:
 	fx(&"death", family_of(foe), foe.pos + Vector3.UP * 0.5, clampf(foe.radius * 2.2, 0.8, 3.0))
 	if foe.boss != null:
 		if foe.final:
+			devourers_killed += 1
 			_finish(true)
 			return
+		guardians_killed += 1
 		enemies.boss = null
 		for i: int in 8:
 			drop_gem(foe.pos + Vector3(rng.randf_range(-1.5, 1.5), 0, rng.randf_range(-1.5, 1.5)), tuning.guardian_xp / 8.0)
@@ -734,7 +737,9 @@ func choose(index: int) -> void:
 	if state != State.CHOOSING or index < 0 or index >= _offers.size():
 		return
 	var before: float = hunter.max_hp()
-	upgrades.apply(_offers[index], hunter.stats)
+	var card: UpgradeData = _offers[index]
+	var owned_before: int = spells.owned.size()
+	upgrades.apply(card, hunter.stats)
 	Audio.play_sfx(&"ui_click")
 	# Les PV gagnés avec le maximum sont donnés tout de suite.
 	hunter.heal(maxf(hunter.max_hp() - before, 0.0))
@@ -742,6 +747,12 @@ func choose(index: int) -> void:
 	_offers = []
 	hud.hide_offers()
 	hud.show_build(upgrades)
+	# Nouveau sort alors que les cases sont pleines : le joueur choisit la case qu'il remplace (ou garde la réserve).
+	var learned: StringName = spells.owned[spells.owned.size() - 1] if spells.owned.size() > owned_before else &""
+	if learned != &"" and not spells.has_spell(learned) and not _bot:
+		var panel: DraftArsenalPanel = hud.show_arsenal(spells, learned)
+		await panel.closed
+		hud.hide_arsenal()
 	get_tree().paused = false
 	state = State.PLAYING
 
@@ -762,6 +773,8 @@ func _finish(victory: bool) -> void:
 	if victory:
 		DraftProgress.record_victory(chapter)
 	_end_delay = 1.0
+	if unlocks != null:
+		unlocks.record_run(unlocks.run_gain(kills, time, guardians_killed, devourers_killed))
 	# Gain de Fragments de faille (DraftUnlocks, enregistré par la partie avant cet écran) ; -1 : rien d'affiché.
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills],
 		DraftUnlockScreen.last_gain())
@@ -787,6 +800,8 @@ func change_chapter() -> void:
 
 ## Pause du joueur (Échap, P, Start) ; sans effet pendant le choix d'amélioration et après la fin.
 func toggle_pause() -> void:
+	if hud.arsenal_open():
+		return
 	if hud.pause_open():
 		hud.hide_pause()
 		get_tree().paused = false

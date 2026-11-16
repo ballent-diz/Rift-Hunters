@@ -35,6 +35,16 @@ extends Resource
 @export var crystal_split: int = 2
 @export var crystal_angle: float = 18.0
 @export var crystal_damage: float = 0.6
+@export_group("Déblocages")
+## Sorts offerts (débloqués d'office, sorts de départ par défaut), coûts et gains de Fragments de faille
+## (docs/design/DEBLOCAGE_V2.md, indicatifs).
+@export var free_spells: Array[StringName] = [&"cleaving_slash", &"prismatic_lance"]
+@export var spell_unlock_cost: int = 150
+@export var mutation_unlock_cost: int = 80
+@export var fragments_per_kill: float = 0.1
+@export var fragments_per_minute: float = 6.0
+@export var fragments_per_guardian: int = 25
+@export var fragments_per_devourer: int = 60
 @export_group("Ennemis")
 @export var enemy_damage_scale: float = 0.8
 @export var enemy_hp_growth_per_min: float = 0.1
