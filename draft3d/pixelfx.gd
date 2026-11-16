@@ -61,6 +61,17 @@ static func sheet(effect: StringName, family: StringName) -> Dictionary:
 	return result
 
 
+## Effet livré (feuille de la famille par défaut) : effets dédiés de la v2 (docs/design/FICHES_VFX_GAMEPLAY_V2.md).
+static func has_sheet(effect: StringName) -> bool:
+	return not sheet(effect, DEFAULT_FAMILY).is_empty()
+
+
+## Échelle à passer à `play` pour que la première image mesure `width` m de large.
+static func size_for(effect: StringName, width: float) -> float:
+	var rects: Array[Rect2] = sheet(effect, DEFAULT_FAMILY).get("rects", [] as Array[Rect2])
+	return width / (rects[0].size.x * PIXEL) if not rects.is_empty() and rects[0].size.x > 0.0 else 1.0
+
+
 ## Joue l'effet à `at` (null si la feuille n'existe pas pour cette famille, après repli sur la famille par défaut).
 static func play(parent: Node, effect: StringName, family: StringName, at: Vector3, size: float = 1.0,
 		looping: bool = false) -> DraftPixelFx:

@@ -147,3 +147,15 @@ func test_gravity_blade() -> void:
 	run.spells.stash(run.spells.slot_of(&"singularity"))
 	_cast(&"cleaving_slash", here + Vector3(4, 0, 0))
 	check_eq(_count(DraftCombos.GRAVITY_BLADE), 1, "Singularité en réserve : rien")
+
+
+func test_dedicated_effects_fall_back_until_delivered() -> void:
+	await _start([] as Array[StringName])
+	check(DraftPixelFx.has_sheet(&"ring_burst"), "effet existant reconnu")
+	var width: float = DraftPixelFx.size_for(&"ring_burst", 2.0) * DraftPixelFx.PIXEL \
+		* (DraftPixelFx.sheet(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY)["rects"] as Array[Rect2])[0].size.x
+	check_near(width, 2.0, 0.001, "effet livré mis à la largeur de la fiche")
+	for id: StringName in [&"combo_prismatic_execution", &"combo_prismatic_deluge", &"combo_gravity_blade"]:
+		if not DraftPixelFx.has_sheet(id):
+			var node: Sprite3D = run.fx_or(id, 2.0, &"ring_burst", &"reflets", run.hunter.global_position)
+			check(node is DraftPixelFx, "repli sur l'effet existant : %s" % id)
