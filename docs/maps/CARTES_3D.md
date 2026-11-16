@@ -62,6 +62,7 @@ la conception des niveaux. Guide général de la v2 : `docs/PREMIER_JET_3D.md`.
 | 3 | `level_village.gd` | Hameau du Gué (médiéval, rivière, 3 ponts) | dans `main` ; seconde passe à faire |
 | 4 | `level_outpost.gd` | Avant-poste des Glaces (base spatiale) | dans `main` ; **hors DA à mon avis** (science-fiction), question posée au propriétaire, sans réponse |
 | 5 | `level_city.gd` | Cité Effondrée (ruines, pack donjon, nuit) | recomposée le 15 novembre (plan en damier), contrôle sans incohérence ; à valider en jeu |
+| 6 | `level_ring.gd` | Anneau de la Faille (sommet de la tour, pack donjon) | forme et décor validés sur vue d'ensemble (16 novembre) ; lancé par `--chapter=6` en attendant le chapitre 6 |
 
 Niveau 5 : une première version « ville moderne » (KayKit City Builder, voitures) a été refusée, hors DA et hors
 époque, puis supprimée. La seconde, la Cité Effondrée, a été jugée **incohérente** par le propriétaire. Audit du
@@ -79,6 +80,33 @@ Acropole dallée (colonnade, arches). Rue transversale d'est en ouest ; Voie sac
 l'escalier est, le long du Temple. Maisons de 8 × 8 m alignées sur les rues, portes donnant sur une rue, murs brisés
 avec leurs éboulis à côté, une maison effondrée par quartier. Captures avant/après et cartes de navigation :
 `docs/previews/cartes-3d/` (`carte_5_*_avant|apres.webp`, `navigation_5_avant.webp`, `navigation_5_bot.webp`).
+
+## Carte 6 : l'Anneau de la Faille, sommet de la tour (16 novembre)
+
+Commande du propriétaire : une carte différente des autres par sa forme, sa taille et sa composition, sans
+« terrasse + escalier ». `draft3d/level_ring.gd`, 100 × 100 m, ronde :
+- couronne de terre (rayons 28 → 46,5 m) autour d'un gouffre ; au centre, un îlot de 20 m de rayon (lieu du boss,
+  quatre piliers d'abri seulement, deux cercles pavés), relié par deux passerelles de 5 m (210° et 330°) ;
+- trois murs radiaux (30°, 150°, 270°) percés d'une brèche de 4 m : la Porte (sud, départ), l'Ossuaire (ouest :
+  contreforts et niches à bougies, sarcophages, murs effondrés), les Forges (est : établis, fûts, caisses, foyers) ;
+- chemin de ronde pavé (rayon 36 m) ; rempart circulaire, parapet bas au sud ;
+- le relief est le vide : ses bords (parois `_edge`, couche 8) arrêtent la marche, pas les tirs ; lueurs violettes
+  sous les rebords pour lire le contour. Pour gagner l'îlot, on fait le tour (brèche puis passerelle).
+- Construction : dalles en prisme convexe (`_slab`, collision par secteur de 5°, un seul maillage pour l'anneau),
+  pièces posées en coordonnées polaires (`polar`, `tangent_yaw`, `radial_yaw`) ; les points d'apparition s'écartent
+  de 3,5 m des décors pleins.
+- Captures : `docs/previews/cartes-3d/carte_6_*.webp` ; navigation : `navigation_6.webp`.
+
+**La tour (décidée le 16 novembre, à construire dans une tâche séparée, effort xhigh)** : le chapitre 6 est une tour.
+Chaque étage reprend l'anneau extérieur, avec un puits ouvert au centre (la lueur de la Faille, le sommet visible
+au-dessus) ; l'Anneau ci-dessus en est le sommet. Fin d'étage choisie : **durée** (option A, environ 3 min par
+étage), puis une rampe s'ouvre (tronçon d'anneau en pente douce le long du rempart, pas d'escalier) ; le gardien au
+deuxième étage, le Dévoreur au sommet. Varier d'un étage à l'autre : nombre et position des murs radiaux (2, 3,
+4), abris et décor des secteurs, rampe à l'opposé de la précédente. Technique : changer d'étage en gardant le
+Chasseur, ses améliorations et son niveau (`draft3d/run.gd`, partagé avec la session « Gameplay ») ; une classe
+d'anneau paramétrée par étage ; le contrôle vérifiera que la rampe relie deux étages. Ensuite : raccorder le
+chapitre 6 (données, nom FR/EN, bestiaire, déblocage après le chapitre 5, palette du rendu pixel avec la session
+« Art et rendu »).
 
 ## Règles de composition
 
@@ -118,15 +146,15 @@ praticables isolées (≥ 4 m², hors dessus de décor), départ, boss et appari
 ### Incohérences relevées sur les cartes 1 à 4 (15 novembre, non corrigées, en attente de validation)
 
 Cartes de navigation : `docs/previews/cartes-3d/navigation_<n>.webp`.
-- **Carte 1, Ruines** (8) : petite terrasse d'angle à un seul escalier ; quatre barrières du rebord des terrasses
-  posées à cheval sur le vide (−8 / 8 / 35 / 45, z −11,5) ; une porte encastrée dans un mur (1, 20,5) ; deux points
-  d'apparition inaccessibles au pied des escaliers latéraux de la terrasse (±14, −19).
+- **Carte 1, Ruines** (8, puis 4 au 16 novembre après des retouches d'une autre session) : petite terrasse d'angle à
+  un seul escalier ; deux barrières du rebord de la terrasse à cheval sur le vide (±8, z −11,5) ; une porte encastrée
+  dans un mur (1, 20,5).
 - **Carte 2, Cimetière** (2) : un sapin enterré dans le tertre (−38, −28) ; une lanterne dans un sapin (30, 10).
 - **Carte 3, Hameau** (40) : cinq arbres qui se chevauchent ou traversent la tour de guet (26–30, −13 à −19) ; trois
   points d'apparition dans le décor ou inaccessibles (−20, −30), (−4, 31), (4, 30). À vérifier, probablement faux
   positifs : 19 arbres « enterrés » dans les berges et 11 rochers de la rivière « flottants » ou dans un pont (le lit
   de la rivière n'a pas de sol de collision).
-- **Carte 4, Avant-poste** (14) : **escalier est du plateau bouché à son pied par des rochers** (14, −25,5) : le
+- **Carte 4, Avant-poste** (14, puis 13 au 16 novembre : le tunnel ne flotte plus) : **escalier est du plateau bouché à son pied par des rochers** (14, −25,5) : le
   plateau n'a donc qu'un accès ; camion et remorque enfoncés dans la banquise (11–15, 27–28) ; tunnel à 0,8 m
   au-dessus du sol (0, −4) ; caisses encastrées dans des conteneurs ou des rochers (−25, −24,5), (−22, −12,5) ;
   trois points d'apparition dans le décor (−24, −30), (44,5, 22 et 26).
@@ -148,6 +176,7 @@ Cartes de navigation : `docs/previews/cartes-3d/navigation_<n>.webp`.
 ## Reste à faire
 
 - Carte 5 : validation en jeu de la recomposition (15 novembre).
+- Carte 6 : la tour (étages, rampes, fin d'étage à la durée), puis le chapitre 6 (voir plus haut).
 - Cartes 1 à 4 : corriger les incohérences relevées ci-dessus (après validation du propriétaire).
 - Décision sur la carte 4 (hors DA ?).
 - Seconde passe de détail sur les cartes 1 à 4.

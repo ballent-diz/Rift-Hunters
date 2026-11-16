@@ -2,7 +2,8 @@ class_name DraftLevel
 extends NavigationRegion3D
 ## Carte de la base 3D : socle commun des niveaux (modules avec collision, navigation, points d'apparition).
 ## Chaque niveau en hérite et s'assemble dans `build()` : DraftLevelRuins (1), DraftLevelGraveyard (2),
-## DraftLevelVillage (3), DraftLevelOutpost (4), DraftLevelCity (5).
+## DraftLevelVillage (3), DraftLevelOutpost (4), DraftLevelCity (5),
+## DraftLevelRing (6).
 ## `DraftLevel.create(order)` donne la carte d'un chapitre.
 
 ## Emprise de la carte (x, z), départ du Chasseur, lieu d'apparition du boss.
@@ -30,6 +31,8 @@ static func create(order: int) -> DraftLevel:
 			return DraftLevelOutpost.new()
 		5:
 			return DraftLevelCity.new()
+		6:
+			return DraftLevelRing.new()
 	return DraftLevelRuins.new()
 
 
@@ -77,6 +80,8 @@ func _box(id: String, at: Vector3, size: Vector3, color: Color) -> void:
 func _fence(at: Vector3, size: Vector3, walk_only: bool = false) -> void:
 	var body := StaticBody3D.new()
 	body.name = "Fence"
+	# Repère pour le contrôle de composition (DraftLevelAudit) : paroi, pas relief.
+	body.set_meta(&"fence", true)
 	if walk_only:
 		body.collision_layer = 8
 	add_child(body)
