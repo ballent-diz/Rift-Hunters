@@ -92,7 +92,8 @@ func _mud(pattern: BossPatternData) -> float:
 	for i: int in int(params.get("count", 3)):
 		var angle: float = TAU * i / int(params.get("count", 3)) + rng.randf() * 0.6
 		var at: Vector3 = brain.enemies.level.closest(center + Vector3(cos(angle), 0, sin(angle)) * spread * rng.randf_range(0.4, 1.0))
-		brain.enemies.hazards.circle(at, radius, pattern.telegraph, brain.damage(pattern.damage), brain.fx_at(&"splash", radius))
+		brain.enemies.hazards.circle(at, radius, pattern.telegraph, brain.damage(pattern.damage),
+			brain.painted_at(["mud_impact"], Vector3.RIGHT, 0.1, &"splash", radius))
 		puddles.append({"pos": at, "radius": radius, "harden_at": _clock + pattern.telegraph + float(params.get("harden", 2.5)),
 			"crumble_at": _clock + pattern.telegraph + float(params.get("harden", 2.5)) + float(params.get("wall_time", 7.0)),
 			"disc": make_disc(at, radius, MUD), "wall": null})
@@ -118,6 +119,9 @@ func _step_mud() -> void:
 						+ away * (float(puddle["radius"]) + 0.8)) + Vector3.UP * 0.1
 				var side: float = float(puddle["radius"]) * 1.6
 				puddle["wall"] = make_block(puddle["pos"], Vector3(side, 2.2, side), MUD_WALL)
+				var radius_px: float = float(puddle["radius"]) / DraftHunter.UNIT
+				brain.painted(["mud_wall"], puddle["pos"], Vector3.RIGHT, -1.0, float(puddle["crumble_at"]) - _clock,
+					{"radius": radius_px, "width": radius_px * 1.5})
 				(puddle["disc"] as Node).queue_free()
 				puddle["disc"] = null
 		elif _clock >= float(puddle["crumble_at"]):
@@ -136,7 +140,7 @@ func _root(pattern: BossPatternData) -> float:
 	var radius: float = float(params.get("slam_radius", 130.0)) * DraftHunter.UNIT
 	brain.enemies.hazards.line(foe.pos, to_target.normalized(), maxf(to_target.length(), 1.0), 0.6, pattern.telegraph, 0.0)
 	brain.enemies.hazards.circle(target, radius, pattern.telegraph + delay, brain.damage(pattern.damage),
-		brain.fx_at(&"root_snare", radius))
+		brain.painted_at(["root_leash"], to_target, 0.6, &"root_snare", radius))
 	brain.play_clip([&"root_lash", &"attack"], pattern.telegraph)
 	intro("BOSS_LEASH_INTRO")
 	return pattern.telegraph + 0.4
@@ -177,6 +181,7 @@ func _step_leeches() -> void:
 			continue
 		if leech.pos.distance_to(foe.pos) < foe.radius + leech.radius + 0.4:
 			heal(foe.max_hp * float(leech.get_meta(&"heal")), float(leech.get_meta(&"cap")))
+			brain.painted(["leech_feed"], leech.pos, Vector3.RIGHT)
 			brain.enemies.vanish(leech)
 			leeches.remove_at(i)
 
@@ -234,7 +239,8 @@ func on_hit(dealt: float) -> void:
 		return
 	facets[side] -= dealt / maxf(_facet_mult, 0.01)
 	if facets[side] <= 0.0:
-		brain.fx(&"ice_shatter", brain.foe.pos + (SIDES[side] as Vector3) * brain.foe.radius + Vector3.UP, 1.4)
+		if not brain.painted(["facet_break"], brain.foe.pos + (SIDES[side] as Vector3) * brain.foe.radius, SIDES[side]):
+			brain.fx(&"ice_shatter", brain.foe.pos + (SIDES[side] as Vector3) * brain.foe.radius + Vector3.UP, 1.4)
 		_facet_regrow_at = _clock + _facet_regrow
 
 
@@ -377,6 +383,7 @@ func _whirlpool(pattern: BossPatternData) -> float:
 	var radius: float = float(params.get("collapse_radius", 190.0)) * DraftHunter.UNIT
 	whirl = {"from": _clock + pattern.telegraph, "until": _clock + pattern.telegraph + duration,
 		"pull": float(params.get("pull", 120.0)) * DraftHunter.UNIT}
+	brain.painted(["whirlpool"], brain.foe.pos, Vector3.RIGHT, -1.0, pattern.telegraph + duration)
 	brain.enemies.hazards.circle(brain.foe.pos, radius, pattern.telegraph + duration + float(params.get("collapse_delay", 0.9)),
 		brain.damage(pattern.damage), brain.fx_at(&"splash", radius))
 	brain.play_clip([&"whirlpool", &"attack"], pattern.telegraph + duration)
@@ -429,6 +436,8 @@ func _swallow(pattern: BossPatternData) -> float:
 		"free": foe.max_hp * float(params.get("free_ratio", 0.05)), "stun": float(params.get("stun", 1.5)),
 		"damage": brain.damage(14.0)}
 	brain.play_clip([&"swallow", &"attack"], pattern.telegraph + 1.5)
+	brain.painted(["swallow"], foe.pos, Vector3.RIGHT, -1.0, pattern.telegraph + 1.5,
+		{"radius": foe.radius / DraftHunter.UNIT * 0.45})
 	intro("BOSS_SWALLOW_INTRO_3D")
 	return pattern.telegraph + 1.6
 
@@ -441,6 +450,7 @@ func _step_swallow() -> void:
 		# Assez de coups pendant la digestion : il s'étrangle, sonné, sans soin ni crachat.
 		swallowed = {}
 		brain.stun(1.5)
+		brain.painted(["echo_release"], foe.pos, Vector3.RIGHT)
 		return
 	if _clock < float(swallowed["until"]):
 		return

@@ -561,3 +561,28 @@ func test_floor_change_clears_boss_mechanics() -> void:
 	check(not glauque.puddles.is_empty(), "flaques de vase posées")
 	run.enemies.clear_all()
 	check(glauque.puddles.is_empty() and run.enemies.boss == null, "changement d'étage : boss et vase retirés")
+
+
+func test_painted_effects_in_3d() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"source_devourer", 6.0)
+	foe.brain._next_at = INF
+	var before: int = DraftPaintedFx.active(run)
+	check(before >= 1, "rugissement d'entrée peint")
+	check(foe.brain.painted(["claw"], foe.pos, Vector3.RIGHT, DraftBossBrain.CONTACT_STRIKE), "griffes peintes du Dévoreur")
+	var painted: Array[Node] = run.get_tree().get_nodes_in_group(&"draft_painted_fx")
+	check_eq(painted.size(), before + 1, "un effet peint de plus dans le monde 3D")
+	var node := painted[painted.size() - 1] as DraftPaintedFx
+	check(node.find_children("*", "SubViewport", true, false).size() == 1, "dessiné dans un rendu intermédiaire")
+	check(not foe.brain.painted(["introuvable"], foe.pos), "scène absente : l'effet PixelFX reste")
+	_bring_to(foe, 0.4)
+	check(run.get_tree().get_nodes_in_group(&"draft_painted_fx").size() >= 2, "transition peinte")
+	for i: int in 10:
+		foe.brain.painted(["heavy_slam"], foe.pos)
+	check(DraftPaintedFx.active(run) <= DraftPaintedFx.MAX_ACTIVE, "plafond d'effets peints")
+	await _frames(150)
+	check(DraftPaintedFx.active(run) == 0, "les effets se retirent seuls")
+	var glauque: DraftEnemies.Foe = _spawn(&"glauquemire", 8.0)
+	check(glauque.brain.painted(["mud_impact"], glauque.pos), "vase peinte de Glauquemire")
+	var astravorn: DraftEnemies.Foe = _spawn(&"astravorn", 8.0)
+	check(not astravorn.brain.painted(["claw"], astravorn.pos), "sans dossier peint : rien")

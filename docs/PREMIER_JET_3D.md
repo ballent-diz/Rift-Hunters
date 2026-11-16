@@ -72,8 +72,8 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 | Campagne | Un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part `user://draft3d_progress.json` | `progress.gd` |
 
 **Non raccordé, et pourquoi**
-- Effets peints des boss et barrières peintes animées : ce sont des scènes 2D ; les afficher en 3D demande un rendu
-  intermédiaire par effet. Les boss utilisent les PixelFX à la place.
+- Barrières peintes animées (scènes 2D). Les effets peints des boss sont affichés au sol depuis le 16 novembre
+  (`draft3d/painted_fx.gd`, rendu intermédiaire par effet, [BOSS_V2.md](design/BOSS_V2.md)).
 - Techniques propres à chaque monstre ; les élites ne sont pas repris. Boss : phases et techniques de leurs données
   jouées en gestes 3D depuis le 16 novembre ; mécaniques phares importées lot par lot ([BOSS_V2.md](design/BOSS_V2.md)).
 - Appel de meute et Permutation (Échos), Failles jumelles ; les nœuds de l'arbre qui ne sont pas de simples statistiques.

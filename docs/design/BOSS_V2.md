@@ -301,3 +301,18 @@ Parties bot du 16 novembre (mode dieu, boss à 20 s, aucune erreur de script) : 
 bot met 3 à 17 minutes de jeu à abattre le Dévoreur (chapitres 4 et 5 les plus longs : Nivorath et l'Abyssarque ont
 le plus de PV et réduisent les coups pendant leurs mécaniques). Si les combats paraissent trop longs en jouant,
 baisser `DraftTuning.boss_hp_mult` (0,55) plutôt que les mécaniques.
+
+### Effets peints en 3D (16 novembre)
+
+`draft3d/painted_fx.gd` (`DraftPaintedFx`) : les scènes peintes 2D de `BossData.vfx_dir` (Dévoreur des Sources,
+Glauquemire) sont dessinées dans un `SubViewport` transparent posé à plat au sol (le dessin v1 est vu de dessus ; un
+pixel v1 = `DraftHunter.UNIT` m). Six effets peints au plus en même temps ; au-delà, ou si la scène manque, le PixelFX
+reste. `DraftBossBrain.painted` / `painted_at` choisissent la scène (`params.vfx` des données, puis le nom par défaut
+du geste, version `phase2_` d'abord) et la démarrent au repère de contact v1 (griffes 12 %, écrasements 30 %).
+- **Dévoreur des Sources** : griffes, balayage racinaire, écrasement, souffle (et leurs versions de seconde phase),
+  invocation, rugissement d'entrée, transformation, réaction aux gros coups, mort.
+- **Glauquemire** : griffes, écrasement, impact et mur de vase (tenu tant que le mur dure), racine jaillissante,
+  sangsue qui le nourrit, facette brisée, tourbillon (tenu), engloutissement (tenu), étranglement, transition de phase.
+- Non repris : miroirs, facettes, cœur, raz-de-marée et rayon de prisme en boucles peintes (formes 3D gardées : un
+  rendu intermédiaire par boucle permanente coûterait trop) ; marqueurs d'annonce `indicator` (les zones 3D restent).
+- Captures : `docs/previews/boss-v2/` (rendu logiciel). Rendu pixel 3D (F4) non vérifié avec ces effets : à juger.
