@@ -63,6 +63,7 @@ la conception des niveaux. Guide général de la v2 : `docs/PREMIER_JET_3D.md`.
 | 4 | `level_outpost.gd` | Avant-poste des Glaces (base spatiale) | dans `main` ; **hors DA à mon avis** (science-fiction), question posée au propriétaire, sans réponse |
 | 5 | `level_city.gd` | Cité Effondrée (ruines, pack donjon, nuit) | recomposée le 15 novembre (plan en damier), contrôle sans incohérence ; à valider en jeu |
 | 7 | `level_pass.gd` | Défilé Hurlant (gorge longue, rochers modelés, pack médiéval) | ébauche montrée le 16 novembre ; lancé par `--chapter=7` en attendant le chapitre 7 |
+| 8 | `level_marsh.gd` | Marais des Marées (îlots, levées, marée) | premier jet du 16 novembre ; `--chapter=8` en attendant le chapitre 8 |
 | 6 | `level_ring.gd`, `tower.gd` | Tour de la Faille : Garnison, Cellules, Anneau de la Faille (sommet) | sommet validé sur vue d'ensemble ; tour jouable par `--chapter=6` en attendant le chapitre 6 |
 
 Niveau 5 : une première version « ville moderne » (KayKit City Builder, voitures) a été refusée, hors DA et hors
@@ -148,6 +149,34 @@ longue et la plus étroite) : `draft3d/level_pass.gd`, 170 × 28 m, que la camé
   vue, falaise qui tient). Captures : `docs/previews/cartes-3d/carte_7_*.webp`, `navigation_7.webp`.
 - Reste : raccordement du chapitre 7 (nom, bestiaire, déblocage, palette) ; d'ici là, `--chapter=7` joue avec le
   bestiaire du chapitre 5.
+
+## Carte 8 : le Marais des Marées (16 novembre)
+
+Option A retenue par le propriétaire : la seule carte qui change pendant la partie. `draft3d/level_marsh.gd`,
+90 × 90 m : huit îlots (départ au sud, sanctuaire du boss au centre) reliés par des levées de terre dans une eau
+trouble ; ni étage ni escalier.
+- **Levées hautes** (au niveau des îlots) : jamais noyées ; elles font le grand tour par l'ouest et l'est jusqu'aux
+  îlots du nord, puis au sanctuaire. **Levées basses** (25 cm plus bas, couleur terre claire) : raccourcis (sud →
+  sanctuaire, ouest et est → sanctuaire, entre les petits îlots, entre les îlots du nord).
+- **Marée** (cycle de 80 s : basse 50 s, montée 8 s, haute 16 s, descente 6 s) : l'eau passe de −0,35 à +0,14 m et
+  couvre les levées basses. Bandeaux « La marée monte… » / « La marée se retire… » (FR/EN). À marée haute :
+  - une levée noyée sort de la navigation, recalculée en tâche de fond (les monstres font le tour) ;
+  - ses deux barrières (parois de marche) se ferment dès que le Chasseur n'est plus dessus : il n'y entre plus, mais
+    n'y est jamais piégé ;
+  - l'eau n'arrête ni la vue ni les tirs ; le sanctuaire ne s'atteint plus que par le nord.
+- Rives : parois de marche calculées sur le contour de la terre (`_shores`), sans gêner la vue. Le fond n'a pas de
+  collision (la navigation ne s'y pose pas).
+- Vérification : `--chapter=8 --tide-at=61` (partir à marée haute) ; `set_tide(true/false)` pour les essais. Essai
+  `test_eighth_level_marsh_tide` (chemin direct à marée basse, détour par le nord à marée haute, contrôle de
+  composition à marée haute, levée fermée puis traversable, tir par-dessus l'eau, cycle).
+- Animation de l'eau (ébauche) : plan transparent qui monte et descend. Pour une marée qui se lit parfaitement :
+  textures et boucles animées en pixel art par Codex (prompt n° 3 de `docs/prompts/CODEX_EN_ATTENTE.md`), shader de
+  l'eau (rides, écume le long des rives, vase mouillée après le retrait) par la session « Art et rendu » ; le moteur
+  de compatibilité n'offrant pas la profondeur, la ligne d'écume se calculera à partir du contour des terres
+  (`_land`), connu de la carte.
+- Correctif commun : `DraftLevel._slab` oriente toujours ses polygones dans le même sens (le rendu pixel élimine les
+  faces vues de dos) ; les passerelles de l'Anneau, sombres jusque-là, s'affichent enfin.
+- Captures : `docs/previews/cartes-3d/carte_8_*.webp`, `navigation_8.webp`.
 
 ## Règles de composition
 

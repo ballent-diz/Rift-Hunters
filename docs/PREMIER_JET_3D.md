@@ -160,6 +160,13 @@ Carrière, Cirque, Tour brisée, Arène des Pierres levées où apparaît le bos
 dont deux doubles. Falaise au nord, rochers bas au sud ; ni étage ni escalier. `--chapter=7` la lance avec le
 bestiaire du chapitre 5 en attendant le chapitre 7.
 
+## Carte : huitième niveau, le Marais des Marées
+
+90 × 90 m, îlots reliés par des levées dans une eau trouble (`draft3d/level_marsh.gd`). Toutes les 80 s, la marée
+monte et noie les levées basses : on n'y entre plus, les monstres font le tour, on tire toujours par-dessus l'eau.
+Sanctuaire du boss au centre, jamais noyé. `--chapter=8` (bestiaire du chapitre 5 en attendant le chapitre 8),
+`--tide-at=61` pour partir à marée haute. Détails : `docs/maps/CARTES_3D.md`.
+
 ## Vérifications
 
 `tests/unit/test_draft3d.gd` (11 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et

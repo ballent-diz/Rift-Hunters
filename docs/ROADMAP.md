@@ -1275,3 +1275,12 @@ roche (deux doubles), arène de menhirs au bout. `draft3d/level_pass.gd`, essai 
 incohérence ; `--chapter=7`. Rochers modelés (pack nature inaccessible depuis le conteneur), décor du pack médiéval.
 - **À valider par le propriétaire** : proportions, largeur des goulets, en jeu.
 - **Suite** : raccordement des chapitres 6 et 7 (noms, bestiaires, déblocage, palettes).
+
+## Carte 8 : le Marais des Marées — 16 novembre 2026 (session « Cartes »)
+
+Carte qui change pendant la partie (option A) : îlots, levées hautes et basses, marée toutes les 80 s qui noie les
+levées basses (navigation recalculée, barrières qui ne piègent jamais le Chasseur, tirs par-dessus l'eau).
+`draft3d/level_marsh.gd`, essai `test_eighth_level_marsh_tide`, contrôle sans incohérence à marée basse et haute.
+- **À valider par le propriétaire** : rythme de la marée, lisibilité, en jeu.
+- **Prompt Codex n° 3** (eau, écume, vase, éclaboussures en pixel art) en attente ; shader de l'eau à confier à la
+  session « Art et rendu ».

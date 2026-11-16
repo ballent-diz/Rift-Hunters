@@ -171,6 +171,7 @@ func _ready() -> void:
 		level = DraftLevel.create(chapter)
 	add_child(level)
 	level.build()
+	level.announce.connect(_on_level_announce)
 	_build_lighting()
 	if _options.has("pixel"):
 		DraftPixelRender.preferred = str(_options["pixel"]) != "0"
@@ -381,6 +382,11 @@ func _spawn_waves(delta: float) -> void:
 		hud.banner(tr("DRAFT_SWARM"), 2.0)
 
 
+## Événement annoncé par la carte (marée du Marais) : bandeau.
+func _on_level_announce(key: String) -> void:
+	hud.banner(tr(key), 2.5)
+
+
 func guardian_defeated() -> bool:
 	return _guardian_spawned and enemies.boss == null
 
@@ -407,6 +413,7 @@ func change_level(next: DraftLevel) -> void:
 	level = next
 	add_child(level)
 	level.build()
+	level.announce.connect(_on_level_announce)
 	pixel.attach_level(level, sun)
 	enemies.level = level
 	hunter.respawn = level.start
