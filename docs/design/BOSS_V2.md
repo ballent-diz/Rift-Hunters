@@ -181,8 +181,8 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
 - **Souffle arrêté par le décor** : `DraftHazards.line(..., covered)` ; un obstacle entre la gueule et le Chasseur
   l'abrite.
 - Double écrasement, balayage racinaire, clips `phase2_*`, `roar` d'intro, `transform` et `phase2_idle` : socle (lot 0).
-- Reste : effets peints (`assets/vfx/bosses/source_devourer`), remplacés par des PixelFX ; ralenti au contact d'un
-  orbe (le Chasseur 3D n'a pas d'entrave).
+- Orbe touché sans Ruée : dégâts et ralenti 1,5 s (`DraftHunter.hinder`, ajouté au Chasseur 3D).
+- Reste : effets peints (`assets/vfx/bosses/source_devourer`), remplacés par des PixelFX.
 - Bot (peu habile, ne vise pas les orbes) : défaite 70 s environ après l'arrivée du boss, à juger en jouant.
 
 ### Lot 2 — gardiens du chapitre 1 (16 novembre)
@@ -207,3 +207,16 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
   arrêté par le décor.
 - **Mini-boss** : à sa seconde phase, Pyrevorn appelle le Titan de caldeira et le Wyrmeau de flammes (gardiens de
   palier de la carte 10 en v1), PV × 4, agrandis.
+
+### Lot 4 — gardiens du chapitre 2 (16 novembre)
+
+- **Gardien du bûcher, Charge du bûcher** : la charge commune lit `speed`, `length` et `stun` des données (21 m/s,
+  28 m, assommé 1,8 s contre le décor), bandeau `BOSS_RAM_INTRO`.
+- **Chevalier calciné, Cercle du duel** (`bosses/duel_circle.gd`) : cercle de feu de 10,5 m au moins entre lui et le
+  Chasseur, 8 s (9 s en phase 2) ; dedans, coups × 1,5 ; dehors, brûlure toutes les 0,5 s. Bandeau sans les Échos
+  (`BOSS_DUEL_INTRO_3D`, nouvelle clé FR/EN).
+- **Reine-veuve, Fils tendus** (`bosses/silk_threads.gd`) : 4 fils (6 en phase 2) de 12,6 m autour du Chasseur, 14 s ;
+  un fil touché englue 1,2 s (`DraftHunter.stick`, seule une Ruée libère) et la Reine bondit dessus ; une Ruée à
+  travers un fil le tranche.
+- **Matrone des scories, Carapace à fendre** (`bosses/slag_shell.gd`) : coups × 0,15 ; sa pluie de scories fait tomber
+  des roches autour du Chasseur ; une roche qui tombe sur elle la fend 10 s (coups × 1,5, sonnée 1 s).

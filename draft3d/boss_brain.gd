@@ -118,6 +118,12 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftMistVeil.new())
 		&"crater_sequence":
 			result.append(DraftCraterSequence.new())
+		&"duel_circle":
+			result.append(DraftDuelCircle.new())
+		&"silk_threads":
+			result.append(DraftSilkThreads.new())
+		&"slag_rain":
+			result.append(DraftSlagShell.new())
 	return result
 
 
@@ -176,6 +182,16 @@ func banner_once(key: String) -> void:
 		return
 	_banners[key] = true
 	enemies.run.call("boss_banner", key)
+
+
+## Bond sur le Chasseur commandé par une mécanique (Reine-veuve sur une proie engluée).
+func pounce(pattern: BossPatternData) -> void:
+	if not _move.is_empty() or _stunned > 0.0 or _transition > 0.0:
+		return
+	_busy = 0.0
+	var to_hunter: Vector3 = enemies.hunter.global_position - foe.pos
+	to_hunter.y = 0.0
+	_gesture_leap(pattern, to_hunter.normalized())
 
 
 func add_mechanic(mechanic: DraftBossMechanic) -> void:
@@ -532,11 +548,17 @@ func _gesture_burst(pattern: BossPatternData, _aim: Vector3) -> float:
 
 
 func _gesture_charge(pattern: BossPatternData, aim: Vector3) -> float:
-	var length: float = clampf(foe.pos.distance_to(enemies.hunter.global_position) + 6.0, 10.0, 22.0)
+	# Charge (Charge du bûcher : `speed`, `length`, `stun` des données) : ligne annoncée, puis course droite ; contre
+	# le décor, il s'assomme.
+	var speed: float = clampf(float(pattern.params.get("speed", 500.0)) * UNIT, 10.0, 22.0)
+	var reach: float = foe.pos.distance_to(enemies.hunter.global_position) + 6.0
+	var length: float = clampf(maxf(reach, float(pattern.params.get("length", 0.0)) * UNIT), 10.0, 30.0)
 	enemies.hazards.line(foe.pos, aim, length, foe.radius * 2.0 + 0.6, pattern.telegraph, 0.0)
 	foe.view.set_tint(Color(1.5, 1.05, 0.7))
-	_move = {"kind": &"charge", "dir": aim, "wait": pattern.telegraph, "left": length / CHARGE_SPEED,
-		"damage": damage(pattern.damage), "hit": false}
+	_move = {"kind": &"charge", "dir": aim, "wait": pattern.telegraph, "left": length / speed, "speed": speed,
+		"damage": damage(pattern.damage), "hit": false, "stun": float(pattern.params.get("stun", STUN_TIME))}
+	if pattern.kind == &"pyre_ram":
+		banner_once("BOSS_RAM_INTRO")
 	return 0.0
 
 
@@ -591,18 +613,20 @@ func _step_move(delta: float) -> void:
 
 func _step_charge(delta: float) -> void:
 	var direction: Vector3 = _move["dir"]
-	var next: Vector3 = foe.pos + direction * CHARGE_SPEED * delta
+	var speed: float = float(_move.get("speed", CHARGE_SPEED))
+	var next: Vector3 = foe.pos + direction * speed * delta
 	var landed: Vector3 = enemies.level.closest(next + Vector3.UP * 0.2)
-	foe.vel = direction * CHARGE_SPEED
+	foe.vel = direction * speed
 	# Contre le décor ou un mur de faille : il s'assomme (coups × 1,5) ; se placer devant un obstacle paie.
 	# Avance réelle sur la navigation : moins de la moitié du pas voulu, c'est le décor qui l'arrête.
 	var progress: float = (landed - foe.pos).dot(direction)
-	if progress < CHARGE_SPEED * delta * 0.5 or bool(enemies.run.call("barrier_blocks", foe.pos, next)):
+	if progress < speed * delta * 0.5 or bool(enemies.run.call("barrier_blocks", foe.pos, next)):
+		var stun_time: float = float(_move.get("stun", STUN_TIME))
 		_move = {}
 		foe.vel = Vector3.ZERO
 		foe.view.set_tint(Color.WHITE)
 		fx(&"dirt_explosion", foe.pos + direction * foe.radius + Vector3.UP * 0.6, 1.8)
-		stun(STUN_TIME)
+		stun(stun_time)
 		return
 	foe.pos = landed
 	var hunter: DraftHunter = enemies.hunter

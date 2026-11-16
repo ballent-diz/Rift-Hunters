@@ -1817,6 +1817,7 @@ BOSS_PATTERN_THREADS,Fils tendus,Spun Threads
 BOSS_PATTERN_BROOD,Couvée,Brood
 BOSS_PATTERN_SLAG_RAIN,Pluie de scories,Slag Rain
 BOSS_DUEL_INTRO,"Cercle du duel : les Échos restent dehors, vos coups portent davantage, mais sortir du cercle brûle.","Duel circle: your Echoes stay outside and your hits land harder, but leaving the circle burns."
+BOSS_DUEL_INTRO_3D,"Cercle du duel : dedans, vos coups portent davantage ; sortir du cercle brûle.","Duel circle: inside, your hits land harder; leaving the circle burns."
 BOSS_THREADS_INTRO,Fils tendus : les toucher vous colle sur place et la Reine bondit. Une Ruée à travers un fil le tranche.,Spun threads: touching one sticks you in place and the Queen pounces. Dash through a thread to cut it.
 BOSS_SHELL_INTRO,Sa carapace arrête presque tous les coups : attirez-la sous les roches qui tombent pour la fendre.,Her shell stops almost every hit: lure her under falling rocks to crack it.
 BOSS_SHELL_CRACKED,Carapace fendue !,Shell cracked!

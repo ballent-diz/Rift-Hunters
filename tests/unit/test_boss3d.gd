@@ -254,3 +254,57 @@ func test_pyrevorn_craters_skyfall_and_escorts() -> void:
 	_bring_to(foe, 0.4)
 	check_eq(craters.escorts.size(), 2, "seconde phase : Titan de caldeira et Wyrmeau de flammes")
 	check(run.enemies.count() >= count + 2, "escorte dans la partie")
+
+
+func test_ash_guardians() -> void:
+	await _start()
+	# Gardien du bûcher : charge longue des données, assommé contre le décor.
+	var pyre: DraftEnemies.Foe = _spawn(&"pyre_guardian", 6.0)
+	var ram: BossPatternData = _pattern(pyre.boss, &"pyre_ram")
+	pyre.brain._gesture_charge(ram, Vector3(0, 0, -1))
+	check_near(float(pyre.brain._move["speed"]), float(ram.params["speed"]) * DraftHunter.UNIT, 0.01,
+		"charge du bûcher : vitesse des données")
+	run.enemies.hit(pyre, 1000000.0)
+	# Chevalier calciné : cercle du duel.
+	var knight: DraftEnemies.Foe = _spawn(&"cinder_champion", 4.0)
+	var duel := _mechanic(knight, &"duel_circle") as DraftDuelCircle
+	knight.brain._next_at = INF
+	duel.perform(_pattern(knight.boss, &"duel_circle"))
+	await _frames(90)
+	check(duel.active(), "cercle du duel tracé")
+	check_near(duel.damage_mult(), 1.5, 0.001, "dedans : coups × 1,5")
+	run.hunter.god_mode = false
+	run.hunter.global_position = duel.circle["center"] + Vector3(float(duel.circle["radius"]) + 3.0, 0, 0)
+	await _frames(60)
+	check(duel.burns >= 1, "dehors : le Chasseur brûle")
+	run.hunter.god_mode = true
+	run.enemies.hit(knight, 1000000.0)
+	run.hunter.global_position = Vector3(0, 0.2, 0)
+	run.hunter.reset_motion()
+	await _frames(5)
+	# Reine-veuve : fils tendus.
+	var widow: DraftEnemies.Foe = _spawn(&"widow_queen", 8.0)
+	var silk := _mechanic(widow, &"silk_threads") as DraftSilkThreads
+	widow.brain._next_at = INF
+	silk.perform(_pattern(widow.boss, &"silk_threads"))
+	check(silk.threads.size() >= 4, "fils tendus autour du Chasseur")
+	var thread: Dictionary = silk.threads[0]
+	run.hunter.global_position = ((thread["a"] as Vector3) + (thread["b"] as Vector3)) * 0.5 + Vector3.UP * 0.1
+	await _frames(3)
+	check(silk.caught >= 1 and run.hunter.stuck_left > 0.0, "un fil touché colle sur place")
+	await _frames(10)
+	check(widow.brain.airborne(), "la Reine bondit sur sa proie")
+	var count: int = silk.threads.size()
+	run.hunter.dash_time = 0.2
+	var other: Dictionary = silk.threads[silk.threads.size() - 1]
+	run.hunter.global_position = ((other["a"] as Vector3) + (other["b"] as Vector3)) * 0.5 + Vector3.UP * 0.1
+	await _frames(2)
+	check(silk.threads.size() < count, "une Ruée tranche le fil")
+	run.enemies.hit(widow, 1000000.0)
+	# Matrone des scories : carapace fendue par une roche qui tombe sur elle.
+	var matron: DraftEnemies.Foe = _spawn(&"slag_matriarch", 5.0)
+	var shell := _mechanic(matron, &"slag_rain") as DraftSlagShell
+	check_near(matron.brain.damage_mult(), 0.15, 0.001, "carapace : coups × 0,15")
+	shell._rock_lands(matron.pos, 2.5)
+	check(shell.cracked() and matron.brain.stunned(), "roche tombée sur elle : carapace fendue, sonnée")
+	check(matron.brain.damage_mult() >= 1.5, "fendue : coups × 1,5")

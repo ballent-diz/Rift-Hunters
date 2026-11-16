@@ -97,6 +97,7 @@ func _step_orb(orb: Dictionary, hunter: DraftHunter, delta: float) -> bool:
 	if to_hunter.length() < reach:
 		if hunter.take_damage(float(orb["damage"])) > 0.0:
 			hits += 1
+			hunter.hinder(0.6, 1.5)
 			brain.enemies.run.call("on_hunter_hit", foe)
 		brain.fx(&"splash", orb["pos"], 1.0)
 		return false
