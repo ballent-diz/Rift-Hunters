@@ -1255,3 +1255,13 @@ des murs à brèche. Forme et décor validés sur vue d'ensemble par le proprié
 - **Décidé** : le chapitre 6 sera une tour ; chaque étage reprend l'anneau extérieur, l'Anneau en est le sommet ;
   fin d'étage à la durée (option A), rampe vers l'étage suivant. Plan : docs/maps/CARTES_3D.md.
 - **Suite** : la tour (tâche séparée, effort xhigh conseillé), puis raccordement du chapitre 6.
+
+## La tour du chapitre 6 — 16 novembre 2026 (session « Cartes »)
+
+Trois étages en anneau joués à la suite (`draft3d/tower.gd`) : la Garnison, les Cellules (gardien), le Sommet
+(l'Anneau de la Faille, Dévoreur). Fin d'étage à la durée (3 min, option A choisie par le propriétaire ; aux Cellules,
+gardien vaincu en plus), herse au pied d'une rampe le long du rempart, palier de sortie qui fait monter d'un étage.
+`DraftRun.change_level` change d'étage en gardant le Chasseur ; réglages dans `tuning.tres` (groupe « Tour »). Essai
+`test_tower_floors_climb_to_the_summit`, contrôle de composition des trois étages (sortie atteignable).
+- **À valider par le propriétaire** : la tour en jeu (rythme des étages, lisibilité de la rampe).
+- **Suite** : raccorder le chapitre 6 (données, nom FR/EN, bestiaire, déblocage, palette).

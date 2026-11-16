@@ -48,6 +48,12 @@ extends Resource
 @export var boss_time: float = 480.0
 @export var boss_hp_mult: float = 0.55
 @export var boss_damage_mult: float = 0.8
+@export_group("Tour du chapitre 6")
+## Durée d'un étage avant l'ouverture de la rampe (s), délai du gardien après l'arrivée à son étage, délai minimal
+## du Dévoreur après l'arrivée au sommet (docs/maps/CARTES_3D.md).
+@export var tower_floor_time: float = 180.0
+@export var tower_guardian_delay: float = 45.0
+@export var tower_boss_delay: float = 30.0
 @export_group("Vagues")
 ## Début (s), apparitions par seconde, plafond d'ennemis en vie. Le mélange vient du bestiaire du chapitre
 ## (DraftRoster.mix) : chaque palier ouvre de nouveaux monstres.
