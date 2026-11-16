@@ -78,7 +78,7 @@ var _counter: int = 0
 var _frame: int = 0
 
 
-func spawn(data: EnemyData, at: Vector3) -> Foe:
+func spawn(data: EnemyData, at: Vector3, size: float = 1.0) -> Foe:
 	var foe := Foe.new()
 	foe.data = data
 	foe.max_hp = data.max_hp * hp_mult
@@ -89,7 +89,7 @@ func spawn(data: EnemyData, at: Vector3) -> Foe:
 	foe.defense = data.defense
 	foe.xp = data.xp_value
 	foe.cooldown = rng.randf_range(0.5, 2.0)
-	_add(foe, data.visual.visual_id, at, 1.0)
+	_add(foe, data.visual.visual_id, at, size)
 	return foe
 
 
@@ -226,7 +226,8 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 			# Charge, bond, transition, technique : le cerveau tient la position ; le contact blesse toujours.
 			if not foe.brain.moves_itself():
 				foe.vel = Vector3.ZERO
-			_contact(foe, distance, climb)
+			if not foe.brain.airborne():
+				_contact(foe, distance, climb)
 			foe.view.push_position(foe.pos, delta, false)
 			return
 		wish = foe.brain.wish

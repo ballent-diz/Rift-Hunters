@@ -48,6 +48,8 @@ const GESTURE_CLIPS := {
 const CHARGE_SPEED := 15.0
 const LEAP_TIME := 1.1
 const LEAP_HEIGHT := 4.0
+## Hauteur hors de l'écran pendant un envol (Pyrevorn).
+const SKY_HEIGHT := 16.0
 const STUN_TIME := 1.6
 const STUN_DAMAGE_MULT := 1.5
 const TRANSITION_DAMAGE_MULT := 0.2
@@ -114,6 +116,8 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftStarCrown.new())
 		&"mist_veil":
 			result.append(DraftMistVeil.new())
+		&"crater_sequence":
+			result.append(DraftCraterSequence.new())
 	return result
 
 
@@ -480,12 +484,18 @@ func _gesture_beam(pattern: BossPatternData, aim: Vector3) -> float:
 
 
 func _gesture_sweep_beam(pattern: BossPatternData, aim: Vector3) -> float:
-	# Rayon qui balaie : cinq traits annoncés l'un après l'autre, d'un côté à l'autre.
+	# Rayon qui balaie (Œil de la Faille) : traits annoncés l'un après l'autre d'un côté à l'autre de l'arc ; le décor
+	# l'arrête, on lit le sens du balayage et on se met à couvert.
 	var side: float = 1.0 if enemies.rng.randf() < 0.5 else -1.0
-	for i: int in 5:
-		var direction: Vector3 = aim.rotated(Vector3.UP, side * deg_to_rad(-50.0 + 25.0 * i))
-		enemies.hazards.line(foe.pos, direction, 22.0, 1.8, pattern.telegraph + 0.18 * i, damage(pattern.damage * 0.8))
-	return pattern.telegraph + 1.1
+	var arc: float = deg_to_rad(float(pattern.params.get("arc", 100.0)))
+	var steps: int = clampi(int(pattern.params.get("steps", 5)), 3, 14)
+	var sweep: float = float(pattern.params.get("sweep_time", 0.8))
+	var length: float = clampf(float(pattern.params.get("length", 730.0)) * UNIT, 14.0, 28.0)
+	for i: int in steps:
+		var direction: Vector3 = aim.rotated(Vector3.UP, side * (-arc * 0.5 + arc * i / (steps - 1)))
+		enemies.hazards.line(foe.pos, direction, length, 1.8, pattern.telegraph + sweep * i / (steps - 1),
+			damage(pattern.damage * 0.8), true)
+	return pattern.telegraph + sweep + 0.3
 
 
 func _gesture_breath(pattern: BossPatternData, aim: Vector3) -> float:
@@ -531,11 +541,21 @@ func _gesture_charge(pattern: BossPatternData, aim: Vector3) -> float:
 
 
 func _gesture_leap(pattern: BossPatternData, _aim: Vector3) -> float:
-	var land: Vector3 = enemies.level.closest(enemies.hunter.global_position)
-	var reach: float = foe.radius + 2.2
-	enemies.hazards.circle(land, reach, pattern.telegraph + LEAP_TIME, damage(pattern.damage),
-		fx_at(&"quake", reach))
-	_move = {"kind": &"leap", "from": foe.pos, "to": land, "wait": pattern.telegraph, "t": 0.0}
+	var reach: float = foe.radius + clampf(float(pattern.params.get("radius", 75.0)) * UNIT, 1.8, 5.0)
+	var airborne: float = float(pattern.params.get("airborne", 0.0))
+	_move = {"kind": &"leap", "from": foe.pos, "wait": pattern.telegraph, "t": 0.0, "reach": reach,
+		"damage": damage(pattern.damage), "rings": int(pattern.params.get("rings", 0)), "airborne": airborne,
+		"fall": pattern.telegraph}
+	if airborne <= 0.0:
+		# Bond : la zone d'arrivée est annoncée tout de suite, sous le Chasseur.
+		var land: Vector3 = enemies.level.closest(enemies.hunter.global_position)
+		_move["to"] = land
+		enemies.hazards.circle(land, reach, pattern.telegraph + LEAP_TIME, _move["damage"], fx_at(&"quake", reach))
+	else:
+		# Envol et chute : il quitte l'écran, suit le Chasseur, puis la zone de chute s'annonce sous lui.
+		_move["wait"] = 0.3
+		_move["stage"] = &"rise"
+		fx(&"ring_charge", foe.pos + Vector3.UP * 0.3, foe.radius * 1.6)
 	return 0.0
 
 
@@ -601,6 +621,9 @@ func _step_charge(delta: float) -> void:
 
 
 func _step_leap(delta: float) -> void:
+	if _move.has("stage"):
+		_step_skyfall(delta)
+		return
 	_move["t"] = float(_move["t"]) + delta / LEAP_TIME
 	var t: float = minf(float(_move["t"]), 1.0)
 	var from: Vector3 = _move["from"]
@@ -609,12 +632,48 @@ func _step_leap(delta: float) -> void:
 	foe.vel = Vector3.ZERO
 	foe.view.hop = sin(t * PI) * LEAP_HEIGHT
 	if t >= 1.0:
-		foe.view.hop = 0.0
-		foe.pos = enemies.level.closest(to + Vector3.UP * 0.2)
-		_move = {}
-		_busy = 0.6
-		_mode = &"back_off"
-		_mode_left = 0.5
+		_land(to)
+
+
+func _step_skyfall(delta: float) -> void:
+	_move["t"] = float(_move["t"]) + delta
+	var t: float = _move["t"]
+	foe.vel = Vector3.ZERO
+	match _move["stage"]:
+		&"rise":
+			foe.view.hop = SKY_HEIGHT * minf(t / 0.5, 1.0)
+			if t >= 0.5:
+				_move["stage"] = &"air"
+				_move["t"] = 0.0
+		&"air":
+			foe.pos = enemies.level.closest(enemies.hunter.global_position)
+			if t >= float(_move["airborne"]):
+				var land: Vector3 = foe.pos
+				_move["to"] = land
+				_move["stage"] = &"fall"
+				_move["t"] = 0.0
+				enemies.hazards.circle(land, float(_move["reach"]), float(_move["fall"]), _move["damage"],
+					fx_at(&"quake", float(_move["reach"])))
+		&"fall":
+			var fall: float = maxf(float(_move["fall"]), 0.1)
+			foe.view.hop = SKY_HEIGHT * clampf(1.0 - t / fall, 0.0, 1.0)
+			if t >= fall:
+				_land(_move["to"])
+
+
+## Arrivée d'un bond ou d'une chute : anneaux de lave éventuels (données `rings`), puis un court recul.
+func _land(to: Vector3) -> void:
+	foe.view.hop = 0.0
+	foe.pos = enemies.level.closest(to + Vector3.UP * 0.2)
+	var rings: int = int(_move.get("rings", 0))
+	for w: int in rings:
+		enemies.hazards.ring(foe.pos, 8.0, 18.0, 0.45 + 0.5 * w, float(_move["damage"]) * 0.5,
+			fx_at(&"fire_ring", 2.2) if w == 0 else Callable())
+	foe.view.play_action(_first_clip([&"skyfall", &"heavy_slam", &"attack"]), 0.6)
+	_move = {}
+	_busy = 0.6
+	_mode = &"back_off"
+	_mode_left = 0.5
 
 
 # --- Mort ----------------------------------------------------------------------------------------------------------

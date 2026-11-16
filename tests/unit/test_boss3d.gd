@@ -227,3 +227,30 @@ func test_quake_rings_grow_with_phases() -> void:
 	var before: int = run.hazards._items.size()
 	foe.brain._gesture_quake(pattern, Vector3.RIGHT)
 	check_eq(run.hazards._items.size() - before, int(pattern.params.get("waves", 2)), "Séisme : anneaux des données")
+
+
+func test_pyrevorn_craters_skyfall_and_escorts() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"pyrevorn", 8.0)
+	var craters := _mechanic(foe, &"crater_sequence") as DraftCraterSequence
+	check(craters != null, "Pyrevorn : séquence des cratères")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"crater_sequence")
+	craters.perform(pattern)
+	check_eq(craters.cells.size(), 9, "grille de 3 × 3")
+	check_eq(craters.steps.size(), int(pattern.params.get("steps", 4)), "cases de la séquence")
+	await _frames(int((float(craters.steps.back()["erupt_at"]) - craters._clock) * 60) + 40)
+	check_eq(craters.eruptions, int(pattern.params.get("steps", 4)), "chaque case allumée entre en éruption")
+	check(not craters.active(), "la grille disparaît après la dernière éruption")
+	var skyfall: BossPatternData = _pattern(foe.boss, &"skyfall")
+	foe.brain._gesture_leap(skyfall, Vector3.RIGHT)
+	await _frames(40)
+	check(foe.brain.airborne() and foe.view.hop > 10.0, "envol : hors de l'écran")
+	check(foe.brain.damage_mult() < 0.5, "en l'air : coups réduits")
+	await _frames(int((float(skyfall.params.get("airborne", 1.6)) + skyfall.telegraph) * 60) + 40)
+	check(not foe.brain.airborne() and foe.view.hop == 0.0, "chute : de retour au sol")
+	check(foe.pos.distance_to(run.hunter.global_position) < 3.0, "il retombe là où se tenait le Chasseur")
+	var count: int = run.enemies.count()
+	_bring_to(foe, 0.4)
+	check_eq(craters.escorts.size(), 2, "seconde phase : Titan de caldeira et Wyrmeau de flammes")
+	check(run.enemies.count() >= count + 2, "escorte dans la partie")

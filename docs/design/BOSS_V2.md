@@ -194,3 +194,16 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
   0,05 tant qu'une brûle ; toutes brisées : sonnée 2,5 s, coups × 2 pendant 4 s ; voile tenu 12 s : + 4 % de PV.
 - **Sentinelle des racines, Séisme** : anneaux des données (nombre, écart, vitesse), un de plus à chaque phase,
   bandeau `BOSS_QUAKE_INTRO` (nouvelle clé FR/EN). Les anneaux restent coupés par le décor (règle commune des cartes 3D).
+
+### Lot 3 — Pyrevorn (16 novembre)
+
+- **Séquence des cratères** (`bosses/crater_sequence.gd`) : grille 3 × 3 de cases de 7,8 m posée autour du Chasseur
+  (cases recalées sur la navigation), cases allumées une à une (données : nombre, écarts, pause), puis éruptions dans le
+  même ordre, chacune précédée d'un éclair de 0,2 s seulement ; le boss se concentre pendant l'allumage.
+- **Envol et chute** (geste `leap` avec `airborne`, commun) : il quitte l'écran (coups × 0,25), suit le Chasseur, la
+  zone de chute s'annonce sous lui, puis anneaux de lave à l'atterrissage (données `rings`). Sols brûlants de la v1
+  non repris (pas de système de brûlure en 3D).
+- **Œil de la Faille** (geste `sweep_beam`, commun) : arc, nombre de traits et durée du balayage des données, rayon
+  arrêté par le décor.
+- **Mini-boss** : à sa seconde phase, Pyrevorn appelle le Titan de caldeira et le Wyrmeau de flammes (gardiens de
+  palier de la carte 10 en v1), PV × 4, agrandis.
