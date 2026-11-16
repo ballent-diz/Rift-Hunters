@@ -11,6 +11,8 @@ extends RefCounted
 ## Emplacements de départ, et maximum avec la récompense légendaire (5e emplacement jusqu'à la fin de l'expédition).
 const SLOTS := 4
 const MAX_SLOTS := 5
+## Mutations au plus par sort (docs/design/GAMEPLAY_COMBOS_2P5D.md).
+const MAX_MUTATIONS := 2
 const ACTIONS: Array[StringName] = [&"spell_1", &"spell_2", &"spell_3", &"spell_4", &"spell_5"]
 ## Sorts raccordés (spell_kind) : Taille, Lance, Rupture, Bond de Faille, Parade, Singularité, Mur de faille, Égide,
 ## Cristal réfracteur.
@@ -40,6 +42,7 @@ var casts: int = 0
 var auto_cast: bool = false
 ## Emplacement en aperçu (option « aperçu » : maintenir montre la zone, relâcher lance), -1 sinon.
 var preview_slot: int = -1
+## Anneau de visée au sol (draft3d/spell_reticle.gd).
 var reticle: MeshInstance3D
 ## Objets posés par les sorts (puits, murs, cristaux).
 var world: DraftSpellWorld
@@ -47,14 +50,19 @@ var world: DraftSpellWorld
 var rift: DraftRiftSpells
 ## Animations peintes de la v1 jouées au sol (draft3d/spell_vfx.gd).
 var vfx: DraftSpellVfx
-## Variante active par sort (identifiant du sort → variante) et ses réglages ; rangs pris par sort et statistique.
+## Mutations par sort (identifiant → liste, 2 au plus), leurs réglages et leurs incompatibilités (identifiant →
+## {mutation → réglages / mutations incompatibles}) ; rangs pris par sort et statistique.
 var variants: Dictionary = {}
 var variant_params: Dictionary = {}
+var variant_incompatible: Dictionary = {}
+## Mutation à remplacer par la prochaine carte de mutation (choix explicite du joueur), &"" s'il reste une case.
+var mutation_to_replace: StringName = &""
+## Clé de nom de chaque mutation (arsenal).
+var mutation_label_of: Dictionary = {}
 var bonuses: Dictionary = {}
 ## Surcharge : emplacement en charge (-1 sinon) et durée de charge.
 var charge_slot: int = -1
 var charge_time: float = 0.0
-var _reticle_material: StandardMaterial3D
 ## Derniers sorts de Parade et d'Égide lancés (contre-attaque, Riposte).
 var _parry_spell: SpellData
 var _aegis_spell: SpellData
@@ -105,7 +113,7 @@ func setup(p_run: DraftRun, ids: Array[StringName]) -> void:
 	world = DraftSpellWorld.new(self)
 	rift = DraftRiftSpells.new(self)
 	vfx = DraftSpellVfx.new(run)
-	reticle = _build_reticle()
+	reticle = DraftSpellReticle.new()
 	run.add_child(reticle)
 
 
@@ -240,7 +248,8 @@ func can_apply(effect: DraftSpellEffect) -> bool:
 		DraftSpellEffect.Kind.LEARN:
 			return supported(effect.spell_id) and not owns(effect.spell_id)
 		DraftSpellEffect.Kind.VARIANT:
-			return owns(effect.spell_id) and not variants.has(effect.spell_id)
+			return owns(effect.spell_id) and not mutations(effect.spell_id).has(effect.variant) \
+				and not replaceable_mutations(effect).is_empty()
 		DraftSpellEffect.Kind.MODIFY:
 			return owns(effect.spell_id)
 	return false
@@ -251,21 +260,83 @@ func apply_effect(effect: DraftSpellEffect) -> void:
 		DraftSpellEffect.Kind.LEARN:
 			learn(effect.spell_id)
 		DraftSpellEffect.Kind.VARIANT:
-			variants[effect.spell_id] = effect.variant
-			variant_params[effect.spell_id] = effect.params
+			add_mutation(effect, mutation_to_replace)
+			mutation_to_replace = &""
 		DraftSpellEffect.Kind.MODIFY:
 			var stats: Dictionary = bonuses.get(effect.spell_id, {})
 			stats[effect.stat] = float(stats.get(effect.stat, 0.0)) + effect.pct
 			bonuses[effect.spell_id] = stats
 
 
+## Mutations prises sur un sort (2 au plus), dans l'ordre d'obtention.
+func mutations(id: StringName) -> Array[StringName]:
+	var result: Array[StringName] = []
+	result.assign(variants.get(id, []))
+	return result
+
+
+func has_variant(data: SpellData, variant: StringName) -> bool:
+	return data != null and (variants.get(data.id, []) as Array).has(variant)
+
+
+## Première mutation du sort (animation peinte jouée), &"" sans mutation.
 func variant_of(data: SpellData) -> StringName:
-	return variants.get(data.id, &"")
+	var list: Array = variants.get(data.id, [])
+	return list[0] if not list.is_empty() else &""
 
 
-## Réglage `key` de la variante active du sort.
+## Mutations qu'une nouvelle mutation peut prendre : [&""] s'il reste une case et qu'elle est compatible avec celles
+## déjà prises ; sinon celles qu'elle peut remplacer (une incompatible doit partir) ; vide si elle ne peut pas entrer.
+func replaceable_mutations(effect: DraftSpellEffect) -> Array[StringName]:
+	var current: Array[StringName] = mutations(effect.spell_id)
+	var clashing: Array[StringName] = []
+	for taken: StringName in current:
+		if _incompatible(effect.spell_id, taken, effect):
+			clashing.append(taken)
+	if clashing.size() > 1:
+		return []
+	if clashing.size() == 1:
+		return clashing
+	if current.size() < MAX_MUTATIONS:
+		return [&""] as Array[StringName]
+	return current
+
+
+func _incompatible(id: StringName, taken: StringName, effect: DraftSpellEffect) -> bool:
+	var other: Array = (variant_incompatible.get(id, {}) as Dictionary).get(taken, [])
+	return effect.incompatible.has(taken) or other.has(effect.variant)
+
+
+## Ajoute une mutation ; `replace` : mutation retirée à sa place (choix explicite du joueur). Faux si impossible
+## (jamais de troisième mutation, jamais d'écrasement silencieux, jamais deux mutations incompatibles).
+func add_mutation(effect: DraftSpellEffect, replace: StringName = &"") -> bool:
+	var allowed: Array[StringName] = replaceable_mutations(effect)
+	if not owns(effect.spell_id) or mutations(effect.spell_id).has(effect.variant) or not allowed.has(replace):
+		return false
+	var id: StringName = effect.spell_id
+	var list: Array = variants.get(id, [])
+	var params: Dictionary = variant_params.get(id, {})
+	var blocked: Dictionary = variant_incompatible.get(id, {})
+	if replace != &"":
+		list.erase(replace)
+		params.erase(replace)
+		blocked.erase(replace)
+	list.append(effect.variant)
+	params[effect.variant] = effect.params
+	blocked[effect.variant] = effect.incompatible
+	variants[id] = list
+	variant_params[id] = params
+	variant_incompatible[id] = blocked
+	return true
+
+
+## Réglage `key` des mutations du sort (chaque clé n'appartient qu'à une mutation d'un même sort).
 func param(data: SpellData, key: String, fallback: float) -> float:
-	return float((variant_params.get(data.id, {}) as Dictionary).get(key, fallback))
+	for variant: StringName in mutations(data.id):
+		var params: Dictionary = (variant_params.get(data.id, {}) as Dictionary).get(variant, {})
+		if params.has(key):
+			return float(params[key])
+	return fallback
 
 
 ## Somme des rangs pris sur une statistique du sort (+0,2 = +20 %).
@@ -299,9 +370,9 @@ func reach_of(data: SpellData) -> float:
 	var reach: float = data.spell_range * DraftHunter.UNIT
 	match data.spell_kind:
 		&"slash":
-			if variant_of(data) == &"thrust":
+			if has_variant(data, &"thrust"):
 				reach = param(data, "range", data.spell_range) * DraftHunter.UNIT
-			elif variant_of(data) == &"whirlwind":
+			elif has_variant(data, &"whirlwind"):
 				reach *= param(data, "reach", 1.0)
 		&"lance":
 			reach = minf(reach, tuning.lance_max_range)
@@ -315,14 +386,14 @@ func area_of(data: SpellData) -> float:
 	var area: float = data.width * DraftHunter.UNIT * tuning.spell_area_scale
 	match data.spell_kind:
 		&"slash":
-			if variant_of(data) == &"thrust":
+			if has_variant(data, &"thrust"):
 				area = param(data, "half_width", data.width) * DraftHunter.UNIT
 		&"lance":
 			area = maxf(data.width * DraftHunter.UNIT, 0.3)
 		&"leap":
-			area = data.width * DraftHunter.UNIT * (param(data, "area", 1.0) if variant_of(data) == &"impact" else 1.0)
+			area = data.width * DraftHunter.UNIT * (param(data, "area", 1.0) if has_variant(data, &"impact") else 1.0)
 		&"singularity":
-			area *= param(data, "area", 1.0) if variant_of(data) == &"horizon" else 1.0
+			area *= param(data, "area", 1.0) if has_variant(data, &"horizon") else 1.0
 		&"crystal":
 			area = maxf(data.width * DraftHunter.UNIT, tuning.crystal_min_radius)
 		&"aegis":
@@ -373,7 +444,7 @@ func step(delta: float) -> void:
 		var pressed: bool = Input.is_action_just_pressed(ACTIONS[i])
 		if pressed and _return_left > 0.0 and slots[i].id == _return_spell:
 			leap_back()
-		elif variant_of(slots[i]) == &"overcharge":
+		elif has_variant(slots[i], &"overcharge"):
 			if pressed and cooldowns[i] <= 0.0 and charge_slot < 0:
 				charge_slot = i
 				charge_time = 0.0
@@ -385,7 +456,7 @@ func step(delta: float) -> void:
 				cast(i, aim_point())
 		elif pressed:
 			cast(i, aim_point())
-	_show_reticle()
+	(reticle as DraftSpellReticle).show_for(self)
 
 
 ## Surcharge : puissance selon la durée de charge (×1 jusqu'au maximum de la variante).
@@ -404,7 +475,9 @@ func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
 	var data: SpellData = slots[slot] if slot >= 0 and slot < slots.size() else null
 	if data == null or not ready(slot) or run.hunter.is_leaping() or not run.hunter.alive:
 		return false
-	_power = power
+	# Contre-taille (passif) : le sort qui suit une esquive pendant la Ruée part renforcé.
+	var boost: float = run.passives.power() if run.passives != null else 1.0
+	_power = power * boost
 	var done: bool = false
 	match data.spell_kind:
 		&"slash":
@@ -429,6 +502,8 @@ func cast(slot: int, aim: Vector3, power: float = 1.0) -> bool:
 			done = rift.cast(data, aim)
 	_power = 1.0
 	if done:
+		if run.passives != null and boost > 1.0:
+			run.passives.consume()
 		if not rift.after_cast(slot, data):
 			cooldowns[slot] = cooldown_of(data)
 		casts += 1
@@ -523,12 +598,12 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 	var here: Vector3 = run.hunter.global_position
 	var reach: float = reach_of(data)
 	var dir: Vector3 = _direction(aim)
-	var variant: StringName = variant_of(data)
+	var thrust: bool = has_variant(data, &"thrust")
 	var push: Vector3 = dir * data.knockback * DraftHunter.UNIT * 3.0
 	var drawn: Node2D = _anim("cleaving_slash", here, dir, data, reach, {"spell_range": reach / DraftHunter.UNIT,
 		"thrust_range": reach / DraftHunter.UNIT, "half_angle_degrees": data.width}, false, 0.3,
 		DraftSpellVfx.SLASH_CUT_PHASE)
-	if variant == &"thrust":
+	if thrust:
 		var half_width: float = area_of(data)
 		if drawn == null:
 			run.fx(&"arcane_beam", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, reach * 0.4)
@@ -538,7 +613,7 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 			if along > 0.0 and along <= reach and (offset - dir * along).length() <= half_width + foe.radius:
 				run.enemies.hit(foe, damage_of(data) * _power, push)
 		return true
-	var whirl: bool = variant == &"whirlwind"
+	var whirl: bool = has_variant(data, &"whirlwind")
 	var half: float = -1.0 if whirl else cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
 	if drawn != null:
 		pass
@@ -561,7 +636,7 @@ func _lance(data: SpellData, aim: Vector3) -> bool:
 	var count: int = 1
 	var spread: float = 0.0
 	var damage: float = damage_of(data) * _power
-	if variant_of(data) == &"fan":
+	if has_variant(data, &"fan"):
 		count = int(param(data, "count", 3.0))
 		spread = deg_to_rad(param(data, "angle", 15.0))
 		damage *= param(data, "damage", 1.0)
@@ -585,26 +660,25 @@ func _rupture(data: SpellData, aim: Vector3) -> bool:
 	var radius: float = area_of(data)
 	var damage: float = damage_of(data) * tuning.rupture_damage_mult * _power
 	var struck: Array[DraftEnemies.Foe] = _detonate(at, radius, damage, data)
-	match variant_of(data):
-		&"reaction":
-			var from: Vector3 = at
-			for jump: int in int(param(data, "jumps", 2.0)):
-				var next: DraftEnemies.Foe = null
-				for foe: DraftEnemies.Foe in _level(run.enemies.near(from, param(data, "reach", 6.0)), from):
-					if not struck.has(foe):
-						next = foe
-						break
-				if next == null:
+	if has_variant(data, &"reaction"):
+		var from: Vector3 = at
+		for jump: int in int(param(data, "jumps", 2.0)):
+			var next: DraftEnemies.Foe = null
+			for foe: DraftEnemies.Foe in _level(run.enemies.near(from, param(data, "reach", 6.0)), from):
+				if not struck.has(foe):
+					next = foe
 					break
-				from = next.pos
-				struck.append_array(_detonate(from, radius * param(data, "area", 0.6), damage * param(data, "damage", 0.5),
-					null))
-		&"blaze":
-			var zone := {"at": at, "radius": radius, "left": param(data, "duration", 3.0),
-				"tick": param(data, "tick", 0.5), "clock": 0.0, "damage": damage * param(data, "damage", 0.15),
-				"visual": null if DraftSpellVfx.scene("rupture") != null
-					else run.fx(&"fire_ring", &"calcines", at + Vector3.UP * 0.3, radius, true)}
-			_zones.append(zone)
+			if next == null:
+				break
+			from = next.pos
+			struck.append_array(_detonate(from, radius * param(data, "area", 0.6), damage * param(data, "damage", 0.5),
+				null))
+	if has_variant(data, &"blaze"):
+		var zone := {"at": at, "radius": radius, "left": param(data, "duration", 3.0),
+			"tick": param(data, "tick", 0.5), "clock": 0.0, "damage": damage * param(data, "burn", 0.15),
+			"visual": null if DraftSpellVfx.scene("rupture") != null
+				else run.fx(&"fire_ring", &"calcines", at + Vector3.UP * 0.3, radius, true)}
+		_zones.append(zone)
 	return true
 
 
@@ -654,7 +728,7 @@ func _leap(data: SpellData, aim: Vector3) -> bool:
 	if _anim("rift_leap", hunter.global_position, jump, data, jump.length() + 2.0,
 			{"destination_offset": Vector2(jump.length() / DraftHunter.UNIT, 0.0)}) == null:
 		run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.6)
-	if variant_of(data) == &"return":
+	if has_variant(data, &"return"):
 		_return_point = hunter.global_position
 		_return_spell = data.id
 	_leap_spell = data
@@ -685,8 +759,8 @@ func _on_landed() -> void:
 	if data == null:
 		return
 	var landing: Vector3 = run.hunter.global_position
-	var impact: bool = variant_of(data) == &"impact"
-	if variant_of(data) == &"return":
+	var impact: bool = has_variant(data, &"impact")
+	if has_variant(data, &"return"):
 		_return_left = param(data, "window", 3.0)
 	var size: float = 2.0 * (param(data, "area", 1.0) if impact else 1.0)
 	if DraftSpellVfx.scene("rift_leap") == null:
@@ -703,7 +777,7 @@ func _on_landed() -> void:
 ## repartent comme traits du Chasseur.
 func _parry(data: SpellData) -> bool:
 	var window: float = float(data.params.get("window", 0.4))
-	if variant_of(data) == &"long_guard":
+	if has_variant(data, &"long_guard"):
 		window *= param(data, "window", 1.0)
 	run.hunter.guard_left = window
 	_parry_spell = data
@@ -727,7 +801,7 @@ func _on_parried() -> void:
 			_flat(foe.pos - here).normalized() * data.knockback * DraftHunter.UNIT)
 		if foe.alive and foe.boss == null:
 			foe.slow(0.0, tuning.parry_stun)
-	if variant_of(data) == &"mirror":
+	if has_variant(data, &"mirror"):
 		for i: int in range(run.hostile.size() - 1, -1, -1):
 			var shot: Dictionary = run.hostile[i]
 			if (shot["at"] as Vector3).distance_to(run.hunter.chest()) <= param(data, "reach", 4.0):
@@ -745,7 +819,7 @@ func _singularity(data: SpellData, aim: Vector3) -> bool:
 	var at: Vector3 = _landing(aim, reach_of(data))
 	var duration: float = duration_of(data)
 	var damage: float = damage_of(data) * _power
-	if variant_of(data) == &"collapse":
+	if has_variant(data, &"collapse"):
 		duration *= param(data, "duration", 1.0)
 		damage *= param(data, "damage", 1.0)
 	var drawn: Node2D = _anim("singularity", at, Vector3.RIGHT, data, area_of(data) * 1.6, {
@@ -760,8 +834,8 @@ func _singularity(data: SpellData, aim: Vector3) -> bool:
 func _wall(data: SpellData, aim: Vector3) -> bool:
 	var dir: Vector3 = _direction(aim)
 	var at: Vector3 = _landing(aim, reach_of(data))
-	var root: float = param(data, "root", 0.0) if variant_of(data) == &"chains" else 0.0
-	var burn: float = scaled(data, param(data, "damage", 0.0)) if variant_of(data) == &"burning" else 0.0
+	var root: float = param(data, "root", 0.0) if has_variant(data, &"chains") else 0.0
+	var burn: float = scaled(data, param(data, "damage", 0.0)) if has_variant(data, &"burning") else 0.0
 	var drawn: Node2D = _anim("rift_wall", at, dir, data, area_of(data) * 0.6, {
 		"spell_range": area_of(data) / DraftHunter.UNIT, "active_duration": duration_of(data)})
 	world.add_wall(at, Vector3(-dir.z, 0, dir.x), area_of(data), duration_of(data), root, burn, param(data, "tick", 0.5),
@@ -774,7 +848,7 @@ func _wall(data: SpellData, aim: Vector3) -> bool:
 func _aegis(data: SpellData) -> bool:
 	var hunter: DraftHunter = run.hunter
 	var amount: float = hunter.max_hp() * data.width * (1.0 + bonus(data, &"area"))
-	if variant_of(data) == &"second_wind":
+	if has_variant(data, &"second_wind"):
 		amount *= param(data, "shield", 1.0)
 		hunter.heal(hunter.max_hp() * param(data, "heal", 0.0))
 	hunter.shield = amount
@@ -788,7 +862,7 @@ func _aegis(data: SpellData) -> bool:
 
 func _on_shield_broken() -> void:
 	var data: SpellData = _aegis_spell
-	if data == null or variant_of(data) != &"riposte":
+	if data == null or not has_variant(data, &"riposte"):
 		return
 	var here: Vector3 = run.hunter.global_position
 	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
@@ -801,14 +875,14 @@ func _on_shield_broken() -> void:
 ## cristaux côte à côte. Foyer : les éclats filent vers l'ennemi le plus résistant.
 func _crystal(data: SpellData, aim: Vector3) -> bool:
 	var at: Vector3 = _landing(aim, reach_of(data))
-	var count: int = int(param(data, "count", 1.0)) if variant_of(data) == &"double" else 1
+	var count: int = int(param(data, "count", 1.0)) if has_variant(data, &"double") else 1
 	var side: Vector3 = _direction(aim).rotated(Vector3.UP, PI * 0.5) * param(data, "gap", 0.0)
 	for i: int in count:
 		var offset: Vector3 = side * (i - (count - 1) * 0.5)
 		var spot: Vector3 = run.level.closest(at + offset)
 		var drawn: Node2D = _anim("refractor_crystal", spot, _direction(aim), data, 2.0,
 			{"active_duration": duration_of(data)})
-		world.add_crystal(spot, area_of(data), duration_of(data), variant_of(data) == &"focus", drawn != null)
+		world.add_crystal(spot, area_of(data), duration_of(data), has_variant(data, &"focus"), drawn != null)
 	return true
 
 
@@ -865,65 +939,6 @@ func _level(foes: Array[DraftEnemies.Foe], from: Vector3) -> Array[DraftEnemies.
 	result.sort_custom(func(a: DraftEnemies.Foe, b: DraftEnemies.Foe) -> bool:
 		return a.pos.distance_squared_to(from) < b.pos.distance_squared_to(from))
 	return result
-
-
-## Anneau au sol : point visé, ou zone du sort en aperçu (option « aperçu »).
-func _build_reticle() -> MeshInstance3D:
-	var ring := TorusMesh.new()
-	ring.inner_radius = 0.88
-	ring.outer_radius = 1.0
-	ring.rings = 48
-	ring.ring_segments = 4
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.no_depth_test = true
-	material.albedo_color = RETICLE_COLOR
-	ring.material = material
-	_reticle_material = material
-	var node := MeshInstance3D.new()
-	node.name = "SpellReticle"
-	node.mesh = ring
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	node.visible = false
-	return node
-
-
-func _show_reticle() -> void:
-	var here: Vector3 = run.hunter.global_position
-	var aim: Vector3 = aim_point()
-	var radius: float = 0.35
-	var at: Vector3 = aim
-	var color: Color = RETICLE_COLOR
-	var shown: int = preview_slot if preview_slot >= 0 else charge_slot
-	if shown >= 0 and slots[shown] != null:
-		var data: SpellData = slots[shown]
-		color = Color(data.color, 0.7)
-		match data.spell_kind:
-			&"slash":
-				at = here
-				radius = reach_of(data)
-			&"rupture", &"leap", &"singularity", &"crystal":
-				at = here + _flat(aim - here).limit_length(reach_of(data))
-				radius = area_of(data)
-			&"wall":
-				at = here + _flat(aim - here).limit_length(reach_of(data))
-				radius = area_of(data) * 0.5
-			&"parry", &"aegis", &"veil":
-				at = here
-				radius = area_of(data)
-			&"stasis":
-				at = here
-				radius = reach_of(data)
-			&"mark", &"shard_rain", &"blink", &"rend":
-				at = here + _flat(aim - here).limit_length(reach_of(data))
-				radius = area_of(data)
-			_:
-				radius = area_of(data) * 2.0
-	reticle.visible = slots.any(func(s: SpellData) -> bool: return s != null)
-	reticle.position = Vector3(at.x, here.y + 0.06, at.z)
-	reticle.scale = Vector3(radius, 0.3, radius)
-	_reticle_material.albedo_color = color
 
 
 static func _flat(v: Vector3) -> Vector3:

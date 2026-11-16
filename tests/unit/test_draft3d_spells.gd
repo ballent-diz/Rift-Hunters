@@ -212,7 +212,7 @@ func test_rank_and_variant_cards_follow_the_rules() -> void:
 	await _start()
 	var upgrades: DraftUpgrades = run.upgrades
 	var slash: SpellData = GameDB.spells[&"cleaving_slash"]
-	check_eq(upgrades.spell_cards.size(), 64, "64 cartes : 15 sorts, 30 variantes, 19 rangs")
+	check_eq(upgrades.spell_cards.size(), 69, "69 cartes : 15 sorts, 30 mutations, 19 rangs, 4 passifs, 1 règle")
 	for data: UpgradeData in upgrades.spell_cards:
 		check(tr(data.name_key) != data.name_key and tr(data.desc_key) != data.desc_key, "%s : textes traduits" % data.id)
 	check(not upgrades.available().has(_card("rupture_wide")), "aucun rang pour un sort inconnu")
@@ -225,7 +225,7 @@ func test_rank_and_variant_cards_follow_the_rules() -> void:
 	check_near(run.spells.cooldown_of(GameDB.spells[&"prismatic_lance"]), base_cooldown * 0.85, 0.01, "recharge −15 %")
 	check(upgrades.apply(_card("slash_whirlwind"), run.hunter.stats), "variante prise")
 	check_eq(run.spells.variant_of(slash), &"whirlwind", "Tourbillon actif")
-	check(not upgrades.can_offer(_card("slash_thrust")), "une seule variante par sort")
+	check(not upgrades.apply(_card("slash_thrust"), run.hunter.stats), "Estoc incompatible : jamais sans remplacement")
 	check(not upgrades.apply(_card("slash_thrust"), run.hunter.stats), "l'autre variante est refusée")
 
 
@@ -615,7 +615,8 @@ func test_cooldowns_under_the_hunter() -> void:
 func test_spell_icons_everywhere() -> void:
 	for data: UpgradeData in DraftUpgrades.new().spell_cards:
 		var spell: SpellData = DraftHud.spell_of(data)
-		check(spell != null and DraftSpellBar.icon_for(spell) != null, "%s : icône du sort" % data.id)
+		if spell != null:
+			check(DraftSpellBar.icon_for(spell) != null, "%s : icône du sort" % data.id)
 	await _start()
 	run.hud.show_offers(2, [_card("learn_rupture"), _card("slash_edge")] as Array[UpgradeData], run.upgrades)
 	var icons: int = 0

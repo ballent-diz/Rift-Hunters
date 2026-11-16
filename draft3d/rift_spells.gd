@@ -64,7 +64,7 @@ func cast(data: SpellData, aim: Vector3) -> bool:
 
 ## Charges disponibles du sort (Deux charges), ou 0 sans cette variante.
 func max_charges(data: SpellData) -> int:
-	return int(spells.param(data, "charges", 1.0)) if spells.variant_of(data) == &"charges" else 1
+	return int(spells.param(data, "charges", 1.0)) if spells.has_variant(data, &"charges") else 1
 
 
 func has_charge(data: SpellData) -> bool:
@@ -79,7 +79,7 @@ func after_cast(slot: int, data: SpellData) -> bool:
 		if spells.cooldowns[slot] <= 0.0:
 			spells.cooldowns[slot] = spells.cooldown_of(data)
 		return true
-	if spells.variant_of(data) == &"double":
+	if spells.has_variant(data, &"double"):
 		if _rend_slot < 0:
 			_rend_slot = slot
 			rend_window = spells.param(data, "window", 2.0)
@@ -192,7 +192,7 @@ func _step_mark(delta: float) -> void:
 		return
 	mark_left -= delta
 	var data: SpellData = _mark_spell
-	if marked.alive and spells.variant_of(data) == &"execute" \
+	if marked.alive and spells.has_variant(data, &"execute") \
 			and marked.hp <= marked.max_hp * spells.param(data, "threshold", 0.2):
 		var target: DraftEnemies.Foe = marked
 		run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, target.pos + Vector3.UP * 0.6, 1.4)
@@ -201,7 +201,7 @@ func _step_mark(delta: float) -> void:
 		_clear_mark()
 		run.enemies.hit(target, blow)
 		return
-	if not marked.alive and mark_left > 0.0 and spells.variant_of(data) == &"hunt":
+	if not marked.alive and mark_left > 0.0 and spells.has_variant(data, &"hunt"):
 		var from: Vector3 = marked.pos
 		var next: Array[DraftEnemies.Foe] = spells._level(run.enemies.near(from, spells.param(data, "reach", 8.0)), from)
 		if not next.is_empty():
@@ -233,7 +233,7 @@ func _rend(data: SpellData, aim: Vector3) -> bool:
 	var length: float = dir.length()
 	dir = dir.normalized() if length > 0.05 else hunter.facing.normalized()
 	length = maxf(length, 1.0)
-	var pierce: bool = spells.variant_of(data) == &"pierce"
+	var pierce: bool = spells.has_variant(data, &"pierce")
 	var struck: Array[DraftEnemies.Foe] = []
 	for foe: DraftEnemies.Foe in spells._level(run.enemies.near(here, length + 1.0), here):
 		var offset: Vector3 = DraftSpells._flat(foe.pos - here)
@@ -265,7 +265,7 @@ func _blink(data: SpellData, aim: Vector3) -> bool:
 	hunter.reset_motion()
 	hunter.invulnerable = maxf(hunter.invulnerable, 0.2)
 	run.fx(&"blink_in", DraftPixelFx.DEFAULT_FAMILY, landing + Vector3.UP * 0.6)
-	var trap: bool = spells.variant_of(data) == &"trap"
+	var trap: bool = spells.has_variant(data, &"trap")
 	shades.append({"at": start, "left": float(data.params.get("delay", 1.0)), "radius": spells.area_of(data),
 		"damage": spells.damage_of(data), "slow": spells.param(data, "slow", 1.0) if trap else 1.0,
 		"duration": spells.param(data, "duration", 0.0) if trap else 0.0,
@@ -298,11 +298,11 @@ func _stasis(data: SpellData, aim: Vector3) -> bool:
 	var dir: Vector3 = spells._direction(aim)
 	var reach: float = spells.reach_of(data)
 	var half: float = cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
-	if spells.variant_of(data) == &"circle":
+	if spells.has_variant(data, &"circle"):
 		reach *= spells.param(data, "reach", 1.0)
 		half = -1.0
 	var seconds: float = spells.duration_of(data)
-	var shards: bool = spells.variant_of(data) == &"shards"
+	var shards: bool = spells.has_variant(data, &"shards")
 	run.fx(&"frost_nova", &"givres", here + (Vector3.ZERO if half < 0.0 else dir * reach * 0.5) + Vector3.UP * 0.5,
 		reach * 0.6)
 	for foe: DraftEnemies.Foe in spells._level(run.enemies.near(here, reach), here):
@@ -326,8 +326,8 @@ func _rain(data: SpellData, aim: Vector3) -> bool:
 	var at: Vector3 = spells._landing(aim, spells.reach_of(data))
 	var radius: float = spells.area_of(data)
 	var damage: float = spells.damage_of(data)
-	var follow: bool = spells.variant_of(data) == &"storm"
-	if spells.variant_of(data) == &"focus":
+	var follow: bool = spells.has_variant(data, &"storm")
+	if spells.has_variant(data, &"focus"):
 		radius *= spells.param(data, "area", 1.0)
 		damage *= spells.param(data, "damage", 1.0)
 	spells.add_zone({"at": run.hunter.global_position if follow else at, "radius": radius,
@@ -344,8 +344,8 @@ func _veil(data: SpellData) -> bool:
 	var here: Vector3 = run.hunter.global_position
 	var radius: float = spells.area_of(data)
 	veils.append({"at": here, "radius": radius, "left": spells.duration_of(data),
-		"follow": spells.variant_of(data) == &"mobile",
-		"heal": spells.param(data, "heal", 0.0) if spells.variant_of(data) == &"recoil" else 0.0,
+		"follow": spells.has_variant(data, &"mobile"),
+		"heal": spells.param(data, "heal", 0.0) if spells.has_variant(data, &"recoil") else 0.0,
 		"slow": float(data.params.get("slow", 0.6)),
 		"visual": run.fx(&"smoke_bomb", &"calcines", here + Vector3.UP * 0.6, radius * 0.9, true)})
 	return true

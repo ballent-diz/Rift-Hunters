@@ -35,6 +35,36 @@ extends Resource
 @export var crystal_split: int = 2
 @export var crystal_angle: float = 18.0
 @export var crystal_damage: float = 0.6
+@export_group("Progression")
+## XP : multiplicateur des seuils de la courbe commune (cible : 8 à 12 choix pour 20-25 min, à régler en jeu).
+@export var xp_scale: float = 8.0
+## Croissance automatique à chaque niveau (sans choix du joueur) : dégâts du Chasseur (part) et PV max.
+@export var level_damage_pct: float = 0.05
+@export var level_max_hp: float = 6.0
+## Cartes retirées du tirage normal (décision du 16 novembre) : statistiques brutes et rangs chiffrés.
+@export var stat_cards_in_pool: bool = false
+@export var rank_cards_in_pool: bool = false
+## Poids de tirage par rareté (Commun, Rare, Épique, Légendaire) et anti-frustration : après `pity_after` choix sans
+## Épique ni Légendaire, ces raretés pèsent `pity_mult` fois plus.
+@export var rarity_weights: Array[float] = [10.0, 6.0, 2.5, 0.6]
+@export var pity_after: int = 3
+@export var pity_mult: float = 2.5
+@export_group("Passifs")
+## Ruée tranchante : dégâts (× dégâts du Chasseur) aux ennemis traversés, rayon (m).
+@export var dash_blade_damage: float = 18.0
+@export var dash_blade_radius: float = 1.0
+## Sillage du vide : durée de la traînée (s), rayon (m), ralentissement.
+@export var void_wake_duration: float = 2.0
+@export var void_wake_radius: float = 0.9
+@export var void_wake_slow: float = 0.45
+## Contre-taille : fenêtre (s) après une esquive pendant la Ruée, puissance du sort suivant.
+@export var counter_cut_window: float = 3.0
+@export var counter_cut_power: float = 1.6
+## Ancre : petite Singularité quand un ennemi ralenti ou immobilisé meurt (rayon m, durée s, dégâts, délai mini s).
+@export var anchor_radius: float = 1.8
+@export var anchor_duration: float = 0.9
+@export var anchor_damage: float = 16.0
+@export var anchor_cooldown: float = 1.2
 @export_group("Déblocages")
 ## Sorts offerts (débloqués d'office, sorts de départ par défaut), coûts et gains de Fragments de faille
 ## (docs/design/DEBLOCAGE_V2.md, indicatifs).

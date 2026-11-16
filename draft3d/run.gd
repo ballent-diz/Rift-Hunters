@@ -42,6 +42,8 @@ var hazards: DraftHazards
 var hud: DraftHud
 var upgrades: DraftUpgrades
 var spells: DraftSpells
+## Passifs techniques de l'expédition (draft3d/passives.gd).
+var passives: DraftPassives
 ## Déblocages permanents (null pour le bot et les essais : tout le contenu est tiré).
 var unlocks: DraftUnlocks
 ## Boss vaincus pendant la partie (gain de Fragments) : gardiens et Dévoreur.
@@ -109,13 +111,21 @@ func _ready() -> void:
 			starting.append(StringName(id))
 	spells = DraftSpells.new()
 	spells.setup(self, starting)
+	passives = DraftPassives.new(self)
 	upgrades.spells = spells
+	upgrades.passives = passives
+	upgrades.tuning = tuning
+	hunter.xp_scale = tuning.xp_scale
 	upgrades.unlocks = unlocks
 	if _bot or DisplayServer.get_name() == "headless":
 		DraftProgress.path = ""
 	hunter.set_physics_process(false)
 	hunter.god_mode = _options.has("god")
 	hunter.leveled.connect(func(_l: int) -> void:
+		# Croissance automatique (sans choix) : les choix de niveau restent consacrés au gameplay.
+		hunter.stats.add_modifier(StatKeys.DAMAGE, 0.0, tuning.level_damage_pct)
+		hunter.stats.add_modifier(StatKeys.MAX_HP, tuning.level_max_hp, 0.0)
+		hunter.heal(tuning.level_max_hp)
 		_pending_levels += 1
 		levels_gained += 1)
 	hunter.hurt.connect(func(amount: float) -> void:
@@ -318,6 +328,7 @@ func _physics_process(delta: float) -> void:
 			spells.cooldowns[i] = 0.0
 			spells.cast(i, hunter.global_position + Vector3(4.0, 0.0, 1.5) * (1.0 + i * 0.3))
 	spells.step(delta)
+	passives.step(delta)
 	_step_bolts(delta)
 	_step_hostile(delta)
 	_step_gems(delta)
@@ -655,6 +666,7 @@ func _step_hostile(delta: float) -> void:
 
 func on_foe_killed(foe: DraftEnemies.Foe) -> void:
 	kills += 1
+	passives.on_kill(foe)
 	Audio.play_sfx(&"enemy_death")
 	fx(&"death", family_of(foe), foe.pos + Vector3.UP * 0.5, clampf(foe.radius * 2.2, 0.8, 3.0))
 	if foe.boss != null:
@@ -736,8 +748,30 @@ func _open_offers() -> void:
 func choose(index: int) -> void:
 	if state != State.CHOOSING or index < 0 or index >= _offers.size():
 		return
-	var before: float = hunter.max_hp()
 	var card: UpgradeData = _offers[index]
+	# Mutation sur un sort qui en a déjà deux (ou une incompatible) : le joueur choisit laquelle remplacer.
+	var mutation := card.effects[0] as DraftSpellEffect if not card.effects.is_empty() else null
+	if mutation != null and mutation.kind == DraftSpellEffect.Kind.VARIANT:
+		var allowed: Array[StringName] = spells.replaceable_mutations(mutation)
+		if allowed != ([&""] as Array[StringName]):
+			var pick: int = 0
+			if not _bot:
+				var offers: Array[UpgradeData] = _offers
+				_offers = []
+				hud.hide_offers()
+				var names: Array[String] = []
+				for taken: StringName in allowed:
+					names.append(tr(str(spells.mutation_label_of.get(taken, taken))))
+				var panel: DraftChoicePanel = hud.show_choice(tr("MUTATION3D_REPLACE_TITLE") % tr(card.name_key),
+					tr("MUTATION3D_REPLACE_HINT"), names, tr("MUTATION3D_CANCEL"))
+				pick = await panel.picked
+				hud.hide_choice()
+				_offers = offers
+				if pick < 0:
+					hud.show_offers(hunter.level - _pending_levels + 1, _offers, upgrades)
+					return
+			spells.mutation_to_replace = allowed[pick]
+	var before: float = hunter.max_hp()
 	var owned_before: int = spells.owned.size()
 	upgrades.apply(card, hunter.stats)
 	Audio.play_sfx(&"ui_click")

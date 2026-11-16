@@ -56,6 +56,9 @@ func test_catalog_is_hunter_only() -> void:
 
 func test_offers_are_distinct_and_respect_caps() -> void:
 	var upgrades := DraftUpgrades.new()
+	# Cartes de statistiques remises au tirage pour vérifier les plafonds (hors tirage normal de la v2).
+	upgrades.tuning = upgrades.tuning.duplicate()
+	upgrades.tuning.stat_cards_in_pool = true
 	var stats: StatSheet = DraftUpgrades.base_stats(GameDB.balance)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 7
@@ -85,9 +88,12 @@ func test_xp_thresholds_and_upgrade_effects() -> void:
 	await _start()
 	# Cartes de statistiques seulement : les cartes de sort ont leurs essais (test_draft3d_spells).
 	run.upgrades.spells = null
+	run.upgrades.tuning = run.upgrades.tuning.duplicate()
+	run.upgrades.tuning.stat_cards_in_pool = true
 	var hunter: DraftHunter = run.hunter
 	var balance: BalanceConfig = GameDB.balance
 	check_eq(hunter.level, 1, "départ au niveau 1")
+	hunter.xp_scale = 1.0
 	hunter.gain_xp(float(balance.xp_to_next(1)) - 1.0)
 	check_eq(hunter.level, 1, "sous le seuil : pas de niveau")
 	hunter.gain_xp(1.0)
@@ -107,6 +113,9 @@ func test_xp_thresholds_and_upgrade_effects() -> void:
 	check_eq(run.upgrades.stacks_of(offer.id), 1, "l'amélioration choisie est prise")
 	var sheet: StatSheet = DraftUpgrades.base_stats(balance)
 	sheet.add_modifier(StatKeys.DAMAGE, 0.0, run.tuning.hunter_damage_pct)
+	# Croissance automatique de la v2 : un palier de dégâts par niveau gagné (3 niveaux ici).
+	for level: int in 3:
+		sheet.add_modifier(StatKeys.DAMAGE, 0.0, run.tuning.level_damage_pct)
 	for effect: GameplayEffect in offer.effects:
 		var modifier := effect as StatModifierEffect
 		sheet.add_modifier(modifier.stat, modifier.flat, modifier.pct)
