@@ -110,6 +110,10 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 	match boss.signature:
 		&"source_orb":
 			result.append(DraftSourceOrbs.new())
+		&"star_crown":
+			result.append(DraftStarCrown.new())
+		&"mist_veil":
+			result.append(DraftMistVeil.new())
 	return result
 
 
@@ -430,11 +434,17 @@ func _gesture_wave(pattern: BossPatternData, _aim: Vector3) -> float:
 
 
 func _gesture_quake(pattern: BossPatternData, _aim: Vector3) -> float:
-	# Séisme : trois anneaux serrés, à franchir d'une Ruée ou derrière un abri.
-	for i: int in 3:
-		enemies.hazards.ring(foe.pos, 7.0, 16.0, pattern.telegraph + 0.7 * i, damage(pattern.damage * 0.8),
+	# Séisme (Sentinelle des racines) : anneaux sans brèche, à franchir d'une Ruée ou derrière un abri ; un de plus à
+	# chaque phase.
+	var waves: int = maxi(int(pattern.params.get("waves", 2)), 2) + mini(phase, 1)
+	var gap: float = float(pattern.params.get("wave_gap", 0.8))
+	var speed: float = clampf(float(pattern.params.get("speed", 210.0)) * DraftHunter.UNIT, 5.0, 9.0)
+	for i: int in waves:
+		enemies.hazards.ring(foe.pos, speed, 18.0, pattern.telegraph + gap * i, damage(pattern.damage),
 			fx_at(&"quake", 2.2) if i == 0 else Callable())
-	return pattern.telegraph + 1.2
+	if pattern.kind == &"quake":
+		banner_once("BOSS_QUAKE_INTRO")
+	return pattern.telegraph + gap * (waves - 1) * 0.5 + 0.4
 
 
 func _gesture_rain(pattern: BossPatternData, _aim: Vector3) -> float:

@@ -173,6 +173,16 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 	return true
 
 
+## Retire un ennemi sans récompense (lanterne éteinte, invocation dissipée).
+func vanish(foe: Foe) -> void:
+	if not foe.alive:
+		return
+	foe.alive = false
+	list.erase(foe)
+	foe.view.play_action(&"death", 0.4)
+	_corpses.append({"view": foe.view, "left": 0.4})
+
+
 func _physics_process(delta: float) -> void:
 	_frame += 1
 	var i: int = _corpses.size() - 1

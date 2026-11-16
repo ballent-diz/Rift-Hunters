@@ -165,3 +165,65 @@ func test_source_orbs_are_sent_back_by_a_dash() -> void:
 	check(foe.brain.stunned(), "l'orbe doré renvoyé l'étourdit")
 	foe.brain.die()
 	check(orbs.orbs.is_empty(), "orbes retirés à la mort")
+
+
+func _mechanic(foe: DraftEnemies.Foe, kind: StringName) -> DraftBossMechanic:
+	for mechanic: DraftBossMechanic in foe.brain.mechanics:
+		if mechanic.handles(kind):
+			return mechanic
+	return null
+
+
+func _pattern(boss: BossData, kind: StringName) -> BossPatternData:
+	for p: BossPhaseData in boss.phases:
+		for pattern: BossPatternData in p.patterns:
+			if pattern.kind == kind:
+				return pattern
+	return null
+
+
+func test_star_crown_rewards_getting_inside() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"astravorn", 2.0)
+	var crown := _mechanic(foe, &"star_crown") as DraftStarCrown
+	check(crown != null, "Astravorn : couronne d'astres")
+	foe.brain._next_at = INF
+	var pattern: BossPatternData = _pattern(foe.boss, &"star_crown")
+	crown.perform(pattern)
+	check_eq(crown.star_positions().size(), 12, "16 étoiles moins 2 brèches de 2")
+	await _frames(int((pattern.telegraph + 0.3) * 60))
+	check(crown.active() and crown.holds_boss(), "couronne levée : le boss se concentre")
+	check_near(crown.damage_mult(), 1.0, 0.001, "de l'intérieur : coups pleins")
+	run.hunter.global_position = foe.pos + Vector3(14, 0, 0)
+	check_near(crown.damage_mult(), 0.15, 0.001, "de l'extérieur : coups absorbés à 85 %")
+	run.hunter.global_position = foe.pos + Vector3(2, 0, 0)
+	var shots: int = run.hostile.size()
+	await _frames(int(float(pattern.params.get("duration", 9.0)) * 60) + 30)
+	check(not crown.holds_boss(), "la couronne se termine")
+	check(run.hostile.size() > shots, "les étoiles partent vers l'extérieur")
+
+
+func test_mist_veil_lanterns() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"mist_chimera", 6.0)
+	var veil := _mechanic(foe, &"mist_veil") as DraftMistVeil
+	check(veil != null, "Chimère : voile de brume")
+	foe.brain._next_at = INF
+	veil.perform(_pattern(foe.boss, &"mist_veil"))
+	check(veil.veiled() and veil.lanterns.size() == 3, "trois lanternes allumées")
+	check(foe.brain.damage_mult() <= 0.06, "sous le voile : coups sans effet ou presque")
+	for lantern: DraftEnemies.Foe in veil.lanterns.duplicate():
+		run.enemies.hit(lantern, 100000.0)
+	await _frames(2)
+	check(not veil.veiled() and veil.broken == 1, "lanternes brisées : voile levé")
+	check(foe.brain.stunned(), "la Chimère se fige")
+	check(foe.brain.damage_mult() >= 2.0, "figée : coups × 2 au moins")
+
+
+func test_quake_rings_grow_with_phases() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"root_sentinel", 6.0)
+	var pattern: BossPatternData = _pattern(foe.boss, &"quake")
+	var before: int = run.hazards._items.size()
+	foe.brain._gesture_quake(pattern, Vector3.RIGHT)
+	check_eq(run.hazards._items.size() - before, int(pattern.params.get("waves", 2)), "Séisme : anneaux des données")

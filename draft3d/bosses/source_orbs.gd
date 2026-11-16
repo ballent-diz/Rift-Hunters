@@ -115,22 +115,7 @@ func _hit_boss(orb: Dictionary) -> void:
 
 
 func _make_node(golden: bool) -> Node3D:
-	var node := MeshInstance3D.new()
-	var mesh := SphereMesh.new()
-	mesh.radius = RADIUS
-	mesh.height = RADIUS * 2.0
-	mesh.radial_segments = 12
-	mesh.rings = 6
-	node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_color = GOLD if golden else COLOR
-	material.emission_enabled = true
-	material.emission = GOLD if golden else COLOR
-	node.material_override = material
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	brain.enemies.add_child(node)
-	return node
+	return make_orb(GOLD if golden else COLOR, RADIUS)
 
 
 func finish() -> void:

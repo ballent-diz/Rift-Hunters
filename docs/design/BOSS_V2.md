@@ -184,3 +184,13 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
 - Reste : effets peints (`assets/vfx/bosses/source_devourer`), remplacés par des PixelFX ; ralenti au contact d'un
   orbe (le Chasseur 3D n'a pas d'entrave).
 - Bot (peu habile, ne vise pas les orbes) : défaite 70 s environ après l'arrivée du boss, à juger en jouant.
+
+### Lot 2 — gardiens du chapitre 1 (16 novembre)
+
+- **Astravorn, Couronne d'astres** (`bosses/star_crown.gd`) : 16 étoiles, 2 brèches de 2, rayon 11,4 → 5,4 m, rotation
+  qui accélère ; contact : dégâts ; de l'extérieur, coups × 0,15 ; concentré, le boss ne marche ni n'attaque ; à la fin,
+  les étoiles partent en tirs vers l'extérieur (`DraftRun.hostile_shot`, nouveau tir hostile générique).
+- **Chimère des brumes, Voile de brume** (`bosses/mist_veil.gd`) : 3 lanternes (`object.mist_lantern`) à 11 m, coups ×
+  0,05 tant qu'une brûle ; toutes brisées : sonnée 2,5 s, coups × 2 pendant 4 s ; voile tenu 12 s : + 4 % de PV.
+- **Sentinelle des racines, Séisme** : anneaux des données (nombre, écart, vitesse), un de plus à chaque phase,
+  bandeau `BOSS_QUAKE_INTRO` (nouvelle clé FR/EN). Les anneaux restent coupés par le décor (règle commune des cartes 3D).

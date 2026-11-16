@@ -44,5 +44,25 @@ func intro(key: String) -> void:
 	brain.banner_once(key)
 
 
+## Boule lumineuse (orbe, étoile, lanterne) ajoutée au monde, sans ombre.
+func make_orb(color: Color, radius: float) -> MeshInstance3D:
+	var node := MeshInstance3D.new()
+	var mesh := SphereMesh.new()
+	mesh.radius = radius
+	mesh.height = radius * 2.0
+	mesh.radial_segments = 12
+	mesh.rings = 6
+	node.mesh = mesh
+	var material := StandardMaterial3D.new()
+	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	material.albedo_color = color
+	material.emission_enabled = true
+	material.emission = color
+	node.material_override = material
+	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	brain.enemies.add_child(node)
+	return node
+
+
 func finish() -> void:
 	pass
