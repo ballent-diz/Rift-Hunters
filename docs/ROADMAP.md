@@ -1186,7 +1186,7 @@ v2 partagent un cerveau commun (5 techniques, 2 phases, aucune mécanique phare,
 feuille). Plan proposé : socle commun (cerveau piloté par les données, mouvement, transitions, mort), puis chapitre
 par chapitre, Dévoreur d'abord. **Feu vert le 16 novembre, lots 0 à 10 livrés le jour même** (PR #184, #186 et
 suivante) : socle `DraftBossBrain` et mécaniques phares des 24 boss (`draft3d/bosses/`), détail et choix par défaut
-dans BOSS_V2.md (section 8). Reste à juger en jouant (rythme, durée des combats) ; effets peints non repris.
+dans BOSS_V2.md (section 8). Reste à juger en jouant (rythme, durée des combats) ; effets peints du Dévoreur des Sources et de Glauquemire affichés au sol depuis le 16 novembre (`draft3d/painted_fx.gd`).
 
 ## PixelFX : sorts sans animation — livré (Codex, 12 novembre 2026)
 

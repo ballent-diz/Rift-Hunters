@@ -48,6 +48,9 @@ const GESTURE_CLIPS := {
 const CHARGE_SPEED := 15.0
 const LEAP_TIME := 1.1
 const LEAP_HEIGHT := 4.0
+## Repères de contact des effets peints (part de leur durée déjà écoulée à la frappe), comme en v1.
+const CONTACT_STRIKE := 0.12
+const CONTACT_SLAM := 0.3
 ## Hauteur hors de l'écran pendant un envol (Pyrevorn).
 const SKY_HEIGHT := 16.0
 const STUN_TIME := 1.6
@@ -103,6 +106,7 @@ func setup(p_enemies: DraftEnemies, p_foe: DraftEnemies.Foe) -> void:
 	if foe.view.has_clip(intro):
 		_busy = minf(foe.view.clip_length(intro), 2.2)
 		foe.view.play_action(intro, _busy)
+		painted([String(intro)], foe.pos, Vector3.RIGHT)
 		_next_at = _busy + 0.8
 
 
@@ -336,6 +340,7 @@ func _check_phase() -> void:
 	if foe.view.has_clip(idle):
 		foe.view.idle_clip = idle
 	foe.view.play_action(_first_clip([p.transition_animation, &"transform", &"roar", &"attack"]), _transition)
+	painted(["transform", "phase_transition"], foe.pos, Vector3.RIGHT)
 	# Onde de transition : repousse le Chasseur qui colle le boss ; une Ruée la traverse.
 	enemies.hazards.ring(foe.pos, 9.0, 14.0, _transition * 0.5, damage(10.0), fx_at(&"ring_burst", 2.5))
 	fx(&"ring_charge", foe.pos + Vector3.UP * 0.3, 2.4)
@@ -363,6 +368,7 @@ func _check_hurt(delta: float) -> void:
 			and foe.view.has_clip(&"hurt"):
 		_hurt_ready_at = _clock + 6.0
 		foe.view.play_action(&"hurt")
+		painted(["hurt"], foe.pos, Vector3.RIGHT)
 		_busy = 0.4
 
 
@@ -453,7 +459,7 @@ func _close_in(to_hunter: Vector3, distance: float, climb: float) -> bool:
 func _gesture_claw(pattern: BossPatternData, aim: Vector3) -> float:
 	var reach: float = clampf(float(pattern.params.get("radius", 120.0)) * UNIT, 1.6, 4.0)
 	enemies.hazards.circle(foe.pos + aim * (foe.radius + reach * 0.7), foe.radius * 0.5 + reach, pattern.telegraph,
-		damage(pattern.damage), fx_at(&"claw_swipe", reach))
+		damage(pattern.damage), painted_at(_vfx_names(pattern, ["claw", "claws"]), aim, CONTACT_STRIKE, &"claw_swipe", reach))
 	return pattern.telegraph + 0.35
 
 
@@ -462,13 +468,15 @@ func _gesture_sweep(pattern: BossPatternData, aim: Vector3) -> float:
 	for i: int in 3:
 		var direction: Vector3 = aim.rotated(Vector3.UP, deg_to_rad(-45.0 + 45.0 * i))
 		enemies.hazards.circle(foe.pos + direction * (foe.radius + 1.8), 1.9, pattern.telegraph + 0.1 * i,
-			damage(pattern.damage), fx_at(&"claw_swipe", 1.8))
+			damage(pattern.damage), painted_at(_vfx_names(pattern, ["root_sweep", "claws"]) if i == 1 else [], aim,
+				CONTACT_STRIKE, &"claw_swipe", 1.8))
 	return pattern.telegraph + 0.5
 
 
 func _gesture_slam(pattern: BossPatternData, _aim: Vector3) -> float:
 	var reach: float = foe.radius + clampf(float(pattern.params.get("radius", 90.0)) * UNIT, 2.0, 4.0)
-	enemies.hazards.circle(foe.pos, reach, pattern.telegraph, damage(pattern.damage), fx_at(&"quake", reach))
+	enemies.hazards.circle(foe.pos, reach, pattern.telegraph, damage(pattern.damage),
+		painted_at(_vfx_names(pattern, ["heavy_slam", "slam"]), _aim, CONTACT_SLAM, &"quake", reach))
 	if phase >= 1:
 		# Double écrasement : une seconde frappe plus large, juste après.
 		enemies.hazards.circle(foe.pos, reach + 2.5, pattern.telegraph + 0.55, damage(pattern.damage * 0.8),
@@ -512,6 +520,7 @@ func _gesture_rain(pattern: BossPatternData, _aim: Vector3) -> float:
 
 
 func _gesture_summon(pattern: BossPatternData, _aim: Vector3) -> float:
+	painted(_vfx_names(pattern, ["summon"]), foe.pos, _aim)
 	var amount: int = clampi(int(pattern.params.get("count", 4)), 2, 6) + mini(phase, 2)
 	var worlds: Array = pattern.params.get("worlds", [])
 	if worlds.is_empty():
@@ -551,7 +560,8 @@ func _gesture_breath(pattern: BossPatternData, aim: Vector3) -> float:
 		var direction: Vector3 = aim.rotated(Vector3.UP, deg_to_rad(-22.0 + 22.0 * i))
 		# Le décor arrête le souffle : on s'abrite derrière un rocher, un mur ou une colonne.
 		enemies.hazards.line(foe.pos, direction, 12.0, 2.4, pattern.telegraph + 0.05 * i, damage(pattern.damage), true)
-	fx(&"fire_breath", foe.pos + aim * (foe.radius + 2.0) + Vector3.UP, 2.0)
+	if not painted(_vfx_names(pattern, ["rift_breath"]), foe.pos, aim, CONTACT_STRIKE):
+		fx(&"fire_breath", foe.pos + aim * (foe.radius + 2.0) + Vector3.UP, 2.0)
 	return pattern.telegraph + 0.6
 
 
@@ -766,7 +776,8 @@ func die() -> float:
 	var clip: StringName = _first_clip([&"collapse", &"death"])
 	var length: float = clampf(foe.view.clip_length(clip), 0.6, 3.0)
 	foe.view.play_action(clip, length)
-	fx(&"death", foe.pos + Vector3.UP * 0.8, clampf(foe.radius * 2.6, 1.5, 4.0))
+	if not painted(["death"], foe.pos, Vector3.RIGHT):
+		fx(&"death", foe.pos + Vector3.UP * 0.8, clampf(foe.radius * 2.6, 1.5, 4.0))
 	return length
 
 
@@ -814,6 +825,41 @@ func fx(effect: StringName, at: Vector3, size: float) -> void:
 	if DraftPixelFx.sheet(effect, tint).is_empty():
 		tint = DraftPixelFx.DEFAULT_FAMILY
 	enemies.run.call("fx", effect, tint, at, size)
+
+
+## Noms d'effets peints d'une technique : `params.vfx` des données, puis les noms par défaut du geste.
+func _vfx_names(pattern: BossPatternData, defaults: Array) -> Array:
+	var names: Array = []
+	if pattern.params.has("vfx"):
+		names.append(str(pattern.params["vfx"]))
+	names.append_array(defaults)
+	return names
+
+
+## Effet peint du boss (`BossData.vfx_dir`, DraftPaintedFx) : premier nom présent, version `phase2_` d'abord en
+## seconde phase. Vrai s'il est joué ; sinon l'appelant garde son effet PixelFX.
+func painted(names: Array, at: Vector3, direction: Vector3 = Vector3.RIGHT, contact: float = -1.0,
+		hold: float = 0.0, props: Dictionary = {}) -> bool:
+	if data.vfx_dir == "" or names.is_empty():
+		return false
+	var candidates: Array[String] = []
+	for name: Variant in names:
+		if phase >= 1 and not str(name).begins_with("phase2_"):
+			candidates.append("phase2_" + str(name))
+		candidates.append(str(name))
+	var settings: Dictionary = props.duplicate()
+	settings["phase2"] = phase >= 1
+	for name: String in candidates:
+		if DraftPaintedFx.scene(data.vfx_dir, name) != null:
+			return DraftPaintedFx.play(enemies, data.vfx_dir, name, at, direction, settings, contact, hold) != null
+	return false
+
+
+## Au moment de la frappe : effet peint s'il existe, sinon l'effet PixelFX `fallback`.
+func painted_at(names: Array, direction: Vector3, contact: float, fallback: StringName, size: float) -> Callable:
+	return func(at: Vector3) -> void:
+		if not painted(names, at, direction, contact):
+			fx(fallback, at + Vector3.UP * 0.6, size)
 
 
 func fx_at(effect: StringName, size: float) -> Callable:
