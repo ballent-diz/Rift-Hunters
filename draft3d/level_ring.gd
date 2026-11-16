@@ -384,7 +384,8 @@ func _paved_circle(radius: float) -> void:
 		_piece("floor_tile_large", polar(angle, radius, FLOOR_Y), tangent_yaw(angle), "none")
 
 
-## Porte (sud, départ du rez-de-chaussée et arrivée au sommet) : deux piliers dans le parapet, braseros, deux postes de garde en ruine (pans de mur et caisses).
+## Porte (sud, départ du rez-de-chaussée et arrivée au sommet) : deux piliers dans le parapet, braseros, deux postes
+## de garde en ruine (pans de mur et caisses).
 func _gate_decor() -> void:
 	for angle: float in [86.0, 94.0]:
 		_piece("pillar", polar(angle, RING_OUTER - 0.6))
