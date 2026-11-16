@@ -5,7 +5,7 @@ extends TestCase
 ## Contrôle de composition (DraftLevelAudit, docs/maps/CARTES_3D.md) sur toutes les cartes. La Cité Effondrée n'a
 ## aucune incohérence ; les cartes 1 à 4 ont des incohérences relevées le 15 novembre et non corrigées (en attente de
 ## validation, liste dans CARTES_3D.md) : l'essai échoue si leur nombre augmente.
-const KNOWN_ISSUES: Dictionary = {1: 4, 2: 2, 3: 40, 4: 13, 5: 0, 6: 0}
+const KNOWN_ISSUES: Dictionary = {1: 4, 2: 2, 3: 40, 4: 13, 5: 0, 6: 0, 7: 0}
 ## Étages de la tour du chapitre 6 (DraftTower.floor_level) : aucun écart admis.
 const TOWER_FLOORS: Array[int] = [0, 1]
 
@@ -573,6 +573,33 @@ func test_tower_floors_climb_to_the_summit() -> void:
 	hunter.auto_direction = Vector3.ZERO
 
 
+func test_seventh_level_pass() -> void:
+	DraftRun.chosen_chapter = 7
+	await _start()
+	DraftRun.chosen_chapter = 0
+	check(run.level is DraftLevelPass, "le chapitre 7 se joue dans le Défilé Hurlant")
+	check(run.level.spawn_points().size() >= 40, "points d'apparition le long de la gorge (%d)" % run.level.spawn_points().size())
+	# Chaque passage de chaque goulet est ouvert, et l'arène du boss se gagne d'un bout à l'autre de la gorge.
+	for neck: Dictionary in DraftLevelPass.NECKS:
+		for gap: Vector2 in neck["open"]:
+			var spot := Vector3(float(neck["x"]), 0.2, (gap.x + gap.y) * 0.5)
+			var route: PackedVector3Array = run.level.path(DraftLevelPass.START, spot)
+			check(route.size() >= 2 and route[route.size() - 1].distance_to(spot) < 1.0, "goulet ouvert : %s" % spot)
+	var route: PackedVector3Array = run.level.path(DraftLevelPass.START, DraftLevelPass.BOSS_SPOT)
+	check(route.size() >= 2 and route[route.size() - 1].distance_to(DraftLevelPass.BOSS_SPOT) < 1.0, "arène atteinte")
+	# Un goulet arrête la vue hors de ses passages ; on tire droit le long d'une clairière.
+	check(not run.sight_clear(Vector3(-32, 0.8, -6), Vector3(-24, 0.8, -6)), "la roche du goulet coupe la vue")
+	check(run.sight_clear(Vector3(-24, 0.8, 4.5), Vector3(-32, 0.8, 4.5)), "on tire par le passage du goulet")
+	var hunter: DraftHunter = run.hunter
+	hunter.automating = true
+	hunter.global_position = Vector3(-20, 0.2, 0)
+	hunter.reset_motion()
+	hunter.auto_direction = Vector3(0, 0, -1)
+	await _frames(240)
+	check(hunter.global_position.z > DraftLevelPass.MIN.y - 0.5, "la falaise tient le Chasseur : %s" % hunter.global_position)
+	hunter.auto_direction = Vector3.ZERO
+
+
 func test_level_composition_audit() -> void:
 	for chapter: int in KNOWN_ISSUES:
 		var level: DraftLevel = DraftLevel.create(chapter)
@@ -584,7 +611,7 @@ func test_level_composition_audit() -> void:
 		check(audit.issues.size() <= allowed, "carte %d : %d incohérence(s) pour %d connue(s)\n%s" % [
 			chapter, audit.issues.size(), allowed, "\n".join(audit.lines())])
 		# L'Anneau (carte 6) n'a ni étage ni escalier : son relief est le gouffre.
-		check(chapter == 6 or not audit.stairs.is_empty(), "carte %d : escaliers trouvés" % chapter)
+		check(chapter >= 6 or not audit.stairs.is_empty(), "carte %d : escaliers trouvés" % chapter)
 		level.queue_free()
 		await _frames(3)
 	for index: int in TOWER_FLOORS:

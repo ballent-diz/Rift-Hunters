@@ -1267,3 +1267,11 @@ gardien vaincu en plus), herse au pied d'une rampe le long du rempart, palier de
 `test_tower_floors_climb_to_the_summit`, contrôle de composition des trois étages (sortie atteignable).
 - **À valider par le propriétaire** : la tour en jeu (rythme des étages, lisibilité de la rampe).
 - **Suite** : raccorder le chapitre 6 (données, nom FR/EN, bestiaire, déblocage, palette).
+
+## Carte 7 : le Défilé Hurlant — 16 novembre 2026 (session « Cartes »)
+
+Gorge de 170 × 28 m suivie d'ouest en est (option A choisie par le propriétaire) : cinq clairières, quatre goulets de
+roche (deux doubles), arène de menhirs au bout. `draft3d/level_pass.gd`, essai `test_seventh_level_pass`, contrôle sans
+incohérence ; `--chapter=7`. Rochers modelés (pack nature inaccessible depuis le conteneur), décor du pack médiéval.
+- **À valider par le propriétaire** : proportions, largeur des goulets, en jeu.
+- **Suite** : raccordement des chapitres 6 et 7 (noms, bestiaires, déblocage, palettes).

@@ -153,6 +153,13 @@ atteindre le palier fait monter d'un étage, le Chasseur garde tout. Détails : 
 le raccordement du chapitre, `--chapter=6` lance la tour avec le bestiaire du chapitre 5 (`--tower-floor=1` : partir
 d'un étage).
 
+## Carte : septième niveau, le Défilé Hurlant
+
+170 × 28 m, gorge longue et étroite suivie d'ouest en est (`draft3d/level_pass.gd`) : cinq clairières (Campement,
+Carrière, Cirque, Tour brisée, Arène des Pierres levées où apparaît le boss) séparées par quatre goulets de roche,
+dont deux doubles. Falaise au nord, rochers bas au sud ; ni étage ni escalier. `--chapter=7` la lance avec le
+bestiaire du chapitre 5 en attendant le chapitre 7.
+
 ## Vérifications
 
 `tests/unit/test_draft3d.gd` (11 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et

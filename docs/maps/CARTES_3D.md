@@ -62,6 +62,7 @@ la conception des niveaux. Guide général de la v2 : `docs/PREMIER_JET_3D.md`.
 | 3 | `level_village.gd` | Hameau du Gué (médiéval, rivière, 3 ponts) | dans `main` ; seconde passe à faire |
 | 4 | `level_outpost.gd` | Avant-poste des Glaces (base spatiale) | dans `main` ; **hors DA à mon avis** (science-fiction), question posée au propriétaire, sans réponse |
 | 5 | `level_city.gd` | Cité Effondrée (ruines, pack donjon, nuit) | recomposée le 15 novembre (plan en damier), contrôle sans incohérence ; à valider en jeu |
+| 7 | `level_pass.gd` | Défilé Hurlant (gorge longue, rochers modelés, pack médiéval) | ébauche montrée le 16 novembre ; lancé par `--chapter=7` en attendant le chapitre 7 |
 | 6 | `level_ring.gd`, `tower.gd` | Tour de la Faille : Garnison, Cellules, Anneau de la Faille (sommet) | sommet validé sur vue d'ensemble ; tour jouable par `--chapter=6` en attendant le chapitre 6 |
 
 Niveau 5 : une première version « ville moderne » (KayKit City Builder, voitures) a été refusée, hors DA et hors
@@ -128,6 +129,25 @@ chaque étage est un `DraftLevelRing` (`floor_index`), l'Anneau ci-dessus en est
 - Captures : `docs/previews/cartes-3d/tour_*.webp` ; navigation : `navigation_6_0.webp`, `navigation_6_1.webp`.
 - Reste : raccorder le chapitre 6 (données, nom FR/EN, bestiaire, déblocage après le chapitre 5, palette du rendu
   pixel avec la session « Art et rendu ») ; d'ici là, `--chapter=6` joue la tour avec le bestiaire du chapitre 5.
+
+## Carte 7 : le Défilé Hurlant (16 novembre)
+
+Commande du propriétaire : « dans la même optique », une carte différente des autres. Option A retenue (la plus
+longue et la plus étroite) : `draft3d/level_pass.gd`, 170 × 28 m, que la caméra suit d'ouest en est.
+- Gorge entre une haute falaise au nord et un rebord de rochers bas au sud (côté caméra) ; ni étage ni escalier.
+- Quatre goulets (`NECKS`) : murs de roche qui ferment la gorge sauf leurs passages (5 à 6,5 m) ; deux goulets
+  doubles (rocher au milieu, deux passages : pas de cul-de-sac, on contourne la horde), deux simples (côté sud, puis
+  côté nord). Torche à l'entrée de chaque goulet.
+- Cinq clairières : Campement (départ), Carrière, Cirque (la plus grande, bosquets d'abri), Tour brisée, Arène des
+  Pierres levées (cercle de menhirs ouvert vers le goulet, lieu du boss, lueur de la Faille).
+- Rochers modelés (`_rock`, `_massif` : prismes convexes à sommet réduit, collision pleine) marqués « décor » : leur
+  sommet n'est pas une zone (DraftLevelAudit les ignore comme relief). Pack nature KayKit inaccessible depuis le
+  conteneur : arbres, tentes, caisses et ruine viennent du pack médiéval (× 5). Prismes `_slab` et maillages
+  `_mesh_of` désormais dans `DraftLevel` (partagés par l'Anneau et le Défilé).
+- Contrôle : sans incohérence ; essai `test_seventh_level_pass` (passages ouverts, arène atteinte, roche qui coupe la
+  vue, falaise qui tient). Captures : `docs/previews/cartes-3d/carte_7_*.webp`, `navigation_7.webp`.
+- Reste : raccordement du chapitre 7 (nom, bestiaire, déblocage, palette) ; d'ici là, `--chapter=7` joue avec le
+  bestiaire du chapitre 5.
 
 ## Règles de composition
 

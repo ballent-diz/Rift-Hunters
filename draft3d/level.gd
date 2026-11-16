@@ -3,7 +3,7 @@ extends NavigationRegion3D
 ## Carte de la base 3D : socle commun des niveaux (modules avec collision, navigation, points d'apparition).
 ## Chaque niveau en hérite et s'assemble dans `build()` : DraftLevelRuins (1), DraftLevelGraveyard (2),
 ## DraftLevelVillage (3), DraftLevelOutpost (4), DraftLevelCity (5),
-## DraftLevelRing (6).
+## DraftLevelRing (6, sommet de la tour), DraftLevelPass (7).
 ## `DraftLevel.create(order)` donne la carte d'un chapitre.
 
 ## Emprise de la carte (x, z), départ du Chasseur, lieu d'apparition du boss.
@@ -35,6 +35,8 @@ static func create(order: int) -> DraftLevel:
 			return DraftLevelCity.new()
 		6:
 			return DraftLevelRing.new()
+		7:
+			return DraftLevelPass.new()
 	return DraftLevelRuins.new()
 
 
@@ -163,6 +165,53 @@ func _prop(path: String, at: Vector3, yaw: float = 0.0, size: float = 1.0, colli
 		shape_node.position = Vector3(bounds.get_center().x, bounds.end.y * 0.5, bounds.get_center().z)
 	body.add_child(shape_node)
 	return instance
+
+
+## Dalle en prisme (polygone convexe vu de dessus, du sommet `top` sur `depth` m), avec sa collision pleine
+## (sol de l'Anneau, rochers et falaises du Défilé).
+func _slab(id: String, points: PackedVector2Array, top: float, depth: float, color: Color,
+		visible_mesh: bool = true) -> void:
+	var tool := SurfaceTool.new()
+	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var bottom: float = top - depth
+	for index: int in range(1, points.size() - 1):
+		tool.set_normal(Vector3.UP)
+		for corner: Vector2 in [points[0], points[index], points[index + 1]]:
+			tool.add_vertex(Vector3(corner.x, top, corner.y))
+	for index: int in points.size():
+		var a: Vector2 = points[index]
+		var b: Vector2 = points[(index + 1) % points.size()]
+		var side: Vector2 = (b - a).orthogonal().normalized()
+		var normal := Vector3(-side.x, 0, -side.y)
+		for corner: Vector3 in [Vector3(a.x, top, a.y), Vector3(b.x, top, b.y), Vector3(b.x, bottom, b.y),
+				Vector3(a.x, top, a.y), Vector3(b.x, bottom, b.y), Vector3(a.x, bottom, a.y)]:
+			tool.set_normal(normal)
+			tool.add_vertex(corner)
+	var body := StaticBody3D.new()
+	body.name = id
+	add_child(body)
+	if visible_mesh:
+		body.add_child(_mesh_of(tool, color))
+	var hull := PackedVector3Array()
+	for corner: Vector2 in points:
+		hull.append(Vector3(corner.x, top, corner.y))
+		hull.append(Vector3(corner.x, bottom, corner.y))
+	var shape := ConvexPolygonShape3D.new()
+	shape.points = hull
+	var collision := CollisionShape3D.new()
+	collision.shape = shape
+	body.add_child(collision)
+
+
+func _mesh_of(tool: SurfaceTool, color: Color) -> MeshInstance3D:
+	var mesh := MeshInstance3D.new()
+	mesh.mesh = tool.commit()
+	var material := StandardMaterial3D.new()
+	material.albedo_color = color
+	material.roughness = 0.95
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	mesh.material_override = material
+	return mesh
 
 
 func _light(at: Vector3, color: Color, energy: float = 1.4, reach: float = 5.0) -> void:

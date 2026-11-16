@@ -71,6 +71,9 @@ func _collect() -> void:
 	for child: Node in level.get_children():
 		if child is StaticBody3D:
 			var body := child as StaticBody3D
+			# Décor modelé (rochers) : ni relief ni paroi ; son sommet n'est pas une zone de jeu.
+			if body.has_meta(&"decor"):
+				continue
 			# Paroi invisible (`_fence`, marquée) ou relief (`_box`, dalles d'une carte).
 			if body.has_meta(&"fence") or body.collision_layer & SOLID == 0:
 				_fences.append(body.get_rid())
@@ -166,8 +169,10 @@ func _check_islands() -> void:
 		islands.append(island)
 		# Seules comptent les surfaces posées sur le sol ou le relief : le dessus d'un mur n'est pas une zone.
 		# Une surface fantôme sous un relief plein (sol recouvert par une terrasse) n'en est pas une non plus.
+		# Hors de l'aire de jeu (derrière les limites), une surface n'est pas une zone non plus.
+		var playable := Rect2(level.bounds_min, level.bounds_max - level.bounds_min)
 		if not reachable and area >= ISLAND_AREA and _terrain_at(probe + Vector3.DOWN * 0.4).is_valid() \
-				and not _solid_at(probe + Vector3.UP * 0.6):
+				and not _solid_at(probe + Vector3.UP * 0.6) and playable.has_point(Vector2(probe.x, probe.z)):
 			island["flagged"] = true
 			_issue("island", "surface praticable de %.0f m² inaccessible depuis le départ" % area, probe)
 
