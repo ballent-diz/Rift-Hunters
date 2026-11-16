@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## Gameplay v2 : arsenal, récompenses, combos (Claude, session « Gameplay », en cours depuis le 16 novembre 2026)
+
+Consignes : issue #193 et `docs/design/GAMEPLAY_COMBOS_2P5D.md` (PR #194). Audit, architecture et état des lots :
+[design/GAMEPLAY_V2_ARCHITECTURE.md](design/GAMEPLAY_V2_ARCHITECTURE.md). Lots : 1 audit (fait), 2 arsenal et réserve,
+3 récompenses et progression, 4 combos MVP, 5 VFX et validation — **en cours (Claude)**.
+
 ## Écran « Déblocages » de la v2 (Claude, session « Interface », 15 novembre 2026)
 
 Interface de la direction C (`docs/design/DEBLOCAGE_V2.md`), **branchée sur l'API de `DraftUnlocks`** que livre la
