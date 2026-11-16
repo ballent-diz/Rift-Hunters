@@ -644,6 +644,23 @@ func test_eighth_level_marsh_tide() -> void:
 	check(pixel.call(Vector2(-40, 40)).r > 0.99, "rives : eau loin de toute terre")
 	var dike: Color = pixel.call(Vector2(0, 16))
 	check(dike.b > 0.99 and dike.g < 0.01 and dike.r > 0.1, "rives : levée basse (terre à marée basse seulement)")
+	# Eau peinte (draft3d/marsh/marsh_water.gd) : shader suivant la hauteur d'eau, vase mouillée après le retrait.
+	var fx: DraftMarshWater = marsh.water_fx
+	var water := marsh.find_child("Water", false, false) as MeshInstance3D
+	check(water.material_override == fx.water_material, "l'eau porte le shader du marais")
+	var ripples: Texture2DArray = fx.water_material.get_shader_parameter("ripple_tex")
+	check(ripples != null and ripples.get_layers() == DraftMarshWater.RIPPLE_FRAMES, "rides : 8 images")
+	marsh.set_tide(true)
+	await _frames(2)
+	check(is_equal_approx(float(fx.water_material.get_shader_parameter("water_level")), DraftLevelMarsh.WATER_HIGH)
+		and fx.wetness > 0.99, "marée haute : le shader suit l'eau, levées détrempées")
+	marsh.set_tide(false)
+	await _frames(10)
+	check(fx.wetness > 0.5 and fx.wetness < 1.0, "marée basse : la vase sèche peu à peu (%.2f)" % fx.wetness)
+	for file: String in DirAccess.get_files_at("res://draft3d/marsh"):
+		if file.ends_with(".png.import"):
+			var text: String = FileAccess.get_file_as_string("res://draft3d/marsh/" + file)
+			check(text.contains("detect_3d/compress_to=0"), "%s : pas de recompression avec perte en 3D" % file)
 
 
 func _route_length(from: Vector3, to: Vector3) -> float:

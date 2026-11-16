@@ -1284,5 +1284,8 @@ Carte qui change pendant la partie (option A) : îlots, levées hautes et basses
 levées basses (navigation recalculée, barrières qui ne piègent jamais le Chasseur, tirs par-dessus l'eau).
 `draft3d/level_marsh.gd`, essai `test_eighth_level_marsh_tide`, contrôle sans incohérence à marée basse et haute.
 - **À valider par le propriétaire** : rythme de la marée, lisibilité, en jeu.
-- **Prompt Codex n° 3** (eau, écume, vase, éclaboussures en pixel art) en attente ; shader de l'eau à confier à la
-  session « Art et rendu ».
+- Textures de l'eau livrées par Codex (PR #195). **Shader de l'eau livré** (session « Art et rendu », 16 novembre) :
+  rides, écume des berges suivant la marée, levées noyées visibles, vase mouillée qui sèche en 10 s
+  (`draft3d/marsh/marsh_water.gd`, détails dans `docs/maps/CARTES_3D.md`, captures `docs/previews/eau-marais/`).
+- **Suite** (session « Cartes ») : éclaboussures sous les monstres (`eclaboussure_1..6.png`, 480 ms).
+- **À valider par le propriétaire** : lisibilité de l'écume et des levées noyées en jeu, durée du séchage.
