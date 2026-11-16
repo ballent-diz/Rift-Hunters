@@ -637,3 +637,15 @@ func test_v1_animations_play_on_the_ground() -> void:
 	check((run.bolts[before]["visual"] as Sprite3D).texture == null, "le trait de jeu de la Lance est invisible")
 	await _frames(90)
 	check(run.spells.vfx.playing.is_empty(), "les animations finies sont retirées")
+
+
+func test_upgrade_cards_show_v1_art() -> void:
+	await _start()
+	var shared: Array[UpgradeData] = []
+	for id: StringName in DraftUpgrades.SHARED:
+		check(ItemArt.texture("upgrade", id) != null, "%s : illustration de la v1" % id)
+		shared.append(GameDB.upgrades[id])
+	run.hud.show_offers(2, [shared[0], shared[1], _card("learn_rupture")] as Array[UpgradeData], run.upgrades)
+	check_eq(run.hud.find_children("UpgradeArt", "TextureRect", true, false).size(), 2, "illustrations sur les cartes")
+	check_eq(run.hud.find_children("SpellIcon", "TextureRect", true, false).size(), 1, "icône sur la carte de sort")
+	run.hud.hide_offers()

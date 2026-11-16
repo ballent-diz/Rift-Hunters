@@ -124,3 +124,10 @@ Demande du propriétaire : les sorts gardent les animations de la v1 et leurs im
   dans les cases de recharge sous le Chasseur et sur les cartes de sort du choix de niveau (`DraftSpellBar.icon_for`).
 - Vérification : option `--cast-at=T` (tous les sorts partent à T secondes). Capture :
   `docs/previews/sorts-actifs-v2/animations_v1.webp`.
+
+## 7. Illustrations des cartes de niveau (16 novembre 2026)
+
+Chaque carte du choix de niveau porte une illustration encadrée : l'illustration de la v1 pour les cartes de
+statistique (`assets/ui/items/upgrades/`, catalogue `ItemArt`, 10 cartes communes), l'icône du sort pour les cartes de
+sort. **Sans image** : Longue portée et Rempart, propres à la v2 (aucune illustration n'existe). Capture :
+`docs/previews/sorts-actifs-v2/cartes_illustrees.webp`.
