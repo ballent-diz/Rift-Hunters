@@ -586,3 +586,20 @@ func test_painted_effects_in_3d() -> void:
 	check(glauque.brain.painted(["mud_impact"], glauque.pos), "vase peinte de Glauquemire")
 	var astravorn: DraftEnemies.Foe = _spawn(&"astravorn", 8.0)
 	check(not astravorn.brain.painted(["claw"], astravorn.pos), "sans dossier peint : rien")
+
+
+func test_boss_hp_follows_the_chapter_not_the_campaign() -> void:
+	await _start()
+	var previous: float = 0.0
+	for order: int in range(1, 6):
+		run.chapter = order
+		var boss: BossData = DraftRoster.for_chapter(order).boss
+		var effective: float = boss.max_hp * CombatSystem.defense_multiplier(boss.defense) * run.hp_scale(boss,
+			run.tuning.boss_effective_hp)
+		check_near(effective, run.tuning.boss_effective_hp * (1.0 + run.tuning.boss_chapter_growth * (order - 1)), 1.0,
+			"chapitre %d : PV effectifs du Dévoreur" % order)
+		check(effective > previous, "chapitre %d : un peu plus résistant que le précédent" % order)
+		previous = effective
+	run.chapter = 1
+	check_near(run.hp_scale(GameDB.boss(&"source_devourer"), run.tuning.boss_effective_hp), 1.0, 0.01,
+		"Dévoreur des Sources : référence inchangée")

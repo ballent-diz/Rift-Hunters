@@ -48,6 +48,13 @@ extends Resource
 @export var boss_time: float = 480.0
 @export var boss_hp_mult: float = 0.55
 @export var boss_damage_mult: float = 0.8
+## PV effectifs (PV × multiplicateur de défense) visés pour le Dévoreur et pour le gardien du chapitre 1 ; ceux des
+## autres chapitres montent de `boss_chapter_growth` par chapitre. Chaque partie 3D dure 8 minutes : le Chasseur arrive
+## au boss avec à peu près la même puissance dans tous les chapitres, alors que les PV d'origine montent de × 4 sur
+## la campagne 2D. Réglage du 16 novembre 2026 (docs/design/BOSS_V2.md, « Durée des combats »).
+@export var boss_effective_hp: float = 5000.0
+@export var guardian_effective_hp: float = 2900.0
+@export var boss_chapter_growth: float = 0.15
 ## Part de l'intervalle d'origine entre deux techniques d'un boss (BossPhaseData.pattern_interval) : les boss 3D
 ## marchent et tournent entre deux techniques, un intervalle un peu plus court garde le rythme.
 @export var boss_pace: float = 0.8
