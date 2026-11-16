@@ -6,6 +6,8 @@ extends TestCase
 ## aucune incohérence ; les cartes 1 à 4 ont des incohérences relevées le 15 novembre et non corrigées (en attente de
 ## validation, liste dans CARTES_3D.md) : l'essai échoue si leur nombre augmente.
 const KNOWN_ISSUES: Dictionary = {1: 4, 2: 2, 3: 40, 4: 13, 5: 0, 6: 0}
+## Étages de la tour du chapitre 6 (DraftTower.floor_level) : aucun écart admis.
+const TOWER_FLOORS: Array[int] = [0, 1]
 
 var run: DraftRun
 
@@ -491,7 +493,10 @@ func test_sixth_level_ring() -> void:
 	DraftRun.chosen_chapter = 6
 	await _start()
 	DraftRun.chosen_chapter = 0
-	check(run.level is DraftLevelRing, "le chapitre 6 se joue sur l'Anneau de la Faille")
+	# L'Anneau est le sommet de la tour : on y monte directement (changement d'étage de la partie).
+	run.tower.floor_index = DraftLevelRing.TOP_FLOOR
+	await run.change_level(DraftTower.floor_level(DraftLevelRing.TOP_FLOOR))
+	check(run.level is DraftLevelRing and (run.level as DraftLevelRing).summit(), "sommet de la tour : l'Anneau")
 	check(run.level.spawn_points().size() >= 40, "points d'apparition sur l'anneau (%d)" % run.level.spawn_points().size())
 	for spot: Vector3 in [DraftLevelRing.BOSS_SPOT, DraftLevelRing.polar(180.0, 37.0), DraftLevelRing.polar(0.0, 37.0),
 			DraftLevelRing.polar(270.0, 40.0), DraftLevelRing.polar(120.0, 15.0)]:
@@ -517,6 +522,57 @@ func test_sixth_level_ring() -> void:
 		"un mur radial coupe la vue")
 
 
+func test_tower_floors_climb_to_the_summit() -> void:
+	DraftRun.chosen_chapter = 6
+	await _start()
+	DraftRun.chosen_chapter = 0
+	check(run.tower != null and run.level is DraftLevelRing, "le chapitre 6 est une tour")
+	check((run.level as DraftLevelRing).floor_index == 0 and run.level.exit_point != Vector3.INF, "rez-de-chaussée")
+	run.tuning.tower_floor_time = INF
+	run.tuning.tower_guardian_delay = 0.0
+	var hunter: DraftHunter = run.hunter
+	hunter.automating = true
+	# Herse fermée : on ne monte pas par la rampe.
+	var ramp: Vector2 = DraftLevelRing.FLOORS[0]["ramp"]
+	hunter.global_position = DraftLevelRing.polar(ramp.x - 6.0, 44.0, 0.2)
+	hunter.reset_motion()
+	for frame: int in 150:
+		var ahead: Vector3 = DraftLevelRing.polar(ramp.x + 8.0, 44.0) - hunter.global_position
+		hunter.auto_direction = Vector3(ahead.x, 0, ahead.z).normalized()
+		await host.get_tree().physics_frame
+	check(hunter.global_position.y < 0.6 and not run.tower.opened, "la herse arrête le Chasseur : %s" % hunter.global_position)
+	var level_before: int = hunter.level
+	# Fin de l'étage : la herse se lève, le bot suit la rampe jusqu'au palier.
+	run.tuning.tower_floor_time = 0.0
+	run._bot = true
+	for frame: int in 900:
+		if run.tower.floor_index == 1 and run.state == DraftRun.State.PLAYING:
+			break
+		await host.get_tree().physics_frame
+	check(run.tower.floor_index == 1, "montée au premier étage (bot à %s)" % hunter.global_position)
+	check((run.level as DraftLevelRing).floor_index == 1, "l'étage des Cellules est chargé")
+	check(hunter.level >= level_before, "le Chasseur garde son niveau")
+	check(hunter.global_position.distance_to(run.level.start) < 3.0, "arrivée par la porte de l'étage")
+	# Étage du gardien : la rampe attend sa défaite.
+	await _frames(5)
+	check(run._guardian_spawned and run.enemies.boss != null, "le gardien apparaît à son étage")
+	check(not run.tower.opened, "la rampe reste fermée tant que le gardien vit")
+	if run.enemies.boss != null:
+		run.enemies.hit(run.enemies.boss, 1e9)
+	for frame: int in 3000:
+		if run.tower.summit() and run.state == DraftRun.State.PLAYING:
+			break
+		await host.get_tree().physics_frame
+	check(run.tower.summit() and (run.level as DraftLevelRing).summit(), "arrivée au sommet")
+	check(run.enemies.boss == null and not run._boss_spawned, "pas de Dévoreur avant l'heure")
+	run.boss_time = 0.0
+	run.tuning.tower_boss_delay = 0.0
+	await _frames(3)
+	check(run._boss_spawned and run.enemies.boss != null and run.enemies.boss.final, "le Dévoreur apparaît au sommet")
+	run._bot = false
+	hunter.auto_direction = Vector3.ZERO
+
+
 func test_level_composition_audit() -> void:
 	for chapter: int in KNOWN_ISSUES:
 		var level: DraftLevel = DraftLevel.create(chapter)
@@ -530,4 +586,14 @@ func test_level_composition_audit() -> void:
 		# L'Anneau (carte 6) n'a ni étage ni escalier : son relief est le gouffre.
 		check(chapter == 6 or not audit.stairs.is_empty(), "carte %d : escaliers trouvés" % chapter)
 		level.queue_free()
+		await _frames(3)
+	for index: int in TOWER_FLOORS:
+		var floor_level: DraftLevelRing = DraftTower.floor_level(index)
+		host.add_child(floor_level)
+		floor_level.build()
+		await floor_level.bake()
+		var floor_audit: DraftLevelAudit = DraftLevelAudit.check(floor_level)
+		check(floor_audit.issues.is_empty(), "tour, étage %d : %s" % [index, "\n".join(floor_audit.lines())])
+		check(floor_level.exit_point != Vector3.INF, "tour, étage %d : palier de sortie" % index)
+		floor_level.queue_free()
 		await _frames(3)
