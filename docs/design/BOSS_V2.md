@@ -332,5 +332,8 @@ défense) ramenés à une référence, + 15 % par chapitre (`boss_chapter_growth
   0,66 · 0,43 pour Sources, Pyrevorn, Glauquemire, Nivorath, Abyssarque (en plus de `boss_hp_mult` 0,55).
 - Gardiens : référence 2 900 (en plus de `guardian_hp_mult` 0,45) : Astravorn, nettement plus robuste que les autres
   gardiens, est ramené à leur niveau ; les gardiens montent aussi de 15 % par chapitre.
+- Mesure au bot après réglage (mêmes conditions) : 1 min 50 (ch. 2), 2 min 15 (ch. 3), 14 min (ch. 4 : le bot fuit
+  toujours hors de portée sur cette carte, à juger en jouant) ; ch. 5 non mesuré (délai dépassé, quatre parties en
+  parallèle sur le conteneur).
 - Leviers si les combats restent trop longs ou trop courts en jouant : `boss_effective_hp`, `guardian_effective_hp`,
   `boss_chapter_growth`.
