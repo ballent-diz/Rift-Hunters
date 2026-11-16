@@ -720,6 +720,16 @@ func _land(to: Vector3) -> void:
 
 # --- Mort ----------------------------------------------------------------------------------------------------------
 
+## Retrait sans mort (changement d'étage de la tour) : mécaniques et décors posés retirés, aucune animation.
+func dispose() -> void:
+	if _dead:
+		return
+	_dead = true
+	_move = {}
+	for mechanic: DraftBossMechanic in mechanics:
+		mechanic.finish()
+
+
 ## Mort : mécaniques retirées, feuille de mort dédiée s'il y en a une, clip joué en entier. Renvoie sa durée.
 func die() -> float:
 	if _dead:

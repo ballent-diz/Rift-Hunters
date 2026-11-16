@@ -130,6 +130,8 @@ func _add(foe: Foe, visual_id: StringName, at: Vector3, size: float) -> void:
 func clear_all() -> void:
 	for foe: Foe in list:
 		foe.alive = false
+		if foe.brain != null:
+			foe.brain.dispose()
 		foe.view.queue_free()
 	list.clear()
 	for corpse: Dictionary in _corpses:

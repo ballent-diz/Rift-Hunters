@@ -424,3 +424,14 @@ func test_marsh_guardians() -> void:
 	run.hunter.reset_motion()
 	await _frames(int((hop.telegraph + float(hop.params["dive"])) * 60) + 10)
 	check(portal.trapped == 1 and lady.brain.stunned(), "Chasseur dans le portail : elle sort piégée")
+
+
+func test_floor_change_clears_boss_mechanics() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"glauquemire", 8.0)
+	var glauque := _mechanic(foe, &"prism_beam") as DraftGlauquemire
+	foe.brain._next_at = INF
+	glauque.perform(_pattern(foe.boss, &"mud_wall"))
+	check(not glauque.puddles.is_empty(), "flaques de vase posées")
+	run.enemies.clear_all()
+	check(glauque.puddles.is_empty() and run.enemies.boss == null, "changement d'étage : boss et vase retirés")
