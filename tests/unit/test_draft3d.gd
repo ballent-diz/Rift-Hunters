@@ -633,6 +633,17 @@ func test_eighth_level_marsh_tide() -> void:
 	check(is_equal_approx(DraftLevelMarsh.water_level(0.0), DraftLevelMarsh.WATER_LOW), "cycle : marée basse au départ")
 	var peak: float = DraftLevelMarsh.TIDE_LOW + DraftLevelMarsh.TIDE_RISE + 1.0
 	check(is_equal_approx(DraftLevelMarsh.water_level(peak), DraftLevelMarsh.WATER_HIGH), "cycle : marée haute")
+	# Carte des rives : à jour avec le plan (tools/marsh_shore.tscn), terre à 0, eau lointaine à 1, levées basses en B.
+	var fresh: Image = marsh.shore_image()
+	var saved := Image.load_from_file(ProjectSettings.globalize_path(DraftLevelMarsh.SHORE_MAP))
+	check(saved != null and saved.get_data() == fresh.get_data(), "carte des rives à jour (tools/marsh_shore.tscn)")
+	var pixel := func(world: Vector2) -> Color:
+		var at: Vector2 = (world - DraftLevelMarsh.SHORE_RECT.position) * DraftLevelMarsh.SHORE_PIXELS_PER_METER
+		return fresh.get_pixel(int(at.x), int(at.y))
+	check(pixel.call(Vector2(0, -6)).r < 0.01, "rives : le sanctuaire est de la terre sèche")
+	check(pixel.call(Vector2(-40, 40)).r > 0.99, "rives : eau loin de toute terre")
+	var dike: Color = pixel.call(Vector2(0, 16))
+	check(dike.b > 0.99 and dike.g < 0.01 and dike.r > 0.1, "rives : levée basse (terre à marée basse seulement)")
 
 
 func _route_length(from: Vector3, to: Vector3) -> float:

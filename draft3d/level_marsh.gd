@@ -32,6 +32,14 @@ const MUD := Color("3d3a2a")
 const LAND := Color("5d6b3a")
 const DIKE := Color("7a6a44")
 const WATER := Color(0.18, 0.36, 0.38, 0.82)
+## Carte des rives (pour le shader de l'eau) : image alignée sur SHORE_RECT (x vers la droite, z vers le bas),
+## SHORE_PIXELS_PER_METER pixels par mètre. Canal R : distance à la terre toujours sèche (îlots, levées hautes) ;
+## G : distance à toute terre (levées basses comprises, utile à marée basse) ; B : 1 sur les levées basses. Distances
+## en mètres divisées par SHORE_RANGE (1 au-delà). Régénérer : `tools/marsh_shore.tscn` après un changement de plan.
+const SHORE_MAP := "res://draft3d/marsh/rives.png"
+const SHORE_RECT := Rect2(-60.0, -60.0, 120.0, 120.0)
+const SHORE_PIXELS_PER_METER := 4
+const SHORE_RANGE := 8.0
 const RIFT := Color("b06bff")
 ## Îlots : centre (x, z) et rayon.
 const ISLANDS: Array[Vector3] = [
@@ -61,6 +69,7 @@ var tide_time: float = 0.0
 var tide_running: bool = true
 var _water: MeshInstance3D
 var _land: Array[PackedVector2Array] = []
+var _land_low: Array[bool] = []
 var _low: Array[Dictionary] = []
 
 
@@ -82,6 +91,7 @@ func build() -> void:
 	for island: Vector3 in ISLANDS:
 		var outline: PackedVector2Array = _circle(Vector2(island.x, island.y), island.z)
 		_land.append(outline)
+		_land_low.append(false)
 		_slab("Island", outline, LAND_TOP, 2.5, LAND)
 	for dike: Dictionary in DIKES:
 		_dike(dike)
@@ -136,6 +146,7 @@ func _dike(dike: Dictionary) -> void:
 	var outline := PackedVector2Array([start_point - side, end_point - side, end_point + side, start_point + side])
 	_land.append(outline)
 	var low: bool = dike["low"]
+	_land_low.append(low)
 	_slab("Dike", outline, LOW_TOP if low else LAND_TOP, 2.5, DIKE if low else LAND)
 	if not low:
 		return
@@ -243,6 +254,85 @@ func _spawn_candidates() -> Array[Vector3]:
 			var reach: float = island.z - 2.0
 			result.append(Vector3(island.x + cos(angle) * reach, LAND_TOP, island.y + sin(angle) * reach))
 	return result
+
+
+# --- Carte des rives ---------------------------------------------------------------------------------------------
+
+func shore_image() -> Image:
+	return DraftLevelMarsh.compute_shore(_land, _land_low)
+
+
+## Distances à la terre (transformée de chanfrein en deux passes, pas de 1 et √2) sur la grille de SHORE_RECT.
+static func compute_shore(land: Array[PackedVector2Array], low: Array[bool]) -> Image:
+	var width: int = int(SHORE_RECT.size.x) * SHORE_PIXELS_PER_METER
+	var height: int = int(SHORE_RECT.size.y) * SHORE_PIXELS_PER_METER
+	var step: float = 1.0 / SHORE_PIXELS_PER_METER
+	var dry := PackedFloat32Array()
+	var any := PackedFloat32Array()
+	var dike := PackedByteArray()
+	dry.resize(width * height)
+	any.resize(width * height)
+	dike.resize(width * height)
+	dry.fill(INF)
+	any.fill(INF)
+	for index: int in land.size():
+		var outline: PackedVector2Array = land[index]
+		var box := Rect2(outline[0], Vector2.ZERO)
+		for corner: Vector2 in outline:
+			box = box.expand(corner)
+		var x0: int = maxi(int((box.position.x - SHORE_RECT.position.x) / step), 0)
+		var x1: int = mini(int((box.end.x - SHORE_RECT.position.x) / step) + 1, width - 1)
+		var y0: int = maxi(int((box.position.y - SHORE_RECT.position.y) / step), 0)
+		var y1: int = mini(int((box.end.y - SHORE_RECT.position.y) / step) + 1, height - 1)
+		for y: int in range(y0, y1 + 1):
+			for x: int in range(x0, x1 + 1):
+				var world := SHORE_RECT.position + Vector2(x + 0.5, y + 0.5) * step
+				if Geometry2D.is_point_in_polygon(world, outline):
+					any[y * width + x] = 0.0
+					if low[index]:
+						dike[y * width + x] = 1
+					else:
+						dry[y * width + x] = 0.0
+	_chamfer(dry, width, height, step)
+	_chamfer(any, width, height, step)
+	var image := Image.create(width, height, false, Image.FORMAT_RGB8)
+	for y: int in height:
+		for x: int in width:
+			var at: int = y * width + x
+			var on_dike: bool = dike[at] == 1 and dry[at] > 0.0
+			image.set_pixel(x, y, Color(minf(dry[at] / SHORE_RANGE, 1.0), minf(any[at] / SHORE_RANGE, 1.0),
+				1.0 if on_dike else 0.0))
+	return image
+
+
+static func _chamfer(field: PackedFloat32Array, width: int, height: int, step: float) -> void:
+	var diagonal: float = step * sqrt(2.0)
+	for y: int in height:
+		for x: int in width:
+			var at: int = y * width + x
+			var best: float = field[at]
+			if x > 0:
+				best = minf(best, field[at - 1] + step)
+			if y > 0:
+				best = minf(best, field[at - width] + step)
+				if x > 0:
+					best = minf(best, field[at - width - 1] + diagonal)
+				if x < width - 1:
+					best = minf(best, field[at - width + 1] + diagonal)
+			field[at] = best
+	for y: int in range(height - 1, -1, -1):
+		for x: int in range(width - 1, -1, -1):
+			var at: int = y * width + x
+			var best: float = field[at]
+			if x < width - 1:
+				best = minf(best, field[at + 1] + step)
+			if y < height - 1:
+				best = minf(best, field[at + width] + step)
+				if x < width - 1:
+					best = minf(best, field[at + width + 1] + diagonal)
+				if x > 0:
+					best = minf(best, field[at + width - 1] + diagonal)
+			field[at] = best
 
 
 # --- Marée -----------------------------------------------------------------------------------------------------

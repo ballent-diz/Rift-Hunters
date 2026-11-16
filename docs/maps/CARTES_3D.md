@@ -174,6 +174,12 @@ trouble ; ni étage ni escalier.
   l'eau (rides, écume le long des rives, vase mouillée après le retrait) par la session « Art et rendu » ; le moteur
   de compatibilité n'offrant pas la profondeur, la ligne d'écume se calculera à partir du contour des terres
   (`_land`), connu de la carte.
+- **Carte des rives** (pour le shader de l'eau) : `draft3d/marsh/rives.png`, 480 × 480, alignée sur
+  `SHORE_RECT` (−60 → 60 m en x et z, 4 px/m, x vers la droite, z vers le bas). R : distance à la terre toujours
+  sèche ; G : distance à toute terre (levées basses comprises) ; B : 1 sur les levées basses. Distances divisées par
+  `SHORE_RANGE` (8 m). Usage prévu : écume où la distance est faible (R à marée haute, G à marée basse), vase mouillée
+  sur B après le retrait. Calculée par `DraftLevelMarsh.compute_shore` (chanfrein), régénérée par
+  `godot --headless --path . res://tools/marsh_shore.tscn` ; l'essai vérifie qu'elle est à jour. Importée sans perte.
 - Correctif commun : `DraftLevel._slab` oriente toujours ses polygones dans le même sens (le rendu pixel élimine les
   faces vues de dos) ; les passerelles de l'Anneau, sombres jusque-là, s'affichent enfin.
 - Captures : `docs/previews/cartes-3d/carte_8_*.webp`, `navigation_8.webp`.
