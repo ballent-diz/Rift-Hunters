@@ -2069,6 +2069,7 @@ BOSS_PATTERN_RIME_STAFF,Bâton de givre,Rime Staff
 BOSS_PATTERN_ICICLES,Pluie de stalactites,Icicle Rain
 BOSS_PATTERN_DEEP_FREEZE,Grand gel,Deep Freeze
 BOSS_DEEP_FREEZE_INTRO,"Grand gel : le Chaman souffle les braseros sauf un, qui flamboie. Courez dans sa chaleur avant la vague de gel, ou brisez la prison d'une Ruée.","Deep Freeze: the Shaman snuffs every brazier but one, which blazes. Run into its warmth before the frost wave, or break the prison with a Dash."
+BOSS_DEEP_FREEZE_INTRO_3D,"Grand gel : un refuge de chaleur s'allume près de vous. Courez-y avant la vague de gel, ou brisez la prison d'une Ruée.","Deep Freeze: a warm refuge lights up near you. Run into it before the frost wave, or break the prison with a dash."
 JOURNAL_DEEP_FREEZE,Grand gel,Deep Freeze
 BLIZZARD_INTRO,"Blizzard ! Quand le voile s'épaissit, une rafale arrive : on ne voit plus que les ennemis proches et le vent pousse tout le monde. Les refuges du vent restent dégagés.","Blizzard! When the veil thickens, a gust is coming: you only see nearby enemies and the wind pushes everyone. Wind shelters stay clear."
 JOURNAL_BLIZZARD,Blizzard,Blizzard
@@ -2108,6 +2109,7 @@ BOSS_FLOE_COLOSSUS_PHASE2,Carapace brisée,Shattered Hide
 BOSS_PATTERN_TUSK_SWEEP,Balayage des défenses,Tusk Sweep
 BOSS_PATTERN_FLOE_QUAKE,Séisme de banquise,Floe Quake
 BOSS_FLOE_QUAKE_INTRO,"Séisme de banquise : le Colosse frappe la glace et les plaques proches de vous se fendent. Quittez-les avant qu'elles ne s'ouvrent, ou attirez-y ses renforts.","Floe Quake: the Colossus strikes the ice and the plates near you crack. Leave them before they open, or lure his reinforcements onto them."
+BOSS_FLOE_QUAKE_INTRO_3D,"Séisme de banquise : les plaques sous vos pieds se fendent puis s'ouvrent sur l'eau noire. Quittez-les avant qu'elles ne cèdent.","Floe Quake: the plates under your feet crack, then open onto black water. Leave them before they give way."
 JOURNAL_FLOE_QUAKE,Séisme de banquise,Floe Quake
 ARENA_SILENT_HEART_NAME,Le Cœur du Silence,The Heart of Silence
 ARENA_SILENT_HEART_DESC,"Au cœur du glacier, chaque sort résonne et se relance une seconde fois. Traversez la galerie et la salle des échos jusqu'à la cathédrale gelée, où Nivorath avale le silence.","In the heart of the glacier, every spell resonates and casts a second time. Cross the gallery and the hall of echoes to the frozen cathedral, where Nivorath swallows the silence."
@@ -2185,6 +2187,7 @@ BOSS_SANCTUM_GOLEM_PHASE2,Dalles éclatées,Shattered Slabs
 BOSS_PATTERN_SLAB_FIST,Poing de dalles,Slab Fist
 BOSS_PATTERN_RUNE_BARRAGE,Tempête de runes,Rune Storm
 BOSS_RUNE_BARRAGE_INTRO,Tempête de runes : le Golem trace des sceaux autour de vous et fait tourner les portes. Sortez des cercles avant qu'ils frappent.,Rune Storm: the Golem draws seals around you and turns the gates. Step out of the circles before they strike.
+BOSS_RUNE_BARRAGE_INTRO_3D,"Tempête de runes : le Golem trace des sceaux autour de vous, qui frappent puis ralentissent, et se couvre d'une armure de dalles. Sortez des cercles et frappez-le quand l'armure tombe.","Rune Storm: the Golem draws seals around you that strike and then slow, and dons slab armour. Step out of the circles and strike him when the armour falls."
 JOURNAL_RUNE_BARRAGE,Tempête de runes,Rune Storm
 ARENA_SHATTERED_PANTHEON_NAME,Le Panthéon brisé,The Shattered Pantheon
 ARENA_SHATTERED_PANTHEON_DESC,"Fermez les quatre failles des cours du Panthéon. Les statues s'éveillent sur leurs socles quand on passe trop près, et des Échos attendent dans leurs cages qu'on les libère.","Close the four rifts in the Pantheon's courts. Statues awaken on their plinths when you pass too close, and Echoes wait in their cages to be freed."

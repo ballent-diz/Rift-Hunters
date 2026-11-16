@@ -76,6 +76,8 @@ Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
   Statue mesurent déjà 45 à 110 unités : inchangés, **à confirmer en jouant** (docs/ROADMAP.md, lot 3).
 - [ ] **Boss de fin de chapitre pas assez dynamiques** (10 novembre) : plus de déplacements, d'enchaînements et de
   techniques lisibles ; à revoir boss par boss.
+  v2 (3D) : socle et mécaniques phares livrés le 16 novembre (docs/design/BOSS_V2.md) : déplacements (tournoiement,
+  recul, charge, bond, saut de faille), enchaînements, phases et techniques de chaque boss. **À juger en jouant.**
 - [x] **Glauquemire (carte 15, Cœur des marais)** (10 novembre) : boss intuable, mécanique jugée mauvaise par le
   propriétaire, et un « cercle » bloque le Chasseur dans l'arène. Refondre la mécanique et retirer le blocage.
   Corrigé le 11 novembre : soin des sangsues plafonné, plus de laisse ni d'anneau (racine jaillissante, raz-de-marée à
