@@ -363,3 +363,21 @@ func test_combo_effects_exist_in_their_palette() -> void:
 			"effet %s/%s présent" % [match.get_string(1), family])
 		found += 1
 	check(found >= 9, "effets des combos relevés")
+
+
+func test_parry_counter_effect_is_the_whirl_sheet() -> void:
+	await _start([&"parry"] as Array[StringName])
+	_cast(&"parry", run.hunter.global_position)
+	run.spells._parry_drawn = null
+	var before: int = _pixel_effects(&"spin_slash")
+	run.hunter.parried.emit()
+	check_eq(_pixel_effects(&"spin_slash"), before + 1, "contre-attaque de la Parade : tourbillon joué, pas l'impact de secours")
+
+
+func _pixel_effects(effect: StringName) -> int:
+	var count: int = 0
+	var sheet: Texture2D = DraftPixelFx.sheet(effect, &"calcines").get("texture")
+	for child: Node in run.get_children():
+		if child is DraftPixelFx and (child as DraftPixelFx).texture == sheet:
+			count += 1
+	return count

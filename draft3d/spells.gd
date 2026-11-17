@@ -802,7 +802,8 @@ func _on_parried() -> void:
 	if _parry_drawn != null and is_instance_valid(_parry_drawn):
 		_parry_drawn.call("trigger_pulse", Vector2(40, 0), Vector2.RIGHT)
 	else:
-		run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, area_of(data) * 0.8)
+		# Tourbillon : feuille livrée seulement dans la palette des Calcinés (absent en violet : minuscule impact).
+		run.fx(&"spin_slash", &"calcines", here + Vector3.UP * 0.7, area_of(data) * 0.8)
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
 		run.enemies.hit(foe, damage_of(data) * float(data.params.get("counter", 1.0)),
 			_flat(foe.pos - here).normalized() * data.knockback * DraftHunter.UNIT)
