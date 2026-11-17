@@ -13,7 +13,8 @@ Retour de test à traiter : « **Boss de fin de chapitre pas assez dynamiques** 
   termine pas la partie.
 - **8 min** (`boss_time`) : le **Dévoreur** du chapitre au lieu d'apparition de la carte (`level.boss_spot`), PV × 0,55,
   dégâts × 0,8 ; le vaincre donne la victoire.
-- **Nébulorax** est écarté (`EXCLUDED_BOSSES`, décision du 13 novembre) : sa carte v1 n'a pas d'équivalent.
+- **Nébulorax** est supprimé de la v2 (`EXCLUDED_BOSSES`, décision du 13 novembre, confirmée le 17 novembre) : sa carte
+  v1 n'a pas d'équivalent. Ses données, sprites et mécanique 2D restent dans le dépôt pour l'archive v1.
 
 ## 2. Carte → boss
 
@@ -293,7 +294,7 @@ Feu vert du propriétaire le 16 novembre (« go pour tout »). Choix retenus par
 |---|---|---|---|---|
 | Dévoreurs (5) | C | C | C (sauf effets peints) | effets peints des Sources et de Glauquemire ; brûlures, froid et braseros de la v1 |
 | Gardiens (19) | C | C (adaptée au Chasseur seul et aux cartes 3D) | C | volets Échos et décors v1 remplacés (voir chaque lot) |
-| Nébulorax | N | N | N | écarté (décision du 13 novembre) |
+| Nébulorax | — | — | — | supprimé de la v2 (17 novembre) ; archive v1 intacte |
 
 Tout reste **à juger en jouant** (retour « boss pas assez dynamiques », `docs/RETOURS_DE_TEST.md`) : rythme
 (`DraftTuning.boss_pace`), dégâts, durée des combats. Le bot, peu habile, n'esquive ni n'exploite les mécaniques.
@@ -337,3 +338,10 @@ défense) ramenés à une référence, + 15 % par chapitre (`boss_chapter_growth
   parallèle sur le conteneur).
 - Leviers si les combats restent trop longs ou trop courts en jouant : `boss_effective_hp`, `guardian_effective_hp`,
   `boss_chapter_growth`.
+
+### Nébulorax supprimé de la v2 (17 novembre)
+
+Décision du propriétaire : Nébulorax ne reviendra pas en v2. Dernière trace retirée du code 3D (l'absorption n'a plus
+de geste dans `DraftBossBrain.GESTURES`) ; essai `test_nebulorax_never_comes_back` (aucun chapitre, aucune
+mécanique). La v1 archivée garde ses données (`data/bosses/nebulorax.tres`), ses sprites et `BossController`
+(règle de CLAUDE.md : ne pas supprimer le code v1).

@@ -47,6 +47,10 @@ func _bring_to(foe: DraftEnemies.Foe, ratio: float) -> void:
 
 func test_every_data_technique_has_a_3d_gesture() -> void:
 	for boss: BossData in GameDB.bosses.values():
+		if DraftRoster.EXCLUDED_BOSSES.has(boss.id):
+			# Nébulorax : supprimé de la v2, aucune de ses techniques n'y est jouée.
+			check(not DraftBossBrain.GESTURES.has(&"absorb"), "Nébulorax : absorption absente de la v2")
+			continue
 		for p: BossPhaseData in boss.phases:
 			for pattern: BossPatternData in p.patterns:
 				check(DraftBossBrain.GESTURES.has(pattern.kind), "%s : technique %s jouable en 3D" % [boss.id, pattern.kind])
@@ -603,3 +607,11 @@ func test_boss_hp_follows_the_chapter_not_the_campaign() -> void:
 	run.chapter = 1
 	check_near(run.hp_scale(GameDB.boss(&"source_devourer"), run.tuning.boss_effective_hp), 1.0, 0.01,
 		"Dévoreur des Sources : référence inchangée")
+
+
+func test_nebulorax_never_comes_back() -> void:
+	for order: int in range(1, DraftRoster.chapters().size() + 1):
+		var roster: DraftRoster = DraftRoster.for_chapter(order)
+		for boss: BossData in roster.guardians + [roster.boss]:
+			check(boss.id != &"nebulorax", "chapitre %d : Nébulorax absent" % order)
+	check(DraftBossBrain.mechanics_for(GameDB.boss(&"nebulorax")).is_empty(), "aucune mécanique 3D pour Nébulorax")

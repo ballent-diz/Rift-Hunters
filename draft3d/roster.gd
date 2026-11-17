@@ -6,7 +6,8 @@ extends RefCounted
 
 ## Monstres communs gardés par chapitre (le chapitre 5 rappelle ceux des précédents : on garde les siens).
 const MAX_ENEMIES := 10
-## Boss écartés de la base 3D (décision du propriétaire, 13 novembre 2026).
+## Boss supprimés de la base 3D (décision du propriétaire, 13 novembre 2026, confirmée le 17 novembre : Nébulorax
+## définitivement retiré de la v2 ; ses données restent pour l'archive v1).
 const EXCLUDED_BOSSES: Array[StringName] = [&"nebulorax"]
 
 var chapter: ChapterData
