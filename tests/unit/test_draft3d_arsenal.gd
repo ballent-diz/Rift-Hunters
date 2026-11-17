@@ -11,7 +11,7 @@ var _profile: ProfileData
 func before_each() -> void:
 	_profile = Profile.profile
 	Profile.profile = ProfileData.new()
-	DraftUnlocks.path = ""
+	DraftSave.path = ""
 	DraftUnlocks.reset()
 
 
