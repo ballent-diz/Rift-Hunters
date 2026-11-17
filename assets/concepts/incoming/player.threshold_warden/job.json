@@ -80,6 +80,54 @@
         5
       ],
       "row": 4
+    },
+    {
+      "name": "idle_back",
+      "source": "idle_back.png",
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "move_back",
+      "source": "walk_back.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "idle_front",
+      "source": "idle_front.png",
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
+    },
+    {
+      "name": "move_front",
+      "source": "walk_front.png",
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "layout": "grid",
+      "grid": [
+        6,
+        1
+      ]
     }
   ],
   "aliases": {
@@ -88,11 +136,18 @@
   "generated_with": "imagegen",
   "sources": [
     "source/A.png",
-    "source/B.png"
+    "source/B.png",
+    "source/directions.png"
   ],
   "reference": "player.hunter",
   "source_b_reference": "source/A.png",
   "conditioning": "tools/art/condition_warden.py",
   "preview_zoom": 3,
-  "prompts": "prompts.json"
+  "prompts": "prompts.json",
+  "preserve_rows": {
+    "source": "source/profile_reference.png",
+    "count": 5
+  },
+  "palette_source": "source/directions_palette.png",
+  "directions_conditioning": "tools/art/condition_warden_directions.py"
 }

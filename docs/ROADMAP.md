@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Veilleur de dos et de face (Codex, 17 novembre 2026)
+
+Livré sur `codex/chasseur-dos-face`, depuis main actualisé. Art uniquement pour `player.threshold_warden` (Veilleur validé par le propriétaire) :
+quatre rangées supplémentaires (idle/marche, dos/face), sans modifier le profil existant ni appearances/.
+Aucun changement de draft3d/, src/ ou data/ ; Claude raccordera ensuite les orientations.
+Contrôles assets et art verts, capture Godot et comparaison ×4 : [livraison](art/VEILLEUR_DOS_FACE.md).
+
+
 ## Couverture visuelle sorts et combos — livraison et intégration (Codex, 17 novembre 2026)
 
 Audit des 15 sorts v2 ; trois FX initiaux recréés ; 12 FX de combos et 12 illustrations, trois FX de passifs et cinq cartes livrés localement. Branche `codex/couverture-visuelle-sorts-combos`, aucune modification des mécaniques. La PR gameplay #212 est fusionnée après CI verte ; le raccord visuel des neuf nouveaux combos est appliqué dans cette branche locale. [Rapport et fichiers](art/COUVERTURE_VISUELLE_V2.md). Publication publique autorisée ; intégration coordonnée avec les PR #207, #210, #211, #213 et #214. [Résolutions](INTEGRATION_PR_207_214.md).
