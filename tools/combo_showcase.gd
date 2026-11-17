@@ -9,6 +9,9 @@ const STAGES: Array[StringName] = [&"prismatic_execution", &"prismatic_deluge", 
 	&"tracker_rupture", &"prismatic_convergence", &"rift_counter", &"spectral_rebound", &"vengeful_aegis",
 	&"rift_prison", &"shattering_rampart", &"still_storm"]
 
+const ZOOM: Dictionary = {&"tracker_rupture": 9.0, &"still_storm": 9.0, &"vengeful_aegis": 9.0}
+const SETTLE: Dictionary = {&"tracker_rupture": 2, &"still_storm": 0, &"vengeful_aegis": 2}
+
 var run: DraftRun
 var _out: String = "user://combos"
 var _report: Array[String] = []
@@ -54,8 +57,10 @@ func _stage(combo: StringName) -> void:
 		if not run.spells.has_spell(id):
 			run.spells.equip(id, run.spells.slots.find(null))
 	await _frames(3)
+	# Combos à effet court ou petit : caméra rapprochée (m de haut visibles) et image prise au pic de l'effet.
+	run.view_size = float(ZOOM.get(combo, run.view_size))
 	await call("_play_" + String(combo))
-	await _frames(4)
+	await _frames(int(SETTLE.get(combo, 4)))
 	var count: int = int(run.combos.counts.get(combo, 0))
 	_report.append("%-22s déclenchements : %d" % [combo, count])
 	await RenderingServer.frame_post_draw
@@ -204,4 +209,8 @@ func _play_still_storm() -> void:
 	await _frames(2)
 	_cast(&"stasis_wave", foe.pos)
 	_cast(&"shard_rain", foe.pos)
-	await _frames(30)
+	for frame: int in 120:
+		if int(run.combos.counts.get(&"still_storm", 0)) >= 2:
+			break
+		await get_tree().physics_frame
+	await _frames(3)

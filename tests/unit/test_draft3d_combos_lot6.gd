@@ -350,3 +350,16 @@ func test_still_storm_is_capped() -> void:
 	run.spells.equip(&"stasis_wave", 0)
 	run.combos.step(10.0)
 	check_eq(run.combos.on_rain_tick(foe.pos, 3.0, 10.0), 0, "stase finie : rien")
+
+
+func test_combo_effects_exist_in_their_palette() -> void:
+	# Un effet absent dans sa famille retombe sur un minuscule impact : chaque effet joué par un combo doit exister.
+	var source: String = FileAccess.get_file_as_string("res://draft3d/combos.gd")
+	var regex := RegEx.create_from_string("run\\.fx\\(&\"(\\w+)\", (?:&\"(\\w+)\"|DraftPixelFx\\.DEFAULT_FAMILY)")
+	var found: int = 0
+	for match: RegExMatch in regex.search_all(source):
+		var family: StringName = StringName(match.get_string(2)) if match.get_string(2) != "" else DraftPixelFx.DEFAULT_FAMILY
+		check(not DraftPixelFx.sheet(StringName(match.get_string(1)), family).is_empty(),
+			"effet %s/%s présent" % [match.get_string(1), family])
+		found += 1
+	check(found >= 9, "effets des combos relevés")

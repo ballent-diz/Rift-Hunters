@@ -257,7 +257,7 @@ func _tracker(struck: Array[DraftEnemies.Foe], damage: float) -> void:
 		return
 	var tuning: DraftTuning = run.tuning
 	var at: Vector3 = target.pos
-	run.fx(&"small_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, tuning.combo_tracker_radius)
+	run.fx(&"small_explosion", &"fallen", at + Vector3.UP * 0.6, tuning.combo_tracker_radius)
 	for foe: DraftEnemies.Foe in run.spells._level(run.enemies.near(at, tuning.combo_tracker_radius), at):
 		run.enemies.hit(foe, damage * (tuning.combo_tracker_mult if foe == target else tuning.combo_tracker_splash))
 	_announce(TRACKER)
@@ -296,7 +296,7 @@ func _convergence(struck: Array[DraftEnemies.Foe], damage: float) -> void:
 		chained.append(next)
 		from = next
 	for foe: DraftEnemies.Foe in chained:
-		run.fx(&"zap_hit", &"reflets", foe.pos + Vector3.UP * 0.7, 1.2)
+		run.fx(&"zap_hit", &"highlands", foe.pos + Vector3.UP * 0.7, 1.2)
 		run.enemies.hit(foe, damage * tuning.combo_convergence_mult)
 	_announce(CONVERGENCE)
 
@@ -317,7 +317,7 @@ func _counter(here: Vector3, reach: float, damage: float) -> void:
 	counter_left = 0.0
 	var tuning: DraftTuning = run.tuning
 	var radius: float = reach * tuning.combo_counter_area
-	run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, radius * 0.7)
+	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.5, radius)
 	for foe: DraftEnemies.Foe in run.spells._level(run.enemies.near(here, radius), here):
 		run.enemies.hit(foe, damage * tuning.combo_counter_mult, DraftSpells._flat(foe.pos - here).normalized() * 4.0)
 		if foe.alive and foe.boss == null:
@@ -355,7 +355,7 @@ func on_well(well: Dictionary) -> void:
 			continue
 		held.append(foe)
 		foe.slow(0.0, tuning.combo_prison_root)
-		run.fx(&"root_snare", DraftPixelFx.DEFAULT_FAMILY, foe.pos + Vector3.UP * 0.3, 1.0)
+		run.fx(&"root_snare", &"enlises", foe.pos + Vector3.UP * 0.3, 1.0)
 		if held.size() >= tuning.combo_prison_cap:
 			break
 	if not held.is_empty() and not well.get("prison", false):
@@ -380,7 +380,7 @@ func on_landed(landing: Vector3, damage: float) -> int:
 		var a: Vector3 = wall["a"]
 		var b: Vector3 = wall["b"]
 		var center: Vector3 = (a + b) * 0.5
-		run.fx(&"quake", DraftPixelFx.DEFAULT_FAMILY, center + Vector3.UP * 0.4, a.distance_to(b) * 0.6)
+		run.fx(&"quake", &"highlands", center + Vector3.UP * 0.4, a.distance_to(b) * 0.6)
 		for foe: DraftEnemies.Foe in run.enemies.near(center, a.distance_to(b) * 0.5 + tuning.combo_rampart_area):
 			var closest: Vector3 = Geometry3D.get_closest_point_to_segment(foe.pos, a, b)
 			var away: Vector3 = DraftSpells._flat(foe.pos - closest)
@@ -422,7 +422,7 @@ func on_rain_tick(at: Vector3, radius: float, damage: float) -> int:
 		if not stasis_hits.has(foe):
 			continue
 		extra += 1
-		run.fx(&"ice_shatter_small", &"reflets", foe.pos + Vector3.UP * 0.8, 0.9)
+		run.fx(&"ice_shatter_small", &"givres", foe.pos + Vector3.UP * 0.8, 0.9)
 		run.enemies.hit(foe, damage * tuning.combo_storm_mult)
 	if extra > 0:
 		_announce(STORM)
