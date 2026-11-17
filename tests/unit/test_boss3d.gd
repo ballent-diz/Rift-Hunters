@@ -91,7 +91,7 @@ func test_far_boss_closes_in_and_chains() -> void:
 	check(moves >= 1, "de loin, il se rapproche (charge, bond ou saut de faille)")
 	await _frames(900)
 	check(foe.brain.patterns_played >= 4, "techniques des données jouées (%d)" % foe.brain.patterns_played)
-	check(foe.brain.gestures_played.size() >= 3, "gestes variés (%s)" % [foe.brain.gestures_played.keys()])
+	check(foe.brain.kinds_played.size() >= 3, "techniques variées (%s)" % [foe.brain.kinds_played.keys()])
 
 
 func test_charge_into_wall_stuns() -> void:

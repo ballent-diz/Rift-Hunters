@@ -76,6 +76,8 @@ var turns: bool = true
 ## Compteurs (essais, mesures).
 var patterns_played: int = 0
 var gestures_played: Dictionary = {}
+## Techniques des données jouées, mécaniques comprises (essais, mesures).
+var kinds_played: Dictionary = {}
 
 var _clock: float = 0.0
 var _ready_at: Dictionary = {}
@@ -443,6 +445,7 @@ func _perform(pattern: BossPatternData, to_hunter: Vector3, distance: float) -> 
 			break
 	var gesture: StringName = gesture_of(pattern)
 	_last_kind = pattern.kind
+	kinds_played[pattern.kind] = int(kinds_played.get(pattern.kind, 0)) + 1
 	if not handled:
 		gestures_played[gesture] = int(gestures_played.get(gesture, 0)) + 1
 		var clip: StringName = _pattern_clip(pattern, gesture)
