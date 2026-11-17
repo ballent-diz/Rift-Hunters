@@ -51,9 +51,11 @@ func step(delta: float) -> void:
 		_trail_clock -= delta
 		if _trail_clock <= 0.0:
 			_trail_clock = 0.08
-			trail.append({"at": hunter.global_position, "left": tuning.void_wake_duration,
+			# L'effet dédié boucle et disparaît avec la flaque ; le repli garde sa durée propre.
+			var looping: bool = DraftPixelFx.has_sheet(&"passive_void_wake")
+			trail.append({"at": hunter.global_position, "left": tuning.void_wake_duration, "loop": looping,
 				"visual": run.fx_or(&"passive_void_wake", tuning.void_wake_radius * 2.0, &"shadow_hands",
-					DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.2, 0.5)})
+					DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.2, 0.5, looping)})
 	_was_dashing = dashing
 	_step_trail(delta)
 
@@ -76,6 +78,9 @@ func _step_trail(delta: float) -> void:
 			if absf(foe.pos.y - at.y) <= DraftEnemies.MELEE_REACH_UP:
 				foe.slow(tuning.void_wake_slow, 0.3)
 		if float(point["left"]) <= 0.0:
+			var visual: Variant = point.get("visual")
+			if point.get("loop", false) and is_instance_valid(visual):
+				(visual as Node).queue_free()
 			trail.remove_at(i)
 
 

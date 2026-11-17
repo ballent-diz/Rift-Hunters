@@ -1298,3 +1298,15 @@ levées basses (navigation recalculée, barrières qui ne piègent jamais le Cha
   (`draft3d/marsh/marsh_water.gd`, détails dans `docs/maps/CARTES_3D.md`, captures `docs/previews/eau-marais/`).
 - **Suite** (session « Cartes ») : éclaboussures sous les monstres (`eclaboussure_1..6.png`, 480 ms).
 - **À valider par le propriétaire** : lisibilité de l'écume et des levées noyées en jeu, durée du séchage.
+
+## Effets dédiés des combos et passifs — 17 novembre 2026 (session « VFX »)
+
+Raccordement prêt, **aucune ressource livrée** à ce jour (ni dans le dépôt ni sur une branche) : les six effets
+(`combo_prismatic_execution`, `combo_prismatic_deluge`, `combo_gravity_blade`, `passive_dash_blade`,
+`passive_void_wake`, `passive_counter_cut`) et les cinq illustrations (`passive_dash_blade`, `passive_void_wake`,
+`passive_counter_cut`, `passive_anchor`, `rule_extra_slot`) jouent ou affichent toujours le repli.
+- Contrôle des livraisons : `python3 tools/art/check_v2_vfx.py` (conformité aux fiches).
+- Effets dédiés dessinés sous les zones annoncées des ennemis ; flaque du Sillage en boucle, retirée avec sa zone.
+- Mécaniques des trois combos inchangées (vérifiées par `test_draft3d_combos`).
+- **Suite** : à la livraison, déposer les fichiers, relancer le contrôle et l'import, ajouter les entrées du catalogue
+  (+ décompte de `test_item_art`), captures en jeu.
