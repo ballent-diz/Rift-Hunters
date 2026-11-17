@@ -1,6 +1,6 @@
 {
   "files": 227,
-  "bytes": 84931678,
+  "bytes": 84933430,
   "mib": 81.0,
   "excludes": [
     ".git",
@@ -682,8 +682,8 @@
     },
     {
       "path": "docs/art/COUVERTURE_VISUELLE_V2.md",
-      "bytes": 11579,
-      "sha256": "7605b3f06224b412b717ed17d76dc3938fb9114955341c5dc9350585cb119a8e"
+      "bytes": 11816,
+      "sha256": "b03505cb7001b4408b29c22934efd1307934ac0abfabbce0289c13f216d1024b"
     },
     {
       "path": "docs/previews/combos_lot_a/.gdignore",
@@ -1042,8 +1042,8 @@
     },
     {
       "path": "docs/previews/couverture-vfx/verification.json",
-      "bytes": 1283,
-      "sha256": "4dfddc41c0dd8d68b73197c3c850c7acf5fd876a77decbf4825e7e8c3121e71b"
+      "bytes": 1336,
+      "sha256": "8f8429bbd3ec2c64a0c04356b13c5019e4fc1ca7266cc78b876b1781789788cb"
     },
     {
       "path": "docs/previews/couverture-vfx/visual_gl.txt",
@@ -1112,8 +1112,8 @@
     },
     {
       "path": "docs/ROADMAP.md",
-      "bytes": 125424,
-      "sha256": "d00444a5944010e276bc3985fa44b04034061a6af03018f2269cab425447ad80"
+      "bytes": 126886,
+      "sha256": "80e31b7c9c110f1408e5b8c0fd4ddb9b799753d1f138c7938011bf5958c15859"
     },
     {
       "path": "draft3d/combos.gd",

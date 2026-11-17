@@ -33,6 +33,7 @@
       214
     ],
     "save_tests": "8/8",
-    "lint": "PASS avec gdlintrc du dépôt"
+    "lint": "PASS avec gdlintrc du dépôt",
+    "boss_tests": "27/27"
   }
 }
