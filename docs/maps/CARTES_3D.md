@@ -182,6 +182,9 @@ trouble ; ni étage ni escalier.
     puis séchage en `WET_TIME` = 10 s par plaques irrégulières, en pixels francs.
   - Captures avant/après (zoom de jeu, `--look=0,18`) : `docs/previews/eau-marais/` (marée basse, marée haute, séchage
     à 5, 9 et 13 s après `--tide-at=74`).
+- **Éclaboussures** (17 novembre) : un pas du Chasseur ou d'un monstre sur une levée basse noyée fait une
+  éclaboussure tous les 1,2 m parcourus (`_splashes`, `in_water`, images `draft3d/marsh/eclaboussure_1..6.png` de
+  Codex, 12,5 images/s, point d'impact calé sur le pied, dessinées par-dessus l'eau). Aucune à marée basse.
 - **Carte des rives** (pour le shader de l'eau) : `draft3d/marsh/rives.png`, 480 × 480, alignée sur
   `SHORE_RECT` (−60 → 60 m en x et z, 4 px/m, x vers la droite, z vers le bas). R : distance à la terre toujours
   sèche ; G : distance à toute terre (levées basses comprises) ; B : 1 sur les levées basses. Distances divisées par
