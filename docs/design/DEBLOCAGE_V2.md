@@ -35,7 +35,7 @@ débloquer ≈ 13 × 150 + 30 × 80 = 4 350 Fragments, soit ≈ 40 à 60 parties
 
 | Appel | Rôle |
 |---|---|
-| `DraftUnlocks.load()` → `DraftUnlocks` | état sauvegardé (`user://draft3d_unlocks.json`, à part des chapitres vaincus) — **fait le 16 novembre** |
+| `DraftUnlocks.load()` → `DraftUnlocks` | état sauvegardé (`user://draft3d_save.json`, section `unlocks` (`DraftSave`), à part des chapitres vaincus) — **fait le 16 novembre** |
 | `currency() -> int` | Fragments disponibles |
 | `entries() -> Array[Dictionary]` | ce qui se débloque : `{id, kind: "spell"/"variant", spell_id, name_key, desc_key, cost, unlocked, available}` (`available` : conditions remplies) |
 | `unlock(id) -> bool` | dépense et débloque ; faux si trop cher, déjà fait ou condition manquante |

@@ -326,15 +326,14 @@ func test_spells_tree_and_campaign() -> void:
 		% run.spells.casts)
 	check(run.spells.cooldowns[0] > 0.0 or run.spells.cooldowns[1] > 0.0, "le sort lancé se recharge")
 	# Campagne : un chapitre s'ouvre quand le précédent est vaincu ; sauvegarde à part du profil.
-	check_eq(DraftProgress.path, "", "essais : aucune sauvegarde écrite")
+	check_eq(DraftSave.path, "", "essais : aucune sauvegarde écrite")
 	check(DraftProgress.is_unlocked(1, []) and not DraftProgress.is_unlocked(2, []), "seul le chapitre 1 est ouvert")
 	check(DraftProgress.is_unlocked(2, [1]) and not DraftProgress.is_unlocked(3, [1]), "vaincre le 1 ouvre le 2")
-	DraftProgress.path = "user://draft3d_progress_test.json"
+	DraftSave.reset()
 	DraftProgress.record_victory(1)
 	DraftProgress.record_victory(2)
-	check_eq(DraftProgress.cleared(), [1, 2] as Array[int], "victoires enregistrées")
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftProgress.path))
-	DraftProgress.path = ""
+	check_eq(DraftProgress.cleared(), [1, 2] as Array[int], "victoires enregistrées (en mémoire)")
+	DraftSave.reset()
 
 
 func test_second_level_graveyard() -> void:

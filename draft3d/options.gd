@@ -6,9 +6,14 @@ extends Control
 
 signal closed
 signal language_changed
+## Le profil v2 vient d'être réinitialisé (menu principal seulement).
+signal progress_reset
 
 var first: Control
+## Menu principal : propose « Réinitialiser la progression » (jamais en pause, pendant une partie).
+var allow_reset: bool = false
 var close_button: Button
+var _reset_button: Button
 
 
 func _ready() -> void:
@@ -46,6 +51,10 @@ func _ready() -> void:
 	var keys: Button = UiKit.button(tr("OPTIONS3D_CONTROLS"), _open_controls, 560)
 	keys.name = "Keys"
 	rows.append(keys)
+	if allow_reset:
+		_reset_button = UiKit.button(tr("OPTIONS3D_RESET_PROGRESS"), _on_reset, 560)
+		_reset_button.name = "ResetProgress"
+		rows.append(_reset_button)
 	for row: Control in rows:
 		box.add_child(row.get_parent() if row.get_parent() != null else row)
 	box.add_child(UiKit.title(tr("MENU3D_CONTROLS_TITLE"), 20, DraftMenu.GOLD))
@@ -86,6 +95,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_cancel"):
 		closed.emit()
 		get_viewport().set_input_as_handled()
+
+
+## Deux appuis : le premier demande confirmation, le second efface le profil v2 (DraftSave).
+func _on_reset() -> void:
+	if _reset_button.text != tr("OPTIONS3D_RESET_CONFIRM"):
+		_reset_button.text = tr("OPTIONS3D_RESET_CONFIRM")
+		return
+	DraftSave.load().erase()
+	_reset_button.text = tr("OPTIONS3D_RESET_DONE")
+	_reset_button.disabled = true
+	progress_reset.emit()
 
 
 func _next_language() -> void:

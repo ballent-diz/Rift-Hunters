@@ -1,11 +1,25 @@
 # Rift Hunters — feuille de route
 
-## Gameplay v2 : arsenal, récompenses, combos (Claude, session « Gameplay », en cours depuis le 16 novembre 2026)
+## Sauvegarde de la v2 (Claude, session « Gameplay », 17 novembre 2026)
+
+Profil v2 unique **`user://draft3d_save.json`** (`draft3d/save.gd`, `DraftSave`), distinct du profil v1 (jamais
+touché). Sections : `unlocks` (Fragments de faille, sorts et mutations débloqués, 2 sorts de départ, dernier gain ;
+lus et écrits par `DraftUnlocks`), `chapters` (chapitres vaincus ; `DraftProgress`), `stats` (parties, victoires,
+éliminations, meilleur temps, meilleur niveau, combos déclenchés), `settings` (réservé aux réglages propres à la v2 ;
+les réglages généraux restent dans `Settings`). Écriture sûre de la v1 (`SafeJsonStore` : temporaire vérifié puis
+renommé, copie `.bak`, fichier corrompu mis en quarantaine puis repli sur la copie ou un profil vierge) ; profil d'une
+version future lu sans jamais être réécrit. Les anciens `draft3d_unlocks.json` et `draft3d_progress.json` sont repris
+une fois puis renommés `.migrated`. Sauvegarde : à chaque déblocage, au choix des sorts de départ, en fin de partie
+(gain, statistiques, chapitre vaincu). Aucune écriture par le bot, les essais ni les lancements de test
+(`DraftRun.TEST_OPTIONS`, dont `--boss-at`). Options du menu principal : « Réinitialiser la progression » (deux
+appuis, l'ancien profil reste dans `.bak`). Essais : `tests/unit/test_draft3d_save.gd`, étape persistance de
+`tools/run_tests.sh` (écriture puis relecture dans deux processus).
+
+## Gameplay v2 : arsenal, récompenses, combos (Claude, session « Gameplay », 16 novembre 2026, fusionné)
 
 Consignes : issue #193 et `docs/design/GAMEPLAY_COMBOS_2P5D.md` (PR #194). Audit, architecture et état des lots :
 [design/GAMEPLAY_V2_ARCHITECTURE.md](design/GAMEPLAY_V2_ARCHITECTURE.md). Lots : 1 audit (fait), 2 arsenal et réserve,
-3 récompenses et progression, 4 combos MVP, 5 VFX et validation — **tous livrés, PR à valider dans l'ordre** :
-#196 (lot 1), #197 (lot 2), #199 (lot 3), #201 (lot 4), puis la PR du lot 5 (empilées, aucune fusion automatique).
+3 récompenses et progression, 4 combos MVP, 5 VFX et validation — **tous fusionnés** (#197, #199, #201, #202).
 Suite : régler `xp_scale` et les combos en jeu ; intégrer les visuels de `docs/design/FICHES_VFX_GAMEPLAY_V2.md` quand
 ChatGPT les livre.
 

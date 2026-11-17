@@ -2509,3 +2509,6 @@ COMBO3D_PRISMATIC_DELUGE_DESC,Une Lance qui traverse un Cristal se brise en une 
 COMBO3D_GRAVITY_BLADE_NAME,Lame gravitationnelle,Gravity Blade
 COMBO3D_GRAVITY_BLADE_DESC,Une Taille qui atteint un puits de Singularité libère une onde de choc et expose les ennemis piégés.,A Slash that reaches a Singularity well releases a shockwave and exposes the trapped enemies.
 ARSENAL3D_COMBOS,Combos (◆ actif : les deux sorts équipés),Combos (◆ active: both spells equipped)
+OPTIONS3D_RESET_PROGRESS,Réinitialiser la progression,Reset progress
+OPTIONS3D_RESET_CONFIRM,"Confirmer : effacer Fragments, déblocages, chapitres et statistiques ?","Confirm: erase Fragments, unlocks, chapters and statistics?"
+OPTIONS3D_RESET_DONE,Progression réinitialisée,Progress reset

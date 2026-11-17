@@ -16,6 +16,10 @@ enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 
 const BOLT_SPEED := 16.8
 const CAMERA_OFFSET := Vector3(0, 18, 17)
+## Options de lancement réservées aux essais (raccourci du boss, invulnérabilité, sorts imposés…) : partie sans
+## sauvegarde du profil v2.
+const TEST_OPTIONS: Array[String] = ["boss-at", "god", "perf", "spells", "cast-at", "passive", "chapter",
+	"tower-floor", "time-scale", "look", "overview", "shots"]
 
 ## Chapitre gardé d'une partie à l'autre (R rejoue le même) ; 0 : le choix s'affiche au lancement.
 static var chosen_chapter: int = 0
@@ -100,9 +104,13 @@ func _ready() -> void:
 	hunter.hp = hunter.max_hp()
 	# Direction C (docs/design/DEBLOCAGE_V2.md) : l'arbre v1 ne s'applique plus. Déblocages permanents et 2 sorts de
 	# départ choisis au menu (DraftUnlocks) ; les essais automatiques et le bot gardent tout le contenu, sans sauvegarde.
+	# Profil v2 (DraftSave) : ni le bot, ni les essais, ni les parties lancées avec une option de test n'écrivent.
 	var automated: bool = _options.has("bot") or DisplayServer.get_name() == "headless"
+	for test_option: String in TEST_OPTIONS:
+		automated = automated or _options.has(test_option)
 	if automated:
-		DraftUnlocks.path = ""
+		DraftSave.path = ""
+		DraftSave.reset()
 	unlocks = null if automated else DraftUnlocks.load()
 	var starting: Array[StringName] = unlocks.starting_spells() if unlocks != null else balance.default_spells.duplicate()
 	if _options.has("spells"):
@@ -119,8 +127,6 @@ func _ready() -> void:
 	upgrades.tuning = tuning
 	hunter.xp_scale = tuning.xp_scale
 	upgrades.unlocks = unlocks
-	if _bot or DisplayServer.get_name() == "headless":
-		DraftProgress.path = ""
 	hunter.set_physics_process(false)
 	hunter.god_mode = _options.has("god")
 	hunter.leveled.connect(func(_l: int) -> void:
@@ -809,10 +815,11 @@ func _finish(victory: bool) -> void:
 	hunter.active = false
 	hunter.god_mode = victory
 	Audio.play_context("victory" if victory else "defeat")
-	if victory:
-		DraftProgress.record_victory(chapter)
 	_end_delay = 1.0
 	if unlocks != null:
+		if victory:
+			DraftProgress.record_victory(chapter)
+		DraftSave.load().record_run(victory, time, hunter.level, kills, combos.counts)
 		unlocks.record_run(unlocks.run_gain(kills, time, guardians_killed, devourers_killed))
 	# Gain de Fragments de faille (DraftUnlocks, enregistré par la partie avant cet écran) ; -1 : rien d'affiché.
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills],

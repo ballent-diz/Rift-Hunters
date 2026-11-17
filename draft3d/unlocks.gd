@@ -3,15 +3,10 @@ extends RefCounted
 ## Déblocages permanents de la version 3D (docs/design/DEBLOCAGE_V2.md, direction C) : une monnaie gagnée en partie
 ## (Fragments de faille), des sorts et des mutations débloqués à l'écran « Déblocages » (draft3d/unlock_screen.gd) et
 ## les 2 sorts de départ choisis parmi les sorts débloqués. Le contenu débloqué est le seul tiré au choix de niveau.
-## Sauvegarde à part : user://draft3d_unlocks.json (le profil 2D n'est jamais écrit). Coûts et gains : draft3d/tuning.tres.
+## Enregistré dans le profil v2 (DraftSave, section `unlocks`). Coûts et gains : draft3d/tuning.tres.
 
 signal changed
 
-const PATH := "user://draft3d_unlocks.json"
-const FORMAT := 1
-
-## Chemin de sauvegarde ; vide : rien n'est lu ni écrit (essais automatiques, bot).
-static var path: String = PATH
 static var _instance: DraftUnlocks
 
 var fragments: int = 0
@@ -130,30 +125,27 @@ func record_run(amount: int) -> void:
 
 
 func _read() -> void:
-	if path == "" or not FileAccess.file_exists(path):
-		return
-	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
-	if not data is Dictionary:
-		return
-	fragments = maxi(int((data as Dictionary).get("fragments", 0)), 0)
-	for id: Variant in (data as Dictionary).get("unlocked", []):
+	var saved_data: Dictionary = DraftSave.load().section("unlocks")
+	fragments = maxi(int(saved_data.get("fragments", 0)), 0)
+	for id: Variant in saved_data.get("unlocked", []):
 		unlocked[StringName(str(id))] = true
 	var saved: Array[StringName] = []
-	for id: Variant in (data as Dictionary).get("starting", []):
+	for id: Variant in saved_data.get("starting", []):
 		saved.append(StringName(str(id)))
 	if saved.size() == 2 and saved[0] != saved[1] and unlocked.has(saved[0]) and unlocked.has(saved[1]):
 		starting = saved
-	gain = int((data as Dictionary).get("last_gain", -1))
+	gain = int(saved_data.get("last_gain", -1))
 
 
+## Écrit l'état dans le profil v2 (DraftSave), qui l'enregistre de façon sûre.
 func _write() -> void:
-	if path == "":
-		return
-	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
-	if file == null:
-		return
 	var ids: Array[String] = []
 	for id: StringName in unlocked:
 		ids.append(String(id))
-	file.store_string(JSON.stringify({"version": FORMAT, "fragments": fragments, "unlocked": ids,
-		"starting": starting.map(func(id: StringName) -> String: return String(id)), "last_gain": gain}))
+	var profile: DraftSave = DraftSave.load()
+	var target: Dictionary = profile.section("unlocks")
+	target["fragments"] = fragments
+	target["unlocked"] = ids
+	target["starting"] = starting.map(func(id: StringName) -> String: return String(id))
+	target["last_gain"] = gain
+	profile.save()

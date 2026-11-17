@@ -3,6 +3,8 @@ extends Node
 ## Usage : godot --headless --path . res://tests/smoke/persistence.tscn -- --phase=write   puis   -- --phase=read
 
 const PATH := "user://test_persistence/profile.json"
+## Profil v2 (draft3d/save.gd), relu de la même façon après redémarrage.
+const PATH_V2 := "user://test_persistence/draft3d_save.json"
 
 
 func _ready() -> void:
@@ -10,9 +12,13 @@ func _ready() -> void:
 	for arg: String in OS.get_cmdline_user_args():
 		if arg.begins_with("--phase="):
 			phase = arg.trim_prefix("--phase=")
+	DraftSave.path = PATH_V2
 	if phase == "write":
 		for suffix: String in ["", ".bak"]:
 			DirAccess.remove_absolute(ProjectSettings.globalize_path(PATH + suffix))
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(PATH_V2 + suffix))
+		DraftUnlocks.load().record_run(120)
+		DraftProgress.record_victory(1)
 		Profile.load_profile(PATH)
 		Profile.profile.add_currency("shards", 500)
 		HunterTree.learn(Profile.profile, GameDB.skill_node(&"combat_training"))
@@ -30,6 +36,9 @@ func _ready() -> void:
 		"arbre": p.tree_rank(&"combat_training") == 1,
 		"déblocage": p.has_unlock("monsters", &"glimmerwing"),
 		"maîtrise": int(p.mastery_entry(&"mossback")["xp"]) == 42,
+		"v2 : Fragments": DraftUnlocks.load().currency() == 120,
+		"v2 : chapitres": DraftProgress.cleared() == ([1] as Array[int]),
+		"v2 : profil v1 distinct": PATH_V2 != PATH and DraftSave.load().status == SafeJsonStore.LoadStatus.OK,
 	}
 	var failed: int = 0
 	for key: String in checks:

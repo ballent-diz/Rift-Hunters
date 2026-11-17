@@ -11,13 +11,13 @@ var _profile: ProfileData
 func before_each() -> void:
 	_profile = Profile.profile
 	Profile.profile = ProfileData.new()
-	DraftUnlocks.path = ""
-	DraftUnlocks.reset()
+	DraftSave.path = ""
+	DraftSave.reset()
 
 
 func after_each() -> void:
 	Profile.profile = _profile
-	DraftUnlocks.reset()
+	DraftSave.reset()
 	if run != null:
 		host.get_tree().paused = false
 		run.queue_free()
