@@ -49,6 +49,8 @@ var combos: DraftCombos
 var unlocks: DraftUnlocks
 ## Boss vaincus pendant la partie (gain de Fragments) : gardiens et Dévoreur.
 var guardians_killed: int = 0
+## Partie de test (raccourci « Aller au boss » utilisé) : ni victoire ni gain enregistrés.
+var test_run: bool = false
 var devourers_killed: int = 0
 var camera: Camera3D
 ## Hauteur de la vue en mètres (molette) ; la caméra et le rendu pixel en dérivent.
@@ -157,6 +159,10 @@ func _ready() -> void:
 	hud.chapter_change_requested.connect(change_chapter)
 	hud.pause_requested.connect(toggle_pause)
 	hud.menu_requested.connect(back_to_menu)
+	hud.boss_test_requested.connect(func() -> void:
+		toggle_pause()
+		DraftBossTest.skip_to_boss(self))
+	hud.test_shortcuts = DraftBossTest.enabled()
 	_bot = _options.has("bot")
 	hunter.automating = _bot
 	spells.auto_cast = _bot
@@ -213,6 +219,10 @@ func _ready() -> void:
 	Audio.play_context("run")
 	Audio.beat.connect(_on_beat)
 	state = State.PLAYING
+	if _options.has("boss-test"):
+		# Vérification d'un combat : Chasseur monté de niveaux, puis boss tout de suite (--boss-test --chapter=N).
+		DraftBossTest.prepare_hunter(self, int(_options.get("boss-level", str(tuning.test_boss_levels))))
+		DraftBossTest.skip_to_boss(self)
 	if _options.has("perf"):
 		_run_perf()
 
@@ -809,10 +819,10 @@ func _finish(victory: bool) -> void:
 	hunter.active = false
 	hunter.god_mode = victory
 	Audio.play_context("victory" if victory else "defeat")
-	if victory:
+	if victory and not test_run:
 		DraftProgress.record_victory(chapter)
 	_end_delay = 1.0
-	if unlocks != null:
+	if unlocks != null and not test_run:
 		unlocks.record_run(unlocks.run_gain(kills, time, guardians_killed, devourers_killed))
 	# Gain de Fragments de faille (DraftUnlocks, enregistré par la partie avant cet écran) ; -1 : rien d'affiché.
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills],
@@ -864,6 +874,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif button.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			view_size = minf(26.0, view_size + 1.0)
 	var key := event as InputEventKey
+	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_F9 and DraftBossTest.enabled():
+		DraftBossTest.skip_to_boss(self)
 	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_F4 and pixel != null:
 		hud.banner(tr("DRAFT_PIXEL_ON") if pixel.toggle() else tr("DRAFT_PIXEL_OFF"), 2.0)
 
