@@ -22,6 +22,12 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 | Zoom / rejouer en fin de partie / pause | molette / R / Échap, P ou Start |
 | Rendu pixel 3D / rendu lisse d'origine | F4 |
 
+**Raccourcis de test** (versions de développement seulement, invisibles dans une version exportée ; la partie ne compte
+alors ni victoire de chapitre ni gain de Fragments) : **F9** ou **Pause → Aller au boss (test)** retire la vague en cours
+et fait venir le boss de la carte tout de suite (sommet de la tour compris) ; `--boss-test --chapter=N` démarre
+directement sur le boss du chapitre N avec un Chasseur monté de 15 niveaux (`--boss-level=N` pour changer,
+`DraftTuning.test_boss_levels`). Code : `draft3d/boss_test.gd`.
+
 Options de vérification (après `--`) : `--bot`, `--spells=hunter_mark,void_rend`, `--cast-at=20`, `--passive`, `--god`, `--seed=1`, `--boss-at=30`, `--result`,
 `--perf=50,100,200`, `--shots=<dossier> --shot-times=40,95 --quit-after-shots`, `--look=x,z[,hauteur]`,
 `--pixel=0`, `--pixel-palette=0`, `--pixel-scale=2` (rendu pixel : docs/art/RENDU_PIXEL_3D.md).

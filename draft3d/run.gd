@@ -16,8 +16,7 @@ enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 
 const BOLT_SPEED := 16.8
 const CAMERA_OFFSET := Vector3(0, 18, 17)
-## Options de lancement réservées aux essais (raccourci du boss, invulnérabilité, sorts imposés…) : partie sans
-## sauvegarde du profil v2.
+## Options de lancement réservées aux essais : partie sans sauvegarde du profil v2.
 const TEST_OPTIONS: Array[String] = ["boss-at", "god", "perf", "spells", "cast-at", "passive", "chapter",
 	"tower-floor", "time-scale", "look", "overview", "shots"]
 
@@ -53,6 +52,8 @@ var combos: DraftCombos
 var unlocks: DraftUnlocks
 ## Boss vaincus pendant la partie (gain de Fragments) : gardiens et Dévoreur.
 var guardians_killed: int = 0
+## Partie de test (raccourci « Aller au boss » utilisé) : ni victoire ni gain enregistrés.
+var test_run: bool = false
 var devourers_killed: int = 0
 var camera: Camera3D
 ## Hauteur de la vue en mètres (molette) ; la caméra et le rendu pixel en dérivent.
@@ -102,12 +103,9 @@ func _ready() -> void:
 	hunter.stats.add_modifier(StatKeys.DAMAGE, 0.0, tuning.hunter_damage_pct)
 	hunter.stats.add_modifier(StatKeys.ATTACK_SPEED, 0.0, tuning.hunter_attack_speed_pct)
 	hunter.hp = hunter.max_hp()
-	# Direction C (docs/design/DEBLOCAGE_V2.md) : l'arbre v1 ne s'applique plus. Déblocages permanents et 2 sorts de
-	# départ choisis au menu (DraftUnlocks) ; les essais automatiques et le bot gardent tout le contenu, sans sauvegarde.
-	# Profil v2 (DraftSave) : ni le bot, ni les essais, ni les parties lancées avec une option de test n'écrivent.
-	var automated: bool = _options.has("bot") or DisplayServer.get_name() == "headless"
-	for test_option: String in TEST_OPTIONS:
-		automated = automated or _options.has(test_option)
+	# Déblocages et départ choisis au menu (DraftUnlocks, profil DraftSave) ; bot, essais, options de test : sans profil.
+	var automated: bool = _options.has("bot") or DisplayServer.get_name() == "headless" \
+		or TEST_OPTIONS.any(func(option: String) -> bool: return _options.has(option))
 	if automated:
 		DraftSave.path = ""
 		DraftSave.reset()
@@ -163,6 +161,10 @@ func _ready() -> void:
 	hud.chapter_change_requested.connect(change_chapter)
 	hud.pause_requested.connect(toggle_pause)
 	hud.menu_requested.connect(back_to_menu)
+	hud.boss_test_requested.connect(func() -> void:
+		toggle_pause()
+		DraftBossTest.skip_to_boss(self))
+	hud.test_shortcuts = DraftBossTest.enabled()
 	_bot = _options.has("bot")
 	hunter.automating = _bot
 	spells.auto_cast = _bot
@@ -219,6 +221,10 @@ func _ready() -> void:
 	Audio.play_context("run")
 	Audio.beat.connect(_on_beat)
 	state = State.PLAYING
+	if _options.has("boss-test"):
+		# Vérification d'un combat : Chasseur monté de niveaux, puis boss tout de suite (--boss-test --chapter=N).
+		DraftBossTest.prepare_hunter(self, int(_options.get("boss-level", str(tuning.test_boss_levels))))
+		DraftBossTest.skip_to_boss(self)
 	if _options.has("perf"):
 		_run_perf()
 
@@ -816,7 +822,7 @@ func _finish(victory: bool) -> void:
 	hunter.god_mode = victory
 	Audio.play_context("victory" if victory else "defeat")
 	_end_delay = 1.0
-	if unlocks != null:
+	if unlocks != null and not test_run:
 		if victory:
 			DraftProgress.record_victory(chapter)
 		DraftSave.load().record_run(victory, time, hunter.level, kills, combos.counts)
@@ -871,6 +877,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		elif button.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 			view_size = minf(26.0, view_size + 1.0)
 	var key := event as InputEventKey
+	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_F9 and DraftBossTest.enabled():
+		DraftBossTest.skip_to_boss(self)
 	if key != null and key.pressed and not key.echo and key.physical_keycode == KEY_F4 and pixel != null:
 		hud.banner(tr("DRAFT_PIXEL_ON") if pixel.toggle() else tr("DRAFT_PIXEL_OFF"), 2.0)
 
