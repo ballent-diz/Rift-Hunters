@@ -1,5 +1,17 @@
 # Rift Hunters — feuille de route
 
+## Rythme de la v2 : vitesse, EXP, kit de départ (Claude, session « Gameplay », 17 novembre 2026)
+
+Demandes du propriétaire (« le jeu est trop lent ») : réglages `draft3d/tuning.tres`, données v1 inchangées.
+- Vitesse : Chasseur +25 % (`hunter_move_speed_pct`), monstres et boss ×1,15 en marche (`enemy_speed_mult` ; les
+  charges et tirs des boss gardent leurs valeurs). La Ruée garde sa distance.
+- EXP aspirée dès la mort de l'ennemi, quelle que soit la distance (`xp_auto_collect`, réglage d'essai, actif).
+- Kit offert d'office (tiré en partie dès le premier lancement) : Taille, Lance, Rupture, Singularité, Cristal
+  réfracteur, Parade (`free_spells`) et les mutations Estoc, Tourbillon, Éventail, Surcharge (`free_mutations`) ;
+  départ par défaut Taille + Lance (`default_starting`). Avant : profil neuf = seuls les 4 passifs au tirage.
+- XP : `xp_scale` 8 → 24. Mesure au bot invulnérable (chapitre 1, 25 min de jeu, vitesses et EXP aspirée actives) :
+  voir le tableau de la PR. Le bot tue bien plus qu'un joueur : un joueur aura moins de choix ; à affiner en jouant.
+
 ## Couverture visuelle sorts et combos — livraison et intégration (Codex, 17 novembre 2026)
 
 Audit des 15 sorts v2 ; trois FX initiaux recréés ; 12 FX de combos et 12 illustrations, trois FX de passifs et cinq cartes livrés localement. Branche `codex/couverture-visuelle-sorts-combos`, aucune modification des mécaniques. La PR gameplay #212 est fusionnée après CI verte ; le raccord visuel des neuf nouveaux combos est appliqué dans cette branche locale. [Rapport et fichiers](art/COUVERTURE_VISUELLE_V2.md). Publication publique autorisée ; intégration coordonnée avec les PR #207, #210, #211, #213 et #214. [Résolutions](INTEGRATION_PR_207_214.md).
