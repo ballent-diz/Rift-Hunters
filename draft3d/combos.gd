@@ -160,7 +160,7 @@ func refraction(shot: Dictionary, crystal: Dictionary) -> Dictionary:
 		return plain
 	var split: int = mini(tuning.combo_deluge_split, left)
 	crystal["deluge_left"] = left - split
-	run.fx_or(&"combo_prismatic_deluge", 3.0, &"ice_shatter", &"reflets", (crystal["at"] as Vector3) + Vector3.UP * 0.8,
+	run.fx_or(&"combo_prismatic_deluge", 3.0, &"ice_shatter", &"givres", (crystal["at"] as Vector3) + Vector3.UP * 0.8,
 		2.0)
 	_announce(DELUGE)
 	return {"split": split, "angle": tuning.combo_deluge_angle, "damage": tuning.combo_deluge_damage}

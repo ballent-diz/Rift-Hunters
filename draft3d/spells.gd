@@ -619,7 +619,7 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 	if drawn != null:
 		pass
 	elif whirl:
-		run.fx(&"spin_slash", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.7, reach * 0.7)
+		run.fx(&"spin_slash", &"calcines", here + Vector3.UP * 0.7, reach * 0.7)
 	# Arc simple : aucun effet PixelFX. La feuille heavy_cleave (coup vertical planté dans le sol) donnait un slash
 	# violet tourné vers le sol à chaque lancement ; l'arc de lame de l'animation d'attaque du Chasseur suffit.
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, reach), here):
@@ -790,7 +790,7 @@ func _parry(data: SpellData) -> bool:
 	_parry_spell = data
 	_parry_drawn = _anim("parry", run.hunter.global_position, run.hunter.facing, data, area_of(data), {}, true, 0.3)
 	if _parry_drawn == null:
-		run.fx(&"shield_block", DraftPixelFx.DEFAULT_FAMILY, run.hunter.chest(), 1.2)
+		run.fx(&"shield_block", &"fallen", run.hunter.chest(), 1.2)
 	return true
 
 
@@ -802,7 +802,6 @@ func _on_parried() -> void:
 	if _parry_drawn != null and is_instance_valid(_parry_drawn):
 		_parry_drawn.call("trigger_pulse", Vector2(40, 0), Vector2.RIGHT)
 	else:
-		# Tourbillon : feuille livrée seulement dans la palette des Calcinés (absent en violet : minuscule impact).
 		run.fx(&"spin_slash", &"calcines", here + Vector3.UP * 0.7, area_of(data) * 0.8)
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
 		run.enemies.hit(foe, damage_of(data) * float(data.params.get("counter", 1.0)),
@@ -865,7 +864,7 @@ func _aegis(data: SpellData) -> bool:
 	_aegis_spell = data
 	if _anim("rift_aegis", hunter.global_position, hunter.facing, data, 2.5, {"active_duration": duration_of(data)},
 			true, 0.1) == null:
-		run.fx(&"shield_block", &"reflets", hunter.chest(), 1.6)
+		run.fx(&"shield_block", &"fallen", hunter.chest(), 1.6)
 	return true
 
 

@@ -131,7 +131,7 @@ func _step_walls(delta: float) -> void:
 
 func add_crystal(at: Vector3, radius: float, duration: float, focus: bool, drawn: bool = false) -> void:
 	crystals.append({"at": at, "radius": radius, "left": duration, "focus": focus,
-		"visual": null if drawn else run.fx(&"ice_shatter", &"reflets", at + Vector3.UP * 0.8, 1.2, true)})
+		"visual": null if drawn else run.fx(&"ice_shatter", &"givres", at + Vector3.UP * 0.8, 1.2, true)})
 
 
 ## Un trait du Chasseur qui traverse un Cristal se divise une fois (deux traits de plus, en éventail) ; Foyer : les
