@@ -14,7 +14,8 @@ Tests : `tests/unit/test_draft3d_save.gd`, étape `persistence` de `tools/run_te
   "starting": ["cleaving_slash", "prismatic_lance"], "last_gain": -1,
   "chapters": { "reached": [1], "cleared": [] },
   "stats": { "runs": 0, "victories": 0, "defeats": 0, "kills": 0, "best_kills": 0, "guardians": 0,
-             "devourers": 0, "fragments_earned": 0, "best_level": 0, "play_seconds": 0.0, "best_seconds": 0.0 },
+             "devourers": 0, "fragments_earned": 0, "best_level": 0, "play_seconds": 0.0, "best_seconds": 0.0,
+             "combos": {} },
   "settings": {} }
 ```
 
@@ -23,6 +24,8 @@ Tests : `tests/unit/test_draft3d_save.gd`, étape `persistence` de `tools/run_te
 - `settings` : réglages propres à la v2 (`DraftSave.setting` / `set_setting`). Vide pour l'instant : langue, volumes,
   commandes, aperçu des sorts restent dans `Settings`.
 - Clés inconnues conservées telles quelles (un format plus récent n'efface rien).
+- `stats.combos` : nombre de déclenchements par ID de combo, cumulé en fin de partie hors essais ; intégré depuis
+  #207 en conservant le format et le fichier déjà livrés par #206.
 
 ## Robustesse (base v1 : `SafeJsonStore`)
 

@@ -19,10 +19,20 @@
     "PR gameplay #212 fusionnée après CI verte ; raccord des neuf nouveaux FX appliqué localement.",
     "Essais headless des combos : erreurs mesh/canvas du renderer Dummy, assertions réussies.",
     "Suites historiques item_art et combos : avertissements de ressources à la sortie.",
-    "gdlint indisponible dans cet environnement ; scripts analysés et chargés par Godot.",
-    "Pas de mesure d’occultation en combat, validation en partie à faire après raccord.",
-    "La publication distante est en attente d’autorisation après rejet de la revue automatique."
+    "Pas de mesure d’occultation en combat, validation en partie à faire après raccord."
   ],
   "generation": "ImageGen intégré",
-  "prompts": "assets/concepts/incoming/*/prompts.json"
+  "prompts": "assets/concepts/incoming/*/prompts.json",
+  "publication_authorized": true,
+  "local_integration": {
+    "order": [
+      207,
+      210,
+      211,
+      213,
+      214
+    ],
+    "save_tests": "8/8",
+    "lint": "PASS avec gdlintrc du dépôt"
+  }
 }

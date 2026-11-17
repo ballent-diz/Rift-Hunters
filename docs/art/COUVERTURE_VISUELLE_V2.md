@@ -1,4 +1,4 @@
-# Couverture visuelle v2 — livraison locale du 17 novembre 2026
+# Couverture visuelle v2 — livraison du 17 novembre 2026
 
 Périmètre : les 15 sorts jouables de la v2, 12 combos, trois effets de passifs et cinq illustrations de récompenses.
 Les sorts et mutations conservent leurs icônes existantes comme prévu par les
@@ -98,3 +98,5 @@ pour les FX, conversion RGBA pour les illustrations). Les sources intermédiaire
 Les résultats moteur et la taille exacte du lot sont consignés dans
 [verification.json](../previews/couverture-vfx/verification.json) et
 [delivery_manifest.json](../previews/couverture-vfx/delivery_manifest.json).
+
+Publication publique explicitement autorisée par le propriétaire ; [intégration coordonnée des autres PR](../INTEGRATION_PR_207_214.md).

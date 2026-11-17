@@ -2,8 +2,7 @@ class_name DraftRun
 extends Node3D
 ## Premier jet de la version 3D (docs/PREMIER_JET_3D.md) : une partie de survivor avec le Chasseur seul.
 ## Boucle : hordes → EXP → niveau → choix d'amélioration → puissance → boss. Aucun Écho, aucun système d'Écho.
-## Tout l'état vit dans cette scène : recommencer la recharge. Le profil et les sauvegardes ne sont jamais écrits.
-##
+## Recommencer recharge la scène ; la progression passe par DraftSave, hors parties de test.
 ## Lancement : godot --path . res://draft3d/main.tscn
 ## Options (après --) : --bot (le jeu se joue seul) --passive (bot immobile : défaite) --god --seed=1
 ##   --boss-at=60 --time-scale=4 --perf=50,100,200 --shots=<dossier> --shot-times=20,90 --result (ligne RESULT)
