@@ -90,6 +90,11 @@ Trois familles à terme : **réaction** (statuts/ordre), **technique** (placemen
 | Plus tard | **Stase d'éclats** | Onde de stase + Pluie d'éclats (sorts v2) | Éclats réagissent aux ennemis immobilisés |
 | Plus tard | **Traque du vide** | Marque du traqueur + Fente du vide (sorts v2) | Fente spéciale sur cible exposée |
 
+**Lot 6 (implémenté, 17 novembre 2026)** : les propositions « après MVP » et « plus tard » sont devenues Contre-faille
+(Parade → Taille), Rempart fracassant (Bond près d'un Mur), Tempête immobile (Stase + Pluie) et Chasse dimensionnelle
+(Marque + Fente), plus Rupture du traqueur, Rebond spectral, Prison de faille, Égide vengeresse et Convergence
+prismatique (premier combo à 3 sorts). Détail et valeurs : `GAMEPLAY_V2_ARCHITECTURE.md`, lot 6.
+
 **Les combos sont automatiquement *possibles* lorsque le joueur possède les deux sorts équipés. Ils ne sont pas automatiquement *déclenchés* : timing, ordre et placement font partie du gameplay.** Les combos à 3 sorts / ultime restent une extension future, pas une obligation du MVP.
 
 ## 6. Passifs techniques à prototyper

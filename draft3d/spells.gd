@@ -719,6 +719,8 @@ func _step_zones(delta: float) -> void:
 				run.fx(&"star_fall", DraftPixelFx.DEFAULT_FAMILY, at + drop + Vector3.UP * 0.8, 0.9)
 			for foe: DraftEnemies.Foe in _level(run.enemies.near(at, radius), at):
 				run.enemies.hit(foe, float(zone["damage"]))
+			if zone.get("rain", false):
+				run.combos.on_rain_tick(at, radius, float(zone["damage"]))
 		if float(zone["left"]) <= 0.0:
 			DraftSpellWorld._free(zone)
 			_zones.remove_at(i)
@@ -774,6 +776,7 @@ func _on_landed() -> void:
 			_flat(foe.pos - landing).normalized() * data.knockback * DraftHunter.UNIT)
 		if impact and foe.alive:
 			foe.slow(param(data, "slow", 0.5), param(data, "duration", 2.0))
+	run.combos.on_landed(landing, damage_of(data) * _leap_power)
 
 
 ## Parade : garde courte ; un coup paré n'inflige rien, déclenche une contre-attaque autour du Chasseur (×counter),
@@ -815,6 +818,7 @@ func _on_parried() -> void:
 	var slot: int = slot_of(data.id)
 	if slot >= 0:
 		cooldowns[slot] = 0.0
+	run.combos.on_parried()
 
 
 ## Singularité : puits au point visé qui attire les ennemis puis implose. Horizon : rayon plus grand.
@@ -864,15 +868,20 @@ func _aegis(data: SpellData) -> bool:
 	return true
 
 
+## Égide vengeresse (combo) : riposte renforcée, ou onde de base sans la mutation.
 func _on_shield_broken() -> void:
 	var data: SpellData = _aegis_spell
-	if data == null or not has_variant(data, &"riposte"):
+	if data == null:
 		return
+	var riposte: bool = has_variant(data, &"riposte")
+	var power: float = run.combos.riposte_power()
+	if not riposte and power <= 1.0:
+		return
+	var damage: float = damage_of(data) * (param(data, "damage", 1.0) if riposte else tuning.combo_aegis_plain) * power
 	var here: Vector3 = run.hunter.global_position
 	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
-		run.enemies.hit(foe, damage_of(data) * param(data, "damage", 1.0),
-			_flat(foe.pos - here).normalized() * 4.0)
+		run.enemies.hit(foe, damage, _flat(foe.pos - here).normalized() * 4.0)
 
 
 ## Cristal réfracteur : cristal au point visé ; les traits qui le traversent se divisent. Prisme double : deux

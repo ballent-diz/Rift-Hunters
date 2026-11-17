@@ -1306,3 +1306,11 @@ Falaise en gradins de 68 × 112 m gravie vers le nord (option A, verticalité de
 cascade essayée puis retirée. Reprise le jour même après « trop simpliste ». `draft3d/level_cliffs.gd`, essai
 `test_ninth_level_cliffs`, contrôle sans incohérence (pentes et accès par plateau désormais contrôlés).
 - **À valider par le propriétaire** : en jeu (hauteurs, accès, perchoirs).
+
+## Combos du lot 6 — 17 novembre 2026 (session « VFX »)
+
+Douze combos jouables (3 existants + 9) dans `draft3d/combos.gd` ; détail dans `docs/design/GAMEPLAY_V2_ARCHITECTURE.md`
+(lot 6). Essais `tests/unit/test_draft3d_combos_lot6.gd`, captures `tools/combo_showcase.tscn` → `docs/previews/combos/`.
+- **Reste** : équilibrage global des 12 combos (valeurs de départ dans `draft3d/tuning.tres`), VFX dédiés (replis
+  existants joués), offres de cartes qui tiennent compte des combos (non demandé à ce lot).
+

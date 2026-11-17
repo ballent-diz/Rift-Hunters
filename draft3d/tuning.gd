@@ -83,6 +83,42 @@ extends Resource
 @export var combo_gravity_area: float = 1.3
 @export var combo_gravity_expose: float = 0.25
 @export var combo_gravity_expose_time: float = 3.0
+## Annonce (bannière et son) au plus une fois par combo sur cet intervalle (s) ; le combo agit à chaque fois.
+@export var combo_banner_gap: float = 1.5
+## Chasse dimensionnelle : frappe secondaire sur la cible marquée (× dégâts de la Fente).
+@export var combo_hunt_mult: float = 1.0
+## Rupture du traqueur : explosion concentrée sur la cible marquée (× dégâts de la Rupture), éclaboussure autour
+## (× dégâts de la Rupture) et rayon (m).
+@export var combo_tracker_mult: float = 1.2
+@export var combo_tracker_splash: float = 0.3
+@export var combo_tracker_radius: float = 1.4
+## Convergence prismatique : arc qui saute d'ennemi en ennemi (× dégâts de la Rupture par ennemi), sauts au plus,
+## portée d'un saut (m).
+@export var combo_convergence_mult: float = 0.6
+@export var combo_convergence_jumps: int = 4
+@export var combo_convergence_reach: float = 5.0
+## Contre-faille : rayon de la contre-attaque (× portée de la Taille) et dégâts (× la Taille).
+@export var combo_counter_area: float = 1.5
+@export var combo_counter_mult: float = 1.5
+## Rebond spectral : copie de la Fente partie de l'ombre (× dégâts de la Fente).
+@export var combo_spectral_mult: float = 0.8
+## Égide vengeresse : bonus de la riposte (+0,75 = ×1,75). Sans la mutation Riposte, le bouclier qui cède libère
+## une onde de base (× dégâts de l'Égide).
+@export var combo_aegis_bonus: float = 0.75
+@export var combo_aegis_plain: float = 1.0
+## Prison de faille : distance au Mur (m) en deçà de laquelle l'ennemi attiré est entravé, durée (s), entravés au
+## plus par puits.
+@export var combo_prison_reach: float = 1.5
+@export var combo_prison_root: float = 1.5
+@export var combo_prison_cap: int = 12
+## Rempart fracassant : distance d'atterrissage au Mur (m), largeur de l'onde de chaque côté (m), dégâts (× l'onde du
+## Bond).
+@export var combo_rampart_reach: float = 3.0
+@export var combo_rampart_area: float = 2.5
+@export var combo_rampart_mult: float = 1.2
+## Tempête immobile : éclats supplémentaires (× dégâts d'un coup de Pluie), au plus par coup.
+@export var combo_storm_mult: float = 0.6
+@export var combo_storm_cap: int = 4
 @export_group("Déblocages")
 ## Sorts offerts (débloqués d'office, sorts de départ par défaut), coûts et gains de Fragments de faille
 ## (docs/design/DEBLOCAGE_V2.md, indicatifs).

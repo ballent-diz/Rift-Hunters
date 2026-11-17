@@ -249,6 +249,7 @@ func _rend(data: SpellData, aim: Vector3) -> bool:
 	for foe: DraftEnemies.Foe in struck:
 		run.fx(&"hit", DraftPixelFx.DEFAULT_FAMILY, foe.pos + Vector3.UP * 0.6, 1.2)
 		run.enemies.hit(foe, spells.damage_of(data), dir * data.knockback * DraftHunter.UNIT)
+	run.combos.on_rend(struck, spells.damage_of(data), dir, length, spells.area_of(data), pierce)
 	hunter.leap_to(landing + Vector3.UP * 0.05, float(data.params.get("duration", 0.18)), 0.0)
 	return true
 
@@ -260,6 +261,7 @@ func _blink(data: SpellData, aim: Vector3) -> bool:
 	var hunter: DraftHunter = run.hunter
 	var start: Vector3 = hunter.global_position
 	var landing: Vector3 = spells._landing(aim, spells.reach_of(data))
+	run.combos.on_blink(start)
 	run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, start + Vector3.UP * 0.6)
 	hunter.global_position = landing + Vector3.UP * 0.05
 	hunter.reset_motion()
@@ -313,6 +315,7 @@ func _stasis(data: SpellData, aim: Vector3) -> bool:
 		if not foe.alive:
 			continue
 		foe.slow(float(data.params.get("boss_slow", 0.5)) if foe.boss != null else 0.0, seconds)
+		run.combos.on_stasis(foe, seconds)
 		if shards:
 			foe.expose(spells.param(data, "bonus", 0.0), seconds)
 	return true
