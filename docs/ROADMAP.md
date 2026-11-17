@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## Chasseur original : vues dos et face (Codex, 17 novembre 2026)
+
+Livraison sur `codex/chasseur-original-dos-face` : quatre animations de `player.hunter` au chapeau de paille
+conservées pour plus tard à la demande du propriétaire ; le Veilleur reste sélectionné en jeu.
+Anciens pixels et animations inchangés. [Détails et aperçus](art/CHASSEUR_ORIGINAL_DOS_FACE.md).
+
 ## Veilleur de dos et de face (Codex, 17 novembre 2026)
 
 Livré sur `codex/chasseur-dos-face`, depuis main actualisé. Art uniquement pour `player.threshold_warden` (Veilleur validé par le propriétaire) :
