@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Matière de la Cité Effondrée — carte 5 (Codex, 17 novembre 2026)
+
+Prêt à valider sur `codex/matiere-cite-effondree`, depuis main actualisé. Pierre pâle usée, pavage raccordé,
+bois et métal ternis, poussière de pierre grise et accents de Faille. 438 meshes, 143 349 triangles vérifiés ;
+180 collisions et 1 185 polygones de navigation identiques. Sept cadrages avant/après avec le Veilleur,
+tests du rendu pixel 8/8. Guide : `docs/art/MATIERE_CITE_EFFONDREE.md`.
+
+
 ## Couverture visuelle sorts et combos — livraison et intégration (Codex, 17 novembre 2026)
 
 Audit des 15 sorts v2 ; trois FX initiaux recréés ; 12 FX de combos et 12 illustrations, trois FX de passifs et cinq cartes livrés localement. Branche `codex/couverture-visuelle-sorts-combos`, aucune modification des mécaniques. La PR gameplay #212 est fusionnée après CI verte ; le raccord visuel des neuf nouveaux combos est appliqué dans cette branche locale. [Rapport et fichiers](art/COUVERTURE_VISUELLE_V2.md). Publication publique autorisée ; intégration coordonnée avec les PR #207, #210, #211, #213 et #214. [Résolutions](INTEGRATION_PR_207_214.md).

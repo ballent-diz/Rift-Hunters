@@ -1,0 +1,198 @@
+{
+  "collision_sha256": "5ba9c553933b30a3e262637221166b2309372d00765a4ced884752733e25dc9a",
+  "collision_shapes": 180,
+  "collisions": "identiques",
+  "geometry_source_uv": "identiques",
+  "material_surfaces": {
+    "bronze": 10,
+    "ground": 2,
+    "iron": 10,
+    "masonry": 170,
+    "paving": 141,
+    "preserve": 8,
+    "stone": 386,
+    "wood": 16,
+    "worn_paving": 37
+  },
+  "max_aabb_encoding_error_m": 1.00135803222656e-05,
+  "max_normal_encoding_error": 0.000247361254878342,
+  "meshes": 438,
+  "models": 28,
+  "module_transforms": "identiques",
+  "navigation": "identique",
+  "navigation_polygons": 1185,
+  "navigation_sha256": "c1d3422d3f696ac02c256a67bfab3f16d99cbe1cf7ff56877ede1961bfb81290",
+  "painted_instances": 438,
+  "status": "conforme",
+  "triangles": 143349,
+  "references": {
+    "forum": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-3.5, 0.2, -7)",
+          "id": "fallen_militia"
+        },
+        {
+          "at": "(3.5, 0.2, -7)",
+          "id": "corrupted_hound"
+        },
+        {
+          "at": "(5.000001, 0.2, -4.000001)",
+          "id": "lantern_wraith"
+        }
+      ],
+      "focus": "(0, 1, -5)",
+      "hunter": "(0, 0.2, -5)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "forum",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "gate": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-2, 0.2, 23)",
+          "id": "fallen_militia"
+        },
+        {
+          "at": "(2, 0.2, 23)",
+          "id": "corrupted_hound"
+        },
+        {
+          "at": "(-0, 0.2, 20)",
+          "id": "lantern_wraith"
+        }
+      ],
+      "focus": "(0, 1, 23)",
+      "hunter": "(0, 0.2, 24)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "gate",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "houses": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-33, 0.2, 8)",
+          "id": "fallen_militia"
+        },
+        {
+          "at": "(-30, 0.2, 9)",
+          "id": "corrupted_hound"
+        },
+        {
+          "at": "(-31, 0.2, 14)",
+          "id": "lantern_wraith"
+        }
+      ],
+      "focus": "(-32, 1, 10)",
+      "hunter": "(-32, 0.2, 11)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "houses",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "warehouses": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(30, 0.2, 17)",
+          "id": "fallen_militia"
+        },
+        {
+          "at": "(34, 0.2, 10)",
+          "id": "corrupted_hound"
+        },
+        {
+          "at": "(34, 0.2, 19)",
+          "id": "lantern_wraith"
+        }
+      ],
+      "focus": "(32, 1, 13)",
+      "hunter": "(33, 0.2, 15)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "warehouses",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "temple": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(31, 0.2, -14)",
+          "id": "fallen_militia"
+        },
+        {
+          "at": "(38, 0.2, -13)",
+          "id": "corrupted_hound"
+        },
+        {
+          "at": "(36, 0.2, -17)",
+          "id": "lantern_wraith"
+        }
+      ],
+      "focus": "(35, 1, -14)",
+      "hunter": "(34, 0.2, -12)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "temple",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "acropolis": {
+      "camera_view": 20,
+      "enemies": [
+        {
+          "at": "(-4, 2.2, -24)",
+          "id": "fallen_militia"
+        },
+        {
+          "at": "(4, 2.2, -24)",
+          "id": "corrupted_hound"
+        },
+        {
+          "at": "(0, 1.157716, -16.62374)",
+          "id": "lantern_wraith"
+        }
+      ],
+      "focus": "(0, 3, -24)",
+      "hunter": "(0, 2.2, -25)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "acropolis",
+      "scene": "DraftRun",
+      "texel_m": 0.0240384615384615
+    },
+    "overview": {
+      "camera_view": 76,
+      "enemies": [
+        {
+          "at": "(-2, 0.2, 23)",
+          "id": "fallen_militia"
+        },
+        {
+          "at": "(2, 0.2, 23)",
+          "id": "corrupted_hound"
+        },
+        {
+          "at": "(-0, 0.2, 20)",
+          "id": "lantern_wraith"
+        }
+      ],
+      "focus": "(0, 0, 0)",
+      "hunter": "(0, 0.2, 24)",
+      "palette_colors": 48,
+      "pixel_enabled": true,
+      "region": "overview",
+      "scene": "DraftRun",
+      "texel_m": 0.0844444444444444
+    }
+  }
+}
