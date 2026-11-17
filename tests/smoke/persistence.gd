@@ -22,7 +22,7 @@ func _ready() -> void:
 		var unlocks: DraftUnlocks = DraftUnlocks.load()
 		DraftSave.record_stats(true, 77, 120.0, 5, 0, 0)
 		unlocks.record_run(300)
-		unlocks.unlock(&"rupture")
+		unlocks.unlock(&"rift_leap")
 		DraftProgress.record_victory(1)
 		Profile.load_profile(PATH)
 		Profile.profile.add_currency("shards", 500)
@@ -39,7 +39,7 @@ func _ready() -> void:
 	var checks := {
 		"v2 état": DraftSave.load_state == DraftSave.LoadState.OK,
 		"v2 Fragments": v2.currency() > 0 and v2.currency() < 300 and v2.last_gain() == 300,
-		"v2 déblocage": v2.is_unlocked(&"rupture"),
+		"v2 déblocage": v2.is_unlocked(&"rift_leap"),
 		"v2 chapitres": DraftProgress.cleared() == ([1] as Array[int]),
 		"v2 statistiques": int(DraftSave.stat("kills")) == 77,
 		"état": Profile.load_state == Profile.LoadState.OK,

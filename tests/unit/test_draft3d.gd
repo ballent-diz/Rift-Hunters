@@ -716,8 +716,12 @@ func test_ninth_level_cliffs() -> void:
 	hunter.global_position = Vector3(-31, 0.4, 30.5)
 	hunter.reset_motion()
 	hunter.auto_direction = Vector3(1, 0, 0)
-	await _frames(240)
-	check(hunter.global_position.y > 2.6, "montée par la rampe : %s" % hunter.global_position)
+	# Hauteur la plus haute atteinte : plus rapide (réglage de vitesse), le Chasseur peut dépasser le Guet.
+	var top: float = hunter.global_position.y
+	for frame: int in 240:
+		await host.get_tree().physics_frame
+		top = maxf(top, hunter.global_position.y)
+	check(top > 2.6, "montée par la rampe : %.2f m (arrivée %s)" % [top, hunter.global_position])
 	hunter.auto_direction = Vector3.ZERO
 	# Les rochers du front de falaise coupent la vue entre deux corniches ; le parvis du sommet est dégagé.
 	check(run.sight_clear(Vector3(-6, 9.8, -40), Vector3(6, 9.8, -40)), "le parvis du sommet est dégagé")
