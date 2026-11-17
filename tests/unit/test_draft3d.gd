@@ -161,6 +161,14 @@ func test_map_stairs_shelters_and_heights() -> void:
 	await _frames(90)
 	check(run.hunter.global_position.x > 3.5, "le flanc de l'escalier arrête le Chasseur : x = %.2f"
 		% run.hunter.global_position.x)
+	# Rambarde de l'escalier : depuis les marches, on ne passe pas par-dessus (paroi de marche seule).
+	run.hunter.global_position = Vector3(0.0, 1.3, -9.5)
+	run.hunter.reset_motion()
+	run.hunter.auto_direction = Vector3(1, 0, 0)
+	await _frames(90)
+	check(run.hunter.global_position.x < 2.8 and run.hunter.global_position.y > 0.5,
+		"la rambarde retient le Chasseur sur les marches : %s" % run.hunter.global_position)
+	check(run.sight_clear(Vector3(-6, 1.6, -9.5), Vector3(6, 1.6, -9.5)), "la rambarde n'arrête ni la vue ni les tirs")
 	# Limites : on ne sort pas de la carte.
 	run.hunter.global_position = Vector3(31, 0.2, 22)
 	run.hunter.reset_motion()

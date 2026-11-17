@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4]
+[gd_scene load_steps=9 format=4]
 
 [ext_resource type="Texture2D" path="res://draft3d/kaykit/stairs_wide_dungeon_texture.png" id="1_2ndd0"]
 
@@ -48,6 +48,12 @@ roughness = 0.88
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wna4q"]
 points = PackedVector3Array(-3.5, 0, 0, 3.5, 0, 0, -3.5, 4, 0, 3.5, 4, 0, -3.5, -0.1, 4.3, 3.5, -0.1, 4.3, -3.5, 0, 4.3, 3.5, 0, 4.3)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rail_l"]
+points = PackedVector3Array(-3.5, 0, 0, -2.75, 0, 0, -3.5, 6.5, 0, -2.75, 6.5, 0, -3.5, 0, 4.3, -2.75, 0, 4.3, -3.5, 2.5, 4.3, -2.75, 2.5, 4.3)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rail_r"]
+points = PackedVector3Array(2.75, 0, 0, 3.5, 0, 0, 2.75, 6.5, 0, 3.5, 6.5, 0, 2.75, 0, 4.3, 3.5, 0, 4.3, 2.75, 2.5, 4.3, 3.5, 2.5, 4.3)
+
 [node name="stairs_wide" type="Node3D"]
 
 [node name="Visual" type="Node3D" parent="."]
@@ -61,3 +67,13 @@ surface_material_override/0 = SubResource("StandardMaterial3D_v7heg")
 
 [node name="@CollisionShape3D@11" type="CollisionShape3D" parent="Collision"]
 shape = SubResource("ConvexPolygonShape3D_wna4q")
+
+[node name="Rails" type="StaticBody3D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="RailLeft" type="CollisionShape3D" parent="Rails"]
+shape = SubResource("ConvexPolygonShape3D_rail_l")
+
+[node name="RailRight" type="CollisionShape3D" parent="Rails"]
+shape = SubResource("ConvexPolygonShape3D_rail_r")
