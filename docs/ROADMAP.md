@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## Visuels des passifs et récompenses V2 — en cours (Codex, 17 novembre 2026)
+
+Production terminée : trois animations PixelFX et cinq illustrations selon `docs/design/FICHES_VFX_GAMEPLAY_V2.md`.
+Publication et intégration du catalogue en cours sur `codex/passifs-cartes-v2-20261117`, puis vérifications GitHub
+avant fusion. Aucun changement de gameplay ; validation artistique en jeu à effectuer.
+
 ## Gameplay v2 : arsenal, récompenses, combos (Claude, session « Gameplay », en cours depuis le 16 novembre 2026)
 
 Consignes : issue #193 et `docs/design/GAMEPLAY_COMBOS_2P5D.md` (PR #194). Audit, architecture et état des lots :
