@@ -740,3 +740,39 @@ func test_source_devourer_style() -> void:
 			charged = true
 			break
 	check(charged and style.charges == 1, "seconde phase : l'écrasement est suivi d'une charge")
+
+
+func test_chapter1_guardians_improved() -> void:
+	await _start()
+	# Sentinelle : menhirs avant le séisme.
+	var sentinel: DraftEnemies.Foe = _spawn(&"root_sentinel", 7.0)
+	sentinel.brain._next_at = INF
+	var menhirs := _mechanic(sentinel, &"quake") as DraftMenhirQuake
+	check(menhirs != null, "Sentinelle : menhirs du séisme")
+	var rings: int = run.hazards._items.size()
+	menhirs.perform(_pattern(sentinel.boss, &"quake"))
+	check(menhirs.menhirs.size() >= 2, "des menhirs sortent du sol (%d)" % menhirs.menhirs.size())
+	check(run.hazards._items.size() > rings, "puis le séisme")
+	await _frames(int(DraftMenhirQuake.LIFETIME * 60) + 10)
+	check(menhirs.menhirs.is_empty(), "les menhirs retombent")
+	run.enemies.vanish(sentinel)
+	# Astravorn : couronne qui change de sens en seconde phase, puis rayon.
+	var astravorn: DraftEnemies.Foe = _spawn(&"astravorn", 2.0)
+	astravorn.brain._next_at = INF
+	var crown := _mechanic(astravorn, &"star_crown") as DraftStarCrown
+	check_eq(crown.next_kind(&"star_crown"), &"void_beam", "couronne → rayon du vide")
+	_bring_to(astravorn, 0.4)
+	astravorn.brain._transition = 0.0
+	var pattern: BossPatternData = _pattern(astravorn.boss, &"star_crown")
+	crown.perform(pattern)
+	await _frames(int((pattern.telegraph + float(pattern.params.get("duration", 9.0)) * 0.6) * 60))
+	check_eq(crown.reversals, 1, "seconde phase : la couronne change de sens")
+	run.enemies.vanish(astravorn)
+	crown.finish()
+	# Chimère : pas de brume sous le voile.
+	var chimera: DraftEnemies.Foe = _spawn(&"mist_chimera", 7.0)
+	chimera.brain._next_at = INF
+	var veil := _mechanic(chimera, &"mist_veil") as DraftMistVeil
+	veil.perform(_pattern(chimera.boss, &"mist_veil"))
+	await _frames(int(DraftMistVeil.MIST_STEP * 60) + 150)
+	check(veil.mist_steps >= 1, "sous le voile, elle surgit près du Chasseur (%d)" % veil.mist_steps)

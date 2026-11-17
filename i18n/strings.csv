@@ -1649,7 +1649,7 @@ BOSS_PATTERN_WHIRLPOOL,Tourbillon,Whirlpool
 BOSS_PATTERN_TIDE_WAVE,Raz-de-marée,Tidal wave
 BOSS_PATTERN_SWALLOW,Engloutissement,Engulf
 BOSS_ORB_INTRO,Orbe de source : une Ruée dedans le renvoie sur le Dévoreur. L'orbe doré l'étourdit.,Source orb: dash into it to send it back at the Devourer. The golden orb stuns it.
-BOSS_QUAKE_INTRO,"Séisme : des anneaux sans brèche partent de la Sentinelle. Traversez-les d'une Ruée ou abritez-vous derrière le décor.","Quake: unbroken rings spread from the Sentinel. Dash through them or take cover behind the scenery."
+BOSS_QUAKE_INTRO,"Séisme : des menhirs sortent du sol, puis des anneaux sans brèche partent de la Sentinelle. Abritez-vous derrière un menhir ou traversez d'une Ruée.","Quake: menhirs rise from the ground, then unbroken rings spread from the Sentinel. Take cover behind a menhir or dash through."
 BOSS_CROWN_INTRO,"Couronne d'astres : de l'extérieur, vos coups sont absorbés. Entrez par une brèche !","Star crown: from outside, your hits are absorbed. Get in through a gap!"
 BOSS_CRATER_INTRO,Retenez les cases qui s'allument : elles vont exploser dans le même ordre.,Remember the tiles that light up: they will erupt in the same order.
 BOSS_MUD_WALL_INTRO,La vase ralentit puis durcit en murs : ils arrêtent aussi son rayon.,"The mud slows you, then hardens into walls: they also stop its beam."
