@@ -12,6 +12,14 @@ Demandes du propriétaire (« le jeu est trop lent ») : réglages `draft3d/tuni
 - XP : `xp_scale` 8 → 18 (bot, 25 min : ×14 = 15 choix, ×24 = 6 choix). Mesure au bot invulnérable (chapitre 1, 25 min de jeu, vitesses et EXP aspirée actives) :
   voir le tableau de la PR. Le bot tue bien plus qu'un joueur : un joueur aura moins de choix ; à affiner en jouant.
 
+## Bug : rambardes des escaliers franchissables depuis les marches (Claude, « Correction de bugs », 17 novembre 2026)
+
+- Cause : la rambarde du modèle `stairs_wide` ne dépasse les marches que de 0,2 m une fois l'escalier mis à
+  l'échelle ; sans collision propre, le Chasseur l'enjambait et sortait de l'escalier par le côté.
+- Correction : deux parois de marche seule (couche 8, comme les berges) le long des rambardes : elles retiennent le
+  Chasseur sans arrêter la vue ni les tirs, et la navigation (couche 1) ne change pas.
+- Test : contrôle « rambarde » dans `test_draft3d::test_map_stairs_shelters_and_heights`.
+
 ## Couverture visuelle sorts et combos — livraison et intégration (Codex, 17 novembre 2026)
 
 Audit des 15 sorts v2 ; trois FX initiaux recréés ; 12 FX de combos et 12 illustrations, trois FX de passifs et cinq cartes livrés localement. Branche `codex/couverture-visuelle-sorts-combos`, aucune modification des mécaniques. La PR gameplay #212 est fusionnée après CI verte ; le raccord visuel des neuf nouveaux combos est appliqué dans cette branche locale. [Rapport et fichiers](art/COUVERTURE_VISUELLE_V2.md). Publication publique autorisée ; intégration coordonnée avec les PR #207, #210, #211, #213 et #214. [Résolutions](INTEGRATION_PR_207_214.md).
