@@ -91,7 +91,7 @@ func test_far_boss_closes_in_and_chains() -> void:
 	check(moves >= 1, "de loin, il se rapproche (charge, bond ou saut de faille)")
 	await _frames(900)
 	check(foe.brain.patterns_played >= 4, "techniques des données jouées (%d)" % foe.brain.patterns_played)
-	check(foe.brain.gestures_played.size() >= 3, "gestes variés (%s)" % [foe.brain.gestures_played.keys()])
+	check(foe.brain.kinds_played.size() >= 3, "techniques variées (%s)" % [foe.brain.kinds_played.keys()])
 
 
 func test_charge_into_wall_stuns() -> void:
@@ -711,3 +711,98 @@ func test_secondary_effects() -> void:
 	mechanic._wave_hit()
 	check(run.hunter.slow_left > 0.0, "vague : ralenti")
 	check(run.hunter.global_position.distance_to(glauque.pos) > before, "vague : repoussé loin du boss")
+
+
+func test_abyssarch_root_leash_ties_and_dash_cuts() -> void:
+	await _start()
+	var abyss: DraftEnemies.Foe = _spawn(&"abyssarch", 7.0)
+	abyss.brain._next_at = INF
+	var root := _mechanic(abyss, &"root_leash") as DraftRootLeash
+	check(root != null, "Abyssarque : vraie racine-laisse")
+	check(_mechanic(_spawn(&"glauquemire", 9.0), &"root_leash") is DraftGlauquemire, "Glauquemire garde sa racine jaillissante")
+	var pattern: BossPatternData = _pattern(abyss.boss, &"root_leash")
+	root.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 3)
+	check(root.tied(), "le Chasseur est attaché")
+	var anchor: Vector3 = root.leash["anchor"]
+	var length: float = root.leash["length"]
+	run.hunter.global_position = run.level.closest(anchor + Vector3(length + 4.0, 0, 0)) + Vector3.UP * 0.2
+	await _frames(3)
+	var offset: Vector3 = run.hunter.global_position - anchor
+	check(Vector2(offset.x, offset.z).length() <= length + 0.3, "la racine le ramène à sa longueur")
+	run.hunter.dash_time = 0.2
+	await _frames(2)
+	check(root.cut == 1 and not root.tied(), "une Ruée tranche la racine")
+
+
+func test_source_devourer_style() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"source_devourer", 6.0)
+	foe.brain._next_at = INF
+	var style := _mechanic(foe, &"breath") as DraftSourceDevourer
+	check(style != null, "Dévoreur des Sources : style de combat propre")
+	check_eq(style.next_kind(&"claw"), &"breath", "griffes → souffle")
+	check_eq(style.next_kind(&"breath"), &"source_orb", "souffle → orbes")
+	var lines: int = run.hazards._items.size()
+	style.perform(_pattern(foe.boss, &"breath"))
+	check_eq(run.hazards._items.size() - lines, DraftSourceDevourer.BREATH_STEPS, "souffle qui balaie")
+	await _frames(120)
+	_bring_to(foe, 0.4)
+	foe.brain._transition = 0.0
+	var orbs := _mechanic(foe, &"source_orb") as DraftSourceOrbs
+	var salvo: BossPatternData = null
+	for pattern: BossPatternData in foe.boss.phases[1].patterns:
+		if pattern.kind == &"source_orb":
+			salvo = pattern
+	orbs.perform(salvo)
+	check_eq(orbs.orbs.size(), int(salvo.params["count"]) * 2, "seconde phase : double salve d'orbes")
+	var golden: int = 0
+	for orb: Dictionary in orbs.orbs:
+		golden += 1 if orb["golden"] else 0
+	check_eq(golden, 1, "un seul orbe doré")
+	run.hunter.global_position = run.level.closest(foe.pos + Vector3(8, 0, 0)) + Vector3.UP * 0.2
+	run.hunter.reset_motion()
+	style.after(&"slam")
+	var charged: bool = false
+	for frame: int in 120:
+		await host.get_tree().physics_frame
+		if foe.brain.moves_itself():
+			charged = true
+			break
+	check(charged and style.charges == 1, "seconde phase : l'écrasement est suivi d'une charge")
+
+
+func test_chapter1_guardians_improved() -> void:
+	await _start()
+	# Sentinelle : menhirs avant le séisme.
+	var sentinel: DraftEnemies.Foe = _spawn(&"root_sentinel", 7.0)
+	sentinel.brain._next_at = INF
+	var menhirs := _mechanic(sentinel, &"quake") as DraftMenhirQuake
+	check(menhirs != null, "Sentinelle : menhirs du séisme")
+	var rings: int = run.hazards._items.size()
+	menhirs.perform(_pattern(sentinel.boss, &"quake"))
+	check(menhirs.menhirs.size() >= 2, "des menhirs sortent du sol (%d)" % menhirs.menhirs.size())
+	check(run.hazards._items.size() > rings, "puis le séisme")
+	await _frames(int(DraftMenhirQuake.LIFETIME * 60) + 10)
+	check(menhirs.menhirs.is_empty(), "les menhirs retombent")
+	run.enemies.vanish(sentinel)
+	# Astravorn : couronne qui change de sens en seconde phase, puis rayon.
+	var astravorn: DraftEnemies.Foe = _spawn(&"astravorn", 2.0)
+	astravorn.brain._next_at = INF
+	var crown := _mechanic(astravorn, &"star_crown") as DraftStarCrown
+	check_eq(crown.next_kind(&"star_crown"), &"void_beam", "couronne → rayon du vide")
+	_bring_to(astravorn, 0.4)
+	astravorn.brain._transition = 0.0
+	var pattern: BossPatternData = _pattern(astravorn.boss, &"star_crown")
+	crown.perform(pattern)
+	await _frames(int((pattern.telegraph + float(pattern.params.get("duration", 9.0)) * 0.6) * 60))
+	check_eq(crown.reversals, 1, "seconde phase : la couronne change de sens")
+	run.enemies.vanish(astravorn)
+	crown.finish()
+	# Chimère : pas de brume sous le voile.
+	var chimera: DraftEnemies.Foe = _spawn(&"mist_chimera", 7.0)
+	chimera.brain._next_at = INF
+	var veil := _mechanic(chimera, &"mist_veil") as DraftMistVeil
+	veil.perform(_pattern(chimera.boss, &"mist_veil"))
+	await _frames(int(DraftMistVeil.MIST_STEP * 60) + 150)
+	check(veil.mist_steps >= 1, "sous le voile, elle surgit près du Chasseur (%d)" % veil.mist_steps)

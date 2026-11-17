@@ -2,8 +2,7 @@ class_name DraftRun
 extends Node3D
 ## Premier jet de la version 3D (docs/PREMIER_JET_3D.md) : une partie de survivor avec le Chasseur seul.
 ## Boucle : hordes → EXP → niveau → choix d'amélioration → puissance → boss. Aucun Écho, aucun système d'Écho.
-## Tout l'état vit dans cette scène : recommencer la recharge. Le profil et les sauvegardes ne sont jamais écrits.
-##
+## Recommencer recharge la scène ; la progression passe par DraftSave, hors parties de test.
 ## Lancement : godot --path . res://draft3d/main.tscn
 ## Options (après --) : --bot (le jeu se joue seul) --passive (bot immobile : défaite) --god --seed=1
 ##   --boss-at=60 --time-scale=4 --perf=50,100,200 --shots=<dossier> --shot-times=20,90 --result (ligne RESULT)
@@ -824,7 +823,7 @@ func _finish(victory: bool) -> void:
 	_end_delay = 1.0
 	# Raccourci de test du boss (test_run) ou partie d'essai (DraftSave.read_only) : ni récompense ni écriture.
 	if not test_run and DraftSave.record_end(victory, chapter, kills, time, hunter.level, guardians_killed,
-			devourers_killed) and unlocks != null:
+			devourers_killed, combos.counts) and unlocks != null:
 		unlocks.record_run(unlocks.run_gain(kills, time, guardians_killed, devourers_killed))
 	# Gain de Fragments de faille (DraftUnlocks, enregistré par la partie avant cet écran) ; -1 : rien d'affiché.
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills],

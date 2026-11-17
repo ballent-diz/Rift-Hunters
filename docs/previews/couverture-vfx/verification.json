@@ -1,0 +1,39 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_LIMITS",
+  "date": "2026-11-17",
+  "base_commit": "5fecf861afcb41401752fb5258bede0164a80473",
+  "gameplay_modified": false,
+  "import_godot": "PASS, Godot 4.3, sortie 0",
+  "tests": {
+    "v2_visual_delivery": "5/5, vrai renderer OpenGL, stderr vide",
+    "item_art": "5/5",
+    "draft3d_combos": "19/19, lot 6 inclus"
+  },
+  "render": {
+    "renderer": "OpenGL 3.3 / NVIDIA Quadro M3000M",
+    "screenshots": 15,
+    "errors": 0,
+    "scope": "Chargement et rendu des assets sur mire 2,5D, pas une partie complète"
+  },
+  "limitations": [
+    "PR gameplay #212 fusionnée après CI verte ; raccord des neuf nouveaux FX appliqué localement.",
+    "Essais headless des combos : erreurs mesh/canvas du renderer Dummy, assertions réussies.",
+    "Suites historiques item_art et combos : avertissements de ressources à la sortie.",
+    "Pas de mesure d’occultation en combat, validation en partie à faire après raccord."
+  ],
+  "generation": "ImageGen intégré",
+  "prompts": "assets/concepts/incoming/*/prompts.json",
+  "publication_authorized": true,
+  "local_integration": {
+    "order": [
+      207,
+      210,
+      211,
+      213,
+      214
+    ],
+    "save_tests": "8/8",
+    "lint": "PASS avec gdlintrc du dépôt",
+    "boss_tests": "27/27"
+  }
+}

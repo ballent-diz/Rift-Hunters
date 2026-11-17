@@ -1,0 +1,69 @@
+{
+  "generator": "ImageGen intégré",
+  "date": "2026-11-17",
+  "reference": "docs/design/FICHES_VFX_GAMEPLAY_V2.md",
+  "reference_blob": "652fd23ed1f5c51e8ec720e900c54db29c6ff5d7",
+  "parameter_status": "Calibrage de production proposé, à confirmer dans Godot.",
+  "processing": "Découpage et assemblage de phases, réduction NEAREST, marge transparente interne2px, palette RGBA32 sans tramage. Pour Convergence, deux couleurs représentatives déjà présentes dans la source sont réservées afin de préserver les accents blanc-or rares.",
+  "effects": [
+    {
+      "id": "combo_still_storm",
+      "label": "Tempête immobile",
+      "lot": "C",
+      "frames": 16,
+      "fps": 24,
+      "columns": 4,
+      "rows": 4,
+      "size": 256,
+      "width_m": 4,
+      "anchor_height_m": 1.2,
+      "loop": false,
+      "ground_frames": [],
+      "source_files": [
+        "combo_still_storm.png"
+      ],
+      "assembly": "Grille source entière dans l’ordre de lecture"
+    },
+    {
+      "id": "combo_rift_prison",
+      "label": "Prison de faille",
+      "lot": "C",
+      "frames": 16,
+      "fps": 20,
+      "columns": 4,
+      "rows": 4,
+      "size": 384,
+      "width_m": 6,
+      "anchor_height_m": 0.6,
+      "loop": false,
+      "ground_frames": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "source_files": [
+        "combo_rift_prison.png"
+      ],
+      "assembly": "Grille source entière dans l’ordre de lecture"
+    },
+    {
+      "id": "combo_prismatic_convergence",
+      "label": "Convergence prismatique",
+      "lot": "C",
+      "frames": 16,
+      "fps": 24,
+      "columns": 4,
+      "rows": 4,
+      "size": 256,
+      "width_m": 4,
+      "anchor_height_m": 0.6,
+      "loop": false,
+      "ground_frames": [],
+      "source_files": [
+        "combo_prismatic_convergence.png"
+      ],
+      "assembly": "Grille source entière dans l’ordre de lecture"
+    }
+  ]
+}

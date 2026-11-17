@@ -879,7 +879,11 @@ func _on_shield_broken() -> void:
 		return
 	var damage: float = damage_of(data) * (param(data, "damage", 1.0) if riposte else tuning.combo_aegis_plain) * power
 	var here: Vector3 = run.hunter.global_position
-	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
+	if power > 1.0:
+		run.fx_or(&"combo_avenging_aegis", area_of(data) * 2.0, &"ring_burst",
+			DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
+	else:
+		run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
 		run.enemies.hit(foe, damage, _flat(foe.pos - here).normalized() * 4.0)
 

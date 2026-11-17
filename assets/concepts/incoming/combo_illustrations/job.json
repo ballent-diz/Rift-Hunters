@@ -1,0 +1,82 @@
+{
+  "generator": "ImageGen intégré",
+  "combos": [
+    {
+      "asset_id": "combo_prismatic_execution",
+      "runtime_id": "prismatic_execution",
+      "label": "Exécution prismatique",
+      "subject": "Four razor-thin cyan prismatic streaks lock onto a small central dark target and close inward, followed by one tiny white-gold crystalline detonation with violet facets. Readable converging geometry and compact lethal precision."
+    },
+    {
+      "asset_id": "combo_prismatic_deluge",
+      "runtime_id": "prismatic_deluge",
+      "label": "Déluge prismatique",
+      "subject": "One small fractured cyan crystal at left-center refracts exactly FOUR narrow cyan-white beams into a rightward fan, like a prism splitting a lance. Countable four rays, faceted crystal, generous black negative space."
+    },
+    {
+      "asset_id": "combo_gravity_blade",
+      "runtime_id": "gravity_blade",
+      "label": "Lame gravitationnelle",
+      "subject": "One curved white-violet blade of energy cleaves across the edge of a small dark gravitational well, releasing an elliptical violet shockwave with tiny attracted then repelled shards. Hollow centre, dramatic sharp crescent."
+    },
+    {
+      "asset_id": "combo_counter_rift",
+      "runtime_id": "rift_counter",
+      "label": "Contre-faille",
+      "subject": "A dark steel parrying blade intercepts one small incoming cyan spark, then a sharp white-gold cleaving crescent follows through with a thin violet shockwave. One weapon gesture, clear defensive counterstrike, restrained glow."
+    },
+    {
+      "asset_id": "combo_dimensional_hunt",
+      "runtime_id": "dimensional_hunt",
+      "label": "Chasse dimensionnelle",
+      "subject": "A small centered cyan target mark tightens around one dark enemy silhouette; two fine white-cyan incisions cross it in a clean X, edged violet lower right. Mark and two slashes dominate, no blood."
+    },
+    {
+      "asset_id": "combo_tracker_rupture",
+      "runtime_id": "tracker_rupture",
+      "label": "Rupture du traqueur",
+      "subject": "One contracted violet geometric target seal shatters from its tiny white-gold centre into six dark-violet faceted shards. A focused contained magical rupture, no large explosion cloud, no lettering."
+    },
+    {
+      "asset_id": "combo_spectral_rebound",
+      "runtime_id": "spectral_rebound",
+      "label": "Rebond spectral",
+      "subject": "One faceless ghostly cyan-violet hooded hunter in a low lunging pose to the right, spectral blade extended horizontally, trailing fine cyan afterimages from an empty shadow at left. Only one ghost, transparent-looking body against dark vignette."
+    },
+    {
+      "asset_id": "combo_shattering_bastion",
+      "runtime_id": "shattering_rampart",
+      "label": "Rempart fracassant",
+      "subject": "A small fragment of an upright obsidian magical wall, a sharp cyan-white zigzag crack travelling through it, and one restrained violet elliptical shockwave at its base. Crystal-like fissures, readable impact, no whole environment."
+    },
+    {
+      "asset_id": "combo_avenging_aegis",
+      "runtime_id": "vengeful_aegis",
+      "label": "Égide vengeresse",
+      "subject": "A hollow golden pointed shield outline pulses and releases one thin expanding gold energy ring, with discreet violet lower-right edge. Central shield icon, no crest, no human, no lettering, warm controlled gold."
+    },
+    {
+      "asset_id": "combo_still_storm",
+      "runtime_id": "still_storm",
+      "label": "Tempête immobile",
+      "subject": "Exactly SIX faceted cyan-violet crystals hang suspended above a small dark immobilizing seal; the lower two have started falling with short vertical cyan trails. Suspended ice precision, no snowstorm, no character."
+    },
+    {
+      "asset_id": "combo_rift_prison",
+      "runtime_id": "rift_prison",
+      "label": "Prison de faille",
+      "subject": "Thin violet linked energy chains close into an elliptical loop around one small black gravitational well, with two low crossed chain arcs above it. Individual links and hollow black centre clearly visible, no opaque sphere."
+    },
+    {
+      "asset_id": "combo_prismatic_convergence",
+      "runtime_id": "prismatic_convergence",
+      "label": "Convergence prismatique",
+      "subject": "Exactly FOUR thin cyan-white prismatic beams from the four diagonal directions converge into ONE small brilliant white-gold star at centre; six violet-cyan crystal facets radiate outward from that star. Most spectacular icon in set, precise symmetry, luminous tiny centre with large dark breathing room."
+    }
+  ],
+  "size": [
+    1254,
+    1254
+  ],
+  "processing": "Conversion PNG RGBA pleine couleur ; réduction Lanczos seulement si nécessaire."
+}

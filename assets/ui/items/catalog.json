@@ -90,6 +90,91 @@
     },
     "offer.shards": {
       "image": "res://assets/ui/items/offers/shards.png"
+    },
+    "upgrade.passive_dash_blade": {
+      "image": "res://assets/ui/items/upgrades/passive_dash_blade.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "upgrade.passive_void_wake": {
+      "image": "res://assets/ui/items/upgrades/passive_void_wake.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "upgrade.passive_counter_cut": {
+      "image": "res://assets/ui/items/upgrades/passive_counter_cut.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "upgrade.passive_anchor": {
+      "image": "res://assets/ui/items/upgrades/passive_anchor.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "upgrade.rule_extra_slot": {
+      "image": "res://assets/ui/items/upgrades/rule_extra_slot.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.prismatic_execution": {
+      "image": "res://assets/ui/items/combos/combo_prismatic_execution.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.prismatic_deluge": {
+      "image": "res://assets/ui/items/combos/combo_prismatic_deluge.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.gravity_blade": {
+      "image": "res://assets/ui/items/combos/combo_gravity_blade.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.rift_counter": {
+      "image": "res://assets/ui/items/combos/combo_counter_rift.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.dimensional_hunt": {
+      "image": "res://assets/ui/items/combos/combo_dimensional_hunt.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.tracker_rupture": {
+      "image": "res://assets/ui/items/combos/combo_tracker_rupture.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.spectral_rebound": {
+      "image": "res://assets/ui/items/combos/combo_spectral_rebound.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.shattering_rampart": {
+      "image": "res://assets/ui/items/combos/combo_shattering_bastion.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.vengeful_aegis": {
+      "image": "res://assets/ui/items/combos/combo_avenging_aegis.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.still_storm": {
+      "image": "res://assets/ui/items/combos/combo_still_storm.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.rift_prison": {
+      "image": "res://assets/ui/items/combos/combo_rift_prison.png",
+      "scope": "draft3d",
+      "background": "vignette"
+    },
+    "combo.prismatic_convergence": {
+      "image": "res://assets/ui/items/combos/combo_prismatic_convergence.png",
+      "scope": "draft3d",
+      "background": "vignette"
     }
   }
 }

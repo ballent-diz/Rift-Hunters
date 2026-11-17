@@ -50,6 +50,8 @@ const GESTURE_CLIPS := {
 const CHARGE_SPEED := 15.0
 const LEAP_TIME := 1.1
 const LEAP_HEIGHT := 4.0
+## Part des choix qui suivent l'enchaînement propre au boss quand la technique voulue est prête.
+const COMBO_PREFERENCE := 0.75
 ## Repères de contact des effets peints (part de leur durée déjà écoulée à la frappe), comme en v1.
 const CONTACT_STRIKE := 0.12
 const CONTACT_SLAM := 0.3
@@ -74,6 +76,8 @@ var turns: bool = true
 ## Compteurs (essais, mesures).
 var patterns_played: int = 0
 var gestures_played: Dictionary = {}
+## Techniques des données jouées, mécaniques comprises (essais, mesures).
+var kinds_played: Dictionary = {}
 
 var _clock: float = 0.0
 var _ready_at: Dictionary = {}
@@ -93,6 +97,7 @@ var _hurt_ready_at: float = 0.0
 var _move: Dictionary = {}
 var _dead: bool = false
 var _banners: Dictionary = {}
+var _last_kind: StringName = &""
 
 
 func setup(p_enemies: DraftEnemies, p_foe: DraftEnemies.Foe) -> void:
@@ -118,8 +123,11 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 	match boss.signature:
 		&"source_orb":
 			result.append(DraftSourceOrbs.new())
+			result.append(DraftSourceDevourer.new())
 		&"star_crown":
 			result.append(DraftStarCrown.new())
+		&"quake":
+			result.append(DraftMenhirQuake.new())
 		&"mist_veil":
 			result.append(DraftMistVeil.new())
 		&"crater_sequence":
@@ -148,6 +156,9 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftFrostGuardians.new(boss.signature))
 		&"war_cry", &"rune_barrage", &"pantheon_wake", &"soul_chain":
 			result.append(DraftCityGuardians.new(boss.signature))
+	# Racine-laisse (forme racines de l'Abyssarque) : vraie laisse ; Glauquemire garde sa racine jaillissante.
+	if boss.signature != &"prism_beam" and _has_kind(boss, &"root_leash"):
+		result.append(DraftRootLeash.new())
 	# Plongée sous la glace (Nivorath) : même mécanique que la plongée de la Gueule des marais.
 	if boss.signature != &"maw_dive" and _has_kind(boss, &"frozen_dive"):
 		result.append(DraftMawDive.new(&"frozen_dive"))
@@ -231,6 +242,22 @@ func banner_once(key: String) -> void:
 func charge(pattern: BossPatternData, aim: Vector3) -> void:
 	_busy = 0.0
 	_gesture_charge(pattern, aim)
+
+
+## Saut de faille et coup de griffes commandés par une mécanique (pas de brume de la Chimère sous son voile).
+## Sans effet si le boss est déjà occupé.
+func blink_strike(damage_amount: float) -> bool:
+	if busy() or not enemies.hunter.alive:
+		return false
+	var to_hunter: Vector3 = enemies.hunter.global_position - foe.pos
+	to_hunter.y = 0.0
+	var probe := BossPatternData.new()
+	probe.kind = &"blink"
+	probe.damage = damage_amount
+	probe.telegraph = 0.6
+	_busy = _gesture_blink(probe, to_hunter.normalized() if to_hunter.length() > 0.01 else Vector3.RIGHT)
+	foe.view.play_action(_first_clip([&"attack", &"claw"]), _busy)
+	return true
 
 
 ## Bond sur le Chasseur commandé par une mécanique (Reine-veuve sur une proie engluée).
@@ -404,6 +431,14 @@ func _choose(distance: float, climb: float) -> BossPatternData:
 		total += pattern.weight
 	if options.is_empty():
 		return null
+	# Enchaînement propre au boss (mécanique) : la technique préférée après la précédente, trois fois sur quatre.
+	for mechanic: DraftBossMechanic in mechanics:
+		var wanted: StringName = mechanic.next_kind(_last_kind)
+		if wanted == &"" or enemies.rng.randf() >= COMBO_PREFERENCE:
+			continue
+		for pattern: BossPatternData in options:
+			if pattern.kind == wanted:
+				return pattern
 	var roll: float = enemies.rng.randf() * total
 	for pattern: BossPatternData in options:
 		roll -= pattern.weight
@@ -430,11 +465,15 @@ func _perform(pattern: BossPatternData, to_hunter: Vector3, distance: float) -> 
 			handled = true
 			break
 	var gesture: StringName = gesture_of(pattern)
+	_last_kind = pattern.kind
+	kinds_played[pattern.kind] = int(kinds_played.get(pattern.kind, 0)) + 1
 	if not handled:
 		gestures_played[gesture] = int(gestures_played.get(gesture, 0)) + 1
 		var clip: StringName = _pattern_clip(pattern, gesture)
 		_busy = call("_gesture_" + String(gesture), pattern, aim)
 		foe.view.play_action(clip, maxf(_busy, 0.5))
+	for mechanic: DraftBossMechanic in mechanics:
+		mechanic.after(pattern.kind)
 	# Enchaînements : plus fréquents et plus longs à chaque phase.
 	if _combo_left > 0:
 		_combo_left -= 1

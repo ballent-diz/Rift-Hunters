@@ -1,0 +1,424 @@
+{
+  "status": "PASS",
+  "scope": "Ressources v2 uniquement, pas de simulation de gameplay",
+  "spells": [
+    {
+      "id": "cleaving_slash",
+      "icon": "res://assets/sprites/skills/hunter/hunter_cleaving_slash_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/cleaving_slash/cleaving_slash.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "prismatic_lance",
+      "icon": "res://assets/sprites/skills/hunter/hunter_prismatic_lance_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/prismatic_lance/prismatic_lance.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "rupture",
+      "icon": "res://assets/sprites/skills/hunter/hunter_rupture_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/rupture/rupture.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "rift_leap",
+      "icon": "res://assets/sprites/skills/hunter/hunter_rift_leap_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/rift_leap/rift_leap.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "parry",
+      "icon": "res://assets/sprites/skills/hunter/hunter_parry_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/parry/parry.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "singularity",
+      "icon": "res://assets/sprites/skills/hunter/hunter_singularity_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/singularity/singularity.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "rift_wall",
+      "icon": "res://assets/sprites/skills/hunter/hunter_rift_wall_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/rift_wall/rift_wall.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "aegis",
+      "icon": "res://assets/sprites/skills/hunter/hunter_rift_aegis_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/rift_aegis/rift_aegis.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "refracting_crystal",
+      "icon": "res://assets/sprites/skills/hunter/hunter_refractor_crystal_sheet.png",
+      "fx_scene": "res://assets/vfx/hunter/refractor_crystal/refractor_crystal.tscn",
+      "source": "illustration et scène existantes",
+      "status": "PASS"
+    },
+    {
+      "id": "hunter_mark",
+      "icon": "res://assets/vfx/pixelfx/hex_sigil/fallen.png#image_du_milieu",
+      "fx": {
+        "effect": "hex_sigil",
+        "family": "fallen",
+        "path": "res://assets/vfx/pixelfx/hex_sigil/fallen.png",
+        "frames": 64,
+        "fps": 15.0,
+        "size": [
+          2016,
+          768
+        ]
+      },
+      "source": "FX existant, icône AtlasTexture existante de DraftSpellBar",
+      "status": "PASS"
+    },
+    {
+      "id": "void_rend",
+      "icon": "res://assets/vfx/pixelfx/heavy_cleave/violet.png#image_du_milieu",
+      "fx": {
+        "effect": "heavy_cleave",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/heavy_cleave/violet.png",
+        "frames": 29,
+        "fps": 15.0,
+        "size": [
+          2496,
+          348
+        ]
+      },
+      "source": "FX existant, icône AtlasTexture existante de DraftSpellBar",
+      "status": "PASS"
+    },
+    {
+      "id": "rift_step",
+      "icon": "res://assets/vfx/pixelfx/blink_in/violet.png#image_du_milieu",
+      "fx": {
+        "effect": "blink_in",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/blink_in/violet.png",
+        "frames": 22,
+        "fps": 15.0,
+        "size": [
+          1632,
+          192
+        ]
+      },
+      "source": "FX existant, icône AtlasTexture existante de DraftSpellBar",
+      "status": "PASS"
+    },
+    {
+      "id": "stasis_wave",
+      "icon": "res://assets/vfx/pixelfx/frost_nova/givres.png#image_du_milieu",
+      "fx": {
+        "effect": "frost_nova",
+        "family": "givres",
+        "path": "res://assets/vfx/pixelfx/frost_nova/givres.png",
+        "frames": 52,
+        "fps": 15.0,
+        "size": [
+          3456,
+          960
+        ]
+      },
+      "source": "FX existant, icône AtlasTexture existante de DraftSpellBar",
+      "status": "PASS"
+    },
+    {
+      "id": "shard_rain",
+      "icon": "res://assets/vfx/pixelfx/star_fall/violet.png#image_du_milieu",
+      "fx": {
+        "effect": "star_fall",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/star_fall/violet.png",
+        "frames": 38,
+        "fps": 15.0,
+        "size": [
+          2784,
+          688
+        ]
+      },
+      "source": "FX existant, icône AtlasTexture existante de DraftSpellBar",
+      "status": "PASS"
+    },
+    {
+      "id": "ash_veil",
+      "icon": "res://assets/vfx/pixelfx/smoke_bomb/calcines.png#image_du_milieu",
+      "fx": {
+        "effect": "smoke_bomb",
+        "family": "calcines",
+        "path": "res://assets/vfx/pixelfx/smoke_bomb/calcines.png",
+        "frames": 76,
+        "fps": 15.0,
+        "size": [
+          3120,
+          1232
+        ]
+      },
+      "source": "FX existant, icône AtlasTexture existante de DraftSpellBar",
+      "status": "PASS"
+    }
+  ],
+  "combos": [
+    {
+      "id": "prismatic_execution",
+      "asset_id": "combo_prismatic_execution",
+      "fx": {
+        "effect": "combo_prismatic_execution",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_prismatic_execution/violet.png",
+        "frames": 12,
+        "fps": 20,
+        "size": [
+          512,
+          384
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_prismatic_execution.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "prismatic_deluge",
+      "asset_id": "combo_prismatic_deluge",
+      "fx": {
+        "effect": "combo_prismatic_deluge",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_prismatic_deluge/violet.png",
+        "frames": 12,
+        "fps": 24,
+        "size": [
+          768,
+          576
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_prismatic_deluge.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "gravity_blade",
+      "asset_id": "combo_gravity_blade",
+      "fx": {
+        "effect": "combo_gravity_blade",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_gravity_blade/violet.png",
+        "frames": 14,
+        "fps": 24,
+        "size": [
+          1536,
+          1536
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_gravity_blade.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "rift_counter",
+      "asset_id": "combo_counter_rift",
+      "fx": {
+        "effect": "combo_counter_rift",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_counter_rift/violet.png",
+        "frames": 10,
+        "fps": 24,
+        "size": [
+          800,
+          320
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_counter_rift.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "dimensional_hunt",
+      "asset_id": "combo_dimensional_hunt",
+      "fx": {
+        "effect": "combo_dimensional_hunt",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_dimensional_hunt/violet.png",
+        "frames": 12,
+        "fps": 24,
+        "size": [
+          512,
+          384
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_dimensional_hunt.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "tracker_rupture",
+      "asset_id": "combo_tracker_rupture",
+      "fx": {
+        "effect": "combo_tracker_rupture",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_tracker_rupture/violet.png",
+        "frames": 12,
+        "fps": 24,
+        "size": [
+          640,
+          480
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_tracker_rupture.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "spectral_rebound",
+      "asset_id": "combo_spectral_rebound",
+      "fx": {
+        "effect": "combo_spectral_rebound",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_spectral_rebound/violet.png",
+        "frames": 12,
+        "fps": 24,
+        "size": [
+          768,
+          576
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_spectral_rebound.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "shattering_rampart",
+      "asset_id": "combo_shattering_bastion",
+      "fx": {
+        "effect": "combo_shattering_bastion",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_shattering_bastion/violet.png",
+        "frames": 12,
+        "fps": 24,
+        "size": [
+          1024,
+          768
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_shattering_bastion.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "vengeful_aegis",
+      "asset_id": "combo_avenging_aegis",
+      "fx": {
+        "effect": "combo_avenging_aegis",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_avenging_aegis/violet.png",
+        "frames": 12,
+        "fps": 24,
+        "size": [
+          768,
+          576
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_avenging_aegis.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "still_storm",
+      "asset_id": "combo_still_storm",
+      "fx": {
+        "effect": "combo_still_storm",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_still_storm/violet.png",
+        "frames": 16,
+        "fps": 24,
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_still_storm.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "rift_prison",
+      "asset_id": "combo_rift_prison",
+      "fx": {
+        "effect": "combo_rift_prison",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_rift_prison/violet.png",
+        "frames": 16,
+        "fps": 20,
+        "size": [
+          1536,
+          1536
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_rift_prison.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    },
+    {
+      "id": "prismatic_convergence",
+      "asset_id": "combo_prismatic_convergence",
+      "fx": {
+        "effect": "combo_prismatic_convergence",
+        "family": "violet",
+        "path": "res://assets/vfx/pixelfx/combo_prismatic_convergence/violet.png",
+        "frames": 16,
+        "fps": 24,
+        "size": [
+          1024,
+          1024
+        ]
+      },
+      "illustration": "res://assets/ui/items/combos/combo_prismatic_convergence.png",
+      "status": "PASS",
+      "trigger_in_current_branch": true
+    }
+  ],
+  "rewards": [
+    {
+      "id": "passive_dash_blade",
+      "image": "res://assets/ui/items/upgrades/passive_dash_blade.png",
+      "status": "PASS"
+    },
+    {
+      "id": "passive_void_wake",
+      "image": "res://assets/ui/items/upgrades/passive_void_wake.png",
+      "status": "PASS"
+    },
+    {
+      "id": "passive_counter_cut",
+      "image": "res://assets/ui/items/upgrades/passive_counter_cut.png",
+      "status": "PASS"
+    },
+    {
+      "id": "passive_anchor",
+      "image": "res://assets/ui/items/upgrades/passive_anchor.png",
+      "status": "PASS"
+    },
+    {
+      "id": "rule_extra_slot",
+      "image": "res://assets/ui/items/upgrades/rule_extra_slot.png",
+      "status": "PASS"
+    }
+  ],
+  "totals": {
+    "spells": 15,
+    "combo_fx": 12,
+    "combo_illustrations": 12,
+    "reward_illustrations": 5,
+    "passive_fx": 3
+  },
+  "runtime_dependency": "PR #212 fusionnée ; raccord visuel des douze combos présent dans cette branche locale."
+}

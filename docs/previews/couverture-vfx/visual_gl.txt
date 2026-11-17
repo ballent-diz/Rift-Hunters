@@ -1,0 +1,10 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 537.70 - Compatibility - Using Device: NVIDIA - Quadro M3000M
+
+  ✓ test_v2_visual_delivery::test_all_fifteen_supported_spells_have_a_loadable_icon
+  ✓ test_v2_visual_delivery::test_twelve_combo_sheets_and_illustrations_are_available
+  ✓ test_v2_visual_delivery::test_five_v2_reward_cards_are_illustrated
+  ✓ test_v2_visual_delivery::test_wake_sheet_loops_and_stops_with_its_visual
+  ✓ test_v2_visual_delivery::test_wake_visual_is_removed_when_the_trail_point_expires
+
+Tests : 5, réussis : 5, échoués : 0

@@ -639,6 +639,20 @@ func test_eighth_level_marsh_tide() -> void:
 	hunter.reset_motion()
 	await _frames(150)
 	check(hunter.global_position.z < 24.0, "à marée basse, la levée se traverse : %s" % hunter.global_position)
+	# Éclaboussures : un pas sur une levée basse noyée en fait une, pas à marée basse.
+	check(marsh.find_children("Splash", "AnimatedSprite3D", false, false).is_empty(), "pas d'éclaboussure à sec")
+	check(marsh.in_water(Vector3(0, 0.0, 16)) == false, "levée sèche à marée basse")
+	marsh.set_tide(true)
+	check(marsh.in_water(Vector3(0, 0.0, 16)), "levée noyée à marée haute")
+	hunter.global_position = Vector3(0, 0.45, 20)
+	hunter.reset_motion()
+	hunter.auto_direction = Vector3(0, 0, -1)
+	var splashed: bool = false
+	for frame: int in 90:
+		await host.get_tree().physics_frame
+		splashed = splashed or not marsh.find_children("Splash", "AnimatedSprite3D", false, false).is_empty()
+	check(splashed, "le Chasseur éclabousse en marchant dans l'eau")
+	marsh.set_tide(false)
 	hunter.auto_direction = Vector3.ZERO
 	check(is_equal_approx(DraftLevelMarsh.water_level(0.0), DraftLevelMarsh.WATER_LOW), "cycle : marée basse au départ")
 	var peak: float = DraftLevelMarsh.TIDE_LOW + DraftLevelMarsh.TIDE_RISE + 1.0

@@ -1,0 +1,18 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 537.70 - Compatibility - Using Device: NVIDIA - Quadro M3000M
+
+CAPTURE combo_prismatic_execution 0
+CAPTURE combo_prismatic_deluge 0
+CAPTURE combo_gravity_blade 0
+CAPTURE combo_counter_rift 0
+CAPTURE combo_dimensional_hunt 0
+CAPTURE combo_tracker_rupture 0
+CAPTURE combo_spectral_rebound 0
+CAPTURE combo_shattering_bastion 0
+CAPTURE combo_avenging_aegis 0
+CAPTURE combo_still_storm 0
+CAPTURE combo_rift_prison 0
+CAPTURE combo_prismatic_convergence 0
+CAPTURE passive_dash_blade 0
+CAPTURE passive_void_wake 0
+CAPTURE passive_counter_cut 0

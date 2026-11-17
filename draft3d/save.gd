@@ -37,6 +37,7 @@ static func default_data() -> Dictionary:
 		stats[key] = 0
 	for key: String in STAT_FLOAT_KEYS:
 		stats[key] = 0.0
+	stats["combos"] = {}
 	return {"version": FORMAT, "fragments": 0, "unlocked": [], "starting": [], "last_gain": -1,
 		"chapters": {"reached": [], "cleared": []}, "stats": stats, "settings": {}}
 
@@ -103,12 +104,15 @@ static func begin_run(options: Dictionary, automated: bool) -> void:
 
 ## Fin de partie : chapitre vaincu et statistiques ; faux en lecture seule (rien n'est enregistré ni gagné).
 static func record_end(victory: bool, chapter: int, kills: int, seconds: float, level: int, guardians: int,
-		devourers: int) -> bool:
+		devourers: int, combos: Dictionary = {}) -> bool:
 	if read_only:
 		return false
 	if victory:
 		DraftProgress.record_victory(chapter)
 	record_stats(victory, kills, seconds, level, guardians, devourers)
+	var total: Dictionary = data()["stats"]["combos"]
+	for combo: Variant in combos:
+		total[str(combo)] = int(total.get(str(combo), 0)) + maxi(int(combos[combo]), 0)
 	return true
 
 
@@ -167,6 +171,7 @@ static func sanitize(raw: Dictionary) -> Dictionary:
 		stats[key] = maxi(_int(stats.get(key), 0), 0)
 	for key: String in STAT_FLOAT_KEYS:
 		stats[key] = maxf(float(stats.get(key)) if _is_number(stats.get(key)) else 0.0, 0.0)
+	stats["combos"] = _section(stats, "combos")
 	result["stats"] = stats
 	result["settings"] = _section(raw, "settings")
 	return result

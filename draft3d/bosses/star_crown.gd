@@ -12,6 +12,7 @@ const HEIGHT := 0.8
 
 ## Couronne en cours (vide : aucune).
 var crown: Dictionary = {}
+var reversals: int = 0
 var _nodes: Array[MeshInstance3D] = []
 var _hit_cooldown: float = 0.0
 
@@ -36,7 +37,7 @@ func perform(pattern: BossPatternData) -> float:
 		"spin": float(params.get("spin", 0.8)), "spin_end": float(params.get("spin_end", 1.8)),
 		"rise": pattern.telegraph, "total": float(params.get("duration", 9.0)), "elapsed": 0.0,
 		"damage": brain.damage(pattern.damage), "outside": float(params.get("outside_mult", 0.15)),
-		"burst_speed": float(params.get("burst_speed", 210.0)) * DraftHunter.UNIT}
+		"burst_speed": float(params.get("burst_speed", 210.0)) * DraftHunter.UNIT, "reverse": brain.phase >= 1}
 	for s: int in stars:
 		var node: MeshInstance3D = make_orb(COLOR, STAR_RADIUS)
 		node.visible = not gaps.has(s)
@@ -45,6 +46,11 @@ func perform(pattern: BossPatternData) -> float:
 	brain.play_clip([&"phase2_attack", &"attack"], pattern.telegraph)
 	intro("BOSS_CROWN_INTRO")
 	return 0.0
+
+
+## Après la couronne, le rayon du vide (seconde phase) : on sort de la couronne pour se faire balayer.
+func next_kind(last: StringName) -> StringName:
+	return &"void_beam" if last == &"star_crown" else &""
 
 
 func active() -> bool:
@@ -92,7 +98,13 @@ func step(delta: float) -> void:
 	crown["elapsed"] = float(crown["elapsed"]) + delta
 	var t: float = clampf((float(crown["elapsed"]) - float(crown["rise"])) / float(crown["total"]), 0.0, 1.0)
 	crown["radius"] = lerpf(crown["start"], crown["end"], t)
-	crown["angle"] = float(crown["angle"]) + lerpf(crown["spin"], crown["spin_end"], t) * delta
+	# Seconde phase : la couronne change de sens à mi-course (il faut relire la brèche).
+	var turn: float = -1.0 if bool(crown.get("reverse", false)) and t >= 0.5 else 1.0
+	if turn < 0.0 and not bool(crown.get("reversed", false)):
+		crown["reversed"] = true
+		reversals += 1
+		brain.fx(&"ring_charge", brain.foe.pos + Vector3.UP * 0.4, 1.6)
+	crown["angle"] = float(crown["angle"]) + lerpf(crown["spin"], crown["spin_end"], t) * delta * turn
 	_place()
 	if not active():
 		return

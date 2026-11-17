@@ -1,0 +1,171 @@
+{
+  "frames": [
+    {
+      "filename": "passive_dash_blade 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 96
+      },
+      "duration": 42
+    },
+    {
+      "filename": "passive_dash_blade 1",
+      "frame": {
+        "x": 96,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 96
+      },
+      "duration": 41
+    },
+    {
+      "filename": "passive_dash_blade 2",
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 96
+      },
+      "duration": 42
+    },
+    {
+      "filename": "passive_dash_blade 3",
+      "frame": {
+        "x": 0,
+        "y": 96,
+        "w": 96,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 96
+      },
+      "duration": 42
+    },
+    {
+      "filename": "passive_dash_blade 4",
+      "frame": {
+        "x": 96,
+        "y": 96,
+        "w": 96,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 96
+      },
+      "duration": 41
+    },
+    {
+      "filename": "passive_dash_blade 5",
+      "frame": {
+        "x": 192,
+        "y": 96,
+        "w": 96,
+        "h": 96
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 96,
+        "h": 96
+      },
+      "sourceSize": {
+        "w": 96,
+        "h": 96
+      },
+      "duration": 42
+    }
+  ],
+  "meta": {
+    "app": "Rift Hunters / ImageGen + Pillow packaging",
+    "version": "1",
+    "image": "violet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 288,
+      "h": 192
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "passive_dash_blade",
+        "from": 0,
+        "to": 5,
+        "direction": "forward"
+      }
+    ],
+    "pixelfx": {
+      "id": "passive_dash_blade",
+      "name": "Ruée tranchante",
+      "fps": 24,
+      "loop": false,
+      "frames": 6,
+      "frameSize": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        48
+      ],
+      "columns": 3
+    }
+  }
+}

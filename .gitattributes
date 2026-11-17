@@ -1,1 +1,3 @@
 *.sh text eol=lf
+# Les espaces de contexte font partie du format du patch de livraison.
+docs/art/COMBOS_LOT6_VFX.patch -whitespace

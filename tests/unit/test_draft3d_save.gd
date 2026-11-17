@@ -77,6 +77,20 @@ func test_round_trip_and_backup() -> void:
 	check_eq(DraftSave.setting("aim_hint", false), true, "réglage propre à la v2")
 
 
+func test_combo_totals_keep_existing_profile_and_ignore_test_runs() -> void:
+	DraftUnlocks.load().record_run(80)
+	DraftSave.record_end(false, 1, 10, 20.0, 2, 0, 0, {&"rift_counter": 2})
+	DraftSave.record_end(true, 1, 20, 30.0, 3, 0, 0, {&"rift_counter": 1, &"still_storm": 4})
+	DraftSave.save()
+	DraftSave.reset()
+	check_eq(int(DraftSave.data()["fragments"]), 80, "profil existant conservé")
+	check_eq(int(DraftSave.data()["stats"]["combos"]["rift_counter"]), 3, "combos cumulés et relus")
+	check_eq(int(DraftSave.data()["stats"]["combos"]["still_storm"]), 4, "autre combo conservé")
+	DraftSave.read_only = true
+	check(not DraftSave.record_end(false, 1, 10, 20.0, 2, 0, 0, {&"rift_counter": 10}), "essai ignoré")
+	check_eq(int(DraftSave.data()["stats"]["combos"]["rift_counter"]), 3, "essai non comptabilisé")
+
+
 func test_corrupted_file_restored_from_backup() -> void:
 	var unlocks: DraftUnlocks = DraftUnlocks.load()
 	unlocks.record_run(50)
