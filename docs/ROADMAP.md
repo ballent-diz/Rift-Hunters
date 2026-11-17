@@ -7,6 +7,13 @@ quatre rangées supplémentaires (idle/marche, dos/face), sans modifier le profi
 Aucun changement de draft3d/, src/ ou data/ ; Claude raccordera ensuite les orientations.
 Contrôles assets et art verts, capture Godot et comparaison ×4 : [livraison](art/VEILLEUR_DOS_FACE.md).
 
+## Bug : rambardes des escaliers franchissables depuis les marches (Claude, « Correction de bugs », 17 novembre 2026)
+
+- Cause : la rambarde du modèle `stairs_wide` ne dépasse les marches que de 0,2 m une fois l'escalier mis à
+  l'échelle ; sans collision propre, le Chasseur l'enjambait et sortait de l'escalier par le côté.
+- Correction : deux parois de marche seule (couche 8, comme les berges) le long des rambardes : elles retiennent le
+  Chasseur sans arrêter la vue ni les tirs, et la navigation (couche 1) ne change pas.
+- Test : contrôle « rambarde » dans `test_draft3d::test_map_stairs_shelters_and_heights`.
 
 ## Couverture visuelle sorts et combos — livraison et intégration (Codex, 17 novembre 2026)
 
