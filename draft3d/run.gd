@@ -824,7 +824,7 @@ func _finish(victory: bool) -> void:
 	_end_delay = 1.0
 	# Raccourci de test du boss (test_run) ou partie d'essai (DraftSave.read_only) : ni récompense ni écriture.
 	if not test_run and DraftSave.record_end(victory, chapter, kills, time, hunter.level, guardians_killed,
-			devourers_killed) and unlocks != null:
+			devourers_killed, combos.counts) and unlocks != null:
 		unlocks.record_run(unlocks.run_gain(kills, time, guardians_killed, devourers_killed))
 	# Gain de Fragments de faille (DraftUnlocks, enregistré par la partie avant cet écran) ; -1 : rien d'affiché.
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills],
