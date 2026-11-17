@@ -1320,3 +1320,15 @@ Falaise en gradins de 68 × 112 m gravie vers le nord (option A, verticalité de
 cascade essayée puis retirée. Reprise le jour même après « trop simpliste ». `draft3d/level_cliffs.gd`, essai
 `test_ninth_level_cliffs`, contrôle sans incohérence (pentes et accès par plateau désormais contrôlés).
 - **À valider par le propriétaire** : en jeu (hauteurs, accès, perchoirs).
+
+## Effets dédiés des combos et passifs — 17 novembre 2026 (session « VFX »)
+
+Raccordement prêt, **aucune ressource livrée** à ce jour (ni dans le dépôt ni sur une branche) : les six effets
+(`combo_prismatic_execution`, `combo_prismatic_deluge`, `combo_gravity_blade`, `passive_dash_blade`,
+`passive_void_wake`, `passive_counter_cut`) et les cinq illustrations (`passive_dash_blade`, `passive_void_wake`,
+`passive_counter_cut`, `passive_anchor`, `rule_extra_slot`) jouent ou affichent toujours le repli.
+- Contrôle des livraisons : `python3 tools/art/check_v2_vfx.py` (conformité aux fiches).
+- Effets dédiés dessinés sous les zones annoncées des ennemis ; flaque du Sillage en boucle, retirée avec sa zone.
+- Mécaniques des trois combos inchangées (vérifiées par `test_draft3d_combos`).
+- **Suite** : à la livraison, déposer les fichiers, relancer le contrôle et l'import, ajouter les entrées du catalogue
+  (+ décompte de `test_item_art`), captures en jeu.

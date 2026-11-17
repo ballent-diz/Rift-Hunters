@@ -9,6 +9,9 @@ const CATALOG := "res://assets/vfx/pixelfx/techniques.json"
 const DEFAULT_FAMILY := &"violet"
 ## Mètres par pixel d'effet.
 const PIXEL := 0.03
+## Priorité de rendu des effets dédiés (combos, passifs) : dessinés avant les zones annoncées des ennemis
+## (priorité 0), qui restent lisibles par-dessus (docs/design/FICHES_VFX_GAMEPLAY_V2.md).
+const UNDER_TELEGRAPHS := -1
 ## Zone qui tombe du ciel (pluie du boss) : un effet par famille.
 const RAIN := {&"violet": &"star_fall", &"highlands": &"lightning_strike", &"calcines": &"flame_pillar",
 	&"magma": &"meteor", &"enlises": &"geyser", &"reflets": &"ice_shatter", &"givres": &"icicle_fall",

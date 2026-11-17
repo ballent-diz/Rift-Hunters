@@ -159,3 +159,31 @@ func test_dedicated_effects_fall_back_until_delivered() -> void:
 		if not DraftPixelFx.has_sheet(id):
 			var node: Sprite3D = run.fx_or(id, 2.0, &"ring_burst", &"reflets", run.hunter.global_position)
 			check(node is DraftPixelFx, "repli sur l'effet existant : %s" % id)
+
+
+func test_delivered_effects_stay_under_telegraphs_and_wake_loops_with_its_puddle() -> void:
+	await _start([] as Array[StringName])
+	# Simule la livraison des feuilles (même contenu que ring_burst) sans toucher au dossier des effets.
+	var stand_in: Dictionary = DraftPixelFx.sheet(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY)
+	var delivered: Array[String] = ["combo_gravity_blade/violet", "passive_void_wake/violet"]
+	for key: String in delivered:
+		DraftPixelFx._sheets[key] = stand_in
+	var blade: Sprite3D = run.fx_or(&"combo_gravity_blade", 6.0, &"dark_explosion", DraftPixelFx.DEFAULT_FAMILY,
+		run.hunter.global_position)
+	check_eq(blade.render_priority, DraftPixelFx.UNDER_TELEGRAPHS, "effet dédié dessiné sous les zones annoncées")
+	check_near(blade.pixel_size * (stand_in["rects"] as Array[Rect2])[0].size.x, 6.0, 0.001, "largeur de la fiche")
+	run.passives.add(&"void_wake")
+	run.hunter.automating = true
+	run.hunter.auto_direction = Vector3.RIGHT
+	run.hunter.auto_dash = true
+	await _frames(6)
+	run.hunter.auto_dash = false
+	check(not run.passives.trail.is_empty(), "la Ruée laisse un sillage")
+	var point: Dictionary = run.passives.trail[0]
+	var visual: DraftPixelFx = point["visual"]
+	check(point["loop"] and visual != null and visual.loop, "flaque dédiée en boucle")
+	point["left"] = 0.0
+	await _frames(2)
+	check(not is_instance_valid(visual), "la flaque disparaît avec la zone de ralentissement")
+	for key: String in delivered:
+		DraftPixelFx._sheets.erase(key)

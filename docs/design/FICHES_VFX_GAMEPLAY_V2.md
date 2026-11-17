@@ -24,6 +24,12 @@ chemin). Tant qu'un fichier manque, le jeu joue l'effet existant indiqué en « 
   **64 px par mètre** (une image de 128 px pour un effet de 2 m).
 - **Raccord** : déposer les deux fichiers au bon chemin suffit (`DraftRun.fx_or`, `DraftPixelFx.has_sheet`). Lancer
   ensuite `godot --headless --import --path .`.
+- **Contrôle de livraison** : `python3 tools/art/check_v2_vfx.py` liste chaque effet et illustration (livré, en attente
+  ou erreur : images, fps, boucle, taille de planche, 1254 px, entrée du catalogue). Un effet n'est considéré livré
+  qu'avec ses deux fichiers conformes.
+- **Lisibilité** : un effet dédié est dessiné avec la priorité `DraftPixelFx.UNDER_TELEGRAPHS` (-1), donc sous les
+  zones annoncées des ennemis (priorité 0). La flaque du Sillage du vide boucle et disparaît avec sa zone de
+  ralentissement ; le repli garde son comportement.
 
 ### Illustrations de cartes (récompenses)
 
@@ -68,6 +74,8 @@ L'**Ancre** réutilise le puits de Singularité (aucun visuel propre nécessaire
 | `rule_extra_slot` | Légendaire (or) | Cinquième gemme qui s'enchâsse dans un bracelet de quatre |
 
 Les cartes de sort et de mutation réutilisent déjà les icônes existantes.
+À la livraison d'une illustration, ajouter son entrée `upgrade.<id>` au catalogue **et** compléter le décompte de
+`tests/unit/test_item_art.gd` (le test exige une entrée par image, pas d'entrée sans image).
 
 ## 5. Retour attendu de ChatGPT
 
