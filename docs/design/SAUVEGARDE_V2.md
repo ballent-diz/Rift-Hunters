@@ -45,8 +45,8 @@ fichiers restent en place ; la reprise n'a lieu qu'une fois (le profil fait foi 
 - Au lancement d'un chapitre (atteint) et en fin de partie : statistiques, chapitre vaincu, Fragments (`run.gd`,
   avant l'écran de fin).
 - Jamais : bot et parties headless (`DraftSave.path = ""`), parties d'essai (`DraftSave.read_only = true` :
-  `--boss-at`, `--god`, `--spells`, `--chapter`). Le mode test du boss (session Boss) n'a qu'à mettre
-  `DraftSave.read_only = true` au lancement ; `run.gd` le remet à faux en quittant la partie.
+  `--boss-at`, `--god`, `--spells`, `--chapter`). Le raccourci de test du boss (`DraftRun.test_run`,
+  `draft3d/boss_test.gd`) ne récompense ni n'enregistre rien non plus ; `run.gd` remet `read_only` à faux en quittant.
 
 ## Réinitialiser la progression
 

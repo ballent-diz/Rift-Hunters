@@ -93,6 +93,25 @@ static func mark_reached(order: int) -> bool:
 	return true
 
 
+## Début de partie : bot et headless sans sauvegarde (`path` vide) ; parties d'essai (boss avancé, invincibilité,
+## sorts ou chapitre imposés) en lecture seule, jamais récompensées.
+static func begin_run(options: Dictionary, automated: bool) -> void:
+	if automated:
+		path = ""
+	read_only = options.has("boss-at") or options.has("god") or options.has("spells") or options.has("chapter")
+
+
+## Fin de partie : chapitre vaincu et statistiques ; faux en lecture seule (rien n'est enregistré ni gagné).
+static func record_end(victory: bool, chapter: int, kills: int, seconds: float, level: int, guardians: int,
+		devourers: int) -> bool:
+	if read_only:
+		return false
+	if victory:
+		DraftProgress.record_victory(chapter)
+	record_stats(victory, kills, seconds, level, guardians, devourers)
+	return true
+
+
 static func stat(key: String) -> float:
 	return float((data()["stats"] as Dictionary).get(key, 0))
 

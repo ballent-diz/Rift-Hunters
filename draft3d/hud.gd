@@ -9,10 +9,14 @@ signal chapter_chosen(order: int)
 signal chapter_change_requested
 signal pause_requested
 signal menu_requested
+## Raccourci de test « Aller au boss » (DraftRun.test_shortcuts).
+signal boss_test_requested
 
 const INK := Color("f0e8d7")
 const DIM := Color("b9bccb")
 
+## Bouton de test « Aller au boss » dans la pause (versions de développement seulement).
+var test_shortcuts: bool = false
 var _hp_bar: ProgressBar
 var _hp_text: Label
 var _xp_bar: ProgressBar
@@ -376,6 +380,11 @@ func show_pause() -> void:
 		_menu_button(column, "Restart", tr("MENU3D_RESTART"), func() -> void: restart_requested.emit()),
 		_menu_button(column, "Menu", tr("MENU3D_BACK_TO_MENU"), func() -> void: menu_requested.emit()),
 		_menu_button(column, "Quit", tr("MENU_QUIT"), func() -> void: get_tree().quit())]
+	if test_shortcuts:
+		var test: Button = _menu_button(column, "BossTest", tr("PAUSE3D_BOSS_TEST"), func() -> void:
+			boss_test_requested.emit())
+		column.move_child(test, 2)
+		list.insert(1, test)
 	DraftMenu._chain_focus(list)
 	list[0].grab_focus.call_deferred()
 

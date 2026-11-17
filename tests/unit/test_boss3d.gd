@@ -609,6 +609,47 @@ func test_boss_hp_follows_the_chapter_not_the_campaign() -> void:
 		"Dévoreur des Sources : référence inchangée")
 
 
+func test_boss_test_shortcut_goes_straight_to_the_boss() -> void:
+	await _start()
+	check(DraftBossTest.enabled(), "raccourcis de test actifs en version de développement")
+	DraftProgress.path = "user://test_boss_shortcut_progress.json"
+	if FileAccess.file_exists(DraftProgress.path):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftProgress.path))
+	for i: int in 6:
+		run.enemies.spawn(run.roster.enemies[0], run.level.spawn_point(run.rng, run.hunter.global_position))
+	run.hud.show_pause()
+	check(run.hud.find_child("BossTest", true, false) != null, "bouton « Aller au boss (test) » dans la pause")
+	run.hud.hide_pause()
+	var level: int = run.hunter.level
+	DraftBossTest.prepare_hunter(run, 5)
+	check_eq(run.hunter.level, level + 5, "Chasseur monté de niveaux")
+	DraftBossTest.skip_to_boss(run)
+	check(run.test_run, "partie marquée comme partie de test")
+	check(run.enemies.count() == 0, "vague en cours retirée")
+	await _frames(5)
+	check(run.enemies.boss != null and run.enemies.boss.final, "le Dévoreur arrive tout de suite")
+	run.enemies.hit(run.enemies.boss, 1000000.0)
+	check_eq(run.state, DraftRun.State.WON, "victoire")
+	check(DraftProgress.cleared().is_empty(), "aucune victoire de chapitre enregistrée")
+	DraftProgress.path = ""
+
+
+func test_boss_test_shortcut_climbs_the_tower() -> void:
+	DraftRun.chosen_chapter = 6
+	await _start()
+	DraftRun.chosen_chapter = 0
+	if run.tower == null:
+		check(true, "pas de tour au chapitre 6 dans cette version")
+		return
+	DraftBossTest.skip_to_boss(run)
+	for frame: int in 900:
+		await host.get_tree().physics_frame
+		if run.enemies.boss != null:
+			break
+	check(run.tower.summit(), "sommet de la tour atteint")
+	check(run.enemies.boss != null and run.enemies.boss.final, "le Dévoreur arrive au sommet")
+
+
 func test_nebulorax_never_comes_back() -> void:
 	for order: int in range(1, DraftRoster.chapters().size() + 1):
 		var roster: DraftRoster = DraftRoster.for_chapter(order)

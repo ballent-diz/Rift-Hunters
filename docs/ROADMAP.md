@@ -10,7 +10,7 @@ débloqués, 2 sorts de départ, dernier gain, chapitres atteints/vaincus, stati
   `DraftUnlocks.path` et `DraftProgress.path` disparaissent au profit de `DraftSave.path`.
 - Anciens `draft3d_unlocks.json` et `draft3d_progress.json` repris automatiquement au premier lancement (laissés en place).
 - Aucune écriture : bot/headless (`DraftSave.path = ""`), parties d'essai (`DraftSave.read_only` : `--boss-at`,
-  `--god`, `--spells`, `--chapter`). **Session Boss** : le mode test sans récompense met `DraftSave.read_only = true`.
+  `--god`, `--spells`, `--chapter`). Raccourci de test du boss (`test_run`) : rien d'enregistré.
 - Options du menu principal : « Réinitialiser la progression » (double appui, ancien profil gardé en `.reset-<date>`).
 - Reste : écran de statistiques (données déjà enregistrées).
 
@@ -1312,3 +1312,11 @@ levées basses (navigation recalculée, barrières qui ne piègent jamais le Cha
   (`draft3d/marsh/marsh_water.gd`, détails dans `docs/maps/CARTES_3D.md`, captures `docs/previews/eau-marais/`).
 - **Suite** (session « Cartes ») : éclaboussures sous les monstres (`eclaboussure_1..6.png`, 480 ms).
 - **À valider par le propriétaire** : lisibilité de l'écume et des levées noyées en jeu, durée du séchage.
+
+## Carte 9 : les Corniches — 17 novembre 2026 (session « Cartes »)
+
+Falaise en gradins de 68 × 112 m gravie vers le nord (option A, verticalité demandée) : quatre corniches (0, 3, 6,
+9 m), six accès (rampes en lacets, éboulis, escaliers), trois perchoirs à 1,5 m, fronts de falaise découpés de rochers,
+cascade essayée puis retirée. Reprise le jour même après « trop simpliste ». `draft3d/level_cliffs.gd`, essai
+`test_ninth_level_cliffs`, contrôle sans incohérence (pentes et accès par plateau désormais contrôlés).
+- **À valider par le propriétaire** : en jeu (hauteurs, accès, perchoirs).

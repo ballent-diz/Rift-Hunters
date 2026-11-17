@@ -2299,6 +2299,8 @@ DRAFT_CHANGE_CHAPTER,Changer de chapitre,Change chapter
 DRAFT_CHAPTER_LOCKED,terminez le chapitre précédent,clear the previous chapter
 DRAFT_READY,prêt,ready
 DRAFT_PIXEL_ON,Rendu pixel : activé (F4),Pixel rendering: on (F4)
+PAUSE3D_BOSS_TEST,Aller au boss (test),Go to the boss (test)
+DRAFT_TEST_BOSS,"Test : le boss arrive, aucune récompense ni déblocage enregistré.","Test: the boss is coming, no reward or unlock recorded."
 DRAFT_PIXEL_OFF,Rendu pixel : désactivé (F4),Pixel rendering: off (F4)
 MENU3D_TITLE,Rift Hunters,Rift Hunters
 MENU3D_TAGLINE,Traquez les Corrompus. Refermez les Failles.,Hunt the Corrupted. Seal the Rifts.

@@ -113,6 +113,8 @@ extends Resource
 @export var boss_effective_hp: float = 5000.0
 @export var guardian_effective_hp: float = 2900.0
 @export var boss_chapter_growth: float = 0.15
+## Raccourci de test --boss-test : niveaux donnés au Chasseur avant le boss (--boss-level=N pour changer).
+@export var test_boss_levels: int = 15
 ## Part de l'intervalle d'origine entre deux techniques d'un boss (BossPhaseData.pattern_interval) : les boss 3D
 ## marchent et tournent entre deux techniques, un intervalle un peu plus court garde le rythme.
 @export var boss_pace: float = 0.8

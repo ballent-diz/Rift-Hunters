@@ -339,6 +339,13 @@ défense) ramenés à une référence, + 15 % par chapitre (`boss_chapter_growth
 - Leviers si les combats restent trop longs ou trop courts en jouant : `boss_effective_hp`, `guardian_effective_hp`,
   `boss_chapter_growth`.
 
+### Raccourci de test « Aller au boss » (17 novembre)
+
+`draft3d/boss_test.gd` (`DraftBossTest`), versions de développement seulement : **F9** ou **Pause → Aller au boss
+(test)** en partie ; `--boss-test --chapter=N [--boss-level=15]` au lancement. Vague retirée, gardien sauté, tour
+montée jusqu'au sommet, boss tout de suite ; partie marquée `test_run` : ni victoire de chapitre ni Fragments
+enregistrés. Essais : `test_boss_test_shortcut_goes_straight_to_the_boss`, `test_boss_test_shortcut_climbs_the_tower`.
+
 ### Nébulorax supprimé de la v2 (17 novembre)
 
 Décision du propriétaire : Nébulorax ne reviendra pas en v2. Dernière trace retirée du code 3D (l'absorption n'a plus

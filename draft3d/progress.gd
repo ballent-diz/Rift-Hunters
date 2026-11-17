@@ -22,12 +22,14 @@ static func is_unlocked(order: int, done: Array[int]) -> bool:
 
 ## Début d'un chapitre : il compte comme atteint.
 static func record_start(order: int) -> void:
-	if DraftSave.mark_reached(order):
+	if not DraftSave.read_only and DraftSave.mark_reached(order):
 		DraftSave.save()
 
 
 ## Victoire : le chapitre est vaincu et le suivant atteint (ouvert).
 static func record_victory(order: int) -> void:
+	if DraftSave.read_only:
+		return
 	var done: Array = DraftSave.data()["chapters"]["cleared"]
 	var changed: bool = DraftSave.mark_reached(order)
 	changed = DraftSave.mark_reached(order + 1) or changed

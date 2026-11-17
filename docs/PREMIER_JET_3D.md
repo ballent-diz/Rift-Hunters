@@ -22,6 +22,12 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 | Zoom / rejouer en fin de partie / pause | molette / R / Échap, P ou Start |
 | Rendu pixel 3D / rendu lisse d'origine | F4 |
 
+**Raccourcis de test** (versions de développement seulement, invisibles dans une version exportée ; la partie ne compte
+alors ni victoire de chapitre ni gain de Fragments) : **F9** ou **Pause → Aller au boss (test)** retire la vague en cours
+et fait venir le boss de la carte tout de suite (sommet de la tour compris) ; `--boss-test --chapter=N` démarre
+directement sur le boss du chapitre N avec un Chasseur monté de 15 niveaux (`--boss-level=N` pour changer,
+`DraftTuning.test_boss_levels`). Code : `draft3d/boss_test.gd`.
+
 Options de vérification (après `--`) : `--bot`, `--spells=hunter_mark,void_rend`, `--cast-at=20`, `--passive`, `--god`, `--seed=1`, `--boss-at=30`, `--result`,
 `--perf=50,100,200`, `--shots=<dossier> --shot-times=40,95 --quit-after-shots`, `--look=x,z[,hauteur]`,
 `--pixel=0`, `--pixel-palette=0`, `--pixel-scale=2` (rendu pixel : docs/art/RENDU_PIXEL_3D.md).
@@ -166,6 +172,13 @@ bestiaire du chapitre 5 en attendant le chapitre 7.
 monte et noie les levées basses : on n'y entre plus, les monstres font le tour, on tire toujours par-dessus l'eau.
 Sanctuaire du boss au centre, jamais noyé. `--chapter=8` (bestiaire du chapitre 5 en attendant le chapitre 8),
 `--tide-at=61` pour partir à marée haute. Détails : `docs/maps/CARTES_3D.md`.
+
+## Carte : neuvième niveau, les Corniches
+
+68 × 112 m, falaise en gradins gravie vers le nord (`draft3d/level_cliffs.gd`) : la Grève (0 m), le Guet (3 m), le
+Promontoire (6 m) et la Couronne (9 m, boss), reliés par des rampes en lacets, des éboulis et des escaliers ; trois
+perchoirs à 1,5 m hors de portée de la mêlée. `--chapter=9` (bestiaire du
+chapitre 5 en attendant le chapitre 9). Détails : `docs/maps/CARTES_3D.md`.
 
 ## Vérifications
 

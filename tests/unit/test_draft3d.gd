@@ -5,7 +5,7 @@ extends TestCase
 ## Contrôle de composition (DraftLevelAudit, docs/maps/CARTES_3D.md) sur toutes les cartes. La Cité Effondrée n'a
 ## aucune incohérence ; les cartes 1 à 4 ont des incohérences relevées le 15 novembre et non corrigées (en attente de
 ## validation, liste dans CARTES_3D.md) : l'essai échoue si leur nombre augmente.
-const KNOWN_ISSUES: Dictionary = {1: 4, 2: 2, 3: 40, 4: 13, 5: 0, 6: 0, 7: 0, 8: 0}
+const KNOWN_ISSUES: Dictionary = {1: 4, 2: 2, 3: 40, 4: 13, 5: 0, 6: 0, 7: 0, 8: 0, 9: 0}
 ## Étages de la tour du chapitre 6 (DraftTower.floor_level) : aucun écart admis.
 const TOWER_FLOORS: Array[int] = [0, 1]
 
@@ -683,6 +683,32 @@ func _route_length(from: Vector3, to: Vector3) -> float:
 	return length
 
 
+func test_ninth_level_cliffs() -> void:
+	DraftRun.chosen_chapter = 9
+	await _start()
+	DraftRun.chosen_chapter = 0
+	check(run.level is DraftLevelCliffs, "le chapitre 9 se joue sur les Corniches")
+	# Chaque corniche et chaque perchoir est atteignable, à sa hauteur.
+	for spot: Vector3 in [Vector3(0, 3, 20), Vector3(0, 6, -8), DraftLevelCliffs.BOSS_SPOT, Vector3(20, 1.5, 44),
+			Vector3(-26, 4.5, 17.5), Vector3(18, 7.5, -12)]:
+		var target: Vector3 = run.level.closest(spot)
+		var route: PackedVector3Array = run.level.path(run.level.closest(DraftLevelCliffs.START), target)
+		check(absf(target.y - spot.y) < 0.4 and route.size() >= 2 and route[route.size() - 1].distance_to(target) < 1.0,
+			"niveau atteint : %s" % spot)
+	check(run.level.inclines.size() >= 10, "rampes, éboulis et pentes des perchoirs (%d)" % run.level.inclines.size())
+	# Le Chasseur gravit la première rampe en lacet (ouest) jusqu'au Guet.
+	var hunter: DraftHunter = run.hunter
+	hunter.automating = true
+	hunter.global_position = Vector3(-31, 0.4, 30.5)
+	hunter.reset_motion()
+	hunter.auto_direction = Vector3(1, 0, 0)
+	await _frames(240)
+	check(hunter.global_position.y > 2.6, "montée par la rampe : %s" % hunter.global_position)
+	hunter.auto_direction = Vector3.ZERO
+	# Les rochers du front de falaise coupent la vue entre deux corniches ; le parvis du sommet est dégagé.
+	check(run.sight_clear(Vector3(-6, 9.8, -40), Vector3(6, 9.8, -40)), "le parvis du sommet est dégagé")
+
+
 func test_level_composition_audit() -> void:
 	for chapter: int in KNOWN_ISSUES:
 		var level: DraftLevel = DraftLevel.create(chapter)
@@ -694,7 +720,7 @@ func test_level_composition_audit() -> void:
 		check(audit.issues.size() <= allowed, "carte %d : %d incohérence(s) pour %d connue(s)\n%s" % [
 			chapter, audit.issues.size(), allowed, "\n".join(audit.lines())])
 		# L'Anneau (carte 6) n'a ni étage ni escalier : son relief est le gouffre.
-		check(chapter >= 6 or not audit.stairs.is_empty(), "carte %d : escaliers trouvés" % chapter)
+		check(chapter in [6, 7, 8] or not audit.stairs.is_empty(), "carte %d : escaliers trouvés" % chapter)
 		level.queue_free()
 		await _frames(3)
 	for index: int in TOWER_FLOORS:
