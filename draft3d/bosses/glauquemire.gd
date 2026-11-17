@@ -416,10 +416,20 @@ func _tide(pattern: BossPatternData) -> float:
 	var reach: float = float(params.get("reach", 1100.0)) * DraftHunter.UNIT
 	for w: int in int(params.get("waves", 2)):
 		brain.enemies.hazards.ring(brain.foe.pos, speed, reach, pattern.telegraph + float(params.get("gap", 1.1)) * w,
-			brain.damage(pattern.damage), brain.fx_at(&"splash", 2.0) if w == 0 else Callable())
+			brain.damage(pattern.damage), brain.fx_at(&"splash", 2.0) if w == 0 else Callable(), _wave_hit)
 	brain.play_clip([&"whirlpool", &"roar", &"attack"], pattern.telegraph)
 	intro("BOSS_TIDE_RING_INTRO")
 	return pattern.telegraph + 0.5
+
+
+## Vague du raz-de-marée qui atteint le Chasseur : ralenti et repoussé de 2,7 m loin du boss (refonte du 11 novembre).
+func _wave_hit() -> void:
+	var hunter: DraftHunter = brain.enemies.hunter
+	hunter.hinder(0.5, 1.5)
+	var away: Vector3 = hunter.global_position - brain.foe.pos
+	away.y = 0.0
+	if away.length() > 0.01:
+		hunter.move_and_collide(away.normalized() * 2.7)
 
 
 func _swallow(pattern: BossPatternData) -> float:

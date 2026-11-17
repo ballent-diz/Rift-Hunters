@@ -1836,6 +1836,7 @@ BOSS_PATTERN_DIVE,Plongée,Dive
 BOSS_GUARD_INTRO,"Garde d'écorce : de face, son bouclier arrête presque tout. Prenez-le à revers, ou laissez vos Échos l'occuper.","Bark guard: from the front, his shield stops everything. Take him from behind, or let your Echoes keep him busy."
 BOSS_GUARD_INTRO_3D,"Garde d'écorce : de face, son bouclier arrête presque tout. Contournez-le et frappez-le de dos ou de flanc.","Bark guard: from the front, his shield stops almost everything. Circle around and strike his back or flank."
 BOSS_DIVE_INTRO,"Elle plonge : suivez la ride. Écartez-vous de l'onde annoncée, puis frappez-la quand elle ressurgit, sonnée.","She dives: watch the ripple. Step out of the marked wave, then strike her as she resurfaces, stunned."
+BOSS_FROZEN_DIVE_INTRO,"Plongée sous la glace : Nivorath disparaît sous la banquise et la ride vous suit. Écartez-vous de l'onde annoncée, puis frappez-le quand il ressurgit, sonné.","Frozen Dive: Nivorath vanishes under the ice and the ripple follows you. Step out of the marked wave, then strike him as he resurfaces, stunned."
 ENEMY_FROST_CRAWLER_NAME,Rampe-givre,Frost Crawler
 ENEMY_FROST_CRAWLER_DESC,Petite bête à carapace de givre qui chasse en meute.,Small frost-shelled beast that hunts in packs.
 ENEMY_BLIZZARD_WOLF_NAME,Loup de blizzard,Blizzard Wolf

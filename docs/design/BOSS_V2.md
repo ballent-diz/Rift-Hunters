@@ -352,3 +352,18 @@ Décision du propriétaire : Nébulorax ne reviendra pas en v2. Dernière trace 
 de geste dans `DraftBossBrain.GESTURES`) ; essai `test_nebulorax_never_comes_back` (aucun chapitre, aucune
 mécanique). La v1 archivée garde ses données (`data/bosses/nebulorax.tres`), ses sprites et `BossController`
 (règle de CLAUDE.md : ne pas supprimer le code v1).
+
+### Effets secondaires (17 novembre)
+
+- **Sols brûlants** (`DraftHazards.zone`, zones persistantes) : la chute de Pyrevorn (`skyfall`, données
+  `burn_time` 6 s) laisse un sol brûlant qui blesse toutes les 0,5 s et ralentit (× 0,7).
+- **Plongée sous la glace de Nivorath** (`frozen_dive`) : vraie plongée (`DraftMawDive` partagée, ride givrée,
+  onde de sortie, ressort sonné 1,8 s, coups × 2) au lieu d'un bond ; bandeau `BOSS_FROZEN_DIVE_INTRO` (nouvelle clé).
+- **Racines entravantes** du Gardien d'écorce (`root_snare`, geste `snare`) : zone sous le Chasseur, prise =
+  ralenti des données (× 0,25 à 0,2 pendant 1,5 s).
+- **Racine de la forme racines de l'Abyssarque** (`root_leash`, geste `leash`) : sans laisse (refonte du 11 novembre) :
+  englué 1,2 s au plus là où il se tenait (Ruée pour se libérer), puis le sol jaillit au même endroit 2,4 s après.
+- **Raz-de-marée de Glauquemire** : une vague qui atteint le Chasseur le ralentit (× 0,5, 1,5 s) et le repousse de
+  2,7 m (`DraftHazards` : rappel `on_hit` des cercles et des ondes).
+- Non repris, et pourquoi : froid et braseros du chapitre 4 (système de carte v1, hors boss ; le Chaman garde son
+  refuge de chaleur).
