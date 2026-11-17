@@ -64,7 +64,7 @@ la conception des niveaux. Guide général de la v2 : `docs/PREMIER_JET_3D.md`.
 | 5 | `level_city.gd` | Cité Effondrée (ruines, pack donjon, nuit) | recomposée le 15 novembre (plan en damier), contrôle sans incohérence ; à valider en jeu |
 | 7 | `level_pass.gd` | Défilé Hurlant (gorge longue, rochers modelés, pack médiéval) | ébauche montrée le 16 novembre ; lancé par `--chapter=7` en attendant le chapitre 7 |
 | 8 | `level_marsh.gd` | Marais des Marées (îlots, levées, marée) | premier jet du 16 novembre ; `--chapter=8` en attendant le chapitre 8 |
-| 9 | `level_cliffs.gd` | Corniches (falaise en gradins, quatre niveaux, perchoirs, cascade) | premier jet du 17 novembre ; `--chapter=9` en attendant le chapitre 9 |
+| 9 | `level_cliffs.gd` | Corniches (falaise en gradins, quatre niveaux, perchoirs) | premier jet du 17 novembre ; `--chapter=9` en attendant le chapitre 9 |
 | 6 | `level_ring.gd`, `tower.gd` | Tour de la Faille : Garnison, Cellules, Anneau de la Faille (sommet) | sommet validé sur vue d'ensemble ; tour jouable par `--chapter=6` en attendant le chapitre 6 |
 
 Niveau 5 : une première version « ville moderne » (KayKit City Builder, voitures) a été refusée, hors DA et hors
@@ -205,9 +205,9 @@ jour même. `draft3d/level_cliffs.gd`, 68 × 112 m : première carte plus profon
   Phare, Belvédère, Terrasse aux colonnes), deux pentes chacun : hors de portée de la mêlée (> 1 m), au prix d'un
   accès étroit.
 - Fronts de falaise découpés par des rochers en saillie (`_boulder`, marqués « décor ») : abris entre deux niveaux ;
-  accès et cascade restent dégagés (`CLEAR`).
-- **La Cascade** : chutes d'eau sur chaque front du chenal (x = 9), ruisseau peu profond sur chaque corniche (on y
-  marche), bassin au pied sur la grève ; eau sans collision.
+  les accès restent dégagés (`CLEAR`).
+- Une cascade (ruisseau de 3 m de large du sommet à la grève) a été essayée puis retirée à la demande du
+  propriétaire : vue de dessus, elle se lisait comme une bande bleue qui coupait la carte, sans rôle en jeu.
 - Contrôle de composition étendu : les pentes praticables (`DraftLevel.inclines`, rampes et éboulis) sont contrôlées
   comme les escaliers (pied et haut à leur hauteur, chemin court) et comptent comme accès ; les accès se comptent par
   plateau (corniche faite de plusieurs blocs jointifs à la même hauteur). Rochers modelés (`_boulder`, `_rock_prism`,

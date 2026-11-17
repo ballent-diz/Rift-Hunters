@@ -9,7 +9,7 @@ extends DraftLevel
 ## Pour monter : rampes en lacets le long des falaises, éboulis en pente douce, escaliers de pierre ; deux accès au
 ## moins par corniche, aucun cul-de-sac. Sur chaque corniche basse, un perchoir 1,5 m plus haut (deux pentes) : hors
 ## de portée de la mêlée, il se paie d'un accès étroit. Fronts de falaise découpés par des rochers en saillie (abris
-## entre deux niveaux) ; la Cascade descend du sommet par le chenal est, de bassin en bassin jusqu'à la grève.
+## entre deux niveaux).
 ## On saute d'une corniche (on ne remonte que par un accès). Règles du relief : on tire vers le bas et vers le haut
 ## si la vue est dégagée, la mêlée ne porte pas au-delà de 1 m de dénivelé, une
 ## attaque annoncée au sol ne touche que son niveau. Pièces : KayKit Dungeon (draft3d/modules, draft3d/dungeon) et
@@ -37,13 +37,10 @@ const CLIFF := Color("4a4248")
 const RAMP := Color("7a6e5a")
 const RIFT := Color("b06bff")
 const EMBER := Color("ffb070")
-const WATER := Color(0.32, 0.55, 0.62, 0.72)
 const PERCH := 1.5
-## Fronts de falaise laissés libres (accès et cascade) : par corniche (index), intervalles de x.
-const CLEAR: Array = [[], [Vector2(-33, -8), Vector2(21, 32), Vector2(8, 14)],
-	[Vector2(-15, -5), Vector2(14, 34), Vector2(8, 14)], [Vector2(-34, -9), Vector2(-6, 6), Vector2(8, 14)]]
-## Cascade : x du chenal.
-const FALLS_X := 9.0
+## Fronts de falaise laissés libres (accès) : par corniche (index), intervalles de x.
+const CLEAR: Array = [[], [Vector2(-33, -8), Vector2(21, 32)], [Vector2(-15, -5), Vector2(14, 34)],
+	[Vector2(-34, -9), Vector2(-6, 6)]]
 
 
 func build() -> void:
@@ -63,7 +60,6 @@ func build() -> void:
 	_ascents()
 	_perches()
 	_cliff_faces()
-	_cascade()
 	_shore()
 	_watch()
 	_promontory()
@@ -195,7 +191,7 @@ func _plateau(area: Rect2, base: float, color: Color) -> void:
 
 
 ## Fronts de falaise découpés : rochers en saillie au pied de chaque falaise, qui dépassent un peu du rebord (abris
-## entre deux niveaux) ; les accès et la cascade restent dégagés.
+## entre deux niveaux) ; les accès restent dégagés.
 func _cliff_faces() -> void:
 	for index: int in range(1, LEDGES.size()):
 		var lower: float = LEDGES[index - 1]["top"]
@@ -209,63 +205,6 @@ func _cliff_faces() -> void:
 				_boulder(Vector2(x + _jitter(0.8), z + 0.9), Vector2(2.4 + _jitter(0.5), 1.3), lower,
 					STEP + 0.6 + _jitter(0.6), CLIFF.lightened(0.05), 0.55)
 			x += 4.5 + _jitter(1.0)
-
-
-## La Cascade : chute d'eau sur chaque front de falaise du chenal est, ruisseau peu profond sur chaque corniche (on
-## y marche), bassin au pied, sur la grève. Eau sans collision.
-func _cascade() -> void:
-	var width: float = 3.0
-	for index: int in range(1, LEDGES.size()):
-		var lower: float = LEDGES[index - 1]["top"]
-		var z: float = front_z(index, FALLS_X)
-		_water_quad([Vector3(FALLS_X - width * 0.5, lower + STEP + 0.02, z - 0.05),
-			Vector3(FALLS_X + width * 0.5, lower + STEP + 0.02, z - 0.05),
-			Vector3(FALLS_X + width * 0.5, lower + 0.05, z + 0.35), Vector3(FALLS_X - width * 0.5, lower + 0.05, z + 0.35)])
-		_light(Vector3(FALLS_X, lower + 1.0, z + 1.5), Color("9fd8ff"), 1.0, 5.0)
-	for index: int in LEDGES.size():
-		var top: float = LEDGES[index]["top"]
-		var north: float = LEDGES[index]["back"] if index < LEDGES.size() - 1 else BOSS_SPOT.z + 10.0
-		var south: float = front_z(index, FALLS_X) if index > 0 else 38.0
-		if index == LEDGES.size() - 1:
-			north = -32.0
-		var start_z: float = front_z(index + 1, FALLS_X) if index < LEDGES.size() - 1 else north
-		var left: float = FALLS_X - width * 0.5
-		var right: float = FALLS_X + width * 0.5
-		_water_quad([Vector3(left, top + 0.03, start_z), Vector3(right, top + 0.03, start_z),
-			Vector3(right, top + 0.03, south), Vector3(left, top + 0.03, south)])
-	# Bassin de la grève (eau peu profonde, on y marche).
-	var pool := PackedVector2Array()
-	for step: int in 10:
-		var angle: float = TAU * step / 10.0
-		pool.append(Vector2(FALLS_X + cos(angle) * 5.5, 35.0 + sin(angle) * 3.0))
-	var points: Array[Vector3] = []
-	for corner: Vector2 in pool:
-		points.append(Vector3(corner.x, 0.03, corner.y))
-	_water_quad(points)
-
-
-## Surface d'eau (polygone convexe, sans collision, transparente).
-func _water_quad(points: Array[Vector3]) -> void:
-	var tool := SurfaceTool.new()
-	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var normal: Vector3 = (points[1] - points[0]).cross(points[points.size() - 1] - points[0]).normalized()
-	if normal.y < 0.0 or (absf(normal.y) < 0.2 and normal.z < 0.0):
-		normal = -normal
-	for index: int in range(1, points.size() - 1):
-		for corner: Vector3 in [points[0], points[index], points[index + 1]]:
-			tool.set_normal(normal)
-			tool.add_vertex(corner)
-	var mesh := MeshInstance3D.new()
-	mesh.name = "Water"
-	mesh.mesh = tool.commit()
-	var material := StandardMaterial3D.new()
-	material.albedo_color = WATER
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.cull_mode = BaseMaterial3D.CULL_DISABLED
-	material.roughness = 0.6
-	mesh.material_override = material
-	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	add_child(mesh)
 
 
 ## Limites : falaises pleines à l'est et à l'ouest (hautes au nord), rochers bas au sud (côté caméra).

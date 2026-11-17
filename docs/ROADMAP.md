@@ -1303,6 +1303,6 @@ levées basses (navigation recalculée, barrières qui ne piègent jamais le Cha
 
 Falaise en gradins de 68 × 112 m gravie vers le nord (option A, verticalité demandée) : quatre corniches (0, 3, 6,
 9 m), six accès (rampes en lacets, éboulis, escaliers), trois perchoirs à 1,5 m, fronts de falaise découpés de rochers,
-cascade de bassin en bassin. Reprise le jour même après « trop simpliste ». `draft3d/level_cliffs.gd`, essai
+cascade essayée puis retirée. Reprise le jour même après « trop simpliste ». `draft3d/level_cliffs.gd`, essai
 `test_ninth_level_cliffs`, contrôle sans incohérence (pentes et accès par plateau désormais contrôlés).
 - **À valider par le propriétaire** : en jeu (hauteurs, accès, perchoirs).
