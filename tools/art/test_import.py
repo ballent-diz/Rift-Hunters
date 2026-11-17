@@ -109,6 +109,54 @@ def main():
             import_sheet.run(job_path, preview_only=True, preview_dir=tmp)
         if observed != [40, 40, 10]:
             failures.append("échelle entre planches ou mort affaissée incorrecte : %s" % observed)
+        # Une extension ne recolore pas les anciennes rangées et conserve les métadonnées publiées.
+        os.makedirs(os.path.join(tmp, "assets"), exist_ok=True)
+        old = Image.new("RGBA", (64, 64), (123, 47, 89, 255))
+        old.save(os.path.join(tmp, "published.png"))
+        palette = Image.new("RGB", (2, 1))
+        palette.putdata([(123, 47, 89), (124, 48, 90)])
+        palette.save(os.path.join(tmp, "palette.png"))
+        extension = {
+            "visual_id": "player.preserve_test", "cell": [64, 64], "anchor": [32, 54],
+            "background": "alpha", "colors": 2, "outline": False, "keep_size": True,
+            "registered_cells": True, "preserve_rows": {"source": "published.png", "count": 1},
+            "palette_source": "palette.png",
+            "animations": [{"name": name, "source": "published.png", "frames": 1, "fps": 7,
+                            "loop": True, "layout": "grid", "grid": [1, 1]}
+                           for name in ("idle", "idle_back")],
+            "aliases": {"dash": "idle"},
+        }
+        clip = {"row": 0, "frames": 1, "fps": 7, "loop": True}
+        manifest_path = os.path.join(tmp, "assets", "asset_manifest.json")
+        previous = {"animations": {"idle": clip, "dash": dict(clip)}, "shadow": [1, 2, 3, 4]}
+        with open(manifest_path, "w") as handle:
+            json.dump({"entries": {extension["visual_id"]: previous}}, handle)
+        with open(job_path, "w") as handle:
+            json.dump(extension, handle)
+        with patch.object(import_sheet, "REPO", tmp):
+            entry = import_sheet.run(job_path, preview_dir=tmp)
+            sheet_path = os.path.join(tmp, entry["sheet"].removeprefix("res://"))
+            result = Image.open(sheet_path).convert("RGBA")
+            assert result.crop((0, 0, 64, 64)).tobytes() == old.tobytes()
+            assert result.getpixel((0, 64)) == (123, 47, 89, 255)
+            assert entry["animations"]["idle"] == clip and entry["animations"]["dash"] == clip
+            assert entry["animations"]["idle_back"]["row"] == 1 and entry["shadow"] == [1, 2, 3, 4]
+            before = result.tobytes()
+            icon_path = os.path.join(tmp, entry["icon"].removeprefix("res://"))
+            with open(icon_path, "rb") as handle:
+                icon_before = handle.read()
+            import_sheet.run(job_path, preview_dir=tmp)
+            assert Image.open(sheet_path).convert("RGBA").tobytes() == before
+            with open(icon_path, "rb") as handle:
+                assert handle.read() == icon_before
+            extension["animations"][0]["fps"] = 12
+            with open(job_path, "w") as handle:
+                json.dump(extension, handle)
+            try:
+                import_sheet.run(job_path, preview_dir=tmp)
+                failures.append("une cadence publiée a été modifiée malgré preserve_rows")
+            except ValueError:
+                assert Image.open(sheet_path).convert("RGBA").tobytes() == before
         print("Aperçu :", preview.size)
     if failures:
         print("ÉCHEC :", "; ".join(failures))

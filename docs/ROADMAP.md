@@ -1,5 +1,12 @@
 # Rift Hunters — feuille de route
 
+## Veilleur de dos et de face (Codex, 17 novembre 2026)
+
+Livré sur `codex/chasseur-dos-face`, depuis main actualisé. Art uniquement pour `player.threshold_warden` (Veilleur validé par le propriétaire) :
+quatre rangées supplémentaires (idle/marche, dos/face), sans modifier le profil existant ni appearances/.
+Aucun changement de draft3d/, src/ ou data/ ; Claude raccordera ensuite les orientations.
+Contrôles assets et art verts, capture Godot et comparaison ×4 : [livraison](art/VEILLEUR_DOS_FACE.md).
+
 ## Bug : ennemis bloqués au pied des plateformes (Claude, « Correction de bugs », 17 novembre 2026)
 
 - Cause : `DraftEnemies.chase` ne recalculait un chemin que si la cible avait bougé de 0,8 m. Un ennemi qui avait
