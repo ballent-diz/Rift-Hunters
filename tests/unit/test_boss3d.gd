@@ -91,7 +91,7 @@ func test_far_boss_closes_in_and_chains() -> void:
 	check(moves >= 1, "de loin, il se rapproche (charge, bond ou saut de faille)")
 	await _frames(900)
 	check(foe.brain.patterns_played >= 4, "techniques des données jouées (%d)" % foe.brain.patterns_played)
-	check(foe.brain.gestures_played.size() >= 3, "gestes variés (%s)" % [foe.brain.gestures_played.keys()])
+	check(foe.brain.kinds_played.size() >= 3, "techniques variées (%s)" % [foe.brain.kinds_played.keys()])
 
 
 func test_charge_into_wall_stuns() -> void:
@@ -733,3 +733,40 @@ func test_abyssarch_root_leash_ties_and_dash_cuts() -> void:
 	run.hunter.dash_time = 0.2
 	await _frames(2)
 	check(root.cut == 1 and not root.tied(), "une Ruée tranche la racine")
+
+
+func test_source_devourer_style() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"source_devourer", 6.0)
+	foe.brain._next_at = INF
+	var style := _mechanic(foe, &"breath") as DraftSourceDevourer
+	check(style != null, "Dévoreur des Sources : style de combat propre")
+	check_eq(style.next_kind(&"claw"), &"breath", "griffes → souffle")
+	check_eq(style.next_kind(&"breath"), &"source_orb", "souffle → orbes")
+	var lines: int = run.hazards._items.size()
+	style.perform(_pattern(foe.boss, &"breath"))
+	check_eq(run.hazards._items.size() - lines, DraftSourceDevourer.BREATH_STEPS, "souffle qui balaie")
+	await _frames(120)
+	_bring_to(foe, 0.4)
+	foe.brain._transition = 0.0
+	var orbs := _mechanic(foe, &"source_orb") as DraftSourceOrbs
+	var salvo: BossPatternData = null
+	for pattern: BossPatternData in foe.boss.phases[1].patterns:
+		if pattern.kind == &"source_orb":
+			salvo = pattern
+	orbs.perform(salvo)
+	check_eq(orbs.orbs.size(), int(salvo.params["count"]) * 2, "seconde phase : double salve d'orbes")
+	var golden: int = 0
+	for orb: Dictionary in orbs.orbs:
+		golden += 1 if orb["golden"] else 0
+	check_eq(golden, 1, "un seul orbe doré")
+	run.hunter.global_position = run.level.closest(foe.pos + Vector3(8, 0, 0)) + Vector3.UP * 0.2
+	run.hunter.reset_motion()
+	style.after(&"slam")
+	var charged: bool = false
+	for frame: int in 120:
+		await host.get_tree().physics_frame
+		if foe.brain.moves_itself():
+			charged = true
+			break
+	check(charged and style.charges == 1, "seconde phase : l'écrasement est suivi d'une charge")

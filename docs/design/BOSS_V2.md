@@ -376,3 +376,16 @@ annoncée) et l'attache au sol 3 s (longueur 6 m) ; au bout de la racine il est 
 le point d'attache 2,4 s après. Une Ruée tranche la racine à tout moment (rien n'enferme le Chasseur). Racine visible
 entre le point d'attache et le Chasseur. Glauquemire garde sa racine jaillissante (refonte du 11 novembre).
 Bandeau `BOSS_ROOT_LEASH_INTRO` (nouvelle clé FR/EN). La plongée sous la glace de Nivorath est déjà livrée (#209).
+
+
+### Dévoreur des Sources amélioré (17 novembre)
+
+Choix du propriétaire : premier boss à améliorer, le premier boss final vu par tout joueur.
+`bosses/source_devourer.gd` (`DraftSourceDevourer`), en plus des orbes :
+- **Enchaînement propre** : griffes ou balayage → souffle → orbes de source, trois fois sur quatre quand la technique
+  suivante est prête (`DraftBossMechanic.next_kind`, nouveau point d'accroche du cerveau) ;
+- **souffle qui balaie** : la gueule tourne d'un côté à l'autre (100°, 120° en seconde phase, 7 traits en 1 s),
+  arrêté par le décor ; effet peint `rift_breath` / `phase2_breath` ;
+- **seconde phase** : chaque écrasement est suivi d'une charge vers le Chasseur 1,1 s plus tard
+  (`DraftBossMechanic.after`) ; les orbes passent en double salve (un seul orbe doré).
+- Contrôle : `--boss-test --chapter=1` (bot, mode dieu) : victoire, aucune erreur. Essai `test_source_devourer_style`.
