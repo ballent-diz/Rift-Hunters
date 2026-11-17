@@ -1,5 +1,11 @@
 # Rift Hunters — feuille de route
 
+## Chasseur original : vues dos et face (Codex, 17 novembre 2026)
+
+Livraison sur `codex/chasseur-original-dos-face` : quatre animations de `player.hunter` au chapeau de paille
+conservées pour plus tard à la demande du propriétaire ; le Veilleur reste sélectionné en jeu.
+Anciens pixels et animations inchangés. [Détails et aperçus](art/CHASSEUR_ORIGINAL_DOS_FACE.md).
+
 ## Bug : rambardes des escaliers franchissables depuis les marches (Claude, « Correction de bugs », 17 novembre 2026)
 
 - Cause : la rambarde du modèle `stairs_wide` ne dépasse les marches que de 0,2 m une fois l'escalier mis à
