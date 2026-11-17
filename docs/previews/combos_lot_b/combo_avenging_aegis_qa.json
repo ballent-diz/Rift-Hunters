@@ -1,0 +1,291 @@
+{
+  "id": "combo_avenging_aegis",
+  "status": "PASS",
+  "png_size": [
+    768,
+    576
+  ],
+  "frame_size": [
+    192,
+    192
+  ],
+  "frames": 12,
+  "fps": 24,
+  "loop": false,
+  "duration_s": 0.5,
+  "rgba_colors": 32,
+  "max_opaque_coverage": 0.0832,
+  "max_bright_coverage": 0.0109,
+  "frame_metrics": [
+    {
+      "frame": 1,
+      "alpha_bbox": [
+        65,
+        61,
+        152,
+        139
+      ],
+      "solid_bbox": [
+        72,
+        72,
+        120,
+        133
+      ],
+      "alpha_weight": 188046,
+      "alpha_centroid": [
+        95.01,
+        99.17
+      ],
+      "opaque_coverage": 0.0205,
+      "bright_coverage": 0.001
+    },
+    {
+      "frame": 2,
+      "alpha_bbox": [
+        46,
+        37,
+        143,
+        159
+      ],
+      "solid_bbox": [
+        58,
+        53,
+        133,
+        151
+      ],
+      "alpha_weight": 454367,
+      "alpha_centroid": [
+        94.94,
+        96.76
+      ],
+      "opaque_coverage": 0.0501,
+      "bright_coverage": 0.0006
+    },
+    {
+      "frame": 3,
+      "alpha_bbox": [
+        43,
+        45,
+        145,
+        157
+      ],
+      "solid_bbox": [
+        60,
+        61,
+        132,
+        148
+      ],
+      "alpha_weight": 483344,
+      "alpha_centroid": [
+        95.82,
+        102.1
+      ],
+      "opaque_coverage": 0.0529,
+      "bright_coverage": 0.0089
+    },
+    {
+      "frame": 4,
+      "alpha_bbox": [
+        21,
+        14,
+        158,
+        172
+      ],
+      "solid_bbox": [
+        46,
+        44,
+        141,
+        159
+      ],
+      "alpha_weight": 758718,
+      "alpha_centroid": [
+        92.89,
+        97.24
+      ],
+      "opaque_coverage": 0.0832,
+      "bright_coverage": 0.0109
+    },
+    {
+      "frame": 5,
+      "alpha_bbox": [
+        2,
+        14,
+        163,
+        173
+      ],
+      "solid_bbox": [
+        30,
+        27,
+        159,
+        156
+      ],
+      "alpha_weight": 621398,
+      "alpha_centroid": [
+        92.94,
+        86.6
+      ],
+      "opaque_coverage": 0.0664,
+      "bright_coverage": 0.0088
+    },
+    {
+      "frame": 6,
+      "alpha_bbox": [
+        19,
+        34,
+        160,
+        158
+      ],
+      "solid_bbox": [
+        36,
+        37,
+        157,
+        155
+      ],
+      "alpha_weight": 124645,
+      "alpha_centroid": [
+        92.55,
+        89.13
+      ],
+      "opaque_coverage": 0.0132,
+      "bright_coverage": 0.0004
+    },
+    {
+      "frame": 7,
+      "alpha_bbox": [
+        46,
+        48,
+        150,
+        145
+      ],
+      "solid_bbox": [
+        69,
+        76,
+        126,
+        122
+      ],
+      "alpha_weight": 133666,
+      "alpha_centroid": [
+        96.68,
+        97.64
+      ],
+      "opaque_coverage": 0.014,
+      "bright_coverage": 0.0011
+    },
+    {
+      "frame": 8,
+      "alpha_bbox": [
+        11,
+        24,
+        190,
+        169
+      ],
+      "solid_bbox": [
+        40,
+        57,
+        151,
+        140
+      ],
+      "alpha_weight": 255406,
+      "alpha_centroid": [
+        94.69,
+        97.14
+      ],
+      "opaque_coverage": 0.0269,
+      "bright_coverage": 0.0012
+    },
+    {
+      "frame": 9,
+      "alpha_bbox": [
+        2,
+        5,
+        190,
+        183
+      ],
+      "solid_bbox": [
+        16,
+        45,
+        171,
+        152
+      ],
+      "alpha_weight": 351553,
+      "alpha_centroid": [
+        91.65,
+        96.52
+      ],
+      "opaque_coverage": 0.0377,
+      "bright_coverage": 0.0015
+    },
+    {
+      "frame": 10,
+      "alpha_bbox": [
+        8,
+        18,
+        190,
+        167
+      ],
+      "solid_bbox": [
+        20,
+        47,
+        176,
+        146
+      ],
+      "alpha_weight": 259702,
+      "alpha_centroid": [
+        96.63,
+        94.78
+      ],
+      "opaque_coverage": 0.0276,
+      "bright_coverage": 0.0016
+    },
+    {
+      "frame": 11,
+      "alpha_bbox": [
+        2,
+        22,
+        190,
+        164
+      ],
+      "solid_bbox": [
+        21,
+        49,
+        172,
+        144
+      ],
+      "alpha_weight": 177385,
+      "alpha_centroid": [
+        94.3,
+        95.41
+      ],
+      "opaque_coverage": 0.0193,
+      "bright_coverage": 0.0005
+    },
+    {
+      "frame": 12,
+      "alpha_bbox": [
+        2,
+        48,
+        171,
+        143
+      ],
+      "solid_bbox": [
+        19,
+        51,
+        169,
+        142
+      ],
+      "alpha_weight": 14436,
+      "alpha_centroid": [
+        95.77,
+        97.1
+      ],
+      "opaque_coverage": 0.0017,
+      "bright_coverage": 0.0
+    }
+  ],
+  "wave_ratio_frames_7_to_10": [
+    0.807,
+    0.748,
+    0.69,
+    0.635
+  ]
+}

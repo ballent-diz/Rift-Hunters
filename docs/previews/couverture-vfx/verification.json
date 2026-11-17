@@ -1,0 +1,28 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_LIMITS",
+  "date": "2026-11-17",
+  "base_commit": "720e2bfb8570a09ebc7ab7f391142fffc69feb69",
+  "gameplay_modified": false,
+  "import_godot": "PASS, Godot 4.3, sortie 0",
+  "tests": {
+    "v2_visual_delivery": "5/5, vrai renderer OpenGL, stderr vide",
+    "item_art": "5/5",
+    "draft3d_combos": "5/5"
+  },
+  "render": {
+    "renderer": "OpenGL 3.3 / NVIDIA Quadro M3000M",
+    "screenshots": 15,
+    "errors": 0,
+    "scope": "Chargement et rendu des assets sur mire 2,5D, pas une partie complète"
+  },
+  "limitations": [
+    "Neuf déclencheurs dans la PR #212 ouverte ; patch visuel préparé, pas de fusion gameplay.",
+    "Essais headless des combos : erreurs mesh/canvas du renderer Dummy, assertions réussies.",
+    "Suites historiques item_art et combos : avertissements de ressources à la sortie.",
+    "gdlint indisponible dans cet environnement ; scripts analysés et chargés par Godot.",
+    "Pas de mesure d’occultation en combat, validation en partie à faire après raccord.",
+    "La publication distante est en attente d’autorisation après rejet de la revue automatique."
+  ],
+  "generation": "ImageGen intégré",
+  "prompts": "assets/concepts/incoming/*/prompts.json"
+}

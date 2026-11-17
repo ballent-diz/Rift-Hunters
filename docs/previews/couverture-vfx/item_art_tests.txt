@@ -1,0 +1,15 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+
+  ✓ test_item_art::test_every_upgrade_and_relic_has_a_distinct_illustration
+  ✓ test_item_art::test_illustrations_keep_transparency_and_readable_size
+  ✓ test_item_art::test_art_does_not_intercept_card_clicks
+  ✓ test_item_art::test_illustrated_choices_apply_the_original_upgrade_and_relic
+  ✓ test_item_art::test_undiscovered_relic_stays_hidden_in_bestiary
+
+Tests : 5, réussis : 5, échoués : 0
+WARNING: 1 RID of type "CanvasItem" was leaked.
+     at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2483)
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2284)
+ERROR: 32 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:604)

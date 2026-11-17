@@ -14,7 +14,11 @@ func test_every_upgrade_and_relic_has_a_distinct_illustration() -> void:
 				paths.append(image.resource_path)
 	check(ItemArt.texture("offer", &"heal") != null, "soin illustré")
 	check(ItemArt.texture("offer", &"shards") != null, "Éclats illustrés")
-	check_eq(ItemArt.entries().size(), GameDB.upgrades.size() + GameDB.relics.size() + 2, "catalogue complet")
+	var legacy_count: int = 0
+	for entry: Dictionary in ItemArt.entries().values():
+		if entry.get("scope", "") != "draft3d":
+			legacy_count += 1
+	check_eq(legacy_count, GameDB.upgrades.size() + GameDB.relics.size() + 2, "catalogue v1 complet")
 
 
 func test_illustrations_keep_transparency_and_readable_size() -> void:
@@ -23,6 +27,9 @@ func test_illustrations_keep_transparency_and_readable_size() -> void:
 		var texture: Texture2D = load(entry["image"])
 		var image: Image = texture.get_image()
 		check(image.get_width() >= 256 and image.get_height() >= 256, "%s : résolution suffisante" % key)
+		if entry.get("scope", "") == "draft3d" and entry.get("background", "") == "vignette":
+			check_eq(image.get_size(), Vector2i(1254, 1254), "%s : vignette v2 au format de la fiche" % key)
+			continue
 		check(image.detect_alpha() != Image.ALPHA_NONE, "%s : canal alpha" % key)
 		for point: Vector2i in [Vector2i.ZERO, Vector2i(image.get_width() - 1, 0),
 				Vector2i(0, image.get_height() - 1), Vector2i(image.get_width() - 1, image.get_height() - 1)]:

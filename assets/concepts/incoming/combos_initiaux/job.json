@@ -1,0 +1,43 @@
+{
+  "generator": "ImageGen intégré",
+  "source": "docs/design/FICHES_VFX_GAMEPLAY_V2.md",
+  "effects": [
+    {
+      "id": "combo_prismatic_execution",
+      "label": "Exécution prismatique",
+      "frames": 12,
+      "fps": 20,
+      "columns": 4,
+      "rows": 3,
+      "size": 128,
+      "width_m": 2,
+      "anchor_height_m": 0.6,
+      "loop": false
+    },
+    {
+      "id": "combo_prismatic_deluge",
+      "label": "Déluge prismatique",
+      "frames": 12,
+      "fps": 24,
+      "columns": 4,
+      "rows": 3,
+      "size": 192,
+      "width_m": 3,
+      "anchor_height_m": 0.8,
+      "loop": false
+    },
+    {
+      "id": "combo_gravity_blade",
+      "label": "Lame gravitationnelle",
+      "frames": 14,
+      "fps": 24,
+      "columns": 4,
+      "rows": 4,
+      "size": 384,
+      "width_m": 6,
+      "anchor_height_m": 0.6,
+      "loop": false
+    }
+  ],
+  "processing": "Découpage, NEAREST, palette RGBA32 ; deux accents clairs réservés pour Exécution."
+}

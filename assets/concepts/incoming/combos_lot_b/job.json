@@ -1,0 +1,73 @@
+{
+  "generator": "ImageGen intégré",
+  "date": "2026-11-17",
+  "reference": "docs/design/FICHES_VFX_GAMEPLAY_V2.md",
+  "reference_blob": "652fd23ed1f5c51e8ec720e900c54db29c6ff5d7",
+  "parameter_status": "Calibrage de production proposé, à confirmer dans Godot.",
+  "processing": "Découpage et assemblage de phases, réduction NEAREST, marge transparente interne2px, palette RGBA32 sans tramage. Pour Convergence, deux couleurs représentatives déjà présentes dans la source sont réservées afin de préserver les accents blanc-or rares.",
+  "effects": [
+    {
+      "id": "combo_spectral_rebound",
+      "label": "Rebond spectral",
+      "lot": "B",
+      "frames": 12,
+      "fps": 24,
+      "columns": 4,
+      "rows": 3,
+      "size": 192,
+      "width_m": 3,
+      "anchor_height_m": 0.8,
+      "loop": false,
+      "ground_frames": [],
+      "source_files": [
+        "combo_spectral_rebound.png"
+      ],
+      "assembly": "Grille source entière dans l’ordre de lecture"
+    },
+    {
+      "id": "combo_shattering_bastion",
+      "label": "Rempart fracassant",
+      "lot": "B",
+      "frames": 12,
+      "fps": 24,
+      "columns": 4,
+      "rows": 3,
+      "size": 256,
+      "width_m": 4,
+      "anchor_height_m": 0.6,
+      "loop": false,
+      "ground_frames": [
+        8,
+        9
+      ],
+      "source_files": [
+        "combo_shattering_bastion.png",
+        "combo_shattering_bastion_wave.png"
+      ],
+      "assembly": "6 premières images de la source principale + 6 images de la source wave (grille 3×2)"
+    },
+    {
+      "id": "combo_avenging_aegis",
+      "label": "Égide vengeresse",
+      "lot": "B",
+      "frames": 12,
+      "fps": 24,
+      "columns": 4,
+      "rows": 3,
+      "size": 192,
+      "width_m": 3,
+      "anchor_height_m": 0.8,
+      "loop": false,
+      "ground_frames": [
+        7,
+        8,
+        9
+      ],
+      "source_files": [
+        "combo_avenging_aegis.png",
+        "combo_avenging_aegis_wave.png"
+      ],
+      "assembly": "6 premières images de la source principale + 6 images de la source wave (grille 3×2)"
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+--- a/draft3d/combos.gd
++++ b/draft3d/combos.gd
+@@ -215,14 +215,17 @@
+ 	var tuning: DraftTuning = run.tuning
+ 	var target: DraftEnemies.Foe = _marked()
+ 	if target != null and struck.has(target) and possible(HUNT):
+-		run.fx(&"claw_swipe", DraftPixelFx.DEFAULT_FAMILY, target.pos + Vector3.UP * 0.7, 1.4)
++		run.fx_or(&"combo_dimensional_hunt", 2.0, &"claw_swipe", DraftPixelFx.DEFAULT_FAMILY,
++			target.pos + Vector3.UP * 0.7, 1.4)
+ 		run.enemies.hit(target, damage * tuning.combo_hunt_mult, dir * 2.0)
+ 		_announce(HUNT)
+ 	if spectral_left > 0.0 and possible(SPECTRAL):
+ 		spectral_left = 0.0
+ 		var from: Vector3 = spectral_from
+-		run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, from + Vector3.UP * 0.6)
+-		run.fx(&"heavy_cleave", DraftPixelFx.DEFAULT_FAMILY, from + dir * length * 0.5 + Vector3.UP * 0.7, length * 0.4)
++		if not DraftPixelFx.has_sheet(&"combo_spectral_rebound"):
++			run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, from + Vector3.UP * 0.6)
++		run.fx_or(&"combo_spectral_rebound", 3.0, &"heavy_cleave", DraftPixelFx.DEFAULT_FAMILY,
++			from + dir * length * 0.5 + Vector3.UP * 0.7, length * 0.4)
+ 		for foe: DraftEnemies.Foe in _line(from, dir, length, width, pierce):
+ 			run.enemies.hit(foe, damage * tuning.combo_spectral_mult, dir * 2.0)
+ 		_announce(SPECTRAL)
+@@ -257,7 +260,8 @@
+ 		return
+ 	var tuning: DraftTuning = run.tuning
+ 	var at: Vector3 = target.pos
+-	run.fx(&"small_explosion", &"fallen", at + Vector3.UP * 0.6, tuning.combo_tracker_radius)
++	run.fx_or(&"combo_tracker_rupture", 2.4, &"small_explosion", &"fallen",
++		at + Vector3.UP * 0.6, tuning.combo_tracker_radius)
+ 	for foe: DraftEnemies.Foe in run.spells._level(run.enemies.near(at, tuning.combo_tracker_radius), at):
+ 		run.enemies.hit(foe, damage * (tuning.combo_tracker_mult if foe == target else tuning.combo_tracker_splash))
+ 	_announce(TRACKER)
+@@ -296,7 +300,7 @@
+ 		chained.append(next)
+ 		from = next
+ 	for foe: DraftEnemies.Foe in chained:
+-		run.fx(&"zap_hit", &"highlands", foe.pos + Vector3.UP * 0.7, 1.2)
++		run.fx_or(&"combo_prismatic_convergence", 2.4, &"zap_hit", &"highlands", foe.pos + Vector3.UP * 0.7, 1.2)
+ 		run.enemies.hit(foe, damage * tuning.combo_convergence_mult)
+ 	_announce(CONVERGENCE)
+ 
+@@ -317,7 +321,8 @@
+ 	counter_left = 0.0
+ 	var tuning: DraftTuning = run.tuning
+ 	var radius: float = reach * tuning.combo_counter_area
+-	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.5, radius)
++	run.fx_or(&"combo_counter_rift", radius * 2.0, &"ring_burst", DraftPixelFx.DEFAULT_FAMILY,
++		here + Vector3.UP * 0.5, radius)
+ 	for foe: DraftEnemies.Foe in run.spells._level(run.enemies.near(here, radius), here):
+ 		run.enemies.hit(foe, damage * tuning.combo_counter_mult, DraftSpells._flat(foe.pos - here).normalized() * 4.0)
+ 		if foe.alive and foe.boss == null:
+@@ -360,6 +365,9 @@
+ 			break
+ 	if not held.is_empty() and not well.get("prison", false):
+ 		well["prison"] = true
++		if DraftPixelFx.has_sheet(&"combo_rift_prison"):
++			run.fx_or(&"combo_rift_prison", float(well["radius"]) * 2.0, &"root_snare", &"enlises",
++				at + Vector3.UP * 0.6)
+ 		_announce(PRISON)
+ 	well["prisoned"] = held
+ 
+@@ -380,7 +388,8 @@
+ 		var a: Vector3 = wall["a"]
+ 		var b: Vector3 = wall["b"]
+ 		var center: Vector3 = (a + b) * 0.5
+-		run.fx(&"quake", &"highlands", center + Vector3.UP * 0.4, a.distance_to(b) * 0.6)
++		run.fx_or(&"combo_shattering_bastion", a.distance_to(b) * 1.2, &"quake", &"highlands",
++			center + Vector3.UP * 0.4, a.distance_to(b) * 0.6)
+ 		for foe: DraftEnemies.Foe in run.enemies.near(center, a.distance_to(b) * 0.5 + tuning.combo_rampart_area):
+ 			var closest: Vector3 = Geometry3D.get_closest_point_to_segment(foe.pos, a, b)
+ 			var away: Vector3 = DraftSpells._flat(foe.pos - closest)
+@@ -422,7 +431,7 @@
+ 		if not stasis_hits.has(foe):
+ 			continue
+ 		extra += 1
+-		run.fx(&"ice_shatter_small", &"givres", foe.pos + Vector3.UP * 0.8, 0.9)
++		run.fx_or(&"combo_still_storm", 2.0, &"ice_shatter_small", &"givres", foe.pos + Vector3.UP * 0.8, 0.9)
+ 		run.enemies.hit(foe, damage * tuning.combo_storm_mult)
+ 	if extra > 0:
+ 		_announce(STORM)
+--- a/draft3d/spells.gd
++++ b/draft3d/spells.gd
+@@ -879,7 +879,11 @@
+ 		return
+ 	var damage: float = damage_of(data) * (param(data, "damage", 1.0) if riposte else tuning.combo_aegis_plain) * power
+ 	var here: Vector3 = run.hunter.global_position
+-	run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
++	if power > 1.0:
++		run.fx_or(&"combo_avenging_aegis", area_of(data) * 2.0, &"ring_burst",
++			DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
++	else:
++		run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))
+ 	for foe: DraftEnemies.Foe in _level(run.enemies.near(here, area_of(data)), here):
+ 		run.enemies.hit(foe, damage, _flat(foe.pos - here).normalized() * 4.0)
+ 

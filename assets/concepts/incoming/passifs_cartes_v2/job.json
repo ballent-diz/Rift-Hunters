@@ -1,0 +1,67 @@
+{
+  "generator": "image_gen built-in",
+  "date": "2026-11-17",
+  "source_spec": "docs/design/FICHES_VFX_GAMEPLAY_V2.md",
+  "source_spec_blob": "652fd23ed1f5c51e8ec720e900c54db29c6ff5d7",
+  "processing": "Découpage régulier, réduction NEAREST, 2 px de sécurité à l’intérieur des cellules, palette RGBA commune 32 couleurs sans tramage. Illustrations conservées en pleine couleur.",
+  "effects": [
+    {
+      "id": "passive_dash_blade",
+      "label": "Ruée tranchante",
+      "size": 96,
+      "columns": 3,
+      "frames": 6,
+      "fps": 24,
+      "loop": false,
+      "width_m": 1.4,
+      "anchor_height_m": 0.6,
+      "lifetime_s": 0.25
+    },
+    {
+      "id": "passive_void_wake",
+      "label": "Sillage du vide",
+      "size": 128,
+      "columns": 4,
+      "frames": 8,
+      "fps": 8,
+      "loop": true,
+      "width_m": 1.8,
+      "anchor_height_m": 0.2,
+      "lifetime_s": 2.0
+    },
+    {
+      "id": "passive_counter_cut",
+      "label": "Contre-taille",
+      "size": 144,
+      "columns": 5,
+      "frames": 10,
+      "fps": 22,
+      "loop": false,
+      "width_m": 2.2,
+      "anchor_height_m": 1.0,
+      "lifetime_s": 0.45454545454545453
+    }
+  ],
+  "cards": [
+    {
+      "id": "passive_dash_blade",
+      "path": "assets/ui/items/upgrades/passive_dash_blade.png"
+    },
+    {
+      "id": "passive_void_wake",
+      "path": "assets/ui/items/upgrades/passive_void_wake.png"
+    },
+    {
+      "id": "passive_counter_cut",
+      "path": "assets/ui/items/upgrades/passive_counter_cut.png"
+    },
+    {
+      "id": "passive_anchor",
+      "path": "assets/ui/items/upgrades/passive_anchor.png"
+    },
+    {
+      "id": "rule_extra_slot",
+      "path": "assets/ui/items/upgrades/rule_extra_slot.png"
+    }
+  ]
+}

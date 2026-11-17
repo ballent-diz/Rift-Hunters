@@ -1,0 +1,259 @@
+{
+  "frames": [
+    {
+      "filename": "combo_counter_rift 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 42
+    },
+    {
+      "filename": "combo_counter_rift 1",
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 41
+    },
+    {
+      "filename": "combo_counter_rift 2",
+      "frame": {
+        "x": 320,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 42
+    },
+    {
+      "filename": "combo_counter_rift 3",
+      "frame": {
+        "x": 480,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 42
+    },
+    {
+      "filename": "combo_counter_rift 4",
+      "frame": {
+        "x": 640,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 41
+    },
+    {
+      "filename": "combo_counter_rift 5",
+      "frame": {
+        "x": 0,
+        "y": 160,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 42
+    },
+    {
+      "filename": "combo_counter_rift 6",
+      "frame": {
+        "x": 160,
+        "y": 160,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 42
+    },
+    {
+      "filename": "combo_counter_rift 7",
+      "frame": {
+        "x": 320,
+        "y": 160,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 41
+    },
+    {
+      "filename": "combo_counter_rift 8",
+      "frame": {
+        "x": 480,
+        "y": 160,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 42
+    },
+    {
+      "filename": "combo_counter_rift 9",
+      "frame": {
+        "x": 640,
+        "y": 160,
+        "w": 160,
+        "h": 160
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 160,
+        "h": 160
+      },
+      "sourceSize": {
+        "w": 160,
+        "h": 160
+      },
+      "duration": 42
+    }
+  ],
+  "meta": {
+    "app": "Rift Hunters / ImageGen + Pillow",
+    "version": "1",
+    "image": "violet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 800,
+      "h": 320
+    },
+    "scale": "1",
+    "frameTags": [
+      {
+        "name": "combo_counter_rift",
+        "from": 0,
+        "to": 9,
+        "direction": "forward"
+      }
+    ],
+    "pixelfx": {
+      "id": "combo_counter_rift",
+      "name": "Contre-faille",
+      "fps": 24,
+      "loop": false,
+      "frames": 10,
+      "frameSize": [
+        160,
+        160
+      ],
+      "columns": 5,
+      "pivot": [
+        80,
+        80
+      ]
+    }
+  }
+}

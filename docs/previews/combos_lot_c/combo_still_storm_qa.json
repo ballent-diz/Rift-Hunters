@@ -1,0 +1,368 @@
+{
+  "id": "combo_still_storm",
+  "status": "PASS",
+  "png_size": [
+    1024,
+    1024
+  ],
+  "frame_size": [
+    256,
+    256
+  ],
+  "frames": 16,
+  "fps": 24,
+  "loop": false,
+  "duration_s": 0.6666666666666666,
+  "rgba_colors": 32,
+  "max_opaque_coverage": 0.0408,
+  "max_bright_coverage": 0.0068,
+  "frame_metrics": [
+    {
+      "frame": 1,
+      "alpha_bbox": [
+        51,
+        66,
+        207,
+        142
+      ],
+      "solid_bbox": [
+        54,
+        68,
+        203,
+        138
+      ],
+      "alpha_weight": 40853,
+      "alpha_centroid": [
+        130.64,
+        101.67
+      ],
+      "opaque_coverage": 0.0027,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 2,
+      "alpha_bbox": [
+        8,
+        20,
+        254,
+        189
+      ],
+      "solid_bbox": [
+        45,
+        63,
+        211,
+        142
+      ],
+      "alpha_weight": 307378,
+      "alpha_centroid": [
+        128.6,
+        100.81
+      ],
+      "opaque_coverage": 0.0186,
+      "bright_coverage": 0.002
+    },
+    {
+      "frame": 3,
+      "alpha_bbox": [
+        6,
+        33,
+        233,
+        183
+      ],
+      "solid_bbox": [
+        43,
+        58,
+        211,
+        143
+      ],
+      "alpha_weight": 447054,
+      "alpha_centroid": [
+        125.14,
+        98.28
+      ],
+      "opaque_coverage": 0.0273,
+      "bright_coverage": 0.004
+    },
+    {
+      "frame": 4,
+      "alpha_bbox": [
+        32,
+        46,
+        235,
+        167
+      ],
+      "solid_bbox": [
+        45,
+        58,
+        211,
+        146
+      ],
+      "alpha_weight": 480850,
+      "alpha_centroid": [
+        124.68,
+        99.99
+      ],
+      "opaque_coverage": 0.0293,
+      "bright_coverage": 0.0038
+    },
+    {
+      "frame": 5,
+      "alpha_bbox": [
+        52,
+        12,
+        223,
+        254
+      ],
+      "solid_bbox": [
+        61,
+        58,
+        194,
+        143
+      ],
+      "alpha_weight": 519040,
+      "alpha_centroid": [
+        126.11,
+        99.72
+      ],
+      "opaque_coverage": 0.032,
+      "bright_coverage": 0.0036
+    },
+    {
+      "frame": 6,
+      "alpha_bbox": [
+        22,
+        43,
+        222,
+        169
+      ],
+      "solid_bbox": [
+        75,
+        55,
+        178,
+        141
+      ],
+      "alpha_weight": 560298,
+      "alpha_centroid": [
+        124.53,
+        96.17
+      ],
+      "opaque_coverage": 0.0341,
+      "bright_coverage": 0.0041
+    },
+    {
+      "frame": 7,
+      "alpha_bbox": [
+        78,
+        10,
+        172,
+        139
+      ],
+      "solid_bbox": [
+        88,
+        54,
+        168,
+        136
+      ],
+      "alpha_weight": 599131,
+      "alpha_centroid": [
+        126.77,
+        94.98
+      ],
+      "opaque_coverage": 0.037,
+      "bright_coverage": 0.0053
+    },
+    {
+      "frame": 8,
+      "alpha_bbox": [
+        81,
+        4,
+        175,
+        140
+      ],
+      "solid_bbox": [
+        91,
+        53,
+        167,
+        136
+      ],
+      "alpha_weight": 650024,
+      "alpha_centroid": [
+        128.37,
+        95.18
+      ],
+      "opaque_coverage": 0.0408,
+      "bright_coverage": 0.0068
+    },
+    {
+      "frame": 9,
+      "alpha_bbox": [
+        54,
+        3,
+        216,
+        141
+      ],
+      "solid_bbox": [
+        93,
+        34,
+        165,
+        135
+      ],
+      "alpha_weight": 578832,
+      "alpha_centroid": [
+        129.22,
+        92.67
+      ],
+      "opaque_coverage": 0.0354,
+      "bright_coverage": 0.0036
+    },
+    {
+      "frame": 10,
+      "alpha_bbox": [
+        33,
+        30,
+        220,
+        165
+      ],
+      "solid_bbox": [
+        91,
+        58,
+        165,
+        161
+      ],
+      "alpha_weight": 580580,
+      "alpha_centroid": [
+        129.11,
+        116.85
+      ],
+      "opaque_coverage": 0.0345,
+      "bright_coverage": 0.0042
+    },
+    {
+      "frame": 11,
+      "alpha_bbox": [
+        33,
+        51,
+        230,
+        209
+      ],
+      "solid_bbox": [
+        73,
+        105,
+        180,
+        198
+      ],
+      "alpha_weight": 627314,
+      "alpha_centroid": [
+        127.9,
+        158.6
+      ],
+      "opaque_coverage": 0.0367,
+      "bright_coverage": 0.004
+    },
+    {
+      "frame": 12,
+      "alpha_bbox": [
+        11,
+        97,
+        254,
+        234
+      ],
+      "solid_bbox": [
+        41,
+        135,
+        210,
+        218
+      ],
+      "alpha_weight": 521010,
+      "alpha_centroid": [
+        128.14,
+        182.21
+      ],
+      "opaque_coverage": 0.0276,
+      "bright_coverage": 0.0039
+    },
+    {
+      "frame": 13,
+      "alpha_bbox": [
+        2,
+        105,
+        252,
+        254
+      ],
+      "solid_bbox": [
+        47,
+        134,
+        213,
+        222
+      ],
+      "alpha_weight": 265322,
+      "alpha_centroid": [
+        131.38,
+        180.96
+      ],
+      "opaque_coverage": 0.0146,
+      "bright_coverage": 0.0011
+    },
+    {
+      "frame": 14,
+      "alpha_bbox": [
+        48,
+        150,
+        214,
+        215
+      ],
+      "solid_bbox": [
+        55,
+        154,
+        202,
+        210
+      ],
+      "alpha_weight": 50626,
+      "alpha_centroid": [
+        136.66,
+        179.1
+      ],
+      "opaque_coverage": 0.0032,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 15,
+      "alpha_bbox": [
+        75,
+        155,
+        182,
+        209
+      ],
+      "solid_bbox": [
+        79,
+        158,
+        181,
+        202
+      ],
+      "alpha_weight": 6387,
+      "alpha_centroid": [
+        124.94,
+        170.19
+      ],
+      "opaque_coverage": 0.0005,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 16,
+      "alpha_bbox": [
+        189,
+        8,
+        190,
+        9
+      ],
+      "solid_bbox": null,
+      "alpha_weight": 3,
+      "alpha_centroid": [
+        189.0,
+        8.0
+      ],
+      "opaque_coverage": 0.0,
+      "bright_coverage": 0.0
+    }
+  ]
+}

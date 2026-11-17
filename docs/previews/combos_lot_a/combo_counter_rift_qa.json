@@ -1,0 +1,248 @@
+{
+  "id": "combo_counter_rift",
+  "status": "PASS",
+  "png_size": [
+    800,
+    320
+  ],
+  "frame_size": [
+    160,
+    160
+  ],
+  "frames": 10,
+  "fps": 24,
+  "loop": false,
+  "duration_s": 0.4166666666666667,
+  "rgba_colors": 32,
+  "max_opaque_coverage": 0.0953,
+  "max_bright_coverage": 0.0298,
+  "frame_metrics": [
+    {
+      "frame": 1,
+      "alpha_bbox": [
+        44,
+        52,
+        73,
+        109
+      ],
+      "solid_bbox": [
+        46,
+        54,
+        73,
+        109
+      ],
+      "alpha_weight": 124887,
+      "alpha_centroid": [
+        55.45,
+        80.14
+      ],
+      "opaque_coverage": 0.0196,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 2,
+      "alpha_bbox": [
+        40,
+        38,
+        96,
+        120
+      ],
+      "solid_bbox": [
+        42,
+        39,
+        95,
+        119
+      ],
+      "alpha_weight": 332425,
+      "alpha_centroid": [
+        60.66,
+        74.6
+      ],
+      "opaque_coverage": 0.0514,
+      "bright_coverage": 0.0078
+    },
+    {
+      "frame": 3,
+      "alpha_bbox": [
+        38,
+        33,
+        119,
+        129
+      ],
+      "solid_bbox": [
+        41,
+        34,
+        118,
+        129
+      ],
+      "alpha_weight": 610234,
+      "alpha_centroid": [
+        68.68,
+        76.9
+      ],
+      "opaque_coverage": 0.0943,
+      "bright_coverage": 0.0298
+    },
+    {
+      "frame": 4,
+      "alpha_bbox": [
+        48,
+        34,
+        128,
+        123
+      ],
+      "solid_bbox": [
+        48,
+        34,
+        126,
+        121
+      ],
+      "alpha_weight": 295097,
+      "alpha_centroid": [
+        77.83,
+        64.49
+      ],
+      "opaque_coverage": 0.0462,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 5,
+      "alpha_bbox": [
+        58,
+        72,
+        95,
+        97
+      ],
+      "solid_bbox": [
+        59,
+        72,
+        94,
+        97
+      ],
+      "alpha_weight": 113579,
+      "alpha_centroid": [
+        76.29,
+        83.63
+      ],
+      "opaque_coverage": 0.0179,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 6,
+      "alpha_bbox": [
+        41,
+        54,
+        115,
+        109
+      ],
+      "solid_bbox": [
+        42,
+        55,
+        114,
+        108
+      ],
+      "alpha_weight": 345984,
+      "alpha_centroid": [
+        76.99,
+        80.64
+      ],
+      "opaque_coverage": 0.0541,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 7,
+      "alpha_bbox": [
+        22,
+        43,
+        132,
+        119
+      ],
+      "solid_bbox": [
+        24,
+        44,
+        132,
+        118
+      ],
+      "alpha_weight": 603927,
+      "alpha_centroid": [
+        76.39,
+        80.39
+      ],
+      "opaque_coverage": 0.0945,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 8,
+      "alpha_bbox": [
+        13,
+        36,
+        145,
+        129
+      ],
+      "solid_bbox": [
+        14,
+        37,
+        144,
+        127
+      ],
+      "alpha_weight": 607386,
+      "alpha_centroid": [
+        77.19,
+        81.49
+      ],
+      "opaque_coverage": 0.0953,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 9,
+      "alpha_bbox": [
+        22,
+        41,
+        136,
+        122
+      ],
+      "solid_bbox": [
+        24,
+        42,
+        135,
+        121
+      ],
+      "alpha_weight": 290679,
+      "alpha_centroid": [
+        79.41,
+        80.55
+      ],
+      "opaque_coverage": 0.0456,
+      "bright_coverage": 0.0
+    },
+    {
+      "frame": 10,
+      "alpha_bbox": [
+        32,
+        46,
+        128,
+        114
+      ],
+      "solid_bbox": [
+        32,
+        46,
+        128,
+        114
+      ],
+      "alpha_weight": 19468,
+      "alpha_centroid": [
+        76.18,
+        78.53
+      ],
+      "opaque_coverage": 0.0032,
+      "bright_coverage": 0.0
+    }
+  ],
+  "ground_wave_height_width_ratios_frames_5_to_9": [
+    0.714,
+    0.736,
+    0.685,
+    0.692,
+    0.712
+  ]
+}

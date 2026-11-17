@@ -1,0 +1,46 @@
+{
+  "generator": "ImageGen intégré",
+  "date": "2026-11-17",
+  "reference": "docs/design/FICHES_VFX_GAMEPLAY_V2.md",
+  "reference_blob": "652fd23ed1f5c51e8ec720e900c54db29c6ff5d7",
+  "parameter_status": "Propositions de production : les fiches actuelles ne détaillent pas ces nouveaux FX.",
+  "process": "Grille régulière, réduction NEAREST, 2 pixels transparents à l’intérieur des cellules, palette RGBA commune 32 couleurs sans tramage.",
+  "effects": [
+    {
+      "id": "combo_counter_rift",
+      "label": "Contre-faille",
+      "frames": 10,
+      "fps": 24,
+      "columns": 5,
+      "rows": 2,
+      "size": 160,
+      "width_m": 2.4,
+      "anchor_height_m": 0.6,
+      "loop": false
+    },
+    {
+      "id": "combo_dimensional_hunt",
+      "label": "Chasse dimensionnelle",
+      "frames": 12,
+      "fps": 24,
+      "columns": 4,
+      "rows": 3,
+      "size": 128,
+      "width_m": 2,
+      "anchor_height_m": 0.6,
+      "loop": false
+    },
+    {
+      "id": "combo_tracker_rupture",
+      "label": "Rupture du traqueur",
+      "frames": 12,
+      "fps": 24,
+      "columns": 4,
+      "rows": 3,
+      "size": 160,
+      "width_m": 2.4,
+      "anchor_height_m": 0.6,
+      "loop": false
+    }
+  ]
+}
