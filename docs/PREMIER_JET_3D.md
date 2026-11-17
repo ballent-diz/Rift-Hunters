@@ -173,6 +173,13 @@ monte et noie les levées basses : on n'y entre plus, les monstres font le tour,
 Sanctuaire du boss au centre, jamais noyé. `--chapter=8` (bestiaire du chapitre 5 en attendant le chapitre 8),
 `--tide-at=61` pour partir à marée haute. Détails : `docs/maps/CARTES_3D.md`.
 
+## Carte : neuvième niveau, les Corniches
+
+68 × 112 m, falaise en gradins gravie vers le nord (`draft3d/level_cliffs.gd`) : la Grève (0 m), le Guet (3 m), le
+Promontoire (6 m) et la Couronne (9 m, boss), reliés par des rampes en lacets, des éboulis et des escaliers ; trois
+perchoirs à 1,5 m hors de portée de la mêlée. `--chapter=9` (bestiaire du
+chapitre 5 en attendant le chapitre 9). Détails : `docs/maps/CARTES_3D.md`.
+
 ## Vérifications
 
 `tests/unit/test_draft3d.gd` (11 essais, dans `tools/run_tests.sh unit`) : catalogue sans Échos, offres distinctes et
