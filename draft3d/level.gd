@@ -3,7 +3,7 @@ extends NavigationRegion3D
 ## Carte de la base 3D : socle commun des niveaux (modules avec collision, navigation, points d'apparition).
 ## Chaque niveau en hérite et s'assemble dans `build()` : DraftLevelRuins (1), DraftLevelGraveyard (2),
 ## DraftLevelVillage (3), DraftLevelOutpost (4), DraftLevelCity (5),
-## DraftLevelRing (6, sommet de la tour), DraftLevelPass (7), DraftLevelMarsh (8).
+## DraftLevelRing (6, sommet de la tour), DraftLevelPass (7), DraftLevelMarsh (8), DraftLevelCliffs (9).
 ## `DraftLevel.create(order)` donne la carte d'un chapitre.
 
 ## Message à afficher en bandeau (clé de traduction) : événement de la carte (marée du Marais).
@@ -14,6 +14,8 @@ var bounds_min := Vector2(-24, -20)
 var bounds_max := Vector2(24, 20)
 var start := Vector3(0, 0.2, 0)
 var boss_spot := Vector3.ZERO
+## Pentes praticables qui relient deux hauteurs (rampes, éboulis) : {bottom, top}, contrôlées comme les escaliers.
+var inclines: Array[Dictionary] = []
 ## Sortie d'étage (tour du chapitre 6) : palier au haut de la rampe ; Vector3.INF : la carte n'en a pas.
 var exit_point := Vector3.INF
 ## Ambiance : fond, lumière ambiante, soleil (couleur, énergie).
@@ -42,6 +44,8 @@ static func create(order: int) -> DraftLevel:
 			return DraftLevelPass.new()
 		8:
 			return DraftLevelMarsh.new()
+		9:
+			return DraftLevelCliffs.new()
 	return DraftLevelRuins.new()
 
 
