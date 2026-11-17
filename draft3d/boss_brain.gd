@@ -14,7 +14,7 @@ const UNIT := DraftHunter.UNIT
 ## en attendant le geste commun le plus proche.
 const GESTURES := {
 	&"claw": &"claw", &"sweep": &"sweep", &"slam": &"slam", &"bark_guard": &"slam", &"swallow": &"slam",
-	&"shadow_wave": &"wave", &"tide_wave": &"wave", &"star_crown": &"wave", &"absorb": &"wave",
+	&"shadow_wave": &"wave", &"tide_wave": &"wave", &"star_crown": &"wave",
 	&"quake": &"quake", &"whirlpool": &"quake",
 	&"rock_rain": &"rain", &"slag_rain": &"rain", &"crater_sequence": &"rain", &"mud_wall": &"rain",
 	&"rune_barrage": &"rain", &"source_orb": &"rain", &"spore_veil": &"rain",
