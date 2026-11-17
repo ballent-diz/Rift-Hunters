@@ -146,5 +146,21 @@
       ],
       "visible_outline_feet_y": 75
     }
+  },
+  "tests": {
+    "assets": {
+      "ok": true,
+      "entries": 534,
+      "valid": 513,
+      "placeholders": 21,
+      "errors": 0
+    },
+    "art": {
+      "ok": true,
+      "import": true,
+      "shadows": true,
+      "final_maps": 6
+    },
+    "godot_sheet_capture": true
   }
 }

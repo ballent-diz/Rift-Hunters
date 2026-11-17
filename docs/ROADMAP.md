@@ -6,6 +6,22 @@ Livraison sur `codex/chasseur-original-dos-face` : quatre animations de `player.
 conservées pour plus tard à la demande du propriétaire ; le Veilleur reste sélectionné en jeu.
 Anciens pixels et animations inchangés. [Détails et aperçus](art/CHASSEUR_ORIGINAL_DOS_FACE.md).
 
+## Veilleur de dos et de face (Codex, 17 novembre 2026)
+
+Livré sur `codex/chasseur-dos-face`, depuis main actualisé. Art uniquement pour `player.threshold_warden` (Veilleur validé par le propriétaire) :
+quatre rangées supplémentaires (idle/marche, dos/face), sans modifier le profil existant ni appearances/.
+Aucun changement de draft3d/, src/ ou data/ ; Claude raccordera ensuite les orientations.
+Contrôles assets et art verts, capture Godot et comparaison ×4 : [livraison](art/VEILLEUR_DOS_FACE.md).
+
+## Bug : ennemis bloqués au pied des plateformes (Claude, « Correction de bugs », 17 novembre 2026)
+
+- Cause : `DraftEnemies.chase` ne recalculait un chemin que si la cible avait bougé de 0,8 m. Un ennemi qui avait
+  épuisé son chemin (poussé hors de sa route par le recul ou la séparation) alors que le Chasseur, presque immobile,
+  était sur un autre niveau filait droit vers lui et restait collé au rebord de la plateforme.
+- Correction : un chemin épuisé alors que le Chasseur est à une autre hauteur (0,6 m et plus) est recalculé à
+  l'échéance du minuteur de chemin (0,45 à 0,8 s) ; aucun autre changement de navigation.
+- Test : `test_draft3d::test_enemy_with_spent_path_climbs_to_the_terrace` (échoue sans la correction).
+
 ## Bug : rambardes des escaliers franchissables depuis les marches (Claude, « Correction de bugs », 17 novembre 2026)
 
 - Cause : la rambarde du modèle `stairs_wide` ne dépasse les marches que de 0,2 m une fois l'escalier mis à

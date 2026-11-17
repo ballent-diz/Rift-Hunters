@@ -44,3 +44,8 @@ L'importeur et son test de préservation sont ceux du lot Veilleur (PR #220).
 La scène de contrôle `tools/art/hunter_directions_preview.tscn` accepte `-- --out=<chemin.png>`.
 Aucun changement de `src/`, `data/`, `draft3d/` ou `appearances/`. Les orientations seront raccordées séparément
 si ce personnage est réutilisé. Aucune nouvelle attaque, blessure ou mort de face/dos.
+
+Contrôles locaux finaux : `tools/run_tests.sh assets` et `tools/run_tests.sh art` verts :
+534 entrées, 513 valides, 21 placeholders préexistants, zéro erreur ; import Python, ombres et six cartes finales conformes.
+Le cache local de deux modules Space Base a été régénéré pour supprimer des identifiants périmés ;
+aucune réparation de cache ni modification de décor ne fait partie du lot. Capture native Godot 4.3 vérifiée.
