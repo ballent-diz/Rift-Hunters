@@ -270,6 +270,16 @@ func _check_stairs() -> void:
 		var rid: RID = _terrain_at(top + Vector3.DOWN * 0.5)
 		if rid.is_valid():
 			accesses[rid] = int(accesses.get(rid, 0)) + 1
+	for incline: Dictionary in level.inclines:
+		_check_incline(incline, accesses)
+	# Plateaux : reliefs jointifs à la même hauteur (une corniche faite de plusieurs blocs) comptent ensemble.
+	var plateaus: Dictionary = _plateaus()
+	var counted: Dictionary = {}
+	for rid: RID in accesses:
+		if plateaus.has(rid):
+			var group: int = plateaus[rid]
+			counted[group] = int(counted.get(group, 0)) + int(accesses[rid])
+	var reported: Dictionary = {}
 	for rid: RID in _terrain:
 		var body := instance_from_id(PhysicsServer3D.body_get_object_instance_id(rid)) as StaticBody3D
 		var shape := body.get_child(0) as CollisionShape3D
@@ -283,10 +293,73 @@ func _check_stairs() -> void:
 		var on_top: Vector3 = level.closest(summit)
 		if _flat(on_top).distance_to(_flat(summit)) > 1.5 or absf(on_top.y - top_y) > 0.3:
 			continue
-		var used: int = int(accesses.get(rid, 0))
+		var group: int = plateaus.get(rid, -1)
+		var used: int = int(counted.get(group, 0)) if group >= 0 else int(accesses.get(rid, 0))
+		if reported.has(group) and group >= 0:
+			continue
+		reported[group] = true
 		if used < 2:
-			_issue("access", "« %s » (%.1f m) : %d escalier(s), deux accès au moins" % [_terrain[rid], top_y, used],
+			_issue("access", "« %s » (%.1f m) : %d accès (escaliers, rampes), deux au moins" % [_terrain[rid], top_y, used],
 				body.position + Vector3.UP * (top_y - body.position.y))
+
+
+## Rampe ou éboulis : pied et haut sur une surface à leur hauteur, praticables, reliés par un chemin court.
+func _check_incline(incline: Dictionary, accesses: Dictionary) -> void:
+	var bottom: Vector3 = incline["bottom"]
+	var top: Vector3 = incline["top"]
+	var problems: PackedStringArray = PackedStringArray()
+	for end: Vector3 in [bottom, top]:
+		var ground: float = _surface(end + Vector3.UP * 1.5, 3.0)
+		var on_nav: Vector3 = level.closest(end)
+		if is_nan(ground) or absf(ground - end.y) > HEIGHT_TOLERANCE:
+			problems.append("%s sans surface à %.1f m (surface : %s)" % [
+				"pied" if end == bottom else "haut", end.y, _height_text(ground)])
+		elif _flat(on_nav).distance_to(_flat(end)) > 0.8 or absf(on_nav.y - end.y) > 0.5:
+			problems.append("%s non praticable" % ("pied" if end == bottom else "haut"))
+	if problems.is_empty():
+		var route: PackedVector3Array = level.path(level.closest(bottom), level.closest(top))
+		var direct: float = bottom.distance_to(top)
+		if route.is_empty() or route[route.size() - 1].distance_to(level.closest(top)) > 0.5:
+			problems.append("aucun chemin du pied au haut")
+		elif _length(route) > direct * 1.5 + 4.0:
+			problems.append("on ne monte pas par cette pente (détour de %.0f m)" % _length(route))
+	var ok: bool = problems.is_empty()
+	stairs.append({"bottom": bottom, "top": top, "ok": ok})
+	if not ok:
+		_issue("stairs", "pente : " + ", ".join(problems), (bottom + top) * 0.5)
+		return
+	# Le haut est compté pour la corniche qu'il dessert, pas pour la pente elle-même.
+	var climb: Vector3 = Vector3(top.x - bottom.x, 0, top.z - bottom.z).normalized()
+	var rid: RID = _terrain_at(top + climb + Vector3.DOWN * 0.5, true)
+	if rid.is_valid():
+		accesses[rid] = int(accesses.get(rid, 0)) + 1
+
+
+## Groupes de reliefs (boîtes) jointifs à la même hauteur : rid → numéro de plateau.
+func _plateaus() -> Dictionary:
+	var boxes: Array[Dictionary] = []
+	for rid: RID in _terrain:
+		var body := instance_from_id(PhysicsServer3D.body_get_object_instance_id(rid)) as StaticBody3D
+		var shape := body.get_child(0) as CollisionShape3D
+		if shape == null or not (shape.shape is BoxShape3D):
+			continue
+		var size: Vector3 = (shape.shape as BoxShape3D).size
+		var top_y: float = body.position.y + size.y * 0.5
+		var area := Rect2(body.position.x - size.x * 0.5, body.position.z - size.z * 0.5, size.x, size.z)
+		boxes.append({"rid": rid, "top": top_y, "area": area.grow(0.2)})
+	var parent: PackedInt32Array = PackedInt32Array()
+	parent.resize(boxes.size())
+	for index: int in boxes.size():
+		parent[index] = index
+	for a: int in boxes.size():
+		for b: int in range(a + 1, boxes.size()):
+			if absf(float(boxes[a]["top"]) - float(boxes[b]["top"])) < 0.05 \
+					and (boxes[a]["area"] as Rect2).intersects(boxes[b]["area"]):
+				_union(parent, a, b)
+	var result: Dictionary = {}
+	for index: int in boxes.size():
+		result[boxes[index]["rid"]] = _find(parent, index)
+	return result
 
 
 func _height_text(value: float) -> String:
@@ -382,13 +455,15 @@ func _solid_at(at: Vector3) -> bool:
 	return not _space.intersect_point(query, 1).is_empty()
 
 
-func _terrain_at(at: Vector3) -> RID:
+func _terrain_at(at: Vector3, skip_inclines: bool = false) -> RID:
 	var query := PhysicsPointQueryParameters3D.new()
 	query.position = at
 	query.collision_mask = SOLID
 	for hit: Dictionary in _space.intersect_point(query, 8):
 		var rid: RID = hit["rid"]
 		if _terrain.has(rid):
+			if skip_inclines and (hit["collider"] as Node).has_meta(&"incline"):
+				continue
 			return rid
 	return RID()
 
