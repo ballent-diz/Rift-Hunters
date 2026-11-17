@@ -703,3 +703,25 @@ func test_secondary_effects() -> void:
 	mechanic._wave_hit()
 	check(run.hunter.slow_left > 0.0, "vague : ralenti")
 	check(run.hunter.global_position.distance_to(glauque.pos) > before, "vague : repoussé loin du boss")
+
+
+func test_abyssarch_root_leash_ties_and_dash_cuts() -> void:
+	await _start()
+	var abyss: DraftEnemies.Foe = _spawn(&"abyssarch", 7.0)
+	abyss.brain._next_at = INF
+	var root := _mechanic(abyss, &"root_leash") as DraftRootLeash
+	check(root != null, "Abyssarque : vraie racine-laisse")
+	check(_mechanic(_spawn(&"glauquemire", 9.0), &"root_leash") is DraftGlauquemire, "Glauquemire garde sa racine jaillissante")
+	var pattern: BossPatternData = _pattern(abyss.boss, &"root_leash")
+	root.perform(pattern)
+	await _frames(int(pattern.telegraph * 60) + 3)
+	check(root.tied(), "le Chasseur est attaché")
+	var anchor: Vector3 = root.leash["anchor"]
+	var length: float = root.leash["length"]
+	run.hunter.global_position = run.level.closest(anchor + Vector3(length + 4.0, 0, 0)) + Vector3.UP * 0.2
+	await _frames(3)
+	var offset: Vector3 = run.hunter.global_position - anchor
+	check(Vector2(offset.x, offset.z).length() <= length + 0.3, "la racine le ramène à sa longueur")
+	run.hunter.dash_time = 0.2
+	await _frames(2)
+	check(root.cut == 1 and not root.tied(), "une Ruée tranche la racine")

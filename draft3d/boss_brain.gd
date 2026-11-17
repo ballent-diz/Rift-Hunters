@@ -148,6 +148,9 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftFrostGuardians.new(boss.signature))
 		&"war_cry", &"rune_barrage", &"pantheon_wake", &"soul_chain":
 			result.append(DraftCityGuardians.new(boss.signature))
+	# Racine-laisse (forme racines de l'Abyssarque) : vraie laisse ; Glauquemire garde sa racine jaillissante.
+	if boss.signature != &"prism_beam" and _has_kind(boss, &"root_leash"):
+		result.append(DraftRootLeash.new())
 	# Plongée sous la glace (Nivorath) : même mécanique que la plongée de la Gueule des marais.
 	if boss.signature != &"maw_dive" and _has_kind(boss, &"frozen_dive"):
 		result.append(DraftMawDive.new(&"frozen_dive"))

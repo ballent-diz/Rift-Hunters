@@ -367,3 +367,12 @@ mécanique). La v1 archivée garde ses données (`data/bosses/nebulorax.tres`), 
   2,7 m (`DraftHazards` : rappel `on_hit` des cercles et des ondes).
 - Non repris, et pourquoi : froid et braseros du chapitre 4 (système de carte v1, hors boss ; le Chaman garde son
   refuge de chaleur).
+
+### Racine-laisse de l'Abyssarque (17 novembre)
+
+Demande du propriétaire : les racines « en lien ». `bosses/root_leash.gd` (`DraftRootLeash`) remplace, pour
+l'Abyssarque (forme racines), la racine sans laisse de l'entrée précédente : une racine file vers le Chasseur (ligne
+annoncée) et l'attache au sol 3 s (longueur 6 m) ; au bout de la racine il est ramené à sa longueur ; le boss frappe
+le point d'attache 2,4 s après. Une Ruée tranche la racine à tout moment (rien n'enferme le Chasseur). Racine visible
+entre le point d'attache et le Chasseur. Glauquemire garde sa racine jaillissante (refonte du 11 novembre).
+Bandeau `BOSS_ROOT_LEASH_INTRO` (nouvelle clé FR/EN). La plongée sous la glace de Nivorath est déjà livrée (#209).
