@@ -102,7 +102,10 @@ func _ready() -> void:
 	# départ choisis au menu (DraftUnlocks) ; les essais automatiques et le bot gardent tout le contenu, sans sauvegarde.
 	var automated: bool = _options.has("bot") or DisplayServer.get_name() == "headless"
 	if automated:
-		DraftUnlocks.path = ""
+		DraftSave.path = ""
+	# Partie d'essai (boss avancé, invincibilité, sorts imposés) : profil lu, jamais écrit ni récompensé.
+	DraftSave.read_only = _options.has("boss-at") or _options.has("god") or _options.has("spells") \
+		or _options.has("chapter")
 	unlocks = null if automated else DraftUnlocks.load()
 	var starting: Array[StringName] = unlocks.starting_spells() if unlocks != null else balance.default_spells.duplicate()
 	if _options.has("spells"):
@@ -119,8 +122,6 @@ func _ready() -> void:
 	upgrades.tuning = tuning
 	hunter.xp_scale = tuning.xp_scale
 	upgrades.unlocks = unlocks
-	if _bot or DisplayServer.get_name() == "headless":
-		DraftProgress.path = ""
 	hunter.set_physics_process(false)
 	hunter.god_mode = _options.has("god")
 	hunter.leveled.connect(func(_l: int) -> void:
@@ -171,6 +172,8 @@ func _ready() -> void:
 		hud.show_chapters(DraftRoster.chapters(), DraftProgress.cleared(), tuning.all_chapters_open)
 		chosen_chapter = await hud.chapter_chosen
 	chapter = maxi(chosen_chapter, 1)
+	if not DraftSave.read_only:
+		DraftProgress.record_start(chapter)
 	roster = DraftRoster.for_chapter(chapter)
 	# La carte dépend du chapitre : elle se construit une fois le choix fait.
 	if DraftTower.applies(chapter):
@@ -798,6 +801,11 @@ func choose(index: int) -> void:
 
 # --- Fin de partie -----------------------------------------------------------------------------------------------
 
+## La lecture seule d'une partie d'essai ne survit pas au retour au menu.
+func _exit_tree() -> void:
+	DraftSave.read_only = false
+
+
 func _on_hunter_died() -> void:
 	_finish(false)
 
@@ -809,10 +817,11 @@ func _finish(victory: bool) -> void:
 	hunter.active = false
 	hunter.god_mode = victory
 	Audio.play_context("victory" if victory else "defeat")
-	if victory:
+	if victory and not DraftSave.read_only:
 		DraftProgress.record_victory(chapter)
 	_end_delay = 1.0
-	if unlocks != null:
+	if unlocks != null and not DraftSave.read_only:
+		DraftSave.record_stats(victory, kills, time, hunter.level, guardians_killed, devourers_killed)
 		unlocks.record_run(unlocks.run_gain(kills, time, guardians_killed, devourers_killed))
 	# Gain de Fragments de faille (DraftUnlocks, enregistré par la partie avant cet écran) ; -1 : rien d'affiché.
 	hud.show_end(victory, tr("DRAFT_SUMMARY") % ["%d:%02d" % [int(time) / 60, int(time) % 60], hunter.level, kills],

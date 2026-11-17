@@ -3,15 +3,11 @@ extends RefCounted
 ## Déblocages permanents de la version 3D (docs/design/DEBLOCAGE_V2.md, direction C) : une monnaie gagnée en partie
 ## (Fragments de faille), des sorts et des mutations débloqués à l'écran « Déblocages » (draft3d/unlock_screen.gd) et
 ## les 2 sorts de départ choisis parmi les sorts débloqués. Le contenu débloqué est le seul tiré au choix de niveau.
-## Sauvegarde à part : user://draft3d_unlocks.json (le profil 2D n'est jamais écrit). Coûts et gains : draft3d/tuning.tres.
+## Sauvegarde : profil v2 `DraftSave` (user://draft3d_profile.json, écrit à chaque déblocage et en fin de partie ; le
+## profil 2D n'est jamais écrit). `DraftSave.path = ""` : rien n'est lu ni écrit. Coûts et gains : draft3d/tuning.tres.
 
 signal changed
 
-const PATH := "user://draft3d_unlocks.json"
-const FORMAT := 1
-
-## Chemin de sauvegarde ; vide : rien n'est lu ni écrit (essais automatiques, bot).
-static var path: String = PATH
 static var _instance: DraftUnlocks
 
 var fragments: int = 0
@@ -30,9 +26,24 @@ static func load() -> DraftUnlocks:
 	return _instance
 
 
-## Oublie l'état en mémoire (essais : un nouvel état est relu au prochain `load`).
+## Oublie l'état en mémoire (essais : un nouvel état est relu au prochain `load`, profil compris).
 static func reset() -> void:
 	_instance = null
+	DraftSave.reset()
+
+
+## « Réinitialiser la progression » : profil remis à zéro, l'état partagé repart des sorts offerts.
+static func wipe() -> void:
+	DraftSave.wipe()
+	if _instance == null:
+		return
+	_instance.unlocked.clear()
+	for id: StringName in _instance.tuning.free_spells:
+		_instance.unlocked[id] = true
+	_instance.starting = _instance.tuning.free_spells.duplicate()
+	_instance._read()
+	_instance._write()
+	_instance.changed.emit()
 
 
 func _init() -> void:
@@ -125,35 +136,29 @@ func run_gain(kills: int, seconds: float, guardians: int, devourers: int) -> int
 func record_run(amount: int) -> void:
 	gain = maxi(amount, 0)
 	fragments += gain
+	var stats: Dictionary = DraftSave.data()["stats"]
+	stats["fragments_earned"] = int(stats["fragments_earned"]) + gain
 	_write()
 	changed.emit()
 
 
 func _read() -> void:
-	if path == "" or not FileAccess.file_exists(path):
-		return
-	var data: Variant = JSON.parse_string(FileAccess.get_file_as_string(path))
-	if not data is Dictionary:
-		return
-	fragments = maxi(int((data as Dictionary).get("fragments", 0)), 0)
-	for id: Variant in (data as Dictionary).get("unlocked", []):
-		unlocked[StringName(str(id))] = true
+	var data: Dictionary = DraftSave.data()
+	fragments = int(data["fragments"])
+	for id: String in data["unlocked"]:
+		unlocked[StringName(id)] = true
 	var saved: Array[StringName] = []
-	for id: Variant in (data as Dictionary).get("starting", []):
-		saved.append(StringName(str(id)))
+	for id: String in data["starting"]:
+		saved.append(StringName(id))
 	if saved.size() == 2 and saved[0] != saved[1] and unlocked.has(saved[0]) and unlocked.has(saved[1]):
 		starting = saved
-	gain = int((data as Dictionary).get("last_gain", -1))
+	gain = int(data["last_gain"])
 
 
 func _write() -> void:
-	if path == "":
-		return
-	var file: FileAccess = FileAccess.open(path, FileAccess.WRITE)
-	if file == null:
-		return
-	var ids: Array[String] = []
-	for id: StringName in unlocked:
-		ids.append(String(id))
-	file.store_string(JSON.stringify({"version": FORMAT, "fragments": fragments, "unlocked": ids,
-		"starting": starting.map(func(id: StringName) -> String: return String(id)), "last_gain": gain}))
+	var data: Dictionary = DraftSave.data()
+	data["fragments"] = fragments
+	data["unlocked"] = unlocked.keys().map(func(id: StringName) -> String: return String(id))
+	data["starting"] = starting.map(func(id: StringName) -> String: return String(id))
+	data["last_gain"] = gain
+	DraftSave.save()
