@@ -6,6 +6,10 @@ extends DraftBossMechanic
 
 const RIPPLE := Color(0.35, 0.6, 0.55, 0.55)
 const SUBMERGED_MULT := 0.2
+const ICE := Color(0.7, 0.9, 1.0, 0.55)
+
+## Technique jouée : `maw_dive` (Gueule des marais) ou `frozen_dive` (Nivorath, plongée sous la banquise).
+var dive_kind: StringName = &"maw_dive"
 
 var dive: Dictionary = {}
 var surfaced: int = 0
@@ -14,8 +18,12 @@ var _exposed_left: float = 0.0
 var _ripple: MeshInstance3D
 
 
+func _init(p_kind: StringName = &"maw_dive") -> void:
+	dive_kind = p_kind
+
+
 func handles(kind: StringName) -> bool:
-	return kind == &"maw_dive"
+	return kind == dive_kind
 
 
 func perform(pattern: BossPatternData) -> float:
@@ -27,7 +35,7 @@ func perform(pattern: BossPatternData) -> float:
 		"damage": brain.damage(pattern.damage), "warned": false}
 	brain.play_clip([StringName(str(params.get("anim", "dive"))), &"attack"], pattern.telegraph)
 	brain.fx(&"splash", foe.pos + Vector3.UP * 0.4, foe.radius * 1.5)
-	intro("BOSS_DIVE_INTRO")
+	intro("BOSS_FROZEN_DIVE_INTRO" if dive_kind == &"frozen_dive" else "BOSS_DIVE_INTRO")
 	return pattern.telegraph
 
 
@@ -57,7 +65,7 @@ func step(delta: float) -> void:
 	var foe: DraftEnemies.Foe = brain.foe
 	foe.view.visible = false
 	if _ripple == null:
-		_ripple = make_disc(foe.pos, foe.radius + 0.4, RIPPLE)
+		_ripple = make_disc(foe.pos, foe.radius + 0.4, ICE if dive_kind == &"frozen_dive" else RIPPLE)
 	if _clock < float(dive["chase_until"]):
 		# La ride suit le Chasseur.
 		var to_hunter: Vector3 = brain.enemies.hunter.global_position - foe.pos
@@ -69,7 +77,7 @@ func step(delta: float) -> void:
 	elif not bool(dive["warned"]):
 		dive["warned"] = true
 		brain.enemies.hazards.circle(foe.pos, float(dive["radius"]), float(dive["warning"]), float(dive["damage"]),
-			brain.fx_at(&"splash", float(dive["radius"])))
+			brain.fx_at(&"ice_shatter" if dive_kind == &"frozen_dive" else &"splash", float(dive["radius"])))
 	elif _clock >= float(dive["chase_until"]) + float(dive["warning"]):
 		_surface()
 	if _ripple != null:
