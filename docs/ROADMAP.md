@@ -1332,3 +1332,11 @@ Raccordement prêt, **aucune ressource livrée** à ce jour (ni dans le dépôt 
 - Mécaniques des trois combos inchangées (vérifiées par `test_draft3d_combos`).
 - **Suite** : à la livraison, déposer les fichiers, relancer le contrôle et l'import, ajouter les entrées du catalogue
   (+ décompte de `test_item_art`), captures en jeu.
+
+## Combos du lot 6 — 17 novembre 2026 (session « VFX »)
+
+Douze combos jouables (3 existants + 9) dans `draft3d/combos.gd` ; détail dans `docs/design/GAMEPLAY_V2_ARCHITECTURE.md`
+(lot 6). Essais `tests/unit/test_draft3d_combos_lot6.gd`, captures `tools/combo_showcase.tscn` → `docs/previews/combos/`.
+- **Reste** : équilibrage global des 12 combos (valeurs de départ dans `draft3d/tuning.tres`), VFX dédiés (replis
+  existants joués), offres de cartes qui tiennent compte des combos (non demandé à ce lot).
+

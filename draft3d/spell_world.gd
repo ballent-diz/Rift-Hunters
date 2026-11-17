@@ -54,6 +54,7 @@ func _step_wells(delta: float) -> void:
 			var offset: Vector3 = DraftSpells._flat(at - foe.pos)
 			if offset.length() > 0.3:
 				foe.pos += offset.normalized() * minf(float(well["pull"]) * delta, offset.length())
+		run.combos.on_well(well)
 		well["left"] = float(well["left"]) - delta
 		if float(well["left"]) <= 0.0:
 			if not well["drawn"]:
@@ -130,7 +131,7 @@ func _step_walls(delta: float) -> void:
 
 func add_crystal(at: Vector3, radius: float, duration: float, focus: bool, drawn: bool = false) -> void:
 	crystals.append({"at": at, "radius": radius, "left": duration, "focus": focus,
-		"visual": null if drawn else run.fx(&"ice_shatter", &"reflets", at + Vector3.UP * 0.8, 1.2, true)})
+		"visual": null if drawn else run.fx(&"ice_shatter", &"givres", at + Vector3.UP * 0.8, 1.2, true)})
 
 
 ## Un trait du Chasseur qui traverse un Cristal se divise une fois (deux traits de plus, en éventail) ; Foyer : les
@@ -157,6 +158,8 @@ func refract(shot: Dictionary) -> int:
 			var bolt: Dictionary = run.fire_bolt(at, aim, float(shot["damage"]) * damage, float(shot["left"]), 0, -1,
 				&"arcane_orb", 0.6, 0.3, DraftRun.BOLT_SPEED, &"reflets")
 			bolt["refracted"] = true
+			# Éclat d'une Lance (Convergence prismatique) ; jamais réfracté à nouveau.
+			bolt["prism"] = shot.get("lance", false)
 		return split
 	return 0
 

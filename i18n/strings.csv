@@ -2514,4 +2514,22 @@ COMBO3D_PRISMATIC_DELUGE_NAME,Déluge prismatique,Prismatic Deluge
 COMBO3D_PRISMATIC_DELUGE_DESC,Une Lance qui traverse un Cristal se brise en une gerbe d'éclats plus nombreux et plus forts.,"A Lance passing through a Crystal shatters into a larger, stronger spray of shards."
 COMBO3D_GRAVITY_BLADE_NAME,Lame gravitationnelle,Gravity Blade
 COMBO3D_GRAVITY_BLADE_DESC,Une Taille qui atteint un puits de Singularité libère une onde de choc et expose les ennemis piégés.,A Slash that reaches a Singularity well releases a shockwave and exposes the trapped enemies.
+COMBO3D_DIMENSIONAL_HUNT_NAME,Chasse dimensionnelle,Dimensional Hunt
+COMBO3D_DIMENSIONAL_HUNT_DESC,Une Fente du vide qui traverse la cible marquée par la Marque du traqueur déclenche une frappe secondaire sur elle.,A Void Rend through the target of the Hunter's Mark triggers a follow-up strike on it.
+COMBO3D_TRACKER_RUPTURE_NAME,Rupture du traqueur,Tracker's Rupture
+COMBO3D_TRACKER_RUPTURE_DESC,Une Rupture qui atteint la cible marquée déclenche une explosion concentrée sur elle.,A Rupture that reaches the marked target sets off a concentrated explosion on it.
+COMBO3D_PRISMATIC_CONVERGENCE_NAME,Convergence prismatique,Prismatic Convergence
+COMBO3D_PRISMATIC_CONVERGENCE_DESC,Une Rupture sur un ennemi touché par une Lance réfractée par un Cristal depuis moins de 2 s déclenche un arc qui saute d'ennemi en ennemi (4 sauts au plus).,A Rupture on an enemy hit by a Crystal-refracted Lance less than 2 s ago sets off an arc that jumps from enemy to enemy (up to 4 jumps).
+COMBO3D_RIFT_COUNTER_NAME,Contre-faille,Rift Counter
+COMBO3D_RIFT_COUNTER_DESC,Une Taille fendante dans les 2 s qui suivent une Parade réussie déclenche une contre-attaque élargie tout autour du Chasseur.,A Cleaving Slash within 2 s of a successful Parry unleashes a wider counterattack all around the Hunter.
+COMBO3D_SPECTRAL_REBOUND_NAME,Rebond spectral,Spectral Rebound
+COMBO3D_SPECTRAL_REBOUND_DESC,Une Fente du vide dans les 2 s qui suivent un Pas de faille repart aussi de l'ombre laissée au départ du Pas.,A Void Rend within 2 s of a Rift Step is also echoed from the shadow left where the Step began.
+COMBO3D_VENGEFUL_AEGIS_NAME,Égide vengeresse,Vengeful Aegis
+COMBO3D_VENGEFUL_AEGIS_DESC,Une Parade réussie pendant que l'Égide protège le Chasseur renforce la riposte du bouclier quand il cède (une onde même sans Riposte).,A successful Parry while the Aegis is up empowers the shield's retort when it breaks (a shockwave even without Retort).
+COMBO3D_RIFT_PRISON_NAME,Prison de faille,Rift Prison
+COMBO3D_RIFT_PRISON_DESC,Les ennemis qu'une Singularité attire près d'un Mur de faille sont entravés quelques instants.,Enemies a Singularity pulls near a Rift Wall are briefly rooted.
+COMBO3D_SHATTERING_RAMPART_NAME,Rempart fracassant,Shattering Rampart
+COMBO3D_SHATTERING_RAMPART_DESC,Un Bond de faille qui atterrit près d'un Mur actif lui fait libérer une onde de choc de chaque côté.,A Rift Leap that lands near an active Wall makes it release a shockwave on both sides.
+COMBO3D_STILL_STORM_NAME,Tempête immobile,Still Storm
+COMBO3D_STILL_STORM_DESC,La Pluie d'éclats fait tomber des éclats supplémentaires sur les ennemis pris par l'Onde de stase.,Shard Rain drops extra shards on enemies caught by the Stasis Wave.
 ARSENAL3D_COMBOS,Combos (◆ actif : les deux sorts équipés),Combos (◆ active: both spells equipped)

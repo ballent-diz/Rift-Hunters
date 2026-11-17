@@ -612,8 +612,7 @@ func _step_bolts(delta: float) -> void:
 			if (shot["hit"] as Array).has(foe) or absf(_aim_point(foe).y - to.y) > foe.radius + 0.6:
 				continue
 			(shot["hit"] as Array).append(foe)
-			if shot.get("lance", false):
-				combos.on_lance_hit(foe)
+			combos.on_bolt_hit(shot, foe)
 			fx(&"hit", family_of(foe), to)
 			enemies.hit(foe, float(shot["damage"]), (shot["dir"] as Vector3) * balance.bolt.knockback * DraftHunter.UNIT * 3.0)
 			if int(shot["split"]) > 0:

@@ -98,14 +98,14 @@ func _fill() -> void:
 	buttons[0].grab_focus.call_deferred()
 
 
-## Combos dont les deux sorts sont possédés : actifs s'ils sont équipés tous les deux (docs/design/GAMEPLAY_COMBOS_2P5D.md).
+## Combos dont tous les sorts sont possédés : actifs s'ils sont tous équipés (docs/design/GAMEPLAY_COMBOS_2P5D.md).
 func _combos() -> void:
 	var lines: Array[String] = []
 	for combo: StringName in DraftCombos.RECIPES:
 		var recipe: Array = DraftCombos.RECIPES[combo]
-		if not (spells.owns(recipe[0]) and spells.owns(recipe[1])):
+		if not recipe.all(func(id: StringName) -> bool: return spells.owns(id)):
 			continue
-		var active: bool = spells.has_spell(recipe[0]) and spells.has_spell(recipe[1])
+		var active: bool = recipe.all(func(id: StringName) -> bool: return spells.has_spell(id))
 		var key: String = DraftCombos.NAME_KEYS[combo]
 		lines.append("%s %s — %s" % ["◆" if active else "◇", tr(key), tr(key.replace("_NAME", "_DESC"))])
 	if lines.is_empty():
