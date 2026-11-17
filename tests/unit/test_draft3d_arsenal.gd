@@ -111,15 +111,15 @@ func test_unlocks_currency_and_starting_spells() -> void:
 	var unlocks: DraftUnlocks = DraftUnlocks.load()
 	check(unlocks.is_unlocked(&"cleaving_slash") and unlocks.is_unlocked(&"prismatic_lance"), "sorts offerts")
 	check_eq(unlocks.starting_spells(), [&"cleaving_slash", &"prismatic_lance"] as Array[StringName], "départ par défaut")
-	check(not unlocks.unlock(&"rupture"), "pas assez de Fragments")
+	check(not unlocks.unlock(&"rift_leap"), "pas assez de Fragments")
 	unlocks.record_run(unlocks.run_gain(500, 600.0, 2, 0))
 	check_eq(unlocks.last_gain(), 50 + 60 + 50, "gain : éliminations, minutes, gardiens")
-	check(not unlocks.unlock(&"rupture_blaze"), "une mutation demande son sort")
-	check(unlocks.unlock(&"rupture"), "Rupture débloquée")
+	check(not unlocks.unlock(&"leap_return"), "une mutation demande son sort")
+	check(unlocks.unlock(&"rift_leap"), "Bond débloqué")
 	check_eq(unlocks.currency(), 10, "coût déduit")
-	check(not unlocks.set_starting_spells([&"rupture", &"rupture"] as Array[StringName]), "deux sorts différents")
-	check(not unlocks.set_starting_spells([&"rupture", &"singularity"] as Array[StringName]), "seulement débloqués")
-	check(unlocks.set_starting_spells([&"rupture", &"prismatic_lance"] as Array[StringName]), "départ choisi")
+	check(not unlocks.set_starting_spells([&"rift_leap", &"rift_leap"] as Array[StringName]), "deux sorts différents")
+	check(not unlocks.set_starting_spells([&"rift_leap", &"stasis_wave"] as Array[StringName]), "seulement débloqués")
+	check(unlocks.set_starting_spells([&"rift_leap", &"prismatic_lance"] as Array[StringName]), "départ choisi")
 	var kinds: Dictionary = {}
 	for entry: Dictionary in unlocks.entries():
 		kinds[entry["kind"]] = true
@@ -130,6 +130,7 @@ func test_unlocks_currency_and_starting_spells() -> void:
 	upgrades.unlocks = unlocks
 	await _start()
 	upgrades.spells = run.spells
-	check(not upgrades.can_offer(load(SINGULARITY_CARD)), "sort verrouillé : jamais tiré")
-	check(upgrades.can_offer(load("res://draft3d/spells/learn_rupture.tres")), "sort débloqué : tiré")
-	check(not upgrades.can_offer(load("res://draft3d/spells/lance_fan.tres")), "mutation verrouillée : jamais tirée")
+	check(not upgrades.can_offer(load("res://draft3d/spells/learn_stasis_wave.tres")), "sort verrouillé : jamais tiré")
+	check(upgrades.can_offer(load("res://draft3d/spells/learn_rupture.tres")), "sort offert d'office : tiré")
+	check(not upgrades.can_offer(load("res://draft3d/spells/rupture_blaze.tres")), "mutation verrouillée : jamais tirée")
+	check(upgrades.can_offer(load("res://draft3d/spells/lance_fan.tres")), "mutation de Lance offerte d'office : tirée")

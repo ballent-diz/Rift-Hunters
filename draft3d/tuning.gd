@@ -10,6 +10,11 @@ extends Resource
 ## Bonus de départ : sans Échos, le Trait de Faille doit suffire à tenir les premières vagues.
 @export var hunter_damage_pct: float = 0.5
 @export var hunter_attack_speed_pct: float = 0.25
+## Rythme : vitesse de déplacement du Chasseur (+25 %) et des monstres et boss (×1,15), données v1 inchangées.
+@export var hunter_move_speed_pct: float = 0.25
+@export var enemy_speed_mult: float = 1.15
+## Essai : l'EXP lâchée par un ennemi vole aussitôt vers le Chasseur, quelle que soit la distance.
+@export var xp_auto_collect: bool = true
 @export_group("Sorts")
 ## Les rayons de zone de SpellData (unités du monde 2D) sont resserrés pour la vue 3D, plus proche.
 @export var spell_area_scale: float = 0.5
@@ -122,7 +127,12 @@ extends Resource
 @export_group("Déblocages")
 ## Sorts offerts (débloqués d'office, sorts de départ par défaut), coûts et gains de Fragments de faille
 ## (docs/design/DEBLOCAGE_V2.md, indicatifs).
-@export var free_spells: Array[StringName] = [&"cleaving_slash", &"prismatic_lance"]
+## Kit offert d'office (tiré en partie dès le premier lancement) : sorts, mutations de Taille et de Lance, et les 2
+## sorts de départ par défaut.
+@export var free_spells: Array[StringName] = [&"cleaving_slash", &"prismatic_lance", &"rupture", &"singularity",
+	&"refracting_crystal", &"parry"]
+@export var free_mutations: Array[StringName] = [&"slash_thrust", &"slash_whirlwind", &"lance_fan", &"lance_overcharge"]
+@export var default_starting: Array[StringName] = [&"cleaving_slash", &"prismatic_lance"]
 @export var spell_unlock_cost: int = 150
 @export var mutation_unlock_cost: int = 80
 @export var fragments_per_kill: float = 0.1

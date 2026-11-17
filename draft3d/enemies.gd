@@ -76,6 +76,8 @@ var boss_hp_mult: float = 1.0
 var boss_damage_mult: float = 1.0
 ## Part de l'intervalle d'origine entre deux techniques d'un boss (réglage du mode, `DraftTuning.boss_pace`).
 var boss_pace: float = 1.0
+## Vitesse de marche des monstres et des boss (`DraftTuning.enemy_speed_mult`).
+var speed_mult: float = 1.0
 var path_requests: int = 0
 var _grid: Dictionary = {}
 var _corpses: Array[Dictionary] = []
@@ -89,7 +91,7 @@ func spawn(data: EnemyData, at: Vector3, size: float = 1.0) -> Foe:
 	foe.max_hp = data.max_hp * hp_mult
 	foe.hp = foe.max_hp
 	foe.radius = data.radius * DraftHunter.UNIT
-	foe.speed = data.move_speed * DraftHunter.UNIT
+	foe.speed = data.move_speed * DraftHunter.UNIT * speed_mult
 	foe.damage = data.damage * damage_mult
 	foe.defense = data.defense
 	foe.xp = data.xp_value
@@ -105,7 +107,7 @@ func spawn_boss(data: BossData, at: Vector3, hp_scale: float = 1.0, final: bool 
 	foe.max_hp = data.max_hp * boss_hp_mult * hp_scale
 	foe.hp = foe.max_hp
 	foe.radius = data.radius * DraftHunter.UNIT
-	foe.speed = data.move_speed * DraftHunter.UNIT * 1.6
+	foe.speed = data.move_speed * DraftHunter.UNIT * 1.6 * speed_mult
 	foe.damage = data.damage * boss_damage_mult
 	foe.defense = data.defense
 	foe.xp = 0
