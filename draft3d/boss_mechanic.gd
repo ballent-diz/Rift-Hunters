@@ -34,6 +34,16 @@ func damage_mult() -> float:
 	return 1.0
 
 
+## Enchaînement propre au boss : technique à jouer de préférence après `last` (&"" : aucune préférence).
+func next_kind(_last: StringName) -> StringName:
+	return &""
+
+
+## Appelée juste après que le boss a joué une technique (suite imposée : charge après un écrasement...).
+func after(_kind: StringName) -> void:
+	pass
+
+
 ## Coup reçu par le boss (dégâts réellement infligés).
 func on_hit(_dealt: float) -> void:
 	pass

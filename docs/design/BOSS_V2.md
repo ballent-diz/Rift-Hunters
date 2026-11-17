@@ -367,3 +367,15 @@ mécanique). La v1 archivée garde ses données (`data/bosses/nebulorax.tres`), 
   2,7 m (`DraftHazards` : rappel `on_hit` des cercles et des ondes).
 - Non repris, et pourquoi : froid et braseros du chapitre 4 (système de carte v1, hors boss ; le Chaman garde son
   refuge de chaleur).
+
+### Dévoreur des Sources amélioré (17 novembre)
+
+Choix du propriétaire : premier boss à améliorer, le premier boss final vu par tout joueur.
+`bosses/source_devourer.gd` (`DraftSourceDevourer`), en plus des orbes :
+- **Enchaînement propre** : griffes ou balayage → souffle → orbes de source, trois fois sur quatre quand la technique
+  suivante est prête (`DraftBossMechanic.next_kind`, nouveau point d'accroche du cerveau) ;
+- **souffle qui balaie** : la gueule tourne d'un côté à l'autre (100°, 120° en seconde phase, 7 traits en 1 s),
+  arrêté par le décor ; effet peint `rift_breath` / `phase2_breath` ;
+- **seconde phase** : chaque écrasement est suivi d'une charge vers le Chasseur 1,1 s plus tard
+  (`DraftBossMechanic.after`) ; les orbes passent en double salve (un seul orbe doré).
+- Contrôle : `--boss-test --chapter=1` (bot, mode dieu) : victoire, aucune erreur. Essai `test_source_devourer_style`.

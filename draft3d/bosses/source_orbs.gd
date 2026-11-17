@@ -12,6 +12,8 @@ const RADIUS := 0.55
 const DASH_MARGIN := 0.4
 const RETURN_SPEED_MULT := 4.0
 const HEIGHT := 0.9
+## Écart entre les deux salves de la seconde phase (s).
+const SALVO_GAP := 0.9
 
 ## Orbes en vol : {"node", "pos", "vel", "speed", "life", "damage", "golden", "reflected", "stun", "ratio"}.
 var orbs: Array[Dictionary] = []
@@ -36,13 +38,16 @@ func perform(pattern: BossPatternData) -> float:
 	brain.play_clip([StringName(str(params.get("anim", "rift_breath"))), &"attack"], pattern.telegraph + 0.3)
 	brain.fx(&"ring_charge", mouth(), 1.4)
 	intro("BOSS_ORB_INTRO")
-	for i: int in count:
-		var angle: float = (i - (count - 1) * 0.5) * spread
-		orbs.append({"node": null, "pos": mouth(), "vel": aim.rotated(Vector3.UP, angle) * speed, "speed": speed,
-			"life": float(params.get("life", 7.0)), "damage": brain.damage(pattern.damage), "golden": i == golden,
-			"reflected": false, "stun": float(params.get("stun", 2.0)), "ratio": float(params.get("reflect_ratio", 0.03)),
-			"wait": pattern.telegraph})
-	return pattern.telegraph + float(params.get("recovery", 0.4))
+	# Seconde phase : double salve, la seconde décalée d'un demi-écart et sans orbe doré (il n'y en a qu'un).
+	var salvos: int = 2 if brain.phase >= 1 else 1
+	for salvo: int in salvos:
+		for i: int in count:
+			var angle: float = (i - (count - 1) * 0.5) * spread + salvo * spread * 0.5
+			orbs.append({"node": null, "pos": mouth(), "vel": aim.rotated(Vector3.UP, angle) * speed, "speed": speed,
+				"life": float(params.get("life", 7.0)), "damage": brain.damage(pattern.damage),
+				"golden": salvo == 0 and i == golden, "reflected": false, "stun": float(params.get("stun", 2.0)),
+				"ratio": float(params.get("reflect_ratio", 0.03)), "wait": pattern.telegraph + SALVO_GAP * salvo})
+	return pattern.telegraph + SALVO_GAP * (salvos - 1) + float(params.get("recovery", 0.4))
 
 
 ## Bouche du Dévoreur : devant lui, à mi-hauteur.
