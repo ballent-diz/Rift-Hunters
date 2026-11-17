@@ -1,7 +1,7 @@
 {
-  "files": 223,
-  "bytes": 84852569,
-  "mib": 80.92,
+  "files": 227,
+  "bytes": 84931678,
+  "mib": 81.0,
   "excludes": [
     ".git",
     ".godot",
@@ -132,8 +132,8 @@
     },
     {
       "path": "assets/concepts/incoming/combos_lot_a/prompts.json",
-      "bytes": 10228,
-      "sha256": "330265302818bf81138fb8054e5d44b2039004c6cf3f84d5d6cec92800ae3e84"
+      "bytes": 10234,
+      "sha256": "d71e45aff6211210c5626af1056c3851f1293ead8816f31cd578a9aa236b4bd7"
     },
     {
       "path": "assets/concepts/incoming/combos_lot_a/sources/combo_counter_rift.png",
@@ -232,8 +232,8 @@
     },
     {
       "path": "assets/concepts/incoming/passifs_cartes_v2/prompts.json",
-      "bytes": 11399,
-      "sha256": "c2dd23f974a79306c8af62cdf4381bb7230c1fbb8202feb2773fca7b798aebbe"
+      "bytes": 11409,
+      "sha256": "20042c153322682c6a16f52162297fc04184ea34bc518b2a11e0c6d4c4f8f789"
     },
     {
       "path": "assets/concepts/incoming/passifs_cartes_v2/sources/passive_anchor_card.png",
@@ -677,13 +677,13 @@
     },
     {
       "path": "docs/art/COMBOS_LOT6_VFX.patch",
-      "bytes": 4868,
-      "sha256": "209c2983cdd36daa601d33ce138f16c2bbf453894fbd2c2f796a11ff4e296dc3"
+      "bytes": 4964,
+      "sha256": "e6aa5dc0c706df80e3928b7512cf9aa7fb99885f2a490f407d1358ed24e39a28"
     },
     {
       "path": "docs/art/COUVERTURE_VISUELLE_V2.md",
-      "bytes": 11485,
-      "sha256": "4e64da4b8e2820cb67f2775816c11f90b482b72f330f33e8a7888f4d67f5831c"
+      "bytes": 11579,
+      "sha256": "7605b3f06224b412b717ed17d76dc3938fb9114955341c5dc9350585cb119a8e"
     },
     {
       "path": "docs/previews/combos_lot_a/.gdignore",
@@ -862,8 +862,8 @@
     },
     {
       "path": "docs/previews/couverture-vfx/coverage.json",
-      "bytes": 12799,
-      "sha256": "979f890e7dfb151288f8560ea5c7f0a134a4d84b1f92c5252c374d94745417bc"
+      "bytes": 12794,
+      "sha256": "f3dd4a100151f2b96bd23c9850886085533fa47786328b7b96d7af5f764e4bec"
     },
     {
       "path": "docs/previews/couverture-vfx/illustrations/combo_avenging_aegis.webp",
@@ -932,8 +932,8 @@
     },
     {
       "path": "docs/previews/couverture-vfx/index.html",
-      "bytes": 10462,
-      "sha256": "703c0608adb6f53143e22fba9c395aef51027a1f5da548425a6ce760759cd4ed"
+      "bytes": 10519,
+      "sha256": "9e551b7d1e2f3226457e5d5d62040a8947f7055ba1c4391c52cff2d141555d03"
     },
     {
       "path": "docs/previews/couverture-vfx/initial_fx_validation.json",
@@ -944,6 +944,16 @@
       "path": "docs/previews/couverture-vfx/item_art_tests.txt",
       "bytes": 851,
       "sha256": "9e21275fa657dc5e938af6e470c3a237112ab995228a4470d218f4026667ee50"
+    },
+    {
+      "path": "docs/previews/couverture-vfx/merge_combo.txt",
+      "bytes": 14284,
+      "sha256": "e71b8fc65524efddc47f18361e6fe6a2ee93f492d3634ea1ca30bbb14578f733"
+    },
+    {
+      "path": "docs/previews/couverture-vfx/merge_import.txt",
+      "bytes": 71,
+      "sha256": "5229339a0fca93c879e57b3e86f2c7592df11950bc739ca92295e009e7b5f7b0"
     },
     {
       "path": "docs/previews/couverture-vfx/render_stderr.txt",
@@ -1032,8 +1042,8 @@
     },
     {
       "path": "docs/previews/couverture-vfx/verification.json",
-      "bytes": 1263,
-      "sha256": "6978c3e1e68b9bb44bb6e2fc438e431ca1418796d32456dcd56cf0c6da17ccd2"
+      "bytes": 1283,
+      "sha256": "4dfddc41c0dd8d68b73197c3c850c7acf5fd876a77decbf4825e7e8c3121e71b"
     },
     {
       "path": "docs/previews/couverture-vfx/visual_gl.txt",
@@ -1102,8 +1112,18 @@
     },
     {
       "path": "docs/ROADMAP.md",
-      "bytes": 124864,
-      "sha256": "8495ac42bf2daa0b35a504fa5cc58e0c56bb6590e31eaa42cfc51d5734187c6c"
+      "bytes": 125424,
+      "sha256": "d00444a5944010e276bc3985fa44b04034061a6af03018f2269cab425447ad80"
+    },
+    {
+      "path": "draft3d/combos.gd",
+      "bytes": 21201,
+      "sha256": "e8ba8c93f7e6aa252284b628887c6629979fb1b3d89ce48ba4fca03ee92dd4bf"
+    },
+    {
+      "path": "draft3d/spells.gd",
+      "bytes": 42396,
+      "sha256": "74e5a7a855ed5990cf453580b8d93cfe5ce4f3818901bfb88f91e04104270ff5"
     },
     {
       "path": "tests/unit/test_item_art.gd",
@@ -1112,18 +1132,18 @@
     },
     {
       "path": "tests/unit/test_v2_visual_delivery.gd",
-      "bytes": 4364,
-      "sha256": "e999b0e15d9f011224ac005d3c6c3eb22e6f351235545a8663e918eee36acba5"
+      "bytes": 4453,
+      "sha256": "6ea6ccf4b53d7573bc64a38c3ec05a9dd127b1dcf6123962cff322fd989f67c9"
     },
     {
       "path": "tools/art/audit_v2_visual_coverage.py",
-      "bytes": 4535,
-      "sha256": "0f43b44fbed80b1271d17c932b359b28e914f837f393a5f0a6370f7da87413e5"
+      "bytes": 4680,
+      "sha256": "9ada85c669b071ae11407ec274c01d1f90abb70a52f6d917392da99fcc0a3fd4"
     },
     {
       "path": "tools/art/preview_v2_delivery.gd",
-      "bytes": 3283,
-      "sha256": "88e3bafee48fc84fdb9a5d22d9d763798f0e28f9600008590a1cccf0e7354b9d"
+      "bytes": 3368,
+      "sha256": "b1f6b730f51dfffbe2667bf07e5819ca3703efe8a5010d87faea69edf9539e66"
     }
   ]
 }

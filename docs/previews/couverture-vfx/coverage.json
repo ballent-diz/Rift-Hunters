@@ -239,7 +239,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_counter_rift.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "dimensional_hunt",
@@ -257,7 +257,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_dimensional_hunt.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "tracker_rupture",
@@ -275,7 +275,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_tracker_rupture.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "spectral_rebound",
@@ -293,7 +293,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_spectral_rebound.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "shattering_rampart",
@@ -311,7 +311,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_shattering_bastion.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "vengeful_aegis",
@@ -329,7 +329,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_avenging_aegis.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "still_storm",
@@ -347,7 +347,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_still_storm.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "rift_prison",
@@ -365,7 +365,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_rift_prison.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     },
     {
       "id": "prismatic_convergence",
@@ -383,7 +383,7 @@
       },
       "illustration": "res://assets/ui/items/combos/combo_prismatic_convergence.png",
       "status": "PASS",
-      "trigger_in_current_branch": false
+      "trigger_in_current_branch": true
     }
   ],
   "rewards": [
@@ -420,5 +420,5 @@
     "reward_illustrations": 5,
     "passive_fx": 3
   },
-  "runtime_dependency": "Les neuf déclencheurs supplémentaires sont dans la PR#212, pas dans cette branche."
+  "runtime_dependency": "PR #212 fusionnée ; raccord visuel des douze combos présent dans cette branche locale."
 }

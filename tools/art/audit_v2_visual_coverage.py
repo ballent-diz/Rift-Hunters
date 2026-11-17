@@ -57,12 +57,13 @@ def main():
         spells.append(dict(id=id_,icon=fx['path']+'#image_du_milieu',fx=fx,
                            source='FX existant, icône AtlasTexture existante de DraftSpellBar',status='PASS'))
     code=(ROOT/'draft3d/combos.gd').read_text(encoding='utf-8')
+    code+=(ROOT/'draft3d/spells.gd').read_text(encoding='utf-8')
     combos=[]
     for runtime,effect in COMBOS.items():
         fx=sheet(effect);entry=catalog['combo.'+runtime];p=file_path(entry['image'])
         im=Image.open(p);assert im.mode=='RGBA' and im.size==(1254,1254)
         combos.append(dict(id=runtime,asset_id=effect,fx=fx,illustration=entry['image'],status='PASS',
-                           trigger_in_current_branch=bool(re.search(r'const \w+ := &"'+runtime+r'"',code))))
+                           trigger_in_current_branch=bool(re.search(r'fx_or\(&"'+effect+r'"',code))))
     rewards=[]
     for id_ in REWARDS:
         p=file_path(catalog['upgrade.'+id_]['image']);im=Image.open(p)
@@ -73,7 +74,7 @@ def main():
                 spells=spells,combos=combos,rewards=rewards,
                 totals=dict(spells=len(spells),combo_fx=len(combos),combo_illustrations=len(combos),
                             reward_illustrations=len(rewards),passive_fx=3),
-                runtime_dependency='Les neuf déclencheurs supplémentaires sont dans la PR#212, pas dans cette branche.')
+                runtime_dependency='PR #212 fusionnée ; raccord visuel des douze combos présent dans cette branche locale.')
     out=ROOT/'docs/previews/couverture-vfx/coverage.json';out.parent.mkdir(parents=True,exist_ok=True)
     out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(result['totals'],ensure_ascii=False))

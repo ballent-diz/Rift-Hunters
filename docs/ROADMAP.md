@@ -2,7 +2,7 @@
 
 ## Couverture visuelle sorts et combos — livraison locale prête (Codex, 17 novembre 2026)
 
-Audit des 15 sorts v2 ; trois FX initiaux recréés ; 12 FX de combos et 12 illustrations, trois FX de passifs et cinq cartes livrés localement. Branche `codex/couverture-visuelle-sorts-combos`, aucune modification des mécaniques. Les neuf nouveaux déclencheurs dépendent de la PR #212 ; leur patch de présentation est fourni. [Rapport et fichiers](art/COUVERTURE_VISUELLE_V2.md). Publication distante en attente.
+Audit des 15 sorts v2 ; trois FX initiaux recréés ; 12 FX de combos et 12 illustrations, trois FX de passifs et cinq cartes livrés localement. Branche `codex/couverture-visuelle-sorts-combos`, aucune modification des mécaniques. La PR gameplay #212 est fusionnée après CI verte ; le raccord visuel des neuf nouveaux combos est appliqué dans cette branche locale. [Rapport et fichiers](art/COUVERTURE_VISUELLE_V2.md). Publication distante en attente.
 
 
 ## Sauvegarde de la v2 (Claude, session « Progression », 17 novembre 2026)
