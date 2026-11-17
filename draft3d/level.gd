@@ -24,6 +24,7 @@ var ambient := Color("b2b9d8")
 var sun := Color("ffe4bc")
 var sun_energy: float = 0.8
 var ready_for_paths: bool = false
+var _seed: int = 7
 var _spawn_points: Array[Vector3] = []
 
 
@@ -229,6 +230,66 @@ func _mesh_of(tool: SurfaceTool, color: Color) -> MeshInstance3D:
 	material.cull_mode = BaseMaterial3D.CULL_DISABLED
 	mesh.material_override = material
 	return mesh
+
+
+## Variation pseudo-aléatoire déterministe (même carte à chaque partie), dans [−amount, amount].
+func _jitter(amount: float) -> float:
+	_seed = (_seed * 1103515245 + 12345) & 0x7fffffff
+	return (float(_seed % 1000) / 1000.0 * 2.0 - 1.0) * amount
+
+
+## Rocher : ellipse irrégulière de demi-axes `half` à la base (hauteur `base`), sommet réduit (`taper`).
+func _boulder(center: Vector2, half: Vector2, base: float, height: float, color: Color, taper: float = 0.45) -> void:
+	var points := PackedVector2Array()
+	for step: int in 9:
+		var angle: float = TAU * step / 9.0 + _jitter(0.15)
+		var stretch: float = 1.0 + _jitter(0.12)
+		points.append(center + Vector2(cos(angle) * half.x, sin(angle) * half.y) * stretch)
+	_rock_prism(points, center, base, height, color, taper)
+
+
+## Massif de roche sur un polygone de base quelconque (enveloppe convexe) posé à la hauteur `base`, sommet réduit de
+## `taper` autour du centre ; collision pleine ; marqué « décor » : son sommet n'est pas une zone de jeu.
+func _rock_prism(points: PackedVector2Array, center: Vector2, base: float, height: float, color: Color,
+		taper: float) -> void:
+	var outline: PackedVector2Array = Geometry2D.convex_hull(points)
+	outline.remove_at(outline.size() - 1)
+	var top := PackedVector2Array()
+	var tip := center + Vector2(_jitter(0.5), _jitter(0.5))
+	for corner: Vector2 in outline:
+		top.append(tip + (corner - center) * taper)
+	var tool := SurfaceTool.new()
+	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for index: int in range(1, top.size() - 1):
+		for corner: Vector2 in [top[0], top[index], top[index + 1]]:
+			tool.set_normal(Vector3.UP)
+			tool.add_vertex(Vector3(corner.x, base + height, corner.y))
+	var hull := PackedVector3Array()
+	for index: int in outline.size():
+		var a := Vector3(outline[index].x, base - 0.1, outline[index].y)
+		var b := Vector3(outline[(index + 1) % outline.size()].x, base - 0.1, outline[(index + 1) % outline.size()].y)
+		var c := Vector3(top[(index + 1) % top.size()].x, base + height, top[(index + 1) % top.size()].y)
+		var d := Vector3(top[index].x, base + height, top[index].y)
+		var normal: Vector3 = (b - a).cross(d - a).normalized()
+		var outward := Vector3(outline[index].x - center.x, 0, outline[index].y - center.y)
+		if normal.dot(outward) < 0.0:
+			normal = -normal
+		for corner: Vector3 in [a, b, c, a, c, d]:
+			tool.set_normal(normal)
+			tool.add_vertex(corner)
+		hull.append(a)
+		hull.append(d)
+	var body := StaticBody3D.new()
+	body.name = "Rock"
+	# Décor et non relief : son sommet n'est pas une zone de jeu (DraftLevelAudit).
+	body.set_meta(&"decor", true)
+	add_child(body)
+	body.add_child(_mesh_of(tool, color))
+	var shape := ConvexPolygonShape3D.new()
+	shape.points = hull
+	var collision := CollisionShape3D.new()
+	collision.shape = shape
+	body.add_child(collision)
 
 
 func _light(at: Vector3, color: Color, energy: float = 1.4, reach: float = 5.0) -> void:

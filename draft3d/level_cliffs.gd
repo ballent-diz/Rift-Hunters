@@ -7,8 +7,11 @@ extends DraftLevel
 ## - le Promontoire (6 m) : colonnade effondrée ;
 ## - la Couronne (9 m, nord) : sanctuaire au sommet, lieu du boss.
 ## Pour monter : rampes en lacets le long des falaises, éboulis en pente douce, escaliers de pierre ; deux accès au
-## moins par corniche, aucun cul-de-sac. On saute d'une corniche (on ne remonte que par un accès). Règles du relief :
-## on tire vers le bas et vers le haut si la vue est dégagée, la mêlée ne porte pas au-delà de 1 m de dénivelé, une
+## moins par corniche, aucun cul-de-sac. Sur chaque corniche basse, un perchoir 1,5 m plus haut (deux pentes) : hors
+## de portée de la mêlée, il se paie d'un accès étroit. Fronts de falaise découpés par des rochers en saillie (abris
+## entre deux niveaux) ; la Cascade descend du sommet par le chenal est, de bassin en bassin jusqu'à la grève.
+## On saute d'une corniche (on ne remonte que par un accès). Règles du relief : on tire vers le bas et vers le haut
+## si la vue est dégagée, la mêlée ne porte pas au-delà de 1 m de dénivelé, une
 ## attaque annoncée au sol ne touche que son niveau. Pièces : KayKit Dungeon (draft3d/modules, draft3d/dungeon) et
 ## Medieval Hexagon (draft3d/medieval, × 5).
 
@@ -34,6 +37,13 @@ const CLIFF := Color("4a4248")
 const RAMP := Color("7a6e5a")
 const RIFT := Color("b06bff")
 const EMBER := Color("ffb070")
+const WATER := Color(0.32, 0.55, 0.62, 0.72)
+const PERCH := 1.5
+## Fronts de falaise laissés libres (accès et cascade) : par corniche (index), intervalles de x.
+const CLEAR: Array = [[], [Vector2(-33, -8), Vector2(21, 32), Vector2(8, 14)],
+	[Vector2(-15, -5), Vector2(14, 34), Vector2(8, 14)], [Vector2(-34, -9), Vector2(-6, 6), Vector2(8, 14)]]
+## Cascade : x du chenal.
+const FALLS_X := 9.0
 
 
 func build() -> void:
@@ -51,6 +61,9 @@ func build() -> void:
 		_ledge(LEDGES[index], colors[index])
 	_borders()
 	_ascents()
+	_perches()
+	_cliff_faces()
+	_cascade()
 	_shore()
 	_watch()
 	_promontory()
@@ -135,7 +148,6 @@ func _ascents() -> void:
 	_module("stairs_wide", Vector3(26, 0, 30), Vector3(1, 0.75, 1.5))
 	# Guet → Promontoire : éboulis au centre-ouest, lacet à l'est.
 	_incline(Vector3(-10, 3, 16), Vector3(-10, 6, 3), 6.0, CLIFF.lightened(0.15))
-	_rock_pile(Vector3(-15.8, 3, 10))
 	_switchback(31.0, 21.0, 6.5, 3.0, Vector2(2.0, 8.5))
 	# Promontoire → Couronne : grand escalier au centre (sur la saillie), lacet à l'ouest.
 	_module("stairs_wide", Vector3(0, 6, -20), Vector3(1, 0.75, 1.5))
@@ -144,8 +156,116 @@ func _ascents() -> void:
 	_switchback(-12.0, -26.0, -21.5, 6.0, Vector2(-27.0, -19.5))
 
 
-func _rock_pile(at: Vector3) -> void:
-	_piece("rubble_half", at, 90.0)
+## Rebord sud d'une corniche à cette abscisse (saillie comprise).
+func front_z(index: int, x: float) -> float:
+	var ledge: Dictionary = LEDGES[index]
+	for jut: Vector3 in ledge["jut"]:
+		if x >= jut.x and x <= jut.y:
+			return jut.z
+	return ledge["front"]
+
+
+## Perchoirs : plateaux 1,5 m au-dessus de leur corniche, deux pentes chacun.
+func _perches() -> void:
+	# Grève : le Rocher du Phare, feu de veille au sommet.
+	_plateau(Rect2(16, 41, 8, 6), 0.0, SAND.darkened(0.15))
+	_incline(Vector3(10, 0, 44), Vector3(16.5, PERCH, 44), 3.5, SAND.darkened(0.1))
+	_incline(Vector3(20, 0, 53), Vector3(20, PERCH, 46.5), 3.5, SAND.darkened(0.1))
+	_light(Vector3(20, PERCH + 2.0, 44), EMBER, 2.2, 10.0)
+	_piece("candle_triple", Vector3(21.5, PERCH, 42.5), 0.0, "none")
+	# Guet : le Belvédère, à l'ouest.
+	_plateau(Rect2(-30, 14, 8, 7), 3.0, GRASS.darkened(0.15))
+	_incline(Vector3(-26, 3, 26.5), Vector3(-26, 3 + PERCH, 20.5), 3.5, GRASS.darkened(0.1))
+	_incline(Vector3(-15.5, 3, 17.5), Vector3(-22.5, 3 + PERCH, 17.5), 3.5, GRASS.darkened(0.1))
+	_piece("wall_half", Vector3(-27, 3 + PERCH, 14.6), 0.0)
+	_torch(Vector3(-24, 3 + PERCH, 15.2))
+	# Promontoire : la Terrasse aux colonnes, ruine surélevée à l'est.
+	_plateau(Rect2(12, -16, 12, 8), 6.0, STONE.darkened(0.12))
+	_incline(Vector3(31, 6, -12), Vector3(23.5, 6 + PERCH, -12), 3.5, STONE.darkened(0.05))
+	_incline(Vector3(18, 6, 0), Vector3(18, 6 + PERCH, -8.5), 3.5, STONE.darkened(0.05))
+	for x: float in [13.5, 22.5]:
+		for z: float in [-14.5, -9.5]:
+			_piece("pillar", Vector3(x, 6 + PERCH, z))
+
+
+func _plateau(area: Rect2, base: float, color: Color) -> void:
+	var top: float = base + PERCH
+	_box("Ledge", Vector3(area.get_center().x, top - (top + 0.5) * 0.5, area.get_center().y),
+		Vector3(area.size.x, top + 0.5, area.size.y), color)
+
+
+## Fronts de falaise découpés : rochers en saillie au pied de chaque falaise, qui dépassent un peu du rebord (abris
+## entre deux niveaux) ; les accès et la cascade restent dégagés.
+func _cliff_faces() -> void:
+	for index: int in range(1, LEDGES.size()):
+		var lower: float = LEDGES[index - 1]["top"]
+		var x: float = MIN.x + 2.5
+		while x < MAX.x - 2.0:
+			var clear: bool = true
+			for gap: Vector2 in CLEAR[index]:
+				clear = clear and not (x > gap.x - 2.5 and x < gap.y + 2.5)
+			if clear:
+				var z: float = front_z(index, x)
+				_boulder(Vector2(x + _jitter(0.8), z + 0.9), Vector2(2.4 + _jitter(0.5), 1.3), lower,
+					STEP + 0.6 + _jitter(0.6), CLIFF.lightened(0.05), 0.55)
+			x += 4.5 + _jitter(1.0)
+
+
+## La Cascade : chute d'eau sur chaque front de falaise du chenal est, ruisseau peu profond sur chaque corniche (on
+## y marche), bassin au pied, sur la grève. Eau sans collision.
+func _cascade() -> void:
+	var width: float = 3.0
+	for index: int in range(1, LEDGES.size()):
+		var lower: float = LEDGES[index - 1]["top"]
+		var z: float = front_z(index, FALLS_X)
+		_water_quad([Vector3(FALLS_X - width * 0.5, lower + STEP + 0.02, z - 0.05),
+			Vector3(FALLS_X + width * 0.5, lower + STEP + 0.02, z - 0.05),
+			Vector3(FALLS_X + width * 0.5, lower + 0.05, z + 0.35), Vector3(FALLS_X - width * 0.5, lower + 0.05, z + 0.35)])
+		_light(Vector3(FALLS_X, lower + 1.0, z + 1.5), Color("9fd8ff"), 1.0, 5.0)
+	for index: int in LEDGES.size():
+		var top: float = LEDGES[index]["top"]
+		var north: float = LEDGES[index]["back"] if index < LEDGES.size() - 1 else BOSS_SPOT.z + 10.0
+		var south: float = front_z(index, FALLS_X) if index > 0 else 38.0
+		if index == LEDGES.size() - 1:
+			north = -32.0
+		var start_z: float = front_z(index + 1, FALLS_X) if index < LEDGES.size() - 1 else north
+		var left: float = FALLS_X - width * 0.5
+		var right: float = FALLS_X + width * 0.5
+		_water_quad([Vector3(left, top + 0.03, start_z), Vector3(right, top + 0.03, start_z),
+			Vector3(right, top + 0.03, south), Vector3(left, top + 0.03, south)])
+	# Bassin de la grève (eau peu profonde, on y marche).
+	var pool := PackedVector2Array()
+	for step: int in 10:
+		var angle: float = TAU * step / 10.0
+		pool.append(Vector2(FALLS_X + cos(angle) * 5.5, 35.0 + sin(angle) * 3.0))
+	var points: Array[Vector3] = []
+	for corner: Vector2 in pool:
+		points.append(Vector3(corner.x, 0.03, corner.y))
+	_water_quad(points)
+
+
+## Surface d'eau (polygone convexe, sans collision, transparente).
+func _water_quad(points: Array[Vector3]) -> void:
+	var tool := SurfaceTool.new()
+	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var normal: Vector3 = (points[1] - points[0]).cross(points[points.size() - 1] - points[0]).normalized()
+	if normal.y < 0.0 or (absf(normal.y) < 0.2 and normal.z < 0.0):
+		normal = -normal
+	for index: int in range(1, points.size() - 1):
+		for corner: Vector3 in [points[0], points[index], points[index + 1]]:
+			tool.set_normal(normal)
+			tool.add_vertex(corner)
+	var mesh := MeshInstance3D.new()
+	mesh.name = "Water"
+	mesh.mesh = tool.commit()
+	var material := StandardMaterial3D.new()
+	material.albedo_color = WATER
+	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+	material.cull_mode = BaseMaterial3D.CULL_DISABLED
+	material.roughness = 0.6
+	mesh.material_override = material
+	mesh.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	add_child(mesh)
 
 
 ## Limites : falaises pleines à l'est et à l'ouest (hautes au nord), rochers bas au sud (côté caméra).
@@ -173,40 +293,62 @@ func _cliff(at: Vector3, size: Vector3) -> void:
 
 func _shore() -> void:
 	_medieval("tent", Vector3(-12, 0, 47), 20.0)
-	_medieval("crate_A_big", Vector3(10, 0, 44), 10.0)
+	_medieval("tent", Vector3(-4, 0, 51), -15.0)
+	_medieval("crate_A_big", Vector3(4, 0, 44), 10.0)
 	_medieval("crate_long_A", Vector3(-22, 0, 40), 80.0)
-	_medieval("barrel", Vector3(14, 0, 50), 0.0)
-	_medieval("rock_single_C", Vector3(4, 0, 38), 0.0)
-	_medieval("rock_single_A", Vector3(-26, 0, 50), 0.0)
+	_medieval("barrel", Vector3(-1, 0, 41), 0.0)
+	_piece("trunk_large_A", Vector3(-28, 0, 46), 30.0)
+	_medieval("rock_single_C", Vector3(-17, 0, 36), 0.0)
+	_medieval("rock_single_A", Vector3(-30, 0, 52), 0.0)
+	_medieval("rock_single_D", Vector3(30, 0, 48), 40.0)
 	_light(Vector3(-8, 2.0, 46), EMBER, 1.6, 9.0)
 
 
-## Terrasses du Guet (3 m) : deux postes de guet en ruine (murets), un brasero.
+## Terrasses du Guet (3 m) : poste de guet en ruine (enclos à deux ouvertures), bosquets, brasero.
 func _watch() -> void:
-	for spot: Vector3 in [Vector3(-22, 3, 14), Vector3(14, 3, 18)]:
-		_module("wall_broken", spot, Vector3.ONE, 0.0)
-		_piece("wall_half", spot + Vector3(-3.0, 0, 2.0), 90.0)
+	var post := Vector2(-1, 19)
+	_piece("wall", Vector3(post.x - 2, 3, post.y - 4))
+	_module("wall_broken", Vector3(post.x + 4, 3, post.y), Vector3.ONE, 90.0)
+	_piece("wall_half", Vector3(post.x - 3, 3, post.y + 4))
+	_piece("wall", Vector3(post.x - 4, 3, post.y - 2), 90.0)
+	_piece("barrel_small_stack", Vector3(post.x - 1.5, 3, post.y - 1.5), 0.0)
 	_medieval("trees_A_small", Vector3(28, 3, 12), 0.0, "trunk")
-	_medieval("tree_single_B", Vector3(-30, 3.35, 22), 0.0, "trunk")
-	_torch(Vector3(2, 3, 16))
+	_medieval("trees_B_small", Vector3(-4, 3, 8), 0.0, "trunk")
+	_medieval("tree_single_B", Vector3(-31.5, 3.35, 25), 0.0, "trunk")
+	_medieval("rock_single_B", Vector3(24, 3, 22), 0.0)
+	_torch(Vector3(4, 3, 12))
 
 
-## Promontoire (6 m) : colonnade effondrée (piliers debout et tombés), éboulis.
+## Promontoire (6 m) : cour en ruine à l'ouest (deux ouvertures), colonnade effondrée, éboulis.
 func _promontory() -> void:
-	for x: float in [-22.0, -14.0, 14.0, 22.0]:
-		_piece("pillar", Vector3(x, 6, -6))
-	_piece("rubble_large", Vector3(-4, 6, -8), 0.0)
-	_piece("rubble_half", Vector3(26, 6, -14), 0.0)
-	_medieval("trees_B_small", Vector3(-28, 6, -12), 0.0, "trunk")
+	var court := Vector2(-22, -10)
+	_piece("wall", Vector3(court.x - 2, 6, court.y - 4))
+	_piece("wall", Vector3(court.x + 2, 6, court.y - 4))
+	_piece("wall", Vector3(court.x - 4, 6, court.y), 90.0)
+	_module("wall_broken", Vector3(court.x + 2, 6, court.y + 4), Vector3.ONE, 0.0)
+	_piece("rubble_half", Vector3(court.x + 1, 6, court.y + 0.5), 0.0)
+	for x: float in [-8.0, -2.0]:
+		_piece("pillar", Vector3(x, 6, -2))
+	_piece("rubble_large", Vector3(-5, 6, -12), 0.0)
+	_medieval("trees_B_small", Vector3(-30, 6, -20), 0.0, "trunk")
+	_light(Vector3(-22, 9.0, -10), RIFT, 1.2, 8.0)
 
 
-## Couronne (9 m) : sanctuaire au sommet, arches au fond, quatre piliers autour du lieu du boss, lueur de la Faille.
+## Couronne (9 m) : sanctuaire au sommet, parvis dallé, arches au fond, quatre piliers autour du lieu du boss,
+## autels à bougies, lueur de la Faille.
 func _crown() -> void:
 	for x: float in [-16.0, -8.0, 0.0, 8.0, 16.0]:
 		_piece("wall_arched" if x != 0.0 else "wall_archedwindow_open", Vector3(x, 9, -54.5))
+	# Parvis dallé, rectangle régulier autour du lieu du boss.
+	for x: int in range(-12, 13, 4):
+		for z: int in range(-50, -29, 4):
+			_piece("floor_tile_large", Vector3(x, 9.01, z), 0.0, "none")
 	for angle: float in [45.0, 135.0, 225.0, 315.0]:
 		var at: Vector3 = BOSS_SPOT + Vector3(cos(deg_to_rad(angle)), 0, sin(deg_to_rad(angle))) * 8.0
 		_piece("pillar", Vector3(at.x, 9, at.z))
+	for x: float in [-26.0, 26.0]:
+		_piece("candle_triple", Vector3(x, 9, -46), 0.0, "none")
+		_piece("rubble_half", Vector3(x, 9, -36), 90.0)
 	_light(BOSS_SPOT + Vector3.UP * 3.5, RIFT, 3.0, 16.0)
 	for x: float in [-24.0, 24.0]:
 		_torch(Vector3(x, 9, -30))

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://218vr5psiqs2"
-path="res://.godot/imported/carte_9_ebauche_navigation.webp-198c9cfc66b1482aabefb5553408fea9.ctex"
+uid="uid://dy4fngagmjwk5"
+path="res://.godot/imported/carte_9_guet.webp-d59cee9dfd5c8860f6b95e3a7561bbc4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/cartes-3d/carte_9_ebauche_navigation.webp"
-dest_files=["res://.godot/imported/carte_9_ebauche_navigation.webp-198c9cfc66b1482aabefb5553408fea9.ctex"]
+source_file="res://docs/previews/cartes-3d/carte_9_guet.webp"
+dest_files=["res://.godot/imported/carte_9_guet.webp-d59cee9dfd5c8860f6b95e3a7561bbc4.ctex"]
 
 [params]
 

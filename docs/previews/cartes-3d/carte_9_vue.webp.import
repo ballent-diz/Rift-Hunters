@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhxyrydiflg73"
-path="res://.godot/imported/carte_9_ebauche_vue.webp-57ac8fc2a4396625a6941788c8d74cfc.ctex"
+uid="uid://un6c8f5llwl4"
+path="res://.godot/imported/carte_9_vue.webp-ab415ce7123fc9b988dffbaa2b51c4eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/cartes-3d/carte_9_ebauche_vue.webp"
-dest_files=["res://.godot/imported/carte_9_ebauche_vue.webp-57ac8fc2a4396625a6941788c8d74cfc.ctex"]
+source_file="res://docs/previews/cartes-3d/carte_9_vue.webp"
+dest_files=["res://.godot/imported/carte_9_vue.webp-ab415ce7123fc9b988dffbaa2b51c4eb.ctex"]
 
 [params]
 

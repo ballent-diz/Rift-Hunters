@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyh8dbl0ccgyo"
-path="res://.godot/imported/carte_9_ebauche_greve_guet.webp-d5a47850e0829d29fe29eec475915749.ctex"
+uid="uid://xseerrrf02kl"
+path="res://.godot/imported/carte_9_couronne.webp-7c6a6d3ddef9c60cc2c8ed3d7f6247e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://docs/previews/cartes-3d/carte_9_ebauche_greve_guet.webp"
-dest_files=["res://.godot/imported/carte_9_ebauche_greve_guet.webp-d5a47850e0829d29fe29eec475915749.ctex"]
+source_file="res://docs/previews/cartes-3d/carte_9_couronne.webp"
+dest_files=["res://.godot/imported/carte_9_couronne.webp-7c6a6d3ddef9c60cc2c8ed3d7f6247e9.ctex"]
 
 [params]
 

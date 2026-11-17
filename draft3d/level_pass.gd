@@ -35,7 +35,6 @@ const NECK_DEPTH := 7.0
 const NORTH_EDGE := -13.0
 const SOUTH_EDGE := 13.0
 
-var _seed: int = 7
 
 
 func build() -> void:
@@ -63,11 +62,6 @@ func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box"
 	return _prop(PACK % id, at, yaw, size, collision, true)
 
 
-func _jitter(amount: float) -> float:
-	_seed = (_seed * 1103515245 + 12345) & 0x7fffffff
-	return (float(_seed % 1000) / 1000.0 * 2.0 - 1.0) * amount
-
-
 ## Rocher : ellipse irrégulière à la base, sommet réduit (`taper`). Collision pleine (arrête marche, vue et tirs) ;
 ## son sommet, inaccessible, est marqué « décor » pour le contrôle de composition.
 func _rock(center: Vector2, half: Vector2, height: float, color: Color = ROCK, taper: float = 0.45) -> void:
@@ -79,46 +73,9 @@ func _rock(center: Vector2, half: Vector2, height: float, color: Color = ROCK, t
 	_massif(base, center, height, color, taper)
 
 
-## Massif de roche sur un polygone de base quelconque (enveloppe convexe), sommet réduit de `taper` autour du centre.
+## Massif de roche (voir DraftLevel._rock_prism), posé au sol.
 func _massif(points: PackedVector2Array, center: Vector2, height: float, color: Color, taper: float) -> void:
-	var base: PackedVector2Array = Geometry2D.convex_hull(points)
-	base.remove_at(base.size() - 1)
-	var top := PackedVector2Array()
-	var tip := center + Vector2(_jitter(0.5), _jitter(0.5))
-	for corner: Vector2 in base:
-		top.append(tip + (corner - center) * taper)
-	var tool := SurfaceTool.new()
-	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
-	for index: int in range(1, top.size() - 1):
-		for corner: Vector2 in [top[0], top[index], top[index + 1]]:
-			tool.set_normal(Vector3.UP)
-			tool.add_vertex(Vector3(corner.x, height, corner.y))
-	var hull := PackedVector3Array()
-	for index: int in base.size():
-		var a := Vector3(base[index].x, -0.1, base[index].y)
-		var b := Vector3(base[(index + 1) % base.size()].x, -0.1, base[(index + 1) % base.size()].y)
-		var c := Vector3(top[(index + 1) % top.size()].x, height, top[(index + 1) % top.size()].y)
-		var d := Vector3(top[index].x, height, top[index].y)
-		var normal: Vector3 = (b - a).cross(d - a).normalized()
-		var outward := Vector3(base[index].x - center.x, 0, base[index].y - center.y)
-		if normal.dot(outward) < 0.0:
-			normal = -normal
-		for corner: Vector3 in [a, b, c, a, c, d]:
-			tool.set_normal(normal)
-			tool.add_vertex(corner)
-		hull.append(a)
-		hull.append(d)
-	var body := StaticBody3D.new()
-	body.name = "Rock"
-	# Décor et non relief : son sommet n'est pas une zone de jeu (DraftLevelAudit).
-	body.set_meta(&"decor", true)
-	add_child(body)
-	body.add_child(_mesh_of(tool, color))
-	var shape := ConvexPolygonShape3D.new()
-	shape.points = hull
-	var collision := CollisionShape3D.new()
-	collision.shape = shape
-	body.add_child(collision)
+	_rock_prism(points, center, 0.0, height, color, taper)
 
 
 ## Falaise au nord (haute, de rocher en rocher), rebord bas au sud et aux deux bouts ; parois doublées.
