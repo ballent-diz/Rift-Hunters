@@ -1,5 +1,14 @@
 # Rift Hunters — feuille de route
 
+## Bug : ennemis bloqués au pied des plateformes (Claude, « Correction de bugs », 17 novembre 2026)
+
+- Cause : `DraftEnemies.chase` ne recalculait un chemin que si la cible avait bougé de 0,8 m. Un ennemi qui avait
+  épuisé son chemin (poussé hors de sa route par le recul ou la séparation) alors que le Chasseur, presque immobile,
+  était sur un autre niveau filait droit vers lui et restait collé au rebord de la plateforme.
+- Correction : un chemin épuisé alors que le Chasseur est à une autre hauteur (0,6 m et plus) est recalculé à
+  l'échéance du minuteur de chemin (0,45 à 0,8 s) ; aucun autre changement de navigation.
+- Test : `test_draft3d::test_enemy_with_spent_path_climbs_to_the_terrace` (échoue sans la correction).
+
 ## Couverture visuelle sorts et combos — livraison et intégration (Codex, 17 novembre 2026)
 
 Audit des 15 sorts v2 ; trois FX initiaux recréés ; 12 FX de combos et 12 illustrations, trois FX de passifs et cinq cartes livrés localement. Branche `codex/couverture-visuelle-sorts-combos`, aucune modification des mécaniques. La PR gameplay #212 est fusionnée après CI verte ; le raccord visuel des neuf nouveaux combos est appliqué dans cette branche locale. [Rapport et fichiers](art/COUVERTURE_VISUELLE_V2.md). Publication publique autorisée ; intégration coordonnée avec les PR #207, #210, #211, #213 et #214. [Résolutions](INTEGRATION_PR_207_214.md).

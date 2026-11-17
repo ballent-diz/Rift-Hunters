@@ -190,6 +190,24 @@ func test_map_stairs_shelters_and_heights() -> void:
 	check(run.blocked_bolts >= 1 and is_equal_approx(foe.hp, foe.max_hp), "le mur arrête le trait")
 
 
+
+## Bug des ennemis bloqués au pied des plateformes : un chemin épuisé alors que le Chasseur, immobile, est sur la
+## terrasse doit être recalculé (sinon l'ennemi fonce droit contre le rebord et n'en bouge plus).
+func test_enemy_with_spent_path_climbs_to_the_terrace() -> void:
+	await _start()
+	run.hunter.god_mode = true
+	run.hunter.attack_timer = 100000.0
+	run.hunter.global_position = Vector3(6, DraftLevelRuins.TERRACE_HEIGHT + 0.2, -16)
+	run.hunter.reset_motion()
+	await _frames(10)
+	var foe: DraftEnemies.Foe = run.enemies.spawn(GameDB.enemy(&"husk"), Vector3(6, 0, -6))
+	foe.path = PackedVector3Array([foe.pos])
+	foe.path_index = 1
+	foe.path_target = run.hunter.global_position
+	foe.path_timer = 0.0
+	await _frames(720)
+	check(foe.pos.y > DraftLevelRuins.TERRACE_HEIGHT - 0.5, "l'ennemi rejoint la terrasse : %s" % foe.pos)
+
 func test_enemies_reach_hurt_and_kill_then_fresh_run() -> void:
 	await _start()
 	var hunter: DraftHunter = run.hunter
