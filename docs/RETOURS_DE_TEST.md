@@ -2,6 +2,8 @@
 
 Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 
+- [x] On enjambe la rambarde de l'escalier depuis les marches (17 novembre 2026) : parois de marche le long des rambardes.
+
 - [x] Le Chasseur traverse le flanc des escaliers (15 novembre 2026) : collision élargie à la largeur du modèle.
 
 - [x] Slash violet tourné vers le sol en partie (15 novembre 2026) : visuel `heavy_cleave` de la Taille fendante retiré.
