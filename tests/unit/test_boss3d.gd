@@ -612,9 +612,13 @@ func test_boss_hp_follows_the_chapter_not_the_campaign() -> void:
 func test_boss_test_shortcut_goes_straight_to_the_boss() -> void:
 	await _start()
 	check(DraftBossTest.enabled(), "raccourcis de test actifs en version de développement")
-	DraftProgress.path = "user://test_boss_shortcut_progress.json"
-	if FileAccess.file_exists(DraftProgress.path):
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftProgress.path))
+	var legacy: Array[String] = [DraftSave.legacy_unlocks_path, DraftSave.legacy_progress_path]
+	DraftSave.legacy_unlocks_path = ""
+	DraftSave.legacy_progress_path = ""
+	DraftSave.path = "user://test_boss_shortcut_profile.json"
+	DraftSave.reset()
+	if FileAccess.file_exists(DraftSave.path):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftSave.path))
 	for i: int in 6:
 		run.enemies.spawn(run.roster.enemies[0], run.level.spawn_point(run.rng, run.hunter.global_position))
 	run.hud.show_pause()
@@ -631,7 +635,11 @@ func test_boss_test_shortcut_goes_straight_to_the_boss() -> void:
 	run.enemies.hit(run.enemies.boss, 1000000.0)
 	check_eq(run.state, DraftRun.State.WON, "victoire")
 	check(DraftProgress.cleared().is_empty(), "aucune victoire de chapitre enregistrée")
-	DraftProgress.path = ""
+	check(not FileAccess.file_exists(DraftSave.path), "profil v2 jamais écrit")
+	DraftSave.path = ""
+	DraftSave.legacy_unlocks_path = legacy[0]
+	DraftSave.legacy_progress_path = legacy[1]
+	DraftSave.reset()
 
 
 func test_boss_test_shortcut_climbs_the_tower() -> void:
