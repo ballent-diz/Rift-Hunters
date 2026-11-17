@@ -72,6 +72,10 @@ var _water: MeshInstance3D
 var _land: Array[PackedVector2Array] = []
 var _land_low: Array[bool] = []
 var _low: Array[Dictionary] = []
+var _run: DraftRun
+## Éclaboussures : dernier pas éclaboussé par personnage (position), images partagées.
+var _steps: Dictionary = {}
+var _splash_frames: SpriteFrames
 
 
 func build() -> void:
@@ -349,6 +353,71 @@ func _physics_process(delta: float) -> void:
 		if flooded != high_tide:
 			_set_high(flooded, true)
 	_update_gates()
+	_splashes()
+
+
+## La partie qui joue la carte (son parent) : Chasseur et ennemis, pour les éclaboussures ; null hors partie.
+func _ready() -> void:
+	_run = get_parent() as DraftRun
+
+
+## Éclaboussures (draft3d/marsh/eclaboussure_1..6.png) : un pas sur une levée basse sous l'eau, tous les 1,2 m
+## parcourus, pour le Chasseur et les monstres.
+func _splashes() -> void:
+	if _run == null or _water.position.y <= LOW_TOP + 0.02:
+		_steps.clear()
+		return
+	var walkers: Array = [_run.hunter]
+	walkers.append_array(_run.enemies.list)
+	var seen: Dictionary = {}
+	for walker: Object in walkers:
+		var at: Vector3 = (walker as DraftHunter).global_position if walker is DraftHunter \
+			else (walker as DraftEnemies.Foe).pos
+		if not in_water(at):
+			continue
+		seen[walker] = true
+		var last: Vector3 = _steps.get(walker, Vector3.INF)
+		if last == Vector3.INF or Vector2(last.x - at.x, last.z - at.z).length() > 1.2:
+			_steps[walker] = at
+			if last != Vector3.INF:
+				_splash(Vector3(at.x, _water.position.y + 0.02, at.z))
+	for walker: Object in _steps.keys():
+		if not seen.has(walker):
+			_steps.erase(walker)
+
+
+## Vrai si ce point (au pied) est sur une levée basse noyée (eau peu profonde).
+func in_water(at: Vector3) -> bool:
+	if _water.position.y <= LOW_TOP + 0.02 or at.y > LAND_TOP - 0.1:
+		return false
+	for dike: Dictionary in _low:
+		var local: Vector3 = Basis(Vector3.UP, float(dike["yaw"])).inverse() * (at - (dike["center"] as Vector3))
+		if absf(local.x) <= float(dike["length"]) * 0.5 and absf(local.z) <= float(dike["width"]) * 0.5:
+			return true
+	return false
+
+
+func _splash(at: Vector3) -> void:
+	if _splash_frames == null:
+		_splash_frames = SpriteFrames.new()
+		_splash_frames.set_animation_loop(&"default", false)
+		_splash_frames.set_animation_speed(&"default", 12.5)
+		for index: int in 6:
+			_splash_frames.add_frame(&"default", load("res://draft3d/marsh/eclaboussure_%d.png" % (index + 1)))
+	var sprite := AnimatedSprite3D.new()
+	sprite.name = "Splash"
+	sprite.sprite_frames = _splash_frames
+	sprite.pixel_size = 0.024
+	sprite.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
+	sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+	sprite.alpha_cut = SpriteBase3D.ALPHA_CUT_DISCARD
+	sprite.shaded = false
+	# Le point d'impact du pas est en (32, 46) dans l'image de 64 px : il tombe sur le pied.
+	sprite.offset = Vector2(0, 14)
+	sprite.position = at
+	add_child(sprite)
+	sprite.animation_finished.connect(sprite.queue_free)
+	sprite.play(&"default")
 
 
 ## Hauteur de l'eau à l'instant `t` du cycle (montée et descente adoucies).
