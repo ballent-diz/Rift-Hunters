@@ -1,5 +1,19 @@
 # Rift Hunters — feuille de route
 
+## Sauvegarde de la v2 (Claude, session « Progression », 17 novembre 2026)
+
+Fait. Profil v2 unique `user://draft3d_profile.json` (`draft3d/save.gd`, `DraftSave`), détails dans
+[design/SAUVEGARDE_V2.md](design/SAUVEGARDE_V2.md). Reprend la base v1 (`SafeJsonStore` : écriture atomique, `.bak`,
+quarantaine des fichiers corrompus) ; version future jamais écrasée. Contenu : Fragments, sorts et mutations
+débloqués, 2 sorts de départ, dernier gain, chapitres atteints/vaincus, statistiques, réglages propres à la v2 (vide).
+- `DraftUnlocks` (API inchangée) et `DraftProgress` (+ `reached`, `record_start`) écrivent dans ce profil ;
+  `DraftUnlocks.path` et `DraftProgress.path` disparaissent au profit de `DraftSave.path`.
+- Anciens `draft3d_unlocks.json` et `draft3d_progress.json` repris automatiquement au premier lancement (laissés en place).
+- Aucune écriture : bot/headless (`DraftSave.path = ""`), parties d'essai (`DraftSave.read_only` : `--boss-at`,
+  `--god`, `--spells`, `--chapter`). Raccourci de test du boss (`test_run`) : rien d'enregistré.
+- Options du menu principal : « Réinitialiser la progression » (double appui, ancien profil gardé en `.reset-<date>`).
+- Reste : écran de statistiques (données déjà enregistrées).
+
 ## Gameplay v2 : arsenal, récompenses, combos (Claude, session « Gameplay », en cours depuis le 16 novembre 2026)
 
 Consignes : issue #193 et `docs/design/GAMEPLAY_COMBOS_2P5D.md` (PR #194). Audit, architecture et état des lots :
@@ -1306,6 +1320,18 @@ Falaise en gradins de 68 × 112 m gravie vers le nord (option A, verticalité de
 cascade essayée puis retirée. Reprise le jour même après « trop simpliste ». `draft3d/level_cliffs.gd`, essai
 `test_ninth_level_cliffs`, contrôle sans incohérence (pentes et accès par plateau désormais contrôlés).
 - **À valider par le propriétaire** : en jeu (hauteurs, accès, perchoirs).
+
+## Effets dédiés des combos et passifs — 17 novembre 2026 (session « VFX »)
+
+Raccordement prêt, **aucune ressource livrée** à ce jour (ni dans le dépôt ni sur une branche) : les six effets
+(`combo_prismatic_execution`, `combo_prismatic_deluge`, `combo_gravity_blade`, `passive_dash_blade`,
+`passive_void_wake`, `passive_counter_cut`) et les cinq illustrations (`passive_dash_blade`, `passive_void_wake`,
+`passive_counter_cut`, `passive_anchor`, `rule_extra_slot`) jouent ou affichent toujours le repli.
+- Contrôle des livraisons : `python3 tools/art/check_v2_vfx.py` (conformité aux fiches).
+- Effets dédiés dessinés sous les zones annoncées des ennemis ; flaque du Sillage en boucle, retirée avec sa zone.
+- Mécaniques des trois combos inchangées (vérifiées par `test_draft3d_combos`).
+- **Suite** : à la livraison, déposer les fichiers, relancer le contrôle et l'import, ajouter les entrées du catalogue
+  (+ décompte de `test_item_art`), captures en jeu.
 
 ## Combos du lot 6 — 17 novembre 2026 (session « VFX »)
 

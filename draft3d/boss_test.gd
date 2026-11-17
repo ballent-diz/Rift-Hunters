@@ -33,15 +33,19 @@ static func skip_to_boss(run: DraftRun) -> void:
 ## Chasseur monté de `levels` niveaux ; les mutations qui demandent de choisir un emplacement sont laissées de côté.
 static func prepare_hunter(run: DraftRun, levels: int) -> void:
 	for i: int in levels:
-		var pick: UpgradeData = null
-		for card: UpgradeData in run.upgrades.roll(run.rng, run.balance.upgrade_choices):
-			var mutation := card.effects[0] as DraftSpellEffect if not card.effects.is_empty() else null
-			if mutation == null or mutation.kind != DraftSpellEffect.Kind.VARIANT:
-				pick = card
+		# Quelques tirages au besoin : un tirage peut n'offrir que des mutations à emplacement.
+		var applied: bool = false
+		for attempt: int in 8:
+			for card: UpgradeData in run.upgrades.roll(run.rng, run.balance.upgrade_choices):
+				var mutation := card.effects[0] as DraftSpellEffect if not card.effects.is_empty() else null
+				if (mutation == null or mutation.kind != DraftSpellEffect.Kind.VARIANT) \
+						and run.upgrades.apply(card, run.hunter.stats):
+					applied = true
+					break
+			if applied:
 				break
-		if pick == null:
+		if not applied:
 			break
-		run.upgrades.apply(pick, run.hunter.stats)
 		run.hunter.level += 1
 	run.hunter.heal(run.hunter.max_hp())
 	run.hud.show_build(run.upgrades)

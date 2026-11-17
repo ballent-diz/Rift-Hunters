@@ -6,7 +6,11 @@ extends Control
 
 signal closed
 signal language_changed
+## « Réinitialiser la progression » confirmé (deuxième appui) ; le menu efface le profil v2 (DraftUnlocks.wipe).
+signal progress_reset
 
+## Menu principal seulement (pas en pause) : affiche « Réinitialiser la progression ».
+var allow_reset: bool = false
 var first: Control
 var close_button: Button
 
@@ -46,6 +50,11 @@ func _ready() -> void:
 	var keys: Button = UiKit.button(tr("OPTIONS3D_CONTROLS"), _open_controls, 560)
 	keys.name = "Keys"
 	rows.append(keys)
+	if allow_reset:
+		var reset: Button = UiKit.button(tr("OPTIONS3D_RESET_PROGRESS"), Callable(), 560)
+		reset.name = "ResetProgress"
+		reset.pressed.connect(_on_reset_pressed.bind(reset))
+		rows.append(reset)
 	for row: Control in rows:
 		box.add_child(row.get_parent() if row.get_parent() != null else row)
 	box.add_child(UiKit.title(tr("MENU3D_CONTROLS_TITLE"), 20, DraftMenu.GOLD))
@@ -86,6 +95,17 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"ui_cancel"):
 		closed.emit()
 		get_viewport().set_input_as_handled()
+
+
+## Premier appui : demande de confirmation ; second appui : `progress_reset`.
+func _on_reset_pressed(button: Button) -> void:
+	if button.has_meta(&"armed"):
+		button.remove_meta(&"armed")
+		button.text = tr("OPTIONS3D_RESET_DONE")
+		progress_reset.emit()
+		return
+	button.set_meta(&"armed", true)
+	button.text = tr("OPTIONS3D_RESET_CONFIRM")
 
 
 func _next_language() -> void:

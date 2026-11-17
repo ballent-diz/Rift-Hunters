@@ -1836,6 +1836,7 @@ BOSS_PATTERN_DIVE,Plongée,Dive
 BOSS_GUARD_INTRO,"Garde d'écorce : de face, son bouclier arrête presque tout. Prenez-le à revers, ou laissez vos Échos l'occuper.","Bark guard: from the front, his shield stops everything. Take him from behind, or let your Echoes keep him busy."
 BOSS_GUARD_INTRO_3D,"Garde d'écorce : de face, son bouclier arrête presque tout. Contournez-le et frappez-le de dos ou de flanc.","Bark guard: from the front, his shield stops almost everything. Circle around and strike his back or flank."
 BOSS_DIVE_INTRO,"Elle plonge : suivez la ride. Écartez-vous de l'onde annoncée, puis frappez-la quand elle ressurgit, sonnée.","She dives: watch the ripple. Step out of the marked wave, then strike her as she resurfaces, stunned."
+BOSS_FROZEN_DIVE_INTRO,"Plongée sous la glace : Nivorath disparaît sous la banquise et la ride vous suit. Écartez-vous de l'onde annoncée, puis frappez-le quand il ressurgit, sonné.","Frozen Dive: Nivorath vanishes under the ice and the ripple follows you. Step out of the marked wave, then strike him as he resurfaces, stunned."
 ENEMY_FROST_CRAWLER_NAME,Rampe-givre,Frost Crawler
 ENEMY_FROST_CRAWLER_DESC,Petite bête à carapace de givre qui chasse en meute.,Small frost-shelled beast that hunts in packs.
 ENEMY_BLIZZARD_WOLF_NAME,Loup de blizzard,Blizzard Wolf
@@ -2322,6 +2323,9 @@ CHAPTER3D_SILENT_GLACIER_DESC,"Un ancien avant-poste pris dans la banquise : mai
 CHAPTER3D_RIFT_CITY_NAME,Le Cœur de la Faille,The Heart of the Rift
 CHAPTER3D_RIFT_CITY_DESC,"Au bout de la traque, la Faille rouvre les ruines où tout a commencé : ses Dévoreurs y attendent le Chasseur.","At the end of the hunt, the Rift reopens the ruins where it all began: its Devourers await the Hunter there."
 OPTIONS3D_CONTROLS,Touches et visée,Keys and aiming
+OPTIONS3D_RESET_PROGRESS,Réinitialiser la progression,Reset progression
+OPTIONS3D_RESET_CONFIRM,"Tout effacer (Fragments, déblocages, chapitres) ? Appuyer encore pour confirmer","Erase everything (Fragments, unlocks, chapters)? Press again to confirm"
+OPTIONS3D_RESET_DONE,Progression réinitialisée,Progression reset
 CONTROLS3D_KEYBOARD_HINT,"Les deux mains au clavier : ZQSD pour marcher, flèches pour les sorts, lancés vers l'ennemi visible le plus proche devant le Chasseur (sinon droit devant). L'anneau au sol montre le point visé.","Both hands on the keyboard: WASD to move, arrow keys for spells, cast at the nearest visible enemy in front of the Hunter (otherwise straight ahead). The ring on the ground shows the aimed point."
 CONTROLS3D_MOUSE_HINT,"Une main sur la souris : ZQSD ou flèches pour marcher, A, E, R, F ou clic gauche pour les sorts, lancés vers le curseur. À la manette, le stick droit vise.","One hand on the mouse: WASD or arrow keys to move, Q, E, R, F or left click for spells, cast toward the cursor. On a gamepad, the right stick aims."
 UPGRADE3D_LEARN_CLEAVING_SLASH_NAME,Nouveau sort : Taille fendante,New spell: Cleaving Slash

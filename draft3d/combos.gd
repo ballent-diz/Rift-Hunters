@@ -110,6 +110,14 @@ static func _tick(table: Dictionary, delta: float) -> void:
 
 # --- Exécution prismatique --------------------------------------------------------------------------------------
 
+## Un trait du Chasseur vient de toucher `foe` : Lance (Exécution) et Lance réfractée ou ses éclats (Convergence).
+func on_bolt_hit(shot: Dictionary, foe: DraftEnemies.Foe) -> void:
+	if shot.get("lance", false):
+		on_lance_hit(foe)
+	if shot.get("prism", false) or (shot.get("lance", false) and shot.get("refracted", false)):
+		on_prism_hit(foe)
+
+
 ## Un trait de Lance prismatique vient de toucher `foe`.
 func on_lance_hit(foe: DraftEnemies.Foe) -> void:
 	lance_hits[foe] = run.tuning.combo_window

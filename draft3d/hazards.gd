@@ -10,20 +10,23 @@ const WARN := Color(0.85, 0.25, 0.75)
 ## Une onde est faite de tronçons : chacun avance tant qu'il ne rencontre pas de décor, puis s'éteint. L'onde est
 ## donc coupée derrière un obstacle (à l'image comme pour les dégâts) et ne passe que par les ouvertures.
 const RING_SEGMENTS := 120
+const ZONE_TICK := 0.5
 
 var hunter: DraftHunter
 var hits: int = 0
 var _items: Array[Dictionary] = []
+var _zones: Array[Dictionary] = []
 
 
-func circle(at: Vector3, radius: float, delay: float, damage: float, fx := Callable()) -> void:
+## `on_hit` : appelé quand la frappe blesse le Chasseur (entrave, recul...).
+func circle(at: Vector3, radius: float, delay: float, damage: float, fx := Callable(), on_hit := Callable()) -> void:
 	var mesh := CylinderMesh.new()
 	mesh.top_radius = radius
 	mesh.bottom_radius = radius
 	mesh.height = 0.04
 	mesh.radial_segments = 40
 	_items.append({"kind": &"circle", "at": at, "radius": radius, "left": delay, "delay": delay, "damage": damage,
-		"fx": fx, "node": _node(mesh, at)})
+		"fx": fx, "on_hit": on_hit, "node": _node(mesh, at)})
 
 
 ## `covered` : le décor entre l'origine et le Chasseur l'abrite (souffle arrêté par les obstacles).
@@ -38,7 +41,8 @@ func line(from: Vector3, direction: Vector3, length: float, width: float, delay:
 
 
 ## Onde qui part de `at` après `delay` et s'étend jusqu'à `reach` : une Ruée la traverse.
-func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float, fx := Callable()) -> void:
+func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float, fx := Callable(),
+		on_hit := Callable()) -> void:
 	var mesh := TorusMesh.new()
 	mesh.inner_radius = 0.95
 	mesh.outer_radius = 1.0
@@ -47,7 +51,8 @@ func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float, 
 	var node: MeshInstance3D = _node(mesh, at)
 	node.scale = Vector3(1.5, 0.15, 1.5)
 	_items.append({"kind": &"ring", "at": at, "radius": 1.5, "speed": speed, "reach": reach, "left": delay,
-		"delay": delay, "damage": damage, "fx": fx, "node": node, "arcs": _arcs(at), "alive": _full_ring()})
+		"delay": delay, "damage": damage, "fx": fx, "on_hit": on_hit, "node": node, "arcs": _arcs(at),
+		"alive": _full_ring()})
 
 
 func _full_ring() -> PackedByteArray:
@@ -98,6 +103,9 @@ func _advance_ring(item: Dictionary, before: float, after: float) -> void:
 
 
 func clear() -> void:
+	for item: Dictionary in _zones:
+		(item["node"] as Node).queue_free()
+	_zones.clear()
 	for item: Dictionary in _items:
 		if item.has("arcs"):
 			(item["arcs"] as Node).queue_free()
@@ -120,6 +128,7 @@ func _node(mesh: Mesh, at: Vector3) -> MeshInstance3D:
 
 
 func _physics_process(delta: float) -> void:
+	_step_zones(delta)
 	var i: int = _items.size() - 1
 	while i >= 0:
 		var item: Dictionary = _items[i]
@@ -175,6 +184,9 @@ func _strike(item: Dictionary) -> void:
 		return
 	if hunter.take_damage(float(item["damage"])) > 0.0:
 		hits += 1
+		var on_hit: Callable = item.get("on_hit", Callable())
+		if on_hit.is_valid():
+			on_hit.call()
 
 
 ## Un décor s'interpose-t-il entre l'origine de l'attaque et le Chasseur ?
@@ -199,3 +211,45 @@ func _inside(item: Dictionary) -> bool:
 
 static func _flat(v: Vector3) -> Vector3:
 	return Vector3(v.x, 0.0, v.z)
+
+
+# --- Zones persistantes (sol brûlant) ------------------------------------------------------------------------------
+
+## Zone au sol qui dure `duration` s : toutes les `ZONE_TICK` s, le Chasseur dedans (et à son niveau) prend `damage` et
+## est ralenti (`slow` < 1). Dessinée en disque coloré.
+func zone(at: Vector3, radius: float, duration: float, damage: float, slow: float = 1.0,
+		color := Color(1.0, 0.4, 0.1)) -> void:
+	var mesh := CylinderMesh.new()
+	mesh.top_radius = radius
+	mesh.bottom_radius = radius
+	mesh.height = 0.04
+	mesh.radial_segments = 40
+	var node: MeshInstance3D = _node(mesh, at)
+	(node.material_override as StandardMaterial3D).albedo_color = Color(color, 0.45)
+	_zones.append({"at": at, "radius": radius, "left": duration, "damage": damage, "slow": slow, "tick": 0.0,
+		"node": node})
+
+
+func zones() -> int:
+	return _zones.size()
+
+
+func _step_zones(delta: float) -> void:
+	for i: int in range(_zones.size() - 1, -1, -1):
+		var item: Dictionary = _zones[i]
+		item["left"] = float(item["left"]) - delta
+		item["tick"] = maxf(float(item["tick"]) - delta, 0.0)
+		if float(item["left"]) <= 0.0:
+			(item["node"] as Node).queue_free()
+			_zones.remove_at(i)
+			continue
+		var offset: Vector3 = _flat(hunter.global_position - (item["at"] as Vector3))
+		if offset.length() > float(item["radius"]) + DraftHunter.RADIUS or not _level_with(item):
+			continue
+		if float(item["slow"]) < 1.0:
+			hunter.hinder(float(item["slow"]), 0.3)
+		if float(item["tick"]) <= 0.0:
+			item["tick"] = ZONE_TICK
+			if hunter.take_damage(float(item["damage"])) > 0.0:
+				hits += 1
+

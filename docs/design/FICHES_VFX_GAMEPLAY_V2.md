@@ -24,6 +24,12 @@ chemin). Tant qu'un fichier manque, le jeu joue l'effet existant indiqué en « 
   **64 px par mètre** (une image de 128 px pour un effet de 2 m).
 - **Raccord** : déposer les deux fichiers au bon chemin suffit (`DraftRun.fx_or`, `DraftPixelFx.has_sheet`). Lancer
   ensuite `godot --headless --import --path .`.
+- **Contrôle de livraison** : `python3 tools/art/check_v2_vfx.py` liste chaque effet et illustration (livré, en attente
+  ou erreur : images, fps, boucle, taille de planche, 1254 px, entrée du catalogue). Un effet n'est considéré livré
+  qu'avec ses deux fichiers conformes.
+- **Lisibilité** : un effet dédié est dessiné avec la priorité `DraftPixelFx.UNDER_TELEGRAPHS` (-1), donc sous les
+  zones annoncées des ennemis (priorité 0). La flaque du Sillage du vide boucle et disparaît avec sa zone de
+  ralentissement ; le repli garde son comportement.
 
 ### Illustrations de cartes (récompenses)
 
@@ -40,7 +46,7 @@ Déclenchement et règles : `draft3d/combos.gd`. Chaque combo affiche aussi son 
 | id (dossier) | Déclencheur | Effet à montrer | Largeur en jeu | Durée / images / fps | Boucle | Ancrage | Repli actuel |
 |---|---|---|---|---|---|---|---|
 | `combo_prismatic_execution` | Une Rupture frappe un ennemi touché par la Lance prismatique depuis moins de 2 s ; joué **sur chaque cible** (6 au plus) | Éclat prismatique qui « se referme » sur la cible puis explose : lignes cyan convergentes (0-40 %), flash blanc-or (40-55 %), éclats qui retombent | 2,0 m | 0,6 s · 12 images · 20 fps | non | centre de la cible, 0,6 m au-dessus du sol | `ring_burst` (reflets) |
-| `combo_prismatic_deluge` | Une Lance prismatique traverse un Cristal réfracteur ; joué **sur le cristal** | Le cristal se fend et projette une gerbe d'éclats en éventail (4 traits partent dans la direction de la Lance, ± 18°) ; dominante cyan, cœur blanc | 3,0 m | 0,5 s · 12 images · 24 fps | non | centre du cristal, 0,8 m au-dessus du sol | `ice_shatter` (reflets) |
+| `combo_prismatic_deluge` | Une Lance prismatique traverse un Cristal réfracteur ; joué **sur le cristal** | Le cristal se fend et projette une gerbe d'éclats en éventail (4 traits partent dans la direction de la Lance, ± 18°) ; dominante cyan, cœur blanc | 3,0 m | 0,5 s · 12 images · 24 fps | non | centre du cristal, 0,8 m au-dessus du sol | `ice_shatter` (givres) |
 | `combo_gravity_blade` | Une Taille fendante atteint un puits de Singularité actif ; joué **sur le puits** | Onde de choc circulaire au sol (ellipse aplatie) partant du centre du puits, bord violet sombre et lueur intérieure, distorsion en anneau, petites particules aspirées puis repoussées | 2 × rayon du puits × 1,3 (≈ 5 à 7 m ; dessiner pour 6 m) | 0,55 s · 14 images · 24 fps | non | centre du puits, 0,6 m au-dessus du sol | `dark_explosion` |
 
 À prévoir ensuite (non branché, pour décision) : un **repère de cible** pour l'Exécution prismatique (petit prisme
@@ -68,6 +74,8 @@ L'**Ancre** réutilise le puits de Singularité (aucun visuel propre nécessaire
 | `rule_extra_slot` | Légendaire (or) | Cinquième gemme qui s'enchâsse dans un bracelet de quatre |
 
 Les cartes de sort et de mutation réutilisent déjà les icônes existantes.
+À la livraison d'une illustration, ajouter son entrée `upgrade.<id>` au catalogue **et** compléter le décompte de
+`tests/unit/test_item_art.gd` (le test exige une entrée par image, pas d'entrée sans image).
 
 ## 5. Retour attendu de ChatGPT
 

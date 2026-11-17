@@ -612,9 +612,13 @@ func test_boss_hp_follows_the_chapter_not_the_campaign() -> void:
 func test_boss_test_shortcut_goes_straight_to_the_boss() -> void:
 	await _start()
 	check(DraftBossTest.enabled(), "raccourcis de test actifs en version de développement")
-	DraftProgress.path = "user://test_boss_shortcut_progress.json"
-	if FileAccess.file_exists(DraftProgress.path):
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftProgress.path))
+	var legacy: Array[String] = [DraftSave.legacy_unlocks_path, DraftSave.legacy_progress_path]
+	DraftSave.legacy_unlocks_path = ""
+	DraftSave.legacy_progress_path = ""
+	DraftSave.path = "user://test_boss_shortcut_profile.json"
+	DraftSave.reset()
+	if FileAccess.file_exists(DraftSave.path):
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(DraftSave.path))
 	for i: int in 6:
 		run.enemies.spawn(run.roster.enemies[0], run.level.spawn_point(run.rng, run.hunter.global_position))
 	run.hud.show_pause()
@@ -631,7 +635,11 @@ func test_boss_test_shortcut_goes_straight_to_the_boss() -> void:
 	run.enemies.hit(run.enemies.boss, 1000000.0)
 	check_eq(run.state, DraftRun.State.WON, "victoire")
 	check(DraftProgress.cleared().is_empty(), "aucune victoire de chapitre enregistrée")
-	DraftProgress.path = ""
+	check(not FileAccess.file_exists(DraftSave.path), "profil v2 jamais écrit")
+	DraftSave.path = ""
+	DraftSave.legacy_unlocks_path = legacy[0]
+	DraftSave.legacy_progress_path = legacy[1]
+	DraftSave.reset()
 
 
 func test_boss_test_shortcut_climbs_the_tower() -> void:
@@ -656,3 +664,50 @@ func test_nebulorax_never_comes_back() -> void:
 		for boss: BossData in roster.guardians + [roster.boss]:
 			check(boss.id != &"nebulorax", "chapitre %d : Nébulorax absent" % order)
 	check(DraftBossBrain.mechanics_for(GameDB.boss(&"nebulorax")).is_empty(), "aucune mécanique 3D pour Nébulorax")
+
+
+func test_secondary_effects() -> void:
+	await _start()
+	run.hunter.god_mode = false
+	run.hunter.stats.add_modifier(StatKeys.MAX_HP, 100000.0, 0.0)
+	run.hunter.heal(run.hunter.max_hp())
+	# Racines entravantes du Gardien d'écorce : fort ralenti.
+	var bark: DraftEnemies.Foe = _spawn(&"bark_colossus", 6.0)
+	bark.brain._next_at = INF
+	var snare: BossPatternData = _pattern(bark.boss, &"root_snare")
+	bark.brain._gesture_snare(snare, Vector3.RIGHT)
+	await _frames(int(snare.telegraph * 60) + 5)
+	check(run.hunter.slow_left > 0.0 and run.hunter.slow_factor <= float(snare.params["hinder_mult"]) + 0.001,
+		"racines entravantes : ralenti des données")
+	run.enemies.vanish(bark)
+	await _frames(70)
+	# Racine-laisse de l'Abyssarque : englué un instant, sans laisse.
+	var abyss: DraftEnemies.Foe = _spawn(&"abyssarch", 7.0)
+	abyss.brain._next_at = INF
+	var leash: BossPatternData = _pattern(abyss.boss, &"root_leash")
+	abyss.brain._gesture_leash(leash, Vector3.RIGHT)
+	await _frames(int(leash.telegraph * 60) + 5)
+	check(run.hunter.stuck_left > 0.0, "racine de l'Abyssarque : englué un instant")
+	run.hunter.stuck_left = 0.0
+	run.enemies.vanish(abyss)
+	# Chute de Pyrevorn : sol brûlant.
+	var pyre: DraftEnemies.Foe = _spawn(&"pyrevorn", 7.0)
+	pyre.brain._next_at = INF
+	var skyfall: BossPatternData = _pattern(pyre.boss, &"skyfall")
+	pyre.brain._gesture_leap(skyfall, Vector3.RIGHT)
+	await _frames(int((float(skyfall.params["airborne"]) + skyfall.telegraph) * 60) + 60)
+	check_eq(run.hazards.zones(), 1, "sol brûlant après la chute")
+	run.enemies.vanish(pyre)
+	# Nivorath : vraie plongée sous la glace.
+	var nivorath: DraftEnemies.Foe = _spawn(&"nivorath", 7.0)
+	var dive := _mechanic(nivorath, &"frozen_dive") as DraftMawDive
+	check(dive != null and dive.dive_kind == &"frozen_dive", "Nivorath : plongée sous la glace")
+	run.enemies.vanish(nivorath)
+	# Raz-de-marée de Glauquemire : ralenti et recul.
+	var glauque: DraftEnemies.Foe = _spawn(&"glauquemire", 6.0)
+	var mechanic := _mechanic(glauque, &"tide_wave") as DraftGlauquemire
+	run.hunter.slow_left = 0.0
+	var before: float = run.hunter.global_position.distance_to(glauque.pos)
+	mechanic._wave_hit()
+	check(run.hunter.slow_left > 0.0, "vague : ralenti")
+	check(run.hunter.global_position.distance_to(glauque.pos) > before, "vague : repoussé loin du boss")

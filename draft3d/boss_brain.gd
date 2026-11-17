@@ -25,7 +25,7 @@ const GESTURES := {
 	&"charge": &"charge", &"pyre_ram": &"charge", &"storm_hunt": &"charge",
 	&"blink": &"blink", &"portal_hop": &"blink", &"mist_veil": &"blink",
 	&"skyfall": &"leap", &"frozen_dive": &"leap", &"maw_dive": &"leap",
-	&"ice_spikes": &"spikes", &"root_leash": &"spikes", &"root_snare": &"spikes", &"floe_quake": &"spikes",
+	&"ice_spikes": &"spikes", &"root_leash": &"leash", &"root_snare": &"snare", &"floe_quake": &"spikes",
 	&"avalanche": &"spikes", &"silk_threads": &"spikes",
 	&"shatter_floor": &"burst", &"deep_freeze": &"burst", &"duel_circle": &"burst", &"spell_capture": &"burst",
 }
@@ -43,7 +43,9 @@ const GESTURE_CLIPS := {
 	&"breath": [&"rift_breath", &"magma_breath", &"blizzard_breath", &"phase2_breath", &"attack"],
 	&"charge": [&"charge", &"slide", &"belly_charge", &"attack"], &"blink": [&"blink", &"attack"],
 	&"leap": [&"skyfall", &"pounce", &"frozen_dive", &"dive", &"attack"],
-	&"spikes": [&"ice_spikes", &"root_lash", &"roots", &"attack"], &"burst": [&"shatter_floor", &"roar", &"attack"],
+	&"spikes": [&"ice_spikes", &"root_lash", &"roots", &"attack"],
+	&"snare": [&"roots", &"root_lash", &"roots_attack", &"attack"],
+	&"leash": [&"roots_attack", &"root_lash", &"roots", &"attack"], &"burst": [&"shatter_floor", &"roar", &"attack"],
 }
 const CHARGE_SPEED := 15.0
 const LEAP_TIME := 1.1
@@ -146,7 +148,18 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftFrostGuardians.new(boss.signature))
 		&"war_cry", &"rune_barrage", &"pantheon_wake", &"soul_chain":
 			result.append(DraftCityGuardians.new(boss.signature))
+	# Plongée sous la glace (Nivorath) : même mécanique que la plongée de la Gueule des marais.
+	if boss.signature != &"maw_dive" and _has_kind(boss, &"frozen_dive"):
+		result.append(DraftMawDive.new(&"frozen_dive"))
 	return result
+
+
+static func _has_kind(boss: BossData, kind: StringName) -> bool:
+	for p: BossPhaseData in boss.phases:
+		for pattern: BossPatternData in p.patterns:
+			if pattern.kind == kind:
+				return true
+	return false
 
 
 func phase_data() -> BossPhaseData:
@@ -582,6 +595,34 @@ func _gesture_spikes(pattern: BossPatternData, aim: Vector3) -> float:
 	return pattern.telegraph + 0.4
 
 
+func _gesture_snare(pattern: BossPatternData, _aim: Vector3) -> float:
+	# Racines entravantes (Gardien d'écorce) : elles jaillissent sous le Chasseur ; prises, elles le ralentissent fort.
+	var radius: float = clampf(float(pattern.params.get("radius", 110.0)) * UNIT, 2.0, 4.5)
+	var hinder: float = float(pattern.params.get("hinder", 1.5))
+	var mult: float = float(pattern.params.get("hinder_mult", 0.25))
+	var hunter: DraftHunter = enemies.hunter
+	enemies.hazards.circle(enemies.level.closest(hunter.global_position), radius, pattern.telegraph,
+		maxf(damage(pattern.damage), 1.0), fx_at(&"root_snare", radius), func() -> void: hunter.hinder(mult, hinder))
+	return pattern.telegraph + 0.3
+
+
+func _gesture_leash(pattern: BossPatternData, _aim: Vector3) -> float:
+	# Racine-laisse (forme racines de l'Abyssarque), version de la refonte du 11 novembre : rien ne retient le Chasseur.
+	# Une racine l'englue un instant là où il se tient (une Ruée le libère), puis le sol jaillit au même endroit.
+	var hunter: DraftHunter = enemies.hunter
+	var target: Vector3 = enemies.level.closest(hunter.global_position)
+	var radius: float = clampf(float(pattern.params.get("slam_radius", 170.0)) * UNIT, 2.5, 5.5)
+	var hold: float = minf(float(pattern.params.get("duration", 3.0)) * 0.4, 1.2)
+	var to_target: Vector3 = target - foe.pos
+	to_target.y = 0.0
+	enemies.hazards.line(foe.pos, to_target.normalized(), maxf(to_target.length(), 1.0), 0.6, pattern.telegraph, 0.0)
+	enemies.hazards.circle(target, 1.4, pattern.telegraph, maxf(damage(pattern.damage * 0.3), 1.0),
+		fx_at(&"root_snare", 1.4), func() -> void: hunter.stick(hold))
+	enemies.hazards.circle(target, radius, pattern.telegraph + float(pattern.params.get("slam_delay", 2.4)),
+		damage(pattern.damage), fx_at(&"earth_spike", radius))
+	return pattern.telegraph + 0.4
+
+
 func _gesture_burst(pattern: BossPatternData, _aim: Vector3) -> float:
 	# Sol qui éclate autour de lui : une couronne, puis une seconde plus loin à partir de la phase 2.
 	var rings: int = 1 + mini(phase, 1)
@@ -616,6 +657,7 @@ func _gesture_leap(pattern: BossPatternData, _aim: Vector3) -> float:
 	var airborne: float = float(pattern.params.get("airborne", 0.0))
 	_move = {"kind": &"leap", "from": foe.pos, "wait": pattern.telegraph, "t": 0.0, "reach": reach,
 		"damage": damage(pattern.damage), "rings": int(pattern.params.get("rings", 0)), "airborne": airborne,
+		"burn": float(pattern.params.get("burn_time", 0.0)),
 		"fall": pattern.telegraph}
 	if airborne <= 0.0:
 		# Bond : la zone d'arrivée est annoncée tout de suite, sous le Chasseur.
@@ -738,6 +780,10 @@ func _step_skyfall(delta: float) -> void:
 func _land(to: Vector3) -> void:
 	foe.view.hop = 0.0
 	foe.pos = enemies.level.closest(to + Vector3.UP * 0.2)
+	var burn: float = float(_move.get("burn", 0.0))
+	if burn > 0.0:
+		# Sol brûlant laissé par la chute (Pyrevorn) : il blesse et ralentit tant qu'on s'y tient.
+		enemies.hazards.zone(foe.pos, float(_move["reach"]), burn, float(_move["damage"]) * 0.15, 0.7)
 	var rings: int = int(_move.get("rings", 0))
 	for w: int in rings:
 		enemies.hazards.ring(foe.pos, 8.0, 18.0, 0.45 + 0.5 * w, float(_move["damage"]) * 0.5,

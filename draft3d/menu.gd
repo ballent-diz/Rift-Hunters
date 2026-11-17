@@ -232,7 +232,14 @@ func close_unlocks() -> void:
 func open_options() -> void:
 	if options_panel != null:
 		return
-	options_panel = DraftOptions.new()
+	var panel := DraftOptions.new()
+	panel.allow_reset = unlocks is DraftUnlocks
+	panel.progress_reset.connect(func() -> void:
+		DraftUnlocks.wipe()
+		var currency: Label = ui.find_child("Currency", true, false) as Label
+		if currency != null:
+			currency.text = tr("UNLOCK3D_CURRENCY") % int(unlocks.call(&"currency")))
+	options_panel = panel
 	options_panel.name = "Options"
 	ui.add_child(options_panel)
 	options_panel.closed.connect(close_options)
