@@ -26,7 +26,9 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 alors ni victoire de chapitre ni gain de Fragments) : **F9** ou **Pause → Aller au boss (test)** retire la vague en cours
 et fait venir le boss de la carte tout de suite (sommet de la tour compris) ; `--boss-test --chapter=N` démarre
 directement sur le boss du chapitre N avec un Chasseur monté de 15 niveaux (`--boss-level=N` pour changer,
-`DraftTuning.test_boss_levels`). Code : `draft3d/boss_test.gd`.
+`DraftTuning.test_boss_levels`). Dans tous les cas, l'arsenal est rempli : emplacement en plus, tous les sorts (ordre
+tiré au hasard, les autres en réserve), tous les passifs et des mutations tirées au hasard (deux au plus par sort).
+Code : `draft3d/boss_test.gd`.
 
 Options de vérification (après `--`) : `--bot`, `--spells=hunter_mark,void_rend`, `--cast-at=20`, `--passive`, `--god`, `--seed=1`, `--boss-at=30`, `--result`,
 `--perf=50,100,200`, `--shots=<dossier> --shot-times=40,95 --quit-after-shots`, `--look=x,z[,hauteur]`,

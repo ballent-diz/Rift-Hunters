@@ -400,3 +400,11 @@ Choix du propriétaire : premier boss à améliorer, le premier boss final vu pa
 - **Chimère des brumes** : sous son voile, elle surgit près du Chasseur toutes les 2,4 s pour griffer
   (`DraftBossBrain.blink_strike`) pendant qu'il brise les lanternes.
 - Essai `test_chapter1_guardians_improved`.
+
+### Raccourci de test : arsenal rempli (17 novembre)
+
+Demande du propriétaire : quand le raccourci « Aller au boss » sert (F9, pause, `--boss-test`), l'arsenal est rempli
+(`DraftBossTest.fill_arsenal`) : emplacement en plus, tous les sorts raccordés appris dans un ordre tiré au hasard
+(les cinq premiers équipés, les autres en réserve), tous les passifs, et pour chaque sort des mutations tirées au
+hasard (deux au plus, jamais incompatibles). Les déblocages du profil sont ignorés le temps du remplissage ; rien
+n'est enregistré (partie de test). Essai `test_boss_test_fills_the_arsenal`.

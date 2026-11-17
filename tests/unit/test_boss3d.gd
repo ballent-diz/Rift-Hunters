@@ -806,3 +806,28 @@ func test_chapter1_guardians_improved() -> void:
 	veil.perform(_pattern(chimera.boss, &"mist_veil"))
 	await _frames(int(DraftMistVeil.MIST_STEP * 60) + 150)
 	check(veil.mist_steps >= 1, "sous le voile, elle surgit près du Chasseur (%d)" % veil.mist_steps)
+
+
+func test_boss_test_fills_the_arsenal() -> void:
+	await _start()
+	var learnable: Dictionary = {}
+	var passives: Dictionary = {}
+	for card: UpgradeData in run.upgrades.spell_cards:
+		var effect := card.effects[0] as DraftSpellEffect
+		if effect.kind == DraftSpellEffect.Kind.LEARN:
+			learnable[effect.spell_id] = true
+		elif effect.kind == DraftSpellEffect.Kind.PASSIVE:
+			passives[effect.passive] = true
+	DraftBossTest.skip_to_boss(run)
+	for id: StringName in learnable:
+		check(run.spells.owns(id), "sort %s appris" % id)
+	for id: StringName in passives:
+		check(run.passives.has(id), "passif %s pris" % id)
+	check_eq(run.spells.slots.size(), DraftSpells.MAX_SLOTS, "emplacement en plus")
+	check(not run.spells.slots.has(null), "toutes les cases équipées")
+	var mutated: int = 0
+	for id: StringName in run.spells.owned:
+		var count: int = run.spells.mutations(id).size()
+		check(count <= DraftSpells.MAX_MUTATIONS, "%s : deux mutations au plus" % id)
+		mutated += 1 if count > 0 else 0
+	check(mutated >= 3, "mutations tirées sur plusieurs sorts (%d)" % mutated)
