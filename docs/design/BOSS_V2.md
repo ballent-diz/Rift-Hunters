@@ -389,3 +389,14 @@ Choix du propriétaire : premier boss à améliorer, le premier boss final vu pa
 - **seconde phase** : chaque écrasement est suivi d'une charge vers le Chasseur 1,1 s plus tard
   (`DraftBossMechanic.after`) ; les orbes passent en double salve (un seul orbe doré).
 - Contrôle : `--boss-test --chapter=1` (bot, mode dieu) : victoire, aucune erreur. Essai `test_source_devourer_style`.
+
+### Gardiens du chapitre 1 améliorés (17 novembre)
+
+- **Sentinelle des racines** (`bosses/menhir_quake.gd`, `DraftMenhirQuake`) : avant chaque séisme, trois menhirs
+  solides sortent du sol autour du Chasseur (un entre lui et le boss) ; les anneaux sont coupés par le décor, on
+  s'abrite derrière, ou on traverse d'une Ruée ; les menhirs retombent après 6 s. Bandeau `BOSS_QUAKE_INTRO` réécrit.
+- **Astravorn** : en seconde phase, la couronne d'astres change de sens à mi-course ; après la couronne, il enchaîne
+  de préférence avec le rayon du vide.
+- **Chimère des brumes** : sous son voile, elle surgit près du Chasseur toutes les 2,4 s pour griffer
+  (`DraftBossBrain.blink_strike`) pendant qu'il brise les lanternes.
+- Essai `test_chapter1_guardians_improved`.

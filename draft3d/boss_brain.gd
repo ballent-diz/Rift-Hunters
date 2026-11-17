@@ -126,6 +126,8 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftSourceDevourer.new())
 		&"star_crown":
 			result.append(DraftStarCrown.new())
+		&"quake":
+			result.append(DraftMenhirQuake.new())
 		&"mist_veil":
 			result.append(DraftMistVeil.new())
 		&"crater_sequence":
@@ -240,6 +242,22 @@ func banner_once(key: String) -> void:
 func charge(pattern: BossPatternData, aim: Vector3) -> void:
 	_busy = 0.0
 	_gesture_charge(pattern, aim)
+
+
+## Saut de faille et coup de griffes commandés par une mécanique (pas de brume de la Chimère sous son voile).
+## Sans effet si le boss est déjà occupé.
+func blink_strike(damage_amount: float) -> bool:
+	if busy() or not enemies.hunter.alive:
+		return false
+	var to_hunter: Vector3 = enemies.hunter.global_position - foe.pos
+	to_hunter.y = 0.0
+	var probe := BossPatternData.new()
+	probe.kind = &"blink"
+	probe.damage = damage_amount
+	probe.telegraph = 0.6
+	_busy = _gesture_blink(probe, to_hunter.normalized() if to_hunter.length() > 0.01 else Vector3.RIGHT)
+	foe.view.play_action(_first_clip([&"attack", &"claw"]), _busy)
+	return true
 
 
 ## Bond sur le Chasseur commandé par une mécanique (Reine-veuve sur une proie engluée).

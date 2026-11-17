@@ -9,11 +9,15 @@ const MIST := Color(0.75, 0.85, 1.25)
 ## Part des coups qui traverse la brume (jamais zéro : un boss n'est jamais totalement invulnérable).
 const VEILED_MULT := 0.05
 const EXPOSED_MULT := 2.0
+## Intervalle entre deux pas de brume sous le voile (s).
+const MIST_STEP := 2.4
 
 ## Voile en cours : {"until", "heal", "stun", "exposed"} (vide : aucun).
 var veil: Dictionary = {}
 var lanterns: Array[DraftEnemies.Foe] = []
 var broken: int = 0
+var mist_steps: int = 0
+var _step_at: float = 0.0
 var _exposed_left: float = 0.0
 var _clock: float = 0.0
 
@@ -39,6 +43,7 @@ func perform(pattern: BossPatternData) -> float:
 		lantern.xp = 0
 		lanterns.append(lantern)
 		brain.fx(&"fog", at + Vector3.UP * 0.5, 1.4)
+	_step_at = _clock + pattern.telegraph + 1.0
 	veil = {"until": _clock + pattern.telegraph + float(params.get("duration", 12.0)),
 		"heal": float(params.get("heal_ratio", 0.04)), "stun": float(params.get("stun", 2.5)),
 		"exposed": float(params.get("exposed", 4.0))}
@@ -73,6 +78,10 @@ func step(delta: float) -> void:
 	if veil.is_empty():
 		return
 	var foe: DraftEnemies.Foe = brain.foe
+	# Pas de brume : sous son voile, elle surgit près du Chasseur pour griffer pendant qu'il brise les lanternes.
+	if _clock >= _step_at and lanterns_alive().size() > 0 and brain.blink_strike(brain.damage(brain.data.damage * 0.8)):
+		_step_at = _clock + MIST_STEP
+		mist_steps += 1
 	if lanterns_alive().is_empty():
 		# Dernière lanterne brisée : la Chimère se fige, sonnée et vulnérable.
 		var stun: float = veil["stun"]
