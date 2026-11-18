@@ -30,7 +30,6 @@ func perform(pattern: BossPatternData) -> float:
 	_glow = make_orb(Color(RIFT, 1.0), brain.foe.radius * 0.6)
 	brain.fx(&"ring_charge", brain.foe.pos + Vector3.UP * 0.4, brain.foe.radius * 2.0)
 	brain.play_clip([StringName(str(params.get("anim", "spell_capture"))), &"attack"], pattern.telegraph + duration)
-	intro("BOSS_CAPTURE_INTRO")
 	return pattern.telegraph + duration + 0.6
 
 

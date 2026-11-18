@@ -61,7 +61,6 @@ func perform(pattern: BossPatternData) -> float:
 			"erupt_at": lights_end + float(params.get("pause", 0.6)) + k * erupt_gap, "done": false})
 	_damage = brain.damage(pattern.damage)
 	brain.play_clip([StringName(str(params.get("anim", "crater_rain"))), &"attack"], lights_end - _clock)
-	intro("BOSS_CRATER_INTRO")
 	return lights_end - _clock + 0.2
 
 

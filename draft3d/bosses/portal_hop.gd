@@ -42,7 +42,6 @@ func perform(pattern: BossPatternData) -> float:
 	_light(exit, 0.8)
 	brain.fx(&"blink_out", foe.pos + Vector3.UP * 0.8, 1.6)
 	brain.play_clip([StringName(str(params.get("anim", "blink"))), &"attack"], pattern.telegraph)
-	intro("BOSS_PORTAL_INTRO")
 	return pattern.telegraph
 
 
@@ -98,7 +97,6 @@ func step(delta: float) -> void:
 		trapped += 1
 		_exposed_left = trap_stun + 1.0
 		brain.stun(trap_stun)
-		brain.enemies.run.call("boss_banner", "BOSS_PORTAL_TRAPPED")
 	else:
 		brain.enemies.hazards.ring(exit, 9.0, float(hop["radius"]) + 4.0, 0.15, float(hop["damage"]),
 			brain.fx_at(&"ring_burst", 2.0))

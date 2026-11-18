@@ -76,7 +76,8 @@ func setup(visual_id: StringName, size_mult: float = 1.0) -> void:
 func _apply_sheet() -> void:
 	sprite.texture = load(str(entry["sheet"]))
 	var cell: Array = entry["cell"]
-	var anchor: Array = entry["anchor"]
+	# Ancre au sol propre à la 3D (pieds) quand l'ancre de la v1 vise le centre de masse (Abyssarque).
+	var anchor: Array = entry.get("ground_anchor", entry["anchor"])
 	sprite.region_rect = Rect2(0, 0, float(cell[0]), float(cell[1]))
 	sprite.pixel_size = PIXEL * float(entry.get("scale", 1.0)) * _size_mult
 	sprite.offset = Vector2(float(cell[0]) * 0.5 - float(anchor[0]), 0)

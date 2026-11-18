@@ -37,7 +37,6 @@ func perform(pattern: BossPatternData) -> float:
 		clampf(float(params.get("max_radius", 900.0)) * DraftHunter.UNIT, 14.0, 28.0), pattern.telegraph,
 		brain.damage(pattern.damage), brain.fx_at(&"ring_burst", 2.5))
 	brain.play_clip([StringName(str(params.get("anim", "attack"))), &"summon", &"attack"], pattern.telegraph)
-	intro("BOSS_ABYSS_ECHOES_INTRO")
 	return pattern.telegraph + 0.5
 
 

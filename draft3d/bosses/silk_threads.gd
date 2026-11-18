@@ -45,7 +45,6 @@ func perform(pattern: BossPatternData) -> float:
 	_pounce.damage = float(params.get("pounce_damage", 20.0))
 	_pounce.params = {"radius": float(params.get("pounce_radius", 120.0)) * 0.6}
 	brain.play_clip([StringName(str(params.get("anim", "soot_web"))), &"attack"], pattern.telegraph)
-	intro("BOSS_THREADS_INTRO")
 	return pattern.telegraph + 0.3
 
 

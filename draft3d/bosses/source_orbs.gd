@@ -37,7 +37,6 @@ func perform(pattern: BossPatternData) -> float:
 	var aim: Vector3 = to_hunter.normalized() if to_hunter.length() > 0.01 else Vector3.FORWARD
 	brain.play_clip([StringName(str(params.get("anim", "rift_breath"))), &"attack"], pattern.telegraph + 0.3)
 	brain.fx(&"ring_charge", mouth(), 1.4)
-	intro("BOSS_ORB_INTRO")
 	# Seconde phase : double salve, la seconde décalée d'un demi-écart et sans orbe doré (il n'y en a qu'un).
 	var salvos: int = 2 if brain.phase >= 1 else 1
 	for salvo: int in salvos:

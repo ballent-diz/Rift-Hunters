@@ -82,7 +82,6 @@ func _avalanche(pattern: BossPatternData) -> float:
 			"speed": float(params.get("speed", 300.0)) * DraftHunter.UNIT, "radius": float(params.get("radius", 24.0)) * DraftHunter.UNIT,
 			"max": float(params.get("max_radius", 80.0)) * DraftHunter.UNIT, "damage": brain.damage(pattern.damage), "left": 4.0})
 	brain.play_clip([StringName(str(params.get("anim", "avalanche"))), &"attack"], pattern.telegraph)
-	intro("BOSS_AVALANCHE_INTRO")
 	return pattern.telegraph + 0.3
 
 
@@ -129,7 +128,6 @@ func _deep_freeze(pattern: BossPatternData) -> float:
 		"prison": float(params.get("prison", 2.0)), "disc": make_disc(refuge, 2.6, WARM)}
 	brain.fx(&"torch", refuge + Vector3.UP * 0.8, 1.6)
 	brain.play_clip([StringName(str(params.get("anim", "snuff"))), &"attack"], pattern.telegraph)
-	intro("BOSS_DEEP_FREEZE_INTRO_3D")
 	return pattern.telegraph + 0.4
 
 
@@ -158,7 +156,6 @@ func _storm_hunt(pattern: BossPatternData) -> float:
 		"hidden": false}
 	brain.fx(&"blizzard", brain.foe.pos + Vector3.UP * 0.8, 2.0)
 	brain.play_clip([StringName(str(params.get("anim", "slide"))), &"attack"], pattern.telegraph)
-	intro("BOSS_STORM_HUNT_INTRO")
 	return pattern.telegraph
 
 
@@ -209,7 +206,6 @@ func _floe_quake(pattern: BossPatternData) -> float:
 			"closes": _clock + pattern.telegraph + float(params.get("warning", 1.6)) + 4.0, "node": make_disc(at, size, CRACK),
 			"damage": brain.damage(pattern.damage), "open": false})
 	brain.play_clip([StringName(str(params.get("anim", "ice_crack"))), &"attack"], pattern.telegraph)
-	intro("BOSS_FLOE_QUAKE_INTRO_3D")
 	return pattern.telegraph + 0.4
 
 

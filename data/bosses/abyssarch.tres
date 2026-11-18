@@ -387,6 +387,7 @@ shard_reward = 400
 essence_reward = 40
 visual = SubResource("visual_data_1")
 phases = [SubResource("phase_1"), SubResource("phase_2"), SubResource("phase_3"), SubResource("phase_4"), SubResource("phase_5"), SubResource("phase_6")]
+visual_scale = 0.5
 signature = &"abyss_echoes"
 death_visual_id = &"boss.abyssarch.death"
 defeat_key = "BOSS_ABYSSARCH_DEFEATED"

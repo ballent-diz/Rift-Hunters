@@ -1,5 +1,12 @@
 # Rift Hunters — feuille de route
 
+## Boss 3D : lisibilité et tailles (Claude, session « Boss », 18 novembre 2026)
+
+- Plus aucun bandeau d'explication de mécanique sur les boss (le joueur découvre seul) ; annonce d'arrivée et noms
+  de phase conservés. Glauquemire agrandi (`visual_scale` 2,0), Abyssarque réduit (0,5) et posé sur ses pieds
+  (`ground_anchor` du manifeste, lu par `DraftSpriteView`). Détails : `docs/design/BOSS_V2.md`.
+- Suite proposée : gardiens du chapitre 2 (Gardien du bûcher, Chevalier calciné, Reine-veuve, Matrone des scories).
+
 ## Matière de la Cité Effondrée — carte 5 (Codex, 17 novembre 2026)
 
 Prêt à valider sur `codex/matiere-cite-effondree`, depuis main actualisé. Pierre pâle usée, pavage raccordé,

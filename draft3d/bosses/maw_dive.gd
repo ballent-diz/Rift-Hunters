@@ -35,7 +35,6 @@ func perform(pattern: BossPatternData) -> float:
 		"damage": brain.damage(pattern.damage), "warned": false}
 	brain.play_clip([StringName(str(params.get("anim", "dive"))), &"attack"], pattern.telegraph)
 	brain.fx(&"splash", foe.pos + Vector3.UP * 0.4, foe.radius * 1.5)
-	intro("BOSS_FROZEN_DIVE_INTRO" if dive_kind == &"frozen_dive" else "BOSS_DIVE_INTRO")
 	return pattern.telegraph
 
 

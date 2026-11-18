@@ -36,7 +36,6 @@ func perform(pattern: BossPatternData) -> float:
 	brain.enemies.hazards.circle(anchor, radius, pattern.telegraph + float(params.get("slam_delay", 2.4)),
 		brain.damage(pattern.damage), brain.fx_at(&"earth_spike", radius))
 	brain.play_clip([&"roots_attack", &"root_lash", &"roots", &"attack"], pattern.telegraph)
-	intro("BOSS_ROOT_LEASH_INTRO")
 	return pattern.telegraph + 0.4
 
 

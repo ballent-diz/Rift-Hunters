@@ -44,7 +44,6 @@ func perform(pattern: BossPatternData) -> float:
 		_nodes.append(node)
 	_place()
 	brain.play_clip([&"phase2_attack", &"attack"], pattern.telegraph)
-	intro("BOSS_CROWN_INTRO")
 	return 0.0
 
 

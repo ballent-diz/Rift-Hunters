@@ -13,6 +13,7 @@
 				704,
 				650
 			],
+			"ground_anchor": [704, 1100],
 			"scale": 0.5,
 			"animations": {
 				"idle": {
@@ -54,6 +55,7 @@
 				704,
 				650
 			],
+			"ground_anchor": [704, 1100],
 			"scale": 0.5,
 			"animations": {
 				"roots_entry": {
@@ -113,6 +115,7 @@
 				704,
 				650
 			],
+			"ground_anchor": [704, 1100],
 			"scale": 0.5,
 			"animations": {
 				"magma_entry": {
@@ -172,6 +175,7 @@
 				704,
 				650
 			],
+			"ground_anchor": [704, 1100],
 			"scale": 0.5,
 			"animations": {
 				"crystal_entry": {
@@ -231,6 +235,7 @@
 				704,
 				650
 			],
+			"ground_anchor": [704, 1100],
 			"scale": 0.5,
 			"animations": {
 				"ice_entry": {
@@ -290,6 +295,7 @@
 				704,
 				650
 			],
+			"ground_anchor": [704, 1100],
 			"scale": 0.5,
 			"animations": {
 				"final_entry": {
@@ -349,6 +355,7 @@
 				704,
 				650
 			],
+			"ground_anchor": [704, 1100],
 			"scale": 0.5,
 			"animations": {
 				"collapse": {
