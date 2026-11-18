@@ -119,6 +119,10 @@ func _step_walls(delta: float) -> void:
 				if DraftSpells._flat(foe.pos - closest).length() > foe.radius + WALL_TOUCH:
 					continue
 				if float(wall["root"]) > 0.0 and foe.boss == null:
+					# Chaînes : entrave visible à chaque nouvel ennemi pris (le dessin peint des chaînes n'a pas de
+					# cible en v2 et le Rempart ardent peut porter l'animation du mur).
+					if foe.slow_left <= 0.0 or foe.slow_factor > 0.0:
+						run.fx(&"root_snare", &"enlises", foe.pos + Vector3.UP * 0.3, 0.8)
 					foe.slow(0.0, float(wall["root"]))
 				if float(wall["burn"]) > 0.0:
 					run.enemies.hit(foe, float(wall["burn"]))

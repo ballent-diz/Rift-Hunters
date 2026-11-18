@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "godot_version": "4.3 stable",
+  "import": "sortie0",
+  "mutation_tests": "4/4",
+  "lint": "PASS",
+  "render": "OpenGL NVIDIA Quadro M3000M",
+  "render_captures": 8,
+  "render_errors": 0,
+  "gameplay_changed": false,
+  "limits": [
+    "Captures sur mire2,5D ; lisibilité en foule à valider en partie.",
+    "Tests headless : messages mesh du renderer Dummy et avertissements de ressources à la sortie, assertions réussies."
+  ]
+}

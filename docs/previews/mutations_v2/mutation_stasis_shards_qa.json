@@ -1,0 +1,141 @@
+{
+  "id": "mutation_stasis_shards",
+  "status": "PASS",
+  "errors": [],
+  "rgba": true,
+  "size": [
+    320,
+    160
+  ],
+  "frame_size": [
+    80,
+    80
+  ],
+  "frames": 8,
+  "fps": 16,
+  "loop": false,
+  "transparent_border_px": 2,
+  "colors": 32,
+  "metrics": [
+    {
+      "frame": 1,
+      "source_edge_alpha_max": 2,
+      "opaque_coverage": 0.0333,
+      "bright_coverage": 0.0017,
+      "solid_bbox": [
+        18,
+        20,
+        63,
+        62
+      ],
+      "alpha_weight": 55216,
+      "center_alpha_max": 1,
+      "sha256": "952939402b848785853278348bf25147423b86b172ae0a650bc20a0dd1167dcd"
+    },
+    {
+      "frame": 2,
+      "source_edge_alpha_max": 2,
+      "opaque_coverage": 0.0708,
+      "bright_coverage": 0.0064,
+      "solid_bbox": [
+        16,
+        16,
+        63,
+        63
+      ],
+      "alpha_weight": 116910,
+      "center_alpha_max": 2,
+      "sha256": "0b6b1db5e01d4338b87d9c796725429dc17ea5e1ba3ac0f70049437ff8b02a73"
+    },
+    {
+      "frame": 3,
+      "source_edge_alpha_max": 1,
+      "opaque_coverage": 0.1145,
+      "bright_coverage": 0.0139,
+      "solid_bbox": [
+        14,
+        15,
+        64,
+        64
+      ],
+      "alpha_weight": 187469,
+      "center_alpha_max": 2,
+      "sha256": "01ba3f75de4f8ef5f3d34c279981958a7666f7180754f1615249c7de65b592a6"
+    },
+    {
+      "frame": 4,
+      "source_edge_alpha_max": 1,
+      "opaque_coverage": 0.1486,
+      "bright_coverage": 0.0183,
+      "solid_bbox": [
+        14,
+        15,
+        66,
+        65
+      ],
+      "alpha_weight": 239910,
+      "center_alpha_max": 5,
+      "sha256": "46bba1a09e8ef87a764ed0555e8ef20845cb3fed091b3fb0d921507ed3d2b1b8"
+    },
+    {
+      "frame": 5,
+      "source_edge_alpha_max": 2,
+      "opaque_coverage": 0.1669,
+      "bright_coverage": 0.0233,
+      "solid_bbox": [
+        14,
+        13,
+        66,
+        65
+      ],
+      "alpha_weight": 267132,
+      "center_alpha_max": 6,
+      "sha256": "771f59ae21fbef671b53d5585794679b360554f804b4b787791eb26bea4cba15"
+    },
+    {
+      "frame": 6,
+      "source_edge_alpha_max": 2,
+      "opaque_coverage": 0.165,
+      "bright_coverage": 0.0239,
+      "solid_bbox": [
+        14,
+        13,
+        65,
+        65
+      ],
+      "alpha_weight": 265555,
+      "center_alpha_max": 6,
+      "sha256": "0b1ad0441f6cb7cb5e7ba626073594a43c227b4c205ceca1c1a66ca05f2f1348"
+    },
+    {
+      "frame": 7,
+      "source_edge_alpha_max": 1,
+      "opaque_coverage": 0.1663,
+      "bright_coverage": 0.0233,
+      "solid_bbox": [
+        14,
+        13,
+        66,
+        65
+      ],
+      "alpha_weight": 267496,
+      "center_alpha_max": 5,
+      "sha256": "c8463b311b66add042629764148fbf455643844b2a9d5adce6cd0e6c96827353"
+    },
+    {
+      "frame": 8,
+      "source_edge_alpha_max": 1,
+      "opaque_coverage": 0.1645,
+      "bright_coverage": 0.0236,
+      "solid_bbox": [
+        14,
+        13,
+        66,
+        65
+      ],
+      "alpha_weight": 265466,
+      "center_alpha_max": 2,
+      "sha256": "8286ebfebd443d4bb8034f14534c562e5bb225c33bc487ae253ba2d38781e756"
+    }
+  ]
+}

@@ -7,6 +7,35 @@
   (`ground_anchor` du manifeste, lu par `DraftSpriteView`). Détails : `docs/design/BOSS_V2.md`.
 - Suite proposée : gardiens du chapitre 2 (Gardien du bûcher, Chevalier calciné, Reine-veuve, Matrone des scories).
 
+## Veilleur de dos et de face branché en jeu (Claude, 18 novembre 2026)
+
+`DraftSpriteView.directional` (activé pour le Chasseur seulement) choisit `move_back`/`idle_back` quand le Chasseur
+s'éloigne vers le haut de l'écran, `move_front`/`idle_front` quand il descend, le profil sinon ; au repos, la dernière
+orientation est gardée. Seuils sur la part verticale à l'écran (caméra) : entrée 0,82, sortie 0,6 (hystérésis des
+diagonales), plus la même confirmation de 0,12 s que le retournement gauche/droite. Les poses dos/face ne sont jamais
+retournées (épée en main droite) ; attaque, Ruée, sorts, blessure et mort restent en profil avec le dernier côté.
+Une apparence sans ces rangées retombe sur le profil. Test `test_draft3d_sprite_heading` ; captures des quatre
+directions : `tools/art/warden_heading_capture.tscn -- --chapter=1 --out=<dossier>`.
+
+## Validation finale des FX des compétences v2 — 18 novembre 2026 (session « Validation FX mutations »)
+
+Les 8 FX de mutations livrés (PR #227) sont conformes aux fiches et raccordés. Rapport et tableaux (15 sorts,
+30 mutations, 12 combos) : `docs/design/VALIDATION_FX_COMPETENCES_V2.md` ; captures `docs/previews/mutations_v2/en_jeu/`.
+- Corrigé (rendu seul) : effets ancrés sur un ennemi cachés par leur cible en rendu pixel (`DraftPixelFx.OVER_TARGET`,
+  priorité des personnages) ; effets au sol coupés par le sol, dont la moitié basse de l'Orage (avance vers la caméra
+  orthographique, `DraftPixelFx.place`). Combos et passifs ancrés sur une cible en profitent aussi.
+- Outil : `tools/mutation_fx_showcase.tscn` (captures mesurées, `--sweep` des 15 sorts). Captures : `--fixed-fps 60`.
+- **Suite** : tests manuels du propriétaire (liste en fin de rapport : Contrecoup discret, télégraphes en plein
+  combat, rendu pixel désactivé).
+
+## Mutations V2 — livraison graphique prête (Codex, 18 novembre 2026)
+
+Audit des douze mutations demandé par le propriétaire, priorité aux réutilisations. Branche
+`codex/mutations-v2-graphiques` ; [rapport préparatoire](art/PREPARATION_MUTATIONS_V2.md).
+Fiches techniques reçues sur main `0dac247` : `docs/design/FICHES_VFX_MUTATIONS_V2.md`. Production de huit FX
+en petits lots, quatre mutations conservant leurs ressources existantes. Aucun gameplay modifié ; PR graphique
+dédiée, sans fusion automatique.
+
 ## Matière de la Cité Effondrée — carte 5 (Codex, 17 novembre 2026)
 
 Prêt à valider sur `codex/matiere-cite-effondree`, depuis main actualisé. Pierre pâle usée, pavage raccordé,
@@ -1403,6 +1432,16 @@ Douze combos jouables (3 existants + 9) dans `draft3d/combos.gd` ; détail dans 
   existants joués), offres de cartes qui tiennent compte des combos (non demandé à ce lot).
 
 
+## Rendu des doubles mutations des sorts historiques — 18 novembre 2026 (session « VFX doubles mutations »)
+
+Détail et tableau : `docs/design/DOUBLES_MUTATIONS_VFX.md`. La variante peinte d'un sort à deux mutations ne dépend
+plus de l'ordre d'obtention (`DraftSpellVfx.PAINTED_PRIORITY`) ; l'autre mutation a un effet événementiel existant
+(portail du Retour, entrave des Chaînes, soin du Second souffle). Corrigés : Rupture, Bond, Parade, Singularité, Mur,
+Égide, Cristal (cristaux fantômes) ; Taille et Lance déjà justes. Aucune ressource nouvelle, scènes v1 et règles de jeu inchangées.
+- Test `tests/unit/test_draft3d_double_mutations_vfx.gd`, captures `tools/double_mutation_showcase.tscn`.
+- **Reste (optionnel)** : chaînes dessinées sur le mur peint, garde longue et riposte peintes (voir la fiche).
+
+
 ## Chapitres 6 à 9 raccordés — 18 novembre 2026 (session « Cartes »)
 
 La Tour de la Faille, le Défilé Hurlant, le Marais des Marées et les Corniches apparaissent dans la liste des chapitres
@@ -1410,3 +1449,15 @@ La Tour de la Faille, le Défilé Hurlant, le Marais des Marées et les Corniche
 existantes (`DraftRoster.V2_CHAPTERS`), Dévoreur plus résistant à chaque rang. Liste resserrée au-delà de six chapitres.
 - **Reste** : palettes du rendu pixel des chapitres 6 à 9 (session « Art et rendu ») ; monstres propres si le
   propriétaire en commande.
+
+## Effets dédiés des mutations des sorts v2 — 18 novembre 2026 (session « VFX mutations »)
+
+Fiches : `docs/design/FICHES_VFX_MUTATIONS_V2.md` (inventaire des FX actuels, décision par mutation, 8 fiches).
+Convention : `assets/vfx/pixelfx/mutation_<id de la carte>/violet.png + .json`. Raccordement prêt, **rien de livré** :
+Exécution, Traque, Fente perçante, Ombre piégée, Éclats de stase, Orage, Concentration, Contrecoup.
+Pas d'effet propre pour Double fente, Deux charges, Onde circulaire, Voile mobile (lisibles par la barre ou le FX actuel).
+- Repli : effet actuel inchangé (`DraftRun.fx_or`), ou rien de plus quand rien n'existe (`DraftPixelFx.dedicated`).
+- Effets dédiés sous les télégraphes ennemis ; l'Orage suit le Chasseur et disparaît avec sa zone.
+- Dégâts, recharges, effets des mutations et combos inchangés. Contrôle : `tools/art/check_v2_vfx.py` ; test
+  `tests/unit/test_draft3d_mutation_vfx.gd`.
+- **Suite** : livraison Codex des 8 planches, import, contrôle, captures en jeu.

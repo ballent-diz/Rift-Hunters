@@ -1,0 +1,29 @@
+Godot Engine v4.3.stable.official.77dcf97d8 - https://godotengine.org
+
+ERROR: Parameter "m" is null.
+   at: mesh_get_surface_count (servers/rendering/dummy/storage/mesh_storage.h:120)
+  ✓ test_draft3d_mutation_vfx::test_dedicated_plays_only_delivered_sheets
+PAINTED_KIT_INSTANCES {"pillar_decorated":1,"stairs_wide":4,"wall":66,"wall_broken":21,"wall_cracked":10,"wall_doorway":4}
+ERROR: Parameter "m" is null.
+   at: mesh_get_surface_count (servers/rendering/dummy/storage/mesh_storage.h:120)
+ERROR: Parameter "m" is null.
+   at: mesh_get_surface_count (servers/rendering/dummy/storage/mesh_storage.h:120)
+  ✓ test_draft3d_mutation_vfx::test_piercing_rend_uses_dedicated_impact_on_each_foe
+PAINTED_KIT_INSTANCES {"pillar_decorated":1,"stairs_wide":4,"wall":66,"wall_broken":21,"wall_cracked":10,"wall_doorway":4}
+ERROR: Parameter "m" is null.
+   at: mesh_get_surface_count (servers/rendering/dummy/storage/mesh_storage.h:120)
+ERROR: Parameter "m" is null.
+   at: mesh_get_surface_count (servers/rendering/dummy/storage/mesh_storage.h:120)
+  ✓ test_draft3d_mutation_vfx::test_storm_cloud_follows_the_hunter_and_ends_with_the_zone
+PAINTED_KIT_INSTANCES {"pillar_decorated":1,"stairs_wide":4,"wall":66,"wall_broken":21,"wall_cracked":10,"wall_doorway":4}
+ERROR: Parameter "m" is null.
+   at: mesh_get_surface_count (servers/rendering/dummy/storage/mesh_storage.h:120)
+ERROR: Parameter "m" is null.
+   at: mesh_get_surface_count (servers/rendering/dummy/storage/mesh_storage.h:120)
+  ✓ test_draft3d_mutation_vfx::test_without_sheet_the_generic_effect_stays
+
+Tests : 4, réussis : 4, échoués : 0
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+     at: cleanup (core/object/object.cpp:2284)
+ERROR: 14 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:604)

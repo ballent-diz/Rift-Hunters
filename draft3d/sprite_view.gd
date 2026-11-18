@@ -8,6 +8,13 @@ extends Node3D
 ## Mètres par pixel d'art pour une échelle de manifeste de 1 (même valeur que le prototype).
 const PIXEL := 0.037
 const TURN_CONFIRM_TIME := 0.12
+## Orientation dos/face (Chasseur) : part verticale à l'écran du déplacement pour passer en dos ou en face, et sous
+## laquelle on revient au profil. L'écart entre les deux évite le clignotement sur les diagonales.
+const HEADING_ENTER := 0.82
+const HEADING_LEAVE := 0.6
+const SIDE := &"side"
+const BACK := &"back"
+const FRONT := &"front"
 ## Groupe de tous les sprites du monde (le rendu pixel change leur mode de transparence).
 const GROUP := &"draft_sprites"
 
@@ -23,6 +30,10 @@ var animation: StringName = &"idle"
 ## Vitesse de référence du cycle de marche (m/s) : une boucle de `move` par seconde de marche à cette vitesse.
 var walk_speed: float = 5.0
 var facing_changes: int = 0
+## Sélection dos/face/profil selon la direction à l'écran (Chasseur seulement ; repli sur le profil sans les rangées).
+var directional: bool = false
+## Orientation à l'écran confirmée : `SIDE`, `BACK` (s'éloigne vers le haut) ou `FRONT` (descend).
+var heading: StringName = SIDE
 ## Animation de repos (un boss en seconde phase passe sur `phase2_idle`).
 var idle_clip: StringName = &"idle"
 ## Hauteur ajoutée à l'image (bond d'un boss), en mètres.
@@ -34,6 +45,9 @@ var _previous := Vector3.ZERO
 var _current := Vector3.ZERO
 var _turn_candidate: bool = false
 var _turn_time: float = 0.0
+var _heading_candidate: StringName = SIDE
+var _heading_time: float = 0.0
+var _side_left: bool = false
 var _action: StringName = &""
 var _action_left: float = 0.0
 var _flash: float = 0.0
@@ -169,6 +183,7 @@ func play_action(id: StringName, duration: float = -1.0) -> void:
 	_action_left = duration if duration > 0.0 else float(c["frames"]) / maxf(float(c["fps"]), 1.0)
 	animation = id
 	_time = 0.0
+	_apply_flip()
 
 
 func flash(seconds: float = 0.12) -> void:
@@ -180,8 +195,45 @@ func set_tint(color: Color) -> void:
 
 
 func face_left(left: bool) -> void:
-	sprite.flip_h = left
+	_side_left = left
+	_apply_flip()
 	_turn_time = 0.0
+
+
+## Orientation suivante selon le déplacement à l'écran (x : droite, y : haut), avec hystérésis.
+static func next_heading(current: StringName, screen: Vector2) -> StringName:
+	var length: float = screen.length()
+	if length < 0.5:
+		return current
+	var vertical: float = screen.y / length
+	if current == SIDE:
+		if vertical >= HEADING_ENTER:
+			return BACK
+		if vertical <= -HEADING_ENTER:
+			return FRONT
+		return SIDE
+	var held: bool = vertical >= HEADING_LEAVE if current == BACK else vertical <= -HEADING_LEAVE
+	if held:
+		return current
+	return next_heading(SIDE, screen)
+
+
+## Clip de marche ou de repos tenant compte de l'orientation (`move_back`, `idle_front`...), sinon le profil.
+func oriented(base: StringName) -> StringName:
+	if not directional or heading == SIDE:
+		return base
+	var id := StringName("%s_%s" % [base, heading])
+	return id if has_clip(id) else base
+
+
+func _is_walk(id: StringName) -> bool:
+	return id == &"move" or id == &"move_back" or id == &"move_front"
+
+
+## Les poses dos et face sont dessinées avec l'épée en main droite : jamais retournées.
+func _apply_flip() -> void:
+	sprite.flip_h = _side_left and not (animation == &"idle_back" or animation == &"move_back"
+		or animation == &"idle_front" or animation == &"move_front")
 
 
 func _process(delta: float) -> void:
@@ -192,7 +244,7 @@ func _process(delta: float) -> void:
 	var c: Dictionary = clip(animation)
 	if c.is_empty():
 		return
-	var phase: float = _walk_phase if animation == &"move" else _time * float(c["fps"])
+	var phase: float = _walk_phase if _is_walk(animation) else _time * float(c["fps"])
 	var frame: int = int(phase)
 	if bool(c.get("loop", true)) and _action == &"":
 		frame %= int(c["frames"])
@@ -205,12 +257,14 @@ func _process(delta: float) -> void:
 func _update_facing(velocity: Vector3, delta: float) -> void:
 	var camera: Camera3D = get_viewport().get_camera_3d()
 	var horizontal: float = velocity.x if camera == null else velocity.dot(camera.global_basis.x)
+	if directional:
+		_update_heading(velocity, horizontal, camera, delta)
 	# Trajet presque vertical ou petite correction : l'orientation est gardée.
 	if absf(horizontal) < 0.5 or absf(horizontal) < velocity.length() * 0.22:
 		_turn_time = 0.0
 		return
 	var flipped: bool = horizontal < 0.0
-	if flipped == sprite.flip_h:
+	if flipped == _side_left:
 		_turn_time = 0.0
 	elif flipped != _turn_candidate:
 		_turn_candidate = flipped
@@ -218,9 +272,28 @@ func _update_facing(velocity: Vector3, delta: float) -> void:
 	else:
 		_turn_time += delta
 	if _turn_time >= TURN_CONFIRM_TIME:
-		sprite.flip_h = flipped
+		_side_left = flipped
+		_apply_flip()
 		facing_changes += 1
 		_turn_time = 0.0
+
+
+func _update_heading(velocity: Vector3, horizontal: float, camera: Camera3D, delta: float) -> void:
+	var away: Vector3 = Vector3.FORWARD if camera == null else -camera.global_basis.z
+	away.y = 0.0
+	var screen := Vector2(horizontal, velocity.dot(away.normalized() if away.length() > 0.01 else Vector3.FORWARD))
+	var wanted: StringName = next_heading(heading, screen)
+	if wanted == heading:
+		_heading_time = 0.0
+		return
+	if wanted != _heading_candidate:
+		_heading_candidate = wanted
+		_heading_time = delta
+	else:
+		_heading_time += delta
+	if _heading_time >= TURN_CONFIRM_TIME:
+		heading = wanted
+		_heading_time = 0.0
 
 
 func _update_animation(distance: float, delta: float) -> void:
@@ -232,13 +305,14 @@ func _update_animation(distance: float, delta: float) -> void:
 		_action = &""
 	var speed: float = distance / delta
 	_idle_time = _idle_time + delta if speed < 0.15 else 0.0
-	var moving: bool = speed > 0.3 or (animation == &"move" and _idle_time < 0.1)
+	var moving: bool = speed > 0.3 or (_is_walk(animation) and _idle_time < 0.1)
 	var rest: StringName = idle_clip if has_clip(idle_clip) else &"idle"
-	var next: StringName = &"move" if moving or not has_clip(rest) else rest
+	var next: StringName = oriented(&"move") if moving or not has_clip(rest) else oriented(rest)
 	if next != animation:
 		animation = next
 		_time = 0.0
-	if next == &"move":
-		var c: Dictionary = clip(&"move")
+	_apply_flip()
+	if _is_walk(next):
+		var c: Dictionary = clip(next)
 		# Le cycle avance avec le terrain parcouru : aucun piétinement contre un obstacle.
 		_walk_phase = fmod(_walk_phase + distance * float(c["fps"]) / maxf(walk_speed, 0.1), float(c["frames"]))
