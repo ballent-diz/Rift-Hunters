@@ -74,6 +74,8 @@ var _leap_power: float = 1.0
 var _return_point := Vector3.ZERO
 var _return_spell: StringName = &""
 var _return_left: float = 0.0
+## Repère du point de retour, affiché pendant la fenêtre (le dessin peint du Retour ne dure que l'animation du saut).
+var _return_marker: Node3D
 ## Puissance du lancement en cours (Surcharge) et zones de Brasier.
 var _power: float = 1.0
 var _zones: Array[Dictionary] = []
@@ -279,10 +281,10 @@ func has_variant(data: SpellData, variant: StringName) -> bool:
 	return data != null and (variants.get(data.id, []) as Array).has(variant)
 
 
-## Première mutation du sort (animation peinte jouée), &"" sans mutation.
+## Mutation dont l'animation peinte est jouée (la plus prioritaire des deux, quel que soit l'ordre d'obtention ;
+## l'autre a sa couche ou son effet événementiel), &"" sans mutation.
 func variant_of(data: SpellData) -> StringName:
-	var list: Array = variants.get(data.id, [])
-	return list[0] if not list.is_empty() else &""
+	return DraftSpellVfx.painted_variant(data.spell_kind, mutations(data.id))
 
 
 ## Mutations qu'une nouvelle mutation peut prendre : [&""] s'il reste une case et qu'elle est compatible avec celles
@@ -418,6 +420,8 @@ func step(delta: float) -> void:
 	rift.step(delta)
 	vfx.step()
 	_return_left = maxf(_return_left - delta, 0.0)
+	if _return_left <= 0.0:
+		_clear_return_marker()
 	var hunter: DraftHunter = run.hunter
 	if not hunter.alive or not hunter.active:
 		preview_slot = -1
@@ -755,6 +759,7 @@ func leap_back() -> bool:
 	if _return_left <= 0.0 or run.hunter.is_leaping():
 		return false
 	_return_left = 0.0
+	_clear_return_marker()
 	_leap_spell = null
 	var back: Vector3 = _flat(_return_point - run.hunter.global_position)
 	var leaped: SpellData = spell(_return_spell)
@@ -775,6 +780,7 @@ func _on_landed() -> void:
 	var impact: bool = has_variant(data, &"impact")
 	if has_variant(data, &"return"):
 		_return_left = param(data, "window", 3.0)
+		_show_return_marker()
 	var size: float = 2.0 * (param(data, "area", 1.0) if impact else 1.0)
 	if DraftSpellVfx.scene("rift_leap") == null:
 		run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, landing + Vector3.UP * 0.4, size)
@@ -784,6 +790,20 @@ func _on_landed() -> void:
 		if impact and foe.alive:
 			foe.slow(param(data, "slow", 0.5), param(data, "duration", 2.0))
 	run.combos.on_landed(landing, damage_of(data) * _leap_power)
+
+
+## Retour : portail au point de départ tant que la touche du Bond peut y ramener (sous les zones annoncées).
+func _show_return_marker() -> void:
+	_clear_return_marker()
+	var marker: Sprite3D = run.fx(&"portal", &"riftborn", _return_point + Vector3.UP * 0.5, 0.7, true)
+	marker.render_priority = DraftPixelFx.UNDER_TELEGRAPHS
+	_return_marker = marker
+
+
+func _clear_return_marker() -> void:
+	if _return_marker != null and is_instance_valid(_return_marker):
+		_return_marker.queue_free()
+	_return_marker = null
 
 
 ## Parade : garde courte ; un coup paré n'inflige rien, déclenche une contre-attaque autour du Chasseur (×counter),
@@ -866,6 +886,8 @@ func _aegis(data: SpellData) -> bool:
 	if has_variant(data, &"second_wind"):
 		amount *= param(data, "shield", 1.0)
 		hunter.heal(hunter.max_hp() * param(data, "heal", 0.0))
+		# Soin immédiat visible (le dessin peint ne montre que le bouclier réduit).
+		run.fx(&"healing_bloom", &"enlises", hunter.chest(), 1.2)
 	hunter.shield = amount
 	hunter.shield_left = duration_of(data)
 	_aegis_spell = data

@@ -1,0 +1,7 @@
+rupture              ba  mutations [&"reaction", &"blaze"]      peinte : reaction
+rift_leap            ba  mutations [&"return", &"impact"]       peinte : return
+parry                ba  mutations [&"long_guard", &"mirror"]   peinte : base
+singularity          ba  mutations [&"horizon", &"collapse"]    peinte : horizon
+rift_wall            ba  mutations [&"chains", &"burning"]      peinte : chains
+aegis                ba  mutations [&"riposte", &"second_wind"] peinte : riposte
+refracting_crystal   ba  mutations [&"double", &"focus"]        peinte : base

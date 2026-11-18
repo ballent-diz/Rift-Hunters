@@ -1396,6 +1396,16 @@ Douze combos jouables (3 existants + 9) dans `draft3d/combos.gd` ; détail dans 
   existants joués), offres de cartes qui tiennent compte des combos (non demandé à ce lot).
 
 
+## Rendu des doubles mutations des sorts historiques — 18 novembre 2026 (session « VFX doubles mutations »)
+
+Détail et tableau : `docs/design/DOUBLES_MUTATIONS_VFX.md`. La variante peinte d'un sort à deux mutations ne dépend
+plus de l'ordre d'obtention (`DraftSpellVfx.PAINTED_PRIORITY`) ; l'autre mutation a un effet événementiel existant
+(portail du Retour, entrave des Chaînes, soin du Second souffle). Corrigés : Rupture, Bond, Parade, Singularité, Mur,
+Égide, Cristal (cristaux fantômes) ; Taille et Lance déjà justes. Aucune ressource nouvelle, scènes v1 et règles de jeu inchangées.
+- Test `tests/unit/test_draft3d_double_mutations_vfx.gd`, captures `tools/double_mutation_showcase.tscn`.
+- **Reste (optionnel)** : chaînes dessinées sur le mur peint, garde longue et riposte peintes (voir la fiche).
+
+
 ## Chapitres 6 à 9 raccordés — 18 novembre 2026 (session « Cartes »)
 
 La Tour de la Faille, le Défilé Hurlant, le Marais des Marées et les Corniches apparaissent dans la liste des chapitres
