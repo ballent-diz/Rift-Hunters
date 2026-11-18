@@ -340,7 +340,10 @@ func chase(foe: Foe, target: Vector3, to_hunter: Vector3, distance: float, climb
 		foe.path_target = Vector3.INF
 		return to_hunter / maxf(distance, 0.001) if distance > foe.radius + DraftHunter.RADIUS else Vector3.ZERO
 	foe.path_timer -= delta
-	if foe.path.is_empty() or (foe.path_timer <= 0.0 and target.distance_to(foe.path_target) >= PATH_TARGET_DISTANCE):
+	# Chemin épuisé sans avoir rejoint le Chasseur (poussé hors du chemin, cible sur un autre niveau) : nouveau chemin,
+	# sinon l'ennemi file droit vers le Chasseur et reste collé au bord d'une plateforme.
+	var spent: bool = foe.path_index >= foe.path.size() and climb >= 0.6
+	if foe.path.is_empty() or (foe.path_timer <= 0.0 and (spent or target.distance_to(foe.path_target) >= PATH_TARGET_DISTANCE)):
 		foe.path = level.path(foe.pos, target)
 		foe.path_index = 0
 		foe.path_target = target
