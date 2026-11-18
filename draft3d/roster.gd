@@ -10,6 +10,20 @@ const MAX_ENEMIES := 10
 ## définitivement retiré de la v2 ; ses données restent pour l'archive v1).
 const EXCLUDED_BOSSES: Array[StringName] = [&"nebulorax"]
 
+## Chapitres propres à la version 3D (6 à 9, après les cinq de la campagne) : pas de données de campagne, leur
+## bestiaire mêle des cartes existantes (monstres, gardiens ; la dernière donne le Dévoreur). Les PV du Dévoreur
+## croissent avec le rang du chapitre (`DraftTuning.boss_chapter_growth`).
+const V2_CHAPTERS: Array[Dictionary] = [
+	{"id": &"rift_tower", "color": Color(0.82, 0.36, 0.62),
+		"arenas": [&"shattered_outskirts", &"rune_sanctum", &"shattered_pantheon", &"soot_dens", &"caldera_arena"]},
+	{"id": &"howling_pass", "color": Color(0.9, 0.62, 0.36),
+		"arenas": [&"scorched_verge", &"ash_vents", &"glacier_entry", &"brazier_pass", &"silent_heart"]},
+	{"id": &"tide_marsh", "color": Color(0.36, 0.74, 0.78),
+		"arenas": [&"mist_ford", &"root_mangrove", &"tide_temple", &"reflection_wells", &"marsh_heart"]},
+	{"id": &"high_cliffs", "color": Color(0.66, 0.78, 0.98),
+		"arenas": [&"three_rifts", &"storm_highlands", &"firefly_woods", &"cascade_source", &"suspended_quarters"]},
+]
+
 var chapter: ChapterData
 var enemies: Array[EnemyData] = []
 var guardians: Array[BossData] = []
@@ -21,6 +35,16 @@ static func chapters() -> Array[ChapterData]:
 	for data: ChapterData in GameDB.chapters_in_order():
 		if data.track == &"main":
 			result.append(data)
+	for entry: Dictionary in V2_CHAPTERS:
+		var data := ChapterData.new()
+		data.id = entry["id"]
+		data.order = result.size() + 1
+		data.color = entry["color"]
+		for arena_id: StringName in entry["arenas"]:
+			var map := CampaignMapData.new()
+			map.arena_id = arena_id
+			data.maps.append(map)
+		result.append(data)
 	return result
 
 

@@ -2323,6 +2323,14 @@ CHAPTER3D_SILENT_GLACIER_NAME,L'Avant-poste des Glaces,The Frost Outpost
 CHAPTER3D_SILENT_GLACIER_DESC,"Un ancien avant-poste pris dans la banquise : maisons de pierre, réserves de bois et tour de guet. La Faille a figé les derniers veilleurs.","An ancient outpost trapped in the ice shelf: stone houses, timber stores and a watchtower. The Rift froze its last sentries."
 CHAPTER3D_RIFT_CITY_NAME,Le Cœur de la Faille,The Heart of the Rift
 CHAPTER3D_RIFT_CITY_DESC,"Au bout de la traque, la Faille rouvre les ruines où tout a commencé : ses Dévoreurs y attendent le Chasseur.","At the end of the hunt, the Rift reopens the ruins where it all began: its Devourers await the Hunter there."
+CHAPTER3D_RIFT_TOWER_NAME,La Tour de la Faille,The Rift Tower
+CHAPTER3D_RIFT_TOWER_DESC,"Trois étages en anneau autour d'un puits sans fond : la Garnison, les Cellules, puis le Sommet où la Faille saigne. Chaque herse se lève quand l'étage est tenu.","Three ring-shaped floors around a bottomless well: the Garrison, the Cells, then the Summit where the Rift bleeds. Each portcullis rises once the floor is held."
+CHAPTER3D_HOWLING_PASS_NAME,Le Défilé Hurlant,The Howling Pass
+CHAPTER3D_HOWLING_PASS_DESC,"Une gorge étroite au crépuscule, d'une clairière à l'autre par des goulets de roche, jusqu'au cercle des Pierres levées.","A narrow gorge at dusk, from clearing to clearing through rocky necks, up to the circle of Standing Stones."
+CHAPTER3D_TIDE_MARSH_NAME,Le Marais des Marées,The Tidal Marsh
+CHAPTER3D_TIDE_MARSH_DESC,"Des îlots reliés par des levées de terre. Toutes les 80 secondes, la marée monte et noie les raccourcis : il faut faire le tour.","Islets linked by earthen dikes. Every 80 seconds the tide rises and floods the shortcuts: you must go the long way round."
+CHAPTER3D_HIGH_CLIFFS_NAME,Les Corniches,The High Ledges
+CHAPTER3D_HIGH_CLIFFS_DESC,"Une falaise en gradins à gravir, de la grève jusqu'à la Couronne : rampes, éboulis, escaliers et perchoirs hors de portée des griffes.","A stepped cliff to climb, from the shore up to the Crown: ramps, scree, stairs and perches beyond the reach of claws."
 OPTIONS3D_CONTROLS,Touches et visée,Keys and aiming
 OPTIONS3D_RESET_PROGRESS,Réinitialiser la progression,Reset progression
 OPTIONS3D_RESET_CONFIRM,"Tout effacer (Fragments, déblocages, chapitres) ? Appuyer encore pour confirmer","Erase everything (Fragments, unlocks, chapters)? Press again to confirm"
