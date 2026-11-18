@@ -11,6 +11,9 @@ const EMBER := Color(1.0, 0.45, 0.12)
 const SHOW_ALPHA := 0.75
 ## Éclair qui précède chaque éruption (s), le seul rappel une fois les cases éteintes.
 const FLASH := 0.2
+## Flaque de lave laissée par chaque éruption : part de la case, durée (s).
+const LAVA_RATIO := 0.3
+const LAVA_TIME := 3.5
 ## Escorte de seconde phase : élite, PV (multiple de ses PV d'origine), taille.
 const ESCORTS := [[&"caldera_titan", 4.0, 1.6], [&"flame_wyrmling", 4.0, 1.7]]
 
@@ -125,6 +128,8 @@ func _erupt(at: Vector3) -> void:
 			brain.enemies.run.call("on_hunter_hit", brain.foe)
 	brain.fx(&"flame_pillar", at + Vector3.UP * 0.8, cell_size * 0.35)
 	Audio.play_sfx(&"detonation")
+	# Le cratère laisse une flaque de lave quelques secondes (ralentit et brûle) : la grille se referme peu à peu.
+	brain.enemies.hazards.zone(at, cell_size * LAVA_RATIO, LAVA_TIME, _damage * 0.2, 0.75)
 
 
 func _tile(at: Vector3) -> MeshInstance3D:

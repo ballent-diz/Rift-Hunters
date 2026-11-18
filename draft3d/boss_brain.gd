@@ -131,7 +131,9 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 		&"mist_veil":
 			result.append(DraftMistVeil.new())
 		&"crater_sequence":
-			result.append(DraftCraterSequence.new())
+			var craters := DraftCraterSequence.new()
+			result.append(craters)
+			result.append(DraftPyrevornStyle.new(craters))
 		&"duel_circle":
 			result.append(DraftDuelCircle.new())
 		&"silk_threads":
