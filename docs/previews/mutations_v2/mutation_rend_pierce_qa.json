@@ -1,0 +1,111 @@
+{
+  "id": "mutation_rend_pierce",
+  "status": "PASS",
+  "errors": [],
+  "rgba": true,
+  "size": [
+    312,
+    208
+  ],
+  "frame_size": [
+    104,
+    104
+  ],
+  "frames": 6,
+  "fps": 24,
+  "loop": false,
+  "transparent_border_px": 2,
+  "colors": 32,
+  "metrics": [
+    {
+      "frame": 1,
+      "source_edge_alpha_max": 1,
+      "opaque_coverage": 0.0101,
+      "bright_coverage": 0.0,
+      "solid_bbox": [
+        16,
+        49,
+        87,
+        56
+      ],
+      "alpha_weight": 26889,
+      "center_alpha_max": 236,
+      "sha256": "4062e857355427c4fe42cd59745bbe64823d30b7ed658f8883581e284f4585e2"
+    },
+    {
+      "frame": 2,
+      "source_edge_alpha_max": 2,
+      "opaque_coverage": 0.016,
+      "bright_coverage": 0.0,
+      "solid_bbox": [
+        13,
+        48,
+        90,
+        59
+      ],
+      "alpha_weight": 45781,
+      "center_alpha_max": 244,
+      "sha256": "cd12e12d16d761978490eea1db03cfd1a457b1a6c69fffa767863e6f69c7fe3d"
+    },
+    {
+      "frame": 3,
+      "source_edge_alpha_max": 2,
+      "opaque_coverage": 0.0514,
+      "bright_coverage": 0.0093,
+      "solid_bbox": [
+        10,
+        47,
+        96,
+        60
+      ],
+      "alpha_weight": 139512,
+      "center_alpha_max": 250,
+      "sha256": "ff3d2ed4eb28ad02d9048b7e5bbc36d8656ba346679046f98d54ab45930eb0bb"
+    },
+    {
+      "frame": 4,
+      "source_edge_alpha_max": 1,
+      "opaque_coverage": 0.0702,
+      "bright_coverage": 0.0158,
+      "solid_bbox": [
+        7,
+        45,
+        99,
+        61
+      ],
+      "alpha_weight": 189097,
+      "center_alpha_max": 250,
+      "sha256": "0314c19ed8c4335428b3ff34d7e279b32b32861003b84802def309aeedef6d54"
+    },
+    {
+      "frame": 5,
+      "source_edge_alpha_max": 2,
+      "opaque_coverage": 0.0212,
+      "bright_coverage": 0.0031,
+      "solid_bbox": [
+        14,
+        47,
+        91,
+        58
+      ],
+      "alpha_weight": 59272,
+      "center_alpha_max": 250,
+      "sha256": "eecc421be4a620c6dc9fac8dca5127a6d5e808e1abececbefe64c35f426a2d69"
+    },
+    {
+      "frame": 6,
+      "source_edge_alpha_max": 1,
+      "opaque_coverage": 0.0045,
+      "bright_coverage": 0.0,
+      "solid_bbox": [
+        15,
+        49,
+        87,
+        57
+      ],
+      "alpha_weight": 13948,
+      "center_alpha_max": 233,
+      "sha256": "b24d58e613b30b10210217cd29a702b4a906cd6131e339bfba4d021af39cbffa"
+    }
+  ]
+}

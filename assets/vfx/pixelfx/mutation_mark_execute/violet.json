@@ -1,0 +1,293 @@
+{
+  "frames": [
+    {
+      "filename": "mutation_mark_execute 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_mark_execute 1",
+      "frame": {
+        "x": 140,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 41
+    },
+    {
+      "filename": "mutation_mark_execute 2",
+      "frame": {
+        "x": 280,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_mark_execute 3",
+      "frame": {
+        "x": 420,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_mark_execute 4",
+      "frame": {
+        "x": 0,
+        "y": 140,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 41
+    },
+    {
+      "filename": "mutation_mark_execute 5",
+      "frame": {
+        "x": 140,
+        "y": 140,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_mark_execute 6",
+      "frame": {
+        "x": 280,
+        "y": 140,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_mark_execute 7",
+      "frame": {
+        "x": 420,
+        "y": 140,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 41
+    },
+    {
+      "filename": "mutation_mark_execute 8",
+      "frame": {
+        "x": 0,
+        "y": 280,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_mark_execute 9",
+      "frame": {
+        "x": 140,
+        "y": 280,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_mark_execute 10",
+      "frame": {
+        "x": 280,
+        "y": 280,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 41
+    },
+    {
+      "filename": "mutation_mark_execute 11",
+      "frame": {
+        "x": 420,
+        "y": 280,
+        "w": 140,
+        "h": 140
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 140,
+        "h": 140
+      },
+      "sourceSize": {
+        "w": 140,
+        "h": 140
+      },
+      "duration": 42
+    }
+  ],
+  "meta": {
+    "image": "violet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 560,
+      "h": 420
+    },
+    "scale": "1",
+    "pixelfx": {
+      "id": "mutation_mark_execute",
+      "name": "Exécution",
+      "fps": 24,
+      "loop": false,
+      "frames": 12,
+      "frameSize": [
+        140,
+        140
+      ],
+      "columns": 4,
+      "pivot": [
+        70,
+        70
+      ]
+    }
+  }
+}

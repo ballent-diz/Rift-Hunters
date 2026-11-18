@@ -1,0 +1,205 @@
+{
+  "frames": [
+    {
+      "filename": "mutation_rain_focus 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_rain_focus 1",
+      "frame": {
+        "x": 104,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 41
+    },
+    {
+      "filename": "mutation_rain_focus 2",
+      "frame": {
+        "x": 208,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_rain_focus 3",
+      "frame": {
+        "x": 312,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_rain_focus 4",
+      "frame": {
+        "x": 0,
+        "y": 104,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 41
+    },
+    {
+      "filename": "mutation_rain_focus 5",
+      "frame": {
+        "x": 104,
+        "y": 104,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_rain_focus 6",
+      "frame": {
+        "x": 208,
+        "y": 104,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 42
+    },
+    {
+      "filename": "mutation_rain_focus 7",
+      "frame": {
+        "x": 312,
+        "y": 104,
+        "w": 104,
+        "h": 104
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 104,
+        "h": 104
+      },
+      "sourceSize": {
+        "w": 104,
+        "h": 104
+      },
+      "duration": 41
+    }
+  ],
+  "meta": {
+    "image": "violet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 416,
+      "h": 208
+    },
+    "scale": "1",
+    "pixelfx": {
+      "id": "mutation_rain_focus",
+      "name": "Concentration",
+      "fps": 24,
+      "loop": false,
+      "frames": 8,
+      "frameSize": [
+        104,
+        104
+      ],
+      "columns": 4,
+      "pivot": [
+        52,
+        52
+      ]
+    }
+  }
+}
