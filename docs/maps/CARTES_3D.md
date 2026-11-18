@@ -218,6 +218,24 @@ jour même. `draft3d/level_cliffs.gd`, 68 × 112 m : première carte plus profon
 - Essai `test_ninth_level_cliffs` (niveaux et perchoirs atteints à leur hauteur, montée par la rampe, parvis dégagé).
   Captures : `docs/previews/cartes-3d/carte_9_*.webp`, `navigation_9.webp`.
 
+## Chapitres 6 à 9 raccordés (18 novembre)
+
+Les cartes 6 à 9 sont des chapitres de la version 3D, choisis dans la liste des chapitres et débloqués l'un après
+l'autre comme les cinq premiers (`DraftProgress`). Ils n'ont pas de données de campagne : `DraftRoster.V2_CHAPTERS`
+leur donne un identifiant, une couleur et un bestiaire composé de cartes existantes (monstres et gardiens des cartes,
+Dévoreur de la dernière), dont les PV croissent avec le rang du chapitre (`boss_chapter_growth`).
+
+| Ch. | Nom (FR / EN) | Bestiaire tiré de | Dévoreur |
+|---|---|---|---|
+| 6 | La Tour de la Faille / The Rift Tower | Cité de la Faille + Terres dévastées | celui de l'arène de la Caldeira |
+| 7 | Le Défilé Hurlant / The Howling Pass | Terres dévastées + Glacier silencieux | celui du Cœur du silence |
+| 8 | Le Marais des Marées / The Tidal Marsh | Marais engloutis (+ Gué des brumes) | celui du Cœur des marais |
+| 9 | Les Corniches / The High Ledges | Ruines des cascades + Quartiers suspendus | celui des Quartiers suspendus |
+
+La liste des chapitres se resserre au-delà de six entrées pour tenir à l'écran (capture :
+`docs/previews/cartes-3d/menu_neuf_chapitres.webp`). Palettes du rendu pixel des chapitres 6 à 9 : palette par
+défaut, à faire avec la session « Art et rendu ».
+
 ## Règles de composition
 
 1. **Lecture du parcours** : départ → rue principale → zones → arène finale. L'arène (lieu du boss) est la place la

@@ -315,7 +315,9 @@ func show_chapters(chapters: Array[ChapterData], done: Array[int], all_open: boo
 	column.set_anchors_and_offsets_preset(Control.PRESET_CENTER)
 	column.grow_horizontal = Control.GROW_DIRECTION_BOTH
 	column.grow_vertical = Control.GROW_DIRECTION_BOTH
-	column.add_theme_constant_override("separation", 12)
+	# Neuf chapitres : la liste se resserre pour tenir à l'écran.
+	var compact: bool = chapters.size() > 6
+	column.add_theme_constant_override("separation", 6 if compact else 12)
 	overlay.add_child(column)
 	var title := _label(column, 34, Color("ffd9a0"))
 	title.text = tr("DRAFT_CHOOSE_CHAPTER")
@@ -335,7 +337,7 @@ func show_chapters(chapters: Array[ChapterData], done: Array[int], all_open: boo
 			overlay.queue_free()
 			chapter_chosen.emit(i + 1))
 		button.disabled = not open
-		button.custom_minimum_size = Vector2(560, 46)
+		button.custom_minimum_size = Vector2(560, 36 if compact else 46)
 		button.add_theme_color_override("font_color", chapters[i].color.lightened(0.4))
 		button.add_theme_color_override("font_focus_color", chapters[i].color.lightened(0.6))
 		button.add_theme_color_override("font_hover_color", chapters[i].color.lightened(0.6))

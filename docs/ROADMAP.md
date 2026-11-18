@@ -1375,3 +1375,11 @@ Douze combos jouables (3 existants + 9) dans `draft3d/combos.gd` ; détail dans 
 - **Reste** : équilibrage global des 12 combos (valeurs de départ dans `draft3d/tuning.tres`), VFX dédiés (replis
   existants joués), offres de cartes qui tiennent compte des combos (non demandé à ce lot).
 
+
+## Chapitres 6 à 9 raccordés — 18 novembre 2026 (session « Cartes »)
+
+La Tour de la Faille, le Défilé Hurlant, le Marais des Marées et les Corniches apparaissent dans la liste des chapitres
+(noms et descriptions FR/EN), se débloquent après le chapitre 5, l'un après l'autre. Bestiaires composés de cartes
+existantes (`DraftRoster.V2_CHAPTERS`), Dévoreur plus résistant à chaque rang. Liste resserrée au-delà de six chapitres.
+- **Reste** : palettes du rendu pixel des chapitres 6 à 9 (session « Art et rendu ») ; monstres propres si le
+  propriétaire en commande.

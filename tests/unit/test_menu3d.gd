@@ -129,4 +129,4 @@ func test_v2_chapter_names_are_translated_and_new() -> void:
 		check(v2 != String(fr.get_message(data.name_key)), "%s : nom propre à la version 3D" % data.id)
 		check(not names.has(v2), "%s : nom unique" % data.id)
 		names[v2] = true
-	check_eq(names.size(), 5, "cinq chapitres nommés")
+	check_eq(names.size(), 9, "neuf chapitres nommés")

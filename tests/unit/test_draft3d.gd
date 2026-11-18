@@ -258,10 +258,10 @@ func test_boss_fight_ends_in_victory() -> void:
 	check_eq(run.state, DraftRun.State.WON, "boss vaincu : victoire")
 
 
-func test_rosters_cover_the_five_chapters() -> void:
+func test_rosters_cover_the_nine_chapters() -> void:
 	var seen: Dictionary = {}
-	check_eq(DraftRoster.chapters().size(), 5, "cinq chapitres")
-	for order: int in range(1, 6):
+	check_eq(DraftRoster.chapters().size(), 9, "neuf chapitres : cinq de la campagne, quatre propres à la v2")
+	for order: int in range(1, 10):
 		var roster: DraftRoster = DraftRoster.for_chapter(order)
 		check(roster.enemies.size() >= 8, "chapitre %d : au moins huit monstres (%d)" % [order, roster.enemies.size()])
 		check(roster.boss != null and roster.guardians.size() >= 3, "chapitre %d : gardiens et Dévoreur" % order)
@@ -273,7 +273,9 @@ func test_rosters_cover_the_five_chapters() -> void:
 			check(Assets.has_sheet(boss.visual.visual_id), "%s : feuille de sprites" % boss.id)
 		check_eq(roster.mix(0.0).size(), 1, "première vague : un seul monstre")
 		check_eq(roster.mix(1.0).size(), roster.enemies.size(), "dernière vague : tout le bestiaire")
-	check(seen.size() >= 40, "au moins quarante monstres différents sur les cinq chapitres (%d)" % seen.size())
+	check(seen.size() >= 40, "au moins quarante monstres différents sur les chapitres (%d)" % seen.size())
+	for order: int in range(6, 10):
+		check_eq(DraftRoster.for_chapter(order).chapter.order, order, "chapitre %d : rang" % order)
 
 
 func test_every_chapter_plays_with_guardian_and_devourer() -> void:
