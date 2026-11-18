@@ -101,6 +101,8 @@ func test_piercing_rend_uses_dedicated_impact_on_each_foe() -> void:
 	_deliver(&"mutation_rend_pierce")
 	_foe(Vector3(2.0, 0, 0))
 	_foe(Vector3(3.5, 0, 0))
+	for frame: int in 2:
+		await host.get_tree().physics_frame
 	check(_cast(&"void_rend", run.hunter.global_position + Vector3(5.0, 0, 0)), "fente lancée")
 	check_eq(_dedicated().size(), 2, "un impact perçant par ennemi traversé")
 
@@ -126,6 +128,8 @@ func test_storm_cloud_follows_the_hunter_and_ends_with_the_zone() -> void:
 func test_without_sheet_the_generic_effect_stays() -> void:
 	await _start(&"void_rend", "res://draft3d/spells/rend_pierce.tres")
 	_foe(Vector3(2.0, 0, 0))
+	for frame: int in 2:
+		await host.get_tree().physics_frame
 	var hit: Texture2D = DraftPixelFx.sheet(&"hit", DraftPixelFx.DEFAULT_FAMILY).get("texture")
 	check(_cast(&"void_rend", run.hunter.global_position + Vector3(5.0, 0, 0)), "fente lancée")
 	var count: int = 0
