@@ -38,9 +38,7 @@ static func wipe() -> void:
 	if _instance == null:
 		return
 	_instance.unlocked.clear()
-	for id: StringName in _instance.tuning.free_spells:
-		_instance.unlocked[id] = true
-	_instance.starting = _instance.tuning.free_spells.duplicate()
+	_instance._grant_free()
 	_instance._read()
 	_instance._write()
 	_instance.changed.emit()
@@ -63,7 +61,8 @@ func _init() -> void:
 					"name_key": spell.name_key, "desc_key": spell.desc_key, "cost": 0 if free else tuning.spell_unlock_cost})
 			DraftSpellEffect.Kind.VARIANT:
 				variants.append({"id": card.id, "kind": "variant", "spell_id": effect.spell_id,
-					"name_key": card.name_key, "desc_key": card.desc_key, "cost": tuning.mutation_unlock_cost})
+					"name_key": card.name_key, "desc_key": card.desc_key,
+					"cost": 0 if tuning.free_mutations.has(card.id) else tuning.mutation_unlock_cost})
 	spells.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
 		return [int(a["cost"]), str(a["id"])] < [int(b["cost"]), str(b["id"])])
 	for spell: Dictionary in spells:
@@ -71,9 +70,14 @@ func _init() -> void:
 		for variant: Dictionary in variants:
 			if variant["spell_id"] == spell["id"]:
 				_entries.append(variant)
-	for id: StringName in tuning.free_spells:
+	_grant_free()
+
+
+## Kit offert d'office : sorts et mutations gratuits, 2 sorts de départ par défaut.
+func _grant_free() -> void:
+	for id: StringName in tuning.free_spells + tuning.free_mutations:
 		unlocked[id] = true
-	starting = tuning.free_spells.duplicate()
+	starting = tuning.default_starting.duplicate()
 
 
 func currency() -> int:

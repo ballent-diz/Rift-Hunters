@@ -56,7 +56,8 @@ func test_cour_uses_validated_materials_by_default() -> void:
 
 
 func test_cour_palette_preserves_moss() -> void:
-	for chapter: int in [1, 5]:
+	# La cité du chapitre 5 possède désormais sa propre pierre pâle ; elle ne réutilise plus la Cour.
+	for chapter: int in [1]:
 		var palette := DraftPixelRender.load_palette(chapter)
 		for probe: Color in [Color("375736"), Color("5f6a47")]:
 			var reference := DraftPixelRender.oklab(probe)

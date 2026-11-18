@@ -1,5 +1,25 @@
 # Rift Hunters — feuille de route
 
+## Matière de la Cité Effondrée — carte 5 (Codex, 17 novembre 2026)
+
+Prêt à valider sur `codex/matiere-cite-effondree`, depuis main actualisé. Pierre pâle usée, pavage raccordé,
+bois et métal ternis, poussière de pierre grise et accents de Faille. 438 meshes, 143 349 triangles vérifiés ;
+180 collisions et 1 185 polygones de navigation identiques. Sept cadrages avant/après avec le Veilleur,
+tests du rendu pixel 8/8. Guide : `docs/art/MATIERE_CITE_EFFONDREE.md`.
+
+
+## Rythme de la v2 : vitesse, EXP, kit de départ (Claude, session « Gameplay », 17 novembre 2026)
+
+Demandes du propriétaire (« le jeu est trop lent ») : réglages `draft3d/tuning.tres`, données v1 inchangées.
+- Vitesse : Chasseur +25 % (`hunter_move_speed_pct`), monstres et boss ×1,15 en marche (`enemy_speed_mult` ; les
+  charges et tirs des boss gardent leurs valeurs). La Ruée garde sa distance.
+- EXP aspirée dès la mort de l'ennemi, quelle que soit la distance (`xp_auto_collect`, réglage d'essai, actif).
+- Kit offert d'office (tiré en partie dès le premier lancement) : Taille, Lance, Rupture, Singularité, Cristal
+  réfracteur, Parade (`free_spells`) et les mutations Estoc, Tourbillon, Éventail, Surcharge (`free_mutations`) ;
+  départ par défaut Taille + Lance (`default_starting`). Avant : profil neuf = seuls les 4 passifs au tirage.
+- XP : `xp_scale` 8 → 18 (bot, 25 min : ×14 = 15 choix, ×24 = 6 choix). Mesure au bot invulnérable (chapitre 1, 25 min de jeu, vitesses et EXP aspirée actives) :
+  voir le tableau de la PR. Le bot tue bien plus qu'un joueur : un joueur aura moins de choix ; à affiner en jouant.
+
 ## Chasseur original : vues dos et face (Codex, 17 novembre 2026)
 
 Livraison sur `codex/chasseur-original-dos-face` : quatre animations de `player.hunter` au chapeau de paille

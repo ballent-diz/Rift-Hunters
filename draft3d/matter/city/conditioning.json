@@ -1,0 +1,44 @@
+{
+  "masonry": {
+    "source_panel": 0,
+    "pixels": 96,
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "stone": {
+    "source_panel": 1,
+    "pixels": 160,
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "wood": {
+    "source_panel": 2,
+    "pixels": 64,
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "iron": {
+    "source_panel": 3,
+    "pixels": 160,
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "bronze": {
+    "source_panel": 4,
+    "pixels": 160,
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "paving": {
+    "source_panel": 6,
+    "pixels": 120,
+    "colors": 12,
+    "texels_per_m": 40
+  },
+  "ground": {
+    "source_panel": null,
+    "pixels": 320,
+    "colors": 16,
+    "texels_per_m": 40
+  }
+}

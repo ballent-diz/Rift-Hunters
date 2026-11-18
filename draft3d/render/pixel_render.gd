@@ -107,6 +107,8 @@ func setup(host: Node3D, p_camera: Camera3D, chapter: int) -> void:
 
 static func load_palette(chapter: int) -> DraftPixelPalette:
 	var args := OS.get_cmdline_user_args()
+	if chapter == 5 and (not args.has("--city-matter=0") or args.has("--city-palette")):
+		return load("res://draft3d/matter/city/palette.tres") as DraftPixelPalette
 	if chapter == 4 and (not args.has("--outpost-matter=0") or args.has("--outpost-palette")):
 		return load("res://draft3d/matter/outpost/palette.tres") as DraftPixelPalette
 	if chapter == 2 and (not args.has("--graveyard-matter=0") or args.has("--graveyard-palette")):

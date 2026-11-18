@@ -1,0 +1,24 @@
+{
+	"camera_view": 20,
+	"enemies": [
+		{
+			"at": "(-3.5, 0.2, -7)",
+			"id": "fallen_militia"
+		},
+		{
+			"at": "(3.5, 0.2, -7)",
+			"id": "corrupted_hound"
+		},
+		{
+			"at": "(5.000001, 0.2, -4.000001)",
+			"id": "lantern_wraith"
+		}
+	],
+	"focus": "(0, 1, -5)",
+	"hunter": "(0, 0.2, -5)",
+	"palette_colors": 32,
+	"pixel_enabled": true,
+	"region": "forum",
+	"scene": "DraftRun",
+	"texel_m": 0.0240384615384615
+}
