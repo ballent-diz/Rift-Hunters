@@ -53,6 +53,9 @@ func build() -> void:
 	_houses()
 	_warehouses()
 	_setup_navigation()
+	var matter := preload("res://draft3d/matter/city/dressing.gd").new()
+	add_child(matter)
+	matter.setup(self)
 
 
 func _piece(id: String, at: Vector3, yaw: float = 0.0, collision: String = "box") -> Node3D:

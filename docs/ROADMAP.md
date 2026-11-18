@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Matière de la Cité Effondrée — carte 5 (Codex, 17 novembre 2026)
+
+Prêt à valider sur `codex/matiere-cite-effondree`, depuis main actualisé. Pierre pâle usée, pavage raccordé,
+bois et métal ternis, poussière de pierre grise et accents de Faille. 438 meshes, 143 349 triangles vérifiés ;
+180 collisions et 1 185 polygones de navigation identiques. Sept cadrages avant/après avec le Veilleur,
+tests du rendu pixel 8/8. Guide : `docs/art/MATIERE_CITE_EFFONDREE.md`.
+
+
 ## Rythme de la v2 : vitesse, EXP, kit de départ (Claude, session « Gameplay », 17 novembre 2026)
 
 Demandes du propriétaire (« le jeu est trop lent ») : réglages `draft3d/tuning.tres`, données v1 inchangées.

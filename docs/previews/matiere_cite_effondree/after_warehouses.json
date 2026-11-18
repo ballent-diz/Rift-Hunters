@@ -1,0 +1,24 @@
+{
+	"camera_view": 20,
+	"enemies": [
+		{
+			"at": "(30, 0.2, 17)",
+			"id": "fallen_militia"
+		},
+		{
+			"at": "(34, 0.2, 10)",
+			"id": "corrupted_hound"
+		},
+		{
+			"at": "(34, 0.2, 19)",
+			"id": "lantern_wraith"
+		}
+	],
+	"focus": "(32, 1, 13)",
+	"hunter": "(33, 0.2, 15)",
+	"palette_colors": 48,
+	"pixel_enabled": true,
+	"region": "warehouses",
+	"scene": "DraftRun",
+	"texel_m": 0.0240384615384615
+}
