@@ -29,15 +29,15 @@ d'acquisition, la seconde disparaissait à l'écran.
 | Singularité | Effondrement + Horizon | Horizon obtenu d'abord : rotation rapide de l'Effondrement absente, et dessin agrandi deux fois (1,96×, rogné par la vue) | Effondrement peint ; Horizon rendu par le vrai rayon passé à la scène | **corrigé** |
 | Mur de faille | Rempart ardent + Chaînes | Chaînes obtenues d'abord : **pas de flammes**. Le dessin peint des chaînes demande des cibles que la v2 ne fournit pas : rien même avec les Chaînes seules | Rempart ardent peint (`burning_wall`) ; Chaînes : **entrave `root_snare`** (enlisés) sur chaque ennemi nouvellement immobilisé | **corrigé** |
 | Égide de faille | Second souffle + Riposte | Riposte obtenue d'abord : bouclier réduit du Second souffle non montré, soin invisible | Second souffle peint (`sharing`) + **`healing_bloom`** au soin ; Riposte : onde `ring_burst` à la rupture du bouclier (indépendante, déjà en place) | **corrigé** |
-| Cristal réfracteur | Prisme double + Foyer | Les deux se voient déjà : deux animations posées, éclats de Foyer dirigés en jeu | Priorité fixée (Foyer) pour un rendu stable ; Prisme double ne demande plus la variante peinte qui dessinait un cristal fantôme hors de la vue | déjà fonctionnel (nettoyé) |
+| Cristal réfracteur | Prisme double + Foyer | Les deux mutations se voient (deux cristaux posés, éclats de Foyer dirigés), mais avec Prisme double chaque animation dessinait aussi un **cristal fantôme** : 4 cristaux à l'écran pour 2 réels | Priorité fixée (Foyer) pour un rendu stable ; Prisme double joue la base sur chaque cristal réel : 2 cristaux à l'écran | **corrigé** (cristaux fantômes) |
 
 ## Correctifs annexes, une seule mutation
 
 - **Horizon seule** : la scène reçoit déjà le rayon agrandi (`area_of`). La variante peinte `horizon` le
   multipliait une seconde fois (×1,4), au-delà de la zone réelle et hors de la vue, donc rognée. Elle joue
   maintenant la base, à la taille réelle.
-- **Prisme double seule** : chaque cristal a sa propre animation. La variante `double_prism` ajoutait un cristal
-  fantôme à 380 unités, hors de la vue. Elle joue maintenant la base, sans changement visible.
+- **Prisme double seule** : chaque cristal a sa propre animation. La variante `double_prism` ajoutait à chacune un
+  second cristal décalé, sans réalité en jeu (4 cristaux affichés pour 2). Elle joue maintenant la base.
 - **Retour seul** : le portail de repère s'ajoute au dessin peint du Retour, qui ne dure que l'animation du saut.
 - **Chaînes seules** : l'entrave `root_snare` rend enfin la mutation visible.
 - **Second souffle seul** : `healing_bloom` au soin.
@@ -57,5 +57,6 @@ demandées, à commander si le propriétaire le souhaite :
 
 - Test : `tests/unit/test_draft3d_double_mutations_vfx.gd` (zéro, une ou deux mutations, ordre inversé,
   incompatibilités refusées, remplacement, passage en réserve puis rééquipement, couches événementielles).
-- Captures : `tools/double_mutation_showcase.tscn` → `docs/previews/doubles_mutations/` (planche
-  `comparaison.png` : `main` puis ce correctif, deuxième mutation obtenue en premier).
+- Captures : `tools/double_mutation_showcase.tscn` → `docs/previews/doubles_mutations/`. La planche
+  `comparaison.png` montre, par ligne, `main` (B puis A), ce correctif (B puis A), A seule et B seule ;
+  `rapport_main.txt` et `rapport_correctif.txt` indiquent la variante transmise à chaque scène peinte.

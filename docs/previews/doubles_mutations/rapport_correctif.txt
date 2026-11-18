@@ -1,0 +1,21 @@
+rupture              a   mutations [&"blaze"]                   peinte : inferno
+rupture              b   mutations [&"reaction"]                peinte : reaction
+rupture              ba  mutations [&"reaction", &"blaze"]      peinte : inferno
+rift_leap            a   mutations [&"impact"]                  peinte : impact
+rift_leap            b   mutations [&"return"]                  peinte : return
+rift_leap            ba  mutations [&"return", &"impact"]       peinte : impact
+parry                a   mutations [&"mirror"]                  peinte : mirror
+parry                b   mutations [&"long_guard"]              peinte : base
+parry                ba  mutations [&"long_guard", &"mirror"]   peinte : mirror
+singularity          a   mutations [&"collapse"]                peinte : collapse
+singularity          b   mutations [&"horizon"]                 peinte : base
+singularity          ba  mutations [&"horizon", &"collapse"]    peinte : collapse
+rift_wall            a   mutations [&"burning"]                 peinte : burning_wall
+rift_wall            b   mutations [&"chains"]                  peinte : chains
+rift_wall            ba  mutations [&"chains", &"burning"]      peinte : burning_wall
+aegis                a   mutations [&"second_wind"]             peinte : sharing
+aegis                b   mutations [&"riposte"]                 peinte : riposte
+aegis                ba  mutations [&"riposte", &"second_wind"] peinte : sharing
+refracting_crystal   a   mutations [&"focus"]                   peinte : base
+refracting_crystal   b   mutations [&"double"]                  peinte : base
+refracting_crystal   ba  mutations [&"double", &"focus"]        peinte : base

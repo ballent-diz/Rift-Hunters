@@ -16,7 +16,7 @@ const MARGIN := 90.0
 ## Noms des variantes côté animation quand ils diffèrent de ceux des cartes de la v2 ; les variantes propres à la v2
 ## sans dessin jouent la version de base. Horizon : la taille vient déjà du rayon passé à la scène (la variante peinte
 ## l'agrandissait une seconde fois, au-delà de la zone réelle). Prisme double : la v2 pose une animation par cristal
-## (la variante peinte dessinerait un cristal fantôme hors de la vue).
+## (la variante peinte ajoutait à chacune un cristal fantôme).
 const VARIANT_NAMES := {
 	&"blaze": &"inferno", &"double": &"base", &"burning": &"burning_wall", &"second_wind": &"sharing",
 	&"long_guard": &"base", &"horizon": &"base",
