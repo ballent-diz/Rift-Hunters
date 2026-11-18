@@ -1,0 +1,165 @@
+{
+  "old_rows_pixel_exact": true,
+  "old_clips_unchanged": true,
+  "other_manifest_entries_unchanged": true,
+  "palette_colors": 48,
+  "cell": [
+    112,
+    80
+  ],
+  "anchor": [
+    56,
+    74
+  ],
+  "scale": 0.65,
+  "animations": {
+    "idle_back": {
+      "row": 5,
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "vertical_bounds": [
+        [
+          13,
+          74
+        ],
+        [
+          13,
+          74
+        ],
+        [
+          12,
+          74
+        ],
+        [
+          13,
+          74
+        ],
+        [
+          13,
+          74
+        ],
+        [
+          13,
+          74
+        ]
+      ],
+      "feet_y": 74
+    },
+    "move_back": {
+      "row": 6,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "vertical_bounds": [
+        [
+          7,
+          74
+        ],
+        [
+          10,
+          74
+        ],
+        [
+          12,
+          74
+        ],
+        [
+          7,
+          74
+        ],
+        [
+          11,
+          74
+        ],
+        [
+          9,
+          74
+        ]
+      ],
+      "feet_y": 74
+    },
+    "idle_front": {
+      "row": 7,
+      "frames": 6,
+      "fps": 7,
+      "loop": true,
+      "vertical_bounds": [
+        [
+          13,
+          74
+        ],
+        [
+          13,
+          74
+        ],
+        [
+          11,
+          74
+        ],
+        [
+          13,
+          74
+        ],
+        [
+          13,
+          74
+        ],
+        [
+          13,
+          74
+        ]
+      ],
+      "feet_y": 74
+    },
+    "move_front": {
+      "row": 8,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "vertical_bounds": [
+        [
+          10,
+          74
+        ],
+        [
+          10,
+          74
+        ],
+        [
+          14,
+          74
+        ],
+        [
+          10,
+          74
+        ],
+        [
+          12,
+          74
+        ],
+        [
+          14,
+          74
+        ]
+      ],
+      "feet_y": 74
+    }
+  },
+  "tests": {
+    "assets": {
+      "ok": true,
+      "entries": 534,
+      "valid": 513,
+      "placeholders": 21,
+      "errors": 0
+    },
+    "art": {
+      "ok": true,
+      "import": true,
+      "shadows": true,
+      "final_maps": 6
+    },
+    "godot_sheet_capture": true
+  }
+}

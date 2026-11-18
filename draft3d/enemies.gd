@@ -76,6 +76,8 @@ var boss_hp_mult: float = 1.0
 var boss_damage_mult: float = 1.0
 ## Part de l'intervalle d'origine entre deux techniques d'un boss (réglage du mode, `DraftTuning.boss_pace`).
 var boss_pace: float = 1.0
+## Vitesse de marche des monstres et des boss (`DraftTuning.enemy_speed_mult`).
+var speed_mult: float = 1.0
 var path_requests: int = 0
 var _grid: Dictionary = {}
 var _corpses: Array[Dictionary] = []
@@ -89,7 +91,7 @@ func spawn(data: EnemyData, at: Vector3, size: float = 1.0) -> Foe:
 	foe.max_hp = data.max_hp * hp_mult
 	foe.hp = foe.max_hp
 	foe.radius = data.radius * DraftHunter.UNIT
-	foe.speed = data.move_speed * DraftHunter.UNIT
+	foe.speed = data.move_speed * DraftHunter.UNIT * speed_mult
 	foe.damage = data.damage * damage_mult
 	foe.defense = data.defense
 	foe.xp = data.xp_value
@@ -105,7 +107,7 @@ func spawn_boss(data: BossData, at: Vector3, hp_scale: float = 1.0, final: bool 
 	foe.max_hp = data.max_hp * boss_hp_mult * hp_scale
 	foe.hp = foe.max_hp
 	foe.radius = data.radius * DraftHunter.UNIT
-	foe.speed = data.move_speed * DraftHunter.UNIT * 1.6
+	foe.speed = data.move_speed * DraftHunter.UNIT * 1.6 * speed_mult
 	foe.damage = data.damage * boss_damage_mult
 	foe.defense = data.defense
 	foe.xp = 0
@@ -338,7 +340,10 @@ func chase(foe: Foe, target: Vector3, to_hunter: Vector3, distance: float, climb
 		foe.path_target = Vector3.INF
 		return to_hunter / maxf(distance, 0.001) if distance > foe.radius + DraftHunter.RADIUS else Vector3.ZERO
 	foe.path_timer -= delta
-	if foe.path.is_empty() or (foe.path_timer <= 0.0 and target.distance_to(foe.path_target) >= PATH_TARGET_DISTANCE):
+	# Chemin épuisé sans avoir rejoint le Chasseur (poussé hors du chemin, cible sur un autre niveau) : nouveau chemin,
+	# sinon l'ennemi file droit vers le Chasseur et reste collé au bord d'une plateforme.
+	var spent: bool = foe.path_index >= foe.path.size() and climb >= 0.6
+	if foe.path.is_empty() or (foe.path_timer <= 0.0 and (spent or target.distance_to(foe.path_target) >= PATH_TARGET_DISTANCE)):
 		foe.path = level.path(foe.pos, target)
 		foe.path_index = 0
 		foe.path_target = target

@@ -2,14 +2,12 @@ class_name DraftRun
 extends Node3D
 ## Premier jet de la version 3D (docs/PREMIER_JET_3D.md) : une partie de survivor avec le Chasseur seul.
 ## Boucle : hordes → EXP → niveau → choix d'amélioration → puissance → boss. Aucun Écho, aucun système d'Écho.
-## Recommencer recharge la scène ; la progression passe par DraftSave, hors parties de test.
-## Lancement : godot --path . res://draft3d/main.tscn
+## Recommencer recharge la scène ; progression : DraftSave (hors essais). Lancement : godot --path . res://draft3d/main.tscn
 ## Options (après --) : --bot (le jeu se joue seul) --passive (bot immobile : défaite) --god --seed=1
 ##   --boss-at=60 --time-scale=4 --perf=50,100,200 --shots=<dossier> --shot-times=20,90 --result (ligne RESULT)
 ##   --spells=hunter_mark,void_rend (sorts de départ, 4 au plus) --cast-at=20 (tous les sorts partent à 20 s)
 ##   --pixel=0 (rendu 3D lisse d'origine ; F4 bascule en partie, docs/art/RENDU_PIXEL_3D.md) --pixel-scale=2
-##   --pixel-palette=0 (aplats et contours sans palette) --look=x,z[,hauteur de vue]
-##   --tower-floor=1 (chapitre 6 : partir de cet étage de la tour)
+##   --pixel-palette=0 (aplats sans palette) --look=x,z[,hauteur de vue] --tower-floor=1 (chapitre 6 : étage de départ)
 
 enum State { LOADING, PLAYING, CHOOSING, WON, LOST }
 
@@ -98,6 +96,7 @@ func _ready() -> void:
 	hunter.setup(balance)
 	hunter.stats.add_modifier(StatKeys.DAMAGE, 0.0, tuning.hunter_damage_pct)
 	hunter.stats.add_modifier(StatKeys.ATTACK_SPEED, 0.0, tuning.hunter_attack_speed_pct)
+	hunter.stats.add_modifier(StatKeys.MOVE_SPEED, 0.0, tuning.hunter_move_speed_pct)
 	hunter.hp = hunter.max_hp()
 	# Direction C (docs/design/DEBLOCAGE_V2.md) : l'arbre v1 ne s'applique plus. Déblocages permanents et 2 sorts de
 	# départ choisis au menu (DraftUnlocks) ; les essais automatiques et le bot gardent tout le contenu, sans sauvegarde.
@@ -144,6 +143,7 @@ func _ready() -> void:
 	enemies.boss_hp_mult = tuning.boss_hp_mult
 	enemies.boss_damage_mult = tuning.boss_damage_mult
 	enemies.boss_pace = tuning.boss_pace
+	enemies.speed_mult = tuning.enemy_speed_mult
 	add_child(enemies)
 	enemies.set_physics_process(false)
 	_build_gems()
@@ -704,7 +704,7 @@ func drop_gem(at: Vector3, value: float) -> void:
 	if gems.size() >= 590:
 		gems[rng.randi() % gems.size()]["value"] = float(gems[rng.randi() % gems.size()]["value"]) + value
 		return
-	gems.append({"at": at + Vector3.UP * 0.25, "value": value, "heal": false, "pulled": false})
+	gems.append({"at": at + Vector3.UP * 0.25, "value": value, "heal": false, "pulled": tuning.xp_auto_collect})
 
 
 func _step_gems(delta: float) -> void:

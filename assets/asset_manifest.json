@@ -445,6 +445,30 @@
 					"frames": 7,
 					"fps": 18,
 					"loop": false
+				},
+				"idle_back": {
+					"row": 5,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move_back": {
+					"row": 6,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"idle_front": {
+					"row": 7,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move_front": {
+					"row": 8,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
 			},
 			"icon": "res://assets/ui/icons/players/hunter.png"
@@ -18696,6 +18720,30 @@
 					"frames": 7,
 					"fps": 18,
 					"loop": false
+				},
+				"idle_back": {
+					"row": 5,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move_back": {
+					"row": 6,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"idle_front": {
+					"row": 7,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move_front": {
+					"row": 8,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
 				}
 			},
 			"icon": "res://assets/ui/icons/players/threshold_warden.png",

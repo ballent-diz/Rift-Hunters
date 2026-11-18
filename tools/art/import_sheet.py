@@ -325,10 +325,17 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     if colors > 0 and job.get("palette_source"):
         # Plusieurs feuilles d'une même créature peuvent partager exactement les mêmes couleurs.
         palette_path = os.path.join(job_dir, job["palette_source"])
-        palette_img = Image.open(palette_path).convert("RGB").quantize(
-            colors=colors, method=Image.Quantize.FASTOCTREE)
-        active = max(index for _, index in palette_img.getcolors()) + 1
-        values = palette_img.getpalette()[:active * 3]
+        palette_source = Image.open(palette_path).convert("RGB")
+        distinct = palette_source.getcolors(maxcolors=colors)
+        if distinct:
+            # Un nuancier déjà limité est contractuel : l'octree peut fusionner des teintes proches.
+            values = [component for _, color in sorted(distinct, key=lambda item: item[1]) for component in color]
+            active = len(distinct)
+            palette_img = Image.new("P", (1, 1))
+        else:
+            palette_img = palette_source.quantize(colors=colors, method=Image.Quantize.FASTOCTREE)
+            active = max(index for _, index in palette_img.getcolors()) + 1
+            values = palette_img.getpalette()[:active * 3]
         palette_img.putpalette(values + values[-3:] * (256 - active))
     elif colors > 0:
         strip_w = sum(fr.width for fr in all_frames)
@@ -382,6 +389,19 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     for missing, existing in job.get("aliases", {}).items():
         if existing in entry_anims and missing not in entry_anims:
             entry_anims[missing] = dict(entry_anims[existing])
+    # Extension d'une feuille publiée : les rangées validées ne repassent ni par la palette ni par le détourage.
+    # La source de référence reste distincte de la sortie, donc une réimportation est reproductible.
+    preserved = job.get("preserve_rows")
+    if preserved:
+        count = int(preserved["count"])
+        original = np.array(Image.open(os.path.join(job_dir, preserved["source"])).convert("RGBA"))
+        if not 0 < count <= len(rows_out) or original.shape != (count * ch, sheet.shape[1], 4):
+            raise ValueError("preserve_rows : dimensions ou nombre de rangées incompatibles")
+        sheet[:count * ch] = original
+        for row in range(count):
+            name, frames = rows_out[row]
+            rows_out[row] = (name, [original[row * ch:(row + 1) * ch, i * cw:(i + 1) * cw].copy()
+                                   for i in range(len(frames))])
     spec = EntitySpec(job["visual_id"], None, (cw, ch), (ax, ay), scale=job.get("scale", 1.0))
     sheet_rel, icon_rel = spec.paths()
     preview_dir = preview_dir or os.path.join(REPO, "assets", "concepts", "previews")
@@ -399,11 +419,19 @@ def run(job_path: str, preview_only: bool = False, preview_dir: str = "") -> dic
     }
     if preview_only:
         return entry
-    _save(Image.fromarray(sheet, "RGBA"), os.path.join(REPO, sheet_rel))
-    _save(make_icon(rows_out[0][1][0], size=int(job.get("icon_size", 64))), os.path.join(REPO, icon_rel))
     manifest_path = os.path.join(REPO, "assets", "asset_manifest.json")
     with open(manifest_path, encoding="utf-8") as f:
         manifest = json.load(f)
+    if preserved:
+        previous = manifest["entries"].get(job["visual_id"], {})
+        for name, clip in previous.get("animations", {}).items():
+            if int(clip.get("row", 0)) < int(preserved["count"]) and entry_anims.get(name) != clip:
+                raise ValueError("preserve_rows : animation publiée modifiée : " + name)
+        entry = {**previous, **entry}
+        entry["animations"] = {**previous.get("animations", {}), **entry_anims}
+    _save(Image.fromarray(sheet, "RGBA"), os.path.join(REPO, sheet_rel))
+    if not preserved or not os.path.exists(os.path.join(REPO, icon_rel)):
+        _save(make_icon(rows_out[0][1][0], size=int(job.get("icon_size", 64))), os.path.join(REPO, icon_rel))
     manifest["entries"][job["visual_id"]] = entry
     with open(manifest_path, "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent="\t", ensure_ascii=False)
