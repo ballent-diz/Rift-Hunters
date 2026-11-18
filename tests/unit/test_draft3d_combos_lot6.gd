@@ -355,7 +355,10 @@ func test_still_storm_is_capped() -> void:
 func test_spell_and_combo_effects_exist_in_their_palette() -> void:
 	# Un effet absent dans sa famille et en violet retombe sur un minuscule impact : chaque effet joué par un sort, un
 	# passif ou un combo doit exister (certaines feuilles n'existent que dans une palette : tourbillon, bouclier).
-	var regex := RegEx.create_from_string("run\\.fx\\(&\"(\\w+)\", (?:&\"(\\w+)\"|DraftPixelFx\\.DEFAULT_FAMILY)")
+	# Effets joués directement, puis replis des effets dédiés (`fx_or` : le repli est l'effet joué tant que rien
+	# n'est livré).
+	var regex := RegEx.create_from_string("run\\.fx(?:_or\\(&\"\\w+\", [^,]+, |\\()&\"(\\w+)\", "
+		+ "(?:&\"(\\w+)\"|DraftPixelFx\\.DEFAULT_FAMILY)")
 	var found: int = 0
 	for path: String in ["res://draft3d/combos.gd", "res://draft3d/spells.gd", "res://draft3d/rift_spells.gd",
 			"res://draft3d/spell_world.gd", "res://draft3d/passives.gd"]:
