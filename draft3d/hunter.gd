@@ -80,6 +80,7 @@ func setup(p_balance: BalanceConfig) -> void:
 	add_child(collision)
 	view = DraftSpriteView.new()
 	add_child(view)
+	view.directional = true
 	view.setup(balance.player_visual.visual_id)
 	view.walk_speed = move_speed()
 

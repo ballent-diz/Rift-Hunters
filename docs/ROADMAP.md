@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Veilleur de dos et de face branché en jeu (Claude, 18 novembre 2026)
+
+`DraftSpriteView.directional` (activé pour le Chasseur seulement) choisit `move_back`/`idle_back` quand le Chasseur
+s'éloigne vers le haut de l'écran, `move_front`/`idle_front` quand il descend, le profil sinon ; au repos, la dernière
+orientation est gardée. Seuils sur la part verticale à l'écran (caméra) : entrée 0,82, sortie 0,6 (hystérésis des
+diagonales), plus la même confirmation de 0,12 s que le retournement gauche/droite. Les poses dos/face ne sont jamais
+retournées (épée en main droite) ; attaque, Ruée, sorts, blessure et mort restent en profil avec le dernier côté.
+Une apparence sans ces rangées retombe sur le profil. Test `test_draft3d_sprite_heading` ; captures des quatre
+directions : `tools/art/warden_heading_capture.tscn -- --chapter=1 --out=<dossier>`.
+
 ## Validation finale des FX des compétences v2 — 18 novembre 2026 (session « Validation FX mutations »)
 
 Les 8 FX de mutations livrés (PR #227) sont conformes aux fiches et raccordés. Rapport et tableaux (15 sorts,
