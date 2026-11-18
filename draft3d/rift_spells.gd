@@ -10,6 +10,9 @@ const DATA: Array[String] = ["res://draft3d/spells/data/hunter_mark.tres", "res:
 	"res://draft3d/spells/data/rift_step.tres", "res://draft3d/spells/data/stasis_wave.tres",
 	"res://draft3d/spells/data/shard_rain.tres", "res://draft3d/spells/data/ash_veil.tres"]
 
+## Onde de stase + Éclats de stase : repères d'éclats joués au plus sur ce nombre d'ennemis par onde (lisibilité).
+const SHARD_MARKS := 8
+
 static var _registry: Dictionary = {}
 
 var spells: DraftSpells
@@ -195,7 +198,8 @@ func _step_mark(delta: float) -> void:
 	if marked.alive and spells.has_variant(data, &"execute") \
 			and marked.hp <= marked.max_hp * spells.param(data, "threshold", 0.2):
 		var target: DraftEnemies.Foe = marked
-		run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, target.pos + Vector3.UP * 0.6, 1.4)
+		run.fx_or(&"mutation_mark_execute", 2.2, &"dark_explosion", DraftPixelFx.DEFAULT_FAMILY,
+			target.pos + Vector3.UP * 0.6, 1.4)
 		var finish: float = target.hp / maxf(CombatSystem.defense_multiplier(target.defense), 0.05) + 1.0
 		var blow: float = finish if target.boss == null else spells.damage_of(data) * spells.param(data, "boss", 3.0)
 		_clear_mark()
@@ -206,6 +210,7 @@ func _step_mark(delta: float) -> void:
 		var next: Array[DraftEnemies.Foe] = spells._level(run.enemies.near(from, spells.param(data, "reach", 8.0)), from)
 		if not next.is_empty():
 			_apply_mark(next[0], mark_left)
+			DraftPixelFx.dedicated(run, &"mutation_mark_hunt", 1.6, next[0].pos + Vector3.UP * 1.0)
 			return
 	if not marked.alive or mark_left <= 0.0:
 		_clear_mark()
@@ -247,7 +252,10 @@ func _rend(data: SpellData, aim: Vector3) -> bool:
 	run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.6)
 	run.fx(&"heavy_cleave", DraftPixelFx.DEFAULT_FAMILY, here + dir * length * 0.5 + Vector3.UP * 0.7, length * 0.4)
 	for foe: DraftEnemies.Foe in struck:
-		run.fx(&"hit", DraftPixelFx.DEFAULT_FAMILY, foe.pos + Vector3.UP * 0.6, 1.2)
+		if pierce:
+			run.fx_or(&"mutation_rend_pierce", 1.6, &"hit", DraftPixelFx.DEFAULT_FAMILY, foe.pos + Vector3.UP * 0.6, 1.2)
+		else:
+			run.fx(&"hit", DraftPixelFx.DEFAULT_FAMILY, foe.pos + Vector3.UP * 0.6, 1.2)
 		run.enemies.hit(foe, spells.damage_of(data), dir * data.knockback * DraftHunter.UNIT)
 	run.combos.on_rend(struck, spells.damage_of(data), dir, length, spells.area_of(data), pierce)
 	hunter.leap_to(landing + Vector3.UP * 0.05, float(data.params.get("duration", 0.18)), 0.0)
@@ -282,7 +290,11 @@ func _step_shades(delta: float) -> void:
 		if float(shade["left"]) > 0.0:
 			continue
 		var at: Vector3 = shade["at"]
-		run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, float(shade["radius"]))
+		if float(shade["duration"]) > 0.0:
+			run.fx_or(&"mutation_step_trap", float(shade["radius"]) * 2.0, &"dark_explosion", DraftPixelFx.DEFAULT_FAMILY,
+				at + Vector3.UP * 0.3, float(shade["radius"]))
+		else:
+			run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, float(shade["radius"]))
 		for foe: DraftEnemies.Foe in spells._level(run.enemies.near(at, float(shade["radius"])), at):
 			run.enemies.hit(foe, float(shade["damage"]))
 			if foe.alive and float(shade["duration"]) > 0.0:
@@ -305,6 +317,7 @@ func _stasis(data: SpellData, aim: Vector3) -> bool:
 		half = -1.0
 	var seconds: float = spells.duration_of(data)
 	var shards: bool = spells.has_variant(data, &"shards")
+	var shard_marks: int = 0
 	run.fx(&"frost_nova", &"givres", here + (Vector3.ZERO if half < 0.0 else dir * reach * 0.5) + Vector3.UP * 0.5,
 		reach * 0.6)
 	for foe: DraftEnemies.Foe in spells._level(run.enemies.near(here, reach), here):
@@ -318,6 +331,9 @@ func _stasis(data: SpellData, aim: Vector3) -> bool:
 		run.combos.on_stasis(foe, seconds)
 		if shards:
 			foe.expose(spells.param(data, "bonus", 0.0), seconds)
+			if shard_marks < SHARD_MARKS:
+				shard_marks += 1
+				DraftPixelFx.dedicated(run, &"mutation_stasis_shards", 1.2, foe.pos + Vector3.UP * 0.9)
 	return true
 
 
@@ -330,12 +346,16 @@ func _rain(data: SpellData, aim: Vector3) -> bool:
 	var radius: float = spells.area_of(data)
 	var damage: float = spells.damage_of(data)
 	var follow: bool = spells.has_variant(data, &"storm")
-	if spells.has_variant(data, &"focus"):
+	var focus: bool = spells.has_variant(data, &"focus")
+	if focus:
 		radius *= spells.param(data, "area", 1.0)
 		damage *= spells.param(data, "damage", 1.0)
-	spells.add_zone({"at": run.hunter.global_position if follow else at, "radius": radius,
+	var center: Vector3 = run.hunter.global_position if follow else at
+	spells.add_zone({"at": center, "radius": radius,
 		"left": spells.duration_of(data), "tick": float(data.params.get("tick", 0.4)), "clock": 0.0, "damage": damage,
-		"follow": follow, "rain": true, "visual": null})
+		"follow": follow, "rain": true, "drop_fx": &"mutation_rain_focus" if focus else &"",
+		"visual": DraftPixelFx.dedicated(run, &"mutation_rain_storm", radius * 2.0, center + Vector3.UP * 0.3, true)
+			if follow else null})
 	return true
 
 
@@ -371,7 +391,10 @@ func _step_veils(delta: float) -> void:
 		for s: int in range(run.hostile.size() - 1, -1, -1):
 			var shot: Dictionary = run.hostile[s]
 			if DraftSpells._flat((shot["at"] as Vector3) - at).length() <= radius:
-				run.fx(&"smoke_puff", &"calcines", shot["at"], 0.6)
+				if float(veil["heal"]) > 0.0:
+					run.fx_or(&"mutation_veil_recoil", 1.2, &"smoke_puff", &"calcines", shot["at"], 0.6)
+				else:
+					run.fx(&"smoke_puff", &"calcines", shot["at"], 0.6)
 				(shot["visual"] as Node).queue_free()
 				run.hostile.remove_at(s)
 				shots_blocked += 1

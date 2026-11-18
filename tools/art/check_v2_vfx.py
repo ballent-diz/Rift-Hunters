@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Contrôle des livraisons graphiques des combos et passifs de la v2 (docs/design/FICHES_VFX_GAMEPLAY_V2.md).
+"""Contrôle des livraisons graphiques des combos, passifs et mutations de la v2 (docs/design/FICHES_VFX_GAMEPLAY_V2.md,
+FICHES_VFX_MUTATIONS_V2.md).
 
 Pour chaque effet : présence de la planche PNG et du JSON PixelFX, nombre d'images, fps, boucle, taille des images
 cohérente avec la planche. Pour chaque illustration : PNG carré 1254 px et entrée du catalogue
@@ -24,6 +25,15 @@ EFFECTS = {
     "passive_dash_blade": (6, 24, False),
     "passive_void_wake": (8, 8, True),
     "passive_counter_cut": (10, 22, False),
+    # Mutations des six sorts v2 (docs/design/FICHES_VFX_MUTATIONS_V2.md).
+    "mutation_mark_execute": (12, 24, False),
+    "mutation_mark_hunt": (8, 20, False),
+    "mutation_rend_pierce": (6, 24, False),
+    "mutation_step_trap": (12, 20, False),
+    "mutation_stasis_shards": (8, 16, False),
+    "mutation_rain_storm": (8, 10, True),
+    "mutation_rain_focus": (8, 24, False),
+    "mutation_veil_recoil": (8, 20, False),
 }
 ILLUSTRATIONS = ["passive_dash_blade", "passive_void_wake", "passive_counter_cut", "passive_anchor", "rule_extra_slot"]
 ILLUSTRATION_SIZE = 1254
