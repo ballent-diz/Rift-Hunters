@@ -126,7 +126,6 @@ func _war_cry(pattern: BossPatternData) -> float:
 	_charge_at = _clock + pattern.telegraph + 0.2
 	_charge_damage = pattern.damage
 	brain.play_clip([StringName(str(params.get("anim", "rallying_cry"))), &"attack"], pattern.telegraph)
-	intro("BOSS_WAR_CRY_INTRO")
 	return pattern.telegraph + 0.1
 
 
@@ -160,7 +159,6 @@ func _rune_barrage(pattern: BossPatternData) -> float:
 	_armor_until = _clock + pattern.telegraph + float(params.get("duration", 4.0))
 	brain.foe.view.set_tint(Color(0.85, 0.85, 1.1))
 	brain.play_clip([StringName(str(params.get("anim", "slab_armor"))), &"attack"], pattern.telegraph)
-	intro("BOSS_RUNE_BARRAGE_INTRO_3D")
 	return pattern.telegraph + 0.4
 
 
@@ -182,7 +180,6 @@ func _pantheon_wake(pattern: BossPatternData) -> float:
 		clampf(float(params.get("max_radius", 650.0)) * DraftHunter.UNIT, 12.0, 22.0), pattern.telegraph,
 		brain.damage(pattern.damage), brain.fx_at(&"quake", 2.2))
 	brain.play_clip([StringName(str(params.get("anim", "awaken_statues"))), &"attack"], pattern.telegraph)
-	intro("BOSS_PANTHEON_WAKE_INTRO")
 	return pattern.telegraph + 0.5
 
 
@@ -205,7 +202,6 @@ func _soul_chain(pattern: BossPatternData) -> float:
 		_links.append(_link_node())
 	_link_until = _clock + pattern.telegraph + duration
 	brain.play_clip([StringName(str(params.get("anim", "soul_link"))), &"attack"], pattern.telegraph)
-	intro("BOSS_SOUL_CHAIN_INTRO")
 	return pattern.telegraph + 0.4
 
 

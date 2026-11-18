@@ -50,7 +50,6 @@ func perform(pattern: BossPatternData) -> float:
 	foe.view.set_tint(MIST)
 	brain.fx(&"fog", foe.pos + Vector3.UP * 0.8, foe.radius * 2.0)
 	brain.play_clip([&"attack"], pattern.telegraph)
-	intro("BOSS_VEIL_INTRO")
 	return pattern.telegraph + 0.3
 
 

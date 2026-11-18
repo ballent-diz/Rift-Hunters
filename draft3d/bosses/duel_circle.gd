@@ -33,7 +33,6 @@ func perform(pattern: BossPatternData) -> float:
 	_node = _ring(center, radius)
 	brain.play_clip([StringName(str(params.get("anim", "attack"))), &"attack"], pattern.telegraph)
 	brain.fx(&"fire_ring", foe.pos + Vector3.UP * 0.5, 2.0)
-	intro("BOSS_DUEL_INTRO_3D")
 	return pattern.telegraph + 0.3
 
 

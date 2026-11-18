@@ -38,7 +38,6 @@ func perform(pattern: BossPatternData) -> float:
 		brain.enemies.hazards.circle(at, radius, pattern.telegraph + 0.15 * n, brain.damage(pattern.damage),
 			func(spot: Vector3) -> void: _rock_lands(spot, radius))
 	brain.play_clip([StringName(str(params.get("anim", "slag_molt"))), &"attack"], 0.8)
-	intro("BOSS_SHELL_INTRO")
 	return 0.8
 
 
@@ -70,4 +69,3 @@ func crack() -> void:
 	cracks += 1
 	_cracked_left = crack_time
 	brain.stun(crack_stun)
-	brain.enemies.run.call("boss_banner", "BOSS_SHELL_CRACKED")

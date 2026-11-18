@@ -417,3 +417,18 @@ n'est enregistré (partie de test). Essai `test_boss_test_fills_the_arsenal`.
 - **Œil de la Faille aller-retour** en seconde phase (le balayage repart dans l'autre sens 0,35 s après) ;
 - **lave** : chaque éruption laisse une flaque 3,5 s (ralentit et brûle), la grille se referme peu à peu.
 - Contrôle `--boss-test --chapter=2` (bot, mode dieu) : victoire, aucune erreur. Essai `test_pyrevorn_style`.
+
+## Lisibilité : plus de bandeaux d'explication, tailles corrigées (18 novembre)
+
+Retours du propriétaire : les textes qui expliquaient les mécaniques nuisaient à la lisibilité, le joueur doit
+comprendre par lui-même ; Glauquemire était trop petit, Abyssarque immense et coupé (seul le haut était visible).
+
+- **Bandeaux retirés** sur tous les boss 3D : `intro()` / `banner_once()` / `boss_banner()` supprimés, ainsi que les
+  bandeaux d'événement (portail piégé, voile brûlé, carapace fendue). Restent l'annonce d'arrivée du boss et le nom
+  des phases. Les clés propres à la 3D citées plus haut (`*_INTRO_3D`, `BOSS_QUAKE_INTRO`, `BOSS_ROOT_LEASH_INTRO`,
+  `BOSS_FROZEN_DIVE_INTRO`) sont retirées de `strings.csv` ; celles partagées avec la v1 restent.
+- **Abyssarque** : l'ancre du manifeste vise le centre de masse (choix de la v1) et enterrait la moitié basse du
+  sprite. Nouveau champ `ground_anchor` (pieds, [704, 1100]) lu par `DraftSpriteView` en priorité, sur toutes ses
+  feuilles ; `visual_scale` 0,5 (environ 225 px de haut, un peu plus que le Dévoreur des Sources).
+- **Glauquemire** : `visual_scale` 2,0 (même stature que Pyrevorn et Nivorath).
+- Contrôle : captures `--boss-test --chapter=3` et `--chapter=5` (boss entiers, posés au sol, aucun bandeau).

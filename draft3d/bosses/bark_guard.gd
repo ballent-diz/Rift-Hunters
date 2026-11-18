@@ -37,7 +37,6 @@ func perform(pattern: BossPatternData) -> float:
 	brain.enemies.hunter.hinder(0.5, 1.5)
 	brain.fx(&"root_snare", brain.enemies.hunter.global_position + Vector3.UP * 0.3, 1.2)
 	brain.play_clip([StringName(str(params.get("anim", "bark_shield"))), &"attack"], pattern.telegraph)
-	intro("BOSS_GUARD_INTRO_3D")
 	return pattern.telegraph
 
 

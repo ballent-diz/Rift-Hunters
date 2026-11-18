@@ -96,7 +96,6 @@ var _hurt_ready_at: float = 0.0
 ## Déplacement propre en cours : {} ou {"kind": &"charge"|&"leap", ...}.
 var _move: Dictionary = {}
 var _dead: bool = false
-var _banners: Dictionary = {}
 var _last_kind: StringName = &""
 
 
@@ -231,13 +230,6 @@ func stun(seconds: float) -> void:
 	foe.view.set_tint(Color(1.3, 1.3, 0.7))
 	fx(&"thunderclap", foe.pos + Vector3.UP * (foe.radius + 1.0), 1.4)
 
-
-## Bandeau d'explication d'une mécanique, une fois par partie.
-func banner_once(key: String) -> void:
-	if _banners.has(key):
-		return
-	_banners[key] = true
-	enemies.run.call("boss_banner", key)
 
 
 ## Charge commandée par une mécanique (Chasse dans la tempête).
@@ -556,8 +548,6 @@ func _gesture_quake(pattern: BossPatternData, _aim: Vector3) -> float:
 	for i: int in waves:
 		enemies.hazards.ring(foe.pos, speed, 18.0, pattern.telegraph + gap * i, damage(pattern.damage),
 			fx_at(&"quake", 2.2) if i == 0 else Callable())
-	if pattern.kind == &"quake":
-		banner_once("BOSS_QUAKE_INTRO")
 	return pattern.telegraph + gap * (waves - 1) * 0.5 + 0.4
 
 
@@ -688,8 +678,6 @@ func _gesture_charge(pattern: BossPatternData, aim: Vector3) -> float:
 	foe.view.set_tint(Color(1.5, 1.05, 0.7))
 	_move = {"kind": &"charge", "dir": aim, "wait": pattern.telegraph, "left": length / speed, "speed": speed,
 		"damage": damage(pattern.damage), "hit": false, "stun": float(pattern.params.get("stun", STUN_TIME))}
-	if pattern.kind == &"pyre_ram":
-		banner_once("BOSS_RAM_INTRO")
 	return 0.0
 
 

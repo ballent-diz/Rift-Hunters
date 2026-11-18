@@ -1649,19 +1649,16 @@ BOSS_PATTERN_WHIRLPOOL,Tourbillon,Whirlpool
 BOSS_PATTERN_TIDE_WAVE,Raz-de-marée,Tidal wave
 BOSS_PATTERN_SWALLOW,Engloutissement,Engulf
 BOSS_ORB_INTRO,Orbe de source : une Ruée dedans le renvoie sur le Dévoreur. L'orbe doré l'étourdit.,Source orb: dash into it to send it back at the Devourer. The golden orb stuns it.
-BOSS_QUAKE_INTRO,"Séisme : des menhirs sortent du sol, puis des anneaux sans brèche partent de la Sentinelle. Abritez-vous derrière un menhir ou traversez d'une Ruée.","Quake: menhirs rise from the ground, then unbroken rings spread from the Sentinel. Take cover behind a menhir or dash through."
 BOSS_CROWN_INTRO,"Couronne d'astres : de l'extérieur, vos coups sont absorbés. Entrez par une brèche !","Star crown: from outside, your hits are absorbed. Get in through a gap!"
 BOSS_CRATER_INTRO,Retenez les cases qui s'allument : elles vont exploser dans le même ordre.,Remember the tiles that light up: they will erupt in the same order.
 BOSS_MUD_WALL_INTRO,La vase ralentit puis durcit en murs : ils arrêtent aussi son rayon.,"The mud slows you, then hardens into walls: they also stop its beam."
 BOSS_LEASH_INTRO,Racine jaillissante : elle surgit là où vous étiez. Écartez-vous !,Bursting root: it erupts where you stood. Step away!
-BOSS_ROOT_LEASH_INTRO,"Racine-laisse : une racine vous attache au sol et l'Abyssarque frappe ce point. Tranchez-la d'une Ruée ou éloignez-vous du coup au bout de la racine.","Root Leash: a root ties you to the ground and the Abyssarch strikes that spot. Cut it with a dash, or move away from the blow at the end of the root."
 BOSS_LEECH_INTRO,Les sangsues soignent un peu Glauquemire si elles l'atteignent : interceptez-les.,Leeches heal Glauquemire a little if they reach it: intercept them.
 BOSS_FACETS_INTRO,Carapace de cristal : chaque face amortit les coups. Brisez-en une ou frappez par un flanc ouvert.,Crystal carapace: each face dampens hits. Break one or strike an open flank.
 BOSS_MIRROR_INTRO,Miroirs : abritez-vous derrière un miroir quand le rayon arrive. Il le renvoie sur le Dévoreur !,Mirrors: take cover behind a mirror when the beam comes. It sends it back at the Devourer!
 BOSS_WHIRLPOOL_INTRO,Tourbillon : marchez contre le courant ou utilisez la Ruée avant qu'il ne se referme.,Whirlpool: walk against the current or dash before it collapses.
 BOSS_TIDE_RING_INTRO,Raz-de-marée : traversez la vague d'une Ruée ou abritez-vous derrière la vase durcie.,Tidal wave: dash through the wave or take cover behind hardened mud.
 BOSS_SWALLOW_INTRO,Un Écho est englouti : frappez le Dévoreur pour le libérer à temps !,An Echo was swallowed: strike the Devourer to free it in time!
-BOSS_SWALLOW_INTRO_3D,"Glauquemire avale les Corrompus proches pour se soigner, puis les recrache : frappez-le fort pour l'interrompre.","Glauquemire swallows nearby Corrupted to heal, then spits them out: hit it hard to interrupt."
 BOSS_STUNNED,ÉTOURDI,STUNNED
 BOSS_PRISM_RETURNED,CARAPACE BRISÉE ×2,CARAPACE SHATTERED ×2
 BOSS_ECHO_FREED,Écho libéré !,Echo freed!
@@ -1819,7 +1816,6 @@ BOSS_PATTERN_THREADS,Fils tendus,Spun Threads
 BOSS_PATTERN_BROOD,Couvée,Brood
 BOSS_PATTERN_SLAG_RAIN,Pluie de scories,Slag Rain
 BOSS_DUEL_INTRO,"Cercle du duel : les Échos restent dehors, vos coups portent davantage, mais sortir du cercle brûle.","Duel circle: your Echoes stay outside and your hits land harder, but leaving the circle burns."
-BOSS_DUEL_INTRO_3D,"Cercle du duel : dedans, vos coups portent davantage ; sortir du cercle brûle.","Duel circle: inside, your hits land harder; leaving the circle burns."
 BOSS_THREADS_INTRO,Fils tendus : les toucher vous colle sur place et la Reine bondit. Une Ruée à travers un fil le tranche.,Spun threads: touching one sticks you in place and the Queen pounces. Dash through a thread to cut it.
 BOSS_SHELL_INTRO,Sa carapace arrête presque tous les coups : attirez-la sous les roches qui tombent pour la fendre.,Her shell stops almost every hit: lure her under falling rocks to crack it.
 BOSS_SHELL_CRACKED,Carapace fendue !,Shell cracked!
@@ -1835,9 +1831,7 @@ BOSS_PATTERN_BARK_GUARD,Garde d'écorce,Bark Guard
 BOSS_PATTERN_ROOTS,Racines entravantes,Binding Roots
 BOSS_PATTERN_DIVE,Plongée,Dive
 BOSS_GUARD_INTRO,"Garde d'écorce : de face, son bouclier arrête presque tout. Prenez-le à revers, ou laissez vos Échos l'occuper.","Bark guard: from the front, his shield stops everything. Take him from behind, or let your Echoes keep him busy."
-BOSS_GUARD_INTRO_3D,"Garde d'écorce : de face, son bouclier arrête presque tout. Contournez-le et frappez-le de dos ou de flanc.","Bark guard: from the front, his shield stops almost everything. Circle around and strike his back or flank."
 BOSS_DIVE_INTRO,"Elle plonge : suivez la ride. Écartez-vous de l'onde annoncée, puis frappez-la quand elle ressurgit, sonnée.","She dives: watch the ripple. Step out of the marked wave, then strike her as she resurfaces, stunned."
-BOSS_FROZEN_DIVE_INTRO,"Plongée sous la glace : Nivorath disparaît sous la banquise et la ride vous suit. Écartez-vous de l'onde annoncée, puis frappez-le quand il ressurgit, sonné.","Frozen Dive: Nivorath vanishes under the ice and the ripple follows you. Step out of the marked wave, then strike him as he resurfaces, stunned."
 ENEMY_FROST_CRAWLER_NAME,Rampe-givre,Frost Crawler
 ENEMY_FROST_CRAWLER_DESC,Petite bête à carapace de givre qui chasse en meute.,Small frost-shelled beast that hunts in packs.
 ENEMY_BLIZZARD_WOLF_NAME,Loup de blizzard,Blizzard Wolf
@@ -1896,7 +1890,6 @@ BOSS_SPORE_MATRIARCH_PHASE2,La floraison,The Bloom
 BOSS_PATTERN_SPORE_LASH,Fouet de spores,Spore Lash
 BOSS_PATTERN_SPORE_VEIL,Floraison,Bloom
 BOSS_SPORE_VEIL_INTRO,"Voile de spores : vos coups glissent sur elle. Frappez un cristal-miroir aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Strike a mirror crystal lined up with her: its beam burns the veil."
-BOSS_SPORE_VEIL_INTRO_3D,"Voile de spores : vos coups glissent sur elle. Foncez d'une Ruée dans un cristal aligné avec elle : son rayon brûle le voile.","Spore veil: your blows slide off her. Dash into a crystal lined up with her: its beam burns the veil."
 BOSS_VEIL_BURNED,Voile brûlé !,Veil burned!
 MAP_OBJ_CRYSTALS_DESC,Terminer en faisant éclater au moins %d cristaux-miroirs,Clear it shattering at least %d mirror crystals
 MAP_OBJ_VEIL_DESC,Terminer en brûlant au moins %d fois le voile de la gardienne,Clear it burning the warden's veil at least %d times
@@ -2071,7 +2064,6 @@ BOSS_PATTERN_RIME_STAFF,Bâton de givre,Rime Staff
 BOSS_PATTERN_ICICLES,Pluie de stalactites,Icicle Rain
 BOSS_PATTERN_DEEP_FREEZE,Grand gel,Deep Freeze
 BOSS_DEEP_FREEZE_INTRO,"Grand gel : le Chaman souffle les braseros sauf un, qui flamboie. Courez dans sa chaleur avant la vague de gel, ou brisez la prison d'une Ruée.","Deep Freeze: the Shaman snuffs every brazier but one, which blazes. Run into its warmth before the frost wave, or break the prison with a Dash."
-BOSS_DEEP_FREEZE_INTRO_3D,"Grand gel : un refuge de chaleur s'allume près de vous. Courez-y avant la vague de gel, ou brisez la prison d'une Ruée.","Deep Freeze: a warm refuge lights up near you. Run into it before the frost wave, or break the prison with a dash."
 JOURNAL_DEEP_FREEZE,Grand gel,Deep Freeze
 BLIZZARD_INTRO,"Blizzard ! Quand le voile s'épaissit, une rafale arrive : on ne voit plus que les ennemis proches et le vent pousse tout le monde. Les refuges du vent restent dégagés.","Blizzard! When the veil thickens, a gust is coming: you only see nearby enemies and the wind pushes everyone. Wind shelters stay clear."
 JOURNAL_BLIZZARD,Blizzard,Blizzard
@@ -2111,7 +2103,6 @@ BOSS_FLOE_COLOSSUS_PHASE2,Carapace brisée,Shattered Hide
 BOSS_PATTERN_TUSK_SWEEP,Balayage des défenses,Tusk Sweep
 BOSS_PATTERN_FLOE_QUAKE,Séisme de banquise,Floe Quake
 BOSS_FLOE_QUAKE_INTRO,"Séisme de banquise : le Colosse frappe la glace et les plaques proches de vous se fendent. Quittez-les avant qu'elles ne s'ouvrent, ou attirez-y ses renforts.","Floe Quake: the Colossus strikes the ice and the plates near you crack. Leave them before they open, or lure his reinforcements onto them."
-BOSS_FLOE_QUAKE_INTRO_3D,"Séisme de banquise : les plaques sous vos pieds se fendent puis s'ouvrent sur l'eau noire. Quittez-les avant qu'elles ne cèdent.","Floe Quake: the plates under your feet crack, then open onto black water. Leave them before they give way."
 JOURNAL_FLOE_QUAKE,Séisme de banquise,Floe Quake
 ARENA_SILENT_HEART_NAME,Le Cœur du Silence,The Heart of Silence
 ARENA_SILENT_HEART_DESC,"Au cœur du glacier, chaque sort résonne et se relance une seconde fois. Traversez la galerie et la salle des échos jusqu'à la cathédrale gelée, où Nivorath avale le silence.","In the heart of the glacier, every spell resonates and casts a second time. Cross the gallery and the hall of echoes to the frozen cathedral, where Nivorath swallows the silence."
@@ -2189,7 +2180,6 @@ BOSS_SANCTUM_GOLEM_PHASE2,Dalles éclatées,Shattered Slabs
 BOSS_PATTERN_SLAB_FIST,Poing de dalles,Slab Fist
 BOSS_PATTERN_RUNE_BARRAGE,Tempête de runes,Rune Storm
 BOSS_RUNE_BARRAGE_INTRO,Tempête de runes : le Golem trace des sceaux autour de vous et fait tourner les portes. Sortez des cercles avant qu'ils frappent.,Rune Storm: the Golem draws seals around you and turns the gates. Step out of the circles before they strike.
-BOSS_RUNE_BARRAGE_INTRO_3D,"Tempête de runes : le Golem trace des sceaux autour de vous, qui frappent puis ralentissent, et se couvre d'une armure de dalles. Sortez des cercles et frappez-le quand l'armure tombe.","Rune Storm: the Golem draws seals around you that strike and then slow, and dons slab armour. Step out of the circles and strike him when the armour falls."
 JOURNAL_RUNE_BARRAGE,Tempête de runes,Rune Storm
 ARENA_SHATTERED_PANTHEON_NAME,Le Panthéon brisé,The Shattered Pantheon
 ARENA_SHATTERED_PANTHEON_DESC,"Fermez les quatre failles des cours du Panthéon. Les statues s'éveillent sur leurs socles quand on passe trop près, et des Échos attendent dans leurs cages qu'on les libère.","Close the four rifts in the Pantheon's courts. Statues awaken on their plinths when you pass too close, and Echoes wait in their cages to be freed."

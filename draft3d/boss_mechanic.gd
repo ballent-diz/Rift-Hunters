@@ -59,11 +59,6 @@ func holds_boss() -> bool:
 	return false
 
 
-## Explication de la mécanique, une fois par partie (bandeau).
-func intro(key: String) -> void:
-	brain.banner_once(key)
-
-
 ## Boule lumineuse (orbe, étoile, lanterne) ajoutée au monde, sans ombre.
 ## Obstacle solide (mur de vase, miroir) : bloque le Chasseur, les tirs, les ondes et la vue (couche 1 du décor).
 func make_block(at: Vector3, size: Vector3, color: Color) -> StaticBody3D:

@@ -52,7 +52,6 @@ func perform(pattern: BossPatternData) -> float:
 		brain.enemies.hazards.circle(brain.enemies.level.closest(center + offset), radius, pattern.telegraph + 0.15 * n,
 			brain.damage(pattern.damage), brain.fx_at(&"spore_burst", radius))
 	brain.play_clip([StringName(str(params.get("anim", "spore_carpet"))), &"attack"], pattern.telegraph)
-	intro("BOSS_SPORE_VEIL_INTRO_3D")
 	return pattern.telegraph + 0.3
 
 
@@ -94,7 +93,6 @@ func _fire(crystal: Dictionary) -> void:
 	burns += 1
 	_down_until = _clock + regrow
 	brain.stun(stun_time)
-	brain.enemies.run.call("boss_banner", "BOSS_VEIL_BURNED")
 
 
 func finish() -> void:

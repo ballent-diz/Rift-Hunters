@@ -74,7 +74,6 @@ func on_phase(index: int) -> void:
 		_facet_mult = float(params.get("facet_mult", _facet_mult))
 		_facet_regrow = float(params.get("facet_regrow", _facet_regrow))
 		_grow_facets()
-		intro("BOSS_FACETS_INTRO")
 	elif index >= 2:
 		_drop_facets()
 	if p.mechanics.has(&"mirrors") and mirrors.is_empty():
@@ -98,7 +97,6 @@ func _mud(pattern: BossPatternData) -> float:
 			"crumble_at": _clock + pattern.telegraph + float(params.get("harden", 2.5)) + float(params.get("wall_time", 7.0)),
 			"disc": make_disc(at, radius, MUD), "wall": null})
 	brain.play_clip([&"mud_spit", &"attack"], pattern.telegraph)
-	intro("BOSS_MUD_WALL_INTRO")
 	return pattern.telegraph + 0.3
 
 
@@ -142,7 +140,6 @@ func _root(pattern: BossPatternData) -> float:
 	brain.enemies.hazards.circle(target, radius, pattern.telegraph + delay, brain.damage(pattern.damage),
 		brain.painted_at(["root_leash"], to_target, 0.6, &"root_snare", radius))
 	brain.play_clip([&"root_lash", &"attack"], pattern.telegraph)
-	intro("BOSS_LEASH_INTRO")
 	return pattern.telegraph + 0.4
 
 
@@ -168,7 +165,6 @@ func _leeches(pattern: BossPatternData) -> float:
 		leeches.append(leech)
 		brain.fx(&"summon_rise", at + Vector3.UP * 0.4, 1.0)
 	brain.play_clip([&"leech_call", &"summon", &"attack"], pattern.telegraph)
-	intro("BOSS_LEECH_INTRO")
 	return pattern.telegraph + 0.2
 
 
@@ -263,7 +259,6 @@ func _place_mirrors(distance: float) -> void:
 		body.look_at(Vector3(foe.pos.x, body.global_position.y, foe.pos.z), Vector3.UP)
 		var zone: MeshInstance3D = make_disc(at, 3.6, Color(CRYSTAL, 0.0))
 		mirrors.append({"pos": at, "body": body, "zone": zone})
-	intro("BOSS_MIRROR_INTRO")
 
 
 func _beam(pattern: BossPatternData) -> float:
@@ -285,7 +280,6 @@ func _beam(pattern: BossPatternData) -> float:
 	for mirror: Dictionary in mirrors:
 		((mirror["zone"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color = Color(CRYSTAL, 0.18)
 	brain.play_clip([&"prism_beam", &"attack"], pattern.telegraph + sweep)
-	intro("BOSS_MIRROR_INTRO")
 	return pattern.telegraph + sweep + 0.3
 
 
@@ -387,7 +381,6 @@ func _whirlpool(pattern: BossPatternData) -> float:
 	brain.enemies.hazards.circle(brain.foe.pos, radius, pattern.telegraph + duration + float(params.get("collapse_delay", 0.9)),
 		brain.damage(pattern.damage), brain.fx_at(&"splash", radius))
 	brain.play_clip([&"whirlpool", &"attack"], pattern.telegraph + duration)
-	intro("BOSS_WHIRLPOOL_INTRO")
 	return pattern.telegraph + duration + 0.4
 
 
@@ -418,7 +411,6 @@ func _tide(pattern: BossPatternData) -> float:
 		brain.enemies.hazards.ring(brain.foe.pos, speed, reach, pattern.telegraph + float(params.get("gap", 1.1)) * w,
 			brain.damage(pattern.damage), brain.fx_at(&"splash", 2.0) if w == 0 else Callable(), _wave_hit)
 	brain.play_clip([&"whirlpool", &"roar", &"attack"], pattern.telegraph)
-	intro("BOSS_TIDE_RING_INTRO")
 	return pattern.telegraph + 0.5
 
 
@@ -448,7 +440,6 @@ func _swallow(pattern: BossPatternData) -> float:
 	brain.play_clip([&"swallow", &"attack"], pattern.telegraph + 1.5)
 	brain.painted(["swallow"], foe.pos, Vector3.RIGHT, -1.0, pattern.telegraph + 1.5,
 		{"radius": foe.radius / DraftHunter.UNIT * 0.45})
-	intro("BOSS_SWALLOW_INTRO_3D")
 	return pattern.telegraph + 1.6
 
 

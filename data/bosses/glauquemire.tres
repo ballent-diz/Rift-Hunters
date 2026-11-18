@@ -290,6 +290,7 @@ shard_reward = 260
 essence_reward = 22
 visual = SubResource("visual_data_1")
 phases = [SubResource("phase_1"), SubResource("phase_2"), SubResource("phase_3")]
+visual_scale = 2.0
 mouth_offset = Vector2(70, -90)
 hurt_ratio = 0.06
 signature = &"prism_beam"
