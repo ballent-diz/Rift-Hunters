@@ -75,6 +75,16 @@ static func size_for(effect: StringName, width: float) -> float:
 	return width / (rects[0].size.x * PIXEL) if not rects.is_empty() and rects[0].size.x > 0.0 else 1.0
 
 
+## Effet dédié `effect` s'il est livré, `width` m de large, dessiné sous les zones annoncées des ennemis ; sinon null
+## (l'appelant garde son repli, ou rien quand l'effet n'a pas d'équivalent : docs/design/FICHES_VFX_MUTATIONS_V2.md).
+static func dedicated(parent: Node, effect: StringName, width: float, at: Vector3, looping: bool = false) -> DraftPixelFx:
+	if not has_sheet(effect):
+		return null
+	var node: DraftPixelFx = play(parent, effect, DEFAULT_FAMILY, at, size_for(effect, width), looping)
+	node.render_priority = UNDER_TELEGRAPHS
+	return node
+
+
 ## Joue l'effet à `at` (null si la feuille n'existe pas pour cette famille, après repli sur la famille par défaut).
 static func play(parent: Node, effect: StringName, family: StringName, at: Vector3, size: float = 1.0,
 		looping: bool = false) -> DraftPixelFx:
