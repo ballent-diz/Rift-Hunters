@@ -408,3 +408,12 @@ Demande du propriétaire : quand le raccourci « Aller au boss » sert (F9, paus
 (les cinq premiers équipés, les autres en réserve), tous les passifs, et pour chaque sort des mutations tirées au
 hasard (deux au plus, jamais incompatibles). Les déblocages du profil sont ignorés le temps du remplissage ; rien
 n'est enregistré (partie de test). Essai `test_boss_test_fills_the_arsenal`.
+
+### Pyrevorn amélioré (18 novembre)
+
+`bosses/pyrevorn_style.gd` (`DraftPyrevornStyle`), en plus de la séquence des cratères :
+- **Enchaînement propre** : balayage → cratères → pluie de roches (phase 1) ou envol et chute (phase 2) → Œil de
+  la Faille ; tant que son escorte (Titan, Wyrmeau) est en vie, il revient plus souvent à l'Œil ;
+- **Œil de la Faille aller-retour** en seconde phase (le balayage repart dans l'autre sens 0,35 s après) ;
+- **lave** : chaque éruption laisse une flaque 3,5 s (ralentit et brûle), la grille se referme peu à peu.
+- Contrôle `--boss-test --chapter=2` (bot, mode dieu) : victoire, aucune erreur. Essai `test_pyrevorn_style`.

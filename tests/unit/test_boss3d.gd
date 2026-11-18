@@ -831,3 +831,28 @@ func test_boss_test_fills_the_arsenal() -> void:
 		check(count <= DraftSpells.MAX_MUTATIONS, "%s : deux mutations au plus" % id)
 		mutated += 1 if count > 0 else 0
 	check(mutated >= 3, "mutations tirées sur plusieurs sorts (%d)" % mutated)
+
+
+func test_pyrevorn_style() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"pyrevorn", 8.0)
+	foe.brain._next_at = INF
+	var style := _mechanic(foe, &"eye_beam") as DraftPyrevornStyle
+	check(style != null, "Pyrevorn : style de combat propre")
+	check_eq(style.next_kind(&"sweep"), &"crater_sequence", "balayage → cratères")
+	check_eq(style.next_kind(&"crater_sequence"), &"rock_rain", "première phase : cratères → pluie")
+	var craters := _mechanic(foe, &"crater_sequence") as DraftCraterSequence
+	var pattern: BossPatternData = _pattern(foe.boss, &"crater_sequence")
+	craters.perform(pattern)
+	await _frames(int((float(craters.steps.back()["erupt_at"]) - craters._clock) * 60) + 10)
+	check(run.hazards.zones() >= 1, "les éruptions laissent de la lave")
+	_bring_to(foe, 0.4)
+	foe.brain._transition = 0.0
+	check_eq(style.next_kind(&"crater_sequence"), &"skyfall", "seconde phase : cratères → envol")
+	check_eq(style.next_kind(&"skyfall"), &"eye_beam", "chute → Œil de la Faille")
+	check(style.escorts_alive() == 2 and style.next_kind(&"rock_rain") == &"eye_beam", "escorte en vie : l'Œil revient")
+	var lines: int = run.hazards._items.size()
+	var eye: BossPatternData = _pattern(foe.boss, &"eye_beam")
+	style.perform(eye)
+	check_eq(run.hazards._items.size() - lines, int(eye.params["steps"]) * 2, "seconde phase : balayage aller-retour")
+	check_eq(style.double_sweeps, 1, "aller-retour compté")
