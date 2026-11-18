@@ -3,7 +3,8 @@ extends Node
 ## chaque sort, vraie partie, sort équipé avec ses mutations dans l'ordre demandé, vrai lancer, image au pic de l'effet.
 ## Ordres : `a` (mutation peinte seule), `b` (autre mutation seule), `ab`, `ba` (les deux, dans cet ordre).
 ##   xvfb-run -a -s "-screen 0 1280x720x24" godot --path . --resolution 1280x720 \
-##     res://tools/double_mutation_showcase.tscn -- --out=docs/previews/doubles_mutations [--only=rupture] [--orders=a,ba]
+##     res://tools/double_mutation_showcase.tscn -- --bot --passive --out=docs/previews/doubles_mutations \
+##     [--only=rupture] [--orders=a,ba]
 
 ## Sort → [carte de la mutation peinte en priorité, carte de l'autre mutation].
 const PAIRS := {
