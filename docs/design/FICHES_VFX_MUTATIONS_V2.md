@@ -17,8 +17,11 @@ texte, ≈ 64 px par mètre). Claude Code ne dessine rien : ces fiches décriven
 - **Repli** : tant qu'une planche manque, le jeu joue exactement l'effet actuel (colonne « Repli »). Quand il n'y a
   rien aujourd'hui (« aucun »), il n'affiche rien de plus. Code : `DraftRun.fx_or` (avec repli) et
   `DraftPixelFx.dedicated` (sans repli).
-- **Télégraphes ennemis** : tout effet dédié est dessiné en priorité `DraftPixelFx.UNDER_TELEGRAPHS` (-1), sous les
-  zones annoncées des ennemis (priorité 0). Les effets au sol (Ombre piégée, Orage) doivent rester **translucides au
+- **Télégraphes ennemis** : les effets dédiés au sol sont dessinés en priorité `DraftPixelFx.UNDER_TELEGRAPHS` (-1),
+  sous les zones annoncées des ennemis (priorité 0). Les effets ancrés sur un ennemi ou le Chasseur
+  (`DraftPixelFx.OVER_TARGET`) partagent la priorité des personnages pour ne pas être cachés par leur cible, et tout
+  effet dédié est avancé vers la caméra pour ne pas être coupé par le sol (validation :
+  `docs/design/VALIDATION_FX_COMPETENCES_V2.md`). Les effets au sol (Ombre piégée, Orage) doivent rester **translucides au
   centre** (alpha ≤ 50 % hors du bord) et ne jamais utiliser le rouge ni l'orange des zones ennemies.
 - **Contrôle** : `python3 tools/art/check_v2_vfx.py` (images, fps, boucle, cohérence de la planche). Test du raccord :
   `tests/unit/test_draft3d_mutation_vfx.gd`.

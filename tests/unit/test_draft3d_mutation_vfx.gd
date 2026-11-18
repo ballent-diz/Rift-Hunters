@@ -70,13 +70,13 @@ func _cast(id: StringName, aim: Vector3) -> bool:
 	return run.spells.cast(slot, aim)
 
 
-## Effets dédiés en jeu : texture prêtée et priorité sous les télégraphes.
+## Effets dédiés en jeu : texture prêtée, joués comme effets dédiés.
 func _dedicated() -> Array[DraftPixelFx]:
 	var found: Array[DraftPixelFx] = []
 	var texture: Texture2D = DraftPixelFx.sheet(STAND_IN, &"fallen").get("texture")
 	for child: Node in run.get_children():
 		if child is DraftPixelFx and (child as DraftPixelFx).texture == texture \
-				and (child as DraftPixelFx).render_priority == DraftPixelFx.UNDER_TELEGRAPHS:
+				and (child as DraftPixelFx).dedicated_effect != &"":
 			found.append(child)
 	return found
 
@@ -89,9 +89,11 @@ func test_dedicated_plays_only_delivered_sheets() -> void:
 		check_eq(node != null, DraftPixelFx.has_sheet(effect), "%s : joué seulement si livré" % effect)
 	_deliver(&"mutation_rend_pierce")
 	var played: DraftPixelFx = DraftPixelFx.dedicated(parent, &"mutation_rend_pierce", 2.0, Vector3.ZERO)
+	for ground: StringName in [&"mutation_step_trap", &"mutation_rain_storm"]:
+		check_eq(DraftPixelFx.priority_for(ground), DraftPixelFx.UNDER_TELEGRAPHS, "%s sous les zones annoncées" % ground)
 	check(played != null, "planche livrée : effet joué")
 	if played != null:
-		check_eq(played.render_priority, DraftPixelFx.UNDER_TELEGRAPHS, "sous les zones annoncées")
+		check_eq(played.render_priority, 0, "impact sur l'ennemi : trié avec les personnages, pas caché par sa cible")
 		check(absf(played.region_rect.size.x * played.pixel_size - 2.0) < 0.01, "largeur en jeu respectée")
 	parent.queue_free()
 
@@ -117,9 +119,12 @@ func test_storm_cloud_follows_the_hunter_and_ends_with_the_zone() -> void:
 	for frame: int in 3:
 		await host.get_tree().physics_frame
 	if clouds.size() == 1:
-		var flat := Vector2(clouds[0].position.x, clouds[0].position.z)
+		var flat := Vector2(clouds[0].anchor.x, clouds[0].anchor.z)
 		var hunter := Vector2(run.hunter.global_position.x, run.hunter.global_position.z)
 		check(flat.distance_to(hunter) < 0.3, "l'orage suit le Chasseur")
+		var half: float = clouds[0].region_rect.size.y * clouds[0].pixel_size * 0.5
+		var bottom: float = clouds[0].position.y - run.camera.global_basis.y.y * half
+		check(bottom >= run.hunter.global_position.y, "l'orage n'est pas coupé par le sol (bas à %.2f m)" % bottom)
 	for frame: int in 240:
 		await host.get_tree().physics_frame
 	check_eq(_dedicated().size(), 0, "l'orage disparaît avec sa zone")

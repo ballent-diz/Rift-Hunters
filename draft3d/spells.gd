@@ -715,7 +715,9 @@ func _step_zones(delta: float) -> void:
 		if zone.get("follow", false):
 			zone["at"] = run.hunter.global_position
 			var visual: Variant = zone.get("visual")
-			if visual is Node3D and is_instance_valid(visual):
+			if visual is DraftPixelFx and is_instance_valid(visual):
+				(visual as DraftPixelFx).place(run.hunter.global_position + Vector3.UP * 0.3)
+			elif visual is Node3D and is_instance_valid(visual):
 				(visual as Node3D).position = run.hunter.global_position + Vector3.UP * 0.3
 		if float(zone["clock"]) >= float(zone["tick"]):
 			zone["clock"] = 0.0

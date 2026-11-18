@@ -1,5 +1,16 @@
 # Rift Hunters — feuille de route
 
+## Validation finale des FX des compétences v2 — 18 novembre 2026 (session « Validation FX mutations »)
+
+Les 8 FX de mutations livrés (PR #227) sont conformes aux fiches et raccordés. Rapport et tableaux (15 sorts,
+30 mutations, 12 combos) : `docs/design/VALIDATION_FX_COMPETENCES_V2.md` ; captures `docs/previews/mutations_v2/en_jeu/`.
+- Corrigé (rendu seul) : effets ancrés sur un ennemi cachés par leur cible en rendu pixel (`DraftPixelFx.OVER_TARGET`,
+  priorité des personnages) ; effets au sol coupés par le sol, dont la moitié basse de l'Orage (avance vers la caméra
+  orthographique, `DraftPixelFx.place`). Combos et passifs ancrés sur une cible en profitent aussi.
+- Outil : `tools/mutation_fx_showcase.tscn` (captures mesurées, `--sweep` des 15 sorts). Captures : `--fixed-fps 60`.
+- **Suite** : tests manuels du propriétaire (liste en fin de rapport : Contrecoup discret, télégraphes en plein
+  combat, rendu pixel désactivé).
+
 ## Mutations V2 — livraison graphique prête (Codex, 18 novembre 2026)
 
 Audit des douze mutations demandé par le propriétaire, priorité aux réutilisations. Branche
