@@ -1,0 +1,104 @@
+{
+  "generator": "ImageGen intégré",
+  "reference": "docs/design/FICHES_VFX_MUTATIONS_V2.md",
+  "date": "2026-11-18",
+  "effects": [
+    {
+      "id": "mutation_rend_pierce",
+      "label": "Fente perçante",
+      "frames": 6,
+      "fps": 24,
+      "size": 104,
+      "columns": 3,
+      "rows": 2,
+      "loop": false,
+      "lot": "A",
+      "subject": "A thin horizontal dimensional tear passing straight LEFT TO RIGHT through the centre. Dark violet outer edge, narrow brilliant white core, two cyan-violet parallel speed threads extending beyond the white cut. Absolutely no vertical blade, no diagonal slash, no creature. Frames 1-2 anticipate with violet threads, 3-4 cut left-to-right through the target centre, 5-6 short dissipating fragments."
+    },
+    {
+      "id": "mutation_stasis_shards",
+      "label": "Éclats de stase",
+      "frames": 8,
+      "fps": 16,
+      "size": 80,
+      "columns": 4,
+      "rows": 2,
+      "loop": false,
+      "lot": "A",
+      "subject": "A SMALL open faceted cyan crystal cage indicating vulnerability around an unseen enemy. No enemy drawn. Frost cracks appear on crystal facets then settle into a frozen fractured crystal outline. Very hollow centre, fine bright cyan cracks, violet lower-right facets. Frames 1-3 small crystal fragments materialise, 4-5 frost cracks propagate, 6-8 the cracked open crystal outline settles and stays readable. The last frame is intentionally settled, not an explosion or a fade to empty."
+    },
+    {
+      "id": "mutation_rain_focus",
+      "label": "Concentration",
+      "frames": 8,
+      "fps": 24,
+      "size": 104,
+      "columns": 4,
+      "rows": 2,
+      "loop": false,
+      "lot": "B",
+      "subject": "ONE heavy cyan crystal falling vertically, strikes central ground point in a compact white-cyan star impact then a SMALL elliptical violet-cyan ground shockwave. Frames 1-3 thick falling cyan streak above centre, frame4 contact, frames5-6 starburst and hollow ellipse, frames7-8 sparse fading crystal fragments. Ground ellipse height/width 0.7, stable impact centre."
+    },
+    {
+      "id": "mutation_mark_hunt",
+      "label": "Traque",
+      "frames": 8,
+      "fps": 20,
+      "size": 104,
+      "columns": 4,
+      "rows": 2,
+      "loop": false,
+      "lot": "B",
+      "subject": "A small violet target-lock sigil around an invisible enemy. A thin purple ring contracts neatly inward, then a small white-violet spark shoots STRAIGHT UP toward the permanent mark above it. Frames1-4 contracting hollow ring, frames5-6 upward spark, frames7-8 fading tiny violet motes. No horizontal travelling projectile, no drawn enemy."
+    },
+    {
+      "id": "mutation_veil_recoil",
+      "label": "Contrecoup",
+      "frames": 8,
+      "fps": 20,
+      "size": 80,
+      "columns": 4,
+      "rows": 2,
+      "loop": false,
+      "lot": "B",
+      "subject": "An enemy projectile dissolves into a SMALL puff of dark grey-violet ash, followed by ONE tiny GOLD-GREEN healing spark rising upward from it. Frames1-3 small pale projectile dissolving into ash, frames4-6 tiny warm gold mint-green spark rising, frames7-8 fade. Minimal compact effect, no hands, no shield, no human, no red or orange."
+    },
+    {
+      "id": "mutation_mark_execute",
+      "label": "Exécution",
+      "frames": 12,
+      "fps": 24,
+      "size": 140,
+      "columns": 4,
+      "rows": 3,
+      "loop": false,
+      "lot": "C",
+      "subject": "A violet execution seal closes into ONE vertical energy blade dropping on the central unseen target, a WHITE-VIOLET contact flash at frames6-7, dark purple crystal fragments falling away at frames8-12. Frames1-4 collapsing seal, frames5-7 descending blade and brief flash, frames8-12 diminishing falling fragments. No physical weapon or human, only energy sigil and blade. Final frame almost empty."
+    },
+    {
+      "id": "mutation_step_trap",
+      "label": "Ombre piégée",
+      "frames": 12,
+      "fps": 20,
+      "size": 176,
+      "columns": 4,
+      "rows": 3,
+      "loop": false,
+      "lot": "C",
+      "subject": "A ground shadow trap: flattened dark-violet elliptical outline at fixed centre explodes outward, thin violet tendrils or short SHADOW CHAINS remain for exactly frames7-9 then fade in10-12. No hands or creature. The ellipse height/width is0.7. Clearly outlined rim, centre mostly empty transparent, NO OPAQUE FILL INSIDE THE ELLIPSE. Frames1-3 gathering shadow,4-6 outward burst,7-9 short entangling shadow chains,10-12 fade."
+    },
+    {
+      "id": "mutation_rain_storm",
+      "label": "Orage",
+      "frames": 8,
+      "fps": 10,
+      "size": 384,
+      "columns": 4,
+      "rows": 2,
+      "loop": true,
+      "lot": "C",
+      "subject": "A SEAMLESS LOOP of tiny prismatic cyan and violet crystal shards orbiting along the rim of ONE flattened ground ellipse, height/width0.7. Stable ellipse and centre in all8frames. A clear thin broken rim made of small faceted shards. The interior is COMPLETELY TRANSPARENT EMPTY negative space. No central glow, no filled disk, no rain columns, no red/orange, no white flash. Shards advance gradually around the ellipse in a repeatable cycle; frame8 naturally joins frame1 with same scale and brightness."
+    }
+  ],
+  "processing": "Découpage ; NEAREST ; marge interne2px ; quantification RGBA32 sans tramage."
+}

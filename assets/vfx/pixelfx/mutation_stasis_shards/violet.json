@@ -1,0 +1,205 @@
+{
+  "frames": [
+    {
+      "filename": "mutation_stasis_shards 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 62
+    },
+    {
+      "filename": "mutation_stasis_shards 1",
+      "frame": {
+        "x": 80,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 63
+    },
+    {
+      "filename": "mutation_stasis_shards 2",
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 63
+    },
+    {
+      "filename": "mutation_stasis_shards 3",
+      "frame": {
+        "x": 240,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 62
+    },
+    {
+      "filename": "mutation_stasis_shards 4",
+      "frame": {
+        "x": 0,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 62
+    },
+    {
+      "filename": "mutation_stasis_shards 5",
+      "frame": {
+        "x": 80,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 63
+    },
+    {
+      "filename": "mutation_stasis_shards 6",
+      "frame": {
+        "x": 160,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 63
+    },
+    {
+      "filename": "mutation_stasis_shards 7",
+      "frame": {
+        "x": 240,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 62
+    }
+  ],
+  "meta": {
+    "image": "violet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 320,
+      "h": 160
+    },
+    "scale": "1",
+    "pixelfx": {
+      "id": "mutation_stasis_shards",
+      "name": "Éclats de stase",
+      "fps": 16,
+      "loop": false,
+      "frames": 8,
+      "frameSize": [
+        80,
+        80
+      ],
+      "columns": 4,
+      "pivot": [
+        40,
+        40
+      ]
+    }
+  }
+}

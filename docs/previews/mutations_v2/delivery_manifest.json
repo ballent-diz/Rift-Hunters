@@ -1,0 +1,363 @@
+{
+  "files": 71,
+  "bytes": 7531421,
+  "mib": 7.18,
+  "gameplay_changed": false,
+  "entries": [
+    {
+      "path": "assets/concepts/incoming/mutations_v2/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/job.json",
+      "bytes": 5421,
+      "sha256": "580626632c88d31f4d11dbd420cb4abb68028c57ea5b34d1eb4c36968d2eda6a"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/prompts.json",
+      "bytes": 14754,
+      "sha256": "617b74230e2c644b07b56c7abaafe7dfd33e2c474854e25be0e90cc2f0a94de3"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_mark_execute.png",
+      "bytes": 802482,
+      "sha256": "38946cc673bf9eb352b92fe39cdf2ad28537e171f42f3dddf09d15a398ed00a8"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_mark_hunt.png",
+      "bytes": 437396,
+      "sha256": "43a194236fb26f23d5796665ef57ae0f634940c96949d5b76aa1bccc55800396"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_rain_focus.png",
+      "bytes": 375208,
+      "sha256": "7150ada1cc364339aa382a4bc285cde830989cd0eb51797449e940f932edb06f"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_rain_storm.png",
+      "bytes": 1171853,
+      "sha256": "d5585f8bcd9a6cace0300837e412c71f934022b382df72c6c64bf503c12b8464"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_rend_pierce.png",
+      "bytes": 1273998,
+      "sha256": "fb577898efa1a40067f69322d5080a0df0b7762066643f60959d101dfbcc3bb5"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_stasis_shards.png",
+      "bytes": 1137085,
+      "sha256": "64867c3e41c19c90411b3283602bc78271f22fa57142fab3663daa9917dfd14d"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_step_trap.png",
+      "bytes": 625991,
+      "sha256": "794433821cf63463e2fbd642c0481421bb898ecd6f5b30ddb6d2bd6cbc930082"
+    },
+    {
+      "path": "assets/concepts/incoming/mutations_v2/sources/mutation_veil_recoil.png",
+      "bytes": 210349,
+      "sha256": "d4c4ef9809044da4dbca53e1514f962c5d28720e1fae167d701e39e4b93742c7"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_mark_execute/violet.json",
+      "bytes": 5439,
+      "sha256": "6e24bdf8c6cb944fc2389cdb370be6222484d5597e693e05b0ea3d456f481fd3"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_mark_execute/violet.png",
+      "bytes": 59900,
+      "sha256": "4d5dd4e3e04e294342dc9ad9851c3e4082c693dab2182bbb5f4a7ee4480d50a0"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_mark_execute/violet.png.import",
+      "bytes": 793,
+      "sha256": "8af4ba624b43653e1c0a97c26835f8c39e618dd04002b2f3fa95e407d3d1ef73"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_mark_hunt/violet.json",
+      "bytes": 3743,
+      "sha256": "5abfd887267c90a09d6873f07d5bb2f930df5dcfd193b0d2445102770a2987d9"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_mark_hunt/violet.png",
+      "bytes": 16290,
+      "sha256": "eccb9f32af045f224db2beb4655a9d36097b2c8287667d4f804407bf142681f2"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_mark_hunt/violet.png.import",
+      "bytes": 789,
+      "sha256": "869417c76eccef65cb36dc42418863db43b266faa29e0184ca9874bc81260669"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rain_focus/violet.json",
+      "bytes": 3759,
+      "sha256": "1bb9ff3ed8e23eebf6f4f5e104802a02fdef4af5eb09bdf5997d13a07fb207c9"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rain_focus/violet.png",
+      "bytes": 13383,
+      "sha256": "6c96321b57943d97dc29f32fb596442f47ba6d192c782d4d18d95912456d642c"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rain_focus/violet.png.import",
+      "bytes": 791,
+      "sha256": "1bdf2a2fe39a1b0dad470851f9c4e74b34004672ec0c1aa03433901dcc01f724"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rain_storm/violet.json",
+      "bytes": 3763,
+      "sha256": "aa47adddb686403973ccddbe2a5e34e9c903fe4a62b95c9f8840b17bc3394cce"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rain_storm/violet.png",
+      "bytes": 294004,
+      "sha256": "d220c54633367d308741bf54c753676b7dab72b2d919950382107a7ef86c37ee"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rain_storm/violet.png.import",
+      "bytes": 791,
+      "sha256": "4b82e13f61c10eab95d3e3f3c89c55698bdb6fee4ab2b4f5866769b69fd24706"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rend_pierce/violet.json",
+      "bytes": 2942,
+      "sha256": "1f8e18da11899e3674a80515f2442b82592a95f5ae0dc23a73af3113299c5769"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rend_pierce/violet.png",
+      "bytes": 9637,
+      "sha256": "e7d88cc2517d4fd46534bc94d3aaff76fd0ea76f54c33e25d68dfcb951c58418"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_rend_pierce/violet.png.import",
+      "bytes": 792,
+      "sha256": "f28eb72d8534d4635338a57825b7f84e95d2a77d0457c5d7cc9759df2f7c4342"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_stasis_shards/violet.json",
+      "bytes": 3733,
+      "sha256": "5366f3443a8eb661aa3b44b41f26aad9f5daecb764f3373648e3216a5fd32ccb"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_stasis_shards/violet.png",
+      "bytes": 24950,
+      "sha256": "e24c6b8e2d1f1f4470a7567ad58b7ac22454a3f268e99c90d7a9d6ad08c8663e"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_stasis_shards/violet.png.import",
+      "bytes": 794,
+      "sha256": "6298ce25bdf8a5af4f43ba0583d26b9815501d323e87eeeb38cd001e7b4f336b"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_step_trap/violet.json",
+      "bytes": 5404,
+      "sha256": "a4304835ce88bdeb15d85704713881684ac1a9c9186792a2f68bcca7b4a88113"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_step_trap/violet.png",
+      "bytes": 56417,
+      "sha256": "81a7fadee9a4357574c137387bcab7d38f0a9522f9e4b2fa70805355f2d32000"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_step_trap/violet.png.import",
+      "bytes": 790,
+      "sha256": "cb6690462d4f4cbd67abeb987fb61db4b9ca8767618c8315f7cc0ef6520b8afd"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_veil_recoil/violet.json",
+      "bytes": 3709,
+      "sha256": "d20ee14f21a83b8aaf050a1db7823bb0ee5d2d3440e8ab72454edaad1730ef49"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_veil_recoil/violet.png",
+      "bytes": 4528,
+      "sha256": "094f159c1cca3d54c075480c456cdcaa801305d12d39ffc8168e43a2194df930"
+    },
+    {
+      "path": "assets/vfx/pixelfx/mutation_veil_recoil/violet.png.import",
+      "bytes": 791,
+      "sha256": "2fc5f7503674a4bec5ffe1771cef8c34179c719415522e712ff2a90040dba8ce"
+    },
+    {
+      "path": "docs/art/MUTATIONS_V2_LIVRAISON.md",
+      "bytes": 4610,
+      "sha256": "26a6cb5859ba8d721ef7adc4b8e91ac3dcfccca3b3f77761db603f701e841a55"
+    },
+    {
+      "path": "docs/art/PREPARATION_MUTATIONS_V2.md",
+      "bytes": 282,
+      "sha256": "d229b2db762dbfe1ab32d53e29284bff1fcbc789a6fa1812d50da10923d7cb05"
+    },
+    {
+      "path": "docs/previews/mutations_v2/.gdignore",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/previews/mutations_v2/index.html",
+      "bytes": 4632,
+      "sha256": "dbddeeadccd95277885a47725d21704f4fc5b94c9a19eb808ee99fdc6193d07e"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_mark_execute.webp",
+      "bytes": 74332,
+      "sha256": "c4ba8cb155232122484e3123eb5f4fd0a1978472eaa78d13385b43b17f034498"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_mark_execute_qa.json",
+      "bytes": 4717,
+      "sha256": "f5ef43257b353f6e5a7ccd0bf57af6e18c46c374c172ded6d7ded17ddbff61a7"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_mark_hunt.webp",
+      "bytes": 19250,
+      "sha256": "88cf966d9bc46dd7febbfdaa61948125377518b5438195f406eb779413a56943"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_mark_hunt_qa.json",
+      "bytes": 3225,
+      "sha256": "bb2967e8caddb23e7f780bd944baaa2729ea03de45f8551fb717fa5873b1b99b"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_rain_focus.webp",
+      "bytes": 16770,
+      "sha256": "ebd88f869b037362f7daa717d5625a0aee86fa2b02961428c8adbf7dd9cee5b4"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_rain_focus_qa.json",
+      "bytes": 3224,
+      "sha256": "371a68c89d48989fb9aa74655d5d9337b9344257e8fd69b844280bc4aaf6d6d9"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_rain_storm.webp",
+      "bytes": 352912,
+      "sha256": "06d1026a333924ad1f6f932f78132431e8fc897397d31612dfcb143e72360b63"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_rain_storm_qa.json",
+      "bytes": 3691,
+      "sha256": "5652f28e25d88a0d05405f9734f82945a3e24a82aca5c2817f618c65282c3815"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_rend_pierce.webp",
+      "bytes": 11148,
+      "sha256": "592fbfac831ad48a67efd8f15fda487beb8f78209be02099b255971a3d30bdc7"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_rend_pierce_qa.json",
+      "bytes": 2485,
+      "sha256": "0697b76f19a269b8ca299d5ca37c2e68b6613259845b11d7b5e091dc4d5d2460"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_stasis_shards.webp",
+      "bytes": 33668,
+      "sha256": "565a82bfed8a1104de73e6cf808b8870b7edba57c42a5b2cd39c78f4cf5664e8"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_stasis_shards_qa.json",
+      "bytes": 3218,
+      "sha256": "fa1fe94f2c0463dd56e94449a318497e6e52f5fb85026328a43267ad228db154"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_step_trap.webp",
+      "bytes": 79672,
+      "sha256": "221fd48086f0eaea63c41a0c3fffe2d06f4d93fe2bf5bc6d082222b316bc5809"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_step_trap_qa.json",
+      "bytes": 4704,
+      "sha256": "47b7210235fa20390a7017fe82f83bd78422cae237bfdb536e49272767f87b1e"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_veil_recoil.webp",
+      "bytes": 6310,
+      "sha256": "f51c9f7014471156c7beea9331c68b4839611d9d2a677da5e920cc165ac82ff6"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutation_veil_recoil_qa.json",
+      "bytes": 3213,
+      "sha256": "73df659e7b4a24f3435d184783d792580dc88fa96e7b1b09d3019cbcbf7d8eb2"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutations_import.txt",
+      "bytes": 71,
+      "sha256": "5229339a0fca93c879e57b3e86f2c7592df11950bc739ca92295e009e7b5f7b0"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutations_render.txt",
+      "bytes": 413,
+      "sha256": "425ff576f825fd5f19c1c367b2a4cae059f7c95a31f251813c0c9767273f51a4"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutations_render_errors.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "docs/previews/mutations_v2/mutations_tests.txt",
+      "bytes": 1870,
+      "sha256": "ffdc61444c60b830e9252ec49cefb13508e2b32a930071520c93f5ffa0f2cf42"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_mark_execute.png",
+      "bytes": 18256,
+      "sha256": "78ded7eaab3949fd63a4d9b0b5cef21c3045f33d905331e52cce03fd445b6c29"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_mark_hunt.png",
+      "bytes": 12217,
+      "sha256": "5c1235a913c0a4c93173b6d371e34e1f199c39558b97552ffe01f8ad0bb2cea2"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_rain_focus.png",
+      "bytes": 12743,
+      "sha256": "84a5e74b6a33e2e4ff7db266dacdde33db1882a724afd831fba5839c5ec4e987"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_rain_storm.png",
+      "bytes": 52894,
+      "sha256": "c180c05ef3cb2afadf44c92f1aee957ca82a4b0215cceb71ac2f3b88a99ed1e4"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_rend_pierce.png",
+      "bytes": 12000,
+      "sha256": "8fc4fd4753b5b8253770cdacaee88f6052a33aaf9bf697da0ce246c81ca6ca29"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_stasis_shards.png",
+      "bytes": 15210,
+      "sha256": "8fe16e63a4b3811dc6842cd2468e9ec52e75a0976924adafb8ffd2eaf3a84d98"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_step_trap.png",
+      "bytes": 19760,
+      "sha256": "79a14d272f5b6b70fefba0b9452095a012f1be68a0e0f5e90ecca8ee851d7822"
+    },
+    {
+      "path": "docs/previews/mutations_v2/rendu/mutation_veil_recoil.png",
+      "bytes": 10293,
+      "sha256": "65931f5a518ec7280c949acae7cd303d2332d6231d8aa6fb95833b7cc9873816"
+    },
+    {
+      "path": "docs/previews/mutations_v2/validation.json",
+      "bytes": 33688,
+      "sha256": "8f54f2943a5334c200781a7f07f7cdc251d2f5d7d2efcaa09c154884139565f5"
+    },
+    {
+      "path": "docs/previews/mutations_v2/verification_moteur.json",
+      "bytes": 473,
+      "sha256": "4637d93b73c0f1d2540fc318cf143f5bd9c13c3586f1339f7a3ac586780e9f84"
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "bytes": 133842,
+      "sha256": "fd40662472b08ed5f078fd71b2ac0e163df3c5256df1f1169b8b2d0d40d2b3ab"
+    },
+    {
+      "path": "tools/art/preview_mutations_v2.gd",
+      "bytes": 3159,
+      "sha256": "dc782fd683053e6d8ff6b656d37ff87551b450d291cdb4b4015862b1ba9eb36d"
+    }
+  ]
+}

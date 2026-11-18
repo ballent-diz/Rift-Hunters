@@ -1,0 +1,205 @@
+{
+  "frames": [
+    {
+      "filename": "mutation_veil_recoil 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_veil_recoil 1",
+      "frame": {
+        "x": 80,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_veil_recoil 2",
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_veil_recoil 3",
+      "frame": {
+        "x": 240,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_veil_recoil 4",
+      "frame": {
+        "x": 0,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_veil_recoil 5",
+      "frame": {
+        "x": 80,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_veil_recoil 6",
+      "frame": {
+        "x": 160,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_veil_recoil 7",
+      "frame": {
+        "x": 240,
+        "y": 80,
+        "w": 80,
+        "h": 80
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 80,
+        "h": 80
+      },
+      "sourceSize": {
+        "w": 80,
+        "h": 80
+      },
+      "duration": 50
+    }
+  ],
+  "meta": {
+    "image": "violet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 320,
+      "h": 160
+    },
+    "scale": "1",
+    "pixelfx": {
+      "id": "mutation_veil_recoil",
+      "name": "Contrecoup",
+      "fps": 20,
+      "loop": false,
+      "frames": 8,
+      "frameSize": [
+        80,
+        80
+      ],
+      "columns": 4,
+      "pivot": [
+        40,
+        40
+      ]
+    }
+  }
+}

@@ -1,5 +1,13 @@
 # Rift Hunters — feuille de route
 
+## Mutations V2 — livraison graphique prête (Codex, 18 novembre 2026)
+
+Audit des douze mutations demandé par le propriétaire, priorité aux réutilisations. Branche
+`codex/mutations-v2-graphiques` ; [rapport préparatoire](art/PREPARATION_MUTATIONS_V2.md).
+Fiches techniques reçues sur main `0dac247` : `docs/design/FICHES_VFX_MUTATIONS_V2.md`. Production de huit FX
+en petits lots, quatre mutations conservant leurs ressources existantes. Aucun gameplay modifié ; PR graphique
+dédiée, sans fusion automatique.
+
 ## Matière de la Cité Effondrée — carte 5 (Codex, 17 novembre 2026)
 
 Prêt à valider sur `codex/matiere-cite-effondree`, depuis main actualisé. Pierre pâle usée, pavage raccordé,

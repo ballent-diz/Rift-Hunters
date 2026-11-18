@@ -1,0 +1,293 @@
+{
+  "frames": [
+    {
+      "filename": "mutation_step_trap 0",
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 1",
+      "frame": {
+        "x": 176,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 2",
+      "frame": {
+        "x": 352,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 3",
+      "frame": {
+        "x": 528,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 4",
+      "frame": {
+        "x": 0,
+        "y": 176,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 5",
+      "frame": {
+        "x": 176,
+        "y": 176,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 6",
+      "frame": {
+        "x": 352,
+        "y": 176,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 7",
+      "frame": {
+        "x": 528,
+        "y": 176,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 8",
+      "frame": {
+        "x": 0,
+        "y": 352,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 9",
+      "frame": {
+        "x": 176,
+        "y": 352,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 10",
+      "frame": {
+        "x": 352,
+        "y": 352,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    },
+    {
+      "filename": "mutation_step_trap 11",
+      "frame": {
+        "x": 528,
+        "y": 352,
+        "w": 176,
+        "h": 176
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 176
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 176
+      },
+      "duration": 50
+    }
+  ],
+  "meta": {
+    "image": "violet.png",
+    "format": "RGBA8888",
+    "size": {
+      "w": 704,
+      "h": 528
+    },
+    "scale": "1",
+    "pixelfx": {
+      "id": "mutation_step_trap",
+      "name": "Ombre piégée",
+      "fps": 20,
+      "loop": false,
+      "frames": 12,
+      "frameSize": [
+        176,
+        176
+      ],
+      "columns": 4,
+      "pivot": [
+        88,
+        88
+      ]
+    }
+  }
+}
