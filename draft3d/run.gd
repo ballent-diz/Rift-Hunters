@@ -894,11 +894,8 @@ func fx(effect: StringName, family: StringName, at: Vector3, size: float = 1.0, 
 ## Effet dédié `effect` s'il est livré, affiché sur `width` m de large ; sinon l'effet existant `fallback`.
 func fx_or(effect: StringName, width: float, fallback: StringName, family: StringName, at: Vector3,
 		fallback_size: float = 1.0, looping: bool = false) -> Sprite3D:
-	if DraftPixelFx.has_sheet(effect):
-		var node: Sprite3D = fx(effect, DraftPixelFx.DEFAULT_FAMILY, at, DraftPixelFx.size_for(effect, width), looping)
-		node.render_priority = DraftPixelFx.UNDER_TELEGRAPHS
-		return node
-	return fx(fallback, family, at, fallback_size, looping)
+	var node: Sprite3D = DraftPixelFx.dedicated(self, effect, width, at, looping)
+	return node if node != null else fx(fallback, family, at, fallback_size, looping)
 
 
 func spawn_fx(id: String, at: Vector3, size: float = 1.0, looping: bool = false) -> Sprite3D:

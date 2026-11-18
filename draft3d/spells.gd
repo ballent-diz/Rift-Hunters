@@ -714,13 +714,20 @@ func _step_zones(delta: float) -> void:
 		zone["clock"] = float(zone["clock"]) + delta
 		if zone.get("follow", false):
 			zone["at"] = run.hunter.global_position
+			var visual: Variant = zone.get("visual")
+			if visual is Node3D and is_instance_valid(visual):
+				(visual as Node3D).position = run.hunter.global_position + Vector3.UP * 0.3
 		if float(zone["clock"]) >= float(zone["tick"]):
 			zone["clock"] = 0.0
 			var at: Vector3 = zone["at"]
 			var radius: float = zone["radius"]
 			if zone.get("rain", false):
 				var drop := Vector3(randf_range(-1.0, 1.0), 0, randf_range(-1.0, 1.0)).limit_length(1.0) * radius
-				run.fx(&"star_fall", DraftPixelFx.DEFAULT_FAMILY, at + drop + Vector3.UP * 0.8, 0.9)
+				if StringName(zone.get("drop_fx", &"")) != &"":
+					run.fx_or(zone["drop_fx"], 1.6, &"star_fall", DraftPixelFx.DEFAULT_FAMILY, at + drop + Vector3.UP * 0.8,
+						0.9)
+				else:
+					run.fx(&"star_fall", DraftPixelFx.DEFAULT_FAMILY, at + drop + Vector3.UP * 0.8, 0.9)
 			for foe: DraftEnemies.Foe in _level(run.enemies.near(at, radius), at):
 				run.enemies.hit(foe, float(zone["damage"]))
 			if zone.get("rain", false):

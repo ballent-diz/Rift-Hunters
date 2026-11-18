@@ -1413,3 +1413,15 @@ La Tour de la Faille, le Défilé Hurlant, le Marais des Marées et les Corniche
 existantes (`DraftRoster.V2_CHAPTERS`), Dévoreur plus résistant à chaque rang. Liste resserrée au-delà de six chapitres.
 - **Reste** : palettes du rendu pixel des chapitres 6 à 9 (session « Art et rendu ») ; monstres propres si le
   propriétaire en commande.
+
+## Effets dédiés des mutations des sorts v2 — 18 novembre 2026 (session « VFX mutations »)
+
+Fiches : `docs/design/FICHES_VFX_MUTATIONS_V2.md` (inventaire des FX actuels, décision par mutation, 8 fiches).
+Convention : `assets/vfx/pixelfx/mutation_<id de la carte>/violet.png + .json`. Raccordement prêt, **rien de livré** :
+Exécution, Traque, Fente perçante, Ombre piégée, Éclats de stase, Orage, Concentration, Contrecoup.
+Pas d'effet propre pour Double fente, Deux charges, Onde circulaire, Voile mobile (lisibles par la barre ou le FX actuel).
+- Repli : effet actuel inchangé (`DraftRun.fx_or`), ou rien de plus quand rien n'existe (`DraftPixelFx.dedicated`).
+- Effets dédiés sous les télégraphes ennemis ; l'Orage suit le Chasseur et disparaît avec sa zone.
+- Dégâts, recharges, effets des mutations et combos inchangés. Contrôle : `tools/art/check_v2_vfx.py` ; test
+  `tests/unit/test_draft3d_mutation_vfx.gd`.
+- **Suite** : livraison Codex des 8 planches, import, contrôle, captures en jeu.
