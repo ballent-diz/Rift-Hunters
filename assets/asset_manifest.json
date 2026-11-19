@@ -18760,6 +18760,89 @@
 				14.9,
 				5.6
 			]
+		},
+		"boss.saumor": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.saumor/job.json",
+			"sheet": "res://assets/sprites/bosses/saumor/saumor_sheet.png",
+			"cell": [
+				448,
+				304
+			],
+			"anchor": [
+				224,
+				280
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 9,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"gate_pull": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"shoulder_slam": {
+					"row": 4,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 5,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"phase2_idle": {
+					"row": 6,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"phase2_move": {
+					"row": 7,
+					"frames": 6,
+					"fps": 9,
+					"loop": true
+				},
+				"brine_sweep": {
+					"row": 8,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"core_burst": {
+					"row": 9,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 10,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/saumor.png"
 		}
 	}
 }

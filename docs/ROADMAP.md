@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## Saumor, Dévoreur des Salines (Codex)
+
+Lot art prêt à valider sur codex/saumor-devoreur. Deux phases et 66 poses du Dévoreur des Salines, atlas validé dans Godot. [Planches et captures](art/SAUMOR.md).
+
+
 ## Boss 3D : lisibilité et tailles (Claude, session « Boss », 18 novembre 2026)
 
 - Plus aucun bandeau d'explication de mécanique sur les boss (le joueur découvre seul) ; annonce d'arrivée et noms
