@@ -1,5 +1,12 @@
 # Rift Hunters — feuille de route
 
+## Effets du joueur et des boss en 3D (Codex, 19 novembre 2026)
+
+- Les 15 sorts, leurs mutations, les combos et les passifs s'appuient sur les planches existantes, complétées par des arcs, trajectoires, zones persistantes et éclats de contact.
+- Les annonces des Dévoreurs gagnent un bord contrasté et une progression jusqu'à la frappe. Le balayage de l'Abyssarque se lit de piste en piste et son rayon en volume est arrêté par le décor. Chaque forme prend la matière de sa phase.
+- Les nouveaux matériaux vivent dans `draft3d/combat_fx.gd` et `draft3d/render/combat_fx.gdshader`. Les tests de jeu continuent de fournir les timings et les emprises. Le balayage des mutations compte aussi ces maillages pour vérifier leur disparition.
+
+
 ## Boss 3D : lisibilité et tailles (Claude, session « Boss », 18 novembre 2026)
 
 - Plus aucun bandeau d'explication de mécanique sur les boss (le joueur découvre seul) ; annonce d'arrivée et noms

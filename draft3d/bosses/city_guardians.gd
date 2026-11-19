@@ -99,7 +99,7 @@ func _step_seals() -> void:
 			continue
 		if _clock < float(seal["from"]):
 			continue
-		((seal["disc"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color = SEAL
+		DraftCombatFx.tint(seal["disc"], SEAL)
 		var offset: Vector3 = hunter.global_position - (seal["pos"] as Vector3)
 		if Vector2(offset.x, offset.z).length() < float(seal["radius"]) and absf(offset.y) < 1.2:
 			hunter.hinder(0.6, 0.3)

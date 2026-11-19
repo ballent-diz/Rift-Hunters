@@ -4,7 +4,6 @@ extends RefCounted
 ## puits de Singularité, Murs de faille, Cristaux réfracteurs. Mis à jour par `DraftSpells.step` ; les ennemis
 ## consultent `blocks` (Murs) et les traits du Chasseur `refract` (Cristaux).
 
-const WALL_COLOR := Color(0.75, 0.45, 1.0, 0.45)
 ## Distance (m) en deçà de laquelle un ennemi « touche » un Mur (Chaînes, Rempart ardent).
 const WALL_TOUCH := 0.7
 
@@ -38,6 +37,7 @@ func step(delta: float) -> void:
 ## `drawn` : l'animation peinte de la v1 est jouée (pas d'effet PixelFX en plus).
 func add_well(at: Vector3, radius: float, duration: float, pull: float, damage: float, drawn: bool = false) -> void:
 	wells.append({"at": at, "radius": radius, "left": duration, "pull": pull, "damage": damage, "drawn": drawn,
+		"accent": DraftCombatFx.ground(run, at, Vector2.ONE * radius * 2.0, &"void"),
 		"visual": null if drawn else run.fx(&"black_hole", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.8,
 			radius * 0.8, true)})
 
@@ -57,6 +57,7 @@ func _step_wells(delta: float) -> void:
 		run.combos.on_well(well)
 		well["left"] = float(well["left"]) - delta
 		if float(well["left"]) <= 0.0:
+			DraftCombatFx.burst(run, at, radius, &"void", 0.42, Vector3.FORWARD, -1.0, DraftCombatFx.RETRACT)
 			if not well["drawn"]:
 				run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
 			for foe: DraftEnemies.Foe in spells._level(run.enemies.near(at, radius), at):
@@ -71,19 +72,9 @@ func _step_wells(delta: float) -> void:
 func add_wall(center: Vector3, along: Vector3, length: float, duration: float, root: float, burn: float,
 		tick: float, drawn: bool = false) -> void:
 	var half: Vector3 = along.normalized() * length * 0.5
-	var box := BoxMesh.new()
-	box.size = Vector3(length, 1.6, 0.25)
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = Color(WALL_COLOR, WALL_COLOR.a * (0.4 if drawn else 1.0))
-	box.material = material
-	var visual := MeshInstance3D.new()
-	visual.mesh = box
-	visual.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	run.add_child(visual)
-	visual.global_position = center + Vector3.UP * 0.8
-	visual.rotation.y = atan2(-along.z, along.x)
+	var family: StringName = &"calcines" if burn > 0.0 else (&"enlises" if root > 0.0 else &"void")
+	var visual: MeshInstance3D = DraftCombatFx.veil(run, center, Vector2(length, 1.6), along, family,
+		0.72 if drawn else 1.0)
 	if not drawn:
 		run.fx(&"rune_circle", DraftPixelFx.DEFAULT_FAMILY, center + Vector3.UP * 0.3, length * 0.4)
 	walls.append({"a": center - half, "b": center + half, "left": duration, "root": root, "burn": burn,
@@ -184,6 +175,7 @@ func clear() -> void:
 
 
 static func _free(item: Dictionary) -> void:
-	var visual: Variant = item.get("visual")
-	if visual is Node and is_instance_valid(visual):
-		(visual as Node).queue_free()
+	for layer: String in ["visual", "accent"]:
+		var visual: Variant = item.get(layer)
+		if visual is Node and is_instance_valid(visual):
+			(visual as Node).queue_free()

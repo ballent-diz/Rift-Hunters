@@ -248,7 +248,10 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 	foe.linked_left = maxf(foe.linked_left - delta, 0.0)
 	var turn: bool = true
 	if foe.brain != null:
+		var previous_family: StringName = hazards.family
+		hazards.family = foe.brain.combat_family()
 		foe.brain.step(to_hunter, distance, climb, delta)
+		hazards.family = previous_family
 		if foe.brain.moves_itself() or foe.brain.busy():
 			# Charge, bond, transition, technique : le cerveau tient la position ; le contact blesse toujours.
 			if not foe.brain.moves_itself():

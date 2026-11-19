@@ -106,13 +106,12 @@ func step(delta: float) -> void:
 			entry["done"] = true
 			_erupt(cells[index])
 	for i: int in _tiles.size():
-		var material: StandardMaterial3D = _tiles[i].material_override
 		var alpha: float = 0.12
 		if lit.has(i):
 			alpha = SHOW_ALPHA
 		elif flashing.has(i):
 			alpha = 0.45
-		material.albedo_color = Color(EMBER, alpha)
+		DraftCombatFx.tint(_tiles[i], Color(EMBER, minf(alpha * 1.5, 1.0)))
 	if all_done and _clock > float(steps.back()["erupt_at"]) + 0.4:
 		_clear()
 
@@ -132,19 +131,8 @@ func _erupt(at: Vector3) -> void:
 
 
 func _tile(at: Vector3) -> MeshInstance3D:
-	var node := MeshInstance3D.new()
-	var mesh := BoxMesh.new()
-	mesh.size = Vector3(cell_size * 0.94, 0.04, cell_size * 0.94)
-	node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = Color(EMBER, 0.12)
-	node.material_override = material
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	brain.enemies.add_child(node)
-	node.global_position = at + Vector3.UP * 0.07
-	return node
+	return DraftCombatFx.ground(brain.enemies, at, Vector2.ONE * cell_size * 0.94,
+		&"magma", DraftCombatFx.LANE, DraftCombatFx.HOLD, DraftCombatFx.WARNING, 0.18)
 
 
 func _clear() -> void:

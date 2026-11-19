@@ -6,7 +6,6 @@ extends Node3D
 ## arrêtée par le décor : on s'en abrite derrière n'importe quel obstacle.
 
 const REACH_UP := 1.2
-const WARN := Color(0.85, 0.25, 0.75)
 ## Une onde est faite de tronçons : chacun avance tant qu'il ne rencontre pas de décor, puis s'éteint. L'onde est
 ## donc coupée derrière un obstacle (à l'image comme pour les dégâts) et ne passe que par les ouvertures.
 const RING_SEGMENTS := 120
@@ -14,42 +13,36 @@ const ZONE_TICK := 0.5
 
 var hunter: DraftHunter
 var hits: int = 0
+## Matériau du boss en train de jouer. Chaque annonce garde le sien une fois posée.
+var family: StringName = &"void"
+var _impacts: Array[MeshInstance3D] = []
 var _items: Array[Dictionary] = []
 var _zones: Array[Dictionary] = []
 
 
 ## `on_hit` : appelé quand la frappe blesse le Chasseur (entrave, recul...).
 func circle(at: Vector3, radius: float, delay: float, damage: float, fx := Callable(), on_hit := Callable()) -> void:
-	var mesh := CylinderMesh.new()
-	mesh.top_radius = radius
-	mesh.bottom_radius = radius
-	mesh.height = 0.04
-	mesh.radial_segments = 40
+	var node: MeshInstance3D = _disc(at, radius)
 	_items.append({"kind": &"circle", "at": at, "radius": radius, "left": delay, "delay": delay, "damage": damage,
-		"fx": fx, "on_hit": on_hit, "node": _node(mesh, at)})
+		"fx": fx, "on_hit": on_hit, "node": node, "family": family})
 
 
 ## `covered` : le décor entre l'origine et le Chasseur l'abrite (souffle arrêté par les obstacles).
+## `visual_lead` : sur un balayage, les pistes lointaines restent discrètes jusqu'à l'approche du rayon.
 func line(from: Vector3, direction: Vector3, length: float, width: float, delay: float, damage: float,
-		covered: bool = false) -> void:
-	var mesh := BoxMesh.new()
-	mesh.size = Vector3(width, 0.04, length)
-	var node: MeshInstance3D = _node(mesh, from + direction * length * 0.5)
-	node.look_at(node.global_position + direction, Vector3.UP)
+		covered: bool = false, visual_lead: float = 0.0, beam_height: float = 0.0) -> void:
+	var node: MeshInstance3D = DraftCombatFx.ground(self, from + direction * length * 0.5,
+		Vector2(width, length), family, DraftCombatFx.LANE, DraftCombatFx.WINDUP, DraftCombatFx.WARNING,
+		0.13 if visual_lead > 0.0 else 1.0, direction)
 	_items.append({"kind": &"line", "at": from, "dir": direction, "length": length, "width": width, "left": delay,
-		"delay": delay, "damage": damage, "node": node, "covered": covered})
+		"delay": delay, "damage": damage, "node": node, "covered": covered, "family": family, "lead": visual_lead,
+		"beam_height": beam_height})
 
 
 ## Onde qui part de `at` après `delay` et s'étend jusqu'à `reach` : une Ruée la traverse.
 func ring(at: Vector3, speed: float, reach: float, delay: float, damage: float, fx := Callable(),
 		on_hit := Callable()) -> void:
-	var mesh := TorusMesh.new()
-	mesh.inner_radius = 0.95
-	mesh.outer_radius = 1.0
-	mesh.rings = 48
-	mesh.ring_segments = 6
-	var node: MeshInstance3D = _node(mesh, at)
-	node.scale = Vector3(1.5, 0.15, 1.5)
+	var node: MeshInstance3D = _disc(at, 1.5)
 	_items.append({"kind": &"ring", "at": at, "radius": 1.5, "speed": speed, "reach": reach, "left": delay,
 		"delay": delay, "damage": damage, "fx": fx, "on_hit": on_hit, "node": node, "arcs": _arcs(at),
 		"alive": _full_ring()})
@@ -66,16 +59,13 @@ func _arcs(at: Vector3) -> MultiMeshInstance3D:
 	var arcs := MultiMeshInstance3D.new()
 	var multimesh := MultiMesh.new()
 	multimesh.transform_format = MultiMesh.TRANSFORM_3D
-	var piece := BoxMesh.new()
-	piece.size = Vector3(1.0, 0.12, 0.4)
+	var piece := PlaneMesh.new()
+	piece.size = Vector2(1.0, 0.4)
 	multimesh.mesh = piece
 	multimesh.instance_count = RING_SEGMENTS
 	arcs.multimesh = multimesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = Color(0.75, 0.5, 1.0, 0.8)
-	arcs.material_override = material
+	arcs.material_override = DraftCombatFx.material(piece.size, DraftCombatFx.WAVE, family, DraftCombatFx.HOLD,
+		DraftCombatFx.WARNING)
 	arcs.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	arcs.visible = false
 	add_child(arcs)
@@ -103,6 +93,8 @@ func _advance_ring(item: Dictionary, before: float, after: float) -> void:
 
 
 func clear() -> void:
+	for impact: MeshInstance3D in _impacts.duplicate():
+		impact.queue_free()
 	for item: Dictionary in _zones:
 		(item["node"] as Node).queue_free()
 	_zones.clear()
@@ -113,18 +105,53 @@ func clear() -> void:
 	_items.clear()
 
 
-func _node(mesh: Mesh, at: Vector3) -> MeshInstance3D:
-	var node := MeshInstance3D.new()
-	node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = Color(WARN, 0.3)
-	node.material_override = material
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	add_child(node)
-	node.global_position = at + Vector3.UP * 0.08
-	return node
+func _disc(at: Vector3, radius: float, beat: int = DraftCombatFx.WINDUP) -> MeshInstance3D:
+	return DraftCombatFx.ground(self, at, Vector2.ONE * radius * 2.0, family, DraftCombatFx.DISC,
+		beat, DraftCombatFx.WARNING)
+
+
+## Après la frappe, quelques images d'impact. Ces maillages sont hors des annonces actives : le bot
+## se sert du nombre d'enfants de DraftHazards pour prendre ses décisions.
+func _impact(item: Dictionary, telegraph: MeshInstance3D) -> void:
+	if float(item["damage"]) <= 0.0:
+		return
+	var plane := telegraph.mesh as PlaneMesh
+	var shape: int = DraftCombatFx.LANE if item["kind"] == &"line" else DraftCombatFx.DISC
+	var node: MeshInstance3D = DraftCombatFx.ground(get_parent(), telegraph.global_position - Vector3.UP * 0.065,
+		plane.size, item["family"], shape, DraftCombatFx.IMPACT, DraftCombatFx.CONTACT, 0.88)
+	node.global_basis = telegraph.global_basis
+	_show_impact(node, 0.24 if shape == DraftCombatFx.LANE else 0.32)
+	if float(item.get("beam_height", 0.0)) > 0.0:
+		_show_beam(item)
+
+
+func _show_impact(node: MeshInstance3D, duration: float) -> void:
+	_impacts.append(node)
+	node.tree_exiting.connect(func() -> void: _impacts.erase(node))
+	DraftCombatFx.fade(node, duration)
+
+
+## Trait en volume sur la ligne annoncée. Le cœur s'arrête au premier obstacle qui le coupe ;
+## ce rayon de présentation ne sert ni à l'abri du Chasseur ni au calcul des dégâts.
+func _show_beam(item: Dictionary) -> void:
+	var origin: Vector3 = item["at"]
+	var direction: Vector3 = item["dir"]
+	var ray_start: Vector3 = origin + Vector3.UP * 0.8
+	var end: Vector3 = ray_start + direction * float(item["length"])
+	if item.get("covered", false):
+		var query := PhysicsRayQueryParameters3D.create(ray_start, end, 1)
+		var hit: Dictionary = get_world_3d().direct_space_state.intersect_ray(query)
+		if not hit.is_empty():
+			end = hit["position"]
+	if ray_start.distance_squared_to(end) < 0.04:
+		return
+	var start: Vector3 = origin + Vector3.UP * float(item["beam_height"])
+	var center: Vector3 = (start + end) * 0.5
+	var extent := Vector2(float(item["width"]) * 0.7, start.distance_to(end))
+	var node: MeshInstance3D = DraftCombatFx.ground(get_parent(), center - Vector3.UP * 0.09, extent,
+		item["family"], DraftCombatFx.BEAM, DraftCombatFx.IMPACT, DraftCombatFx.CONTACT)
+	node.look_at(end, Vector3.UP)
+	_show_impact(node, 0.21)
 
 
 func _physics_process(delta: float) -> void:
@@ -133,12 +160,16 @@ func _physics_process(delta: float) -> void:
 	while i >= 0:
 		var item: Dictionary = _items[i]
 		var node: MeshInstance3D = item["node"]
-		var material: StandardMaterial3D = node.material_override
 		item["left"] = float(item["left"]) - delta
 		var done: bool = false
 		if float(item["left"]) > 0.0:
-			var progress: float = 1.0 - float(item["left"]) / maxf(float(item["delay"]), 0.01)
-			material.albedo_color = Color(WARN, 0.18 + 0.45 * progress)
+			var delay: float = float(item["delay"])
+			var lead: float = float(item.get("lead", 0.0))
+			var progress: float = 1.0 - float(item["left"]) / maxf(lead if lead > 0.0 else delay, 0.01)
+			if lead > 0.0:
+				var look := node.material_override as ShaderMaterial
+				look.set_shader_parameter("opacity", lerpf(0.13, 1.0, smoothstep(-0.18, 0.27, progress)))
+			DraftCombatFx.update(node, maxf(progress, 0.0))
 		elif item["kind"] == &"ring":
 			_play_fx(item)
 			var before: float = item["radius"]
@@ -152,6 +183,7 @@ func _physics_process(delta: float) -> void:
 			done = float(item["radius"]) >= float(item["reach"])
 		else:
 			_play_fx(item)
+			_impact(item, node)
 			if _inside(item) and _level_with(item) and not (bool(item.get("covered", false)) and _sheltered(item)):
 				_strike(item)
 			done = true
@@ -219,13 +251,10 @@ static func _flat(v: Vector3) -> Vector3:
 ## est ralenti (`slow` < 1). Dessinée en disque coloré.
 func zone(at: Vector3, radius: float, duration: float, damage: float, slow: float = 1.0,
 		color := Color(1.0, 0.4, 0.1)) -> void:
-	var mesh := CylinderMesh.new()
-	mesh.top_radius = radius
-	mesh.bottom_radius = radius
-	mesh.height = 0.04
-	mesh.radial_segments = 40
-	var node: MeshInstance3D = _node(mesh, at)
-	(node.material_override as StandardMaterial3D).albedo_color = Color(color, 0.45)
+	var node: MeshInstance3D = _disc(at, radius, DraftCombatFx.HOLD)
+	var look := node.material_override as ShaderMaterial
+	look.set_shader_parameter("pigment", color.darkened(0.22))
+	look.set_shader_parameter("highlight", color.lerp(Color("#ffe0d8"), 0.55))
 	_zones.append({"at": at, "radius": radius, "left": duration, "damage": damage, "slow": slow, "tick": 0.0,
 		"node": node})
 

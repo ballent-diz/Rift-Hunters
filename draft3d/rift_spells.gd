@@ -186,6 +186,7 @@ func _apply_mark(foe: DraftEnemies.Foe, seconds: float) -> void:
 	marked = foe
 	mark_left = seconds
 	foe.expose(mark_bonus(_mark_spell), seconds)
+	DraftCombatFx.glint(foe.view, Vector3.UP * 1.05, Vector2(1.9, 1.55), &"fallen", 0.48)
 	if _mark_visual == null or not is_instance_valid(_mark_visual):
 		_mark_visual = run.fx(&"hex_sigil", &"fallen", foe.pos + Vector3.UP * 1.6, 0.8, true)
 
@@ -239,6 +240,7 @@ func _rend(data: SpellData, aim: Vector3) -> bool:
 	dir = dir.normalized() if length > 0.05 else hunter.facing.normalized()
 	length = maxf(length, 1.0)
 	var pierce: bool = spells.has_variant(data, &"pierce")
+	DraftCombatFx.streak(run, here, dir, length, spells.area_of(data) * 2.0, &"void", 0.36)
 	var struck: Array[DraftEnemies.Foe] = []
 	for foe: DraftEnemies.Foe in spells._level(run.enemies.near(here, length + 1.0), here):
 		var offset: Vector3 = DraftSpells._flat(foe.pos - here)
@@ -270,6 +272,8 @@ func _blink(data: SpellData, aim: Vector3) -> bool:
 	var start: Vector3 = hunter.global_position
 	var landing: Vector3 = spells._landing(aim, spells.reach_of(data))
 	run.combos.on_blink(start)
+	DraftCombatFx.burst(run, start, 0.9, &"void", 0.34, Vector3.FORWARD, -1.0, DraftCombatFx.RETRACT)
+	DraftCombatFx.burst(run, landing, 0.9, &"riftborn", 0.34)
 	run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, start + Vector3.UP * 0.6)
 	hunter.global_position = landing + Vector3.UP * 0.05
 	hunter.reset_motion()
@@ -290,6 +294,7 @@ func _step_shades(delta: float) -> void:
 		if float(shade["left"]) > 0.0:
 			continue
 		var at: Vector3 = shade["at"]
+		DraftCombatFx.burst(run, at, float(shade["radius"]), &"riftborn", 0.43)
 		if float(shade["duration"]) > 0.0:
 			run.fx_or(&"mutation_step_trap", float(shade["radius"]) * 2.0, &"dark_explosion", DraftPixelFx.DEFAULT_FAMILY,
 				at + Vector3.UP * 0.3, float(shade["radius"]))
@@ -318,6 +323,7 @@ func _stasis(data: SpellData, aim: Vector3) -> bool:
 	var seconds: float = spells.duration_of(data)
 	var shards: bool = spells.has_variant(data, &"shards")
 	var shard_marks: int = 0
+	DraftCombatFx.burst(run, here, reach, &"givres", 0.56, dir, half)
 	run.fx(&"frost_nova", &"givres", here + (Vector3.ZERO if half < 0.0 else dir * reach * 0.5) + Vector3.UP * 0.5,
 		reach * 0.6)
 	for foe: DraftEnemies.Foe in spells._level(run.enemies.near(here, reach), here):
@@ -355,7 +361,7 @@ func _rain(data: SpellData, aim: Vector3) -> bool:
 		"left": spells.duration_of(data), "tick": float(data.params.get("tick", 0.4)), "clock": 0.0, "damage": damage,
 		"follow": follow, "rain": true, "drop_fx": &"mutation_rain_focus" if focus else &"",
 		"visual": DraftPixelFx.dedicated(run, &"mutation_rain_storm", radius * 2.0, center + Vector3.UP * 0.3, true)
-			if follow else null})
+			if follow else null}, &"reflets")
 	return true
 
 
@@ -370,6 +376,7 @@ func _veil(data: SpellData) -> bool:
 		"follow": spells.has_variant(data, &"mobile"),
 		"heal": spells.param(data, "heal", 0.0) if spells.has_variant(data, &"recoil") else 0.0,
 		"slow": float(data.params.get("slow", 0.6)),
+		"accent": DraftCombatFx.ground(run, here, Vector2.ONE * radius * 2.0, &"mist"),
 		"visual": run.fx(&"smoke_bomb", &"calcines", here + Vector3.UP * 0.6, radius * 0.9, true)})
 	return true
 
@@ -380,6 +387,7 @@ func _step_veils(delta: float) -> void:
 		veil["left"] = float(veil["left"]) - delta
 		if veil["follow"]:
 			veil["at"] = run.hunter.global_position
+			(veil["accent"] as Node3D).global_position = run.hunter.view.render_position() + Vector3.UP * 0.09
 			var visual: Variant = veil["visual"]
 			if visual is Node3D and is_instance_valid(visual):
 				(visual as Node3D).position = run.hunter.global_position + Vector3.UP * 0.6
