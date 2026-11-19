@@ -18760,6 +18760,89 @@
 				14.9,
 				5.6
 			]
+		},
+		"boss.loom_devourer": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.loom_devourer/job.json",
+			"sheet": "res://assets/sprites/bosses/loom_devourer/loom_devourer_sheet.png",
+			"cell": [
+				448,
+				304
+			],
+			"anchor": [
+				224,
+				280
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 9,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"warp_gate": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"shuttle_reel": {
+					"row": 4,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 5,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"phase2_idle": {
+					"row": 6,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"phase2_move": {
+					"row": 7,
+					"frames": 6,
+					"fps": 9,
+					"loop": true
+				},
+				"reverse_weave": {
+					"row": 8,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"bobbin_throw": {
+					"row": 9,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 10,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/loom_devourer.png"
 		}
 	}
 }

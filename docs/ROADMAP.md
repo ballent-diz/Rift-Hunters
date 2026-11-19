@@ -823,6 +823,10 @@ propriétaire. Quatre groupes de rochers ajoutés à sa demande, douze positions
 Sprite peint du bulbe importé (trois animations, 18 poses), GIF et contrôle ciblé Godot 4.3 réussis.
 Les régions et collisions restent à faire. Aucun changement dans `src/`, `data/` ou les collisions.
 
+## L'Ourdisseur, Dévoreur des Linceuls (Codex)
+
+Lot art prêt à valider sur codex/ourdisseur-devoreur. Deux phases et 66 poses du Dévoreur des Rapiécés, atlas validé dans Godot. [Planches et captures](art/OURDISSEUR.md).
+
 ## Sprites des Enfants du magma et Pyrevorn — livré pour revue (Codex)
 
 Branche `codex/monstres-magma`, depuis main à jour. Les sept Calcinés (PR #55), puis les sept
