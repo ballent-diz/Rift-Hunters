@@ -18760,6 +18760,377 @@
 				14.9,
 				5.6
 			]
+		},
+		"enemy.salt_scuttler": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.salt_scuttler/job.json",
+			"sheet": "res://assets/sprites/enemies/salt_scuttler/salt_scuttler_sheet.png",
+			"cell": [
+				80,
+				64
+			],
+			"anchor": [
+				40,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/salt_scuttler.png",
+			"shadow": [
+				-1,
+				-3.5,
+				27,
+				6
+			]
+		},
+		"enemy.rope_drowned": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.rope_drowned/job.json",
+			"sheet": "res://assets/sprites/enemies/rope_drowned/rope_drowned_sheet.png",
+			"cell": [
+				80,
+				64
+			],
+			"anchor": [
+				40,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/rope_drowned.png",
+			"shadow": [
+				0,
+				-0.6,
+				8.1,
+				3.1
+			]
+		},
+		"enemy.brine_skate": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.brine_skate/job.json",
+			"sheet": "res://assets/sprites/enemies/brine_skate/brine_skate_sheet.png",
+			"cell": [
+				80,
+				64
+			],
+			"anchor": [
+				40,
+				58
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/brine_skate.png",
+			"shadow": [
+				0,
+				2,
+				14.3,
+				5.4
+			]
+		},
+		"enemy.salt_siphon": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.salt_siphon/job.json",
+			"sheet": "res://assets/sprites/enemies/salt_siphon/salt_siphon_sheet.png",
+			"cell": [
+				64,
+				64
+			],
+			"anchor": [
+				32,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"brine_jet": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/salt_siphon.png",
+			"shadow": [
+				1,
+				-4,
+				17.1,
+				6.5
+			]
+		},
+		"enemy.floodgate_keeper": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.floodgate_keeper/job.json",
+			"sheet": "res://assets/sprites/enemies/floodgate_keeper/floodgate_keeper_sheet.png",
+			"cell": [
+				80,
+				80
+			],
+			"anchor": [
+				40,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"lock_guard": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"mallet_slam": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/floodgate_keeper.png",
+			"shadow": [
+				4.5,
+				-4.6,
+				18.7,
+				7.1
+			]
+		},
+		"enemy.brine_choir": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.brine_choir/job.json",
+			"sheet": "res://assets/sprites/enemies/brine_choir/brine_choir_sheet.png",
+			"cell": [
+				80,
+				80
+			],
+			"anchor": [
+				40,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"bell_call": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"brine_blessing": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/brine_choir.png",
+			"shadow": [
+				-0.5,
+				-2.5,
+				13.2,
+				5
+			]
+		},
+		"enemy.salt_dredger": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.salt_dredger/job.json",
+			"sheet": "res://assets/sprites/enemies/salt_dredger/salt_dredger_sheet.png",
+			"cell": [
+				96,
+				72
+			],
+			"anchor": [
+				48,
+				62
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"scoop_charge": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"salt_crust_burst": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/salt_dredger.png",
+			"shadow": [
+				1,
+				-5.7,
+				40.2,
+				8.2
+			]
 		}
 	}
 }

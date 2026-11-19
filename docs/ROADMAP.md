@@ -1,5 +1,10 @@
 # Rift Hunters — feuille de route
 
+## Les Saumâtres (Codex, 19 novembre 2026)
+
+Lot art prêt à valider sur codex/famille-salines. Sept monstres pour les salines englouties, dix planches et 144 poses importées. Banc Godot 7/7. [Visuels et techniques proposées](art/SAUMATRES.md).
+
+
 ## Boss 3D : lisibilité et tailles (Claude, session « Boss », 18 novembre 2026)
 
 - Plus aucun bandeau d'explication de mécanique sur les boss (le joueur découvre seul) ; annonce d'arrivée et noms
