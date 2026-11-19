@@ -18760,6 +18760,460 @@
 				14.9,
 				5.6
 			]
+		},
+		"enemy.hopping_shard": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.hopping_shard/job.json",
+			"sheet": "res://assets/sprites/enemies/hopping_shard/hopping_shard_sheet.png",
+			"cell": [
+				72,
+				64
+			],
+			"anchor": [
+				36,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/hopping_shard.png",
+			"shadow": [
+				-0.5,
+				-3.5,
+				23.1,
+				6
+			]
+		},
+		"enemy.cracked_pourer": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.cracked_pourer/job.json",
+			"sheet": "res://assets/sprites/enemies/cracked_pourer/cracked_pourer_sheet.png",
+			"cell": [
+				88,
+				72
+			],
+			"anchor": [
+				44,
+				62
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"pigment_spit": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/cracked_pourer.png",
+			"shadow": [
+				-0.5,
+				-3.4,
+				15.4,
+				5.9
+			]
+		},
+		"enemy.faience_pilgrim": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.faience_pilgrim/job.json",
+			"sheet": "res://assets/sprites/enemies/faience_pilgrim/faience_pilgrim_sheet.png",
+			"cell": [
+				88,
+				64
+			],
+			"anchor": [
+				44,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/faience_pilgrim.png",
+			"shadow": [
+				1.5,
+				-1.3,
+				9.9,
+				3.8
+			]
+		},
+		"enemy.floating_rosette": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.floating_rosette/job.json",
+			"sheet": "res://assets/sprites/enemies/floating_rosette/floating_rosette_sheet.png",
+			"cell": [
+				88,
+				64
+			],
+			"anchor": [
+				44,
+				58
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/floating_rosette.png",
+			"shadow": [
+				0,
+				2,
+				13,
+				4.9
+			]
+		},
+		"enemy.glaze_judge": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.glaze_judge/job.json",
+			"sheet": "res://assets/sprites/enemies/glaze_judge/glaze_judge_sheet.png",
+			"cell": [
+				96,
+				80
+			],
+			"anchor": [
+				48,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"tile_barrier": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"verdict": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/glaze_judge.png",
+			"shadow": [
+				-0.5,
+				-3.4,
+				15.4,
+				5.9
+			]
+		},
+		"enemy.mosaic_crawler": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.mosaic_crawler/job.json",
+			"sheet": "res://assets/sprites/enemies/mosaic_crawler/mosaic_crawler_sheet.png",
+			"cell": [
+				112,
+				80
+			],
+			"anchor": [
+				56,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"roll_windup": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"tile_ridge": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/mosaic_crawler.png",
+			"shadow": [
+				-10,
+				-4.3,
+				21,
+				6.8
+			]
+		},
+		"enemy.hollow_potter": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.hollow_potter/job.json",
+			"sheet": "res://assets/sprites/enemies/hollow_potter/hollow_potter_sheet.png",
+			"cell": [
+				96,
+				80
+			],
+			"anchor": [
+				48,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"clay_assembly": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"sherd_cast": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/hollow_potter.png",
+			"shadow": [
+				-1,
+				-0.2,
+				7.2,
+				2.7
+			]
+		},
+		"boss.fairon": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/boss.fairon/job.json",
+			"sheet": "res://assets/sprites/bosses/fairon/fairon_sheet.png",
+			"cell": [
+				448,
+				304
+			],
+			"anchor": [
+				224,
+				280
+			],
+			"scale": 0.5,
+			"animations": {
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"move": {
+					"row": 1,
+					"frames": 6,
+					"fps": 9,
+					"loop": true
+				},
+				"attack": {
+					"row": 2,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"enamel_line": {
+					"row": 3,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"vent_purge": {
+					"row": 4,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"transform": {
+					"row": 5,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"phase2_idle": {
+					"row": 6,
+					"frames": 6,
+					"fps": 7,
+					"loop": true
+				},
+				"phase2_move": {
+					"row": 7,
+					"frames": 6,
+					"fps": 9,
+					"loop": true
+				},
+				"enamel_shock": {
+					"row": 8,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"kiln_spit": {
+					"row": 9,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				},
+				"death": {
+					"row": 10,
+					"frames": 6,
+					"fps": 10,
+					"loop": false
+				}
+			},
+			"icon": "res://assets/ui/icons/bosses/fairon.png"
 		}
 	}
 }
