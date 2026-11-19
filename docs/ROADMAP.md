@@ -1,5 +1,6 @@
 # Rift Hunters — feuille de route
 
+
 ## Boss 3D : lisibilité et tailles (Claude, session « Boss », 18 novembre 2026)
 
 - Plus aucun bandeau d'explication de mécanique sur les boss (le joueur découvre seul) ; annonce d'arrivée et noms
@@ -574,6 +575,10 @@ Gabarits supérieurs aux Violets du chapitre 1 ; Statue d’environ 110 unités 
 Captures sur la carte 22 avec Chasseur et Écho, Statue sur S01 carte 24 ; huit assets conformes.
 Sources, jobs et guide Claude : `docs/art/ENFANTS_DE_LA_FAILLE.md`. Aucun changement de src/ ou data/.
 Ensuite : Abyssarque, Dévoreur final, sept planches A à G demandées ; génération après livraison de ce lot.
+
+## Les Rapiécés (Codex)
+
+Lot art prêt à valider sur codex/famille-rapieces. Sept monstres, dix planches et 144 poses importées. Banc Godot 7/7. [Planches et techniques](art/RAPIECES.md).
 
 ## Sprites chapitre 5 — Les Déchus : livrés (Codex, 8 novembre 2026)
 

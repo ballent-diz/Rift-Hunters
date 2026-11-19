@@ -18760,6 +18760,377 @@
 				14.9,
 				5.6
 			]
+		},
+		"enemy.patch_mender": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.patch_mender/job.json",
+			"sheet": "res://assets/sprites/enemies/patch_mender/patch_mender_sheet.png",
+			"cell": [
+				88,
+				64
+			],
+			"anchor": [
+				44,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/patch_mender.png",
+			"shadow": [
+				1.5,
+				-0.8,
+				8.8,
+				3.3
+			]
+		},
+		"enemy.veil_moth": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.veil_moth/job.json",
+			"sheet": "res://assets/sprites/enemies/veil_moth/veil_moth_sheet.png",
+			"cell": [
+				88,
+				64
+			],
+			"anchor": [
+				44,
+				58
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/veil_moth.png",
+			"shadow": [
+				0,
+				2,
+				9.4,
+				3.6
+			]
+		},
+		"enemy.biting_bobbin": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.biting_bobbin/job.json",
+			"sheet": "res://assets/sprites/enemies/biting_bobbin/biting_bobbin_sheet.png",
+			"cell": [
+				72,
+				64
+			],
+			"anchor": [
+				36,
+				54
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/biting_bobbin.png",
+			"shadow": [
+				0,
+				-3.3,
+				19.2,
+				5.8
+			]
+		},
+		"enemy.war_shuttle": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.war_shuttle/job.json",
+			"sheet": "res://assets/sprites/enemies/war_shuttle/war_shuttle_sheet.png",
+			"cell": [
+				96,
+				80
+			],
+			"anchor": [
+				48,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"braced_shuttle": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"loom_strike": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/war_shuttle.png",
+			"shadow": [
+				-1,
+				-5.7,
+				21.5,
+				8.2
+			]
+		},
+		"enemy.split_puppet": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.split_puppet/job.json",
+			"sheet": "res://assets/sprites/enemies/split_puppet/split_puppet_sheet.png",
+			"cell": [
+				88,
+				72
+			],
+			"anchor": [
+				44,
+				62
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"spring_kick": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 3,
+					"frames": 1,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/split_puppet.png",
+			"shadow": [
+				0,
+				-1.5,
+				10.5,
+				4
+			]
+		},
+		"enemy.shroud_spinner": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.shroud_spinner/job.json",
+			"sheet": "res://assets/sprites/enemies/shroud_spinner/shroud_spinner_sheet.png",
+			"cell": [
+				96,
+				80
+			],
+			"anchor": [
+				48,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"thread_gather": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"shroud": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/shroud_spinner.png",
+			"shadow": [
+				-1,
+				-2.7,
+				13.8,
+				5.2
+			]
+		},
+		"enemy.tapestry_ram": {
+			"status": "final",
+			"imported_from": "assets/concepts/incoming/enemy.tapestry_ram/job.json",
+			"sheet": "res://assets/sprites/enemies/tapestry_ram/tapestry_ram_sheet.png",
+			"cell": [
+				104,
+				80
+			],
+			"anchor": [
+				52,
+				70
+			],
+			"scale": 0.5,
+			"animations": {
+				"move": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				},
+				"attack": {
+					"row": 1,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"death": {
+					"row": 2,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"bow_and_ram": {
+					"row": 3,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"fringe_bristle": {
+					"row": 4,
+					"frames": 6,
+					"fps": 12,
+					"loop": false
+				},
+				"idle": {
+					"row": 0,
+					"frames": 6,
+					"fps": 10,
+					"loop": true
+				}
+			},
+			"icon": "res://assets/ui/icons/enemies/tapestry_ram.png",
+			"shadow": [
+				-3.5,
+				-6.1,
+				23.1,
+				8.6
+			]
 		}
 	}
 }
