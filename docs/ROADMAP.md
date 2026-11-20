@@ -4,6 +4,10 @@
 
 Lot art prêt à valider sur codex/famille-salines. Sept monstres pour les salines englouties, dix planches et 144 poses importées. Banc Godot 7/7. [Visuels et techniques proposées](art/SAUMATRES.md).
 
+## Saumor, Dévoreur des Salines (Codex)
+
+Lot art prêt à valider sur codex/saumor-devoreur. Deux phases et 66 poses du Dévoreur des Salines, atlas validé dans Godot. [Planches et captures](art/SAUMOR.md).
+
 
 ## Boss 3D : lisibilité et tailles (Claude, session « Boss », 18 novembre 2026)
 

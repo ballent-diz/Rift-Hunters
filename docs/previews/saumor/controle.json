@@ -1,0 +1,18 @@
+{
+  "boss": "boss.saumor",
+  "planches": 4,
+  "poses": 66,
+  "godot": "4.3",
+  "validation": [
+    {
+      "id": "boss.saumor",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "zoom_capture_2d": 1.3333,
+  "sha256": {
+    "assets/sprites/bosses/saumor/saumor_sheet.png": "efa6a1478fea80d0bdafa5381bd768913de14b8ef429c2017b15853728352420",
+    "assets/ui/icons/bosses/saumor.png": "aea37d70d0c931687a625632ff58fe3931ef7e4b85fbb9fd1b83b2483213a081"
+  }
+}
