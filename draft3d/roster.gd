@@ -24,6 +24,13 @@ const V2_CHAPTERS: Array[Dictionary] = [
 		"arenas": [&"three_rifts", &"storm_highlands", &"firefly_woods", &"cascade_source", &"suspended_quarters"]},
 ]
 
+## Familles propres à la v2 (docs/design/TECHNIQUES_ENNEMIS_V2.md) : leurs monstres entrent dans le bestiaire du
+## chapitre (normaux tôt, élites plus tard dans la partie) et leur boss rejoint les gardiens tirés au hasard.
+const V2_FAMILIES: Dictionary = {
+	&"tide_marsh": {"normals": [&"salt_scuttler", &"rope_drowned", &"brine_skate", &"salt_siphon"],
+		"elites": [&"floodgate_keeper", &"brine_choir", &"salt_dredger"], "guardians": [&"saumor"]},
+}
+
 var chapter: ChapterData
 var enemies: Array[EnemyData] = []
 var guardians: Array[BossData] = []
@@ -81,7 +88,39 @@ static func for_chapter(order: int) -> DraftRoster:
 			roster.guardians.append(guardian)
 	if not roster.guardians.is_empty():
 		roster.boss = roster.guardians.pop_back()
+	roster._add_family(V2_FAMILIES.get(roster.chapter.id, {}))
 	return roster
+
+
+## Famille v2 du chapitre : un normal de la famille après chaque monstre d'origine, puis les élites en fin de liste
+## (le mélange des vagues ouvre le bestiaire dans l'ordre) ; MAX_ENEMIES au plus.
+func _add_family(family: Dictionary) -> void:
+	if family.is_empty():
+		return
+	var normals: Array[EnemyData] = _known(family.get("normals", []))
+	var elites: Array[EnemyData] = _known(family.get("elites", []))
+	var original: Array[EnemyData] = enemies.duplicate()
+	var keep: int = maxi(MAX_ENEMIES - normals.size() - elites.size(), 1)
+	enemies.clear()
+	for i: int in maxi(normals.size(), keep):
+		if i < keep and i < original.size():
+			enemies.append(original[i])
+		if i < normals.size():
+			enemies.append(normals[i])
+	enemies.append_array(elites)
+	for id: StringName in family.get("guardians", []):
+		var guardian: BossData = GameDB.boss(id)
+		if guardian != null and not guardians.has(guardian):
+			guardians.append(guardian)
+
+
+static func _known(ids: Array) -> Array[EnemyData]:
+	var found: Array[EnemyData] = []
+	for id: Variant in ids:
+		var data: EnemyData = GameDB.enemy(StringName(str(id)))
+		if usable(data):
+			found.append(data)
+	return found
 
 
 ## Monstre jouable dans la base 3D : mobile, avec une feuille de sprites (ni structure, ni nid, ni objet).

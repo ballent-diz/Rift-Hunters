@@ -46,6 +46,18 @@ class Foe:
 	## Lien d'âme (Grand Héraldiste) : dégâts subis × `linked_mult` pendant `linked_left` s.
 	var linked_mult: float = 1.0
 	var linked_left: float = 0.0
+	## Techniques (DraftFoeTechniques) : prêtes à (horloge), occupé, charge en cours, garde de face, protection.
+	var tech_ready: Dictionary = {}
+	var tech_busy: float = 0.0
+	var charge: Dictionary = {}
+	var guard_left: float = 0.0
+	var guard_dir := Vector3.FORWARD
+	var guard_front: float = 1.0
+	var guard_back: float = 1.0
+	var guard_arc: float = 70.0
+	var ward_left: float = 0.0
+	var ward_mult: float = 1.0
+	var tinted: bool = false
 
 	func expose(bonus: float, seconds: float) -> void:
 		exposed = maxf(bonus, exposed) if exposed_left > 0.0 else bonus
@@ -79,6 +91,8 @@ var boss_pace: float = 1.0
 ## Vitesse de marche des monstres et des boss (`DraftTuning.enemy_speed_mult`).
 var speed_mult: float = 1.0
 var path_requests: int = 0
+## Techniques des monstres des nouvelles familles (Saumâtres, Rapiécés, Vernissés).
+var techniques := DraftFoeTechniques.new(self)
 var _grid: Dictionary = {}
 var _corpses: Array[Dictionary] = []
 var _counter: int = 0
@@ -143,6 +157,7 @@ func clear_all() -> void:
 		(corpse["view"] as Node).queue_free()
 	_corpses.clear()
 	_grid.clear()
+	techniques.clear()
 	boss = null
 
 
@@ -174,6 +189,8 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 		exposure *= foe.brain.damage_mult()
 	if foe.linked_left > 0.0:
 		exposure *= foe.linked_mult
+	if foe.guard_left > 0.0 or foe.ward_left > 0.0:
+		exposure *= techniques.damage_taken_mult(foe)
 	var dealt: float = amount * exposure * CombatSystem.defense_multiplier(foe.defense)
 	foe.hp -= dealt
 	if foe.brain != null:
@@ -209,6 +226,7 @@ func vanish(foe: Foe) -> void:
 
 func _physics_process(delta: float) -> void:
 	_frame += 1
+	techniques.tick(delta)
 	var i: int = _corpses.size() - 1
 	while i >= 0:
 		_corpses[i]["left"] = float(_corpses[i]["left"]) - delta
@@ -263,6 +281,13 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 		wish = foe.brain.wish
 		speed *= foe.brain.speed_mult
 		turn = foe.brain.turns
+	elif not foe.data.techniques.is_empty() and techniques.step(foe, to_hunter, distance, climb, delta):
+		# Technique en cours (annonce, charge, récupération) : la poursuite attend ; le contact blesse toujours.
+		if foe.charge.is_empty():
+			foe.vel = Vector3.ZERO
+		_contact(foe, distance, climb)
+		foe.view.push_position(foe.pos, delta, foe.charge.is_empty())
+		return
 	elif foe.data.brain == EnemyData.Brain.CHARGER and foe.state > 0:
 		foe.timer -= delta
 		if foe.state == 1:

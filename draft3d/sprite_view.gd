@@ -36,6 +36,8 @@ var directional: bool = false
 var heading: StringName = SIDE
 ## Animation de repos (un boss en seconde phase passe sur `phase2_idle`).
 var idle_clip: StringName = &"idle"
+## Animation de marche (un boss en seconde phase passe sur `phase2_move` quand sa feuille l'a).
+var move_clip: StringName = &"move"
 ## Hauteur ajoutée à l'image (bond d'un boss), en mètres.
 var hop: float = 0.0
 var _time: float = 0.0
@@ -227,7 +229,7 @@ func oriented(base: StringName) -> StringName:
 
 
 func _is_walk(id: StringName) -> bool:
-	return id == &"move" or id == &"move_back" or id == &"move_front"
+	return id == &"move" or id == &"move_back" or id == &"move_front" or id == move_clip
 
 
 ## Les poses dos et face sont dessinées avec l'épée en main droite : jamais retournées.
@@ -307,7 +309,8 @@ func _update_animation(distance: float, delta: float) -> void:
 	_idle_time = _idle_time + delta if speed < 0.15 else 0.0
 	var moving: bool = speed > 0.3 or (_is_walk(animation) and _idle_time < 0.1)
 	var rest: StringName = idle_clip if has_clip(idle_clip) else &"idle"
-	var next: StringName = oriented(&"move") if moving or not has_clip(rest) else oriented(rest)
+	var walk: StringName = move_clip if has_clip(move_clip) else &"move"
+	var next: StringName = (oriented(walk) if walk == &"move" else walk) if moving or not has_clip(rest) else oriented(rest)
 	if next != animation:
 		animation = next
 		_time = 0.0

@@ -2532,3 +2532,25 @@ COMBO3D_SHATTERING_RAMPART_DESC,Un Bond de faille qui atterrit près d'un Mur ac
 COMBO3D_STILL_STORM_NAME,Tempête immobile,Still Storm
 COMBO3D_STILL_STORM_DESC,La Pluie d'éclats fait tomber des éclats supplémentaires sur les ennemis pris par l'Onde de stase.,Shard Rain drops extra shards on enemies caught by the Stasis Wave.
 ARSENAL3D_COMBOS,Combos (◆ actif : les deux sorts équipés),Combos (◆ active: both spells equipped)
+ENEMY_SALT_SCUTTLER_NAME,Griffe-sel,Salt Scuttler
+ENEMY_SALT_SCUTTLER_DESC,Crabe de saumure rapide qui pince au contact.,A quick brine crab that pinches on contact.
+ENEMY_ROPE_DROWNED_NAME,Noyé des cordages,Rope-Drowned
+ENEMY_ROPE_DROWNED_DESC,"Un noyé pris dans les cordages, armé d'une gaffe.","A drowned sailor tangled in rigging, armed with a boathook."
+ENEMY_BRINE_SKATE_NAME,Raie des saumures,Brine Skate
+ENEMY_BRINE_SKATE_DESC,Elle plane au-dessus des salines et crache de loin.,It glides over the salt pans and spits from afar.
+ENEMY_SALT_SIPHON_NAME,Siphon de sel,Salt Siphon
+ENEMY_SALT_SIPHON_DESC,Charge un jet de saumure en ligne droite qui laisse une flaque ralentissante.,Charges a straight brine jet that leaves a slowing puddle.
+ENEMY_FLOODGATE_KEEPER_NAME,Gardien de l'écluse,Floodgate Keeper
+ENEMY_FLOODGATE_KEEPER_DESC,Lève sa vanne pour se protéger de face : prenez-le à revers. Son maillet repousse.,Raises its gate to guard its front: strike it from behind. Its mallet knocks you back.
+ENEMY_BRINE_CHOIR_NAME,Chantre de saumure,Brine Choir
+ENEMY_BRINE_CHOIR_DESC,Ses cloches lancent deux ondes ; sa bénédiction protège trois alliés.,Its bells send two waves; its blessing shields three allies.
+ENEMY_SALT_DREDGER_NAME,Dragueur de sel,Salt Dredger
+ENEMY_SALT_DREDGER_DESC,Charge au godet en ligne droite et fait éclater sa croûte de sel.,Charges in a straight line with its scoop and bursts its salt crust.
+BOSS_SAUMOR_NAME,Saumor,Saumor
+BOSS_SAUMOR_TITLE,Vanne des saumures,Gate of the Brine
+BOSS_SAUMOR_PHASE1,Vantaux fermés,Gates Shut
+BOSS_SAUMOR_PHASE2,Siphon ouvert,Siphon Open
+BOSS_PATTERN_GATE_PULL,Appel de la vanne,Gate Pull
+BOSS_PATTERN_SHOULDER_SLAM,Écrasement d'épaule,Shoulder Slam
+BOSS_PATTERN_BRINE_SWEEP,Balayage saumâtre,Brine Sweep
+BOSS_PATTERN_CORE_BURST,Explosion du siphon,Siphon Burst

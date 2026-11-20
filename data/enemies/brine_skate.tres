@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.brine_skate"
+shape = 4
+size = 32.0
+primary = Color(0.86, 0.82, 0.7, 1.0)
+secondary = Color(0.55, 0.36, 0.22, 1.0)
+accent = Color(0.62, 0.36, 0.9, 1.0)
+
+[sub_resource type="Resource" id="attack_data_2"]
+script = ExtResource("3")
+damage = 8.0
+cooldown = 2.8
+attack_range = 420.0
+projectile_speed = 180.0
+
+[resource]
+script = ExtResource("1")
+id = &"brine_skate"
+family = &"enlises"
+name_key = "ENEMY_BRINE_SKATE_NAME"
+desc_key = "ENEMY_BRINE_SKATE_DESC"
+brain = 1
+max_hp = 18.0
+damage = 6.0
+defense = 5.0
+move_speed = 74.0
+radius = 16.0
+xp_value = 3
+knockback_resist = 0.0
+can_be_elite = true
+flying = true
+visual = SubResource("visual_data_1")
+attack = SubResource("attack_data_2")

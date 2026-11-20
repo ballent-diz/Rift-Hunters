@@ -28,6 +28,8 @@ const GESTURES := {
 	&"ice_spikes": &"spikes", &"root_leash": &"leash", &"root_snare": &"snare", &"floe_quake": &"spikes",
 	&"avalanche": &"spikes", &"silk_threads": &"spikes",
 	&"shatter_floor": &"burst", &"deep_freeze": &"burst", &"duel_circle": &"burst", &"spell_capture": &"burst",
+	# Saumor (DraftSaumor) : l'épaule au contact, le balayage en rayon, la pulsation en explosion.
+	&"shoulder_slam": &"slam", &"gate_pull": &"leash", &"brine_sweep": &"sweep_beam", &"core_burst": &"burst",
 }
 ## Gestes portés au corps à corps : choisis seulement à portée et de plain-pied.
 const MELEE := [&"claw", &"sweep", &"slam"]
@@ -135,6 +137,8 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftPyrevornStyle.new(craters))
 		&"duel_circle":
 			result.append(DraftDuelCircle.new())
+		&"saumor":
+			result.append(DraftSaumor.new())
 		&"silk_threads":
 			result.append(DraftSilkThreads.new())
 		&"slag_rain":
@@ -373,6 +377,9 @@ func _check_phase() -> void:
 	var idle := StringName("phase%d_idle" % (phase + 1))
 	if foe.view.has_clip(idle):
 		foe.view.idle_clip = idle
+	var walk := StringName("phase%d_move" % (phase + 1))
+	if foe.view.has_clip(walk):
+		foe.view.move_clip = walk
 	foe.view.play_action(_first_clip([p.transition_animation, &"transform", &"roar", &"attack"]), _transition)
 	painted(["transform", "phase_transition"], foe.pos, Vector3.RIGHT)
 	# Onde de transition : repousse le Chasseur qui colle le boss ; une Ruée la traverse.

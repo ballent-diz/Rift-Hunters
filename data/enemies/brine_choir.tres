@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.brine_choir"
+shape = 4
+size = 48.0
+primary = Color(0.86, 0.82, 0.7, 1.0)
+secondary = Color(0.55, 0.36, 0.22, 1.0)
+accent = Color(0.62, 0.36, 0.9, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"bell_call"
+anim = &"bell_call"
+cooldown = 7.0
+min_range = 0.0
+max_range = 520.0
+telegraph = 0.7
+damage = 10.0
+params = {
+"gap": 0.8,
+"speed": 7.0,
+"reach": 9.0,
+"recover": 0.6
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"brine_blessing"
+anim = &"brine_blessing"
+cooldown = 11.0
+min_range = 0.0
+max_range = 900.0
+telegraph = 0.6
+damage = 0.0
+params = {
+"radius": 7.0,
+"targets": 3,
+"duration": 4.0,
+"mult": 0.5
+}
+
+[resource]
+script = ExtResource("1")
+id = &"brine_choir"
+family = &"enlises"
+name_key = "ENEMY_BRINE_CHOIR_NAME"
+desc_key = "ENEMY_BRINE_CHOIR_DESC"
+brain = 0
+max_hp = 150.0
+damage = 12.0
+defense = 12.0
+move_speed = 48.0
+radius = 24.0
+xp_value = 8
+knockback_resist = 0.5
+can_be_elite = false
+flying = false
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

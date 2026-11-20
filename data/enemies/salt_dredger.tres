@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.salt_dredger"
+shape = 4
+size = 56.0
+primary = Color(0.86, 0.82, 0.7, 1.0)
+secondary = Color(0.55, 0.36, 0.22, 1.0)
+accent = Color(0.62, 0.36, 0.9, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"scoop_charge"
+anim = &"scoop_charge"
+cooldown = 7.5
+min_range = 140.0
+max_range = 520.0
+telegraph = 0.85
+damage = 20.0
+params = {
+"speed": 13.0,
+"length": 9.0,
+"width": 1.6,
+"recover": 1.3
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"salt_crust_burst"
+anim = &"salt_crust_burst"
+cooldown = 8.0
+min_range = 0.0
+max_range = 260.0
+telegraph = 0.8
+damage = 11.0
+params = {
+"count": 6,
+"length": 6.0,
+"width": 0.7,
+"recover": 0.7
+}
+
+[resource]
+script = ExtResource("1")
+id = &"salt_dredger"
+family = &"enlises"
+name_key = "ENEMY_SALT_DREDGER_NAME"
+desc_key = "ENEMY_SALT_DREDGER_DESC"
+brain = 0
+max_hp = 210.0
+damage = 18.0
+defense = 18.0
+move_speed = 54.0
+radius = 28.0
+xp_value = 9
+knockback_resist = 0.8
+can_be_elite = false
+flying = false
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

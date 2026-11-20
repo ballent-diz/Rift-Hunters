@@ -1,0 +1,137 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=13 format=3]
+
+[ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/boss_phase_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/boss_pattern_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"boss.saumor"
+shape = 4
+size = 88.0
+primary = Color(0.8, 0.78, 0.7, 1.0)
+secondary = Color(0.5, 0.36, 0.24, 1.0)
+accent = Color(0.6, 0.36, 0.9, 1.0)
+
+[sub_resource type="Resource" id="pattern_1"]
+script = ExtResource("4")
+kind = &"gate_pull"
+name_key = "BOSS_PATTERN_GATE_PULL"
+weight = 1.6
+cooldown = 9.0
+damage = 22.0
+telegraph = 0.9
+params = {
+"duration": 2.2,
+"pull_speed": 3.2,
+"reach": 14.0,
+"bite_radius": 2.6,
+"recover": 0.9,
+"anim": "gate_pull"
+}
+
+[sub_resource type="Resource" id="pattern_2"]
+script = ExtResource("4")
+kind = &"shoulder_slam"
+name_key = "BOSS_PATTERN_SHOULDER_SLAM"
+weight = 2.4
+cooldown = 4.0
+damage = 24.0
+telegraph = 0.85
+params = {
+"reach": 2.4,
+"radius": 2.8,
+"knockback": 9.0,
+"recover": 1.2,
+"anim": "shoulder_slam"
+}
+
+[sub_resource type="Resource" id="pattern_3"]
+script = ExtResource("4")
+kind = &"brine_sweep"
+name_key = "BOSS_PATTERN_BRINE_SWEEP"
+weight = 1.8
+cooldown = 7.0
+damage = 20.0
+telegraph = 0.9
+params = {
+"lanes": 7,
+"arc": 110.0,
+"step": 0.18,
+"length": 15.0,
+"width": 1.5,
+"lead": 0.5,
+"recover": 1.0,
+"anim": "brine_sweep"
+}
+
+[sub_resource type="Resource" id="pattern_4"]
+script = ExtResource("4")
+kind = &"core_burst"
+name_key = "BOSS_PATTERN_CORE_BURST"
+weight = 1.5
+cooldown = 8.0
+damage = 22.0
+telegraph = 1.0
+params = {
+"inner_radius": 4.2,
+"gap": 1.1,
+"outer_count": 10,
+"outer_radius": 7.2,
+"outer_disc": 2.0,
+"recover": 1.1,
+"anim": "core_burst"
+}
+
+[sub_resource type="Resource" id="pattern_5"]
+script = ExtResource("4")
+kind = &"shoulder_slam"
+name_key = "BOSS_PATTERN_SHOULDER_SLAM"
+weight = 1.2
+cooldown = 4.5
+damage = 26.0
+telegraph = 0.8
+params = {
+"reach": 2.4,
+"radius": 2.8,
+"knockback": 9.0,
+"recover": 1.1,
+"anim": "shoulder_slam"
+}
+
+[sub_resource type="Resource" id="phase_1"]
+script = ExtResource("3")
+hp_threshold = 1.0
+name_key = "BOSS_SAUMOR_PHASE1"
+move_speed_mult = 1.0
+pattern_interval = 1.9
+patterns = [SubResource("pattern_1"), SubResource("pattern_2")]
+
+[sub_resource type="Resource" id="phase_2"]
+script = ExtResource("3")
+hp_threshold = 0.5
+name_key = "BOSS_SAUMOR_PHASE2"
+move_speed_mult = 1.15
+pattern_interval = 1.6
+transition_time = 1.6
+transition_animation = &"transform"
+patterns = [SubResource("pattern_3"), SubResource("pattern_4"), SubResource("pattern_5")]
+
+[resource]
+script = ExtResource("1")
+id = &"saumor"
+name_key = "BOSS_SAUMOR_NAME"
+title_key = "BOSS_SAUMOR_TITLE"
+max_hp = 3600.0
+damage = 20.0
+defense = 25.0
+move_speed = 58.0
+radius = 44.0
+shard_reward = 75
+essence_reward = 8
+visual = SubResource("visual_data_1")
+phases = [SubResource("phase_1"), SubResource("phase_2")]
+guardian = true
+visual_scale = 1.0
+signature = &"saumor"
