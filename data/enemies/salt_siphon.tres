@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.salt_siphon"
+shape = 5
+size = 34.0
+primary = Color(0.86, 0.82, 0.7, 1.0)
+secondary = Color(0.6, 0.42, 0.24, 1.0)
+accent = Color(0.62, 0.32, 0.8, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"brine_jet"
+anim = &"brine_jet"
+cooldown = 6.0
+min_range = 0.0
+max_range = 320.0
+telegraph = 0.90
+damage = 18.0
+params = {
+"length": 300.0,
+"width": 44.0,
+"fx": "splash"
+}
+
+[resource]
+script = ExtResource("1")
+id = &"salt_siphon"
+family = &"enlises"
+name_key = "ENEMY_SALT_SIPHON_NAME"
+desc_key = "ENEMY_SALT_SIPHON_DESC"
+brain = 0
+max_hp = 110.0
+damage = 13.0
+defense = 12.0
+move_speed = 58.0
+radius = 17.0
+xp_value = 4
+knockback_resist = 0.3
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1")])

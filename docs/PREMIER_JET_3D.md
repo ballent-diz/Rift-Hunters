@@ -26,7 +26,7 @@ Le jeu 2D reste intact dans le dépôt (campagne, sauvegardes, assets) et sert d
 alors ni victoire de chapitre ni gain de Fragments) : **F9** ou **Pause → Aller au boss (test)** retire la vague en cours
 et fait venir le boss de la carte tout de suite (sommet de la tour compris) ; `--boss-test --chapter=N` démarre
 directement sur le boss du chapitre N avec un Chasseur monté de 15 niveaux (`--boss-level=N` pour changer,
-`DraftTuning.test_boss_levels`). Dans tous les cas, l'arsenal est rempli : emplacement en plus, tous les sorts (ordre
+`DraftTuning.test_boss_levels`) ; `--boss=<id>` impose un Dévoreur (et sa famille de monstres) quel que soit le chapitre. Dans tous les cas, l'arsenal est rempli : emplacement en plus, tous les sorts (ordre
 tiré au hasard, les autres en réserve), tous les passifs et des mutations tirées au hasard (deux au plus par sort).
 Code : `draft3d/boss_test.gd`.
 
@@ -82,7 +82,9 @@ Tout est référencé depuis le dépôt (données, manifeste, autoloads), rien n
 **Non raccordé, et pourquoi**
 - Barrières peintes animées (scènes 2D). Les effets peints des boss sont affichés au sol depuis le 16 novembre
   (`draft3d/painted_fx.gd`, rendu intermédiaire par effet, [BOSS_V2.md](design/BOSS_V2.md)).
-- Techniques propres à chaque monstre ; les élites ne sont pas repris. Boss : phases et techniques de leurs données
+- Techniques propres aux monstres de la campagne 2D ; leurs élites ne sont pas repris. Les familles propres à la v2
+  (chapitres 6, 8, 9) jouent les leurs depuis le 20 novembre (`draft3d/foe_techniques.gd`, volants compris,
+  [BOSS_V2.md](design/BOSS_V2.md) section 9). Boss : phases et techniques de leurs données
   jouées en gestes 3D depuis le 16 novembre ; mécaniques phares importées lot par lot ([BOSS_V2.md](design/BOSS_V2.md)).
 - Appel de meute et Permutation (Échos), Failles jumelles ; les nœuds de l'arbre qui ne sont pas de simples statistiques.
 - Écran de l'arbre dans ce mode : l'arbre se règle toujours dans le refuge de la campagne.
@@ -172,7 +174,7 @@ bestiaire du chapitre 5 en attendant le chapitre 7.
 
 90 × 90 m, îlots reliés par des levées dans une eau trouble (`draft3d/level_marsh.gd`). Toutes les 80 s, la marée
 monte et noie les levées basses : on n'y entre plus, les monstres font le tour, on tire toujours par-dessus l'eau.
-Sanctuaire du boss au centre, jamais noyé. `--chapter=8` (bestiaire du chapitre 5 en attendant le chapitre 8),
+Sanctuaire du boss au centre, jamais noyé. `--chapter=8` (famille des Saumâtres, Dévoreur : Saumor),
 `--tide-at=61` pour partir à marée haute. Détails : `docs/maps/CARTES_3D.md`.
 
 ## Carte : neuvième niveau, les Corniches

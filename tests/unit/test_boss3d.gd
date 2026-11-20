@@ -856,3 +856,66 @@ func test_pyrevorn_style() -> void:
 	style.perform(eye)
 	check_eq(run.hazards._items.size() - lines, int(eye.params["steps"]) * 2, "seconde phase : balayage aller-retour")
 	check_eq(style.double_sweeps, 1, "aller-retour compté")
+
+
+func test_v2_chapters_have_their_own_family() -> void:
+	var marsh: DraftRoster = DraftRoster.for_chapter(8)
+	check_eq(marsh.boss.id, &"saumor", "Marais des Marées : Saumor en Dévoreur")
+	var ids: Array[StringName] = []
+	for data: EnemyData in marsh.enemies:
+		ids.append(data.id)
+	check_eq(ids, [&"salt_scuttler", &"rope_drowned", &"brine_skate", &"salt_siphon", &"floodgate_keeper",
+		&"brine_choir", &"salt_dredger"] as Array[StringName], "bestiaire des Saumâtres, élites en dernier")
+	check(not marsh.guardians.has(GameDB.boss(&"glauquemire")), "Glauquemire n'est plus un doublon au Marais")
+	check(not marsh.guardians.is_empty(), "gardiens des cartes gardés")
+	check(DraftRoster.v2_only_boss(&"saumor") and not DraftRoster.v2_only_boss(&"pyrevorn"), "Dévoreur propre à la v2")
+
+
+func test_boss_option_forces_a_devourer() -> void:
+	await _start()
+	DraftBossTest.force_boss(run, &"saumor")
+	check_eq(run.roster.boss.id, &"saumor", "--boss=saumor : Dévoreur imposé")
+	check_eq(run.roster.enemies[0].id, &"salt_scuttler", "avec sa famille de monstres")
+	check(run.test_run, "partie de test")
+
+
+func test_saumor_gate_pull() -> void:
+	await _start()
+	var foe: DraftEnemies.Foe = _spawn(&"saumor", 9.0)
+	check(foe.view.has_clip(&"gate_pull") and foe.view.has_clip(&"phase2_idle"), "Saumor : feuille raccordée")
+	foe.brain._next_at = INF
+	await _frames(int(foe.brain._busy * 60) + 5)
+	var gate := _mechanic(foe, &"gate_pull") as DraftSaumor
+	check(gate != null, "Saumor : Appel de la vanne")
+	check_eq(gate.next_kind(&"gate_pull"), &"slam", "vantaux : aspiration → écrasement des épaules")
+	check(not gate.allows(&"gate_pull", 20.0) and gate.allows(&"gate_pull", 8.0), "il n'aspire pas de l'autre bout de la carte")
+	var pattern: BossPatternData = _pattern(foe.boss, &"gate_pull")
+	foe.brain._busy = gate.perform(pattern)
+	check_eq(gate.shelters.size(), 2, "deux abris de sel sortent du sol")
+	check(gate.holds_boss(), "calé sur ses bras pendant l'appel")
+	await _frames(int(pattern.telegraph * 60) + 6)
+	check(gate.pulling(), "vantaux ouverts : aspiration")
+	check_near(foe.brain.damage_mult(), DraftSaumor.OPEN_MULT, 0.001, "siphon à découvert : coups renforcés")
+	var before: float = run.hunter.global_position.distance_to(foe.pos)
+	await _frames(30)
+	if gate.exposed():
+		check(run.hunter.global_position.distance_to(foe.pos) < before - 0.5, "à découvert, le Chasseur est aspiré")
+	# Derrière un abri : le courant ne porte plus.
+	var shelter: Vector3 = gate.shelters[0]["pos"]
+	var away: Vector3 = shelter - foe.pos
+	away.y = 0.0
+	run.hunter.global_position = run.level.closest(shelter + away.normalized() * 1.6)
+	await _frames(4)
+	var held: Vector3 = run.hunter.global_position
+	var sheltered: float = gate.sheltered_time
+	await _frames(20)
+	check(not gate.exposed(), "l'abri coupe la vue du siphon")
+	check(gate.sheltered_time > sheltered, "temps à l'abri compté")
+	check(run.hunter.global_position.distance_to(held) < 0.05, "à l'abri, aucune aspiration")
+	_bring_to(foe, 0.4)
+	check_eq(foe.brain.phase, 1, "sous 50 % : siphon à nu")
+	check_eq(gate.next_kind(&"gate_pull"), &"core_burst", "siphon à nu : aspiration → pulsation du siphon")
+	check_eq(foe.view.idle_clip, &"phase2_idle", "repos de seconde phase")
+	run.enemies.hit(foe, 1000000.0)
+	check(gate.shelters.is_empty() and not gate.holds_boss(), "mort : abris retirés")
+	check_eq(run.state, DraftRun.State.WON, "Saumor vaincu : victoire")

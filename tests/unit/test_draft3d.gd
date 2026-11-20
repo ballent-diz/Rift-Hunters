@@ -263,7 +263,9 @@ func test_rosters_cover_the_nine_chapters() -> void:
 	check_eq(DraftRoster.chapters().size(), 9, "neuf chapitres : cinq de la campagne, quatre propres à la v2")
 	for order: int in range(1, 10):
 		var roster: DraftRoster = DraftRoster.for_chapter(order)
-		check(roster.enemies.size() >= 8, "chapitre %d : au moins huit monstres (%d)" % [order, roster.enemies.size()])
+		# Famille propre à la v2 : ses sept monstres seulement (docs/design/BOSS_V2.md, section 9).
+		var least: int = 7 if DraftRoster.v2_entry(roster.chapter.id).has("enemies") else 8
+		check(roster.enemies.size() >= least, "chapitre %d : au moins %d monstres (%d)" % [order, least, roster.enemies.size()])
 		check(roster.boss != null and roster.guardians.size() >= 3, "chapitre %d : gardiens et Dévoreur" % order)
 		for data: EnemyData in roster.enemies:
 			seen[data.id] = true

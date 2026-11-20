@@ -16,6 +16,11 @@ func handles(_kind: StringName) -> bool:
 	return false
 
 
+## Faux si la technique ne doit pas être choisie à cette distance du Chasseur (aspiration de trop loin...).
+func allows(_kind: StringName, _distance: float) -> bool:
+	return true
+
+
 ## Joue la technique ; renvoie la durée pendant laquelle le boss reste occupé.
 func perform(_pattern: BossPatternData) -> float:
 	return 0.0

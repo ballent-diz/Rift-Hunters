@@ -62,6 +62,9 @@ func test_boss_patterns_exist_in_code() -> void:
 	for id: StringName in GameDB.bosses:
 		var boss: BossData = GameDB.bosses[id]
 		check(boss.phases.size() >= (1 if boss.guardian else 2), "%s : plusieurs phases (une pour un gardien)" % id)
+		if DraftRoster.v2_only_boss(id):
+			# Dévoreur propre à la 3D : ses techniques sont jouées par DraftBossBrain (tests/unit/test_boss3d.gd).
+			continue
 		for phase: BossPhaseData in boss.phases:
 			for pattern: BossPatternData in phase.patterns:
 				check(methods.has("_pattern_" + String(pattern.kind)),
