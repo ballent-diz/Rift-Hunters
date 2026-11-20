@@ -432,3 +432,59 @@ comprendre par lui-même ; Glauquemire était trop petit, Abyssarque immense et 
   feuilles ; `visual_scale` 0,5 (environ 225 px de haut, un peu plus que le Dévoreur des Sources).
 - **Glauquemire** : `visual_scale` 2,0 (même stature que Pyrevorn et Nivorath).
 - Contrôle : captures `--boss-test --chapter=3` et `--chapter=5` (boss entiers, posés au sol, aucun bandeau).
+
+## 9. Familles et Dévoreurs propres à la v2 (20 novembre, session « Nouveaux Dévoreurs »)
+
+Livraisons art de Codex (PR #231 à #236, intégrées par #237) raccordées en jeu. Chaque carte a désormais son bestiaire et
+son Dévoreur ; les chapitres 6 à 9 empruntaient jusqu'ici ceux de la campagne (doublons temporaires).
+
+### Placement (validé par le propriétaire le 20 novembre)
+
+| Ch. | Carte 3D | Avant (doublon) | Famille | Dévoreur | Pourquoi |
+|---|---|---|---|---|---|
+| 6 | Tour de la Faille (`tower.gd`, sommet `level_ring.gd`) | Pyrevorn | Rapiécés | L'Ourdisseur, Dévoreur des Linceuls | ateliers en intérieur (Garnison, Cellules) ; les piliers du Sommet servent d'ancrages aux fils |
+| 7 | Défilé Hurlant (`level_pass.gd`) | Nivorath | — (inchangé) | — | reste en doublon jusqu'à une prochaine famille |
+| 8 | Marais des Marées (`level_marsh.gd`) | Glauquemire | Saumâtres | Saumor, Dévoreur des Salines | salines et écluses englouties, marée |
+| 9 | Corniches (`level_cliffs.gd`) | Grand Héraldiste (gardien) | Vernissés | Faïron, Dévoreur des Émaux | four perché à la Couronne ; remplace un gardien qui servait de boss final |
+
+Raccordement : `DraftRoster.V2_CHAPTERS` (`enemies` : la famille, élites en dernier ; `boss` : le Dévoreur). Les
+gardiens restent ceux des cartes de la campagne ; un gardien qui servait de boss final redevient gardien. Le Dévoreur
+remplacé (Glauquemire, Pyrevorn) n'est plus appelé dans ce chapitre.
+
+### Socle commun aux trois familles
+
+- **Techniques des monstres** (`draft3d/foe_techniques.gd`, `DraftFoeTechniques`) : chaque technique des données
+  (`EnemyData.techniques`, `kind` = nom du clip) joue un style 3D commun (`STYLES`) réglé par ses `params` : jet en
+  ligne arrêté par le décor, coup lourd annoncé (devant, sur soi, sous le Chasseur), garde (frontale ou non, enracinée),
+  charge annoncée qui s'arrête contre le décor, croûte qui éclate, appel de renforts (plafond de la vague),
+  bénédiction des alliés (vitesse et contact × `mult`). `then` enchaîne une technique sur la précédente (garde →
+  maillet). Les techniques de la campagne 2D sans style restent ignorées : les monstres déjà raccordés ne changent pas.
+- **Volants** (`EnemyData.flying`) : en vol à 0,7 m (léger battement), en ligne droite sans navigation, ils survolent
+  le décor, l'eau et les murets sans quitter la carte ; visés et tirent à leur hauteur.
+- **Mode test** : `--boss=<id>` impose un Dévoreur (et sa famille) quel que soit le chapitre, avec `--boss-test` ou F9
+  (`DraftBossTest.force_boss`, versions de développement).
+- Aucun bandeau d'explication (règle du 18 novembre) : seuls l'annonce d'arrivée et le nom des phases s'affichent.
+- Pas d'effets peints livrés pour ces Dévoreurs (pas de `vfx_dir`) : annonces DraftCombatFx et PixelFX de la famille.
+
+### Lot Saumâtres + Saumor (chapitre 8)
+
+| Monstre | Rang | Comportement 3D |
+|---|---|---|
+| Griffe-sel | normal | poursuite rapide, pincement au contact |
+| Noyé des cordages | normal | poursuite, coup de gaffe au contact |
+| Raie des saumures | normal volant | survole le marais, tir de saumure à distance |
+| Siphon de sel | normal à technique | **Jet de saumure** : ligne annoncée 0,9 s, arrêtée par le décor |
+| Gardien de l'écluse | élite | **Garde de la vanne** : enraciné 3 s, coups × 0,15 de face seulement (on le contourne), puis **maillet** annoncé devant lui |
+| Chantre de saumure | élite | **Appel des cloches** (trois Griffe-sel) et **bénédiction** (alliés proches × 1,3 pendant 5 s) |
+| Dragueur de sel | élite | **Charge au godet** annoncée (sonné contre le décor) et **croûte de sel** qui éclate autour de lui |
+
+**Saumor** (`data/bosses/saumor.tres`, `bosses/saumor.gd`, `DraftSaumor`), famille de matière `enlises`, taille
+`visual_scale` 1,34 (stature de Pyrevorn et Nivorath ; ancre de feuille déjà aux pieds), deux phases :
+- **Vantaux de cuivre** (phase 1) : balayage du bras, écrasement des épaules, appel de Griffe-sel, **Appel de la
+  vanne** : calé sur ses bras, il ouvre les vantaux et aspire le Chasseur vers son siphon (3,6 m/s pendant 3,2 s), puis
+  les referme sur tout ce qui est près de lui. Deux abris de sel sortent du sol à côté du Chasseur ; tout obstacle
+  (abri, décor) entre le siphon et lui coupe l'aspiration, un courant au sol montre quand elle porte. Une Ruée résiste.
+  Vantaux ouverts, coups × 1,3. Enchaînement : aspiration → écrasement.
+- **Siphon à nu** (phase 2, 50 %) : aspiration plus forte et plus longue, **souffle de saumure** qui balaie (arrêté
+  par le décor), **pulsation du siphon** (trois anneaux coupés par le décor) ; aspiration → pulsation.
+- Mort : clip `death` de la feuille, abris et courant retirés.

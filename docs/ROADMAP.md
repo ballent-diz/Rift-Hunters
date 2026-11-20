@@ -1,5 +1,16 @@
 # Rift Hunters — feuille de route
 
+## Nouveaux Dévoreurs : familles propres aux chapitres 6, 8 et 9 (Claude, session « Nouveaux Dévoreurs », 20 novembre 2026)
+
+Placement validé par le propriétaire : Saumâtres + Saumor au Marais des Marées (ch. 8), Rapiécés + Ourdisseur à la
+Tour de la Faille (ch. 6), Vernissés + Faïron aux Corniches (ch. 9) ; le Défilé Hurlant (ch. 7) garde son doublon.
+Détails : `docs/design/BOSS_V2.md`, section 9. Une PR par lot.
+- **Lot 1, Saumâtres + Saumor** : socle des techniques de monstres en 3D (`draft3d/foe_techniques.gd`), volants qui
+  survolent le décor, bestiaire et Dévoreur propres aux chapitres v2 (`DraftRoster.V2_CHAPTERS`), `--boss=<id>` en
+  mode test ; Saumor et l'Appel de la vanne (`draft3d/bosses/saumor.gd`). Tests : `test_draft3d_families.gd`,
+  `test_boss3d.gd` (Saumor, chapitres v2, `--boss`).
+- **À juger en jouant** : force de l'aspiration (3,6 puis 4,5 m/s), fréquence des élites dans le mélange des vagues.
+
 ## Les Saumâtres (Codex, 19 novembre 2026)
 
 Lot art prêt à valider sur codex/famille-salines. Sept monstres pour les salines englouties, dix planches et 144 poses importées. Banc Godot 7/7. [Visuels et techniques proposées](art/SAUMATRES.md).

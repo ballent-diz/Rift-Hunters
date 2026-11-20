@@ -12,14 +12,18 @@ const EXCLUDED_BOSSES: Array[StringName] = [&"nebulorax"]
 
 ## Chapitres propres à la version 3D (6 à 9, après les cinq de la campagne) : pas de données de campagne, leur
 ## bestiaire mêle des cartes existantes (monstres, gardiens ; la dernière donne le Dévoreur). Les PV du Dévoreur
-## croissent avec le rang du chapitre (`DraftTuning.boss_chapter_growth`).
+## croissent avec le rang du chapitre (`DraftTuning.boss_chapter_growth`). Un chapitre doté de sa propre famille
+## (placement validé le 20 novembre 2026, docs/design/BOSS_V2.md) la donne en `enemies` (ordre d'apparition : les
+## premiers dominent, les élites en dernier) et son Dévoreur en `boss` ; ses gardiens restent ceux des cartes.
 const V2_CHAPTERS: Array[Dictionary] = [
 	{"id": &"rift_tower", "color": Color(0.82, 0.36, 0.62),
 		"arenas": [&"shattered_outskirts", &"rune_sanctum", &"shattered_pantheon", &"soot_dens", &"caldera_arena"]},
 	{"id": &"howling_pass", "color": Color(0.9, 0.62, 0.36),
 		"arenas": [&"scorched_verge", &"ash_vents", &"glacier_entry", &"brazier_pass", &"silent_heart"]},
 	{"id": &"tide_marsh", "color": Color(0.36, 0.74, 0.78),
-		"arenas": [&"mist_ford", &"root_mangrove", &"tide_temple", &"reflection_wells", &"marsh_heart"]},
+		"arenas": [&"mist_ford", &"root_mangrove", &"tide_temple", &"reflection_wells", &"marsh_heart"],
+		"enemies": [&"salt_scuttler", &"rope_drowned", &"brine_skate", &"salt_siphon", &"floodgate_keeper",
+			&"brine_choir", &"salt_dredger"], "boss": &"saumor"},
 	{"id": &"high_cliffs", "color": Color(0.66, 0.78, 0.98),
 		"arenas": [&"three_rifts", &"storm_highlands", &"firefly_woods", &"cascade_source", &"suspended_quarters"]},
 ]
@@ -62,6 +66,12 @@ static func for_chapter(order: int) -> DraftRoster:
 	var roster := DraftRoster.new()
 	var list: Array[ChapterData] = chapters()
 	roster.chapter = list[clampi(order, 1, list.size()) - 1]
+	var own: Dictionary = v2_entry(roster.chapter.id)
+	for id: StringName in own.get("enemies", []):
+		var data: EnemyData = GameDB.enemy(id)
+		if usable(data):
+			roster.enemies.append(data)
+	var explicit: bool = not roster.enemies.is_empty()
 	for map: CampaignMapData in roster.chapter.maps:
 		var arena: ArenaData = GameDB.arena(map.arena_id)
 		if arena == null:
@@ -74,14 +84,35 @@ static func for_chapter(order: int) -> DraftRoster:
 				ids.append_array(wave.enemies)
 		for id: StringName in ids:
 			var data: EnemyData = GameDB.enemy(id)
-			if usable(data) and not roster.enemies.has(data) and roster.enemies.size() < MAX_ENEMIES:
+			if not explicit and usable(data) and not roster.enemies.has(data) and roster.enemies.size() < MAX_ENEMIES:
 				roster.enemies.append(data)
 		var guardian: BossData = GameDB.boss(arena.boss_id)
 		if guardian != null and not roster.guardians.has(guardian) and not EXCLUDED_BOSSES.has(guardian.id):
 			roster.guardians.append(guardian)
 	if not roster.guardians.is_empty():
 		roster.boss = roster.guardians.pop_back()
+	if own.has("boss"):
+		# Dévoreur propre au chapitre : le dernier gardien des cartes redevient un gardien.
+		if roster.boss != null and not roster.guardians.has(roster.boss) and roster.boss.guardian:
+			roster.guardians.append(roster.boss)
+		roster.boss = GameDB.boss(own["boss"])
 	return roster
+
+
+## Entrée de `V2_CHAPTERS` d'un chapitre propre à la 3D ({} pour un chapitre de la campagne).
+static func v2_entry(id: StringName) -> Dictionary:
+	for entry: Dictionary in V2_CHAPTERS:
+		if entry["id"] == id:
+			return entry
+	return {}
+
+
+## Dévoreur propre à la v2 (aucune carte de la campagne 2D ne l'appelle) : ses techniques ne sont jouées qu'en 3D.
+static func v2_only_boss(id: StringName) -> bool:
+	for entry: Dictionary in V2_CHAPTERS:
+		if entry.get("boss", &"") == id:
+			return true
+	return false
 
 
 ## Monstre jouable dans la base 3D : mobile, avec une feuille de sprites (ni structure, ni nid, ni objet).

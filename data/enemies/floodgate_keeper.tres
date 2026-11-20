@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.floodgate_keeper"
+shape = 5
+size = 48.0
+primary = Color(0.55, 0.36, 0.22, 1.0)
+secondary = Color(0.86, 0.82, 0.7, 1.0)
+accent = Color(0.62, 0.32, 0.8, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"lock_guard"
+anim = &"lock_guard"
+cooldown = 11.0
+min_range = 0.0
+max_range = 400.0
+telegraph = 0.40
+damage = 0.0
+params = {
+"duration": 3.0,
+"mult": 0.15,
+"frontal": true,
+"rooted": true,
+"then": "mallet_slam",
+"fx": "shield_block"
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"mallet_slam"
+anim = &"mallet_slam"
+cooldown = 7.0
+min_range = 0.0
+max_range = 110.0
+telegraph = 0.80
+damage = 24.0
+params = {
+"radius": 70.0,
+"at": "front",
+"fx": "ring_burst"
+}
+
+[resource]
+script = ExtResource("1")
+id = &"floodgate_keeper"
+family = &"enlises"
+name_key = "ENEMY_FLOODGATE_KEEPER_NAME"
+desc_key = "ENEMY_FLOODGATE_KEEPER_DESC"
+brain = 0
+max_hp = 300.0
+damage = 17.0
+defense = 26.0
+move_speed = 54.0
+radius = 24.0
+xp_value = 9
+knockback_resist = 0.8
+can_be_elite = false
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

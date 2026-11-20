@@ -28,6 +28,8 @@ const GESTURES := {
 	&"ice_spikes": &"spikes", &"root_leash": &"leash", &"root_snare": &"snare", &"floe_quake": &"spikes",
 	&"avalanche": &"spikes", &"silk_threads": &"spikes",
 	&"shatter_floor": &"burst", &"deep_freeze": &"burst", &"duel_circle": &"burst", &"spell_capture": &"burst",
+	# Dévoreurs propres à la v2 (chapitres 6, 8, 9) : leur mécanique joue la technique phare.
+	&"gate_pull": &"burst", &"brine_sweep": &"sweep_beam", &"core_burst": &"quake",
 }
 ## Gestes portés au corps à corps : choisis seulement à portée et de plain-pied.
 const MELEE := [&"claw", &"sweep", &"slam"]
@@ -157,6 +159,8 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftFrostGuardians.new(boss.signature))
 		&"war_cry", &"rune_barrage", &"pantheon_wake", &"soul_chain":
 			result.append(DraftCityGuardians.new(boss.signature))
+		&"gate_pull":
+			result.append(DraftSaumor.new())
 	# Racine-laisse (forme racines de l'Abyssarque) : vraie laisse ; Glauquemire garde sa racine jaillissante.
 	if boss.signature != &"prism_beam" and _has_kind(boss, &"root_leash"):
 		result.append(DraftRootLeash.new())
@@ -423,6 +427,8 @@ func _choose(distance: float, climb: float) -> BossPatternData:
 		var gesture: StringName = gesture_of(pattern)
 		if MELEE.has(gesture) and (distance > foe.radius + (5.0 if gesture == &"slam" else 3.5) \
 				or climb > DraftEnemies.MELEE_REACH_UP):
+			continue
+		if mechanics.any(func(m: DraftBossMechanic) -> bool: return not m.allows(pattern.kind, distance)):
 			continue
 		options.append(pattern)
 		total += pattern.weight
