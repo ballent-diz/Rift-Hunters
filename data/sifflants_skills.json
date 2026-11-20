@@ -1,0 +1,88 @@
+{
+  "family": "sifflants",
+  "chapter": 7,
+  "status": "design_only",
+  "boss": {
+    "id": "veilarc",
+    "phase_2_threshold": 0.5
+  },
+  "techniques": [
+    {
+      "caster": "gust_engine",
+      "id": "gust_burst",
+      "fx": "enemy_gust_engine_burst",
+      "phase": 0,
+      "description": "Souffle en cône annoncé 0,6 s ; recul limité à 1,5 m"
+    },
+    {
+      "caster": "shale_bastion",
+      "id": "brace_shield",
+      "fx": "enemy_shale_brace",
+      "phase": 0,
+      "description": "Garde frontale 2 s ; dos vulnérable"
+    },
+    {
+      "caster": "shale_bastion",
+      "id": "cleaver_fall",
+      "fx": "enemy_shale_cleaver",
+      "phase": 0,
+      "description": "Frappe de hache en bande, préparation 0,8 s"
+    },
+    {
+      "caster": "wind_cantor",
+      "id": "dirge_tone",
+      "fx": "enemy_wind_dirge",
+      "phase": 0,
+      "description": "Une onde circulaire ralentissante ; ralentissement non cumulable"
+    },
+    {
+      "caster": "wind_cantor",
+      "id": "whistle_snare",
+      "fx": "enemy_wind_snare",
+      "phase": 0,
+      "description": "Deux lignes convergentes annoncées ; ralentissement sans immobilisation forcée"
+    },
+    {
+      "caster": "ravine_ram",
+      "id": "cliff_charge",
+      "fx": "enemy_ram_charge",
+      "phase": 0,
+      "description": "Charge rectiligne après 0,7 s d'annonce ; stop sur décor"
+    },
+    {
+      "caster": "ravine_ram",
+      "id": "horn_sweep",
+      "fx": "enemy_ram_horn",
+      "phase": 0,
+      "description": "Large balayage frontal ; récupération 0,8 s"
+    },
+    {
+      "caster": "veilarc",
+      "id": "gale_cleaver",
+      "fx": "boss_veilarc_gale_cleaver",
+      "phase": 1,
+      "description": "Lame en arc ; zone sûre derrière le boss"
+    },
+    {
+      "caster": "veilarc",
+      "id": "chime_cage",
+      "fx": "boss_veilarc_chime_cage",
+      "phase": 1,
+      "description": "Anneaux de cloches fermant par segments, brèche atteignable"
+    },
+    {
+      "caster": "veilarc",
+      "id": "tempest_reversal",
+      "fx": "boss_veilarc_tempest_reversal",
+      "phase": 2,
+      "description": "Deux bandes de vent alternées, intervalle sûr"
+    },
+    {
+      "caster": "veilarc",
+      "id": "rift_maelstrom",
+      "fx": "boss_veilarc_maelstrom",
+      "phase": 2,
+      "description": "Aspiration centrale courte coupée par des abris ; pas de chute inévitable"
+    }
+  ]
+}
