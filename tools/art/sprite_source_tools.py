@@ -14,11 +14,11 @@ def digest(path):
         content = content.replace(b"\r\n", b"\n")
     return hashlib.sha256(content).hexdigest()
 
-def split_source(path, rows):
+def split_source(path, rows, alpha_threshold=128):
     """Les composantes récupèrent aussi les pointes qui dépassent une limite de grille virtuelle."""
     source = Image.open(path).convert("RGBA")
     array = np.asarray(source).copy()
-    opaque = array[:, :, 3] >= 128
+    opaque = array[:, :, 3] >= alpha_threshold
     labels, _ = ndimage.label(opaque, np.ones((3, 3), bool))
     sizes = np.bincount(labels.ravel())
     boxes = ndimage.find_objects(labels)
@@ -53,7 +53,7 @@ def split_source(path, rows):
             records.append({"row": row, "column": col, "original_bounds": [x0, y0, x1, y1],
                             "components_kept": len(kept), "source_pixels": int(mask.sum())})
     return poses, {"source": path.name, "sha256": digest(path), "size": list(source.size),
-                   "alpha_threshold": 128, "grid": [6, rows], "poses": records}
+                   "alpha_threshold": alpha_threshold, "grid": [6, rows], "poses": records}
 
 def pack(poses, rows, destination):
     side = max(max(p.width, p.height) for p in poses) + 32

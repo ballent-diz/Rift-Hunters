@@ -853,6 +853,10 @@ Pyrevorn : quatre planches livrées, onze animations (66 poses), import et captu
 Voir [art/PYREVORN_SPRITES.md](art/PYREVORN_SPRITES.md). Apparence du boss à valider ; famille magma validée.
 Aucun changement de gameplay ; comportements et données restent à Claude.
 
+## Les Vernissés et Faïron (Codex)
+
+Lot art prêt à valider sur codex/vernisses-fairon. Sept monstres et Faïron, 210 poses importées et huit atlas validés sur banc Godot. [Planches et captures](art/VERNISSES_FAIRON.md).
+
 ## Sprites du chapitre 2 — Calcinés validés (Codex)
 
 Validation des sept Calcinés par le propriétaire le 22 octobre 2026. Famille magma à suivre.
