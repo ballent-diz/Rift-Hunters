@@ -488,3 +488,4 @@ remplacé (Glauquemire, Pyrevorn) n'est plus appelé dans ce chapitre.
 - **Siphon à nu** (phase 2, 50 %) : aspiration plus forte et plus longue, **souffle de saumure** qui balaie (arrêté
   par le décor), **pulsation du siphon** (trois anneaux coupés par le décor) ; aspiration → pulsation.
 - Mort : clip `death` de la feuille, abris et courant retirés.
+- Contrôle : `--boss-test --chapter=8` (bot, mode dieu), aucune erreur ; capture `docs/previews/boss-v2/saumor_appel_de_la_vanne.webp`.
