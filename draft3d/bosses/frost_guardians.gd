@@ -213,7 +213,6 @@ func _step_plates() -> void:
 	var hunter: DraftHunter = brain.enemies.hunter
 	for i: int in range(plates.size() - 1, -1, -1):
 		var plate: Dictionary = plates[i]
-		var material: StandardMaterial3D = (plate["node"] as MeshInstance3D).material_override
 		if _clock >= float(plate["closes"]):
 			(plate["node"] as Node).queue_free()
 			plates.remove_at(i)
@@ -222,7 +221,7 @@ func _step_plates() -> void:
 			continue
 		if not bool(plate["open"]):
 			plate["open"] = true
-			material.albedo_color = WATER
+			DraftCombatFx.tint(plate["node"], WATER)
 			brain.fx(&"splash", (plate["pos"] as Vector3) + Vector3.UP * 0.4, float(plate["size"]))
 		var offset: Vector3 = hunter.global_position - (plate["pos"] as Vector3)
 		if Vector2(offset.x, offset.z).length() < float(plate["size"]) and absf(offset.y) < 1.0:

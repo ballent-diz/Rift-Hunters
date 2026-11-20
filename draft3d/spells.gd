@@ -609,6 +609,7 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 		DraftSpellVfx.SLASH_CUT_PHASE)
 	if thrust:
 		var half_width: float = area_of(data)
+		DraftCombatFx.streak(run, here, dir, reach, half_width * 2.0, &"steel")
 		if drawn == null:
 			run.fx(&"arcane_beam", DraftPixelFx.DEFAULT_FAMILY, here + dir * reach * 0.5 + Vector3.UP * 0.7, reach * 0.4)
 		for foe: DraftEnemies.Foe in _level(run.enemies.near(here, reach), here):
@@ -620,6 +621,7 @@ func _slash(data: SpellData, aim: Vector3) -> bool:
 		return true
 	var whirl: bool = has_variant(data, &"whirlwind")
 	var half: float = -1.0 if whirl else cos(deg_to_rad(clampf(data.width, 0.0, 180.0)))
+	DraftCombatFx.burst(run, here, reach, &"steel", 0.32, dir, half)
 	if drawn != null:
 		pass
 	elif whirl:
@@ -651,6 +653,8 @@ func _lance(data: SpellData, aim: Vector3) -> bool:
 		"spell_range": reach_of(data) / DraftHunter.UNIT, "projectile_speed": tuning.lance_speed / DraftHunter.UNIT,
 		"half_width": area_of(data) * sqrt(_power) / DraftHunter.UNIT, "fan_angle_degrees": rad_to_deg(spread)},
 		false, 0.75)
+	DraftCombatFx.glint(run.hunter.view, Vector3.UP * 0.75, Vector2(1.9, 1.0) * minf(sqrt(_power), 1.35),
+		&"reflets", 0.28)
 	for i: int in count:
 		var angle: float = spread * (i - (count - 1) * 0.5)
 		var shot: Dictionary = run.fire_bolt(origin, dir.rotated(Vector3.UP, angle), damage, reach_of(data), 99, 0,
@@ -686,12 +690,13 @@ func _rupture(data: SpellData, aim: Vector3) -> bool:
 			"tick": param(data, "tick", 0.5), "clock": 0.0, "damage": damage * param(data, "burn", 0.15),
 			"visual": null if DraftSpellVfx.scene("rupture") != null
 				else run.fx(&"fire_ring", &"calcines", at + Vector3.UP * 0.3, radius, true)}
-		_zones.append(zone)
+		add_zone(zone, &"magma")
 	return true
 
 
 ## Détonation de Rupture ; `data` : sort dont l'animation porte la variante (null : rebond de Réaction, version de base).
 func _detonate(at: Vector3, radius: float, damage: float, data: SpellData) -> Array[DraftEnemies.Foe]:
+	DraftCombatFx.burst(run, at, radius, &"riftborn", 0.48)
 	if _anim("rupture", at, Vector3.RIGHT, data, radius, {"spell_range": radius / DraftHunter.UNIT}) == null:
 		run.fx(&"dark_explosion", DraftPixelFx.DEFAULT_FAMILY, at + Vector3.UP * 0.6, radius)
 	var foes: Array[DraftEnemies.Foe] = _level(run.enemies.near(at, radius), at)
@@ -702,7 +707,8 @@ func _detonate(at: Vector3, radius: float, damage: float, data: SpellData) -> Ar
 
 ## Zone au sol qui frappe à intervalle régulier (Brasier, Pluie d'éclats) : {at, radius, left, tick, clock, damage,
 ## visual} et, au choix, follow (suit le Chasseur) et rain (éclats qui tombent à chaque coup).
-func add_zone(zone: Dictionary) -> void:
+func add_zone(zone: Dictionary, family: StringName) -> void:
+	zone["accent"] = DraftCombatFx.ground(run, zone["at"], Vector2.ONE * float(zone["radius"]) * 2.0, family)
 	_zones.append(zone)
 
 
@@ -714,6 +720,7 @@ func _step_zones(delta: float) -> void:
 		zone["clock"] = float(zone["clock"]) + delta
 		if zone.get("follow", false):
 			zone["at"] = run.hunter.global_position
+			(zone["accent"] as Node3D).global_position = run.hunter.view.render_position() + Vector3.UP * 0.09
 			var visual: Variant = zone.get("visual")
 			if visual is DraftPixelFx and is_instance_valid(visual):
 				(visual as DraftPixelFx).place(run.hunter.global_position + Vector3.UP * 0.3)
@@ -744,6 +751,8 @@ func _leap(data: SpellData, aim: Vector3) -> bool:
 	var hunter: DraftHunter = run.hunter
 	var landing: Vector3 = _landing(aim, reach_of(data))
 	var jump: Vector3 = _flat(landing - hunter.global_position)
+	DraftCombatFx.burst(run, hunter.global_position, 0.85, &"void", 0.32,
+		Vector3.FORWARD, -1.0, DraftCombatFx.RETRACT)
 	if _anim("rift_leap", hunter.global_position, jump, data, jump.length() + 2.0,
 			{"destination_offset": Vector2(jump.length() / DraftHunter.UNIT, 0.0)}) == null:
 		run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, hunter.global_position + Vector3.UP * 0.6)
@@ -765,6 +774,7 @@ func leap_back() -> bool:
 	_leap_spell = null
 	var back: Vector3 = _flat(_return_point - run.hunter.global_position)
 	var leaped: SpellData = spell(_return_spell)
+	DraftCombatFx.burst(run, _return_point, 0.95, &"void", 0.4)
 	if _anim("rift_leap", run.hunter.global_position, back, leaped, back.length() + 2.0,
 			{"destination_offset": Vector2(back.length() / DraftHunter.UNIT, 0.0)}) == null:
 		run.fx(&"blink_out", DraftPixelFx.DEFAULT_FAMILY, run.hunter.global_position + Vector3.UP * 0.6)
@@ -784,6 +794,7 @@ func _on_landed() -> void:
 		_return_left = param(data, "window", 3.0)
 		_show_return_marker()
 	var size: float = 2.0 * (param(data, "area", 1.0) if impact else 1.0)
+	DraftCombatFx.burst(run, landing, area_of(data), &"riftborn", 0.48)
 	if DraftSpellVfx.scene("rift_leap") == null:
 		run.fx(&"ring_burst", DraftPixelFx.DEFAULT_FAMILY, landing + Vector3.UP * 0.4, size)
 	for foe: DraftEnemies.Foe in _level(run.enemies.near(landing, area_of(data)), landing):
@@ -816,6 +827,7 @@ func _parry(data: SpellData) -> bool:
 	if has_variant(data, &"long_guard"):
 		window *= param(data, "window", 1.0)
 	run.hunter.guard_left = window
+	DraftCombatFx.glint(run.hunter.view, Vector3.UP * 0.75, Vector2(2.2, 1.7), &"steel", window)
 	_parry_spell = data
 	_parry_drawn = _anim("parry", run.hunter.global_position, run.hunter.facing, data, area_of(data), {}, true, 0.3)
 	if _parry_drawn == null:
@@ -828,6 +840,7 @@ func _on_parried() -> void:
 	if data == null:
 		return
 	var here: Vector3 = run.hunter.global_position
+	DraftCombatFx.burst(run, here, area_of(data), &"steel", 0.35)
 	if _parry_drawn != null and is_instance_valid(_parry_drawn):
 		_parry_drawn.call("trigger_pulse", Vector2(40, 0), Vector2.RIGHT)
 	else:
@@ -892,6 +905,7 @@ func _aegis(data: SpellData) -> bool:
 		run.fx(&"healing_bloom", &"enlises", hunter.chest(), 1.2)
 	hunter.shield = amount
 	hunter.shield_left = duration_of(data)
+	DraftCombatFx.glint(hunter.view, Vector3.UP * 0.85, Vector2(2.3, 2.0), &"fallen", 0.5)
 	_aegis_spell = data
 	if _anim("rift_aegis", hunter.global_position, hunter.facing, data, 2.5, {"active_duration": duration_of(data)},
 			true, 0.1) == null:
@@ -910,6 +924,7 @@ func _on_shield_broken() -> void:
 		return
 	var damage: float = damage_of(data) * (param(data, "damage", 1.0) if riposte else tuning.combo_aegis_plain) * power
 	var here: Vector3 = run.hunter.global_position
+	DraftCombatFx.burst(run, here, area_of(data), &"fallen", 0.42)
 	if power > 1.0:
 		run.fx_or(&"combo_avenging_aegis", area_of(data) * 2.0, &"ring_burst",
 			DraftPixelFx.DEFAULT_FAMILY, here + Vector3.UP * 0.4, area_of(data))

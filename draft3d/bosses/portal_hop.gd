@@ -55,7 +55,7 @@ func _nearest(at: Vector3, skip: int) -> int:
 
 func _light(index: int, alpha: float) -> void:
 	var disc: MeshInstance3D = portals[index]["disc"]
-	(disc.material_override as StandardMaterial3D).albedo_color = Color(PORTAL, alpha)
+	DraftCombatFx.tint(disc, Color(PORTAL, alpha))
 
 
 func diving() -> bool:

@@ -53,8 +53,7 @@ func step(delta: float) -> void:
 	_clock += delta
 	if circle.is_empty():
 		return
-	var material: StandardMaterial3D = _node.material_override
-	material.albedo_color = Color(FIRE, 0.85 if active() else 0.35)
+	DraftCombatFx.tint(_node, Color(FIRE, 1.0 if active() else 0.5))
 	if _clock >= float(circle["until"]):
 		_clear()
 		return
@@ -67,23 +66,8 @@ func step(delta: float) -> void:
 
 
 func _ring(center: Vector3, radius: float) -> MeshInstance3D:
-	var node := MeshInstance3D.new()
-	var mesh := TorusMesh.new()
-	mesh.inner_radius = radius - 0.25
-	mesh.outer_radius = radius
-	mesh.rings = 64
-	mesh.ring_segments = 4
-	node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = Color(FIRE, 0.35)
-	node.material_override = material
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	brain.enemies.add_child(node)
-	node.global_position = center + Vector3.UP * 0.1
-	node.scale = Vector3(1, 0.3, 1)
-	return node
+	return DraftCombatFx.ground(brain.enemies, center, Vector2.ONE * radius * 2.0,
+		&"calcines", DraftCombatFx.RIM, DraftCombatFx.HOLD, DraftCombatFx.WARNING, 0.5)
 
 
 func _clear() -> void:

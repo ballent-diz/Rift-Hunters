@@ -29,8 +29,7 @@ func setup(p_brain: DraftBossBrain) -> void:
 	veil_mult = float(params.get("veil_mult", veil_mult))
 	regrow = float(params.get("regrow", regrow))
 	_cloud = make_orb(Color(SPORES, 1.0), brain.foe.radius + 0.6)
-	((_cloud.material_override) as StandardMaterial3D).transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	((_cloud.material_override) as StandardMaterial3D).albedo_color = Color(SPORES, 0.25)
+	DraftCombatFx.tint(_cloud, Color(SPORES, 0.25))
 	for k: int in 3:
 		var angle: float = TAU * k / 3.0 + brain.enemies.rng.randf()
 		var at: Vector3 = brain.enemies.level.closest(brain.foe.pos + Vector3(cos(angle), 0, sin(angle)) * CRYSTAL_DISTANCE)

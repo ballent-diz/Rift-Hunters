@@ -376,7 +376,10 @@ func _check_phase() -> void:
 	foe.view.play_action(_first_clip([p.transition_animation, &"transform", &"roar", &"attack"]), _transition)
 	painted(["transform", "phase_transition"], foe.pos, Vector3.RIGHT)
 	# Onde de transition : repousse le Chasseur qui colle le boss ; une Ruée la traverse.
+	var previous_family: StringName = enemies.hazards.family
+	enemies.hazards.family = combat_family()
 	enemies.hazards.ring(foe.pos, 9.0, 14.0, _transition * 0.5, damage(10.0), fx_at(&"ring_burst", 2.5))
+	enemies.hazards.family = previous_family
 	fx(&"ring_charge", foe.pos + Vector3.UP * 0.3, 2.4)
 	Audio.play_sfx(&"boss_roar")
 	for mechanic: DraftBossMechanic in mechanics:
@@ -466,6 +469,7 @@ func _perform(pattern: BossPatternData, to_hunter: Vector3, distance: float) -> 
 		var clip: StringName = _pattern_clip(pattern, gesture)
 		_busy = call("_gesture_" + String(gesture), pattern, aim)
 		foe.view.play_action(clip, maxf(_busy, 0.5))
+	_gesture_glint(pattern, gesture)
 	for mechanic: DraftBossMechanic in mechanics:
 		mechanic.after(pattern.kind)
 	# Enchaînements : plus fréquents et plus longs à chaque phase.
@@ -497,9 +501,23 @@ func _close_in(to_hunter: Vector3, distance: float, climb: float) -> bool:
 	else:
 		probe.kind = &"blink"
 		_busy = _gesture_blink(probe, aim)
+	_gesture_glint(probe, GESTURES[probe.kind])
 	gestures_played[GESTURES[probe.kind]] = int(gestures_played.get(GESTURES[probe.kind], 0)) + 1
 	_next_at = _clock + _busy + 0.5
 	return true
+
+
+## L'accent de geste reste sur le sprite, y compris pour les gardes, invocations et mouvements propres
+## qui n'emploient pas tous une zone au sol. Les dimensions appartiennent à la silhouette et non à l'attaque.
+func _gesture_glint(pattern: BossPatternData, gesture: StringName) -> void:
+	if not foe.view.is_inside_tree():
+		return
+	var size: float = clampf(foe.radius * 1.7, 1.3, 4.6)
+	var wide: bool = gesture in [&"claw", &"sweep", &"charge", &"breath"]
+	var raised: bool = gesture in [&"summon", &"beam", &"sweep_beam", &"rain"]
+	var geometry := Vector2(size * (1.25 if wide else 0.9), size * (0.95 if raised else 0.58))
+	DraftCombatFx.glint(foe.view, Vector3.UP * size * (0.68 if raised else 0.38), geometry,
+		combat_family(), clampf(pattern.telegraph * 0.65, 0.18, 0.58), 0.82)
 
 
 func _gesture_claw(pattern: BossPatternData, aim: Vector3) -> float:
@@ -580,7 +598,8 @@ func _gesture_summon(pattern: BossPatternData, _aim: Vector3) -> float:
 
 
 func _gesture_beam(pattern: BossPatternData, aim: Vector3) -> float:
-	enemies.hazards.line(foe.pos, aim, 24.0, 2.2, pattern.telegraph + 0.3, damage(pattern.damage))
+	enemies.hazards.line(foe.pos, aim, 24.0, 2.2, pattern.telegraph + 0.3, damage(pattern.damage),
+		false, 0.0, clampf(foe.radius, 1.1, 2.7))
 	return pattern.telegraph + 0.7
 
 
@@ -595,7 +614,7 @@ func _gesture_sweep_beam(pattern: BossPatternData, aim: Vector3) -> float:
 	for i: int in steps:
 		var direction: Vector3 = aim.rotated(Vector3.UP, side * (-arc * 0.5 + arc * i / (steps - 1)))
 		enemies.hazards.line(foe.pos, direction, length, 1.8, pattern.telegraph + sweep * i / (steps - 1),
-			damage(pattern.damage * 0.8), true)
+			damage(pattern.damage * 0.8), true, minf(pattern.telegraph, 0.48), 3.2)
 	return pattern.telegraph + sweep + 0.3
 
 
@@ -860,6 +879,16 @@ func die() -> float:
 
 func family() -> StringName:
 	return DraftPixelFx.boss_family(data)
+
+
+## Matière propre à chaque forme de l'Abyssarque, sans changer les planches PixelFX historiques.
+func combat_family() -> StringName:
+	if data.id == &"abyssarch":
+		const FORMS := [&"void", &"enlises", &"magma", &"reflets", &"givres", &"riftborn"]
+		return FORMS[clampi(phase, 0, FORMS.size() - 1)]
+	if data.id == &"glauquemire":
+		return &"reflets" if phase == 1 else &"enlises"
+	return family()
 
 
 func damage(amount: float) -> float:

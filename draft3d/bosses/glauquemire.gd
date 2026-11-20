@@ -278,7 +278,7 @@ func _beam(pattern: BossPatternData) -> float:
 		"damage": brain.damage(pattern.damage), "ratio": float(params.get("return_ratio", 0.04)),
 		"stun": float(params.get("stun", 3.0)), "nodes": nodes, "reflected": false}
 	for mirror: Dictionary in mirrors:
-		((mirror["zone"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color = Color(CRYSTAL, 0.18)
+		DraftCombatFx.tint(mirror["zone"], Color(CRYSTAL, 0.45))
 	brain.play_clip([&"prism_beam", &"attack"], pattern.telegraph + sweep)
 	return pattern.telegraph + sweep + 0.3
 
@@ -311,7 +311,12 @@ func _step_beam(delta: float) -> void:
 		var node: MeshInstance3D = (beam["nodes"] as Array)[b]
 		node.global_position = origin + direction * length * 0.5
 		node.look_at(origin + direction * length, Vector3.UP)
-		(node.mesh as BoxMesh).size = Vector3(float(beam["width"]) if beaming() else 0.15, 0.2, length)
+		var size := Vector2(float(beam["width"]) if beaming() else 0.15, maxf(length, 0.01))
+		(node.mesh as PlaneMesh).size = size
+		var look := node.material_override as ShaderMaterial
+		look.set_shader_parameter("extent", size)
+		look.set_shader_parameter("progress", 0.25 if beaming() else 0.0)
+		look.set_shader_parameter("beat", DraftCombatFx.IMPACT if beaming() else DraftCombatFx.WINDUP)
 		if not beaming():
 			continue
 		# Le Chasseur dans le rayon, avant l'obstacle : touché.
@@ -350,22 +355,14 @@ func _end_beam() -> void:
 	for node: MeshInstance3D in beam.get("nodes", []):
 		node.queue_free()
 	for mirror: Dictionary in mirrors:
-		((mirror["zone"] as MeshInstance3D).material_override as StandardMaterial3D).albedo_color = Color(CRYSTAL, 0.0)
+		DraftCombatFx.tint(mirror["zone"], Color(CRYSTAL, 0.0))
 	beam = {}
 
 
 func _beam_node() -> MeshInstance3D:
-	var node := MeshInstance3D.new()
-	var mesh := BoxMesh.new()
-	mesh.size = Vector3(0.15, 0.2, 1.0)
-	node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = BEAM
-	node.material_override = material
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	brain.enemies.add_child(node)
+	var node: MeshInstance3D = DraftCombatFx.ground(brain.enemies, Vector3.ZERO, Vector2(0.15, 1.0),
+		&"reflets", DraftCombatFx.LANE, DraftCombatFx.WINDUP, DraftCombatFx.WARNING)
+	DraftCombatFx.tint(node, Color(BEAM, 1.0))
 	return node
 
 

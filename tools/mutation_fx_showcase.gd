@@ -267,9 +267,9 @@ func _catalog() -> Dictionary:
 	return result
 
 
-## Effets visibles : sprites d'effets (hors Chasseur) et effets peints des sorts historiques.
+## Effets visibles : planches, scènes peintes et couches de combat 3D.
 func _visible_fx() -> int:
-	var count: int = run.spells.vfx.playing.size()
+	var count: int = run.spells.vfx.playing.size() + get_tree().get_node_count_in_group(DraftCombatFx.GROUP)
 	for child: Node in run.get_children():
 		if child is SpriteBase3D and not child.is_queued_for_deletion() and child != run.hunter:
 			count += 1

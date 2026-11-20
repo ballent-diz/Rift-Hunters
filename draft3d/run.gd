@@ -582,6 +582,9 @@ func fire_bolt(origin: Vector3, direction: Vector3, damage: float, reach: float,
 	if look == &"":
 		add_child(visual)
 	visual.flip_h = direction.dot(camera.global_basis.x) < 0.0
+	if look == &"arcane_orb":
+		var color: StringName = &"steel" if split >= 0 else &"reflets"
+		DraftCombatFx.glint(visual, Vector3.ZERO, Vector2(0.9, 0.46), color, 0.0, 0.8)
 	var shot := {"at": origin, "dir": direction, "left": reach, "damage": damage, "pierce": pierce, "split": split,
 		"hit": [], "visual": visual, "radius": radius, "speed": speed}
 	bolts.append(shot)
@@ -606,6 +609,8 @@ func _step_bolts(delta: float) -> void:
 			if (shot["hit"] as Array).has(foe) or absf(_aim_point(foe).y - to.y) > foe.radius + 0.6:
 				continue
 			(shot["hit"] as Array).append(foe)
+			if shot.get("lance", false):
+				DraftCombatFx.glint(foe.view, Vector3.UP * 0.68, Vector2(1.6, 1.15), &"reflets", 0.27)
 			combos.on_bolt_hit(shot, foe)
 			fx(&"hit", family_of(foe), to)
 			enemies.hit(foe, float(shot["damage"]), (shot["dir"] as Vector3) * balance.bolt.knockback * DraftHunter.UNIT * 3.0)
