@@ -55,6 +55,7 @@ var shield_left: float = 0.0
 ## Dernière direction de déplacement (visée des sorts au clavier seul).
 var facing := Vector3(0, 0, 1)
 var _dash_direction := Vector3.ZERO
+var _dash_fx_left: float = 0.0
 var _leap_from := Vector3.ZERO
 var _leap_to := Vector3.ZERO
 var _leap_left: float = 0.0
@@ -240,6 +241,7 @@ func _physics_process(delta: float) -> void:
 		dash_cooldown_left = dash_cooldown()
 		invulnerable = maxf(invulnerable, balance.dash_iframes)
 		_dash_direction = direction
+		_dash_fx_left = 0.0
 		view.play_action(&"dash", balance.dash_duration)
 		Audio.play_sfx(&"dash")
 		stuck_left = 0.0
@@ -257,7 +259,15 @@ func _physics_process(delta: float) -> void:
 	velocity.x = horizontal.x
 	velocity.z = horizontal.z
 	velocity.y = -0.15 if is_on_floor() else velocity.y - GRAVITY * delta
+	var before: Vector3 = global_position
 	move_and_slide()
+	if dash_time > 0.0:
+		_dash_fx_left -= delta
+		var travel := Vector3(global_position.x - before.x, 0.0, global_position.z - before.z)
+		if _dash_fx_left <= 0.0 and travel.length_squared() > 0.005:
+			_dash_fx_left = 0.055
+			DraftCombatFx.streak(get_parent(), before, travel.normalized(), travel.length() + 0.65, 0.62,
+				&"steel", 0.23)
 	if global_position.y < -8.0:
 		global_position = respawn
 		reset_motion()

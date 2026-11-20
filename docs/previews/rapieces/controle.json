@@ -1,0 +1,59 @@
+{
+  "monstres": 7,
+  "planches": 10,
+  "poses": 144,
+  "validation_godot": [
+    {
+      "id": "enemy.biting_bobbin",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.patch_mender",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.veil_moth",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.split_puppet",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.war_shuttle",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.shroud_spinner",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.tapestry_ram",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "zoom_capture_2d": 1.3333,
+  "sha256": {
+    "assets/sprites/enemies/biting_bobbin/biting_bobbin_sheet.png": "45354efb631649a5ab6d08c32908fa88c02ceb607407d811b98f78f4e6565172",
+    "assets/ui/icons/enemies/biting_bobbin.png": "1fa69d8c3c9a26e416b45ae780d026b2c9d9382aa6bf212b47f1793486e0d83d",
+    "assets/sprites/enemies/patch_mender/patch_mender_sheet.png": "d8e1d407958eb9c2ac74b1322b9430e72c181a7fb8bea9c15c8069540b51cb48",
+    "assets/ui/icons/enemies/patch_mender.png": "fe85d385995e533775b3ad047876ee6d4062fc92b853237660a26f6196e03838",
+    "assets/sprites/enemies/veil_moth/veil_moth_sheet.png": "85a03c90d4614c629afc4d3108ddecc495d8f3c7c6b445971de2a52697f4dae0",
+    "assets/ui/icons/enemies/veil_moth.png": "a05d0671f97457bc7dc5543a28fa2ba4e1b96399a68ed058786b57b2c42207e4",
+    "assets/sprites/enemies/split_puppet/split_puppet_sheet.png": "a05bce7cb3ff295a9930984013154d0e2307366d55f2a134497254b6b0a0d935",
+    "assets/ui/icons/enemies/split_puppet.png": "2bfe42d71e9d2c4be2486d212edaf4c6cf9666f5d94d6f2b26f8049e72c629c5",
+    "assets/sprites/enemies/war_shuttle/war_shuttle_sheet.png": "8a198f591eed5e55293f0c9cc4b5d2de68f4b2d7abe23f9bf795d535899225cd",
+    "assets/ui/icons/enemies/war_shuttle.png": "1ced94d445156f01936c674d9355aa92c2886793a1aebf66e16f861686484853",
+    "assets/sprites/enemies/shroud_spinner/shroud_spinner_sheet.png": "7deac1652745897395019b5207826721fd838f75fed5db8d942aece906fa1642",
+    "assets/ui/icons/enemies/shroud_spinner.png": "b7a9c332ff6158526ec046a91e49f8f5f8389c4bf8617eba0b7aa96a9dcc3079",
+    "assets/sprites/enemies/tapestry_ram/tapestry_ram_sheet.png": "fbf7665a02e084470b27378b214e66489a38051f91628256cd8495f9c0d850f5",
+    "assets/ui/icons/enemies/tapestry_ram.png": "c11059038aaa3e205b95bdfabff3e63c2662b4b5f5425bf605756833f2cd4415"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "monstres": 7,
+  "planches": 10,
+  "poses": 144,
+  "validation_godot": [
+    {
+      "id": "enemy.hopping_shard",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.faience_pilgrim",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.floating_rosette",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.cracked_pourer",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.glaze_judge",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.hollow_potter",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.mosaic_crawler",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "zoom_capture_2d": 1.3333,
+  "sha256": {
+    "assets/sprites/enemies/hopping_shard/hopping_shard_sheet.png": "429a2affdb5c93bf48d7594d8e396ac3561275b1136f1c96a9921d9b66c3a31d",
+    "assets/ui/icons/enemies/hopping_shard.png": "a4b643a0f1d56495f76f518d7a8fb0f6ab49d9780f8845dfb012705161753829",
+    "assets/sprites/enemies/faience_pilgrim/faience_pilgrim_sheet.png": "ec3bec860367df383033799c3103dbc578448e96e5431c733aaab51a8e91daaf",
+    "assets/ui/icons/enemies/faience_pilgrim.png": "a0d24164d6948127fb3596aa9e47cc743f5c6b6ce54c828bb0ce8d10b69c931e",
+    "assets/sprites/enemies/floating_rosette/floating_rosette_sheet.png": "a2279295209a936ade21cf67fb65791329f38ff9978a86910f20929000cc87db",
+    "assets/ui/icons/enemies/floating_rosette.png": "96184a3dbfd2535694da4797c7916d6d30607a8b1311ac7d083cb42dbbb53fda",
+    "assets/sprites/enemies/cracked_pourer/cracked_pourer_sheet.png": "dc96a9d1a8182e848238c99942330314300c5e7aff46552b2fd3be2a07c02d36",
+    "assets/ui/icons/enemies/cracked_pourer.png": "92bae03428a7d07042a034a58c0a6007cb4e91b9cdb5a5b496262959334b2ec3",
+    "assets/sprites/enemies/glaze_judge/glaze_judge_sheet.png": "1307f849a81983b7d9b6c5a4a50079189e527a042a0e1875dd218f9e8aa98625",
+    "assets/ui/icons/enemies/glaze_judge.png": "9979f42910bf6abf4296aeb9bcfef1d7eb97122d5956438ba488cb3b04aa829a",
+    "assets/sprites/enemies/hollow_potter/hollow_potter_sheet.png": "b7c90f75e63568be3a9866955aadb6485b86743fc01e0465ff10e471cf9edff7",
+    "assets/ui/icons/enemies/hollow_potter.png": "c63422c5b06fc1491eb8dc4932819aa9b4f288e14b6c8397e4150b7f93751c1b",
+    "assets/sprites/enemies/mosaic_crawler/mosaic_crawler_sheet.png": "0a808c8d798839eb2cacb0e8b40ffed6289fc98d6a275b25acb8b7e627001699",
+    "assets/ui/icons/enemies/mosaic_crawler.png": "c6ff08e5d5e541f908f6fb7cdb5f3b49911d62fac820c364d88669cd8c8c3665"
+  },
+  "test_import_pipeline": "OK"
+}

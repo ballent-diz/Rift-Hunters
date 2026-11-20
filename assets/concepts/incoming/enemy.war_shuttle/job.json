@@ -1,0 +1,96 @@
+{
+  "visual_id": "enemy.war_shuttle",
+  "cell": [
+    96,
+    80
+  ],
+  "anchor": [
+    48,
+    70
+  ],
+  "scale": 0.5,
+  "target_height": 48,
+  "status": "final",
+  "background": "alpha",
+  "colors": 32,
+  "outline": false,
+  "hover": 0,
+  "preview_zoom": 2,
+  "anchor_mode": "feet",
+  "animations": [
+    {
+      "name": "move",
+      "source": "planche_A.webp",
+      "layout": "grid",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 10,
+      "loop": true,
+      "source_scale": 1.0
+    },
+    {
+      "name": "attack",
+      "source": "planche_A.webp",
+      "layout": "grid",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 1.0
+    },
+    {
+      "name": "death",
+      "source": "planche_A.webp",
+      "layout": "grid",
+      "grid": [
+        6,
+        3
+      ],
+      "row": 2,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 1.0
+    },
+    {
+      "name": "braced_shuttle",
+      "source": "planche_B.webp",
+      "layout": "grid",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 0,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 0.7338403
+    },
+    {
+      "name": "loom_strike",
+      "source": "planche_B.webp",
+      "layout": "grid",
+      "grid": [
+        6,
+        2
+      ],
+      "row": 1,
+      "frames": 6,
+      "fps": 12,
+      "loop": false,
+      "source_scale": 0.7338403
+    }
+  ],
+  "aliases": {
+    "idle": "move"
+  },
+  "family": "Les Rapiécés"
+}

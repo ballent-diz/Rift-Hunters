@@ -85,21 +85,9 @@ func make_block(at: Vector3, size: Vector3, color: Color) -> StaticBody3D:
 
 ## Disque plat au sol (flaque, zone), sans ombre.
 func make_disc(at: Vector3, radius: float, color: Color) -> MeshInstance3D:
-	var node := MeshInstance3D.new()
-	var mesh := CylinderMesh.new()
-	mesh.top_radius = radius
-	mesh.bottom_radius = radius
-	mesh.height = 0.04
-	mesh.radial_segments = 32
-	node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	material.albedo_color = color
-	node.material_override = material
-	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	brain.enemies.add_child(node)
-	node.global_position = at + Vector3.UP * 0.06
+	var node: MeshInstance3D = DraftCombatFx.ground(brain.enemies, at, Vector2.ONE * radius * 2.0,
+		brain.combat_family(), DraftCombatFx.DISC, DraftCombatFx.HOLD, DraftCombatFx.WARNING)
+	DraftCombatFx.tint(node, color)
 	return node
 
 
@@ -111,12 +99,9 @@ func make_orb(color: Color, radius: float) -> MeshInstance3D:
 	mesh.radial_segments = 12
 	mesh.rings = 6
 	node.mesh = mesh
-	var material := StandardMaterial3D.new()
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	material.albedo_color = color
-	material.emission_enabled = true
-	material.emission = color
-	node.material_override = material
+	node.material_override = DraftCombatFx.material(Vector2.ONE * radius * 2.0, DraftCombatFx.ORB,
+		brain.combat_family(), DraftCombatFx.HOLD, DraftCombatFx.CONTACT)
+	DraftCombatFx.tint(node, color)
 	node.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	brain.enemies.add_child(node)
 	return node

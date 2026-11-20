@@ -1,0 +1,62 @@
+{
+  "monstres": 7,
+  "planches_sources": 10,
+  "poses_peintes": 144,
+  "godot": "4.3",
+  "validation": [
+    {
+      "id": "enemy.salt_scuttler",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.rope_drowned",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.brine_skate",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.salt_siphon",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.floodgate_keeper",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.brine_choir",
+      "messages": [],
+      "status": "OK"
+    },
+    {
+      "id": "enemy.salt_dredger",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "capture_zoom_2d": 1.3333,
+  "travail_art_uniquement": true,
+  "sha256": {
+    "assets/sprites/enemies/salt_scuttler/salt_scuttler_sheet.png": "39bffcf22ba07aaeea376188503a1315e9731f60033b3933bf49c79677347db3",
+    "assets/ui/icons/enemies/salt_scuttler.png": "080599531e8941ac1ea4546454fe2be0190eb89c6c3d2b968ea8c89bbfbe401c",
+    "assets/sprites/enemies/rope_drowned/rope_drowned_sheet.png": "ec700937c2e334a53ddb34ae1d55990b4181b666b78d50c053d8d47e15c3233f",
+    "assets/ui/icons/enemies/rope_drowned.png": "f28b02e93e4305ab8ddbeae17ef31d0ff4e00936950f37494363b79c5ce7c508",
+    "assets/sprites/enemies/brine_skate/brine_skate_sheet.png": "fdf09b84ce06fea7126f940a9b009aab5cb9c40dd8e9f620c8a0bf00a20bfb10",
+    "assets/ui/icons/enemies/brine_skate.png": "6b617e82cd07eb65572b3593fc7ec49beb074ee4845cc29f119ea2db09f517f3",
+    "assets/sprites/enemies/salt_siphon/salt_siphon_sheet.png": "595b309ea2d19b46c34f6113266c64eb0a591b75e1bd3615d1b98aaa87dceda2",
+    "assets/ui/icons/enemies/salt_siphon.png": "d0c9412b8f403d681cbd9165c6b4b9cc0e9a8c5fd27e27a8ee093abbbf78fdcf",
+    "assets/sprites/enemies/floodgate_keeper/floodgate_keeper_sheet.png": "d2bd086634efe6b624a2e31c7d8f686acfa6912f9d73d595aa9ab521d44d29fe",
+    "assets/ui/icons/enemies/floodgate_keeper.png": "476baa42da9c449f7ae84a93683ab2bb4754e34ecb7ddb1da47ea7b592c659f0",
+    "assets/sprites/enemies/brine_choir/brine_choir_sheet.png": "4dc48b3c2ad41a0808babf481a396af25236e50de4d30f4d0a3b5fa1dfa32c3f",
+    "assets/ui/icons/enemies/brine_choir.png": "26bfa0fb45134f18235c1aebd502fab5067207e2611c67bfd887b4bc3b909138",
+    "assets/sprites/enemies/salt_dredger/salt_dredger_sheet.png": "713783bbf0eb9903af3ebd21cee9f260c0f79302a6729879271a428802e2ba7b",
+    "assets/ui/icons/enemies/salt_dredger.png": "343a8fb1b22d7e65c847473c2daeeace429a32b802752ca83cbc7378d47d924e"
+  },
+  "reimport_identique": true
+}

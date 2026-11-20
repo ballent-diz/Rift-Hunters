@@ -1,0 +1,19 @@
+{
+  "boss": "boss.fairon",
+  "planches": 4,
+  "poses": 66,
+  "godot": "4.3",
+  "validation": [
+    {
+      "id": "boss.fairon",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "zoom_capture_2d": 1.3333,
+  "sha256": {
+    "assets/sprites/bosses/fairon/fairon_sheet.png": "2618544c646fa1098eb5a5efc1f91faa6184dd42bb0d2be8aa291babc36518e7",
+    "assets/ui/icons/bosses/fairon.png": "b641536a90b7c4d4eb905294daa2b893171faba9677accd0fbf429af3e750d56"
+  },
+  "test_import_pipeline": "OK"
+}

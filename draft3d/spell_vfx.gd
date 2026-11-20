@@ -77,7 +77,7 @@ func spawn(effect_id: String, at: Vector3, extent: float, start: Callable, setup
 	view.disable_3d = true
 	view.size = Vector2i(pixels, pixels)
 	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
-	view.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_LINEAR
+	view.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
 	view.canvas_transform = Transform2D(0.0, Vector2(scale, scale), 0.0, Vector2(pixels, pixels) * 0.5)
 	run.add_child(view)
 	var node: Node2D = packed.instantiate()
@@ -94,7 +94,8 @@ func spawn(effect_id: String, at: Vector3, extent: float, start: Callable, setup
 	material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 	material.cull_mode = BaseMaterial3D.CULL_DISABLED
 	material.albedo_texture = view.get_texture()
-	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR
+	material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+	material.render_priority = DraftCombatFx.PLAYER
 	quad.material = material
 	var plane := MeshInstance3D.new()
 	plane.mesh = quad

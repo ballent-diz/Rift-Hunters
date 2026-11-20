@@ -1,5 +1,21 @@
 # Rift Hunters — feuille de route
 
+## Les Saumâtres (Codex, 19 novembre 2026)
+
+Lot art prêt à valider sur codex/famille-salines. Sept monstres pour les salines englouties, dix planches et 144 poses importées. Banc Godot 7/7. [Visuels et techniques proposées](art/SAUMATRES.md).
+
+## Saumor, Dévoreur des Salines (Codex)
+
+Lot art prêt à valider sur codex/saumor-devoreur. Deux phases et 66 poses du Dévoreur des Salines, atlas validé dans Godot. [Planches et captures](art/SAUMOR.md).
+
+
+## Effets du joueur et des boss en 3D (Codex, 19 novembre 2026)
+
+- Les 15 sorts, leurs mutations, les combos et les passifs s'appuient sur les planches existantes, complétées par des arcs, trajectoires, zones persistantes et éclats de contact.
+- Les annonces des Dévoreurs gagnent un bord contrasté et une progression jusqu'à la frappe. Le balayage de l'Abyssarque se lit de piste en piste et son rayon en volume est arrêté par le décor. Chaque forme prend la matière de sa phase.
+- Les nouveaux matériaux vivent dans `draft3d/combat_fx.gd` et `draft3d/render/combat_fx.gdshader`. Les tests de jeu continuent de fournir les timings et les emprises. Le balayage des mutations compte aussi ces maillages pour vérifier leur disparition.
+
+
 ## Boss 3D : lisibilité et tailles (Claude, session « Boss », 18 novembre 2026)
 
 - Plus aucun bandeau d'explication de mécanique sur les boss (le joueur découvre seul) ; annonce d'arrivée et noms
@@ -575,6 +591,10 @@ Captures sur la carte 22 avec Chasseur et Écho, Statue sur S01 carte 24 ; huit 
 Sources, jobs et guide Claude : `docs/art/ENFANTS_DE_LA_FAILLE.md`. Aucun changement de src/ ou data/.
 Ensuite : Abyssarque, Dévoreur final, sept planches A à G demandées ; génération après livraison de ce lot.
 
+## Les Rapiécés (Codex)
+
+Lot art prêt à valider sur codex/famille-rapieces. Sept monstres, dix planches et 144 poses importées. Banc Godot 7/7. [Planches et techniques](art/RAPIECES.md).
+
 ## Sprites chapitre 5 — Les Déchus : livrés (Codex, 8 novembre 2026)
 
 Sept monstres de la Cité de la Faille, dix planches et 144 poses : trois normaux, un arbalétrier
@@ -823,6 +843,10 @@ propriétaire. Quatre groupes de rochers ajoutés à sa demande, douze positions
 Sprite peint du bulbe importé (trois animations, 18 poses), GIF et contrôle ciblé Godot 4.3 réussis.
 Les régions et collisions restent à faire. Aucun changement dans `src/`, `data/` ou les collisions.
 
+## L'Ourdisseur, Dévoreur des Linceuls (Codex)
+
+Lot art prêt à valider sur codex/ourdisseur-devoreur. Deux phases et 66 poses du Dévoreur des Rapiécés, atlas validé dans Godot. [Planches et captures](art/OURDISSEUR.md).
+
 ## Sprites des Enfants du magma et Pyrevorn — livré pour revue (Codex)
 
 Branche `codex/monstres-magma`, depuis main à jour. Les sept Calcinés (PR #55), puis les sept
@@ -834,6 +858,10 @@ du pipeline réussis. Voir [art/ENFANTS_DU_MAGMA.md](art/ENFANTS_DU_MAGMA.md).
 Pyrevorn : quatre planches livrées, onze animations (66 poses), import et captures Godot réalisés.
 Voir [art/PYREVORN_SPRITES.md](art/PYREVORN_SPRITES.md). Apparence du boss à valider ; famille magma validée.
 Aucun changement de gameplay ; comportements et données restent à Claude.
+
+## Les Vernissés et Faïron (Codex)
+
+Lot art prêt à valider sur codex/vernisses-fairon. Sept monstres et Faïron, 210 poses importées et huit atlas validés sur banc Godot. [Planches et captures](art/VERNISSES_FAIRON.md).
 
 ## Sprites du chapitre 2 — Calcinés validés (Codex)
 

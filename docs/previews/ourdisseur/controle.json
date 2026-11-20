@@ -1,0 +1,18 @@
+{
+  "boss": "boss.loom_devourer",
+  "planches": 4,
+  "poses": 66,
+  "godot": "4.3",
+  "validation": [
+    {
+      "id": "boss.loom_devourer",
+      "messages": [],
+      "status": "OK"
+    }
+  ],
+  "zoom_capture_2d": 1.3333,
+  "sha256": {
+    "assets/sprites/bosses/loom_devourer/loom_devourer_sheet.png": "a3eaacbf0c4cadf9e4fedb60fa41531584d76860878e6553a5a39b994657a218",
+    "assets/ui/icons/bosses/loom_devourer.png": "7e4dc0e9b5c63a74e5e773e9a3bed89990dc75b0d35e2ae5da94934082500974"
+  }
+}

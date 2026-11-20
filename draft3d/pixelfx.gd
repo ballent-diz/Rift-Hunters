@@ -105,6 +105,12 @@ static func dedicated(parent: Node, effect: StringName, width: float, at: Vector
 	var camera: Camera3D = parent.get("camera") as Camera3D if "camera" in parent else null
 	node._clear_ground(camera if camera != null else node.get_viewport().get_camera_3d())
 	node.place(at)
+	if DraftCombatFx.ACCENTS.has(effect):
+		var duration: float = 0.0 if looping else minf(0.44, float((node._sheet["rects"] as Array).size())
+			/ float(node._sheet["fps"]))
+		var size: Rect2 = (node._sheet["rects"] as Array[Rect2])[0]
+		DraftCombatFx.glint(node, Vector3.ZERO, size.size * node.pixel_size * 0.86,
+			DraftCombatFx.ACCENTS[effect], duration, 0.58 if looping else 0.76)
 	return node
 
 
