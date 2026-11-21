@@ -2568,3 +2568,21 @@ BOSS_LOOM_DEVOURER_NAME,L'Ourdisseur,The Warp-Weaver
 BOSS_LOOM_DEVOURER_TITLE,Dévoreur des Linceuls,Devourer of Shrouds
 BOSS_LOOM_DEVOURER_PHASE1,Métier tendu,Taut Loom
 BOSS_LOOM_DEVOURER_PHASE2,Trame inversée,Reversed Weft
+ENEMY_HOPPING_SHARD_NAME,Tesson sauteur,Hopping Shard
+ENEMY_HOPPING_SHARD_DESC,Une tasse brisée sur quatre pattes qui mord au ras du sol.,A broken cup on four legs that bites low.
+ENEMY_FAIENCE_PILGRIM_NAME,Pèlerin de faïence,Faience Pilgrim
+ENEMY_FAIENCE_PILGRIM_DESC,"Silhouette voûtée au long masque, qui balaie d'un éclat tenu en main.","A hunched, long-masked figure that sweeps with a hand-held shard."
+ENEMY_FLOATING_ROSETTE_NAME,Rosace flottante,Floating Rosette
+ENEMY_FLOATING_ROSETTE_DESC,Ses ailettes de porcelaine se replient avant chaque tir.,Its porcelain vanes fold before each shot.
+ENEMY_CRACKED_POURER_NAME,Verseur fendu,Cracked Pourer
+ENEMY_CRACKED_POURER_DESC,Il crache un jet de pigment qui laisse une flaque collante.,It spits a jet of pigment that leaves a sticky puddle.
+ENEMY_GLAZE_JUDGE_NAME,Juge de glaçure,Glaze Judge
+ENEMY_GLAZE_JUDGE_DESC,"Il dresse un barrage de carreaux, puis abat son verdict.","It raises a barrier of tiles, then brings down its verdict."
+ENEMY_HOLLOW_POTTER_NAME,Potière creuse,Hollow Potter
+ENEMY_HOLLOW_POTTER_DESC,Elle assemble des Tessons d'argile et lance des éclats en cloche.,It assembles clay Shards and lobs sherds.
+ENEMY_MOSAIC_CRAWLER_NAME,Mille-patte de mosaïque,Mosaic Crawler
+ENEMY_MOSAIC_CRAWLER_DESC,Il s'enroule avant de charger et soulève une crête de carreaux.,It curls up before charging and raises a ridge of tiles.
+BOSS_FAIRON_NAME,Faïron,Fairon
+BOSS_FAIRON_TITLE,Dévoreur des Émaux,Devourer of Glazes
+BOSS_FAIRON_PHASE1,Coque de porcelaine,Porcelain Shell
+BOSS_FAIRON_PHASE2,Four ouvert,Open Kiln

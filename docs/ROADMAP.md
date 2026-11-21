@@ -20,9 +20,14 @@ Détails : `docs/design/BOSS_V2.md`, section 9. Une PR par lot.
   mode test ; Saumor et l'Appel de la vanne (`draft3d/bosses/saumor.gd`). Tests : `test_draft3d_families.gd`,
   `test_boss3d.gd` (Saumor, chapitres v2, `--boss`).
 - **Lot 1 fusionné** (PR #239, CI verte).
+- **Lot 2 fusionné** (PR #241, CI verte).
 - **Lot 2, Rapiécés + l'Ourdisseur** : sept Rapiécés (coup de pied qui repousse, fil qui tire, linceul), l'Ourdisseur
   et le Barrage de chaîne (fils accrochés au décor ou à des montants posés, Trame inversée en phase 2)
   (`draft3d/bosses/loom_devourer.gd`).
+- **Lot 3, Vernissés + Faïron** : sept Vernissés (flaque de pigment, barrage de carreaux, éclats en cloche, crête),
+  Faïron et le Choc d'émail (bandes glacées qui se fendent dans l'ordre de marquage, ordre mêlé au four ouvert)
+  (`draft3d/bosses/fairon.gd`).
+- **Reste** : le Défilé Hurlant (ch. 7) garde le bestiaire et le Dévoreur empruntés jusqu'à une prochaine famille.
 - **À juger en jouant** : force de l'aspiration (3,6 puis 4,5 m/s), fréquence des élites dans le mélange des vagues.
 
 ## Les Saumâtres (Codex, 19 novembre 2026)

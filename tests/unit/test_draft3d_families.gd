@@ -168,3 +168,45 @@ func test_rapieces_techniques() -> void:
 	check(not ram.dash.is_empty(), "bélier : charge tête basse")
 	techniques.perform(ram, _technique(ram, &"fringe_bristle"), _aim(ram))
 	check(techniques.played.size() >= 7, "les sept techniques jouées (%s)" % [techniques.played.keys()])
+
+
+func test_vernisses_techniques() -> void:
+	_check_family([&"hopping_shard", &"faience_pilgrim", &"floating_rosette", &"cracked_pourer", &"glaze_judge",
+		&"hollow_potter", &"mosaic_crawler"])
+	check(GameDB.enemy(&"floating_rosette").flying, "Rosace flottante : volante")
+	await _start()
+	var techniques: DraftFoeTechniques = run.enemies.techniques
+	# Jet de pigment : ligne annoncée, puis flaque qui ralentit.
+	var pourer: DraftEnemies.Foe = _spawn(&"cracked_pourer", Vector3(5, 0, 0))
+	var zones: int = run.hazards.zones()
+	techniques.perform(pourer, _technique(pourer, &"pigment_spit"), _aim(pourer))
+	await _frames(int(_technique(pourer, &"pigment_spit").telegraph * 60) + 6)
+	check_eq(run.hazards.zones(), zones + 1, "flaque de pigment au bout du jet")
+	# Juge : barrage de carreaux solide, puis verdict sous le Chasseur.
+	var judge: DraftEnemies.Foe = _spawn(&"glaze_judge", Vector3(-6, 0, 0))
+	techniques.perform(judge, _technique(judge, &"tile_barrier"), _aim(judge))
+	check_eq(techniques.walls.size(), 1, "barrage de carreaux dressé")
+	await _frames(3)
+	check(not run.sight_clear(judge.pos + Vector3.UP * 0.6, run.hunter.chest()), "le barrage arrête les tirs")
+	check(float(judge.tech_ready[&"verdict"]) <= judge.tech_clock + 1.0, "verdict après le barrage")
+	var items: int = run.hazards._items.size()
+	techniques.perform(judge, _technique(judge, &"verdict"), _aim(judge))
+	check_eq(run.hazards._items.size(), items + 1, "verdict annoncé")
+	# Potière : Tessons assemblés, éclats lancés en cloche.
+	var potter: DraftEnemies.Foe = _spawn(&"hollow_potter", Vector3(0, 0, 5))
+	var count: int = run.enemies.count()
+	techniques.perform(potter, _technique(potter, &"clay_assembly"), _aim(potter))
+	check_eq(run.enemies.count(), count + 2, "deux Tessons assemblés")
+	items = run.hazards._items.size()
+	techniques.perform(potter, _technique(potter, &"sherd_cast"), _aim(potter))
+	check_eq(run.hazards._items.size(), items + 3, "trois éclats en cloche")
+	# Mille-patte : enroulé puis charge ; crête de carreaux vers le Chasseur.
+	var crawler: DraftEnemies.Foe = _spawn(&"mosaic_crawler", Vector3(0, 0, -6))
+	techniques.perform(crawler, _technique(crawler, &"roll_windup"), _aim(crawler))
+	check(not crawler.dash.is_empty(), "charge enroulée")
+	items = run.hazards._items.size()
+	techniques.perform(crawler, _technique(crawler, &"tile_ridge"), _aim(crawler))
+	check(run.hazards._items.size() >= items + 3, "crête de carreaux en zones successives")
+	check(techniques.played.size() >= 7, "les sept techniques jouées (%s)" % [techniques.played.keys()])
+	await _frames(int(float(_technique(judge, &"tile_barrier").params["duration"]) * 60) + 10)
+	check(techniques.walls.is_empty(), "le barrage retombe")

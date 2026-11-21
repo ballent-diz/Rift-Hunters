@@ -518,3 +518,33 @@ soigne), `below` (technique réservée à un monstre blessé). `DraftHazards.lin
 - Pas de barrage ni de navette au-delà de 16 m : il se rapproche d'abord. Mort : fils et montants retirés.
 - Contrôle : `--boss-test --chapter=6` (tour gravie jusqu'au Sommet, bot, mode dieu), aucune erreur ; capture
   `docs/previews/boss-v2/ourdisseur_barrage_de_chaine.webp` (montants de noyer posés, pistes du balayage).
+
+### Lot Vernissés + Faïron (chapitre 9, Corniches)
+
+| Monstre | Rang | Comportement 3D |
+|---|---|---|
+| Tesson sauteur | normal | poursuite rapide, morsure basse |
+| Pèlerin de faïence | normal | poursuite, balayage d'un éclat |
+| Rosace flottante | normal volant | survole les gradins, tir à distance |
+| Verseur fendu | normal à technique | **Jet de pigment** en ligne, qui laisse une flaque collante (ralentit 4 s) |
+| Juge de glaçure | élite | **Barrage de carreaux** : un mur solide se dresse entre lui et le Chasseur (4 s, arrête les tirs, on le contourne), puis **verdict** annoncé sous le Chasseur |
+| Potière creuse | élite | **Assemblage** de deux Tessons et **éclats lancés en cloche** (trois zones autour du Chasseur) |
+| Mille-patte de mosaïque | élite | **Charge enroulée** annoncée et **crête de carreaux** qui jaillit vers le Chasseur |
+
+Nouveaux styles du socle : `wall` (mur de carreaux), `throw` (éclats en cloche), `ridge` (crête), `puddle` (flaque au
+bout d'un jet).
+
+**Faïron** (`data/bosses/fairon.tres`, `bosses/fairon.gd`, `DraftFairon`), `visual_scale` 1,35, deux phases ;
+matière `reflets` (émail), puis `calcines` (four) :
+- **Choc d'émail** : il glace quatre bandes de sol en travers de l'arène, une par une, puis elles se fendent dans
+  l'ordre où elles ont été marquées. La bande qui vient de se fendre est sûre : lire l'ordre donne la fenêtre pour
+  traverser. Il reste concentré pendant le marquage.
+  - **Coque de porcelaine** (phase 1) : bandes marquées de la plus proche du boss à la plus lointaine.
+  - **Four ouvert** (phase 2, 50 %) : une bande de plus, ordre mêlé, fissures plus rapprochées.
+- **Pose d'émail** : traînée glacée vers le Chasseur qui ralentit 6 s. Enchaînement : pose → choc → balayage
+  (phase 1) ou projection du four (phase 2). **Purge des évents** : anneaux coupés par le décor.
+- Pas de choc au-delà de 18 m. Mort : choc interrompu, zones retirées avec les annonces.
+- Tests de l'Ourdisseur et de Faïron : `tests/unit/test_boss3d_v2.gd` (`test_boss3d.gd` atteignait la limite de
+  longueur du lint).
+- Contrôle : `--boss-test --chapter=9` (bot, mode dieu), aucune erreur ; capture `docs/previews/boss-v2/fairon_corniches.webp`
+  (stature et appui au sol ; le Choc d'émail n'est pas tombé sur les instants capturés, il est couvert par l'essai).

@@ -16,13 +16,20 @@ const STYLES := {
 	# Rapiécés (chapitre 6)
 	&"spring_kick": &"slam", &"braced_shuttle": &"guard", &"loom_strike": &"jet", &"thread_gather": &"pull",
 	&"shroud": &"guard", &"bow_and_ram": &"charge", &"fringe_bristle": &"burst",
+	# Vernissés (chapitre 9)
+	&"pigment_spit": &"jet", &"tile_barrier": &"wall", &"verdict": &"slam", &"clay_assembly": &"call",
+	&"sherd_cast": &"throw", &"roll_windup": &"charge", &"tile_ridge": &"ridge",
 }
+## Carreaux dressés par une technique (barrage du Juge) : même couche que le décor, ils arrêtent tirs et Chasseur.
+const TILE := Color(0.24, 0.38, 0.7)
 ## Premier essai d'une technique après l'apparition du monstre (s), tiré dans cet intervalle.
 const FIRST_TRY := Vector2(1.5, 3.5)
 ## Arrêt du monstre contre le décor au bout d'une charge (s).
 const CHARGE_STUN := 1.0
 
 var enemies: DraftEnemies
+## Murs de carreaux dressés (barrage du Juge), retirés à leur échéance ou au changement d'étage.
+var walls: Array[StaticBody3D] = []
 ## Techniques jouées, par nom (essais, mesures).
 var played: Dictionary = {}
 
@@ -112,13 +119,28 @@ func perform(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vector3)
 
 # --- Styles ----------------------------------------------------------------------------------------------------------
 
-## Jet chargé en ligne droite vers le Chasseur ; le décor l'arrête.
+## Jet chargé en ligne droite vers le Chasseur ; le décor l'arrête. `puddle` (px) : flaque de pigment au bout,
+## qui ralentit (`slow`) pendant `puddle_time` s.
 func _style_jet(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vector3) -> float:
 	var length: float = float(technique.params.get("length", 260.0)) * UNIT
 	var width: float = float(technique.params.get("width", 40.0)) * UNIT
 	var from: Vector3 = foe.pos + aim * foe.radius
 	enemies.hazards.line(from, aim, length, width, technique.telegraph, _damage(technique), true)
 	_fx(foe, str(technique.params.get("fx", "splash")), from + aim * length * 0.5, width * 2.0, technique.telegraph)
+	var puddle: float = float(technique.params.get("puddle", 0.0)) * UNIT
+	if puddle > 0.0:
+		var at: Vector3 = enemies.level.closest(from + aim * length * 0.8)
+		var hazards: DraftHazards = enemies.hazards
+		var family: StringName = hazards.family
+		var time: float = float(technique.params.get("puddle_time", 4.0))
+		var slow: float = float(technique.params.get("slow", 0.6))
+		var tick: float = _damage(technique) * 0.1
+		enemies.get_tree().create_timer(technique.telegraph, false).timeout.connect(func() -> void:
+			if is_instance_valid(hazards):
+				var previous: StringName = hazards.family
+				hazards.family = family
+				hazards.zone(at, puddle, time, tick, slow, TILE)
+				hazards.family = previous)
 	return technique.telegraph + 0.3
 
 
@@ -187,6 +209,70 @@ func _style_pull(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vect
 				hunter.move_and_collide(toward.normalized() * minf(pull, toward.length() - foe.radius - 0.8))
 			hunter.hinder(hinder, 1.2)
 			_fx(foe, str(technique.params.get("fx", "soul_drain")), hunter.chest(), 1.0, 0.0))
+	return technique.telegraph + 0.3
+
+
+## Barrage de carreaux : un mur dressé entre lui et le Chasseur (`distance`, `width` en px) pendant `duration` s ;
+## il arrête les tirs comme le décor, on le contourne.
+func _style_wall(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vector3) -> float:
+	var duration: float = float(technique.params.get("duration", 4.0))
+	var width: float = float(technique.params.get("width", 110.0)) * UNIT
+	var at: Vector3 = enemies.level.closest(foe.pos + aim * (foe.radius + float(technique.params.get("distance", 60.0)) * UNIT))
+	var body := StaticBody3D.new()
+	body.collision_layer = 1
+	body.collision_mask = 0
+	var size := Vector3(width, 1.8, 0.4)
+	var shape := CollisionShape3D.new()
+	var box := BoxShape3D.new()
+	box.size = size
+	shape.shape = box
+	body.add_child(shape)
+	var mesh := MeshInstance3D.new()
+	var cube := BoxMesh.new()
+	cube.size = size
+	mesh.mesh = cube
+	var material := StandardMaterial3D.new()
+	material.albedo_color = TILE
+	mesh.material_override = material
+	body.add_child(mesh)
+	enemies.add_child(body)
+	body.global_position = at + Vector3.UP * size.y * 0.5
+	body.global_basis = Basis(Vector3.UP, atan2(aim.x, aim.z))
+	walls.append(body)
+	_fx(foe, "shield_block", at + Vector3.UP * 0.8, width, 0.0)
+	enemies.get_tree().create_timer(duration, false).timeout.connect(func() -> void:
+		walls.erase(body)
+		if is_instance_valid(body):
+			body.queue_free())
+	return technique.telegraph + 0.3
+
+
+## Tessons lancés en cloche : `count` zones autour du Chasseur, l'une après l'autre.
+func _style_throw(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, _aim: Vector3) -> float:
+	var count: int = int(technique.params.get("count", 3))
+	var radius: float = float(technique.params.get("radius", 40.0)) * UNIT
+	var spread: float = float(technique.params.get("spread", 60.0)) * UNIT
+	var gap: float = float(technique.params.get("gap", 0.2))
+	var center: Vector3 = enemies.hunter.global_position
+	var effect: StringName = StringName(str(technique.params.get("fx", "mana_burst")))
+	for k: int in count:
+		var offset := Vector3.ZERO if k == 0 else Vector3(enemies.rng.randf_range(-spread, spread), 0,
+			enemies.rng.randf_range(-spread, spread))
+		enemies.hazards.circle(enemies.level.closest(center + offset), radius, technique.telegraph + gap * k,
+			_damage(technique), _fx_at(foe, effect, radius * 1.6))
+	return technique.telegraph * 0.6 + 0.3
+
+
+## Crête de carreaux : zones qui jaillissent l'une après l'autre du monstre vers le Chasseur.
+func _style_ridge(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vector3) -> float:
+	var radius: float = float(technique.params.get("radius", 34.0)) * UNIT
+	var length: float = float(technique.params.get("length", 300.0)) * UNIT
+	var effect: StringName = StringName(str(technique.params.get("fx", "ring_burst")))
+	var count: int = maxi(int(length / (radius * 1.6)), 2)
+	for k: int in count:
+		var at: Vector3 = enemies.level.closest(foe.pos + aim * (foe.radius + radius + radius * 1.6 * k))
+		enemies.hazards.circle(at, radius, technique.telegraph + 0.07 * k, _damage(technique),
+			_fx_at(foe, effect, radius * 1.4))
 	return technique.telegraph + 0.3
 
 

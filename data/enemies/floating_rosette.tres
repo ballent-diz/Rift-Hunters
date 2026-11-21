@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/attack_data.gd" id="3"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.floating_rosette"
+shape = 5
+size = 36.0
+primary = Color(0.86, 0.86, 0.82, 1.0)
+secondary = Color(0.26, 0.4, 0.72, 1.0)
+accent = Color(0.62, 0.32, 0.8, 1.0)
+
+[sub_resource type="Resource" id="attack_data_1"]
+script = ExtResource("3")
+damage = 13.0
+cooldown = 2.6
+attack_range = 460.0
+projectile_speed = 300.0
+params = {
+"keep_distance": 300.0,
+"windup": 0.4
+}
+
+[resource]
+script = ExtResource("1")
+id = &"floating_rosette"
+family = &"reflets"
+name_key = "ENEMY_FLOATING_ROSETTE_NAME"
+desc_key = "ENEMY_FLOATING_ROSETTE_DESC"
+brain = 1
+max_hp = 50.0
+damage = 10.0
+defense = 6.0
+move_speed = 72.0
+radius = 18.0
+xp_value = 3
+knockback_resist = 0.0
+attack = SubResource("attack_data_1")
+visual = SubResource("visual_data_1")
+flying = true
