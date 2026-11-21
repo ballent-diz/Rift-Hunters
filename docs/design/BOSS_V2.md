@@ -546,3 +546,5 @@ matière `reflets` (émail), puis `calcines` (four) :
 - Pas de choc au-delà de 18 m. Mort : choc interrompu, zones retirées avec les annonces.
 - Tests de l'Ourdisseur et de Faïron : `tests/unit/test_boss3d_v2.gd` (`test_boss3d.gd` atteignait la limite de
   longueur du lint).
+- Contrôle : `--boss-test --chapter=9` (bot, mode dieu), aucune erreur ; capture `docs/previews/boss-v2/fairon_corniches.webp`
+  (stature et appui au sol ; le Choc d'émail n'est pas tombé sur les instants capturés, il est couvert par l'essai).
