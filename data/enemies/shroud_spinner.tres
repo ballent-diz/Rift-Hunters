@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.shroud_spinner"
+shape = 5
+size = 40.0
+primary = Color(0.86, 0.82, 0.72, 1.0)
+secondary = Color(0.3, 0.28, 0.5, 1.0)
+accent = Color(0.62, 0.32, 0.8, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"thread_gather"
+anim = &"thread_gather"
+cooldown = 9.0
+min_range = 90.0
+max_range = 360.0
+telegraph = 0.80
+damage = 12.0
+params = {
+"length": 340.0,
+"width": 34.0,
+"pull": 3.0,
+"hinder": 0.6,
+"fx": "soul_drain"
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"shroud"
+anim = &"shroud"
+cooldown = 14.0
+min_range = 0.0
+max_range = 9999.0
+telegraph = 0.40
+damage = 0.0
+params = {
+"duration": 3.0,
+"mult": 0.3,
+"frontal": false,
+"rooted": true,
+"heal": 0.08,
+"fx": "hex_sigil",
+"below": 0.7
+}
+
+[resource]
+script = ExtResource("1")
+id = &"shroud_spinner"
+family = &"fallen"
+name_key = "ENEMY_SHROUD_SPINNER_NAME"
+desc_key = "ENEMY_SHROUD_SPINNER_DESC"
+brain = 0
+max_hp = 240.0
+damage = 13.0
+defense = 18.0
+move_speed = 58.0
+radius = 20.0
+xp_value = 8
+knockback_resist = 0.5
+can_be_elite = false
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

@@ -13,6 +13,9 @@ const STYLES := {
 	# Saumâtres (chapitre 8)
 	&"brine_jet": &"jet", &"lock_guard": &"guard", &"mallet_slam": &"slam", &"bell_call": &"call",
 	&"brine_blessing": &"bless", &"scoop_charge": &"charge", &"salt_crust_burst": &"burst",
+	# Rapiécés (chapitre 6)
+	&"spring_kick": &"slam", &"braced_shuttle": &"guard", &"loom_strike": &"jet", &"thread_gather": &"pull",
+	&"shroud": &"guard", &"bow_and_ram": &"charge", &"fringe_bristle": &"burst",
 }
 ## Premier essai d'une technique après l'apparition du monstre (s), tiré dans cet intervalle.
 const FIRST_TRY := Vector2(1.5, 3.5)
@@ -64,7 +67,10 @@ func step(foe: DraftEnemies.Foe, to_hunter: Vector3, distance: float, climb: flo
 			continue
 		if not style in [&"call", &"bless", &"guard"] and climb > DraftEnemies.MELEE_REACH_UP:
 			continue
-		if style in [&"jet", &"charge"] and not bool(enemies.run.call("sight_clear", foe.pos + Vector3.UP * 0.6,
+		# `below` : seulement une fois blessé (repli sous le linceul).
+		if foe.hp > foe.max_hp * float(technique.params.get("below", 1.0)):
+			continue
+		if style in [&"jet", &"charge", &"pull"] and not bool(enemies.run.call("sight_clear", foe.pos + Vector3.UP * 0.6,
 				enemies.hunter.chest())):
 			continue
 		perform(foe, technique, to_hunter / maxf(distance, 0.001))
@@ -116,7 +122,8 @@ func _style_jet(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vecto
 	return technique.telegraph + 0.3
 
 
-## Coup lourd annoncé : devant lui (`at` = front), sur lui (self) ou sous le Chasseur (target).
+## Coup lourd annoncé : devant lui (`at` = front), sur lui (self) ou sous le Chasseur (target) ; `push` (m) repousse
+## le Chasseur touché (coup de pied à ressort).
 func _style_slam(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vector3) -> float:
 	var radius: float = float(technique.params.get("radius", 60.0)) * UNIT
 	var at: Vector3 = foe.pos
@@ -127,18 +134,27 @@ func _style_slam(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vect
 			at = enemies.hunter.global_position
 	at = enemies.level.closest(at)
 	var effect: StringName = StringName(str(technique.params.get("fx", "ring_burst")))
-	enemies.hazards.circle(at, radius, technique.telegraph, _damage(technique), _fx_at(foe, effect, radius * 1.6))
+	var push: float = float(technique.params.get("push", 0.0))
+	var hunter: DraftHunter = enemies.hunter
+	var shove := Callable()
+	if push > 0.0:
+		shove = func() -> void:
+			var away: Vector3 = hunter.global_position - foe.pos
+			away.y = 0.0
+			hunter.move_and_collide((away.normalized() if away.length() > 0.01 else aim) * push)
+	enemies.hazards.circle(at, radius, technique.telegraph, _damage(technique), _fx_at(foe, effect, radius * 1.6), shove)
 	return technique.telegraph + 0.35
 
 
 ## Garde : coups reçus × `mult` (de face seulement si `frontal`) pendant `duration` s ; enracinée, il ne bouge
-## plus et ne pivote pas : on le contourne.
+## plus et ne pivote pas : on le contourne. `heal` : part des PV max rendue (repli sous le linceul).
 func _style_guard(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vector3) -> float:
 	var duration: float = float(technique.params.get("duration", 3.0))
 	foe.guard_mult = float(technique.params.get("mult", 0.2))
 	foe.guard_left = duration
 	foe.guard_dir = aim if bool(technique.params.get("frontal", false)) else Vector3.ZERO
 	foe.view.set_tint(Color(0.85, 0.95, 1.25))
+	foe.hp = minf(foe.hp + foe.max_hp * float(technique.params.get("heal", 0.0)), foe.max_hp)
 	_fx(foe, str(technique.params.get("fx", "shield_block")), foe.pos + aim * foe.radius + Vector3.UP * 0.4,
 		foe.radius * 3.0, 0.0)
 	return duration if bool(technique.params.get("rooted", true)) else 0.5
@@ -153,6 +169,25 @@ func _style_charge(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Ve
 	foe.dash = {"dir": aim, "wait": technique.telegraph, "left": length / maxf(speed, 0.1), "speed": speed,
 		"damage": _damage(technique), "hit": false}
 	return 0.0
+
+
+## Fil lancé en ligne vers le Chasseur : touché, il est tiré de `pull` m vers le monstre et ralenti.
+func _style_pull(foe: DraftEnemies.Foe, technique: EnemyTechniqueData, aim: Vector3) -> float:
+	var length: float = float(technique.params.get("length", 320.0)) * UNIT
+	var width: float = float(technique.params.get("width", 34.0)) * UNIT
+	var pull: float = float(technique.params.get("pull", 3.0))
+	var hinder: float = float(technique.params.get("hinder", 0.6))
+	var hunter: DraftHunter = enemies.hunter
+	var from: Vector3 = foe.pos + aim * foe.radius
+	enemies.hazards.line(from, aim, length, width, technique.telegraph, _damage(technique), true, 0.0, 0.0,
+		func() -> void:
+			var toward: Vector3 = foe.pos - hunter.global_position
+			toward.y = 0.0
+			if toward.length() > foe.radius + 1.0:
+				hunter.move_and_collide(toward.normalized() * minf(pull, toward.length() - foe.radius - 0.8))
+			hunter.hinder(hinder, 1.2)
+			_fx(foe, str(technique.params.get("fx", "soul_drain")), hunter.chest(), 1.0, 0.0))
+	return technique.telegraph + 0.3
 
 
 ## Croûte qui éclate autour de lui.

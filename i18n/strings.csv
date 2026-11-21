@@ -2550,3 +2550,21 @@ BOSS_SAUMOR_NAME,Saumor,Saumor
 BOSS_SAUMOR_TITLE,Dévoreur des Salines,Devourer of the Saltworks
 BOSS_SAUMOR_PHASE1,Vantaux de cuivre,Copper Gates
 BOSS_SAUMOR_PHASE2,Siphon à nu,Bared Siphon
+ENEMY_BITING_BOBBIN_NAME,Bobine mordante,Biting Bobbin
+ENEMY_BITING_BOBBIN_DESC,Une bobine sur quatre pattes de bois qui claque des mâchoires.,"A bobbin on four wooden legs, snapping its jaws."
+ENEMY_PATCH_MENDER_NAME,Ravaudeur,Patch Mender
+ENEMY_PATCH_MENDER_DESC,Mannequin voûté qui pique de sa grande aiguille.,A hunched mannequin that jabs with its long needle.
+ENEMY_VEIL_MOTH_NAME,Mite du voile,Veil Moth
+ENEMY_VEIL_MOTH_DESC,Ses ailes de tapisserie s'ouvrent pour tirer d'en haut.,Its tapestry wings open to shoot from above.
+ENEMY_SPLIT_PUPPET_NAME,Marionnette fendue,Split Puppet
+ENEMY_SPLIT_PUPPET_DESC,"Son ressort se tend, puis son pied renvoie tout ce qui l'approche.","Its spring winds up, then its kick sends anything close flying."
+ENEMY_WAR_SHUTTLE_NAME,Navette de guerre,War Shuttle
+ENEMY_WAR_SHUTTLE_DESC,"Elle se cale derrière sa navette, puis l'abat d'un coup vertical.","It braces behind its shuttle, then brings it down in a vertical strike."
+ENEMY_SHROUD_SPINNER_NAME,Fileuse de linceuls,Shroud Spinner
+ENEMY_SHROUD_SPINNER_DESC,Elle ramène sa proie au bout d'un fil et se replie sous son linceul.,It reels prey in on a thread and withdraws beneath its shroud.
+ENEMY_TAPESTRY_RAM_NAME,Bélier de tenture,Tapestry Ram
+ENEMY_TAPESTRY_RAM_DESC,Il charge tête basse et hérisse ses franges.,It charges head down and bristles its fringes.
+BOSS_LOOM_DEVOURER_NAME,L'Ourdisseur,The Warp-Weaver
+BOSS_LOOM_DEVOURER_TITLE,Dévoreur des Linceuls,Devourer of Shrouds
+BOSS_LOOM_DEVOURER_PHASE1,Métier tendu,Taut Loom
+BOSS_LOOM_DEVOURER_PHASE2,Trame inversée,Reversed Weft

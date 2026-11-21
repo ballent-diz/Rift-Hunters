@@ -159,9 +159,8 @@ central du boss (20 m de rayon, quatre piliers) relié par deux passerelles, tro
 séparés par des murs radiaux à brèche. Les bords du gouffre arrêtent la marche, pas les tirs. Sommet de la future tour
 du chapitre 6 : trois étages en anneau joués à la suite (`draft3d/tower.gd`) — la Garnison, les Cellules (gardien),
 le Sommet (Dévoreur). Chaque étage dure 3 min, puis une herse se lève au pied d'une rampe le long du rempart ;
-atteindre le palier fait monter d'un étage, le Chasseur garde tout. Détails : `docs/maps/CARTES_3D.md`. En attendant
-le raccordement du chapitre, `--chapter=6` lance la tour avec le bestiaire du chapitre 5 (`--tower-floor=1` : partir
-d'un étage).
+atteindre le palier fait monter d'un étage, le Chasseur garde tout. Détails : `docs/maps/CARTES_3D.md`. `--chapter=6`
+lance la tour : famille des Rapiécés, Dévoreur : l'Ourdisseur (`--tower-floor=1` : partir d'un étage).
 
 ## Carte : septième niveau, le Défilé Hurlant
 
