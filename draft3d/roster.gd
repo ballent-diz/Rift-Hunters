@@ -27,7 +27,9 @@ const V2_CHAPTERS: Array[Dictionary] = [
 		"enemies": [&"salt_scuttler", &"rope_drowned", &"brine_skate", &"salt_siphon", &"floodgate_keeper",
 			&"brine_choir", &"salt_dredger"], "boss": &"saumor"},
 	{"id": &"high_cliffs", "color": Color(0.66, 0.78, 0.98),
-		"arenas": [&"three_rifts", &"storm_highlands", &"firefly_woods", &"cascade_source", &"suspended_quarters"]},
+		"arenas": [&"three_rifts", &"storm_highlands", &"firefly_woods", &"cascade_source", &"suspended_quarters"],
+		"enemies": [&"hopping_shard", &"faience_pilgrim", &"floating_rosette", &"cracked_pourer", &"glaze_judge",
+			&"hollow_potter", &"mosaic_crawler"], "boss": &"fairon"},
 ]
 
 var chapter: ChapterData

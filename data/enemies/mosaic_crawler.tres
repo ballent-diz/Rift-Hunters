@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.mosaic_crawler"
+shape = 5
+size = 52.0
+primary = Color(0.26, 0.4, 0.72, 1.0)
+secondary = Color(0.82, 0.62, 0.3, 1.0)
+accent = Color(0.62, 0.32, 0.8, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"roll_windup"
+anim = &"roll_windup"
+cooldown = 8.0
+min_range = 120.0
+max_range = 380.0
+telegraph = 0.90
+damage = 26.0
+params = {
+"speed": 480.0,
+"length": 360.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"tile_ridge"
+anim = &"tile_ridge"
+cooldown = 8.0
+min_range = 0.0
+max_range = 320.0
+telegraph = 0.80
+damage = 20.0
+params = {
+"radius": 34.0,
+"length": 300.0,
+"fx": "ring_burst"
+}
+
+[resource]
+script = ExtResource("1")
+id = &"mosaic_crawler"
+family = &"reflets"
+name_key = "ENEMY_MOSAIC_CRAWLER_NAME"
+desc_key = "ENEMY_MOSAIC_CRAWLER_DESC"
+brain = 0
+max_hp = 340.0
+damage = 18.0
+defense = 28.0
+move_speed = 52.0
+radius = 26.0
+xp_value = 10
+knockback_resist = 0.9
+can_be_elite = false
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

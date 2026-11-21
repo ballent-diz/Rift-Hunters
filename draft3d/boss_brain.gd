@@ -31,6 +31,7 @@ const GESTURES := {
 	# Dévoreurs propres à la v2 (chapitres 6, 8, 9) : leur mécanique joue la technique phare.
 	&"gate_pull": &"burst", &"brine_sweep": &"sweep_beam", &"core_burst": &"quake",
 	&"warp_barrage": &"sweep_beam", &"shuttle_reel": &"beam", &"bobbin_throw": &"rain",
+	&"enamel_shock": &"rain", &"enamel_line": &"spikes", &"vent_purge": &"quake", &"kiln_spit": &"rain",
 }
 ## Gestes portés au corps à corps : choisis seulement à portée et de plain-pied.
 const MELEE := [&"claw", &"sweep", &"slam"]
@@ -164,6 +165,8 @@ static func mechanics_for(boss: BossData) -> Array[DraftBossMechanic]:
 			result.append(DraftSaumor.new())
 		&"warp_barrage":
 			result.append(DraftLoomDevourer.new())
+		&"enamel_shock":
+			result.append(DraftFairon.new())
 	# Racine-laisse (forme racines de l'Abyssarque) : vraie laisse ; Glauquemire garde sa racine jaillissante.
 	if boss.signature != &"prism_beam" and _has_kind(boss, &"root_leash"):
 		result.append(DraftRootLeash.new())
@@ -897,6 +900,9 @@ func combat_family() -> StringName:
 		return FORMS[clampi(phase, 0, FORMS.size() - 1)]
 	if data.id == &"glauquemire":
 		return &"reflets" if phase == 1 else &"enlises"
+	if data.id == &"fairon":
+		# Coque de porcelaine, puis four ouvert.
+		return &"calcines" if phase >= 1 else &"reflets"
 	return family()
 
 

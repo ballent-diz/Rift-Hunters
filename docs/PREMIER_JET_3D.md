@@ -180,8 +180,8 @@ Sanctuaire du boss au centre, jamais noyé. `--chapter=8` (famille des Saumâtre
 
 68 × 112 m, falaise en gradins gravie vers le nord (`draft3d/level_cliffs.gd`) : la Grève (0 m), le Guet (3 m), le
 Promontoire (6 m) et la Couronne (9 m, boss), reliés par des rampes en lacets, des éboulis et des escaliers ; trois
-perchoirs à 1,5 m hors de portée de la mêlée. `--chapter=9` (bestiaire du
-chapitre 5 en attendant le chapitre 9). Détails : `docs/maps/CARTES_3D.md`.
+perchoirs à 1,5 m hors de portée de la mêlée. `--chapter=9` (famille des
+Vernissés, Dévoreur : Faïron). Détails : `docs/maps/CARTES_3D.md`.
 
 ## Vérifications
 

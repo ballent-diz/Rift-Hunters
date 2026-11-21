@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.glaze_judge"
+shape = 5
+size = 44.0
+primary = Color(0.26, 0.4, 0.72, 1.0)
+secondary = Color(0.86, 0.86, 0.82, 1.0)
+accent = Color(0.62, 0.32, 0.8, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"tile_barrier"
+anim = &"tile_barrier"
+cooldown = 12.0
+min_range = 90.0
+max_range = 420.0
+telegraph = 0.50
+damage = 0.0
+params = {
+"duration": 4.0,
+"distance": 60.0,
+"width": 110.0,
+"then": "verdict"
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"verdict"
+anim = &"verdict"
+cooldown = 7.0
+min_range = 0.0
+max_range = 420.0
+telegraph = 1.00
+damage = 26.0
+params = {
+"radius": 70.0,
+"at": "target",
+"fx": "heavy_cleave"
+}
+
+[resource]
+script = ExtResource("1")
+id = &"glaze_judge"
+family = &"reflets"
+name_key = "ENEMY_GLAZE_JUDGE_NAME"
+desc_key = "ENEMY_GLAZE_JUDGE_DESC"
+brain = 0
+max_hp = 300.0
+damage = 17.0
+defense = 26.0
+move_speed = 54.0
+radius = 22.0
+xp_value = 9
+knockback_resist = 0.8
+can_be_elite = false
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

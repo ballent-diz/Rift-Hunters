@@ -1,0 +1,194 @@
+[gd_resource type="Resource" script_class="BossData" load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://src/data/boss_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/boss_phase_data.gd" id="3"]
+[ext_resource type="Script" path="res://src/data/boss_pattern_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"boss.fairon"
+shape = 8
+size = 167.2
+primary = Color(0.86, 0.86, 0.82, 1.0)
+secondary = Color(0.25, 0.42, 0.85, 1.0)
+accent = Color(1.0, 0.55, 0.2, 1.0)
+
+[sub_resource type="Resource" id="pattern_1"]
+script = ExtResource("4")
+kind = &"sweep"
+weight = 3.0
+cooldown = 3.5
+damage = 24.0
+telegraph = 0.70
+params = {
+"anim": "attack",
+"radius": 190.0,
+"half_angle": 55.0,
+"range": 280.0
+}
+
+[sub_resource type="Resource" id="pattern_2"]
+script = ExtResource("4")
+kind = &"enamel_shock"
+weight = 2.5
+cooldown = 12.0
+damage = 32.0
+telegraph = 1.00
+params = {
+"anim": "enamel_shock",
+"count": 4,
+"spacing": 90.0,
+"length": 540.0,
+"width": 72.0,
+"mark_gap": 0.45,
+"pause": 0.6,
+"crack_gap": 0.55
+}
+
+[sub_resource type="Resource" id="pattern_3"]
+script = ExtResource("4")
+kind = &"enamel_line"
+weight = 2.0
+cooldown = 8.0
+damage = 4.0
+telegraph = 0.70
+params = {
+"anim": "enamel_line",
+"length": 420.0,
+"radius": 42.0,
+"duration": 6.0,
+"slow": 0.55
+}
+
+[sub_resource type="Resource" id="pattern_4"]
+script = ExtResource("4")
+kind = &"vent_purge"
+weight = 1.6
+cooldown = 9.0
+damage = 24.0
+telegraph = 1.00
+params = {
+"anim": "vent_purge",
+"waves": 2
+}
+
+[sub_resource type="Resource" id="pattern_5"]
+script = ExtResource("4")
+kind = &"summon"
+weight = 1.2
+cooldown = 15.0
+damage = 0.0
+telegraph = 0.90
+params = {
+"anim": "vent_purge",
+"count": 4,
+"max_active": 10
+}
+
+[sub_resource type="Resource" id="phase_1"]
+script = ExtResource("3")
+hp_threshold = 1.00
+name_key = "BOSS_FAIRON_PHASE1"
+move_speed_mult = 1.00
+pattern_interval = 1.9
+patterns = [SubResource("pattern_1"), SubResource("pattern_2"), SubResource("pattern_3"), SubResource("pattern_4"), SubResource("pattern_5")]
+
+[sub_resource type="Resource" id="pattern_6"]
+script = ExtResource("4")
+kind = &"sweep"
+weight = 3.0
+cooldown = 3.0
+damage = 28.0
+telegraph = 0.60
+params = {
+"anim": "attack",
+"radius": 200.0,
+"half_angle": 60.0,
+"range": 290.0
+}
+
+[sub_resource type="Resource" id="pattern_7"]
+script = ExtResource("4")
+kind = &"enamel_shock"
+weight = 2.5
+cooldown = 10.0
+damage = 36.0
+telegraph = 0.90
+params = {
+"anim": "enamel_shock",
+"count": 4,
+"spacing": 90.0,
+"length": 560.0,
+"width": 72.0,
+"mark_gap": 0.4,
+"pause": 0.5,
+"crack_gap": 0.55
+}
+
+[sub_resource type="Resource" id="pattern_8"]
+script = ExtResource("4")
+kind = &"enamel_line"
+weight = 1.5
+cooldown = 7.0
+damage = 5.0
+telegraph = 0.60
+params = {
+"anim": "enamel_line",
+"length": 460.0,
+"radius": 44.0,
+"duration": 6.0,
+"slow": 0.5
+}
+
+[sub_resource type="Resource" id="pattern_9"]
+script = ExtResource("4")
+kind = &"kiln_spit"
+weight = 2.0
+cooldown = 8.0
+damage = 22.0
+telegraph = 1.00
+params = {
+"anim": "kiln_spit"
+}
+
+[sub_resource type="Resource" id="pattern_10"]
+script = ExtResource("4")
+kind = &"vent_purge"
+weight = 1.6
+cooldown = 8.0
+damage = 26.0
+telegraph = 0.90
+params = {
+"anim": "vent_purge",
+"waves": 2
+}
+
+[sub_resource type="Resource" id="phase_2"]
+script = ExtResource("3")
+hp_threshold = 0.50
+name_key = "BOSS_FAIRON_PHASE2"
+move_speed_mult = 1.20
+pattern_interval = 1.5
+transition_time = 2.0
+patterns = [SubResource("pattern_6"), SubResource("pattern_7"), SubResource("pattern_8"), SubResource("pattern_9"), SubResource("pattern_10")]
+
+[resource]
+script = ExtResource("1")
+id = &"fairon"
+name_key = "BOSS_FAIRON_NAME"
+title_key = "BOSS_FAIRON_TITLE"
+max_hp = 16000.0
+damage = 28.0
+defense = 36.0
+move_speed = 46.0
+radius = 76.0
+shard_reward = 220
+essence_reward = 20
+visual = SubResource("visual_data_1")
+phases = [SubResource("phase_1"), SubResource("phase_2")]
+visual_scale = 1.35
+mouth_offset = Vector2(0, -90)
+hurt_ratio = 0.06
+intro_animation = &"vent_purge"
+signature = &"enamel_shock"
