@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Bug : tirs ennemis identiques au trait du Chasseur (Claude, « Correction de bugs », 21 novembre 2026)
+
+- Cause : les familles violet, reflets, fallen et riftborn tirent `arcane_orb` et éclatent en `mana_burst`
+  (techniques.json) ; sans feuille propre, ces effets retombent sur la palette violette, exactement le trait et
+  l'impact du Chasseur.
+- Correction : `DraftPixelFx.play_hostile` remplace ces deux effets pour les tirs hostiles (`void_orb`,
+  `dark_explosion` réduit) et teinte tout tir hostile en rouge orangé (`HOSTILE_TINT`). Le Chasseur et la v1 ne
+  changent pas.
+- Test : `test_draft3d::test_hostile_shots_never_look_like_the_hunter_bolt`.
+
 ## Nouveaux Dévoreurs : familles propres aux chapitres 6, 8 et 9 (Claude, session « Nouveaux Dévoreurs », 20 novembre 2026)
 
 Placement validé par le propriétaire : Saumâtres + Saumor au Marais des Marées (ch. 8), Rapiécés + Ourdisseur à la
