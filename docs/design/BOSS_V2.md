@@ -516,3 +516,5 @@ soigne), `below` (technique réservée à un monstre blessé). `DraftHazards.lin
 - **Navette tirée** : ligne annoncée ; touché, le Chasseur est ramené de 3,5 m (4 m en phase 2) vers lui.
   Enchaînement : barrage → navette → balayage du bras. Phase 2 : jet de canettes (pluie de zones).
 - Pas de barrage ni de navette au-delà de 16 m : il se rapproche d'abord. Mort : fils et montants retirés.
+- Contrôle : `--boss-test --chapter=6` (tour gravie jusqu'au Sommet, bot, mode dieu), aucune erreur ; capture
+  `docs/previews/boss-v2/ourdisseur_barrage_de_chaine.webp` (montants de noyer posés, pistes du balayage).
