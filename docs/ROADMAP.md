@@ -10,6 +10,7 @@ Détails : `docs/design/BOSS_V2.md`, section 9. Une PR par lot.
   mode test ; Saumor et l'Appel de la vanne (`draft3d/bosses/saumor.gd`). Tests : `test_draft3d_families.gd`,
   `test_boss3d.gd` (Saumor, chapitres v2, `--boss`).
 - **Lot 1 fusionné** (PR #239, CI verte).
+- **Lot 2 fusionné** (PR #241, CI verte).
 - **Lot 2, Rapiécés + l'Ourdisseur** : sept Rapiécés (coup de pied qui repousse, fil qui tire, linceul), l'Ourdisseur
   et le Barrage de chaîne (fils accrochés au décor ou à des montants posés, Trame inversée en phase 2)
   (`draft3d/bosses/loom_devourer.gd`).
