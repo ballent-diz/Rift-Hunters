@@ -1,5 +1,15 @@
 # Rift Hunters — feuille de route
 
+## Techniques des nouvelles familles et de leurs boss (Claude, session « Gameplay », 20 novembre 2026)
+
+Trois lots, une PR chacun, sans fusion automatique ; détails et FX dédiés attendus :
+[design/TECHNIQUES_ENNEMIS_V2.md](design/TECHNIQUES_ENNEMIS_V2.md).
+- **Lot 1 — Saumâtres et Saumor** : livré (PR à valider). Moteur commun des techniques d'ennemis
+  (`draft3d/foe_techniques.gd`, réglages dans les fiches), 7 fiches de monstres et 7 techniques, Saumor en deux
+  phases (`draft3d/bosses/saumor.gd`), famille et boss dans « Le Marais des Marées » ; `phase2_move` joué par
+  tous les boss qui l'ont. Captures : `docs/previews/saumatres-v2/`.
+- **Lot 2 — Rapiécés et L'Ourdisseur**, **lot 3 — Vernissés et Faïron** : à faire.
+
 ## Les Saumâtres (Codex, 19 novembre 2026)
 
 Lot art prêt à valider sur codex/famille-salines. Sept monstres pour les salines englouties, dix planches et 144 poses importées. Banc Godot 7/7. [Visuels et techniques proposées](art/SAUMATRES.md).
