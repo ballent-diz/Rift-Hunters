@@ -303,9 +303,13 @@ func test_every_chapter_plays_with_guardian_and_devourer() -> void:
 		check_eq(run.chapter, order, "chapitre %d lancé" % order)
 		check(run.find_children("Prop", "", true, false).is_empty(), "aucun objet de la v1 dans le décor")
 		var family: StringName = DraftPixelFx.boss_family(run.roster.boss)
-		for effect: StringName in [&"hit", &"death", &"claw_swipe", &"ring_burst", DraftPixelFx.RAIN[family],
-				DraftPixelFx.hostile_effect("flights", family)[0], DraftPixelFx.hostile_effect("shots", family)[0]]:
+		for effect: StringName in [&"hit", &"death", &"claw_swipe", &"ring_burst", DraftPixelFx.RAIN[family]]:
 			check(not DraftPixelFx.sheet(effect, family).is_empty(), "effet PixelFX %s en palette %s" % [effect, family])
+		# Tirs hostiles : feuille de la famille, ou repli violet (teinte hostile appliquée par play_hostile).
+		for table: String in ["flights", "shots"]:
+			var shot: StringName = DraftPixelFx.hostile_effect(table, family)[0]
+			check(not DraftPixelFx.sheet(shot, family).is_empty()
+				or not DraftPixelFx.sheet(shot, DraftPixelFx.DEFAULT_FAMILY).is_empty(), "tir %s : %s" % [table, shot])
 		for data: EnemyData in run.roster.enemies:
 			run.enemies.spawn(data, run.level.spawn_point(run.rng, run.hunter.global_position))
 		run.hunter.god_mode = true
