@@ -30,6 +30,11 @@ const OVER_TARGET: Array[StringName] = [&"mutation_mark_execute", &"mutation_mar
 	&"mutation_stasis_shards", &"mutation_rain_focus", &"mutation_veil_recoil", &"combo_prismatic_execution",
 	&"combo_dimensional_hunt", &"combo_prismatic_convergence", &"combo_still_storm", &"passive_dash_blade",
 	&"passive_counter_cut"]
+## Effets propres au Chasseur (trait automatique et son impact) : un tir ennemi ne les reprend jamais, sinon on
+## confond en partie les tirs des monstres violets avec les siens. Remplaçant et facteur de taille.
+const HOSTILE_STAND_IN := {&"arcane_orb": [&"void_orb", 0.8], &"mana_burst": [&"dark_explosion", 0.45]}
+## Teinte de tous les tirs hostiles (vol et impact) : rouge orangé, jamais le violet du Chasseur.
+const HOSTILE_TINT := Color(1.0, 0.45, 0.3)
 
 static var _sheets: Dictionary = {}
 static var _catalog: Dictionary = {}
@@ -61,6 +66,23 @@ static func boss_family(data: BossData) -> StringName:
 ## Effet de vol (`flights`) ou d'impact (`shots`) des tirs d'une famille.
 static func shot_effect(table: String, family: StringName) -> StringName:
 	return StringName(str((catalog().get(table, {}) as Dictionary).get(String(family), "mana_burst")))
+
+
+## Tir hostile : son effet (jamais celui du Chasseur), sa taille, et la teinte hostile.
+static func play_hostile(parent: Node, table: String, family: StringName, at: Vector3, size: float,
+		looping: bool = false) -> DraftPixelFx:
+	var look: Array = hostile_effect(table, family)
+	var node: DraftPixelFx = play(parent, look[0], family, at, size * float(look[1]), looping)
+	if node != null:
+		node.modulate = HOSTILE_TINT
+	return node
+
+
+## Effet de vol ou d'impact d'un tir hostile, et son facteur de taille : celui de la famille, sauf s'il est au
+## Chasseur.
+static func hostile_effect(table: String, family: StringName) -> Array:
+	var effect: StringName = shot_effect(table, family)
+	return HOSTILE_STAND_IN.get(effect, [effect, 1.0])
 
 
 static func sheet(effect: StringName, family: StringName) -> Dictionary:

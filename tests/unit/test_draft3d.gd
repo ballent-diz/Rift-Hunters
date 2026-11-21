@@ -199,6 +199,22 @@ func test_map_stairs_shelters_and_heights() -> void:
 
 
 
+## Bug des tirs ennemis pris pour ceux du Chasseur : aucun tir hostile ne reprend l'orbe ni l'éclat du Chasseur,
+## et tous portent la teinte hostile.
+func test_hostile_shots_never_look_like_the_hunter_bolt() -> void:
+	for family: String in (DraftPixelFx.catalog()["flights"] as Dictionary).keys():
+		for table: String in ["flights", "shots"]:
+			var effect: StringName = DraftPixelFx.hostile_effect(table, StringName(family))[0]
+			check(effect != &"arcane_orb" and effect != &"mana_burst", "%s / %s : %s" % [family, table, effect])
+			check(not DraftPixelFx.sheet(effect, StringName(family)).is_empty()
+				or not DraftPixelFx.sheet(effect, DraftPixelFx.DEFAULT_FAMILY).is_empty(), "feuille %s présente" % effect)
+	await _start()
+	run.hostile_shot(run.hunter.chest() + Vector3(5, 0, 0), Vector3.LEFT, 1.0, 1.0, &"violet")
+	var visual: Sprite3D = run.hostile[run.hostile.size() - 1]["visual"]
+	check(visual.modulate == DraftPixelFx.HOSTILE_TINT, "tir hostile teinté")
+	check(not visual.texture.resource_path.contains("arcane_orb"), "tir hostile sans l'orbe du Chasseur")
+
+
 ## Bug des ennemis bloqués au pied des plateformes : un chemin épuisé alors que le Chasseur, immobile, est sur la
 ## terrasse doit être recalculé (sinon l'ennemi fonce droit contre le rebord et n'en bouge plus).
 func test_enemy_with_spent_path_climbs_to_the_terrace() -> void:
@@ -288,7 +304,7 @@ func test_every_chapter_plays_with_guardian_and_devourer() -> void:
 		check(run.find_children("Prop", "", true, false).is_empty(), "aucun objet de la v1 dans le décor")
 		var family: StringName = DraftPixelFx.boss_family(run.roster.boss)
 		for effect: StringName in [&"hit", &"death", &"claw_swipe", &"ring_burst", DraftPixelFx.RAIN[family],
-				DraftPixelFx.shot_effect("flights", family), DraftPixelFx.shot_effect("shots", family)]:
+				DraftPixelFx.hostile_effect("flights", family)[0], DraftPixelFx.hostile_effect("shots", family)[0]]:
 			check(not DraftPixelFx.sheet(effect, family).is_empty(), "effet PixelFX %s en palette %s" % [effect, family])
 		for data: EnemyData in run.roster.enemies:
 			run.enemies.spawn(data, run.level.spawn_point(run.rng, run.hunter.global_position))

@@ -2,6 +2,8 @@
 
 Notés au fil des parties de test. Une case cochée = corrigé et vérifié.
 
+- [x] Des monstres tirent la même orbe violette que le Chasseur (21 novembre 2026) : effet remplacé et teinte hostile.
+
 - [x] Les ennemis se bloquent sur les plateformes (17 novembre 2026) : chemin recalculé quand il est épuisé.
 - [x] On enjambe la rambarde de l'escalier depuis les marches (17 novembre 2026) : parois de marche le long des rambardes.
 
