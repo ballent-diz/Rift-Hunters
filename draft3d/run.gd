@@ -650,8 +650,8 @@ func enemy_shot(foe: DraftEnemies.Foe) -> void:
 ## Tir hostile (monstre, boss) : arrêté par le décor et les murs de faille, blesse le Chasseur au contact.
 func hostile_shot(origin: Vector3, aim: Vector3, speed: float, damage: float, family: StringName,
 		life: float = 4.0) -> void:
-	var visual: Sprite3D = fx(DraftPixelFx.shot_effect("flights", family), family, origin, 0.7, true)
-	# Les feuilles de tir sont dessinées vers la droite : on les retourne quand le tir part vers la gauche.
+	# Jamais l'orbe du Chasseur, teinte hostile. Feuilles dessinées vers la droite : retournées vers la gauche.
+	var visual: Sprite3D = DraftPixelFx.play_hostile(self, "flights", family, origin, 0.7, true)
 	visual.flip_h = aim.dot(camera.global_basis.x) < 0.0
 	hostile.append({"at": origin, "dir": aim, "speed": speed, "left": life, "damage": damage, "visual": visual,
 		"family": family})
@@ -671,7 +671,7 @@ func _step_hostile(delta: float) -> void:
 			done = true
 		shot["at"] = to
 		if done:
-			fx(DraftPixelFx.shot_effect("shots", shot["family"]), shot["family"], to, 0.8)
+			DraftPixelFx.play_hostile(self, "shots", shot["family"], to, 0.8)
 			(shot["visual"] as Node).queue_free()
 			hostile.remove_at(i)
 
