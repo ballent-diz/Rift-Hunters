@@ -489,3 +489,30 @@ remplacé (Glauquemire, Pyrevorn) n'est plus appelé dans ce chapitre.
   par le décor), **pulsation du siphon** (trois anneaux coupés par le décor) ; aspiration → pulsation.
 - Mort : clip `death` de la feuille, abris et courant retirés.
 - Contrôle : `--boss-test --chapter=8` (bot, mode dieu), aucune erreur ; capture `docs/previews/boss-v2/saumor_appel_de_la_vanne.webp`.
+
+### Lot Rapiécés + l'Ourdisseur (chapitre 6, Tour de la Faille)
+
+| Monstre | Rang | Comportement 3D |
+|---|---|---|
+| Bobine mordante | normal | poursuite rapide, morsure au contact |
+| Ravaudeur | normal | poursuite, coup d'aiguille au contact |
+| Mite du voile | normal volant | survole les étages, tir à distance |
+| Marionnette fendue | normal à technique | **Coup de pied à ressort** annoncé devant elle : touché, le Chasseur est repoussé de 3 m |
+| Navette de guerre | élite | **Garde derrière la navette** (frontale, enracinée 2,6 s), puis **frappe verticale** en ligne |
+| Fileuse de linceuls | élite | **Collecte de fil** : ligne annoncée, touché, le Chasseur est tiré vers elle et ralenti ; **linceul** une fois blessée (sous 70 % : coups × 0,3 de tous côtés, + 8 % de PV) |
+| Bélier de tenture | élite | **Charge tête basse** annoncée et **franges hérissées** autour de lui |
+
+Nouveaux réglages du socle : `push` (coup lourd qui repousse), style `pull` (fil qui tire), `heal` (garde qui
+soigne), `below` (technique réservée à un monstre blessé). `DraftHazards.line` accepte un rappel `on_hit`.
+
+**L'Ourdisseur** (`data/bosses/loom_devourer.tres`, `bosses/loom_devourer.gd`, `DraftLoomDevourer`), matière
+`fallen`, `visual_scale` 1,29, deux phases :
+- **Barrage de chaîne** : deux fils partent de ses bras de part et d'autre du Chasseur et s'accrochent au premier
+  obstacle du décor sur leur ligne (pilier, mur) ; sans obstacle, un montant de noyer sort du sol au bout. Fils lâches
+  (ivoire) pendant l'annonce, tendus (carmin) au balayage ; les pistes s'allument au sol, le décor arrête un fil.
+  - **Métier tendu** (phase 1) : les fils se referment l'un vers l'autre (geste `warp_gate`) : on sort du coin.
+  - **Trame inversée** (phase 2, 50 %) : ils s'ouvrent vers l'extérieur (geste `reverse_weave`) : on prend le
+    passage entre les deux.
+- **Navette tirée** : ligne annoncée ; touché, le Chasseur est ramené de 3,5 m (4 m en phase 2) vers lui.
+  Enchaînement : barrage → navette → balayage du bras. Phase 2 : jet de canettes (pluie de zones).
+- Pas de barrage ni de navette au-delà de 16 m : il se rapproche d'abord. Mort : fils et montants retirés.

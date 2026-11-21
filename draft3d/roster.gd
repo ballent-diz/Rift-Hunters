@@ -17,7 +17,9 @@ const EXCLUDED_BOSSES: Array[StringName] = [&"nebulorax"]
 ## premiers dominent, les élites en dernier) et son Dévoreur en `boss` ; ses gardiens restent ceux des cartes.
 const V2_CHAPTERS: Array[Dictionary] = [
 	{"id": &"rift_tower", "color": Color(0.82, 0.36, 0.62),
-		"arenas": [&"shattered_outskirts", &"rune_sanctum", &"shattered_pantheon", &"soot_dens", &"caldera_arena"]},
+		"arenas": [&"shattered_outskirts", &"rune_sanctum", &"shattered_pantheon", &"soot_dens", &"caldera_arena"],
+		"enemies": [&"biting_bobbin", &"patch_mender", &"veil_moth", &"split_puppet", &"war_shuttle",
+			&"shroud_spinner", &"tapestry_ram"], "boss": &"loom_devourer"},
 	{"id": &"howling_pass", "color": Color(0.9, 0.62, 0.36),
 		"arenas": [&"scorched_verge", &"ash_vents", &"glacier_entry", &"brazier_pass", &"silent_heart"]},
 	{"id": &"tide_marsh", "color": Color(0.36, 0.74, 0.78),

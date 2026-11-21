@@ -9,6 +9,10 @@ Détails : `docs/design/BOSS_V2.md`, section 9. Une PR par lot.
   survolent le décor, bestiaire et Dévoreur propres aux chapitres v2 (`DraftRoster.V2_CHAPTERS`), `--boss=<id>` en
   mode test ; Saumor et l'Appel de la vanne (`draft3d/bosses/saumor.gd`). Tests : `test_draft3d_families.gd`,
   `test_boss3d.gd` (Saumor, chapitres v2, `--boss`).
+- **Lot 1 fusionné** (PR #239, CI verte).
+- **Lot 2, Rapiécés + l'Ourdisseur** : sept Rapiécés (coup de pied qui repousse, fil qui tire, linceul), l'Ourdisseur
+  et le Barrage de chaîne (fils accrochés au décor ou à des montants posés, Trame inversée en phase 2)
+  (`draft3d/bosses/loom_devourer.gd`).
 - **À juger en jouant** : force de l'aspiration (3,6 puis 4,5 m/s), fréquence des élites dans le mélange des vagues.
 
 ## Les Saumâtres (Codex, 19 novembre 2026)

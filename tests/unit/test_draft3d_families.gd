@@ -126,3 +126,45 @@ func test_skilled_foes_use_their_techniques_alone() -> void:
 	check(int(run.enemies.techniques.played.get(&"brine_jet", 0)) >= 1, "il lance son jet seul")
 	var militia: DraftEnemies.Foe = _spawn(&"slag_matron", Vector3(-4, 0, 0))
 	check(not militia.skilled, "monstres de la campagne inchangés (techniques v1 non jouées en 3D)")
+
+
+func test_rapieces_techniques() -> void:
+	_check_family([&"biting_bobbin", &"patch_mender", &"veil_moth", &"split_puppet", &"war_shuttle",
+		&"shroud_spinner", &"tapestry_ram"])
+	check(GameDB.enemy(&"veil_moth").flying, "Mite du voile : volante")
+	await _start()
+	var techniques: DraftFoeTechniques = run.enemies.techniques
+	# Coup de pied à ressort : le Chasseur touché est repoussé.
+	var puppet: DraftEnemies.Foe = _spawn(&"split_puppet", Vector3(1.6, 0, 0))
+	run.hunter.god_mode = false
+	run.hunter.hp = 1000.0
+	var before: float = run.hunter.global_position.distance_to(puppet.pos)
+	techniques.perform(puppet, _technique(puppet, &"spring_kick"), _aim(puppet))
+	await _frames(int(_technique(puppet, &"spring_kick").telegraph * 60) + 4)
+	check(run.hunter.global_position.distance_to(puppet.pos) > before + 1.0, "coup de pied : repoussé")
+	run.enemies.vanish(puppet)
+	# Fil de la Fileuse : tiré vers elle.
+	var spinner: DraftEnemies.Foe = _spawn(&"shroud_spinner", Vector3(-8, 0, 0))
+	before = run.hunter.global_position.distance_to(spinner.pos)
+	techniques.perform(spinner, _technique(spinner, &"thread_gather"), _aim(spinner))
+	await _frames(int(_technique(spinner, &"thread_gather").telegraph * 60) + 4)
+	if bool(run.sight_clear(spinner.pos + Vector3.UP * 0.8, run.hunter.chest())):
+		check(run.hunter.global_position.distance_to(spinner.pos) < before - 1.0, "fil : tiré vers la Fileuse")
+	run.hunter.god_mode = true
+	# Linceul : seulement blessée, garde et soin.
+	spinner.hp = spinner.max_hp * 0.5
+	techniques.perform(spinner, _technique(spinner, &"shroud"), _aim(spinner))
+	check(spinner.hp > spinner.max_hp * 0.55 and spinner.guard_left > 0.0, "linceul : repli et soin")
+	check_near(run.enemies.guard_factor(spinner), 0.3, 0.001, "linceul : coups réduits de tous côtés")
+	# Navette : garde frontale puis frappe verticale en ligne.
+	var shuttle: DraftEnemies.Foe = _spawn(&"war_shuttle", Vector3(0, 0, 4))
+	techniques.perform(shuttle, _technique(shuttle, &"braced_shuttle"), _aim(shuttle))
+	check(shuttle.guard_dir != Vector3.ZERO, "navette : garde frontale")
+	var items: int = run.hazards._items.size()
+	techniques.perform(shuttle, _technique(shuttle, &"loom_strike"), _aim(shuttle))
+	check_eq(run.hazards._items.size(), items + 1, "frappe verticale annoncée")
+	var ram: DraftEnemies.Foe = _spawn(&"tapestry_ram", Vector3(0, 0, -6))
+	techniques.perform(ram, _technique(ram, &"bow_and_ram"), _aim(ram))
+	check(not ram.dash.is_empty(), "bélier : charge tête basse")
+	techniques.perform(ram, _technique(ram, &"fringe_bristle"), _aim(ram))
+	check(techniques.played.size() >= 7, "les sept techniques jouées (%s)" % [techniques.played.keys()])

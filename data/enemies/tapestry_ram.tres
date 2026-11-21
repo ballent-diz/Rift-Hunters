@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EnemyData" load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://src/data/enemy_data.gd" id="1"]
+[ext_resource type="Script" path="res://src/data/visual_data.gd" id="2"]
+[ext_resource type="Script" path="res://src/data/enemy_technique_data.gd" id="4"]
+
+[sub_resource type="Resource" id="visual_data_1"]
+script = ExtResource("2")
+visual_id = &"enemy.tapestry_ram"
+shape = 5
+size = 52.0
+primary = Color(0.62, 0.2, 0.22, 1.0)
+secondary = Color(0.3, 0.28, 0.5, 1.0)
+accent = Color(0.62, 0.32, 0.8, 1.0)
+
+[sub_resource type="Resource" id="technique_1"]
+script = ExtResource("4")
+kind = &"bow_and_ram"
+anim = &"bow_and_ram"
+cooldown = 8.0
+min_range = 120.0
+max_range = 380.0
+telegraph = 0.90
+damage = 26.0
+params = {
+"speed": 460.0,
+"length": 360.0
+}
+
+[sub_resource type="Resource" id="technique_2"]
+script = ExtResource("4")
+kind = &"fringe_bristle"
+anim = &"fringe_bristle"
+cooldown = 9.0
+min_range = 0.0
+max_range = 120.0
+telegraph = 0.80
+damage = 22.0
+params = {
+"radius": 80.0,
+"fx": "ring_burst"
+}
+
+[resource]
+script = ExtResource("1")
+id = &"tapestry_ram"
+family = &"fallen"
+name_key = "ENEMY_TAPESTRY_RAM_NAME"
+desc_key = "ENEMY_TAPESTRY_RAM_DESC"
+brain = 0
+max_hp = 340.0
+damage = 18.0
+defense = 28.0
+move_speed = 52.0
+radius = 26.0
+xp_value = 10
+knockback_resist = 0.9
+can_be_elite = false
+visual = SubResource("visual_data_1")
+techniques = Array[ExtResource("4")]([SubResource("technique_1"), SubResource("technique_2")])

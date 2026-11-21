@@ -29,14 +29,15 @@ func circle(at: Vector3, radius: float, delay: float, damage: float, fx := Calla
 
 ## `covered` : le décor entre l'origine et le Chasseur l'abrite (souffle arrêté par les obstacles).
 ## `visual_lead` : sur un balayage, les pistes lointaines restent discrètes jusqu'à l'approche du rayon.
+## `on_hit` : appelé quand la frappe blesse le Chasseur (fil qui le tire...).
 func line(from: Vector3, direction: Vector3, length: float, width: float, delay: float, damage: float,
-		covered: bool = false, visual_lead: float = 0.0, beam_height: float = 0.0) -> void:
+		covered: bool = false, visual_lead: float = 0.0, beam_height: float = 0.0, on_hit := Callable()) -> void:
 	var node: MeshInstance3D = DraftCombatFx.ground(self, from + direction * length * 0.5,
 		Vector2(width, length), family, DraftCombatFx.LANE, DraftCombatFx.WINDUP, DraftCombatFx.WARNING,
 		0.13 if visual_lead > 0.0 else 1.0, direction)
 	_items.append({"kind": &"line", "at": from, "dir": direction, "length": length, "width": width, "left": delay,
 		"delay": delay, "damage": damage, "node": node, "covered": covered, "family": family, "lead": visual_lead,
-		"beam_height": beam_height})
+		"beam_height": beam_height, "on_hit": on_hit})
 
 
 ## Onde qui part de `at` après `delay` et s'étend jusqu'à `reach` : une Ruée la traverse.
