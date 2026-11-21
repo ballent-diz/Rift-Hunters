@@ -175,6 +175,8 @@ func _ready() -> void:
 	chapter = maxi(chosen_chapter, 1)
 	DraftProgress.record_start(chapter)
 	roster = DraftRoster.for_chapter(chapter)
+	if _options.has("boss"):  # Vérification : Dévoreur imposé (--boss=<id>, versions de développement).
+		DraftBossTest.force_boss(self, StringName(str(_options["boss"])))
 	# La carte dépend du chapitre : elle se construit une fois le choix fait.
 	if DraftTower.applies(chapter):
 		tower = DraftTower.new(self)
@@ -550,7 +552,8 @@ func target() -> DraftEnemies.Foe:
 
 
 func _aim_point(foe: DraftEnemies.Foe) -> Vector3:
-	return foe.pos + Vector3.UP * minf(0.6, foe.radius + 0.2)
+	var flight: float = DraftEnemies.FLIGHT_HEIGHT if foe.data != null and foe.data.flying else 0.0
+	return foe.pos + Vector3.UP * (minf(0.6, foe.radius + 0.2) + flight)
 
 
 func _auto_attack() -> void:
@@ -638,7 +641,7 @@ func _step_bolts(delta: float) -> void:
 # --- Tirs ennemis ------------------------------------------------------------------------------------------------
 
 func enemy_shot(foe: DraftEnemies.Foe) -> void:
-	var origin: Vector3 = foe.pos + Vector3.UP * 0.6
+	var origin: Vector3 = _aim_point(foe)
 	var family: StringName = family_of(foe)
 	hostile_shot(origin, origin.direction_to(hunter.chest()), foe.data.attack.projectile_speed * DraftHunter.UNIT * 1.4,
 		foe.data.attack.damage * enemies.damage_mult, family)

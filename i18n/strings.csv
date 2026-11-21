@@ -2532,3 +2532,21 @@ COMBO3D_SHATTERING_RAMPART_DESC,Un Bond de faille qui atterrit près d'un Mur ac
 COMBO3D_STILL_STORM_NAME,Tempête immobile,Still Storm
 COMBO3D_STILL_STORM_DESC,La Pluie d'éclats fait tomber des éclats supplémentaires sur les ennemis pris par l'Onde de stase.,Shard Rain drops extra shards on enemies caught by the Stasis Wave.
 ARSENAL3D_COMBOS,Combos (◆ actif : les deux sorts équipés),Combos (◆ active: both spells equipped)
+ENEMY_SALT_SCUTTLER_NAME,Griffe-sel,Salt Scuttler
+ENEMY_SALT_SCUTTLER_DESC,Petit crabe de croûte salée qui pince vite et en nombre.,A small salt-crusted crab that pinches fast and in numbers.
+ENEMY_ROPE_DROWNED_NAME,Noyé des cordages,Rope-Drowned
+ENEMY_ROPE_DROWNED_DESC,"Un marin des écluses, pris dans ses cordes ; sa gaffe frappe en courbe.",A lock-keeper's sailor tangled in his ropes; his boathook strikes in a curve.
+ENEMY_BRINE_SKATE_NAME,Raie des saumures,Brine Skate
+ENEMY_BRINE_SKATE_DESC,Elle plane au-dessus des bassins et crache de la saumure de loin.,It glides above the basins and spits brine from afar.
+ENEMY_SALT_SIPHON_NAME,Siphon de sel,Salt Siphon
+ENEMY_SALT_SIPHON_DESC,"Son siphon gonfle, puis projette un jet de saumure en ligne droite.","Its siphon swells, then fires a straight jet of brine."
+ENEMY_FLOODGATE_KEEPER_NAME,Gardien de l'écluse,Floodgate Keeper
+ENEMY_FLOODGATE_KEEPER_DESC,"Il se cale derrière sa vanne, puis abat son maillet.","It braces behind its sluice gate, then brings its mallet down."
+ENEMY_BRINE_CHOIR_NAME,Chantre de saumure,Brine Cantor
+ENEMY_BRINE_CHOIR_DESC,Ses cloches appellent les Griffe-sel et galvanisent les Saumâtres voisins.,Its bells call Salt Scuttlers and rouse nearby Brinefolk.
+ENEMY_SALT_DREDGER_NAME,Dragueur de sel,Salt Dredger
+ENEMY_SALT_DREDGER_DESC,"Il fonce godet en avant, puis fait éclater la croûte de sel autour de lui.","It rams scoop-first, then bursts the salt crust around it."
+BOSS_SAUMOR_NAME,Saumor,Saumor
+BOSS_SAUMOR_TITLE,Dévoreur des Salines,Devourer of the Saltworks
+BOSS_SAUMOR_PHASE1,Vantaux de cuivre,Copper Gates
+BOSS_SAUMOR_PHASE2,Siphon à nu,Bared Siphon

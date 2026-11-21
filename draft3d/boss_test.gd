@@ -14,6 +14,25 @@ static func enabled() -> bool:
 	return OS.is_debug_build()
 
 
+## `--boss=<id>` : ce boss remplace le Dévoreur du chapitre (et sa famille de monstres si la v2 lui en donne une).
+## Sans effet dans une version exportée ou pour un identifiant inconnu.
+static func force_boss(run: DraftRun, id: StringName) -> void:
+	var boss: BossData = GameDB.boss(id)
+	if not enabled() or boss == null:
+		return
+	run.test_run = true
+	run.roster.boss = boss
+	for entry: Dictionary in DraftRoster.V2_CHAPTERS:
+		if entry.get("boss", &"") != id:
+			continue
+		var own: Array[EnemyData] = []
+		for enemy_id: StringName in entry.get("enemies", []):
+			if DraftRoster.usable(GameDB.enemy(enemy_id)):
+				own.append(GameDB.enemy(enemy_id))
+		if not own.is_empty():
+			run.roster.enemies = own
+
+
 ## « Aller au boss » : vague retirée, gardien sauté, boss tout de suite. Sans effet si le boss est déjà là.
 static func skip_to_boss(run: DraftRun) -> void:
 	if run.state != DraftRun.State.PLAYING or run._boss_spawned:

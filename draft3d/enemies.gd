@@ -46,6 +46,23 @@ class Foe:
 	## Lien d'âme (Grand Héraldiste) : dégâts subis × `linked_mult` pendant `linked_left` s.
 	var linked_mult: float = 1.0
 	var linked_left: float = 0.0
+	## Techniques propres jouables en 3D (DraftFoeTechniques) : horloge, prochains essais, occupation, charge.
+	var skilled: bool = false
+	var tech_clock: float = 0.0
+	var tech_ready: Dictionary = {}
+	var acting: float = 0.0
+	var dash: Dictionary = {}
+	## Garde (élites) : coups reçus × `guard_mult` pendant `guard_left` s, de face seulement si `guard_dir` est donné.
+	var guard_mult: float = 1.0
+	var guard_left: float = 0.0
+	var guard_dir := Vector3.ZERO
+	## Bénédiction d'un allié : vitesse et dégâts de contact × `boost_mult` pendant `boost_left` s.
+	var boost_mult: float = 1.0
+	var boost_left: float = 0.0
+
+	func boost(mult: float, seconds: float) -> void:
+		boost_mult = maxf(mult, boost_mult) if boost_left > 0.0 else mult
+		boost_left = maxf(boost_left, seconds)
 
 	func expose(bonus: float, seconds: float) -> void:
 		exposed = maxf(bonus, exposed) if exposed_left > 0.0 else bonus
@@ -61,12 +78,16 @@ const PATH_TARGET_DISTANCE := 0.8
 const CONTACT_INTERVAL := 0.6
 ## Écart de hauteur au-delà duquel un contact ou un coup de mêlée ne porte pas (cour contre terrasse).
 const MELEE_REACH_UP := 1.0
+## Volants : hauteur de vol au-dessus du sol (m) et battement.
+const FLIGHT_HEIGHT := 0.7
+const FLIGHT_BOB := 0.12
 
 var level: DraftLevel
 var hunter: DraftHunter
 var hazards: DraftHazards
 var run: Node
 var balance: BalanceConfig
+var techniques := DraftFoeTechniques.new()
 var rng := RandomNumberGenerator.new()
 var list: Array[Foe] = []
 var boss: Foe
@@ -96,7 +117,10 @@ func spawn(data: EnemyData, at: Vector3, size: float = 1.0) -> Foe:
 	foe.defense = data.defense
 	foe.xp = data.xp_value
 	foe.cooldown = rng.randf_range(0.5, 2.0)
+	foe.skilled = DraftFoeTechniques.has_any(data)
 	_add(foe, data.visual.visual_id, at, size)
+	if data.flying:
+		foe.view.hop = FLIGHT_HEIGHT
 	return foe
 
 
@@ -174,6 +198,8 @@ func hit(foe: Foe, amount: float, push := Vector3.ZERO) -> bool:
 		exposure *= foe.brain.damage_mult()
 	if foe.linked_left > 0.0:
 		exposure *= foe.linked_mult
+	if foe.guard_left > 0.0:
+		exposure *= guard_factor(foe)
 	var dealt: float = amount * exposure * CombatSystem.defense_multiplier(foe.defense)
 	foe.hp -= dealt
 	if foe.brain != null:
@@ -205,6 +231,22 @@ func vanish(foe: Foe) -> void:
 	list.erase(foe)
 	foe.view.play_action(&"death", 0.4)
 	_corpses.append({"view": foe.view, "left": 0.4})
+
+
+## Part des coups qui passe la garde d'un monstre : de face seulement pour une garde frontale (60° de part et
+## d'autre de la direction gardée, vue depuis le Chasseur).
+func guard_factor(foe: Foe) -> float:
+	if foe.guard_left <= 0.0:
+		return 1.0
+	if foe.guard_dir == Vector3.ZERO:
+		return foe.guard_mult
+	var toward: Vector3 = hunter.global_position - foe.pos
+	toward.y = 0.0
+	return foe.guard_mult if toward.length() < 0.01 or toward.normalized().dot(foe.guard_dir) >= 0.5 else 1.0
+
+
+func _init() -> void:
+	techniques.setup(self)
 
 
 func _physics_process(delta: float) -> void:
@@ -246,7 +288,21 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 		speed *= foe.slow_factor
 	foe.exposed_left = maxf(foe.exposed_left - delta, 0.0)
 	foe.linked_left = maxf(foe.linked_left - delta, 0.0)
+	if foe.boost_left > 0.0:
+		foe.boost_left -= delta
+		speed *= foe.boost_mult
+	if foe.data != null and foe.data.flying:
+		foe.view.hop = FLIGHT_HEIGHT + sin(foe.tech_clock * 3.0 + foe.slot) * FLIGHT_BOB
 	var turn: bool = true
+	if foe.skilled and techniques.step(foe, to_hunter, distance, climb, delta):
+		# Technique en cours (annonce, garde enracinée, charge) : il tient sa position, le contact blesse toujours.
+		if foe.dash.is_empty():
+			foe.vel = Vector3.ZERO
+		_contact(foe, distance, climb)
+		foe.view.push_position(foe.pos, delta, false)
+		return
+	if not foe.skilled:
+		foe.tech_clock += delta
 	if foe.brain != null:
 		var previous_family: StringName = hazards.family
 		hazards.family = foe.brain.combat_family()
@@ -280,7 +336,7 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 				foe.cooldown = foe.data.attack.cooldown if foe.data.attack else 3.0
 		turn = false
 	else:
-		wish = chase(foe, target, to_hunter, distance, climb, delta)
+		wish = to_hunter / maxf(distance, 0.001) if foe.data.flying else chase(foe, target, to_hunter, distance, climb, delta)
 		if foe.data.brain == EnemyData.Brain.BLINKER and foe.cooldown <= 0.0 and distance > 4.0:
 			# Passe-faille : réapparaît près du Chasseur, du côté d'où il vient.
 			foe.cooldown = 4.5
@@ -317,7 +373,13 @@ func _step(foe: Foe, target: Vector3, delta: float) -> void:
 		next = foe.pos
 		foe.vel = Vector3.ZERO
 	# Recalage sur la navigation une image sur deux (hauteur dans l'escalier, murs) : les ennemis n'ont pas de corps.
-	if (foe.slot + _frame) % 2 == 0 or foe.boss != null:
+	if foe.data != null and foe.data.flying:
+		# Volant : il survole le décor (rochers, eau, murets), sans quitter la carte ; hauteur prise au sol le plus proche.
+		next.x = clampf(next.x, level.bounds_min.x, level.bounds_max.x)
+		next.z = clampf(next.z, level.bounds_min.y, level.bounds_max.y)
+		if (foe.slot + _frame) % 4 == 0:
+			next.y = level.closest(next + Vector3.UP * 0.2).y
+	elif (foe.slot + _frame) % 2 == 0 or foe.boss != null:
 		next = level.closest(next + Vector3.UP * 0.2)
 	foe.pos = next
 	if foe.brain == null or not foe.brain.airborne():
@@ -333,7 +395,7 @@ func _contact(foe: Foe, distance: float, climb: float) -> void:
 	if distance < foe.radius + DraftHunter.RADIUS + 0.12 and climb < MELEE_REACH_UP and foe.contact_timer <= 0.0 \
 			and hunter.alive:
 		foe.contact_timer = CONTACT_INTERVAL
-		if hunter.take_damage(foe.damage) > 0.0:
+		if hunter.take_damage(foe.damage * (foe.boost_mult if foe.boost_left > 0.0 else 1.0)) > 0.0:
 			run.call("on_hunter_hit", foe)
 
 
